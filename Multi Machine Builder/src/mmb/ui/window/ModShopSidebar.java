@@ -1,13 +1,10 @@
 package mmb.ui.window;
 
 import javax.swing.JPanel;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import com.jgoodies.forms.layout.FormSpecs;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
+import net.miginfocom.swing.*;
 
 public class ModShopSidebar extends JPanel {
 
@@ -15,40 +12,25 @@ public class ModShopSidebar extends JPanel {
 	 * Create the panel.
 	 */
 	public ModShopSidebar() {
-		setLayout(new FormLayout(new ColumnSpec[] {
-				FormSpecs.RELATED_GAP_COLSPEC,
-				FormSpecs.DEFAULT_COLSPEC,
-				FormSpecs.RELATED_GAP_COLSPEC,
-				FormSpecs.DEFAULT_COLSPEC,},
-			new RowSpec[] {
-				FormSpecs.RELATED_GAP_ROWSPEC,
-				FormSpecs.DEFAULT_ROWSPEC,
-				FormSpecs.RELATED_GAP_ROWSPEC,
-				FormSpecs.DEFAULT_ROWSPEC,
-				FormSpecs.RELATED_GAP_ROWSPEC,
-				FormSpecs.DEFAULT_ROWSPEC,
-				FormSpecs.RELATED_GAP_ROWSPEC,
-				FormSpecs.DEFAULT_ROWSPEC,
-				FormSpecs.RELATED_GAP_ROWSPEC,
-				FormSpecs.DEFAULT_ROWSPEC,}));
+		setLayout(new MigLayout("", "[65px][61px][40px][29px][101px][113px]", "[23px][][][][]"));
 		
 		JButton btnReload = new JButton("Reload");
-		add(btnReload, "2, 2");
+		add(btnReload, "cell 0 0 2 1,alignx left,aligny top");
 		
 		JButton btnLogIn = new JButton("Log in");
-		add(btnLogIn, "2, 4");
+		add(btnLogIn, "cell 0 1 2 1,alignx left,aligny top");
 		
 		JLabel lblAgeLimit = new JLabel("Age limit");
-		add(lblAgeLimit, "2, 6");
+		add(lblAgeLimit, "cell 0 2,alignx left,aligny center");
 		
 		JSpinner spinner = new JSpinner();
-		add(spinner, "4, 6");
+		add(spinner, "cell 1 2,alignx left,aligny center");
 		
 		JButton btnBuydownload = new JButton("Buy/download");
-		add(btnBuydownload, "2, 8");
+		add(btnBuydownload, "cell 0 3 2 1,alignx left,aligny top");
 		
 		JButton btnMoreInformation = new JButton("More information");
-		add(btnMoreInformation, "2, 10");
+		add(btnMoreInformation, "cell 0 4 2 1,alignx left,aligny top");
 
 	}
 

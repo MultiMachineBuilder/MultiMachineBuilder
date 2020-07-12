@@ -7,14 +7,11 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import com.jgoodies.forms.layout.FormSpecs;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.JCheckBox;
 import javax.swing.Box;
+import net.miginfocom.swing.MigLayout;
 
 public class NSFWLimits extends JDialog {
 
@@ -42,48 +39,28 @@ public class NSFWLimits extends JDialog {
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		contentPanel.setLayout(new FormLayout(new ColumnSpec[] {
-				FormSpecs.RELATED_GAP_COLSPEC,
-				FormSpecs.DEFAULT_COLSPEC,
-				FormSpecs.RELATED_GAP_COLSPEC,
-				FormSpecs.DEFAULT_COLSPEC,
-				FormSpecs.RELATED_GAP_COLSPEC,
-				FormSpecs.DEFAULT_COLSPEC,
-				FormSpecs.RELATED_GAP_COLSPEC,
-				FormSpecs.DEFAULT_COLSPEC,},
-			new RowSpec[] {
-				FormSpecs.RELATED_GAP_ROWSPEC,
-				FormSpecs.DEFAULT_ROWSPEC,
-				FormSpecs.RELATED_GAP_ROWSPEC,
-				FormSpecs.DEFAULT_ROWSPEC,
-				FormSpecs.RELATED_GAP_ROWSPEC,
-				FormSpecs.DEFAULT_ROWSPEC,
-				FormSpecs.RELATED_GAP_ROWSPEC,
-				FormSpecs.DEFAULT_ROWSPEC,
-				FormSpecs.RELATED_GAP_ROWSPEC,
-				FormSpecs.DEFAULT_ROWSPEC,
-				FormSpecs.RELATED_GAP_ROWSPEC,
-				FormSpecs.DEFAULT_ROWSPEC,}));
+			contentPanel.setLayout(new MigLayout("", "[43px][65px][69px][53px][49px][29px][40px]", "[23px][][][][][]"));
+
 			JCheckBox chckbxSex = new JCheckBox("Sex");
-			contentPanel.add(chckbxSex, "2, 2");
-		
-			JCheckBox chckbxViolence = new JCheckBox("Violence");
-			contentPanel.add(chckbxViolence, "2, 4");
-		
-			JCheckBox chckbxProfanity = new JCheckBox("Profanity");
-			contentPanel.add(chckbxProfanity, "2, 6");
-		
-			JCheckBox chckbxDrugs = new JCheckBox("Drugs");
-			contentPanel.add(chckbxDrugs, "2, 8");
-		
-			JCheckBox chckbxGore = new JCheckBox("Gore");
-			contentPanel.add(chckbxGore, "2, 10");
-		
-			JSpinner spinner = new JSpinner();
-			contentPanel.add(spinner, "2, 12");
-		
-			JLabel lblAgeLimit = new JLabel("Age limit");
-			contentPanel.add(lblAgeLimit, "4, 12");
+			contentPanel.add(chckbxSex, "cell 0 0 2 1,alignx left,aligny top");
+			
+				JCheckBox chckbxViolence = new JCheckBox("Violence");
+				contentPanel.add(chckbxViolence, "cell 0 1 2 1,alignx left,aligny top");
+				
+					JCheckBox chckbxProfanity = new JCheckBox("Profanity");
+					contentPanel.add(chckbxProfanity, "cell 0 2 2 1,alignx left,aligny top");
+					
+						JCheckBox chckbxDrugs = new JCheckBox("Drugs");
+						contentPanel.add(chckbxDrugs, "cell 0 3 2 1,alignx left,aligny top");
+						
+							JCheckBox chckbxGore = new JCheckBox("Gore");
+							contentPanel.add(chckbxGore, "cell 0 4 2 1,alignx left,aligny top");
+							
+								JLabel lblAgeLimit = new JLabel("Age limit");
+								contentPanel.add(lblAgeLimit, "cell 0 5,alignx left,aligny center");
+								
+									JSpinner spinner = new JSpinner();
+									contentPanel.add(spinner, "cell 1 5,alignx left,aligny center");
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
