@@ -14,14 +14,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/LWJGL"/>
-	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/logback-core-1.1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/logback-classic-1.1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jutils-1.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jul-to-slf4j-1.7.7.jar"/>
-	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jsr305-2.0.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jcommander-1.35.jar"/>
-	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jbullet-0.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jbullet.jar"/>
 	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/guava-18.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gson-2.8.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/core-0.27.jar"/>
