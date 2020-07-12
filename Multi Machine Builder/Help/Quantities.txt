@@ -1,0 +1,15 @@
+How to make Quantities:
+
+Quantity.weight(x) - x kilograms
+Quantity.time(x) - x seconds
+Quantity.volume(x) - x cubic meters
+Quantity.area(x) - x square meters
+Quantity.size(x) - x meters
+Quantity.speed(x) - x meters per second
+Quantity.accel(x) - x meters per second per second
+Quantity.force(x) - x newtons
+Quantity.energy(x) - x joules
+Quantity.density(x) - x grams per liter
+Quantity.pressure(x) - x pascals
+Quantity.power(x) - x watts
+

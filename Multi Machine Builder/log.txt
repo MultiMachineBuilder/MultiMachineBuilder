@@ -1,0 +1,102 @@
+(MOD-LOADER) Loading mods
+(MOD-LOADER) Finding all files to load
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\StarWars.jar
+(MOD-LOADER) Found 3 mod files
+(MOD - ) Opening a modfile: 
+(MOD - ) Offline file
+(MOD - ) Loading a modfile: 
+(MOD - ) File  is unavaliable.
+(MOD - ) 
+(MOD - HelloWorld.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+(MOD - StarWars.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\StarWars.jar
+(MOD - HelloWorld.jar) Offline file
+(MOD - StarWars.jar) Offline file
+(MOD - ) java.util.zip.ZipFile.open(Native Method)
+(MOD - StarWars.jar) Loading a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\StarWars.jar
+(MOD - HelloWorld.jar) Loading a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+(MOD - ) java.util.zip.ZipFile.<init>(Unknown Source)
+(MOD - ) java.util.zip.ZipFile.<init>(Unknown Source)
+(MOD - ) java.util.jar.JarFile.<init>(Unknown Source)
+(MOD - ) java.util.jar.JarFile.<init>(Unknown Source)
+(MOD - ) mmb.addon.loader.AddonLoader.load0(AddonLoader.java:67)
+(MOD - ) mmb.addon.loader.AddonLoader.lambda$0(AddonLoader.java:239)
+(MOD - ) java.lang.Thread.run(Unknown Source)
+(MOD - StarWars.jar) File: META-INF/MANIFEST.MF
+(MOD - HelloWorld.jar) File: META-INF/MANIFEST.MF
+(MOD - StarWars.jar) File: .classpath
+(MOD - HelloWorld.jar) File: helloworld/HelloWorld.class
+(MOD - StarWars.jar) File: .project
+(MOD - StarWars.jar) File: sw/modinfo/StarWars.class
+(HW) Hello, world!
+(MOD - HelloWorld.jar) C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar has null pointer. Please make sure that central class return non-null
+(MOD - HelloWorld.jar) null
+(MOD - HelloWorld.jar) mmb.addon.loader.AddonLoader.runCentralClass(AddonLoader.java:255)
+(MOD - HelloWorld.jar) mmb.addon.loader.AddonLoader.loadFile(AddonLoader.java:136)
+(MOD - HelloWorld.jar) mmb.addon.loader.AddonLoader.load1(AddonLoader.java:107)
+(MOD - HelloWorld.jar) mmb.addon.loader.AddonLoader.load0(AddonLoader.java:68)
+(MOD - HelloWorld.jar) mmb.addon.loader.AddonLoader.lambda$0(AddonLoader.java:239)
+(MOD - HelloWorld.jar) java.lang.Thread.run(Unknown Source)
+(MOD - HelloWorld.jar) File: helloworld/package-info.class
+(MOD - HelloWorld.jar) File: .project
+(MOD - StarWars.jar) File: sw/modinfo/package-info.class
+(MOD - HelloWorld.jar) File: .classpath
+(MOD - StarWars.jar) File: sw/warp/package-info.class
+(MOD-LOADER) Start 1st stage for C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+(MOD-LOADER) End 1st stage for C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+(MOD-LOADER) Start 1st stage for Star Wars
+(SW) This is StarWars.
+(MOD-LOADER) End 1st stage for Star Wars
+(MOD-LOADER) Start 2nd stage for C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+(MOD-LOADER) End 2nd stage for C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+(MOD-LOADER) Start 2nd stage for Star Wars
+(MOD-LOADER) End 2nd stage for Star Wars
+(MOD-LOADER) Start 3rd stage for C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+(MOD-LOADER) End 3rd stage for C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+(MOD-LOADER) Start 3rd stage for Star Wars
+(MOD-LOADER) End 3rd stage for Star Wars
+(MOD-LOADER) =============================================MOD INFORMATION FOR =============================================
+(MOD-LOADER) LOCATED AT 
+(MOD-LOADER) Missing files
+(MOD-LOADER) =============================================MOD INFORMATION FOR C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar=============================================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+(MOD-LOADER) Operative
+(MOD-LOADER) Unable to get metadata for C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+null
+(MOD-LOADER) mmb.addon.loader.ModLoader.summarizeMod(ModLoader.java:189)
+(MOD-LOADER) mmb.addon.loader.ModLoader.lambda$11(ModLoader.java:176)
+(MOD-LOADER) java.util.ArrayList.forEach(Unknown Source)
+(MOD-LOADER) mmb.addon.loader.ModLoader.summarizeMods(ModLoader.java:176)
+(MOD-LOADER) mmb.addon.loader.ModLoader.modloading(ModLoader.java:148)
+(MOD-LOADER) mmb.ui.window.Loading.continueLoading(Loading.java:109)
+(MOD-LOADER) mmb.ui.window.Loading$1.run(Loading.java:59)
+(MOD-LOADER) java.awt.event.InvocationEvent.dispatch(Unknown Source)
+(MOD-LOADER) java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+(MOD-LOADER) java.awt.EventQueue.access$500(Unknown Source)
+(MOD-LOADER) java.awt.EventQueue$3.run(Unknown Source)
+(MOD-LOADER) java.awt.EventQueue$3.run(Unknown Source)
+(MOD-LOADER) java.security.AccessController.doPrivileged(Native Method)
+(MOD-LOADER) java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+(MOD-LOADER) java.awt.EventQueue.dispatchEvent(Unknown Source)
+(MOD-LOADER) java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+(MOD-LOADER) java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+(MOD-LOADER) java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+(MOD-LOADER) java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+(MOD-LOADER) java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+(MOD-LOADER) java.awt.EventDispatchThread.run(Unknown Source)
+(MOD-LOADER) =============================================MOD INFORMATION FOR Star Wars=============================================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\StarWars.jar
+(MOD-LOADER) Operative
+(MOD-LOADER) RELEASED Sun Jul 12 12:07:53 CEST 2020
+(MOD-LOADER) MADE BY Monniasza
+(MOD-LOADER) DESCRIPTION: Adds Star Wars content to the MultiMachineBuilder
+(MOD-LOADER) HOORAY, IT'S OVER!
+(FLIGHT) null
+(FLIGHT) mmb.ui.Flight.killThreads(Flight.java:217)
+(FLIGHT) mmb.ui.Flight.resetScreen(Flight.java:196)
+(FLIGHT) mmb.ui.Flight.access$4(Flight.java:187)
+(FLIGHT) mmb.ui.Flight$1.run(Flight.java:167)
+(FLIGHT) java.util.TimerThread.mainLoop(Unknown Source)
+(FLIGHT) java.util.TimerThread.run(Unknown Source)
+(FLIGHT) not null

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/LWJGL"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/xpp3-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/xbuf-0.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/vecmath-1.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/stack-alloc-0.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/stack-alloc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/slf4j-api-1.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/simple-0.27.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/retrace.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/protobuf-java-util-3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/protobuf-java-3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/proguard.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/nifty-style-black-1.4.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/nifty-default-controls-1.4.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/nifty-1.4.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/netty-transport-4.0.24.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/netty-common-4.0.24.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/netty-codec-4.0.24.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/netty-buffer-4.0.24.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/lwjgl-platform-2.9.3-natives-windows.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/lwjgl-platform-2.9.3-natives-osx.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/lwjgl-platform-2.9.3-natives-linux.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/lwjgl-2.9.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/logback-core-1.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/logback-classic-1.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jutils-1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jul-to-slf4j-1.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jsr305-2.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jogl-all-main-2.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jogl-all-2.3.2-natives-windows-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jogl-all-2.3.2-natives-windows-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jogl-all-2.3.2-natives-solaris-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jogl-all-2.3.2-natives-solaris-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jogl-all-2.3.2-natives-macosx-universal.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jogl-all-2.3.2-natives-linux-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jogl-all-2.3.2-natives-linux-armv6hf.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jogl-all-2.3.2-natives-linux-armv6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jogl-all-2.3.2-natives-linux-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jogl-all-2.3.2-natives-android-armv6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jogl-all-2.3.2-natives-android-aarch64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jogl-all-2.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/j-ogg-all-1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jocl-main-2.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jocl-2.3.2-natives-windows-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jocl-2.3.2-natives-windows-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jocl-2.3.2-natives-solaris-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jocl-2.3.2-natives-solaris-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jocl-2.3.2-natives-macosx-universal.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jocl-2.3.2-natives-linux-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jocl-2.3.2-natives-linux-armv6hf.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jocl-2.3.2-natives-linux-armv6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jocl-2.3.2-natives-linux-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jocl-2.3.2-natives-android-armv6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jocl-2.3.2-natives-android-aarch64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jocl-2.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/joal-main-2.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/joal-2.3.2-natives-windows-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/joal-2.3.2-natives-windows-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/joal-2.3.2-natives-solaris-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/joal-2.3.2-natives-solaris-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/joal-2.3.2-natives-macosx-universal.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/joal-2.3.2-natives-linux-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/joal-2.3.2-natives-linux-armv6hf.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/joal-2.3.2-natives-linux-armv6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/joal-2.3.2-natives-linux-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/joal-2.3.2-natives-android-armv6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/joal-2.3.2-natives-android-aarch64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/joal-2.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-testdata.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-terrain-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-terrain-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-terrain-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-plugins-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-plugins-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-plugins-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-niftygui-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-niftygui-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-niftygui-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-networking-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-networking-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-networking-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-lwjgl-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-lwjgl-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-lwjgl-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-jogl-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-jogl-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-jogl-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-jogg-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-jogg-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-jogg-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-jbullet-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-jbullet-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-jbullet-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-ios-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-ios-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-ios-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-effects-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-effects-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-effects-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-desktop-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-desktop-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-desktop-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-core-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-core-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-core-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-bullet-native-android-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-bullet-native-android-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-bullet-native-android-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-bullet-native-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-bullet-native-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-bullet-native-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-bullet-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-bullet-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-bullet-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-blender-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-blender-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-blender-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-android-native-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-android-native-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-android-native-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-android-3.2.2-stable-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-android-3.2.2-stable-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3-android-3.2.2-stable.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3_xbuf-0.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3_xbuf_viewer-0.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3_xbuf_rt-0.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3_xbuf_remote-0.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3_xbuf_loader-0.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3_physicsloader-0.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jme3_ext_spatial_explorer-0.9.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jinput-platform-2.0.5-natives-windows.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jinput-platform-2.0.5-natives-osx.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jinput-platform-2.0.5-natives-linux.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jinput-2.0.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jcommander-1.35.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jbullet-0.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/jbullet.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/guava-18.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gson-2.8.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gluegen-rt-main-2.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gluegen-rt-2.3.2-natives-windows-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gluegen-rt-2.3.2-natives-windows-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gluegen-rt-2.3.2-natives-solaris-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gluegen-rt-2.3.2-natives-solaris-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gluegen-rt-2.3.2-natives-macosx-universal.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gluegen-rt-2.3.2-natives-linux-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gluegen-rt-2.3.2-natives-linux-armv6hf.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gluegen-rt-2.3.2-natives-linux-armv6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gluegen-rt-2.3.2-natives-linux-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gluegen-rt-2.3.2-natives-android-armv6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gluegen-rt-2.3.2-natives-android-aarch64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gluegen-rt-2.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gdx-ai-1.8.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gdx-ai-1.8.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gdx-ai-1.8.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/gdx-1.9.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/denseC64-0.27.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/dense64-0.27.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/core-0.27.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/controlsfx-8.40.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/biblioteka JME/applet-loader.zip"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Easy 3d"/>
+	<classpathentry kind="lib" path="miglayout15-swing.jar" sourcepath="miglayout-src.zip"/>
+	<classpathentry kind="lib" path="C:/Users/oskar/biblioteki jar/xom-1.3.2.jar"/>
+	<classpathentry kind="lib" path="jgoodies-forms-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="jgoodies-forms-1.8.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="jgoodies-common-1.8.0.jar"/>
+	<classpathentry kind="lib" path="commons-io-2.7/commons-io-2.7.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
