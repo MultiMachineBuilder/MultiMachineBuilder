@@ -8,7 +8,9 @@ import java.util.*;
 
 import mmb.addon.*;
 import mmb.addon.data.AddonInfo;
-import mmb.world.parts.*;
+import mmb.parts.*;
+
+import static e3d.MathPlus.*;
 /**
  * @author oskar
  *

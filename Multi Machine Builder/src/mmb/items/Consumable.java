@@ -1,6 +1,6 @@
 package mmb.items;
 
-import mmb.world.parts.tank.ChangeReport;
+import mmb.parts.tank.ChangeReport;
 
 public interface Consumable {
 	public ChangeReport consume(Consumable toRemove, double quantity);

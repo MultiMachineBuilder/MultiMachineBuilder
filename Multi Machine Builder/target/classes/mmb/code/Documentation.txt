@@ -1,0 +1,5 @@
+Methods start with following letters to indicate types:
+
+m - method
+g - getter
+s - setter

@@ -6,7 +6,7 @@ import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
 import mmb.data.contents.TreeNode;
-import mmb.world.parts.Part;
+import mmb.parts.Part;
 
 public class VesselFreeform {
 	//Static

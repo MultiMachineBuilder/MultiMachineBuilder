@@ -4,6 +4,7 @@
 package mmb.addon.loader;
 
 import java.io.*;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.*;
 import java.util.*;
@@ -11,6 +12,7 @@ import java.util.function.*;
 
 import mmb.addon.data.AddonInfo;
 import mmb.addon.data.AddonState;
+import mmb.addon.file.StreamUtil;
 import mmb.data.contents.GameContents;
 import mmb.data.files.ListFiles;
 import mmb.debug.Debugger;
@@ -24,6 +26,7 @@ import static mmb.ui.window.Loading.*;
  */
 public class ModLoader {
 	private static Debugger debug = new Debugger("MOD-LOADER");
+	private static Debugger fd = new Debugger("FILES");
 	public static List<AddonLoader> runningLoaders = new ArrayList<AddonLoader>();
 	public static List<Thread> runningFirstRunThreads = new ArrayList<Thread>();
 	public static List<Thread> runningContentAddThreads = new ArrayList<Thread>();
@@ -32,6 +35,16 @@ public class ModLoader {
 	public static List<String> toLoad = new ArrayList<String>();
 	public static String[] external = new String[] {};
 	
+	public static File getFileFor(String path) throws MalformedURLException, IOException {
+		fd.printl("Getting file for "+path);
+		if(path.startsWith("http")) {
+			fd.printl("Online file: "+path);
+			return StreamUtil.stream2file(new URL(path).openStream());
+		}else {
+			fd.printl("Offline file: "+path);
+			return new File(path);
+		}
+	}
 	public static void waitAllFirstRuns() {
 		runningFirstRunThreads.forEach((Thread t) -> {try {
 			t.join();
@@ -186,9 +199,19 @@ public class ModLoader {
 			case DEAD:
 			case DISABLE:
 			case ENABLE:
-				debug.printl("RELEASED " + ai.mmbmod.release.toString());
-				debug.printl("MADE BY " + ai.mmbmod.author);
-				debug.printl("DESCRIPTION: " + ai.mmbmod.description);
+				if(ai.mmbmod == null) {
+					debug.printl("Unknown information");
+				}else {
+					if(ai.mmbmod.release == null) {
+						debug.printl("RELEASED AT UNKNOWN DATE");
+					}else {
+						debug.printl("RELEASED " + ai.mmbmod.release.toString());
+					}
+					
+					debug.printl("MADE BY " + ai.mmbmod.author);
+					debug.printl("DESCRIPTION: " + ai.mmbmod.description);
+				}
+				
 			default:
 				break;
 			}

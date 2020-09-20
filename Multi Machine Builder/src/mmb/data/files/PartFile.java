@@ -3,7 +3,7 @@
  */
 package mmb.data.files;
 
-import mmb.world.parts.PartData;
+import mmb.parts.PartData;
 
 /**
  * @author oskar

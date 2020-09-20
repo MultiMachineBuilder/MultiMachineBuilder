@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import mmb.data.contents.TreeNode;
 import mmb.debug.Debugger;
-import mmb.world.parts.Part;
+import mmb.parts.Part;
 import mmb.world.vessels.MechanicalLinkage;
 import mmb.world.vessels.VesselFreeform;
 

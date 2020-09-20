@@ -1,6 +1,6 @@
 package mmb.addon.patch;
 
-import mmb.world.parts.modules.PartModule;
+import mmb.parts.modules.PartModule;
 
 public class ModulePatch implements Patch<PartModule> {
 

@@ -53,13 +53,9 @@ public class AddonLoader {
 			//Trying to open file
 			try {
 				debug.printl("Opening a modfile: " + a.name);
-				if(originalPath.startsWith("http")) {
-					a.file = StreamUtil.stream2file(new URL(originalPath).openStream());
-					a.online = true;
-				}else {
-					debug.printl("Offline file");
-					a.file = new File(originalPath);
-				}
+				
+				a.file = ModLoader.getFileFor(originalPath);
+				a.online = !a.file.isFile();
 				
 				try {
 					//Trying to load modfile

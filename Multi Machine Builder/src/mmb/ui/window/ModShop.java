@@ -13,24 +13,7 @@ import javax.swing.JList;
 import net.miginfocom.swing.MigLayout;
 
 public class ModShop extends JFrame {
-	ModShopSidebar panel = new ModShopSidebar();
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 *//*
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ModShop frame = new ModShop();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
 
 	/**
 	 * Create the frame.
@@ -41,13 +24,32 @@ public class ModShop extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[238px][174px]", "[245px]"));
+		contentPane.setLayout(new MigLayout("", "[238px,grow][174px][grow]", "[245px,grow]"));
 		
+		JPanel settings = new JPanel();
+		contentPane.add(settings, "cell 0 0,grow");
+		settings.setLayout(new MigLayout("", "[]", "[]"));
 		
-		contentPane.add(panel, "cell 0 0,grow");
+		JButton btnDownload = new JButton("Download");
+		settings.add(btnDownload, "cell 0 0");
 		
 		JList list = new JList();
+		
 		contentPane.add(list, "cell 1 0,grow");
+		
+		JPanel info = new JPanel();
+		contentPane.add(info, "cell 2 0,grow");
+		info.setLayout(new MigLayout("", "[46px]", "[14px][]"));
+		
+		JLabel modSize = new JLabel("Download size");
+		info.add(modSize, "cell 0 0,alignx left,aligny top");
+		
+		JLabel lblAgeRating = new JLabel("Age rating");
+		info.add(lblAgeRating, "cell 0 1");
+	}
+	
+	private void addData() {
+		//Add downloadable mods
 	}
 
 }

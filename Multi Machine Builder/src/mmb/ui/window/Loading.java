@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -50,7 +51,7 @@ public class Loading extends JFrame {
 				try {
 					Date date = new Date();
 					boolean test = date.getHours() < 6 || date.getHours() >= 21;
-					//		test = true;
+							test = false;
 					if(test) {
 						createRandomErrors();
 					}
@@ -106,6 +107,8 @@ public class Loading extends JFrame {
 	}
 	
 	void continueLoading() {
+		String JGLLib = new File("./natives/").getAbsolutePath();
+		System.setProperty("org.lwjgl.librarypath", JGLLib);
 		ModLoader.modloading();
 		MainMenu.running();
 		setVisible(false); //you can't see me!

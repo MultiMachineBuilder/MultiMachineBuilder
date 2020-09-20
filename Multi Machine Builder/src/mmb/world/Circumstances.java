@@ -5,7 +5,7 @@ package mmb.world;
 
 import e3d.d3.Vector3;
 import mmb.control.ControlPoint;
-import mmb.world.parts.Part;
+import mmb.parts.Part;
 import mmb.world.vessels.*;
 
 /**

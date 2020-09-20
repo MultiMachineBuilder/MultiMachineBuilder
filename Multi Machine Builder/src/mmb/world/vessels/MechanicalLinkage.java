@@ -1,7 +1,7 @@
 package mmb.world.vessels;
 
-import mmb.world.parts.Linker;
-import mmb.world.parts.Part;
+import mmb.parts.Linker;
+import mmb.parts.Part;
 import mmb.world.vessels.linkages.Jettisoner;
 
 public class MechanicalLinkage implements Linker {

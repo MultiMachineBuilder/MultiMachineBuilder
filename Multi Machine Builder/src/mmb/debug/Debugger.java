@@ -26,7 +26,16 @@ public class Debugger {
 	static protected PrintStream log;
 	
 	public void pstm(Throwable t, String s) {
-		printl(s+"\n"+t.getMessage());
+		Throwable cause0 = t.getCause();
+		String cause = cause0 == null ? "Cause unknown" : cause0.getMessage();
+		StringBuilder message = new StringBuilder(s);
+		message.append(" ");
+		message.append(t.getClass().getName());
+		message.append("\nCaused by: ");
+		message.append(cause);
+		message.append(" ");
+		message.append(t.getMessage());
+		printl(message.toString());
 		printStackTrace(t.getStackTrace());
 	}
 	public void pst(Throwable t) {
