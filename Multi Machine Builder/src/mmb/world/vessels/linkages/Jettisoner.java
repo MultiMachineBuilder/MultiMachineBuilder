@@ -2,8 +2,8 @@ package mmb.world.vessels.linkages;
 
 import java.util.ArrayList;
 
-import mmb.data.contents.TreeNode;
 import mmb.debug.Debugger;
+import mmb.files.data.contents.TreeNode;
 import mmb.parts.Part;
 import mmb.world.vessels.MechanicalLinkage;
 import mmb.world.vessels.VesselFreeform;

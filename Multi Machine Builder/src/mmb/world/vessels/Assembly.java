@@ -5,7 +5,7 @@ package mmb.world.vessels;
 
 import e3d.d3.Rotation3;
 import e3d.d3.Vector3;
-import mmb.data.contents.TreeNode;
+import mmb.files.data.contents.TreeNode;
 import mmb.parts.*;
 /**
  * @author oskar

@@ -1,6 +1,7 @@
 package mmb.debug;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -39,6 +40,7 @@ public class Debugger {
 		printStackTrace(t.getStackTrace());
 	}
 	public void pst(Throwable t) {
+		printl(t.getClass().getCanonicalName());
 		printl(t.getMessage());
 		printStackTrace(t.getStackTrace());
 	}

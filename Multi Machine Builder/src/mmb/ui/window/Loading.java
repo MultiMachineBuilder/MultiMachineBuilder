@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import org.apache.commons.vfs2.FileSystemException;
+
 import mmb.addon.loader.ModLoader;
 import mmb.debug.Debugger;
 
@@ -109,7 +111,11 @@ public class Loading extends JFrame {
 	void continueLoading() {
 		String JGLLib = new File("./natives/").getAbsolutePath();
 		System.setProperty("org.lwjgl.librarypath", JGLLib);
-		ModLoader.modloading();
+		try {
+			ModLoader.modloading();
+		} catch (FileSystemException e) {
+			debug.pstm(e, "Unable to load mods");
+		}
 		MainMenu.running();
 		setVisible(false); //you can't see me!
 		dispose(); //Destroy the JFrame object

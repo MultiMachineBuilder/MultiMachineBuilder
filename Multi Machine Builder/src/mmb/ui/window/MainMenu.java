@@ -7,13 +7,15 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
-import mmb.DDDEngine.FlightWindow;
-import mmb.DDDEngine.render.flight.Flight3;
+import mmb.DDDEngine.DDDTutorial;
+import mmb.DDDEngine2.FlightWindow;
 import mmb.debug.Debugger;
+import mmb.online.LoginInfo;
+import mmb.tileworld.TileGUI;
 import mmb.ui.ExternalMods;
-import mmb.ui.Flight;
-import mmb.ui.SelectGame;
-import mmb.ui.flight.Flight2;
+import mmb.ui.game.SelectGame;
+import mmb.ui.game.WorldFrame;
+import mmb.ui.shop.ModShop;
 
 import java.awt.event.ActionListener;
 import java.util.concurrent.TimeUnit;
@@ -75,22 +77,14 @@ public class MainMenu extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				//new SelectGame().setVisible(true);
 				//flightsel = false;
-				if(flightsel) {
-					new FlightWindow().run();
-				}else {
-					System.setProperty("sun.java2d.opengl", "true");
-					Flight f = new Flight();
-					f.setVisible(true);
-					try {
-					    TimeUnit.SECONDS.sleep(1);
-					} catch (InterruptedException ie) {
-						debug.pst(ie);
-					    Thread.currentThread().interrupt();
-					}
-					f.start();
-				}
+				//if(flightsel) {
+				//	new FlightWindow().run();
+				//}else {
+				//	System.setProperty("sun.java2d.opengl", "true");
+				//	DDDTutorial.main();
+				//}
 				//new Flight2();
-				
+				new SelectGame().setVisible(true);
 			}
 		});
 		contentPane.add(btnNewGame, "cell 0 1 3 1,growx,aligny top");

@@ -1,0 +1,3 @@
+Hello World GH,https://github.com/Monniasza/MultiMachineBuilder/releases/download/d0.0.1/HelloWorld.jar
+Hello World,C:\MB\HelloWorld.jar
+Star Wars,C:\MB\StarWars.jar

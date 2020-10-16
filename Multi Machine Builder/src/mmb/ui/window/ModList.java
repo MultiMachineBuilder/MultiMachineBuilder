@@ -25,7 +25,10 @@ import javax.swing.table.DefaultTableModel;
 import mmb.addon.data.AddonInfo;
 import mmb.addon.data.AddonState;
 import mmb.addon.data.ModMetadata;
-import mmb.data.contents.GameContents;
+import mmb.files.data.contents.GameContents;
+
+import javax.swing.JScrollPane;
+import javax.swing.JLabel;
 
 public class ModList extends JFrame {
 
@@ -35,6 +38,8 @@ public class ModList extends JFrame {
 	private DefaultTableModel tablemodel = new DefaultTableModel();
 	private JButton btnViewInFile;
 	private JButton btnKillThisMod;
+	private JScrollPane scrollPane;
+	private JLabel lblModCount;
 
 	/**
 	 * Launch the application.
@@ -61,24 +66,30 @@ public class ModList extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[grow]", "[grow][grow]"));
-		
-		table = new JTable();
+		contentPane.setLayout(new MigLayout("", "[grow]", "[grow][grow][grow]"));
 		tablemodel.addColumn("Name");
 		tablemodel.addColumn("Description");
 		tablemodel.addColumn("State");
 		tablemodel.addColumn("Last update");
 		tablemodel.addColumn("Version");
 		tablemodel.addColumn("Author");
+		
+		scrollPane = new JScrollPane();
+		contentPane.add(scrollPane, "cell 0 0,grow");
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
 		table.setModel(tablemodel);
-		contentPane.add(table, "cell 0 0,grow");
 		
 		settings = new JPanel();
-		contentPane.add(settings, "cell 0 1,grow");
-		settings.setLayout(new MigLayout("", "[]", "[][][]"));
+		contentPane.add(settings, "cell 0 2,grow");
+		settings.setLayout(new MigLayout("", "[][]", "[][][]"));
 		
 		btnViewInFile = new JButton("View in file browser");
 		settings.add(btnViewInFile, "cell 0 0");
+		
+		lblModCount = new JLabel("Found "+GameContents.addons.size()+" mods");
+		settings.add(lblModCount, "cell 1 0");
 		
 		btnKillThisMod = new JButton("Kill this mod");
 		settings.add(btnKillThisMod, "cell 0 1");
@@ -94,6 +105,9 @@ public class ModList extends JFrame {
 			release = new Date().toString();
 			descr = "No description";
 			author = "Unknown";
+			if(mod.HTTP != 0) {
+				descr = "HTTP " + mod.HTTP;
+			}
 		}else if(mod.state == AddonState.ENABLE) {
 			release = mod.mmbmod.release.toString();
 			descr = mod.mmbmod.description;

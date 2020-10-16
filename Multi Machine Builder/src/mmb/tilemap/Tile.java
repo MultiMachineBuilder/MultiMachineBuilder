@@ -8,5 +8,6 @@ package mmb.tilemap;
  *
  */
 public class Tile {
-
+	public int id;
+	
 }

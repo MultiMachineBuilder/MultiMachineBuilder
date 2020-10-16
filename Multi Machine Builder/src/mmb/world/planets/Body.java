@@ -5,7 +5,7 @@ package mmb.world.planets;
 
 import java.util.List;
 
-import mmb.data.contents.TreeNode;
+import mmb.files.data.contents.TreeNode;
 
 /**
  * @author oskar

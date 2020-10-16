@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
-import mmb.data.contents.TreeNode;
+import mmb.files.data.contents.TreeNode;
 import mmb.parts.Part;
 
 public class VesselFreeform {

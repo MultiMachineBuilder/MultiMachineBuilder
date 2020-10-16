@@ -4,18 +4,33 @@
 package mmb.addon.loader;
 
 import java.io.*;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.nio.file.*;
 import java.util.*;
 import java.util.function.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.apache.commons.vfs2.FileName;
+import org.apache.commons.vfs2.FileObject;
+import org.apache.commons.vfs2.FileSystemException;
+import org.apache.commons.vfs2.FileSystemManager;
+import org.apache.commons.vfs2.FileType;
+import org.apache.commons.vfs2.VFS;
+import org.apache.commons.vfs2.provider.AbstractFileName;
+import org.apache.commons.vfs2.provider.local.LocalFile;
+import org.apache.commons.vfs2.provider.local.LocalFileName;
 
 import mmb.addon.data.AddonInfo;
 import mmb.addon.data.AddonState;
 import mmb.addon.file.StreamUtil;
-import mmb.data.contents.GameContents;
-import mmb.data.files.ListFiles;
 import mmb.debug.Debugger;
+import mmb.files.FileGetter;
+import mmb.files.data.contents.GameContents;
+import mmb.files.data.files.ListFiles;
 import mmb.addon.*;
 
 import static mmb.ui.window.Loading.*;
@@ -25,8 +40,29 @@ import static mmb.ui.window.Loading.*;
  *
  */
 public class ModLoader {
+	
+	public static class FilePair {
+		public FileObject f;
+		public Throwable error;
+		public int errorHTTP;
+		public FilePair(Throwable t) {
+			f = null;
+			error = t;
+			errorHTTP = 0;
+		}
+		public FilePair(Throwable t, int http) {
+			f = null;
+			error = t;
+			errorHTTP = http;
+		}
+		public FilePair(FileObject g) {
+			f = g;
+			error = null;
+			errorHTTP = 0;
+		}
+	};
+	
 	private static Debugger debug = new Debugger("MOD-LOADER");
-	private static Debugger fd = new Debugger("FILES");
 	public static List<AddonLoader> runningLoaders = new ArrayList<AddonLoader>();
 	public static List<Thread> runningFirstRunThreads = new ArrayList<Thread>();
 	public static List<Thread> runningContentAddThreads = new ArrayList<Thread>();
@@ -34,17 +70,6 @@ public class ModLoader {
 	public static int modCount = 0;
 	public static List<String> toLoad = new ArrayList<String>();
 	public static String[] external = new String[] {};
-	
-	public static File getFileFor(String path) throws MalformedURLException, IOException {
-		fd.printl("Getting file for "+path);
-		if(path.startsWith("http")) {
-			fd.printl("Online file: "+path);
-			return StreamUtil.stream2file(new URL(path).openStream());
-		}else {
-			fd.printl("Offline file: "+path);
-			return new File(path);
-		}
-	}
 	public static void waitAllFirstRuns() {
 		runningFirstRunThreads.forEach((Thread t) -> {try {
 			t.join();
@@ -80,7 +105,8 @@ public class ModLoader {
 		});
 	}
 	
-	public static void modloading(){
+	public static void modloading() throws FileSystemException {
+		FileGetter.init();
 		try {
 			external = new String(Files.readAllBytes(Paths.get("ext.txt"))).split("\n");
 		} catch (IOException e1) {
@@ -105,13 +131,21 @@ public class ModLoader {
 		debug.printl("Found "+ modCount + " mod files");
 		toLoad.forEach((String p) -> {
 			state2("Loading file: " + p);
-			AddonLoader.load(p);
+			try {
+				AddonLoader.load(FileGetter.getFileAbsolute(p));
+			} catch (FileSystemException e) {
+				debug.pstm(e, "Unable to load "+p);
+			}
 		});
 		//Wait until all files load
 		waitAllLoaders();
 		
 		//First runs. Similar process for all three stages
 		GameContents.addons.forEach((AddonInfo ai) -> {
+			if(ai == null) {
+				debug.printl("encountered null mod");
+				return;
+			}
 			if(ai.state == AddonState.ENABLE) {
 				Thread thr = new Thread(() -> {
 					if(ai.central == null) {

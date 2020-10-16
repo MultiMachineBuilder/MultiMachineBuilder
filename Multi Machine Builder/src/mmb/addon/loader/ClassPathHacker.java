@@ -1,10 +1,15 @@
 package mmb.addon.loader;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.File;
 import java.net.URLClassLoader;
 import java.nio.file.Path;
 
+import org.apache.commons.vfs2.FileObject;
+import org.apache.commons.vfs2.FileSystemException;
+
+import mmb.addon.file.StreamUtil;
 import mmb.debug.Debugger;
 
 import java.net.URL;
@@ -46,5 +51,13 @@ public class ClassPathHacker {
     }//end try catch
 
    }//end method
+  
+  static public void inject(InputStream is) throws IOException {//Inject given InputStream into the classpath
+		addFile(StreamUtil.stream2file(is));
+  }
+  
+  static public void addFile(FileObject file) throws FileSystemException, IOException {
+	  inject(file.getContent().getInputStream());
+  }
 
 }//end class

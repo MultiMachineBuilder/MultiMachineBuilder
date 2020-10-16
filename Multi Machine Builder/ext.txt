@@ -1,2 +1,1 @@
-https://github.com/Monniasza/MultiMachineBuilder/releases/download/d0.0.1/HelloWorld.jar
-https://github.com/Monniasza/MultiMachineBuilder/archive/d0.0.1.zip
+https://github.com/Monniasza/MultiMachineBuilder/releases/tag/d0.0.1

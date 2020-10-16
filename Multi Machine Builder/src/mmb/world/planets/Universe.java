@@ -1,8 +1,8 @@
 package mmb.world.planets;
 
-import static mmb.data.contents.AuxiliaryConstants.*;
+import static mmb.files.data.contents.AuxiliaryConstants.*;
 
-import mmb.data.contents.TreeNode;
+import mmb.files.data.contents.TreeNode;
 
 public class Universe {
 	static public TreeNode<Body> orbitalSystems;
