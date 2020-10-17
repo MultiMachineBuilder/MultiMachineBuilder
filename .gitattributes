@@ -1,2 +1,3 @@
 * linguist-vendored
 *.java linguist-vendored=false
+*.jar filter=lfs diff=lfs merge=lfs -text
