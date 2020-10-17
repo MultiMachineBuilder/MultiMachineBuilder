@@ -24,6 +24,7 @@ import java.awt.event.WindowEvent;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import javax.swing.JLabel;
 
 /**
  * @author oskar
@@ -57,9 +58,9 @@ public class WorldFrame extends JFrame {
 				}
 			}
 		});
-		setTitle("World");
+		setTitle("World - Left click to edit the block. The game saves automatically.");
 		setDefaultCloseOperation(2);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 685, 483);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));

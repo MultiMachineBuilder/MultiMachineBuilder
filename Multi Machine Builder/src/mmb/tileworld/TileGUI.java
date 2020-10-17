@@ -8,15 +8,20 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import org.apache.commons.vfs2.FileObject;
+import org.apache.commons.vfs2.FileSystemException;
 import org.joml.Vector2d;
 
 import mmb.debug.Debugger;
+import mmb.files.FileGetter;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.awt.image.BufferedImage;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 
@@ -29,11 +34,19 @@ public class TileGUI extends JPanel {
 	public TileMap map;
 	private Debugger debug = new Debugger("TILES");
 	public Point mousePos = new Point(0 ,0);
-	private TileGUI that = this;
+	private BlockDrawer grass;
 	/**
 	 * Create the panel.
 	 */
 	public TileGUI() {
+		try {
+			FileObject file = FileGetter.getFileRelative("textures/grass.png");
+			BufferedImage img = ImageIO.read(file.getContent().getInputStream());
+			grass = new DrawerImage(img);
+		} catch (Exception e) {
+			grass = new DrawerPlainColor(Color.GREEN);
+			debug.pstm(e, "Failed to load grass texture, switching to plain color");
+		}
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -41,7 +54,6 @@ public class TileGUI extends JPanel {
 				if(arg0.getButton() == 1) {
 					Point world = blockByPoint(p);
 					if(map.check(world)) {
-						debug.printl(world.toString());
 						int i = map.indexAtPos(world);
 						if(map.data[i] == 0) {
 							map.data[i] = 1;
@@ -62,7 +74,6 @@ public class TileGUI extends JPanel {
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent arg0) {
-				debug.printl("key:"+arg0.getKeyCode());
 				int ch = arg0.getKeyCode();
 				switch(ch) {
 				case KeyEvent.VK_A:
@@ -106,6 +117,9 @@ public class TileGUI extends JPanel {
 	
 	private void paintTile(int x, int y, Graphics g) {
 		int result = -1;
+		int X = (int)(x-offset.x)*32;
+		int Y = (int)(y-offset.y)*32;
+		
 		if(map.check(x, y)) {
 			result = map.getAtPos(x, y);
 		}
@@ -113,7 +127,8 @@ public class TileGUI extends JPanel {
 		if(result == 0) {
 			c = Color.CYAN;
 		}else if(result == 1) {
-			c = Color.GREEN;
+			grass.draw(X, Y, g);
+			return;
 		}else if(result == -1) {
 			c = Color.darkGray;
 		}else {
@@ -121,7 +136,7 @@ public class TileGUI extends JPanel {
 		}
 		
 		g.setColor(c);
-		g.fillRect((int)(x-offset.x)*32, (int)(y-offset.y)*32, 32, 32);
+		g.fillRect(X, Y, 32, 32);
 	}
 	public Vector2d worldPosByPoint(Point p) {
 		Vector2d result = new Vector2d(p.x/32, p.y/32);
@@ -143,7 +158,7 @@ public class TileGUI extends JPanel {
 		return new Point((int)tmp.x, (int)tmp.y);
 	}
 	public void paintImmediately() {
-		that.paintImmediately(0, 0, getWidth(), getHeight());
+		paintImmediately(0, 0, getWidth(), getHeight());
 	}
 
 }

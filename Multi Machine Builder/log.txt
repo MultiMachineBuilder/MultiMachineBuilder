@@ -37,39 +37,39 @@ Caused by: Cause unknown Could not find file with URI "https://github.com/Monnia
 (MOD - StarWars.jar) Loading a modfile: StarWars.jar
 (MOD - HelloWorld.jar) Injecting HelloWorld.jar
 (MOD - StarWars.jar) Injecting StarWars.jar
-(MOD - HelloWorld.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/HelloWorld.jar!/META-INF
 (MOD - StarWars.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/StarWars.jar!/META-INF
-(MOD - HelloWorld.jar) Directory: META-INF
+(MOD - HelloWorld.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/HelloWorld.jar!/META-INF
 (MOD - StarWars.jar) Directory: META-INF
-(MOD - HelloWorld.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/HelloWorld.jar!/helloworld
+(MOD - HelloWorld.jar) Directory: META-INF
 (MOD - StarWars.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/StarWars.jar!/sw
-(MOD - HelloWorld.jar) Directory: helloworld
+(MOD - HelloWorld.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/HelloWorld.jar!/helloworld
 (MOD - StarWars.jar) Directory: sw
-(MOD - HelloWorld.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/HelloWorld.jar!/.classpath
+(MOD - HelloWorld.jar) Directory: helloworld
 (MOD - StarWars.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/StarWars.jar!/.classpath
-(MOD - HelloWorld.jar) File: .classpath
+(MOD - HelloWorld.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/HelloWorld.jar!/.classpath
 (MOD - StarWars.jar) File: .classpath
-(MOD - HelloWorld.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/HelloWorld.jar!/.project
+(MOD - HelloWorld.jar) File: .classpath
 (MOD - StarWars.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/StarWars.jar!/.project
-(MOD - HelloWorld.jar) File: .project
+(MOD - HelloWorld.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/HelloWorld.jar!/.project
 (MOD - StarWars.jar) File: .project
-(MOD - HelloWorld.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/HelloWorld.jar!/META-INF/MANIFEST.MF
+(MOD - HelloWorld.jar) File: .project
 (MOD - StarWars.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/StarWars.jar!/META-INF/MANIFEST.MF
-(MOD - HelloWorld.jar) File: MANIFEST.MF
+(MOD - HelloWorld.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/HelloWorld.jar!/META-INF/MANIFEST.MF
 (MOD - StarWars.jar) File: MANIFEST.MF
-(MOD - HelloWorld.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/HelloWorld.jar!/helloworld/HelloWorld.class
+(MOD - HelloWorld.jar) File: MANIFEST.MF
 (MOD - StarWars.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/StarWars.jar!/sw/modinfo
-(MOD - HelloWorld.jar) File: HelloWorld.class
+(MOD - HelloWorld.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/HelloWorld.jar!/helloworld/HelloWorld.class
 (MOD - StarWars.jar) Directory: modinfo
+(MOD - HelloWorld.jar) File: HelloWorld.class
 (MOD - StarWars.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/StarWars.jar!/sw/warp
 (MOD - StarWars.jar) Directory: warp
 (MOD - StarWars.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/StarWars.jar!/sw/modinfo/StarWars.class
 (MOD - StarWars.jar) File: StarWars.class
 (HW) Hello, world!
-(MOD - StarWars.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/StarWars.jar!/sw/modinfo/package-info.class
 (MOD - HelloWorld.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/HelloWorld.jar!/helloworld/package-info.class
-(MOD - StarWars.jar) File: package-info.class
+(MOD - StarWars.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/StarWars.jar!/sw/modinfo/package-info.class
 (MOD - HelloWorld.jar) File: package-info.class
+(MOD - StarWars.jar) File: package-info.class
 (MOD - StarWars.jar) Processing jar:file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/StarWars.jar!/sw/warp/package-info.class
 (MOD - StarWars.jar) File: package-info.class
 (MOD-LOADER) Start 1st stage for Hello, world!
@@ -88,13 +88,13 @@ Caused by: Cause unknown Could not find file with URI "https://github.com/Monnia
 (MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
 (MOD-LOADER) LOCATED AT file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/HelloWorld.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Fri Oct 16 20:15:17 CEST 2020
+(MOD-LOADER) RELEASED Sat Oct 17 09:32:08 CEST 2020
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) =============================================MOD INFORMATION FOR Star Wars=============================================
 (MOD-LOADER) LOCATED AT file:///C:/Users/oskar/eclipse-workspace/Multi Machine Builder/mods/StarWars.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Fri Oct 16 20:15:17 CEST 2020
+(MOD-LOADER) RELEASED Sat Oct 17 09:32:08 CEST 2020
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Adds Star Wars content to the MultiMachineBuilder
 (MOD-LOADER) HOORAY, IT'S OVER!
@@ -105,4 +105,6 @@ Caused by: Cause unknown Could not find file with URI "https://github.com/Monnia
 (SELECT A SAVE) Successfully opened cross.machine1world
 (WORLD) Successfully saved
 (SELECT A SAVE) Successfully opened cross.machine1world
+(WORLD) Successfully saved
+(SELECT A SAVE) Successfully opened test.machine1world
 (WORLD) Successfully saved
