@@ -1,7 +1,6 @@
 package mmb.DDDEngine;
 
 import org.joml.Vector3d;
-import org.joml.Vector3f;
 
 public class Plane {
 	Vector3d V1, V2, NV;

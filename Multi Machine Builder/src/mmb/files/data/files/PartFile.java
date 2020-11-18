@@ -10,8 +10,8 @@ import mmb.parts.PartData;
  *
  */
 public interface PartFile {
-	default public void addPartByFile() {
+	default void addPartByFile() {
 		
 	}
-	public PartData loadSpecs();
+	PartData loadSpecs();
 }

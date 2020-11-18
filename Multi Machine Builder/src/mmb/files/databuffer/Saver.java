@@ -12,8 +12,8 @@ import java.io.IOException;
  *
  */
 public interface Saver<T> {
-	public void save(DataOutputStream dos, T data) throws IOException;
-	public T read(DataInputStream dis) throws IOException;
+	void save(DataOutputStream dos, T data) throws IOException;
+	T read(DataInputStream dis) throws IOException;
 	
 	
 	

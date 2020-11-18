@@ -22,8 +22,8 @@ import javax.swing.JTextField;
 public class DifficultySettings extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField txtScienceIncome;
-	private JTextField txtMoneyIncome;
+	private final JTextField txtScienceIncome;
+	private final JTextField txtMoneyIncome;
 
 	/**
 	 * Launch the application.

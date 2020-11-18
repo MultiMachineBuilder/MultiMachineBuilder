@@ -34,7 +34,7 @@ public class DataSaveLoaderFromFields {
 			@Override
 			public void apply(Hashtable<String, String> data) {
 				// TODO Auto-generated method stub
-				data.forEach((String k, String v) -> {fields.});
+				//data.forEach((String k, String v) -> {fields.});
 			}
 			
 		};

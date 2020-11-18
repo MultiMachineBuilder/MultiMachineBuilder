@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="new versions.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.4525311"
+     inkscape:cx="231.16135"
+     inkscape:cy="515.05978"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1012"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.74347496px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="5.8377447"
+       y="18.450577"
+       id="text817"><tspan
+         sodipodi:role="line"
+         id="tspan815"
+         x="5.8377447"
+         y="18.450577"
+         style="stroke-width:0.26458332">0.5 Machine Update</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="6.8655519"
+       y="24.666433"
+       id="text821"><tspan
+         sodipodi:role="line"
+         id="tspan819"
+         x="6.8655519"
+         y="24.666433"
+         style="stroke-width:0.26458332">Logic gates</tspan><tspan
+         sodipodi:role="line"
+         x="6.8655519"
+         y="29.958099"
+         style="stroke-width:0.26458332"
+         id="tspan823">Pipelines</tspan><tspan
+         sodipodi:role="line"
+         x="6.8655519"
+         y="35.249767"
+         style="stroke-width:0.26458332"
+         id="tspan841">MultiBlocks</tspan><tspan
+         sodipodi:role="line"
+         x="6.8655519"
+         y="40.541431"
+         style="stroke-width:0.26458332"
+         id="tspan899">Security approved tools</tspan><tspan
+         sodipodi:role="line"
+         x="6.8655519"
+         y="45.833099"
+         style="stroke-width:0.26458332"
+         id="tspan825" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.73697472px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458335"
+       x="2.176439"
+       y="63.758274"
+       id="text829"><tspan
+         sodipodi:role="line"
+         id="tspan827"
+         x="2.176439"
+         y="63.758274"
+         style="stroke-width:0.26458335">0.6 Transit Update</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="9.7643404"
+       y="71.504761"
+       id="text833"><tspan
+         sodipodi:role="line"
+         id="tspan831"
+         x="9.7643404"
+         y="71.504761"
+         style="stroke-width:0.26458332">Trains</tspan><tspan
+         sodipodi:role="line"
+         x="9.7643404"
+         y="76.796425"
+         style="stroke-width:0.26458332"
+         id="tspan835">Shipping containers</tspan><tspan
+         sodipodi:role="line"
+         x="9.7643404"
+         y="82.088097"
+         style="stroke-width:0.26458332"
+         id="tspan837">Railways</tspan><tspan
+         sodipodi:role="line"
+         x="9.7643404"
+         y="87.379761"
+         style="stroke-width:0.26458332"
+         id="tspan839">Roads</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.74347687px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="2.8810253"
+       y="107.95209"
+       id="text817-3"><tspan
+         sodipodi:role="line"
+         id="tspan815-4"
+         x="2.8810253"
+         y="107.95209"
+         style="stroke-width:0.26458332">0.7 World Update</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.06567001px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458329"
+       x="2.4247253"
+       y="157.57475"
+       id="text817-2"
+       transform="scale(0.96383782,1.0375189)"><tspan
+         sodipodi:role="line"
+         id="tspan815-9"
+         x="2.4247253"
+         y="157.57475"
+         style="stroke-width:0.26458329">0.8 Multiplayer Update</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.74347687px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="1.6604813"
+       y="240.22839"
+       id="text817-0"><tspan
+         sodipodi:role="line"
+         id="tspan815-42"
+         x="1.6604813"
+         y="240.22839"
+         style="stroke-width:0.26458332">0.9 3D Test</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="3.8141956"
+       y="115.44428"
+       id="text879"><tspan
+         sodipodi:role="line"
+         id="tspan877"
+         x="3.8141956"
+         y="115.44428"
+         style="stroke-width:0.26458332">Ores</tspan><tspan
+         sodipodi:role="line"
+         x="3.8141956"
+         y="120.73595"
+         style="stroke-width:0.26458332"
+         id="tspan881">New dimensions: Hell, Sky, Moon, Mars, </tspan><tspan
+         sodipodi:role="line"
+         x="3.8141956"
+         y="126.02762"
+         style="stroke-width:0.26458332"
+         id="tspan883">Generated structures: highways, abandoned factories, abandoned mines</tspan><tspan
+         sodipodi:role="line"
+         x="3.8141956"
+         y="131.31927"
+         style="stroke-width:0.26458332"
+         id="tspan905">Multi-lane roads and highways</tspan><tspan
+         sodipodi:role="line"
+         x="3.8141956"
+         y="136.61095"
+         style="stroke-width:0.26458332"
+         id="tspan906">Structure Finder</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="6.7129841"
+       y="172.80978"
+       id="text887"><tspan
+         sodipodi:role="line"
+         id="tspan885"
+         x="6.7129841"
+         y="172.80978"
+         style="stroke-width:0.26458332">Viaducts</tspan><tspan
+         sodipodi:role="line"
+         x="6.7129841"
+         y="178.10146"
+         style="stroke-width:0.26458332"
+         id="tspan893">Online gameplay</tspan><tspan
+         sodipodi:role="line"
+         x="6.7129841"
+         y="183.39311"
+         style="stroke-width:0.26458332"
+         id="tspan911">Online store</tspan><tspan
+         sodipodi:role="line"
+         x="6.7129841"
+         y="188.68478"
+         style="stroke-width:0.26458332"
+         id="tspan913">Server plug-ins</tspan><tspan
+         sodipodi:role="line"
+         x="6.7129841"
+         y="193.97646"
+         style="stroke-width:0.26458332"
+         id="tspan915">Dimminishing rewards</tspan><tspan
+         sodipodi:role="line"
+         x="6.7129841"
+         y="199.26811"
+         style="stroke-width:0.26458332"
+         id="tspan891" /><tspan
+         sodipodi:role="line"
+         x="6.7129841"
+         y="204.55978"
+         style="stroke-width:0.26458332"
+         id="tspan889" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="71.706879"
+       y="24.513866"
+       id="text897"><tspan
+         sodipodi:role="line"
+         id="tspan895"
+         x="71.706879"
+         y="24.513866"
+         style="fill:#ff6600;stroke-width:0.26458332">Let's Play</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="71.249176"
+       y="71.199623"
+       id="text903"><tspan
+         sodipodi:role="line"
+         id="tspan901"
+         x="71.249176"
+         y="71.199623"
+         style="fill:#ff6600;stroke-width:0.26458332">Traffic Control System</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';letter-spacing:0px;word-spacing:0px;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="131.18784"
+       y="171.08667"
+       id="text909"><tspan
+         sodipodi:role="line"
+         id="tspan907"
+         x="131.18784"
+         y="171.08667"
+         style="fill:#00ff00;stroke-width:0.26458332">GDPR compliance</tspan></text>
+  </g>
+</svg>

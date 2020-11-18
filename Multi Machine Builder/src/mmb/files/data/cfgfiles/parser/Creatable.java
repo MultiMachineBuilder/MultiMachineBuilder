@@ -10,6 +10,6 @@ import mmb.files.data.cfgfiles.CFG.*;
  *
  */
 public interface Creatable<T> {
-	public T createFromCFG(Node data);
-	public String getCreatorNode();
+	T createFromCFG(Node data);
+	String getCreatorNode();
 }

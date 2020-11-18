@@ -4,7 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import mmb.tileworld.TileMap;
+import mmb.WORLD.tileworld.map.TileMap;
 
 public final class Savers {
 
@@ -73,16 +73,16 @@ public final class Savers {
 		}
 	};
 
-	public final static Saver<Byte[]> bytesSaver = Savers.<Byte>arraySaver(byteSaver);
-	public final static Saver<Short[]> shortsSaver = Savers.<Short>arraySaver(shortSaver);
-	public final static Saver<Integer[]> intsSaver = Savers.<Integer>arraySaver(intSaver);
-	public final static Saver<Long[]> longsSaver = Savers.<Long>arraySaver(longSaver);
-	public final static Saver<String[]> txtsSaver = Savers.<String>arraySaver(txtSaver);
+	public final static Saver<Byte[]> bytesSaver = Savers.arraySaver(byteSaver);
+	public final static Saver<Short[]> shortsSaver = Savers.arraySaver(shortSaver);
+	public final static Saver<Integer[]> intsSaver = Savers.arraySaver(intSaver);
+	public final static Saver<Long[]> longsSaver = Savers.arraySaver(longSaver);
+	public final static Saver<String[]> txtsSaver = Savers.arraySaver(txtSaver);
 	
 	
 	public static <T> Saver<T[]> arraySaver(Saver<T> original){
 		return new Saver<T[]>() {
-			Saver<T> svr = original;
+			final Saver<T> svr = original;
 			@Override
 			public void save(DataOutputStream dos, T[] data) throws IOException {
 				dos.writeInt(data.length);

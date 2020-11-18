@@ -21,17 +21,17 @@ import org.apache.commons.vfs2.AllFileSelector;
 import org.apache.commons.vfs2.FileObject;
 import org.apache.commons.vfs2.FileSystemException;
 
+import mmb.DATA.file.FileGetter;
 import mmb.debug.Debugger;
-import mmb.files.FileGetter;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class ModShop extends JFrame {
-	private JPanel contentPane;
-	private Debugger debug;
-	private java.awt.List list;
-	private ArrayList<Mod> mods = new ArrayList<Mod>();
+	private final JPanel contentPane;
+	private final Debugger debug;
+	private final java.awt.List list;
+	private final ArrayList<Mod> mods = new ArrayList<Mod>();
 	/**
 	 * Create the frame.
 	 */

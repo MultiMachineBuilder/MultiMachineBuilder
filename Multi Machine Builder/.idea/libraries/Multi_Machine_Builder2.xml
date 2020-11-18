@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Multi Machine Builder">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/gson-2.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/miglayout-src.zip!/" />
+      <root url="jar://$PROJECT_DIR$/miglayout15-swing.jar!/" />
+      <root url="jar://$PROJECT_DIR$/helperclass4j-1.0.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Machine Builder 0.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xom-1.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/UNPACK THIS HERE, IN THE MAIN DIRECOTRY.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -10,6 +10,6 @@ import java.util.Hashtable;
  *
  */
 public interface ModDataLoader {
-	public String mainDBMapKey();
-	public void apply(Hashtable<String,String> data);
+	String mainDBMapKey();
+	void apply(Hashtable<String, String> data);
 }

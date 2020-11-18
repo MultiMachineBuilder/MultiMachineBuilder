@@ -8,6 +8,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import mmb.DATA.file.AdvancedFile;
+import mmb.WORLD.inventory.ItemInventory;
+import mmb.WORLD.inventory.SimpleItem;
+import mmb.debug.Debugger;
+
 class Testing {
 
 	@BeforeAll
@@ -30,7 +35,13 @@ class Testing {
 
 	@Test
 	void test() {
-		fail("Not yet implemented");
+		Debugger debug = new Debugger("TEST");
+		String name = "brokenSoundData/sound/song.mp3";
+		String[] tmp = AdvancedFile.baseExtension(name);
+		String ext = tmp[1];
+		String base = tmp[0];
+		debug.printl(base);
+		debug.printl(ext);
 	}
 
 }

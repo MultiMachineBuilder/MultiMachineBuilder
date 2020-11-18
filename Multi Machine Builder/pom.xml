@@ -1,8 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <repositories>
+    <repository>
+        <id>maven-central</id>
+        <name>Maven Central</name>
+        <url>https://repo.maven.apache.org/maven2/</url>
+    </repository>
+  </repositories>
   <modelVersion>4.0.0</modelVersion>
   <groupId>MMB</groupId>
   <artifactId>MMB</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.2.0-SNAPSHOT</version>
   <name>Multi Machine Builder</name>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -26,7 +33,7 @@
       <plugin>
       	<groupId>org.joml</groupId>
       	<artifactId>joml</artifactId>
-      	<version>${joml.version}</version>
+      	<version>1.9.25</version>
       </plugin>
     </plugins>
   </build>
@@ -37,17 +44,18 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>org.lwjgl</groupId>
-				<artifactId>lwjgl-bom</artifactId>
-				<version>${lwjgl.version}</version>
-				<scope>import</scope>
-				<type>pom</type>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
-	<dependencies>
+		<dependency>
+			<groupId>org.lwjgl</groupId>
+			<artifactId>lwjgl-bom</artifactId>
+			<version>${lwjgl.version}</version>
+			<scope>import</scope>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+		  <groupId>com.google.guava</groupId>
+		  <artifactId>guava</artifactId>
+		  <version>30.0-jre</version>
+		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl</artifactId>
@@ -360,6 +368,6 @@
 			<artifactId>lwjgl-zstd</artifactId>
 			<classifier>${lwjgl.natives}</classifier>
 		</dependency>
-	
-	</dependencies>
+		</dependencies>
+	</dependencyManagement>
 </project>

@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 public class WorldView extends JFrame {
 
-	private JPanel contentPane;
+	private final JPanel contentPane;
 
 	/**
 	 * Launch the application.

@@ -10,19 +10,19 @@ import java.io.InputStream;
  *
  */
 public interface GameFile<T> {
-	public String getPath();
-	public InputStream getInputStream();
-	public Throwable getErrorMessage();
-	public T getRawData();
-	public void addLoadedHandler(Runnable data);
+	String getPath();
+	InputStream getInputStream();
+	Throwable getErrorMessage();
+	T getRawData();
+	void addLoadedHandler(Runnable data);
 	
 	/**
 	 * Starts loading process, without waiting for its ending. Calls a load handler given by addLoadedHandler()
 	 */
-	public void start();
+    void start();
 	
 	/**
 	 * Runs loading process without running a loaded handler;
 	 */
-	public void run();
+    void run();
 }

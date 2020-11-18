@@ -31,11 +31,11 @@ import javax.swing.JLabel;
  */
 public class ExternalMods extends JDialog {
 
-	private Debugger debug = new Debugger("UI-EXTERNAL");
+	private final Debugger debug = new Debugger("UI-EXTERNAL");
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
-	private List list;
-	private ExternalMods that = this;
+	private final JTextField textField;
+	private final List list;
+	private final ExternalMods that = this;
 
 	/**
 	 * Create the dialog.
@@ -61,6 +61,7 @@ public class ExternalMods extends JDialog {
 			
 			JButton okButton = new JButton("OK");
 			okButton.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					that.save();
 					that.setVisible(false);
@@ -74,6 +75,7 @@ public class ExternalMods extends JDialog {
 		
 			JButton cancelButton = new JButton("Cancel");
 			cancelButton.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					that.setVisible(false);
 					that.dispose();
@@ -85,6 +87,7 @@ public class ExternalMods extends JDialog {
 		
 			JButton btnAdd = new JButton("Add:");
 			btnAdd.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					list.add(textField.getText());
 				}
@@ -98,6 +101,7 @@ public class ExternalMods extends JDialog {
 			
 			JButton btnDelete = new JButton("Delete");
 			btnDelete.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					list.delItem(list.getSelectedIndex());
 				}

@@ -3,7 +3,7 @@
  */
 package mmb.main;
 
-import mmb.world.planets.SolarSystem;
+import mmb.world2.planets.SolarSystem;
 
 /**
  * @author oskar

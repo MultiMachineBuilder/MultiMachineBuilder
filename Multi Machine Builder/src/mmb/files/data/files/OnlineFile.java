@@ -12,8 +12,8 @@ import java.net.URL;
  */
 public class OnlineFile implements GameFile<URL> {
 	
-	private URL url;
-	private Runnable run = null;
+	private final URL url;
+	private final Runnable run = null;
 	
 	
 	

@@ -10,8 +10,8 @@ import org.apache.commons.vfs2.AllFileSelector;
 import org.apache.commons.vfs2.FileObject;
 import org.apache.commons.vfs2.FileSystemException;
 
+import mmb.DATA.file.FileGetter;
 import mmb.debug.Debugger;
-import mmb.files.FileGetter;
 
 /**
  * @author oskar
@@ -21,7 +21,7 @@ public class Downloadable {
 
 	public String name;
 	public String download;
-	private Debugger debug;
+	private final Debugger debug;
 	/**
 	 * 
 	 */

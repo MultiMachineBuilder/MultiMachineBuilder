@@ -11,7 +11,7 @@ import mmb.geom.Viewport;
 
 public class World extends JFrame {
 
-	private JPanel contentPane;
+	private final JPanel contentPane;
 	
 
 	/**

@@ -22,24 +22,24 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import mmb.addon.data.AddonInfo;
-import mmb.addon.data.AddonState;
-import mmb.addon.data.ModMetadata;
-import mmb.files.data.contents.GameContents;
+import mmb.DATA.contents.GameContents;
+import mmb.MODS.info.AddonInfo;
+import mmb.MODS.info.AddonState;
+import mmb.MODS.info.ModMetadata;
 
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 
 public class ModList extends JFrame {
 
-	private JPanel contentPane;
-	private JTable table;
-	private JPanel settings;
-	private DefaultTableModel tablemodel = new DefaultTableModel();
-	private JButton btnViewInFile;
-	private JButton btnKillThisMod;
-	private JScrollPane scrollPane;
-	private JLabel lblModCount;
+	private final JPanel contentPane;
+	private final JTable table;
+	private final JPanel settings;
+	private final DefaultTableModel tablemodel = new DefaultTableModel();
+	private final JButton btnViewInFile;
+	private final JButton btnKillThisMod;
+	private final JScrollPane scrollPane;
+	private final JLabel lblModCount;
 
 	/**
 	 * Launch the application.
@@ -98,22 +98,19 @@ public class ModList extends JFrame {
 		setVisible(true);
 	}
 	private void addMod(AddonInfo mod) {
+		if(mod == null) return;
 		String release = "Unknown", descr = "This file is corrupt.", author = "Unknown";
-		if(mod == null){
-			
-		}else if(mod.mmbmod == null) {
+		if(mod.mmbmod == null) {
 			release = new Date().toString();
 			descr = "No description";
 			author = "Unknown";
-			if(mod.HTTP != 0) {
-				descr = "HTTP " + mod.HTTP;
-			}
 		}else if(mod.state == AddonState.ENABLE) {
 			release = mod.mmbmod.release.toString();
 			descr = mod.mmbmod.description;
 			author = mod.mmbmod.author;
 		}
 		String state = mod.state.toString();
+		
 		String ver = "";
 		String name = mod.name;
 		tablemodel.addRow(new Object[] {name, descr, state, release, ver, author});

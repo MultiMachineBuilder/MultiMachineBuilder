@@ -10,11 +10,11 @@ import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
 public class ShipEditor extends JPanel {
-	private JTabbedPane main;
-	private JPanel toolbar;
-	private JToolBar toolbarInner;
-	private JPanel hull;
-	private JPanel panel_1;
+	private final JTabbedPane main;
+	private final JPanel toolbar;
+	private final JToolBar toolbarInner;
+	private final JPanel hull;
+	private final JPanel panel_1;
 	/**
 	 * Create the panel.
 	 */

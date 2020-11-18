@@ -11,20 +11,18 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import org.apache.commons.vfs2.FileContent;
-import org.apache.commons.vfs2.FileObject;
-import org.apache.commons.vfs2.FileSystemException;
-
+import mmb.DATA.save.SaveLoad;
+import mmb.WORLD.tileworld.block.Blocks;
+import mmb.WORLD.tileworld.map.TileMap;
+import mmb.WORLD.tileworld.map.World;
 import mmb.debug.Debugger;
-import mmb.files.FileGetter;
-import mmb.files.databuffer.Savers;
-import mmb.tileworld.TileMap;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.Arrays;
 import java.awt.event.ActionEvent;
 
@@ -32,13 +30,14 @@ import java.awt.event.ActionEvent;
  * @author oskar
  *
  */
+@SuppressWarnings("serial")
 public class NewGame extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField txtHeight;
-	private JTextField txtWidth;
-	private JTextField txtName;
-	private Debugger debug = new Debugger("NewGame");
+	private final JTextField txtHeight;
+	private final JTextField txtWidth;
+	private final JTextField txtName;
+	private final Debugger debug = new Debugger("NewGame");
 
 	/**
 	 * Create the dialog.
@@ -81,6 +80,7 @@ public class NewGame extends JDialog {
 		
 			JButton okButton = new JButton("OK");
 			okButton.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					int w;
 					int h;
@@ -93,25 +93,28 @@ public class NewGame extends JDialog {
 					}
 					String n = txtName.getText();
 					try {
-						FileObject newFile = FileGetter.getFileRelative("maps/"+n+".machine1world");
+						File newFile = new File("maps/"+n+".mworld");
 						if(newFile.exists()) {
 							debug.printl('"'+n+'"'+" already exists");
 							return;
 						}
 						TileMap newMap = new TileMap(-w, -h, (2*w)+1, (2*h)+1);
-						Arrays.fill(newMap.data, 0); //Initialize the array
-						newFile.createFile();
-						FileContent data = newFile.getContent();
-						DataOutputStream dos = new DataOutputStream(data.getOutputStream());
+						Arrays.fill(newMap.blocks, Blocks.grass); //Initialize the array
+						newFile.createNewFile();
+						OutputStream os = new FileOutputStream(newFile);
 						try {
-							Savers.mapSaver.save(dos, newMap);
-						} catch (IOException e1) {
+							String text = SaveLoad.save(new World(newMap));
+							byte[] bin = text.getBytes();
+							os.write(bin);
+							os.flush();
+							os.close();
+						} catch (Exception e1) {
 							debug.pstm(e1, "Failed to write the new world.");
 							return;
 						}
 						debug.printl("Successfully created "+n);
 						dispose();
-					} catch (FileSystemException e1) {
+					} catch (Exception e1) {
 						debug.pstm(e1, "Failed to create the world file");
 						return;
 					}

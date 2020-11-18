@@ -9,9 +9,9 @@ import javax.swing.JButton;
 
 import mmb.DDDEngine.DDDTutorial;
 import mmb.DDDEngine2.FlightWindow;
+import mmb.WORLD.tileworld.REWORK.TileGUI;
 import mmb.debug.Debugger;
 import mmb.online.LoginInfo;
-import mmb.tileworld.TileGUI;
 import mmb.ui.ExternalMods;
 import mmb.ui.game.SelectGame;
 import mmb.ui.game.WorldFrame;
@@ -24,10 +24,9 @@ import net.miginfocom.swing.MigLayout;
 import java.awt.Color;
 
 public class MainMenu extends JFrame {
-	private Debugger debug = new Debugger("Main menu");
-	private JPanel contentPane;
+	private final Debugger debug = new Debugger("Main menu");
+	private final JPanel contentPane;
 
-	private boolean flightsel = true;
 	/**
 	 * Launch the application.
 	 */
@@ -54,7 +53,7 @@ public class MainMenu extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[119px][103px][105px]", "[23px][23px][23px][][]"));
+		contentPane.setLayout(new MigLayout("", "[119px][103px][105px]", "[23px][23px][23px][][][]"));
 		
 		JButton btnConfigureExternalContent = new JButton("Configure external content");
 		btnConfigureExternalContent.addActionListener(new ActionListener() {
@@ -75,15 +74,6 @@ public class MainMenu extends JFrame {
 		btnNewGame.setBackground(Color.GREEN);
 		btnNewGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//new SelectGame().setVisible(true);
-				//flightsel = false;
-				//if(flightsel) {
-				//	new FlightWindow().run();
-				//}else {
-				//	System.setProperty("sun.java2d.opengl", "true");
-				//	DDDTutorial.main();
-				//}
-				//new Flight2();
 				new SelectGame().setVisible(true);
 			}
 		});

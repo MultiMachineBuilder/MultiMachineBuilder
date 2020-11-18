@@ -1,0 +1,18 @@
+{
+  "sizeX": 3,
+  "sizeY": 3,
+  "startX": -1,
+  "startY": -1,
+  "world": [
+    "mmb.grass",
+    "mmb.grass",
+    "mmb.grass",
+    "wireworld.head",
+    "wireworld.wire",
+    "wireworld.tail",
+    "wireworld.tail",
+    "mmb.grass",
+    "mmb.grass"
+  ],
+  "data": {}
+}

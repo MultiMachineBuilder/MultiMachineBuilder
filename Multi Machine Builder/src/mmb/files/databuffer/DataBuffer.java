@@ -24,9 +24,9 @@ public class DataBuffer<T> {
 	/**
 	 * Use delete() to delete values, rather than setting them to null
 	 */
-	private List<T> data;
+	private final List<T> data;
 	
-	private List<Integer> emptyValues;
+	private final List<Integer> emptyValues;
 	
 	
 	
@@ -142,23 +142,22 @@ public class DataBuffer<T> {
 			//If all values are used, extend list
 			data.add(value);
 			return data.size() - 1;
-		}else {
-			//Reuse old index
-			int index;
-			loop:
-			while(true) {
-				index = emptyValues.get(0);
-				emptyValues.remove(0);
-				if(get(index) == null){
-					break loop;
-				}
-				if(emptyValues.isEmpty()) {
-					return create(value);
-				}
-			}
-			replace(index, value);
-			return index;
 		}
+		//Reuse old index
+		int index;
+		loop:
+		while(true) {
+			index = emptyValues.get(0);
+			emptyValues.remove(0);
+			if(get(index) == null){
+				break loop;
+			}
+			if(emptyValues.isEmpty()) {
+				return create(value);
+			}
+		}
+		replace(index, value);
+		return index;
 	}
 	
 	public int size() {

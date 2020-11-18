@@ -3,21 +3,21 @@
  */
 package mmb.files.saves;
 
-import org.apache.commons.vfs2.FileObject;
+import mmb.DATA.file.AdvancedFile;
 
 /**
  * @author oskar
  *
  */
 public class Save {
-	public FileObject file;
+	public AdvancedFile file;
 	public String name;
 	/**
 	 * 
 	 */
-	public Save(FileObject file) {
+	public Save(AdvancedFile file) {
 		this.file = file;
-		name = file.getName().getBaseName();
+		name = AdvancedFile.dirName(file.name())[1];
 	}
 
 }

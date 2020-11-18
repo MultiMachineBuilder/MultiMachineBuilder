@@ -5,4 +5,4 @@
  * @author oskar
  *
  */
-package mmb.world;
+package mmb.WORLD;

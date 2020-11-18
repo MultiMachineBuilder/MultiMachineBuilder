@@ -1,18 +1,15 @@
 package mmb.ui.window;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import org.apache.commons.vfs2.FileSystemException;
-
-import mmb.addon.loader.ModLoader;
+import mmb.MODS.loader.ModLoader;
+import mmb.WORLD.tileworld.block.Blocks;
 import mmb.debug.Debugger;
 
-import java.awt.GridLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -24,9 +21,9 @@ import java.net.MalformedURLException;
 import java.util.Date;
 
 public class Loading extends JFrame {
-	private static Debugger debug = new Debugger("LOAD");
+	private static final Debugger debug = new Debugger("LOAD");
 	static public Loading loader;
-	private JPanel contentPane;
+	private final JPanel contentPane;
 	JLabel st1 = new JLabel("State 1");
 	JLabel st2 = new JLabel("State 2");
 	JLabel st3 = new JLabel("State 3");
@@ -59,7 +56,9 @@ public class Loading extends JFrame {
 					}
 					loader = new Loading();
 					loader.setVisible(true);
-					loader.continueLoading();
+					new Thread(() -> {
+						loader.continueLoading();
+					}).start();
 				} catch (Exception e) {
 					debug.pstm(e, "GAME HAS CRASHED");
 				}
@@ -111,16 +110,13 @@ public class Loading extends JFrame {
 	void continueLoading() {
 		String JGLLib = new File("./natives/").getAbsolutePath();
 		System.setProperty("org.lwjgl.librarypath", JGLLib);
-		try {
-			ModLoader.modloading();
-		} catch (FileSystemException e) {
-			debug.pstm(e, "Unable to load mods");
-		}
+		
+		ModLoader.modloading();
 		MainMenu.running();
 		setVisible(false); //you can't see me!
 		dispose(); //Destroy the JFrame object
 	}
-	private static void createRandomErrors() throws IllegalAccessException, FileNotFoundException, IOException, MalformedURLException {
+	private static void createRandomErrors() throws IllegalAccessException, IOException {
 		int x = (int) (Math.random() * 6);
 		switch(x) {
 		case 0:

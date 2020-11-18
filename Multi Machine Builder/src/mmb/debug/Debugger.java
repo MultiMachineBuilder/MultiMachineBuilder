@@ -50,7 +50,7 @@ public class Debugger {
 	public void printl(String s) {
 		print(s + "\n");
 	}
-	private void printFinal(String s) {
+	private static void printFinal(String s) {
 		log.print(s);
 		System.out.print(s);
 	}
