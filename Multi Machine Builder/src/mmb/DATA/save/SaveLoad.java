@@ -158,11 +158,11 @@ public class SaveLoad {
 				BlockEntityData bed = ent2.bed;
 				Block b =  ent2.type;
 				JsonObject jo = b.bel.saver.apply(bed);
-				jo.add("blocktype", new JsonPrimitive(saveBlock(ent.getBlock())));
+				jo.add("blocktype", new JsonPrimitive(saveBlock(ent.getType())));
 				target.add(jo);
 			}else {
 				//save as block
-				target.add(new JsonPrimitive(saveBlock(ent.getBlock())));
+				target.add(new JsonPrimitive(saveBlock(ent.getType())));
 			}
 			
 		}

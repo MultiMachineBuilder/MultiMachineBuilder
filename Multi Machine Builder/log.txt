@@ -51,19 +51,19 @@
 (MOD - mod.zip) Loading a modfile: mod.zip
 (MOD - mod.zip) entry: mod/
 (MOD - mod.zip) entry: mod/ModdedHorrorMonsters.class
-(MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
-(MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
 (MOD - mod.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mod.zip
 (ClassPath) entry size: 0
 (ClassPath) entry size: 2471040
+(MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
+(MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
 (MOD - mod.zip) Processing mod/
 (MOD - mod.zip) Directory: mod/
 (MOD - mod.zip) Processing mod/ModdedHorrorMonsters.class
 (MOD - mod.zip) File: mod/ModdedHorrorMonsters.class
 (MOD - mod.zip) entry: mod/ModdedHorrorMonsters.class
 (MOD - mod.zip) Couldn't open zip or jar file mod.zip
-(MOD - mod.zip) java.lang.UnsupportedClassVersionError
-(MOD - mod.zip) mod/ModdedHorrorMonsters has been compiled by a more recent version of the Java Runtime (class file version 8745.8770), this version of the Java Runtime only recognizes class file versions up to 52.0
+(MOD - mod.zip) java.lang.ClassFormatError
+(MOD - mod.zip) Unknown constant tag 89 in class file mod/ModdedHorrorMonsters
 (MOD - mod.zip) java.lang.ClassLoader.defineClass1(Native Method)
 (MOD - mod.zip) java.lang.ClassLoader.defineClass(Unknown Source)
 (MOD - mod.zip) java.lang.ClassLoader.defineClass(Unknown Source)
@@ -88,7 +88,7 @@
 (MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Thu Nov 19 15:11:01 CET 2020
+(MOD-LOADER) RELEASED Thu Nov 19 15:32:38 CET 2020
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) =============================================MOD INFORMATION FOR C:\Users\oskar\eclipse-workspace\Multi Machine Builder=============================================
@@ -98,3 +98,8 @@
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mod.zip
 (MOD-LOADER) Corrupt
 (MOD-LOADER) HOORAY, IT'S OVER!
+(SELECT A SAVE) Found save: Chatter.mworld
+(SELECT A SAVE) Found save: test2.mworld
+(SELECT A SAVE) Found save: test3.mworld
+(SELECT A SAVE) Found save: world 1.mworld
+(SELECT A SAVE) Found 19 saves

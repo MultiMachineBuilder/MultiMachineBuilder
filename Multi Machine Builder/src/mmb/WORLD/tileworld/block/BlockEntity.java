@@ -48,7 +48,7 @@ public class BlockEntity implements MapEntry{
 	}
 
 	@Override
-	public Block getBlock() {
+	public Block getType() {
 		return type;
 	}
 	
@@ -76,5 +76,10 @@ public class BlockEntity implements MapEntry{
 	@Deprecated
 	public BlockEntity survivalClone() {
 		return null;
+	}
+
+	@Override
+	public double getVolume() {
+		return type.getVolume();
 	}
 }

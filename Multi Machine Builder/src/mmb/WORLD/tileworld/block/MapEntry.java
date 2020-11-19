@@ -3,17 +3,19 @@
  */
 package mmb.WORLD.tileworld.block;
 
+import mmb.WORLD.inventory.Item;
 import mmb.WORLD.tileworld.BlockDrawer;
 
 /**
  * @author oskar
  *
  */
-public interface MapEntry extends Cloneable {
+public interface MapEntry extends Cloneable, Item {
 	BlockDrawer getTexture();
-	String getID();
 	default boolean isBlockEntity() {return false;}
-	Block getBlock();
+	@Deprecated default Block getBlock() {
+		return getType();
+	}
 	
 	/**
 	 * 
@@ -32,6 +34,14 @@ public interface MapEntry extends Cloneable {
 	 */
     MapEntry deepClone();
 	
+	@Override
+	default String getName() {
+		return getType().getName();
+	}
+	@Override
+	default String getID() {
+		return getType().getID();
+	}
 	/**
 	 * Survival mode clone. Coming in 0.4
 	 * @return
@@ -48,5 +58,7 @@ public interface MapEntry extends Cloneable {
 		if(b.bel == null || b.bel.blockEntityGen == null) return b;
 		return new BlockEntity(b);
 	}
+	@Override
+	public Block getType();
 	
 }

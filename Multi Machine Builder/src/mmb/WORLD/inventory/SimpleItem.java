@@ -7,7 +7,7 @@ package mmb.WORLD.inventory;
  * @author oskar
  *
  */
-public class SimpleItem implements Item {
+public class SimpleItem implements ItemType {
 	public double volume = 0.02;
 	public String id;
 	public String name;

@@ -9,7 +9,7 @@ package mmb.WORLD.inventory;
  */
 public interface Item {
 	public double getVolume();
-	public SimpleItem getType();
+	public ItemType getType();
 	public String getName();
 	public String getID();
 }

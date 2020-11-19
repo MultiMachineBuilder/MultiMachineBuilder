@@ -8,6 +8,8 @@ import java.util.function.Supplier;
 
 import com.google.gson.JsonObject;
 
+import mmb.WORLD.inventory.ItemType;
+import mmb.WORLD.inventory.SimpleItem;
 import mmb.WORLD.tileworld.BlockDrawer;
 import mmb.debug.Debugger;
 
@@ -15,9 +17,11 @@ import mmb.debug.Debugger;
  * @author oskar
  *
  */
-public class Block implements MapEntry{
+public class Block implements MapEntry, ItemType{
 	public BlockDrawer texture;
 	private String name;
+	public String title;
+	public double volume = 0.02;
 	private static final Debugger debug = new Debugger("BLOCKS");
 	
 	/**
@@ -42,6 +46,7 @@ public class Block implements MapEntry{
 	}
 	
 	public void register(String name) {
+		if(title == null) title = name;
 		this.name = name;
 		Blocks.blocks.put(name, this);
 		debug.printl("Creating a block: "+name);
@@ -66,7 +71,7 @@ public class Block implements MapEntry{
 	}
 
 	@Override
-	public Block getBlock() {
+	public Block getType() {
 		return this;
 	}
 
@@ -93,6 +98,16 @@ public class Block implements MapEntry{
 	public BlockEntity load(JsonObject object) {
 		BlockEntityData bed = bel.loader.apply(object);
 		return new BlockEntity(this, bed);
+	}
+
+	@Override
+	public double getVolume() {
+		return 0.02;
+	}
+
+	@Override
+	public String getName() {
+		return title;
 	}
 
 }
