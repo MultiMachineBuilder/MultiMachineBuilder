@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8efe5cc3-67f7-4ef0-bcb0-53d7a0e48a34" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1jjhI3DckgU18qgVO4H0wYd0zep" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/TO REWORK" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.excludes" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Loading" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mmb.ui.window.Loading" />
+      <module name="Multi Machine Builder" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mmb.ui.window.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Loading" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8efe5cc3-67f7-4ef0-bcb0-53d7a0e48a34" name="Default Changelist" comment="" />
+      <created>1604323325476</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604323325476</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="592" y="159" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1604323969044">
+      <screen x="0" y="0" width="1739" height="939" />
+    </state>
+    <state x="592" y="159" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1739.939@0.0.1739.939" timestamp="1604323969044" />
+    <state x="629" y="340" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1604323889976">
+      <screen x="0" y="0" width="1739" height="939" />
+    </state>
+    <state x="629" y="340" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1739.939@0.0.1739.939" timestamp="1604323889976" />
+    <state x="650" y="225" key="FileChooserDialogImpl" timestamp="1604323759085">
+      <screen x="0" y="0" width="1739" height="939" />
+    </state>
+    <state x="650" y="225" key="FileChooserDialogImpl/0.0.1739.939@0.0.1739.939" timestamp="1604323759085" />
+    <state x="379" y="115" key="SettingsEditor" timestamp="1604323760409">
+      <screen x="0" y="0" width="1739" height="939" />
+    </state>
+    <state x="379" y="115" key="SettingsEditor/0.0.1739.939@0.0.1739.939" timestamp="1604323760409" />
+  </component>
+</project>
