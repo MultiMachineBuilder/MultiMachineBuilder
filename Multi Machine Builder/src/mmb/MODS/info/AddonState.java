@@ -8,8 +8,9 @@ package mmb.MODS.info;
  *
  */
 public enum AddonState {
-	NOEXIST, BROKEN, DISABLE, ENABLE, DEAD, API;
+	NOEXIST, BROKEN, DISABLE, ENABLE, DEAD, API, MEDIA;
 	
+	@Override
 	public String toString() {
 		switch(this) {
 		case BROKEN:
@@ -24,6 +25,8 @@ public enum AddonState {
 			return "Missing files";
 		case API:
 			return "API";
+		case MEDIA:
+			return "Media package";
 		default:
 			return "Unknown";
 		}

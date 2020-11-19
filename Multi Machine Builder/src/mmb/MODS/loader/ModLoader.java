@@ -188,7 +188,7 @@ public class ModLoader {
 				Thread thr = new Thread(() -> {
 					if(ai.central == null) {
 						debug.printl(ai.name + " is not a mod and will not be run");
-						ai.state = AddonState.API;
+						ai.state = ai.hasClasses?AddonState.API:AddonState.MEDIA;
 					}else {
 						debug.printl("Start 1st stage for " + ai.name);
 						ai.central.firstOpen();

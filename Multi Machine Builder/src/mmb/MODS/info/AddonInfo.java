@@ -29,6 +29,7 @@ public class AddonInfo {
 	public StreamClassLoader classes;
 	public List<JarEntry> contents = new ArrayList<JarEntry>();
 	public Map<JarEntry, byte[]> files = new Hashtable<JarEntry, byte[]>();
+	public boolean hasClasses = false;
 	
 	//About MMB
 	public ModMetadata mmbmod = null;

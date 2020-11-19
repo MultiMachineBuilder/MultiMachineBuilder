@@ -20,11 +20,81 @@
 (BLOCKS) {mmb.grass=Block [name=mmb.grass, leaveBehind=mmb.air], mmb.air=Block [name=mmb.air, leaveBehind=mmb.air], wireworld.tail=Block [name=wireworld.tail, leaveBehind=wireworld.wire], wireworld.head=Block [name=wireworld.head, leaveBehind=wireworld.wire], wireworld.wire=Block [name=wireworld.wire, leaveBehind=mmb.grass], wireworld.chatter=Block [name=wireworld.chatter, leaveBehind=mmb.grass]}
 (MOD-LOADER) Loading mods
 (MOD-LOADER) Finding all files to load
-(MOD-LOADER) Directory: D:\MultiMachineBuilder\Multi Machine Builder\mods
-(MOD-LOADER) Found 1 mod files
-(MOD - Multi Machine Builder) Opening a modfile: D:\MultiMachineBuilder\Multi Machine Builder
-(MOD - Multi Machine Builder) D:\MultiMachineBuilder\Multi Machine Builder does not exist.
-(MOD-LOADER) =============================================MOD INFORMATION FOR D:\MultiMachineBuilder\Multi Machine Builder=============================================
-(MOD-LOADER) LOCATED AT D:\MultiMachineBuilder\Multi Machine Builder
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mod.zip
+(MOD-LOADER) Found 3 mod files
+(MOD - HelloWorld 0.2 & 0.3.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
+(MOD - HelloWorld 0.2 & 0.3.jar) Loading a modfile: HelloWorld 0.2 & 0.3.jar
+(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
+(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
+(MOD - HelloWorld 0.2 & 0.3.jar) entry: .project
+(MOD - HelloWorld 0.2 & 0.3.jar) entry: .classpath
+(MOD - HelloWorld 0.2 & 0.3.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
+(ClassPath) entry size: -1
+(ClassPath) entry size: -1
+(ClassPath) entry size: -1
+(ClassPath) entry size: -1
+(MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/package-info.class
+(MOD - HelloWorld 0.2 & 0.3.jar) File: helloworld/package-info.class
+(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
+(MOD - HelloWorld 0.2 & 0.3.jar) Processing .classpath
+(MOD - HelloWorld 0.2 & 0.3.jar) File: .classpath
+(MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/HelloWorld.class
+(MOD - HelloWorld 0.2 & 0.3.jar) File: helloworld/HelloWorld.class
+(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
+(BLOCKS) Creating a block: wireworld.beep
+(HW) Hello, world!
+(MOD - HelloWorld 0.2 & 0.3.jar) Processing .project
+(MOD - HelloWorld 0.2 & 0.3.jar) File: .project
+(MOD - mod.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mod.zip
+(MOD - mod.zip) Loading a modfile: mod.zip
+(MOD - mod.zip) entry: mod/
+(MOD - mod.zip) entry: mod/ModdedHorrorMonsters.class
+(MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
+(MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
+(MOD - mod.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mod.zip
+(ClassPath) entry size: 0
+(ClassPath) entry size: 2471040
+(MOD - mod.zip) Processing mod/
+(MOD - mod.zip) Directory: mod/
+(MOD - mod.zip) Processing mod/ModdedHorrorMonsters.class
+(MOD - mod.zip) File: mod/ModdedHorrorMonsters.class
+(MOD - mod.zip) entry: mod/ModdedHorrorMonsters.class
+(MOD - mod.zip) Couldn't open zip or jar file mod.zip
+(MOD - mod.zip) java.lang.UnsupportedClassVersionError
+(MOD - mod.zip) mod/ModdedHorrorMonsters has been compiled by a more recent version of the Java Runtime (class file version 8745.8770), this version of the Java Runtime only recognizes class file versions up to 52.0
+(MOD - mod.zip) java.lang.ClassLoader.defineClass1(Native Method)
+(MOD - mod.zip) java.lang.ClassLoader.defineClass(Unknown Source)
+(MOD - mod.zip) java.lang.ClassLoader.defineClass(Unknown Source)
+(MOD - mod.zip) io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)
+(MOD - mod.zip) java.lang.ClassLoader.loadClass(Unknown Source)
+(MOD - mod.zip) java.lang.ClassLoader.loadClass(Unknown Source)
+(MOD - mod.zip) io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
+(MOD - mod.zip) mmb.MODS.loader.AddonLoader.interpretClassFile(AddonLoader.java:219)
+(MOD - mod.zip) mmb.MODS.loader.AddonLoader.processFile(AddonLoader.java:181)
+(MOD - mod.zip) mmb.MODS.loader.AddonLoader.lambda$2(AddonLoader.java:166)
+(MOD - mod.zip) java.util.Hashtable.forEach(Unknown Source)
+(MOD - mod.zip) mmb.MODS.loader.AddonLoader.whenWorking(AddonLoader.java:165)
+(MOD - mod.zip) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:115)
+(MOD - mod.zip) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:75)
+(MOD - mod.zip) java.lang.Thread.run(Unknown Source)
+(MOD-LOADER) Start 1st stage for Hello, world!
+(MOD-LOADER) End 1st stage for Hello, world!
+(MOD-LOADER) Start 2nd stage for Hello, world!
+(MOD-LOADER) End 2nd stage for Hello, world!
+(MOD-LOADER) Start 3rd stage for Hello, world!
+(MOD-LOADER) End 3rd stage for Hello, world!
+(MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
+(MOD-LOADER) Operative
+(MOD-LOADER) RELEASED Thu Nov 19 15:11:01 CET 2020
+(MOD-LOADER) MADE BY Monniasza
+(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
+(MOD-LOADER) =============================================MOD INFORMATION FOR C:\Users\oskar\eclipse-workspace\Multi Machine Builder=============================================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder
 (MOD-LOADER) Missing files
+(MOD-LOADER) =============================================MOD INFORMATION FOR mod.zip=============================================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mod.zip
+(MOD-LOADER) Corrupt
 (MOD-LOADER) HOORAY, IT'S OVER!

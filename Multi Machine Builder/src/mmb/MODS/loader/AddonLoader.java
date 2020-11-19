@@ -253,6 +253,7 @@ public class AddonLoader {
         			debug.printl("Other interface: " + in.getCanonicalName());
         		}
         	}
+        	a.hasClasses = true;
 		} catch (ClassNotFoundException e1) {
 			debug.pstm(e1, "Failed to find class "+name);
 		} catch (IOException e1) {
