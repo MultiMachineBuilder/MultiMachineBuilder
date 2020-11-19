@@ -18,7 +18,6 @@
 (BLOCKS) Creating a block: wireworld.wire
 (BLOCKS) Creating a block: wireworld.chatter
 (BLOCKS) {mmb.grass=Block [name=mmb.grass, leaveBehind=mmb.air], mmb.air=Block [name=mmb.air, leaveBehind=mmb.air], wireworld.tail=Block [name=wireworld.tail, leaveBehind=wireworld.wire], wireworld.head=Block [name=wireworld.head, leaveBehind=wireworld.wire], wireworld.wire=Block [name=wireworld.wire, leaveBehind=mmb.grass], wireworld.chatter=Block [name=wireworld.chatter, leaveBehind=mmb.grass]}
-(FILES) C:\Users\oskar\eclipse-workspace\Multi Machine Builder/
 (MOD-LOADER) Loading mods
 (MOD-LOADER) Finding all files to load
 (MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods
@@ -26,13 +25,13 @@
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (MOD-LOADER) Found 3 mod files
 (MOD - HelloWorld 0.2 & 0.3.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
-(MOD - sound.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (MOD - HelloWorld 0.2 & 0.3.jar) Loading a modfile: HelloWorld 0.2 & 0.3.jar
+(MOD - sound.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
+(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
+(MOD - sound.zip) Loading a modfile: sound.zip
+(MOD - sound.zip) entry: sound/
 (MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
 (MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
-(MOD - sound.zip) Loading a modfile: sound.zip
-(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
-(MOD - sound.zip) entry: sound/
 (MOD - sound.zip) entry: sound/error.mp3
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: .project
@@ -48,34 +47,34 @@
 (MOD - HelloWorld 0.2 & 0.3.jar) File: helloworld/package-info.class
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
 (MOD - sound.zip) entry: sound/song.wav
-(MOD - HelloWorld 0.2 & 0.3.jar) Processing .classpath
-(MOD - HelloWorld 0.2 & 0.3.jar) File: .classpath
-(MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/HelloWorld.class
-(MOD - HelloWorld 0.2 & 0.3.jar) File: helloworld/HelloWorld.class
-(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
 (MOD - sound.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (ClassPath) entry size: 0
 (ClassPath) entry size: 11215
 (ClassPath) entry size: 14270
 (ClassPath) entry size: 1379840
+(MOD - HelloWorld 0.2 & 0.3.jar) Processing .classpath
+(MOD - HelloWorld 0.2 & 0.3.jar) File: .classpath
+(MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/HelloWorld.class
+(MOD - HelloWorld 0.2 & 0.3.jar) File: helloworld/HelloWorld.class
+(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
+(ClassPath) entry size: 1379840
 (BLOCKS) Creating a block: wireworld.beep
 (HW) Hello, world!
-(MOD - HelloWorld 0.2 & 0.3.jar) Processing .project
-(MOD - HelloWorld 0.2 & 0.3.jar) File: .project
-(ClassPath) entry size: 1379840
 (MOD - sound.zip) Processing sound/song.mp3
 (MOD - sound.zip) File: sound/song.mp3
+(MOD - HelloWorld 0.2 & 0.3.jar) Processing .project
 (MOD - sound.zip) Sound file
+(MOD - HelloWorld 0.2 & 0.3.jar) File: .project
 (SOUNDS) Failed to load MP3 file song.mp3 java.io.IOException
 Caused by: Cause unknown No MPEG data in the specified input stream!
 (SOUNDS) fr.delthas.javamp3.Sound.<init>(Sound.java:51)
-(SOUNDS) mmb.DATA.contents.sound.Sounds.load(Sounds.java:47)
-(SOUNDS) mmb.MODS.loader.AddonLoader.processFile(AddonLoader.java:211)
-(SOUNDS) mmb.MODS.loader.AddonLoader.lambda$2(AddonLoader.java:170)
+(SOUNDS) mmb.DATA.contents.sound.Sounds.load(Sounds.java:46)
+(SOUNDS) mmb.MODS.loader.AddonLoader.processFile(AddonLoader.java:204)
+(SOUNDS) mmb.MODS.loader.AddonLoader.lambda$2(AddonLoader.java:166)
 (SOUNDS) java.util.Hashtable.forEach(Unknown Source)
-(SOUNDS) mmb.MODS.loader.AddonLoader.whenWorking(AddonLoader.java:168)
-(SOUNDS) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:118)
-(SOUNDS) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:78)
+(SOUNDS) mmb.MODS.loader.AddonLoader.whenWorking(AddonLoader.java:165)
+(SOUNDS) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:115)
+(SOUNDS) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:75)
 (SOUNDS) java.lang.Thread.run(Unknown Source)
 (MOD - sound.zip) Processing sound/error.wav
 (MOD - sound.zip) File: sound/error.wav
@@ -86,13 +85,13 @@ Caused by: Cause unknown No MPEG data in the specified input stream!
 (SOUNDS) Failed to load WAV file song.wav javax.sound.sampled.UnsupportedAudioFileException
 Caused by: Cause unknown could not get audio input stream from input stream
 (SOUNDS) javax.sound.sampled.AudioSystem.getAudioInputStream(Unknown Source)
-(SOUNDS) mmb.DATA.contents.sound.Sounds.load(Sounds.java:39)
-(SOUNDS) mmb.MODS.loader.AddonLoader.processFile(AddonLoader.java:211)
-(SOUNDS) mmb.MODS.loader.AddonLoader.lambda$2(AddonLoader.java:170)
+(SOUNDS) mmb.DATA.contents.sound.Sounds.load(Sounds.java:38)
+(SOUNDS) mmb.MODS.loader.AddonLoader.processFile(AddonLoader.java:204)
+(SOUNDS) mmb.MODS.loader.AddonLoader.lambda$2(AddonLoader.java:166)
 (SOUNDS) java.util.Hashtable.forEach(Unknown Source)
-(SOUNDS) mmb.MODS.loader.AddonLoader.whenWorking(AddonLoader.java:168)
-(SOUNDS) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:118)
-(SOUNDS) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:78)
+(SOUNDS) mmb.MODS.loader.AddonLoader.whenWorking(AddonLoader.java:165)
+(SOUNDS) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:115)
+(SOUNDS) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:75)
 (SOUNDS) java.lang.Thread.run(Unknown Source)
 (MOD - sound.zip) Processing sound/
 (MOD - sound.zip) Directory: sound/
@@ -104,13 +103,13 @@ Caused by: Cause unknown null
 (SOUNDS) fr.delthas.javamp3.Decoder.samples_III(Decoder.java:625)
 (SOUNDS) fr.delthas.javamp3.Decoder.decodeFrame(Decoder.java:546)
 (SOUNDS) fr.delthas.javamp3.Sound.decodeFullyInto(Sound.java:228)
-(SOUNDS) mmb.DATA.contents.sound.Sounds.load(Sounds.java:51)
-(SOUNDS) mmb.MODS.loader.AddonLoader.processFile(AddonLoader.java:211)
-(SOUNDS) mmb.MODS.loader.AddonLoader.lambda$2(AddonLoader.java:170)
+(SOUNDS) mmb.DATA.contents.sound.Sounds.load(Sounds.java:50)
+(SOUNDS) mmb.MODS.loader.AddonLoader.processFile(AddonLoader.java:204)
+(SOUNDS) mmb.MODS.loader.AddonLoader.lambda$2(AddonLoader.java:166)
 (SOUNDS) java.util.Hashtable.forEach(Unknown Source)
-(SOUNDS) mmb.MODS.loader.AddonLoader.whenWorking(AddonLoader.java:168)
-(SOUNDS) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:118)
-(SOUNDS) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:78)
+(SOUNDS) mmb.MODS.loader.AddonLoader.whenWorking(AddonLoader.java:165)
+(SOUNDS) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:115)
+(SOUNDS) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:75)
 (SOUNDS) java.lang.Thread.run(Unknown Source)
 (MOD-LOADER) Start 1st stage for Hello, world!
 (MOD-LOADER) End 1st stage for Hello, world!
@@ -125,51 +124,10 @@ Caused by: Cause unknown null
 (MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Wed Nov 18 14:05:21 CET 2020
+(MOD-LOADER) RELEASED Thu Nov 19 11:14:00 CET 2020
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) =============================================MOD INFORMATION FOR sound.zip=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (MOD-LOADER) API
 (MOD-LOADER) HOORAY, IT'S OVER!
-(SELECT A SAVE) Found save: Chatter.mworld
-(SELECT A SAVE) Found save: test2.mworld
-(SELECT A SAVE) Found save: test3.mworld
-(SELECT A SAVE) Found save: world 1.mworld
-(SELECT A SAVE) Found 19 saves
-(WORLD) Retrieving the file
-(WORLD) Opening data stream
-(WORLD) Preparing loading space
-(WORLD) Decoding text data
-(WORLD) Parsing world data
-(JSON-WORLD LOADER) Loading data layers
-(JSON-WORLD LOADER) Successfully loaded data layers
-(JSON-WORLD LOADER) Loading world
-(JSON-WORLD LOADER) Successfully loaded world
-(SELECT A SAVE) Successfully opened Chatter.mworld
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(BLOCKS) WHAT THE HECK?!!
-(WORLD) Stringyfiyng the world
-(JSON-WORLD LOADER) Saving dimensions
-(JSON-WORLD LOADER) Saving blocks
-(JSON-WORLD LOADER) Saving data layers
-(WORLD) Opening data stream
-(WORLD) Encoding JSON data
-(WORLD) Writing byte data
-(WORLD) Closing data stream
-(WORLD) Successfully saved

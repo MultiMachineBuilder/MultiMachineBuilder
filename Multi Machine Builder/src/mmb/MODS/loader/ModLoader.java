@@ -138,7 +138,6 @@ public class ModLoader {
 		new Blocks();
 		Loading.state1("Loading tools");
 		Tools.create();
-		FileGetter.init();		
 		try {
 			external = new String(Files.readAllBytes(Paths.get("ext.txt"))).split("\n");
 		} catch (IOException e1) {

@@ -83,5 +83,9 @@ public class LocalFile implements AdvancedFile {
 	public boolean exists() {
 		return file.exists();
 	}
+	@Override
+	public void create() {
+		file.createNewFile();
+	}
 
 }

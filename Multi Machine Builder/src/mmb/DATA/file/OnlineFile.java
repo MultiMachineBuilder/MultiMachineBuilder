@@ -108,5 +108,9 @@ public class OnlineFile implements AdvancedFile {
 	public boolean exists() {
 		return true;
 	}
+	@Override
+	public void create() {
+		throw new RuntimeException(new IOException("Unable to create files remotely using OnlineFile"));
+	}
 
 }

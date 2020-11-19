@@ -150,4 +150,6 @@ public interface AdvancedFile {
 		stream.close();
 	}
 	
+	public void create();
+	
 }

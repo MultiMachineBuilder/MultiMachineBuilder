@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import javax.swing.SwingUtilities;
 
+import mmb.DATA.contents.texture.Textures;
 import mmb.DATA.file.FileGetter;
 import mmb.WORLD.tileworld.BlockDrawer;
 import mmb.WORLD.tileworld.DrawerImage;
@@ -27,11 +28,7 @@ public class ToolCopyPaste implements BlockTool {
 	 * 
 	 */
 	public ToolCopyPaste() {
-		try {
-			texture = new DrawerImage(FileGetter.getTexture("copy.png"));
-		} catch (IOException e) {
-			debug.pstm(e, "Couldn't load the texture");
-		}
+		texture = new DrawerImage(Textures.get("copy.png"));
 	}
 
 	@Override

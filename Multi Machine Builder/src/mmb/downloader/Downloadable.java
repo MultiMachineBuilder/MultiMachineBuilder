@@ -6,10 +6,7 @@ package mmb.downloader;
 import java.util.Map;
 
 import org.apache.commons.csv.CSVRecord;
-import org.apache.commons.vfs2.AllFileSelector;
-import org.apache.commons.vfs2.FileObject;
-import org.apache.commons.vfs2.FileSystemException;
-
+import mmb.DATA.file.AdvancedFile;
 import mmb.DATA.file.FileGetter;
 import mmb.debug.Debugger;
 
@@ -38,20 +35,20 @@ public class Downloadable {
 	 * Downloads this file to a given directory
 	 * @param directory
 	 */
-	public void download(FileObject directory) {
+	public void download(AdvancedFile directory) {
 		String fileName = download.substring(download.lastIndexOf(47 /*slash*/)+1, download.length()-1);
 		String tgt = "mods/"+fileName;
 		try {
 			//fileName = fileName.substring(fileName.lastIndexOf(92 /*backslash*/)+1, fileName.length()-1);
 			debug.printl("Connecting with "+download);
-			FileObject source = FileGetter.getFileAbsolute(download);
+			AdvancedFile source = FileGetter.getFile(fileName);
 			
 			debug.printl("Opening "+tgt);
-			FileObject target = FileGetter.getFileRelative(tgt);
+			AdvancedFile target = FileGetter.getFile(tgt);
 			
 			debug.printl("Downloading "+download);
-			target.copyFrom(target, new AllFileSelector());
-		} catch (FileSystemException e) {
+			source.copyTo(target);
+		} catch (Exception e) {
 			debug.print("Couldn't download ");
 			debug.print(download);
 			debug.print(" to ");

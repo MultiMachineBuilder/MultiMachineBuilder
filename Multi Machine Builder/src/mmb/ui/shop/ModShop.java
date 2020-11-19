@@ -17,10 +17,8 @@ import net.miginfocom.swing.MigLayout;
 
 import org.apache.commons.csv.*;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.vfs2.AllFileSelector;
-import org.apache.commons.vfs2.FileObject;
-import org.apache.commons.vfs2.FileSystemException;
 
+import mmb.DATA.file.AdvancedFile;
 import mmb.DATA.file.FileGetter;
 import mmb.debug.Debugger;
 
@@ -47,10 +45,10 @@ public class ModShop extends JFrame {
 			split = split[0].split("/");
 			String newName = split[split.length-1];
 			try {
-				FileObject target = FileGetter.getFileRelative("mods/"+newName);
-				target.createFile();
-				FileObject source = FileGetter.getFileAbsolute(dl);
-				target.copyFrom(source, new AllFileSelector());
+				AdvancedFile target = FileGetter.getFile("mods/"+newName);
+				target.create();
+				AdvancedFile source = FileGetter.getFile(dl);
+				source.copyTo(target);
 				debug2.printl("Download successful");
 			} catch (Exception e) {
 				debug2.pstm(e, "Couldn't download file");
@@ -93,8 +91,8 @@ public class ModShop extends JFrame {
 		info.add(lblAgeRating, "cell 0 1");
 		
 		try {
-			addData(FileGetter.getFileRelative("database.txt").getContent().getInputStream());
-		} catch (FileSystemException e) {
+			addData(FileGetter.getFile("database.txt").getInputStream());
+		} catch (Exception e) {
 			debug.pstm(e, "Couldn't download the database");
 		}
 	}

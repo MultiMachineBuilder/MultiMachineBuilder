@@ -34,7 +34,6 @@ public class Sounds {
 			switch(ext) {
 			case "wav":
 				//Wave
-				
 				loaded = AudioSystem.getClip();
 				AudioInputStream ais = AudioSystem.getAudioInputStream(new BufferedInputStream(soundData));
 				loaded.open(ais);

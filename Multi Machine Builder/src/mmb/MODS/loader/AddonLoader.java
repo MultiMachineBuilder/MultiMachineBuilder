@@ -11,9 +11,6 @@ import java.util.jar.*;
 import javax.imageio.ImageIO;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.vfs2.FileObject;
-import org.apache.commons.vfs2.FileSystemException;
-
 import io.github.micwan88.helperclass4j.ByteClassLoader;
 import mmb.DATA.contents.GameContents;
 import mmb.DATA.contents.sound.Sounds;
@@ -166,15 +163,11 @@ public class AddonLoader {
 			a.state = AddonState.DEAD;
 		}
 		a.files.forEach((JarEntry entry, byte[] data) -> {
-			try {
-				processFile(entry, data);
-			} catch (FileSystemException e) {
-				debug.pstm(e, "Failed to process "+entry.getName());
-			}
+			processFile(entry, data);
 		}); 
 	}
 	
-	private void processFile(JarEntry meta, byte[] data) throws FileSystemException {
+	private void processFile(JarEntry meta, byte[] data){
 		String name = meta.getName();
 		String[] tmp = AdvancedFile.baseExtension(name);
 		String ext = tmp[1];
@@ -214,7 +207,7 @@ public class AddonLoader {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	private void interpretClassFile(JarEntry ent, String base) throws FileSystemException{
+	private void interpretClassFile(JarEntry ent, String base){
 		// This FileObject represents a class. Now, what class does it represent?
 		String name = ent.getName();
 		debug.printl("entry: "+name);
@@ -278,7 +271,7 @@ public class AddonLoader {
 	 * @return
 	 */
 	@SuppressWarnings("static-method")
-	private ModMetadata loadMMB(FileObject ent) {
+	private ModMetadata loadMMB(InputStream ent) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -288,7 +281,7 @@ public class AddonLoader {
 	 * @return
 	 */
 	@SuppressWarnings("static-method")
-	private ModMetadata loadMC(FileObject ent) {
+	private ModMetadata loadMC(InputStream ent) {
 		// TODO Auto-generated method stub
 		return null;
 	}
