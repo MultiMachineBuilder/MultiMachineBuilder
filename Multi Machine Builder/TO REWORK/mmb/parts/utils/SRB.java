@@ -1,10 +1,14 @@
 /**
- * 
+ *
  */
 package mmb.parts.utils;
 
+import com.jme3.scene.Geometry;
+import com.jme3.scene.Spatial;
+import mmb.parts.Part;
 import mmb.parts.modules.PartModule;
 import mmb.parts.modules.PartModuleEffects;
+import mmb.world2.Circumstances;
 
 /**
  * @author oskar
@@ -13,7 +17,7 @@ import mmb.parts.modules.PartModuleEffects;
 public class SRB implements PartModule {
 
 	/**
-	 * 
+	 *
 	 */
 	public SRB() {
 		// TODO Auto-generated constructor stub
@@ -23,9 +27,27 @@ public class SRB implements PartModule {
 	 * @see mmb.parts.modules.PartModule#effects()
 	 */
 	@Override
-	public PartModuleEffects effects() {
-		// TODO Auto-generated method stub
-		return null;
+	public void build() {
+
 	}
 
+	@Override
+	public void flight(Circumstances cs) {
+
+	}
+
+	@Override
+	public void partCreation(Part p) {
+
+	}
+
+	@Override
+	public void partCrash(Circumstances cs) {
+
+	}
+
+	@Override
+	public void createGeometry(Geometry g, Spatial s) {
+
+	}
 }

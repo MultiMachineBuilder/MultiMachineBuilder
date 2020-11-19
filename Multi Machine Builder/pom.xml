@@ -5,6 +5,11 @@
         <name>Maven Central</name>
         <url>https://repo.maven.apache.org/maven2/</url>
     </repository>
+		  <repository>
+			  <id>jcenter</id>
+			  <name>jcenter</name>
+			  <url>https://jcenter.bintray.com</url>
+		  </repository>
   </repositories>
   <modelVersion>4.0.0</modelVersion>
   <groupId>MMB</groupId>
@@ -30,20 +35,14 @@
           <target>1.8</target>
         </configuration>
       </plugin>
-      <plugin>
-      	<groupId>org.joml</groupId>
-      	<artifactId>joml</artifactId>
-      	<version>1.9.25</version>
-      </plugin>
     </plugins>
   </build>
   	<properties>
 		<lwjgl.version>3.2.3</lwjgl.version>
 		<lwjgl.natives>natives-windows</lwjgl.natives>
 	</properties>
-
 	<dependencyManagement>
-		<dependencies>
+	<dependencies>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-bom</artifactId>
@@ -51,12 +50,15 @@
 			<scope>import</scope>
 			<type>pom</type>
 		</dependency>
-		<dependency>
-		  <groupId>com.google.guava</groupId>
-		  <artifactId>guava</artifactId>
-		  <version>30.0-jre</version>
-		</dependency>
-		<dependency>
+	</dependencies>
+	</dependencyManagement>
+	<dependencies>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>30.0-jre</version>
+			</dependency>
+			<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl</artifactId>
 		</dependency>
@@ -64,6 +66,19 @@
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-assimp</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.joml</groupId>
+			<artifactId>joml</artifactId>
+			<version>1.9.25</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eluder.juniter/juniter -->
+		<dependency>
+			<groupId>org.eluder.juniter</groupId>
+			<artifactId>juniter</artifactId>
+			<version>1.1.2</version>
+			<type>pom</type>
+		</dependency>
+
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-bgfx</artifactId>
@@ -343,6 +358,48 @@
 			<artifactId>lwjgl-tinyfd</artifactId>
 			<classifier>${lwjgl.natives}</classifier>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.vecmath/vecmath -->
+		<dependency>
+			<groupId>javax.vecmath</groupId>
+			<artifactId>vecmath</artifactId>
+			<version>1.5.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-vfs2 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-vfs2</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<!-- https://mvnrepository.com/artifact/com.miglayout/miglayout-swing -->
+		<dependency>
+			<groupId>com.miglayout</groupId>
+			<artifactId>miglayout-swing</artifactId>
+			<version>5.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/fr.delthas/javamp3 -->
+		<dependency>
+			<groupId>fr.delthas</groupId>
+			<artifactId>javamp3</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-csv -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>1.8</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.github.micwan88/helperclass4j -->
+		<dependency>
+			<groupId>io.github.micwan88</groupId>
+			<artifactId>helperclass4j</artifactId>
+			<version>1.0.3</version>
+		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-tootle</artifactId>
@@ -368,6 +425,17 @@
 			<artifactId>lwjgl-zstd</artifactId>
 			<classifier>${lwjgl.natives}</classifier>
 		</dependency>
-		</dependencies>
-	</dependencyManagement>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
 </project>

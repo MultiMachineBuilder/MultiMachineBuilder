@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package mmb.world2.quantities;
 
@@ -8,24 +8,24 @@ package mmb.world2.quantities;
  *
  */
 public class UnitDisplay {
-	public static voltage = new UnitDisplay(4, "㎴ ㎵ ㎶ ㎷ V㎸ ㎹"),
+	/*public static voltage = new UnitDisplay(4, "㎴ ㎵ ㎶ ㎷ V㎸ ㎹"),
 			      current = new UnitDisplay(4, "㎀ �? ㎂ �?A ㎄"),
 			      power   = new UnitDisplay(4, "㎺ ㎻ ㎼ ㎽ V㎾ ㎿");
-			      
-	
-	
-	
-	
+	b??d kompilacji
+	*/
+
+
+
 	/**
-	 * 
+	 *
 	 */
 	public UnitDisplay(byte offsetFromNorm, String series) {
-		
+
 	}
-	
-	
-	
+
+
+
 	static {
-		
+
 	}
 }

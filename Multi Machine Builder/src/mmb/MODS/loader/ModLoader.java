@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package mmb.MODS.loader;
 
@@ -68,7 +68,7 @@ public class ModLoader {
 	 * External content which will be loaded
 	 */
 	public static String[] external = new String[] {};
-	
+
 	@SuppressWarnings("javadoc")
 	public static void waitAllFirstRuns() {
 		runningFirstRunThreads.forEach((Thread t) -> {try {
@@ -78,7 +78,7 @@ public class ModLoader {
 		}
 		});
 	}
-	
+
 	@SuppressWarnings("javadoc")
 	public static void waitAllContentRuns() {
 		runningContentAddThreads.forEach((Thread t) -> {try {
@@ -88,7 +88,7 @@ public class ModLoader {
 		}
 		});
 	}
-	
+
 	@SuppressWarnings("javadoc")
 	public static void waitAllIntegrationRuns() {
 		runningIntegrationThreads.forEach((Thread t) -> {try {
@@ -107,7 +107,7 @@ public class ModLoader {
 		}
 		});
 	}
-	
+
 	private static void walkTextures(File f) {
 		if(f.isFile()) {
 			String absPath = f.getAbsolutePath();
@@ -147,12 +147,16 @@ public class ModLoader {
 		state1("Initial load");
 		debug.printl("Loading mods");
 		debug.printl("Finding all files to load");
-		
+
 		//Load normal textures from cla
-		
-		
+
+
 		// Find modfiles to load;
 		try {
+			File f = new File("mods/");
+			if (!f.exists() || !f.isDirectory()) {
+   				f.mkdirs();
+			}
 			walkDirectory(new File("mods/")); //to b
 		} catch (IOException e) {
 			debug.pstm(e, "Couldn't load mods, the list may be incomplete");
@@ -173,7 +177,7 @@ public class ModLoader {
 		});
 		//Wait until all files load
 		waitAllLoaders();
-		
+
 		//First runs. Similar process for all three stages
 		GameContents.addons.forEach((AddonInfo ai) -> {
 			if(ai == null) {
@@ -190,17 +194,17 @@ public class ModLoader {
 						ai.central.firstOpen();
 						debug.printl("End 1st stage for " + ai.name);
 					}
-					
+
 				});
 				runningFirstRunThreads.add(thr);
 				thr.start();
 			}
 		});
 		waitAllFirstRuns();
-		
+
 		//Content runs
 		GameContents.addons.forEach((AddonInfo ai) -> {
-			if(ai.state == AddonState.ENABLE) { 
+			if(ai.state == AddonState.ENABLE) {
 				Thread thr = new Thread(() -> {
 					debug.printl("Start 2nd stage for " + ai.name);
 					ai.central.makeContent();
@@ -211,8 +215,8 @@ public class ModLoader {
 			}
 		});
 		waitAllContentRuns();
-		
-		
+
+
 		//Integration runs
 		GameContents.addons.forEach((AddonInfo ai) -> {
 			if(ai.state == AddonState.ENABLE) {
@@ -226,14 +230,14 @@ public class ModLoader {
 			}
 		});
 		waitAllIntegrationRuns();
-		
+
 		summarizeMods();
 		debug.printl("HOORAY, IT'S OVER!");
 	}
-	
+
 	@Deprecated
 	/**
-	 * 
+	 *
 	 * @param folder
 	 * @throws IOException
 	 */
@@ -243,7 +247,7 @@ public class ModLoader {
 		}else {
 			debug.printl("File: " + folder.getCanonicalPath());
 		}
-		
+
 		File[] modfiles = ListFiles.findFiles(folder);
 		for(int i = 0; i < modfiles.length; i++) { //Copy over found modfiles
 			try {
@@ -260,7 +264,7 @@ public class ModLoader {
 		}
 	}
 	/**
-	 * 
+	 *
 	 * @param folder
 	 * @param action
 	 */
@@ -294,13 +298,13 @@ public class ModLoader {
 		}catch(Exception e) {
 			debug.pstm(e, "THIS MESSAGE INDICATES MALFUNCTION OF FILE PATH SYSTEM OR JAVA. Couldn't get path of the file");
 		}
-		
+
 	}
-	
+
 	static void summarizeMods() {
 		GameContents.addons.forEach((AddonInfo ai) -> {summarizeMod(ai);});
 	}
-	
+
 	static void summarizeMod(AddonInfo ai) {
 		debug.printl("=============================================MOD INFORMATION FOR " + ai.name + "=============================================");
 		debug.printl("LOCATED AT " + ai.path);
@@ -319,11 +323,11 @@ public class ModLoader {
 					}else {
 						debug.printl("RELEASED " + ai.mmbmod.release.toString());
 					}
-					
+
 					debug.printl("MADE BY " + ai.mmbmod.author);
 					debug.printl("DESCRIPTION: " + ai.mmbmod.description);
 				}
-				
+
 			default:
 				break;
 			}
