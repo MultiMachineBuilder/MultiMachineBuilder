@@ -104,7 +104,7 @@ public final class Savers {
 		};
 	}
 	
-	public final static Saver<TileMap> mapSaver = new Saver<TileMap>() {
+	/*public final static Saver<TileMap> mapSaver = new Saver<TileMap>() {
 
 		@Override
 		public void save(DataOutputStream dos, TileMap data) throws IOException {
@@ -132,5 +132,5 @@ public final class Savers {
 			return new TileMap(startX, startY, sizeX, sizeY, data);
 		}
 		
-	};
+	};*/
 }

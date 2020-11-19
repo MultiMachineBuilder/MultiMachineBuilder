@@ -9,15 +9,13 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-import mmb.items.Item;
-
 /**
  * @author oskar
  *
  */
-public class ItemGrid extends JPanel implements List2D<Item> {
+public class ItemGrid extends JPanel /*implements List2D<Item>*/ {
 	public Dimension gridSize;
-	private Item[] items;
+	//private Item[] items;
 	/**
 	 * Create the panel.
 	 */
@@ -34,7 +32,7 @@ public class ItemGrid extends JPanel implements List2D<Item> {
 	/* (non-Javadoc)
 	 * @see java.awt.Component#repaint()
 	 */
-	@Override
+	/*@Override
 	public void repaint() {
 		Graphics2D g = (Graphics2D) getGraphics();
 		int x = 0;
@@ -60,7 +58,7 @@ public class ItemGrid extends JPanel implements List2D<Item> {
 				g.drawImage(visual, x, y, null);
 			}
 		}
-	}
+	}*/
 	
 
 }

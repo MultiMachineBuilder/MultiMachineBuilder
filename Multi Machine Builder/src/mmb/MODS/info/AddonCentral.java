@@ -1,7 +1,5 @@
 package mmb.MODS.info;
 
-import mmb.addon.patch.Overrides;
-
 /**
  * Central class of each addon
  * @author oskar
@@ -22,8 +20,8 @@ public interface AddonCentral {
 	 * Create overrides and implementations
 	 * @return
 	 */
-	default Overrides overrides() {
-		return new Overrides();
-	}
+	/*default Overrides overrides() {
+		//return new Overrides();
+	}*/
 
 }

@@ -7,8 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import mmb.geom.Viewport;
-
 public class World extends JFrame {
 
 	private final JPanel contentPane;
@@ -28,7 +26,7 @@ public class World extends JFrame {
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		
-		Viewport vp = new Viewport(40, 40);
+		//Viewport vp = new Viewport(40, 40);
 	}
 
 }

@@ -11,8 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import org.apache.commons.vfs2.FileContent;
-import org.apache.commons.vfs2.FileSystemException;
 import org.joml.Vector2d;
 import org.junit.rules.DisableOnDebug;
 

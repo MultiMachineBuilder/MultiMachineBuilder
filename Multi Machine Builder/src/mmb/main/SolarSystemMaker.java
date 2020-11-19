@@ -3,14 +3,13 @@
  */
 package mmb.main;
 
-import mmb.world2.planets.SolarSystem;
-
 /**
  * @author oskar
  *
  */
+@Deprecated
 public class SolarSystemMaker {
-	public static SolarSystem ss;
+	//public static SolarSystem ss;
 	public static void makeSolarSystem() {
 		
 	}

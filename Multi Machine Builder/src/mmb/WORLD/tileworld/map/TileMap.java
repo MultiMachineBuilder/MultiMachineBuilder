@@ -112,7 +112,7 @@ public class TileMap implements WorldDataProvider{
 		return indexAbsolute(p.x, p.y);
 	}
 	
-	@Deprecated
+	/*@Deprecated
 	public static TileMap loadv1(DataInputStream dis) throws IOException {
 		TileMap tm = Savers.mapSaver.read(dis);
 		tm.blockdata.add(Blocks.air);
@@ -129,7 +129,7 @@ public class TileMap implements WorldDataProvider{
 	@Deprecated
 	public void save(OutputStream os) throws IOException {
 		handlers[1].save(new DataOutputStream(os), this);
-	}
+	}*/
 	
 	/*static {
 		handlers[0] = Savers.mapSaver;

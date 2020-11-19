@@ -41,6 +41,6 @@ public class DataSaveLoaderFromFields {
 	}
 	
 	public ModDataSaver svrFromFields() {
-		fields.
+		return null;
 	}
 }

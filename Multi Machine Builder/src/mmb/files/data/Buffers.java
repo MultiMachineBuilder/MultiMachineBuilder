@@ -8,5 +8,5 @@ package mmb.files.data;
  *
  */
 public class Buffers {
-	public final DataBuffer<VolatileInventory> bufferInventory;
+	//public final DataBuffer<VolatileInventory> bufferInventory;
 }

@@ -8,17 +8,13 @@ import java.util.*;
 
 import mmb.DATA.file.LocalFile;
 import mmb.MODS.info.AddonInfo;
-import mmb.addon.*;
-import mmb.parts.*;
-
-import static e3d.MathPlus.*;
 /**
  * @author oskar
  *
  */
 
 public class GameContents {
-	public static Hashtable<String, PartSpec> parts = new Hashtable<String, PartSpec>();
+	//public static Hashtable<String, PartSpec> parts = new Hashtable<String, PartSpec>();
 	public static List<AddonInfo> addons = new ArrayList<AddonInfo>();
 	@SuppressWarnings("rawtypes")
 	public static List<Class> loadedClasses = new ArrayList<Class>();

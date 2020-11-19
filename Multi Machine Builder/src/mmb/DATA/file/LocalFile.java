@@ -84,7 +84,7 @@ public class LocalFile implements AdvancedFile {
 		return file.exists();
 	}
 	@Override
-	public void create() {
+	public void create() throws IOException {
 		file.createNewFile();
 	}
 

@@ -20,15 +20,16 @@ import mmb.files.databuffer.Savers;
  * @author oskar
  *
  */
+@Deprecated
 public class TMSaver {
 	private static final Debugger debug = new Debugger("SAVE & LOAD TILEWORLD");
 
 	public static void save2(DataOutputStream dos, TileMap map) throws IOException {
-		save1(dos, map);
+		//save1(dos, map);
 		Savers.txtsSaver.save(dos, (String[]) map.blockdata.toArray());
 	}
 
-	public static void save1(DataOutputStream dos, TileMap data) throws IOException {
+	/*public static void save1(DataOutputStream dos, TileMap data) throws IOException {
 		dos.writeInt(data.startX);
 		dos.writeInt(data.startY);
 		dos.writeInt(data.sizeX);
@@ -36,10 +37,10 @@ public class TMSaver {
 		for(int i = 0; i < data.size; i++) {
 			dos.writeInt(data.data[i]);
 		}
-	}
+	}*/
 	
 	//Readers
-	
+	/*
 	public static TileMap read2(DataInputStream dis) throws IOException {
 		TileMap tm = read1(dis);
 		String[] read = Savers.txtsSaver.read(dis);
@@ -48,9 +49,9 @@ public class TMSaver {
 			blocks.add(Blocks.blocks.get(read[i]));
 		}
 		return tm;
-	}
-	public static TileMap read1(DataInputStream dis) throws IOException {
+	}*/
+	/*public static TileMap read1(DataInputStream dis) throws IOException {
 		return TileMap.loadv1(dis);
-	}
+	}*/
 
 }

@@ -20,7 +20,7 @@ import mmb.MODS.info.AddonCentral;
 import mmb.MODS.info.AddonInfo;
 import mmb.MODS.info.AddonState;
 import mmb.MODS.info.ModMetadata;
-import mmb.addon.EmptyAddonCentral;
+import mmb.MODS.EmptyAddonCentral;
 import mmb.debug.Debugger;
 
 /**

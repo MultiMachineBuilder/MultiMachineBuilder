@@ -150,6 +150,6 @@ public interface AdvancedFile {
 		stream.close();
 	}
 	
-	public void create();
+	public void create() throws IOException;
 	
 }

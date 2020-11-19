@@ -6,7 +6,6 @@ package mmb.MODS.info;
 import java.util.*;
 import java.util.jar.*;
 
-import org.apache.commons.vfs2.FileObject;
 
 import mmb.DATA.file.AdvancedFile;
 import mmb.DATA.file.OnlineFile;

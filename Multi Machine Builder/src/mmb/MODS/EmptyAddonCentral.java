@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.addon;
+package mmb.MODS;
 
 import mmb.MODS.info.AddonCentral;
 import mmb.MODS.info.ModMetadata;

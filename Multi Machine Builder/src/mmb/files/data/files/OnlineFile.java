@@ -3,14 +3,19 @@
  */
 package mmb.files.data.files;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
+
+import mmb.DATA.file.AdvancedFile;
 
 /**
  * @author oskar
  *
  */
-public class OnlineFile implements GameFile<URL> {
+public class OnlineFile implements AdvancedFile /*GameFile<URL>*/ {
 	
 	private final URL url;
 	private final Runnable run = null;
@@ -37,7 +42,6 @@ public class OnlineFile implements GameFile<URL> {
 	/* (non-Javadoc)
 	 * @see mmb.files.data.files.GameFile#getErrorMessage()
 	 */
-	@Override
 	public Throwable getErrorMessage() {
 		// TODO Auto-generated method stub
 		return null;
@@ -48,7 +52,6 @@ public class OnlineFile implements GameFile<URL> {
 	/* (non-Javadoc)
 	 * @see mmb.files.data.files.GameFile#getPath()
 	 */
-	@Override
 	public String getPath() {
 		return url.toString();
 	}
@@ -58,7 +61,6 @@ public class OnlineFile implements GameFile<URL> {
 	/* (non-Javadoc)
 	 * @see mmb.files.data.files.GameFile#getRawData()
 	 */
-	@Override
 	public URL getRawData() {
 		return url;
 	}
@@ -68,8 +70,63 @@ public class OnlineFile implements GameFile<URL> {
 	/* (non-Javadoc)
 	 * @see mmb.files.data.files.GameFile#addLoadedHandler(java.lang.Runnable)
 	 */
-	@Override
 	public void addLoadedHandler(Runnable data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public OutputStream getOutputStream() throws IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public File asFile() throws IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public String name() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public AdvancedFile parent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public AdvancedFile[] children() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public boolean exists() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	@Override
+	public void create() throws IOException {
 		// TODO Auto-generated method stub
 		
 	}

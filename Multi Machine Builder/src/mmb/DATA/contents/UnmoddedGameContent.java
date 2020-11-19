@@ -3,9 +3,6 @@
  */
 package mmb.DATA.contents;
 
-import mmb.material.Fuel;
-import static e3d.MathPlus.*;
-
 /**
  * @author oskar
  *
@@ -25,7 +22,7 @@ public class UnmoddedGameContent {
 	}
 	
 	
-	private void materials() {
+	/*private void materials() {
 		Fuel gasoline = new Fuel();
 		
 		gasoline.criticalTemperature = degC(280);
@@ -33,7 +30,7 @@ public class UnmoddedGameContent {
 		
 		Fuel diesel = new Fuel();
 		
-	}
+	}*/
 	
 	/**
 	 * Pressure strength of tanks:
