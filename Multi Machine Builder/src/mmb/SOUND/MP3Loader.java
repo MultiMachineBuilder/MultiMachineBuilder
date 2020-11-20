@@ -37,11 +37,11 @@ public class MP3Loader {
         }
     });
 
-    public MP3Loader(InputStream stream) throws IOException {
+    public MP3Loader(InputStream stream) {
         bitstream = stream;
     }
 
-    public MP3Loader(byte[] bytes) throws IOException {
+    public MP3Loader(byte[] bytes) {
         bitstream = new ByteArrayInputStream(bytes);
     }
 
