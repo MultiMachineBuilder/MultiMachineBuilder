@@ -26,7 +26,7 @@ import java.awt.event.MouseWheelEvent;
  */
 public class UIBasis extends JPanel{
 	@Override
-	protected void finalize() throws Throwable {
+	// file deepcode ignore dontOverrideFinalize: finalize() at the end	protected void finalize() throws Throwable {
 		contents.destroy();
 		super.finalize();
 	}

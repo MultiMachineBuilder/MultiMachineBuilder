@@ -70,7 +70,7 @@ public class ModShop extends JFrame {
 		
 		JButton btnDownload = new JButton("Download");
 		btnDownload.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			@Override public void actionPerformed(ActionEvent arg0) {
 				int id = list.getSelectedIndex();
 				mods.get(id).download();
 			}

@@ -113,7 +113,7 @@ public class AddonLoader {
 					debug.printl("Loading a modfile: " + a.name);
 					unzip();
 					whenWorking();
-				}catch(Throwable e) {
+				}catch(Exception e) {
 					debug.printl("Couldn't open zip or jar file " + a.name);
 					debug.pst(e);
 					a.state = AddonState.BROKEN;
