@@ -29,7 +29,8 @@ public class Blocks {
 	public static final Block 
 					air, grass,
 					ww_head, ww_tail, ww_wire,
-					ww_chatter;
+					ww_chatter, plank, stone, leaves,
+					iron_ore, copper_ore, silicon_ore, crafting, logs;
 	private static boolean isGeneratingFurther = false;
 	/**
 	 * @return the isGeneratingFurther
@@ -87,6 +88,30 @@ public class Blocks {
 		ww_chatter.bel = logBEL;
 		ww_chatter.update = (e -> handlerChat(e));
 		
+		stone = new Block();
+		stone.texture = new DrawerImage(Textures.get("stone.png"));
+		
+		plank = new Block();
+		plank.texture = new DrawerImage(Textures.get("plank.png"));
+		
+		leaves = new Block();
+		leaves.texture = new DrawerImage(Textures.get("leaves.png"));
+		
+		iron_ore = new Block();
+		iron_ore.texture = new DrawerImage(Textures.get("iron_ore.png"));
+		
+		copper_ore = new Block();
+		copper_ore.texture = new DrawerImage(Textures.get("copper_ore.png"));
+		
+		silicon_ore = new Block();
+		silicon_ore.texture = new DrawerImage(Textures.get("silicon_ore.png"));
+		
+		crafting = new Block();
+		crafting.texture = new DrawerImage(Textures.get("crafting.png"));
+		
+		logs = new Block();
+		logs.texture = new DrawerImage(Textures.get("log.png"));
+		
 		//Register
 		grass.register("mmb.grass");
 		air.register("mmb.air");
@@ -94,7 +119,14 @@ public class Blocks {
 		ww_head.register("wireworld.head");
 		ww_wire.register("wireworld.wire");
 		ww_chatter.register("wireworld.chatter");
-		
+		stone.register("mmb.stone");
+		plank.register("mmb.planks");
+		leaves.register("mmb.leaves");
+		iron_ore.register("mmb.iore");
+		copper_ore.register("mmb.cpore");
+		silicon_ore.register("mmb.silicon_ore");
+		crafting.register("mmb.craft");
+		logs.register("mmb.tree");
 		
 		debug.printl(blocks.toString());
 	}

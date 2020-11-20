@@ -162,7 +162,11 @@ public class SaveLoad {
 				target.add(jo);
 			}else {
 				//save as block
-				target.add(new JsonPrimitive(saveBlock(ent.getType())));
+				if(ent == null) {
+					target.add(new JsonPrimitive("null"));
+				}else {
+					target.add(new JsonPrimitive(saveBlock(ent.getType())));
+				}
 			}
 			
 		}

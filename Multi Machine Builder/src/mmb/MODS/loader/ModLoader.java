@@ -18,6 +18,7 @@ import mmb.DATA.file.AdvancedFile;
 import mmb.DATA.file.FileGetter;
 import mmb.MODS.info.AddonInfo;
 import mmb.MODS.info.AddonState;
+import mmb.SOUND.MP3Loader;
 import mmb.WORLD.tileworld.block.Blocks;
 import mmb.WORLD.tileworld.tool.Tools;
 
@@ -59,6 +60,8 @@ public class ModLoader {
 	public static List<Thread> runningContentAddThreads = new ArrayList<Thread>();
 	@SuppressWarnings("javadoc")
 	public static List<Thread> runningIntegrationThreads = new ArrayList<Thread>();
+	
+	public static List<MP3Loader> MP3s = new ArrayList<MP3Loader>();
 	/**
 	 * The number of installed mods currently found
 	 */
@@ -105,6 +108,15 @@ public class ModLoader {
 		} catch (InterruptedException e) {
 			debug.pstm(e, "Stopping loading prematurely");
 		}
+		});
+	}
+	
+	public static void waitMP3s() {
+		MP3s.forEach((mp3) -> {
+			try {
+				mp3.untilLoad();
+			} catch (InterruptedException e) {}
+			
 		});
 	}
 

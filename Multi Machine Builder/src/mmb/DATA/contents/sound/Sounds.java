@@ -14,6 +14,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import fr.delthas.javamp3.Sound;
 import mmb.DATA.file.AdvancedFile;
+import mmb.SOUND.MP3Loader;
 import mmb.debug.Debugger;
 
 /**
@@ -43,14 +44,9 @@ public class Sounds {
 			case "mp1":
 			case "mp2":
 			case "mp3":
-				try(Sound sound = new Sound(new BufferedInputStream(soundData))) {
-					loaded = AudioSystem.getClip();
-					byte[] bytes = new byte[0];
-					ByteArrayOutputStream baos = new ByteArrayOutputStream();
-					int read = sound.decodeFullyInto(baos);
-					int samples = read / 2;
-					loaded.open(new AudioInputStream(soundData, sound.getAudioFormat(), samples));
-				}
+				MP3Loader mp3l = new MP3Loader(soundData);
+				mp3l.run();
+				loaded = mp3l.getClip();
 			break;
 			default:
 				debug.printl("Unsupported format: "+ext);

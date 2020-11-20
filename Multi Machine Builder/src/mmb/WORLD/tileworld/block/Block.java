@@ -3,6 +3,7 @@
  */
 package mmb.WORLD.tileworld.block;
 
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -10,7 +11,9 @@ import com.google.gson.JsonObject;
 
 import mmb.WORLD.inventory.ItemType;
 import mmb.WORLD.inventory.SimpleItem;
+import mmb.WORLD.inventory.items.Items;
 import mmb.WORLD.tileworld.BlockDrawer;
+import mmb.WORLD.tileworld.world.BlockProxy;
 import mmb.debug.Debugger;
 
 /**
@@ -34,6 +37,8 @@ public class Block implements MapEntry, ItemType{
 	 */
 	public Consumer<BlockUpdateEvent> update = null;
 	
+	public BiConsumer<BlockUpdateEvent, BlockProxy> activate = null;
+	
 	/**
 	 * A block which is left behind when mined.
 	 */
@@ -50,6 +55,7 @@ public class Block implements MapEntry, ItemType{
 		this.name = name;
 		Blocks.blocks.put(name, this);
 		debug.printl("Creating a block: "+name);
+		Items.items.put(name, this);
 	}
 
 	/**

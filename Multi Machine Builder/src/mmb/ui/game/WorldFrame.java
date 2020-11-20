@@ -33,6 +33,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 
 import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
 
 /**
  * @author oskar
@@ -88,6 +90,15 @@ public class WorldFrame extends JFrame {
 			tileGUI.offset = new Vector2d(-5, -5);
 			success = true;
 			tileGUI.setActive(true);
+			
+			JPanel panel = new JPanel();
+			contentPane.add(panel, BorderLayout.NORTH);
+			
+			JButton survivalInv = new JButton("Survival Inventory & Crafting");
+			panel.add(survivalInv);
+			
+			JLabel remaining = new JLabel("x items left");
+			panel.add(remaining);
 		} catch (Exception e) {
 			debug.pstm(e, "Failed to load world");
 			dispose();

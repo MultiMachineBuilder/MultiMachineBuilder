@@ -81,7 +81,9 @@ public class TileMap implements WorldDataProvider{
 	 * @return tile
 	 */
 	public Block get2(int x, int y) {
-		return blocks[indexAtPos(x, y)].getBlock();
+		MapEntry z = get(x, y);
+		if(z == null) return null;
+		return z.getType();
 	}
 	@Override
 	public MapEntry get(int x, int y) {

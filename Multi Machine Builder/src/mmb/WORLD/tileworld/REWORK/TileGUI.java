@@ -308,8 +308,11 @@ public class TileGUI extends JPanel implements WorldDataProvider {
 		int x2 = x1 + map.blocks.sizeX;
 		int y2 = y1 + map.blocks.sizeY;
 		for(int x = x1; x < x2; x++) {
+			lp:
 			for(int y = y1; y < y2; y++) {
-				Block b = map.get(x, y).getBlock();
+				MapEntry xx = map.get(x, y);
+				if(xx == null) continue lp;
+				Block b = xx.getType();
 				if(b != null && b.update != null) {
 					BlockUpdateEvent bue = new BlockUpdateEvent();
 					bue.block = new Point(x, y);

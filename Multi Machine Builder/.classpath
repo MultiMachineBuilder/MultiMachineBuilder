@@ -203,5 +203,8 @@
 	<classpathentry kind="lib" path="lib/xerces-2_12_1/xml-apis.jar"/>
 	<classpathentry kind="lib" path="lib/mp3spi/mp3spi-1.9.5.jar.zip"/>
 	<classpathentry kind="lib" path="lib/tritonus/tritonus_share.jar.zip"/>
+	<classpathentry kind="lib" path="lib/mp3spi/mp3spi-1.9.5.jar"/>
+	<classpathentry kind="lib" path="lib/tritonus/tritonus_share.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-release-3.2.3-custom/joml-1.9.25-sources.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

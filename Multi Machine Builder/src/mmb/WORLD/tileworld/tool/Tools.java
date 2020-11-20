@@ -9,6 +9,7 @@ import java.util.List;
 import mmb.WORLD.tileworld.tools.ToolMine;
 import mmb.WORLD.tileworld.tools.ToolPlace;
 import mmb.WORLD.tileworld.tools.ToolTextEditor;
+import mmb.WORLD.tileworld.tools.ToolVoid;
 
 /**
  * @author oskar
@@ -29,5 +30,6 @@ public class Tools {
 		addTool(new ToolPlace(false));
 		addTool(new ToolCopyPaste());
 		addTool(new ToolTextEditor());
+		addTool(new ToolVoid());
 	}
 }
