@@ -201,5 +201,7 @@
 	<classpathentry kind="lib" path="lib/xerces-2_12_1/xercesImpl.jar"/>
 	<classpathentry kind="lib" path="lib/xerces-2_12_1/xercesSamples.jar"/>
 	<classpathentry kind="lib" path="lib/xerces-2_12_1/xml-apis.jar"/>
+	<classpathentry kind="lib" path="lib/mp3spi/mp3spi-1.9.5.jar.zip"/>
+	<classpathentry kind="lib" path="lib/tritonus/tritonus_share.jar.zip"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
