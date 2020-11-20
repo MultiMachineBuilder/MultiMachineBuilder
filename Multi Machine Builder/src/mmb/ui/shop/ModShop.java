@@ -105,8 +105,7 @@ public class ModShop extends JFrame {
 			data.forEach(this::addRecord);
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			debug.pstm(e, "Failed to download");
 		}
 	}
 	

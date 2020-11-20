@@ -126,7 +126,7 @@ public class WorldFrame extends JFrame {
 	      //Creating a BufferedReader object
 	      debug.printl("Preparing loading space");
 	      BufferedReader reader = new BufferedReader(isReader);
-	      StringBuffer sb = new StringBuffer();
+	      StringBuilder sb = new StringBuilder();
 	      String str;
 	      debug.printl("Decoding text data");
 	      while((str = reader.readLine())!= null){

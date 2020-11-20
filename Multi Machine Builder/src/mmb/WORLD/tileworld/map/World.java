@@ -105,7 +105,7 @@ public class World {
 	 * @see mmb.WORLD.tileworld.map.TileMap#getAbsolute(int, int)
 	 */
 	public Block getAbsolute(int x, int y) {
-		return blocks.getAbsolute(x, y).getBlock();
+		return blocks.getAbsolute(x, y).getType();
 	}
 
 	/**

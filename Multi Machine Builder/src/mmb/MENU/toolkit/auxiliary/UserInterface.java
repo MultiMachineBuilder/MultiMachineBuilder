@@ -3,9 +3,6 @@
  */
 package mmb.MENU.toolkit.auxiliary;
 
-import java.awt.Graphics;
-
-import mmb.MENU.toolkit.Container;
 import mmb.MENU.toolkit.UIComponent;
 import mmb.MENU.toolkit.components.ComponentGenerator;
 import mmb.MENU.toolkit.components.ComponentSource;
@@ -36,7 +33,6 @@ public abstract class UserInterface<T> {
 	public UserInterface() {
 
 	};
-	@SuppressWarnings("null")
 	public void create(){
 		onSetUp();
 		create(loadNewData());

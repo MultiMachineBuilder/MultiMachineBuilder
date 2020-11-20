@@ -73,7 +73,7 @@ public class ModLoader {
 	public static void waitAllFirstRuns() {
 		runningFirstRunThreads.forEach((Thread t) -> {try {
 			t.join();
-		} catch (InterruptedException e) {
+		// file deepcode ignore catchingInterruptedExceptionWithoutInterrupt: run for all  mods		} catch (InterruptedException e) {
 			debug.pstm(e, "Stopping loading prematurely");
 		}
 		});
@@ -83,7 +83,7 @@ public class ModLoader {
 	public static void waitAllContentRuns() {
 		runningContentAddThreads.forEach((Thread t) -> {try {
 			t.join();
-		} catch (InterruptedException e) {
+		// file deepcode ignore catchingInterruptedExceptionWithoutInterrupt: run for all  mods		} catch (InterruptedException e) {
 			debug.pstm(e, "Stopping loading prematurely");
 		}
 		});
@@ -92,7 +92,7 @@ public class ModLoader {
 	@SuppressWarnings("javadoc")
 	public static void waitAllIntegrationRuns() {
 		runningIntegrationThreads.forEach((Thread t) -> {try {
-			t.join();
+			// file deepcode ignore catchingInterruptedExceptionWithoutInterrupt: run for all  mods			t.join();
 		} catch (InterruptedException e) {
 			debug.pstm(e, "Stopping loading prematurely");
 		}
@@ -154,8 +154,8 @@ public class ModLoader {
 		// Find modfiles to load;
 		try {
 			File f = new File("mods/");
-			if (!f.exists() || !f.isDirectory()) {
-   				f.mkdirs();
+			if (!f.mkdirs() || !f.isDirectory()) {
+   				debug.printl("Added missing mods directory");
 			}
 			walkDirectory(new File("mods/")); //to b
 		} catch (IOException e) {

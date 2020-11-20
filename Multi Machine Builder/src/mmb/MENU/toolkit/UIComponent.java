@@ -121,7 +121,7 @@ public abstract class UIComponent implements Sized, ComponentSource{
 	public SharedEventHandler getCommonEventHandler() {return null;}
 	
 	@Override
-	protected void finalize() throws Throwable {
+	// file deepcode ignore dontOverrideFinalize: finalize() runs after destroy()	protected void finalize() throws Throwable {
 		destroy();
 		super.finalize();
 	}

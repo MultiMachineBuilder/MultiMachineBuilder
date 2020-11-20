@@ -20,11 +20,16 @@
 (BLOCKS) {mmb.grass=Block [name=mmb.grass, leaveBehind=mmb.air], mmb.air=Block [name=mmb.air, leaveBehind=mmb.air], wireworld.tail=Block [name=wireworld.tail, leaveBehind=wireworld.wire], wireworld.head=Block [name=wireworld.head, leaveBehind=wireworld.wire], wireworld.wire=Block [name=wireworld.wire, leaveBehind=mmb.grass], wireworld.chatter=Block [name=wireworld.chatter, leaveBehind=mmb.grass]}
 (MOD-LOADER) Loading mods
 (MOD-LOADER) Finding all files to load
+(MOD-LOADER) Added missing mods directory
 (MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mod.zip
 (MOD-LOADER) Found 3 mod files
 (MOD - HelloWorld 0.2 & 0.3.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
+(MOD - mod.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mod.zip
+(MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
+(MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
+(MOD - mod.zip) Loading a modfile: mod.zip
 (MOD - HelloWorld 0.2 & 0.3.jar) Loading a modfile: HelloWorld 0.2 & 0.3.jar
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
@@ -35,32 +40,26 @@
 (ClassPath) entry size: -1
 (ClassPath) entry size: -1
 (ClassPath) entry size: -1
+(MOD - mod.zip) entry: mod/
+(MOD - mod.zip) entry: mod/ModdedHorrorMonsters.class
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/package-info.class
 (MOD - HelloWorld 0.2 & 0.3.jar) File: helloworld/package-info.class
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
+(MOD - mod.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mod.zip
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing .classpath
+(ClassPath) entry size: 0
 (MOD - HelloWorld 0.2 & 0.3.jar) File: .classpath
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/HelloWorld.class
 (MOD - HelloWorld 0.2 & 0.3.jar) File: helloworld/HelloWorld.class
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
-(BLOCKS) Creating a block: wireworld.beep
-(HW) Hello, world!
-(MOD - HelloWorld 0.2 & 0.3.jar) Processing .project
-(MOD - HelloWorld 0.2 & 0.3.jar) File: .project
-(MOD - mod.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mod.zip
-(MOD - mod.zip) Loading a modfile: mod.zip
-(MOD - mod.zip) entry: mod/
-(MOD - mod.zip) entry: mod/ModdedHorrorMonsters.class
-(MOD - mod.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mod.zip
-(ClassPath) entry size: 0
 (ClassPath) entry size: 2471040
-(MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
-(MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
 (MOD - mod.zip) Processing mod/
 (MOD - mod.zip) Directory: mod/
 (MOD - mod.zip) Processing mod/ModdedHorrorMonsters.class
 (MOD - mod.zip) File: mod/ModdedHorrorMonsters.class
 (MOD - mod.zip) entry: mod/ModdedHorrorMonsters.class
+(BLOCKS) Creating a block: wireworld.beep
+(HW) Hello, world!
 (MOD - mod.zip) Couldn't open zip or jar file mod.zip
 (MOD - mod.zip) java.lang.ClassFormatError
 (MOD - mod.zip) Unknown constant tag 89 in class file mod/ModdedHorrorMonsters
@@ -79,27 +78,24 @@
 (MOD - mod.zip) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:115)
 (MOD - mod.zip) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:75)
 (MOD - mod.zip) java.lang.Thread.run(Unknown Source)
+(MOD - HelloWorld 0.2 & 0.3.jar) Processing .project
+(MOD - HelloWorld 0.2 & 0.3.jar) File: .project
 (MOD-LOADER) Start 1st stage for Hello, world!
 (MOD-LOADER) End 1st stage for Hello, world!
 (MOD-LOADER) Start 2nd stage for Hello, world!
 (MOD-LOADER) End 2nd stage for Hello, world!
 (MOD-LOADER) Start 3rd stage for Hello, world!
 (MOD-LOADER) End 3rd stage for Hello, world!
-(MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
-(MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Thu Nov 19 15:32:38 CET 2020
-(MOD-LOADER) MADE BY Monniasza
-(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) =============================================MOD INFORMATION FOR C:\Users\oskar\eclipse-workspace\Multi Machine Builder=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder
 (MOD-LOADER) Missing files
 (MOD-LOADER) =============================================MOD INFORMATION FOR mod.zip=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mod.zip
 (MOD-LOADER) Corrupt
+(MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
+(MOD-LOADER) Operative
+(MOD-LOADER) RELEASED Fri Nov 20 09:34:16 CET 2020
+(MOD-LOADER) MADE BY Monniasza
+(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) HOORAY, IT'S OVER!
-(SELECT A SAVE) Found save: Chatter.mworld
-(SELECT A SAVE) Found save: test2.mworld
-(SELECT A SAVE) Found save: test3.mworld
-(SELECT A SAVE) Found save: world 1.mworld
-(SELECT A SAVE) Found 19 saves
