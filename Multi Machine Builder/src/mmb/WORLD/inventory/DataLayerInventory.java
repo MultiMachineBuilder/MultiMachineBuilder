@@ -15,7 +15,7 @@ import mmb.DATA.save.DataLayer;
  *
  */
 public class DataLayerInventory implements DataLayer {
-	public InventoryUnstackable inv;
+	public Inventory inv;
 	
 	public static DataLayerInventory load(JsonObject jo) {
 		return new DataLayerInventory(ItemJSONConverter.entryToInventory(jo));
@@ -23,7 +23,7 @@ public class DataLayerInventory implements DataLayer {
 	public static DataLayerInventory empty() {
 		return new DataLayerInventory();
 	}
-	public DataLayerInventory(InventoryUnstackable inv) {
+	public DataLayerInventory(Inventory inv) {
 		super();
 		this.inv = inv;
 	}

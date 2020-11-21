@@ -26,7 +26,20 @@ public class ItemJSONConverter {
 		}
 		return null;
 	}
-	
+	public static JsonArray stackToEntry(ItemStack is) {
+		JsonArray ja = new JsonArray();
+		ja.add(itemToEntry(is.item));
+		ja.add(1);
+		return ja;
+	}
+	public static ItemStack entryToStack(JsonElement je) {
+		if(je.isJsonArray()) {
+			JsonArray ja = je.getAsJsonArray();
+			return new ItemStack(entryToItem(ja.get(0)), ja.get(1).getAsInt());
+		}else {
+			return new ItemStack(entryToItem(je), 1);
+		}
+	}
 	public static Item entryToItem(JsonElement je) {
 		if(je.isJsonObject()) {
 			//TODO item entities
@@ -34,24 +47,33 @@ public class ItemJSONConverter {
 		}else if(je.isJsonPrimitive()) {
 			//simple items
 			return Items.items.get(je.getAsString());
-		}else {
+		}else{
 			//TODO future types
 			return null;
 		}
 	}
 	
-	public static InventoryUnstackable entryToInventory(JsonObject jo) {
-		InventoryUnstackable i = new InventoryUnstackable();
+	public static Inventory entryToInventory(JsonObject jo) {
+		boolean isStackable = false;
+		if(jo.has("stack")) isStackable = jo.get("stack").getAsBoolean();
+		Inventory i;
+		if(isStackable) {
+			i = new InventoryStackable();
+		}else {
+			i = new InventoryUnstackable();
+		}
+		
 		int slots = -1;
 		if(jo.has("maxSlots")) slots = jo.get("maxSlots").getAsInt();
 		double volume = 2;
 		if(jo.has("maxVolume")) volume = jo.get("maxVolume").getAsDouble();
-		Item[] items = new Item[0];
+		ItemStack[] items = new ItemStack[0];
 		if(jo.has("contents")) {
 			JsonArray ja = jo.get("contents").getAsJsonArray();
-			items = new Item[ja.size()];
+			items = new ItemStack[ja.size()];
 			for(int j = 0; j < ja.size(); j++) {
-				items[j] = ItemJSONConverter.entryToItem(ja.get(j));
+				JsonElement e = ja.get(j);
+				items[j] = ItemJSONConverter.entryToStack(ja.get(j));
 			}
 		}
 		i.capacity = volume;
@@ -60,17 +82,15 @@ public class ItemJSONConverter {
 		return i;
 	}
 	
-	public static JsonObject inventoryToEntry(InventoryUnstackable inv) {
+	public static JsonObject inventoryToEntry(Inventory inv) {
 		JsonObject jo = new JsonObject();
-		jo.add("maxSlots", new JsonPrimitive(inv.items.maxAmount));
+		jo.add("maxSlots", new JsonPrimitive(inv.getMaxSlots()));
 		jo.add("maxVolume", new JsonPrimitive(inv.capacity));
-		Item[] itms = new Item[inv.items.size()];
-		for(int i = 0; i < itms.length; i++) {
-			itms[i] = inv.items.get(i);
-		}
+		jo.add("stack", new JsonPrimitive(inv.isStackable()));
+		ItemStack[] contents = inv.getContents();
 		JsonArray result = new JsonArray();
-		for(int i = 0 ; i < itms.length; i++) {
-			result.add(itms[i].getID()); 
+		for(int i = 0 ; i < contents.length; i++) {
+			result.add(stackToEntry(contents[i])); 
 		}
 		jo.add("contents", result);
 		return jo;

@@ -19,6 +19,7 @@ public abstract class Inventory {
 	static Debugger debug = new Debugger("Inventories");
 	public double capacity = 1;
 	protected boolean isLimited;
+	protected double usedVolume;
 	
 	public boolean insert(Item itm) {
 		return insert(itm, 1) == 1;
@@ -51,13 +52,18 @@ public abstract class Inventory {
 		return capacity - usedVolume();
 	}
 	public double usedVolume() {
-		double v = 0;
-		for(ItemStack itms: getContents()) {
-			v += itms.volume();
-		}
-		return v;
+		return usedVolume;
 	}
+	public void calcUsedVolume() {
+		usedVolume = 0;
+		for(ItemStack itms: getContents()) {
+			usedVolume += itms.volume();
+		}
+	}
+	abstract public int getMaxSlots();
+	abstract public int slotsInUse();
 	abstract public void setContents(Item[] itms);
 	abstract public void setContents(ItemStack[] itms);
 	abstract public void ensureCapacity(int capacity);
+	abstract public boolean isStackable();
 }

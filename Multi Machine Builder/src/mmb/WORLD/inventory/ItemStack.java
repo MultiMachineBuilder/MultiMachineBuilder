@@ -17,11 +17,16 @@ public class ItemStack {
 		return Math.min(amount, (int)(volume / item.getVolume()));
 	}
 	public static int fitsInto(Item item, int amount, double volume) {
-		return Math.min(amount, (int)(volume / item.getVolume()));
+		return Math.max(0, Math.min(amount, (int)(volume / item.getVolume())));
 	}
 	public ItemStack(Item item, int amount) {
 		super();
 		this.item = item;
 		this.amount = amount;
+	}
+	public ItemStack(Item item) {
+		super();
+		this.item = item;
+		this.amount = 1;
 	}
 }

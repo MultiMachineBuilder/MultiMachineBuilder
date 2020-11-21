@@ -17,7 +17,7 @@ public class InventoryUnstackable extends Inventory{
 	/**
 	 * The list contains items
 	 */
-	public LimitedArrayList<Item> items = new LimitedArrayList<Item>();
+	protected LimitedArrayList<Item> items = new LimitedArrayList<Item>();
 	@Override
 	public int insert(Item itm, int amount) {
 		int j = 0;
@@ -29,6 +29,7 @@ public class InventoryUnstackable extends Inventory{
 
 	@Override
 	public boolean insert(Item itm) {
+		calcUsedVolume();
 		if(itm.getVolume() > leftoverVolume()) return false;
 		return items.add(itm);
 	}
@@ -39,7 +40,7 @@ public class InventoryUnstackable extends Inventory{
 		for(int i = 0; i < results.length; i++) {
 			results[i]=new ItemStack(items.get(i), 1);
 		}
-		return null;
+		return results;
 	}
 
 	@Override
@@ -57,14 +58,32 @@ public class InventoryUnstackable extends Inventory{
 
 	@Override
 	public void setContents(ItemStack[] itms) {
-		// TODO Auto-generated method stub
-		
+		Item[] result = new Item[itms.length];
+		for(int i = 0; i < itms.length; i++) {
+			result[i] = itms[i].item;
+		}
+		setContents(result);
 	}
 
 	@Override
 	public void ensureCapacity(int capacity) {
 		if(capacity < 0) setLimited(capacity);
 		items.ensureCapacity(capacity);
+	}
+
+	@Override
+	public int getMaxSlots() {
+		return items.maxAmount;
+	}
+
+	@Override
+	public int slotsInUse() {
+		return items.size();
+	}
+
+	@Override
+	public boolean isStackable() {
+		return false;
 	}
 
 }

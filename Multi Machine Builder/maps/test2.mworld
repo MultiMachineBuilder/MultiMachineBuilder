@@ -135,13 +135,13 @@
     "mmb.grass",
     "mmb.grass",
     "wireworld.wire",
+    "wireworld.wire",
     "wireworld.head",
     "wireworld.tail",
-    "wireworld.wire",
     "mmb.grass",
-    "wireworld.wire",
     "wireworld.tail",
     "wireworld.head",
+    "wireworld.wire",
     "wireworld.wire",
     "wireworld.wire",
     "mmb.grass",
@@ -16668,6 +16668,7 @@
     "PlayerInv": {
       "maxSlots": 2147483647,
       "maxVolume": 2.0,
+      "stack": false,
       "contents": []
     }
   }
