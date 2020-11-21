@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
-import mmb.WORLD.tileworld.REWORK.TileGUI;
+import mmb.WORLD.tileworld.TileGUI;
 import mmb.debug.Debugger;
 import mmb.ui.ExternalMods;
 import mmb.ui.game.SelectGame;

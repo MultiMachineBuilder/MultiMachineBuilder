@@ -16,7 +16,7 @@ import org.junit.rules.DisableOnDebug;
 
 import mmb.DATA.file.AdvancedFile;
 import mmb.DATA.save.SaveLoad;
-import mmb.WORLD.tileworld.REWORK.TileGUI;
+import mmb.WORLD.tileworld.TileGUI;
 import mmb.WORLD.tileworld.map.TileMap;
 import mmb.WORLD.tileworld.map.World;
 import mmb.debug.Debugger;

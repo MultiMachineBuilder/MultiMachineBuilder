@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mmb.WORLD.tileworld.Side;
-import mmb.WORLD.tileworld.REWORK.TileGUI;
+import mmb.WORLD.tileworld.TileGUI;
 import mmb.WORLD.tileworld.block.Block;
 import mmb.WORLD.tileworld.block.MapEntry;
 import mmb.WORLD.tileworld.math.PositionUtils;
