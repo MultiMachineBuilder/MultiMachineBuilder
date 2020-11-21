@@ -33,6 +33,7 @@ import java.awt.event.MouseMotionAdapter;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.function.IntConsumer;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseWheelListener;
@@ -54,6 +55,7 @@ public class TileGUI extends JPanel implements WorldDataProvider {
 	public Point selectionA, selectionB;
 	private boolean active = false;
 	public int lastMouseButton = 0;
+	public IntConsumer onBlockSelect = (int i) -> {};
 	
 	//Positioning
 	/**
@@ -96,7 +98,7 @@ public class TileGUI extends JPanel implements WorldDataProvider {
 	private int blockIndex = 0;
 	private int scroll = 0;
 	private Block currBlock = null;
-	private Block[] blockCache = new Block[0];
+	public Block[] blockCache = new Block[0];
 	/**
 	 * Set the current block using the index
 	 */
@@ -173,6 +175,7 @@ public class TileGUI extends JPanel implements WorldDataProvider {
 					if(index > blockCache.length) return;
 					setBlock(index);
 					Toolkit.getDefaultToolkit().beep();
+					onBlockSelect.accept(index);
 				}else if(p.x < 64) {
 					//select tool
 					int index = p.y/32;
@@ -180,7 +183,7 @@ public class TileGUI extends JPanel implements WorldDataProvider {
 						setTool(index);
 						Toolkit.getDefaultToolkit().beep();
 					}
-				}else {
+				}else{
 					//select world
 					effectiveMousePos = new Point(p.x - 64, p.y);
 					ToolEvent e = createToolEvent();
@@ -223,11 +226,11 @@ public class TileGUI extends JPanel implements WorldDataProvider {
 					offset.y++;
 					break;
 				}
-				
-				//debug.printl(offset.toString());
 			}
 		});
 		setFocusable(true);
+		setEnabled(true);
+		requestFocusInWindow();
 		tick = new Timer();
 		tick.scheduleAtFixedRate(new TimerTask() {
 			@Override

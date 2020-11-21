@@ -5,6 +5,9 @@ package mmb.DATA.save;
 
 import com.google.gson.JsonObject;
 
+import mmb.WORLD.inventory.DataLayerInventory;
+import mmb.debug.Debugger;
+
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.function.*;
@@ -18,6 +21,8 @@ public interface DataLayer {
 	 * Stores data layers.
 	 */
     Map<String, DataLayerEntry> layers = new Hashtable<String, DataLayerEntry>();
+    
+    static Debugger debug = new Debugger("Data Layers");
 	
 	/**
 	 * A class with fields used to create data layers in {@code createDL(String, JsonObject)} and {@code createDL(String)}
@@ -35,6 +40,8 @@ public interface DataLayer {
 	 * @param createNew function to create new data layers
 	 */
 	static void register(String id, Function<JsonObject, DataLayer> loader, Supplier<DataLayer> createNew) {
+		if(loader == null) debug.printl("Loader for "+id+" is null");
+		if(createNew == null) debug.printl("Creator for "+id+" is null");
 		DataLayerEntry dle = new DataLayerEntry();
 		dle.create = createNew;
 		dle.load = loader;
@@ -59,11 +66,26 @@ public interface DataLayer {
 		return layers.get(id).create.get();
 	}
 	
+	public static void load() {
+		register("PlayerInv", DataLayerInventory::load, DataLayerInventory::empty);
+	}
+	
+	@SuppressWarnings("unchecked")
+	/**
+	 * Gets a data layer with given type and name
+	 * @throws ClassCastException if retrieved data layer is of wrong type
+	 * @param <T> type of data layer
+	 * @param name name of data layer
+	 * @return retrieved data layer casted to correct type
+	 */
+	public static <T extends DataLayer> T getDL(String name){
+		return (T) layers.get(name);
+	}
 	//Instance methods
 	/**
 	 * Convert given data layer into saveable form
 	 * @return data array
 	 */
-    JsonObject save();
-	String name();
+    public JsonObject save();
+	public String name();
 }

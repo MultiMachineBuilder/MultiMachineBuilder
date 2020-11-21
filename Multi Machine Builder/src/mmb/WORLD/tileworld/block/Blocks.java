@@ -45,6 +45,7 @@ public class Blocks {
 		air = new Block();
 		air.texture = new DrawerPlainColor(Color.CYAN);
 		air.leaveBehind = air;
+		air.title = "Air";
 		
 		BlockDrawer tmp;
 		try {
@@ -60,20 +61,24 @@ public class Blocks {
 		grass.texture = tmp;
 		grass.leaveBehind = air;
 		isGeneratingFurther = true;
+		grass.title = "Grass";
 		
 		ww_wire = new Block();
 		ww_wire.texture = new DrawerPlainColor(Color.ORANGE);
 		ww_wire.update = (e) -> {handlerWire(e);};
+		ww_wire.title = "WireWorld conductor";
 		
 		ww_head = new Block();
 		ww_head.texture = new DrawerPlainColor(Color.BLUE);
 		ww_head.update = (e) -> {handlerHead(e);};
 		ww_head.leaveBehind = ww_wire;
+		ww_head.title = "WireWorld head";
 		
 		ww_tail = new Block();
 		ww_tail.texture = new DrawerPlainColor(Color.WHITE);
 		ww_tail.update = (e) -> {handlerTail(e);};
 		ww_tail.leaveBehind = ww_wire;
+		ww_tail.title = "WireWorld tail";
 		
 		//NEW FEATURES Chatter
 		BlockEntityLoader logBEL = new BlockEntityLoader();
@@ -87,30 +92,39 @@ public class Blocks {
 		ww_chatter.texture = new DrawerImage(Textures.get("printer.png"));
 		ww_chatter.bel = logBEL;
 		ww_chatter.update = (e -> handlerChat(e));
+		ww_chatter.title = "Chatbox";
 		
 		stone = new Block();
 		stone.texture = new DrawerImage(Textures.get("stone.png"));
+		stone.title = "Stone";
 		
 		plank = new Block();
 		plank.texture = new DrawerImage(Textures.get("plank.png"));
+		plank.title = "Wooden planks";
 		
 		leaves = new Block();
 		leaves.texture = new DrawerImage(Textures.get("leaves.png"));
+		leaves.title = "Leaves";
 		
 		iron_ore = new Block();
 		iron_ore.texture = new DrawerImage(Textures.get("iron_ore.png"));
+		iron_ore.title = "Iron ore";
 		
 		copper_ore = new Block();
 		copper_ore.texture = new DrawerImage(Textures.get("copper_ore.png"));
+		copper_ore.title = "Copper ore";
 		
 		silicon_ore = new Block();
 		silicon_ore.texture = new DrawerImage(Textures.get("silicon_ore.png"));
+		silicon_ore.title = "Silicon ore";
 		
 		crafting = new Block();
 		crafting.texture = new DrawerImage(Textures.get("crafting.png"));
+		crafting.title = "Assembly Table";
 		
 		logs = new Block();
 		logs.texture = new DrawerImage(Textures.get("log.png"));
+		logs.title = "Log";
 		
 		//Register
 		grass.register("mmb.grass");

@@ -3,9 +3,11 @@
  */
 package mmb.WORLD.inventory;
 
+import mmb.WORLD.inventory.items.Items;
+
 /**
  * @author oskar
- *
+ * A simple crafting item
  */
 public class SimpleItem implements ItemType {
 	public double volume = 0.02;
@@ -56,6 +58,10 @@ public class SimpleItem implements ItemType {
 	@Override
 	public SimpleItem getType() {
 		return this;
+	}
+	
+	public void register() {
+		Items.items.put(id, this);
 	}
 
 }

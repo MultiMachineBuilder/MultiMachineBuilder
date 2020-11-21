@@ -16,6 +16,7 @@ import mmb.DATA.contents.GameContents;
 import mmb.DATA.contents.texture.Textures;
 import mmb.DATA.file.AdvancedFile;
 import mmb.DATA.file.FileGetter;
+import mmb.DATA.save.DataLayer;
 import mmb.MODS.info.AddonInfo;
 import mmb.MODS.info.AddonState;
 import mmb.SOUND.MP3Loader;
@@ -143,6 +144,7 @@ public class ModLoader {
 	 * Used by the main class to load mods
 	 */
 	public static void modloading(){
+		DataLayer.load();
 		new File(new File("textures/").getAbsoluteFile().getParent()).getAbsolutePath();
 		Loading.state1("Loading textures");
 		walkTextures(new File("textures/"));

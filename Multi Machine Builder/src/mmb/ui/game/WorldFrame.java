@@ -47,6 +47,7 @@ public class WorldFrame extends JFrame {
 	private final Debugger debug = new Debugger("WORLD");
 	boolean success = false;
 	private final TileGUI tileGUI;
+	private JLabel select;
 
 	/**
 	 * Create the frame.
@@ -94,11 +95,17 @@ public class WorldFrame extends JFrame {
 			JPanel panel = new JPanel();
 			contentPane.add(panel, BorderLayout.NORTH);
 			
+			select = new JLabel("Selected block: ");
+			panel.add(select);
+			
 			JButton survivalInv = new JButton("Survival Inventory & Crafting");
 			panel.add(survivalInv);
 			
 			JLabel remaining = new JLabel("x items left");
 			panel.add(remaining);
+			tileGUI.onBlockSelect = (i) -> {
+				select.setText("Selected block:" + tileGUI.blockCache[i].title);
+			};
 		} catch (Exception e) {
 			debug.pstm(e, "Failed to load world");
 			dispose();
