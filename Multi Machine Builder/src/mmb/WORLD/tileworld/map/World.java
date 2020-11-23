@@ -9,6 +9,7 @@ import java.util.List;
 import mmb.DATA.save.DataLayer;
 import mmb.WORLD.tileworld.block.Block;
 import mmb.WORLD.tileworld.block.MapEntry;
+import mmb.WORLD.tileworld.world.BlockProxy;
 
 /**
  * @author oskar
@@ -144,6 +145,32 @@ public class World {
 	 */
 	public int indexAbsolute(Point p) {
 		return blocks.indexAbsolute(p);
+	}
+	
+	@SuppressWarnings("unchecked")
+	/**
+	 * Gets a data layer with given type and name
+	 * @throws ClassCastException if retrieved data layer is of wrong type
+	 * @param <T> type of data layer
+	 * @param name name of data layer
+	 * @return retrieved data layer casted to correct type
+	 */
+	public <T extends DataLayer> T getDL(String name){
+		for(int i = 0; i < data.size(); i++) {
+			if(data.get(i).name().equals(name)) {
+				return (T) data.get(i);
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * @param proxy
+	 */
+	public void setProxy(BlockProxy proxy) {
+		data.forEach((dl) -> {
+			dl.setProxy(proxy);
+		});
 	}
 
 }

@@ -15,7 +15,7 @@ import mmb.debug.Debugger;
  * @author oskar
  *
  */
-public abstract class Inventory {
+public abstract class Inventory implements InventoryHandler{
 	static Debugger debug = new Debugger("Inventories");
 	public double capacity = 1;
 	protected boolean isLimited;
@@ -24,8 +24,25 @@ public abstract class Inventory {
 	public boolean insert(Item itm) {
 		return insert(itm, 1) == 1;
 	}
-	abstract public int insert(Item itm, int amount);
+
+	/**
+	 * @return the capacity
+	 */
+	@Override
+	public double getCapacity() {
+		return capacity;
+	}
+
+	/**
+	 * @param capacity the capacity to set
+	 */
+	@Override
+	public void setCapacity(double capacity) {
+		this.capacity = capacity;
+	}
+
 	public int insert(ItemStack itms) {
+		if(itms == null) return 0;
 		return insert(itms.item, itms.amount);
 	}
 	public boolean moveFrom(ItemStack itms) {
@@ -40,11 +57,7 @@ public abstract class Inventory {
 		return moveFrom(itms, itms.amount);
 	}
 	abstract public ItemStack[] getContents();
-	/**
-	 * If input is less than 0, the,
-	 * @param limit
-	 */
-	abstract public void setLimited(int limit);
+
 	public boolean getLimited() {
 		return isLimited;
 	}
@@ -60,10 +73,25 @@ public abstract class Inventory {
 			usedVolume += itms.volume();
 		}
 	}
-	abstract public int getMaxSlots();
-	abstract public int slotsInUse();
-	abstract public void setContents(Item[] itms);
-	abstract public void setContents(ItemStack[] itms);
-	abstract public void ensureCapacity(int capacity);
-	abstract public boolean isStackable();
+	
+	public boolean withdraw(Item itm) {
+		if(itm == null) return false;
+		return withdraw(itm, 1) == 1;
+	}
+	public int withdraw(Item itm, int amount) {
+		if(itm == null) return 0;
+		ItemStack[] is = getContents();
+		int j = 0;
+		for(int i = 0; i < is.length; i++) {
+			if(is[i].item == itm) {
+				j += withdraw(i, amount).amount;
+			}
+		}
+		return j;
+	}
+	public Item withdraw(int slot) {
+		ItemStack withdraw = withdraw(slot, 1);
+		if(withdraw.amount == 1) return withdraw.item;
+		return null;
+	}
 }

@@ -9,9 +9,9 @@
 (TEXTURES) Loading texture iron_ore.png
 (TEXTURES) Loading texture item/copper_ingot.png
 (TEXTURES) Loading texture item/iron_ingot.png
-(TEXTURES) Loading texture item/krzem_ingot.png
+(TEXTURES) Loading texture item/lisc.png
+(TEXTURES) Loading texture item/silicon_ingot.png
 (TEXTURES) Loading texture leaves.png
-(TEXTURES) Loading texture lisc.png
 (TEXTURES) Loading texture log.png
 (TEXTURES) Loading texture mine.png
 (TEXTURES) Loading texture place.png
@@ -24,6 +24,10 @@
 (TEXTURES) Loading texture tools.png
 (BLOCKS) Creating blocks
 (BLOCKS) Creating a block: mmb.grass
+(ITEMS) Registering mmbi.copper
+(ITEMS) Registering mmbi.iron
+(ITEMS) Registering mmbi.silicon
+(ITEMS) Registering mmbi.leaf
 (BLOCKS) Creating a block: mmb.air
 (BLOCKS) Creating a block: wireworld.tail
 (BLOCKS) Creating a block: wireworld.head
@@ -45,9 +49,12 @@
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (MOD-LOADER) Found 3 mod files
+(MOD - HelloWorld 0.2 & 0.3.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
+(MOD - HelloWorld 0.2 & 0.3.jar) Loading a modfile: HelloWorld 0.2 & 0.3.jar
 (MOD - sound.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (MOD - sound.zip) Loading a modfile: sound.zip
 (MOD - sound.zip) entry: sound/
+(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
 (MOD - sound.zip) entry: sound/error.mp3
 (MOD - sound.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (ClassPath) entry size: 0
@@ -57,11 +64,6 @@
 (MOD - sound.zip) Processing sound/error.mp3
 (MOD - sound.zip) File: sound/error.mp3
 (MOD - sound.zip) Sound file
-(MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
-(MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
-(MOD - HelloWorld 0.2 & 0.3.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
-(MOD - HelloWorld 0.2 & 0.3.jar) Loading a modfile: HelloWorld 0.2 & 0.3.jar
-(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: .project
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: .classpath
@@ -78,6 +80,8 @@
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/HelloWorld.class
 (MOD - HelloWorld 0.2 & 0.3.jar) File: helloworld/HelloWorld.class
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
+(MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
+(MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
 (BLOCKS) Creating a block: wireworld.beep
 (HW) Hello, world!
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing .project
@@ -95,7 +99,7 @@
 (MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Sat Nov 21 16:46:20 CET 2020
+(MOD-LOADER) RELEASED Mon Nov 23 18:13:48 CET 2020
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) =============================================MOD INFORMATION FOR sound.zip=============================================
@@ -103,10 +107,11 @@
 (MOD-LOADER) Media package
 (MOD-LOADER) HOORAY, IT'S OVER!
 (SELECT A SAVE) Found save: Chatter.mworld
+(SELECT A SAVE) Found save: Survival.mworld
 (SELECT A SAVE) Found save: test2.mworld
 (SELECT A SAVE) Found save: test3.mworld
 (SELECT A SAVE) Found save: world 1.mworld
-(SELECT A SAVE) Found 19 saves
+(SELECT A SAVE) Found 20 saves
 (WORLD) Retrieving the file
 (WORLD) Opening data stream
 (WORLD) Preparing loading space
@@ -119,7 +124,36 @@
 (JSON-WORLD LOADER) Successfully loaded data layers
 (JSON-WORLD LOADER) Loading world
 (JSON-WORLD LOADER) Successfully loaded world
-(SELECT A SAVE) Successfully opened test2.mworld
+(SELECT A SAVE) Successfully opened Survival.mworld
+(WORLD) Stringyfiyng the world
+(JSON-WORLD LOADER) Saving dimensions
+(JSON-WORLD LOADER) Saving blocks
+(JSON-WORLD LOADER) Saving data layers
+(JSON-WORLD LOADER) Saving data layer: (JSON-WORLD LOADER) PlayerInv
+(JSON-WORLD LOADER) Saved data layer: (JSON-WORLD LOADER) PlayerInv
+(WORLD) Opening data stream
+(WORLD) Encoding JSON data
+(WORLD) Writing byte data
+(WORLD) Closing data stream
+(WORLD) Successfully saved
+(WORLD) Retrieving the file
+(WORLD) Opening data stream
+(WORLD) Preparing loading space
+(WORLD) Decoding text data
+(WORLD) Parsing world data
+(JSON-WORLD LOADER) Loading data layers
+(JSON-WORLD LOADER) Adding missing data layer: PlayerInv
+(JSON-WORLD LOADER) Adding missing entry: (JSON-WORLD LOADER) PlayerInv
+(JSON-WORLD LOADER) Successfully addied missing entry: (JSON-WORLD LOADER) PlayerInv
+(JSON-WORLD LOADER) Successfully loaded data layers
+(JSON-WORLD LOADER) Loading world
+(JSON-WORLD LOADER) Successfully loaded world
+(SELECT A SAVE) Successfully opened world 1.mworld
+(BLOCKS) test
+(BLOCKS) test
+(BLOCKS) test
+(BLOCKS) test
+(BLOCKS) test
 (WORLD) Stringyfiyng the world
 (JSON-WORLD LOADER) Saving dimensions
 (JSON-WORLD LOADER) Saving blocks

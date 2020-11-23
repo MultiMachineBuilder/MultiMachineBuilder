@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.tileworld.block;
 
+import java.awt.Graphics;
+import java.awt.Point;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -37,7 +39,9 @@ public class Block implements MapEntry, ItemType{
 	 */
 	public Consumer<BlockUpdateEvent> update = null;
 	
-	public BiConsumer<BlockUpdateEvent, BlockProxy> activate = null;
+	public BiConsumer<BlockUpdateEvent, BlockProxy> activate = (bue, bp) -> {};
+	
+	public BiConsumer<BlockUpdateEvent, BlockEntityData> bedHandler = (bue, bed) -> {};
 	
 	/**
 	 * A block which is left behind when mined.
@@ -114,6 +118,34 @@ public class Block implements MapEntry, ItemType{
 	@Override
 	public String getName() {
 		return title;
+	}
+	
+	/**
+	 * Creates a ready-to-place map entry.
+	 * @return block which can be placed
+	 */
+	public MapEntry newBlock() {
+		if(bel == null) return this;
+		return new BlockEntity(this, bel.blockEntityGen.get());
+	}
+
+	/**
+	 * @param x
+	 * @param y
+	 * @param g
+	 * @see mmb.WORLD.tileworld.BlockDrawer#draw(int, int, java.awt.Graphics)
+	 */
+	public void draw(int x, int y, Graphics g) {
+		texture.draw(x, y, g);
+	}
+
+	/**
+	 * @param p
+	 * @param g
+	 * @see mmb.WORLD.tileworld.BlockDrawer#draw(java.awt.Point, java.awt.Graphics)
+	 */
+	public void draw(Point p, Graphics g) {
+		texture.draw(p, g);
 	}
 
 }

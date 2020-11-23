@@ -73,7 +73,7 @@ public class BlockProxy {
 	public Block getBlock(Point pos) {
 		MapEntry result = getEntry(pos);
 		if(result == null) return null;
-		return result.getBlock();
+		return result.getType();
 	}
 	public MapEntry getEntry(Point pos) {
 		return data.get(pos);
@@ -140,7 +140,7 @@ public class BlockProxy {
 		tryAddSide2(result, pos, Side.DR);
 		Block[] ret = new Block[result.size()];
 		for(int i = 0; i < result.size(); i++) {
-			ret[i] = result.get(i).getBlock();
+			ret[i] = result.get(i).getType();
 		}
 		return ret;
 	}
@@ -162,15 +162,15 @@ public class BlockProxy {
 	public int countNeighbours(boolean corners, Point pos, Block target) {
 		int n = 0;
 		//ALL CASES
-		if(getAtSide(pos, Side.U).getBlock() == target) n++;
-		if(getAtSide(pos, Side.D).getBlock() == target) n++;
-		if(getAtSide(pos, Side.L).getBlock() == target) n++;
-		if(getAtSide(pos, Side.R).getBlock() == target) n++;
+		if(getAtSide(pos, Side.U).getType() == target) n++;
+		if(getAtSide(pos, Side.D).getType() == target) n++;
+		if(getAtSide(pos, Side.L).getType() == target) n++;
+		if(getAtSide(pos, Side.R).getType() == target) n++;
 		if(corners) {
-			if(getAtSide(pos, Side.UL).getBlock() == target) n++;
-			if(getAtSide(pos, Side.UR).getBlock() == target) n++;
-			if(getAtSide(pos, Side.DL).getBlock() == target) n++;
-			if(getAtSide(pos, Side.DR).getBlock() == target) n++;
+			if(getAtSide(pos, Side.UL).getType() == target) n++;
+			if(getAtSide(pos, Side.UR).getType() == target) n++;
+			if(getAtSide(pos, Side.DL).getType() == target) n++;
+			if(getAtSide(pos, Side.DR).getType() == target) n++;
 		}
 		return n;
 	}
@@ -183,7 +183,7 @@ public class BlockProxy {
 	public Block getBlock(int x, int y) {
 		MapEntry me = data.get(x, y);
 		if(me == null) return null;
-		return me.getBlock();
+		return me.getType();
 	}
 
 }

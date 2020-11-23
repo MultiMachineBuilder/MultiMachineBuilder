@@ -4,6 +4,8 @@
 package mmb.WORLD.inventory;
 
 import mmb.WORLD.inventory.items.Items;
+import mmb.WORLD.tileworld.BlockDrawer;
+import mmb.debug.Debugger;
 
 /**
  * @author oskar
@@ -13,6 +15,8 @@ public class SimpleItem implements ItemType {
 	public double volume = 0.02;
 	public String id;
 	public String name;
+	public BlockDrawer texture;
+	private static Debugger debug = new Debugger("ITEMS");
 	/**
 	 * @return the id
 	 */
@@ -62,6 +66,12 @@ public class SimpleItem implements ItemType {
 	
 	public void register() {
 		Items.items.put(id, this);
+		debug.printl("Registering "+id);
+	}
+
+	@Override
+	public BlockDrawer getTexture() {
+		return texture;
 	}
 
 }

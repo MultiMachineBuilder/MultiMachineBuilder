@@ -64,4 +64,10 @@ public class Debugger {
 			printl(ste[i].toString());
 		}
 	}
+	/**
+	 * @param keyChar
+	 */
+	public void printl(char ch) {
+		printFinal("("+id+") "+ch+ "\n");
+	}
 }

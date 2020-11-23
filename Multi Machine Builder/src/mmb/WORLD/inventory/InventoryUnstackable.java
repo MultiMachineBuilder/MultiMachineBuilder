@@ -14,21 +14,24 @@ import mmb.DATA.LimitedArrayList;
  */
 public class InventoryUnstackable extends Inventory{
 
+
 	/**
 	 * The list contains items
 	 */
 	protected LimitedArrayList<Item> items = new LimitedArrayList<Item>();
 	@Override
 	public int insert(Item itm, int amount) {
-		int j = 0;
-		for(int i = 0; i < amount; i++) {
-			if(insert(itm)) j++;
+		int fits = ItemStack.fitsInto(itm, amount, leftoverVolume());
+		if(fits > items.maxAmount) fits = items.maxAmount;
+		for(int i = 0; i < fits; i++) {
+			insert(itm);
 		}
-		return j;
+		return fits;
 	}
 
 	@Override
 	public boolean insert(Item itm) {
+		if(itm == null) return false;
 		calcUsedVolume();
 		if(itm.getVolume() > leftoverVolume()) return false;
 		return items.add(itm);
@@ -86,4 +89,46 @@ public class InventoryUnstackable extends Inventory{
 		return false;
 	}
 
+	@Override
+	public ItemStack withdraw(int slot, int amount) {
+		if(amount == 0) return null;
+		Item result = withdraw(slot);
+		if(result == null) return null;
+		return new ItemStack(result, 1);
+	}
+
+	@Override
+	public boolean withdraw(Item itm) {
+		if(itm == null) return false;
+		for(int i = 0; i < items.size(); i++) {
+			if(items.get(i) == itm) {
+				items.remove(i);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public int withdraw(Item itm, int amount) {
+		if(itm == null) return 0;
+		int j = amount;
+		for(int i = 0; (i < items.size()) && j > 0; i++) {
+			if(items.get(i) == itm) {
+				items.remove(i);
+				j--;
+			}
+		}
+		return amount - j;
+	}
+
+	@Override
+	public Item withdraw(int slot) {
+		return items.remove(slot);
+	}
+
+	@Override
+	public boolean contains(Item itm) {
+		return items.contains(itm);
+	}
 }

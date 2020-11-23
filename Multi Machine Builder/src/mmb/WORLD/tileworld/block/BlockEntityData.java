@@ -18,5 +18,5 @@ public interface BlockEntityData extends Cloneable {
 	/**
 	 * @return
 	 */
-    BlockEntityData clone();
+    public BlockEntityData clone();
 }

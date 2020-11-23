@@ -1,0 +1,19 @@
+W go up
+A go left
+S go down
+D go right
+
+
+
+LMB place/use
+MMB 
+RMB remove
+Shift LMB explicitly use the block
+Shift MMB create pulse
+Shift RMB toggle
+Ctrl LMB survival copy
+Ctrl MMB paste (if block accepts)
+Ctrl RMB survival mine & cut
+Shift Ctrl LMB counter clockwise turn
+Shift Ctrl MMB u-turn
+Shift Ctrl LMB clocwise turn

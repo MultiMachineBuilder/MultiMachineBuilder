@@ -5,7 +5,8 @@ package mmb.DATA.save;
 
 import com.google.gson.JsonObject;
 
-import mmb.WORLD.inventory.DataLayerInventory;
+import mmb.WORLD.player.DataLayerPlayer;
+import mmb.WORLD.tileworld.world.BlockProxy;
 import mmb.debug.Debugger;
 
 import java.util.Hashtable;
@@ -67,7 +68,7 @@ public interface DataLayer {
 	}
 	
 	public static void load() {
-		register("PlayerInv", DataLayerInventory::load, DataLayerInventory::empty);
+		register("PlayerInv", DataLayerPlayer::load, DataLayerPlayer::empty);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -88,4 +89,5 @@ public interface DataLayer {
 	 */
     public JsonObject save();
 	public String name();
+	public void setProxy(BlockProxy p);
 }

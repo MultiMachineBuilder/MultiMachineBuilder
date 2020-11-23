@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import org.joml.Vector2d;
 
 import mmb.MENU.toolkit.events.UIMouseEvent;
+import mmb.WORLD.player.BlockIcon;
+import mmb.WORLD.player.DataLayerPlayer;
 import mmb.WORLD.tileworld.block.Block;
 import mmb.WORLD.tileworld.block.BlockUpdateEvent;
 import mmb.WORLD.tileworld.block.Blocks;
@@ -29,8 +31,11 @@ import mmb.debug.Debugger;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseMotionAdapter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.function.IntConsumer;
@@ -45,7 +50,7 @@ import java.awt.event.MouseWheelEvent;
  * ALL BLOCK POSIITON FROM SCREEN POSITION METHODS TAKE 'EFFECTIVE', OR FROM UPPER RIGHT CORNER OF THE TOOLBAR POSITION
  */
 @SuppressWarnings("serial")
-public class TileGUI extends JPanel implements WorldDataProvider {
+public class TileGUI extends JPanel implements WorldDataProvider, KeyListener {
 	public Vector2d offset;
 	public World map;
 	private final Debugger debug = new Debugger("TILES");
@@ -56,6 +61,7 @@ public class TileGUI extends JPanel implements WorldDataProvider {
 	private boolean active = false;
 	public int lastMouseButton = 0;
 	public IntConsumer onBlockSelect = (int i) -> {};
+	public DataLayerPlayer pdata;
 	
 	//Positioning
 	/**
@@ -97,21 +103,22 @@ public class TileGUI extends JPanel implements WorldDataProvider {
 	//Block getters/setters
 	private int blockIndex = 0;
 	private int scroll = 0;
-	private Block currBlock = null;
+	private BlockIcon currBlock = null;
 	public Block[] blockCache = new Block[0];
+	public BlockIcon[] blockList = new BlockIcon[0];
 	/**
 	 * Set the current block using the index
 	 */
 	public void setBlock(int index) {
 		blockIndex = index;
-		currBlock = blockCache[index];
-		debug.printl("Block:"+currBlock.getID());
+		currBlock = blockList[index];
+		debug.printl("Block:"+currBlock.getName());
 	}
 	/**
 	 * Get the current block
 	 */
 	public Block getBlock() {
-		return currBlock;
+		return currBlock.block;
 	}
 	/**
 	 * Get current block index
@@ -172,7 +179,7 @@ public class TileGUI extends JPanel implements WorldDataProvider {
 					//select block
 					int index = (p.y/32) + scroll;
 					if(index < 0) return;
-					if(index > blockCache.length) return;
+					if(index > blockList.length) return;
 					setBlock(index);
 					Toolkit.getDefaultToolkit().beep();
 					onBlockSelect.accept(index);
@@ -208,29 +215,8 @@ public class TileGUI extends JPanel implements WorldDataProvider {
 				if(currTool != null) currTool.mouseDrag(e);
 			}
 		});
-		addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent arg0) {
-				int ch = arg0.getKeyCode();
-				switch(ch) {
-				case KeyEvent.VK_A:
-					offset.x--;
-					break;
-				case KeyEvent.VK_D:
-					offset.x++;
-					break;
-				case KeyEvent.VK_W:
-					offset.y--;
-					break;
-				case KeyEvent.VK_S:
-					offset.y++;
-					break;
-				}
-			}
-		});
+		addKeyListener(this);
 		setFocusable(true);
-		setEnabled(true);
-		requestFocusInWindow();
 		tick = new Timer();
 		tick.scheduleAtFixedRate(new TimerTask() {
 			@Override
@@ -247,7 +233,8 @@ public class TileGUI extends JPanel implements WorldDataProvider {
 		e.blockPosition = blockByPoint(effectiveMousePos);
 		e.worldPosition = worldPosByPoint(effectiveMousePos);
 		e.tproxy = tproxy;
-		e.selectedBlock = currBlock;
+		e.selectedBlock = currBlock.block;
+		e.selectedBlockIcon = currBlock;
 		return e;
 	}
 	private void tick() {
@@ -299,10 +286,17 @@ public class TileGUI extends JPanel implements WorldDataProvider {
 			toolCache[i].texture().draw(0, i*32, toolBar);
 		}
 		
+		//filter blocks
+		List<BlockIcon> blockListCandidates = new ArrayList<BlockIcon>(blockCache.length);
+		for(int i = 0; i < blockCache.length; i++) {
+			if(pdata.creative || pdata.contains(blockCache[i])) blockListCandidates.add(pdata.newIcon(blockCache[i]));
+		}
+		
+		blockList = blockListCandidates.toArray(new BlockIcon[blockListCandidates.size()]);
 		//draw blocks
 		int startY = scroll * -32;
-		for(int i = 0; i < blockCache.length; i++) {
-			blockCache[i].texture.draw(0, (i*32)+startY, blockBar);
+		for(int i = 0; i < blockList.length; i++) {
+			blockList[i].draw(0, (i*32)+startY, blockBar);
 		}
 		
 		//update
@@ -394,6 +388,34 @@ public class TileGUI extends JPanel implements WorldDataProvider {
 	}
 	@Override public void set(int x, int y, MapEntry me) {
 		map.blocks.set(x, y, me);
+	}
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		int ch = arg0.getKeyCode();
+		switch(ch) {
+		case KeyEvent.VK_A:
+			offset.x--;
+			break;
+		case KeyEvent.VK_D:
+			offset.x++;
+			break;
+		case KeyEvent.VK_W:
+			offset.y--;
+			break;
+		case KeyEvent.VK_S:
+			offset.y++;
+			break;
+		}
+	}
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

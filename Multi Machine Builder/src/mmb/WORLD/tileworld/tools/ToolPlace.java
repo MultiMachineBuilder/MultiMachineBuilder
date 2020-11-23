@@ -41,13 +41,13 @@ public class ToolPlace implements BlockTool {
 
 	@Override
 	public void mousePress(ToolEvent e, int button) {
-		e.proxy.set(MapEntry.createNew(e.selectedBlock), e.blockPosition);
+		e.selectedBlockIcon.placeAt(e.blockPosition, e.proxy);
 	}
 
 	@Override
 	public void mouseDrag(ToolEvent e) {
 		if(isBrush) {
-			e.proxy.set(MapEntry.createNew(e.selectedBlock), e.blockPosition);
+			e.selectedBlockIcon.placeAt(e.blockPosition, e.proxy);
 		}
 	}
 

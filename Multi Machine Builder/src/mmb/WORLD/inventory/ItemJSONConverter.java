@@ -36,9 +36,8 @@ public class ItemJSONConverter {
 		if(je.isJsonArray()) {
 			JsonArray ja = je.getAsJsonArray();
 			return new ItemStack(entryToItem(ja.get(0)), ja.get(1).getAsInt());
-		}else {
-			return new ItemStack(entryToItem(je), 1);
 		}
+		return new ItemStack(entryToItem(je), 1);
 	}
 	public static Item entryToItem(JsonElement je) {
 		if(je.isJsonObject()) {

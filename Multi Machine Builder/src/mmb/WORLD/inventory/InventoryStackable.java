@@ -16,7 +16,8 @@ public class InventoryStackable extends Inventory {
 	protected LimitedArrayList<ItemStack> items = new LimitedArrayList<ItemStack>();
 	@Override
 	public int insert(Item itm, int amount) {
-		int fits = ItemStack.fitsInto(itm, amount, capacity);
+		if(itm == null) return 0;
+		int fits = ItemStack.fitsInto(itm, amount, leftoverVolume());
 		for(int i = 0 ; i < items.size(); i++) {
 			ItemStack ent = items.get(i);
 			if(ent.item == itm) {
@@ -34,7 +35,7 @@ public class InventoryStackable extends Inventory {
 
 	@Override
 	public ItemStack[] getContents() {
-		return (ItemStack[]) items.toArray();
+		return items.toArray(new ItemStack[items.size()]);
 	}
 
 	@Override
@@ -80,4 +81,24 @@ public class InventoryStackable extends Inventory {
 		return true;
 	}
 
+	@Override
+	public ItemStack withdraw(int slot, int amount) {
+		ItemStack original = items.get(slot);
+		if(amount > original.amount) {
+			items.remove(slot);
+			return original;
+		}
+		original.amount -= amount;
+		return new ItemStack(original.item, amount);
+	}
+
+	@Override
+	public boolean contains(Item itm) {
+		for(int i = 0; i < items.size(); i++) {
+			if(items.get(i).item == itm) return true;
+		}
+		return false;
+	}
+	
+	
 }

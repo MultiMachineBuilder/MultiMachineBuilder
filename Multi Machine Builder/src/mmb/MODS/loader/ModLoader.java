@@ -20,6 +20,7 @@ import mmb.DATA.save.DataLayer;
 import mmb.MODS.info.AddonInfo;
 import mmb.MODS.info.AddonState;
 import mmb.SOUND.MP3Loader;
+import mmb.WORLD.inventory.items.Items;
 import mmb.WORLD.tileworld.block.Blocks;
 import mmb.WORLD.tileworld.tool.Tools;
 
@@ -150,6 +151,7 @@ public class ModLoader {
 		walkTextures(new File("textures/"));
 		Loading.state1("Loading blocks");
 		new Blocks();
+		new Items();
 		Loading.state1("Loading tools");
 		Tools.create();
 		try {

@@ -4,37 +4,29 @@
 package mmb.ui.game;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import org.joml.Vector2d;
-import org.junit.rules.DisableOnDebug;
-
 import mmb.DATA.file.AdvancedFile;
 import mmb.DATA.save.SaveLoad;
+import mmb.WORLD.player.DataLayerPlayer;
 import mmb.WORLD.tileworld.TileGUI;
-import mmb.WORLD.tileworld.map.TileMap;
 import mmb.WORLD.tileworld.map.World;
 import mmb.debug.Debugger;
-import mmb.files.databuffer.Savers;
-
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * @author oskar
@@ -85,7 +77,7 @@ public class WorldFrame extends JFrame {
 		//size.width = 64;
 		//tools.setSize(size);
 		
-		TileMap tm; //Load given save
+		//Load given save
 		try {
 			load(); //Load the world
 			tileGUI.offset = new Vector2d(-5, -5);
@@ -99,10 +91,18 @@ public class WorldFrame extends JFrame {
 			panel.add(select);
 			
 			JButton survivalInv = new JButton("Survival Inventory & Crafting");
+			survivalInv.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					new InventoryFrame(tileGUI.pdata).setVisible(true); //OK
+				}
+			});
 			panel.add(survivalInv);
 			
 			JLabel remaining = new JLabel("x items left");
 			panel.add(remaining);
+			panel.setFocusable(false);
+			tileGUI.requestFocus();
 			tileGUI.onBlockSelect = (i) -> {
 				select.setText("Selected block:" + tileGUI.blockCache[i].title);
 			};
@@ -119,6 +119,9 @@ public class WorldFrame extends JFrame {
 			debug.printl("Parsing world data");
 			World newWorld = SaveLoad.load(get);
 			tileGUI.map = newWorld;
+			DataLayerPlayer dlp = newWorld.<DataLayerPlayer>getDL("PlayerInv"); //OK
+			tileGUI.pdata = dlp;
+			newWorld.setProxy(tileGUI.proxy);
 		} catch (Exception e) {
 			debug.pstm(e, "Failed to load the world");
 		}
