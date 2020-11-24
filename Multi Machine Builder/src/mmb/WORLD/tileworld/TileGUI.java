@@ -221,26 +221,25 @@ public class TileGUI extends JPanel implements WorldDataProvider, KeyListener {
 		tick.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				tick();
+				paintImmediately();
 			}
 		}, new Date(), 20);
 	}
 	
 	public ToolEvent createToolEvent() {
 		ToolEvent e = new ToolEvent();
+		e.creative = pdata.creative;
+		e.inventory = pdata.inv;
+		e.player = pdata;
 		e.screenPosition = effectiveMousePos;
 		e.proxy = proxy;
 		e.blockPosition = blockByPoint(effectiveMousePos);
 		e.worldPosition = worldPosByPoint(effectiveMousePos);
 		e.tproxy = tproxy;
-		e.selectedBlock = currBlock.block;
+		if(currBlock != null) e.selectedBlock = currBlock.block;
 		e.selectedBlockIcon = currBlock;
 		return e;
 	}
-	private void tick() {
-		paintImmediately();
-	}
-	
 	public void paintImmediately() {
 		paintImmediately(0, 0, getWidth(), getHeight());
 	}

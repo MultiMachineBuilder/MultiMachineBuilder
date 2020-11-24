@@ -9,7 +9,9 @@ import java.awt.event.MouseEvent;
 import org.joml.Vector2d;
 
 import mmb.MENU.toolkit.events.UIMouseEvent;
+import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.player.BlockIcon;
+import mmb.WORLD.player.DataLayerPlayer;
 import mmb.WORLD.tileworld.block.Block;
 import mmb.WORLD.tileworld.world.BlockProxy;
 
@@ -45,6 +47,12 @@ public class ToolEvent {
 	public UIMouseEvent mouse;
 
 	public BlockIcon selectedBlockIcon;
+
+	public boolean creative;
+
+	public Inventory inventory;
+
+	public DataLayerPlayer player;
 	
 	/**
 	 * 

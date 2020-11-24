@@ -6,6 +6,7 @@ package mmb.WORLD.inventory.InvGUI;
 import javax.swing.JPanel;
 
 import mmb.WORLD.inventory.Item;
+import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.inventory.items.Items;
 import mmb.WORLD.player.DataLayerPlayer;
 import java.awt.Graphics;
@@ -108,6 +109,19 @@ public class InvGUI extends JPanel {
 		int startY = scrollCreative * -32;
 		for(int i = 0; i < itemBuffer.length; i++) {
 			itemBuffer[i].getTexture().draw(0, (i*32)+startY, creative);
+		}
+		
+		startY = scrollInv * -32;
+		int columns = inv.getClipBounds().width / 32;
+		ItemStack[] items = associated.inv.getContents();
+		int x = 0;
+		loop:
+		for(int i = 0; i < itemBuffer.length; i++) {
+			for(int j = 0; j < columns; j++) {
+				x++;
+				if(x == itemBuffer.length) break loop;
+				items[i].getTexture().draw((j*32), (i*32)+startY, inv);
+			}
 		}
 	}
 

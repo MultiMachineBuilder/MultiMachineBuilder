@@ -70,9 +70,11 @@ public class Block implements MapEntry, ItemType{
 		return name;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Block [name=" + name + ", leaveBehind=" + leaveBehind.name + "]";
+		return "Block [name=" + name + ", title=" + title + ", volume=" + volume + ", leaveBehind=" + leaveBehind.name + "]";
 	}
 
 	@Override

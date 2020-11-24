@@ -41,7 +41,7 @@
 (BLOCKS) Creating a block: mmb.silicon_ore
 (BLOCKS) Creating a block: mmb.craft
 (BLOCKS) Creating a block: mmb.tree
-(BLOCKS) {mmb.grass=Block [name=mmb.grass, leaveBehind=mmb.air], mmb.air=Block [name=mmb.air, leaveBehind=mmb.air], wireworld.tail=Block [name=wireworld.tail, leaveBehind=wireworld.wire], wireworld.head=Block [name=wireworld.head, leaveBehind=wireworld.wire], wireworld.wire=Block [name=wireworld.wire, leaveBehind=mmb.grass], wireworld.chatter=Block [name=wireworld.chatter, leaveBehind=mmb.grass], mmb.stone=Block [name=mmb.stone, leaveBehind=mmb.grass], mmb.planks=Block [name=mmb.planks, leaveBehind=mmb.grass], mmb.leaves=Block [name=mmb.leaves, leaveBehind=mmb.grass], mmb.iore=Block [name=mmb.iore, leaveBehind=mmb.grass], mmb.cpore=Block [name=mmb.cpore, leaveBehind=mmb.grass], mmb.silicon_ore=Block [name=mmb.silicon_ore, leaveBehind=mmb.grass], mmb.craft=Block [name=mmb.craft, leaveBehind=mmb.grass], mmb.tree=Block [name=mmb.tree, leaveBehind=mmb.grass]}
+(BLOCKS) {mmb.grass=Block [name=mmb.grass, title=Grass, volume=0.02, leaveBehind=mmb.air], mmb.air=Block [name=mmb.air, title=Air, volume=0.02, leaveBehind=mmb.air], wireworld.tail=Block [name=wireworld.tail, title=WireWorld tail, volume=0.02, leaveBehind=wireworld.wire], wireworld.head=Block [name=wireworld.head, title=WireWorld head, volume=0.02, leaveBehind=wireworld.wire], wireworld.wire=Block [name=wireworld.wire, title=WireWorld conductor, volume=0.02, leaveBehind=mmb.grass], wireworld.chatter=Block [name=wireworld.chatter, title=Chatbox, volume=0.02, leaveBehind=mmb.grass], mmb.stone=Block [name=mmb.stone, title=Stone, volume=0.02, leaveBehind=mmb.grass], mmb.planks=Block [name=mmb.planks, title=Wooden planks, volume=0.02, leaveBehind=mmb.grass], mmb.leaves=Block [name=mmb.leaves, title=Leaves, volume=0.02, leaveBehind=mmb.grass], mmb.iore=Block [name=mmb.iore, title=Iron ore, volume=0.02, leaveBehind=mmb.grass], mmb.cpore=Block [name=mmb.cpore, title=Copper ore, volume=0.02, leaveBehind=mmb.grass], mmb.silicon_ore=Block [name=mmb.silicon_ore, title=Silicon ore, volume=0.02, leaveBehind=mmb.grass], mmb.craft=Block [name=mmb.craft, title=Assembly Table, volume=0.02, leaveBehind=mmb.grass], mmb.tree=Block [name=mmb.tree, title=Log, volume=0.02, leaveBehind=mmb.grass]}
 (MOD-LOADER) Loading mods
 (MOD-LOADER) Finding all files to load
 (MOD-LOADER) Added missing mods directory
@@ -50,26 +50,28 @@
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (MOD-LOADER) Found 3 mod files
 (MOD - HelloWorld 0.2 & 0.3.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
-(MOD - HelloWorld 0.2 & 0.3.jar) Loading a modfile: HelloWorld 0.2 & 0.3.jar
 (MOD - sound.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
+(MOD - HelloWorld 0.2 & 0.3.jar) Loading a modfile: HelloWorld 0.2 & 0.3.jar
 (MOD - sound.zip) Loading a modfile: sound.zip
 (MOD - sound.zip) entry: sound/
+(MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
+(MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
 (MOD - sound.zip) entry: sound/error.mp3
 (MOD - sound.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
-(ClassPath) entry size: 0
-(ClassPath) entry size: 11215
-(MOD - sound.zip) Processing sound/
-(MOD - sound.zip) Directory: sound/
-(MOD - sound.zip) Processing sound/error.mp3
-(MOD - sound.zip) File: sound/error.mp3
-(MOD - sound.zip) Sound file
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: .project
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: .classpath
 (MOD - HelloWorld 0.2 & 0.3.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
+(ClassPath) entry size: 0
+(ClassPath) entry size: 11215
 (ClassPath) entry size: -1
+(MOD - sound.zip) Processing sound/
+(MOD - sound.zip) Directory: sound/
 (ClassPath) entry size: -1
+(MOD - sound.zip) Processing sound/error.mp3
+(MOD - sound.zip) File: sound/error.mp3
+(MOD - sound.zip) Sound file
 (ClassPath) entry size: -1
 (ClassPath) entry size: -1
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/package-info.class
@@ -80,8 +82,6 @@
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/HelloWorld.class
 (MOD - HelloWorld 0.2 & 0.3.jar) File: helloworld/HelloWorld.class
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
-(MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
-(MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
 (BLOCKS) Creating a block: wireworld.beep
 (HW) Hello, world!
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing .project
@@ -99,7 +99,7 @@
 (MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Mon Nov 23 18:13:48 CET 2020
+(MOD-LOADER) RELEASED Tue Nov 24 14:24:03 CET 2020
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) =============================================MOD INFORMATION FOR sound.zip=============================================
@@ -125,6 +125,7 @@
 (JSON-WORLD LOADER) Loading world
 (JSON-WORLD LOADER) Successfully loaded world
 (SELECT A SAVE) Successfully opened Survival.mworld
+(TILES) Tool #0
 (WORLD) Stringyfiyng the world
 (JSON-WORLD LOADER) Saving dimensions
 (JSON-WORLD LOADER) Saving blocks
@@ -143,17 +144,14 @@
 (WORLD) Parsing world data
 (JSON-WORLD LOADER) Loading data layers
 (JSON-WORLD LOADER) Adding missing data layer: PlayerInv
-(JSON-WORLD LOADER) Adding missing entry: (JSON-WORLD LOADER) PlayerInv
-(JSON-WORLD LOADER) Successfully addied missing entry: (JSON-WORLD LOADER) PlayerInv
+(JSON-WORLD LOADER) Loading data layer: (JSON-WORLD LOADER) PlayerInv
+(JSON-WORLD LOADER) Successfully loaded data layer: (JSON-WORLD LOADER) PlayerInv
 (JSON-WORLD LOADER) Successfully loaded data layers
 (JSON-WORLD LOADER) Loading world
 (JSON-WORLD LOADER) Successfully loaded world
-(SELECT A SAVE) Successfully opened world 1.mworld
-(BLOCKS) test
-(BLOCKS) test
-(BLOCKS) test
-(BLOCKS) test
-(BLOCKS) test
+(SELECT A SAVE) Successfully opened Survival.mworld
+(TILES) Block:WireWorld conductor
+(TILES) Tool #1
 (WORLD) Stringyfiyng the world
 (JSON-WORLD LOADER) Saving dimensions
 (JSON-WORLD LOADER) Saving blocks

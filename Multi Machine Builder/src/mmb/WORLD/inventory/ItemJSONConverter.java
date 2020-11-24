@@ -29,7 +29,7 @@ public class ItemJSONConverter {
 	public static JsonArray stackToEntry(ItemStack is) {
 		JsonArray ja = new JsonArray();
 		ja.add(itemToEntry(is.item));
-		ja.add(1);
+		ja.add(is.amount);
 		return ja;
 	}
 	public static ItemStack entryToStack(JsonElement je) {

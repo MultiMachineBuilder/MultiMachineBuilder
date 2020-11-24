@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.inventory;
 
+import mmb.WORLD.tileworld.BlockDrawer;
+
 /**
  * @author oskar
  *
@@ -28,5 +30,11 @@ public class ItemStack {
 		super();
 		this.item = item;
 		this.amount = 1;
+	}
+	/**
+	 * @return
+	 */
+	public BlockDrawer getTexture() {
+		return item.getTexture();
 	}
 }
