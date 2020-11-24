@@ -41,14 +41,13 @@ public class ToolMine implements BlockTool {
 
 	@Override
 	public void mousePress(ToolEvent e, int button) {
-		
 		if(e.creative) {
 			e.proxy.remove(e.blockPosition);
 		}else{
 			Block b = e.proxy.getBlock(e.blockPosition);
 			if(b == Blocks.grass) return;
+			if(e.inventory.insert(b));
 			e.proxy.remove(e.blockPosition);
-			e.inventory.insert(b);
 		}
 	}
 

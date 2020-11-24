@@ -50,33 +50,33 @@
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (MOD-LOADER) Found 3 mod files
 (MOD - HelloWorld 0.2 & 0.3.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
-(MOD - sound.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (MOD - HelloWorld 0.2 & 0.3.jar) Loading a modfile: HelloWorld 0.2 & 0.3.jar
-(MOD - sound.zip) Loading a modfile: sound.zip
-(MOD - sound.zip) entry: sound/
 (MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
 (MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
-(MOD - sound.zip) entry: sound/error.mp3
-(MOD - sound.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: .project
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: .classpath
 (MOD - HelloWorld 0.2 & 0.3.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
-(ClassPath) entry size: 0
-(ClassPath) entry size: 11215
 (ClassPath) entry size: -1
-(MOD - sound.zip) Processing sound/
-(MOD - sound.zip) Directory: sound/
 (ClassPath) entry size: -1
-(MOD - sound.zip) Processing sound/error.mp3
-(MOD - sound.zip) File: sound/error.mp3
-(MOD - sound.zip) Sound file
 (ClassPath) entry size: -1
 (ClassPath) entry size: -1
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/package-info.class
 (MOD - HelloWorld 0.2 & 0.3.jar) File: helloworld/package-info.class
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
+(MOD - sound.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
+(MOD - sound.zip) Loading a modfile: sound.zip
+(MOD - sound.zip) entry: sound/
+(MOD - sound.zip) entry: sound/error.mp3
+(MOD - sound.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
+(ClassPath) entry size: 0
+(ClassPath) entry size: 11215
+(MOD - sound.zip) Processing sound/
+(MOD - sound.zip) Directory: sound/
+(MOD - sound.zip) Processing sound/error.mp3
+(MOD - sound.zip) File: sound/error.mp3
+(MOD - sound.zip) Sound file
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing .classpath
 (MOD - HelloWorld 0.2 & 0.3.jar) File: .classpath
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/HelloWorld.class
@@ -99,7 +99,7 @@
 (MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Tue Nov 24 14:24:03 CET 2020
+(MOD-LOADER) RELEASED Tue Nov 24 17:28:24 CET 2020
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) =============================================MOD INFORMATION FOR sound.zip=============================================
@@ -125,33 +125,12 @@
 (JSON-WORLD LOADER) Loading world
 (JSON-WORLD LOADER) Successfully loaded world
 (SELECT A SAVE) Successfully opened Survival.mworld
-(TILES) Tool #0
-(WORLD) Stringyfiyng the world
-(JSON-WORLD LOADER) Saving dimensions
-(JSON-WORLD LOADER) Saving blocks
-(JSON-WORLD LOADER) Saving data layers
-(JSON-WORLD LOADER) Saving data layer: (JSON-WORLD LOADER) PlayerInv
-(JSON-WORLD LOADER) Saved data layer: (JSON-WORLD LOADER) PlayerInv
-(WORLD) Opening data stream
-(WORLD) Encoding JSON data
-(WORLD) Writing byte data
-(WORLD) Closing data stream
-(WORLD) Successfully saved
-(WORLD) Retrieving the file
-(WORLD) Opening data stream
-(WORLD) Preparing loading space
-(WORLD) Decoding text data
-(WORLD) Parsing world data
-(JSON-WORLD LOADER) Loading data layers
-(JSON-WORLD LOADER) Adding missing data layer: PlayerInv
-(JSON-WORLD LOADER) Loading data layer: (JSON-WORLD LOADER) PlayerInv
-(JSON-WORLD LOADER) Successfully loaded data layer: (JSON-WORLD LOADER) PlayerInv
-(JSON-WORLD LOADER) Successfully loaded data layers
-(JSON-WORLD LOADER) Loading world
-(JSON-WORLD LOADER) Successfully loaded world
-(SELECT A SAVE) Successfully opened Survival.mworld
 (TILES) Block:WireWorld conductor
 (TILES) Tool #1
+(TILES) Tool #0
+(TILES) Block:WireWorld conductor
+(TILES) Tool #1
+(TILES) Tool #0
 (WORLD) Stringyfiyng the world
 (JSON-WORLD LOADER) Saving dimensions
 (JSON-WORLD LOADER) Saving blocks
