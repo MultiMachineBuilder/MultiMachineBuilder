@@ -36,26 +36,34 @@
     "mmb.grass",
     "wireworld.wire",
     "mmb.grass",
-    "wireworld.tail",
+    "wireworld.wire",
+    "wireworld.wire",
+    "wireworld.wire",
+    "mmb.grass",
+    "mmb.grass",
+    "wireworld.wire",
+    "wireworld.wire",
+    "mmb.grass",
+    "mmb.grass",
+    "mmb.grass",
+    "mmb.grass",
+    "mmb.grass",
+    "wireworld.wire",
+    "mmb.grass",
+    "wireworld.wire",
     "wireworld.head",
-    "wireworld.wire",
-    "mmb.grass",
-    "mmb.grass",
+    "wireworld.tail",
     "wireworld.wire",
     "wireworld.wire",
-    "mmb.grass",
-    "mmb.grass",
-    "mmb.grass",
-    "mmb.grass",
-    "mmb.grass",
-    "wireworld.wire",
-    "mmb.grass",
-    "wireworld.wire",
-    "wireworld.wire",
-    "wireworld.wire",
-    "wireworld.wire",
-    "wireworld.wire",
-    "test"
+    "mmb.air"
   ],
-  "data": {}
+  "data": {
+    "PlayerInv": {
+      "maxSlots": 2147483647,
+      "maxVolume": 2.0,
+      "stack": false,
+      "contents": [],
+      "creative": true
+    }
+  }
 }
