@@ -1,173 +1,27 @@
-(TEXTURES) Loading texture brush.png
-(TEXTURES) Loading texture colorable.png
-(TEXTURES) Loading texture container.png
-(TEXTURES) Loading texture copper_ore.png
-(TEXTURES) Loading texture copy.png
-(TEXTURES) Loading texture crafting.png
-(TEXTURES) Loading texture grass.png
-(TEXTURES) Loading texture highways.png
-(TEXTURES) Loading texture iron_ore.png
-(TEXTURES) Loading texture item/copper_ingot.png
-(TEXTURES) Loading texture item/iron_ingot.png
-(TEXTURES) Loading texture item/lisc.png
-(TEXTURES) Loading texture item/silicon_ingot.png
-(TEXTURES) Loading texture leaves.png
-(TEXTURES) Loading texture log.png
-(TEXTURES) Loading texture mine.png
-(TEXTURES) Loading texture place.png
-(TEXTURES) Loading texture plank.png
-(TEXTURES) Loading texture printer.png
-(TEXTURES) Loading texture silicon_ore.png
-(TEXTURES) Loading texture spider.png
-(TEXTURES) Loading texture stone.png
-(TEXTURES) Loading texture textedit.png
-(TEXTURES) Loading texture tools.png
-(BLOCKS) Creating blocks
-(BLOCKS) Creating a block: mmb.grass
-(ITEMS) Registering mmbi.copper
-(ITEMS) Registering mmbi.iron
-(ITEMS) Registering mmbi.silicon
-(ITEMS) Registering mmbi.leaf
-(BLOCKS) Creating a block: mmb.air
-(BLOCKS) Creating a block: wireworld.tail
-(BLOCKS) Creating a block: wireworld.head
-(BLOCKS) Creating a block: wireworld.wire
-(BLOCKS) Creating a block: wireworld.chatter
-(BLOCKS) Creating a block: mmb.stone
-(BLOCKS) Creating a block: mmb.planks
-(BLOCKS) Creating a block: mmb.leaves
-(BLOCKS) Creating a block: mmb.iore
-(BLOCKS) Creating a block: mmb.cpore
-(BLOCKS) Creating a block: mmb.silicon_ore
-(BLOCKS) Creating a block: mmb.craft
-(BLOCKS) Creating a block: mmb.tree
-(BLOCKS) {mmb.grass=Block [name=mmb.grass, title=Grass, volume=0.02, leaveBehind=mmb.air], mmb.air=Block [name=mmb.air, title=Air, volume=0.02, leaveBehind=mmb.air], wireworld.tail=Block [name=wireworld.tail, title=WireWorld tail, volume=0.02, leaveBehind=wireworld.wire], wireworld.head=Block [name=wireworld.head, title=WireWorld head, volume=0.02, leaveBehind=wireworld.wire], wireworld.wire=Block [name=wireworld.wire, title=WireWorld conductor, volume=0.02, leaveBehind=mmb.grass], wireworld.chatter=Block [name=wireworld.chatter, title=Chatbox, volume=0.02, leaveBehind=mmb.grass], mmb.stone=Block [name=mmb.stone, title=Stone, volume=0.02, leaveBehind=mmb.grass], mmb.planks=Block [name=mmb.planks, title=Wooden planks, volume=0.02, leaveBehind=mmb.grass], mmb.leaves=Block [name=mmb.leaves, title=Leaves, volume=0.02, leaveBehind=mmb.grass], mmb.iore=Block [name=mmb.iore, title=Iron ore, volume=0.02, leaveBehind=mmb.grass], mmb.cpore=Block [name=mmb.cpore, title=Copper ore, volume=0.02, leaveBehind=mmb.grass], mmb.silicon_ore=Block [name=mmb.silicon_ore, title=Silicon ore, volume=0.02, leaveBehind=mmb.grass], mmb.craft=Block [name=mmb.craft, title=Assembly Table, volume=0.02, leaveBehind=mmb.grass], mmb.tree=Block [name=mmb.tree, title=Log, volume=0.02, leaveBehind=mmb.grass]}
-(MOD-LOADER) Loading mods
-(MOD-LOADER) Finding all files to load
-(MOD-LOADER) Added missing mods directory
-(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods
-(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
-(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
-(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
-(MOD-LOADER) Found 4 mod files
-(MOD - HelloWorld 0.2 & 0.3.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
-(MOD - sound.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
-(MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
-(MOD - flate.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
-(MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
-(MOD - HelloWorld 0.2 & 0.3.jar) Loading a modfile: HelloWorld 0.2 & 0.3.jar
-(MOD - flate.zip) Loading a modfile: flate.zip
-(MOD - sound.zip) Loading a modfile: sound.zip
-(MOD - sound.zip) entry: sound/
-(MOD - flate.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
-(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
-(MOD - sound.zip) entry: sound/error.mp3
-(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
-(MOD - sound.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
-(MOD - HelloWorld 0.2 & 0.3.jar) entry: .project
-(MOD - HelloWorld 0.2 & 0.3.jar) entry: .classpath
-(MOD - HelloWorld 0.2 & 0.3.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
-(ClassPath) entry size: 0
-(ClassPath) entry size: -1
-(ClassPath) entry size: 11215
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
-(MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/package-info.class
-(MOD - HelloWorld 0.2 & 0.3.jar) File: helloworld/package-info.class
-(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
-(MOD - sound.zip) Processing sound/
-(MOD - sound.zip) Directory: sound/
-(MOD - sound.zip) Processing sound/error.mp3
-(MOD - sound.zip) File: sound/error.mp3
-(MOD - sound.zip) Sound file
-(MOD - HelloWorld 0.2 & 0.3.jar) Processing .classpath
-(MOD - HelloWorld 0.2 & 0.3.jar) File: .classpath
-(MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/HelloWorld.class
-(MOD - HelloWorld 0.2 & 0.3.jar) File: helloworld/HelloWorld.class
-(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
-(BLOCKS) Creating a block: wireworld.beep
-(HW) Hello, world!
-(MOD - HelloWorld 0.2 & 0.3.jar) Processing .project
-(MOD - HelloWorld 0.2 & 0.3.jar) File: .project
-(MOD-LOADER) flate.zip is not a mod and will not be run
-(MOD-LOADER) sound.zip is not a mod and will not be run
-(MOD-LOADER) Start 1st stage for Hello, world!
-(MOD-LOADER) End 1st stage for Hello, world!
-(MOD-LOADER) Start 2nd stage for Hello, world!
-(MOD-LOADER) End 2nd stage for Hello, world!
-(MOD-LOADER) Start 3rd stage for Hello, world!
-(MOD-LOADER) End 3rd stage for Hello, world!
-(MOD-LOADER) =============================================MOD INFORMATION FOR C:\Users\oskar\eclipse-workspace\Multi Machine Builder=============================================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder
-(MOD-LOADER) Missing files
-(MOD-LOADER) =============================================MOD INFORMATION FOR flate.zip=============================================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
-(MOD-LOADER) Media package
-(MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
-(MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Fri Nov 27 12:32:30 CET 2020
-(MOD-LOADER) MADE BY Monniasza
-(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
-(MOD-LOADER) =============================================MOD INFORMATION FOR sound.zip=============================================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
-(MOD-LOADER) Media package
-(MOD-LOADER) HOORAY, IT'S OVER!
-(SELECT A SAVE) Found save: Chatter.mworld
-(SELECT A SAVE) Found save: Survival.mworld
-(SELECT A SAVE) Found save: test2.mworld
-(SELECT A SAVE) Found save: test3.mworld
-(SELECT A SAVE) Found save: world 1.mworld
-(SELECT A SAVE) Found 20 saves
-(WORLD) Retrieving the file
-(WORLD) Opening data stream
-(WORLD) Preparing loading space
-(WORLD) Decoding text data
-(WORLD) Parsing world data
-(JSON-WORLD LOADER) Loading data layers
-(JSON-WORLD LOADER) Adding missing data layer: PlayerInv
-(JSON-WORLD LOADER) Loading data layer: (JSON-WORLD LOADER) PlayerInv
-(JSON-WORLD LOADER) Successfully loaded data layer: (JSON-WORLD LOADER) PlayerInv
-(JSON-WORLD LOADER) Successfully loaded data layers
-(JSON-WORLD LOADER) Loading world
-(JSON-WORLD LOADER) Successfully loaded world
-(SELECT A SAVE) Successfully opened test2.mworld
-(WORLD) Stringyfiyng the world
-(JSON-WORLD LOADER) Saving dimensions
-(JSON-WORLD LOADER) Saving blocks
-(JSON-WORLD LOADER) Saving data layers
-(JSON-WORLD LOADER) Saving data layer: (JSON-WORLD LOADER) PlayerInv
-(JSON-WORLD LOADER) Saved data layer: (JSON-WORLD LOADER) PlayerInv
-(WORLD) Opening data stream
-(WORLD) Encoding JSON data
-(WORLD) Writing byte data
-(WORLD) Closing data stream
-(WORLD) Successfully saved
-(WORLD) Retrieving the file
-(WORLD) Opening data stream
-(WORLD) Preparing loading space
-(WORLD) Decoding text data
-(WORLD) Parsing world data
-(JSON-WORLD LOADER) Loading data layers
-(JSON-WORLD LOADER) Adding missing data layer: PlayerInv
-(JSON-WORLD LOADER) Loading data layer: (JSON-WORLD LOADER) PlayerInv
-(JSON-WORLD LOADER) Successfully loaded data layer: (JSON-WORLD LOADER) PlayerInv
-(JSON-WORLD LOADER) Successfully loaded data layers
-(JSON-WORLD LOADER) Loading world
-(JSON-WORLD LOADER) Successfully loaded world
-(SELECT A SAVE) Successfully opened Survival.mworld
-(TILES) Tool #0
-(TILES) Block:WireWorld conductor
-(TILES) Tool #1
-(WORLD) Stringyfiyng the world
-(JSON-WORLD LOADER) Saving dimensions
-(JSON-WORLD LOADER) Saving blocks
-(JSON-WORLD LOADER) Saving data layers
-(JSON-WORLD LOADER) Saving data layer: (JSON-WORLD LOADER) PlayerInv
-(JSON-WORLD LOADER) Saved data layer: (JSON-WORLD LOADER) PlayerInv
-(WORLD) Opening data stream
-(WORLD) Encoding JSON data
-(WORLD) Writing byte data
-(WORLD) Closing data stream
-(WORLD) Successfully saved
+(test) Home Heating Reactor
+(test) Home Heating Jet
+(test) Home Heating Line
+(test) Home Electric Reactor
+(test) Home Electric Jet
+(test) Home Electric Line
+(test) Home Motor Reactor
+(test) Home Motor Jet
+(test) Home Motor Line
+(test) Industrial Heating Reactor
+(test) Industrial Heating Jet
+(test) Industrial Heating Line
+(test) Industrial Electric Reactor
+(test) Industrial Electric Jet
+(test) Industrial Electric Line
+(test) Industrial Motor Reactor
+(test) Industrial Motor Jet
+(test) Industrial Motor Line
+(test) Commercial Heating Reactor
+(test) Commercial Heating Jet
+(test) Commercial Heating Line
+(test) Commercial Electric Reactor
+(test) Commercial Electric Jet
+(test) Commercial Electric Line
+(test) Commercial Motor Reactor
+(test) Commercial Motor Jet
+(test) Commercial Motor Line

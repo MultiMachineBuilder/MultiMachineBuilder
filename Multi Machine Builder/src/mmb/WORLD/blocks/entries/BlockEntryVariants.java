@@ -11,7 +11,7 @@ import mmb.WORLD.blocks.defs.BlockDef;
  * @param <T> type of input enumeration
  *
  */
-public class BlockEntryVariants<T extends Enum<?>&VariantHandler> {
+public class BlockEntryVariants<T extends Enum<?>> {
 	public BlockDef block;
 	private T value;
 }

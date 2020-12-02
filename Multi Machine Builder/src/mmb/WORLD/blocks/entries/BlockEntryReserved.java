@@ -12,15 +12,8 @@ import com.google.gson.JsonElement;
  * @author oskar
  *
  */
-public class BlockEntryReserved implements BlockEntry{
+public class BlockEntryReserved extends BlockEntryAbstract{
 	public Point location = new Point();
-
-	@Override
-	public void load(JsonElement e) {
-		JsonArray a = e.getAsJsonArray();
-		location.x = a.get(0).getAsInt();
-		location.x = a.get(1).getAsInt();
-	}
 
 	@Override
 	public JsonElement save(JsonElement e) {
