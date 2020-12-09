@@ -65,7 +65,7 @@ public class MainMenu extends JFrame {
 	 * Create the frame.
 	 */
 	public MainMenu() {
-		setTitle("MultiMachineBuilder");
+		setTitle("MultiMachineBuilder - "+GameContents.addons.size()+" mods");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		
@@ -184,11 +184,6 @@ public class MainMenu extends JFrame {
 		tabbedPane.addTab("Mods", null, panelMods, null);
 		panelMods.setLayout(new MigLayout("", "[grow]", "[grow][grow]"));
 		
-		table = new JTable();
-		table.setFillsViewportHeight(true);
-		JScrollPane scrollPane = new JScrollPane(table);
-		panelMods.add(scrollPane, "cell 0 0,grow");
-		
 		JPanel subPanelMods = new JPanel();
 		panelMods.add(subPanelMods, "cell 0 1,grow");
 		subPanelMods.setLayout(new MigLayout("", "[]", "[]"));
@@ -200,6 +195,11 @@ public class MainMenu extends JFrame {
 		tablemodel.addColumn("Version");
 		tablemodel.addColumn("Author");
 		GameContents.addons.forEach((AddonInfo a) -> addMod(a));
+		
+		table = new JTable();
+		table.setFillsViewportHeight(true);
+		JScrollPane scrollPane = new JScrollPane(table);
+		panelMods.add(scrollPane, "cell 0 0,grow");
 	}
 	
 	

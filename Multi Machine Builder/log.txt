@@ -51,9 +51,17 @@
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (MOD-LOADER) Found 4 mod files
+(MOD - flate.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
+(MOD - HelloWorld 0.2 & 0.3.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
+(MOD - flate.zip) Loading a modfile: flate.zip
+(MOD - HelloWorld 0.2 & 0.3.jar) Loading a modfile: HelloWorld 0.2 & 0.3.jar
+(MOD - flate.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
+(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
 (MOD - sound.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (MOD - sound.zip) Loading a modfile: sound.zip
 (MOD - sound.zip) entry: sound/
+(MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
+(MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
 (MOD - sound.zip) entry: sound/error.mp3
 (MOD - sound.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (ClassPath) entry size: 0
@@ -63,14 +71,6 @@
 (MOD - sound.zip) Processing sound/error.mp3
 (MOD - sound.zip) File: sound/error.mp3
 (MOD - sound.zip) Sound file
-(MOD - flate.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
-(MOD - flate.zip) Loading a modfile: flate.zip
-(MOD - flate.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
-(MOD - HelloWorld 0.2 & 0.3.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
-(MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
-(MOD - HelloWorld 0.2 & 0.3.jar) Loading a modfile: HelloWorld 0.2 & 0.3.jar
-(MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
-(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: .project
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: .classpath
@@ -99,16 +99,16 @@
 (MOD-LOADER) End 2nd stage for Hello, world!
 (MOD-LOADER) Start 3rd stage for Hello, world!
 (MOD-LOADER) End 3rd stage for Hello, world!
-(MOD-LOADER) =============================================MOD INFORMATION FOR C:\Users\oskar\eclipse-workspace\Multi Machine Builder=============================================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder
-(MOD-LOADER) Missing files
 (MOD-LOADER) =============================================MOD INFORMATION FOR flate.zip=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
 (MOD-LOADER) Media package
+(MOD-LOADER) =============================================MOD INFORMATION FOR C:\Users\oskar\eclipse-workspace\Multi Machine Builder=============================================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder
+(MOD-LOADER) Missing files
 (MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Wed Dec 09 17:25:27 CET 2020
+(MOD-LOADER) RELEASED Wed Dec 09 20:35:36 CET 2020
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) =============================================MOD INFORMATION FOR sound.zip=============================================
