@@ -86,11 +86,11 @@ public class MainMenu extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.setLayout(new CardLayout(0, 0));
 		
 		
 		JPanel mainMenu = new JPanel();
-		contentPane.add(mainMenu);
+		contentPane.add(mainMenu, CARD_MENU);
 		mainMenu.setLayout(new BorderLayout(0, 0));
 		
 		JPanel aside = new JPanel();

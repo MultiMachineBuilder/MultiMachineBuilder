@@ -52,16 +52,27 @@
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (MOD-LOADER) Found 4 mod files
 (MOD - flate.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
-(MOD - HelloWorld 0.2 & 0.3.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD - flate.zip) Loading a modfile: flate.zip
-(MOD - HelloWorld 0.2 & 0.3.jar) Loading a modfile: HelloWorld 0.2 & 0.3.jar
+(MOD - HelloWorld 0.2 & 0.3.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD - flate.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
+(MOD - HelloWorld 0.2 & 0.3.jar) Loading a modfile: HelloWorld 0.2 & 0.3.jar
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
 (MOD - sound.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
-(MOD - sound.zip) Loading a modfile: sound.zip
-(MOD - sound.zip) entry: sound/
+(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
+(MOD - HelloWorld 0.2 & 0.3.jar) entry: .project
 (MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
+(MOD - HelloWorld 0.2 & 0.3.jar) entry: .classpath
+(MOD - HelloWorld 0.2 & 0.3.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
+(ClassPath) entry size: -1
+(ClassPath) entry size: -1
+(ClassPath) entry size: -1
+(ClassPath) entry size: -1
+(MOD - sound.zip) Loading a modfile: sound.zip
+(MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/package-info.class
+(MOD - HelloWorld 0.2 & 0.3.jar) File: helloworld/package-info.class
+(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
+(MOD - sound.zip) entry: sound/
 (MOD - sound.zip) entry: sound/error.mp3
 (MOD - sound.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (ClassPath) entry size: 0
@@ -71,17 +82,6 @@
 (MOD - sound.zip) Processing sound/error.mp3
 (MOD - sound.zip) File: sound/error.mp3
 (MOD - sound.zip) Sound file
-(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
-(MOD - HelloWorld 0.2 & 0.3.jar) entry: .project
-(MOD - HelloWorld 0.2 & 0.3.jar) entry: .classpath
-(MOD - HelloWorld 0.2 & 0.3.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
-(MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/package-info.class
-(MOD - HelloWorld 0.2 & 0.3.jar) File: helloworld/package-info.class
-(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing .classpath
 (MOD - HelloWorld 0.2 & 0.3.jar) File: .classpath
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/HelloWorld.class
@@ -91,10 +91,10 @@
 (HW) Hello, world!
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing .project
 (MOD - HelloWorld 0.2 & 0.3.jar) File: .project
-(MOD-LOADER) flate.zip is not a mod and will not be run
 (MOD-LOADER) Start 1st stage for Hello, world!
-(MOD-LOADER) End 1st stage for Hello, world!
 (MOD-LOADER) sound.zip is not a mod and will not be run
+(MOD-LOADER) End 1st stage for Hello, world!
+(MOD-LOADER) flate.zip is not a mod and will not be run
 (MOD-LOADER) Start 2nd stage for Hello, world!
 (MOD-LOADER) End 2nd stage for Hello, world!
 (MOD-LOADER) Start 3rd stage for Hello, world!
@@ -108,7 +108,7 @@
 (MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Wed Dec 09 20:35:36 CET 2020
+(MOD-LOADER) RELEASED Wed Dec 09 20:41:54 CET 2020
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) =============================================MOD INFORMATION FOR sound.zip=============================================
