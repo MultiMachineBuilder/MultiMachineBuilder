@@ -189,9 +189,9 @@ public class MainMenu extends JFrame {
 		JScrollPane scrollPane = new JScrollPane(table);
 		panelMods.add(scrollPane, "cell 0 0,grow");
 		
-		JPanel panel = new JPanel();
-		panelMods.add(panel, "cell 0 1,grow");
-		panel.setLayout(new MigLayout("", "[]", "[]"));
+		JPanel subPanelMods = new JPanel();
+		panelMods.add(subPanelMods, "cell 0 1,grow");
+		subPanelMods.setLayout(new MigLayout("", "[]", "[]"));
 		
 		tablemodel.addColumn("Name");
 		tablemodel.addColumn("Description");
