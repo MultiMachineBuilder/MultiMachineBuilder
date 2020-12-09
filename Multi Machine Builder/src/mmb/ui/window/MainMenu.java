@@ -105,9 +105,6 @@ public class MainMenu extends JFrame {
 		JButton btnSettings = new JButton("Settings");
 		aside.add(btnSettings, "cell 0 1");
 		
-		JButton btnMods = new JButton("Mods");
-		aside.add(btnMods, "cell 0 2");
-		
 		JButton btnDownloadContent = new JButton("Download content");
 		aside.add(btnDownloadContent, "cell 0 3");
 		
@@ -161,12 +158,6 @@ public class MainMenu extends JFrame {
 				new ModShop().setVisible(true);
 			}
 		});
-		btnMods.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				new ModList();
-			}
-		});
 		btnNewGame.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -179,6 +170,23 @@ public class MainMenu extends JFrame {
 		
 		JPanel panelSaves = new JPanel();
 		tabbedPane.addTab("Saves", null, panelSaves, null);
+		panelSaves.setLayout(new BorderLayout(0, 0));
+		
+		List list = new List();
+		panelSaves.add(list, BorderLayout.CENTER);
+		
+		JPanel subPanelSaves = new JPanel();
+		panelSaves.add(subPanelSaves, BorderLayout.SOUTH);
+		subPanelSaves.setLayout(new MigLayout("", "[][][][]", "[]"));
+		
+		JButton btnPlay = new JButton("Play");
+		subPanelSaves.add(btnPlay, "cell 0 0");
+		
+		JButton btnNewWorld = new JButton("New world");
+		subPanelSaves.add(btnNewWorld, "cell 1 0");
+		
+		JButton btnReloadWorlds = new JButton("Refresh");
+		subPanelSaves.add(btnReloadWorlds, "cell 2 0");
 		
 		JPanel panelMods = new JPanel();
 		tabbedPane.addTab("Mods", null, panelMods, null);
@@ -188,6 +196,9 @@ public class MainMenu extends JFrame {
 		panelMods.add(subPanelMods, "cell 0 1,grow");
 		subPanelMods.setLayout(new MigLayout("", "[]", "[]"));
 		
+		JLabel lblModCounter = new JLabel(GameContents.addons.size()+" mods");
+		subPanelMods.add(lblModCounter, "cell 0 0");
+		
 		tablemodel.addColumn("Name");
 		tablemodel.addColumn("Description");
 		tablemodel.addColumn("State");
@@ -196,9 +207,10 @@ public class MainMenu extends JFrame {
 		tablemodel.addColumn("Author");
 		GameContents.addons.forEach((AddonInfo a) -> addMod(a));
 		
-		table = new JTable();
+		table = new JTable(tablemodel);
 		table.setFillsViewportHeight(true);
 		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setViewportBorder(UIManager.getBorder("Button.border"));
 		panelMods.add(scrollPane, "cell 0 0,grow");
 	}
 	

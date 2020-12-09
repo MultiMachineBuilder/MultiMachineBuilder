@@ -48,34 +48,6 @@ public class SelectGame extends JFrame {
 		});
 		panel.add(btnNew, "cell 0 0");
 		
-		JButton btnTemplate = new JButton("Create from template");
-		btnTemplate.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnTemplate.setEnabled(false);
-		panel.add(btnTemplate, "cell 1 0 2 1");
-		
-		JButton btnServer = new JButton("Server");
-		panel.add(btnServer, "cell 3 0 2 1");
-		
-		JButton btnCovertOldSave = new JButton("Convert old saves");
-		btnCovertOldSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//Convert v0 to v1 saves
-				
-			}
-		});
-		panel.add(btnCovertOldSave, "cell 5 0");
-		
-		JButton btnSettings = new JButton("Settings");
-		btnSettings.setEnabled(false);
-		panel.add(btnSettings, "cell 0 1");
-		
-		JButton btnUpload = new JButton("Upload");
-		btnUpload.setEnabled(false);
-		panel.add(btnUpload, "cell 4 1");
-		
 		JButton btnPlay = new JButton("Play");
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -84,16 +56,7 @@ public class SelectGame extends JFrame {
 				debug.printl("Successfully opened "+s.name);
 			}
 		});
-		panel.add(btnPlay, "cell 0 3");
-		
-		JButton btnHost = new JButton("Host");
-		panel.add(btnHost, "cell 1 3");
-		
-		JButton btnConnect = new JButton("Connect");
-		panel.add(btnConnect, "cell 2 3");
-		
-		JButton btnDelete = new JButton("Delete");
-		panel.add(btnDelete, "cell 4 3");
+		panel.add(btnPlay, "cell 0 1");
 		
 		LocalFile saves2 = new LocalFile("maps/");
 		AdvancedFile[] files;
