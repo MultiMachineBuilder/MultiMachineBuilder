@@ -13,6 +13,13 @@ import mmb.WORLD.blocks.defs.BlockDef;
  */
 public class BlockEntrySimple extends BlockEntryAbstract {
 
+	/**
+	 * @param block
+	 */
+	public BlockEntrySimple(BlockDef block) {
+		this.block = block;
+	}
+
 	@Override
 	public JsonElement save(JsonElement e) {
 		// TODO Auto-generated method stub

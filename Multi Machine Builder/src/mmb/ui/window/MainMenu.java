@@ -1,12 +1,11 @@
 package mmb.ui.window;
 
-import java.awt.EventQueue;
+import java.awt.*;
+import javax.swing.*;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-
+import mmb.DATA.contents.GameContents;
+import mmb.MODS.info.AddonInfo;
+import mmb.MODS.info.AddonState;
 import mmb.WORLD.tileworld.TileGUI;
 import mmb.debug.Debugger;
 import mmb.ui.ExternalMods;
@@ -15,20 +14,42 @@ import mmb.ui.game.WorldFrame;
 import mmb.ui.shop.ModShop;
 
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import java.awt.event.ActionEvent;
 import net.miginfocom.swing.MigLayout;
 import java.awt.Color;
+import java.awt.Desktop;
+import java.awt.CardLayout;
+import java.awt.BorderLayout;
+import javax.swing.JToolBar;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JCheckBoxMenuItem;
 
 public class MainMenu extends JFrame {
-	private final Debugger debug = new Debugger("Main menu");
+	private final static Debugger debug = new Debugger("Main menu");
 	private final JPanel contentPane;
+	public final static String CARD_MENU = "mainMenu";
+	public final static String CARD_MODS = "modList";
+	public final static String CARD_SAVES = "saveList";
+	public final static String GITHUB = "https://github.com/MultiMachineBuilder/MultiMachineBuilder";
+	private boolean FullScreen = false;
+	
+	static GraphicsDevice device = GraphicsEnvironment
+	        .getLocalGraphicsEnvironment().getScreenDevices()[0];
 
 	/**
 	 * Launch the application.
 	 */
 	public static void running() {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					MainMenu frame = new MainMenu();
@@ -47,65 +68,191 @@ public class MainMenu extends JFrame {
 		setTitle("MultiMachineBuilder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Window");
+		menuBar.add(mnNewMenu);
+		
+		JCheckBoxMenuItem stngFullScreen = new JCheckBoxMenuItem("FullScreen");
+		stngFullScreen.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setFullScreen(stngFullScreen.isSelected());
+			}
+		});
+		mnNewMenu.add(stngFullScreen);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[119px][103px][105px]", "[23px][23px][23px][][][]"));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		
+		
+		JPanel mainMenu = new JPanel();
+		contentPane.add(mainMenu);
+		mainMenu.setLayout(new BorderLayout(0, 0));
+		
+		JPanel aside = new JPanel();
+		mainMenu.add(aside, BorderLayout.WEST);
+		aside.setLayout(new MigLayout("", "[]", "[][][][][][][][][][]"));
+		
+		JButton btnNewGame = new JButton("Play");
+		aside.add(btnNewGame, "cell 0 0");
+		btnNewGame.setForeground(Color.BLACK);
+		btnNewGame.setBackground(Color.GREEN);
+		
+		JButton btnSettings = new JButton("Settings");
+		aside.add(btnSettings, "cell 0 1");
+		
+		JButton btnMods = new JButton("Mods");
+		aside.add(btnMods, "cell 0 2");
+		
+		JButton btnDownloadContent = new JButton("Download content");
+		aside.add(btnDownloadContent, "cell 0 3");
 		
 		JButton btnConfigureExternalContent = new JButton("Configure external content");
+		aside.add(btnConfigureExternalContent, "cell 0 4");
+		
+		JButton btnWebsite = new JButton("Website");
+		aside.add(btnWebsite, "cell 0 5");
+		
+		JButton btnAgecontentLimits = new JButton("Age/content limits");
+		aside.add(btnAgecontentLimits, "cell 0 6");
+		
+		JButton btnCredits = new JButton("Credits");
+		aside.add(btnCredits, "cell 0 7");
+		
+		JButton btnLogIn = new JButton("Log in");
+		aside.add(btnLogIn, "cell 0 8");
+		
+		JButton btnExit = new JButton("Exit");
+		aside.add(btnExit, "cell 0 9");
+		btnExit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		btnLogIn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnWebsite.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					Desktop.getDesktop().browse(new URI(GITHUB));
+				} catch (Exception e) {
+					debug.pstm(e, "Unable to open GitHub");
+				}
+			}
+		});
 		btnConfigureExternalContent.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				new ExternalMods().setVisible(true);
 			}
 		});
-		
-		JButton btnDownloadContent = new JButton("Download content");
 		btnDownloadContent.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				new ModShop().setVisible(true);
 			}
 		});
-		
-		JButton btnNewGame = new JButton("Play");
-		btnNewGame.setForeground(Color.BLACK);
-		btnNewGame.setBackground(Color.GREEN);
-		btnNewGame.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				new SelectGame().setVisible(true);
-			}
-		});
-		contentPane.add(btnNewGame, "cell 0 1 3 1,growx,aligny top");
-		
-		JButton btnSettings = new JButton("Settings");
-		contentPane.add(btnSettings, "cell 0 2,growx,aligny top");
-		
-		JButton btnMods = new JButton("Mods");
 		btnMods.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				new ModList();
 			}
 		});
-		contentPane.add(btnMods, "cell 1 2,growx,aligny top");
-		contentPane.add(btnDownloadContent, "cell 0 3,growx,aligny top");
-		
-		JButton btnWebsite = new JButton("Website (WIP)");
-		contentPane.add(btnWebsite, "cell 1 3,growx,aligny top");
-		
-		JButton btnCredits = new JButton("Credits");
-		contentPane.add(btnCredits, "cell 2 3,growx,aligny top");
-		contentPane.add(btnConfigureExternalContent, "cell 0 4");
-		
-		JButton btnAgecontentLimits = new JButton("Age/content limits");
-		contentPane.add(btnAgecontentLimits, "cell 1 4");
-		
-		JButton btnLogIn = new JButton("Log in");
-		btnLogIn.addActionListener(new ActionListener() {
+		btnNewGame.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				new SelectGame().setVisible(true);
 			}
 		});
-		contentPane.add(btnLogIn, "cell 2 4,growx,aligny top");
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		mainMenu.add(tabbedPane);
+		
+		JPanel panelSaves = new JPanel();
+		tabbedPane.addTab("Saves", null, panelSaves, null);
+		
+		JPanel panelMods = new JPanel();
+		tabbedPane.addTab("Mods", null, panelMods, null);
+		panelMods.setLayout(new MigLayout("", "[grow]", "[grow][grow]"));
+		
+		table = new JTable();
+		table.setFillsViewportHeight(true);
+		JScrollPane scrollPane = new JScrollPane(table);
+		panelMods.add(scrollPane, "cell 0 0,grow");
+		
+		JPanel panel = new JPanel();
+		panelMods.add(panel, "cell 0 1,grow");
+		panel.setLayout(new MigLayout("", "[]", "[]"));
+		
+		tablemodel.addColumn("Name");
+		tablemodel.addColumn("Description");
+		tablemodel.addColumn("State");
+		tablemodel.addColumn("Last update");
+		tablemodel.addColumn("Version");
+		tablemodel.addColumn("Author");
+		GameContents.addons.forEach((AddonInfo a) -> addMod(a));
 	}
 	
+	
+	
+	/**
+	 * @return the fullScreen
+	 */
+	public boolean isFullScreen() {
+		return FullScreen;
+	}
+
+	/**
+	 * @param fullScreen the fullScreen to set
+	 */
+	public void setFullScreen(boolean fullScreen) {
+		if(fullScreen) {
+			dispose();
+			setUndecorated(true);
+			setVisible(true);
+			device.setFullScreenWindow(this);
+			setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		}else {
+			device.setFullScreenWindow(null);
+			dispose();
+			setUndecorated(false);
+			setVisible(true);
+		}
+		FullScreen = fullScreen;
+		
+	}
+	
+	//XXX Mod table
+	private final DefaultTableModel tablemodel = new DefaultTableModel();
+	private JTable table;
+	private void addMod(AddonInfo mod) {
+		if(mod == null) return;
+		String release = "Unknown", descr = "This file is corrupt.", author = "Unknown";
+		if(mod.mmbmod == null) {
+			release = new Date().toString();
+			descr = "No description";
+			author = "Unknown";
+		}else if(mod.state == AddonState.ENABLE) {
+			release = mod.mmbmod.release.toString();
+			descr = mod.mmbmod.description;
+			author = mod.mmbmod.author;
+		}
+		String state = mod.state.toString();
+		
+		String ver = "";
+		String name = mod.name;
+		tablemodel.addRow(new Object[] {name, descr, state, release, ver, author});
+	}
+
 	private void loginInfo() {
 		//if(LoginInfo.loggedIn()) {
 			

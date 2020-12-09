@@ -9,7 +9,7 @@ import mmb.WORLD.player.DataLayerPlayer;
 import mmb.WORLD.tileworld.world.BlockProxy;
 import mmb.debug.Debugger;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.*;
 
@@ -21,7 +21,7 @@ public interface DataLayer {
 	/**
 	 * Stores data layers.
 	 */
-    Map<String, DataLayerEntry> layers = new Hashtable<String, DataLayerEntry>();
+    Map<String, DataLayerEntry> layers = new HashMap<String, DataLayerEntry>();
     
     static Debugger debug = new Debugger("Data Layers");
 	

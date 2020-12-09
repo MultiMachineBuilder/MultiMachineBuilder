@@ -36,8 +36,6 @@ public class ModList extends JFrame {
 	private final JTable table;
 	private final JPanel settings;
 	private final DefaultTableModel tablemodel = new DefaultTableModel();
-	private final JButton btnViewInFile;
-	private final JButton btnKillThisMod;
 	private final JScrollPane scrollPane;
 	private final JLabel lblModCount;
 
@@ -85,14 +83,8 @@ public class ModList extends JFrame {
 		contentPane.add(settings, "cell 0 2,grow");
 		settings.setLayout(new MigLayout("", "[][]", "[][][]"));
 		
-		btnViewInFile = new JButton("View in file browser");
-		settings.add(btnViewInFile, "cell 0 0");
-		
 		lblModCount = new JLabel("Found "+GameContents.addons.size()+" mods");
 		settings.add(lblModCount, "cell 1 0");
-		
-		btnKillThisMod = new JButton("Kill this mod");
-		settings.add(btnKillThisMod, "cell 0 1");
 		
 		GameContents.addons.forEach((AddonInfo a) -> {addMod(a);});
 		setVisible(true);

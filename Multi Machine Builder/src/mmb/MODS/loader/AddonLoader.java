@@ -126,7 +126,7 @@ public class AddonLoader {
 				debug.pst(e);
 				a.state = AddonState.NOEXIST;
 				break initor;
-			}catch(Throwable e) {
+			}catch(Exception e) {
 				debug.printl(e.getClass().getCanonicalName());
 				debug.printl("Couldn't read " + a.name + " for unknown reasons");
 				debug.pst(e);

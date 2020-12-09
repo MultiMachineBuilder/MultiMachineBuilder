@@ -40,15 +40,15 @@ public class ToolCopyPaste implements BlockTool {
 	@Override
 	public void mousePress(ToolEvent e, int button) {
 		debug.printl("Button #"+button);
-		if(e.mouse.button == 1) {
+		if(e.mouse.getButton() == 1) {
 			tproxy.selectionA = e.blockPosition;
 			debug.printl("First position: "+e.blockPosition.toString());
 		}
-		if(e.mouse.button == 2) {
+		if(e.mouse.getButton() == 2) {
 			tproxy.selectionB = e.blockPosition;
 			debug.printl("Second position: "+e.blockPosition.toString());
 		}
-		if(e.mouse.button == 3) {
+		if(e.mouse.getButton() == 3) {
 			int x1 = tproxy.selectionA.x;
 			int y1 = tproxy.selectionA.y;
 			int x2 = tproxy.selectionB.x;

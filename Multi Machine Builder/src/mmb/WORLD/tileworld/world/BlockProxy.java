@@ -31,10 +31,7 @@ public class BlockProxy {
 			this.p = p;
 		}
 	}
-	/**
-	 * @param tileGUI 
-	 * 
-	 */
+
 	public BlockProxy(WorldDataProvider dp) {
 		data = dp;
 	}
@@ -145,7 +142,7 @@ public class BlockProxy {
 		return ret;
 	}
 	private void tryAddSide(List<Block> target, Point pos, Side s) {
-		Block x = getBlock(PositionUtils.getPosAtSide(pos, s));
+		// file deepcode ignore ApiMigration~getBlock: suggested method absent		Block x = getBlock(PositionUtils.getPosAtSide(pos, s));
 		if(x != null) target.add(x);
 	}
 	private void tryAddSide2(List<MapEntry> target, Point pos, Side s) {

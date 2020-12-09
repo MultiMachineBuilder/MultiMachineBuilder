@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
@@ -20,7 +20,7 @@ import mmb.debug.Debugger;
  */
 public class Textures {
 	private static final Debugger debug = new Debugger("TEXTURES");
-	private static final Map<String, BufferedImage> loadedTextures = new Hashtable<String, BufferedImage>();
+	private static final Map<String, BufferedImage> loadedTextures = new HashMap<String, BufferedImage>();
 	public static final String prefix = "textures/";
 	public static final File texturesDir = new File(prefix);
 	public static final String texturesPath = texturesDir.getAbsolutePath();

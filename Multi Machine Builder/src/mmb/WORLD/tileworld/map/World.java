@@ -16,6 +16,7 @@ import mmb.WORLD.tileworld.world.BlockProxy;
  *
  */
 public class World {
+	//public Universe universe provisional entry
 	/**
 	 * Contains a tile map with the world.
 	 */

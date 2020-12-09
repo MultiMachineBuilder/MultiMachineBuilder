@@ -10,6 +10,7 @@ import mmb.WORLD.blocks.VariantHandler;
 
 /**
  * @author oskar
+ * @param <T> enum type
  *
  */
 public class VariantGroup<T extends Enum<T>> {
@@ -19,8 +20,9 @@ public class VariantGroup<T extends Enum<T>> {
 	public T defaultOption;
 	public Map<T, VariantHandler<T>> possibilities = new HashMap<T, VariantHandler<T>>();
 	
+	@SuppressWarnings("unchecked")
 	public T getByName(String name) {
-		return Enum.valueOf(defaultOption.getDeclaringClass(), name);
+		return (T) Enum.valueOf(defaultOption.getClass(), name);
 	}
 	public VariantHandler<T> getHandlerByName(String name) {
 		return possibilities.get(getByName(name));

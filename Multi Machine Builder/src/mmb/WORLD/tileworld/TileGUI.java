@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 
 import org.joml.Vector2d;
 
-import mmb.MENU.toolkit.events.UIMouseEvent;
 import mmb.WORLD.player.BlockIcon;
 import mmb.WORLD.player.DataLayerPlayer;
 import mmb.WORLD.tileworld.block.Block;
@@ -194,7 +193,7 @@ public class TileGUI extends JPanel implements WorldDataProvider, KeyListener {
 					//select world
 					effectiveMousePos = new Point(p.x - 64, p.y);
 					ToolEvent e = createToolEvent();
-					e.mouse = new UIMouseEvent(arg0);
+					e.mouse = arg0;
 					if(currTool != null) currTool.mousePress(e, arg0.getButton());
 				}
 			}
@@ -211,7 +210,7 @@ public class TileGUI extends JPanel implements WorldDataProvider, KeyListener {
 				if(p.x < 64) return;
 				effectiveMousePos = new Point(p.x - 64, p.y);
 				ToolEvent e = createToolEvent();
-				e.mouse = new UIMouseEvent(arg0);
+				e.mouse = arg0;
 				if(currTool != null) currTool.mouseDrag(e);
 			}
 		});
@@ -352,12 +351,7 @@ public class TileGUI extends JPanel implements WorldDataProvider, KeyListener {
 			b = map.get2(x, y);
 		}
 		
-		if(b == null) {
-			g.setColor(Color.DARK_GRAY);
-			g.fillRect(X, Y, 32, 32);
-		}else {
-			b.texture.draw(X, Y, g);
-		}
+		if(b != null) b.texture.draw(X, Y, g);
 	}
 	public Vector2d worldPosByPoint(Point p) {
 		Vector2d result = new Vector2d(p.x/32, p.y/32);

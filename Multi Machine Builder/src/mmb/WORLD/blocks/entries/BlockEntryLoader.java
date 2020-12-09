@@ -18,7 +18,7 @@ public enum BlockEntryLoader {
 	SIMPLE{
 		@Override
 		public BlockEntrySimple load(JsonElement e) {
-			return e.getAsString();
+			return new BlockEntrySimple(BlockEntries.getBlock(e.getAsString()));
 		}
 	},
 	RESERVED{
@@ -49,7 +49,8 @@ public enum BlockEntryLoader {
 	 * @throws WorldLoadException 
 	 */
 	public static BlockEntry loadBlockEntry(JsonElement je) throws WorldLoadException{
-		BlockEntryLoader bl;
+		if(je == null) return null;
+		BlockEntryLoader bl = null;
 		if(je.isJsonArray()) {
 			//as array
 			JsonArray a = je.getAsJsonArray();
@@ -69,7 +70,7 @@ public enum BlockEntryLoader {
 		}else if(je.isJsonObject()) {
 			
 		}else if(je.isJsonNull()) {
-			
+			return null;
 		}else throw new WorldLoadException("The firts item in array block data must be a valid JSON value");
 		return bl.load(je);
 	}

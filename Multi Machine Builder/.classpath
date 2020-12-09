@@ -188,6 +188,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="src-gen"/>
 	<classpathentry kind="lib" path="lib/NanoXML/nanoxml-2.2.1.jar"/>
 	<classpathentry kind="lib" path="lib/Java MP3/javamp3-1.0.1.jar"/>
 	<classpathentry kind="lib" path="lib/guava-30.0-jre.jar"/>
@@ -212,5 +213,23 @@
 	<classpathentry kind="lib" path="lib/vavr-gson-master/vavr-gson-0.10.2-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/vavr-match-master/vavr-match-0.10.3.jar"/>
 	<classpathentry kind="lib" path="lib/vavr-match-master/vavr-match-0.10.3-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.11/commons-lang3-3.11.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.11/commons-lang3-3.11-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.11/commons-lang3-3.11-sources.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.11/commons-lang3-3.11-tests.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.11/commons-lang3-3.11-test-sources.jar"/>
+	<classpathentry kind="lib" path="lib/javac-warning-annotation-master/javac-warning-annotation-1.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/javac-warning-annotation-master/javac-warning-annotation-1.0.0-javadoc.jar"/>
+	<classpathentry kind="src" path=".apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path=".apt_generated_tests">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

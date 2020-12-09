@@ -157,7 +157,6 @@ public class Blocks {
 	}
 	/**
 	 * @param e
-	 * @return
 	 */
 	private static void handlerChat(BlockUpdateEvent e) {
 		Block[] n = e.world.getNeighbors4(e.block);
