@@ -1,5 +1,7 @@
 package mmb.MODS.info;
 
+import mmb.MODS.run.Overrides;
+
 /**
  * Central class of each addon
  * @author oskar
@@ -16,12 +18,13 @@ public interface AddonCentral {
 	void firstOpen(); //first open
 	void makeContent(); //Make content for addon
 	void integrationModules(); //integration modules
+	
 	/**
 	 * Create overrides and implementations
 	 * @return
 	 */
-	/*default Overrides overrides() {
-		//return new Overrides();
-	}*/
+	default Overrides overrides() {
+		return new Overrides();
+	}
 
 }

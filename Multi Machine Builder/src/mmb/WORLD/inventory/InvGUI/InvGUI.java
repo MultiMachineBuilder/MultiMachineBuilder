@@ -104,16 +104,19 @@ public class InvGUI extends JPanel {
 			inv = g.create();
 		}
 		
-		//draw blocks
-		if(!associated.creative) return;
 		int startY = scrollCreative * -32;
-		for(int i = 0; i < itemBuffer.length; i++) {
-			itemBuffer[i].getTexture().draw(0, (i*32)+startY, creative);
+		//draw blocks
+		if(associated.creative) {
+			
+			for(int i = 0; i < itemBuffer.length; i++) {
+				itemBuffer[i].getTexture().draw(0, (i*32)+startY, creative);
+			}
 		}
 		
 		startY = scrollInv * -32;
 		int columns = inv.getClipBounds().width / 32;
 		ItemStack[] items = associated.inv.getContents();
+		if(items.length == 0) return;
 		int x = 0;
 		loop:
 		for(int i = 0; i < itemBuffer.length; i++) {

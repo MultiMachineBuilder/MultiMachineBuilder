@@ -39,6 +39,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.function.IntConsumer;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseWheelListener;
 import java.awt.event.MouseWheelEvent;
@@ -49,7 +50,7 @@ import java.awt.event.MouseWheelEvent;
  * ALL BLOCK POSIITON FROM SCREEN POSITION METHODS TAKE 'EFFECTIVE', OR FROM UPPER RIGHT CORNER OF THE TOOLBAR POSITION
  */
 @SuppressWarnings("serial")
-public class TileGUI extends JPanel implements WorldDataProvider, KeyListener {
+public class TileGUI extends JPanel implements WorldDataProvider, KeyListener, MouseListener {
 	public Vector2d offset;
 	public World map;
 	private final Debugger debug = new Debugger("TILES");
@@ -61,6 +62,7 @@ public class TileGUI extends JPanel implements WorldDataProvider, KeyListener {
 	public int lastMouseButton = 0;
 	public IntConsumer onBlockSelect = (int i) -> {};
 	public DataLayerPlayer pdata;
+	Graphics canvas;
 	
 	//Positioning
 	/**
@@ -135,10 +137,12 @@ public class TileGUI extends JPanel implements WorldDataProvider, KeyListener {
 	 * Set the current tool using the index
 	 */
 	public void setTool(int index) {
+		if(currTool != null) currTool.reset();
 		debug.printl("Tool #"+index);
 		toolIndex = index;
 		currTool = toolCache[index];
 		currTool.setProxy(tproxy);
+		currTool.set(this);
 	}
 	/**
 	 * Get the current tool
@@ -169,35 +173,7 @@ public class TileGUI extends JPanel implements WorldDataProvider, KeyListener {
 		tproxy = new ToolProxy();
 		toolCache = Tools.getTools();
 		blockCache = Blocks.getBlocks();
-		addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				lastMouseButton = arg0.getButton();
-				Point p = arg0.getPoint();
-				if(p.x < 32) {
-					//select block
-					int index = (p.y/32) + scroll;
-					if(index < 0) return;
-					if(index > blockList.length) return;
-					setBlock(index);
-					Toolkit.getDefaultToolkit().beep();
-					onBlockSelect.accept(index);
-				}else if(p.x < 64) {
-					//select tool
-					int index = p.y/32;
-					if(index < toolCache.length) {
-						setTool(index);
-						Toolkit.getDefaultToolkit().beep();
-					}
-				}else{
-					//select world
-					effectiveMousePos = new Point(p.x - 64, p.y);
-					ToolEvent e = createToolEvent();
-					e.mouse = arg0;
-					if(currTool != null) currTool.mousePress(e, arg0.getButton());
-				}
-			}
-		});
+		addMouseListener(this);
 		addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent arg0) {
@@ -237,6 +213,8 @@ public class TileGUI extends JPanel implements WorldDataProvider, KeyListener {
 		e.tproxy = tproxy;
 		if(currBlock != null) e.selectedBlock = currBlock.block;
 		e.selectedBlockIcon = currBlock;
+		e.g = canvas;
+		e.gui = this;
 		return e;
 	}
 	public void paintImmediately() {
@@ -254,21 +232,22 @@ public class TileGUI extends JPanel implements WorldDataProvider, KeyListener {
 	public void paint(Graphics g) {
 		if(!active) return;
 		
-		
 		//calculate screen dimensions
 		int h = g.getClipBounds().height;
 		int w = g.getClipBounds().width;
 		int effW = w - 64;
 		effectiveSize = new Dimension(w-64, h);
+		g.setColor(Color.DARK_GRAY);
+		g.fillRect(0, 0, w, h);
 		
 		Graphics blockBar = g.create(0, 0, 32, h);
 		Graphics toolBar = g.create(32, 0, 32, h);
-		Graphics canvas = g.create(64, 0, w-64, h);
+		canvas = g.create(64, 0, w-64, h);
 		
 		blockBar.setColor(Color.DARK_GRAY);
 		toolBar.setColor(Color.LIGHT_GRAY);
-		blockBar.clearRect(0, 0, 32, h);
-		toolBar.clearRect(0, 0, 32, h);
+		blockBar.fillRect(0, 0, 32, h);
+		toolBar.fillRect(0, 0, 32, h);
 		
 		double endX = (effW / 32) + offset.x;
 		double endY = (h / 32) + offset.y;
@@ -277,6 +256,8 @@ public class TileGUI extends JPanel implements WorldDataProvider, KeyListener {
 		int ex2 = (int) Math.ceil(endX);
 		int ey2 = (int) Math.ceil(endY);
 		//debug.printl(ex1+","+ey1);
+		
+		
 		
 		//draw tools
 		toolCache = Tools.getTools();
@@ -336,6 +317,10 @@ public class TileGUI extends JPanel implements WorldDataProvider, KeyListener {
 			canvas.setColor(Color.RED);
 			canvas.drawRect(X+1, Y+1, 30, 30);
 		}
+		
+		//run the tool
+		if(currTool != null)currTool.update(createToolEvent());
+		
 		//apply
 		proxy.apply();
 	}
@@ -374,6 +359,12 @@ public class TileGUI extends JPanel implements WorldDataProvider, KeyListener {
 		return new Point((int)tmp.x, (int)tmp.y);
 	}
 	
+	public Point renderPos(Point p) {
+		return new Point(
+				(int)(p.x-offset.x)*32,
+				(int)(p.y-offset.y)*32
+				);
+	}
 	
 
 	@Override public MapEntry get(int x, int y) {
@@ -407,8 +398,57 @@ public class TileGUI extends JPanel implements WorldDataProvider, KeyListener {
 	}
 	@Override
 	public void keyTyped(KeyEvent arg0) {
+	}
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		lastMouseButton = arg0.getButton();
+		Point p = arg0.getPoint();
+		if(p.x < 32) {
+			//select block
+			int index = (p.y/32) + scroll;
+			if(index < 0) return;
+			if(index > blockList.length) return;
+			setBlock(index);
+			Toolkit.getDefaultToolkit().beep();
+			onBlockSelect.accept(index);
+		}else if(p.x < 64) {
+			//select tool
+			int index = p.y/32;
+			if(index < toolCache.length) {
+				setTool(index);
+				Toolkit.getDefaultToolkit().beep();
+			}
+		}else{
+			
+		}
+	}
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		//select world
+		Point p = arg0.getPoint();
+		effectiveMousePos = new Point(p.x - 64, p.y);
+		ToolEvent e = createToolEvent();
+		e.mouse = arg0;
+		if(currTool != null) currTool.mousePress(e, arg0.getButton());
+	}
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		//select world
+		Point p = arg0.getPoint();
+		effectiveMousePos = new Point(p.x - 64, p.y);
+		ToolEvent e = createToolEvent();
+		e.mouse = arg0;
+		if(currTool != null) currTool.mouseRelease(e, arg0.getButton());
 	}
 
 }

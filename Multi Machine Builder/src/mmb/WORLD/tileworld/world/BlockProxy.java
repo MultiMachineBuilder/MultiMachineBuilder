@@ -10,6 +10,7 @@ import java.util.List;
 import mmb.WORLD.tileworld.Side;
 import mmb.WORLD.tileworld.TileGUI;
 import mmb.WORLD.tileworld.block.Block;
+import mmb.WORLD.tileworld.block.Blocks;
 import mmb.WORLD.tileworld.block.MapEntry;
 import mmb.WORLD.tileworld.math.PositionUtils;
 
@@ -42,7 +43,10 @@ public class BlockProxy {
 	
 	public void remove(Point pos) {
 		Block b = getBlock(pos);
-		Block d = b.leaveBehind;
+		Block d;
+		if(b == null) {
+			d = Blocks.air;
+		}else d = b.leaveBehind;
 		place(d, pos);
 	}
 	

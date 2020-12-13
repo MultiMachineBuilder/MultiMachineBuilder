@@ -12,6 +12,7 @@ import mmb.ui.window.Loading;
 public class Main {
 
 	public static void main(String[] args) {
+		
 		Loading.main(args);
 	}
 	

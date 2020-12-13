@@ -3,7 +3,7 @@
  */
 package mmb.RUNTIME.main;
 
-import mmb.ui.window.MainMenu;
+import mmb.MENU.main.MainMenu;
 
 /**
  * @author oskar

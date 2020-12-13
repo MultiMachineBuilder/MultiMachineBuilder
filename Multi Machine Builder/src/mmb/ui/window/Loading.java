@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import mmb.MENU.main.MainMenu;
 import mmb.MODS.loader.ModLoader;
 import mmb.WORLD.tileworld.block.Blocks;
 import mmb.debug.Debugger;
