@@ -10,14 +10,21 @@ import java.awt.List;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+
 import mmb.DATA.file.AdvancedFile;
 import mmb.DATA.file.LocalFile;
+import mmb.DATA.json.JsonTool;
+import mmb.WORLD_new.NewWorldWindow;
+import mmb.WORLD_new.worlds.world.World;
 import mmb.debug.Debugger;
 import mmb.files.saves.Save;
 import mmb.ui.game.NewGame;
 import mmb.ui.game.WorldFrame;
 import net.miginfocom.swing.MigLayout;
 import java.awt.event.ActionListener;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
@@ -68,6 +75,29 @@ public class PanelSaves extends JPanel {
 			}
 		});
 		subPanelSaves.add(btnReloadWorlds, "cell 2 0");
+		
+		JButton btnNewButton = new JButton("View with new world system");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(list.getSelectedIndex() < 0) {
+					debug.printl("No selected world!");
+				}
+				Save s = saves.get(list.getSelectedIndex());
+				NewWorldWindow nww = new NewWorldWindow();
+				nww.setVisible(true);
+				try(InputStream in = s.file.getInputStream()) {
+					JsonParser parser = new JsonParser();
+					String loadedData = WorldFrame.readIS(in);
+					JsonElement e = parser.parse(loadedData);
+					nww.setWorld(s, World.deserialize(e.getAsJsonObject(), s.name));
+				}catch(Exception e) {
+					nww.dispose();
+					debug.pstm(e, "Failed to load the world");
+				}
+			}
+		});
+		btnNewButton.setBackground(Color.YELLOW);
+		subPanelSaves.add(btnNewButton, "cell 3 0");
 		refresh();
 	}
 	public void refresh() {

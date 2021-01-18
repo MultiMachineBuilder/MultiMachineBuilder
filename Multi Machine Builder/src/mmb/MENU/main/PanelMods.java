@@ -13,6 +13,9 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 import mmb.DATA.contents.GameContents;
+import mmb.DATA.contents.texture.Textures;
+import mmb.GRAPHICS.Patch9Image;
+import mmb.GRAPHICS.Patch9Panel;
 import mmb.MODS.info.AddonInfo;
 import mmb.MODS.info.AddonState;
 import net.miginfocom.swing.MigLayout;
@@ -22,12 +25,13 @@ import java.awt.BorderLayout;
  * @author oskar
  *
  */
-public class PanelMods extends JPanel {
+public class PanelMods extends Patch9Panel {
 
 	/**
 	 * Create the panel.
 	 */
 	public PanelMods() {
+		setImage(Textures.get("UIs/orange signpost.png"));
 		setLayout(new BorderLayout(0, 0));
 		
 		JPanel subPanelMods = new JPanel();

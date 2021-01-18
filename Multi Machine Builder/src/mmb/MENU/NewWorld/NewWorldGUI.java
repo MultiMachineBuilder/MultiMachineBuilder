@@ -24,12 +24,13 @@ import javax.swing.JScrollBar;
  */
 public class NewWorldGUI extends JPanel {
 	private JTabbedPane tabbedPane;
-	private JPanel panel;
+	private JPanel general;
 	private JCheckBox chckbxCreative;
 	private ButtonGroup worldtype = new ButtonGroup();
 	private JLabel lblNewLabel;
 	private GeneratorOptions generatorOptionsStructures;
 	private GeneratorOptions generatorOptionsResources;
+	private JList selWorldType;
 
 	/**
 	 * Create the panel.
@@ -40,21 +41,24 @@ public class NewWorldGUI extends JPanel {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		add(tabbedPane, BorderLayout.CENTER);
 		
-		panel = new JPanel();
-		tabbedPane.addTab("General", null, panel, null);
-		panel.setLayout(new MigLayout("", "[grow][grow]", "[][27.00][305.00][][][]"));
+		general = new JPanel();
+		tabbedPane.addTab("General", null, general, null);
+		general.setLayout(new MigLayout("", "[grow][grow]", "[][27.00][305.00][][][]"));
 		
 		chckbxCreative = new JCheckBox("Creative");
-		panel.add(chckbxCreative, "cell 0 0");
+		general.add(chckbxCreative, "cell 0 0");
 		
 		lblNewLabel = new JLabel("World type:");
-		panel.add(lblNewLabel, "cell 0 1");
+		general.add(lblNewLabel, "flowx,cell 0 1");
 		
 		generatorOptionsStructures = new GeneratorOptions("Structures");
-		panel.add(generatorOptionsStructures, "cell 0 2,grow");
+		general.add(generatorOptionsStructures, "cell 0 2,grow");
 		
 		generatorOptionsResources = new GeneratorOptions("Resources");
-		panel.add(generatorOptionsResources, "cell 1 2,grow");
+		general.add(generatorOptionsResources, "cell 1 2,grow");
+		
+		selWorldType = new JList();
+		general.add(selWorldType, "cell 0 1,grow");
 
 	}
 

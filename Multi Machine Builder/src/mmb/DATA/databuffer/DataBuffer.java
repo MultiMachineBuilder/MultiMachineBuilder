@@ -127,7 +127,7 @@ public class DataBuffer<T> {
 	 * 
 	 * @param index
 	 * @return
-	 * @throws ArrayInde
+	 * @throws ArrayIndexOutOfBoundsException
 	 */
 	public T get(int index) {
 		return data.get(index);

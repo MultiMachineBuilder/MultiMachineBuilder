@@ -30,6 +30,7 @@ public class AddonInfo {
 	public List<JarEntry> contents = new ArrayList<JarEntry>();
 	public Map<JarEntry, byte[]> files = new Hashtable<JarEntry, byte[]>();
 	public boolean hasClasses = false;
+	public boolean hasValidData = false;
 	
 	//About MMB
 	public ModMetadata mmbmod = null;

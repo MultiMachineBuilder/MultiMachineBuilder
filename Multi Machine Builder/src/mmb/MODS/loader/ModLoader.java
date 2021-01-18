@@ -23,6 +23,7 @@ import mmb.SOUND.MP3Loader;
 import mmb.WORLD.inventory.items.Items;
 import mmb.WORLD.tileworld.block.Blocks;
 import mmb.WORLD.tileworld.tool.Tools;
+import mmb.WORLD_new.block.BlockType;
 
 import static mmb.ui.window.Loading.*;
 
@@ -72,7 +73,7 @@ public class ModLoader {
 	/**
 	 * External content which will be loaded
 	 */
-	public static String[] external = new String[] {};
+	public static String[] external = new String[0];
 
 	@SuppressWarnings("javadoc")
 	public static void waitAllFirstRuns() {
@@ -83,7 +84,6 @@ public class ModLoader {
 		}
 		});
 	}
-
 	@SuppressWarnings("javadoc")
 	public static void waitAllContentRuns() {
 		runningContentAddThreads.forEach((Thread t) -> {try {
@@ -93,7 +93,6 @@ public class ModLoader {
 		}
 		});
 	}
-
 	@SuppressWarnings("javadoc")
 	public static void waitAllIntegrationRuns() {
 		runningIntegrationThreads.forEach((Thread t) -> {try {
@@ -112,7 +111,6 @@ public class ModLoader {
 		}
 		});
 	}
-	
 	public static void waitMP3s() {
 		MP3s.forEach((mp3) -> {
 			try {
@@ -121,7 +119,6 @@ public class ModLoader {
 			
 		});
 	}
-
 	private static void walkTextures(File f) {
 		if(f.isFile()) {
 			String absPath = f.getAbsolutePath();
@@ -144,6 +141,8 @@ public class ModLoader {
 	/**
 	 * Used by the main class to load mods
 	 */
+	
+	
 	public static void modloading(){
 		DataLayer.load();
 		new File(new File("textures/").getAbsoluteFile().getParent()).getAbsolutePath();
@@ -246,8 +245,20 @@ public class ModLoader {
 			}
 		});
 		waitAllIntegrationRuns();
-
 		summarizeMods();
+		//Copy old world system data for new version compatibility
+		Blocks.blocks.forEach((name, type) -> {
+			debug.printl("Converting "+name+" into new system");
+			BlockType typ = new BlockType();
+			typ.id = name;
+			typ.title = type.title;
+			typ.drawer = type.texture;
+			typ.conversionID = type.leaveBehind;
+			mmb.WORLD_new.block.Blocks.register(typ);
+		});
+		mmb.WORLD_new.block.Blocks.forEach((type) -> {
+			type.leaveBehind = mmb.WORLD_new.block.Blocks.get(Blocks.blocks.inverse().get(type.conversionID));
+		});
 		debug.printl("HOORAY, IT'S OVER!");
 	}
 
@@ -320,7 +331,6 @@ public class ModLoader {
 	static void summarizeMods() {
 		GameContents.addons.forEach((AddonInfo ai) -> {summarizeMod(ai);});
 	}
-
 	static void summarizeMod(AddonInfo ai) {
 		debug.printl("=============================================MOD INFORMATION FOR " + ai.name + "=============================================");
 		debug.printl("LOCATED AT " + ai.path);

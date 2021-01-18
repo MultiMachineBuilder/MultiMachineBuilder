@@ -5,6 +5,7 @@ import javax.swing.*;
 
 import mmb.DATA.contents.GameContents;
 import mmb.debug.Debugger;
+import mmb.testing.Patch9Test;
 import mmb.ui.ExternalMods;
 import mmb.ui.shop.ModShop;
 
@@ -19,6 +20,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JCheckBoxMenuItem;
+import mmb.MENU.ItemLabel;
+import mmb.WORLD.tileworld.DrawerPlainColor;
 
 public class MainMenu extends JFrame {
 	//ToolKit API
@@ -96,7 +99,7 @@ public class MainMenu extends JFrame {
 		
 		JPanel aside = new JPanel();
 		mainMenu.add(aside, BorderLayout.WEST);
-		aside.setLayout(new MigLayout("", "[]", "[][][][][][][][][][]"));
+		aside.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][]"));
 		
 		JButton btnSettings = new JButton("Settings");
 		aside.add(btnSettings, "cell 0 0");
@@ -148,6 +151,17 @@ public class MainMenu extends JFrame {
 		
 		JButton btnExit = new JButton("Exit");
 		aside.add(btnExit, "cell 0 7");
+		
+		JButton btnNewButton = new JButton("TEST WINDOW");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new Patch9Test().setVisible(true);
+			}
+		});
+		aside.add(btnNewButton, "cell 0 9");
+		
+		ItemLabel itemLabel = new ItemLabel(new DrawerPlainColor(Color.BLUE), "test");
+		aside.add(itemLabel, "cell 0 10");
 		btnExit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

@@ -111,7 +111,6 @@ public class Loading extends JFrame {
 	void continueLoading() {
 		String JGLLib = new File("./natives/").getAbsolutePath();
 		System.setProperty("org.lwjgl.librarypath", JGLLib);
-		
 		ModLoader.modloading();
 		MainMenu.running();
 		setVisible(false); //you can't see me!

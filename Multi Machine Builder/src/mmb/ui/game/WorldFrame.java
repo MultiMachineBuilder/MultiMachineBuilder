@@ -36,7 +36,7 @@ public class WorldFrame extends JFrame {
 
 	private final JPanel contentPane;
 	private final AdvancedFile save;
-	private final Debugger debug = new Debugger("WORLD");
+	private static final Debugger debug = new Debugger("WORLD");
 	boolean success = false;
 	private final TileGUI tileGUI;
 	private JLabel select;
@@ -141,7 +141,7 @@ public class WorldFrame extends JFrame {
 	}
 	
 	//https://www.tutorialspoint.com/how-to-convert-inputstream-object-to-a-string-in-java
-	private String readIS(InputStream in) throws IOException {
+	public static String readIS(InputStream in) throws IOException {
 		  debug.printl("Opening data stream");
 	      InputStreamReader isReader = new InputStreamReader(in);
 	      //Creating a BufferedReader object

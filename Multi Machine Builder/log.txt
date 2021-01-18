@@ -11,18 +11,75 @@
 (TEXTURES) Loading texture item/iron_ingot.png
 (TEXTURES) Loading texture item/lisc.png
 (TEXTURES) Loading texture item/silicon_ingot.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/brown.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/brown_inlay.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/brown_pressed.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/grey.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/grey_inlay.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/grey_pressed.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/tan.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/tan_inlay.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/tan_pressed.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/white.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/white_inlay.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/white_pressed.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/blue.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/blue_pressed.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/green.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/green_pressed.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/grey.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/grey_pressed.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/red.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/red_pressed.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/yellow.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/yellow_pressed.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/list.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/blue.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/blue_pressed.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/green.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/green_pressed.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/red.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/red_pressed.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/yellow.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/yellow_pressed.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/space.png
+(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/space_inlay.png
 (TEXTURES) Loading texture leaves.png
 (TEXTURES) Loading texture log.png
 (TEXTURES) Loading texture mine.png
+(TEXTURES) Loading texture minecxraft.bmp
 (TEXTURES) Loading texture place.png
 (TEXTURES) Loading texture plank.png
 (TEXTURES) Loading texture printer.png
+(TEXTURES) Loading texture routes/adjoin inner.png
+(TEXTURES) Loading texture routes/adjoin side.png
+(TEXTURES) Loading texture routes/adjoin small.png
+(TEXTURES) Loading texture routes/end hway sign.png
+(TEXTURES) Loading texture routes/half medium offset single.png
+(TEXTURES) Loading texture routes/half short hway offset single.png
+(TEXTURES) Loading texture routes/half vshort highway offset single.png
+(TEXTURES) Loading texture routes/highways.png
+(TEXTURES) Loading texture routes/highways.tsx
+(TEXTURES) Loading texture routes/hway sign.png
 (TEXTURES) Loading texture routes/item routes.png
+(TEXTURES) Loading texture routes/long hway offset single.png
+(TEXTURES) Loading texture routes/long hway ramp.png
+(TEXTURES) Loading texture routes/medium hway offset single.png
+(TEXTURES) Loading texture routes/medium hway ramp.png
+(TEXTURES) Loading texture routes/roads.png
+(TEXTURES) Loading texture routes/short hway offset single.png
+(TEXTURES) Loading texture routes/short hway ramp.png
+(TEXTURES) Loading texture routes/turn transition.png
 (TEXTURES) Loading texture silicon_ore.png
 (TEXTURES) Loading texture spider.png
 (TEXTURES) Loading texture stone.png
 (TEXTURES) Loading texture textedit.png
 (TEXTURES) Loading texture tools.png
+(TEXTURES) Loading texture UIs/blue signpost.png
+(TEXTURES) Loading texture UIs/green signpost.png
+(TEXTURES) Loading texture UIs/orange signpost.png
+(TEXTURES) Loading texture UIs/red signpost.png
+(TEXTURES) Loading texture UIs/yellow signpost.png
 (BLOCKS) Creating blocks
 (BLOCKS) Creating a block: mmb.grass
 (ITEMS) Registering mmbi.copper
@@ -50,26 +107,26 @@
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
-(MOD-LOADER) Found 4 mod files
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\text.txt
+(MOD-LOADER) Found 8 mod files
+(MOD - HelloWorld 0.2 & 0.3.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD - flate.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
 (MOD - flate.zip) Loading a modfile: flate.zip
-(MOD - flate.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
-(MOD - HelloWorld 0.2 & 0.3.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
-(MOD - HelloWorld 0.2 & 0.3.jar) Loading a modfile: HelloWorld 0.2 & 0.3.jar
-(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
 (MOD - sound.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
+(MOD - HelloWorld 0.2 & 0.3.jar) Loading a modfile: HelloWorld 0.2 & 0.3.jar
 (MOD - sound.zip) Loading a modfile: sound.zip
+(MOD - text.txt) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\text.txt
+(MOD - flate.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
+(MOD - text.txt) Loading a modfile: text.txt
 (MOD - sound.zip) entry: sound/
-(MOD - Multi Machine Builder) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder
-(MOD - Multi Machine Builder) C:\Users\oskar\eclipse-workspace\Multi Machine Builder does not exist.
-(MOD - sound.zip) entry: sound/error.mp3
+(MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/HelloWorld.class
+(MOD - ) Opening a modfile: https://poczta.onet.pl/
+(MOD - ) Loading a modfile: https://poczta.onet.pl/
+(MOD - text.txt) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\text.txt
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
-(MOD - sound.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: .project
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: .classpath
 (MOD - HelloWorld 0.2 & 0.3.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
-(ClassPath) entry size: 0
-(ClassPath) entry size: 11215
 (ClassPath) entry size: -1
 (ClassPath) entry size: -1
 (ClassPath) entry size: -1
@@ -77,11 +134,6 @@
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/package-info.class
 (MOD - HelloWorld 0.2 & 0.3.jar) File: helloworld/package-info.class
 (MOD - HelloWorld 0.2 & 0.3.jar) entry: helloworld/package-info.class
-(MOD - sound.zip) Processing sound/
-(MOD - sound.zip) Directory: sound/
-(MOD - sound.zip) Processing sound/error.mp3
-(MOD - sound.zip) File: sound/error.mp3
-(MOD - sound.zip) Sound file
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing .classpath
 (MOD - HelloWorld 0.2 & 0.3.jar) File: .classpath
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing helloworld/HelloWorld.class
@@ -91,264 +143,147 @@
 (HW) Hello, world!
 (MOD - HelloWorld 0.2 & 0.3.jar) Processing .project
 (MOD - HelloWorld 0.2 & 0.3.jar) File: .project
+(MOD - sound.zip) entry: sound/error.mp3
+(MOD - sound.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
+(ClassPath) entry size: 0
+(ClassPath) entry size: 11215
+(MOD - sound.zip) Processing sound/
+(MOD - sound.zip) Directory: sound/
+(MOD - sound.zip) Processing sound/error.mp3
+(MOD - sound.zip) File: sound/error.mp3
+(MOD - sound.zip) Sound file
+(MOD - mario) Opening a modfile: http://mario
+(MOD - mario) Loading a modfile: http://mario
+(MOD - Moniasza) Opening a modfile: https://github.com/Moniasza
+(MOD - Moniasza) Loading a modfile: https://github.com/Moniasza
+(MOD - Monniasza) Opening a modfile: https://github.com/Monniasza
+(MOD - Monniasza) Loading a modfile: https://github.com/Monniasza
+(MOD - Moniasza) Couldn't open zip or jar file https://github.com/Moniasza
+(MOD - Moniasza) java.io.FileNotFoundException
+(MOD - Moniasza) https://github.com/Moniasza
+(MOD - Moniasza) sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+(MOD - Moniasza) sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+(MOD - Moniasza) sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source)
+(MOD - Moniasza) java.net.URL.openStream(Unknown Source)
+(MOD - Moniasza) mmb.DATA.file.OnlineFile.getInputStream(OnlineFile.java:42)
+(MOD - Moniasza) mmb.DATA.file.AdvancedFile.asJAR(AdvancedFile.java:79)
+(MOD - Moniasza) mmb.MODS.loader.AddonLoader.unzip(AddonLoader.java:142)
+(MOD - Moniasza) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:113)
+(MOD - Moniasza) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:74)
+(MOD - Moniasza) java.lang.Thread.run(Unknown Source)
+(MOD - ) Injecting https://poczta.onet.pl/
+(MOD - Monniasza) Injecting https://github.com/Monniasza
+(MOD - mario) Couldn't open zip or jar file http://mario
+(MOD - mario) java.net.UnknownHostException
+(MOD - mario) mario
+(MOD - mario) java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+(MOD - mario) java.net.PlainSocketImpl.connect(Unknown Source)
+(MOD - mario) java.net.SocksSocketImpl.connect(Unknown Source)
+(MOD - mario) java.net.Socket.connect(Unknown Source)
+(MOD - mario) java.net.Socket.connect(Unknown Source)
+(MOD - mario) sun.net.NetworkClient.doConnect(Unknown Source)
+(MOD - mario) sun.net.www.http.HttpClient.openServer(Unknown Source)
+(MOD - mario) sun.net.www.http.HttpClient.openServer(Unknown Source)
+(MOD - mario) sun.net.www.http.HttpClient.<init>(Unknown Source)
+(MOD - mario) sun.net.www.http.HttpClient.New(Unknown Source)
+(MOD - mario) sun.net.www.http.HttpClient.New(Unknown Source)
+(MOD - mario) sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(Unknown Source)
+(MOD - mario) sun.net.www.protocol.http.HttpURLConnection.plainConnect0(Unknown Source)
+(MOD - mario) sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+(MOD - mario) sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
+(MOD - mario) sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+(MOD - mario) sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+(MOD - mario) java.net.URL.openStream(Unknown Source)
+(MOD - mario) mmb.DATA.file.OnlineFile.getInputStream(OnlineFile.java:42)
+(MOD - mario) mmb.DATA.file.AdvancedFile.asJAR(AdvancedFile.java:79)
+(MOD - mario) mmb.MODS.loader.AddonLoader.unzip(AddonLoader.java:142)
+(MOD - mario) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:113)
+(MOD - mario) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:74)
+(MOD - mario) java.lang.Thread.run(Unknown Source)
 (MOD-LOADER) Start 1st stage for Hello, world!
 (MOD-LOADER) sound.zip is not a mod and will not be run
 (MOD-LOADER) End 1st stage for Hello, world!
-(MOD-LOADER) flate.zip is not a mod and will not be run
 (MOD-LOADER) Start 2nd stage for Hello, world!
 (MOD-LOADER) End 2nd stage for Hello, world!
 (MOD-LOADER) Start 3rd stage for Hello, world!
 (MOD-LOADER) End 3rd stage for Hello, world!
+(MOD-LOADER) =============================================MOD INFORMATION FOR text.txt=============================================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\text.txt
+(MOD-LOADER) Empty
 (MOD-LOADER) =============================================MOD INFORMATION FOR flate.zip=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\flate.zip
-(MOD-LOADER) Media package
-(MOD-LOADER) =============================================MOD INFORMATION FOR C:\Users\oskar\eclipse-workspace\Multi Machine Builder=============================================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder
-(MOD-LOADER) Missing files
+(MOD-LOADER) Empty
 (MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.2 & 0.3.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Sun Dec 13 09:33:03 CET 2020
+(MOD-LOADER) RELEASED Sun Jan 17 17:47:01 CET 2021
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) =============================================MOD INFORMATION FOR sound.zip=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\sound.zip
 (MOD-LOADER) Media package
+(MOD-LOADER) =============================================MOD INFORMATION FOR https://github.com/Moniasza=============================================
+(MOD-LOADER) LOCATED AT https://github.com/Moniasza
+(MOD-LOADER) Corrupt
+(MOD-LOADER) =============================================MOD INFORMATION FOR https://github.com/Monniasza=============================================
+(MOD-LOADER) LOCATED AT https://github.com/Monniasza
+(MOD-LOADER) Empty
+(MOD-LOADER) =============================================MOD INFORMATION FOR http://mario=============================================
+(MOD-LOADER) LOCATED AT http://mario
+(MOD-LOADER) Corrupt
+(MOD-LOADER) =============================================MOD INFORMATION FOR https://poczta.onet.pl/=============================================
+(MOD-LOADER) LOCATED AT https://poczta.onet.pl/
+(MOD-LOADER) Empty
+(MOD-LOADER) Converting mmb.grass into new system
+(BLOCKS) Adding Adding mmb.grass with title Grass and descripion:
+null
+(MOD-LOADER) Converting mmb.air into new system
+(BLOCKS) Adding Adding mmb.air with title Air and descripion:
+null
+(MOD-LOADER) Converting wireworld.tail into new system
+(BLOCKS) Adding Adding wireworld.tail with title WireWorld tail and descripion:
+null
+(MOD-LOADER) Converting wireworld.head into new system
+(BLOCKS) Adding Adding wireworld.head with title WireWorld head and descripion:
+null
+(MOD-LOADER) Converting wireworld.wire into new system
+(BLOCKS) Adding Adding wireworld.wire with title WireWorld conductor and descripion:
+null
+(MOD-LOADER) Converting wireworld.chatter into new system
+(BLOCKS) Adding Adding wireworld.chatter with title Chatbox and descripion:
+null
+(MOD-LOADER) Converting mmb.stone into new system
+(BLOCKS) Adding Adding mmb.stone with title Stone and descripion:
+null
+(MOD-LOADER) Converting mmb.planks into new system
+(BLOCKS) Adding Adding mmb.planks with title Wooden planks and descripion:
+null
+(MOD-LOADER) Converting mmb.leaves into new system
+(BLOCKS) Adding Adding mmb.leaves with title Leaves and descripion:
+null
+(MOD-LOADER) Converting mmb.iore into new system
+(BLOCKS) Adding Adding mmb.iore with title Iron ore and descripion:
+null
+(MOD-LOADER) Converting mmb.cpore into new system
+(BLOCKS) Adding Adding mmb.cpore with title Copper ore and descripion:
+null
+(MOD-LOADER) Converting mmb.silicon_ore into new system
+(BLOCKS) Adding Adding mmb.silicon_ore with title Silicon ore and descripion:
+null
+(MOD-LOADER) Converting mmb.craft into new system
+(BLOCKS) Adding Adding mmb.craft with title Assembly Table and descripion:
+null
+(MOD-LOADER) Converting mmb.tree into new system
+(BLOCKS) Adding Adding mmb.tree with title Log and descripion:
+null
+(MOD-LOADER) Converting wireworld.beep into new system
+(BLOCKS) Adding Adding wireworld.beep with title wireworld.beep and descripion:
+null
 (MOD-LOADER) HOORAY, IT'S OVER!
 (SELECT A SAVE) Found save: Chatter.mworld
+(SELECT A SAVE) Found save: new system test.mworld
 (SELECT A SAVE) Found save: Survival.mworld
 (SELECT A SAVE) Found save: test2.mworld
 (SELECT A SAVE) Found save: test3.mworld
 (SELECT A SAVE) Found save: world 1.mworld
-(SELECT A SAVE) Found 20 saves
-(WORLD) Retrieving the file
-(WORLD) Opening data stream
-(WORLD) Preparing loading space
-(WORLD) Decoding text data
-(WORLD) Parsing world data
-(JSON-WORLD LOADER) Loading data layers
-(JSON-WORLD LOADER) Adding missing data layer: PlayerInv
-(JSON-WORLD LOADER) Loading data layer: (JSON-WORLD LOADER) PlayerInv
-(JSON-WORLD LOADER) Successfully loaded data layer: (JSON-WORLD LOADER) PlayerInv
-(JSON-WORLD LOADER) Successfully loaded data layers
-(JSON-WORLD LOADER) Loading world
-(JSON-WORLD LOADER) Successfully loaded world
-(SELECT A SAVE) Successfully opened Survival.mworld
-(TILES) Tool #0
-(TOOL-MINE) progress: 0.02749999999999997
-(TOOL-MINE) progress: 0.03149999999999997
-(TOOL-MINE) progress: 0.03500000000000003
-(TOOL-MINE) progress: 0.03849999999999998
-(TOOL-MINE) progress: 0.04200000000000004
-(TOOL-MINE) progress: 0.05600000000000005
-(TOOL-MINE) progress: 0.0635
-(TOOL-MINE) progress: 0.07850000000000001
-(TOOL-MINE) progress: 0.08199999999999996
-(TOOL-MINE) progress: 0.09399999999999997
-(TOOL-MINE) progress: 0.10099999999999998
-(TOOL-MINE) progress: 0.11699999999999999
-(TOOL-MINE) progress: 0.125
-(TOOL-MINE) progress: 0.007000000000000006
-(TOOL-MINE) progress: 0.010000000000000009
-(TOOL-MINE) progress: 0.023499999999999965
-(TOOL-MINE) progress: 0.03049999999999997
-(TOOL-MINE) progress: 0.04600000000000004
-(TOOL-MINE) progress: 0.05400000000000005
-(TOOL-MINE) progress: 0.0615
-(TOOL-MINE) progress: 0.07699999999999996
-(TOOL-MINE) progress: 0.07999999999999996
-(TOOL-MINE) progress: 0.09350000000000003
-(TOOL-MINE) progress: 0.10099999999999998
-(TOOL-MINE) progress: 0.0040000000000000036
-(TOOL-MINE) progress: 0.01200000000000001
-(TOOL-MINE) progress: 0.019499999999999962
-(TOOL-MINE) progress: 0.035499999999999976
-(TOOL-MINE) progress: 0.04349999999999998
-(TOOL-MINE) progress: 0.05149999999999999
-(TOOL-MINE) progress: 0.007000000000000006
-(TOOL-MINE) progress: 0.015000000000000013
-(TOOL-MINE) progress: 0.02300000000000002
-(TOOL-MINE) progress: 0.031000000000000028
-(TOOL-MINE) progress: 0.04700000000000004
-(TOOL-MINE) progress: 0.055499999999999994
-(TOOL-MINE) progress: 0.0625
-(TOOL-MINE) progress: 0.07750000000000001
-(TOOL-MINE) progress: 0.08050000000000002
-(TOOL-MINE) progress: 0.09350000000000003
-(TOOL-MINE) progress: 0.10150000000000003
-(TOOL-MINE) progress: 0.11750000000000005
-(TOOL-MINE) progress: 0.12150000000000005
-(TOOL-MINE) progress: 0.13249999999999995
-(TOOL-MINE) progress: 0.14049999999999996
-(TOOL-MINE) progress: 0.15649999999999997
-(TOOL-MINE) progress: 0.16349999999999998
-(TOOL-MINE) progress: 0.17200000000000004
-(TOOL-MINE) progress: 0.1865
-(TOOL-MINE) progress: 0.19599999999999995
-(TOOL-MINE) progress: 0.20299999999999996
-(TOOL-MINE) progress: 0.006000000000000005
-(TOOL-MINE) progress: 0.013499999999999956
-(TOOL-MINE) progress: 0.030000000000000027
-(TOOL-MINE) progress: 0.03300000000000003
-(TOOL-MINE) progress: 0.04500000000000004
-(TOOL-MINE) progress: 0.05300000000000005
-(TOOL-MINE) progress: 0.06799999999999995
-(TOOL-MINE) progress: 0.07599999999999996
-(TOOL-MINE) progress: 0.0044999999999999485
-(TOOL-MINE) progress: 0.020000000000000018
-(TOOL-MINE) progress: 0.022499999999999964
-(TOOL-MINE) progress: 0.035499999999999976
-(TOOL-MINE) progress: 0.04349999999999998
-(TOOL-MINE) progress: 0.05900000000000005
-(TOOL-MINE) progress: 0.06699999999999995
-(TOOL-MINE) progress: 0.07450000000000001
-(TOOL-MINE) progress: 0.08950000000000002
-(TOOL-MINE) progress: 0.09250000000000003
-(TOOL-MINE) progress: 0.10550000000000004
-(TOOL-MINE) progress: 0.11299999999999999
-(TOOL-MINE) progress: 0.129
-(TOOL-MINE) progress: 0.137
-(TOOL-MINE) progress: 0.14500000000000002
-(TOOL-MINE) progress: 0.16049999999999998
-(TOOL-MINE) progress: 0.16300000000000003
-(TOOL-MINE) progress: 0.1765
-(TOOL-MINE) progress: 0.1845
-(TOOL-MINE) progress: 0.1995
-(TOOL-MINE) progress: 0.2025
-(TOOL-MINE) progress: 0.21550000000000002
-(TOOL-MINE) progress: 0.22350000000000003
-(TOOL-MINE) progress: 0.23850000000000005
-(TOOL-MINE) progress: 0.24650000000000005
-(TOOL-MINE) progress: 0.25449999999999995
-(TOOL-MINE) progress: 0.0014999999999999458
-(TOOL-MINE) progress: 0.009499999999999953
-(TOOL-MINE) progress: 0.025000000000000022
-(TOOL-MINE) progress: 0.03149999999999997
-(TOOL-MINE) progress: 0.040000000000000036
-(TOOL-MINE) progress: 0.056499999999999995
-(TOOL-MINE) progress: 0.06000000000000005
-(TOOL-MINE) progress: 0.07099999999999995
-(TOOL-MINE) progress: 0.08750000000000002
-(TOOL-MINE) progress: 0.08999999999999997
-(TOOL-MINE) progress: 0.10250000000000004
-(TOOL-MINE) progress: 0.11050000000000004
-(TOOL-MINE) progress: 0.12549999999999994
-(TOOL-MINE) progress: 0.13349999999999995
-(TOOL-MINE) progress: 0.14149999999999996
-(TOOL-MINE) progress: 0.14900000000000002
-(TOOL-MINE) progress: 0.16549999999999998
-(TOOL-MINE) progress: 0.1725
-(TOOL-MINE) progress: 0.18100000000000005
-(TOOL-MINE) progress: 0.19599999999999995
-(TOOL-MINE) progress: 0.1985
-(TOOL-MINE) progress: 0.21150000000000002
-(TOOL-MINE) progress: 0.21999999999999997
-(TOOL-MINE) progress: 0.235
-(TOOL-MINE) progress: 0.24350000000000005
-(TOOL-MINE) progress: 0.25049999999999994
-(TOOL-MINE) progress: 0.267
-(TOOL-MINE) progress: 0.27
-(TOOL-MINE) progress: 0.28200000000000003
-(TOOL-MINE) progress: 0.29000000000000004
-(TOOL-MINE) progress: 0.3065
-(TOOL-MINE) progress: 0.30900000000000005
-(TOOL-MINE) progress: 0.0030000000000000027
-(TOOL-MINE) progress: 0.01200000000000001
-(TOOL-MINE) progress: 0.027000000000000024
-(TOOL-MINE) progress: 0.03049999999999997
-(TOOL-MINE) progress: 0.04249999999999998
-(TOOL-MINE) progress: 0.05049999999999999
-(TOOL-MINE) progress: 0.0655
-(TOOL-MINE) progress: 0.07350000000000001
-(TOOL-MINE) progress: 0.08150000000000002
-(TOOL-MINE) progress: 0.09799999999999998
-(TOOL-MINE) progress: 0.10099999999999998
-(TOOL-MINE) progress: 0.11350000000000005
-(TOOL-MINE) progress: 0.121
-(TOOL-MINE) progress: 0.137
-(TOOL-MINE) progress: 0.14
-(TOOL-MINE) progress: 0.15200000000000002
-(TOOL-MINE) progress: 0.16749999999999998
-(TOOL-MINE) progress: 0.17049999999999998
-(TOOL-MINE) progress: 0.18300000000000005
-(TOOL-MINE) progress: 0.1905
-(TOOL-MINE) progress: 0.20599999999999996
-(TOOL-MINE) progress: 0.21399999999999997
-(TOOL-MINE) progress: 0.22150000000000003
-(TOOL-MINE) progress: 0.237
-(TOOL-MINE) progress: 0.24
-(TOOL-MINE) progress: 0.252
-(TOOL-MINE) progress: 0.26049999999999995
-(TOOL-MINE) progress: 0.0024999999999999467
-(TOOL-MINE) progress: 0.007000000000000006
-(TOOL-MINE) progress: 0.015000000000000013
-(TOOL-MINE) progress: 0.030000000000000027
-(TOOL-MINE) progress: 0.039000000000000035
-(TOOL-MINE) progress: 0.045499999999999985
-(TOOL-MINE) progress: 0.0615
-(TOOL-MINE) progress: 0.06399999999999995
-(TOOL-MINE) progress: 0.07699999999999996
-(TOOL-MINE) progress: 0.08599999999999997
-(TOOL-MINE) progress: 0.10099999999999998
-(TOOL-MINE) progress: 0.10950000000000004
-(TOOL-MINE) progress: 0.118
-(TOOL-MINE) progress: 0.125
-(TOOL-MINE) progress: 0.14100000000000001
-(TOOL-MINE) progress: 0.14849999999999997
-(TOOL-MINE) progress: 0.15649999999999997
-(TOOL-MINE) progress: 0.17200000000000004
-(TOOL-MINE) progress: 0.006000000000000005
-(TOOL-MINE) progress: 0.02200000000000002
-(TOOL-MINE) progress: 0.025000000000000022
-(TOOL-MINE) progress: 0.038000000000000034
-(TOOL-MINE) progress: 0.04600000000000004
-(TOOL-MINE) progress: 0.0615
-(TOOL-MINE) progress: 0.0645
-(TOOL-MINE) progress: 0.07799999999999996
-(TOOL-MINE) progress: 0.08499999999999996
-(TOOL-MINE) progress: 0.10150000000000003
-(TOOL-MINE) progress: 0.10899999999999999
-(TOOL-MINE) progress: 0.11650000000000005
-(TOOL-MINE) progress: 0.13249999999999995
-(TOOL-MINE) progress: 0.13549999999999995
-(TOOL-MINE) progress: 0.14800000000000002
-(TOOL-MINE) progress: 0.15549999999999997
-(TOOL-MINE) progress: 0.17200000000000004
-(TOOL-MINE) progress: 0.1755
-(TOOL-MINE) progress: 0.18700000000000006
-(TOOL-MINE) progress: 0.20299999999999996
-(TOOL-MINE) progress: 0.20650000000000002
-(TOOL-MINE) progress: 0.0014999999999999458
-(TOOL-MINE) progress: 0.013499999999999956
-(TOOL-MINE) progress: 0.02100000000000002
-(TOOL-MINE) progress: 0.03700000000000003
-(TOOL-MINE) progress: 0.044499999999999984
-(TOOL-MINE) progress: 0.05249999999999999
-(TOOL-MINE) progress: 0.0605
-(TOOL-MINE) progress: 0.07550000000000001
-(TOOL-MINE) progress: 0.08350000000000002
-(TOOL-MINE) progress: 0.09150000000000003
-(TOOL-MINE) progress: 0.10750000000000004
-(TOOL-MINE) progress: 0.11099999999999999
-(TOOL-MINE) progress: 0.12250000000000005
-(TOOL-MINE) progress: 0.138
-(TOOL-MINE) progress: 0.14100000000000001
-(TOOL-MINE) progress: 0.15349999999999997
-(TOOL-MINE) progress: 0.16100000000000003
-(TOOL-MINE) progress: 0.17700000000000005
-(TOOL-MINE) progress: 0.18400000000000005
-(TOOL-MINE) progress: 0.19199999999999995
-(TOOL-MINE) progress: 0.20699999999999996
-(TOOL-MINE) progress: 0.21550000000000002
-(TOOL-MINE) progress: 0.22350000000000003
-(WORLD) Stringyfiyng the world
-(JSON-WORLD LOADER) Saving dimensions
-(JSON-WORLD LOADER) Saving blocks
-(JSON-WORLD LOADER) Saving data layers
-(JSON-WORLD LOADER) Saving data layer: (JSON-WORLD LOADER) PlayerInv
-(JSON-WORLD LOADER) Saved data layer: (JSON-WORLD LOADER) PlayerInv
-(WORLD) Opening data stream
-(WORLD) Encoding JSON data
-(WORLD) Writing byte data
-(WORLD) Closing data stream
-(WORLD) Successfully saved
+(SELECT A SAVE) Found 22 saves

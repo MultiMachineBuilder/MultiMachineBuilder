@@ -20,7 +20,6 @@ import mmb.MODS.info.AddonCentral;
 import mmb.MODS.info.AddonInfo;
 import mmb.MODS.info.AddonState;
 import mmb.MODS.info.ModMetadata;
-import mmb.MODS.EmptyAddonCentral;
 import mmb.debug.Debugger;
 
 /**
@@ -113,6 +112,7 @@ public class AddonLoader {
 					debug.printl("Loading a modfile: " + a.name);
 					unzip();
 					whenWorking();
+					if(!a.hasValidData) a.state = AddonState.EMPTY;
 				}catch(Exception e) {
 					debug.printl("Couldn't open zip or jar file " + a.name);
 					debug.pst(e);
@@ -149,6 +149,7 @@ public class AddonLoader {
 			a.contents.add(je);
 			a.files.put(je, bytes);
 		}
+		jis.close();
 	}
 	
 	/**
@@ -176,6 +177,7 @@ public class AddonLoader {
 		if(meta.isDirectory()) {
 			debug.printl("Directory: "+name);
 		}else {
+			a.hasValidData = true;
 			debug.printl("File: "+name);
 			if(ext.endsWith("class")) {
 				interpretClassFile(meta, base);
@@ -191,9 +193,6 @@ public class AddonLoader {
 					BufferedImage img = ImageIO.read(new ByteArrayInputStream(a.files.get(meta)));
 					Textures.load(shorter, img);
 					debug.printl("Successfully added texture " + name);
-				} catch (IOException e) {
-					debug.printl("Couldn't access texture " + name);
-					debug.pst(e);
 				} catch (Exception e) {
 					debug.printl("Couldn't open texture " + name);
 					debug.pst(e);
@@ -222,7 +221,7 @@ public class AddonLoader {
         	Class[] interfaces = c.getInterfaces();
         	for(int i = 0; i < interfaces.length; i++) {
         		Class in = interfaces[i];
-        		if(in.isInstance(new EmptyAddonCentral())) {
+        		if(AddonCentral.class.isAssignableFrom(in)) {
         			//Central class
         			try {
 						AddonCentral central = (AddonCentral)c.newInstance();

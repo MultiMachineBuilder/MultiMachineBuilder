@@ -27,22 +27,14 @@ public class Debugger {
 	static protected PrintStream log;
 	
 	public void pstm(Throwable t, String s) {
-		Throwable cause0 = t.getCause();
-		String cause = cause0 == null ? "Cause unknown" : cause0.getMessage();
-		StringBuilder message = new StringBuilder(s);
-		message.append(" ");
-		message.append(t.getClass().getName());
-		message.append("\nCaused by: ");
-		message.append(cause);
-		message.append(" ");
-		message.append(t.getMessage());
-		printl(message.toString());
+		printl(s);
 		printStackTrace(t.getStackTrace());
 	}
 	public void pst(Throwable t) {
 		printl(t.getClass().getCanonicalName());
 		printl(t.getMessage());
 		printStackTrace(t.getStackTrace());
+		if(t.getCause() != null) pstm(t.getCause(), "Caused by: ");
 	}
 	public void print(String s) {
 		printFinal("("+id+") "+ s);

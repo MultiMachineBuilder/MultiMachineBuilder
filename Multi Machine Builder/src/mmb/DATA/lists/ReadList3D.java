@@ -40,13 +40,7 @@ public class ReadList3D<T> {
 	@SuppressWarnings("unchecked")
 	public ReadList3D(int x, int y, int z) {
 		super();
-		data = (T[][][]) new Object[x][][];
-		for(int i = 0; i < x; i++) {
-			data[i] = (T[][]) new Object[x][];
-			for(int j = 0; j < y; j++) {
-				data[i][j] = (T[]) new Object[x];
-			}
-		}
+		data = (T[][][]) new Object[x][y][z];
 	}
 	
 	public ReadList3D(Vector3i size) {

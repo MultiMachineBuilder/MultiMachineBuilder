@@ -8,7 +8,7 @@ package mmb.MODS.info;
  *
  */
 public enum AddonState {
-	NOEXIST, BROKEN, DISABLE, ENABLE, DEAD, API, MEDIA;
+	NOEXIST, BROKEN, DISABLE, ENABLE, DEAD, API, MEDIA, EMPTY;
 	
 	@Override
 	public String toString() {
@@ -27,6 +27,8 @@ public enum AddonState {
 			return "API";
 		case MEDIA:
 			return "Media package";
+		case EMPTY:
+			return "Empty";
 		default:
 			return "Unknown";
 		}

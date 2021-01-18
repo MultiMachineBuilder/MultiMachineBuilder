@@ -3,6 +3,7 @@
  <tileset firstgid="1" source="stone tiles.tsx"/>
  <tileset firstgid="193" source="machines.tsx"/>
  <tileset firstgid="289" source="pipelines.tsx"/>
+ <tileset firstgid="385" source="highways simple.tsx"/>
  <layer id="1" name="bg" width="100" height="100">
   <data encoding="csv">
    <chunk x="-144" y="-128" width="16" height="16">

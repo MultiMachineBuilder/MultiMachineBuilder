@@ -122,8 +122,8 @@ public class InvGUI extends JPanel {
 		for(int i = 0; i < itemBuffer.length; i++) {
 			for(int j = 0; j < columns; j++) {
 				x++;
-				if(x == itemBuffer.length) break loop;
-				items[i].getTexture().draw((j*32), (i*32)+startY, inv);
+				if(x >= items.length) break loop;
+				items[x].getTexture().draw((j*32), (i*32)+startY, inv);
 			}
 		}
 	}
