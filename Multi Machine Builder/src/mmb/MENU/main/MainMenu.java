@@ -11,6 +11,11 @@ import mmb.ui.shop.ModShop;
 
 import java.awt.event.ActionListener;
 import java.net.URI;
+import java.time.Instant;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.TimerTask;
 import java.awt.event.ActionEvent;
 import net.miginfocom.swing.MigLayout;
 import java.awt.Desktop;
@@ -160,14 +165,46 @@ public class MainMenu extends JFrame {
 		});
 		aside.add(btnNewButton, "cell 0 9");
 		
-		ItemLabel itemLabel = new ItemLabel(new DrawerPlainColor(Color.BLUE), "test");
+		JLabel timerLBL = new JLabel();
+		java.util.Timer timer = new java.util.Timer();
+		timer.scheduleAtFixedRate(new TimerTask() {
+			@Override
+			public void run() {
+				GregorianCalendar date = new GregorianCalendar();
+				int year = date.get(GregorianCalendar.YEAR);
+				int month = date.get(GregorianCalendar.MONTH);
+				int day = date.get(GregorianCalendar.DAY_OF_MONTH);
+				int hour = date.get(GregorianCalendar.HOUR);
+				int min = date.get(GregorianCalendar.MINUTE);
+				int sec = date.get(GregorianCalendar.SECOND);
+				
+				StringBuilder message = new StringBuilder()
+						.append(year)
+						.append('/')
+						.append(month)
+						.append('/')
+						.append(day)
+						.append(' ');
+				if(hour < 10) message.append('0');
+				message.append(hour).append(':');
+				if(min < 10) message.append('0');
+				message.append(min).append(':');
+				if(sec < 10) message.append('0');
+				message.append(sec);
+				timerLBL.setText(message.toString());
+			}
+		}, 0, 1000);
+		Runtime.getRuntime().addShutdownHook(new Thread(() -> timer.cancel()));
+		aside.add(timerLBL, "cell 0 10");
+		
+		/*ItemLabel itemLabel = new ItemLabel(new DrawerPlainColor(Color.BLUE), "test");
 		aside.add(itemLabel, "cell 0 10");
 		btnExit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
-		});
+		});*/
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		mainMenu.add(tabbedPane);
@@ -183,6 +220,10 @@ public class MainMenu extends JFrame {
 	 */
 	public boolean isFullScreen() {
 		return FullScreen;
+	}
+	
+	private void createAside() {
+		
 	}
 
 	/**
