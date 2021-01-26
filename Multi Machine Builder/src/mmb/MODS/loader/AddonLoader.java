@@ -12,15 +12,12 @@ import javax.imageio.ImageIO;
 
 import org.apache.commons.io.IOUtils;
 import io.github.micwan88.helperclass4j.ByteClassLoader;
-import mmb.DATA.contents.GameContents;
+import mmb.DATA.contents.*;
 import mmb.DATA.contents.sound.Sounds;
 import mmb.DATA.contents.texture.Textures;
-import mmb.DATA.file.AdvancedFile;
-import mmb.MODS.info.AddonCentral;
-import mmb.MODS.info.AddonInfo;
-import mmb.MODS.info.AddonState;
-import mmb.MODS.info.ModMetadata;
-import mmb.debug.Debugger;
+import mmb.DATA.file.*;
+import mmb.MODS.info.*;
+import mmb.debug.*;
 
 /**
  * @author oskar
@@ -97,7 +94,7 @@ public class AddonLoader {
 		initor:
 		{
 			//Trying to open file
-			try {
+			try(InputStream is = a.file.getInputStream()) {
 				debug.printl("Opening a modfile: " + a.name);
 				
 				if(!a.file.exists()) {
@@ -107,10 +104,19 @@ public class AddonLoader {
 				}
 				if(!a.isOnline()) a.name = AdvancedFile.dirName(a.file.name())[1];
 				
-				try {
+				try(JarInputStream jis = new JarInputStream(is)) {
 					//Trying to load modfile
 					debug.printl("Loading a modfile: " + a.name);
-					unzip();
+					a:
+					while(true) {
+						JarEntry je = jis.getNextJarEntry();
+						if(je == null) break a;
+						debug.printl("entry: "+je.getName());
+						byte[] bytes = IOUtils.toByteArray(jis);
+						a.contents.add(je);
+						a.files.put(je, bytes);
+					}
+					jis.close();
 					whenWorking();
 					if(!a.hasValidData) a.state = AddonState.EMPTY;
 				}catch(Exception e) {
@@ -120,15 +126,16 @@ public class AddonLoader {
 					break initor;
 				}
 				
-			}catch(IllegalArgumentException e){
-				debug.printl(e.getClass().getCanonicalName());
-				debug.printl("Make sure that '' " + a.name + " '' is not mistyped.");
-				debug.pst(e);
-				a.state = AddonState.NOEXIST;
-				break initor;
 			}catch(Exception e) {
 				debug.printl(e.getClass().getCanonicalName());
-				debug.printl("Couldn't read " + a.name + " for unknown reasons");
+				if(e instanceof IllegalArgumentException) debug.printl("Make sure that \"" + a.name + "\" is not mistyped.");
+				else if(e instanceof IOException || e instanceof FileNotFoundException) {
+					if(a.isOnline()) debug.printl("Failed to download the file");
+					else debug.printl("Failed to read the file");
+				}
+				else debug.printl("Couldn't read " + a.name + " for unknown reasons");
+				
+				
 				debug.pst(e);
 				a.state = AddonState.NOEXIST;
 				break initor;
@@ -136,20 +143,6 @@ public class AddonLoader {
 		}
 		
 		
-	}
-	
-	private void unzip() throws IOException {
-		JarInputStream jis = a.file.asJAR();
-		a:
-		while(true) {
-			JarEntry je = jis.getNextJarEntry();
-			if(je == null) break a;
-			debug.printl("entry: "+je.getName());
-			byte[] bytes = IOUtils.toByteArray(jis);
-			a.contents.add(je);
-			a.files.put(je, bytes);
-		}
-		jis.close();
 	}
 	
 	/**
@@ -255,6 +248,9 @@ public class AddonLoader {
         	a.hasClasses = true;
 		} catch (ClassNotFoundException e1) {
 			debug.pstm(e1, "Failed to find class "+name);
+		} catch (ClassFormatError e1) {
+			debug.pstm(e1, "Invalid class file: "+name);
+			a.state = AddonState.DEAD;
 		} catch (IOException e1) {
 			debug.pstm(e1, "Failed to open resource "+name);
 		} catch (Exception e) {

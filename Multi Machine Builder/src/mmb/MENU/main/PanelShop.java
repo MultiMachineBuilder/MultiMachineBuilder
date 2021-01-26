@@ -13,6 +13,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JButton;
 import javax.swing.JProgressBar;
+import javax.swing.JMenuItem;
+import net.miginfocom.swing.MigLayout;
 
 /**
  * @author oskar
@@ -24,8 +26,11 @@ public class PanelShop extends JPanel {
 	private JMenuBar menuBar;
 	private JMenu mnUpload;
 	private JPanel panel;
+	private JMenuItem mntmSave;
+	private JMenuItem mntmMod;
+	private JMenuItem mntmOther;
 	private JButton btnNewButton;
-	private JProgressBar progressBar;
+	private JButton btnNewButton_1;
 
 	/**
 	 * Create the panel.
@@ -46,15 +51,24 @@ public class PanelShop extends JPanel {
 		mnUpload = new JMenu("Upload...");
 		menuBar.add(mnUpload);
 		
+		mntmSave = new JMenuItem("Saved game");
+		mnUpload.add(mntmSave);
+		
+		mntmMod = new JMenuItem("Mod");
+		mnUpload.add(mntmMod);
+		
+		mntmOther = new JMenuItem("Other...");
+		mnUpload.add(mntmOther);
+		
 		panel = new JPanel();
 		add(panel, BorderLayout.SOUTH);
-		panel.setLayout(new BorderLayout(0, 0));
+		panel.setLayout(new MigLayout("", "[][]", "[]"));
 		
 		btnNewButton = new JButton("Download");
-		panel.add(btnNewButton, BorderLayout.WEST);
+		panel.add(btnNewButton, "cell 0 0");
 		
-		progressBar = new JProgressBar();
-		panel.add(progressBar);
+		btnNewButton_1 = new JButton("Refresh");
+		panel.add(btnNewButton_1, "cell 1 0");
 
 	}
 

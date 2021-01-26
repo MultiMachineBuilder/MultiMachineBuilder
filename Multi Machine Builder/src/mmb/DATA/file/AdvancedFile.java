@@ -19,14 +19,14 @@ import org.apache.commons.io.IOUtils;
  */
 public interface AdvancedFile {
 	/**
-	 * 
-	 * @return
+	 * Open an input stream to given advanced file
+	 * @return input stream
 	 * @throws IOException if file can't be retrieved
 	 */
 	InputStream getInputStream() throws IOException;
 	
 	/**
-	 * 
+	 * Open an output stream to given advanced file
 	 * @return output stream
 	 * @throws IOException if file can't be retrieved or is read-only
 	 */

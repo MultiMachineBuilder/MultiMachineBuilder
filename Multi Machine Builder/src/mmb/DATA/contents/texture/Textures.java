@@ -32,6 +32,10 @@ public class Textures {
 	public static void load(String name, InputStream data){
 		try {
 			BufferedImage image = ImageIO.read(data);
+			if(image == null) {
+				debug.printl("Failed to load "+name);
+				return;
+			}
 			load(name, image);
 		} catch (IOException e) {
 			debug.pstm(e, "Failed to load "+name);

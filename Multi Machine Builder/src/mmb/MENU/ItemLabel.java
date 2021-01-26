@@ -10,9 +10,9 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 import javax.swing.JLabel;
-import mmb.WORLD.tileworld.BlockDrawer;
-import mmb.WORLD.tileworld.DrawerPlainColor;
-import mmb.WORLD_new.inventory.ItemType;
+
+import mmb.WORLD.BlockDrawer;
+import mmb.WORLD.item.ItemType;
 
 /**
  * @author oskar

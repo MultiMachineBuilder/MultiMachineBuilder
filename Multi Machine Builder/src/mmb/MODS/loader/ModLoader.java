@@ -3,6 +3,8 @@
  */
 package mmb.MODS.loader;
 
+import static mmb.Loading.*;
+
 import java.io.*;
 import java.net.MalformedURLException;
 import java.nio.file.*;
@@ -11,21 +13,16 @@ import java.util.function.BiConsumer;
 
 import mmb.debug.Debugger;
 import mmb.files.data.files.ListFiles;
-import mmb.ui.window.Loading;
+import mmb.Loading;
 import mmb.DATA.contents.GameContents;
 import mmb.DATA.contents.texture.Textures;
 import mmb.DATA.file.AdvancedFile;
 import mmb.DATA.file.FileGetter;
-import mmb.DATA.save.DataLayer;
 import mmb.MODS.info.AddonInfo;
 import mmb.MODS.info.AddonState;
 import mmb.SOUND.MP3Loader;
-import mmb.WORLD.inventory.items.Items;
-import mmb.WORLD.tileworld.block.Blocks;
-import mmb.WORLD.tileworld.tool.Tools;
-import mmb.WORLD_new.block.BlockType;
-
-import static mmb.ui.window.Loading.*;
+import mmb.WORLD.block.BlockType;
+import mmb.WORLD.blocks.ContentsBlocks;
 
 /**
  * @author oskar
@@ -144,15 +141,14 @@ public class ModLoader {
 	
 	
 	public static void modloading(){
-		DataLayer.load();
 		new File(new File("textures/").getAbsoluteFile().getParent()).getAbsolutePath();
 		Loading.state1("Loading textures");
 		walkTextures(new File("textures/"));
 		Loading.state1("Loading blocks");
-		new Blocks();
-		new Items();
 		Loading.state1("Loading tools");
-		Tools.create();
+		new ContentsBlocks(); //just for initialization
+		
+		
 		try {
 			external = new String(Files.readAllBytes(Paths.get("ext.txt"))).split("\n");
 		} catch (IOException e1) {
@@ -246,19 +242,7 @@ public class ModLoader {
 		});
 		waitAllIntegrationRuns();
 		summarizeMods();
-		//Copy old world system data for new version compatibility
-		Blocks.blocks.forEach((name, type) -> {
-			debug.printl("Converting "+name+" into new system");
-			BlockType typ = new BlockType();
-			typ.id = name;
-			typ.title = type.title;
-			typ.drawer = type.texture;
-			typ.conversionID = type.leaveBehind;
-			mmb.WORLD_new.block.Blocks.register(typ);
-		});
-		mmb.WORLD_new.block.Blocks.forEach((type) -> {
-			type.leaveBehind = mmb.WORLD_new.block.Blocks.get(Blocks.blocks.inverse().get(type.conversionID));
-		});
+		
 		debug.printl("HOORAY, IT'S OVER!");
 	}
 

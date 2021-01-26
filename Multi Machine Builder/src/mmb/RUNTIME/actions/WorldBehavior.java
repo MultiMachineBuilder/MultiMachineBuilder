@@ -4,7 +4,7 @@
 package mmb.RUNTIME.actions;
 
 import mmb.DATA.file.AdvancedFile;
-import mmb.WORLD_new.worlds.world.World;
+import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar

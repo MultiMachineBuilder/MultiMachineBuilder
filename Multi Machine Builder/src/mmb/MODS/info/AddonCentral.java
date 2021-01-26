@@ -1,5 +1,7 @@
 package mmb.MODS.info;
 
+import javax.annotation.*;
+
 import mmb.MODS.run.Overrides;
 
 /**
@@ -14,7 +16,7 @@ public interface AddonCentral {
 	 * 
 	 */
 	//Constructor - should be as short as possible and have no inputs.
-    ModMetadata info();
+    @Nonnull ModMetadata info();
 	void firstOpen(); //first open
 	void makeContent(); //Make content for addon
 	void integrationModules(); //integration modules

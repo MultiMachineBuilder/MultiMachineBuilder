@@ -5,15 +5,8 @@ import javax.swing.*;
 
 import mmb.DATA.contents.GameContents;
 import mmb.debug.Debugger;
-import mmb.testing.Patch9Test;
-import mmb.ui.ExternalMods;
-import mmb.ui.shop.ModShop;
-
 import java.awt.event.ActionListener;
 import java.net.URI;
-import java.time.Instant;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimerTask;
 import java.awt.event.ActionEvent;
@@ -25,8 +18,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JCheckBoxMenuItem;
-import mmb.MENU.ItemLabel;
-import mmb.WORLD.tileworld.DrawerPlainColor;
+import mmb.MENU.settings.PanelSettings;
 
 public class MainMenu extends JFrame {
 	//ToolKit API
@@ -52,6 +44,8 @@ public class MainMenu extends JFrame {
 	private static MainMenu mm;
 	static GraphicsDevice device = GraphicsEnvironment
 	        .getLocalGraphicsEnvironment().getScreenDevices()[0];
+	private JButton btnExit;
+	private JLabel timerLBL;
 
 	/**
 	 * Launch the application.
@@ -74,6 +68,7 @@ public class MainMenu extends JFrame {
 	 * Create the frame.
 	 */
 	public MainMenu() {
+		mm = this;
 		setTitle("MultiMachineBuilder - "+GameContents.addons.size()+" mods");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -104,31 +99,10 @@ public class MainMenu extends JFrame {
 		
 		JPanel aside = new JPanel();
 		mainMenu.add(aside, BorderLayout.WEST);
-		aside.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][]"));
-		
-		JButton btnSettings = new JButton("Settings");
-		aside.add(btnSettings, "cell 0 0");
-		
-		JButton btnDownloadContent = new JButton("Download content");
-		aside.add(btnDownloadContent, "cell 0 1");
-		btnDownloadContent.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				new ModShop().setVisible(true);
-			}
-		});
-		
-		JButton btnConfigureExternalContent = new JButton("Configure external content");
-		aside.add(btnConfigureExternalContent, "cell 0 2");
-		btnConfigureExternalContent.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				new ExternalMods().setVisible(true);
-			}
-		});
+		aside.setLayout(new MigLayout("", "[]", "[][][][][]"));
 		
 		JButton btnWebsite = new JButton("Website");
-		aside.add(btnWebsite, "cell 0 3");
+		aside.add(btnWebsite, "cell 0 1");
 		btnWebsite.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -140,32 +114,25 @@ public class MainMenu extends JFrame {
 			}
 		});
 		
-		JButton btnAgecontentLimits = new JButton("Age/content limits");
-		aside.add(btnAgecontentLimits, "cell 0 4");
-		
-		JButton btnCredits = new JButton("Credits");
-		aside.add(btnCredits, "cell 0 5");
-		
 		JButton btnLogIn = new JButton("Log in");
-		aside.add(btnLogIn, "cell 0 6");
+		aside.add(btnLogIn, "cell 0 2");
 		btnLogIn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
 		
-		JButton btnExit = new JButton("Exit");
-		aside.add(btnExit, "cell 0 7");
-		
-		JButton btnNewButton = new JButton("TEST WINDOW");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				new Patch9Test().setVisible(true);
+				System.exit(0);
 			}
 		});
-		aside.add(btnNewButton, "cell 0 9");
+		aside.add(btnExit, "cell 0 3");
 		
-		JLabel timerLBL = new JLabel();
+		timerLBL = new JLabel("New label");
+		aside.add(timerLBL, "cell 0 4");
 		java.util.Timer timer = new java.util.Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
@@ -195,7 +162,6 @@ public class MainMenu extends JFrame {
 			}
 		}, 0, 1000);
 		Runtime.getRuntime().addShutdownHook(new Thread(() -> timer.cancel()));
-		aside.add(timerLBL, "cell 0 10");
 		
 		/*ItemLabel itemLabel = new ItemLabel(new DrawerPlainColor(Color.BLUE), "test");
 		aside.add(itemLabel, "cell 0 10");
@@ -211,6 +177,8 @@ public class MainMenu extends JFrame {
 		
 		tabbedPane.addTab("Saves", null, new PanelSaves(), null);
 		tabbedPane.addTab("Mods", null, new PanelMods(), null);
+		tabbedPane.addTab("Settings", null, new PanelSettings(), null);
+		tabbedPane.addTab("Shop", new PanelShop());
 	}
 	
 	

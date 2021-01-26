@@ -6,6 +6,10 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
+/**
+ * 
+ * @author oskar
+ */
 public class Debugger {
 	//Static code
 	static {
@@ -18,17 +22,16 @@ public class Debugger {
 		}
 		
 		try {
-			log = new PrintStream("log.txt");
+			System.setOut(new TeePrintStream("log.txt", System.out));
+			//System.setOut(new PrintStream("log.txt"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	static protected PrintStream log;
-	
 	public void pstm(Throwable t, String s) {
 		printl(s);
-		printStackTrace(t.getStackTrace());
+		pst(t);
 	}
 	public void pst(Throwable t) {
 		printl(t.getClass().getCanonicalName());
@@ -43,7 +46,6 @@ public class Debugger {
 		print(s + "\n");
 	}
 	private static void printFinal(String s) {
-		log.print(s);
 		System.out.print(s);
 	}
 	//Instance code

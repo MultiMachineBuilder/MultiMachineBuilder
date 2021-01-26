@@ -8,7 +8,7 @@ import java.awt.Component;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
-import mmb.WORLD_new.inventory.ItemType;
+import mmb.WORLD.item.ItemType;
 
 /**
  * @author oskar
