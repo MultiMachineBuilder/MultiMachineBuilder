@@ -18,13 +18,15 @@ public class CheckBoxList extends JList
    protected static Border noFocusBorder =
                                  new EmptyBorder(1, 1, 1, 1);
 
-   public CheckBoxList()
+   @SuppressWarnings("unchecked")
+public CheckBoxList()
    {
       setCellRenderer(new CellRenderer());
 
       addMouseListener(new MouseAdapter()
          {
-            public void mousePressed(MouseEvent e)
+            @Override
+			public void mousePressed(MouseEvent e)
             {
                int index = locationToIndex(e.getPoint());
 
@@ -44,7 +46,8 @@ public class CheckBoxList extends JList
 
    protected class CellRenderer implements ListCellRenderer
    {
-      public Component getListCellRendererComponent(
+      @Override
+	public Component getListCellRendererComponent(
                     JList list, Object value, int index,
                     boolean isSelected, boolean cellHasFocus)
       {

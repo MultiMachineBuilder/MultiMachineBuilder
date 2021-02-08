@@ -27,7 +27,7 @@ public class StringBuilderWriter extends Writer {
 	public void flush(){}
 
 	@Override
-	public void write(char[] arg0, int arg1, int arg2) throws IOException {
+	public void write(char[] arg0, int arg1, int arg2){
 		sb.append(arg0, arg1, arg2);
 	}
 }

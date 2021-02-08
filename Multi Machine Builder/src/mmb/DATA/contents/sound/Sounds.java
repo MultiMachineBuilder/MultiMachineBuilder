@@ -6,6 +6,7 @@ package mmb.DATA.contents.sound;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -23,11 +24,16 @@ import mmb.debug.Debugger;
  */
 public class Sounds {
 	private static Debugger debug = new Debugger("SOUNDS");
-	private static Map<String, Clip> sounds = new Hashtable<String, Clip>();
+	private static Map<String, Clip> sounds = new HashMap<>();
 	
 	public static Clip getSound(String name) {
 		return sounds.get(name);
 	}
+	/**
+	 * Load the sound data from a file
+	 * @param soundData file input stream
+	 * @param name sound file name
+	 */
 	public static void load(InputStream soundData, String name) {
 		String ext = AdvancedFile.baseExtension(name)[1];
 		Clip loaded = null;

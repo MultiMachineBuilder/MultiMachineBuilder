@@ -8,15 +8,10 @@ import java.awt.EventQueue;
 import javax.swing.JDialog;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
-import javax.swing.JList;
-import java.awt.List;
-import java.awt.Button;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import mmb.MENU.ImageTextList;
-import javax.swing.JCheckBox;
-import javax.swing.JToolBar;
 import javax.swing.JMenuBar;
 
 /**

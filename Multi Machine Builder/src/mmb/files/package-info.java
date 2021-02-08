@@ -5,4 +5,4 @@
  * @author oskar
  *
  */
-package mmb.files;
+package mmb.FILES;

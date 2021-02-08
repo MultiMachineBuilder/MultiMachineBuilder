@@ -39,7 +39,7 @@ public interface WorldData {
 	/**
 	 * Get a factory for given world data layer
 	 * @return retrieved 'Supplier'-type factory or null
-	 * Returned value can throw {@link NullPointerException}, if called directly, To avoid this situation, use null-safe syntax or {@link getSafe(String)}
+	 * Returned value can throw {@link NullPointerException}, if called directly, To avoid this situation, use null-safe syntax or {@code getSafe(String)}
 	 */
 	public static Supplier<WorldData> get(String name){
 		return properties.get(name);

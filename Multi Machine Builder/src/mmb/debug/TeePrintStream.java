@@ -18,6 +18,7 @@ public class TeePrintStream extends PrintStream {
 	private final PrintStream second;
 	/**
 	 * @param arg0
+	 * @param in second print stream
 	 */
 	public TeePrintStream(OutputStream arg0, PrintStream in) {
 		super(arg0);

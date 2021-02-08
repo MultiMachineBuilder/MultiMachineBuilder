@@ -11,7 +11,7 @@ package mmb;
 public interface Identifiable<T> {
 	/**
 	 * This method returns object's unique identifier
-	 * @return
+	 * @return object's identifier
 	 */
 	public T identifier();
 }

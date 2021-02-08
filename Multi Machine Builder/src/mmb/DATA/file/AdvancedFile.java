@@ -33,9 +33,9 @@ public interface AdvancedFile {
 	OutputStream getOutputStream() throws IOException;
 	
 	/**
-	 * @return file
+	 * @return file equivalent {@code File} object
 	 * Converts the advanced file to local file (in case of online file downloads it)
-	 * @throws IOException 
+	 * @throws IOException if the file is not local
 	 */
 	File asFile() throws IOException;
 	
@@ -72,12 +72,21 @@ public interface AdvancedFile {
 	/**
 	 * Gets children of this advanced file. Not supported for online files.
 	 * @return children files
+	 * @throws Exception if retrieval fails
 	 */
 	AdvancedFile[] children() throws Exception;
 	
+	/**
+	 * @return newly created JAR stream
+	 * @throws IOException if file fails to open
+	 */
 	default JarInputStream asJAR() throws IOException {
 		return new JarInputStream(getInputStream());
 	}
+	/**
+	 * @return newly created ZIP stream
+	 * @throws IOException if file fails to open
+	 */
 	default ZipInputStream asZIP() throws IOException {
 		return new ZipInputStream(getInputStream());
 	}
@@ -151,5 +160,10 @@ public interface AdvancedFile {
 	}
 	
 	public void create() throws IOException;
+
+	/**
+	 * @return is given file object a directory?
+	 */
+	boolean isDirectory();
 	
 }

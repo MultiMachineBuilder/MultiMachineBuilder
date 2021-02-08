@@ -27,8 +27,8 @@ public class AddonInfo {
 	
 	//If file is not corrupt
 	public StreamClassLoader classes;
-	public List<JarEntry> contents = new ArrayList<JarEntry>();
-	public Map<JarEntry, byte[]> files = new Hashtable<JarEntry, byte[]>();
+	public List<JarEntry> contents = new ArrayList<>();
+	public Map<JarEntry, byte[]> files = new HashMap<>();
 	public boolean hasClasses = false;
 	public boolean hasValidData = false;
 	

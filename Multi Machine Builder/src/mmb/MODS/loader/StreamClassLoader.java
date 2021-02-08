@@ -14,9 +14,8 @@ public class StreamClassLoader extends ClassLoader {
 	private static final Debugger debug = new Debugger("ClassPath");
     private final Map<String, byte[]> classData;
  
-    @SuppressWarnings("unchecked")
-	public StreamClassLoader(JarInputStream jarInputStream) throws IOException {
-        classData = new HashMap();
+    public StreamClassLoader(JarInputStream jarInputStream) throws IOException {
+        classData = new HashMap<>();
  
         JarEntry jarEntry = null;
         while ((jarEntry = jarInputStream.getNextJarEntry()) != null) {

@@ -19,6 +19,19 @@ public class ItemEntry {
 	 */
 	public int amount;
 	
+	/**
+	 * @param item item type in this stack
+	 * @param amount number of items in this stack
+	 */
+	public ItemEntry(ItemType item, int amount) {
+		super();
+		this.item = item;
+		this.amount = amount;
+	}
+
+	/**
+	 * @return the volume of item entry
+	 */
 	public double volume() {
 		return item.volume * amount;
 	}

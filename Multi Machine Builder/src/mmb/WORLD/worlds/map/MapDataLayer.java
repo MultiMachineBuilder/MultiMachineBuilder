@@ -4,6 +4,7 @@
 package mmb.WORLD.worlds.map;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Supplier;
 
 import com.google.gson.JsonElement;
@@ -24,9 +25,15 @@ public interface MapDataLayer {
 	 * @return
 	 */
 	public JsonElement save();
+	/**
+	 * @return data layer's ID
+	 */
 	public String id();
 	
-	public HashMap<String, Supplier<MapDataLayer>> properties = new HashMap<String, Supplier<MapDataLayer>>();
+	/**
+	 * List of properties
+	 */
+	public static Map<String, Supplier<MapDataLayer>> properties = new HashMap<>();
 	/**
 	 * Create a new map data layer, or null if not found
 	 * @param name block properties identifier
@@ -38,7 +45,7 @@ public interface MapDataLayer {
 	/**
 	 * Get a factory for given world data layer
 	 * @return retrieved 'Supplier'-type factory or null
-	 * Returned value can throw {@link NullPointerException}, if called directly, To avoid this situation, use null-safe syntax or {@link getSafe(String)}
+	 * Returned value can throw {@link NullPointerException}, if called directly, To avoid this situation, use null-safe syntax or {@code getSafe(String)}
 	 */
 	public static Supplier<MapDataLayer> get(String name){
 		return properties.get(name);

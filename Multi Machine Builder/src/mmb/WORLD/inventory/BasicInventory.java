@@ -29,4 +29,16 @@ public class BasicInventory implements Inventory {
 		return null;
 	}
 
+	@Override
+	public ItemToken retrieve(ItemType item) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean contains(ItemType item) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

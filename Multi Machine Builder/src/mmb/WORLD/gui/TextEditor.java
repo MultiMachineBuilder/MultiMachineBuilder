@@ -39,7 +39,7 @@ public class TextEditor extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(new BorderLayout(0, 0));
-		setTitle("Editing: "+block.getType()+" at ["+block.posX()+","+block.posY()+"]");
+		setTitle("Editing: "+block.type+" at ["+block.x+","+block.y+"]");
 		
 		
 		

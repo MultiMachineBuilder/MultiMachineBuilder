@@ -112,5 +112,9 @@ public class OnlineFile implements AdvancedFile {
 	public void create() {
 		throw new RuntimeException(new IOException("Unable to create files remotely using OnlineFile"));
 	}
+	@Override
+	public boolean isDirectory() {
+		return false;
+	}
 
 }

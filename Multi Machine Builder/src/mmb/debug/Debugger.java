@@ -17,13 +17,11 @@ public class Debugger {
 			PrintWriter writer = new PrintWriter("log.txt", "UTF-8");
 			writer.close();
 		} catch (FileNotFoundException | UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
 		try {
 			System.setOut(new TeePrintStream("log.txt", System.out));
-			//System.setOut(new PrintStream("log.txt"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

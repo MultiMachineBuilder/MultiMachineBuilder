@@ -3,11 +3,8 @@
  */
 package mmb.WORLD.items;
 
-import java.util.HashMap;
-
-import mmb.HashSelfSet;
-import mmb.SelfSet;
-import mmb.WORLD.block.BlockType;
+import mmb.COLLECTIONS.HashSelfSet;
+import mmb.COLLECTIONS.SelfSet;
 import mmb.WORLD.item.ItemType;
 import mmb.debug.Debugger;
 
@@ -27,7 +24,6 @@ public class Items {
 	}
 	/**
 	 * @param o
-	 * @return
 	 */
 	public static void remove(String o) {
 		debug.printl("Removing "+o);

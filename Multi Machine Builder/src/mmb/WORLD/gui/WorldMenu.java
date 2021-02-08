@@ -29,16 +29,17 @@ public class WorldMenu extends JPopupMenu {
 	private static final long serialVersionUID = -84797957951871754L;
 	private JMenuItem mntmGoHere;
 	private JMenuItem mntmOpen;
-	private JMenuItem mntmSelect;
 	private JMenu mnInventory;
 	private JMenuItem mntmWithdrawA;
 	private JMenuItem mntmWithdraw1;
-	private final BlockEntry block;
+	private final transient BlockEntry block;
 	private final MouseEvent mouse;
 	private final WorldFrame f;
 	private JMenuItem mntmMine;
 	private JMenuItem mntmTextEditor;
 	private JMenuItem mntmNewMenuItem;
+	private JMenuItem mntmNewMenuItem_1;
+	private JMenuItem mntmNewMenuItem_2;
 
 	/**
 	 * 
@@ -55,8 +56,8 @@ public class WorldMenu extends JPopupMenu {
 		mntmGoHere.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				f.pos.x = -block.posX();
-				f.pos.y = -block.posY();
+				f.perspective.x = -block.x;
+				f.perspective.y = -block.y;
 			}
 		});
 		add(mntmGoHere);
@@ -70,15 +71,6 @@ public class WorldMenu extends JPopupMenu {
 			}
 		});
 		add(mntmOpen);
-		
-		mntmSelect = new JMenuItem("Select this block");
-		mntmSelect.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				f.selectBlock(block.getType());
-			}
-		});
-		add(mntmSelect);
 		
 		mnInventory = new JMenu("Inventory");
 		add(mnInventory);
@@ -96,7 +88,7 @@ public class WorldMenu extends JPopupMenu {
 		mntmMine.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				block.owner.place(block.posX(), block.posY(), block.getType().leaveBehind);
+				block.owner.place(block.x, block.y, block.type.leaveBehind);
 			}
 		});
 		add(mntmMine);
@@ -112,5 +104,11 @@ public class WorldMenu extends JPopupMenu {
 			}
 		});
 		add(mntmTextEditor);
+		
+		mntmNewMenuItem_1 = new JMenuItem("Turn CCW (Ctrl+LMB)");
+		add(mntmNewMenuItem_1);
+		
+		mntmNewMenuItem_2 = new JMenuItem("Turn CW (Ctrl+RMB)");
+		add(mntmNewMenuItem_2);
 	}
 }

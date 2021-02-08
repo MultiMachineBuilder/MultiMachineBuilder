@@ -71,13 +71,13 @@ public class ContentsBlocks {
 				if(blocks[i].typeof(ContentsBlocks.ww_head)) count++;
 			}
 			
-			if(count == 1 || count == 2) p.place(ww_head, e.posX(), e.posY());
+			if(count == 1 || count == 2) p.place(ww_head, e.x, e.y);
 		};
 		ww_head.onUpdate = (e, p) -> {
-			p.place(ww_tail, e.posX(), e.posY());
+			p.place(ww_tail, e.x, e.y);
 		};
 		ww_tail.onUpdate = (e, p) -> {
-			p.place(ww_wire, e.posX(), e.posY());
+			p.place(ww_wire, e.x, e.y);
 		};
 		
 		

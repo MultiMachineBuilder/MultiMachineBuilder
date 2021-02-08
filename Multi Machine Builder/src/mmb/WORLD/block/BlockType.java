@@ -3,17 +3,16 @@
  */
 package mmb.WORLD.block;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 import mmb.GameObject;
-import mmb.Identifiable;
 import mmb.WORLD.block.properties.BlockPropertyInfo;
 import mmb.WORLD.item.ItemType;
-import mmb.WORLD.items.Items;
 import mmb.WORLD.worlds.MapProxy;
 
 /**
@@ -28,6 +27,8 @@ public class BlockType extends ItemType{
 	 * If set to null, then it will be replaced when registering
 	 */
 	public RotationGroup rotations;
+	
+	public boolean rotationsAllowed;
 	
 	//Placement
 	/**
@@ -108,7 +109,7 @@ public class BlockType extends ItemType{
 	 */
 	public BiConsumer<BlockEntry, GameObject> onPlace;
 	/**
-	 * <br>Set this variable to handle the block being placed.
+	 * <br>Set this variable to handle the block being mined.
 	 * <ul>
 	 * 	<li>Event: block mining</li>
 	 * 	<li>Purpose: correctly mine blocks</li>
@@ -134,6 +135,20 @@ public class BlockType extends ItemType{
 	 * If set to null, it leaves behind a void
 	 */
 	public BlockType leaveBehind;
+	
+	
+	//Scripting
+	private final List<BiConsumer<BlockEntry, MapProxy>> scripts = new ArrayList<>();
+	private BiConsumer<BlockEntry, MapProxy>[] rtScripts;
+	@SuppressWarnings("unchecked") //guaranteed to work
+	public void compileScripts() {
+		rtScripts = (BiConsumer<BlockEntry, MapProxy>[]) scripts.toArray(new BiConsumer<?, ?>[scripts.size()]);
+	}
+	public void run(BlockEntry ent, MapProxy proxy) {
+		for(BiConsumer<BlockEntry, MapProxy> script: rtScripts) {
+			script.accept(ent, proxy);
+		}
+	}
 
 	@Override
 	public void register(String id) {

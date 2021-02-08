@@ -8,5 +8,45 @@ package mmb.WORLD.block;
  *
  */
 public enum Rotation {
-	N, NE, E, ES, S, WS, W, WN, NS, WE, M, P, V, H, U, D
+	/**
+	 * Oriented upwards
+	 */
+	N,
+	/**
+	 * Oriented up-right
+	 */
+	NE,
+	/**
+	 * Oriented right
+	 */
+	E,
+	/**
+	 * Oriented right-down
+	 */
+	ES,
+	/**
+	 * Oriented down
+	 */
+	S,
+	/**
+	 * Oriented down-left
+	 */
+	WS,
+	/**
+	 * Oriented left
+	 */
+	W,
+	/**
+	 * Oriented up-left
+	 */
+	WN,
+	/**
+	 * Oriented vertically
+	 */
+	NS,
+	/**
+	 * Oriented horizontally
+	 */
+	WE,
+	/*M, P, V*/ /*H, U, D*/
 }

@@ -87,5 +87,9 @@ public class LocalFile implements AdvancedFile {
 	public void create() throws IOException {
 		file.createNewFile();
 	}
+	@Override
+	public boolean isDirectory() {
+		return file.isDirectory();
+	}
 
 }

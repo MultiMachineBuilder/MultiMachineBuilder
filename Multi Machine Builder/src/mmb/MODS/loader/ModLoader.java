@@ -12,16 +12,14 @@ import java.util.*;
 import java.util.function.BiConsumer;
 
 import mmb.debug.Debugger;
-import mmb.files.data.files.ListFiles;
-import mmb.Loading;
 import mmb.DATA.contents.GameContents;
 import mmb.DATA.contents.texture.Textures;
 import mmb.DATA.file.AdvancedFile;
 import mmb.DATA.file.FileGetter;
+import mmb.FILES.ListFiles;
 import mmb.MODS.info.AddonInfo;
 import mmb.MODS.info.AddonState;
 import mmb.SOUND.MP3Loader;
-import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 
 /**
@@ -29,7 +27,7 @@ import mmb.WORLD.blocks.ContentsBlocks;
  *
  */
 public class ModLoader {
-	@SuppressWarnings("javadoc")
+	private ModLoader() {}
 	public static class FilePair {
 		public AdvancedFile f;
 		public Throwable error;
@@ -52,67 +50,46 @@ public class ModLoader {
 	}
 
 	private static final Debugger debug = new Debugger("MOD-LOADER");
-	@SuppressWarnings("javadoc")
-	public static List<AddonLoader> runningLoaders = new ArrayList<AddonLoader>();
-	@SuppressWarnings("javadoc")
-	public static List<Thread> runningFirstRunThreads = new ArrayList<Thread>();
-	@SuppressWarnings("javadoc")
-	public static List<Thread> runningContentAddThreads = new ArrayList<Thread>();
-	@SuppressWarnings("javadoc")
-	public static List<Thread> runningIntegrationThreads = new ArrayList<Thread>();
-	
-	public static List<MP3Loader> MP3s = new ArrayList<MP3Loader>();
+
+	protected static List<AddonLoader> loaders = new ArrayList<>();
+	protected static List<Thread> firstRuns = new ArrayList<>();
+	protected static List<Thread> contents = new ArrayList<>();
+	protected static List<Thread> integrators = new ArrayList<>();
+	protected static List<MP3Loader> mp3s = new ArrayList<>();
 	/**
 	 * The number of installed mods currently found
 	 */
-	public static int modCount = 0;
-	private static List<String> toLoad = new ArrayList<String>();
+	private static int modCount = 0;
 	/**
-	 * External content which will be loaded
+	 * @return the modCount
 	 */
-	public static String[] external = new String[0];
+	public static int getModCount() {
+		return modCount;
+	}
+	private static List<String> toLoad = new ArrayList<>();
+	
+	protected  static String[] external = new String[0];// External content which will be loaded
+
+	private static final String SLPM = "Stopping loading prematurely";
 
 	@SuppressWarnings("javadoc")
-	public static void waitAllFirstRuns() {
-		runningFirstRunThreads.forEach((Thread t) -> {try {
-			t.join();
-		// file deepcode ignore catchingInterruptedExceptionWithoutInterrupt: run for all  mods		} catch (InterruptedException e) {
-			debug.pstm(e, "Stopping loading prematurely");
-		}
-		});
-	}
-	@SuppressWarnings("javadoc")
-	public static void waitAllContentRuns() {
-		runningContentAddThreads.forEach((Thread t) -> {try {
-			t.join();
-		// file deepcode ignore catchingInterruptedExceptionWithoutInterrupt: run for all  mods		} catch (InterruptedException e) {
-			debug.pstm(e, "Stopping loading prematurely");
-		}
-		});
-	}
-	@SuppressWarnings("javadoc")
-	public static void waitAllIntegrationRuns() {
-		runningIntegrationThreads.forEach((Thread t) -> {try {
-			// file deepcode ignore catchingInterruptedExceptionWithoutInterrupt: run for all  mods			t.join();
-		} catch (InterruptedException e) {
-			debug.pstm(e, "Stopping loading prematurely");
-		}
-		});
-	}
-	@SuppressWarnings("javadoc")
 	public static void waitAllLoaders() {
-		runningLoaders.forEach((AddonLoader t) -> {try {
-			t.runningOn.join();
+		loaders.forEach((AddonLoader t) -> {try {
+			t.untilLoad();
 		} catch (InterruptedException e) {
-			debug.pstm(e, "Stopping loading prematurely");
+			debug.pstm(e, SLPM);
+			throw new PrematureHaltException(SLPM, e);
 		}
 		});
 	}
 	public static void waitMP3s() {
-		MP3s.forEach((mp3) -> {
+		mp3s.forEach(mp3 -> {
 			try {
 				mp3.untilLoad();
-			} catch (InterruptedException e) {}
+			} catch (InterruptedException e) {
+				debug.pstm(e, SLPM);
+				throw new PrematureHaltException(SLPM, e);
+			}
 			
 		});
 	}
@@ -120,7 +97,6 @@ public class ModLoader {
 		if(f.isFile()) {
 			String absPath = f.getAbsolutePath();
 			String tname = absPath.substring(Textures.texturesPath.length()+1);
-			//debug.printl("Loading texture: " +tname);
 			try {
 				Textures.load(tname, new FileInputStream(f));
 			} catch (FileNotFoundException e) {
@@ -139,62 +115,16 @@ public class ModLoader {
 	 * Used by the main class to load mods
 	 */
 	
-	
-	public static void modloading(){
-		new File(new File("textures/").getAbsoluteFile().getParent()).getAbsolutePath();
-		Loading.state1("Loading textures");
+	public static final File modsDir = new File("mods/");
+	private static void initGame() {
+		state1("Loading textures");
 		walkTextures(new File("textures/"));
-		Loading.state1("Loading blocks");
-		Loading.state1("Loading tools");
+		state1("Loading blocks");
 		new ContentsBlocks(); //just for initialization
-		
-		
-		try {
-			external = new String(Files.readAllBytes(Paths.get("ext.txt"))).split("\n");
-		} catch (IOException e1) {
-			debug.pstm(e1, "Unable to load external mods:");
-		}
-		//Notify user
-		state1("Initial load");
-		debug.printl("Loading mods");
-		debug.printl("Finding all files to load");
-
-		//Load normal textures from cla
-
-
-		// Find modfiles to load;
-		try {
-			File f = new File("mods/");
-			if (!f.mkdirs() || !f.isDirectory()) {
-   				debug.printl("Added missing mods directory");
-			}
-			walkDirectory(new File("mods/")); //to b
-		} catch (IOException e) {
-			debug.pstm(e, "Couldn't load mods, the list may be incomplete");
-		}
-		modCount += external.length;
-		for(int i = 0; i < external.length; i++) {
-			toLoad.add(external[i]);
-		}
-		state1("Found "+ modCount + " mod files");
-		debug.printl("Found "+ modCount + " mod files");
-		toLoad.forEach((String p) -> {
-			state2("Loading file: " + p);
-			try {
-				AddonLoader.load(FileGetter.getFile(p));
-			} catch (MalformedURLException e) {
-				debug.pstm(e, "Unable to load "+p);
-			}
-		});
-		//Wait until all files load
-		waitAllLoaders();
-
+	}
+	private static void firstRuns() {
 		//First runs. Similar process for all three stages
-		GameContents.addons.forEach((AddonInfo ai) -> {
-			if(ai == null) {
-				debug.printl("encountered null mod");
-				return;
-			}
+		GameContents.addons.forEach(ai -> {
 			if(ai.state == AddonState.ENABLE) {
 				Thread thr = new Thread(() -> {
 					if(ai.central == null) {
@@ -205,84 +135,120 @@ public class ModLoader {
 						ai.central.firstOpen();
 						debug.printl("End 1st stage for " + ai.name);
 					}
-
 				});
-				runningFirstRunThreads.add(thr);
+				firstRuns.add(thr);
 				thr.start();
 			}
 		});
-		waitAllFirstRuns();
-
+		firstRuns.forEach(t -> {try {
+			t.join();
+		} catch (InterruptedException e) {
+			debug.pstm(e, SLPM);
+			throw new PrematureHaltException(SLPM, e);
+		}
+		});
+	}
+	private static void contentRuns() {
 		//Content runs
-		GameContents.addons.forEach((AddonInfo ai) -> {
+		GameContents.addons.forEach(ai -> {
 			if(ai.state == AddonState.ENABLE) {
 				Thread thr = new Thread(() -> {
 					debug.printl("Start 2nd stage for " + ai.name);
 					ai.central.makeContent();
 					debug.printl("End 2nd stage for " + ai.name);
 				});
-				runningContentAddThreads.add(thr);
+				contents.add(thr);
 				thr.start();
 			}
 		});
-		waitAllContentRuns();
-
-
+		contents.forEach(t -> {try {
+			t.join();
+		} catch (InterruptedException e) {
+			debug.pstm(e, SLPM);
+			throw new PrematureHaltException(SLPM, e);
+		}
+		});
+	}
+	private static void integrationRuns() {
 		//Integration runs
-		GameContents.addons.forEach((AddonInfo ai) -> {
+		GameContents.addons.forEach(ai -> {
 			if(ai.state == AddonState.ENABLE) {
 				Thread thr = new Thread(() -> {
 					debug.printl("Start 3rd stage for " + ai.name);
 					ai.central.makeContent();
 					debug.printl("End 3rd stage for " + ai.name);
 				});
-				runningIntegrationThreads.add(thr);
+				integrators.add(thr);
 				thr.start();
 			}
 		});
-		waitAllIntegrationRuns();
-		summarizeMods();
-		
-		debug.printl("HOORAY, IT'S OVER!");
-	}
-
-	@Deprecated
-	/**
-	 *
-	 * @param folder
-	 * @throws IOException
-	 */
-	static void walkDirectory(File folder) throws IOException {
-		if(folder.isDirectory()) {
-			debug.printl("Directory: " + folder.getCanonicalPath());
-		}else {
-			debug.printl("File: " + folder.getCanonicalPath());
+		integrators.forEach(t -> {try {
+			t.join();
+		} catch (InterruptedException e) {
+			debug.pstm(e, SLPM);
+			throw new PrematureHaltException(SLPM, e);
 		}
-
-		File[] modfiles = ListFiles.findFiles(folder);
-		for(int i = 0; i < modfiles.length; i++) { //Copy over found modfiles
+		});
+	}
+	public static void modloading(){
+		initGame();
+		try {
+			external = new String(Files.readAllBytes(Paths.get("ext.txt"))).split("\n");
+		} catch (IOException e1) {
+			debug.pstm(e1, "Unable to load external mods");
+		}
+		//Notify user
+		state1("Initial load");
+		debug.printl("Loading mods");
+		debug.printl("Finding all files to load");
+		//Add missing 'mods' directory
+		if (!modsDir.mkdirs() || !modsDir.isDirectory()) debug.printl("Added missing mods directory");
+		//Walk 'mods' directory
+		walkDirectory(modsDir, (s, ff) -> {
 			try {
-				debug.printl("File: " + modfiles[i].getCanonicalPath());
-				toLoad.add(modfiles[i].getCanonicalPath());
+				toLoad.add(ff.getAbsolutePath());
 				modCount++;
 			} catch (Exception e) {
-				debug.pstm(e, "Couldn't load file "+ modfiles[i].getCanonicalPath());
+				debug.pstm(e, "Couldn't load file "+ s);
 			}
-		}
-		File[] modpacks = ListFiles.findDirectories(folder);
-		for(int i = 0; i < modpacks.length; i++) {
-			walkDirectory(modpacks[i]);
-		}
+		});
+		modCount += external.length;
+		toLoad.addAll(Arrays.asList(external));
+		//Add mod files for loading
+		state1("Found "+ modCount + " mod files");
+		debug.printl("Found "+ modCount + " mod files");
+		toLoad.forEach(p -> {
+			state2("Loading file: " + p);
+			try {
+				AddonLoader.load(FileGetter.getFile(p));
+			} catch (MalformedURLException e) {
+				debug.pstm(e, "The external mod has incorrect URL: "+p);
+			}
+		});
+		waitAllLoaders();//Wait until all files load
+		firstRuns(); // first runs
+		contentRuns(); // content runs
+		integrationRuns(); //integration runs
+		
+		//clean up
+		loaders.clear();
+		firstRuns.clear();
+		contents.clear();
+		integrators.clear();
+		mp3s.clear();
+		summarizeMods();
+		debug.printl("HOORAY, IT'S OVER!");
 	}
+	
 	/**
 	 *
 	 * @param folder
 	 * @param action
 	 */
 	public static void walkDirectory(File folder, BiConsumer<String,File> action) {
-		List<File> files = new ArrayList<File>();
+		List<File> files = new ArrayList<>();
 		walkDirectory(folder, files);
-		files.forEach((file) -> {
+		files.forEach(file -> {
 			String root = folder.getAbsolutePath();
 			String sub = file.getAbsolutePath();
 			sub = sub.substring(root.length());
@@ -298,22 +264,45 @@ public class ModLoader {
 		try {
 			if(folder.isDirectory()) {
 				debug.printl("Directory: " + folder.getCanonicalPath());
-				File[] modpacks = ListFiles.findDirectories(folder);
-				for(int i = 0; i < modpacks.length; i++) {
-					walkDirectory(modpacks[i], results);
+				for(File modfile: ListFiles.findFiles(folder)) {
+					debug.printl("File: " + modfile.getCanonicalPath());
+					results.add(modfile);
+				}
+				for(File modfile: ListFiles.findDirectories(folder)) {
+					walkDirectory(modfile, results);
 				}
 			}else {
 				debug.printl("File: " + folder.getCanonicalPath());
 				results.add(folder);
 			}
+		} catch (IOException e) {
+			debug.pstm(e, "THIS MESSAGE INDICATES MALFUNCTION OF FILE PATH SYSTEM OR JAVA. Couldn't get path of the file");
+		}
+	}
+	/**
+	 * Walk the directory by adding all files and directories to the list
+	 * @param folder root
+	 * @param results output
+	 */
+	public static void walkFilesDirectory(File folder, List<File> results) {
+		try {
+			if(folder.isDirectory()) {
+				debug.printl("Directory: " + folder.getCanonicalPath());
+				File[] modpacks = ListFiles.findDirectories(folder);
+				for(int i = 0; i < modpacks.length; i++) {
+					walkFilesDirectory(modpacks[i], results);
+				}
+			}else {
+				debug.printl("File: " + folder.getCanonicalPath());
+			}
+			results.add(folder);
 		}catch(Exception e) {
 			debug.pstm(e, "THIS MESSAGE INDICATES MALFUNCTION OF FILE PATH SYSTEM OR JAVA. Couldn't get path of the file");
 		}
-
 	}
 
 	static void summarizeMods() {
-		GameContents.addons.forEach((AddonInfo ai) -> {summarizeMod(ai);});
+		GameContents.addons.forEach(ModLoader::summarizeMod);
 	}
 	static void summarizeMod(AddonInfo ai) {
 		debug.printl("=============================================MOD INFORMATION FOR " + ai.name + "=============================================");
@@ -337,7 +326,7 @@ public class ModLoader {
 					debug.printl("MADE BY " + ai.mmbmod.author);
 					debug.printl("DESCRIPTION: " + ai.mmbmod.description);
 				}
-
+				break;
 			default:
 				break;
 			}

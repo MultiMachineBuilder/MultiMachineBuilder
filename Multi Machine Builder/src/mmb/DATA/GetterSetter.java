@@ -10,7 +10,7 @@ import io.vavr.Value;
 
 /**
  * @author oskar
- *@param T data type
+ * @param <T> data type
 */
  
 public interface GetterSetter<T> extends Supplier<T>, Consumer<T>{

@@ -20,6 +20,6 @@ import java.lang.annotation.Target;
  *
  */
 public @interface Parameter {
-	Class type();
+	Class<?> type();
 	String name();
 }

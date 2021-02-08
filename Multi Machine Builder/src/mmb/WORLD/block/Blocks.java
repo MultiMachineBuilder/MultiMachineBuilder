@@ -6,8 +6,8 @@ package mmb.WORLD.block;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-import mmb.HashSelfSet;
-import mmb.SelfSet;
+import mmb.COLLECTIONS.HashSelfSet;
+import mmb.COLLECTIONS.SelfSet;
 import mmb.WORLD.items.Items;
 import mmb.debug.Debugger;
 
@@ -17,7 +17,7 @@ import mmb.debug.Debugger;
  */
 public class Blocks {
 	private static Debugger debug = new Debugger("BLOCKS");
-	public static final SelfSet<String, BlockType> blocks = new HashSelfSet<>();
+	private static final SelfSet<String, BlockType> blocks = new HashSelfSet<>();
 	
 	public static void register(BlockType type) {
 		Objects.requireNonNull(type, "The block must not be null");
@@ -44,7 +44,6 @@ public class Blocks {
 	/**
 	 * Remove given block by name
 	 * @param s block name
-	 * @return if block as removed
 	 */
 	public static void remove(String s) {
 		Objects.requireNonNull(s, "Block name can't be null");

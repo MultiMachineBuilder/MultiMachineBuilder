@@ -20,7 +20,7 @@ import mmb.debug.Debugger;
  */
 public class Textures {
 	private static final Debugger debug = new Debugger("TEXTURES");
-	private static final Map<String, BufferedImage> loadedTextures = new HashMap<String, BufferedImage>();
+	private static final Map<String, BufferedImage> loadedTextures = new HashMap<>();
 	public static final String prefix = "textures/";
 	public static final File texturesDir = new File(prefix);
 	public static final String texturesPath = texturesDir.getAbsolutePath();
@@ -44,7 +44,7 @@ public class Textures {
 	
 	public static void load(String name, BufferedImage data) {
 		String name2 = name.replace('\\', '/'); //replace slashes so users can use both '/' and '\'
-		debug.printl("Loading texture "+name2);
+		debug.printl("Loading texture: "+name2);
 		loadedTextures.put(name2, data);
 	}
 	

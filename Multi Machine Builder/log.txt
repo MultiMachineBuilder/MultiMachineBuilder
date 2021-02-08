@@ -1,88 +1,104 @@
-(TEXTURES) Loading texture brush.png
-(TEXTURES) Loading texture colorable.png
-(TEXTURES) Loading texture container.png
-(TEXTURES) Loading texture copper_ore.png
-(TEXTURES) Loading texture copy.png
-(TEXTURES) Loading texture crafting.png
-(TEXTURES) Loading texture grass.png
-(TEXTURES) Loading texture highways.png
-(TEXTURES) Loading texture iron_ore.png
-(TEXTURES) Loading texture item/copper_ingot.png
-(TEXTURES) Loading texture item/iron_ingot.png
-(TEXTURES) Loading texture item/lisc.png
-(TEXTURES) Loading texture item/silicon_ingot.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/brown.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/brown_inlay.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/brown_pressed.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/grey.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/grey_inlay.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/grey_pressed.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/tan.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/tan_inlay.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/tan_pressed.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/white.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/white_inlay.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Ancient/white_pressed.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/blue.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/blue_pressed.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/green.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/green_pressed.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/grey.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/grey_pressed.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/red.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/red_pressed.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/yellow.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Colored/yellow_pressed.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/list.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/blue.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/blue_pressed.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/green.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/green_pressed.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/red.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/red_pressed.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/yellow.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/Outline/yellow_pressed.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/space.png
-(TEXTURES) Loading texture Kenney Pixel Art UI/9-Slice/space_inlay.png
-(TEXTURES) Loading texture lane changes.png
-(TEXTURES) Loading texture leaves.png
-(TEXTURES) Loading texture log.png
-(TEXTURES) Loading texture mine.png
-(TEXTURES) Loading texture minecxraft.bmp
-(TEXTURES) Loading texture nuclear reactor.png
-(TEXTURES) Loading texture place.png
-(TEXTURES) Loading texture plank.png
-(TEXTURES) Loading texture printer.png
-(TEXTURES) Loading texture routes/adjoin inner.png
-(TEXTURES) Loading texture routes/adjoin side.png
-(TEXTURES) Loading texture routes/adjoin small.png
-(TEXTURES) Loading texture routes/end hway sign.png
-(TEXTURES) Loading texture routes/half medium offset single.png
-(TEXTURES) Loading texture routes/half short hway offset single.png
-(TEXTURES) Loading texture routes/half vshort highway offset single.png
+(TEXTURES) Loading texture: block/copper block.png
+(TEXTURES) Loading texture: block/iron block.png
+(TEXTURES) Loading texture: block/message.png
+(TEXTURES) Loading texture: block/silicon block.png
+(TEXTURES) Failed to load Blocks.tsx
+(TEXTURES) Loading texture: brush.png
+(TEXTURES) Loading texture: colorable.png
+(TEXTURES) Loading texture: container.png
+(TEXTURES) Loading texture: copper_ore.png
+(TEXTURES) Loading texture: copy.png
+(TEXTURES) Loading texture: crafting.png
+(TEXTURES) Loading texture: example rotation.png
+(TEXTURES) Loading texture: example rotations.png
+(TEXTURES) Loading texture: grass.png
+(TEXTURES) Loading texture: highways.png
+(TEXTURES) Loading texture: iron_ore.png
+(TEXTURES) Loading texture: item/copper_ingot.png
+(TEXTURES) Loading texture: item/iron_ingot.png
+(TEXTURES) Loading texture: item/lisc.png
+(TEXTURES) Loading texture: item/silicon_ingot.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/brown.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/brown_inlay.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/brown_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/grey.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/grey_inlay.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/grey_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/tan.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/tan_inlay.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/tan_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/white.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/white_inlay.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/white_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/blue.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/blue_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/green.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/green_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/grey.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/grey_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/red.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/red_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/yellow.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/yellow_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/list.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/blue.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/blue_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/green.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/green_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/red.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/red_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/yellow.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/yellow_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/space.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/space_inlay.png
+(TEXTURES) Loading texture: lane changes.png
+(TEXTURES) Loading texture: leaves.png
+(TEXTURES) Loading texture: log.png
+(TEXTURES) Loading texture: logic/logic gates.png
+(TEXTURES) Loading texture: mine.png
+(TEXTURES) Loading texture: minecxraft.bmp
+(TEXTURES) Loading texture: nuclear reactor.png
+(TEXTURES) Loading texture: place.png
+(TEXTURES) Loading texture: plank.png
+(TEXTURES) Loading texture: printer.png
+(TEXTURES) Loading texture: routes/adjoin inner.png
+(TEXTURES) Loading texture: routes/adjoin side.png
+(TEXTURES) Loading texture: routes/adjoin small.png
+(TEXTURES) Loading texture: routes/end hway sign.png
+(TEXTURES) Loading texture: routes/half medium offset single.png
+(TEXTURES) Loading texture: routes/half short hway offset single.png
+(TEXTURES) Loading texture: routes/half vshort highway offset single.png
 (TEXTURES) Failed to load routes\highways corrupt.png
-(TEXTURES) Loading texture routes/highways.png
+(TEXTURES) Loading texture: routes/highways.png
 (TEXTURES) Failed to load routes\highways.tsx
-(TEXTURES) Loading texture routes/hway sign.png
-(TEXTURES) Loading texture routes/item routes.png
-(TEXTURES) Loading texture routes/long hway offset single.png
-(TEXTURES) Loading texture routes/long hway ramp.png
-(TEXTURES) Loading texture routes/medium hway offset single.png
-(TEXTURES) Loading texture routes/medium hway ramp.png
-(TEXTURES) Loading texture routes/roads.png
-(TEXTURES) Loading texture routes/short hway offset single.png
-(TEXTURES) Loading texture routes/short hway ramp.png
-(TEXTURES) Loading texture routes/turn transition.png
-(TEXTURES) Loading texture silicon_ore.png
-(TEXTURES) Loading texture spider.png
-(TEXTURES) Loading texture stone.png
-(TEXTURES) Loading texture textedit.png
-(TEXTURES) Loading texture tools.png
-(TEXTURES) Loading texture UIs/blue signpost.png
-(TEXTURES) Loading texture UIs/green signpost.png
-(TEXTURES) Loading texture UIs/orange signpost.png
-(TEXTURES) Loading texture UIs/red signpost.png
-(TEXTURES) Loading texture UIs/yellow signpost.png
+(TEXTURES) Loading texture: routes/hway sign.png
+(TEXTURES) Loading texture: routes/item routes/1-way simple.png
+(TEXTURES) Loading texture: routes/item routes/2 carriage misc.png
+(TEXTURES) Loading texture: routes/item routes/2 lane.png
+(TEXTURES) Loading texture: routes/item routes/2-carriage interchanges.png
+(TEXTURES) Loading texture: routes/item routes/2-carriage interconnectors.png
+(TEXTURES) Loading texture: routes/item routes/2-way simple.png
+(TEXTURES) Loading texture: routes/item routes/net machines.png
+(TEXTURES) Loading texture: routes/item routes/route control.png
+(TEXTURES) Loading texture: routes/item routes.png
+(TEXTURES) Loading texture: routes/long hway offset single.png
+(TEXTURES) Loading texture: routes/long hway ramp.png
+(TEXTURES) Loading texture: routes/medium hway offset single.png
+(TEXTURES) Loading texture: routes/medium hway ramp.png
+(TEXTURES) Loading texture: routes/roads.png
+(TEXTURES) Loading texture: routes/short hway offset single.png
+(TEXTURES) Loading texture: routes/short hway ramp.png
+(TEXTURES) Loading texture: routes/turn transition.png
+(TEXTURES) Loading texture: silicon_ore.png
+(TEXTURES) Loading texture: spider.png
+(TEXTURES) Loading texture: stone.png
+(TEXTURES) Loading texture: textedit.png
+(TEXTURES) Loading texture: tools.png
+(TEXTURES) Loading texture: UIs/blue signpost.png
+(TEXTURES) Loading texture: UIs/green signpost.png
+(TEXTURES) Loading texture: UIs/orange signpost.png
+(TEXTURES) Loading texture: UIs/red signpost.png
+(TEXTURES) Loading texture: UIs/yellow signpost.png
 (BLOCKS) Creating blocks
 (BLOCKS) Adding mmb.grass with title Grass and descripion:
 null
@@ -116,36 +132,42 @@ null
 (MOD-LOADER) Finding all files to load
 (MOD-LOADER) Added missing mods directory
 (MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\crash.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
-(MOD-LOADER) Found 3 mod files
+(MOD-LOADER) Found 4 mod files
 (MOD - HelloWorld.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+(MOD - crash.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\crash.jar
 (MOD - kotlin.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
 (MOD - Multi Machine Builder) java.io.FileNotFoundException
-(MOD - Multi Machine Builder) Failed to read the file
+(MOD - Multi Machine Builder) Failed to read the file C:\Users\oskar\eclipse-workspace\Multi Machine Builder
 (MOD - Multi Machine Builder) java.io.FileNotFoundException
 (MOD - Multi Machine Builder) 
 (MOD - Multi Machine Builder) java.io.FileInputStream.open0(Native Method)
 (MOD - Multi Machine Builder) java.io.FileInputStream.open(Unknown Source)
 (MOD - Multi Machine Builder) java.io.FileInputStream.<init>(Unknown Source)
 (MOD - Multi Machine Builder) mmb.DATA.file.LocalFile.getInputStream(LocalFile.java:33)
-(MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:97)
-(MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:71)
+(MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:105)
+(MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:77)
 (MOD - Multi Machine Builder) java.lang.Thread.run(Unknown Source)
 (MOD - HelloWorld.jar) Loading a modfile: HelloWorld.jar
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - kotlin.jar) Loading a modfile: kotlin.jar
+(MOD - crash.jar) Loading a modfile: crash.jar
+(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinMod.kt
+(MOD - crash.jar) entry: mmbmods/example/destroygame/DestroyMMB.class
 (MOD - kotlin.jar) entry: .classpath
 (MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - crash.jar) entry: .classpath
 (MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinMod.class
 (MOD - HelloWorld.jar) entry: .project
-(MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinModKt.class
-(MOD - HelloWorld.jar) entry: .classpath
+(MOD - crash.jar) entry: .project
 (MOD - kotlin.jar) entry: .project
+(MOD - HelloWorld.jar) entry: .classpath
+(MOD - crash.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\crash.jar
+(MOD - kotlin.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
 (MOD - HelloWorld.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (MOD - HelloWorld.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
-(MOD - kotlin.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
 (ClassPath) entry size: -1
 (ClassPath) entry size: -1
 (ClassPath) entry size: -1
@@ -156,45 +178,21 @@ null
 (ClassPath) entry size: -1
 (ClassPath) entry size: -1
 (ClassPath) entry size: -1
-(MOD - HelloWorld.jar) Processing .classpath
-(MOD - kotlin.jar) Processing .classpath
-(MOD - HelloWorld.jar) File: .classpath
-(MOD - kotlin.jar) File: .classpath
-(MOD - HelloWorld.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - kotlin.jar) Processing mmbmods/kotlin/KotlinMod.kt
-(MOD - HelloWorld.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - kotlin.jar) File: mmbmods/kotlin/KotlinMod.kt
-(MOD - HelloWorld.jar) Processing .project
-(MOD - kotlin.jar) Processing .project
-(MOD - HelloWorld.jar) File: .project
-(MOD - kotlin.jar) File: .project
-(MOD - HelloWorld.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - kotlin.jar) Processing mmbmods/kotlin/KotlinModKt.class
-(MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - kotlin.jar) File: mmbmods/kotlin/KotlinModKt.class
-(MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinModKt.class
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - kotlin.jar) Invalid class file: mmbmods/kotlin/KotlinModKt.class
-(MOD - kotlin.jar) java.lang.ClassFormatError
-(MOD - kotlin.jar) Absent Code attribute in method that is not native or abstract in class file mmbmods/kotlin/KotlinModKt
-(MOD - kotlin.jar) java.lang.ClassLoader.defineClass1(Native Method)
-(MOD - kotlin.jar) java.lang.ClassLoader.defineClass(Unknown Source)
-(MOD - kotlin.jar) java.lang.ClassLoader.defineClass(Unknown Source)
-(MOD - kotlin.jar) io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)
-(MOD - kotlin.jar) java.lang.ClassLoader.loadClass(Unknown Source)
-(MOD - kotlin.jar) java.lang.ClassLoader.loadClass(Unknown Source)
-(MOD - kotlin.jar) io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
-(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.interpretClassFile(AddonLoader.java:211)
-(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.processFile(AddonLoader.java:176)
-(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.lambda$2(AddonLoader.java:160)
-(MOD - kotlin.jar) java.util.Hashtable.forEach(Unknown Source)
-(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.whenWorking(AddonLoader.java:159)
-(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:120)
-(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:71)
-(MOD - kotlin.jar) java.lang.Thread.run(Unknown Source)
+(ClassPath) entry size: -1
+(ClassPath) entry size: -1
+(MOD - crash.jar) Processing .classpath
 (MOD - kotlin.jar) Processing mmbmods/kotlin/KotlinMod.class
+(MOD - HelloWorld.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - crash.jar) File: .classpath
+(MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - kotlin.jar) File: mmbmods/kotlin/KotlinMod.class
 (MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinMod.class
+(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - crash.jar) Processing .project
+(MOD - crash.jar) File: .project
+(MOD - crash.jar) Processing mmbmods/example/destroygame/DestroyMMB.class
+(MOD - crash.jar) File: mmbmods/example/destroygame/DestroyMMB.class
+(MOD - crash.jar) entry: mmbmods/example/destroygame/DestroyMMB.class
 (MOD - kotlin.jar) Invalid class file: mmbmods/kotlin/KotlinMod.class
 (MOD - kotlin.jar) java.lang.ClassFormatError
 (MOD - kotlin.jar) Absent Code attribute in method that is not native or abstract in class file mmbmods/kotlin/KotlinMod
@@ -205,23 +203,42 @@ null
 (MOD - kotlin.jar) java.lang.ClassLoader.loadClass(Unknown Source)
 (MOD - kotlin.jar) java.lang.ClassLoader.loadClass(Unknown Source)
 (MOD - kotlin.jar) io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
-(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.interpretClassFile(AddonLoader.java:211)
-(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.processFile(AddonLoader.java:176)
-(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.lambda$2(AddonLoader.java:160)
-(MOD - kotlin.jar) java.util.Hashtable.forEach(Unknown Source)
-(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.whenWorking(AddonLoader.java:159)
-(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:120)
-(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:71)
+(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.interpretClassFile(AddonLoader.java:206)
+(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.processFile(AddonLoader.java:177)
+(MOD - kotlin.jar) java.util.HashMap.forEach(Unknown Source)
+(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.whenWorking(AddonLoader.java:163)
+(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.unzip(AddonLoader.java:143)
+(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:114)
+(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:77)
 (MOD - kotlin.jar) java.lang.Thread.run(Unknown Source)
+(MOD - kotlin.jar) Processing .classpath
+(MOD - kotlin.jar) File: .classpath
+(MOD - kotlin.jar) Processing mmbmods/kotlin/KotlinMod.kt
+(MOD - kotlin.jar) File: mmbmods/kotlin/KotlinMod.kt
+(MOD - kotlin.jar) Processing .project
+(MOD - kotlin.jar) File: .project
 (HW) Hello, world!
+(BLOCKS) Adding wireworld.hw with title Hello, world! and descripion:
+null
+(MOD - HelloWorld.jar) Processing .classpath
+(MOD - HelloWorld.jar) File: .classpath
 (MOD - HelloWorld.jar) Processing mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld.jar) Processing .project
+(MOD - HelloWorld.jar) File: .project
+(MOD - HelloWorld.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - HelloWorld.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD-LOADER) Start 1st stage for 
 (MOD-LOADER) Start 1st stage for Hello, world!
 (MOD-LOADER) End 1st stage for Hello, world!
+(MOD-LOADER) Start 2nd stage for 
+(MOD-LOADER) End 2nd stage for 
 (MOD-LOADER) Start 2nd stage for Hello, world!
 (MOD-LOADER) End 2nd stage for Hello, world!
+(MOD-LOADER) Start 3rd stage for 
 (MOD-LOADER) Start 3rd stage for Hello, world!
+(MOD-LOADER) End 3rd stage for 
 (MOD-LOADER) End 3rd stage for Hello, world!
 (MOD-LOADER) =============================================MOD INFORMATION FOR C:\Users\oskar\eclipse-workspace\Multi Machine Builder=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder
@@ -230,125 +247,21 @@ null
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
 (MOD-LOADER) Crashed
 (MOD-LOADER) Unknown information
+(MOD-LOADER) =============================================MOD INFORMATION FOR =============================================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\crash.jar
+(MOD-LOADER) Operative
+(MOD-LOADER) RELEASED Sun Feb 07 16:48:27 CET 2021
+(MOD-LOADER) MADE BY 
+(MOD-LOADER) DESCRIPTION: 
 (MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Tue Jan 26 16:20:30 CET 2021
+(MOD-LOADER) RELEASED Sun Feb 07 16:48:27 CET 2021
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) HOORAY, IT'S OVER!
-(SELECT A SAVE) Found 0 saves
-(NewGame) Successfully created NEW CREATION SYSTEM
 (SELECT A SAVE) Found save: NEW CREATION SYSTEM.mworld
 (SELECT A SAVE) Found 1 saves
-(WORLD TEST) Failed to write the new world.
-(WORLD TEST) java.lang.NullPointerException
-(WORLD TEST) null
-(WORLD TEST) mmb.WORLD.WorldWindow.dispose(WorldWindow.java:41)
-(WORLD TEST) mmb.MENU.main.PanelSaves$1.actionPerformed(PanelSaves.java:81)
-(WORLD TEST) javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
-(WORLD TEST) javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
-(WORLD TEST) javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
-(WORLD TEST) javax.swing.DefaultButtonModel.setPressed(Unknown Source)
-(WORLD TEST) javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
-(WORLD TEST) java.awt.Component.processMouseEvent(Unknown Source)
-(WORLD TEST) javax.swing.JComponent.processMouseEvent(Unknown Source)
-(WORLD TEST) java.awt.Component.processEvent(Unknown Source)
-(WORLD TEST) java.awt.Container.processEvent(Unknown Source)
-(WORLD TEST) java.awt.Component.dispatchEventImpl(Unknown Source)
-(WORLD TEST) java.awt.Container.dispatchEventImpl(Unknown Source)
-(WORLD TEST) java.awt.Component.dispatchEvent(Unknown Source)
-(WORLD TEST) java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
-(WORLD TEST) java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
-(WORLD TEST) java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
-(WORLD TEST) java.awt.Container.dispatchEventImpl(Unknown Source)
-(WORLD TEST) java.awt.Window.dispatchEventImpl(Unknown Source)
-(WORLD TEST) java.awt.Component.dispatchEvent(Unknown Source)
-(WORLD TEST) java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-(WORLD TEST) java.awt.EventQueue.access$500(Unknown Source)
-(WORLD TEST) java.awt.EventQueue$3.run(Unknown Source)
-(WORLD TEST) java.awt.EventQueue$3.run(Unknown Source)
-(WORLD TEST) java.security.AccessController.doPrivileged(Native Method)
-(WORLD TEST) java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-(WORLD TEST) java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-(WORLD TEST) java.awt.EventQueue$4.run(Unknown Source)
-(WORLD TEST) java.awt.EventQueue$4.run(Unknown Source)
-(WORLD TEST) java.security.AccessController.doPrivileged(Native Method)
-(WORLD TEST) java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-(WORLD TEST) java.awt.EventQueue.dispatchEvent(Unknown Source)
-(WORLD TEST) java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-(WORLD TEST) java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-(WORLD TEST) java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-(WORLD TEST) java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-(WORLD TEST) java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-(WORLD TEST) java.awt.EventDispatchThread.run(Unknown Source)
-(SELECT A SAVE) Failed to load the world
-(SELECT A SAVE) java.lang.NullPointerException
-(SELECT A SAVE) null
-(SELECT A SAVE) mmb.WORLD.worlds.map.BlockMap.deserialize(BlockMap.java:337)
-(SELECT A SAVE) mmb.WORLD.worlds.world.World.deserialize(World.java:113)
-(SELECT A SAVE) mmb.MENU.main.PanelSaves$1.actionPerformed(PanelSaves.java:79)
-(SELECT A SAVE) javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
-(SELECT A SAVE) javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
-(SELECT A SAVE) javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
-(SELECT A SAVE) javax.swing.DefaultButtonModel.setPressed(Unknown Source)
-(SELECT A SAVE) javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
-(SELECT A SAVE) java.awt.Component.processMouseEvent(Unknown Source)
-(SELECT A SAVE) javax.swing.JComponent.processMouseEvent(Unknown Source)
-(SELECT A SAVE) java.awt.Component.processEvent(Unknown Source)
-(SELECT A SAVE) java.awt.Container.processEvent(Unknown Source)
-(SELECT A SAVE) java.awt.Component.dispatchEventImpl(Unknown Source)
-(SELECT A SAVE) java.awt.Container.dispatchEventImpl(Unknown Source)
-(SELECT A SAVE) java.awt.Component.dispatchEvent(Unknown Source)
-(SELECT A SAVE) java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
-(SELECT A SAVE) java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
-(SELECT A SAVE) java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
-(SELECT A SAVE) java.awt.Container.dispatchEventImpl(Unknown Source)
-(SELECT A SAVE) java.awt.Window.dispatchEventImpl(Unknown Source)
-(SELECT A SAVE) java.awt.Component.dispatchEvent(Unknown Source)
-(SELECT A SAVE) java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-(SELECT A SAVE) java.awt.EventQueue.access$500(Unknown Source)
-(SELECT A SAVE) java.awt.EventQueue$3.run(Unknown Source)
-(SELECT A SAVE) java.awt.EventQueue$3.run(Unknown Source)
-(SELECT A SAVE) java.security.AccessController.doPrivileged(Native Method)
-(SELECT A SAVE) java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-(SELECT A SAVE) java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-(SELECT A SAVE) java.awt.EventQueue$4.run(Unknown Source)
-(SELECT A SAVE) java.awt.EventQueue$4.run(Unknown Source)
-(SELECT A SAVE) java.security.AccessController.doPrivileged(Native Method)
-(SELECT A SAVE) java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-(SELECT A SAVE) java.awt.EventQueue.dispatchEvent(Unknown Source)
-(SELECT A SAVE) java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-(SELECT A SAVE) java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-(SELECT A SAVE) java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-(SELECT A SAVE) java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-(SELECT A SAVE) java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-(SELECT A SAVE) java.awt.EventDispatchThread.run(Unknown Source)
-(WORLD TEST) Failed to write the new world.
-(WORLD TEST) java.lang.NullPointerException
-(WORLD TEST) null
-(WORLD TEST) mmb.WORLD.WorldWindow.dispose(WorldWindow.java:41)
-(WORLD TEST) javax.swing.JFrame.processWindowEvent(Unknown Source)
-(WORLD TEST) java.awt.Window.processEvent(Unknown Source)
-(WORLD TEST) java.awt.Component.dispatchEventImpl(Unknown Source)
-(WORLD TEST) java.awt.Container.dispatchEventImpl(Unknown Source)
-(WORLD TEST) java.awt.Window.dispatchEventImpl(Unknown Source)
-(WORLD TEST) java.awt.Component.dispatchEvent(Unknown Source)
-(WORLD TEST) java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-(WORLD TEST) java.awt.EventQueue.access$500(Unknown Source)
-(WORLD TEST) java.awt.EventQueue$3.run(Unknown Source)
-(WORLD TEST) java.awt.EventQueue$3.run(Unknown Source)
-(WORLD TEST) java.security.AccessController.doPrivileged(Native Method)
-(WORLD TEST) java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-(WORLD TEST) java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-(WORLD TEST) java.awt.EventQueue$4.run(Unknown Source)
-(WORLD TEST) java.awt.EventQueue$4.run(Unknown Source)
-(WORLD TEST) java.security.AccessController.doPrivileged(Native Method)
-(WORLD TEST) java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-(WORLD TEST) java.awt.EventQueue.dispatchEvent(Unknown Source)
-(WORLD TEST) java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-(WORLD TEST) java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-(WORLD TEST) java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-(WORLD TEST) java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-(WORLD TEST) java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-(WORLD TEST) java.awt.EventDispatchThread.run(Unknown Source)
+(MAP - -657951653) Became anonymous
+(WORLDS) Opening a new world
+(WORLDS) The given world is null, exiting

@@ -56,7 +56,7 @@ public interface BlockProperty extends Identifiable<String> {
 	/**
 	 * Get a factory for given block entry
 	 * @return retrieved 'Supplier'-type factory or null
-	 * Returned value can throw {@link NullPointerException}, if called directly, To avoid this situation, use null-safe syntax or {@link getSafe(String)}
+	 * Returned value can throw {@link NullPointerException}, if called directly, To avoid this situation, use null-safe syntax or {@code getSafe(String)}
 	 */
 	public static Supplier<BlockProperty> get(String name){
 		return properties.get(name);

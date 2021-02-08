@@ -1,0 +1,71 @@
+/**
+ * 
+ */
+package mmb.COLLECTIONS;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+/**
+ * @author oskar
+ *
+ */
+public class Collects {
+	@SuppressWarnings("unchecked")
+	public static <T> Iterator<T> downcastIterator(Iterator<? extends T> iter) {
+		return (Iterator<T>) iter;
+	}
+	@SuppressWarnings("unchecked")
+	public static <T> Set<T> downcastSet(Set<? extends T> set){
+		return (Set<T>) set;
+	}
+	@SuppressWarnings("unchecked")
+	public static <T> Collection<T> downcastCollection(Collection<? extends T> collect){
+		return (Collection<T>) collect;
+	}
+	
+	public <T> HashSet<T> newUnion(Collection<? extends T> a, Collection<? extends T> b){
+		HashSet<T> set = new HashSet<>(a);
+		set.addAll(b);
+		return set;
+	}
+	public <T> HashSet<T> newIntersection(Collection<? extends T> a, Collection<? extends T> b){
+		HashSet<T> set = new HashSet<>(a);
+		set.retainAll(b);
+		return set;
+	}
+	public <T> HashSet<T> newSubtrSet(Collection<? extends T> a, Collection<? extends T> b){
+		HashSet<T> set = new HashSet<>(a);
+		set.removeAll(b);
+		return set;
+	}
+	public <T> HashSet<T> newXORSet(Collection<? extends T> a, Collection<? extends T> b){
+		HashSet<T> set = new HashSet<>(a);
+		set.addAll(b);
+		set.removeAll(newIntersection(a, b));
+		return set;
+	}
+	public <T> HashSet<T> newMultiUnion(Collection<? extends T> a, Collection<? extends T>... b){
+		HashSet<T> set = new HashSet<>(a);
+		for(Collection<? extends T> c: b) {
+			set.addAll(c);
+		}
+		return set;
+	}
+	public <T> HashSet<T> newMultiIntersection(Collection<? extends T> a, Collection<? extends T>... b){
+		HashSet<T> set = new HashSet<>(a);
+		for(Collection<? extends T> c: b) {
+			set.retainAll(c);
+		}
+		return set;
+	}
+	public <T> HashSet<T> newMultiSub(Collection<? extends T> a, Collection<? extends T>... b){
+		HashSet<T> set = new HashSet<>(a);
+		for(Collection<? extends T> c: b) {
+			set.removeAll(c);
+		}
+		return set;
+	}
+}

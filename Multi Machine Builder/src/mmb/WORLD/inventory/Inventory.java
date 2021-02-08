@@ -9,7 +9,7 @@ import mmb.WORLD.item.ItemType;
  * @author oskar
  *
  */
-public interface Inventory {
+public interface Inventory extends ItemStorage {
 	public ItemEntry withdraw(ItemType slot);
 	public ItemEntry withdraw(ItemType slot, int amount);
 	default ItemEntry withdraw(ItemEntry ent) {

@@ -11,9 +11,6 @@ import mmb.MODS.loader.ModLoader;
 import mmb.debug.Debugger;
 
 import javax.swing.JLabel;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -23,7 +20,7 @@ import net.miginfocom.swing.MigLayout;
 
 public class Loading extends JFrame {
 	private static final Debugger debug = new Debugger("LOAD");
-	static public Loading loader;
+	private static Loading loader;
 	private final JPanel contentPane;
 	JLabel st1 = new JLabel("State 1");
 	JLabel st2 = new JLabel("State 2");
@@ -46,23 +43,21 @@ public class Loading extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Date date = new Date();
-					boolean test = date.getHours() < 6 || date.getHours() >= 21;
-							test = false;
-					if(test) {
-						createRandomErrors();
-					}
-					loader = new Loading();
-					loader.setVisible(true);
-					new Thread(() -> {
-						loader.continueLoading();
-					}).start();
-				} catch (Exception e) {
-					debug.pstm(e, "GAME HAS CRASHED");
+		EventQueue.invokeLater(() ->{
+			try {
+				Date date = new Date();
+				boolean test = date.getHours() < 6 || date.getHours() >= 21;
+						test = false;
+				if(test) {
+					createRandomErrors();
 				}
+				loader = new Loading();
+				loader.setVisible(true);
+				new Thread(() -> {
+					loader.continueLoading();
+				}).start();
+			} catch (Exception e) {
+				debug.pstm(e, "GAME HAS CRASHED");
 			}
 		});
 	}

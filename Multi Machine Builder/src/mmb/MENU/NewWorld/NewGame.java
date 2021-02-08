@@ -12,8 +12,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.google.gson.JsonObject;
-import com.google.gson.stream.JsonWriter;
-
 import mmb.DATA.json.JsonTool;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.blocks.ContentsBlocks;
@@ -23,12 +21,9 @@ import mmb.debug.Debugger;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.util.Arrays;
-import java.awt.event.ActionEvent;
 
 /**
  * @author oskar
@@ -41,8 +36,27 @@ public class NewGame extends JDialog {
 	private final JTextField txtHeight;
 	private final JTextField txtWidth;
 	private final JTextField txtName;
-	private final Debugger debug = new Debugger("NewGame");
+	private final transient Debugger debug = new Debugger("NewGame");
+	private int w;
+	private int h;
 
+	private void getWorldSize() {
+		w = 0;
+		h = 0;
+		try {
+			w = Integer.valueOf(txtWidth.getText());
+			h = Integer.valueOf(txtWidth.getText());
+		} catch (NumberFormatException e2) {
+			w = -2;
+			h = 0;
+			debug.pstm(e2, "Incorrect dimensions: "+txtWidth.getText()+","+txtHeight.getText());
+			return;
+		}
+		if(w < 0 || h < 0) {
+			w = -1;
+			h = 0;
+		}
+	}
 	/**
 	 * Create the dialog.
 	 */
@@ -83,64 +97,62 @@ public class NewGame extends JDialog {
 		getContentPane().add(buttonPane, BorderLayout.SOUTH);
 		
 			JButton okButton = new JButton("OK");
-			okButton.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					int w;
-					int h;
-					try {
-						w = Integer.valueOf(txtWidth.getText());
-						h = Integer.valueOf(txtWidth.getText());
-					} catch (NumberFormatException e2) {
-						debug.pstm(e2, "Incorrect dimensions: "+txtWidth.getText()+","+txtHeight.getText());
-						return;
-					}
-					String n = txtName.getText();
-					try {
-						File newFile = new File("maps/"+n+".mworld");
-						if(newFile.exists()) {
-							debug.printl('"'+n+'"'+" already exists");
-							return;
-						}
-						World world = new World();
-						
-						int W = (2*w)+1;
-						int H = (2*h)+1;
-						BlockEntry[][] ents = new BlockEntry[W][H];
-						BlockMap main = new BlockMap(ents, -w, -h);
-						for(int i = 0, x = -w; i < W; i++, x++) {
-							for(int j = 0, y = -h; j < H; j++, y++) {
-								ents[i][j] = BlockEntry.defaultProperties(x, y, main, ContentsBlocks.grass);
-							}
-						}
-						world.main = main;
-						
-						//Save
-						newFile.createNewFile();
-						try(OutputStream os = new FileOutputStream(newFile);) {
-							JsonObject object = world.serialize();
-							String text = JsonTool.gson.toJson(object);
-							byte[] bin = text.getBytes();
-							os.write(bin);
-							os.flush();
-							os.close();
-						} catch (Exception e1) {
-							debug.pstm(e1, "Failed to write the new world.");
-							return;
-						}
-						debug.printl("Successfully created "+n);
-						dispose();
-					} catch (Exception e1) {
-						debug.pstm(e1, "Failed to create the world file");
-						return;
+			okButton.addActionListener(e ->{
+				World world = null;
+				getWorldSize();
+				if(w == -1) {
+					debug.printl("Incorrect dimensions: "+txtWidth.getText()+","+txtHeight.getText());
+					return;
+				}
+				String n = txtName.getText();
+				//Fill and create the map
+				int ww = (2*w)+1;
+				int hh = (2*h)+1;
+				BlockEntry[][] ents = new BlockEntry[ww][hh];
+				BlockMap main = new BlockMap(ents, -w, -h);
+				for(int i = 0, x = -w; i < ww; i++, x++) {
+					for(int j = 0, y = -h; j < hh; j++, y++) {
+						ents[i][j] = BlockEntry.defaultProperties(x, y, main, ContentsBlocks.grass);
 					}
 				}
+				
+				//Create and set up the world
+				world = new World();
+				world.setMain(main);
+				
+				
+				//Write to a new file
+				try {
+					File newFile = new File("maps/"+n+".mworld");
+					if(!newFile.createNewFile()) {
+						debug.printl('"'+n+'"'+" already exists");
+						dispose();
+						return;
+					}
+					try(OutputStream os = new FileOutputStream(newFile)) {
+						JsonObject object = world.serialize();
+						String text = JsonTool.gson.toJson(object);
+						byte[] bin = text.getBytes();
+						os.write(bin);
+						os.flush();
+					}
+				}catch (Exception e1) {
+					debug.pstm(e1, "Failed to write the new world.");
+					dispose();
+					return;
+				}
+				
+				debug.printl("Successfully created "+n);
+				dispose();
+				
+				if(world != null) world.destroy();
 			});
 			okButton.setActionCommand("OK");
 			buttonPane.add(okButton);
 			getRootPane().setDefaultButton(okButton);
 		
 			JButton cancelButton = new JButton("Cancel");
+			cancelButton.addActionListener(arg0 -> dispose());
 			cancelButton.setActionCommand("Cancel");
 			buttonPane.add(cancelButton);
 			
