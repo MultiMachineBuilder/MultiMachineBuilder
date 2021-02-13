@@ -23,7 +23,7 @@ public class Debugger {
 		try {
 			System.setOut(new TeePrintStream("log.txt", System.out));
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			// deepcode ignore DontUsePrintStackTrace: no workarounds avaliable			e.printStackTrace();
 		}
 	}
 	

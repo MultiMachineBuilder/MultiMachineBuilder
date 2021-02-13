@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import mmb.DATA.Settings;
 import mmb.MENU.main.MainMenu;
 import mmb.MODS.loader.ModLoader;
 import mmb.debug.Debugger;
@@ -16,6 +17,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Date;
+import java.util.Random;
+
 import net.miginfocom.swing.MigLayout;
 
 public class Loading extends JFrame {
@@ -80,15 +83,17 @@ public class Loading extends JFrame {
 	}
 	
 	void continueLoading() {
+		Settings.loadSettings();
 		String JGLLib = new File("./natives/").getAbsolutePath();
 		System.setProperty("org.lwjgl.librarypath", JGLLib);
 		ModLoader.modloading();
-		MainMenu.running();
+		MainMenu.create();
 		setVisible(false); //you can't see me!
 		dispose(); //Destroy the JFrame object
 	}
+	private static final Random r = new Random();
 	private static void createRandomErrors() throws IllegalAccessException, IOException {
-		int x = (int) (Math.random() * 6);
+		int x = r.nextInt(6);
 		switch(x) {
 		case 0:
 			throw new NullPointerException();

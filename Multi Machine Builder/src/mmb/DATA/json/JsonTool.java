@@ -3,37 +3,61 @@
  */
 package mmb.DATA.json;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
  * @author oskar
  *
  */
 public class JsonTool {
-	public static final GsonBuilder builder;
-	public static final Gson gson;
+	public static ObjectNode newObjectNode() {
+		return JsonNodeFactory.instance.objectNode();
+	}
+	public static ArrayNode newArrayNode() {
+		return JsonNodeFactory.instance.arrayNode();
+	}
+	public static ObjectNode requestObject(String name, ObjectNode node) {
+		JsonNode result = node.get(name);
+		if(result instanceof ObjectNode) {
+			return (ObjectNode) result;
+		}
+		return newObjectNode();
+	}
+	public static ArrayNode requestArray(String name, ObjectNode node) {
+		JsonNode result = node.get(name);
+		if(result instanceof ObjectNode) {
+			return (ArrayNode) result;
+		}
+		return newArrayNode();
+	}
+	public static final ObjectMapper mapper;
+	public static final ObjectWriter writer;
 	static {
-		builder = new GsonBuilder(); 
-		builder.setPrettyPrinting(); 
-		gson = builder.create();
+		mapper = new ObjectMapper();
+		writer = mapper.writerWithDefaultPrettyPrinter();
 	}
-	public static JsonArray requestArray(String name, JsonObject obj) {
-		JsonElement e = obj.get(name);
-		if(e == null) return new JsonArray();
-		return e.getAsJsonArray();
+	/**
+	 * @param s input string
+	 * @return parsed JSON node
+	 * @throws JsonProcessingException when parsing fails
+	 */
+	public static JsonNode parse(String s) throws JsonProcessingException {
+		return mapper.readTree(s);
 	}
-	public static JsonObject requestObject(String name, JsonObject obj) {
-		JsonElement e = obj.get(name);
-		if(e == null) return new JsonObject();
-		return e.getAsJsonObject();
-	}
-	public static int requestInt(String name, JsonObject obj, int def) {
-		JsonElement e = obj.get(name);
-		if(e == null) return def;
-		return e.getAsInt();
+	/**
+	 * 
+	 * @param node input JSON node
+	 * @return serialized string
+	 * @throws JsonProcessingException when serialization fails
+	 */
+	public static String save(JsonNode node) throws JsonProcessingException {
+		return writer.writeValueAsString(node);
 	}
 }

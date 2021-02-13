@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.MENU;
+package mmb.MENU.components;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;

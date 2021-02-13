@@ -11,7 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-import mmb.MENU.ImageTextList;
+import mmb.MENU.components.ImageTextList;
+
 import javax.swing.JMenuBar;
 
 /**

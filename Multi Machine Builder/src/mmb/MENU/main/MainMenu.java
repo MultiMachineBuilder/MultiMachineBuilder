@@ -3,147 +3,122 @@ package mmb.MENU.main;
 import java.awt.*;
 import javax.swing.*;
 
+import mmb.DATA.Settings;
 import mmb.DATA.contents.GameContents;
 import mmb.debug.Debugger;
-import java.awt.event.ActionListener;
 import java.net.URI;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TimerTask;
-import java.awt.event.ActionEvent;
-import net.miginfocom.swing.MigLayout;
 import java.awt.Desktop;
-import java.awt.CardLayout;
 import java.awt.BorderLayout;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
-import javax.swing.JCheckBoxMenuItem;
+import mmb.MENU.FullScreen;
+import mmb.MENU.MMBFrame;
+import mmb.MENU.components.BoundCheckBoxMenuItem;
 import mmb.MENU.settings.PanelSettings;
 
-public class MainMenu extends JFrame {
-	//ToolKit API
-	public static void addTab(JPanel tab, String name) {
-		mm.tabbedPane.add(name, tab);
-	}
-	public static void addToolBarEntry(JMenu menu) {
-		mm.menuBar.add(menu);
-	}
-	public static void addMenu(JPanel menu, String name) {
-		mm.getContentPane().add(name, menu);
-	}
+public class MainMenu extends MMBFrame {
+	private static final long serialVersionUID = -7953512837841781519L;
 	
-	protected JMenuBar menuBar;
+	//Debugging
+	private static final Debugger debug = new Debugger("Main menu");
+	
+	//ToolKit API
+	/** The singleton instance of main menu*/
+	public static final MainMenu INSTANCE = new MainMenu();
+	/**
+	 * Add a main menu tab
+	 * @param tab tab contents
+	 * @param name tab name
+	 */
+	public void addTab(Component tab, String name) {
+		tabbedPane.add(name, tab);
+	}
+	/**
+	 * Add a main menu toolbar entry
+	 * @param menu {@link JMenu} to add
+	 */
+	public void addToolBarEntry(JMenu menu) {
+		mainMenuBar.add(menu);
+	}
+	protected JMenuBar mainMenuBar;
 	protected JTabbedPane tabbedPane;
-	private final static Debugger debug = new Debugger("Main menu");
+	BoundCheckBoxMenuItem stngFullScreen;
+	
 	private final JPanel contentPane;
-	public final static String CARD_MENU = "mainMenu";
-	public final static String CARD_MODS = "modList";
-	public final static String CARD_SAVES = "saveList";
-	public final static String GITHUB = "https://github.com/MultiMachineBuilder/MultiMachineBuilder";
-	private boolean FullScreen = false;
-	private static MainMenu mm;
-	static GraphicsDevice device = GraphicsEnvironment
-	        .getLocalGraphicsEnvironment().getScreenDevices()[0];
+	public static final String GITHUB = "https://github.com/MultiMachineBuilder/MultiMachineBuilder";
+	
 	private JButton btnExit;
 	private JLabel timerLBL;
-
 	/**
 	 * Launch the application.
 	 */
-	public static void running() {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					mm = new MainMenu();
-					mm.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public static void create() {
+		FullScreen.isFullScreen.setValue(Settings.getBool("fullscreen", false));
+		FullScreen.setWindow(INSTANCE);
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	public MainMenu() {
-		mm = this;
+	private MainMenu() {
+		debug.printl("MainMenu created");
 		setTitle("MultiMachineBuilder - "+GameContents.addons.size()+" mods");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		
-		menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
+		mainMenuBar = new JMenuBar();
+		setJMenuBar(mainMenuBar);
 		
 		JMenu mnNewMenu = new JMenu("Window");
-		menuBar.add(mnNewMenu);
+		mainMenuBar.add(mnNewMenu);
 		
-		JCheckBoxMenuItem stngFullScreen = new JCheckBoxMenuItem("FullScreen");
-		stngFullScreen.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				setFullScreen(stngFullScreen.isSelected());
-			}
-		});
+		stngFullScreen = new BoundCheckBoxMenuItem("FullScreen");
+		stngFullScreen.setVariable(FullScreen.isFullScreen);
 		mnNewMenu.add(stngFullScreen);
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new CardLayout(0, 0));
-		
-		
-		JPanel mainMenu = new JPanel();
-		contentPane.add(mainMenu, CARD_MENU);
-		mainMenu.setLayout(new BorderLayout(0, 0));
+		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel aside = new JPanel();
-		mainMenu.add(aside, BorderLayout.WEST);
-		aside.setLayout(new MigLayout("", "[]", "[][][][][]"));
+		contentPane.add(aside, BorderLayout.WEST);
+		BoxLayout layout = new BoxLayout(aside, BoxLayout.Y_AXIS);
+		aside.setLayout(layout);
 		
 		JButton btnWebsite = new JButton("Website");
-		aside.add(btnWebsite, "cell 0 1");
-		btnWebsite.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					Desktop.getDesktop().browse(new URI(GITHUB));
-				} catch (Exception e) {
-					debug.pstm(e, "Unable to open GitHub");
-				}
+		btnWebsite.setToolTipText("Open this game's website");
+		aside.add(btnWebsite);
+		btnWebsite.addActionListener(e ->{
+			try {
+				Desktop.getDesktop().browse(new URI(GITHUB));
+			} catch (Exception ex) {
+				debug.pstm(ex, "Unable to open GitHub");
 			}
 		});
-		
-		JButton btnLogIn = new JButton("Log in");
-		aside.add(btnLogIn, "cell 0 2");
-		btnLogIn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		
 		btnExit = new JButton("Exit");
-		btnExit.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				System.exit(0);
-			}
-		});
-		aside.add(btnExit, "cell 0 3");
+		btnExit.setToolTipText("Exit the game");
+		btnExit.addActionListener(e -> System.exit(0));
+		aside.add(btnExit);
 		
-		timerLBL = new JLabel("New label");
-		aside.add(timerLBL, "cell 0 4");
+		timerLBL = new JLabel("Current time goes here");
+		timerLBL.setToolTipText("The current time");
+		aside.add(timerLBL);
 		java.util.Timer timer = new java.util.Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
 				GregorianCalendar date = new GregorianCalendar();
-				int year = date.get(GregorianCalendar.YEAR);
-				int month = date.get(GregorianCalendar.MONTH);
-				int day = date.get(GregorianCalendar.DAY_OF_MONTH);
-				int hour = date.get(GregorianCalendar.HOUR);
-				int min = date.get(GregorianCalendar.MINUTE);
-				int sec = date.get(GregorianCalendar.SECOND);
+				int year = date.get(Calendar.YEAR);
+				int month = date.get(Calendar.MONTH);
+				int day = date.get(Calendar.DAY_OF_MONTH);
+				int hour = date.get(Calendar.HOUR);
+				int min = date.get(Calendar.MINUTE);
+				int sec = date.get(Calendar.SECOND);
 				
 				StringBuilder message = new StringBuilder()
 						.append(year)
@@ -161,61 +136,18 @@ public class MainMenu extends JFrame {
 				timerLBL.setText(message.toString());
 			}
 		}, 0, 1000);
-		Runtime.getRuntime().addShutdownHook(new Thread(() -> timer.cancel()));
+		Runtime.getRuntime().addShutdownHook(new Thread(timer::cancel));
+
+		tabbedPane = new JTabbedPane(SwingConstants.TOP);
+		contentPane.add(tabbedPane, BorderLayout.CENTER);
 		
-		/*ItemLabel itemLabel = new ItemLabel(new DrawerPlainColor(Color.BLUE), "test");
-		aside.add(itemLabel, "cell 0 10");
-		btnExit.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});*/
-		
-		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		mainMenu.add(tabbedPane);
-		
-		tabbedPane.addTab("Saves", null, new PanelSaves(), null);
+		tabbedPane.addTab("Saves", null, PanelSaves.INSTANCE, null);
 		tabbedPane.addTab("Mods", null, new PanelMods(), null);
 		tabbedPane.addTab("Settings", null, new PanelSettings(), null);
 		tabbedPane.addTab("Shop", new PanelShop());
 	}
-	
-	
-	
-	/**
-	 * @return the fullScreen
-	 */
-	public boolean isFullScreen() {
-		return FullScreen;
-	}
-	
-	private void createAside() {
-		
-	}
-
-	/**
-	 * @param fullScreen the fullScreen to set
-	 */
-	public void setFullScreen(boolean fullScreen) {
-		if(fullScreen) {
-			dispose();
-			setUndecorated(true);
-			setVisible(true);
-			device.setFullScreenWindow(this);
-			setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
-		}else {
-			device.setFullScreenWindow(null);
-			dispose();
-			setUndecorated(false);
-			setVisible(true);
-		}
-		FullScreen = fullScreen;
-		
-	}
-	private void loginInfo() {
-		//if(LoginInfo.loggedIn()) {
-			
-		//}
+	@Override
+	public void destroy() {
+		//unused
 	}
 }

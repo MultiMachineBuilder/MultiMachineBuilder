@@ -11,8 +11,9 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.google.gson.JsonObject;
+import com.fasterxml.jackson.databind.JsonNode;
 import mmb.DATA.json.JsonTool;
+import mmb.MENU.main.PanelSaves;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.worlds.map.BlockMap;
@@ -130,8 +131,8 @@ public class NewGame extends JDialog {
 						return;
 					}
 					try(OutputStream os = new FileOutputStream(newFile)) {
-						JsonObject object = world.serialize();
-						String text = JsonTool.gson.toJson(object);
+						JsonNode object = world.save();
+						String text = JsonTool.save(object);
 						byte[] bin = text.getBytes();
 						os.write(bin);
 						os.flush();
@@ -145,7 +146,8 @@ public class NewGame extends JDialog {
 				debug.printl("Successfully created "+n);
 				dispose();
 				
-				if(world != null) world.destroy();
+				world.destroy();
+				PanelSaves.INSTANCE.refresh();
 			});
 			okButton.setActionCommand("OK");
 			buttonPane.add(okButton);

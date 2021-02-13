@@ -8,9 +8,10 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import com.google.gson.JsonElement;
-
+import com.fasterxml.jackson.databind.JsonNode;
 import mmb.GameObject;
+import mmb.BEANS.Loader;
+import mmb.BEANS.Saver;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.map.BlockMap;
 
@@ -36,7 +37,7 @@ import mmb.WORLD.worlds.map.BlockMap;
  * 	<li>BlockInterface - connect to other machines</li>
  * </ul>
  */
-public interface Machine extends GameObject{
+public interface Machine extends GameObject, Loader<JsonNode>, Saver<JsonNode>{
 	//[start] positioning
 	public default void setPos(Point p) {
 		setPos(p.x, p.y);
@@ -122,7 +123,7 @@ public interface Machine extends GameObject{
 	 * </ul>
 	 * @param ent block entry, to which data is loaded
 	 */
-	public void onDataLoaded(JsonElement ent);
+	public void onDataLoaded();
 	/**    
 	 * Run an update on this machine for every tick
 	 * <br>NOTE: design this function carefully to prevent logspam
@@ -196,7 +197,7 @@ public interface Machine extends GameObject{
 	 */
 	public void onShutdown();
 	//[end]
-	public JsonElement save();	
+
 	/**
 	 * Render a machine
 	 * 

@@ -54,6 +54,7 @@
 (TEXTURES) Loading texture: lane changes.png
 (TEXTURES) Loading texture: leaves.png
 (TEXTURES) Loading texture: log.png
+(TEXTURES) Loading texture: logic/8-bit wires.png
 (TEXTURES) Loading texture: logic/logic gates.png
 (TEXTURES) Loading texture: mine.png
 (TEXTURES) Loading texture: minecxraft.bmp
@@ -128,6 +129,7 @@ null
 null
 (BLOCKS) Adding mmb.tree with title Log and descripion:
 null
+(FullScreen) Setting up FullScreen
 (MOD-LOADER) Loading mods
 (MOD-LOADER) Finding all files to load
 (MOD-LOADER) Added missing mods directory
@@ -136,13 +138,14 @@ null
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
 (MOD-LOADER) Found 4 mod files
-(MOD - HelloWorld.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
-(MOD - crash.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\crash.jar
-(MOD - kotlin.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
 (MOD - Multi Machine Builder) java.io.FileNotFoundException
+(MOD - HelloWorld.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+(MOD - kotlin.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
+(MOD - crash.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\crash.jar
 (MOD - Multi Machine Builder) Failed to read the file C:\Users\oskar\eclipse-workspace\Multi Machine Builder
 (MOD - Multi Machine Builder) java.io.FileNotFoundException
 (MOD - Multi Machine Builder) 
+(MOD - HelloWorld.jar) Loading a modfile: HelloWorld.jar
 (MOD - Multi Machine Builder) java.io.FileInputStream.open0(Native Method)
 (MOD - Multi Machine Builder) java.io.FileInputStream.open(Unknown Source)
 (MOD - Multi Machine Builder) java.io.FileInputStream.<init>(Unknown Source)
@@ -150,23 +153,22 @@ null
 (MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:105)
 (MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:77)
 (MOD - Multi Machine Builder) java.lang.Thread.run(Unknown Source)
-(MOD - HelloWorld.jar) Loading a modfile: HelloWorld.jar
-(MOD - kotlin.jar) Loading a modfile: kotlin.jar
 (MOD - crash.jar) Loading a modfile: crash.jar
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinMod.kt
 (MOD - crash.jar) entry: mmbmods/example/destroygame/DestroyMMB.class
-(MOD - kotlin.jar) entry: .classpath
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - kotlin.jar) Loading a modfile: kotlin.jar
+(MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinMod.kt
 (MOD - crash.jar) entry: .classpath
-(MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinMod.class
-(MOD - HelloWorld.jar) entry: .project
+(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - kotlin.jar) entry: .classpath
 (MOD - crash.jar) entry: .project
-(MOD - kotlin.jar) entry: .project
-(MOD - HelloWorld.jar) entry: .classpath
+(MOD - HelloWorld.jar) entry: .project
+(MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinMod.class
 (MOD - crash.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\crash.jar
-(MOD - kotlin.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
+(MOD - HelloWorld.jar) entry: .classpath
+(MOD - kotlin.jar) entry: .project
 (MOD - HelloWorld.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - kotlin.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
 (MOD - HelloWorld.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
 (ClassPath) entry size: -1
 (ClassPath) entry size: -1
@@ -181,14 +183,14 @@ null
 (ClassPath) entry size: -1
 (ClassPath) entry size: -1
 (MOD - crash.jar) Processing .classpath
-(MOD - kotlin.jar) Processing mmbmods/kotlin/KotlinMod.class
 (MOD - HelloWorld.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - crash.jar) File: .classpath
+(MOD - kotlin.jar) Processing mmbmods/kotlin/KotlinMod.class
 (MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - kotlin.jar) File: mmbmods/kotlin/KotlinMod.class
-(MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinMod.class
+(MOD - crash.jar) File: .classpath
 (MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - kotlin.jar) File: mmbmods/kotlin/KotlinMod.class
 (MOD - crash.jar) Processing .project
+(MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinMod.class
 (MOD - crash.jar) File: .project
 (MOD - crash.jar) Processing mmbmods/example/destroygame/DestroyMMB.class
 (MOD - crash.jar) File: mmbmods/example/destroygame/DestroyMMB.class
@@ -232,10 +234,10 @@ null
 (MOD-LOADER) Start 1st stage for 
 (MOD-LOADER) Start 1st stage for Hello, world!
 (MOD-LOADER) End 1st stage for Hello, world!
-(MOD-LOADER) Start 2nd stage for 
-(MOD-LOADER) End 2nd stage for 
 (MOD-LOADER) Start 2nd stage for Hello, world!
 (MOD-LOADER) End 2nd stage for Hello, world!
+(MOD-LOADER) Start 2nd stage for 
+(MOD-LOADER) End 2nd stage for 
 (MOD-LOADER) Start 3rd stage for 
 (MOD-LOADER) Start 3rd stage for Hello, world!
 (MOD-LOADER) End 3rd stage for 
@@ -250,18 +252,27 @@ null
 (MOD-LOADER) =============================================MOD INFORMATION FOR =============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\crash.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Sun Feb 07 16:48:27 CET 2021
+(MOD-LOADER) RELEASED Sat Feb 13 10:30:44 CET 2021
 (MOD-LOADER) MADE BY 
 (MOD-LOADER) DESCRIPTION: 
 (MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Sun Feb 07 16:48:27 CET 2021
+(MOD-LOADER) RELEASED Sat Feb 13 10:30:44 CET 2021
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) HOORAY, IT'S OVER!
-(SELECT A SAVE) Found save: NEW CREATION SYSTEM.mworld
+(Main menu) MainMenu created
+(SELECT A SAVE) Found save: Main.mworld
 (SELECT A SAVE) Found 1 saves
-(MAP - -657951653) Became anonymous
+(FullScreen) Setting fullscreen mode to: true
+(FullScreen) Setting fullscreen mode to: false
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Parsed file
+(MAP - -953143608) Became anonymous
+(SELECT A SAVE) Loaded
 (WORLDS) Opening a new world
+(WORLD - ) Saving main BlockMap
 (WORLDS) The given world is null, exiting
+(SETTINGS) Saved settings file

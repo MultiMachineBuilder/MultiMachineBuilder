@@ -17,6 +17,7 @@ import mmb.DATA.contents.texture.Textures;
 import mmb.DATA.file.AdvancedFile;
 import mmb.DATA.file.FileGetter;
 import mmb.FILES.ListFiles;
+import mmb.MENU.FullScreen;
 import mmb.MODS.info.AddonInfo;
 import mmb.MODS.info.AddonState;
 import mmb.SOUND.MP3Loader;
@@ -121,6 +122,7 @@ public class ModLoader {
 		walkTextures(new File("textures/"));
 		state1("Loading blocks");
 		new ContentsBlocks(); //just for initialization
+		FullScreen.initialize();
 	}
 	private static void firstRuns() {
 		//First runs. Similar process for all three stages

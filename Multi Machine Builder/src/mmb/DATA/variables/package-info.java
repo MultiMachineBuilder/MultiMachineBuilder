@@ -5,4 +5,4 @@
  * @author oskar
  *
  */
-package mmb.RUNTIME.main;
+package mmb.DATA.variables;

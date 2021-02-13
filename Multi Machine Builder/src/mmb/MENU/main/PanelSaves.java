@@ -14,12 +14,13 @@ import javax.swing.JPanel;
 
 import org.apache.commons.io.IOUtils;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
+import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.DATA.file.AdvancedFile;
 import mmb.DATA.file.LocalFile;
+import mmb.DATA.json.JsonTool;
 import mmb.FILES.Save;
+import mmb.MENU.FullScreen;
 import mmb.MENU.NewWorld.NewGame;
 import mmb.WORLD.gui.WorldWindow;
 import mmb.WORLD.worlds.world.World;
@@ -36,6 +37,10 @@ import java.util.ArrayList;
  *
  */
 public class PanelSaves extends JPanel {
+	/**
+	 * The singleton instance of {@code PanelSaves}
+	 */
+	public static final PanelSaves INSTANCE = new PanelSaves();
 	private static final long serialVersionUID = -873377369477463310L;
 	
 	private final transient Debugger debug = new Debugger("SELECT A SAVE");
@@ -46,7 +51,7 @@ public class PanelSaves extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelSaves() {
+	private PanelSaves() {
 		setLayout(new BorderLayout(0, 0));
 		list = new List();
 		add(list);
@@ -55,8 +60,6 @@ public class PanelSaves extends JPanel {
 		add(subPanelSaves, BorderLayout.SOUTH);
 		subPanelSaves.setLayout(new MigLayout("", "[][][][]", "[]"));
 		
-		
-		//use the old world system
 		JButton btnPlay = new JButton("Play");
 		btnPlay.setToolTipText("Play the selected world");
 		btnPlay.addActionListener(arg0 -> {
@@ -66,17 +69,33 @@ public class PanelSaves extends JPanel {
 				return;
 			}
 			Save s = saves.get(list.getSelectedIndex());
-			WorldWindow nww = new WorldWindow();
-			nww.setVisible(true);
-			try(InputStream in = s.file.getInputStream()) {
-				JsonParser parser = new JsonParser();
-				String loadedData = IOUtils.toString(in, Charset.defaultCharset());
-				JsonElement e = parser.parse(loadedData);
-				nww.setWorld(s, World.deserialize(e.getAsJsonObject(), s.name));
-			}catch(Exception e) {
-				nww.dispose();
-				debug.pstm(e, "Failed to load the world");
+			if(!s.file.exists()) {
+				debug.printl("File does not exist");
+				refresh();
+				return;
 			}
+			WorldWindow ww = new WorldWindow();
+			FullScreen.setWindow(ww);
+			new Thread(() -> {
+				try(InputStream in = s.file.getInputStream()) {
+					debug.printl("Opened a file");
+					String loadedData = IOUtils.toString(in, Charset.defaultCharset());
+					debug.printl("Loaded a file");
+					World world = new World();
+					JsonNode node = JsonTool.parse(loadedData);
+					if(node == null) {
+						debug.printl("Failed to parse JSON data");
+						ww.dispose();
+					}
+					debug.printl("Parsed file");
+					world.load(node);
+					debug.printl("Loaded");
+					ww.setWorld(s, world);
+				}catch(Exception e) {
+					ww.dispose();
+					debug.pstm(e, "Failed to load the world");
+				}
+			}).start();
 		});
 		btnPlay.setBackground(Color.GREEN);
 		subPanelSaves.add(btnPlay, "cell 0 0");
@@ -107,7 +126,7 @@ public class PanelSaves extends JPanel {
 				}
 		});
 		subPanelSaves.add(btnNewButton, "cell 3 0");
-		EventQueue.invokeLater(() -> refresh()); //method reference does not work
+		EventQueue.invokeLater(this::refresh);
 	}
 	/**
 	 * Refresh the save list

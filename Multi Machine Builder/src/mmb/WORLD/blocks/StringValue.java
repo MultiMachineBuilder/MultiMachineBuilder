@@ -3,11 +3,9 @@
  */
 package mmb.WORLD.blocks;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonPrimitive;
-
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.TextNode;
 import mmb.WORLD.block.properties.BlockProperty;
-import mmb.WORLD.block.properties.BlockPropertyInfo;
 
 /**
  * @author oskar
@@ -16,13 +14,13 @@ import mmb.WORLD.block.properties.BlockPropertyInfo;
 public class StringValue implements BlockProperty {
 	public String value;
 	@Override
-	public void load(JsonElement e) {
-		value = e.getAsString();
+	public void load(JsonNode e) {
+		value = e.asText("");
 	}
 
 	@Override
-	public JsonElement save() {
-		return new JsonPrimitive(value);
+	public JsonNode save() {
+		return new TextNode(value);
 	}
 
 	@Override
@@ -36,29 +34,4 @@ public class StringValue implements BlockProperty {
 	public StringValue() {
 		value = "";
 	}
-	
-	public static final BlockPropertyInfo bpi_SV = new BlockPropertyInfo() {
-
-		@Override
-		public String identifier() {
-			return "value";
-		}
-
-		@Override
-		public BlockProperty createNew() {
-			return new StringValue();
-		}
-
-		@Override
-		public BlockProperty load(JsonElement e) {
-			return new StringValue(e.getAsString());
-		}
-
-		@Override
-		public String title() {
-			return "Text";
-		}
-		
-	};
-
 }

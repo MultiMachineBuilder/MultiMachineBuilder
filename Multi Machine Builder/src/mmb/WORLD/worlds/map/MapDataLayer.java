@@ -3,71 +3,20 @@
  */
 package mmb.WORLD.worlds.map;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Supplier;
-
-import com.google.gson.JsonElement;
+import com.fasterxml.jackson.databind.JsonNode;
+import mmb.Identifiable;
+import mmb.BEANS.Loader;
+import mmb.BEANS.Saver;
+import mmb.BEANS.Titled;
 
 /**
  * @author oskar
  *
  */
-public interface MapDataLayer {
-
+public interface MapDataLayer extends Loader<JsonNode>, Saver<JsonNode>, Identifiable<String>, Titled {
 	/**
-	 * Load this data layer from given JSON data
-	 * @param e
+	 * Run after given {@link BlockMap} loads
+	 * @param map block map
 	 */
-	public void load(JsonElement e);
-	/**
-	 * Serialize given data layer
-	 * @return
-	 */
-	public JsonElement save();
-	/**
-	 * @return data layer's ID
-	 */
-	public String id();
-	
-	/**
-	 * List of properties
-	 */
-	public static Map<String, Supplier<MapDataLayer>> properties = new HashMap<>();
-	/**
-	 * Create a new map data layer, or null if not found
-	 * @param name block properties identifier
-	 * @return a newly created block property
-	 */
-	public static MapDataLayer create(String name) {
-		return properties.getOrDefault(name, () -> null).get();
-	}
-	/**
-	 * Get a factory for given world data layer
-	 * @return retrieved 'Supplier'-type factory or null
-	 * Returned value can throw {@link NullPointerException}, if called directly, To avoid this situation, use null-safe syntax or {@code getSafe(String)}
-	 */
-	public static Supplier<MapDataLayer> get(String name){
-		return properties.get(name);
-	}
-	/**
-	 * Get a factory belonging to a given data layer. This method is slower, because it creates a null factory for eventual use.
-	 * @return retrieved 'Supplier'-type factory for(given block property or null)
-	 */
-	public static Supplier<MapDataLayer> getSafe(String name){
-		return properties.getOrDefault(name, () -> null);
-	}
-	
-	/**
-	 * Load and deserialize given JSON data into a data layer
-	 * @param name data layer name
-	 * @param je deserializer data
-	 * @return loaded data layer
-	 */
-	public static MapDataLayer with(String name, JsonElement je) {
-		MapDataLayer prop = create(name);
-		if(prop == null) return null;
-		prop.load(je);
-		return prop;
-	}
+	public void afterMapLoaded(BlockMap map);
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.MENU;
+package mmb.MENU.components;
 
 import javax.swing.*;
 import javax.swing.border.*;

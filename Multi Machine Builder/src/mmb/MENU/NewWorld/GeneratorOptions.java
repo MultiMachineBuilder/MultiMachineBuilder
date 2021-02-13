@@ -11,10 +11,11 @@ import java.util.Collection;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-
-import mmb.MENU.CheckBoxList;
 import javax.swing.JScrollBar;
 import javax.swing.ListModel;
+
+import mmb.MENU.components.CheckBoxList;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 

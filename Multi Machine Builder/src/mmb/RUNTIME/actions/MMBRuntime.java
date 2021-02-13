@@ -6,14 +6,14 @@ package mmb.RUNTIME.actions;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.common.base.Supplier;
+import java.util.function.Supplier;
 
 /**
  * @author oskar
  *
  */
 public class MMBRuntime {
-	private static List<Supplier<WorldBehavior>> wbs = new ArrayList<Supplier<WorldBehavior>>();
+	private static List<Supplier<WorldBehavior>> wbs = new ArrayList<>();
 	
 	public static void addWorldBehavior(Supplier<WorldBehavior> wb){
 		wbs.add(wb);

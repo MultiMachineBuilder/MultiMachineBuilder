@@ -7,7 +7,7 @@ import java.awt.Point;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.google.gson.JsonElement;
+import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.GameObject;
 import mmb.debug.Debugger;
@@ -53,35 +53,38 @@ public class MachineModel {
 			return null;
 		}
 	}
-	public Machine initialize(JsonElement je) {
+	public Machine initialize(JsonNode je) {
 		try {
 			Machine result = machineClass.newInstance(); //create
 			result.onStartup();
-			result.onDataLoaded(je);
+			result.load(je);
+			result.onDataLoaded();
 			return result;
 		} catch (Exception e) {
 			debug.pstm(e, errorMessage);
 			return null;
 		}
 	}
-	public Machine initialize(int x, int y, JsonElement je) {
+	public Machine initialize(int x, int y, JsonNode je) {
 		try {
 			Machine result = machineClass.newInstance(); //create
 			result.onStartup();
-			result.onDataLoaded(je);
+			result.load(je);
 			result.setPos(x, y);
+			result.onDataLoaded();
 			return result;
 		} catch (Exception e) {
 			debug.pstm(e, errorMessage);
 			return null;
 		}
 	}
-	public Machine initialize(Point p, JsonElement je) {
+	public Machine initialize(Point p, JsonNode je) {
 		try {
 			Machine result = machineClass.newInstance(); //create
 			result.onStartup();
-			result.onDataLoaded(je);
+			result.load(je);
 			result.setPos(p);
+			result.onDataLoaded();
 			return result;
 		} catch (Exception e) {
 			debug.pstm(e, errorMessage);

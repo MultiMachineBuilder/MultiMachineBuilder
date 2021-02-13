@@ -24,13 +24,16 @@ import java.util.function.Consumer;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonNull;
-import com.google.gson.JsonObject;
-
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.IntNode;
+import com.fasterxml.jackson.databind.node.NullNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.GameObject;
+import mmb.BEANS.Saver;
 import mmb.COLLECTIONS.Collects;
+import mmb.COLLECTIONS.HashSelfSet;
+import mmb.COLLECTIONS.SelfSet;
 import mmb.DATA.json.JsonTool;
 import mmb.ERRORS.UnsupportedObjectException;
 import mmb.RUNTIME.RuntimeManager;
@@ -45,9 +48,14 @@ import mmb.debug.Debugger;
 
 /**
  * @author oskar
- *
+ * <br>
+ * A {@code BlockMap} is a representation of ingame 2D voxel map.
+ * <br> To load the map, use {@link mmb.WORLD.worlds.world.BlockMapLoader}
+ * <br> ,its {@code getLoaded()} method for getting loaded {@code BlockMap}
+ * <br> ,its {@code load()} method to load data
+ * <br> and at first {@code setName()} to set target name
  */
-public class BlockMap implements GameObject{
+public class BlockMap implements GameObject, Saver<JsonNode>{
 	//[start] naming
 	private static final String txtMAP = "MAP - ";
 	private String name;
@@ -251,81 +259,60 @@ public class BlockMap implements GameObject{
 	}
 	//[end]
 	//[start] serialization
-	/**
-	 * sizeX: x size
-	 * sizeY: y size
-	 * world: world data
-	 * @return serialized JSON data
-	 */
-	public JsonObject serialize() {
-		JsonObject result = new JsonObject();
-		result.addProperty("sizeX", width);
-		result.addProperty("sizeY", height);
-		result.addProperty("startX", startX);
-		result.addProperty("startY", startY);
-		int sizeX = entries.length;
-		int sizeY = entries[0].length;
-		JsonArray world = new JsonArray();
-		for(int y = 0; y < sizeY; y++) {
-			for(int x = 0; x < sizeX; x++) {
+	@Override
+	public JsonNode save() {
+		//Master node
+		ObjectNode master = JsonTool.newObjectNode();
+		
+		//Dimensions
+		master.set("sizeX", new IntNode(width));
+		master.set("sizeY", new IntNode(height));
+		master.set("startX", new IntNode(startX));
+		master.set("startY", new IntNode(startY));
+		
+		//Blocks
+		ArrayNode blockArrayNode = JsonTool.newArrayNode();
+		for(int y = 0; y < height; y++) {
+			for(int x = 0; x < width; x++) {
 				BlockEntry ent = entries[x][y];
-				if(ent == null) world.add(JsonNull.INSTANCE);
-				else world.add(ent.save());
+				if(ent == null) blockArrayNode.add(NullNode.getInstance());
+				else {
+					try {
+						if(ent.type.shutdown != null) ent.type.shutdown.accept(ent);
+					} catch (Exception e) {
+						debug.pstm(e, "Failed to shut down block "+ent.type.id+" at ["+ent.x+","+ent.y+"]");
+					}
+					blockArrayNode.add(ent.save());
+				}
 			}
 		}
-		result.add("world", world);
-		//save machines
-		JsonArray savedMachines = new JsonArray();
+		master.set("world", blockArrayNode);
+		
+		//Machines
+		ArrayNode machineArrayNode = JsonTool.newArrayNode();
 		for(Machine m: machines) {
-			JsonElement element = m.save();
+			ArrayNode array = JsonTool.newArrayNode();
+			//format: [id, x, y, data]
 			try {
 				m.onShutdown();
-			} catch (Exception e) {
+			}catch(Exception e) {
 				debug.pstm(e, "Failed to shut down the machine");
 			}
-			JsonArray savedMachine = new JsonArray();
-			//format: [id, x, y, data]
-			savedMachine.add(m.name());
-			savedMachine.add(m.posX());
-			savedMachine.add(m.posY());
-			savedMachine.add(element);
-			savedMachines.add(savedMachine);
+			array.add(m.identifier());
+			array.add(m.posX());
+			array.add(m.posY());
+			array.add(m.save());
 		}
-		result.add("machines", savedMachines);
-		return result;
-	}
-	/**
-	 * @param jsonElement
-	 * @param name 
-	 * @return deserialized block map
-	 */
-	public static BlockMap deserialize(JsonElement jsonElement, String name) {
-		JsonObject obj = jsonElement.getAsJsonObject();
-		int sizeX = obj.get("sizeX").getAsInt();
-		int sizeY = obj.get("sizeY").getAsInt();
-		int startX = JsonTool.requestInt("startX", obj, 0);
-		int startY = JsonTool.requestInt("startY", obj, 0);
-		JsonArray machines = JsonTool.requestArray("machines", obj);
-		JsonArray dataArray = obj.get("world").getAsJsonArray();
-		BlockMap result = new BlockMap(sizeX, sizeY, startX, startY);
-		result.setName(name);
-		//read machines
-		for(JsonElement e: machines) {
-			JsonArray array = e.getAsJsonArray();
-			String id = array.get(0).getAsString();
-			int x = array.get(1).getAsInt();
-			int y = array.get(2).getAsInt();
-			Machine machine = MachineModel.forID(id).initialize(x, y, array.get(3));
-			result.placeMachine0(machine);
+		master.set("machines", machineArrayNode);
+		
+		//Data layers
+		ObjectNode dataNode = JsonTool.newObjectNode();
+		for(MapDataLayer mdl: data) {
+			dataNode.set(mdl.identifier(), mdl.save());
 		}
-		//read the world
-		for(int y = startY, n = 0, j = 0; j < sizeY; y++, j++) {
-			for(int x = startX, i = 0 ; i < sizeX; x++, i++, n++) {
-				result.entries[i][j] = BlockEntry.load(dataArray.get(n), x, y, result);
-			}
-		}
-		//read machines
-		return result;
+		master.set("data", dataNode);
+		
+		return master;
 	}
 	//[end]
 	//[start] block access
@@ -596,9 +583,9 @@ public class BlockMap implements GameObject{
 		Machine machine = m.place();
 		if(machine == null) return null;
 		machine.setPos(x, y);
-		return placeMachine0(machine);
+		return placeMachine(machine);
 	}
-	private Machine placeMachine0(Machine machine) {
+	public Machine placeMachine(Machine machine) {
 		machines.add(machine);
 		int posX = machine.posX();
 		int posY= machine.posY();
@@ -652,6 +639,10 @@ public class BlockMap implements GameObject{
 		return getMachine(new Point(x, y));
 	}
 	//[end]
+	//[start] data layers
+		public final SelfSet<String,MapDataLayer> data = new HashSelfSet<>();
+	//[end]
+	//[start] GameObject REQUIRES CLEAN-UP OF GO INTERFACE
 	@Override
 	public String identifier() {
 		return name;
@@ -692,4 +683,6 @@ public class BlockMap implements GameObject{
 	public Set<GameObject> contents() {
 		return Collections.unmodifiableSet(machines);
 	}
+	//[end]
+	
 }

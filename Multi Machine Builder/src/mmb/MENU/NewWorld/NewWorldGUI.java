@@ -6,6 +6,9 @@ package mmb.MENU.NewWorld;
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JTextField;
+
+import mmb.MENU.components.CheckBoxList;
+
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import javax.swing.JTabbedPane;
@@ -13,7 +16,6 @@ import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 import javax.swing.JList;
-import mmb.MENU.CheckBoxList;
 import javax.swing.JButton;
 import javax.swing.JSlider;
 import javax.swing.JScrollBar;

@@ -11,7 +11,6 @@ import mmb.WORLD.BlockDrawer;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.properties.BlockProperty;
-import mmb.WORLD.block.properties.BlockPropertyInfo;
 import mmb.debug.Debugger;
 
 /**
@@ -96,7 +95,7 @@ public class ContentsBlocks {
 			}
 		};
 		ww_chatter.title = "Chatbox";
-		ww_chatter.properties = new BlockPropertyInfo[] {StringValue.bpi_SV};
+		ww_chatter.properties.add(StringValue.class);
 		
 		stone = new BlockType();
 		stone.drawer = BlockDrawer.ofImage(Textures.get("stone.png"));

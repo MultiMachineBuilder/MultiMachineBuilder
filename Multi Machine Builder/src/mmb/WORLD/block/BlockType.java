@@ -3,15 +3,15 @@
  */
 package mmb.WORLD.block;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 import mmb.GameObject;
-import mmb.WORLD.block.properties.BlockPropertyInfo;
+import mmb.WORLD.block.properties.BlockProperty;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.worlds.MapProxy;
 
@@ -35,7 +35,8 @@ public class BlockType extends ItemType{
 	 * List of block modules used by a block.
 	 * <br> If a block module is absent, it won't be loaded and will be logged
 	 */
-	public BlockPropertyInfo[] properties = new BlockPropertyInfo[0];
+	@SuppressWarnings("unchecked")
+	public final Set<Class<? extends BlockProperty>> properties = new HashSet<>();
 	/**
 	 * This map contains 
 	 */
@@ -135,27 +136,11 @@ public class BlockType extends ItemType{
 	 * If set to null, it leaves behind a void
 	 */
 	public BlockType leaveBehind;
-	
-	
-	//Scripting
-	private final List<BiConsumer<BlockEntry, MapProxy>> scripts = new ArrayList<>();
-	private BiConsumer<BlockEntry, MapProxy>[] rtScripts;
-	@SuppressWarnings("unchecked") //guaranteed to work
-	public void compileScripts() {
-		rtScripts = (BiConsumer<BlockEntry, MapProxy>[]) scripts.toArray(new BiConsumer<?, ?>[scripts.size()]);
-	}
-	public void run(BlockEntry ent, MapProxy proxy) {
-		for(BiConsumer<BlockEntry, MapProxy> script: rtScripts) {
-			script.accept(ent, proxy);
-		}
-	}
-
 	@Override
 	public void register(String id) {
 		this.id = id;
 		Blocks.register(this);
 	}
-
 	@Override
 	public void register() {
 		Blocks.register(this);

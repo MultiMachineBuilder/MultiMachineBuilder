@@ -6,13 +6,10 @@ package mmb.MENU.main;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
-import javax.swing.JDesktopPane;
 import javax.swing.JTable;
-import javax.swing.JToolBar;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JButton;
-import javax.swing.JProgressBar;
 import javax.swing.JMenuItem;
 import net.miginfocom.swing.MigLayout;
 
@@ -21,6 +18,8 @@ import net.miginfocom.swing.MigLayout;
  *
  */
 public class PanelShop extends JPanel {
+	private static final long serialVersionUID = 5613201675920230934L;
+	
 	private JScrollPane scrollPane;
 	private JTable table;
 	private JMenuBar menuBar;
@@ -29,8 +28,8 @@ public class PanelShop extends JPanel {
 	private JMenuItem mntmSave;
 	private JMenuItem mntmMod;
 	private JMenuItem mntmOther;
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
+	private JButton btnDownload;
+	private JButton btnRefresh;
 
 	/**
 	 * Create the panel.
@@ -64,11 +63,11 @@ public class PanelShop extends JPanel {
 		add(panel, BorderLayout.SOUTH);
 		panel.setLayout(new MigLayout("", "[][]", "[]"));
 		
-		btnNewButton = new JButton("Download");
-		panel.add(btnNewButton, "cell 0 0");
+		btnDownload = new JButton("Download");
+		panel.add(btnDownload, "cell 0 0");
 		
-		btnNewButton_1 = new JButton("Refresh");
-		panel.add(btnNewButton_1, "cell 1 0");
+		btnRefresh = new JButton("Refresh");
+		panel.add(btnRefresh, "cell 1 0");
 
 	}
 

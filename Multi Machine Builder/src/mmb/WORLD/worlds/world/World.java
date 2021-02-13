@@ -5,17 +5,23 @@ package mmb.WORLD.worlds.world;
 
 import java.awt.Dimension;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
-import com.google.gson.JsonObject;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.GameObject;
+import mmb.BEANS.Loader;
+import mmb.BEANS.Saver;
+import mmb.COLLECTIONS.HashSelfSet;
+import mmb.COLLECTIONS.SelfSet;
+import mmb.DATA.json.JsonTool;
 import mmb.RUNTIME.RuntimeManager;
 import mmb.RUNTIME.actions.WorldBehavior;
+import mmb.WORLD.worlds.DataLayers;
 import mmb.WORLD.worlds.map.BlockMap;
 import mmb.debug.Debugger;
 
@@ -23,7 +29,7 @@ import mmb.debug.Debugger;
  * @author oskar
  *
  */
-public class World implements GameObject{
+public class World implements GameObject, Saver<JsonNode>, Loader<JsonNode>{
 	private Debugger debug = new Debugger("WORLD - ");
 	/**
 	 * Creates a blank world with only main map and square dimension, starting at (0, 0)
@@ -45,11 +51,11 @@ public class World implements GameObject{
 	 * If playing on the main world, the toolbar will display without square brackets:
 	 * Let's play
 	 */
-	public final Map<String, BlockMap> extras = new HashMap<>();
+	public final SelfSet<String, BlockMap> maps = new HashSelfSet<>();
 	/**
 	 * Attached data layers
 	 */
-	public final Map<String, WorldData> data = new HashMap<>();
+	public final SelfSet<String, WorldDataLayer> data = new HashSelfSet<>();
 	/**
 	 * Active world behaviors
 	 */
@@ -85,56 +91,80 @@ public class World implements GameObject{
 	 */
 	public BlockMap getMap(String name) {
 		if(name == null) return main;
-		return extras.get(name);
+		return maps.get(name);
 	}
 	//[end]
 	//[start] serialization
-	/**
-	 * Properties:
-	 * main - main map
-	 * maps - submaps
-	 * data - world data layers
-	 * @return serialized data
-	 */
-	public JsonObject serialize() {
-		JsonObject jo = new JsonObject();
-		jo.add("main", main.serialize());
-		JsonObject subMaps = new JsonObject();
-		extras.forEach((name0, map) -> subMaps.add(name0, map.serialize()));
-		jo.add("maps", subMaps);
-		JsonObject jsonData = new JsonObject();
-		data.forEach((name0, dataobj) -> jsonData.add(name0, dataobj.save()));
-		jo.add("data", jsonData);
-		return jo;
+	//New Jackson methods
+	@Override
+	public void load(JsonNode data) {
+		if(data instanceof ObjectNode) {
+			ObjectNode on = (ObjectNode)data;
+			if(on.has("main")) {//Load as a world	
+				//Data
+				ObjectNode nodeData = JsonTool.requestObject("data", on);
+				Iterator<Entry<String, JsonNode>> iter = nodeData.fields();
+				//Create all new data objects
+				SelfSet<String, WorldDataLayer> wdata = DataLayers.createAllWorldDataLayers();
+				//Create data objects
+				if(iter.hasNext()) for(Entry<String, JsonNode> node = iter.next(); iter.hasNext(); node = iter.next()) {
+					wdata.get(node.getKey()).load(node.getValue());
+				}
+				for(WorldDataLayer d: wdata) {
+					d.afterWorldLoaded(this);
+				}
+				
+				//Maps
+				ObjectNode nodeMaps = JsonTool.requestObject("maps", on);
+				Iterator<Entry<String, JsonNode>> iter2 = nodeMaps.fields();
+				if(iter2.hasNext()) for(Entry<String, JsonNode> node = iter2.next(); iter2.hasNext(); node = iter2.next()) {
+					BlockMapLoader bml = new BlockMapLoader();
+					bml.setName(node.getKey());
+					bml.load((ObjectNode) node.getValue());
+					BlockMap map = bml.getLoaded();
+					maps.add(map);
+				}
+				
+				//Main map
+				ObjectNode nodeMain = JsonTool.requestObject("main", on);
+				BlockMapLoader bml = new BlockMapLoader();
+				bml.setName(name);
+				bml.load(nodeMain);
+				BlockMap map = bml.getLoaded();
+				main = map;
+			}else{//Load as a map
+				BlockMapLoader bml = new BlockMapLoader();
+				bml.setName(name);
+				bml.load(on);
+				BlockMap map = bml.getLoaded();
+				main = map;
+			}
+		}else debug.printl("Not an ObjectNode");
 	}
-	/**
-	 * @param tree input data
-	 * @param name world name
-	 * @return deserialized world
-	 */
-	public static World deserialize(JsonObject tree, String name) {
-		if(tree.has("main")) {
-			BlockMap mapMain = BlockMap.deserialize(tree.get("main").getAsJsonObject(), null);
-			JsonObject objData = tree.get("data").getAsJsonObject();
-			JsonObject mapsData = tree.get("maps").getAsJsonObject();
-			World result = new World();
-			result.name = name;
-			result.main = mapMain;
-			objData.entrySet().forEach(ent -> {
-				WorldData data = WorldData.with(ent.getKey(), ent.getValue());
-				result.data.put(ent.getKey(), data);
-			});
-			mapsData.entrySet().forEach(ent -> {
-				BlockMap map = BlockMap.deserialize(ent.getValue(), ent.getKey());
-				result.extras.put(ent.getKey(), map);
-			});
-			return result;
+	@Override
+	public JsonNode save() {
+		//Save the main map
+		debug.printl("Saving main BlockMap");
+		JsonNode mainNode = main.save();
+		//Save extra maps
+		ObjectNode mapsNode = JsonTool.newObjectNode();
+		for(BlockMap map: maps) {
+			debug.printl("Saving BlockMap: "+map.getName());
+			mapsNode.set(map.getName(), map.save());
 		}
-		World result = new World();
-		BlockMap map = BlockMap.deserialize(tree, name);
-		result.main = map;
-		result.name = name;
-		return result;
+		//Save data layers
+		ObjectNode dataNode = JsonTool.newObjectNode();
+		for(WorldDataLayer datalayer: data) {
+			debug.printl("Saving DataLayer: "+datalayer.identifier());
+			dataNode.set(datalayer.identifier(), datalayer.save());
+		}
+		
+		//Combine all three
+		ObjectNode master = JsonTool.newObjectNode();
+		master.set("main", mainNode); //main map
+		master.set("data", dataNode); //main map
+		master.set("maps", mapsNode); //main map
+		return master;
 	}
 	//[end]
 	//[start] activity
@@ -143,14 +173,14 @@ public class World implements GameObject{
 	 */
 	public void close(){
 		main.dispose();
-		extras.values().forEach(map -> map.dispose());
+		maps.values().forEach(map -> map.dispose());
 	}
 	/**
 	 * Activate all maps and map behaviors
 	 */
 	public void activate() {
 		main.activate();
-		extras.values().forEach(map -> map.activate());
+		maps.values().forEach(map -> map.activate());
 	}
 	/**
 	 * Destroy all associated resources.
@@ -162,9 +192,10 @@ public class World implements GameObject{
 		
 		//Shut down all maps
 		main.destroy();
-		extras.values().forEach(map -> map.destroy());
+		maps.values().forEach(map -> map.destroy());
 	}
 	//[end]
+	//[start] GameObject
 	@Override
 	public String identifier() {
 		// TODO Auto-generated method stub
@@ -216,4 +247,7 @@ public class World implements GameObject{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	//[end]
+	
+
 }
