@@ -153,13 +153,7 @@ public class AddonLoader {
 	 * If file works, continue loading
 	 */
 	private void whenWorking() {
-		try {
-			debug.printl("Injecting "+a.file.name());
-			a.classes = new StreamClassLoader(a.file.asJAR());
-		} catch (IOException e) {
-			debug.pstm(e, "Unable to load mod " + a.name);
-			a.state = AddonState.DEAD;
-		}
+		debug.printl("Injecting "+a.file.name());
 		a.files.forEach(this::processFile); 
 	}
 	
@@ -174,7 +168,7 @@ public class AddonLoader {
 			a.hasValidData = true;
 			debug.printl("File: "+name);
 			if(ext.endsWith("class")) {
-				interpretClassFile(meta);
+				interpretClassFile(meta, data);
 			}else if(ext.equals("mcmod")) {
 				debug.printl("Found Minecraft mod (found mcmod.info)");
 			}else if(name.startsWith(PREFIX_TEXTURE)){
@@ -194,16 +188,18 @@ public class AddonLoader {
 			}
 		}
 	}
+	private static ByteClassLoader bcl = new ByteClassLoader(AddonLoader.class.getClassLoader());
 	@SuppressWarnings("rawtypes")
-	private void interpretClassFile(JarEntry ent){
+	private void interpretClassFile(JarEntry ent, byte[] data){
 		// This FileObject represents a class. Now, what class does it represent?
+		
 		String name = ent.getName();
 		debug.printl("entry: "+name);
         String className = name.replace('/', '.');
         className = className.substring(0, className.length() - ".class".length());
-        ByteClassLoader bcl = new ByteClassLoader(this.getClass().getClassLoader());
+        debug.printl("Class: "+className);
         try {
-			Class c = bcl.loadClass(className, a.files.get(ent), false);
+			Class c = bcl.loadClass(className, data, false);
 			tryRunCentral(c);
 			GameContents.loadedClasses.add(c);
 		} catch (ClassNotFoundException e) {

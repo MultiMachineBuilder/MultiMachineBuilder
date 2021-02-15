@@ -50,7 +50,9 @@ public class Textures {
 	
 	public static BufferedImage get(String name) {
 		String name2 = name.replace('\\', '/'); //replace slashes so users can use both '/' and '\'
-		return loadedTextures.get(name2);
+		BufferedImage result = loadedTextures.get(name2);
+		if(result == null) debug.printl("Could not find texture "+name);
+		return result;
 	}
 
 }

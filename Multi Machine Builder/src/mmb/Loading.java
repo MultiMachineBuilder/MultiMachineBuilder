@@ -56,11 +56,10 @@ public class Loading extends JFrame {
 				}
 				loader = new Loading();
 				loader.setVisible(true);
-				new Thread(() -> {
-					loader.continueLoading();
-				}).start();
-			} catch (Exception e) {
-				debug.pstm(e, "GAME HAS CRASHED");
+				new Thread(() -> loader.continueLoading())
+				.start();
+			// deepcode ignore DontCatch: log the game crash			} catch (Throwable e) {
+				Main.crash(e);
 			}
 		});
 	}

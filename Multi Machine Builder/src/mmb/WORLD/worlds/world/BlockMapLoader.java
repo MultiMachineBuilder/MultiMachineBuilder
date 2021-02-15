@@ -68,7 +68,7 @@ public class BlockMapLoader implements LazyLoader<ObjectNode, BlockMap> {
 			int y = aMachine.get(2).asInt();
 			JsonNode machineData  = aMachine.get(3);
 			try {
-				Machine machine = MachineModel.forID(type).initialize(endX, endY, machineData);
+				Machine machine = MachineModel.forID(type).initialize(x, y, machineData);
 				loaded.placeMachine(machine);
 			} catch(Exception e) {
 				debug.pstm(e, "Failed to place a machine of type "+type+" at ["+x+","+y+"]");

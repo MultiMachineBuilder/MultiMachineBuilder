@@ -230,7 +230,8 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 		case 0:
 			break;
 		case 1: //LMB
-			if(map.inBounds(mouseoverBlockX, mouseoverBlockY)) placer.getPlacer().place(mouseoverBlockX, mouseoverBlockY, map);
+			if(map.inBounds(mouseoverBlockX, mouseoverBlockY))
+				placer.getPlacer().place(mouseoverBlockX, mouseoverBlockY, map);
 			break;
 		case 3: //RMB
 			showPopup(e);
@@ -287,7 +288,7 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 	}
 	
 	private void render(Graphics g) {
-		//PDimensions in tiles
+		//Dimensions in tiles
 		double tilesW = (getWidth()/ 32);
 		double tilesH = (getHeight()/ 32);
 		//Persepctive => offset
@@ -320,9 +321,9 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 				renderTile(x, y, g, map.get(i, j), i, j);
 			}
 		}
+		
 		//Draw machines
-		Iterator<Machine> iter = map.iteratorMachines();
-		if(iter.hasNext()) for(Machine m = iter.next(); iter.hasNext(); m = iter.next()) {
+		for(Machine m: map.machines) {
 			int x = (int)((m.posX()+pos.x)*32);
 			int y = (int)((m.posY()+pos.y)*32);
 			int w = m.sizeX();
@@ -330,10 +331,13 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 			Graphics g2 = g.create(x, y, w*32, h*32);
 			m.render(g2);
 		}
+		
 		//Draw pointer
 		int x = (int)((mouseoverBlockX+pos.x)*32);
 		int y = (int)((mouseoverBlockY+pos.y)*32);
 		
+		//Preview
+		if(placer.getPlacer() != null) placer.getPlacer().preview(g, new Point(x, y), map, new Point(mouseoverBlockX, mouseoverBlockY));
 		g.setColor(Color.BLACK);
 		g.drawRect(x, y, 32, 32);
 		g.drawRect(x+2, y+2, 28, 28);
@@ -385,6 +389,8 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 		active = a;
 	}
 	private Point mousePosition = new Point();
+
+	private WorldWindow window;
 	/**
 	 * Set mouse position from pair of coordinates
 	 * @param x X coordinate
@@ -403,11 +409,24 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 	}
 	private void showPopup(MouseEvent e) {
 		if(map.inBounds(mouseoverBlockX, mouseoverBlockY)) {
-			WorldMenu menu = new WorldMenu(map.get(getMouseoverBlock()), e, this);
+			WorldMenu menu = new WorldMenu(map.get(getMouseoverBlock()), e, this, window);
 			menu.show(this, e.getX(), e.getY());
 		}
 	}
 	
+	/**
+	 * @return the window
+	 */
+	public WorldWindow getWindow() {
+		return window;
+	}
+	/**
+	 * @param window the window to set
+	 */
+	public void setWindow(WorldWindow window) {
+		this.window = window;
+	}
+
 	private int mouseoverBlockX;
 	private int mouseoverBlockY;
 	

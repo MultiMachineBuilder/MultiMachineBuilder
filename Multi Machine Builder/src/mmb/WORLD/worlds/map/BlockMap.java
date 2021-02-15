@@ -13,7 +13,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Random;
 import java.util.Set;
 import java.util.Timer;
@@ -21,7 +20,6 @@ import java.util.TimerTask;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -30,12 +28,12 @@ import com.fasterxml.jackson.databind.node.IntNode;
 import com.fasterxml.jackson.databind.node.NullNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.GameObject;
+import mmb.RunnableObject;
 import mmb.BEANS.Saver;
 import mmb.COLLECTIONS.Collects;
 import mmb.COLLECTIONS.HashSelfSet;
 import mmb.COLLECTIONS.SelfSet;
 import mmb.DATA.json.JsonTool;
-import mmb.ERRORS.UnsupportedObjectException;
 import mmb.RUNTIME.RuntimeManager;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
@@ -55,7 +53,7 @@ import mmb.debug.Debugger;
  * <br> ,its {@code load()} method to load data
  * <br> and at first {@code setName()} to set target name
  */
-public class BlockMap implements GameObject, Saver<JsonNode>{
+public class BlockMap implements RunnableObject, Saver<JsonNode>{
 	//[start] naming
 	private static final String txtMAP = "MAP - ";
 	private String name;
@@ -93,19 +91,12 @@ public class BlockMap implements GameObject, Saver<JsonNode>{
 		return this == obj;
 	}
 	private World owner;
-	/** @return the owner*/
-	@Override
-	public World getContainer() {
-		return owner;
+	/**
+	 * @param owner the owner to set
+	 */
+	public void setOwner(World owner) {
+		this.owner = owner;
 	}
-	/** @param owner the owner to set*/
-	@Override
-	public void setContainer(@Nonnull GameObject owner) {
-		Objects.requireNonNull(owner, "The container must not be null");
-		if(!(owner instanceof World)) throw new UnsupportedObjectException(owner.getClass().toString()+" container is not supported");
-		this.owner = (World) owner;
-	}
-
 	//[end]
 	//[start] constructors
 	/**
@@ -290,7 +281,7 @@ public class BlockMap implements GameObject, Saver<JsonNode>{
 		
 		//Machines
 		ArrayNode machineArrayNode = JsonTool.newArrayNode();
-		for(Machine m: machines) {
+		for(Machine m: _machines) {
 			ArrayNode array = JsonTool.newArrayNode();
 			//format: [id, x, y, data]
 			try {
@@ -302,6 +293,7 @@ public class BlockMap implements GameObject, Saver<JsonNode>{
 			array.add(m.posX());
 			array.add(m.posY());
 			array.add(m.save());
+			machineArrayNode.add(array);
 		}
 		master.set("machines", machineArrayNode);
 		
@@ -453,6 +445,10 @@ public class BlockMap implements GameObject, Saver<JsonNode>{
 					runBlock(entries[i][j],proxy);
 				}
 			}
+			//Run every machine
+			for(Machine m: _machines) {
+				m.onUpdate(proxy);
+			}
 		} catch (Exception e) {
 			debug.pstm(e, "Unable to run the map.");
 		}
@@ -530,10 +526,11 @@ public class BlockMap implements GameObject, Saver<JsonNode>{
 	//[end]
 	//[start] machines
 	private Map<Point, Machine> machinesPoints = new HashMap<>();
-	private Set<Machine> machines = new HashSet<>();
-	public Iterator<Machine> iteratorMachines() {
-		return machines.iterator();
-	}
+	private Set<Machine> _machines = new HashSet<>();
+	/**
+	 * An unmodifiable set of all machines
+	 */
+	public final Set<Machine> machines = Collections.unmodifiableSet(_machines);
 	/**
 	 * Remove the machine at given location
 	 * @param p location
@@ -544,13 +541,13 @@ public class BlockMap implements GameObject, Saver<JsonNode>{
 		if(machine == null) return false;
 		//Calculate coordinates
 		int posX = machine.posX();
-		int posY= machine.posY();
+		int posY = machine.posY();
 		int mendX = posX + machine.sizeX();
 		int mendY = posY + machine.sizeY();
 		try {
 			machine.onRemove(null);
 		}catch(Exception e) {
-			debug.pstm(e, "Failed to remove "+machine.name()+" at ["+posX+","+posY+"]");
+			debug.pstm(e, "Failed to remove "+machine.identifier()+" at ["+posX+","+posY+"]");
 			return false;
 		}
 		
@@ -561,6 +558,7 @@ public class BlockMap implements GameObject, Saver<JsonNode>{
 				machinesPoints.remove(pt);
 			}
 		}
+		_machines.remove(machine);
 		return true;
 	}
 	/**
@@ -586,13 +584,22 @@ public class BlockMap implements GameObject, Saver<JsonNode>{
 		return placeMachine(machine);
 	}
 	public Machine placeMachine(Machine machine) {
-		machines.add(machine);
+		return placeMachine(machine, false);
+	}
+	/**
+	 * 
+	 * @param machine machine to place
+	 * @param setup if true, call onLoad. Else call onPlace
+	 * @return newly placed machine, or null if placement failed
+	 */
+	public Machine placeMachine(Machine machine, boolean setup) {
+		machine.setMap(this);
 		int posX = machine.posX();
 		int posY= machine.posY();
 		int mendX = posX + machine.sizeX();
 		int mendY = posY + machine.sizeY();
 		try {
-			machine.onPlace(null);
+			if(!setup) machine.onPlace(null);
 			//When successfull, place
 			for(int x = posX; x < mendX; x++) {
 				for(int y = posY; y < mendY; y++) {
@@ -606,10 +613,15 @@ public class BlockMap implements GameObject, Saver<JsonNode>{
 				}
 			}
 		}catch(Exception e) {
-			debug.pstm(e, "Failed to place "+machine.name()+" at ["+posX+","+posY+"]");
+			debug.pstm(e, "Failed to place "+machine.identifier()+" at ["+posX+","+posY+"]");
 			return null; //null indicates that machine was not placed
 		}
+		debug.printl("Placed machine");
+		_machines.add(machine);
 		return machine;
+	}
+	public Machine placeMachineLoaded(Machine machine) {
+		return placeMachine(machine, true);
 	}
 	/**
 	 * Place the machine, using the machine model, with default properties
@@ -642,14 +654,14 @@ public class BlockMap implements GameObject, Saver<JsonNode>{
 	//[start] data layers
 		public final SelfSet<String,MapDataLayer> data = new HashSelfSet<>();
 	//[end]
-	//[start] GameObject REQUIRES CLEAN-UP OF GO INTERFACE
+	//[start] GameObject
 	@Override
 	public String identifier() {
 		return name;
 	}
 	@Override
 	public Iterator<GameObject> iterator() {
-		return Collects.<GameObject>downcastIterator(machines.iterator());
+		return Collects.<GameObject>downcastIterator(_machines.iterator());
 	}
 	@Override
 	public String getUTID() {
@@ -664,24 +676,6 @@ public class BlockMap implements GameObject, Saver<JsonNode>{
 	@Override
 	public GameObject getOwner() {
 		return null;
-	}
-	@Override
-	public boolean add(GameObject obj) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public boolean remove(GameObject obj) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public boolean contains(GameObject obj) {
-		return false;
-	}
-	@Override
-	public Set<GameObject> contents() {
-		return Collections.unmodifiableSet(machines);
 	}
 	//[end]
 	

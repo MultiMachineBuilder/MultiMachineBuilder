@@ -12,6 +12,7 @@ import java.util.*;
 import java.util.function.BiConsumer;
 
 import mmb.debug.Debugger;
+import mmb.Main;
 import mmb.DATA.contents.GameContents;
 import mmb.DATA.contents.texture.Textures;
 import mmb.DATA.file.AdvancedFile;
@@ -20,6 +21,7 @@ import mmb.FILES.ListFiles;
 import mmb.MENU.FullScreen;
 import mmb.MODS.info.AddonInfo;
 import mmb.MODS.info.AddonState;
+import mmb.RUNTIME.LockCounter;
 import mmb.SOUND.MP3Loader;
 import mmb.WORLD.blocks.ContentsBlocks;
 
@@ -75,10 +77,14 @@ public class ModLoader {
 
 	@SuppressWarnings("javadoc")
 	public static void waitAllLoaders() {
+		LockCounter lock = new LockCounter();
+		lock.counter.set(modCount);
 		loaders.forEach((AddonLoader t) -> {try {
 			t.untilLoad();
+			lock.counter.decrementAndGet();
 		} catch (InterruptedException e) {
 			debug.pstm(e, SLPM);
+			lock.counter.decrementAndGet();
 			throw new PrematureHaltException(SLPM, e);
 		}
 		});
@@ -117,6 +123,8 @@ public class ModLoader {
 	 */
 	
 	public static final File modsDir = new File("mods/");
+	
+	//Modify modloading
 	private static void initGame() {
 		state1("Loading textures");
 		walkTextures(new File("textures/"));
@@ -125,6 +133,8 @@ public class ModLoader {
 		FullScreen.initialize();
 	}
 	private static void firstRuns() {
+		LockCounter lock = new LockCounter();
+		lock.counter.set(GameContents.addons.size()); 
 		//First runs. Similar process for all three stages
 		GameContents.addons.forEach(ai -> {
 			if(ai.state == AddonState.ENABLE) {
@@ -132,65 +142,95 @@ public class ModLoader {
 					if(ai.central == null) {
 						debug.printl(ai.name + " is not a mod and will not be run");
 						ai.state = ai.hasClasses?AddonState.API:AddonState.MEDIA;
-					}else {
-						debug.printl("Start 1st stage for " + ai.name);
-						ai.central.firstOpen();
-						debug.printl("End 1st stage for " + ai.name);
+					}else{
+						try{
+							debug.printl("Start 1st stage for " + ai.name);
+							ai.central.firstOpen();
+							debug.printl("End 1st stage for " + ai.name);
+							lock.counter.decrementAndGet();
+						}catch(VirtualMachineError e){
+							Main.crash(e);
+							throw e;
+						// deepcode ignore DontCatch: guarantee that game fully loads						}catch(Throwable e){
+							debug.pstm(e, "Failed to run a mod "+ ai.name);
+							ai.state = AddonState.DEAD;
+							lock.counter.decrementAndGet();
+						}
 					}
 				});
 				firstRuns.add(thr);
 				thr.start();
-			}
+			} else lock.counter.decrementAndGet();
 		});
-		firstRuns.forEach(t -> {try {
-			t.join();
-		} catch (InterruptedException e) {
-			debug.pstm(e, SLPM);
-			throw new PrematureHaltException(SLPM, e);
-		}
-		});
+		lock.join();
 	}
 	private static void contentRuns() {
 		//Content runs
+		LockCounter lock = new LockCounter();
+		lock.counter.set(GameContents.addons.size()); 
 		GameContents.addons.forEach(ai -> {
 			if(ai.state == AddonState.ENABLE) {
 				Thread thr = new Thread(() -> {
-					debug.printl("Start 2nd stage for " + ai.name);
-					ai.central.makeContent();
-					debug.printl("End 2nd stage for " + ai.name);
+					try{
+						debug.printl("Start 2nd stage for " + ai.name);
+						ai.central.makeContent();
+						debug.printl("End 2nd stage for " + ai.name);
+						lock.counter.decrementAndGet();
+					}catch(VirtualMachineError e){
+						Main.crash(e);
+					// deepcode ignore DontCatch: guarantee that game fully loads					}catch(Throwable e){
+						debug.pstm(e, "Failed to run a mod "+ ai.name);
+						
+						ai.state = AddonState.DEAD;
+						lock.counter.decrementAndGet();
+					}
 				});
 				contents.add(thr);
 				thr.start();
-			}
+			} else lock.counter.decrementAndGet();
 		});
-		contents.forEach(t -> {try {
+		lock.join();
+		/*contents.forEach(t -> {try {
 			t.join();
 		} catch (InterruptedException e) {
 			debug.pstm(e, SLPM);
 			throw new PrematureHaltException(SLPM, e);
 		}
-		});
+		});*/
 	}
 	private static void integrationRuns() {
 		//Integration runs
+		LockCounter lock = new LockCounter();
+		lock.counter.set(GameContents.addons.size()); 
 		GameContents.addons.forEach(ai -> {
 			if(ai.state == AddonState.ENABLE) {
 				Thread thr = new Thread(() -> {
-					debug.printl("Start 3rd stage for " + ai.name);
-					ai.central.makeContent();
-					debug.printl("End 3rd stage for " + ai.name);
+					
+					try{
+						debug.printl("Start 3rd stage for " + ai.name);
+						ai.central.makeContent();
+						debug.printl("End 3rd stage for " + ai.name);
+						lock.counter.decrementAndGet();
+					}catch(VirtualMachineError e){
+						Main.crash(e);
+					}catch(Throwable e){
+						debug.pstm(e, "Failed to run a mod "+ ai.name);
+						lock.counter.decrementAndGet();
+						ai.state = AddonState.DEAD;
+					}
 				});
 				integrators.add(thr);
 				thr.start();
-			}
+			}else lock.counter.decrementAndGet();
 		});
-		integrators.forEach(t -> {try {
+		lock.join();
+		/*integrators.forEach(t -> {try {
 			t.join();
 		} catch (InterruptedException e) {
 			debug.pstm(e, SLPM);
 			throw new PrematureHaltException(SLPM, e);
 		}
-		});
+		});*/
 	}
 	public static void modloading(){
 		initGame();

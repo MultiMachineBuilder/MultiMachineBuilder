@@ -205,8 +205,4 @@ public interface Machine extends GameObject, Loader<JsonNode>, Saver<JsonNode>{
 	 * @param g graphics context
 	 */
 	public void render(Graphics g);	
-	/**
-	 * @return machine's type ID
-	 */
-	public String name();	
 }

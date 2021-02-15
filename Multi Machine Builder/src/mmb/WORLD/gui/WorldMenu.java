@@ -14,6 +14,7 @@ import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.properties.BlockProperty;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.blocks.StringValue;
+import mmb.debug.Debugger;
 
 import javax.swing.JCheckBoxMenuItem;
 import java.awt.event.ActionListener;
@@ -28,7 +29,6 @@ import javax.swing.JMenuBar;
 public class WorldMenu extends JPopupMenu {
 	private static final long serialVersionUID = -84797957951871754L;
 	private JMenuItem mntmGoHere;
-	private JMenuItem mntmOpen;
 	private JMenu mnInventory;
 	private JMenuItem mntmWithdrawA;
 	private JMenuItem mntmWithdraw1;
@@ -40,37 +40,21 @@ public class WorldMenu extends JPopupMenu {
 	private JMenuItem mntmNewMenuItem;
 	private JMenuItem mntmNewMenuItem_1;
 	private JMenuItem mntmNewMenuItem_2;
+	private static final Debugger debug = new Debugger("WORLD MENU");
 
 	/**
 	 * 
 	 */
-	public WorldMenu(BlockEntry entry, MouseEvent event, WorldFrame frame) {
+	public WorldMenu(BlockEntry entry, MouseEvent event, WorldFrame frame, WorldWindow window) {
 		mouse = event;
 		block = entry;
 		f = frame;
-		initialize();
-	}
-	private void initialize() {
-		
 		mntmGoHere = new JMenuItem("Go here");
-		mntmGoHere.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				f.perspective.x = -block.x;
-				f.perspective.y = -block.y;
-			}
+		mntmGoHere.addActionListener(e ->{
+			f.perspective.x = -block.x;
+			f.perspective.y = -block.y;
 		});
 		add(mntmGoHere);
-		
-		mntmOpen = new JMenuItem("Open");
-		mntmOpen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(block.typeof(ContentsBlocks.ww_chatter)) {
-					
-				}
-			}
-		});
-		add(mntmOpen);
 		
 		mnInventory = new JMenu("Inventory");
 		add(mnInventory);
@@ -85,23 +69,24 @@ public class WorldMenu extends JPopupMenu {
 		mnInventory.add(mntmNewMenuItem);
 		
 		mntmMine = new JMenuItem("Mine");
-		mntmMine.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				block.owner.place(block.x, block.y, block.type.leaveBehind);
+		mntmMine.addActionListener(e -> {
+			if(block.owner.removeMachine(block.x, block.y)) {
+				debug.printl("Removed machine");
+				return;
 			}
+			block.owner.place(block.x, block.y, block.type.leaveBehind);
 		});
 		add(mntmMine);
 		
 		mntmTextEditor = new JMenuItem("Text editor");
-		mntmTextEditor.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		mntmTextEditor.addActionListener(e -> {
 				BlockProperty bpValue = block.getProperty("value");
 				if(bpValue instanceof StringValue) {
 					StringValue sv = (StringValue) bpValue;
-					new TextEditor(sv, block).setVisible(true);
+					/*new TextEditor(sv, block).setVisible(true);*/
+					NewTextEditor textEditor = new NewTextEditor(sv, block, window);
+					window.openDialogWindow(textEditor, textEditor.title);
 				}
-			}
 		});
 		add(mntmTextEditor);
 		

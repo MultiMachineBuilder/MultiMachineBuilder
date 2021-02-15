@@ -3,7 +3,6 @@
  */
 package mmb.RUNTIME;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Consumer;
@@ -30,6 +29,6 @@ public class SubscribeList<T> {
 	}
 	private SubscribeList() {}
 	public Manager<T> create() {
-		return new Manager<T>();
+		return new Manager<>();
 	}
 }

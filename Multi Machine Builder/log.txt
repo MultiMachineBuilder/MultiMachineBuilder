@@ -12,6 +12,8 @@
 (TEXTURES) Loading texture: example rotation.png
 (TEXTURES) Loading texture: example rotations.png
 (TEXTURES) Loading texture: grass.png
+(TEXTURES) Loading texture: Hello World/mini rainbow.png
+(TEXTURES) Loading texture: Hello World/rainbow.png
 (TEXTURES) Loading texture: highways.png
 (TEXTURES) Loading texture: iron_ore.png
 (TEXTURES) Loading texture: item/copper_ingot.png
@@ -138,14 +140,13 @@ null
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
 (MOD-LOADER) Found 4 mod files
-(MOD - Multi Machine Builder) java.io.FileNotFoundException
+(MOD - crash.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\crash.jar
 (MOD - HelloWorld.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
 (MOD - kotlin.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
-(MOD - crash.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\crash.jar
+(MOD - Multi Machine Builder) java.io.FileNotFoundException
 (MOD - Multi Machine Builder) Failed to read the file C:\Users\oskar\eclipse-workspace\Multi Machine Builder
 (MOD - Multi Machine Builder) java.io.FileNotFoundException
 (MOD - Multi Machine Builder) 
-(MOD - HelloWorld.jar) Loading a modfile: HelloWorld.jar
 (MOD - Multi Machine Builder) java.io.FileInputStream.open0(Native Method)
 (MOD - Multi Machine Builder) java.io.FileInputStream.open(Unknown Source)
 (MOD - Multi Machine Builder) java.io.FileInputStream.<init>(Unknown Source)
@@ -155,46 +156,178 @@ null
 (MOD - Multi Machine Builder) java.lang.Thread.run(Unknown Source)
 (MOD - crash.jar) Loading a modfile: crash.jar
 (MOD - crash.jar) entry: mmbmods/example/destroygame/DestroyMMB.class
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - kotlin.jar) Loading a modfile: kotlin.jar
 (MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinMod.kt
+(MOD - HelloWorld.jar) Loading a modfile: HelloWorld.jar
+(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - crash.jar) entry: .classpath
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/package-info.class
-(MOD - kotlin.jar) entry: .classpath
+(MOD - kotlin.jar) entry: cache/caches-jvm/inputs/source-snapshot.tab
 (MOD - crash.jar) entry: .project
-(MOD - HelloWorld.jar) entry: .project
-(MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinMod.class
+(MOD - kotlin.jar) entry: cache/caches-jvm/inputs/source-snapshot.tab.keystream
+(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - crash.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\crash.jar
+(MOD - kotlin.jar) entry: cache/caches-jvm/inputs/source-snapshot.tab.keystream.len
+(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - kotlin.jar) entry: cache/caches-jvm/inputs/source-snapshot.tab.len
+(MOD - HelloWorld.jar) entry: .project
+(MOD - kotlin.jar) entry: cache/caches-jvm/inputs/source-snapshot.tab.values.at
 (MOD - HelloWorld.jar) entry: .classpath
-(MOD - kotlin.jar) entry: .project
+(MOD - kotlin.jar) entry: cache/caches-jvm/inputs/source-snapshot.tab_i
 (MOD - HelloWorld.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - kotlin.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
 (MOD - HelloWorld.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
-(ClassPath) entry size: -1
+(MOD - kotlin.jar) entry: cache/caches-jvm/inputs/source-snapshot.tab_i.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/inputs/source-to-output.tab
+(MOD - kotlin.jar) entry: cache/caches-jvm/inputs/source-to-output.tab.keystream
+(MOD - kotlin.jar) entry: cache/caches-jvm/inputs/source-to-output.tab.keystream.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/inputs/source-to-output.tab.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/inputs/source-to-output.tab.values.at
+(MOD - kotlin.jar) entry: cache/caches-jvm/inputs/source-to-output.tab_i
 (MOD - crash.jar) Processing .classpath
 (MOD - HelloWorld.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - kotlin.jar) Processing mmbmods/kotlin/KotlinMod.class
-(MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - kotlin.jar) entry: cache/caches-jvm/inputs/source-to-output.tab_i.len
 (MOD - crash.jar) File: .classpath
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - kotlin.jar) File: mmbmods/kotlin/KotlinMod.class
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab
 (MOD - crash.jar) Processing .project
-(MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinMod.class
 (MOD - crash.jar) File: .project
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream
+(MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - crash.jar) Processing mmbmods/example/destroygame/DestroyMMB.class
 (MOD - crash.jar) File: mmbmods/example/destroygame/DestroyMMB.class
+(MOD - HelloWorld.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len
 (MOD - crash.jar) entry: mmbmods/example/destroygame/DestroyMMB.class
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at
+(MOD - crash.jar) Class: mmbmods.example.destroygame.DestroyMMB
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/package-parts.tab
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/package-parts.tab.keystream
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/package-parts.tab.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/package-parts.tab.values.at
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/package-parts.tab_i
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/package-parts.tab_i.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/proto.tab
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/proto.tab.keystream
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/proto.tab.keystream.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/proto.tab.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/proto.tab.values.at
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/proto.tab_i
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/proto.tab_i.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/source-to-classes.tab
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/source-to-classes.tab.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/source-to-classes.tab_i
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len
+(HW) Hello, world!
+(BLOCKS) Adding wireworld.hw with title Hello, world! and descripion:
+null
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/subtypes.tab
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/subtypes.tab.keystream
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/subtypes.tab.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/subtypes.tab.values.at
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/subtypes.tab_i
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/subtypes.tab_i.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/supertypes.tab
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/supertypes.tab.keystream
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/supertypes.tab.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/supertypes.tab.values.at
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/supertypes.tab_i
+(MOD - kotlin.jar) entry: cache/caches-jvm/jvm/kotlin/supertypes.tab_i.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/file-to-id.tab
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/file-to-id.tab.keystream
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/file-to-id.tab.keystream.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/file-to-id.tab.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/file-to-id.tab.values.at
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/file-to-id.tab_i
+(MOD - HelloWorld.jar) Processing .classpath
+(MOD - HelloWorld.jar) File: .classpath
+(MOD - HelloWorld.jar) Processing mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld.jar) Class: mmbmods.monniasza.helloworld.package-info
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/file-to-id.tab_i.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/id-to-file.tab
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/id-to-file.tab.keystream
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/id-to-file.tab.keystream.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/id-to-file.tab.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/id-to-file.tab.values.at
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/id-to-file.tab_i
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/id-to-file.tab_i.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/lookups.tab
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/lookups.tab.keystream
+(MOD - HelloWorld.jar) Processing mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/lookups.tab.keystream.len
+(MOD - HelloWorld.jar) Class: mmbmods.monniasza.helloworld.HWMachine
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/lookups.tab.len
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/lookups.tab.values.at
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/lookups.tab_i
+(MOD - kotlin.jar) entry: cache/caches-jvm/lookups/lookups.tab_i.len
+(MOD - kotlin.jar) entry: .classpath
+(MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinMod.class
+(MOD - kotlin.jar) entry: .project
+(MOD - kotlin.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/proto.tab.keystream
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/proto.tab.keystream
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream
+(MOD - kotlin.jar) Processing .classpath
+(MOD - kotlin.jar) File: .classpath
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/file-to-id.tab.len
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/file-to-id.tab.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/id-to-file.tab
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/id-to-file.tab
+(MOD - kotlin.jar) Processing cache/caches-jvm/inputs/source-snapshot.tab
+(MOD - kotlin.jar) File: cache/caches-jvm/inputs/source-snapshot.tab
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/subtypes.tab.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/subtypes.tab.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/id-to-file.tab.values.at
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/id-to-file.tab.values.at
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/subtypes.tab_i
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/subtypes.tab_i
+(MOD - kotlin.jar) Processing mmbmods/kotlin/KotlinMod.kt
+(MOD - kotlin.jar) File: mmbmods/kotlin/KotlinMod.kt
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/file-to-id.tab.keystream
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/file-to-id.tab.keystream
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/package-parts.tab.values.at
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/package-parts.tab.values.at
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/supertypes.tab_i
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/supertypes.tab_i
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/lookups.tab
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/lookups.tab
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/proto.tab.values.at
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/proto.tab.values.at
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/lookups.tab.keystream.len
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/lookups.tab.keystream.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/supertypes.tab_i.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/supertypes.tab_i.len
+(MOD - kotlin.jar) Processing mmbmods/kotlin/KotlinMod.class
+(MOD - kotlin.jar) File: mmbmods/kotlin/KotlinMod.class
+(MOD - kotlin.jar) entry: mmbmods/kotlin/KotlinMod.class
+(MOD - kotlin.jar) Class: mmbmods.kotlin.KotlinMod
+(MOD - HelloWorld.jar) Processing .project
+(MOD - HelloWorld.jar) File: .project
+(MOD - HelloWorld.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - HelloWorld.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (MOD - kotlin.jar) Invalid class file: mmbmods/kotlin/KotlinMod.class
 (MOD - kotlin.jar) java.lang.ClassFormatError
 (MOD - kotlin.jar) Absent Code attribute in method that is not native or abstract in class file mmbmods/kotlin/KotlinMod
@@ -205,74 +338,215 @@ null
 (MOD - kotlin.jar) java.lang.ClassLoader.loadClass(Unknown Source)
 (MOD - kotlin.jar) java.lang.ClassLoader.loadClass(Unknown Source)
 (MOD - kotlin.jar) io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
-(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.interpretClassFile(AddonLoader.java:206)
-(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.processFile(AddonLoader.java:177)
+(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.interpretClassFile(AddonLoader.java:202)
+(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.processFile(AddonLoader.java:171)
 (MOD - kotlin.jar) java.util.HashMap.forEach(Unknown Source)
-(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.whenWorking(AddonLoader.java:163)
+(MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.whenWorking(AddonLoader.java:157)
 (MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.unzip(AddonLoader.java:143)
 (MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:114)
 (MOD - kotlin.jar) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:77)
 (MOD - kotlin.jar) java.lang.Thread.run(Unknown Source)
-(MOD - kotlin.jar) Processing .classpath
-(MOD - kotlin.jar) File: .classpath
-(MOD - kotlin.jar) Processing mmbmods/kotlin/KotlinMod.kt
-(MOD - kotlin.jar) File: mmbmods/kotlin/KotlinMod.kt
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/proto.tab_i
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/proto.tab_i
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/id-to-file.tab.len
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/id-to-file.tab.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/proto.tab
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/proto.tab
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/id-to-file.tab.keystream
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/id-to-file.tab.keystream
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/package-parts.tab.keystream
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/package-parts.tab.keystream
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/package-parts.tab.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/package-parts.tab.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/file-to-id.tab.keystream.len
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/file-to-id.tab.keystream.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/inputs/source-to-output.tab.keystream
+(MOD - kotlin.jar) File: cache/caches-jvm/inputs/source-to-output.tab.keystream
 (MOD - kotlin.jar) Processing .project
 (MOD - kotlin.jar) File: .project
-(HW) Hello, world!
-(BLOCKS) Adding wireworld.hw with title Hello, world! and descripion:
-null
-(MOD - HelloWorld.jar) Processing .classpath
-(MOD - HelloWorld.jar) File: .classpath
-(MOD - HelloWorld.jar) Processing mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld.jar) Processing .project
-(MOD - HelloWorld.jar) File: .project
-(MOD - HelloWorld.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - HelloWorld.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - kotlin.jar) Processing cache/caches-jvm/inputs/source-snapshot.tab.keystream
+(MOD - kotlin.jar) File: cache/caches-jvm/inputs/source-snapshot.tab.keystream
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/lookups.tab.keystream
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/lookups.tab.keystream
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/lookups.tab_i
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/lookups.tab_i
+(MOD - kotlin.jar) Processing cache/caches-jvm/inputs/source-snapshot.tab_i
+(MOD - kotlin.jar) File: cache/caches-jvm/inputs/source-snapshot.tab_i
+(MOD - kotlin.jar) Processing cache/caches-jvm/inputs/source-to-output.tab_i.len
+(MOD - kotlin.jar) File: cache/caches-jvm/inputs/source-to-output.tab_i.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/supertypes.tab
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/supertypes.tab
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/supertypes.tab.values.at
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/supertypes.tab.values.at
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/file-to-id.tab_i
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/file-to-id.tab_i
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/source-to-classes.tab.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/source-to-classes.tab.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/proto.tab.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/proto.tab.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/package-parts.tab_i
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/package-parts.tab_i
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/file-to-id.tab.values.at
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/file-to-id.tab.values.at
+(MOD - kotlin.jar) Processing cache/caches-jvm/inputs/source-snapshot.tab.keystream.len
+(MOD - kotlin.jar) File: cache/caches-jvm/inputs/source-snapshot.tab.keystream.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/inputs/source-snapshot.tab_i.len
+(MOD - kotlin.jar) File: cache/caches-jvm/inputs/source-snapshot.tab_i.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/subtypes.tab_i.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/subtypes.tab_i.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/inputs/source-to-output.tab
+(MOD - kotlin.jar) File: cache/caches-jvm/inputs/source-to-output.tab
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/subtypes.tab
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/subtypes.tab
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/id-to-file.tab_i.len
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/id-to-file.tab_i.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/proto.tab_i.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/proto.tab_i.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/inputs/source-to-output.tab.len
+(MOD - kotlin.jar) File: cache/caches-jvm/inputs/source-to-output.tab.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/file-to-id.tab_i.len
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/file-to-id.tab_i.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/lookups.tab_i.len
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/lookups.tab_i.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/proto.tab.keystream.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/proto.tab.keystream.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/subtypes.tab.values.at
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/subtypes.tab.values.at
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/package-parts.tab
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/package-parts.tab
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/id-to-file.tab_i
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/id-to-file.tab_i
+(MOD - kotlin.jar) Processing cache/caches-jvm/inputs/source-snapshot.tab.values.at
+(MOD - kotlin.jar) File: cache/caches-jvm/inputs/source-snapshot.tab.values.at
+(MOD - kotlin.jar) Processing cache/caches-jvm/inputs/source-to-output.tab.keystream.len
+(MOD - kotlin.jar) File: cache/caches-jvm/inputs/source-to-output.tab.keystream.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/supertypes.tab.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/supertypes.tab.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab
+(MOD - kotlin.jar) Processing cache/caches-jvm/inputs/source-to-output.tab_i
+(MOD - kotlin.jar) File: cache/caches-jvm/inputs/source-to-output.tab_i
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/lookups.tab.len
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/lookups.tab.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/supertypes.tab.keystream
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/supertypes.tab.keystream
+(MOD - kotlin.jar) Processing cache/caches-jvm/inputs/source-to-output.tab.values.at
+(MOD - kotlin.jar) File: cache/caches-jvm/inputs/source-to-output.tab.values.at
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/source-to-classes.tab_i
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/source-to-classes.tab_i
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/package-parts.tab_i.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/package-parts.tab_i.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/source-to-classes.tab
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/source-to-classes.tab
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/file-to-id.tab
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/file-to-id.tab
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/id-to-file.tab.keystream.len
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/id-to-file.tab.keystream.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/inputs/source-snapshot.tab.len
+(MOD - kotlin.jar) File: cache/caches-jvm/inputs/source-snapshot.tab.len
+(MOD - kotlin.jar) Processing cache/caches-jvm/lookups/lookups.tab.values.at
+(MOD - kotlin.jar) File: cache/caches-jvm/lookups/lookups.tab.values.at
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/subtypes.tab.keystream
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/subtypes.tab.keystream
+(MOD - kotlin.jar) Processing cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len
+(MOD - kotlin.jar) File: cache/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len
 (MOD-LOADER) Start 1st stage for 
 (MOD-LOADER) Start 1st stage for Hello, world!
+(MOD-LOADER) Failed to run a mod 
 (MOD-LOADER) End 1st stage for Hello, world!
+(MOD-LOADER) java.lang.RuntimeException
+(MOD-LOADER) null
+(MOD-LOADER) mmbmods.example.destroygame.DestroyMMB.firstOpen(DestroyMMB.java:22)
+(MOD-LOADER) mmb.MODS.loader.ModLoader.lambda$3(ModLoader.java:148)
+(MOD-LOADER) java.lang.Thread.run(Unknown Source)
 (MOD-LOADER) Start 2nd stage for Hello, world!
+(HW) Successfully created Rainbow Machine
 (MOD-LOADER) End 2nd stage for Hello, world!
-(MOD-LOADER) Start 2nd stage for 
-(MOD-LOADER) End 2nd stage for 
-(MOD-LOADER) Start 3rd stage for 
 (MOD-LOADER) Start 3rd stage for Hello, world!
-(MOD-LOADER) End 3rd stage for 
+(HW) Successfully created Rainbow Machine
 (MOD-LOADER) End 3rd stage for Hello, world!
 (MOD-LOADER) =============================================MOD INFORMATION FOR C:\Users\oskar\eclipse-workspace\Multi Machine Builder=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder
 (MOD-LOADER) Missing files
-(MOD-LOADER) =============================================MOD INFORMATION FOR kotlin.jar=============================================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
-(MOD-LOADER) Crashed
-(MOD-LOADER) Unknown information
 (MOD-LOADER) =============================================MOD INFORMATION FOR =============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\crash.jar
-(MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Sat Feb 13 10:30:44 CET 2021
+(MOD-LOADER) Crashed
+(MOD-LOADER) RELEASED Mon Feb 15 12:38:43 CET 2021
 (MOD-LOADER) MADE BY 
 (MOD-LOADER) DESCRIPTION: 
 (MOD-LOADER) =============================================MOD INFORMATION FOR Hello, world!=============================================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Sat Feb 13 10:30:44 CET 2021
+(MOD-LOADER) RELEASED Mon Feb 15 12:38:43 CET 2021
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
+(MOD-LOADER) =============================================MOD INFORMATION FOR kotlin.jar=============================================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\kotlin.jar
+(MOD-LOADER) Crashed
+(MOD-LOADER) Unknown information
 (MOD-LOADER) HOORAY, IT'S OVER!
 (Main menu) MainMenu created
 (SELECT A SAVE) Found save: Main.mworld
 (SELECT A SAVE) Found 1 saves
 (FullScreen) Setting fullscreen mode to: true
-(FullScreen) Setting fullscreen mode to: false
 (SELECT A SAVE) Opened a file
 (SELECT A SAVE) Loaded a file
 (SELECT A SAVE) Parsed file
-(MAP - -953143608) Became anonymous
+(MAP - 96294334) Became anonymous
+(HW machine) Created a new one
+(HW machine) Hello, [0,-8]
+(MAP - 96294334) Placed machine
 (SELECT A SAVE) Loaded
 (WORLDS) Opening a new world
+(FullScreen) Setting fullscreen mode to: false
+(HW machine) Created a new one
+(HW machine) Created a new one
+(HW machine) Created a new one
+(MAP - 96294334) Placed machine
+(WORLD MENU) Removed machine
+(HW machine) Created a new one
+(MAP - 96294334) Placed machine
+(WORLD MENU) Removed machine
+(HW machine) Created a new one
+(HW machine) Created a new one
+(HW machine) Created a new one
+(MAP - 96294334) Placed machine
+(WORLD MENU) Removed machine
+(HW machine) Created a new one
+(HW machine) Created a new one
+(HW machine) Created a new one
 (WORLD - ) Saving main BlockMap
 (WORLDS) The given world is null, exiting
 (SETTINGS) Saved settings file

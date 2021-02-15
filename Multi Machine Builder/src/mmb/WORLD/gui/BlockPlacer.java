@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.gui;
 
+import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 
 import mmb.WORLD.block.BlockType;
@@ -41,6 +43,10 @@ public class BlockPlacer implements Placer {
 	@Override
 	public void closeGUI() {
 		//unused
+	}
+	@Override
+	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation) {
+		g.drawImage(getIcon(), renderStartPos.x, renderStartPos.y, null);
 	}
 
 }

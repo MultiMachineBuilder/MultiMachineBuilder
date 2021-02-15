@@ -46,11 +46,11 @@ public class TextEditor extends JDialog {
 		textPane = new JTextPane();
 		textPane.setText(sv.value);
 		contentPanel.add(textPane);
-		{
+		
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
+			
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -61,8 +61,7 @@ public class TextEditor extends JDialog {
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
-			}
-			{
+			
 				JButton cancelButton = new JButton("Cancel");
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -71,8 +70,6 @@ public class TextEditor extends JDialog {
 				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
-			}
-		}
 	}
 
 }
