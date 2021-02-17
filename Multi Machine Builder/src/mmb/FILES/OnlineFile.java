@@ -12,133 +12,106 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import mmb.DATA.file.AdvancedFile;
+import mmb.debug.Debugger;
 
 /**
  * @author oskar
  *
  */
-public class OnlineFile implements AdvancedFile /*GameFile<URL>*/ {
-	
-	private final URL url;
-	private final Runnable run = null;
-	
-	
-	
-
-	public OnlineFile(URL url) {
-		super();
-		this.url = url;
+public class OnlineFile implements AdvancedFile {
+	private static final Debugger debug = new Debugger("FILES");
+	public URL url;
+	/**
+	 * 
+	 */
+	public OnlineFile(URL l) {
+		url = l;
+	}
+	public OnlineFile(URI l) throws MalformedURLException {
+		url = l.toURL();
+	}
+	public OnlineFile(String l) throws MalformedURLException {
+		url = new URL(l);
 	}
 
-	
-
 	/* (non-Javadoc)
-	 * @see mmb.files.data.files.GameFile#getInputStream()
+	 * @see mmb.DATA.file.AdvancedFile#getInputStream()
 	 */
 	@Override
-	public InputStream getInputStream() {
-		// TODO Auto-generated method stub
-		return null;
+	public InputStream getInputStream() throws IOException {
+		return url.openStream();
 	}
 
 	/* (non-Javadoc)
-	 * @see mmb.files.data.files.GameFile#getErrorMessage()
+	 * @see mmb.DATA.file.AdvancedFile#getOutputStream()
 	 */
-	public Throwable getErrorMessage() {
-		// TODO Auto-generated method stub
-		return null;
+	@Override
+	public OutputStream getOutputStream() throws IOException {
+		throw new IOException("Online files are read only");
 	}
 
-
+	/* (non-Javadoc)
+	 * @see mmb.DATA.file.AdvancedFile#asFile()
+	 */
+	@Override
+	public File asFile() throws IOException {
+		return StreamUtil.stream2file(getInputStream());
+	}
 
 	/* (non-Javadoc)
-	 * @see mmb.files.data.files.GameFile#getPath()
+	 * @see mmb.DATA.file.AdvancedFile#name()
 	 */
-	public String getPath() {
+	@Override
+	public String name() {
 		return url.toString();
 	}
 
-
-
 	/* (non-Javadoc)
-	 * @see mmb.files.data.files.GameFile#getRawData()
+	 * @see mmb.DATA.file.AdvancedFile#url()
 	 */
-	public URL getRawData() {
+	@Override
+	public URL url(){
 		return url;
 	}
-
-
-
 	/* (non-Javadoc)
-	 * @see mmb.files.data.files.GameFile#addLoadedHandler(java.lang.Runnable)
+	 * @see mmb.DATA.file.AdvancedFile#uri()
 	 */
-	public void addLoadedHandler(Runnable data) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
 	@Override
-	public OutputStream getOutputStream() throws IOException {
-		// TODO Auto-generated method stub
-		return null;
+	public URI uri() throws URISyntaxException{
+		return url.toURI();
 	}
-
-
-
-	@Override
-	public File asFile() throws IOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
-	@Override
-	public String name() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
+	/* (non-Javadoc)
+	 * @see mmb.DATA.file.AdvancedFile#parent()
+	 */
 	@Override
 	public AdvancedFile parent() {
 		URI uri;
 		try {
 			uri = url.toURI();
-			URI parent = uri.getPath().endsWith("/") ? uri.resolve("..") : uri.resolve(".");
-			return new OnlineFile(parent.toURL());	
-		} catch (URISyntaxException | MalformedURLException e) {
-			return this; //unreachable
+			return new OnlineFile(uri.getPath().endsWith("/") ? uri.resolve("..") : uri.resolve("."));
+		} catch (URISyntaxException|MalformedURLException e) {
+			debug.pstm(e, "Couldn't retrieve parent");
+			return null;
 		}
-		
 	}
-
-
-
+	/* (non-Javadoc)
+	 * @see mmb.DATA.file.AdvancedFile#children()
+	 */
 	@Override
 	public AdvancedFile[] children() throws Exception {
-		return new AdvancedFile[0];
+		throw new UnsupportedOperationException("Unable to get children of online files");
 	}
-
-
-
+	/* (non-Javadoc)
+	 * @see mmb.DATA.file.AdvancedFile#exists()
+	 */
 	@Override
 	public boolean exists() {
 		return true;
 	}
-
-
-
 	@Override
-	public void create() throws IOException {
+	public void create() {
+		throw new RuntimeException(new IOException("Unable to create files remotely using OnlineFile"));
 	}
-
-
-
 	@Override
 	public boolean isDirectory() {
 		return false;

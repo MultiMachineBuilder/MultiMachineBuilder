@@ -14,7 +14,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import fr.delthas.javamp3.Sound;
-import mmb.DATA.file.AdvancedFile;
+import mmb.FILES.AdvancedFile;
 import mmb.SOUND.MP3Loader;
 import mmb.debug.Debugger;
 

@@ -173,7 +173,7 @@ public class TRArrayList<T> implements List<T>{
 	}
 
 	@Override
-	public <T> T[] toArray(T[] array) {
+	public <U> U[] toArray(U[] array) {
 		System.arraycopy(data, 0, array, 0, size);
 		return array;
 	}

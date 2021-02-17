@@ -6,8 +6,7 @@ package mmb.FILES;
 import java.util.Map;
 
 import org.apache.commons.csv.CSVRecord;
-import mmb.DATA.file.AdvancedFile;
-import mmb.DATA.file.FileGetter;
+
 import mmb.debug.Debugger;
 
 /**
@@ -41,10 +40,10 @@ public class Downloadable {
 		try {
 			//fileName = fileName.substring(fileName.lastIndexOf(92 /*backslash*/)+1, fileName.length()-1);
 			debug.printl("Connecting with "+download);
-			AdvancedFile source = FileGetter.getFile(fileName);
+			AdvancedFile source = FileUtil.getFile(fileName);
 			
 			debug.printl("Opening "+tgt);
-			AdvancedFile target = FileGetter.getFile(tgt);
+			AdvancedFile target = FileUtil.getFile(tgt);
 			
 			debug.printl("Downloading "+download);
 			source.copyTo(target);

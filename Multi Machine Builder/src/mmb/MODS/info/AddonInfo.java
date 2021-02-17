@@ -6,9 +6,8 @@ package mmb.MODS.info;
 import java.util.*;
 import java.util.jar.*;
 
-
-import mmb.DATA.file.AdvancedFile;
-import mmb.DATA.file.OnlineFile;
+import mmb.FILES.AdvancedFile;
+import mmb.FILES.OnlineFile;
 import mmb.MODS.loader.StreamClassLoader;
 
 /**

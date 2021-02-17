@@ -4,6 +4,7 @@
 package mmb.WORLD.machine;
 
 import mmb.WORLD.Side;
+import mmb.WORLD.block.SkeletalBlockEntity;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.worlds.map.BlockMap;
 
@@ -30,19 +31,19 @@ public abstract class SkeletalMachine implements Machine {
 		int eX = x + sX;
 		int eY = y + sY;
 		//Left
-		left = new BlockEntry[sY];
+		left = new SkeletalBlockEntity[sY];
 		for(int i = x, j = 0; i < eX; i++, j++) {
 			left[j] = map.get(x-1, i);
 		}
-		right = new BlockEntry[sY];
+		right = new SkeletalBlockEntity[sY];
 		for(int i = x, j = 0; i < eX; i++, j++) {
 			right[j] = map.get(eX, i);
 		}
-		up = new BlockEntry[sX];
+		up = new SkeletalBlockEntity[sX];
 		for(int i = y, j = 0; i < eY; i++, j++) {
 			up[j] = map.get(eX, i);
 		}
-		down = new BlockEntry[sX];
+		down = new SkeletalBlockEntity[sX];
 		for(int i = y, j = 0; i < eY; i++, j++) {
 			down[j] = map.get(eX, i);
 		}

@@ -8,8 +8,10 @@ import java.awt.image.BufferedImage;
 
 import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.BlockDrawer;
+import mmb.WORLD.block.SkeletalBlockEntity;
+import mmb.WORLD.block.Block;
+import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.block.BlockEntry;
-import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.properties.BlockProperty;
 import mmb.debug.Debugger;
 
@@ -20,17 +22,18 @@ import mmb.debug.Debugger;
 public class ContentsBlocks {
 	private static final Debugger debug = new Debugger("BLOCKS");
 
-	public static final BlockType
-	air, grass,
+	public static final BlockEntityType
 	ww_head, ww_tail, ww_wire,
-	ww_chatter, plank, stone, leaves,
+	ww_chatter;
+	
+	public static final Block air, grass, plank, stone, leaves,
 	iron_ore, copper_ore, silicon_ore, crafting, logs;
 	
 	static {	
 		//Toolkit.getDefaultToolkit().beep();
 		debug.printl("Creating blocks");
-		air = new BlockType();
-		air.drawer = BlockDrawer.ofColor(Color.CYAN);
+		air = new Block();
+		air.texture = BlockDrawer.ofColor(Color.CYAN);
 		air.leaveBehind = air;
 		air.title = "Air";
 		
@@ -39,94 +42,69 @@ public class ContentsBlocks {
 			BufferedImage i = Textures.get("grass.png");
 			tmp = BlockDrawer.ofImage(i);
 			if(i == null) debug.printl("got null texture");
+			tmp = BlockDrawer.ofColor(Color.GREEN);
 		} catch (Exception e) {
 			tmp = BlockDrawer.ofColor(Color.GREEN);
 			debug.pstm(e, "Failed to load grass texture, switching to plain color");
 		}
 		
-		grass = new BlockType();
-		grass.drawer = tmp;
+		grass = new Block();
+		grass.texture = tmp;
 		grass.leaveBehind = air;
 		grass.title = "Grass";
 		
-		ww_wire = new BlockType();
+		ww_wire = new BlockEntityType();
 		ww_wire.drawer = BlockDrawer.ofColor(Color.ORANGE);
 		ww_wire.title = "WireWorld conductor";
+		ww_wire.setFactory(WWWire::new);
 		
-		ww_head = new BlockType();
+		ww_head = new BlockEntityType();
 		ww_head.drawer = BlockDrawer.ofColor(Color.BLUE);
 		ww_head.leaveBehind = ww_wire;
 		ww_head.title = "WireWorld head";
+		ww_head.setFactory(WWHead::new);
 		
-		ww_tail = new BlockType();
+		ww_tail = new BlockEntityType();
 		ww_tail.drawer = BlockDrawer.ofColor(Color.WHITE);
 		ww_tail.leaveBehind = ww_wire;
 		ww_tail.title = "WireWorld tail";
-		
-		ww_wire.onUpdate = (e, p) -> {
-			BlockEntry[] blocks = e.getNeighbors8();
-			int count = 0;
-			for(int i = 0; i < blocks.length; i++) {
-				if(blocks[i].typeof(ContentsBlocks.ww_head)) count++;
-			}
-			
-			if(count == 1 || count == 2) p.place(ww_head, e.x, e.y);
-		};
-		ww_head.onUpdate = (e, p) -> {
-			p.place(ww_tail, e.x, e.y);
-		};
-		ww_tail.onUpdate = (e, p) -> {
-			p.place(ww_wire, e.x, e.y);
-		};
-		
-		
-		
-		ww_chatter = new BlockType();
+		ww_tail.setFactory(WWTail::new);
+
+		ww_chatter = new BlockEntityType();
 		ww_chatter.drawer = BlockDrawer.ofImage(Textures.get("printer.png"));
-		ww_chatter.onUpdate = (e, p) -> {
-			BlockEntry[] blocks = e.getNeighbors4();
-			for(int i = 0; i < blocks.length; i++) {
-				if(blocks[i].typeof(ContentsBlocks.ww_head)) {
-					BlockProperty prop = e.getProperty("value");
-					if(!(prop instanceof StringValue)) return;
-					debug.printl(((StringValue)prop).value);
-					return;
-				}
-			}
-		};
+		ww_chatter.setFactory(WWChatter::new);
 		ww_chatter.title = "Chatbox";
-		ww_chatter.properties.add(StringValue.class);
 		
-		stone = new BlockType();
-		stone.drawer = BlockDrawer.ofImage(Textures.get("stone.png"));
+		stone = new Block();
+		stone.texture = BlockDrawer.ofImage(Textures.get("stone.png"));
 		stone.title = "Stone";
 		
-		plank = new BlockType();
-		plank.drawer = BlockDrawer.ofImage(Textures.get("plank.png"));
+		plank = new Block();
+		plank.texture = BlockDrawer.ofImage(Textures.get("plank.png"));
 		plank.title = "Wooden planks";
 		
-		leaves = new BlockType();
-		leaves.drawer = BlockDrawer.ofImage(Textures.get("leaves.png"));
+		leaves = new Block();
+		leaves.texture = BlockDrawer.ofImage(Textures.get("leaves.png"));
 		leaves.title = "Leaves";
 		
-		iron_ore = new BlockType();
-		iron_ore.drawer = BlockDrawer.ofImage(Textures.get("iron_ore.png"));
+		iron_ore = new Block();
+		iron_ore.texture = BlockDrawer.ofImage(Textures.get("iron_ore.png"));
 		iron_ore.title = "Iron ore";
 		
-		copper_ore = new BlockType();
-		copper_ore.drawer = BlockDrawer.ofImage(Textures.get("copper_ore.png"));
+		copper_ore = new Block();
+		copper_ore.texture = BlockDrawer.ofImage(Textures.get("copper_ore.png"));
 		copper_ore.title = "Copper ore";
 		
-		silicon_ore = new BlockType();
-		silicon_ore.drawer = BlockDrawer.ofImage(Textures.get("silicon_ore.png"));
+		silicon_ore = new Block();
+		silicon_ore.texture = BlockDrawer.ofImage(Textures.get("silicon_ore.png"));
 		silicon_ore.title = "Silicon ore";
 		
-		crafting = new BlockType();
-		crafting.drawer = BlockDrawer.ofImage(Textures.get("crafting.png"));
+		crafting = new Block();
+		crafting.texture = BlockDrawer.ofImage(Textures.get("crafting.png"));
 		crafting.title = "Assembly Table";
 		
-		logs = new BlockType();
-		logs.drawer = BlockDrawer.ofImage(Textures.get("log.png"));
+		logs = new Block();
+		logs.texture = BlockDrawer.ofImage(Textures.get("log.png"));
 		logs.title = "Log";
 		
 		//Register

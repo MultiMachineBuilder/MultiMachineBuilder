@@ -37,4 +37,33 @@ public interface SelfSet<K, V extends Identifiable<K>> extends Set<V>{
 	 * @return value under the key, or default if absent
 	 */
 	public V getOrDefault(K key, V defalt);
+	
+	/**
+	 * Remove given key from the self-set
+	 * @param key
+	 * @return did the self-set change?
+	 */
+	public boolean removeKey(K key);
+	
+	public boolean containsKey(K key);
+
+	@SuppressWarnings("unchecked")
+	@Override
+	/**
+	 * Checks if given self-set contains given key
+	 * The input must be of type <V>, because it is casted to {@link Identifiable} internally
+	 */
+	default boolean contains(Object arg0) {
+		return containsKey(((V)arg0).identifier());
+	}
+
+	@SuppressWarnings({ "unlikely-arg-type", "unchecked" })
+	@Override
+	/**
+	 * Removes given value from the self-set.
+	 * The input must be of type <V>, because it is casted to {@link Identifiable} internally
+	 */
+	default boolean remove(Object arg0) {
+		return remove(((V)arg0).identifier());
+	}
 }

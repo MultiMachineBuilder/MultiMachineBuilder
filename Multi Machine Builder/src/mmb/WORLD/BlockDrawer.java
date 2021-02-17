@@ -9,6 +9,7 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author oskar
@@ -45,6 +46,7 @@ public class BlockDrawer {
 	 * @return a BlockDrawer for given BufferedImage
 	 */
 	public static BlockDrawer ofImage(BufferedImage img) {
+		Objects.requireNonNull(img, "img is null");
 		return new BlockDrawer(img);
 	}
 	/**
@@ -53,6 +55,7 @@ public class BlockDrawer {
 	 * @return a BlockDrawer of given color
 	 */
 	public static BlockDrawer ofColor(Color c) {
+		Objects.requireNonNull(c, "c is null");
 		BlockDrawer result = cache.get(c);
 		if(result == null) return new BlockDrawer(c);
 		return result;

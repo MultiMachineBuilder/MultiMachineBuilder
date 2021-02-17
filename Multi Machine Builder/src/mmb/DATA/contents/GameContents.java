@@ -6,7 +6,7 @@ package mmb.DATA.contents;
 import java.awt.image.BufferedImage;
 import java.util.*;
 
-import mmb.DATA.file.LocalFile;
+import mmb.FILES.LocalFile;
 import mmb.MODS.info.AddonInfo;
 /**
  * @author oskar

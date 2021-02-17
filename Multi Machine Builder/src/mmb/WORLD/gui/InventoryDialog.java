@@ -38,18 +38,7 @@ public class InventoryDialog extends JDialog {
 			
 		}
 	}
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			InventoryDialog dialog = new InventoryDialog();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+
 	public final Set<Inventory> invs;
 	public InventoryDialog(Inventory... inventories) {
 		invs = new HashSet<>(Arrays.asList(inventories));

@@ -9,6 +9,4 @@ package mmb.BEANS;
  */
 public interface Rotable {
 	public void setRotation(int rotation);
-	public int getRotation();
-	default public void 
 }

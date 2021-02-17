@@ -16,11 +16,14 @@ import java.util.List;
 
 import javax.swing.JComponent;
 
+import mmb.debug.Debugger;
+
 /**
  * @author oskar
  *
  */
 public class ScrollablePlacementList extends JComponent implements MouseListener, MouseWheelListener{
+	public static final Debugger debug = new Debugger("BLOCK LIST");
 	@Override
 	public Dimension getPreferredSize() {
 		return new Dimension(128, getParent().getHeight());
@@ -86,6 +89,7 @@ public class ScrollablePlacementList extends JComponent implements MouseListener
 		int offset = -scroll;
 		int i = 0;
 		for(Placer p: placers){
+			debug.printl(p.getTitle());
 			if(i == placerIndex) {
 				//Selected
 				g.setColor(Color.CYAN);

@@ -3,8 +3,6 @@
  */
 package mmb.FILES;
 
-import mmb.DATA.file.AdvancedFile;
-
 /**
  * @author oskar
  *

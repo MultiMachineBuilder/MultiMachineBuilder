@@ -7,7 +7,6 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -355,13 +354,9 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 		}
 	}
 	private static final boolean DEBUG_DISPLAY = false;
-	private void renderTile(int x, int y, Graphics g, BlockEntry be, int wx, int wy) {
-		if(be == null) return;
-		Point bp = be.getPosition();
-		if(bp.x!=wx || bp.y!=wy) {
-			debug.printl("The tile at ["+wx+","+wy+"] has uncompliant position["+bp.x+","+bp.y+"]");
-		}
-		BlockDrawer bd = be.getTexture();
+	private static void renderTile(int x, int y, Graphics g, BlockEntry blockEntry, int wx, int wy) {
+		if(blockEntry == null) return;
+		BlockDrawer bd = blockEntry.type().getTexture();
 		if(bd != null) bd.draw(x, y, g);
 	}
 
@@ -439,6 +434,18 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 	 */
 	public Point getMouseoverBlock() {
 		return new Point(mouseoverBlockX, mouseoverBlockY);
+	}
+	/**
+	 * @return the mouseoverBlockX
+	 */
+	public int getMouseoverBlockX() {
+		return mouseoverBlockX;
+	}
+	/**
+	 * @return the mouseoverBlockY
+	 */
+	public int getMouseoverBlockY() {
+		return mouseoverBlockY;
 	}
 
 	private ScrollablePlacementList placer;

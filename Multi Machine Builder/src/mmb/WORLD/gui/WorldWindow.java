@@ -14,6 +14,7 @@ import mmb.DATA.json.JsonTool;
 import mmb.FILES.Save;
 import mmb.MENU.FullScreen;
 import mmb.MENU.MMBFrame;
+import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.Blocks;
 import mmb.WORLD.machine.MachineModel;
@@ -26,19 +27,13 @@ import javax.swing.JPanel;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import java.io.OutputStream;
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.swing.JSplitPane;
 import javax.swing.JButton;
 
-import mmb.MENU.components.BoundCheckBox;
 import mmb.MENU.main.MainMenu;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import mmb.MENU.components.BoundCheckBoxMenuItem;
@@ -53,6 +48,7 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 	
 	@Override
 	public void destroy() {
+		debug.printl("Exiting the world");
 		if(worldFrame.getWorld() != null) {
 			JsonNode object = worldFrame.getWorld().save();
 			String text;
@@ -113,8 +109,8 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 		scrollablePlacementList = new ScrollablePlacementList();
 		for(BlockType t: blocks) scrollablePlacementList.add(new BlockPlacer(t));
 		for(MachineModel m: MachineModel.getMachineModels().values()) scrollablePlacementList.add(m);
-		//The world frame
 		
+		//The world frame
 		worldFrame = new WorldFrame();
 		worldFrame.setBackground(Color.DARK_GRAY);
 		worldFrame.addTitleListener(this::setTitle);

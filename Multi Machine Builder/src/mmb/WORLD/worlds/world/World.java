@@ -40,7 +40,7 @@ public class World implements GameObject, Saver<JsonNode>, Loader<JsonNode>{
 		World w = new World();
 		BlockMap bm = new BlockMap(d.width, d.height);
 		w.main = bm;
-		bm.setContainer(w);
+		bm.setOwner(w);
 		return w;
 	}
 	//[start] data
@@ -202,50 +202,13 @@ public class World implements GameObject, Saver<JsonNode>, Loader<JsonNode>{
 		return null;
 	}
 	@Override
-	public Iterator<GameObject> iterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
 	public String getUTID() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public RuntimeManager getRuntimeManager() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	@Override
 	public GameObject getOwner() {
 		return null; //TBD in 0.7
-	}
-	@Override
-	public GameObject getContainer() {
-		return null;
-	}
-	@Override
-	public void setContainer(GameObject container) {
-	}
-	@Override
-	public boolean add(GameObject obj) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public boolean remove(GameObject obj) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public boolean contains(GameObject obj) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public Set<GameObject> contents() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	//[end]
 	

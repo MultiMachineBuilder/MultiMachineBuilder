@@ -69,22 +69,17 @@ public class GeneratorOptions extends JPanel {
 		add(lblName, "flowx,cell 0 0");
 		
 		btnSelectAll = new JButton("All");
-		btnSelectAll.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		btnSelectAll.addActionListener(e -> {
 				for(JCheckBox chckbx: getChecks()) {
 					chckbx.setSelected(true);
 				}
-			}
 		});
 		add(btnSelectAll, "flowx,cell 0 1,growx");
 		
 		btnDeleteAll = new JButton("None");
-		btnDeleteAll.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				for(JCheckBox chckbx: getChecks()) {
-					chckbx.setSelected(true);
-				}
-			}
+		btnDeleteAll.addActionListener(e -> {
+			for(JCheckBox chckbx: getChecks()) 
+				chckbx.setSelected(false);
 		});
 		add(btnDeleteAll, "cell 0 1,growx");
 		
@@ -119,6 +114,10 @@ public class GeneratorOptions extends JPanel {
 			result[i] = model.getElementAt(i);
 		}
 		return result;
+	}
+	@SuppressWarnings("unchecked")
+	public ListModel<JCheckBox> getChecksAsList() {
+		return checkBoxList.getModel();
 	}
 	public String[] getNames() {
 		@SuppressWarnings("unchecked")

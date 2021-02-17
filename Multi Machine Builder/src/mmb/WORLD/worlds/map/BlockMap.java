@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -30,16 +29,21 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.GameObject;
 import mmb.RunnableObject;
 import mmb.BEANS.Saver;
-import mmb.COLLECTIONS.Collects;
 import mmb.COLLECTIONS.HashSelfSet;
 import mmb.COLLECTIONS.SelfSet;
 import mmb.DATA.json.JsonTool;
 import mmb.RUNTIME.RuntimeManager;
+import mmb.WORLD.block.Block;
+import mmb.WORLD.block.BlockEntity;
+import mmb.WORLD.block.SkeletalBlockEntity;
+import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.machine.Machine;
 import mmb.WORLD.machine.MachineModel;
+import mmb.WORLD.worlds.BlockChangeRequest;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
@@ -186,35 +190,29 @@ public class BlockMap implements RunnableObject, Saver<JsonNode>{
 		private BlockMap that2 = that;
 		@Override
 		public void close() {
-			for(BlockEntry ent: requests) {
-				that2.set(ent.x, ent.y, ent);
+			for(BlockChangeRequest ent: requests) {
+				ent.apply(that2);
 			}
 			that2 = null;
 		}
 		@Override
-		public void setImmediately(BlockType block, int x, int y) {
-			if(that2 == null) return;
-			BlockEntry be = BlockEntry.defaultProperties(x, y, that2, block);
-			that2.place(x, y, block);
-		}
-		@Override
 		public void placeImmediately(BlockType block, int x, int y) {
-			//TODO block behavior
-			setImmediately(block, x, y);
+			if(that2 == null) return;
+			block.place(x, y, that2);
 		}
 		@Override
 		public void placeImmediatelyCreative(BlockType block, int x, int y) {
 			//TODO block behavior
-			setImmediately(block, x, y);
+			placeImmediately(block, x, y);
 		}
 		@Override
 		public void placeImmediately(BlockType block, int x, int y, Inventory inv) {
 			//0.5 TODO Inventories
 			//TODO block behavior
-			setImmediately(block, x, y);
+			placeImmediately(block, x, y);
 		}
 		@Override
-		public BlockEntry getBlock(int x, int y) {
+		public BlockEntry get(int x, int y) {
 			return that2.entries[x-startX][y-startY];
 		}
 		@Override
@@ -225,28 +223,25 @@ public class BlockMap implements RunnableObject, Saver<JsonNode>{
 		public Dimension getSize() {
 			return new Dimension(that2.entries.length, that2.entries[0].length);
 		}
-		@Override
-		public void set(BlockType block, int x, int y) {
-			if(block == null) return;
-			requests.add(BlockEntry.defaultProperties(x, y, that2, block));
-		}
+
 		@Override
 		public void place(BlockType block, int x, int y) {
-			set(block, x, y);
+			if(block == null) return;
+			requests.add(new BlockChangeRequest(x, y, block));
 		}
 		@Override
 		public void placeCreative(BlockType block, int x, int y) {
 			//TODO block behavior
-			set(block, x, y);
+			place(block, x, y);
 		}
 		@Override
 		public void place(BlockType block, int x, int y, Inventory inv) {
 			//0.5 TODO Inventories
 			//TODO block behavior
-			set(block, x, y);
+			place(block, x, y);
 		}
 
-		private List<BlockEntry> requests = new ArrayList<>();
+		private List<BlockChangeRequest> requests = new ArrayList<>();
 	}
 	//[end]
 	//[start] serialization
@@ -260,21 +255,13 @@ public class BlockMap implements RunnableObject, Saver<JsonNode>{
 		master.set("sizeY", new IntNode(height));
 		master.set("startX", new IntNode(startX));
 		master.set("startY", new IntNode(startY));
-		
 		//Blocks
 		ArrayNode blockArrayNode = JsonTool.newArrayNode();
 		for(int y = 0; y < height; y++) {
 			for(int x = 0; x < width; x++) {
 				BlockEntry ent = entries[x][y];
 				if(ent == null) blockArrayNode.add(NullNode.getInstance());
-				else {
-					try {
-						if(ent.type.shutdown != null) ent.type.shutdown.accept(ent);
-					} catch (Exception e) {
-						debug.pstm(e, "Failed to shut down block "+ent.type.id+" at ["+ent.x+","+ent.y+"]");
-					}
-					blockArrayNode.add(ent.save());
-				}
+				else blockArrayNode.add(ent.save());
 			}
 		}
 		master.set("world", blockArrayNode);
@@ -284,11 +271,6 @@ public class BlockMap implements RunnableObject, Saver<JsonNode>{
 		for(Machine m: _machines) {
 			ArrayNode array = JsonTool.newArrayNode();
 			//format: [id, x, y, data]
-			try {
-				m.onShutdown();
-			}catch(Exception e) {
-				debug.pstm(e, "Failed to shut down the machine");
-			}
 			array.add(m.identifier());
 			array.add(m.posX());
 			array.add(m.posY());
@@ -308,6 +290,11 @@ public class BlockMap implements RunnableObject, Saver<JsonNode>{
 	}
 	//[end]
 	//[start] block access
+	private Set<BlockEntity> _blockents = new HashSet<>();
+	/**
+	 * an unmodifiable {@link Set} of {@link SkeletalBlockEntity}s on this {@code BlockMap}
+	 */
+	public final Set<BlockEntity> blockents = Collections.unmodifiableSet(_blockents);
 	private BlockEntry[][] entries;
 	private BlockMap that = this;
 	/**
@@ -321,26 +308,15 @@ public class BlockMap implements RunnableObject, Saver<JsonNode>{
 		return entries[x-startX][y-startY];
 	}
 	/**
-	 * Set given block location to a given value.
-	 * If given entry has a non-compliant position, it will cause severe logspam.
-	 * @param x X coordinate
-	 * @param y Y coordinate
-	 * @param data new block entry
-	 * @throws ArrayIndexOutOfBoundsException if coordinates are outside the world
-	 */
-	public void set(int x, int y, BlockEntry data) {
-		if(data == null) return;
-		entries[x-startX][y-startY] = data;
-	}
-	/**
 	 * Places given block into a given location.
 	 * @param x
 	 * @param y
 	 * @param typ block type to be placed
 	 */
-	public void place(int x, int y, BlockType typ) {
+	public void place(int x, int y, BlockEntityType typ) {
 		if(typ == null) return;
-		entries[x-startX][y-startY] = BlockEntry.defaultProperties(x, y, that, typ);
+		set(typ.create(x, y, this), x, y);
+		
 	}
 	/**
 	 * Get the block at given position
@@ -351,22 +327,41 @@ public class BlockMap implements RunnableObject, Saver<JsonNode>{
 		return entries[p.x-startX][p.y-startY];
 	}
 	/**
-	 * Set given position to given block entry
-	 * @param p position
-	 * @param data new block entry
+	 * @param b block entry to place
+	 * @param x X coordinate of block
+	 * @param y Y coordinate of block
+	 * @discouraged Use place() methods instead
 	 */
-	public void set(Point p, BlockEntry data) {
-		if(data == null) return;
-		entries[p.x-startX][p.y-startY] = data;
+	public void set(BlockEntry b, int x, int y) {
+		BlockEntry old = entries[x-startX][y-startY];
+		if(old != null && old.isBlockEntity()) {
+			BlockEntity old0 = old.asBlockEntity();
+			try {
+				old0.onBreak(that, null);
+				_blockents.remove(old0);
+			} catch (Exception e) {
+				debug.pstm(e, "Failed to remove BlockEntity ["+x+","+y+"]");
+				return;
+			}
+		}
+		if(b.isBlockEntity()) {
+			BlockEntity new0 = b.asBlockEntity();
+			try {
+				new0.onPlace(that, owner);
+				_blockents.add(new0);
+			}catch(Exception e) {
+				debug.pstm(e, "Failed to place BlockEntity ["+x+","+y+"]");
+				place(ContentsBlocks.grass, x, y);
+			}
+		}
+		entries[x-startX][y-startY] = b;
 	}
-	/**
-	 * Place given block at given position
-	 * @param p
-	 * @param typ new block type
-	 */
-	public void place(Point p, BlockType typ) {
-		if(typ == null) return;
-		entries[p.x-startX][p.y-startY] = BlockEntry.defaultProperties(p.x, p.y, that, typ);
+	public void place(Block b, int x, int y) {
+		set(b, x, y);
+	}
+	public void place(BlockType type, int x, int y) {
+		BlockEntry blockent = type.create(x, y, this);
+		set(blockent, x, y);
 	}
 	/**
 	 * This method checks if map data is valid.
@@ -440,30 +435,17 @@ public class BlockMap implements RunnableObject, Saver<JsonNode>{
 		try(MapProxy proxy = createVolatileProxy()){
 			if(entries == null) return;
 			//Run every block
-			for(int i = 0; i < entries.length; i++) {
-				for(int j = 0; j < entries[i].length; j++) {
-					runBlock(entries[i][j],proxy);
+			for(BlockEntity ent: blockents) {
+				try {
+					ent.onTick(proxy);
+				}catch(Exception e) {
+					debug.pstm(e, "Failed to run block entity at ["+ent.posX()+","+ent.posY()+"]");
 				}
 			}
 			//Run every machine
 			for(Machine m: _machines) {
 				m.onUpdate(proxy);
 			}
-		} catch (Exception e) {
-			debug.pstm(e, "Unable to run the map.");
-		}
-	}
-	private void runBlock(BlockEntry ent, MapProxy proxy) { //Run a single block
-		if(ent != null) try {
-			/*Run the block. Inputs:
-			 * 1. block entry
-			 * 2. map proxy
-			 */
-			BiConsumer<BlockEntry, MapProxy> run = ent.type.onUpdate;
-			if(run != null)
-				run.accept(ent, proxy);
-		}catch(Exception e) {
-			debug.pstm(e, "Failed to run a block ("+ent.type.id+") at ["+ent.x+","+ent.y+"]");
 		}
 	}
 	private Timer timer = new Timer();
@@ -479,9 +461,8 @@ public class BlockMap implements RunnableObject, Saver<JsonNode>{
 	 */
 	public void setRunning(boolean b) {
 		if(b) {
-			if(running) return;
+			if(running || hasShutDown) return;
 			timer.scheduleAtFixedRate(new TimerTask() {
-
 				@Override
 				public void run() {
 					update();
@@ -511,17 +492,39 @@ public class BlockMap implements RunnableObject, Saver<JsonNode>{
 	@Override
 	public void destroy() {
 		setRunning(false);
-		for(int i = 0; i < width; i++) {
-			BlockEntry[] ents = entries[i];
-			for(int j = 0; j < height; j++) {
-				BlockEntry ent = ents[j];
-					if(ent != null){
-						Consumer<BlockEntry> con = ent.type.shutdown;
-					if(con != null) con.accept(ent);
-					}
+		shutdown();
+		entries = null;
+	}
+	private boolean hasShutDown = false;
+	/**
+	 * @return the hasShutDown
+	 */
+	public boolean hasShutDown() {
+		return hasShutDown;
+	}
+	/**
+	 * Shut down the map, but keep the resouirces
+	 */
+	public void shutdown() {
+		if(hasShutDown) return;
+		//Shut down block entities
+		for(BlockEntity ent: blockents) {
+			try {
+				ent.onShutdown(this);
+			} catch (Exception e) {
+				debug.pstm(e, "Failed to shut down block "+ent.type().identifier()+" at ["+ent.posX()+","+ent.posY()+"]");
 			}
 		}
-		entries = null;
+		//Shut down machines
+		for(Machine m: machines) {
+			try {
+				m.onShutdown();
+			}catch(Exception e) {
+				debug.pstm(e, "Failed to shut down machine "+m.identifier()+" at ["+m.posX()+","+m.posY()+"]");
+			}
+		}
+		hasShutDown = true;
+		setRunning(false);
 	}
 	//[end]
 	//[start] machines
@@ -658,10 +661,6 @@ public class BlockMap implements RunnableObject, Saver<JsonNode>{
 	@Override
 	public String identifier() {
 		return name;
-	}
-	@Override
-	public Iterator<GameObject> iterator() {
-		return Collects.<GameObject>downcastIterator(_machines.iterator());
 	}
 	@Override
 	public String getUTID() {

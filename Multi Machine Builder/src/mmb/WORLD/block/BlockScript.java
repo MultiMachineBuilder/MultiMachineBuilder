@@ -10,7 +10,7 @@ import mmb.WORLD.worlds.MapProxy;
 
 /**
  * @author oskar
- *
+ * @deprecated To be replaced with overridable BlockEntities
  */
 public interface BlockScript {
 	
@@ -28,7 +28,7 @@ public interface BlockScript {
 	 * </ul>
 	 * @param ent newly created block entry
 	 */
-	public void onStartup(BlockEntry ent);
+	public void onStartup(SkeletalBlockEntity ent);
 	/**
 	 * This function is run when the data is provided to the block.
 	 * <br>To handle placement, set onPlace variable
@@ -42,7 +42,7 @@ public interface BlockScript {
 	 * </ul>
 	 * @param ent block entry, to which data is loaded
 	 */
-	public void onDataLoaded(BlockEntry ent);
+	public void onDataLoaded(SkeletalBlockEntity ent);
 	/**    
 	 * Run an update on this block for every tick
 	 * <br>NOTE: design this function carefully to prevent logspam
@@ -57,7 +57,7 @@ public interface BlockScript {
 	 * @param ent block entry to be updated
 	 * @param proxy the map's proxy
 	 */
-	public void onUpdate(BlockEntry ent, MapProxy proxy);
+	public void onUpdate(SkeletalBlockEntity ent, MapProxy proxy);
 	/**
 	 * Handles the block being placed.
 	 * <ul>
@@ -78,7 +78,7 @@ public interface BlockScript {
 	 * 		<br>WorldBehavior instance if placed by a WorldBehavior
 	 * 		<br>MapBehavior instance if placed by a MapBehavior
 	 */
-	public void onPlace(BlockEntry ent, GameObject obj);
+	public void onPlace(SkeletalBlockEntity ent, GameObject obj);
 	/**
 	 * Handles the block being mined.
 	 * <ul>
@@ -100,7 +100,7 @@ public interface BlockScript {
 	 * 		<br>WorldBehavior instance if mined by a WorldBehavior
 	 * 		<br>MapBehavior instance if mined by a MapBehavior
 	 */
-	public void onRemove(BlockEntry ent, GameObject obj);
+	public void onRemove(SkeletalBlockEntity ent, GameObject obj);
 	/**    
 	 * Prepares a block for server shutdown.
 	 * <br>Does not run when block is broken.
@@ -115,7 +115,7 @@ public interface BlockScript {
 	 * </ul>
 	 * @param ent block entry to be saved
 	 */
-	public void onShutdown(BlockEntry ent);
+	public void onShutdown(SkeletalBlockEntity ent);
 	
 	/**
 	 * Returns a composed script that performs given operations combined.
@@ -127,37 +127,37 @@ public interface BlockScript {
 		return new BlockScript() {
 
 			@Override
-			public void onStartup(BlockEntry ent) {
+			public void onStartup(SkeletalBlockEntity ent) {
 				that.onStartup(ent);
 				that2.onStartup(ent);
 			}
 
 			@Override
-			public void onDataLoaded(BlockEntry ent) {
+			public void onDataLoaded(SkeletalBlockEntity ent) {
 				that.onDataLoaded(ent);
 				that2.onDataLoaded(ent);
 			}
 
 			@Override
-			public void onUpdate(BlockEntry ent, MapProxy proxy) {
+			public void onUpdate(SkeletalBlockEntity ent, MapProxy proxy) {
 				that.onUpdate(ent, proxy);
 				that2.onUpdate(ent, proxy);
 			}
 
 			@Override
-			public void onPlace(BlockEntry ent, GameObject obj) {
+			public void onPlace(SkeletalBlockEntity ent, GameObject obj) {
 				that.onPlace(ent, obj);
 				that2.onPlace(ent, obj);
 			}
 
 			@Override
-			public void onRemove(BlockEntry ent, GameObject obj) {
+			public void onRemove(SkeletalBlockEntity ent, GameObject obj) {
 				that.onRemove(ent, obj);
 				that2.onRemove(ent, obj);
 			}
 
 			@Override
-			public void onShutdown(BlockEntry ent) {
+			public void onShutdown(SkeletalBlockEntity ent) {
 				that.onShutdown(ent);
 				that2.onShutdown(ent);
 			}

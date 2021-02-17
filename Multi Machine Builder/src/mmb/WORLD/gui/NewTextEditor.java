@@ -6,7 +6,9 @@ package mmb.WORLD.gui;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
-import mmb.WORLD.block.BlockEntry;
+import mmb.BEANS.TextMessageProvider;
+import mmb.WORLD.block.BlockEntity;
+import mmb.WORLD.block.SkeletalBlockEntity;
 import mmb.WORLD.blocks.StringValue;
 
 import javax.swing.JButton;
@@ -28,18 +30,18 @@ public class NewTextEditor extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public NewTextEditor(StringValue sv, BlockEntry block, WorldWindow frame) {
+	public NewTextEditor(TextMessageProvider sv, BlockEntity ent, WorldWindow frame) {
 		this.frame = frame;
-		title = "["+block.x+","+block.y+"]";
+		title = "["+ent.posX()+","+ent.posY()+"]";
 		setLayout(new MigLayout("", "[grow]", "[grow][21px][21px]"));
 		
 		textPane = new JTextPane();
-		textPane.setText(sv.value);
+		textPane.setText(sv.getMessage());
 		add(textPane, "cell 0 0,grow");
 		
 		btnOk = new JButton("OK");
 		btnOk.addActionListener(e -> {
-			sv.value = textPane.getText();
+			sv.setMessage(textPane.getText());
 			remove();
 		});
 		btnOk.setBackground(Color.GREEN);

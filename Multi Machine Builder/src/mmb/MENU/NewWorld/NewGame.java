@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import mmb.DATA.json.JsonTool;
 import mmb.MENU.main.PanelSaves;
 import mmb.WORLD.block.BlockEntry;
+import mmb.WORLD.block.SkeletalBlockEntity;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.worlds.map.BlockMap;
 import mmb.WORLD.worlds.world.World;
@@ -113,7 +114,7 @@ public class NewGame extends JDialog {
 				BlockMap main = new BlockMap(ents, -w, -h);
 				for(int i = 0, x = -w; i < ww; i++, x++) {
 					for(int j = 0, y = -h; j < hh; j++, y++) {
-						ents[i][j] = BlockEntry.defaultProperties(x, y, main, ContentsBlocks.grass);
+						ents[i][j] = ContentsBlocks.grass;
 					}
 				}
 				

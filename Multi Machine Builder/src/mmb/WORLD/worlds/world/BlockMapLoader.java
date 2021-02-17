@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.LazyLoader;
 import mmb.DATA.json.JsonTool;
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockLoader;
 import mmb.WORLD.machine.Machine;
 import mmb.WORLD.machine.MachineModel;
@@ -54,8 +55,8 @@ public class BlockMapLoader implements LazyLoader<ObjectNode, BlockMap> {
 				JsonNode node = iter.next();
 				bloader.x = x;
 				bloader.y = y;
-				bloader.load(node);
-				loaded.set(x, y, bloader.getLoaded());
+				BlockEntry block = bloader.load(node);
+				loaded.set(block, x, y);
 			}
 		}
 		

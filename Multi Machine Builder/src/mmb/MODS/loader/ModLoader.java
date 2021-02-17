@@ -15,9 +15,8 @@ import mmb.debug.Debugger;
 import mmb.Main;
 import mmb.DATA.contents.GameContents;
 import mmb.DATA.contents.texture.Textures;
-import mmb.DATA.file.AdvancedFile;
-import mmb.DATA.file.FileGetter;
-import mmb.FILES.ListFiles;
+import mmb.FILES.AdvancedFile;
+import mmb.FILES.FileUtil;
 import mmb.MENU.FullScreen;
 import mmb.MODS.info.AddonInfo;
 import mmb.MODS.info.AddonState;
@@ -262,7 +261,7 @@ public class ModLoader {
 		toLoad.forEach(p -> {
 			state2("Loading file: " + p);
 			try {
-				AddonLoader.load(FileGetter.getFile(p));
+				AddonLoader.load(FileUtil.getFile(p));
 			} catch (MalformedURLException e) {
 				debug.pstm(e, "The external mod has incorrect URL: "+p);
 			}
@@ -306,11 +305,11 @@ public class ModLoader {
 		try {
 			if(folder.isDirectory()) {
 				debug.printl("Directory: " + folder.getCanonicalPath());
-				for(File modfile: ListFiles.findFiles(folder)) {
+				for(File modfile: FileUtil.findFiles(folder)) {
 					debug.printl("File: " + modfile.getCanonicalPath());
 					results.add(modfile);
 				}
-				for(File modfile: ListFiles.findDirectories(folder)) {
+				for(File modfile: FileUtil.findDirectories(folder)) {
 					walkDirectory(modfile, results);
 				}
 			}else {
@@ -330,7 +329,7 @@ public class ModLoader {
 		try {
 			if(folder.isDirectory()) {
 				debug.printl("Directory: " + folder.getCanonicalPath());
-				File[] modpacks = ListFiles.findDirectories(folder);
+				File[] modpacks = FileUtil.findDirectories(folder);
 				for(int i = 0; i < modpacks.length; i++) {
 					walkFilesDirectory(modpacks[i], results);
 				}

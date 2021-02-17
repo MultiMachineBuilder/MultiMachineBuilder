@@ -258,4 +258,14 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 		return map.getOrDefault(key, defalt);
 	}
 
+	@Override
+	public boolean removeKey(K key) {
+		return map.remove(key) != null;
+	}
+
+	@Override
+	public boolean containsKey(K key) {
+		return map.containsKey(key);
+	}
+
 }

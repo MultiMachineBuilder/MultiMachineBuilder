@@ -16,9 +16,9 @@ import org.apache.commons.io.IOUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.DATA.file.AdvancedFile;
-import mmb.DATA.file.LocalFile;
 import mmb.DATA.json.JsonTool;
+import mmb.FILES.AdvancedFile;
+import mmb.FILES.LocalFile;
 import mmb.FILES.Save;
 import mmb.MENU.FullScreen;
 import mmb.MENU.NewWorld.NewGame;
@@ -92,8 +92,8 @@ public class PanelSaves extends JPanel {
 					debug.printl("Loaded");
 					ww.setWorld(s, world);
 				}catch(Exception e) {
-					ww.dispose();
 					debug.pstm(e, "Failed to load the world");
+					ww.dispose();
 				}
 			}).start();
 		});

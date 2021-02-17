@@ -107,7 +107,6 @@ public interface Machine extends GameObject, Loader<JsonNode>, Saver<JsonNode>{
 	 * 	<li>log file, which remains on a server</li>
 	 * 	<li>error statement, sent to registered server users and newsletter subscribers</li>
 	 * </ul>
-	 * @param ent newly created block entry
 	 */
 	public void onStartup();
 	/**
@@ -121,7 +120,6 @@ public interface Machine extends GameObject, Loader<JsonNode>, Saver<JsonNode>{
 	 * 	<li>log file, which remains on a server</li>
 	 * 	<li>error statement, sent to registered server users and newsletter subscribers</li>
 	 * </ul>
-	 * @param ent block entry, to which data is loaded
 	 */
 	public void onDataLoaded();
 	/**    
@@ -135,7 +133,6 @@ public interface Machine extends GameObject, Loader<JsonNode>, Saver<JsonNode>{
 	 * 		<li>to a player, if action was requested by a player or theirs block,</li>
 	 * 		<li>or public, if action was requested by unclaimed or server owned block</li>
 	 * 	</ul>
-	 * @param ent block entry to be updated
 	 * @param proxy the map's proxy
 	 */
 	public void onUpdate(MapProxy proxy);
@@ -172,7 +169,6 @@ public interface Machine extends GameObject, Loader<JsonNode>, Saver<JsonNode>{
 	 * 		</ul>
 	 * 	</li>
 	 * </ul>
-	 * @param ent block entry, about to be removed
 	 * @param obj object which requested placement:
 	 * 		<br>class name if GameObject item not provided
 	 * 		<br>player instance if mined by player
@@ -193,7 +189,6 @@ public interface Machine extends GameObject, Loader<JsonNode>, Saver<JsonNode>{
 	 * 	<li>log file, which remains on a server</li>
 	 * 	<li>error statement, sent to registered server users and newsletter subscribers</li>
 	 * </ul>
-	 * @param ent block entry to be saved
 	 */
 	public void onShutdown();
 	//[end]

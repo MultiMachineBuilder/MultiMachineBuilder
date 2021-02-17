@@ -4,8 +4,8 @@
 package mmb.WORLD.block;
 
 import java.util.Objects;
-import java.util.function.Consumer;
 
+import mmb.COLLECTIONS.Collects;
 import mmb.COLLECTIONS.HashSelfSet;
 import mmb.COLLECTIONS.SelfSet;
 import mmb.WORLD.items.Items;
@@ -17,20 +17,24 @@ import mmb.debug.Debugger;
  */
 public class Blocks {
 	private static Debugger debug = new Debugger("BLOCKS");
-	private static final SelfSet<String, BlockType> blocks = new HashSelfSet<>();
+	private static final SelfSet<String, BlockType> _blocks = new HashSelfSet<>();
+	/**
+	 * An unmodifiable {@link SelfSet} of all {@link BlockType}s
+	 */
+	public static final SelfSet<String, BlockType> blocks = Collects.unmodifiableSelfSet(_blocks);
 	
 	public static void register(BlockType type) {
 		Objects.requireNonNull(type, "The block must not be null");
-		Objects.requireNonNull(type.id, "The block's ID can't be null");
+		Objects.requireNonNull(type.identifier(), "The block's ID can't be null");
 		StringBuilder sb = new StringBuilder();
-		sb.append("Adding ").append(type.id).append(" with title ").append(type.title).append(" and descripion:\n").append(type.description);
+		sb.append("Adding ").append(type.identifier()).append(" with title ").append(type.getTitle()).append(" and descripion:\n").append(type.getDescription());
 		debug.printl(sb.toString());
-		blocks.add(type);
+		_blocks.add(type);
 	}
 	
-	public static void remove(BlockType typ) {
+	public static void remove(BlockEntityType typ) {
 		Items.remove(typ);
-		blocks.remove(typ);
+		_blocks.remove(typ);
 		
 	}
 	/**
@@ -39,7 +43,7 @@ public class Blocks {
 	 * @return a block with given name, or null if not found
 	 */
 	public static BlockType get(String name) {
-		return blocks.get(name);
+		return _blocks.get(name);
 	}
 	/**
 	 * Remove given block by name
@@ -48,14 +52,12 @@ public class Blocks {
 	public static void remove(String s) {
 		Objects.requireNonNull(s, "Block name can't be null");
 		debug.printl("Removing "+s);
-		blocks.remove(s);
+		_blocks.remove(s);
 		Items.remove(s);
 	}
-	public static void forEach(Consumer<BlockType> action) {
-		blocks.forEach((b) -> action.accept(b));
-	}
-	
+
 	public static BlockType[] getBlocks() {
-		return blocks.toArray(new BlockType[blocks.size()]);
+		return _blocks.toArray(new BlockType[_blocks.size()]);
 	}
+
 }
