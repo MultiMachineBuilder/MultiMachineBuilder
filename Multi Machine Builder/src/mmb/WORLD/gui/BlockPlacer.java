@@ -29,8 +29,8 @@ public class BlockPlacer implements Placer {
 		return block.getTexture().img;
 	}
 	@Override
-	public String getTitle() {
-		return block.getTitle();
+	public String title() {
+		return block.title();
 	}
 	@Override
 	public void place(int x, int y, BlockMap map) {

@@ -6,6 +6,8 @@ import javax.swing.*;
 import mmb.DATA.Settings;
 import mmb.DATA.contents.GameContents;
 import mmb.debug.Debugger;
+import mmb.testing.TestRotatedImageGroup;
+
 import java.net.URI;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -19,6 +21,8 @@ import mmb.MENU.FullScreen;
 import mmb.MENU.MMBFrame;
 import mmb.MENU.components.BoundCheckBoxMenuItem;
 import mmb.MENU.settings.PanelSettings;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainMenu extends MMBFrame {
 	private static final long serialVersionUID = -7953512837841781519L;
@@ -53,6 +57,7 @@ public class MainMenu extends MMBFrame {
 	
 	private JButton btnExit;
 	private JLabel timerLBL;
+	private JButton btnNewButton;
 	/**
 	 * Launch the application.
 	 */
@@ -108,6 +113,15 @@ public class MainMenu extends MMBFrame {
 		timerLBL = new JLabel("Current time goes here");
 		timerLBL.setToolTipText("The current time");
 		aside.add(timerLBL);
+		
+		btnNewButton = new JButton("TEST");
+		btnNewButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				new TestRotatedImageGroup().setVisible(true);
+			}
+		});
+		aside.add(btnNewButton);
 		java.util.Timer timer = new java.util.Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override

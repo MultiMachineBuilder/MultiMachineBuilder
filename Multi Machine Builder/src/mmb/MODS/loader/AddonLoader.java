@@ -5,6 +5,8 @@ package mmb.MODS.loader;
 
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.*;
 import java.util.jar.*;
 
@@ -154,7 +156,8 @@ public class AddonLoader {
 	 */
 	private void whenWorking() {
 		debug.printl("Injecting "+a.file.name());
-		a.files.forEach(this::processFile); 
+		a.files.forEach(this::processFile);
+		runCentrals();
 	}
 	
 	private void processFile(JarEntry meta, byte[] data){
@@ -200,7 +203,7 @@ public class AddonLoader {
         debug.printl("Class: "+className);
         try {
 			Class c = bcl.loadClass(className, data, false);
-			tryRunCentral(c);
+			tryAddCentral(c);
 			GameContents.loadedClasses.add(c);
 		} catch (ClassNotFoundException e) {
 			debug.pstm(e, "Failed to find class "+name);
@@ -216,17 +219,12 @@ public class AddonLoader {
 			debug.printl("Couldn't process classfile " + className + ". Please check if class file exists and works.");
 		}
 	}
-	void tryRunCentral(Class<?> c) {
-		boolean runnable = false;
-		String cname = c.getName();
-		Class<?>[] interfaces = c.getInterfaces();
-    	for(int i = 0; i < interfaces.length; i++) {
-    		Class<?> in = interfaces[i];
-    		if(AddonCentral.class.isAssignableFrom(in)) runnable = true; //if class implements AddonCentral, run it
-    	}
-    	if(runnable) {//The given class is a mod central class
+	private List<Class<? extends AddonCentral>> cclasses = new ArrayList<>();
+	private void runCentrals() {
+		for(Class<? extends AddonCentral> c : cclasses) {
+			String cname = c.getName();
 			try {
-				AddonCentral central = (AddonCentral)c.newInstance();
+				AddonCentral central = c.newInstance();
 				a.central = central;
 				runCentralClass(central);
 			} catch (IllegalAccessException e) {
@@ -248,6 +246,17 @@ public class AddonLoader {
 				debug.pst(e);
 			}
 		}
+	}
+	@SuppressWarnings("unchecked")
+	private void tryAddCentral(Class<?> c) {
+		boolean runnable = false;
+		Class<?>[] interfaces = c.getInterfaces();
+    	for(int i = 0; i < interfaces.length; i++) {
+    		Class<?> in = interfaces[i];
+    		if(AddonCentral.class.isAssignableFrom(in)) runnable = true; //if class implements AddonCentral, run it
+    	}
+    	if(runnable) //The given class is a mod central class
+			cclasses.add((Class<? extends AddonCentral>) c);
     	a.hasClasses = true;
     }
     	

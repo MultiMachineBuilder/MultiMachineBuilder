@@ -4,7 +4,8 @@
 package mmb.WORLD.worlds.world;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import mmb.Identifiable;
+
+import mmb.BEANS.Identifiable;
 import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
 

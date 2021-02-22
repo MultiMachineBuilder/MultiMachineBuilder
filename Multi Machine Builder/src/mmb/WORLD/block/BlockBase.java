@@ -33,17 +33,17 @@ public abstract class BlockBase implements BlockType {
 	}
 
 	@Override
-	public String identifier() {
+	public String id() {
 		return id;
 	}
 
 	@Override
-	public String getTitle() {
+	public String title() {
 		return title;
 	}
 
 	@Override
-	public String getDescription() {
+	public String description() {
 		return description;
 	}
 

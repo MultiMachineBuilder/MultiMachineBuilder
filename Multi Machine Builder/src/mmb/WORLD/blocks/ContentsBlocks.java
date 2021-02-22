@@ -13,6 +13,13 @@ import mmb.WORLD.block.Block;
 import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.properties.BlockProperty;
+import mmb.WORLD.blocks.gates.ANDGate;
+import mmb.WORLD.blocks.gates.NOTGate;
+import mmb.WORLD.blocks.gates.ORGate;
+import mmb.WORLD.blocks.gates.RandomGate;
+import mmb.WORLD.blocks.gates.UniformRandom;
+import mmb.WORLD.blocks.gates.XORGate;
+import mmb.WORLD.blocks.gates.YESGate;
 import mmb.debug.Debugger;
 
 /**
@@ -29,11 +36,29 @@ public class ContentsBlocks {
 	public static final Block air, grass, plank, stone, leaves,
 	iron_ore, copper_ore, silicon_ore, crafting, logs;
 	
+	public static final BlockEntityType
+	AND, OR, XOR, BUTTON;
+	
+	/**
+	 * Signal generators
+	 */
+	public static final Block TRUE, RANDOM;
+	
+	/**
+	 * Unary gates
+	 */
+	public static final BlockEntityType
+	YES, NOT, RANDOMCTRL;
+	
+	public static final Block ON, OFF;
+	
+	public static final BlockEntityType URANDOM, LAMP;
+	
 	static {	
 		//Toolkit.getDefaultToolkit().beep();
 		debug.printl("Creating blocks");
 		air = new Block();
-		air.texture = BlockDrawer.ofColor(Color.CYAN);
+		air.drawer = BlockDrawer.ofColor(Color.CYAN);
 		air.leaveBehind = air;
 		air.title = "Air";
 		
@@ -49,7 +74,7 @@ public class ContentsBlocks {
 		}
 		
 		grass = new Block();
-		grass.texture = tmp;
+		grass.drawer = tmp;
 		grass.leaveBehind = air;
 		grass.title = "Grass";
 		
@@ -76,44 +101,107 @@ public class ContentsBlocks {
 		ww_chatter.title = "Chatbox";
 		
 		stone = new Block();
-		stone.texture = BlockDrawer.ofImage(Textures.get("stone.png"));
+		stone.drawer = BlockDrawer.ofImage(Textures.get("stone.png"));
 		stone.title = "Stone";
 		
 		plank = new Block();
-		plank.texture = BlockDrawer.ofImage(Textures.get("plank.png"));
+		plank.drawer = BlockDrawer.ofImage(Textures.get("plank.png"));
 		plank.title = "Wooden planks";
 		
 		leaves = new Block();
-		leaves.texture = BlockDrawer.ofImage(Textures.get("leaves.png"));
+		leaves.drawer = BlockDrawer.ofImage(Textures.get("leaves.png"));
 		leaves.title = "Leaves";
 		
 		iron_ore = new Block();
-		iron_ore.texture = BlockDrawer.ofImage(Textures.get("iron_ore.png"));
+		iron_ore.drawer = BlockDrawer.ofImage(Textures.get("iron_ore.png"));
 		iron_ore.title = "Iron ore";
 		
 		copper_ore = new Block();
-		copper_ore.texture = BlockDrawer.ofImage(Textures.get("copper_ore.png"));
+		copper_ore.drawer = BlockDrawer.ofImage(Textures.get("copper_ore.png"));
 		copper_ore.title = "Copper ore";
 		
 		silicon_ore = new Block();
-		silicon_ore.texture = BlockDrawer.ofImage(Textures.get("silicon_ore.png"));
+		silicon_ore.drawer = BlockDrawer.ofImage(Textures.get("silicon_ore.png"));
 		silicon_ore.title = "Silicon ore";
 		
 		crafting = new Block();
-		crafting.texture = BlockDrawer.ofImage(Textures.get("crafting.png"));
+		crafting.drawer = BlockDrawer.ofImage(Textures.get("crafting.png"));
 		crafting.title = "Assembly Table";
 		
 		logs = new Block();
-		logs.texture = BlockDrawer.ofImage(Textures.get("log.png"));
+		logs.drawer = BlockDrawer.ofImage(Textures.get("log.png"));
 		logs.title = "Log";
+		
+		AND = new BlockEntityType();
+		AND.title = "AND";
+		AND.setFactory(ANDGate::new);
+		AND.drawer = BlockDrawer.ofImage(Textures.get("logic/AND.png"));
+		
+		OR = new BlockEntityType();
+		OR.title = "OR";
+		OR.setFactory(ORGate::new);
+		OR.drawer = BlockDrawer.ofImage(Textures.get("logic/OR.png"));
+		
+		XOR = new BlockEntityType();
+		XOR.title = "XOR";
+		XOR.setFactory(XORGate::new);
+		XOR.drawer = BlockDrawer.ofImage(Textures.get("logic/XOR.png"));
+		
+		TRUE = new AlwaysTrue();
+		TRUE.title = "Always True";
+		TRUE.drawer = BlockDrawer.ofImage(Textures.get("logic/true.png"));
+		
+		RANDOMCTRL = new BlockEntityType();
+		RANDOMCTRL.title = "Random if";
+		RANDOMCTRL.setFactory(RandomGate::new);
+		RANDOMCTRL.drawer = BlockDrawer.ofImage(Textures.get("logic/randomctrl.png"));
+		
+		RANDOM = new Randomizer();
+		RANDOM.drawer = BlockDrawer.ofImage(Textures.get("logic/random.png"));
+		RANDOM.title = "Random";
+		
+		BUTTON = new BlockEntityType();
+		BUTTON.title = "Button";
+		BUTTON.setFactory(BlockButton::new);
+		BUTTON.drawer = BlockDrawer.ofImage(Textures.get("logic/button.png"));
+		
+		YES = new BlockEntityType();
+		YES.title = "YES";
+		YES.setFactory(YESGate::new);
+		YES.drawer = BlockDrawer.ofImage(Textures.get("logic/YES.png"));
+		
+		NOT = new BlockEntityType();
+		NOT.title = "NOT";
+		NOT.setFactory(NOTGate::new);
+		NOT.drawer = BlockDrawer.ofImage(Textures.get("logic/NOT.png"));
+		
+		ON = new OnToggle();
+		ON.drawer = BlockDrawer.ofImage(Textures.get("logic/on.png"));
+		ON.title = "Active Switch";
+		
+		OFF = new OffToggle();
+		OFF.drawer = BlockDrawer.ofImage(Textures.get("logic/off.png"));
+		OFF.title = "Inactive Switch";
+		
+		URANDOM = new BlockEntityType();
+		URANDOM.title = "Uniform Random";
+		URANDOM.setFactory(UniformRandom::new);
+		URANDOM.drawer = BlockDrawer.ofImage(Textures.get("logic/urandom.png"));
+		
+		LAMP = new BlockEntityType();
+		LAMP.title = "Lamp";
+		LAMP.setFactory(Lamp::new);
+		LAMP.drawer = BlockDrawer.ofImage(Textures.get("logic/off lamp.png"));
 		
 		//Register
 		grass.register("mmb.grass");
 		air.register("mmb.air");
+		
 		ww_tail.register("wireworld.tail");
 		ww_head.register("wireworld.head");
 		ww_wire.register("wireworld.wire");
 		ww_chatter.register("wireworld.chatter");
+		
 		stone.register("mmb.stone");
 		plank.register("mmb.planks");
 		leaves.register("mmb.leaves");
@@ -122,6 +210,20 @@ public class ContentsBlocks {
 		silicon_ore.register("mmb.silicon_ore");
 		crafting.register("mmb.craft");
 		logs.register("mmb.tree");
+		
+		AND.register("wireworld.and");
+		OR.register("wireworld.or");
+		XOR.register("wireworld.xor");
+		TRUE.register("wireworld.true");
+		RANDOMCTRL.register("wireworld.randomctrl");
+		RANDOM.register("wireworld.random");
+		BUTTON.register("wireworld.button");
+		NOT.register("wireworld.not");
+		YES.register("wireworld.yes");
+		ON.register("wireworld.on");
+		OFF.register("wireworld.off");
+		URANDOM.register("wireworld.urandom");
+		LAMP.register("wireworld.lamp");
 	}
 
 }

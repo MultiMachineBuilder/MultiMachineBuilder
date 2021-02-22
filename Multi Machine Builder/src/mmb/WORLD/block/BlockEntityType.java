@@ -16,7 +16,7 @@ import java.util.function.Consumer;
 import mmb.GameObject;
 import mmb.WORLD.BlockDrawer;
 import mmb.WORLD.block.properties.BlockProperty;
-import mmb.WORLD.item.ItemType;
+import mmb.WORLD.item.Item;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.map.BlockMap;
 
@@ -25,17 +25,8 @@ import mmb.WORLD.worlds.map.BlockMap;
  * This class represents a single block type.
  * <br> All block types can be used as item types too.
  */
-public class BlockEntityType extends ItemType implements BlockType{
-	//Rotations
-	/**
-	 * A rotation group is used by 'orientation' block property and by wrench.
-	 * If set to null, then it will be replaced when registering
-	 */
-	public RotationGroup rotations;
+public class BlockEntityType extends Item implements BlockType{
 	
-	public boolean rotationsAllowed;
-	
-	private BlockFactory factory;
 	
 	//Placement
 	/**
@@ -63,7 +54,6 @@ public class BlockEntityType extends ItemType implements BlockType{
 	 * 	<li>error statement, sent to registered server users and newsletter subscribers</li>
 	 * </ul>
 	 */
-
 	/**    
 	 * Set this variable to run an update on this block for every tick
 	 * <br>NOTE: design this function carefully to prevent logspam
@@ -77,7 +67,6 @@ public class BlockEntityType extends ItemType implements BlockType{
 	 * 		<li>or public, if action was requested by unclaimed or server owned block</li>
 	 * 	</ul>
 	 */
-
 	/**    
 	 * Set this variable to prepare a block for server shutdown.
 	 * <br>Does not run when block is broken.
@@ -92,7 +81,6 @@ public class BlockEntityType extends ItemType implements BlockType{
 	 * 	<li>error statement, sent to registered server users and newsletter subscribers</li>
 	 * </ul>
 	 */
-
 	/**
 	 * <br>Set this variable to handle the block being placed.
 	 * <ul>
@@ -114,7 +102,6 @@ public class BlockEntityType extends ItemType implements BlockType{
 	 * 	</li>
 	 * </ul>
 	 */
-
 	/**
 	 * <br>Set this variable to handle the block being mined.
 	 * <ul>
@@ -136,13 +123,12 @@ public class BlockEntityType extends ItemType implements BlockType{
 	 * 	</li>
 	 * </ul>
 	 */
-
 	/**
 	 * Defines which block is left behind when this block is mined.
 	 * If set to null, it leaves behind a void
 	 */
 
-	
+	//Register
 	@Override
 	public void register(String id) {
 		this.id = id;
@@ -152,13 +138,21 @@ public class BlockEntityType extends ItemType implements BlockType{
 	public void register() {
 		Blocks.register(this);
 	}
+	
+	//GUI
 	@Override
-	public String getTitle() {
-		return title;
+	public void openGUI() {
+		//unused
 	}
 	@Override
-	public String getDescription() {
-		return description;
+	public void closeGUI() {
+		//unused
+	}
+	
+	//Preview
+	@Override
+	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation) {
+		drawer.draw(renderStartPos, g);
 	}
 	@Override
 	public void place(int x, int y, BlockMap map) {
@@ -168,43 +162,34 @@ public class BlockEntityType extends ItemType implements BlockType{
 	public BlockEntity create(int x, int y, BlockMap map) {
 		return factory.create(x, y, map);
 	}
-	@Override
-	public BufferedImage getIcon() {
-		return drawer.img;
-	}
-	@Override
-	public void openGUI() {
-		//unused
-	}
-	@Override
-	public void closeGUI() {
-		//unused
-	}
-	@Override
-	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation) {
-		drawer.draw(renderStartPos, g);
-	}
-	@Override
-	public BlockDrawer getTexture() {
-		return drawer;
-	}
-	public BlockType leaveBehind;
-	@Override
-	public BlockType leaveBehind() {
-		return leaveBehind;
-	}
+
+	//Factory
+	private BlockFactory factory;
 	/**
 	 * @param factory the factory to set
 	 */
 	public void setFactory(BlockFactory factory) {
 		this.factory = factory;
 	}
+
+	//Leave behind
+	public BlockType leaveBehind;
+	@Override
+	public BlockType leaveBehind() {
+		return leaveBehind;
+	}
+	@Override
+	public void setLeaveBehind(BlockType block) {
+		leaveBehind = block;
+	}
+	
+	//It is a BlockEntity
+	@Override
+	public BlockEntityType asBlockEntityType() {
+		return this;
+	}
 	@Override
 	public boolean isBlockEntity() {
 		return true;
-	}
-	@Override
-	public void setID(String id) {
-		this.id = id;
 	}
 }

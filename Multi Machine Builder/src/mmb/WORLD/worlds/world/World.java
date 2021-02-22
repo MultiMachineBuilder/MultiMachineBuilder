@@ -155,8 +155,8 @@ public class World implements GameObject, Saver<JsonNode>, Loader<JsonNode>{
 		//Save data layers
 		ObjectNode dataNode = JsonTool.newObjectNode();
 		for(WorldDataLayer datalayer: data) {
-			debug.printl("Saving DataLayer: "+datalayer.identifier());
-			dataNode.set(datalayer.identifier(), datalayer.save());
+			debug.printl("Saving DataLayer: "+datalayer.id());
+			dataNode.set(datalayer.id(), datalayer.save());
 		}
 		
 		//Combine all three
@@ -168,19 +168,9 @@ public class World implements GameObject, Saver<JsonNode>, Loader<JsonNode>{
 	}
 	//[end]
 	//[start] activity
-	/**
-	 * Disable all maps and map behaviors
-	 */
-	public void close(){
-		main.dispose();
-		maps.values().forEach(map -> map.dispose());
-	}
-	/**
-	 * Activate all maps and map behaviors
-	 */
-	public void activate() {
-		main.activate();
-		maps.values().forEach(map -> map.activate());
+	public void setActive(boolean active) {
+		main.setRunning(active);;
+		maps.values().forEach(map -> map.setRunning(active));
 	}
 	/**
 	 * Destroy all associated resources.
@@ -197,7 +187,7 @@ public class World implements GameObject, Saver<JsonNode>, Loader<JsonNode>{
 	//[end]
 	//[start] GameObject
 	@Override
-	public String identifier() {
+	public String id() {
 		// TODO Auto-generated method stub
 		return null;
 	}

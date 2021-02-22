@@ -3,7 +3,7 @@
  */
 package mmb.WORLD.inventory;
 
-import mmb.WORLD.item.ItemType;
+import mmb.WORLD.item.Item;
 
 /**
  * @author oskar
@@ -12,30 +12,31 @@ import mmb.WORLD.item.ItemType;
 public class CreativeWithdrawalInventory implements Inventory{
 
 	@Override
-	public ItemToken retrieve(ItemType item) {
+	public ItemToken retrieve(ItemEntry item) {
 		return new CreativeWithdrawalItemToken(item);
 	}
 
 	@Override
-	public boolean contains(ItemType item) {
+	public boolean contains(ItemEntry item) {
 		return true;
 	}
 
 	@Override
-	public ItemEntry withdraw(ItemType slot) {
-		return new ItemEntry(slot, 1);
+	public ItemStack withdraw(ItemEntry slot) {
+		return new ItemStack(slot, 1);
 	}
 
 	@Override
-	public ItemEntry withdraw(ItemType slot, int amount) {
-		// TODO Auto-generated method stub
-		return null;
+	public ItemStack withdraw(ItemEntry item, int amount) {
+		return new ItemStack(item, amount);
 	}
 
 	@Override
-	public ItemEntry put(ItemType item, int amount) {
-		// TODO Auto-generated method stub
-		return null;
+	public int put(ItemEntry item, int amount) {
+		return 0;
 	}
-
+	@Override
+	public double capacity() {
+		return Double.POSITIVE_INFINITY;
+	}
 }

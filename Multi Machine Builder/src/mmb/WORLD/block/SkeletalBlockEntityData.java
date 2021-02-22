@@ -22,7 +22,7 @@ public abstract class SkeletalBlockEntityData extends SkeletalBlockEntity implem
 	@Override
 	public final JsonNode save() {
 		ObjectNode data = JsonTool.newObjectNode();
-		data.put("blocktype", type().identifier());
+		data.put("blocktype", type().id());
 		save0(data);
 		return data;
 	}

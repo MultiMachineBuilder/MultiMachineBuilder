@@ -9,7 +9,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import mmb.Identifiable;
+import mmb.BEANS.Identifiable;
 import mmb.COLLECTIONS.HashSelfSet;
 import mmb.COLLECTIONS.SelfSet;
 
@@ -35,7 +35,7 @@ class TestSelfSet {
 		String name;
 		TestValue value;
 		@Override
-		public String identifier() {
+		public String id() {
 			return name;
 		}
 		public void test(TestValue obj, String message) {

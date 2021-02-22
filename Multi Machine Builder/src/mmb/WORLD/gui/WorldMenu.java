@@ -10,12 +10,16 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
 import mmb.WORLD.block.SkeletalBlockEntity;
+import mmb.BEANS.Rotable;
 import mmb.BEANS.TextMessageProvider;
 import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.properties.BlockProperty;
 import mmb.WORLD.blocks.StringValue;
+import mmb.WORLD.worlds.map.BlockMap;
 import mmb.debug.Debugger;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * @author oskar
@@ -27,27 +31,25 @@ public class WorldMenu extends JPopupMenu {
 	private JMenu mnInventory;
 	private JMenuItem mntmWithdrawA;
 	private JMenuItem mntmWithdraw1;
-	private final transient BlockEntry block;
-	private final WorldFrame f;
 	private JMenuItem mntmMine;
 	private JMenuItem mntmTextEditor;
 	private JMenuItem mntmNewMenuItem;
 	private JMenuItem mntmCCW;
 	private JMenuItem mntmCW;
 	private static final Debugger debug = new Debugger("WORLD MENU");
+	private JMenuItem mntmNewMenuItem_1;
 
 	/**
 	 * 
 	 */
-	public WorldMenu(BlockEntry blockEntry, MouseEvent event, WorldFrame frame, WorldWindow window) {
-		block = blockEntry;
-		f = frame;
+	public WorldMenu(BlockEntry block, WorldFrame frame, WorldWindow window) {
+		BlockMap map = frame.getMap();
 		int mouseoverX = frame.getMouseoverBlockX();
 		int mouseoverY = frame.getMouseoverBlockY();
 		mntmGoHere = new JMenuItem("Go here");
 		mntmGoHere.addActionListener(e ->{
-			f.perspective.x = -mouseoverX;
-			f.perspective.y = -mouseoverY;
+			frame.perspective.x = -mouseoverX;
+			frame.perspective.y = -mouseoverY;
 		});
 		add(mntmGoHere);
 		
@@ -69,8 +71,16 @@ public class WorldMenu extends JPopupMenu {
 				debug.printl("Removed machine");
 				return;
 			}
-			block.type().leaveBehind().place(mouseoverX, mouseoverY, null);
+			block.type().leaveBehind().place(mouseoverX, mouseoverY, map);
 		});
+		
+		mntmNewMenuItem_1 = new JMenuItem("Place");
+		mntmNewMenuItem_1.addActionListener(e -> {
+			if(map.inBounds(mouseoverX, mouseoverY)) {
+				frame.getPlacer().getPlacer().place(mouseoverX, mouseoverY, map);
+			}
+		});
+		add(mntmNewMenuItem_1);
 		add(mntmMine);
 		
 		mntmTextEditor = new JMenuItem("Text editor");
@@ -86,9 +96,17 @@ public class WorldMenu extends JPopupMenu {
 		add(mntmTextEditor);
 		
 		mntmCCW = new JMenuItem("Turn CCW (Ctrl+LMB)");
+		mntmCCW.addActionListener(e -> {
+				if(block instanceof Rotable) 
+					((Rotable)block).ccw();
+		});
 		add(mntmCCW);
 		
 		mntmCW = new JMenuItem("Turn CW (Ctrl+RMB)");
+		mntmCW.addActionListener(e -> {
+				if(block instanceof Rotable) 
+					((Rotable)block).cw();
+		});
 		add(mntmCW);
 	}
 }

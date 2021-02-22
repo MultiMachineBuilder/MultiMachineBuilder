@@ -5,7 +5,7 @@ package mmb.COLLECTIONS;
 
 import java.util.Set;
 
-import mmb.Identifiable;
+import mmb.BEANS.Identifiable;
 
 /**
  * @author oskar
@@ -54,7 +54,7 @@ public interface SelfSet<K, V extends Identifiable<K>> extends Set<V>{
 	 * The input must be of type <V>, because it is casted to {@link Identifiable} internally
 	 */
 	default boolean contains(Object arg0) {
-		return containsKey(((V)arg0).identifier());
+		return containsKey(((V)arg0).id());
 	}
 
 	@SuppressWarnings({ "unlikely-arg-type", "unchecked" })
@@ -64,6 +64,6 @@ public interface SelfSet<K, V extends Identifiable<K>> extends Set<V>{
 	 * The input must be of type <V>, because it is casted to {@link Identifiable} internally
 	 */
 	default boolean remove(Object arg0) {
-		return remove(((V)arg0).identifier());
+		return remove(((V)arg0).id());
 	}
 }

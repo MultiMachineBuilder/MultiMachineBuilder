@@ -8,6 +8,7 @@ import java.util.Objects;
 import mmb.COLLECTIONS.Collects;
 import mmb.COLLECTIONS.HashSelfSet;
 import mmb.COLLECTIONS.SelfSet;
+import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.items.Items;
 import mmb.debug.Debugger;
 
@@ -25,9 +26,10 @@ public class Blocks {
 	
 	public static void register(BlockType type) {
 		Objects.requireNonNull(type, "The block must not be null");
-		Objects.requireNonNull(type.identifier(), "The block's ID can't be null");
+		Objects.requireNonNull(type.id(), "The block's ID can't be null");
+		if(type.leaveBehind() == null) type.setLeaveBehind(ContentsBlocks.grass);
 		StringBuilder sb = new StringBuilder();
-		sb.append("Adding ").append(type.identifier()).append(" with title ").append(type.getTitle()).append(" and descripion:\n").append(type.getDescription());
+		sb.append("Adding ").append(type.id()).append(" with title ").append(type.title()).append(" and descripion:\n").append(type.description());
 		debug.printl(sb.toString());
 		_blocks.add(type);
 	}
@@ -52,7 +54,7 @@ public class Blocks {
 	public static void remove(String s) {
 		Objects.requireNonNull(s, "Block name can't be null");
 		debug.printl("Removing "+s);
-		_blocks.remove(s);
+		_blocks.removeKey(s);
 		Items.remove(s);
 	}
 
@@ -60,4 +62,10 @@ public class Blocks {
 		return _blocks.toArray(new BlockType[_blocks.size()]);
 	}
 
+	public static boolean isGround(BlockEntry ent) {
+		return ent == ContentsBlocks.air || ent == ContentsBlocks.grass;
+	}
+	public static boolean isGround(BlockType ent) {
+		return ent == ContentsBlocks.air || ent == ContentsBlocks.grass;
+	}
 }

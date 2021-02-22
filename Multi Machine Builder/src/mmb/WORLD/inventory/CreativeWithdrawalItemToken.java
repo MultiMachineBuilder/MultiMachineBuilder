@@ -3,8 +3,6 @@
  */
 package mmb.WORLD.inventory;
 
-import mmb.WORLD.item.ItemType;
-
 /**
  * @author oskar
  *
@@ -12,11 +10,11 @@ import mmb.WORLD.item.ItemType;
 public class CreativeWithdrawalItemToken implements ItemToken {
 	private int amt;
 	private Inventory inv;
-	private final ItemType item;
+	private final ItemEntry item;
 	/**
 	 * @param item item to produce
 	 */
-	public CreativeWithdrawalItemToken(ItemType item) {
+	public CreativeWithdrawalItemToken(ItemEntry item) {
 		this.item = item;
 	}
 

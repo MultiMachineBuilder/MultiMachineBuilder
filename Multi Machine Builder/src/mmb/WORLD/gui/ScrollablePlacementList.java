@@ -89,7 +89,7 @@ public class ScrollablePlacementList extends JComponent implements MouseListener
 		int offset = -scroll;
 		int i = 0;
 		for(Placer p: placers){
-			debug.printl(p.getTitle());
+			//debug.printl(p.getTitle());
 			if(i == placerIndex) {
 				//Selected
 				g.setColor(Color.CYAN);
@@ -98,7 +98,7 @@ public class ScrollablePlacementList extends JComponent implements MouseListener
 			//Paint a placer
 			g.setColor(Color.BLACK);
 			g.drawImage(p.getIcon(), 4, offset+4, null);
-			g.drawString(p.getTitle(), 40, offset+20);
+			g.drawString(p.title(), 40, offset+20);
 			offset += 40;
 			i++;
 		}

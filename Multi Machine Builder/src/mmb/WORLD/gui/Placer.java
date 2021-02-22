@@ -7,15 +7,15 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 
+import mmb.BEANS.Titled;
 import mmb.WORLD.worlds.map.BlockMap;
 
 /**
  * @author oskar
  *
  */
-public interface Placer {
+public interface Placer extends Titled {
 	public BufferedImage getIcon();
-	public String getTitle();
 	public void place(int x, int y, BlockMap map);
 	public void openGUI();
 	public void closeGUI();

@@ -14,7 +14,6 @@ import mmb.DATA.json.JsonTool;
 import mmb.FILES.Save;
 import mmb.MENU.FullScreen;
 import mmb.MENU.MMBFrame;
-import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.Blocks;
 import mmb.WORLD.machine.MachineModel;
@@ -27,6 +26,9 @@ import javax.swing.JPanel;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import java.io.OutputStream;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javax.swing.JSplitPane;
 import javax.swing.JButton;
 
@@ -45,10 +47,12 @@ import mmb.MENU.components.BoundCheckBoxMenuItem;
 public class WorldWindow extends MMBFrame implements WindowListener{
 	private static final long serialVersionUID = -3444481558687472298L;
 	private transient Save file;
+	private Timer fpsCounter = new Timer();
 	
 	@Override
 	public void destroy() {
 		debug.printl("Exiting the world");
+		fpsCounter.cancel();
 		if(worldFrame.getWorld() != null) {
 			JsonNode object = worldFrame.getWorld().save();
 			String text;
@@ -119,10 +123,7 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 		worldFrame.setWindow(this);
 		rightSplitPane.setLeftComponent(worldFrame);
 		
-		
-		
 		splitPane.setLeftComponent(scrollablePlacementList);
-		
 		
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -156,6 +157,21 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 			System.exit(0);
 		});
 		mnNewMenu.add(mntmExitDesktop);
+		
+		bchckbxmntmDebugDisplay = new BoundCheckBoxMenuItem();
+		bchckbxmntmDebugDisplay.setText("Debug display");
+		bchckbxmntmDebugDisplay.setVariable(WorldFrame.DEBUG_DISPLAY);
+		mnNewMenu.add(bchckbxmntmDebugDisplay);
+		
+		//Framerate
+		fpsCounter.scheduleAtFixedRate(new TimerTask() {
+			@Override
+			public void run() {
+				worldFrame.fps.reset();
+				if(worldFrame.getMap() != null)
+					worldFrame.getMap().tps.reset();
+			}
+		}, 0, 1000);
 	}
 	private static Debugger debug = new Debugger("WORLD TEST");
 	private ScrollablePlacementList scrollablePlacementList;
@@ -175,6 +191,7 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 	private BoundCheckBoxMenuItem mntmFullScreen;
 	private JMenuItem mntmMMenu;
 	private JMenuItem mntmExitDesktop;
+	private BoundCheckBoxMenuItem bchckbxmntmDebugDisplay;
 	public void setPlacerGUI(Component comp) {
 		toolEditorSplitPane.setLeftComponent(comp);
 	}

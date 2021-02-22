@@ -131,7 +131,7 @@ public class MachineModel implements Placer {
 		return icon.img;
 	}
 	@Override
-	public String getTitle() {
+	public String title() {
 		return title;
 	}
 	@Override

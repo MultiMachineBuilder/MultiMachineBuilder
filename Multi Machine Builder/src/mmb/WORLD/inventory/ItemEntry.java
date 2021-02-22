@@ -3,36 +3,22 @@
  */
 package mmb.WORLD.inventory;
 
-import mmb.WORLD.item.ItemType;
-
 /**
  * @author oskar
- * An item entry is intended for use in inventories.
+ * An item entry representing a single unit of item
  */
-public class ItemEntry {
-	/**
-	 * An item stored in the inventory
-	 */
-	public ItemType item;
-	/**
-	 * Number of items in the entry
-	 */
-	public int amount;
-	
-	/**
-	 * @param item item type in this stack
-	 * @param amount number of items in this stack
-	 */
-	public ItemEntry(ItemType item, int amount) {
-		super();
-		this.item = item;
-		this.amount = amount;
-	}
+public interface ItemEntry {
 
 	/**
-	 * @return the volume of item entry
+	 * @return the volume of single given {@code ItemEntry}
 	 */
-	public double volume() {
-		return item.volume * amount;
+	public double volume();
+	public default double volume(int amount) {
+		return volume() * amount;
 	}
+	/**
+	 * Clone this {@code ItemEntry}
+	 * @return a copy of given ItemEntry
+	 */
+	public ItemEntry itemClone();
 }

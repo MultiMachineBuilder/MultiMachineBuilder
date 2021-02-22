@@ -80,7 +80,7 @@ public class BlockMapLoader implements LazyLoader<ObjectNode, BlockMap> {
 		ObjectNode dataNode = (ObjectNode) data.get("data");
 		loaded.data.addAll(DataLayers.createAllMapDataLayers());
 		for(MapDataLayer dl: loaded.data) {
-			JsonNode datalayerData = dataNode.get(dl.identifier());
+			JsonNode datalayerData = dataNode.get(dl.id());
 			try {
 				if(!datalayerData.isMissingNode()) dl.load(datalayerData);
 				dl.afterMapLoaded(loaded);

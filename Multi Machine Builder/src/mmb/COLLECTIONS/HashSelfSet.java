@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
-import mmb.Identifiable;
+import mmb.BEANS.Identifiable;
 
 /**
  * @author oskar
@@ -24,13 +24,13 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 
 	@Override
 	public boolean add(V e) {
-		return map.put(e.identifier(), e) == null;
+		return map.put(e.id(), e) == null;
 	}
 
 	@Override
 	public boolean addAll(Collection<? extends V> c) {
 		for(V value: c) {
-			map.put(value.identifier(), value);
+			map.put(value.id(), value);
 		}
 		return true;
 	}
@@ -177,7 +177,7 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 
 			@Override
 			public boolean add(V e) {
-				map.put(e.identifier(), e);
+				map.put(e.id(), e);
 				return true;
 			}
 

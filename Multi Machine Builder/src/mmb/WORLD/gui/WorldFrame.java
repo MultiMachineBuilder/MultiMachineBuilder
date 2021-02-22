@@ -8,13 +8,16 @@ import java.awt.Point;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
+import javax.swing.Timer;
 import java.util.TimerTask;
 import java.util.function.Consumer;
 
 import javax.swing.JComponent;
 
 import org.joml.Vector2d;
+
+import mmb.BEANS.BlockActivateListener;
+import mmb.DATA.variables.ListenerBooleanVariable;
 import mmb.WORLD.BlockDrawer;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.machine.Machine;
@@ -29,6 +32,7 @@ import java.awt.Color;
  */
 public class WorldFrame extends JComponent implements MouseListener, KeyListener, MouseMotionListener, MouseWheelListener{
 	private static final long serialVersionUID = 7346245653768692732L;
+	public final FPSCounter fps = new FPSCounter();
 
 	private Vector2d pos = new Vector2d();
 	
@@ -61,43 +65,37 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 	
 	private transient BlockMap map;
 	
-	//LISTENERS
+	//[start] listeners
 	private transient List<Consumer<String>> titleListeners = new ArrayList<>();
-
-
 	/** Add a title listener 
 	 * @param arg0 title listener to be added
 	 */
 	public void addTitleListener(Consumer<String> arg0) {
 		titleListeners.add(arg0);
 	}
-
 	/** Remove a title listener 
 	 * @param arg0 title listener to be removed*/
 	public void removeTitleListener(Object arg0) {
 		titleListeners.remove(arg0);
-	}
-	
+	}	
 	private void fireTitleListeners() {
 		for(Consumer<String> listener: titleListeners) {
 			listener.accept(title);
 		}
 	}
-
+	//[end]
 	/**
 	 * @return the subWorldName
 	 */
 	public String getSubWorldName() {
 		return subWorldName;
 	}
-
 	/**
 	 * @return the world
 	 */
 	public World getWorld() {
 		return world;
 	}
-
 	/**
 	 * @return the map
 	 */
@@ -125,13 +123,13 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 			sdebug.printl("A world is already running.");
 			world.destroy();
 			world = w;
-			w.activate();
+			w.setActive(true);
 			map = w.getMain();
 		}else {
 			sdebug.printl("Opening a new world");
 			world = w;
 			map = w.getMain();
-			w.activate();
+			w.setActive(true);
 		}
 	}
 
@@ -151,17 +149,16 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 	 * Create a new WorldFrame
 	 */
 	public WorldFrame() {
-		initialize();
-	}
-	private void initialize() {
 		addMouseListener(this);
 		addMouseWheelListener(this);
 		addMouseMotionListener(this);
 		addKeyListener(this);
 		setFocusable(true);
-		setActive(true);
+		timer.setRepeats(true);
+		timer.start();
 	}
 
+	//[start] MouseListener, MouseMotionListener and MouseWheelListener
 	@Override
 	public void mouseWheelMoved(MouseWheelEvent arg0) {
 		placer.mouseWheelMoved(arg0);
@@ -229,8 +226,18 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 		case 0:
 			break;
 		case 1: //LMB
-			if(map.inBounds(mouseoverBlockX, mouseoverBlockY))
-				placer.getPlacer().place(mouseoverBlockX, mouseoverBlockY, map);
+			
+			//If the block has ActionListener, run the listener
+			if(map.inBounds(mouseoverBlockX, mouseoverBlockY)) {
+				BlockEntry ent = map.get(mouseoverBlockX, mouseoverBlockY);
+				if(ent instanceof BlockActivateListener) {
+					((BlockActivateListener) ent).run(mouseoverBlockX, mouseoverBlockY, map);
+					debug.printl("Running BlockActivateListener for: ["+mouseoverBlockX+","+mouseoverBlockY+"]");
+				}else {
+					if(placer.getPlacer() == null) return;
+					placer.getPlacer().place(mouseoverBlockX, mouseoverBlockY, map);
+				}
+			}
 			break;
 		case 3: //RMB
 			showPopup(e);
@@ -246,7 +253,7 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 	public void mouseReleased(MouseEvent e) {
 		/*unused*/
 	} 
-	
+	//[end]
 	@Override
 	public void paint(Graphics g) {
 		resetMouseoverBlock();
@@ -287,6 +294,7 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 	}
 	
 	private void render(Graphics g) {
+		fps.count();
 		//Dimensions in tiles
 		double tilesW = (getWidth()/ 32);
 		double tilesH = (getHeight()/ 32);
@@ -317,7 +325,7 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 		int startY = (int) ((ey1+pos.y)*32);
 		for(int i = ex1, x = startX; i < ex2; i++, x += 32) {
 			for(int j = ey1, y = startY; j < ey2; j++, y += 32) {
-				renderTile(x, y, g, map.get(i, j), i, j);
+				renderTile(x, y, g, map.get(i, j));
 			}
 		}
 		
@@ -344,29 +352,29 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 		g.drawRect(x+1, y+1, 30, 30);
 		
 		//Debug use only
-		if(DEBUG_DISPLAY) {
+		if(DEBUG_DISPLAY.getValue()) {
 			g.setColor(Color.CYAN);
-			g.fillRect(0, 0, 150, 34);
+			g.fillRect(0, 0, 150, 85);
 			g.setColor(Color.BLACK);
 			g.drawString("Offset: "+pos.x+","+pos.y, 2, 11);
 			g.drawString("Selected block: "+mouseoverBlockX+","+mouseoverBlockY, 2, 28);
-			
+			g.drawString("BlockEntities: " + map.blockents.size(), 2, 45);
+			g.drawString("FPS: "+fps.get(), 2, 62);
+			g.drawString("TPS: "+map.tps.get(), 2, 79);
 		}
 	}
-	private static final boolean DEBUG_DISPLAY = false;
-	private static void renderTile(int x, int y, Graphics g, BlockEntry blockEntry, int wx, int wy) {
+	public static final ListenerBooleanVariable DEBUG_DISPLAY = new ListenerBooleanVariable();
+	private static void renderTile(int x, int y, Graphics g, BlockEntry blockEntry) {
 		if(blockEntry == null) return;
-		BlockDrawer bd = blockEntry.type().getTexture();
-		if(bd != null) bd.draw(x, y, g);
+		blockEntry.render(x, y, g);
 	}
-
-	private transient Timer timer = new Timer();
-	private boolean active = false;
+	//[start] Activity
+	private transient Timer timer = new Timer(20, e -> repaint());
 	/**
 	 * @return is timer active?
 	 */
 	public boolean isActive() {
-		return active;
+		return timer.isRunning();
 	}
 	/**
 	 * Set the activity of timer.
@@ -374,18 +382,16 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 	 * @param a should timer be active?
 	 */
 	public void setActive(boolean a) {	
-		if(active && !a) {
-			timer.cancel();
-		}else if(!active && a) {
-			timer.scheduleAtFixedRate(new TimerTask() {
-				@Override public void run() {repaint();}
-			}, 0, 20);
+		if(timer.isRunning() && !a) {
+			timer.setRepeats(true);
+			timer.restart();
+		}else if(!timer.isRunning() && a) {
+			timer.setRepeats(false);
+			timer.stop();
 		}
-		active = a;
 	}
+	//[end]
 	private Point mousePosition = new Point();
-
-	private WorldWindow window;
 	/**
 	 * Set mouse position from pair of coordinates
 	 * @param x X coordinate
@@ -404,11 +410,12 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 	}
 	private void showPopup(MouseEvent e) {
 		if(map.inBounds(mouseoverBlockX, mouseoverBlockY)) {
-			WorldMenu menu = new WorldMenu(map.get(getMouseoverBlock()), e, this, window);
+			WorldMenu menu = new WorldMenu(map.get(mouseoverBlockX, mouseoverBlockY), this, window);
 			menu.show(this, e.getX(), e.getY());
 		}
 	}
-	
+	//[start] Window reference
+	private WorldWindow window;
 	/**
 	 * @return the window
 	 */
@@ -421,10 +428,10 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 	public void setWindow(WorldWindow window) {
 		this.window = window;
 	}
-
+	//[end]
+	//[start] Mouseover block
 	private int mouseoverBlockX;
 	private int mouseoverBlockY;
-	
 	private void resetMouseoverBlock() {
 		mouseoverBlockX = (int)Math.floor((mousePosition.x / 32.0)-pos.x);
 		mouseoverBlockY = (int)Math.floor((mousePosition.y / 32.0)-pos.y);
@@ -447,9 +454,9 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 	public int getMouseoverBlockY() {
 		return mouseoverBlockY;
 	}
-
+	//[end]
+	//[start] Scrollable Placement List
 	private ScrollablePlacementList placer;
-
 	/**
 	 * @return the placer
 	 */
@@ -462,4 +469,5 @@ public class WorldFrame extends JComponent implements MouseListener, KeyListener
 	public void setPlacer(ScrollablePlacementList placer) {
 		this.placer = placer;
 	}
+	//[end]
 }

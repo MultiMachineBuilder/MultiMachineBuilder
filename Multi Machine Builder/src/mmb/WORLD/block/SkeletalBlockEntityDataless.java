@@ -21,6 +21,6 @@ public abstract class SkeletalBlockEntityDataless extends SkeletalBlockEntity{
 		super(x, y, owner2);
 	}
 	public final JsonNode save() {
-		return new TextNode(type().identifier());
+		return new TextNode(type().id());
 	}
 }

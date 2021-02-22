@@ -5,6 +5,8 @@ package mmb;
 
 import javax.annotation.Nullable;
 
+import mmb.BEANS.Identifiable;
+
 /**
  * @author oskar
  * This interface is used for all game objects which can be:

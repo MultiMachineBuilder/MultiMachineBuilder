@@ -12,7 +12,7 @@ import java.awt.Rectangle;
 import javax.swing.JLabel;
 
 import mmb.WORLD.BlockDrawer;
-import mmb.WORLD.item.ItemType;
+import mmb.WORLD.item.Item;
 
 /**
  * @author oskar
@@ -22,7 +22,7 @@ public class ItemLabel extends JLabel {
 	public ItemLabel() {
 		super();
 	}
-	public ItemLabel(ItemType type) {
+	public ItemLabel(Item type) {
 		super();
 		setTexture(type.drawer);
 	}

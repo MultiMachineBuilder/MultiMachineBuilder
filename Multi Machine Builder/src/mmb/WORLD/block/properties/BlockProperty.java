@@ -7,7 +7,8 @@ import java.util.HashMap;
 import java.util.function.Supplier;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import mmb.Identifiable;
+
+import mmb.BEANS.Identifiable;
 import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
 
@@ -69,7 +70,7 @@ public interface BlockProperty extends Identifiable<String>, Saver<JsonNode>, Lo
 		return prop;
 	}
 	@Override
-	default String identifier() {
+	default String id() {
 		return name();
 	}
 }

@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.block;
 
+import java.awt.Graphics;
+
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.BEANS.Saver;
@@ -30,4 +32,13 @@ public interface BlockEntry extends Saver<JsonNode> {
 	
 	public default void wrenchCW() {}
 	public default void wrenchCCW() {}
+	
+	/**
+	 * @param x X coordinate of UL corner
+	 * @param y Y coordinate of UL corner
+	 * @param g graphics context
+	 */
+	public default void render(int x, int y, Graphics g) {
+		type().getTexture().draw(x, y, g);
+	}
 }

@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 import mmb.WORLD.gui.WorldFrame;
-import mmb.WORLD.inventory.ItemEntry;
+import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.player.Player;
 
 /**
@@ -59,5 +59,5 @@ public interface ItemBehavior {
 	 * @param frame world frame component.
 	 * <br>Note: If item runs on a server, the frame variable is null
 	 */
-	public void enable(ItemEntry ent, Player p, WorldFrame frame);
+	public void enable(ItemStack ent, Player p, WorldFrame frame);
 }

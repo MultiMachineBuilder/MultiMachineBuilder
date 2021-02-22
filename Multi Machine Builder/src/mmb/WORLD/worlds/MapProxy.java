@@ -71,4 +71,7 @@ public interface MapProxy extends AutoCloseable{
 	public Dimension getSize();
 	
 	public void close();
+	
+	/** Run given action when map proxy is closed */
+	public void later(Runnable r);
 }

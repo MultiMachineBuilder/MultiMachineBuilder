@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.ExternalLoader;
+import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.worlds.map.BlockMap;
 import mmb.debug.Debugger;
 
@@ -27,7 +28,9 @@ public class BlockLoader implements ExternalLoader<JsonNode, BlockEntry> {
 		return null;
 	}
 	private BlockEntry doLoadBasic(String text) {
-		return Blocks.get(text).create(x, y, map);
+		BlockType type = Blocks.get(text);
+				if(type == null) return ContentsBlocks.grass;
+		return type.create(x, y, map);
 	}
 	private BlockEntry doLoadEnhanced(ObjectNode on) {
 		//find block type

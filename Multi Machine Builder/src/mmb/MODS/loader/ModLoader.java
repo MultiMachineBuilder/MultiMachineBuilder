@@ -140,6 +140,7 @@ public class ModLoader {
 				Thread thr = new Thread(() -> {
 					if(ai.central == null) {
 						debug.printl(ai.name + " is not a mod and will not be run");
+						lock.counter.decrementAndGet();
 						ai.state = ai.hasClasses?AddonState.API:AddonState.MEDIA;
 					}else{
 						try{
