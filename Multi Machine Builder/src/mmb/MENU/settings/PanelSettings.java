@@ -18,13 +18,13 @@ import javax.swing.JTextPane;
 
 import mmb.debug.Debugger;
 
-import javax.swing.JButton;
-
 /**
  * @author oskar
  *
  */
 public class PanelSettings extends JPanel {
+	private static final long serialVersionUID = 3525375553531357014L;
+	
 	private JTabbedPane tabbedPane;
 	private JPanel panel;
 	private JLabel lblNewLabel;

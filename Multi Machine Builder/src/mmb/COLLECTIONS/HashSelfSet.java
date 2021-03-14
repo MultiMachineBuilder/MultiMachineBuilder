@@ -6,7 +6,11 @@ package mmb.COLLECTIONS;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Set;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import mmb.BEANS.Identifiable;
 
@@ -22,11 +26,13 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 	private final Collection<V> vals = map.values();
 	private final Set<K> keys = map.keySet();
 
+	@SuppressWarnings("null")
 	@Override
-	public boolean add(V e) {
+	public boolean add(@Nonnull V e) {
 		return map.put(e.id(), e) == null;
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public boolean addAll(Collection<? extends V> c) {
 		for(V value: c) {
@@ -41,10 +47,11 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 	}
 
 	@Override
-	public boolean contains(Object o) {
+	public boolean contains(@Nullable Object o) {
 		return map.containsKey(o) || map.containsValue(o);
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public boolean containsAll(Collection<?> c) {
 		return keys.containsAll(c) || vals.containsAll(c);
@@ -61,16 +68,18 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 	}
 
 	@Override
-	public boolean remove(Object o) {
+	public boolean remove(@SuppressWarnings("null") Object o) {
 		return keys.remove(o) || vals.remove(o);
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public boolean removeAll(Collection<?> c) {
 		return keys.removeAll(c) || vals.removeAll(c);
 	}
 
 	private class Bool{boolean val = false;}
+	@SuppressWarnings("null")
 	@Override
 	public boolean retainAll(Collection<?> c) {
 		Bool changed = new Bool();
@@ -93,6 +102,7 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 		return map.values().toArray();
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public <T> T[] toArray(T[] a) {
 		return map.values().toArray(a);
@@ -103,10 +113,11 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 		return new Set<K>(){
 
 			@Override
-			public boolean add(K e) {
+			public boolean add(@Nullable K e) {
 				throw new UnsupportedOperationException("add() by key not supported");
 			}
 
+			@SuppressWarnings("null")
 			@Override
 			public boolean addAll(Collection<? extends K> c) {
 				throw new UnsupportedOperationException("addAll() by key not supported");
@@ -118,12 +129,12 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 			}
 
 			@Override
-			public boolean contains(Object o) {
+			public boolean contains(@Nullable Object o) {
 				return map.containsKey(o);
 			}
 
 			@Override
-			public boolean containsAll(Collection<?> c) {
+			public boolean containsAll(@Nullable Collection<?> c) {
 				return keys.containsAll(c);
 			}
 
@@ -138,15 +149,17 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 			}
 
 			@Override
-			public boolean remove(Object o) {
+			public boolean remove(@Nullable Object o) {
 				return keys.remove(o);
 			}
 
+			@SuppressWarnings("null")
 			@Override
 			public boolean removeAll(Collection<?> c) {
 				return keys.removeAll(c);
 			}
 
+			@SuppressWarnings("null")
 			@Override
 			public boolean retainAll(Collection<?> c) {
 				return keys.retainAll(c);
@@ -162,6 +175,7 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 				return keys.toArray();
 			}
 
+			@SuppressWarnings("null")
 			@Override
 			public <T> T[] toArray(T[] a) {
 				return keys.toArray(a);

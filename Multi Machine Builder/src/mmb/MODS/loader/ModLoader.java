@@ -70,7 +70,7 @@ public class ModLoader {
 	}
 	private static List<String> toLoad = new ArrayList<>();
 	
-	protected  static String[] external = new String[0];// External content which will be loaded
+	protected static String[] external = new String[0];// External content which will be loaded
 
 	private static final String SLPM = "Stopping loading prematurely";
 
@@ -88,6 +88,9 @@ public class ModLoader {
 		}
 		});
 	}
+	/**
+	 * Wait until all MP3 files load
+	 */
 	public static void waitMP3s() {
 		mp3s.forEach(mp3 -> {
 			try {
@@ -99,13 +102,14 @@ public class ModLoader {
 			
 		});
 	}
+	@SuppressWarnings("null")
 	private static void walkTextures(File f) {
 		if(f.isFile()) {
 			String absPath = f.getAbsolutePath();
 			String tname = absPath.substring(Textures.texturesPath.length()+1);
-			try {
-				Textures.load(tname, new FileInputStream(f));
-			} catch (FileNotFoundException e) {
+			try(InputStream is = new FileInputStream(f)) {
+				Textures.load(tname, is);
+			} catch (Exception e) {
 				debug.pstm(e, "THIS MESSAGE INDICATES MALFUNCTION OF JAVA OR FILE SYSTEM"); //this should not happen
 				debug.pstm(e, "Could not find texture "+tname+", despite its presence being indicated");
 			}
@@ -119,8 +123,7 @@ public class ModLoader {
 	}
 	/**
 	 * Used by the main class to load mods
-	 */
-	
+	 */	
 	public static final File modsDir = new File("mods/");
 	
 	//Modify modloading
@@ -232,6 +235,10 @@ public class ModLoader {
 		}
 		});*/
 	}
+	/**
+	 * Loads entire game
+	 */
+	@SuppressWarnings("null")
 	public static void modloading(){
 		initGame();
 		try {
@@ -259,14 +266,14 @@ public class ModLoader {
 		//Add mod files for loading
 		state1("Found "+ modCount + " mod files");
 		debug.printl("Found "+ modCount + " mod files");
-		toLoad.forEach(p -> {
+		for(String p: toLoad) {
 			state2("Loading file: " + p);
 			try {
 				AddonLoader.load(FileUtil.getFile(p));
 			} catch (MalformedURLException e) {
 				debug.pstm(e, "The external mod has incorrect URL: "+p);
 			}
-		});
+		}
 		waitAllLoaders();//Wait until all files load
 		firstRuns(); // first runs
 		contentRuns(); // content runs
@@ -302,6 +309,7 @@ public class ModLoader {
 	 * @param folder root
 	 * @param results output
 	 */
+	@SuppressWarnings("null")
 	public static void walkDirectory(File folder, List<File> results) {
 		try {
 			if(folder.isDirectory()) {
@@ -326,6 +334,7 @@ public class ModLoader {
 	 * @param folder root
 	 * @param results output
 	 */
+	@SuppressWarnings("null")
 	public static void walkFilesDirectory(File folder, List<File> results) {
 		try {
 			if(folder.isDirectory()) {
@@ -344,36 +353,35 @@ public class ModLoader {
 	}
 
 	static void summarizeMods() {
-		GameContents.addons.forEach(ModLoader::summarizeMod);
-	}
-	static void summarizeMod(AddonInfo ai) {
-		debug.printl("=============================================MOD INFORMATION FOR " + ai.name + "=============================================");
-		debug.printl("LOCATED AT " + ai.path);
+		for(AddonInfo ai: GameContents.addons) {
+			debug.printl("================MOD INFORMATION FOR " + ai.name + "================");
+			debug.printl("LOCATED AT " + ai.path);
 
-		debug.printl(ai.state.toString());
-		try {
-			switch(ai.state) {
-			case DEAD:
-			case DISABLE:
-			case ENABLE:
-				if(ai.mmbmod == null) {
-					debug.printl("Unknown information");
-				}else {
-					if(ai.mmbmod.release == null) {
-						debug.printl("RELEASED AT UNKNOWN DATE");
+			debug.printl(ai.state.toString());
+			try {
+				switch(ai.state) {
+				case DEAD:
+				case DISABLE:
+				case ENABLE:
+					if(ai.mmbmod == null) {
+						debug.printl("Unknown information");
 					}else {
-						debug.printl("RELEASED " + ai.mmbmod.release.toString());
-					}
+						if(ai.mmbmod.release == null) {
+							debug.printl("RELEASED AT UNKNOWN DATE");
+						}else {
+							debug.printl("RELEASED " + ai.mmbmod.release.toString());
+						}
 
-					debug.printl("MADE BY " + ai.mmbmod.author);
-					debug.printl("DESCRIPTION: " + ai.mmbmod.description);
+						debug.printl("MADE BY " + ai.mmbmod.author);
+						debug.printl("DESCRIPTION: " + ai.mmbmod.description);
+					}
+					break;
+				default:
+					break;
 				}
-				break;
-			default:
-				break;
+			} catch (Exception e) {
+				debug.pstm(e, "Unable to get metadata for " + ai.name);
 			}
-		} catch (Exception e) {
-			debug.pstm(e, "Unable to get metadata for " + ai.name);
 		}
 	}
 }

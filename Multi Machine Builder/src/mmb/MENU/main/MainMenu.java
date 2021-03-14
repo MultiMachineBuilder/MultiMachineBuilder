@@ -1,6 +1,8 @@
 package mmb.MENU.main;
 
 import java.awt.*;
+
+import javax.annotation.Nonnull;
 import javax.swing.*;
 
 import mmb.DATA.Settings;
@@ -21,8 +23,6 @@ import mmb.MENU.FullScreen;
 import mmb.MENU.MMBFrame;
 import mmb.MENU.components.BoundCheckBoxMenuItem;
 import mmb.MENU.settings.PanelSettings;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class MainMenu extends MMBFrame {
 	private static final long serialVersionUID = -7953512837841781519L;
@@ -32,7 +32,7 @@ public class MainMenu extends MMBFrame {
 	
 	//ToolKit API
 	/** The singleton instance of main menu*/
-	public static final MainMenu INSTANCE = new MainMenu();
+	@Nonnull public static final MainMenu INSTANCE = new MainMenu();
 	/**
 	 * Add a main menu tab
 	 * @param tab tab contents
@@ -115,39 +115,13 @@ public class MainMenu extends MMBFrame {
 		aside.add(timerLBL);
 		
 		btnNewButton = new JButton("TEST");
-		btnNewButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				new TestRotatedImageGroup().setVisible(true);
-			}
-		});
+		btnNewButton.addActionListener(e -> new TestRotatedImageGroup().setVisible(true));
 		aside.add(btnNewButton);
 		java.util.Timer timer = new java.util.Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				GregorianCalendar date = new GregorianCalendar();
-				int year = date.get(Calendar.YEAR);
-				int month = date.get(Calendar.MONTH);
-				int day = date.get(Calendar.DAY_OF_MONTH);
-				int hour = date.get(Calendar.HOUR);
-				int min = date.get(Calendar.MINUTE);
-				int sec = date.get(Calendar.SECOND);
-				
-				StringBuilder message = new StringBuilder()
-						.append(year)
-						.append('/')
-						.append(month)
-						.append('/')
-						.append(day)
-						.append(' ');
-				if(hour < 10) message.append('0');
-				message.append(hour).append(':');
-				if(min < 10) message.append('0');
-				message.append(min).append(':');
-				if(sec < 10) message.append('0');
-				message.append(sec);
-				timerLBL.setText(message.toString());
+				refreshTime();
 			}
 		}, 0, 1000);
 		Runtime.getRuntime().addShutdownHook(new Thread(timer::cancel));
@@ -159,6 +133,31 @@ public class MainMenu extends MMBFrame {
 		tabbedPane.addTab("Mods", null, new PanelMods(), null);
 		tabbedPane.addTab("Settings", null, new PanelSettings(), null);
 		tabbedPane.addTab("Shop", new PanelShop());
+	}
+	
+	private void refreshTime() {
+		GregorianCalendar date = new GregorianCalendar();
+		int year = date.get(Calendar.YEAR);
+		int month = date.get(Calendar.MONTH);
+		int day = date.get(Calendar.DAY_OF_MONTH);
+		int hour = date.get(Calendar.HOUR);
+		int min = date.get(Calendar.MINUTE);
+		int sec = date.get(Calendar.SECOND);
+		
+		StringBuilder message = new StringBuilder()
+				.append(year)
+				.append('/')
+				.append(month)
+				.append('/')
+				.append(day)
+				.append(' ');
+		if(hour < 10) message.append('0');
+		message.append(hour).append(':');
+		if(min < 10) message.append('0');
+		message.append(min).append(':');
+		if(sec < 10) message.append('0');
+		message.append(sec);
+		timerLBL.setText(message.toString());
 	}
 	@Override
 	public void destroy() {

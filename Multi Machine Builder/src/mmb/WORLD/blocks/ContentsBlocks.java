@@ -6,13 +6,12 @@ package mmb.WORLD.blocks;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
+import javax.annotation.Nonnull;
+
 import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.BlockDrawer;
-import mmb.WORLD.block.SkeletalBlockEntity;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.block.BlockEntityType;
-import mmb.WORLD.block.BlockEntry;
-import mmb.WORLD.block.properties.BlockProperty;
 import mmb.WORLD.blocks.gates.ANDGate;
 import mmb.WORLD.blocks.gates.NOTGate;
 import mmb.WORLD.blocks.gates.ORGate;
@@ -29,25 +28,25 @@ import mmb.debug.Debugger;
 public class ContentsBlocks {
 	private static final Debugger debug = new Debugger("BLOCKS");
 
-	public static final BlockEntityType
+	@Nonnull public static final BlockEntityType
 	ww_head, ww_tail, ww_wire,
 	ww_chatter;
 	
-	public static final Block air, grass, plank, stone, leaves,
+	@Nonnull public static final Block air, grass, plank, stone, leaves,
 	iron_ore, copper_ore, silicon_ore, crafting, logs;
 	
-	public static final BlockEntityType
+	@Nonnull public static final BlockEntityType
 	AND, OR, XOR, BUTTON;
 	
 	/**
 	 * Signal generators
 	 */
-	public static final Block TRUE, RANDOM;
+	@Nonnull public static final Block TRUE, RANDOM;
 	
 	/**
 	 * Unary gates
 	 */
-	public static final BlockEntityType
+	@Nonnull public static final BlockEntityType
 	YES, NOT, RANDOMCTRL;
 	
 	public static final Block ON, OFF;
@@ -66,8 +65,6 @@ public class ContentsBlocks {
 		try {
 			BufferedImage i = Textures.get("grass.png");
 			tmp = BlockDrawer.ofImage(i);
-			if(i == null) debug.printl("got null texture");
-			tmp = BlockDrawer.ofColor(Color.GREEN);
 		} catch (Exception e) {
 			tmp = BlockDrawer.ofColor(Color.GREEN);
 			debug.pstm(e, "Failed to load grass texture, switching to plain color");

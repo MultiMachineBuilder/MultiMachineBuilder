@@ -4,24 +4,11 @@
 package mmb.WORLD.block;
 
 import java.awt.Point;
+
 import javax.annotation.Nonnull;
 
-import java.util.Set;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.node.TextNode;
-
-import mmb.GameObject;
-import mmb.BEANS.Loader;
-import mmb.BEANS.Saver;
-import mmb.COLLECTIONS.HashSelfSet;
-import mmb.COLLECTIONS.SelfSet;
-import mmb.DATA.json.JsonTool;
 import mmb.WORLD.BlockDrawer;
-import mmb.WORLD.block.properties.BlockProperty;
-import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.World.BlockMap;
 import mmb.debug.Debugger;
 
 /**
@@ -29,7 +16,7 @@ import mmb.debug.Debugger;
  * To be converted to interface
  * @discouraged For machines, use {@link mmb.WORLD.machine.Machine}. For blocks, use {@link BlockEntityType}
  */
-public abstract class SkeletalBlockEntity implements Saver<JsonNode>, BlockEntity {
+public abstract class SkeletalBlockEntity implements BlockEntity {
 	private static Debugger debug = new Debugger("BLOCKS");
 
 	//Positioning
@@ -57,7 +44,7 @@ public abstract class SkeletalBlockEntity implements Saver<JsonNode>, BlockEntit
 	/**
 	 * The map, in which the BlockEntity is located
 	 */
-	public final BlockMap owner;
+	@Nonnull public final BlockMap owner;
 	/**
 	 * Checks if BlockEntity is of given type
 	 * @param type type to check

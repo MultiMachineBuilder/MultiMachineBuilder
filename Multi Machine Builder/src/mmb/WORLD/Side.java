@@ -5,6 +5,8 @@ package mmb.WORLD;
 
 import java.awt.Point;
 
+import javax.annotation.Nonnull;
+
 /**
  * @author oskar
  *
@@ -65,5 +67,5 @@ public enum Side {
 	 * @param x X coordinate
 	 * @param y Y coordinate
 	 */
-	abstract public Point offset(int x, int y);
+	@Nonnull abstract public Point offset(int x, int y);
 }

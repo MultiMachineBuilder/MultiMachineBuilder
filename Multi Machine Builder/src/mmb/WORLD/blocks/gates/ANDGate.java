@@ -7,7 +7,8 @@ import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.RotatedImageGroup;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.World;
+import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar

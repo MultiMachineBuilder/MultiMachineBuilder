@@ -10,6 +10,8 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
 
 import mmb.debug.Debugger;
@@ -48,11 +50,15 @@ public class Textures {
 		loadedTextures.put(name2, data);
 	}
 	
-	public static BufferedImage get(String name) {
-		String name2 = name.replace('\\', '/'); //replace slashes so users can use both '/' and '\'
-		BufferedImage result = loadedTextures.get(name2);
-		if(result == null) debug.printl("Could not find texture "+name);
+	@Nonnull public static BufferedImage get(String name) {
+		BufferedImage result = nget(name);
+		if(result == null) throw new TextureNotFoundException("Could not find texture "+name);
 		return result;
+	}
+	
+	@Nullable public static BufferedImage nget(String name) {
+		String name2 = name.replace('\\', '/'); //replace slashes so users can use both '/' and '\'
+		return loadedTextures.get(name2);
 	}
 
 }

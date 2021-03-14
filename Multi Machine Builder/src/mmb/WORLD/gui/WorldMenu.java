@@ -3,23 +3,16 @@
  */
 package mmb.WORLD.gui;
 
-import java.awt.event.MouseEvent;
-
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
-import mmb.WORLD.block.SkeletalBlockEntity;
 import mmb.BEANS.Rotable;
 import mmb.BEANS.TextMessageProvider;
 import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockEntry;
-import mmb.WORLD.block.properties.BlockProperty;
-import mmb.WORLD.blocks.StringValue;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /**
  * @author oskar
@@ -43,7 +36,7 @@ public class WorldMenu extends JPopupMenu {
 	 * 
 	 */
 	public WorldMenu(BlockEntry block, WorldFrame frame, WorldWindow window) {
-		BlockMap map = frame.getMap();
+		World map = frame.getMap();
 		int mouseoverX = frame.getMouseoverBlockX();
 		int mouseoverY = frame.getMouseoverBlockY();
 		mntmGoHere = new JMenuItem("Go here");
@@ -71,13 +64,13 @@ public class WorldMenu extends JPopupMenu {
 				debug.printl("Removed machine");
 				return;
 			}
-			block.type().leaveBehind().place(mouseoverX, mouseoverY, map);
+			block.type().leaveBehind().place(mouseoverX, mouseoverY, map.getMap());
 		});
 		
 		mntmNewMenuItem_1 = new JMenuItem("Place");
 		mntmNewMenuItem_1.addActionListener(e -> {
 			if(map.inBounds(mouseoverX, mouseoverY)) {
-				frame.getPlacer().getPlacer().place(mouseoverX, mouseoverY, map);
+				frame.getPlacer().getPlacer().place(mouseoverX, mouseoverY, map.getMap());
 			}
 		});
 		add(mntmNewMenuItem_1);

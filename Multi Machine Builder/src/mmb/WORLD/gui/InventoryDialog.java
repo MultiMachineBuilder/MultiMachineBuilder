@@ -10,7 +10,6 @@ import java.util.Set;
 
 import javax.swing.JDialog;
 
-import mmb.WORLD.inventory.CreativeWithdrawalInventory;
 import mmb.WORLD.inventory.Inventory;
 import net.miginfocom.swing.MigLayout;
 

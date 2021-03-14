@@ -3,8 +3,10 @@
  */
 package mmb.WORLD.worlds;
 
+import javax.annotation.Nonnull;
+
 import mmb.WORLD.block.BlockType;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.BlockArrayProvider;
 
 /**
  * @author oskar
@@ -12,15 +14,15 @@ import mmb.WORLD.worlds.map.BlockMap;
  */
 public class BlockChangeRequest {
 	public final int x, y;
-	public final BlockType block;
+	@Nonnull public final BlockType block;
 	public BlockChangeRequest(int x, int y, BlockType block) {
 		super();
 		this.x = x;
 		this.y = y;
 		this.block = block;
 	}
-	public void apply(BlockMap map) {
-		block.place(x, y, map);
+	public void apply(BlockArrayProvider that) {
+		block.place(x, y, that);
 	}
 	public void apply(MapProxy mp) {
 		mp.place(block, x, y);

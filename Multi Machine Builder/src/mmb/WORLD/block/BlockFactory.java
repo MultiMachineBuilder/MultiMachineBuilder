@@ -3,7 +3,7 @@
  */
 package mmb.WORLD.block;
 
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar

@@ -66,7 +66,6 @@ public class ScrollablePlacementList extends JComponent implements MouseListener
 	 * @param placer the placer to set
 	 */
 	public void setPlacer(Placer placer) {
-		if(placer == null) return;
 		int i = 0;
 		for(Placer p: placers) {
 			if(p == placer) setPlacerIndex(i);

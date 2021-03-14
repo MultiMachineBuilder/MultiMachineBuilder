@@ -6,7 +6,7 @@ package mmb.WORLD.block;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar
@@ -20,6 +20,7 @@ public abstract class SkeletalBlockEntityDataless extends SkeletalBlockEntity{
 	protected SkeletalBlockEntityDataless(int x, int y, BlockMap owner2) {
 		super(x, y, owner2);
 	}
+	@Override
 	public final JsonNode save() {
 		return new TextNode(type().id());
 	}

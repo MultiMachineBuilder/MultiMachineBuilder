@@ -8,9 +8,6 @@ import javax.swing.JTextPane;
 
 import mmb.BEANS.TextMessageProvider;
 import mmb.WORLD.block.BlockEntity;
-import mmb.WORLD.block.SkeletalBlockEntity;
-import mmb.WORLD.blocks.StringValue;
-
 import javax.swing.JButton;
 import java.awt.Component;
 import java.awt.Color;
@@ -21,6 +18,8 @@ import net.miginfocom.swing.MigLayout;
  *
  */
 public class NewTextEditor extends JPanel {
+	private static final long serialVersionUID = 109161698315300930L;
+	
 	private JTextPane textPane;
 	private JButton btnOk;
 	private JButton btnCancel;

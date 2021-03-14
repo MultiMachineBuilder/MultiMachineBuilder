@@ -9,7 +9,7 @@ import mmb.WORLD.RotatedImageGroup;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.AbstractActuatorBase;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar

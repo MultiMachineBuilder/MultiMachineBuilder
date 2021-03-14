@@ -9,7 +9,9 @@ import java.awt.image.BufferedImage;
 
 import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.block.BlockType;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.BlockArrayProvider;
+import mmb.WORLD.worlds.world.World;
+import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar
@@ -33,7 +35,7 @@ public class BlockPlacer implements Placer {
 		return block.title();
 	}
 	@Override
-	public void place(int x, int y, BlockMap map) {
+	public void place(int x, int y, World map) {
 		block.place(x, y, map);
 	}
 	@Override

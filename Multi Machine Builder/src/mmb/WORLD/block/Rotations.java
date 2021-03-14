@@ -110,7 +110,8 @@ public class Rotations {
 	/**
 	 * Return all 8 transformed versions of given image.
 	 * @param src
-	 * @return an array of all transformed versions of given image, in order tha guarantees correct transformation with array get operation with specified format
+	 * @return an array of all transformed versions of given image,
+	 *  in order that guarantees correct transformation with array get operation with specified format
 	 */
 	public static BufferedImage[] mirroredVersions(BufferedImage src) {
 		BufferedImage[] firstRound = new BufferedImage[2];

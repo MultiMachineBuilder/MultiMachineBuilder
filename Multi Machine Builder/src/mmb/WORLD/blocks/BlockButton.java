@@ -8,7 +8,8 @@ import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityDataless;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.World;
+import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar
@@ -36,7 +37,7 @@ public class BlockButton extends SkeletalBlockEntityDataless implements BlockAct
 	}
 
 	@Override
-	public void run(int blockX, int blockY, BlockMap map) {
+	public void run(int blockX, int blockY, World map) {
 		pressed = 2;
 	}
 

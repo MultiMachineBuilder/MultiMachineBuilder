@@ -3,7 +3,9 @@
  */
 package mmb.BEANS;
 
-import mmb.WORLD.worlds.map.BlockMap;
+import javax.annotation.Nullable;
+
+import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
@@ -11,5 +13,6 @@ import mmb.WORLD.worlds.map.BlockMap;
  */
 @FunctionalInterface
 public interface BlockActivateListener {
-	public void run(int blockX, int blockY, BlockMap map);
+	public void run(int blockX, int blockY, World map);
 }
+

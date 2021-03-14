@@ -192,7 +192,7 @@ public class AddonLoader {
 		}
 	}
 	private static ByteClassLoader bcl = new ByteClassLoader(AddonLoader.class.getClassLoader());
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings("null")
 	private void interpretClassFile(JarEntry ent, byte[] data){
 		// This FileObject represents a class. Now, what class does it represent?
 		
@@ -202,6 +202,7 @@ public class AddonLoader {
         className = className.substring(0, className.length() - ".class".length());
         debug.printl("Class: "+className);
         try {
+			@SuppressWarnings("rawtypes")
 			Class c = bcl.loadClass(className, data, false);
 			tryAddCentral(c);
 			GameContents.loadedClasses.add(c);
@@ -216,7 +217,7 @@ public class AddonLoader {
 		}catch (IOException e) {
 			debug.pstm(e, "Failed to open resource "+name);
 		} catch (Exception e) {
-			debug.printl("Couldn't process classfile " + className + ". Please check if class file exists and works.");
+			debug.pstm(e, "Couldn't process classfile " + className + ". Please check if class file exists and works.");
 		}
 	}
 	private List<Class<? extends AddonCentral>> cclasses = new ArrayList<>();
@@ -255,8 +256,8 @@ public class AddonLoader {
     		Class<?> in = interfaces[i];
     		if(AddonCentral.class.isAssignableFrom(in)) runnable = true; //if class implements AddonCentral, run it
     	}
-    	if(runnable) //The given class is a mod central class
-			cclasses.add((Class<? extends AddonCentral>) c);
+    	if(runnable) //The given class is a mod central class //NOSONAR
+			cclasses.add((Class<? extends AddonCentral>) c); 
     	a.hasClasses = true;
     }
     	

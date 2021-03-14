@@ -4,16 +4,13 @@
 package mmb.DATA.contents.sound;
 
 import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import fr.delthas.javamp3.Sound;
 import mmb.FILES.AdvancedFile;
 import mmb.SOUND.MP3Loader;
 import mmb.debug.Debugger;
@@ -34,6 +31,7 @@ public class Sounds {
 	 * @param soundData file input stream
 	 * @param name sound file name
 	 */
+	@SuppressWarnings("resource")
 	public static void load(InputStream soundData, String name) {
 		String ext = AdvancedFile.baseExtension(name)[1];
 		Clip loaded = null;
@@ -50,7 +48,7 @@ public class Sounds {
 			case "mp1":
 			case "mp2":
 			case "mp3":
-				MP3Loader mp3l = new MP3Loader(soundData);
+				MP3Loader mp3l = new MP3Loader(soundData, name);
 				mp3l.run();
 				loaded = mp3l.getClip();
 			break;
@@ -62,6 +60,7 @@ public class Sounds {
 		}
 		if(loaded != null) load(loaded, name);
 	}
+	@SuppressWarnings("resource")
 	public static void load(Clip sound, String name) {
 		sounds.put(name, sound);
 	}

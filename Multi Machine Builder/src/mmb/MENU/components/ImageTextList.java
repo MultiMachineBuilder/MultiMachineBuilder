@@ -4,12 +4,9 @@
 package mmb.MENU.components;
 
 import javax.swing.*;
-import javax.swing.border.*;
-
 import mmb.MENU.components.ImageTextList.ImageAndText;
 
 import java.awt.*;
-import java.awt.event.*;
 
 /**
  * @author oskar

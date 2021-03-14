@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.block;
 
+import javax.annotation.Nonnull;
+
 import mmb.WORLD.Side;
 
 /**
@@ -217,14 +219,14 @@ public enum Rotation {
 			return S;
 		}
 	};
-	public abstract Side U();
-	public abstract Side D();
-	public abstract Side L();
-	public abstract Side R();
-	public abstract Side DL();
-	public abstract Side DR();
-	public abstract Side UL();
-	public abstract Side UR();
-	public abstract Rotation cw();
-	public abstract Rotation ccw();
+	@Nonnull public abstract Side U();
+	@Nonnull public abstract Side D();
+	@Nonnull public abstract Side L();
+	@Nonnull public abstract Side R();
+	@Nonnull public abstract Side DL();
+	@Nonnull public abstract Side DR();
+	@Nonnull public abstract Side UL();
+	@Nonnull public abstract Side UR();
+	@Nonnull public abstract Rotation cw();
+	@Nonnull public abstract Rotation ccw();
 }

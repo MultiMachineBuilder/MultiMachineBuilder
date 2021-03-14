@@ -10,7 +10,7 @@ import mmb.WORLD.BlockDrawer;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityDataless;
 import mmb.WORLD.worlds.SignalUtils;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar

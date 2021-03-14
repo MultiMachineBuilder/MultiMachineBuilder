@@ -3,15 +3,17 @@
  */
 package mmb.WORLD.item;
 
+import javax.annotation.Nullable;
+
 import mmb.BEANS.Identifiable;
 import mmb.WORLD.BlockDrawer;
-import mmb.WORLD.items.Items;
+import mmb.WORLD.inventory.ItemEntry;
 
 /**
  * @author oskar
  *
  */
-public class Item implements Identifiable<String>, ItemType {
+public class Item implements ItemType, ItemEntry {
 	/**
 	 * Get the hash code, which is always the same as ID's hash code.
 	 * @return item's hash code.
@@ -22,7 +24,7 @@ public class Item implements Identifiable<String>, ItemType {
 		return id.hashCode();
 	}
 	@Override
-	public boolean equals(Object other) {
+	public boolean equals(@Nullable Object other) {
 		if(this == other) return true;
 		if(other == null) return false;
 		if(!(other instanceof Identifiable)) return false;
@@ -32,6 +34,10 @@ public class Item implements Identifiable<String>, ItemType {
 		return id1.equals(id);
 	}
 
+	/**
+	 * Register this item
+	 * @param id new identifier
+	 */
 	public void register(String id) {
 		this.id = id;
 		Items.register(this);
@@ -109,5 +115,21 @@ public class Item implements Identifiable<String>, ItemType {
 	@Override
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	@Override
+	public ItemEntry create() {
+		return this;
+	}
+	@Override
+	public ItemEntry itemClone() {
+		return this;
+	}
+	@Override
+	public ItemType type() {
+		return this;
+	}
+	@Override
+	public boolean exists() {
+		return true;
 	}
 }

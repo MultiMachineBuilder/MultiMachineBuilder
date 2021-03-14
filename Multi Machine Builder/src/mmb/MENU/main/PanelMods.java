@@ -73,7 +73,6 @@ public class PanelMods extends JPanel {
 	private JButton btnNewButton;
 	private static final String UNKNOWN = "Unknown";
 	private void addMod(AddonInfo mod) {
-		if(mod == null) return;
 		String release = UNKNOWN;
 		String descr = "This file is corrupt.";
 		String author = UNKNOWN;

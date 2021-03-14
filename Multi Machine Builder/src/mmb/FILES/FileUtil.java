@@ -18,9 +18,8 @@ public class FileUtil {
 
 	
 	public static AdvancedFile getFile(String path) throws MalformedURLException {
-		if(path.startsWith("http://") || path.startsWith("https://")) {
-			return new OnlineFile(path);
-		}
+		//TODO requires fixed path
+		if(path.contains("://")) return new OnlineFile(path);
 		return new LocalFile(path);
 	}
 

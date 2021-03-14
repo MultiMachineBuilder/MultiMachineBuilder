@@ -1,11 +1,10 @@
 /**
  * 
  */
-package mmb.WORLD.items;
+package mmb.WORLD.item;
 
 import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.BlockDrawer;
-import mmb.WORLD.item.Item;
 
 /**
  * @author oskar

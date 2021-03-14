@@ -7,12 +7,19 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 
+import javax.annotation.Nullable;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
+import mmb.WORLD.Side;
+import mmb.WORLD.inventory.Inventory;
+import mmb.WORLD.inventory.NoSuchInventory;
 import mmb.WORLD.item.Item;
-import mmb.WORLD.items.Items;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.item.Items;
+import mmb.WORLD.worlds.world.BlockArrayProvider;
+import mmb.WORLD.worlds.world.World;
+import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar
@@ -29,7 +36,7 @@ public class Block extends Item implements BlockEntry, BlockType{
 		return this;
 	}
 	@Override
-	public void place(int x, int y, BlockMap map) {
+	public void place(int x, int y, World map) {
 		map.place(this, x, y);
 	}
 
@@ -74,7 +81,6 @@ public class Block extends Item implements BlockEntry, BlockType{
 	public boolean isBlockEntity() {
 		return false;
 	}
-
 	@Override
 	public BlockEntity asBlockEntity() {
 		return null;
@@ -84,11 +90,18 @@ public class Block extends Item implements BlockEntry, BlockType{
 		return null;
 	}
 
+	@Override
 	public void register(String id) {
 		this.id = id;
 		Blocks.register(this);
 	}
+	@Override
 	public void register() {
 		Blocks.register(this);
 	}
+	
+	@Nullable public Inventory getInventory(Side s){
+		return NoSuchInventory.INSTANCE;
+	}
+	
 }

@@ -1,10 +1,10 @@
 package mmb.debug;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+
+import javax.annotation.Nullable;
 
 /**
  * 
@@ -27,7 +27,7 @@ public class Debugger {
 		}
 	}
 	
-	public void pstm(Throwable t, String s) {
+	public void pstm(Throwable t, @Nullable String s) {
 		printl(s);
 		pst(t);
 	}
@@ -37,10 +37,10 @@ public class Debugger {
 		printStackTrace(t.getStackTrace());
 		if(t.getCause() != null) pstm(t.getCause(), "Caused by: ");
 	}
-	public void print(String s) {
+	public void print(@Nullable String s) {
 		printFinal("("+id+") "+ s);
 	}
-	public void printl(String s) {
+	public void printl(@Nullable String s) {
 		print(s + "\n");
 	}
 	private static void printFinal(String s) {

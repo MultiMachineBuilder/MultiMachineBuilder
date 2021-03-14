@@ -46,22 +46,20 @@ public class Loading extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(() ->{
-			try {
-				Date date = new Date();
-				boolean test = date.getHours() < 6 || date.getHours() >= 21;
-						test = false;
-				if(test) {
-					createRandomErrors();
-				}
-				loader = new Loading();
-				loader.setVisible(true);
-				new Thread(() -> loader.continueLoading())
-				.start();
-			// deepcode ignore DontCatch: log the game crash			} catch (Throwable e) {
-				Main.crash(e);
+		try {
+			Date date = new Date();
+			boolean test = date.getHours() < 6 || date.getHours() >= 21;
+					test = false;
+			if(test) {
+				createRandomErrors();
 			}
-		});
+			loader = new Loading();
+			loader.setVisible(true);
+			new Thread(() -> loader.continueLoading())
+			.start();
+		// deepcode ignore DontCatch: log the game crash		} catch (Throwable e) {
+			Main.crash(e);
+		}
 	}
 
 	/**

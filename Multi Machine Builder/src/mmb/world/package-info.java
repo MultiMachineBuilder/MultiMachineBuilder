@@ -8,4 +8,5 @@
  * Avaliable BlockBeans:
  * 
  */
+@javax.annotation.ParametersAreNonnullByDefault
 package mmb.WORLD;

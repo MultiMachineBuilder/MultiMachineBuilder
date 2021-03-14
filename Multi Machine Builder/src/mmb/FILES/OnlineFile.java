@@ -19,6 +19,7 @@ import mmb.debug.Debugger;
  *
  */
 public class OnlineFile implements AdvancedFile {
+	private File download = null;
 	private static final Debugger debug = new Debugger("FILES");
 	public URL url;
 	/**
@@ -53,9 +54,15 @@ public class OnlineFile implements AdvancedFile {
 	/* (non-Javadoc)
 	 * @see mmb.DATA.file.AdvancedFile#asFile()
 	 */
+	@SuppressWarnings("null")
 	@Override
 	public File asFile() throws IOException {
-		return StreamUtil.stream2file(getInputStream());
+		if(download == null) {
+			try(InputStream is = getInputStream()){
+				download = StreamUtil.stream2file(is);
+			}
+		}
+		return download;
 	}
 
 	/* (non-Javadoc)
@@ -83,6 +90,7 @@ public class OnlineFile implements AdvancedFile {
 	/* (non-Javadoc)
 	 * @see mmb.DATA.file.AdvancedFile#parent()
 	 */
+	@SuppressWarnings("null")
 	@Override
 	public AdvancedFile parent() {
 		URI uri;

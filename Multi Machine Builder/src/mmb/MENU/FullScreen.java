@@ -6,6 +6,8 @@ package mmb.MENU;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 
+import javax.annotation.Nonnull;
+
 import mmb.DATA.Settings;
 import mmb.DATA.variables.ListenerBooleanVariable;
 import mmb.debug.Debugger;
@@ -15,7 +17,7 @@ import mmb.debug.Debugger;
  *
  */
 public class FullScreen {
-	public static final ListenerBooleanVariable isFullScreen = new ListenerBooleanVariable();
+	@Nonnull public static final ListenerBooleanVariable isFullScreen = new ListenerBooleanVariable();
 	private static MMBFrame fullScreenFrame;
 	
 	private static boolean isInitialized = false;

@@ -9,7 +9,7 @@ import mmb.COLLECTIONS.Collects;
 import mmb.COLLECTIONS.HashSelfSet;
 import mmb.COLLECTIONS.SelfSet;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.items.Items;
+import mmb.WORLD.item.Items;
 import mmb.debug.Debugger;
 
 /**
@@ -22,19 +22,23 @@ public class Blocks {
 	/**
 	 * An unmodifiable {@link SelfSet} of all {@link BlockType}s
 	 */
+	@SuppressWarnings("null")
 	public static final SelfSet<String, BlockType> blocks = Collects.unmodifiableSelfSet(_blocks);
 	
+	@SuppressWarnings("null")
 	public static void register(BlockType type) {
 		Objects.requireNonNull(type, "The block must not be null");
 		Objects.requireNonNull(type.id(), "The block's ID can't be null");
-		if(type.leaveBehind() == null) type.setLeaveBehind(ContentsBlocks.grass);
 		StringBuilder sb = new StringBuilder();
-		sb.append("Adding ").append(type.id()).append(" with title ").append(type.title()).append(" and descripion:\n").append(type.description());
+		sb.append("Adding ").append(type.id())
+		.append(" with title ").append(type.title())
+		.append(" and descripion:\n").append(type.description());
 		debug.printl(sb.toString());
+		Items.register(type);
 		_blocks.add(type);
 	}
 	
-	public static void remove(BlockEntityType typ) {
+	public static void remove(BlockType typ) {
 		Items.remove(typ);
 		_blocks.remove(typ);
 		

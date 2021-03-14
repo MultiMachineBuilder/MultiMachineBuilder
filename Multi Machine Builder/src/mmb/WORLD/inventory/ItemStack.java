@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.inventory;
 
+import javax.annotation.Nullable;
+
 import mmb.BEANS.Identifiable;
 
 /**
@@ -46,7 +48,7 @@ public class ItemStack implements Identifiable<ItemEntry> {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(@Nullable Object obj) {
 		if (this == obj) return true;
 		if (obj == null) return false;
 		if (getClass() != obj.getClass())
@@ -68,7 +70,6 @@ public class ItemStack implements Identifiable<ItemEntry> {
 
 	public boolean equalsType(ItemEntry item) {
 		if(item == this.item) return true;
-		if(item == null) return false;
 		return item.equals(this.item);
 	}
 

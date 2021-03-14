@@ -9,6 +9,7 @@ import java.awt.Rectangle;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.inventory.Inventory;
+import mmb.WORLD.worlds.world.BlockArrayProvider;
 
 /**
  * @author oskar
@@ -63,15 +64,28 @@ public interface MapProxy extends AutoCloseable{
 	/** Checks if given location is in bounds */
 	default public boolean inBounds(Point p) {return inBounds(p.x, p.y);}
 	
-	/** Get bounds */
+	/** @return Bounds of this map in form of a new {@link Rectangle} */
 	default public Rectangle getBounds() {
 		return new Rectangle(new Point(), getSize());
 	}
-	/** Get dimensions */
-	public Dimension getSize();
+	/** @return Width */
+	public int sizeX();
+	/** @return Width */
+	public int sizeY();
+	/** @return Leftmost X */
+	public int startX();
+	/** @return Uppermost Y */
+	public int startY();
+	/** @return Size of this map in form of a new {@link Dimension} */
+	public default Dimension getSize() {
+		return new Dimension(sizeX(), sizeY());
+	}
 	
 	public void close();
 	
 	/** Run given action when map proxy is closed */
 	public void later(Runnable r);
+	
+	/** @return associated block map*/
+	public BlockArrayProvider getMap();
 }

@@ -16,14 +16,13 @@ import javax.swing.ListModel;
 
 import mmb.MENU.components.CheckBoxList;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
 /**
  * @author oskar
  *
  */
 public class GeneratorOptions extends JPanel {
+	private static final long serialVersionUID = 829169402034870766L;
+	
 	private JLabel lblName;
 	private JButton btnDeleteAll;
 	private JButton btnSelectAll;

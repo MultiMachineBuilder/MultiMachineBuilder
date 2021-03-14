@@ -9,10 +9,6 @@ import javax.swing.JCheckBoxMenuItem;
 
 import mmb.BooleanConsumer;
 import mmb.DATA.variables.ListenerBooleanVariable;
-import mmb.debug.Debugger;
-
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
 
 /**
  * @author oskar

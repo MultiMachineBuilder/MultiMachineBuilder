@@ -5,8 +5,8 @@ package mmb.WORLD.machine;
 
 import mmb.WORLD.Side;
 import mmb.WORLD.block.SkeletalBlockEntity;
+import mmb.WORLD.worlds.world.World;
 import mmb.WORLD.block.BlockEntry;
-import mmb.WORLD.worlds.map.BlockMap;
 
 /**
  * @author oskar
@@ -14,7 +14,7 @@ import mmb.WORLD.worlds.map.BlockMap;
  */
 public abstract class SkeletalMachine implements Machine {
 	protected int x, y;
-	protected BlockMap map;
+	protected World map;
 	protected BlockEntry[] left;
 	protected BlockEntry[] right;
 	protected BlockEntry[] up;
@@ -69,12 +69,12 @@ public abstract class SkeletalMachine implements Machine {
 	}
 
 	@Override
-	public BlockMap getMap() {
+	public World getMap() {
 		return map;
 	}
 
 	@Override
-	public void setMap(BlockMap map) {
+	public void setMap(World map) {
 		this.map = map;
 	}
 	

@@ -10,12 +10,15 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.Nullable;
+
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.GameObject;
 import mmb.WORLD.BlockDrawer;
 import mmb.WORLD.gui.Placer;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.World;
+import mmb.WORLD.worlds.world.World.BlockMap;
 import mmb.debug.Debugger;
 
 /**
@@ -44,7 +47,7 @@ public class MachineModel implements Placer {
 	public Machine place() {
 		return place(null);
 	}
-	public Machine place(GameObject owner) {
+	public Machine place(@Nullable GameObject owner) {
 		try {
 			Machine result = machineClass.newInstance(); //create
 			result.onPlace(owner);
@@ -135,7 +138,7 @@ public class MachineModel implements Placer {
 		return title;
 	}
 	@Override
-	public void place(int x, int y, BlockMap map) {
+	public void place(int x, int y, World map) {
 		map.placeMachine(this, x, y);
 	}
 	@Override

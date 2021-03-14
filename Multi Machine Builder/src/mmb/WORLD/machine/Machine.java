@@ -8,12 +8,14 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
+import javax.annotation.Nullable;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import mmb.GameObject;
 import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
@@ -91,8 +93,8 @@ public interface Machine extends GameObject, Loader<JsonNode>, Saver<JsonNode>{
 	}
 	//[end]
 	//[start] world
-	public BlockMap getMap();
-	public void setMap(BlockMap map);
+	public World getMap();
+	public void setMap(World map);
 	//[end]
 	//[start] runtime
 	/**
@@ -155,7 +157,7 @@ public interface Machine extends GameObject, Loader<JsonNode>, Saver<JsonNode>{
 	 * 		<br>WorldBehavior instance if placed by a WorldBehavior
 	 * 		<br>MapBehavior instance if placed by a MapBehavior
 	 */
-	public void onPlace(GameObject obj);
+	public void onPlace(@Nullable GameObject obj);
 	/**
 	 * Handles the machine being mined.
 	 * <ul>

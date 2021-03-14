@@ -17,7 +17,7 @@ import mmb.MENU.MMBFrame;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.Blocks;
 import mmb.WORLD.machine.MachineModel;
-import mmb.WORLD.worlds.world.World;
+import mmb.WORLD.worlds.universe.Universe;
 import mmb.debug.Debugger;
 
 import javax.swing.JMenuBar;
@@ -201,12 +201,12 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 	 * @param s save file
 	 * @param deserialized new world
 	 */
-	public void setWorld(Save s, World deserialized) {
+	public void setWorld(Save s, Universe deserialized) {
 		file = s;
 		worldFrame.enterWorld(deserialized);
 	}
 	/** @return a world which is currently played*/
-	public World getWorld() {
+	public Universe getWorld() {
 		return worldFrame.getWorld();
 	}
 	public WorldFrame getWorldFrame() {

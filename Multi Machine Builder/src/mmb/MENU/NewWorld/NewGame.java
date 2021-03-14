@@ -17,7 +17,7 @@ import mmb.MENU.main.PanelSaves;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.SkeletalBlockEntity;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.universe.Universe;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 import net.miginfocom.swing.MigLayout;
@@ -26,6 +26,7 @@ import javax.swing.JTextField;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.nio.file.Files;
 
 /**
  * @author oskar
@@ -99,57 +100,7 @@ public class NewGame extends JDialog {
 		getContentPane().add(buttonPane, BorderLayout.SOUTH);
 		
 			JButton okButton = new JButton("OK");
-			okButton.addActionListener(e ->{
-				World world = null;
-				getWorldSize();
-				if(w == -1) {
-					debug.printl("Incorrect dimensions: "+txtWidth.getText()+","+txtHeight.getText());
-					return;
-				}
-				String n = txtName.getText();
-				//Fill and create the map
-				int ww = (2*w)+1;
-				int hh = (2*h)+1;
-				BlockEntry[][] ents = new BlockEntry[ww][hh];
-				BlockMap main = new BlockMap(ents, -w, -h);
-				for(int i = 0, x = -w; i < ww; i++, x++) {
-					for(int j = 0, y = -h; j < hh; j++, y++) {
-						ents[i][j] = ContentsBlocks.grass;
-					}
-				}
-				
-				//Create and set up the world
-				world = new World();
-				world.setMain(main);
-				
-				
-				//Write to a new file
-				try {
-					File newFile = new File("maps/"+n+".mworld");
-					if(!newFile.createNewFile()) {
-						debug.printl('"'+n+'"'+" already exists");
-						dispose();
-						return;
-					}
-					try(OutputStream os = new FileOutputStream(newFile)) {
-						JsonNode object = world.save();
-						String text = JsonTool.save(object);
-						byte[] bin = text.getBytes();
-						os.write(bin);
-						os.flush();
-					}
-				}catch (Exception e1) {
-					debug.pstm(e1, "Failed to write the new world.");
-					dispose();
-					return;
-				}
-				
-				debug.printl("Successfully created "+n);
-				dispose();
-				
-				world.destroy();
-				PanelSaves.INSTANCE.refresh();
-			});
+			okButton.addActionListener(e -> save());
 			okButton.setActionCommand("OK");
 			buttonPane.add(okButton);
 			getRootPane().setDefaultButton(okButton);
@@ -162,4 +113,58 @@ public class NewGame extends JDialog {
 		pack();
 	}
 
+	private void save() {
+		Universe world = null;
+		getWorldSize();
+		if(w == -1) {
+			debug.printl("Incorrect dimensions: "+txtWidth.getText()+","+txtHeight.getText());
+			return;
+		}
+		
+		String n = txtName.getText();
+		//Fill and create the map
+		int ww = (2*w)+1;
+		int hh = (2*h)+1;
+		BlockEntry[][] ents = new BlockEntry[ww][hh];
+		World main = new World(ents, -w, -h);
+		for(int i = 0; i < ww; i++) {
+			for(int j = 0; j < hh; j++) {
+				ents[i][j] = ContentsBlocks.grass;
+			}
+		}
+		
+		//Create and set up the world
+		world = new Universe();
+		world.setMain(main);
+		
+		//Write to a new file
+		File newFile = new File("maps/"+n+".mworld");
+		if(newFile.exists()) {
+			debug.printl('"'+n+'"'+" already exists");
+			dispose();
+			return;
+		}
+		try(OutputStream os = new FileOutputStream(newFile)) {
+			JsonNode object = world.save();
+			if(object == null) {
+				debug.printl("Failed to create world data");
+				dispose();
+				return;
+			}
+			String text = JsonTool.save(object);
+			byte[] bin = text.getBytes();
+			os.write(bin);
+			os.flush();
+		}catch (Exception e1) {
+			debug.pstm(e1, "Failed to write the new world.");
+			dispose();
+			return;
+		}
+						
+		debug.printl("Successfully created "+n);
+		dispose();
+		
+		world.destroy();
+		PanelSaves.INSTANCE.refresh();
+	}
 }

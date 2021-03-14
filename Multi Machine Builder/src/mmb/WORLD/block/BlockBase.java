@@ -8,7 +8,7 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 
 import mmb.WORLD.BlockDrawer;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar

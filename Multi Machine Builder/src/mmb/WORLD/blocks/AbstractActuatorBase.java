@@ -15,7 +15,7 @@ import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.Rotation;
 import mmb.WORLD.block.SkeletalBlockEntityData;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar
@@ -44,6 +44,7 @@ public abstract class AbstractActuatorBase extends SkeletalBlockEntityData imple
 		Point pt = side.U().offset(x, y);
 		if(a) run(pt, owner.get(pt.x, pt.y));
 	}
+	@SuppressWarnings({"null", "unused"})
 	@Override
 	public void load(JsonNode data) {
 		side = Rotation.valueOf(data.get("side").asText());

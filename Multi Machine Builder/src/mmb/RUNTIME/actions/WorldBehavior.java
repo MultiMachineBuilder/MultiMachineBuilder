@@ -4,7 +4,7 @@
 package mmb.RUNTIME.actions;
 
 import mmb.FILES.AdvancedFile;
-import mmb.WORLD.worlds.world.World;
+import mmb.WORLD.worlds.universe.Universe;
 
 /**
  * @author oskar
@@ -24,17 +24,17 @@ public interface WorldBehavior {
 	 * This method is called before
 	 * @param w
 	 */
-	public void open(World w);
+	public void open(Universe w);
 	/**
 	 * Run the world behavior
 	 * @param w targeted world
 	 */
-	default public void run(World w) {}
+	default public void run(Universe w) {}
 	/**
 	 * Close and clean up after world is closed.
 	 * @param w
 	 */
-	public void close(World w);
+	public void close(Universe w);
 	
 	/**
 	 * Return an indentifier used as object name in the serializer.

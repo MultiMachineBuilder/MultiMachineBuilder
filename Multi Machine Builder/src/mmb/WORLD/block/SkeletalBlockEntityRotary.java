@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.Rotable;
 import mmb.WORLD.RotatedImageGroup;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar
@@ -22,7 +22,7 @@ public abstract class SkeletalBlockEntityRotary extends SkeletalBlockEntityData 
 	@Override
 	public final void load(JsonNode data) {
 		side = Rotation.valueOf(data.get("side").asText());
-		if(side == null) side = Rotation.N;
+		//if(side == null) side = Rotation.N;
 		load1(data);
 	}
 	protected Rotation side = Rotation.N;
@@ -41,4 +41,5 @@ public abstract class SkeletalBlockEntityRotary extends SkeletalBlockEntityData 
 	}
 	protected void save1(ObjectNode node) {}
 	protected void load1(JsonNode node) {}
+
 }

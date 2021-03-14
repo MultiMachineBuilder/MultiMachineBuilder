@@ -8,14 +8,16 @@ import com.fasterxml.jackson.databind.JsonNode;
 import mmb.BEANS.Identifiable;
 import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
+import mmb.BEANS.Titled;
 
 /**
  * @author oskar
  *
  */
-public interface WorldDataLayer extends Loader<JsonNode>, Saver<JsonNode>, Identifiable<String> {
+public interface WorldDataLayer extends Loader<JsonNode>, Saver<JsonNode>, Identifiable<String>, Titled {
 	/**
-	 * This method is run after the data layer is loaded
+	 * Run after given {@link World} loads
+	 * @param map block map
 	 */
-	public void afterWorldLoaded(World d);
+	public void afterMapLoaded(World map);
 }

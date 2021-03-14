@@ -237,5 +237,8 @@
 	<classpathentry kind="lib" path="lib/jackson/jackson-databind-2.12.1.jar"/>
 	<classpathentry kind="lib" path="lib/jackson/jackson-databind-2.12.1-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/jackson/jackson-databind-2.12.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/com.google.errorprone/jsr305-3.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/com.google.errorprone/jsr305-3.0.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/com.google.errorprone/jsr305-3.0.2-sources.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

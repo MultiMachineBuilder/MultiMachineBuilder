@@ -70,7 +70,7 @@ public final class EverythingSet<T> implements Set<T> {
 	}
 
 	@Override
-	public <T> T[] toArray(T[] a) {
+	public <U> U[] toArray(U[] a) {
 		throw new UnsupportedOperationException("Unable to create that many objects!");
 	}
 

@@ -6,6 +6,7 @@ package mmb.WORLD.item;
 import mmb.BEANS.Identifiable;
 import mmb.BEANS.Titled;
 import mmb.WORLD.BlockDrawer;
+import mmb.WORLD.inventory.ItemEntry;
 
 /**
  * @author oskar
@@ -26,5 +27,11 @@ public interface ItemType extends Titled, Identifiable<String>{
 	
 	public void setTexture(BlockDrawer texture);
 	public BlockDrawer getTexture();
-	
+	/**
+	 * @return a new instance of the item
+	 */
+	public ItemEntry create();
+	default public boolean exists() {
+		return true;
+	}
 }

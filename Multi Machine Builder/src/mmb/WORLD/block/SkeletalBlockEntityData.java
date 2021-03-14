@@ -6,15 +6,14 @@ package mmb.WORLD.block;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.BEANS.Loader;
 import mmb.DATA.json.JsonTool;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar
  *
  */
-public abstract class SkeletalBlockEntityData extends SkeletalBlockEntity implements Loader<JsonNode> {
+public abstract class SkeletalBlockEntityData extends SkeletalBlockEntity{
 	protected SkeletalBlockEntityData(int x, int y, BlockMap owner2) {
 		super(x, y, owner2);
 	}

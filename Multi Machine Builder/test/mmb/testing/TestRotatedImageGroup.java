@@ -3,7 +3,6 @@
  */
 package mmb.testing;
 
-import java.awt.EventQueue;
 import java.awt.Graphics;
 
 import javax.swing.JComponent;
@@ -18,10 +17,19 @@ import mmb.WORLD.RotatedImageGroup;
  *
  */
 public class TestRotatedImageGroup extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 265599626278698011L;
+
 	public TestRotatedImageGroup() {
 		setBounds(100, 100, 450, 300);
 		setDefaultCloseOperation(2);
 		class RotatedImageDrawer extends JComponent{
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 5380480106431817395L;
 			private RotatedImageGroup rig;
 			public RotatedImageDrawer(RotatedImageGroup rig) {
 				this.rig = rig;

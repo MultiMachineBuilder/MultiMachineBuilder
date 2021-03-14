@@ -5,20 +5,15 @@ package mmb.WORLD.block;
 
 import java.awt.Graphics;
 import java.awt.Point;
-import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-
-import mmb.GameObject;
-import mmb.WORLD.BlockDrawer;
 import mmb.WORLD.block.properties.BlockProperty;
 import mmb.WORLD.item.Item;
-import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.map.BlockMap;
+import mmb.WORLD.worlds.world.BlockArrayProvider;
+import mmb.WORLD.worlds.world.World;
+import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar
@@ -54,7 +49,7 @@ public class BlockEntityType extends Item implements BlockType{
 	 * 	<li>error statement, sent to registered server users and newsletter subscribers</li>
 	 * </ul>
 	 */
-	/**    
+	/**
 	 * Set this variable to run an update on this block for every tick
 	 * <br>NOTE: design this function carefully to prevent logspam
 	 * <br>
@@ -67,7 +62,7 @@ public class BlockEntityType extends Item implements BlockType{
 	 * 		<li>or public, if action was requested by unclaimed or server owned block</li>
 	 * 	</ul>
 	 */
-	/**    
+	/**
 	 * Set this variable to prepare a block for server shutdown.
 	 * <br>Does not run when block is broken.
 	 * <br>To handle block removal,set onRemove variable
@@ -155,7 +150,7 @@ public class BlockEntityType extends Item implements BlockType{
 		drawer.draw(renderStartPos, g);
 	}
 	@Override
-	public void place(int x, int y, BlockMap map) {
+	public void place(int x, int y, World map) {
 		map.place(this, x, y);
 	}
 	@Override

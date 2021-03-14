@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.WORLD.worlds.world;
+package mmb.WORLD.worlds.universe;
 
 /**
  * @author oskar
