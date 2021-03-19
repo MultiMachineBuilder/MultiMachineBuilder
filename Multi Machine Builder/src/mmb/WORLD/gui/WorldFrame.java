@@ -243,7 +243,7 @@ public class WorldFrame extends JComponent {
 				if(map.inBounds(mouseoverBlockX, mouseoverBlockY)) {
 					BlockEntry ent = map.get(mouseoverBlockX, mouseoverBlockY);
 					if(ent instanceof BlockActivateListener) {
-						((BlockActivateListener) ent).run(mouseoverBlockX, mouseoverBlockY, map);
+						((BlockActivateListener) ent).click(mouseoverBlockX, mouseoverBlockY, map, window);
 						debug.printl("Running BlockActivateListener for: ["+mouseoverBlockX+","+mouseoverBlockY+"]");
 					}else {
 						if(placer.getPlacer() == null) return;

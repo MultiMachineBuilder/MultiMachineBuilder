@@ -69,7 +69,6 @@
 (TEXTURES) Loading texture: logic/8-bit wires.png
 (TEXTURES) Loading texture: logic/AND.png
 (TEXTURES) Loading texture: logic/button.png
-(TEXTURES) Loading texture: logic/claw.png
 (TEXTURES) Loading texture: logic/drandom.png
 (TEXTURES) Loading texture: logic/LNetwork attachment.png
 (TEXTURES) Loading texture: logic/logic gates.png
@@ -85,6 +84,10 @@
 (TEXTURES) Loading texture: logic/urandom.png
 (TEXTURES) Loading texture: logic/XOR.png
 (TEXTURES) Loading texture: logic/YES.png
+(TEXTURES) Loading texture: machine/CCW.png
+(TEXTURES) Loading texture: machine/claw.png
+(TEXTURES) Loading texture: machine/CW.png
+(TEXTURES) Loading texture: machine/placer.png
 (TEXTURES) Loading texture: mine.png
 (TEXTURES) Loading texture: minecxraft.bmp
 (TEXTURES) Loading texture: nuclear reactor.png
@@ -120,6 +123,7 @@
 (TEXTURES) Loading texture: routes/short hway ramp.png
 (TEXTURES) Loading texture: routes/turn transition.png
 (TEXTURES) Loading texture: silicon_ore.png
+(TEXTURES) Loading texture: space tiling.png
 (TEXTURES) Loading texture: special/invalid.png
 (TEXTURES) Loading texture: spider.png
 (TEXTURES) Loading texture: stone.png
@@ -185,87 +189,34 @@ null
 null
 (BLOCKS) Adding wireworld.lamp with title Lamp and descripion:
 null
+(BLOCKS) Adding machines.placer with title Block Placer and descripion:
+null
+(BLOCKS) Adding machines.clicker with title Block Clicking Claw and descripion:
+null
+(BLOCKS) Adding machines.rotator with title Block Rotator and descripion:
+null
 (FullScreen) Setting up FullScreen
 (MOD-LOADER) Loading mods
 (MOD-LOADER) Finding all files to load
 (MOD-LOADER) Added missing mods directory
 (MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods
-(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\ChuckNorris.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
-(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\StackOverflow - V2.zip
-(MOD-LOADER) Found 5 mod files
-(MOD-LOADER) The external mod has incorrect URL: porno://www.google.com
-(MOD-LOADER) java.net.MalformedURLException
-(MOD-LOADER) unknown protocol: porno
-(MOD-LOADER) java.net.URL.<init>(Unknown Source)
-(MOD-LOADER) java.net.URL.<init>(Unknown Source)
-(MOD-LOADER) java.net.URL.<init>(Unknown Source)
-(MOD-LOADER) mmb.FILES.OnlineFile.<init>(OnlineFile.java:35)
-(MOD-LOADER) mmb.FILES.FileUtil.getFile(FileUtil.java:22)
-(MOD-LOADER) mmb.MODS.loader.ModLoader.modloading(ModLoader.java:274)
-(MOD-LOADER) mmb.Loading.continueLoading(Loading.java:87)
-(MOD-LOADER) mmb.Loading.lambda$0(Loading.java:58)
-(MOD-LOADER) java.lang.Thread.run(Unknown Source)
+(MOD-LOADER) Found 2 mod files
+(MOD - Multi Machine Builder) java.io.FileNotFoundException
 (MOD - HelloWorld.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
-(MOD - ChuckNorris.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\ChuckNorris.jar
-(MOD - StackOverflow - V2.zip) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\StackOverflow - V2.zip
-(MOD - StackOverflow - V2.zip) Loading a modfile: StackOverflow - V2.zip
-(MOD - StackOverflow - V2.zip) entry: StackOverflow - V2/
+(MOD - Multi Machine Builder) Failed to read the file C:\Users\oskar\eclipse-workspace\Multi Machine Builder
+(MOD - Multi Machine Builder) java.io.FileNotFoundException
+(MOD - Multi Machine Builder) 
+(MOD - Multi Machine Builder) java.io.FileInputStream.open0(Native Method)
+(MOD - Multi Machine Builder) java.io.FileInputStream.open(Unknown Source)
+(MOD - Multi Machine Builder) java.io.FileInputStream.<init>(Unknown Source)
+(MOD - Multi Machine Builder) mmb.FILES.LocalFile.getInputStream(LocalFile.java:33)
+(MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:107)
+(MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:79)
+(MOD - Multi Machine Builder) java.lang.Thread.run(Unknown Source)
 (MOD - HelloWorld.jar) Loading a modfile: HelloWorld.jar
 (MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - StackOverflow - V2.zip) entry: StackOverflow - V2/.classpath
-(MOD - StackOverflow - V2.zip) entry: StackOverflow - V2/.project
-(MOD - StackOverflow - V2.zip) entry: StackOverflow - V2/int.class
-(MOD - StackOverflow - V2.zip) entry: StackOverflow - V2/META-INF/
-(MOD - StackOverflow - V2.zip) entry: StackOverflow - V2/META-INF/MANIFEST.MF
-(MOD - StackOverflow - V2.zip) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\StackOverflow - V2.zip
-(MOD - ChuckNorris.jar) Loading a modfile: ChuckNorris.jar
-(MOD - ChuckNorris.jar) entry: mmbmods/chuck/ChuckNorrisException.class
-(MOD - ChuckNorris.jar) entry: mmbmods/chuck/Chucker.class
-(MOD - ChuckNorris.jar) entry: mmbmods/chuck/ChuckNorrisBlock.class
-(MOD - ChuckNorris.jar) entry: mmbmods/chuck/UndeclarableThrower.class
-(MOD - ChuckNorris.jar) entry: mmbmods/chuck/package-info.class
-(MOD - ChuckNorris.jar) entry: textures/package-info.class
-(MOD - ChuckNorris.jar) entry: .classpath
-(MOD - ChuckNorris.jar) entry: .project
-(MOD - ChuckNorris.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\ChuckNorris.jar
-(MOD - StackOverflow - V2.zip) Processing StackOverflow - V2/.project
-(MOD - StackOverflow - V2.zip) File: StackOverflow - V2/.project
-(MOD - StackOverflow - V2.zip) Processing StackOverflow - V2/.classpath
-(MOD - StackOverflow - V2.zip) File: StackOverflow - V2/.classpath
-(MOD - StackOverflow - V2.zip) Processing StackOverflow - V2/int.class
-(MOD - StackOverflow - V2.zip) File: StackOverflow - V2/int.class
-(MOD - StackOverflow - V2.zip) entry: StackOverflow - V2/int.class
-(MOD - StackOverflow - V2.zip) Class: StackOverflow - V2.int
-(MOD - StackOverflow - V2.zip) Missing dependencies in StackOverflow - V2/int.class
-(MOD - StackOverflow - V2.zip) java.lang.NoClassDefFoundError
-(MOD - StackOverflow - V2.zip) StackOverflow - V2/int (wrong name: int)
-(MOD - StackOverflow - V2.zip) java.lang.ClassLoader.defineClass1(Native Method)
-(MOD - StackOverflow - V2.zip) java.lang.ClassLoader.defineClass(Unknown Source)
-(MOD - StackOverflow - V2.zip) java.lang.ClassLoader.defineClass(Unknown Source)
-(MOD - StackOverflow - V2.zip) io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)
-(MOD - StackOverflow - V2.zip) java.lang.ClassLoader.loadClass(Unknown Source)
-(MOD - StackOverflow - V2.zip) java.lang.ClassLoader.loadClass(Unknown Source)
-(MOD - StackOverflow - V2.zip) io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
-(MOD - StackOverflow - V2.zip) mmb.MODS.loader.AddonLoader.interpretClassFile(AddonLoader.java:206)
-(MOD - StackOverflow - V2.zip) mmb.MODS.loader.AddonLoader.processFile(AddonLoader.java:174)
-(MOD - StackOverflow - V2.zip) java.util.HashMap.forEach(Unknown Source)
-(MOD - StackOverflow - V2.zip) mmb.MODS.loader.AddonLoader.whenWorking(AddonLoader.java:159)
-(MOD - StackOverflow - V2.zip) mmb.MODS.loader.AddonLoader.unzip(AddonLoader.java:145)
-(MOD - StackOverflow - V2.zip) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:116)
-(MOD - StackOverflow - V2.zip) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:79)
-(MOD - StackOverflow - V2.zip) java.lang.Thread.run(Unknown Source)
-(MOD - StackOverflow - V2.zip) Processing StackOverflow - V2/META-INF/
-(MOD - StackOverflow - V2.zip) Directory: StackOverflow - V2/META-INF/
-(MOD - StackOverflow - V2.zip) Processing StackOverflow - V2/META-INF/MANIFEST.MF
-(MOD - StackOverflow - V2.zip) File: StackOverflow - V2/META-INF/MANIFEST.MF
-(MOD - StackOverflow - V2.zip) Processing StackOverflow - V2/
-(MOD - StackOverflow - V2.zip) Directory: StackOverflow - V2/
-(MOD - ChuckNorris.jar) Processing mmbmods/chuck/Chucker.class
 (MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - ChuckNorris.jar) File: mmbmods/chuck/Chucker.class
-(MOD - ChuckNorris.jar) entry: mmbmods/chuck/Chucker.class
-(MOD - ChuckNorris.jar) Class: mmbmods.chuck.Chucker
 (MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld.jar) entry: .project
@@ -276,158 +227,152 @@ null
 (MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
-(MOD - ChuckNorris.jar) Processing mmbmods/chuck/ChuckNorrisBlock.class
-(MOD - ChuckNorris.jar) File: mmbmods/chuck/ChuckNorrisBlock.class
-(MOD - ChuckNorris.jar) entry: mmbmods/chuck/ChuckNorrisBlock.class
-(MOD - ChuckNorris.jar) Class: mmbmods.chuck.ChuckNorrisBlock
 (MOD - HelloWorld.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld.jar) Class: mmbmods.monniasza.helloworld.HWBlock
-(MOD - ChuckNorris.jar) Processing mmbmods/chuck/UndeclarableThrower.class
-(MOD - ChuckNorris.jar) File: mmbmods/chuck/UndeclarableThrower.class
-(MOD - ChuckNorris.jar) entry: mmbmods/chuck/UndeclarableThrower.class
-(MOD - ChuckNorris.jar) Class: mmbmods.chuck.UndeclarableThrower
 (MOD - HelloWorld.jar) Processing .classpath
 (MOD - HelloWorld.jar) File: .classpath
 (MOD - HelloWorld.jar) Processing mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld.jar) Class: mmbmods.monniasza.helloworld.package-info
-(MOD - ChuckNorris.jar) Processing mmbmods/chuck/ChuckNorrisException.class
-(MOD - ChuckNorris.jar) File: mmbmods/chuck/ChuckNorrisException.class
-(MOD - ChuckNorris.jar) entry: mmbmods/chuck/ChuckNorrisException.class
-(MOD - ChuckNorris.jar) Class: mmbmods.chuck.ChuckNorrisException
 (MOD - HelloWorld.jar) Processing mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld.jar) Class: mmbmods.monniasza.helloworld.HWMachine
-(MOD - ChuckNorris.jar) Processing .classpath
-(MOD - ChuckNorris.jar) File: .classpath
-(MOD - ChuckNorris.jar) Processing mmbmods/chuck/package-info.class
-(MOD - ChuckNorris.jar) File: mmbmods/chuck/package-info.class
-(MOD - ChuckNorris.jar) entry: mmbmods/chuck/package-info.class
-(MOD - ChuckNorris.jar) Class: mmbmods.chuck.package-info
 (MOD - HelloWorld.jar) Processing .project
 (MOD - HelloWorld.jar) File: .project
 (MOD - HelloWorld.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (MOD - HelloWorld.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (HW) Hello, world!
-(MOD - ChuckNorris.jar) Processing textures/package-info.class
-(MOD - ChuckNorris.jar) File: textures/package-info.class
-(MOD - ChuckNorris.jar) entry: textures/package-info.class
-(MOD - ChuckNorris.jar) Class: textures.package-info
-(MOD - ChuckNorris.jar) Processing .project
-(MOD - ChuckNorris.jar) File: .project
-(MOD - mario) java.net.UnknownHostException
-(MOD - mario) Failed to download the file https://mario
-(MOD - mario) java.net.UnknownHostException
-(MOD - mario) mario
-(MOD - mario) java.net.AbstractPlainSocketImpl.connect(Unknown Source)
-(MOD - mario) java.net.PlainSocketImpl.connect(Unknown Source)
-(MOD - mario) java.net.SocksSocketImpl.connect(Unknown Source)
-(MOD - mario) java.net.Socket.connect(Unknown Source)
-(MOD - mario) sun.security.ssl.SSLSocketImpl.connect(Unknown Source)
-(MOD - mario) sun.security.ssl.BaseSSLSocketImpl.connect(Unknown Source)
-(MOD - mario) sun.net.NetworkClient.doConnect(Unknown Source)
-(MOD - mario) sun.net.www.http.HttpClient.openServer(Unknown Source)
-(MOD - mario) sun.net.www.http.HttpClient.openServer(Unknown Source)
-(MOD - mario) sun.net.www.protocol.https.HttpsClient.<init>(Unknown Source)
-(MOD - mario) sun.net.www.protocol.https.HttpsClient.New(Unknown Source)
-(MOD - mario) sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(Unknown Source)
-(MOD - mario) sun.net.www.protocol.http.HttpURLConnection.plainConnect0(Unknown Source)
-(MOD - mario) sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
-(MOD - mario) sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source)
-(MOD - mario) sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
-(MOD - mario) sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
-(MOD - mario) sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source)
-(MOD - mario) java.net.URL.openStream(Unknown Source)
-(MOD - mario) mmb.FILES.OnlineFile.getInputStream(OnlineFile.java:43)
-(MOD - mario) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:107)
-(MOD - mario) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:79)
-(MOD - mario) java.lang.Thread.run(Unknown Source)
-(MOD-LOADER) Start 1st stage for Chuck Norris
 (MOD-LOADER) Start 1st stage for Hello, world!
 (MOD-LOADER) End 1st stage for Hello, world!
-(MOD-LOADER) End 1st stage for Chuck Norris
 (MOD-LOADER) Start 2nd stage for Hello, world!
-(MOD-LOADER) Start 2nd stage for Chuck Norris
 (HW) Successfully created Rainbow Machine
 (BLOCKS) Adding wireworld.hw with title Hello, world! and descripion:
 null
 (MOD-LOADER) End 2nd stage for Hello, world!
-(Main menu) MainMenu created
-(SELECT A SAVE) Found save: Name.mworld
-(SELECT A SAVE) Found 1 saves
-(MOD-LOADER) Failed to run a mod Chuck Norris
-(MOD-LOADER) java.lang.BootstrapMethodError
-(MOD-LOADER) java.lang.NoClassDefFoundError: mmb/WORLD/worlds/map/BlockMap
-(MOD-LOADER) mmbmods.chuck.Chucker.makeContent(Chucker.java:45)
-(MOD-LOADER) mmb.MODS.loader.ModLoader.lambda$5(ModLoader.java:180)
-(MOD-LOADER) java.lang.Thread.run(Unknown Source)
-(MOD-LOADER) Caused by: 
-(MOD-LOADER) java.lang.NoClassDefFoundError
-(MOD-LOADER) mmb/WORLD/worlds/map/BlockMap
-(MOD-LOADER) mmbmods.chuck.Chucker.makeContent(Chucker.java:45)
-(MOD-LOADER) mmb.MODS.loader.ModLoader.lambda$5(ModLoader.java:180)
-(MOD-LOADER) java.lang.Thread.run(Unknown Source)
-(MOD-LOADER) Caused by: 
-(MOD-LOADER) java.lang.ClassNotFoundException
-(MOD-LOADER) Cannot find mmb/WORLD/worlds/map/BlockMap.class in bytes
-(MOD-LOADER) io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:41)
-(MOD-LOADER) java.lang.ClassLoader.loadClass(Unknown Source)
-(MOD-LOADER) java.lang.ClassLoader.loadClass(Unknown Source)
-(MOD-LOADER) mmbmods.chuck.Chucker.makeContent(Chucker.java:45)
-(MOD-LOADER) mmb.MODS.loader.ModLoader.lambda$5(ModLoader.java:180)
-(MOD-LOADER) java.lang.Thread.run(Unknown Source)
 (MOD-LOADER) Start 3rd stage for Hello, world!
 (HW) Successfully created Rainbow Machine
 (BLOCKS) Adding wireworld.hw with title Hello, world! and descripion:
 null
 (MOD-LOADER) End 3rd stage for Hello, world!
-(MOD-LOADER) ================MOD INFORMATION FOR StackOverflow - V2.zip================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\StackOverflow - V2.zip
-(MOD-LOADER) Crashed
-(MOD-LOADER) Unknown information
+(MOD-LOADER) ================MOD INFORMATION FOR C:\Users\oskar\eclipse-workspace\Multi Machine Builder================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder
+(MOD-LOADER) Missing files
 (MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Sun Mar 14 22:07:30 CET 2021
+(MOD-LOADER) RELEASED Fri Mar 19 19:56:46 CET 2021
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
-(MOD-LOADER) ================MOD INFORMATION FOR Chuck Norris================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\ChuckNorris.jar
-(MOD-LOADER) Crashed
-(MOD-LOADER) RELEASED Sun Mar 14 22:07:30 CET 2021
-(MOD-LOADER) MADE BY Monniasza
-(MOD-LOADER) DESCRIPTION: Kill entire game with single exception
-(MOD-LOADER) ================MOD INFORMATION FOR https://mario================
-(MOD-LOADER) LOCATED AT https://mario
-(MOD-LOADER) Missing files
 (MOD-LOADER) HOORAY, IT'S OVER!
+(Main menu) MainMenu created
+(SELECT A SAVE) Found save: Block Clicking Claw.mworld
+(SELECT A SAVE) Found save: main.mworld
+(SELECT A SAVE) Found 2 saves
 (SELECT A SAVE) Opened a file
 (SELECT A SAVE) Loaded a file
 (SELECT A SAVE) Parsed file
 (MAP anonymous) Became anonymous
 (SELECT A SAVE) Loaded
 (WORLD - IDLE) Exiting(WORLDS) Opening a new world
-(CHAT) gra
-(CHAT) gra
-(CHAT) gra
-(CHAT) gra
-(CHAT) gra
-(CHAT) gra
-(CHAT) gra
-(CHAT) gra
-(CHAT) gra
-(CHAT) gra
-(CHAT) gra
-(CHAT) gra
-(CHAT) gra
-(CHAT) gra
-(CHAT) gra
-(CHAT) gra
-(CHAT) gra
+(WORLD - main null) Running BlockActivateListener for: [43,-9]
+(WORLD - main null) Running BlockActivateListener for: [45,-9]
+(WORLD - main null) Running BlockActivateListener for: [43,-9]
+(WORLD - main null) Running BlockActivateListener for: [42,13]
+(ACTUATOR-PLACER) Run
+(ACTUATOR-PLACER) Run
+(WORLD - main null) Running BlockActivateListener for: [33,-4]
+(WORLD - main null) Running BlockActivateListener for: [34,-4]
+(WORLD - main null) Running BlockActivateListener for: [34,-4]
+(WORLD - main null) Running BlockActivateListener for: [40,13]
+(WORLD - main null) Running BlockActivateListener for: [40,13]
+(WORLD - main null) Running BlockActivateListener for: [40,13]
+(WORLD - main null) Running BlockActivateListener for: [40,13]
+(WORLD - main null) Running BlockActivateListener for: [14,12]
+(WORLD - main null) Running BlockActivateListener for: [14,12]
+(WORLD - main null) Running BlockActivateListener for: [14,12]
+(WORLD - main null) Running BlockActivateListener for: [47,13]
+(WORLD - main null) Running BlockActivateListener for: [47,13]
+(WORLD - main null) Running BlockActivateListener for: [47,13]
+(WORLD - main null) Running BlockActivateListener for: [47,13]
+(WORLD - main null) Running BlockActivateListener for: [40,13]
+(WORLD - main null) Running BlockActivateListener for: [40,13]
+(WORLD - main null) Running BlockActivateListener for: [42,13]
+(ACTUATOR-PLACER) Run
+(ACTUATOR-PLACER) Run
+(WORLD - main null) Running BlockActivateListener for: [42,13]
+(ACTUATOR-PLACER) Run
+(ACTUATOR-PLACER) Run
+(WORLD - main null) Running BlockActivateListener for: [42,13]
+(ACTUATOR-PLACER) Run
+(ACTUATOR-PLACER) Run
+(WORLD - main null) Running BlockActivateListener for: [42,13]
+(ACTUATOR-PLACER) Run
+(ACTUATOR-PLACER) Run
+(WORLD - main null) Running BlockActivateListener for: [42,13]
+(ACTUATOR-PLACER) Run
+(ACTUATOR-PLACER) Run
+(WORLD - main null) Running BlockActivateListener for: [42,13]
+(ACTUATOR-PLACER) Run
+(ACTUATOR-PLACER) Run
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [32,13]
+(WORLD - main null) Running BlockActivateListener for: [31,-2]
+(WORLD - main null) Running BlockActivateListener for: [32,0]
+(WORLD - main null) Running BlockActivateListener for: [32,0]
+(WORLD - main null) Running BlockActivateListener for: [32,0]
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
 (WORLD - main null) Exiting(WORLDS) The given world is null, exiting

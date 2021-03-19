@@ -24,6 +24,10 @@ import mmb.MENU.MMBFrame;
 import mmb.MENU.components.BoundCheckBoxMenuItem;
 import mmb.MENU.settings.PanelSettings;
 
+/**
+ * @author oskar
+ * A singleton main menu class
+ */
 public class MainMenu extends MMBFrame {
 	private static final long serialVersionUID = -7953512837841781519L;
 	

@@ -6,6 +6,7 @@ package mmb.WORLD.blocks;
 import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.Side;
 import mmb.WORLD.block.Block;
+import mmb.WORLD.gui.WorldWindow;
 import mmb.WORLD.worlds.world.World;
 
 /**
@@ -19,7 +20,7 @@ public class OnToggle extends Block implements BlockActivateListener {
 	}
 
 	@Override
-	public void run(int blockX, int blockY, World map) {
+	public void click(int blockX, int blockY, World map, WorldWindow window) {
 		map.place(ContentsBlocks.OFF, blockX, blockY);
 	}
 

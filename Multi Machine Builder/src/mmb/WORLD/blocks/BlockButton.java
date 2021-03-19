@@ -7,6 +7,7 @@ import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityDataless;
+import mmb.WORLD.gui.WorldWindow;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
 import mmb.WORLD.worlds.world.World.BlockMap;
@@ -37,7 +38,7 @@ public class BlockButton extends SkeletalBlockEntityDataless implements BlockAct
 	}
 
 	@Override
-	public void run(int blockX, int blockY, World map) {
+	public void click(int blockX, int blockY, World map, WorldWindow window) {
 		pressed = 2;
 	}
 

@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.block;
 
+import java.awt.Graphics;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -15,6 +17,10 @@ import mmb.WORLD.worlds.world.World.BlockMap;
  *
  */
 public abstract class SkeletalBlockEntityRotary extends SkeletalBlockEntityData implements Rotable {
+	@Override
+	public void render(int x, int y, Graphics g) {
+		getImage().get(side).draw(x, y, g);
+	}
 	protected SkeletalBlockEntityRotary(int x, int y, BlockMap owner2) {
 		super(x, y, owner2);
 	}

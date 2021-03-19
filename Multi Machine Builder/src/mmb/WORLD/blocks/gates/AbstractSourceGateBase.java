@@ -15,10 +15,7 @@ import mmb.WORLD.worlds.world.World.BlockMap;
  * A skeletal implementation for a gate which reads two signals from DL and DR corners, and outputs them to U side
  */
 public abstract class AbstractSourceGateBase extends SkeletalBlockEntityRotary{
-	@Override
-	public void render(int x, int y, Graphics g) {
-		getImage().get(side).draw(x, y, g);
-	}
+	
 	protected boolean result;
 	/**
 	 * @param x

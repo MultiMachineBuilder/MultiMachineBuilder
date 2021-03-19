@@ -8,9 +8,8 @@ import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.List;
-import java.awt.event.ActionEvent;
-
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 
 import org.apache.commons.io.IOUtils;
@@ -38,6 +37,8 @@ import java.util.ArrayList;
  *
  */
 public class PanelSaves extends JPanel {
+	
+	private static final JFileChooser jfc = new JFileChooser();
 	/**
 	 * The singleton instance of {@code PanelSaves}
 	 */
@@ -48,7 +49,6 @@ public class PanelSaves extends JPanel {
 	/**The list of all saves*/
 	public final transient java.util.List<Save> saves = new ArrayList<>();
 	private List list;
-	private JButton btnNewButton;
 	/**
 	 * Create the panel.
 	 */
@@ -59,11 +59,11 @@ public class PanelSaves extends JPanel {
 		
 		JPanel subPanelSaves = new JPanel();
 		add(subPanelSaves, BorderLayout.SOUTH);
-		subPanelSaves.setLayout(new MigLayout("", "[][][][]", "[]"));
+		subPanelSaves.setLayout(new MigLayout("", "[][][][][]", "[]"));
 		
 		JButton btnPlay = new JButton("Play");
 		btnPlay.setToolTipText("Play the selected world");
-		btnPlay.addActionListener(this::play);
+		btnPlay.addActionListener(e -> play());
 		btnPlay.setBackground(Color.GREEN);
 		subPanelSaves.add(btnPlay, "cell 0 0");
 		
@@ -82,21 +82,34 @@ public class PanelSaves extends JPanel {
 		btnReloadWorlds.addActionListener(arg -> refresh());
 		subPanelSaves.add(btnReloadWorlds, "cell 2 0");
 		
-		btnNewButton = new JButton("Open maps directory");
-		btnNewButton.setToolTipText("Open 'maps' directory in the file manager");
-		btnNewButton.addActionListener(arg -> {
+		JButton btnMapsDir = new JButton("Open maps directory");
+		btnMapsDir.setToolTipText("Open 'maps' directory in the file manager");
+		btnMapsDir.addActionListener(arg -> {
 				try {
 					Desktop.getDesktop().open(new File("maps/"));
 				} catch (IOException e) {
 					debug.pstm(e, "Failed to open maps/ directory");
 				}
 		});
-		subPanelSaves.add(btnNewButton, "cell 3 0");
+		subPanelSaves.add(btnMapsDir, "cell 3 0");
+		
+		JButton btnOpenExternal = new JButton("External");
+		btnOpenExternal.setBackground(Color.ORANGE);
+		btnOpenExternal.addActionListener(e -> playExternal());
+		subPanelSaves.add(btnOpenExternal, "cell 4 0");
+		
 		EventQueue.invokeLater(this::refresh);
 	}
 	
-	
-	private void play(@SuppressWarnings("unused") ActionEvent event /*ignored*/) {
+	@SuppressWarnings("null")
+	private void playExternal() {
+		int result = jfc.showOpenDialog(this);
+		if(result == JFileChooser.APPROVE_OPTION) {
+			play(new Save(new LocalFile(jfc.getSelectedFile())));
+		}
+	}
+
+	private void play() {
 		int index = list.getSelectedIndex();
 		if(index < 0) {
 			debug.printl("No selected world!");
@@ -108,12 +121,16 @@ public class PanelSaves extends JPanel {
 			refresh();
 			return;
 		}
+		play(s);
+	}
+	
+	private void play(Save s) {
 		WorldWindow ww = new WorldWindow();
 		FullScreen.setWindow(ww);
 		new Thread(() -> {
 			try(InputStream in = s.file.getInputStream()) {
 				debug.printl("Opened a file");
-				final String loadedData = IOUtils.toString(in, Charset.defaultCharset());
+				String loadedData = IOUtils.toString(in, Charset.defaultCharset());
 				debug.printl("Loaded a file");
 				Universe world = new Universe();
 				@SuppressWarnings("null")

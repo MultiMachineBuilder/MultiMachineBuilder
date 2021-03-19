@@ -10,8 +10,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import mmb.WORLD.block.properties.BlockProperty;
+import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.item.Item;
-import mmb.WORLD.worlds.world.BlockArrayProvider;
 import mmb.WORLD.worlds.world.World;
 import mmb.WORLD.worlds.world.World.BlockMap;
 
@@ -124,14 +124,16 @@ public class BlockEntityType extends Item implements BlockType{
 	 */
 
 	//Register
+	//Register
 	@Override
-	public void register(String id) {
-		this.id = id;
+	public void register() {
+		if(leaveBehind == null) leaveBehind = ContentsBlocks.grass; //NOSONAR
 		Blocks.register(this);
 	}
 	@Override
-	public void register() {
-		Blocks.register(this);
+	public void register(String id) {
+		this.id = id;
+		register();
 	}
 	
 	//GUI
@@ -186,5 +188,9 @@ public class BlockEntityType extends Item implements BlockType{
 	@Override
 	public boolean isBlockEntity() {
 		return true;
+	}
+	@Override
+	public BlockEntityType nasBlockEntityType() {
+		return this;
 	}
 }

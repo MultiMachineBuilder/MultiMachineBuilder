@@ -124,7 +124,7 @@ public interface BlockArrayProvider {
 		if(ent == null) return false;
 		boolean result = ent instanceof BlockActivateListener;
 		if(result) {
-			((BlockActivateListener) ent).run(x, y, parent());
+			((BlockActivateListener) ent).click(x, y, parent(), null);
 		}
 		return result;
 	}

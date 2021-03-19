@@ -21,12 +21,8 @@ import mmb.debug.Debugger;
 public class WorldMenu extends JPopupMenu {
 	private static final long serialVersionUID = -84797957951871754L;
 	private JMenuItem mntmGoHere;
-	private JMenu mnInventory;
-	private JMenuItem mntmWithdrawA;
-	private JMenuItem mntmWithdraw1;
 	private JMenuItem mntmMine;
 	private JMenuItem mntmTextEditor;
-	private JMenuItem mntmNewMenuItem;
 	private JMenuItem mntmCCW;
 	private JMenuItem mntmCW;
 	private static final Debugger debug = new Debugger("WORLD MENU");
@@ -46,25 +42,16 @@ public class WorldMenu extends JPopupMenu {
 		});
 		add(mntmGoHere);
 		
-		mnInventory = new JMenu("Inventory");
-		add(mnInventory);
-		
-		mntmWithdrawA = new JMenuItem("Withdraw all");
-		mnInventory.add(mntmWithdrawA);
-		
-		mntmWithdraw1 = new JMenuItem("Withdraw 1");
-		mnInventory.add(mntmWithdraw1);
-		
-		mntmNewMenuItem = new JMenuItem("Open inventory");
-		mnInventory.add(mntmNewMenuItem);
-		
 		mntmMine = new JMenuItem("Mine");
 		mntmMine.addActionListener(e -> {
-			if(frame.getMap().removeMachine(mouseoverX, mouseoverY)) {
+			if(map.removeMachine(mouseoverX, mouseoverY)) {
 				debug.printl("Removed machine");
 				return;
 			}
-			block.type().leaveBehind().place(mouseoverX, mouseoverY, map.getMap());
+			block
+			.type()
+			.leaveBehind()
+			.place(mouseoverX, mouseoverY, map.getMap());
 		});
 		
 		mntmNewMenuItem_1 = new JMenuItem("Place");

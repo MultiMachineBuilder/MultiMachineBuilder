@@ -10,6 +10,7 @@ import javax.annotation.Nullable;
  * 
  * @author oskar
  */
+@SuppressWarnings({ "resource", "null" })
 public class Debugger {
 	//Static code
 	static {

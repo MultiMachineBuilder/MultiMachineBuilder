@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.Placer;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.worlds.world.World.BlockMap;
@@ -22,13 +23,16 @@ public interface BlockType extends Placer, ItemType {
 	
 	public boolean isBlockEntity();
 	@Nonnull public BlockEntityType asBlockEntityType();
+	public BlockEntityType nasBlockEntityType();
 	
+	@SuppressWarnings({ "unused", "null" })
 	public default void register() {
+		if(leaveBehind() == null) setLeaveBehind(ContentsBlocks.grass); //NOSONAR
 		Blocks.register(this);
 	}
 	public default void register(String id) {
 		setID(id);
-		Blocks.register(this);
+		register();
 	}
 
 	/** set which block is left behind */

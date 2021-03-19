@@ -6,8 +6,6 @@ package mmb.DATA;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import io.vavr.Value;
-
 /**
  * @author oskar
  * @param <T> data type

@@ -466,7 +466,7 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 		if(ent == null) return false;
 		boolean result = ent instanceof BlockActivateListener;
 		if(result) {
-			((BlockActivateListener) ent).run(x, y, this);
+			((BlockActivateListener) ent).click(x, y, this);
 		}
 		return result;
 	}
@@ -499,13 +499,12 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 	 * A collection of blocks and block entities
 	 */
 	public class BlockMap implements BlockArrayProvider{
-		protected World owner;
 		/**
 		 * @return the owner
 		 */
 		@Override
 		public World getOwner() {
-			return owner;
+			return World.this;
 		}
 		private Set<BlockEntity> _blockents = new HashSet<>();
 		

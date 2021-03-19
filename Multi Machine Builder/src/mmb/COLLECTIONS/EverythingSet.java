@@ -8,7 +8,9 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * The {@code EverythingSet} is an immutable {@link Set}, which contains every possible {@link Object}, even ones that weren't created
+ * The {@code EverythingSet}
+ *  is an immutable {@link Set},
+ *   which contains every possible {@link Object}, even ones that weren't created
  * @author oskar
  * @param <T> the generic type of this {@code EverythingSet}
  * 
@@ -25,12 +27,12 @@ public final class EverythingSet<T> implements Set<T> {
 	}
 
 	@Override
-	public boolean contains(Object o) {
+	public boolean contains(@SuppressWarnings("null") Object o) {
 		return true;
 	}
 
 	@Override
-	public boolean containsAll(Collection<?> c) {
+	public boolean containsAll(@SuppressWarnings("null") Collection<?> c) {
 		return true;
 	}
 
@@ -45,17 +47,17 @@ public final class EverythingSet<T> implements Set<T> {
 	}
 
 	@Override
-	public boolean remove(Object o) {
+	public boolean remove(@SuppressWarnings("null") Object o) {
 		return false;
 	}
 
 	@Override
-	public boolean removeAll(Collection<?> c) {
+	public boolean removeAll(@SuppressWarnings("null") Collection<?> c) {
 		return false;
 	}
 
 	@Override
-	public boolean retainAll(Collection<?> c) {
+	public boolean retainAll(@SuppressWarnings("null") Collection<?> c) {
 		return false;
 	}
 
@@ -70,17 +72,17 @@ public final class EverythingSet<T> implements Set<T> {
 	}
 
 	@Override
-	public <U> U[] toArray(U[] a) {
+	public <U> U[] toArray(@SuppressWarnings("null") U[] a) {
 		throw new UnsupportedOperationException("Unable to create that many objects!");
 	}
 
 	@Override
-	public boolean add(T e) {
+	public boolean add(@SuppressWarnings("null") T e) {
 		return false;
 	}
 
 	@Override
-	public boolean addAll(Collection<? extends T> c) {
+	public boolean addAll(@SuppressWarnings("null") Collection<? extends T> c) {
 		return false;
 	}
 

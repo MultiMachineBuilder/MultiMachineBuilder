@@ -13,11 +13,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
 import mmb.WORLD.Side;
+import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.NoSuchInventory;
 import mmb.WORLD.item.Item;
-import mmb.WORLD.item.Items;
-import mmb.WORLD.worlds.world.BlockArrayProvider;
 import mmb.WORLD.worlds.world.World;
 import mmb.WORLD.worlds.world.World.BlockMap;
 
@@ -61,6 +60,7 @@ public class Block extends Item implements BlockEntry, BlockType{
 	public void setLeaveBehind(BlockType block) {
 		leaveBehind = block;
 	}
+	@SuppressWarnings("null")
 	@Override
 	public BlockType leaveBehind() {
 		return leaveBehind;
@@ -83,25 +83,36 @@ public class Block extends Item implements BlockEntry, BlockType{
 	}
 	@Override
 	public BlockEntity asBlockEntity() {
-		return null;
+		throw new IllegalStateException("Not a BlockEntity");
 	}
 	@Override
 	public BlockEntityType asBlockEntityType() {
+		throw new IllegalStateException("Not a BlockEntity");
+	}
+	@Override
+	public BlockEntityType nasBlockEntityType() {
 		return null;
 	}
-
 	@Override
-	public void register(String id) {
-		this.id = id;
-		Blocks.register(this);
-	}
-	@Override
-	public void register() {
-		Blocks.register(this);
+	public BlockEntity nasBlockEntity() {
+		return null;
 	}
 	
 	@Nullable public Inventory getInventory(Side s){
 		return NoSuchInventory.INSTANCE;
 	}
 	
+	
+	
+	//Register
+	@Override
+	public void register() {
+		if(leaveBehind == null) leaveBehind = ContentsBlocks.grass; //NOSONAR
+		Blocks.register(this);
+	}
+	@Override
+	public void register(String id) {
+		this.id = id;
+		register();
+	}
 }

@@ -17,6 +17,11 @@ import mmb.debug.Debugger;
  * @discouraged For machines, use {@link mmb.WORLD.machine.Machine}. For blocks, use {@link BlockEntityType}
  */
 public abstract class SkeletalBlockEntity implements BlockEntity {
+	
+	@Override
+	public BlockEntity nasBlockEntity() {
+		return this;
+	}
 	private static Debugger debug = new Debugger("BLOCKS");
 
 	//Positioning

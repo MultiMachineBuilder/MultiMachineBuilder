@@ -30,6 +30,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.swing.JSplitPane;
+import javax.annotation.Nonnull;
 import javax.swing.JButton;
 
 import mmb.MENU.main.MainMenu;
@@ -48,6 +49,16 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 	private static final long serialVersionUID = -3444481558687472298L;
 	private transient Save file;
 	private Timer fpsCounter = new Timer();
+	
+	private static WorldWindow currWindow;
+	@SuppressWarnings("null")
+	@Nonnull public static WorldWindow currentWindow() {
+		if(currWindow == null) throw new IllegalStateException("No world window open");
+		return currWindow;
+	}
+	public static WorldWindow ncurrentWorldWindow() {
+		return currWindow;
+	}
 	
 	@Override
 	public void destroy() {
@@ -70,6 +81,7 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 		worldFrame.enterWorld(null);
 		worldFrame.setActive(false);
 		FullScreen.setWindow(MainMenu.INSTANCE);
+		currWindow = null;
 	}
 	private transient BlockType[] blocks = Blocks.getBlocks();
 	private WorldFrame worldFrame;	
@@ -172,9 +184,13 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 					worldFrame.getMap().tps.reset();
 			}
 		}, 0, 1000);
+		currWindow = this;
 	}
 	private static Debugger debug = new Debugger("WORLD TEST");
 	private ScrollablePlacementList scrollablePlacementList;
+	public ScrollablePlacementList getPlacer() {
+		return scrollablePlacementList;
+	}
 	private JSplitPane splitPane;
 	private JMenuBar menuBar;
 	//[start] mod window functions

@@ -5,6 +5,8 @@ package mmb.WORLD.block;
 
 import java.awt.Graphics;
 
+import javax.annotation.Nonnull;
+
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.BEANS.Saver;
@@ -17,7 +19,8 @@ import mmb.WORLD.Side;
  */
 public interface BlockEntry extends Saver<JsonNode> {
 	public boolean isBlockEntity();
-	public BlockEntity asBlockEntity();
+	@Nonnull public BlockEntity asBlockEntity();
+	public BlockEntity nasBlockEntity();
 	public BlockType type();
 	/**
 	 * @param type block type to check

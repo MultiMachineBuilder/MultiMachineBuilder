@@ -15,7 +15,6 @@ import mmb.WORLD.worlds.world.World.BlockMap;
  * A skeletal implementation for a gate which reads two signals from DL and DR corners, and outputs them to U side
  */
 public abstract class AbstractUnaryGateBase extends SkeletalBlockEntityRotary{
-	private Rotation side = Rotation.N;
 	protected boolean result;
 	/**
 	 * @param x

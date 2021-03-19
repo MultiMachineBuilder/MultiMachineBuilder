@@ -12,6 +12,9 @@ import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.BlockDrawer;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.block.BlockEntityType;
+import mmb.WORLD.blocks.actuators.ActuatorClick;
+import mmb.WORLD.blocks.actuators.ActuatorPlaceBlock;
+import mmb.WORLD.blocks.actuators.ActuatorRotations;
 import mmb.WORLD.blocks.gates.ANDGate;
 import mmb.WORLD.blocks.gates.NOTGate;
 import mmb.WORLD.blocks.gates.ORGate;
@@ -52,6 +55,8 @@ public class ContentsBlocks {
 	public static final Block ON, OFF;
 	
 	public static final BlockEntityType URANDOM, LAMP;
+	
+	public static final BlockEntityType PLACER, CLICKER, ROTATOR;
 	
 	static {	
 		//Toolkit.getDefaultToolkit().beep();
@@ -190,6 +195,21 @@ public class ContentsBlocks {
 		LAMP.setFactory(Lamp::new);
 		LAMP.drawer = BlockDrawer.ofImage(Textures.get("logic/off lamp.png"));
 		
+		PLACER = new BlockEntityType();
+		PLACER.title = "Block Placer";
+		PLACER.setFactory(ActuatorPlaceBlock::new);
+		PLACER.drawer = BlockDrawer.ofImage(Textures.get("machine/placer.png"));
+		
+		CLICKER = new BlockEntityType();
+		CLICKER.title = "Block Clicking Claw";
+		CLICKER.setFactory(ActuatorClick::new);
+		CLICKER.drawer = BlockDrawer.ofImage(Textures.get("machine/claw.png"));
+		
+		ROTATOR = new BlockEntityType();
+		ROTATOR.title = "Block Rotator";
+		ROTATOR.setFactory(ActuatorRotations::new);
+		ROTATOR.drawer = BlockDrawer.ofImage(Textures.get("machine/CW.png"));
+		
 		//Register
 		grass.register("mmb.grass");
 		air.register("mmb.air");
@@ -221,6 +241,9 @@ public class ContentsBlocks {
 		OFF.register("wireworld.off");
 		URANDOM.register("wireworld.urandom");
 		LAMP.register("wireworld.lamp");
+		PLACER.register("machines.placer");
+		CLICKER.register("machines.clicker");
+		ROTATOR.register("machines.rotator");
 	}
 
 }
