@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.WORLD.block;
+package mmb.WORLD;
 
 import java.awt.Graphics;
 import java.awt.Point;

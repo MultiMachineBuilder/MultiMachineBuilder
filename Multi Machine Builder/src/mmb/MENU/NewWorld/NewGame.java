@@ -47,8 +47,8 @@ public class NewGame extends JDialog {
 		w = 0;
 		h = 0;
 		try {
-			w = Integer.valueOf(txtWidth.getText());
-			h = Integer.valueOf(txtWidth.getText());
+			w = Integer.parseInt(txtWidth.getText());
+			h = Integer.parseInt(txtWidth.getText());
 		} catch (NumberFormatException e2) {
 			w = -2;
 			h = 0;

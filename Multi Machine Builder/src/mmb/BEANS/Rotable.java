@@ -3,7 +3,7 @@
  */
 package mmb.BEANS;
 
-import mmb.WORLD.block.Rotation;
+import mmb.WORLD.Rotation;
 
 /**
  * @author oskar

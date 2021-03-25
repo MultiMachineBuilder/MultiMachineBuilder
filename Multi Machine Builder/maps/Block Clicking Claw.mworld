@@ -17,7 +17,7 @@
     }, "mmb.grass", {
       "blocktype" : "machines.placer",
       "side" : "W",
-      "place" : "wireworld.true"
+      "place" : "mmb.grass"
     }, "wireworld.wire", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "wireworld.not",
       "side" : "S"

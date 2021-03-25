@@ -13,7 +13,7 @@ import java.util.function.Consumer;
  */
 public class TreeNode<T> {
 	protected TreeNode<T> parent;
-	protected List<TreeNode<T>> children;
+	protected List<TreeNode<T>> children = new ArrayList<>();
 	public T value;
 	
 	public void addTo(TreeNode<T> nd) {
@@ -34,7 +34,7 @@ public class TreeNode<T> {
 	public TreeNode<T> getParent(){
 		return parent;
 	}
-	public TreeNode<T>findHolder(T toSearch) {
+	public TreeNode<T> findHolder(T toSearch) {
 		if(value == toSearch) {
 			return this;
 		}

@@ -177,6 +177,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="lib/easy-events/easy-events-master/src/main/java"/>
+	<classpathentry kind="src" path="lib/easy-events/easy-events-master/src/test/java"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="lib" path="lib/NanoXML/nanoxml-2.2.1.jar"/>
 	<classpathentry kind="lib" path="lib/Java MP3/javamp3-1.0.1.jar"/>
@@ -198,8 +200,6 @@
 	<classpathentry kind="lib" path="lib/lwjgl-release-3.2.3-custom/joml-1.9.25-sources.jar"/>
 	<classpathentry kind="lib" path="lib/vavr-master/vavr-0.10.3.jar"/>
 	<classpathentry kind="lib" path="lib/vavr-master/vavr-0.10.3-javadoc.jar"/>
-	<classpathentry kind="lib" path="lib/vavr-gson-master/vavr-gson-0.10.2.jar"/>
-	<classpathentry kind="lib" path="lib/vavr-gson-master/vavr-gson-0.10.2-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/vavr-match-master/vavr-match-0.10.3.jar"/>
 	<classpathentry kind="lib" path="lib/vavr-match-master/vavr-match-0.10.3-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/commons-lang3-3.11/commons-lang3-3.11.jar"/>
@@ -240,5 +240,7 @@
 	<classpathentry kind="lib" path="lib/com.google.errorprone/jsr305-3.0.2.jar"/>
 	<classpathentry kind="lib" path="lib/com.google.errorprone/jsr305-3.0.2-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/com.google.errorprone/jsr305-3.0.2-sources.jar"/>
+	<classpathentry kind="lib" path="lib/easy-events/easy-events-1.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/easy-events/easy-events-1.1.0-javadoc.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

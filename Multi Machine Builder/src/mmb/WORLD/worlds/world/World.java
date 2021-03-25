@@ -626,7 +626,6 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 		@Nonnull public World parent() {
 			return World.this;
 		}
-		
 		void update(MapProxy proxy) {
 			if(entries == null) return;
 			//Run every block
@@ -635,7 +634,6 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 				catch(Exception e){debug.pstm(e, "Failed to run block entity at ["+ent.posX()+","+ent.posY()+"]");}
 			}
 		}
-	
 	}
 
 }

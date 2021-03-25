@@ -4,8 +4,8 @@
 package mmb.WORLD.blocks.gates;
 
 import mmb.BEANS.Rotable;
+import mmb.WORLD.Rotation;
 import mmb.WORLD.Side;
-import mmb.WORLD.block.Rotation;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World.BlockMap;

@@ -11,8 +11,6 @@ import java.util.Set;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.google.errorprone.annotations.CanIgnoreReturnValue;
-
 import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockEntity;
@@ -39,7 +37,7 @@ public interface BlockArrayProvider {
 	 * @param y Y coordinate
 	 * @return a new block entry, or null if placement failed
 	 */
-	@CanIgnoreReturnValue
+
 	@Nullable public BlockEntry set(BlockEntry block, int x, int y);
 	/**
 	 * Places a block of given type
@@ -48,7 +46,7 @@ public interface BlockArrayProvider {
 	 * @param y Y coordinate
 	 * @return a new block entry, or null if placement failed
 	 */
-	@CanIgnoreReturnValue
+
 	@Nullable public BlockEntry place(BlockType block, int x, int y);
 	/**
 	 * @return an immutable set view of all block entities.

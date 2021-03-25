@@ -6,14 +6,9 @@ package mmb.WORLD.blocks.actuators;
 import java.awt.Graphics;
 import java.awt.Point;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-
-import mmb.BEANS.Rotable;
-import mmb.WORLD.RotatedImageGroup;
+import mmb.WORLD.Rotation;
 import mmb.WORLD.block.BlockEntry;
-import mmb.WORLD.block.Rotation;
-import mmb.WORLD.block.SkeletalBlockEntityData;
+import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World.BlockMap;
 
@@ -21,13 +16,11 @@ import mmb.WORLD.worlds.world.World.BlockMap;
  * @author oskar
  * A skeletal implementation for a gate which reads two signals from DL and DR corners, and outputs them to U side
  */
-public abstract class AbstractActuatorBase extends SkeletalBlockEntityData implements Rotable{
-	public abstract RotatedImageGroup getImage();
+public abstract class AbstractActuatorBase extends SkeletalBlockEntityRotary{
 	@Override
 	public void render(int x, int y, Graphics g) {
 		getImage().get(side).draw(x, y, g);
 	}
-	private Rotation side = Rotation.N;
 	protected boolean result;
 	/**
 	 * @param x
@@ -42,14 +35,7 @@ public abstract class AbstractActuatorBase extends SkeletalBlockEntityData imple
 	public void onTick(MapProxy map) {
 		boolean a = owner.getAtSide(side.D(), x, y).provideSignal(side.U());
 		Point pt = side.U().offset(x, y);
-		if(a) run(pt, owner.get(pt.x, pt.y), map);
-	}
-	@SuppressWarnings({"null", "unused"})
-	@Override
-	public void load(JsonNode data) {
-		side = Rotation.valueOf(data.get("side").asText());
-		if(side == null) side = Rotation.N;
-		load1((ObjectNode) data);
+		if(a) map.later(() -> run(pt, owner.get(pt.x, pt.y), map));
 	}
 	@Override
 	public void setRotation(Rotation rotation) {
@@ -59,17 +45,4 @@ public abstract class AbstractActuatorBase extends SkeletalBlockEntityData imple
 	public Rotation getRotation() {
 		return side;
 	}
-	@Override
-	protected void save0(ObjectNode node) {
-		node.put("side", side.toString());
-		save1(node);
-	}
-	/**
-	 * @param node node, to which data is saved 
-	 */
-	protected void save1(ObjectNode node) {}
-	/**
-	 * @param node node, from which data is loaded
-	 */
-	protected void load1(ObjectNode node) {}
 }
