@@ -58,7 +58,6 @@ public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockAct
 
 	@Override
 	protected void run(Point p, BlockEntry ent, MapProxy proxy) {
-		debug.printl("Run");
 		if(block == null) return;
 		try {
 			proxy.place(block, p);

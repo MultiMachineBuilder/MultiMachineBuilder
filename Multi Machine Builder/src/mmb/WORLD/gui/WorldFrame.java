@@ -4,6 +4,7 @@
 package mmb.WORLD.gui;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -269,6 +270,10 @@ public class WorldFrame extends JComponent {
 	//[start] graphics
 	@Override
 	public void paint(@Nullable Graphics g) {
+		
+		//Scale the graphics
+		/*Graphics2D g2d = (Graphics2D) g;
+		g2d.*/
 		resetMouseoverBlock();
 		if(g == null) return;
 		if(map == null) {

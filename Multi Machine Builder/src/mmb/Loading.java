@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.Runtime.Version;
 import java.net.MalformedURLException;
 import java.util.Date;
 import java.util.Random;
@@ -47,14 +48,21 @@ public class Loading extends JFrame {
 	 */
 	public static void main(String[] args) {
 		try {
-			Date date = new Date();
-			boolean test = date.getHours() < 6 || date.getHours() >= 21;
-					test = false;
-			if(test) {
-				createRandomErrors();
+			Version jversion = Runtime.version();
+			debug.printl("Java version is: "+jversion.toString());
+			if(jversion.feature() >= 9) {
+				debug.printl("Changing scale because Java is >= 9");
+				System.setProperty("sun.java2d.uiScale", "1.0");
+				System.setProperty("prism.allowhidpi", "false");
+				System.setProperty("sun.java2d.uiScale.enabled", "false");
+				System.setProperty("sun.java2d.win.uiScaleX", "1.0");
+				System.setProperty("sun.java2d.win.uiScaleY", "1.0");
 			}
+			
+			//UI initialized here
 			loader = new Loading();
 			loader.setVisible(true);
+			
 			new Thread(() -> loader.continueLoading())
 			.start();
 		// deepcode ignore DontCatch: log the game crash		} catch (Throwable e) {
