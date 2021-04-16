@@ -11,6 +11,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.BEANS.Saver;
 import mmb.WORLD.Side;
+import mmb.WORLD.inventory.Inventory;
+import mmb.WORLD.inventory.NoSuchInventory;
 
 /**
  * @author oskar
@@ -32,6 +34,9 @@ public interface BlockEntry extends Saver<JsonNode> {
 	public default boolean provideSignal(Side s) {
 		return false;
 	}
+	public default Inventory getInventory(Side s) {
+		return NoSuchInventory.INSTANCE;
+	}
 	
 	public default void wrenchCW() {}
 	public default void wrenchCCW() {}
@@ -42,6 +47,6 @@ public interface BlockEntry extends Saver<JsonNode> {
 	 * @param g graphics context
 	 */
 	public default void render(int x, int y, Graphics g) {
-		type().getTexture().draw(x, y, g);
+		type().getTexture().draw(this, x, y, g);
 	}
 }

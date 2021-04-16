@@ -3,6 +3,8 @@
  */
 package mmb.DATA.json;
 
+import javax.annotation.Nonnull;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,22 +18,24 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  *
  */
 public class JsonTool {
-	public static ObjectNode newObjectNode() {
+	@SuppressWarnings("null")
+	@Nonnull public static ObjectNode newObjectNode() {
 		return JsonNodeFactory.instance.objectNode();
 	}
-	public static ArrayNode newArrayNode() {
+	@SuppressWarnings("null")
+	@Nonnull public static ArrayNode newArrayNode() {
 		return JsonNodeFactory.instance.arrayNode();
 	}
-	public static ObjectNode requestObject(String name, ObjectNode node) {
+	@Nonnull public static ObjectNode requestObject(String name, ObjectNode node) {
 		JsonNode result = node.get(name);
 		if(result instanceof ObjectNode) {
 			return (ObjectNode) result;
 		}
 		return newObjectNode();
 	}
-	public static ArrayNode requestArray(String name, ObjectNode node) {
+	@Nonnull public static ArrayNode requestArray(String name, ObjectNode node) {
 		JsonNode result = node.get(name);
-		if(result instanceof ObjectNode) {
+		if(result instanceof ArrayNode) {
 			return (ArrayNode) result;
 		}
 		return newArrayNode();

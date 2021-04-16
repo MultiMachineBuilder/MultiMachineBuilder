@@ -3,10 +3,12 @@
  */
 package mmb.WORLD.block;
 
-import java.awt.image.BufferedImage;
+import java.awt.Graphics;
+import java.awt.Point;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.swing.Icon;
 
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.Placer;
@@ -19,6 +21,11 @@ import mmb.WORLD.worlds.world.World.BlockMap;
  */
 public interface BlockType extends Placer, ItemType {
 	
+	@Override
+	default void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation) {
+		getIcon().paintIcon(null, g, renderStartPos.x, renderStartPos.y);
+	}
+
 	@Nonnull public BlockEntry create(int x, int y, BlockMap blockMap);
 	
 	public boolean isBlockEntity();
@@ -41,9 +48,11 @@ public interface BlockType extends Placer, ItemType {
 	@Nonnull public BlockType leaveBehind();
 
 	@Override
-	default @Nullable BufferedImage getIcon() {
-		return getTexture().img;
+	default Icon getIcon() {
+		return getTexture().toIcon();
 	}
 	
 	
+	public Drop getDrop();
+	public void setDrop(Drop drop);
 }

@@ -91,4 +91,11 @@ public class ReadOnlyInventory implements Inventory {
 		return inv;
 	}
 
+	@Override
+	public ItemRecord nget(ItemEntry entry) {
+		ItemRecord result = inv.nget(entry);
+		if(result == null) return null;
+		return result.readOnly();
+	}
+
 }

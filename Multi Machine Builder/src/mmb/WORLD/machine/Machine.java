@@ -201,5 +201,5 @@ public interface Machine extends GameObject, Loader<JsonNode>, Saver<JsonNode>{
 	 * The graphics context is isolated from main graphics context
 	 * @param g graphics context
 	 */
-	public void render(Graphics g);	
+	public void render(Graphics g);
 }

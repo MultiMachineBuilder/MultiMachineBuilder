@@ -96,4 +96,8 @@ public class DestructibleInventory implements Inventory{
 	public void destroy() {
 		inv = NoSuchInventory.INSTANCE;
 	}
+	@Override
+	public ItemRecord nget(ItemEntry entry) {
+		return inv.nget(entry);
+	}
 }

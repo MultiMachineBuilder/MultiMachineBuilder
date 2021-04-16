@@ -3,6 +3,7 @@
  */
 package mmb;
 
+import mmb.ERRORS.ExceptionHandler;
 import mmb.debug.Debugger;
 
 /**
@@ -11,6 +12,7 @@ import mmb.debug.Debugger;
  */
 public class Main {
 	public static void main(String[] args) {
+		Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler.INSTANCE);
 		Loading.main(args);
 	}
 	private static final Debugger debug= new Debugger("MAIN");

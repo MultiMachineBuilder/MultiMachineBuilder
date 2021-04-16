@@ -13,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import mmb.DATA.json.JsonTool;
+import mmb.MENU.MMBFrame;
 import mmb.MENU.main.PanelSaves;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.SkeletalBlockEntity;
@@ -33,7 +34,7 @@ import java.nio.file.Files;
  *
  */
 @SuppressWarnings("serial")
-public class NewGame extends JDialog {
+public class NewGame extends MMBFrame {
 
 	private final JPanel contentPanel = new JPanel();
 	private final JTextField txtHeight;
@@ -65,7 +66,7 @@ public class NewGame extends JDialog {
 	 */
 	public NewGame() {
 		setTitle("Create a new world");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 610, 432);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -110,7 +111,7 @@ public class NewGame extends JDialog {
 			cancelButton.setActionCommand("Cancel");
 			buttonPane.add(cancelButton);
 			
-		pack();
+		//pack();
 	}
 
 	private void save() {
@@ -166,5 +167,10 @@ public class NewGame extends JDialog {
 		
 		world.destroy();
 		PanelSaves.INSTANCE.refresh();
+	}
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		
 	}
 }

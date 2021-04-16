@@ -33,6 +33,12 @@ public class WorldEvents {
 	 * Input 2: the top level node, from which the world is loaded
 	 */
 	public static final Event<Tuple2<World, ObjectNode>> load = new SimpleEvent<>();
+	/**
+	 * Invoked after the world is loaded
+	 * Any exceptions are caught and logged
+	 * Input: the loaded world
+	 */
+	public static final Event<World> afterLoad = new CatchingEvent<>(debug, "Failed to process an event post-save");
 	
 	public static enum BlockAction{
 		PLACE, DESTROY;

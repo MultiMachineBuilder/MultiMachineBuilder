@@ -1,10 +1,14 @@
 package mmb.debug;
 
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 import javax.annotation.Nullable;
+
+import mmb.Main;
 
 /**
  * 
@@ -12,6 +16,7 @@ import javax.annotation.Nullable;
  */
 @SuppressWarnings({ "resource", "null" })
 public class Debugger {
+	private static boolean initialized = false;
 	//Static code
 	static {
 		try {
@@ -20,12 +25,13 @@ public class Debugger {
 		} catch (FileNotFoundException | UnsupportedEncodingException e1) {
 			e1.printStackTrace();
 		}
-		
 		try {
+			OutputStream osLog = new FileOutputStream("log.txt");
 			System.setOut(new TeePrintStream("log.txt", System.out));
-		} catch (FileNotFoundException e) {
-			// deepcode ignore DontUsePrintStackTrace: no workarounds avaliable			e.printStackTrace();
+		} catch (FileNotFoundException e1) {
+			Main.crash(e1);
 		}
+		initialized = true;
 	}
 	
 	public void pstm(Throwable t, @Nullable String s) {
@@ -39,13 +45,14 @@ public class Debugger {
 		if(t.getCause() != null) pstm(t.getCause(), "Caused by: ");
 	}
 	public void print(@Nullable String s) {
-		printFinal("("+id+") "+ s);
+		System.out.print('(');
+		System.out.print(id);
+		System.out.print(") ");
+		System.out.print(s);
 	}
 	public void printl(@Nullable String s) {
-		print(s + "\n");
-	}
-	private static void printFinal(String s) {
-		System.out.print(s);
+		print(s);
+		System.out.print('\n');
 	}
 	//Instance code
 	public String id = "";
@@ -61,6 +68,26 @@ public class Debugger {
 	 * @param keyChar
 	 */
 	public void printl(char ch) {
-		printFinal("("+id+") "+ch+ "\n");
+		System.out.print('(');
+		System.out.print(id);
+		System.out.print(')');
+		System.out.print(ch);
+	}
+
+	public void printerr(String s) {
+		System.err.print('(');
+		System.err.print(id);
+		System.err.print(") ");
+		System.err.print(s);
+	}
+	public void printerrl(String s) {
+		printerr(s);
+		System.err.print('\n');
+	}
+	/**
+	 * @return is initialized();
+	 */
+	public static boolean isInitialized() {
+		return initialized;
 	}
 }

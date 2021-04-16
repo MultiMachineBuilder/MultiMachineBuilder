@@ -4,7 +4,7 @@
 package mmb.WORLD.item;
 
 import mmb.DATA.contents.texture.Textures;
-import mmb.WORLD.BlockDrawer;
+import mmb.WORLD.texture.BlockDrawer;
 
 /**
  * @author oskar

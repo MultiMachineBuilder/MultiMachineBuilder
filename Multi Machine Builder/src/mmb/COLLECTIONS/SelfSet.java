@@ -5,6 +5,8 @@ package mmb.COLLECTIONS;
 
 import java.util.Set;
 
+import javax.annotation.Nullable;
+
 import mmb.BEANS.Identifiable;
 
 /**
@@ -45,25 +47,26 @@ public interface SelfSet<K, V extends Identifiable<K>> extends Set<V>{
 	 */
 	public boolean removeKey(K key);
 	
-	public boolean containsKey(K key);
+	public boolean containsKey(@Nullable K key);
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked", "sexy"})
 	@Override
 	/**
 	 * Checks if given self-set contains given key
 	 * The input must be of type <V>, because it is casted to {@link Identifiable} internally
 	 */
-	default boolean contains(Object arg0) {
-		return containsKey(((V)arg0).id());
+	default boolean contains(@Nullable Object arg0) {
+		if(arg0 == null) return containsKey(null);
+		return arg0 instanceof Identifiable && containsKey(((V)arg0).id());
 	}
 
-	@SuppressWarnings({ "unlikely-arg-type", "unchecked" })
+	@SuppressWarnings("unchecked")
 	@Override
 	/**
 	 * Removes given value from the self-set.
 	 * The input must be of type <V>, because it is casted to {@link Identifiable} internally
 	 */
-	default boolean remove(Object arg0) {
-		return remove(((V)arg0).id());
+	default boolean remove(@Nullable Object arg0) {
+		return arg0 instanceof Identifiable && removeKey(((V)arg0).id());
 	}
 }

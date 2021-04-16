@@ -5,17 +5,13 @@ package mmb.WORLD.block;
 
 import java.awt.Graphics;
 import java.awt.Point;
-import java.awt.image.BufferedImage;
-
-import javax.annotation.Nullable;
+import java.util.Objects;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
-import mmb.WORLD.Side;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.NoSuchInventory;
+import mmb.WORLD.gui.WorldWindow;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.worlds.world.World;
 import mmb.WORLD.worlds.world.World.BlockMap;
@@ -45,12 +41,27 @@ public class Block extends Item implements BlockEntry, BlockType{
 	}
 
 	//Placement GUI
+	/**
+	 * @deprecated Use {@link #openGUI(WorldWindow)} instead
+	 */
 	@Override
 	public void openGUI() {
+		openGUI(null);
+	}
+	//Placement GUI
+	@Override
+	public void openGUI(WorldWindow window) {
 		//no GUI available
 	}
+	/**
+	 * @deprecated Use {@link #closeGUI(WorldWindow)} instead
+	 */
 	@Override
 	public void closeGUI() {
+		closeGUI(null);
+	}
+	@Override
+	public void closeGUI(WorldWindow window) {
 		//no GUI available
 	}
 	
@@ -68,12 +79,8 @@ public class Block extends Item implements BlockEntry, BlockType{
 	
 	//Placer preview
 	@Override
-	public BufferedImage getIcon() {
-		return drawer.img;
-	}
-	@Override
 	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation) {
-		drawer.draw(renderStartPos, g);
+		drawer.draw(this, renderStartPos, g);
 	}
 
 	//Not a BlockEntity
@@ -98,12 +105,6 @@ public class Block extends Item implements BlockEntry, BlockType{
 		return null;
 	}
 	
-	@Nullable public Inventory getInventory(Side s){
-		return NoSuchInventory.INSTANCE;
-	}
-	
-	
-	
 	//Register
 	@Override
 	public void register() {
@@ -114,5 +115,16 @@ public class Block extends Item implements BlockEntry, BlockType{
 	public void register(String id) {
 		this.id = id;
 		register();
+	}
+	
+	private Drop drop;
+	@Override
+	public Drop getDrop() {
+		if(drop == null) drop = this;
+		return drop;
+	}
+	@Override
+	public void setDrop(Drop drop) {
+		this.drop = Objects.requireNonNull(drop, "drop is null");
 	}
 }

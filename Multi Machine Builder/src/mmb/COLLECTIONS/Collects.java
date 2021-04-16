@@ -3,15 +3,21 @@
  */
 package mmb.COLLECTIONS;
 
+import java.util.AbstractList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
+import java.util.TooManyListenersException;
 
 import javax.annotation.Nonnull;
+import javax.swing.ListModel;
+import javax.swing.event.ListDataListener;
 
 import mmb.BEANS.Identifiable;
+import mmb.ERRORS.UndeclarableThrower;
 
 /**
  * @author oskar
@@ -164,5 +170,42 @@ public class Collects {
 	}
 	@Nonnull public static <T> Iterable<T> iter(Iterator<T> iter){
 		return () -> iter;
+	}
+
+	/**
+	 * Wraps the {@link ListModel} in a {@link List}, to allow Java Collections Framework operations to be used
+	 * @param <T>
+	 * @param list the ListModel to be wrapped
+	 * @return the wrapped list
+	 */
+	@Nonnull public static <T> List<T> fromListModel(ListModel<T> list){
+		return new AbstractList<T>() {
+			@Override public T get(int index) {
+				return list.getElementAt(index);
+			}
+			@Override public int size() {
+				return list.getSize();
+			}
+		};
+	}
+	@Nonnull public static <T> ListModel<T> toListModel(List<T> list){
+		return new ListModel<T>() {
+			@Override
+			public void addListDataListener(@SuppressWarnings("null") ListDataListener l) {
+				UndeclarableThrower.shoot(new TooManyListenersException("ListModel from Lit oes not support listeners"));
+			}
+			@Override
+			public T getElementAt(int index) {
+				return list.get(index);
+			}
+			@Override
+			public int getSize() {
+				return list.size();
+			}
+			@Override
+			public void removeListDataListener(@SuppressWarnings("null") ListDataListener l) {
+				UndeclarableThrower.shoot(new TooManyListenersException("ListModel from Lit oes not support listeners"));
+			}
+		};
 	}
 }

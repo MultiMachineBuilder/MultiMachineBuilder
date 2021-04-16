@@ -5,18 +5,19 @@ package mmb.WORLD.machine;
 
 import java.awt.Graphics;
 import java.awt.Point;
-import java.awt.image.BufferedImage;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Nullable;
+import javax.swing.Icon;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.GameObject;
-import mmb.WORLD.BlockDrawer;
 import mmb.WORLD.gui.Placer;
+import mmb.WORLD.gui.WorldWindow;
+import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.worlds.world.World;
 import mmb.WORLD.worlds.world.World.BlockMap;
 import mmb.debug.Debugger;
@@ -130,8 +131,8 @@ public class MachineModel implements Placer {
 		return Collections.unmodifiableMap(models2);
 	}
 	@Override
-	public BufferedImage getIcon() {
-		return icon.img;
+	public Icon getIcon() {
+		return icon.toIcon();
 	}
 	@Override
 	public String title() {
@@ -141,13 +142,27 @@ public class MachineModel implements Placer {
 	public void place(int x, int y, World map) {
 		map.placeMachine(this, x, y);
 	}
+	/**
+	 * @deprecated Use {@link #openGUI(WorldWindow)} instead
+	 */
 	@Override
 	public void openGUI() {
+		openGUI(null);
+	}
+	@Override
+	public void openGUI(WorldWindow window) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * @deprecated Use {@link #closeGUI(WorldWindow)} instead
+	 */
 	@Override
 	public void closeGUI() {
+		closeGUI(null);
+	}
+	@Override
+	public void closeGUI(WorldWindow window) {
 		// TODO Auto-generated method stub
 		
 	}

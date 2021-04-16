@@ -4,16 +4,24 @@
 package mmb.WORLD.item;
 
 import javax.annotation.Nullable;
+import javax.swing.Icon;
+
+import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.BEANS.Identifiable;
-import mmb.WORLD.BlockDrawer;
+import mmb.WORLD.block.Drop;
+import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemEntry;
+import mmb.WORLD.texture.BlockDrawer;
+import mmb.WORLD.worlds.world.World.BlockMap;
+import mmb.debug.Debugger;
 
 /**
  * @author oskar
  *
  */
-public class Item implements ItemType, ItemEntry {
+public class Item implements ItemType, ItemEntry, Drop {
+	private static final Debugger debug = new Debugger("ITEMS");
 	/**
 	 * Get the hash code, which is always the same as ID's hash code.
 	 * @return item's hash code.
@@ -50,7 +58,7 @@ public class Item implements ItemType, ItemEntry {
 	/**
 	 * The volume which item takes up
 	 */
-	public double volume;
+	public double volume = 0.02;
 	@Override
 	public double volume() {
 		return volume;
@@ -131,5 +139,23 @@ public class Item implements ItemType, ItemEntry {
 	@Override
 	public boolean exists() {
 		return true;
+	}
+	@Override
+	public Icon getIcon() {
+		return drawer.toIcon();
+	}
+	@Override
+	public ItemEntry load(JsonNode node) {
+		debug.printl("Attempting to load a non-data item");
+		return this;
+	}
+	@Override
+	public boolean drop(@Nullable Inventory inv, BlockMap map, int x, int y) {
+		if(inv == null || !inv.exists()) {
+			//TODO Drop to world
+			return true; //NYI
+		}
+		//Drop to inventory
+		return inv.insert(this, 1) == 1;
 	}
 }

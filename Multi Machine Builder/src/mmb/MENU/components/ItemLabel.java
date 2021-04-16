@@ -9,10 +9,11 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+import javax.swing.Icon;
 import javax.swing.JLabel;
 
-import mmb.WORLD.BlockDrawer;
 import mmb.WORLD.item.Item;
+import mmb.WORLD.texture.BlockDrawer;
 
 /**
  * @author oskar
@@ -64,7 +65,8 @@ public class ItemLabel extends JLabel {
 		Rectangle rect = g.getClipBounds();
 		int textHeight = g.getFontMetrics().getHeight();
 		int textpos = (rect.height - textHeight)/2;
-		texture.draw(4, 4, g);
+		Icon icon = texture.toIcon();
+		icon.paintIcon(null, g, 4, 4);
 		g.drawString(getText(), 40, textpos);
 	}
 

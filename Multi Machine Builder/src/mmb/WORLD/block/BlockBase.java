@@ -3,12 +3,7 @@
  */
 package mmb.WORLD.block;
 
-import java.awt.Graphics;
-import java.awt.Point;
-import java.awt.image.BufferedImage;
-
-import mmb.WORLD.BlockDrawer;
-import mmb.WORLD.worlds.world.World.BlockMap;
+import mmb.WORLD.texture.BlockDrawer;
 
 /**
  * @author oskar
@@ -21,16 +16,6 @@ public abstract class BlockBase implements BlockType {
 	public String description;
 	public BlockType leaveBehind;
 	public BlockDrawer texture;
-	
-	@Override
-	public BufferedImage getIcon() {
-		return texture.img;
-	}
-
-	@Override
-	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation) {
-		texture.draw(renderStartPos, g);
-	}
 
 	@Override
 	public String id() {

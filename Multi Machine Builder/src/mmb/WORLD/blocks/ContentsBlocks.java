@@ -9,7 +9,6 @@ import java.awt.image.BufferedImage;
 import javax.annotation.Nonnull;
 
 import mmb.DATA.contents.texture.Textures;
-import mmb.WORLD.BlockDrawer;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.blocks.actuators.ActuatorClick;
@@ -22,6 +21,8 @@ import mmb.WORLD.blocks.gates.RandomGate;
 import mmb.WORLD.blocks.gates.UniformRandom;
 import mmb.WORLD.blocks.gates.XORGate;
 import mmb.WORLD.blocks.gates.YESGate;
+import mmb.WORLD.blocks.machine.Chest;
+import mmb.WORLD.texture.BlockDrawer;
 import mmb.debug.Debugger;
 
 /**
@@ -41,22 +42,33 @@ public class ContentsBlocks {
 	@Nonnull public static final BlockEntityType
 	AND, OR, XOR, BUTTON;
 	
-	/**
-	 * Signal generators
-	 */
-	@Nonnull public static final Block TRUE, RANDOM;
+	/** Always provides 'true' signal */
+	@Nonnull public static final Block TRUE;
+	/** Generates a random signal for every neighbour */
+	@Nonnull public static final Block RANDOM;
 	
+	/** Recreates the provided signal*/
+	@Nonnull public static final BlockEntityType YES;
+	/** Negates provided signal */
+	@Nonnull public static final BlockEntityType NOT;
 	/**
-	 * Unary gates
+	 * Sends a random signel if powered
+	 * Else does not send signal
 	 */
-	@Nonnull public static final BlockEntityType
-	YES, NOT, RANDOMCTRL;
-	
-	public static final Block ON, OFF;
+	@Nonnull public static final BlockEntityType RANDOMCTRL;
+	/** Enabled switch */
+	public static final Block ON;
+	/** Disabled switch */
+	public static final Block OFF;
 	
 	public static final BlockEntityType URANDOM, LAMP;
 	
 	public static final BlockEntityType PLACER, CLICKER, ROTATOR;
+	
+	/**
+	 * A chest stores items of mutiple types
+	 */
+	public static final BlockEntityType CHEST;
 	
 	static {	
 		//Toolkit.getDefaultToolkit().beep();
@@ -79,21 +91,22 @@ public class ContentsBlocks {
 		grass.drawer = tmp;
 		grass.leaveBehind = air;
 		grass.title = "Grass";
+		grass.setDescription("A default block in the world");
 		
 		ww_wire = new BlockEntityType();
 		ww_wire.drawer = BlockDrawer.ofColor(Color.ORANGE);
 		ww_wire.title = "WireWorld conductor";
 		ww_wire.setFactory(WWWire::new);
+		ww_wire.setDescription("A signal conductor, can also be used for logic gates");
 		
 		ww_head = new BlockEntityType();
 		ww_head.drawer = BlockDrawer.ofColor(Color.BLUE);
-		ww_head.leaveBehind = ww_wire;
+		ww_head.setLeaveBehind(ww_wire);
 		ww_head.title = "WireWorld head";
 		ww_head.setFactory(WWHead::new);
-		
 		ww_tail = new BlockEntityType();
 		ww_tail.drawer = BlockDrawer.ofColor(Color.WHITE);
-		ww_tail.leaveBehind = ww_wire;
+		ww_tail.setLeaveBehind(ww_wire);
 		ww_tail.title = "WireWorld tail";
 		ww_tail.setFactory(WWTail::new);
 
@@ -101,6 +114,7 @@ public class ContentsBlocks {
 		ww_chatter.drawer = BlockDrawer.ofImage(Textures.get("printer.png"));
 		ww_chatter.setFactory(WWChatter::new);
 		ww_chatter.title = "Chatbox";
+		ww_chatter.setDescription("A block which prints out its text, when activated by a signal");
 		
 		stone = new Block();
 		stone.drawer = BlockDrawer.ofImage(Textures.get("stone.png"));
@@ -210,6 +224,11 @@ public class ContentsBlocks {
 		ROTATOR.setFactory(ActuatorRotations::new);
 		ROTATOR.drawer = BlockDrawer.ofImage(Textures.get("machine/CW.png"));
 		
+		CHEST = new BlockEntityType();
+		CHEST.title = "Chest";
+		CHEST.setFactory(Chest::new);
+		CHEST.drawer = BlockDrawer.ofImage(Textures.get("machine/chest1.png"));
+		
 		//Register
 		grass.register("mmb.grass");
 		air.register("mmb.air");
@@ -244,6 +263,8 @@ public class ContentsBlocks {
 		PLACER.register("machines.placer");
 		CLICKER.register("machines.clicker");
 		ROTATOR.register("machines.rotator");
+		
+		CHEST.register("chest.beginning");
 	}
 
 }

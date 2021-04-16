@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 
+import java.awt.Adjustable;
 import java.util.Collection;
 
 import javax.swing.JButton;
@@ -89,7 +90,7 @@ public class GeneratorOptions extends JPanel {
 		add(lblFewer, "flowx,cell 0 2");
 		
 		scrollBar = new JScrollBar();
-		scrollBar.setOrientation(JScrollBar.HORIZONTAL);
+		scrollBar.setOrientation(Adjustable.HORIZONTAL);
 		add(scrollBar, "cell 0 2,growx");
 		
 		lblMore = new JLabel("More "+title);

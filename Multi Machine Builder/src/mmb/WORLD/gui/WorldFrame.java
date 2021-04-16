@@ -23,6 +23,7 @@ import org.joml.Vector2d;
 import mmb.BEANS.BlockActivateListener;
 import mmb.DATA.variables.ListenerBooleanVariable;
 import mmb.WORLD.block.BlockEntry;
+import mmb.WORLD.gui.WorldWindow.ScrollablePlacementList;
 import mmb.WORLD.machine.Machine;
 import mmb.WORLD.worlds.universe.Universe;
 import mmb.WORLD.worlds.world.World;
@@ -165,11 +166,13 @@ public class WorldFrame extends JComponent {
 		world = null;
 	}
 	//[end]
+	//Mouse and key listener
 	private class Listener implements MouseListener, KeyListener, MouseMotionListener, MouseWheelListener{
 		@Override
 		public void mouseWheelMoved(@Nullable MouseWheelEvent e) {
 			Objects.requireNonNull(e, "event is null");
-			placer.mouseWheelMoved(e);
+			window.scrollScrollist(e.getWheelRotation()*32);
+			//placer.mouseWheelMoved(e);
 		}
 	
 		@Override
@@ -270,10 +273,6 @@ public class WorldFrame extends JComponent {
 	//[start] graphics
 	@Override
 	public void paint(@Nullable Graphics g) {
-		
-		//Scale the graphics
-		/*Graphics2D g2d = (Graphics2D) g;
-		g2d.*/
 		resetMouseoverBlock();
 		if(g == null) return;
 		if(map == null) {
@@ -346,7 +345,7 @@ public class WorldFrame extends JComponent {
 		}
 		
 		//Draw machines
-		for(Machine mc: map.machines) {
+		for(Machine mc: map.getMap().machines) {
 			int x = (int)((mc.posX()+pos.x)*32);
 			int y = (int)((mc.posY()+pos.y)*32);
 			int w = mc.sizeX();
@@ -381,10 +380,20 @@ public class WorldFrame extends JComponent {
 			g.drawString("TPS: "+map.tps.get(), 2, 79);
 		}
 	}
-	public static final ListenerBooleanVariable DEBUG_DISPLAY = new ListenerBooleanVariable();
-	private static void renderTile(int x, int y, Graphics g, @Nullable BlockEntry blockEntry) {
-		if(blockEntry != null) blockEntry.render(x, y, g);
+	private void renderTile(int x, int y, Graphics g, @Nullable BlockEntry blockEntry) {
+		if(blockEntry == null) return;
+		try {
+			blockEntry.render(x, y, g);
+		} catch (Exception e) {
+			debug.pstm(e, "Failed to render a "+blockEntry.type().title());
+		}
 	}
+
+	/**
+	 * The global boolean variable controlling debug display
+	 */
+	public static final ListenerBooleanVariable DEBUG_DISPLAY = new ListenerBooleanVariable();
+	
 	private Vector2d pos = new Vector2d();
 	/**
 	 * The perspective is a snapped camera position

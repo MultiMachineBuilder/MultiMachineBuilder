@@ -4,10 +4,13 @@
 package mmb.WORLD.item;
 
 import javax.annotation.Nullable;
+import javax.swing.Icon;
+
+import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.DATA.contents.texture.Textures;
-import mmb.WORLD.BlockDrawer;
 import mmb.WORLD.inventory.ItemEntry;
+import mmb.WORLD.texture.BlockDrawer;
 
 /**
  * @author oskar
@@ -93,4 +96,9 @@ public class NoSuchItemType implements ItemType {
 		return false;
 	}
 
+	@Override
+	public ItemEntry load(JsonNode node) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

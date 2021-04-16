@@ -1,5 +1,4 @@
-(LOAD) Java version is: 15.0.1+9
-(LOAD) Changing scale because Java is >= 9
+(LOAD) Java version is: 1.8.0_281
 (TEXTURES) Loading texture: block/copper block.png
 (TEXTURES) Loading texture: block/iron block.png
 (TEXTURES) Loading texture: block/message.png
@@ -87,6 +86,12 @@
 (TEXTURES) Loading texture: logic/XOR.png
 (TEXTURES) Loading texture: logic/YES.png
 (TEXTURES) Loading texture: machine/CCW.png
+(TEXTURES) Loading texture: machine/chest1.png
+(TEXTURES) Loading texture: machine/chest2.png
+(TEXTURES) Loading texture: machine/chest3.png
+(TEXTURES) Loading texture: machine/chest4.png
+(TEXTURES) Loading texture: machine/chest5.png
+(TEXTURES) Loading texture: machine/chest6.png
 (TEXTURES) Loading texture: machine/claw.png
 (TEXTURES) Loading texture: machine/CW.png
 (TEXTURES) Loading texture: machine/placer.png
@@ -138,7 +143,7 @@
 (TEXTURES) Loading texture: UIs/yellow signpost.png
 (BLOCKS) Creating blocks
 (BLOCKS) Adding mmb.grass with title Grass and descripion:
-null
+A default block in the world
 (BLOCKS) Adding mmb.air with title Air and descripion:
 null
 (BLOCKS) Adding wireworld.tail with title WireWorld tail and descripion:
@@ -146,9 +151,9 @@ null
 (BLOCKS) Adding wireworld.head with title WireWorld head and descripion:
 null
 (BLOCKS) Adding wireworld.wire with title WireWorld conductor and descripion:
-null
+A signal conductor, can also be used for logic gates
 (BLOCKS) Adding wireworld.chatter with title Chatbox and descripion:
-null
+A block which prints out its text, when activated by a signal
 (BLOCKS) Adding mmb.stone with title Stone and descripion:
 null
 (BLOCKS) Adding mmb.planks with title Wooden planks and descripion:
@@ -197,6 +202,8 @@ null
 null
 (BLOCKS) Adding machines.rotator with title Block Rotator and descripion:
 null
+(BLOCKS) Adding chest.beginning with title Chest and descripion:
+null
 (FullScreen) Setting up FullScreen
 (MOD-LOADER) Loading mods
 (MOD-LOADER) Finding all files to load
@@ -205,19 +212,19 @@ null
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
 (MOD-LOADER) Found 2 mod files
 (MOD - Multi Machine Builder) java.io.FileNotFoundException
-(MOD - Multi Machine Builder) Failed to read the file C:\Users\oskar\eclipse-workspace\Multi Machine Builder
 (MOD - HelloWorld.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+(MOD - Multi Machine Builder) Failed to read the file C:\Users\oskar\eclipse-workspace\Multi Machine Builder
 (MOD - Multi Machine Builder) java.io.FileNotFoundException
-(MOD - Multi Machine Builder)  (System nie mo¿e odnaleŸæ okreœlonej œcie¿ki)
-(MOD - Multi Machine Builder) java.base/java.io.FileInputStream.open0(Native Method)
-(MOD - Multi Machine Builder) java.base/java.io.FileInputStream.open(FileInputStream.java:211)
-(MOD - Multi Machine Builder) java.base/java.io.FileInputStream.<init>(FileInputStream.java:153)
+(MOD - Multi Machine Builder) 
+(MOD - Multi Machine Builder) java.io.FileInputStream.open0(Native Method)
+(MOD - Multi Machine Builder) java.io.FileInputStream.open(Unknown Source)
+(MOD - Multi Machine Builder) java.io.FileInputStream.<init>(Unknown Source)
 (MOD - Multi Machine Builder) mmb.FILES.LocalFile.getInputStream(LocalFile.java:33)
-(MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:107)
-(MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:79)
-(MOD - Multi Machine Builder) java.base/java.lang.Thread.run(Thread.java:832)
 (MOD - HelloWorld.jar) Loading a modfile: HelloWorld.jar
+(MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:107)
 (MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:79)
+(MOD - Multi Machine Builder) java.lang.Thread.run(Unknown Source)
 (MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/package-info.class
@@ -266,7 +273,7 @@ null
 (MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Fri Mar 26 15:43:12 CET 2021
+(MOD-LOADER) RELEASED Thu Apr 15 16:58:01 CEST 2021
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) HOORAY, IT'S OVER!
@@ -275,29 +282,5 @@ null
 (SELECT A SAVE) Found save: main.mworld
 (SELECT A SAVE) Found save: Test.mworld
 (SELECT A SAVE) Found 3 saves
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting(WORLDS) Opening a new world
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(WORLD - main null) Exiting(WORLDS) The given world is null, exiting
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting(WORLDS) Opening a new world
-(WORLD - main null) Running BlockActivateListener for: [33,17]
-(WORLD - main null) Running BlockActivateListener for: [33,17]
-(WORLD - main null) Running BlockActivateListener for: [33,17]
-(WORLD - main null) Running BlockActivateListener for: [33,17]
-(WORLD - main null) Running BlockActivateListener for: [33,17]
-(WORLD - main null) Running BlockActivateListener for: [33,17]
-(WORLD - main null) Running BlockActivateListener for: [33,17]
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(WORLD - main null) Exiting(WORLDS) The given world is null, exiting
 (SETTINGS) Saved settings file
+Exception while removing reference.

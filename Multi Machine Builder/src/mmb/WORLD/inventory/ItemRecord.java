@@ -49,10 +49,19 @@ public interface ItemRecord extends Identifiable<ItemEntry> {
 	default public @Nonnull ItemRecord lockExtractions() {
 		return InsertionsOnlyItemRecord.decorate(this);
 	}
+	default public @Nonnull ItemRecord lockInsertions(Inventory inv) {
+		return ExtractionsOnlyItemRecord.decorate(this, inv);
+	}
+	default public @Nonnull ItemRecord lockExtractions(Inventory inv) {
+		return InsertionsOnlyItemRecord.decorate(this, inv);
+	}
 	default public @Nonnull ItemRecord readOnly() {
 		return ReadOnlyItemRecord.decorate(this);
 	}
 	default public boolean exists() {
 		return inventory().exists();
+	}
+	default public double volume() {
+		return item().volume(amount());
 	}
 }

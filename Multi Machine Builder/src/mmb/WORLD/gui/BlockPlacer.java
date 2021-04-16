@@ -5,7 +5,8 @@ package mmb.WORLD.gui;
 
 import java.awt.Graphics;
 import java.awt.Point;
-import java.awt.image.BufferedImage;
+
+import javax.swing.Icon;
 
 import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.block.BlockType;
@@ -27,8 +28,8 @@ public class BlockPlacer implements Placer {
 		this.block = t;
 	}
 	@Override
-	public BufferedImage getIcon() {
-		return block.getTexture().img;
+	public Icon getIcon() {
+		return block.getTexture().toIcon();
 	}
 	@Override
 	public String title() {
@@ -38,17 +39,31 @@ public class BlockPlacer implements Placer {
 	public void place(int x, int y, World map) {
 		block.place(x, y, map);
 	}
+	/**
+	 * @deprecated Use {@link #openGUI(WorldWindow)} instead
+	 */
 	@Override
 	public void openGUI() {
-		//unused
+		openGUI(null);
 	}
 	@Override
+	public void openGUI(WorldWindow window) {
+		//unused
+	}
+	/**
+	 * @deprecated Use {@link #closeGUI(WorldWindow)} instead
+	 */
+	@Override
 	public void closeGUI() {
+		closeGUI(null);
+	}
+	@Override
+	public void closeGUI(WorldWindow window) {
 		//unused
 	}
 	@Override
 	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation) {
-		g.drawImage(getIcon(), renderStartPos.x, renderStartPos.y, null);
+		block.preview(g, renderStartPos, map, targetLocation);
 	}
 
 }

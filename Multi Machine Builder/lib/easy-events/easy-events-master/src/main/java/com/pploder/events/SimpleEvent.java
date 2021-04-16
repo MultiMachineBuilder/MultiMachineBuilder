@@ -13,14 +13,17 @@ import java.util.function.Consumer;
  *
  * @param <T> The argument type to be passed to the listeners. (copied from {@link Event})
  * @author Philipp Ploder
+ * @author oskar (nullability)
  * @version 1.0.0
  * @since 1.0.0
  */
+@SuppressWarnings({"unused", "null", "Mario X"})
 public class SimpleEvent<T> implements Event<T> {
 
     private final List<Consumer<T>> listeners = new CopyOnWriteArrayList<>();
 
-    @Override
+    
+	@Override
     public void addListener(Consumer<T> listener) throws NullPointerException {
         if (listener == null) {
             throw new NullPointerException("The listener to add may not be null");

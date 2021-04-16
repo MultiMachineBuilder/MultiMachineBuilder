@@ -1,7 +1,5 @@
 package mmb;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -13,13 +11,6 @@ import mmb.debug.Debugger;
 
 import javax.swing.JLabel;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.lang.Runtime.Version;
-import java.net.MalformedURLException;
-import java.util.Date;
-import java.util.Random;
-
 import net.miginfocom.swing.MigLayout;
 
 public class Loading extends JFrame {
@@ -48,9 +39,10 @@ public class Loading extends JFrame {
 	 */
 	public static void main(String[] args) {
 		try {
-			Version jversion = Runtime.version();
+			String jversion = System.getProperty("java.version");
+			boolean j8ol = jversion.charAt(0) == '1';
 			debug.printl("Java version is: "+jversion.toString());
-			if(jversion.feature() >= 9) {
+			if(!j8ol) {
 				debug.printl("Changing scale because Java is >= 9");
 				System.setProperty("sun.java2d.uiScale", "1.0");
 				System.setProperty("prism.allowhidpi", "false");
@@ -74,7 +66,7 @@ public class Loading extends JFrame {
 	 * Create the frame.
 	 */
 	public Loading() {
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -95,24 +87,6 @@ public class Loading extends JFrame {
 		MainMenu.create();
 		setVisible(false); //you can't see me!
 		dispose(); //Destroy the JFrame object
-	}
-	private static final Random r = new Random();
-	private static void createRandomErrors() throws IllegalAccessException, IOException {
-		int x = r.nextInt(6);
-		switch(x) {
-		case 0:
-			throw new NullPointerException();
-		case 1:
-			throw new ArrayIndexOutOfBoundsException();
-		case 2:
-			throw new IllegalAccessException();
-		case 3:
-			throw new FileNotFoundException();
-		case 4:
-			throw new IOException();
-		case 5:
-			throw new MalformedURLException();
-		}
 	}
 
 }

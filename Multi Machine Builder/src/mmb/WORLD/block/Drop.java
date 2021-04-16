@@ -4,7 +4,7 @@
 package mmb.WORLD.block;
 
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.worlds.world.World;
+import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar
@@ -14,8 +14,10 @@ public interface Drop {
 	/**
 	 * 
 	 * @param inv inventory, to which item will be dropped
-	 * @param w world
+	 * @param map world
+	 * @param x X coordinate
+	 * @param y Y coordinate
 	 * @return Were items dropped?
 	 */
-	public boolean drop(Inventory inv, World w);
+	public boolean drop(Inventory inv, BlockMap map, int x, int y);
 }

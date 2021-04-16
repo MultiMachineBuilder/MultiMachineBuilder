@@ -6,9 +6,9 @@ package mmb.WORLD.blocks;
 import java.awt.Graphics;
 
 import mmb.DATA.contents.texture.Textures;
-import mmb.WORLD.BlockDrawer;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityDataless;
+import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.worlds.SignalUtils;
 import mmb.WORLD.worlds.world.World.BlockMap;
 
@@ -32,9 +32,9 @@ public class Lamp extends SkeletalBlockEntityDataless {
 	public void render(int xx, int yy, Graphics g) {
 		boolean active = SignalUtils.hasIncomingSignal(x, y, owner);
 		if(active) {
-			on.draw(xx, yy, g);
+			on.draw(this, xx, yy, g);
 		}else {
-			off.draw(xx, yy, g);
+			off.draw(this, xx, yy, g);
 		}
 	}
 	

@@ -3,6 +3,8 @@ package com.pploder.events;
 import java.util.Collection;
 import java.util.function.Consumer;
 
+import javax.annotation.Nonnull;
+
 /**
  * A minimalistic event.
  * Listeners can be added and removed. When the event is triggered all listeners will be executed
@@ -22,7 +24,7 @@ public interface Event<T> {
      * @param listener The listener to add.
      * @throws NullPointerException If the given reference is {@code null}.
      */
-    void addListener(Consumer<T> listener) throws NullPointerException;
+    void addListener(@Nonnull Consumer<T> listener) throws NullPointerException;
 
     /**
      * Subscribes all given listeners to this event.
@@ -31,7 +33,7 @@ public interface Event<T> {
      * @param listeners The listeners to add.
      * @throws NullPointerException If the given array or any of its contained references is {@code null}.
      */
-    void addAllListeners(Consumer<T>... listeners) throws NullPointerException;
+    void addAllListeners(@Nonnull Consumer<T>... listeners) throws NullPointerException;
 
     /**
      * Subscribes all given listeners to this event.
@@ -40,7 +42,7 @@ public interface Event<T> {
      * @param listeners The listeners to add.
      * @throws NullPointerException If the given collection or any of its contained references is {@code null}.
      */
-    void addAllListeners(Collection<Consumer<T>> listeners) throws NullPointerException;
+    void addAllListeners(@Nonnull Collection<Consumer<T>> listeners) throws NullPointerException;
 
     /**
      * Unsubscribes the first occurrence of the given listener from this event.
@@ -49,7 +51,7 @@ public interface Event<T> {
      * @param listener The listener to remove.
      * @throws NullPointerException If the given reference is {@code null}.
      */
-    void removeListener(Consumer<T> listener) throws NullPointerException;
+    void removeListener(@Nonnull Consumer<T> listener) throws NullPointerException;
 
     /**
      * Unsubscribes all occurrences of the given listener from this event.
@@ -58,7 +60,7 @@ public interface Event<T> {
      * @param listener The listener to remove.
      * @throws NullPointerException If the given reference is {@code null}.
      */
-    void removeAllOccurrences(Consumer<T> listener) throws NullPointerException;
+    void removeAllOccurrences(@Nonnull Consumer<T> listener) throws NullPointerException;
 
     /**
      * Triggers the event.

@@ -5,7 +5,8 @@ package mmb.ERRORS;
 
 /**
  * @author oskar
- *
+ * Thrown when GameContainer is given an unsupported GameObject.
+ * Read more at all add() methods of given GameObject
  */
 public class UnsupportedObjectException extends RuntimeException {
 	public UnsupportedObjectException() {

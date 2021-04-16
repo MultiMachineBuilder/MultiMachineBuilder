@@ -7,23 +7,23 @@ import java.util.Iterator;
 
 import javax.annotation.Nonnull;
 
+import mmb.COLLECTIONS.MapIterator;
+
 /**
  * @author oskar
  *
  */
 public class InsertionsOnlyInventory implements Inventory{
-	private final Inventory inv;
+	private final @Nonnull Inventory inv;
 
 	@Override
 	public Iterator<ItemRecord> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return new MapIterator<ItemRecord, ItemRecord>(i -> InsertionsOnlyItemRecord.decorate(i, this), inv.iterator());
 	}
 
 	@Override
 	public ItemRecord get(ItemEntry entry) {
-		// TODO Auto-generated method stub
-		return null;
+		return inv.get(entry).lockExtractions();
 	}
 
 	@Override
@@ -61,8 +61,7 @@ public class InsertionsOnlyInventory implements Inventory{
 
 	@Override
 	public Inventory lockInsertions() {
-		// TODO Auto-generated method stub
-		return Inventory.super.lockInsertions();
+		return ReadOnlyInventory.decorate(inv);
 	}
 
 	@Override
@@ -82,5 +81,12 @@ public class InsertionsOnlyInventory implements Inventory{
 	private InsertionsOnlyInventory(Inventory inv) {
 		super();
 		this.inv = inv;
+	}
+
+	@Override
+	public ItemRecord nget(ItemEntry entry) {
+		ItemRecord result = inv.nget(entry);
+		if(result == null) return null;
+		return result.lockExtractions();
 	}
 }

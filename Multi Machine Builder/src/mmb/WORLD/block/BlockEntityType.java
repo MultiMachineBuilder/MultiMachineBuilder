@@ -3,21 +3,29 @@
  */
 package mmb.WORLD.block;
 
-import java.awt.Graphics;
-import java.awt.Point;
+import java.awt.Desktop;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
+import java.util.function.Consumer;
+
+import javax.annotation.Nonnull;
+
+import com.google.common.util.concurrent.Runnables;
+
+import mmb.LAMBDAS.Consumers;
 import mmb.WORLD.block.properties.BlockProperty;
 import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.gui.WorldWindow;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.worlds.world.World;
 import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar
- * This class represents a single block type.
+ * This class represents a block entity
  * <br> All block types can be used as item types too.
  */
 public class BlockEntityType extends Item implements BlockType{
@@ -123,7 +131,7 @@ public class BlockEntityType extends Item implements BlockType{
 	 * If set to null, it leaves behind a void
 	 */
 
-	//Register
+	@SuppressWarnings({ "null", "unused" })
 	//Register
 	@Override
 	public void register() {
@@ -137,20 +145,44 @@ public class BlockEntityType extends Item implements BlockType{
 	}
 	
 	//GUI
+	private Runnable guiOpen = Runnables.doNothing();
+	/**
+	 * @deprecated Use {@link #openGUI(WorldWindow)} instead
+	 */
 	@Override
 	public void openGUI() {
-		//unused
+		openGUI(null);
 	}
 	@Override
+	public void openGUI(WorldWindow window) {
+		//unused
+	}
+	/**
+	 * @return the guiOpen
+	 */
+	public Runnable getGuiOpen() {
+		return guiOpen;
+	}
+	/**
+	 * @param guiOpen the guiOpen to set
+	 */
+	public void setGuiOpen(Runnable guiOpen) {
+		this.guiOpen = guiOpen;
+	}
+	
+	public Consumer<WorldWindow> guiClose = Consumers.doNothing();
+	/**
+	 * @deprecated Use {@link #closeGUI(WorldWindow)} instead
+	 */
+	@Override
 	public void closeGUI() {
+		closeGUI(null);
+	}
+	@Override
+	public void closeGUI(WorldWindow window) {
 		//unused
 	}
 	
-	//Preview
-	@Override
-	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation) {
-		drawer.draw(renderStartPos, g);
-	}
 	@Override
 	public void place(int x, int y, World map) {
 		map.place(this, x, y);
@@ -170,7 +202,13 @@ public class BlockEntityType extends Item implements BlockType{
 	}
 
 	//Leave behind
-	public BlockType leaveBehind;
+	/**
+	 * @deprecated since 0.5. Use getLeaveBehind() and setLeaveBehind() instead.
+	 * To be removed in 0.6
+	 */
+	@SuppressWarnings("null")
+	@Deprecated
+	@Nonnull public BlockType leaveBehind;
 	@Override
 	public BlockType leaveBehind() {
 		return leaveBehind;
@@ -192,5 +230,16 @@ public class BlockEntityType extends Item implements BlockType{
 	@Override
 	public BlockEntityType nasBlockEntityType() {
 		return this;
+	}
+	
+	private Drop drop;
+	@Override
+	public Drop getDrop() {
+		if(drop == null) drop = this;
+		return drop;
+	}
+	@Override
+	public void setDrop(Drop drop) {
+		this.drop = Objects.requireNonNull(drop, "drop is null");
 	}
 }

@@ -6,6 +6,7 @@ package mmb.WORLD.inventory;
 import java.util.Iterator;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author oskar
@@ -18,9 +19,15 @@ public interface Inventory extends Iterable<ItemRecord> {
 	/**
 	 * Get the item record under given item type
 	 * @param entry
-	 * @return the item record with given type, or null if not fount
+	 * @return the item record with given type, or throws if not found
 	 */
 	@Nonnull public ItemRecord get(ItemEntry entry);
+	/**
+	 * Get the item record under given item type
+	 * @param entry
+	 * @return the item record with given type, or null if not found
+	 */
+	@Nullable public ItemRecord nget(ItemEntry entry);
 	public int insert(ItemEntry ent, int amount);
 	public int extract(ItemEntry ent, int amount);
 	/**

@@ -53,5 +53,9 @@ public class NoSuchInventory implements Inventory{
 	@Override
 	public double volume() {
 		return 0;
+	}
+	@Override
+	public ItemRecord nget(ItemEntry entry) {
+		return nsir;
 	};
 }

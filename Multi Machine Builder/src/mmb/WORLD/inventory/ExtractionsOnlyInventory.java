@@ -82,4 +82,11 @@ public class ExtractionsOnlyInventory implements Inventory {
 		if(!inv.canInsert()) return inv;
 		return new ExtractionsOnlyInventory(inv);
 	}
+
+	@Override
+	public ItemRecord nget(ItemEntry entry) {
+		ItemRecord result = inv.nget(entry);
+		if(result == null) return null;
+		return result.lockInsertions();
+	}
 }

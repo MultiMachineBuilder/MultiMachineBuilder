@@ -15,6 +15,7 @@ import mmb.debug.Debugger;
 import mmb.Main;
 import mmb.DATA.contents.GameContents;
 import mmb.DATA.contents.texture.Textures;
+import mmb.ERRORS.UndeclarableThrower;
 import mmb.FILES.AdvancedFile;
 import mmb.FILES.FileUtil;
 import mmb.MENU.FullScreen;
@@ -23,6 +24,7 @@ import mmb.MODS.info.AddonState;
 import mmb.RUNTIME.LockCounter;
 import mmb.SOUND.MP3Loader;
 import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.item.ContentsItems;
 
 /**
  * @author oskar
@@ -112,6 +114,7 @@ public class ModLoader {
 			} catch (Exception e) {
 				debug.pstm(e, "THIS MESSAGE INDICATES MALFUNCTION OF JAVA OR FILE SYSTEM"); //this should not happen
 				debug.pstm(e, "Could not find texture "+tname+", despite its presence being indicated");
+				UndeclarableThrower.shoot(e);
 			}
 		}
 		if(f.isDirectory()) {
@@ -132,6 +135,7 @@ public class ModLoader {
 		walkTextures(new File("textures/"));
 		state1("Loading blocks");
 		new ContentsBlocks(); //just for initialization
+		new ContentsItems();
 		FullScreen.initialize();
 	}
 	private static void firstRuns() {
@@ -153,7 +157,7 @@ public class ModLoader {
 							lock.counter.decrementAndGet();
 						}catch(VirtualMachineError e){
 							Main.crash(e);
-							throw e;
+							throw e; //unreachable
 						// deepcode ignore DontCatch: guarantee that game fully loads						}catch(Throwable e){
 							debug.pstm(e, "Failed to run a mod "+ ai.name);
 							ai.state = AddonState.DEAD;
@@ -163,7 +167,8 @@ public class ModLoader {
 				});
 				firstRuns.add(thr);
 				thr.start();
-			} else lock.counter.decrementAndGet();
+			}
+			else lock.counter.decrementAndGet();
 		});
 		lock.join();
 	}
@@ -181,7 +186,7 @@ public class ModLoader {
 						lock.counter.decrementAndGet();
 					}catch(VirtualMachineError e){
 						Main.crash(e);
-					// deepcode ignore DontCatch: guarantee that game fully loads					}catch(Throwable e){
+					// deepcode ignore DontCatch: guarantee that game fully loads, VM errors used to crash the game earlier					}catch(Throwable e){
 						debug.pstm(e, "Failed to run a mod "+ ai.name);
 						
 						ai.state = AddonState.DEAD;

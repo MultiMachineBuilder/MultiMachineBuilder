@@ -103,4 +103,9 @@ public class CreativeWithdrawalInventory implements Inventory {
 		}
 		
 	}
+
+	@Override
+	public ItemRecord nget(ItemEntry entry) {
+		return get(entry);
+	}
 }

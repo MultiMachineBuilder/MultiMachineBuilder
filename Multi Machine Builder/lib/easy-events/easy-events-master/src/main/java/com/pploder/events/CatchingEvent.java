@@ -14,12 +14,13 @@ import mmb.debug.Debugger;
 
 /**
  * An implementation of an event, which catches and reports exceptions thrown by listeners
- * @author oskar (catch exceptions)
+ * @author oskar (catch exceptions, nullability)
  * @author Philipp Ploder (original implementation)
  * @param <T> The argument type to be passed to the listeners. (copied from {@link Event})
  * @version 1.0.0
  * @since 1.1.0
  */
+@SuppressWarnings({"unused", "null"})
 public class CatchingEvent<T> implements Event<T> {
 	private Debugger debug;
 	private String msg;
@@ -29,7 +30,8 @@ public class CatchingEvent<T> implements Event<T> {
 	}
     private final List<Consumer<T>> listeners = new CopyOnWriteArrayList<>();
 
-    @Override
+    
+	@Override
     public void addListener(Consumer<T> listener) throws NullPointerException {
         if (listener == null) {
             throw new NullPointerException("The listener to add may not be null");
