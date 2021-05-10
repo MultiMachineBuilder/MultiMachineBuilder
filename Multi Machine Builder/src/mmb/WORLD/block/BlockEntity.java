@@ -9,27 +9,27 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.GameObject;
 import mmb.BEANS.Loader;
-import mmb.WORLD.worlds.MapProxy;
+import mmb.BEANS.RunOnTick;
 import mmb.WORLD.worlds.world.BlockArrayProvider;
 
 /**
  * @author oskar
  *
  */
-public interface BlockEntity extends BlockEntry, Loader<JsonNode>{
+public interface BlockEntity extends BlockEntry, Loader<JsonNode>, RunOnTick{
 	@Override
 	default boolean isBlockEntity() {
-		return false;
+		return true;
 	}
 
 	@Override
 	default BlockEntity asBlockEntity() {
-		return null;
+		return this;
 	}
 	
 	public default void onStartup(BlockArrayProvider map) {}
 	public default void onPlace(BlockArrayProvider map, @Nullable GameObject obj) {}
-	public default void onTick(MapProxy map) {}
+	//onTick()
 	public default void onBreak(BlockArrayProvider blockMap, @Nullable GameObject obj) {}
 	public default void onShutdown(BlockArrayProvider map) {}
 

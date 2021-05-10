@@ -7,6 +7,8 @@ import java.lang.reflect.Field;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import javax.annotation.Nonnull;
+
 import mmb.ERRORS.UndeclarableThrower;
 
 /**
@@ -24,7 +26,7 @@ public interface Variable<T> {
 	 */
 	public void set(T value);
 	
-	public static <U> Variable<U> delegate(Supplier<U> getter, Consumer<U> setter){
+	public static @Nonnull <U> Variable<U> delegate(Supplier<U> getter, Consumer<U> setter){
 		return new Variable<U>() {
 
 			@Override

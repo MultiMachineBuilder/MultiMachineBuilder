@@ -5,10 +5,10 @@ package mmb.WORLD.worlds.world;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.BEANS.Identifiable;
 import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
 import mmb.BEANS.Titled;
+import monniasza.collects.Identifiable;
 
 /**
  * @author oskar

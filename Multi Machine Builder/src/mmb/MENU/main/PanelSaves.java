@@ -22,7 +22,7 @@ import mmb.FILES.LocalFile;
 import mmb.FILES.Save;
 import mmb.MENU.FullScreen;
 import mmb.MENU.NewWorld.NewGame;
-import mmb.WORLD.gui.WorldWindow;
+import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.universe.Universe;
 import mmb.debug.Debugger;
 import net.miginfocom.swing.MigLayout;
@@ -73,7 +73,7 @@ public class PanelSaves extends JPanel {
 		 */
 		JButton btnNewWorld = new JButton("New world");
 		btnNewWorld.setToolTipText("Create a new world");
-		btnNewWorld.addActionListener(arg -> new NewGame().setVisible(true));
+		btnNewWorld.addActionListener(arg -> FullScreen.setWindow(new NewGame()));
 		subPanelSaves.add(btnNewWorld, "cell 1 0");
 		
 		

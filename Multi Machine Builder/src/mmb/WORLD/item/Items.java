@@ -3,9 +3,9 @@
  */
 package mmb.WORLD.item;
 
-import mmb.COLLECTIONS.HashSelfSet;
-import mmb.COLLECTIONS.SelfSet;
 import mmb.debug.Debugger;
+import monniasza.collects.selfset.HashSelfSet;
+import monniasza.collects.selfset.SelfSet;
 
 /**
  * @author oskar

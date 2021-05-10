@@ -12,6 +12,8 @@ import mmb.debug.Debugger;
  */
 public class Main {
 	public static void main(String[] args) {
+		//count RAM
+		debug.printl("RAM avaliable: "+Runtime.getRuntime().maxMemory());
 		Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler.INSTANCE);
 		Loading.main(args);
 	}

@@ -6,7 +6,7 @@ package mmb.WORLD.blocks;
 import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.Side;
 import mmb.WORLD.block.Block;
-import mmb.WORLD.gui.WorldWindow;
+import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.world.World;
 
 /**

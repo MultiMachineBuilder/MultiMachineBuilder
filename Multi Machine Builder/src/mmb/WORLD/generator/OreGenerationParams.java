@@ -3,8 +3,8 @@
  */
 package mmb.WORLD.generator;
 
-import mmb.BEANS.Identifiable;
 import mmb.WORLD.block.BlockType;
+import monniasza.collects.Identifiable;
 
 /**
  * @author oskar

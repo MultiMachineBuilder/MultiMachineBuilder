@@ -8,6 +8,8 @@ import javax.swing.JTextPane;
 
 import mmb.BEANS.TextMessageProvider;
 import mmb.WORLD.block.BlockEntity;
+import mmb.WORLD.gui.window.WorldWindow;
+
 import javax.swing.JButton;
 import java.awt.Component;
 import java.awt.Color;

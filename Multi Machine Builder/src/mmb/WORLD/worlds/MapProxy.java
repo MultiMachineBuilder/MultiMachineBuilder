@@ -6,6 +6,8 @@ package mmb.WORLD.worlds;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
+
+import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.inventory.Inventory;
@@ -58,6 +60,9 @@ public interface MapProxy extends AutoCloseable{
 	 * @throws ArrayIndexOutOfBoundsException if given location is out of bounds
 	 */
 	default public BlockEntry get(Point p) {return get(p.x, p.y);}
+	default public BlockEntry getAtSide(int x, int y, Side s) {
+		return get(s.offset(x, y));
+	}
 	
 	/** Checks if given location is in bounds */
 	public boolean inBounds(int x, int y);

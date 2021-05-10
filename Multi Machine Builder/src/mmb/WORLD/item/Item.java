@@ -8,13 +8,13 @@ import javax.swing.Icon;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.BEANS.Identifiable;
 import mmb.WORLD.block.Drop;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemEntry;
 import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.worlds.world.World.BlockMap;
 import mmb.debug.Debugger;
+import monniasza.collects.Identifiable;
 
 /**
  * @author oskar

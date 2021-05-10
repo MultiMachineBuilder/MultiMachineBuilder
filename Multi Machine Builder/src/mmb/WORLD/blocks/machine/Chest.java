@@ -5,18 +5,17 @@ package mmb.WORLD.blocks.machine;
 
 import java.awt.Color;
 import java.awt.Graphics;
-
-import javax.swing.JPanel;
+import java.awt.image.BufferedImage;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.BEANS.BlockActivateListener;
-import mmb.BEANS.DataProcessor;
-import mmb.GRAPHICS.awt.GraphicsUtil;
+import mmb.BEANS.*;
+import mmb.DATA.contents.texture.Textures;
+import mmb.GRAPHICS.awt.MappedColorTexture;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.gui.WorldWindow;
+import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.world.World;
 import mmb.WORLD.worlds.world.World.BlockMap;
 
@@ -24,23 +23,23 @@ import mmb.WORLD.worlds.world.World.BlockMap;
  * @author oskar
  *
  */
-public class Chest extends AbstractChest implements BlockActivateListener {
+public class Chest extends AbstractChest implements BlockActivateListener, Colorable {
 	private Color c = Color.WHITE;
+	private static final BufferedImage origTexture = Textures.get("machine/chest1.png");
 	
-	/**
-	 * @return the c
-	 */
+	@Override
 	public Color getColor() {
 		return c;
 	}
-
-	/**
-	 * @param c the c to set
-	 */
+	@Override
 	public void setColor(Color c) {
 		this.c = c;
+		texture.setTo(c);
 	}
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public Chest(int x, int y, BlockMap owner2) {
 		super(x, y, owner2);
 	}
@@ -52,12 +51,13 @@ public class Chest extends AbstractChest implements BlockActivateListener {
 
 	@Override
 	protected void load1(JsonNode node) {
+		inv.capacity = 6;
 		ObjectNode on = (ObjectNode) node;
 		JsonNode cnode = on.get("color");
-		if(!(cnode.isMissingNode() || cnode.isNull()))
-			c = DataProcessor.loadColor(cnode);
+		if(!(cnode == null || cnode.isMissingNode() || cnode.isNull()))
+			setColor(DataProcessor.loadColor(cnode));
 		else
-			c = Color.WHITE;
+			setColor(Color.WHITE);
 	}
 
 	@Override
@@ -66,10 +66,14 @@ public class Chest extends AbstractChest implements BlockActivateListener {
 		on.set("color", DataProcessor.saveColor(c));
 	}
 
+	private final MappedColorTexture texture = new MappedColorTexture(Color.WHITE, Color.WHITE, origTexture);
 	@Override
 	public void render(int x, int y, Graphics g) {
+		/*
 		super.render(x, y, g);
 		GraphicsUtil.filledCrossedBox(x+2, y+2, 27, 27, c, Color.BLACK, g);
+		*/
+		texture.draw(this, x, y, g);
 	}
 
 	@Override

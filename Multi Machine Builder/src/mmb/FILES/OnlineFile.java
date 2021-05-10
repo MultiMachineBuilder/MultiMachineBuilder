@@ -21,7 +21,7 @@ import mmb.debug.Debugger;
 public class OnlineFile implements AdvancedFile {
 	private File download = null;
 	private static final Debugger debug = new Debugger("FILES");
-	public URL url;
+	public final URL url;
 	/**
 	 * 
 	 */

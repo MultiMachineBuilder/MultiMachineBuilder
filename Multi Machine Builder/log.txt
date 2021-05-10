@@ -1,8 +1,20 @@
+(MAIN) RAM avaliable: 1037959168
 (LOAD) Java version is: 1.8.0_281
+(TEXTURES) Loading texture: base/axe.png
+(TEXTURES) Loading texture: base/block base.png
+(TEXTURES) Loading texture: base/dust.png
+(TEXTURES) Loading texture: base/gear.png
+(TEXTURES) Loading texture: base/ingot.png
+(TEXTURES) Loading texture: base/ore base.png
+(TEXTURES) Loading texture: base/pickaxe.png
+(TEXTURES) Loading texture: base/rod.png
+(TEXTURES) Failed to load base\Texture Generator.ods
+(TEXTURES) Loading texture: block/coal ore.png
 (TEXTURES) Loading texture: block/copper block.png
 (TEXTURES) Loading texture: block/iron block.png
 (TEXTURES) Loading texture: block/message.png
 (TEXTURES) Loading texture: block/silicon block.png
+(TEXTURES) Loading texture: block/uranium block.png
 (TEXTURES) Failed to load Blocks.tsx
 (TEXTURES) Loading texture: brush.png
 (TEXTURES) Loading texture: chuckBlock.png
@@ -27,10 +39,21 @@
 (TEXTURES) Loading texture: highways.png
 (TEXTURES) Loading texture: inventory/infinity.png
 (TEXTURES) Loading texture: iron_ore.png
-(TEXTURES) Loading texture: item/copper_ingot.png
-(TEXTURES) Loading texture: item/iron_ingot.png
+(TEXTURES) Loading texture: item/brass ingot.png
+(TEXTURES) Loading texture: item/bronze ingot.png
+(TEXTURES) Loading texture: item/coal.png
+(TEXTURES) Loading texture: item/copper ingot.png
+(TEXTURES) Loading texture: item/copper wire.png
+(TEXTURES) Loading texture: item/gold ingot.png
+(TEXTURES) Loading texture: item/gold wire.png
+(TEXTURES) Loading texture: item/iron ingot.png
+(TEXTURES) Loading texture: item/lead ingot.png
 (TEXTURES) Loading texture: item/lisc.png
-(TEXTURES) Loading texture: item/silicon_ingot.png
+(TEXTURES) Loading texture: item/platinum ingot.png
+(TEXTURES) Loading texture: item/silicon ingot.png
+(TEXTURES) Loading texture: item/silver ingot.png
+(TEXTURES) Loading texture: item/uranium ingot.png
+(TEXTURES) Loading texture: item/zinc ingot.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/brown.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/brown_inlay.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/brown_pressed.png
@@ -81,10 +104,19 @@
 (TEXTURES) Loading texture: logic/OR.png
 (TEXTURES) Loading texture: logic/random.png
 (TEXTURES) Loading texture: logic/randomctrl.png
+(TEXTURES) Loading texture: logic/toggle inert.png
+(TEXTURES) Loading texture: logic/toggle off.png
+(TEXTURES) Loading texture: logic/toggle on.png
 (TEXTURES) Loading texture: logic/true.png
 (TEXTURES) Loading texture: logic/urandom.png
 (TEXTURES) Loading texture: logic/XOR.png
 (TEXTURES) Loading texture: logic/YES.png
+(TEXTURES) Loading texture: machine/assembly 1.png
+(TEXTURES) Loading texture: machine/assembly 2.png
+(TEXTURES) Loading texture: machine/assembly 3.png
+(TEXTURES) Loading texture: machine/assembly 4.png
+(TEXTURES) Loading texture: machine/assembly 5.png
+(TEXTURES) Loading texture: machine/assembly 6.png
 (TEXTURES) Loading texture: machine/CCW.png
 (TEXTURES) Loading texture: machine/chest1.png
 (TEXTURES) Loading texture: machine/chest2.png
@@ -94,7 +126,10 @@
 (TEXTURES) Loading texture: machine/chest6.png
 (TEXTURES) Loading texture: machine/claw.png
 (TEXTURES) Loading texture: machine/CW.png
+(TEXTURES) Loading texture: machine/imover.png
 (TEXTURES) Loading texture: machine/placer.png
+(TEXTURES) Loading texture: machine/smelter active.png
+(TEXTURES) Loading texture: machine/smelter inert.png
 (TEXTURES) Loading texture: mine.png
 (TEXTURES) Loading texture: minecxraft.bmp
 (TEXTURES) Loading texture: nuclear reactor.png
@@ -135,13 +170,29 @@
 (TEXTURES) Loading texture: spider.png
 (TEXTURES) Loading texture: stone.png
 (TEXTURES) Loading texture: textedit.png
+(TEXTURES) Loading texture: tool/normal.png
+(TEXTURES) Loading texture: tool/paint.png
+(TEXTURES) Loading texture: tool/wrench.png
 (TEXTURES) Loading texture: tools.png
 (TEXTURES) Loading texture: UIs/blue signpost.png
 (TEXTURES) Loading texture: UIs/green signpost.png
 (TEXTURES) Loading texture: UIs/orange signpost.png
 (TEXTURES) Loading texture: UIs/red signpost.png
 (TEXTURES) Loading texture: UIs/yellow signpost.png
+(TEXTURES) Loading texture: uranium ore.png
 (BLOCKS) Creating blocks
+(BLOCKS) Adding crafting.1 with title Crafter Mk1 and descripion:
+null
+(BLOCKS) Adding crafting.2 with title Crafter Mk2 and descripion:
+null
+(BLOCKS) Adding crafting.3 with title Crafter Mk3 and descripion:
+null
+(BLOCKS) Adding crafting.4 with title Crafter Mk4 and descripion:
+null
+(BLOCKS) Adding crafting.5 with title Crafter Mk5 and descripion:
+null
+(BLOCKS) Adding crafting.6 with title Crafter Mk6 and descripion:
+null
 (BLOCKS) Adding mmb.grass with title Grass and descripion:
 A default block in the world
 (BLOCKS) Adding mmb.air with title Air and descripion:
@@ -204,15 +255,22 @@ null
 null
 (BLOCKS) Adding chest.beginning with title Chest and descripion:
 null
+(BLOCKS) Adding itemsystem.mover with title Item Mover and descripion:
+null
+(BLOCKS) Adding industry.furnace with title Furnace and descripion:
+null
+(BLOCKS) Adding wireworld.toggle with title Toggle Latch and descripion:
+null
+(TOOLS) Tools initialized
 (FullScreen) Setting up FullScreen
 (MOD-LOADER) Loading mods
 (MOD-LOADER) Finding all files to load
 (MOD-LOADER) Added missing mods directory
 (MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods
-(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD-LOADER) Found 2 mod files
+(MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD - Multi Machine Builder) java.io.FileNotFoundException
-(MOD - HelloWorld.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
 (MOD - Multi Machine Builder) Failed to read the file C:\Users\oskar\eclipse-workspace\Multi Machine Builder
 (MOD - Multi Machine Builder) java.io.FileNotFoundException
 (MOD - Multi Machine Builder) 
@@ -220,40 +278,40 @@ null
 (MOD - Multi Machine Builder) java.io.FileInputStream.open(Unknown Source)
 (MOD - Multi Machine Builder) java.io.FileInputStream.<init>(Unknown Source)
 (MOD - Multi Machine Builder) mmb.FILES.LocalFile.getInputStream(LocalFile.java:33)
-(MOD - HelloWorld.jar) Loading a modfile: HelloWorld.jar
 (MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:107)
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:79)
 (MOD - Multi Machine Builder) java.lang.Thread.run(Unknown Source)
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld.jar) entry: .project
-(MOD - HelloWorld.jar) entry: .classpath
-(MOD - HelloWorld.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - HelloWorld.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
-(MOD - HelloWorld.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - HelloWorld.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
-(MOD - HelloWorld.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld.jar) Class: mmbmods.monniasza.helloworld.HWBlock
-(MOD - HelloWorld.jar) Processing .classpath
-(MOD - HelloWorld.jar) File: .classpath
-(MOD - HelloWorld.jar) Processing mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld.jar) Class: mmbmods.monniasza.helloworld.package-info
-(MOD - HelloWorld.jar) Processing mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - HelloWorld.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - HelloWorld.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - HelloWorld.jar) Class: mmbmods.monniasza.helloworld.HWMachine
-(MOD - HelloWorld.jar) Processing .project
-(MOD - HelloWorld.jar) File: .project
-(MOD - HelloWorld.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - HelloWorld.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) entry: .project
+(MOD - HelloWorld 0.5.jar) entry: .classpath
+(MOD - HelloWorld 0.5.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - HelloWorld 0.5.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWBlock
+(MOD - HelloWorld 0.5.jar) Processing .classpath
+(MOD - HelloWorld 0.5.jar) File: .classpath
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.package-info
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWMachine
+(MOD - HelloWorld 0.5.jar) Processing .project
+(MOD - HelloWorld 0.5.jar) File: .project
+(MOD - HelloWorld 0.5.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - HelloWorld 0.5.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (HW) Hello, world!
 (MOD-LOADER) Start 1st stage for Hello, world!
 (MOD-LOADER) End 1st stage for Hello, world!
@@ -271,16 +329,26 @@ null
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder
 (MOD-LOADER) Missing files
 (MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld.jar
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Thu Apr 15 16:58:01 CEST 2021
+(MOD-LOADER) RELEASED Sun May 09 20:32:49 CEST 2021
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) HOORAY, IT'S OVER!
 (Main menu) MainMenu created
 (SELECT A SAVE) Found save: Block Clicking Claw.mworld
+(SELECT A SAVE) Found save: Example Base.mworld
 (SELECT A SAVE) Found save: main.mworld
 (SELECT A SAVE) Found save: Test.mworld
-(SELECT A SAVE) Found 3 saves
+(SELECT A SAVE) Found 4 saves
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Parsed file
+(MAP anonymous) Became anonymous
+(ITEMS) Attempting to load a non-data item
+(SELECT A SAVE) Loaded
+(WORLD - IDLE) Exiting(WORLDS) Opening a new world
+(WORLD TEST) Exiting the world
+(WORLD - ) Saving main BlockMap
+(WORLD - main null) Exiting(WORLDS) The given world is null, exiting
 (SETTINGS) Saved settings file
-Exception while removing reference.

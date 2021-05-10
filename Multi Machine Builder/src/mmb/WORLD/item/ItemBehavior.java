@@ -6,7 +6,7 @@ package mmb.WORLD.item;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-import mmb.WORLD.gui.WorldFrame;
+import mmb.WORLD.gui.window.WorldFrame;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.player.Player;
 

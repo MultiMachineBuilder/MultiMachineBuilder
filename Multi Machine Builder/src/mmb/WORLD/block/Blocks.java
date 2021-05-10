@@ -5,12 +5,12 @@ package mmb.WORLD.block;
 
 import java.util.Objects;
 
-import mmb.COLLECTIONS.Collects;
-import mmb.COLLECTIONS.HashSelfSet;
-import mmb.COLLECTIONS.SelfSet;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.item.Items;
 import mmb.debug.Debugger;
+import monniasza.collects.Collects;
+import monniasza.collects.selfset.HashSelfSet;
+import monniasza.collects.selfset.SelfSet;
 
 /**
  * @author oskar

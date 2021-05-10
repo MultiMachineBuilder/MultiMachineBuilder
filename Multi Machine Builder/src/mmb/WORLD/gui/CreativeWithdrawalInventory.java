@@ -7,12 +7,12 @@ import java.util.Iterator;
 
 import javax.annotation.Nonnull;
 
-import mmb.COLLECTIONS.MapIterator;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemEntry;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.item.Items;
+import monniasza.collects.MapIterator;
 
 /**
  * @author oskar

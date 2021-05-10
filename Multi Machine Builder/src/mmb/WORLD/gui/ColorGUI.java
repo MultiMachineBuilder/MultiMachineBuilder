@@ -4,6 +4,9 @@
 package mmb.WORLD.gui;
 
 import javax.swing.JPanel;
+
+import mmb.WORLD.gui.window.WorldWindow;
+
 import javax.swing.JColorChooser;
 import javax.swing.JButton;
 import javax.swing.BoxLayout;
@@ -30,10 +33,10 @@ public class ColorGUI extends JPanel {
 	 */
 	@SuppressWarnings("null")
 	public ColorGUI(Variable<Color> c, WorldWindow win) {
-		setLayout(new MigLayout("", "[696px]", "[450px][21px][21px]"));
+		setLayout(new MigLayout("", "[fill]", "[450px][21px][21px]"));
 		
 		colorChooser = new JColorChooser();
-		add(colorChooser, "cell 0 0,alignx center,aligny center");
+		add(colorChooser, "cell 0 0,grow,aligny center");
 		colorChooser.setColor(c.get());
 		
 		btnNewButton = new JButton("OK");

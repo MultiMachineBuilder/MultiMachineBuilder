@@ -8,12 +8,35 @@ import java.util.Iterator;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import org.ainslec.picocog.PicoWriter;
+import org.joml.Vector3d;
+
+import mmb.WORLD.crafting.RecipeOutput;
+
 /**
  * @author oskar
  *
  */
-public interface Inventory extends Iterable<ItemRecord> {
+public interface Inventory extends Iterable<ItemRecord>, RecipeOutput {
 	
+	@Override
+	default void produceResults(Inventory tgt, int amount) {
+		for(ItemRecord record: this) {
+			tgt.insert(null, amount);
+		}
+	}
+	@Override
+	default void calcVolumes(Vector3d out) {
+		out.x += volume();
+		out.y += volume();
+		out.z += volume();
+	}
+	@Override
+	default void represent(PicoWriter out) {
+		for(ItemRecord record: this) {
+			out.writeln(record.toRecipeOutputString());
+		}
+	}
 	@Override
 	@Nonnull public Iterator<ItemRecord> iterator();
 	/**

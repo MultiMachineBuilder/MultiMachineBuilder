@@ -15,13 +15,13 @@ import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.NumericNode;
 import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
-import mmb.COLLECTIONS.Collects;
-import mmb.COLLECTIONS.HashSelfSet;
-import mmb.COLLECTIONS.SelfSet;
 import mmb.DATA.json.JsonTool;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.item.Items;
 import mmb.debug.Debugger;
+import monniasza.collects.Collects;
+import monniasza.collects.selfset.HashSelfSet;
+import monniasza.collects.selfset.SelfSet;
 
 /**
  * @author oskar
@@ -223,6 +223,7 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>, Loader<JsonN
 		// deepcode ignore ApiMigration: used as queue		Queue<JsonNode> nodes = new LinkedList<>(); //prepare the queue
 		nodes.add(new DoubleNode(capacity)); // write the volume
 		for(Node n: contents) { //write items
+			if(n.amount == 0) continue;
 			JsonNode data = n.type.save();
 			ArrayNode ent = JsonTool.newArrayNode(); //prepare the item node
 			ent.add(n.type.type().id()); //write the type

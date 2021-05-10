@@ -15,6 +15,7 @@ import mmb.WORLD.blocks.actuators.ActuatorClick;
 import mmb.WORLD.blocks.actuators.ActuatorPlaceBlock;
 import mmb.WORLD.blocks.actuators.ActuatorRotations;
 import mmb.WORLD.blocks.gates.ANDGate;
+import mmb.WORLD.blocks.gates.FlipGate;
 import mmb.WORLD.blocks.gates.NOTGate;
 import mmb.WORLD.blocks.gates.ORGate;
 import mmb.WORLD.blocks.gates.RandomGate;
@@ -22,6 +23,9 @@ import mmb.WORLD.blocks.gates.UniformRandom;
 import mmb.WORLD.blocks.gates.XORGate;
 import mmb.WORLD.blocks.gates.YESGate;
 import mmb.WORLD.blocks.machine.Chest;
+import mmb.WORLD.blocks.machine.Crafting;
+import mmb.WORLD.blocks.machine.Furnace;
+import mmb.WORLD.blocks.machine.ItemTransporter;
 import mmb.WORLD.texture.BlockDrawer;
 import mmb.debug.Debugger;
 
@@ -40,7 +44,7 @@ public class ContentsBlocks {
 	iron_ore, copper_ore, silicon_ore, crafting, logs;
 	
 	@Nonnull public static final BlockEntityType
-	AND, OR, XOR, BUTTON;
+	AND, OR, XOR, BUTTON, TOGGLE;
 	
 	/** Always provides 'true' signal */
 	@Nonnull public static final Block TRUE;
@@ -69,6 +73,10 @@ public class ContentsBlocks {
 	 * A chest stores items of mutiple types
 	 */
 	public static final BlockEntityType CHEST;
+	
+	public static final BlockEntityType IMOVER;
+	
+	public static final BlockEntityType FURNACE;
 	
 	static {	
 		//Toolkit.getDefaultToolkit().beep();
@@ -229,6 +237,23 @@ public class ContentsBlocks {
 		CHEST.setFactory(Chest::new);
 		CHEST.drawer = BlockDrawer.ofImage(Textures.get("machine/chest1.png"));
 		
+		IMOVER = new BlockEntityType();
+		IMOVER.title = "Item Mover";
+		IMOVER.setFactory(ItemTransporter::new);
+		IMOVER.drawer = BlockDrawer.ofImage(ItemTransporter.TEXTURE);
+		
+		FURNACE = new BlockEntityType();
+		FURNACE.setTitle("Furnace");
+		FURNACE.setFactory(Furnace::new);
+		FURNACE.drawer = BlockDrawer.ofImage(Furnace.TEXTURE_INERT);
+		
+		TOGGLE = new BlockEntityType();
+		TOGGLE.setTitle("Toggle Latch");
+		TOGGLE.setFactory(FlipGate::new);
+		TOGGLE.drawer = BlockDrawer.ofImage(Textures.get("logic/toggle inert.png"));
+		
+		Crafting.setupRefsTable();
+		
 		//Register
 		grass.register("mmb.grass");
 		air.register("mmb.air");
@@ -265,6 +290,10 @@ public class ContentsBlocks {
 		ROTATOR.register("machines.rotator");
 		
 		CHEST.register("chest.beginning");
+		
+		IMOVER.register("itemsystem.mover");
+		FURNACE.register("industry.furnace");
+		TOGGLE.register("wireworld.toggle");
 	}
 
 }

@@ -30,7 +30,7 @@ public abstract class AbstractActuatorBase extends SkeletalBlockEntityRotary{
 	public void onTick(MapProxy map) {
 		boolean a = owner.getAtSide(side.D(), x, y).provideSignal(side.U());
 		Point pt = side.U().offset(x, y);
-		if(a) map.later(() -> run(pt, owner.get(pt.x, pt.y), map));
+		if(a) run(pt, owner.get(pt.x, pt.y), map);
 	}
 	@Override
 	public void setRotation(Rotation rotation) {

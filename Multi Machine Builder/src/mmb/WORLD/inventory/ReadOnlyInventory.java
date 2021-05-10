@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 
 import com.google.common.collect.Iterators;
 
-import mmb.COLLECTIONS.MapIterator;
+import monniasza.collects.MapIterator;
 
 /**
  * @author oskar

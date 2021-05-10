@@ -4,6 +4,7 @@
 package mmb.WORLD.texture;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
@@ -17,7 +18,7 @@ import mmb.WORLD.block.BlockEntry;
  *
  */
 public interface BlockDrawer {
-	public void draw(BlockEntry ent, int x, int y, Graphics g);
+	public void draw(BlockEntry ent, int x, int y, @Nonnull Graphics g);
 	public default void draw(BlockEntry ent, Point p, Graphics g) {
 		draw(ent, p.x, p.y, g);
 	}
@@ -42,5 +43,30 @@ public interface BlockDrawer {
 	 * @return an {@link Icon}, which represents a preview of this drawer
 	 */
 	@Nonnull public Icon toIcon();
+	
+	/**
+	 * Creates an  {@link Icon} representation of this {@code BlockDrawer}.
+	 * If this drawer is mutable, any changes in this block drawer are represented in the icon.
+	 * @return an icon representation of this block drawer
+	 */
+	public default Icon iconRenderer() {
+		return new Icon() {
+
+			@Override
+			public int getIconHeight() {
+				return 32;
+			}
+
+			@Override
+			public int getIconWidth() {
+				return 32;
+			}
+
+			@Override
+			public void paintIcon(Component c, Graphics g, int x, int y) {
+				draw(null, x, y, g);
+			}
+		};
+	}
 
 }

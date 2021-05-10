@@ -13,7 +13,9 @@ import javax.swing.border.EmptyBorder;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import mmb.DATA.json.JsonTool;
+import mmb.MENU.FullScreen;
 import mmb.MENU.MMBFrame;
+import mmb.MENU.main.MainMenu;
 import mmb.MENU.main.PanelSaves;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.SkeletalBlockEntity;
@@ -107,7 +109,7 @@ public class NewGame extends MMBFrame {
 			getRootPane().setDefaultButton(okButton);
 		
 			JButton cancelButton = new JButton("Cancel");
-			cancelButton.addActionListener(arg0 -> dispose());
+			cancelButton.addActionListener(arg0 -> exit());
 			cancelButton.setActionCommand("Cancel");
 			buttonPane.add(cancelButton);
 			
@@ -115,14 +117,14 @@ public class NewGame extends MMBFrame {
 	}
 
 	private void save() {
+		String n = txtName.getText();
+		debug.printl("World name: "+n);
 		Universe world = null;
 		getWorldSize();
-		if(w == -1) {
-			debug.printl("Incorrect dimensions: "+txtWidth.getText()+","+txtHeight.getText());
-			return;
-		}
+		if(w == -1) debug.printl("Incorrect dimensions: "+txtWidth.getText()+","+txtHeight.getText());
+		if(w < 0) return;
 		
-		String n = txtName.getText();
+		
 		//Fill and create the map
 		int ww = (2*w)+1;
 		int hh = (2*h)+1;
@@ -147,11 +149,6 @@ public class NewGame extends MMBFrame {
 		}
 		try(OutputStream os = new FileOutputStream(newFile)) {
 			JsonNode object = world.save();
-			if(object == null) {
-				debug.printl("Failed to create world data");
-				dispose();
-				return;
-			}
 			String text = JsonTool.save(object);
 			byte[] bin = text.getBytes();
 			os.write(bin);
@@ -163,10 +160,16 @@ public class NewGame extends MMBFrame {
 		}
 						
 		debug.printl("Successfully created "+n);
-		dispose();
 		
 		world.destroy();
+		
+		exit();
 		PanelSaves.INSTANCE.refresh();
+	}
+	
+	private void exit() {
+		dispose();
+		FullScreen.setWindow(MainMenu.INSTANCE);
 	}
 	@Override
 	public void destroy() {

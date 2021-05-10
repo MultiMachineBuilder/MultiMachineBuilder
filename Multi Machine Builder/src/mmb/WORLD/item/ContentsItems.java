@@ -11,31 +11,37 @@ import mmb.WORLD.texture.BlockDrawer;
  *
  */
 public class ContentsItems {
-	public static final Item copper, iron, silicon, leaf;
+	public static final Item copper, iron, silicon, leaf, coal;
 	
 	static {
 		copper = new Item();
-		copper.id = "ingot.copper";
 		copper.title = "Copper Ingot";
-		copper.drawer = BlockDrawer.ofImage(Textures.get("item/copper_ingot.png"));
-		copper.register();
+		copper.drawer = BlockDrawer.ofImage(Textures.get("item/copper ingot.png"));
+		copper.volume = 0.00125;
+		copper.register("ingot.copper");
 		
 		iron = new Item();
-		iron.id = "ingot.iron";
 		iron.title = "Iron Ingot";
-		iron.drawer = BlockDrawer.ofImage(Textures.get("item/iron_ingot.png"));
-		iron.register();
+		iron.drawer = BlockDrawer.ofImage(Textures.get("item/iron ingot.png"));
+		iron.volume = 0.00125;
+		iron.register("ingot.iron");
 		
 		silicon = new Item();
-		silicon.id = "ingot.silicon";
 		silicon.title = "Silicon Ingot";
-		silicon.drawer = BlockDrawer.ofImage(Textures.get("item/silicon_ingot.png"));
-		silicon.register();
+		silicon.drawer = BlockDrawer.ofImage(Textures.get("item/silicon ingot.png"));
+		silicon.volume = 0.00125;
+		silicon.register("ingot.silicon");
 		
 		leaf = new Item();
-		leaf.id = "plant.leaf";
 		leaf.title = "Leaf";
 		leaf.drawer = BlockDrawer.ofImage(Textures.get("item/lisc.png"));
-		leaf.register();
+		leaf.volume = 0.000125;
+		leaf.register("plant.leaf");
+		
+		coal = new Item();
+		coal.title = "Coal";
+		coal.drawer = BlockDrawer.ofImage(Textures.get("item/coal.png"));
+		coal.volume = 0.00125;
+		coal.register("gem.coal");
 	}
 }

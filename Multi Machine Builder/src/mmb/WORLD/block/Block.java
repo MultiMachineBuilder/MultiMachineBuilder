@@ -5,14 +5,12 @@ package mmb.WORLD.block;
 
 import java.awt.Graphics;
 import java.awt.Point;
-import java.util.Objects;
+import javax.annotation.Nonnull;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
-import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.gui.WorldWindow;
-import mmb.WORLD.item.Item;
+import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.world.World;
 import mmb.WORLD.worlds.world.World.BlockMap;
 
@@ -20,10 +18,10 @@ import mmb.WORLD.worlds.world.World.BlockMap;
  * @author oskar
  *
  */
-public class Block extends Item implements BlockEntry, BlockType{
+public class Block extends BlockBase implements BlockEntry{
 	
 	@Override
-	public JsonNode save() {
+	public @Nonnull JsonNode save() {
 		return new TextNode(id);
 	}
 	@Override
@@ -41,40 +39,13 @@ public class Block extends Item implements BlockEntry, BlockType{
 	}
 
 	//Placement GUI
-	/**
-	 * @deprecated Use {@link #openGUI(WorldWindow)} instead
-	 */
-	@Override
-	public void openGUI() {
-		openGUI(null);
-	}
-	//Placement GUI
 	@Override
 	public void openGUI(WorldWindow window) {
 		//no GUI available
 	}
-	/**
-	 * @deprecated Use {@link #closeGUI(WorldWindow)} instead
-	 */
-	@Override
-	public void closeGUI() {
-		closeGUI(null);
-	}
 	@Override
 	public void closeGUI(WorldWindow window) {
 		//no GUI available
-	}
-	
-	//Leave behind
-	public BlockType leaveBehind;
-	@Override
-	public void setLeaveBehind(BlockType block) {
-		leaveBehind = block;
-	}
-	@SuppressWarnings("null")
-	@Override
-	public BlockType leaveBehind() {
-		return leaveBehind;
 	}
 	
 	//Placer preview
@@ -104,27 +75,5 @@ public class Block extends Item implements BlockEntry, BlockType{
 	public BlockEntity nasBlockEntity() {
 		return null;
 	}
-	
-	//Register
-	@Override
-	public void register() {
-		if(leaveBehind == null) leaveBehind = ContentsBlocks.grass; //NOSONAR
-		Blocks.register(this);
-	}
-	@Override
-	public void register(String id) {
-		this.id = id;
-		register();
-	}
-	
-	private Drop drop;
-	@Override
-	public Drop getDrop() {
-		if(drop == null) drop = this;
-		return drop;
-	}
-	@Override
-	public void setDrop(Drop drop) {
-		this.drop = Objects.requireNonNull(drop, "drop is null");
-	}
+
 }

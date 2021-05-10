@@ -152,12 +152,17 @@ public interface AdvancedFile {
 	boolean exists();
 	
 	default void copyTo(AdvancedFile file) throws IOException {
-		copyTo(file.getOutputStream());
+		try(OutputStream os = file.getOutputStream()){
+			copyTo(os);
+		}
 	}
 	default void copyTo(OutputStream stream) throws IOException {
-		IOUtils.copy(getInputStream(), stream);
-		stream.flush();
-		stream.close();
+		try(InputStream is = getInputStream()){
+			IOUtils.copy(is, stream);
+			stream.flush();
+			stream.close();
+			is.close();
+		}
 	}
 	
 	public void create() throws IOException;

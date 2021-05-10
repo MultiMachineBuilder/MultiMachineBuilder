@@ -61,7 +61,6 @@ public class MainMenu extends MMBFrame {
 	
 	private JButton btnExit;
 	private JLabel timerLBL;
-	private JButton btnNewButton;
 	/**
 	 * Launch the application.
 	 */
@@ -117,10 +116,6 @@ public class MainMenu extends MMBFrame {
 		timerLBL = new JLabel("Current time goes here");
 		timerLBL.setToolTipText("The current time");
 		aside.add(timerLBL);
-		
-		btnNewButton = new JButton("TEST");
-		btnNewButton.addActionListener(e -> new TestRotatedImageGroup().setVisible(true));
-		aside.add(btnNewButton);
 		java.util.Timer timer = new java.util.Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override

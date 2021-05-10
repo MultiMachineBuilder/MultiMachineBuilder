@@ -20,19 +20,19 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.IntNode;
 import com.fasterxml.jackson.databind.node.NullNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 
 import io.vavr.Tuple2;
 import mmb.BEANS.BlockActivateListener;
-import mmb.BEANS.Identifiable;
 import mmb.BEANS.Loader;
+import mmb.BEANS.RunOnTick;
 import mmb.BEANS.Saver;
-import mmb.COLLECTIONS.HashSelfSet;
-import mmb.COLLECTIONS.SelfSet;
-import mmb.COLLECTIONS.SetProxy;
 import mmb.DATA.json.JsonTool;
 import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.FPSCounter;
+import mmb.WORLD.inventory.ItemEntry;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockLoader;
 import mmb.WORLD.block.BlockType;
@@ -43,6 +43,10 @@ import mmb.WORLD.worlds.DataLayers;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.universe.Universe;
 import mmb.debug.Debugger;
+import monniasza.collects.Identifiable;
+import monniasza.collects.SetProxy;
+import monniasza.collects.selfset.HashSelfSet;
+import monniasza.collects.selfset.SelfSet;
 
 /**
  * @author oskar
@@ -266,8 +270,7 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 		tps.count();
 		//Set up the proxy
 		try(final MapProxy proxy = createProxy()){
-			//Run every machine
-			map.update(proxy);
+			map.update(proxy); //Run every machine
 		}catch(Exception e) {debug.pstm(e, "Failed to run the map");}
 	}
 	private Timer timer = new Timer();
@@ -285,11 +288,9 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 		if(b) {
 			if(running || hasShutDown) return;
 			timer.scheduleAtFixedRate(new TimerTask() {
-				@Override
-				public void run() {
+				@Override public void run() {
 					update();
 				}
-				
 			}, 0, 20);
 		}else {
 			if(running) timer.cancel();
@@ -337,7 +338,7 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 		setRunning(false);
 	}
 	//[end]
-	//[start] [DEPRECATED] machines
+	//[start] [DEPRECATED] machines (moved to BlockMap)
 	private Map<Point, Machine> machinesPoints = new HashMap<>();
 	SetProxy<Machine> machinesProxy = new SetProxy<>();
 	/**
@@ -470,6 +471,11 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 	public BlockMap getMap() {
 		return map;
 	}
+	/**
+	 * Sets the block map.
+	 * Provide {@code null} to remove a block map
+	 * @param map the new map
+	 */
 	public void setMap(@Nullable BlockMap map) {
 		this.map = map;
 		if(map == null) {
@@ -491,8 +497,6 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 	 * A collection of blocks and block entities
 	 */
 	public class BlockMap implements BlockArrayProvider{
-		
-		
 		//[start] Blocks
 		private Set<BlockEntity> _blockents = new HashSet<>();
 		/**
@@ -500,24 +504,42 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 		 */
 		private final Set<BlockEntity> blockents = Collections.unmodifiableSet(_blockents);
 		
+		private Set<RunOnTick> runs = new HashSet<>();
+		
 		protected BlockEntry[][] entries;
 		@Override
 		public BlockEntry get(int x, int y) {
 			return entries[x-startX][y-startY];
 		}
+		/**
+		 * Get a block using array index
+		 * @param i horizontal array index
+		 * @param j vertical array index
+		 * @return 
+		 */
+		public BlockEntry getindex(int i, int j) {
+			return entries[i][j];
+		}
 		@Override
 		public BlockEntry set(BlockEntry b, int x, int y) {
 			BlockEntry old = entries[x-startX][y-startY];
-			if(old != null && old.isBlockEntity()) {
-				BlockEntity old0 = old.asBlockEntity();
-				try {
-					old0.onBreak(this, null);
-					_blockents.remove(old0);
-				} catch (Exception e) {
-					debug.pstm(e, "Failed to remove BlockEntity ["+x+","+y+"]");
-					return null;
+			//Remove old block entity
+			if(old != null) {
+				if(old.isBlockEntity()) {
+					BlockEntity old0 = old.asBlockEntity();
+					try {
+						old0.onBreak(this, null);
+						_blockents.remove(old0);
+					} catch (Exception e) {
+						debug.pstm(e, "Failed to remove BlockEntity ["+x+","+y+"]");
+						return null;
+					}
+				}
+				if(old instanceof RunOnTick) {
+					runs.remove(old);
 				}
 			}
+			//Add new block entity
 			if(b.isBlockEntity()) {
 				BlockEntity new0 = b.asBlockEntity();
 				try {
@@ -529,6 +551,10 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 					return null;
 				}
 			}
+			if(b instanceof RunOnTick) 
+				runs.add((RunOnTick) b);
+			
+			//Set block
 			entries[x-startX][y-startY] = b;
 			return b;
 		}
@@ -540,13 +566,6 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 		@Override
 		public boolean isValid() {
 			return entries != null;
-		}
-		@Override
-		public boolean inBounds(int x, int y) {
-			if(x < startX) return false;
-			if(y < startY) return false;
-			if(x >= endX) return false;
-			return y < endY;
 		}
 		//[end]		
 		//[start] Constructors
@@ -575,8 +594,7 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 		public BlockMap(int sizeX, int sizeY, int startX, int startY) {
 			this(new BlockEntry[sizeX][sizeY], startX, startY);
 		}
-		//[end]
-			
+		//[end]	
 		@Override
 		public Set<BlockEntity> getBlockEntities() {
 			return blockents;
@@ -611,6 +629,13 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 		public int sizeY() {
 			return sizeY;
 		}
+		@Override
+		public boolean inBounds(int x, int y) {
+			if(x < startX) return false;
+			if(y < startY) return false;
+			if(x >= endX) return false;
+			return y < endY;
+		}
 		//[end]
 		@Override
 		@Nonnull public World parent() {
@@ -633,9 +658,16 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 				}
 			}
 			//Run every block
-			for(BlockEntity ent: blockents) {
+			for(RunOnTick ent: runs) {
 				try {ent.onTick(proxy);} //NOSONAR
-				catch(Exception e){debug.pstm(e, "Failed to run block entity at ["+ent.posX()+","+ent.posY()+"]");}
+				catch(Exception e){
+					if(ent instanceof BlockEntity) {
+						debug.pstm(e, "Failed to run block entity at ["+((BlockEntity) ent).posX()+","+((BlockEntity) ent).posY()+"]");
+					}else {
+						debug.pstm(e, "Failed to run a block");
+					}
+					
+				}
 			}
 		}
 		
@@ -760,10 +792,24 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 		}
 		
 		private Set<Machine> _machines = new HashSet<>();
+		/**
+		 * The immutable set of all machines
+		 */
 		public final Set<Machine> machines = Collections.unmodifiableSet(_machines);
 		
-		//[end]
 		
+		/**
+		 * @param ent item to be dropped
+		 * @param x X coordinate of the item
+		 * @param y Y coordinate of the item
+		 */
+		public void dropItem(ItemEntry ent, int x, int y) {
+			// TODO Auto-generated method stub
+			
+		}
+		Multimap<Point, ItemEntry> drops = HashMultimap.create();
+		
+		//[end]
 	}
 	//[end]
 }

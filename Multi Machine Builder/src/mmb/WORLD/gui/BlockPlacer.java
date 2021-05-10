@@ -10,7 +10,7 @@ import javax.swing.Icon;
 
 import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.block.BlockType;
-import mmb.WORLD.worlds.world.BlockArrayProvider;
+import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.world.World;
 import mmb.WORLD.worlds.world.World.BlockMap;
 
@@ -39,24 +39,12 @@ public class BlockPlacer implements Placer {
 	public void place(int x, int y, World map) {
 		block.place(x, y, map);
 	}
-	/**
-	 * @deprecated Use {@link #openGUI(WorldWindow)} instead
-	 */
-	@Override
-	public void openGUI() {
-		openGUI(null);
-	}
+
 	@Override
 	public void openGUI(WorldWindow window) {
 		//unused
 	}
-	/**
-	 * @deprecated Use {@link #closeGUI(WorldWindow)} instead
-	 */
-	@Override
-	public void closeGUI() {
-		closeGUI(null);
-	}
+
 	@Override
 	public void closeGUI(WorldWindow window) {
 		//unused

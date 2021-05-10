@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 
 import mmb.BEANS.BlockSetting;
 import mmb.WORLD.block.BlockType;
+import mmb.WORLD.gui.window.WorldWindow;
 
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;

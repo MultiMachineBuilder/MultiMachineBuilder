@@ -31,19 +31,19 @@ public abstract class SkeletalMachine implements Machine {
 		int eX = x + sX;
 		int eY = y + sY;
 		//Left
-		left = new SkeletalBlockEntity[sY];
+		left = new BlockEntry[sY];
 		for(int i = x, j = 0; i < eX; i++, j++) {
 			left[j] = map.get(x-1, i);
 		}
-		right = new SkeletalBlockEntity[sY];
+		right = new BlockEntry[sY];
 		for(int i = x, j = 0; i < eX; i++, j++) {
 			right[j] = map.get(eX, i);
 		}
-		up = new SkeletalBlockEntity[sX];
+		up = new BlockEntry[sX];
 		for(int i = y, j = 0; i < eY; i++, j++) {
 			up[j] = map.get(eX, i);
 		}
-		down = new SkeletalBlockEntity[sX];
+		down = new BlockEntry[sX];
 		for(int i = y, j = 0; i < eY; i++, j++) {
 			down[j] = map.get(eX, i);
 		}

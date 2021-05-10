@@ -8,9 +8,9 @@ import java.util.function.Supplier;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.BEANS.Identifiable;
 import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
+import monniasza.collects.Identifiable;
 
 /**
  * @author oskar

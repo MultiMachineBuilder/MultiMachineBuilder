@@ -18,7 +18,7 @@ import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.Blocks;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.SelectBlock;
-import mmb.WORLD.gui.WorldWindow;
+import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
 import mmb.WORLD.worlds.world.World.BlockMap;

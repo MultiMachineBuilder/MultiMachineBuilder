@@ -11,7 +11,7 @@ import java.nio.file.Path;
  *
  */
 public class LocalFile implements AdvancedFile {
-	public File file;
+	public final File file;
 	/**
 	 * 
 	 */

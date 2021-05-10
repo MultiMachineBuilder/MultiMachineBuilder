@@ -11,6 +11,9 @@ public class GeometricRandom {
 	private static final int a = 0x54138957, b = 0xa35d6768, c = 0x65476846, d = 0x54546466;
 	private final int t, u, v;
 
+	/**
+	 * @param seed
+	 */
 	public GeometricRandom(long seed) {
 		int aa = (int) (seed & 0x00000000ffffffff);
 		int bb = (int) ((seed & 0xffffffff00000000L)/ 0x100000000L);

@@ -5,13 +5,19 @@ package mmb.WORLD.inventory;
 
 import javax.annotation.Nullable;
 
-import mmb.BEANS.Identifiable;
+import org.ainslec.picocog.PicoWriter;
+import org.joml.Vector3d;
+
+import mmb.BEANS.Loader;
+import mmb.BEANS.Saver;
+import mmb.WORLD.crafting.RecipeOutput;
+import monniasza.collects.Identifiable;
 
 /**
  * @author oskar
  * An item entry is intended for use in inventories.
  */
-public class ItemStack implements Identifiable<ItemEntry> {
+public class ItemStack implements Identifiable<ItemEntry>, Saver<ItemEntry>, Loader<ItemEntry>, RecipeOutput {
 	/**
 	 * An item stored in the inventory
 	 */
@@ -76,5 +82,35 @@ public class ItemStack implements Identifiable<ItemEntry> {
 	@Override
 	public ItemEntry id() {
 		return item;
+	}
+
+	@Override
+	public void load(ItemEntry data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ItemEntry save() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void produceResults(Inventory tgt, int amount) {
+		tgt.insert(item, amount*this.amount);
+	}
+
+	@Override
+	public void represent(PicoWriter out) {
+		out.write(amount +"× "+item.title());
+	}
+
+	@Override
+	public void calcVolumes(Vector3d out) {
+		double vol = volume();
+		out.x += vol;
+		out.y += vol;
+		out.z += vol;
 	}
 }

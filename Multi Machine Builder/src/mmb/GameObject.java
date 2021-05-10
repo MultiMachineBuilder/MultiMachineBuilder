@@ -5,7 +5,7 @@ package mmb;
 
 import javax.annotation.Nullable;
 
-import mmb.BEANS.Identifiable;
+import monniasza.collects.Identifiable;
 
 /**
  * @author oskar

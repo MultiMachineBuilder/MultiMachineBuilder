@@ -9,11 +9,11 @@ import java.util.Map;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.COLLECTIONS.HashSelfSet;
-import mmb.COLLECTIONS.SelfSet;
 import mmb.WORLD.worlds.universe.UniverseDataLayer;
 import mmb.WORLD.worlds.world.WorldDataLayer;
 import mmb.debug.Debugger;
+import monniasza.collects.selfset.HashSelfSet;
+import monniasza.collects.selfset.SelfSet;
 
 /**
  * @author oskar

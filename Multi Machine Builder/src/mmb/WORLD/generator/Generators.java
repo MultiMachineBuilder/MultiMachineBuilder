@@ -3,9 +3,9 @@
  */
 package mmb.WORLD.generator;
 
-import mmb.COLLECTIONS.HashSelfSet;
-import mmb.COLLECTIONS.SelfSet;
 import mmb.WORLD.block.BlockType;
+import monniasza.collects.selfset.HashSelfSet;
+import monniasza.collects.selfset.SelfSet;
 
 /**
  * @author oskar

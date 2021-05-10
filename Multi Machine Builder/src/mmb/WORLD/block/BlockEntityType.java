@@ -3,23 +3,11 @@
  */
 package mmb.WORLD.block;
 
-import java.awt.Desktop;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
-import java.util.function.Consumer;
-
-import javax.annotation.Nonnull;
-
-import com.google.common.util.concurrent.Runnables;
-
-import mmb.LAMBDAS.Consumers;
 import mmb.WORLD.block.properties.BlockProperty;
-import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.gui.WorldWindow;
-import mmb.WORLD.item.Item;
 import mmb.WORLD.worlds.world.World;
 import mmb.WORLD.worlds.world.World.BlockMap;
 
@@ -28,7 +16,7 @@ import mmb.WORLD.worlds.world.World.BlockMap;
  * This class represents a block entity
  * <br> All block types can be used as item types too.
  */
-public class BlockEntityType extends Item implements BlockType{
+public class BlockEntityType extends BlockBase{
 	
 	
 	//Placement
@@ -126,62 +114,6 @@ public class BlockEntityType extends Item implements BlockType{
 	 * 	</li>
 	 * </ul>
 	 */
-	/**
-	 * Defines which block is left behind when this block is mined.
-	 * If set to null, it leaves behind a void
-	 */
-
-	@SuppressWarnings({ "null", "unused" })
-	//Register
-	@Override
-	public void register() {
-		if(leaveBehind == null) leaveBehind = ContentsBlocks.grass; //NOSONAR
-		Blocks.register(this);
-	}
-	@Override
-	public void register(String id) {
-		this.id = id;
-		register();
-	}
-	
-	//GUI
-	private Runnable guiOpen = Runnables.doNothing();
-	/**
-	 * @deprecated Use {@link #openGUI(WorldWindow)} instead
-	 */
-	@Override
-	public void openGUI() {
-		openGUI(null);
-	}
-	@Override
-	public void openGUI(WorldWindow window) {
-		//unused
-	}
-	/**
-	 * @return the guiOpen
-	 */
-	public Runnable getGuiOpen() {
-		return guiOpen;
-	}
-	/**
-	 * @param guiOpen the guiOpen to set
-	 */
-	public void setGuiOpen(Runnable guiOpen) {
-		this.guiOpen = guiOpen;
-	}
-	
-	public Consumer<WorldWindow> guiClose = Consumers.doNothing();
-	/**
-	 * @deprecated Use {@link #closeGUI(WorldWindow)} instead
-	 */
-	@Override
-	public void closeGUI() {
-		closeGUI(null);
-	}
-	@Override
-	public void closeGUI(WorldWindow window) {
-		//unused
-	}
 	
 	@Override
 	public void place(int x, int y, World map) {
@@ -200,23 +132,6 @@ public class BlockEntityType extends Item implements BlockType{
 	public void setFactory(BlockFactory factory) {
 		this.factory = factory;
 	}
-
-	//Leave behind
-	/**
-	 * @deprecated since 0.5. Use getLeaveBehind() and setLeaveBehind() instead.
-	 * To be removed in 0.6
-	 */
-	@SuppressWarnings("null")
-	@Deprecated
-	@Nonnull public BlockType leaveBehind;
-	@Override
-	public BlockType leaveBehind() {
-		return leaveBehind;
-	}
-	@Override
-	public void setLeaveBehind(BlockType block) {
-		leaveBehind = block;
-	}
 	
 	//It is a BlockEntity
 	@Override
@@ -230,16 +145,5 @@ public class BlockEntityType extends Item implements BlockType{
 	@Override
 	public BlockEntityType nasBlockEntityType() {
 		return this;
-	}
-	
-	private Drop drop;
-	@Override
-	public Drop getDrop() {
-		if(drop == null) drop = this;
-		return drop;
-	}
-	@Override
-	public void setDrop(Drop drop) {
-		this.drop = Objects.requireNonNull(drop, "drop is null");
 	}
 }

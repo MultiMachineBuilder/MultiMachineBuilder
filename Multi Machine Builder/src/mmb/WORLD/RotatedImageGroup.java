@@ -3,9 +3,9 @@
  */
 package mmb.WORLD;
 
-import java.awt.Graphics2D;
-import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+
+import javax.annotation.Nonnull;
 
 import mmb.WORLD.texture.BlockDrawer;
 
@@ -27,7 +27,7 @@ public class RotatedImageGroup {
 			return U;
 		}
 	}
-	public static RotatedImageGroup create(BufferedImage img) {
+	@Nonnull public static RotatedImageGroup create(BufferedImage img) {
 		RotatedImageGroup rig = new RotatedImageGroup();
 		rig.U = BlockDrawer.ofImage(img);
 		BufferedImage progress = rotate(img);
@@ -38,7 +38,6 @@ public class RotatedImageGroup {
 		rig.L = BlockDrawer.ofImage(progress);
 		return rig;
 	}
-	private static final AffineTransform rot = AffineTransform.getQuadrantRotateInstance(1);
 	private static BufferedImage rotate(BufferedImage img) {
 		BufferedImage result = new BufferedImage(32, 32, img.getType());
 		for(int i = 0; i < 32; i++) {

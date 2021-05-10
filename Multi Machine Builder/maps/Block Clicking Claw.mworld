@@ -18,15 +18,19 @@
       "blocktype" : "machines.placer",
       "side" : "W",
       "place" : "mmb.grass"
-    }, "wireworld.tail", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "mmb.grass", {
+    }, "wireworld.head", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "wireworld.not",
       "side" : "S"
-    }, "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.tail", "wireworld.head", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", {
+    }, "mmb.grass", "wireworld.tail", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.head", "wireworld.wire", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", {
       "blocktype" : "wireworld.randomctrl",
       "side" : "N"
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.button", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass" ],
     "machines" : [ ],
-    "data" : { }
+    "data" : { },
+    "player" : {
+      "inventory" : [ 2.0 ],
+      "creative" : false
+    }
   },
   "data" : { },
   "maps" : { }

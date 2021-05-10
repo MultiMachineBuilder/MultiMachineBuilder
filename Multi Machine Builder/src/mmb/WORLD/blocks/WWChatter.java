@@ -3,14 +3,20 @@
  */
 package mmb.WORLD.blocks;
 
+import javax.annotation.Nullable;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.BEANS.BlockActivateListener;
 import mmb.BEANS.TextMessageProvider;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityData;
+import mmb.WORLD.gui.NewTextEditor;
+import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.SignalUtils;
+import mmb.WORLD.worlds.world.World;
 import mmb.WORLD.worlds.world.World.BlockMap;
 import mmb.debug.Debugger;
 
@@ -18,7 +24,7 @@ import mmb.debug.Debugger;
  * @author oskar
  *
  */
-public class WWChatter extends SkeletalBlockEntityData implements TextMessageProvider {
+public class WWChatter extends SkeletalBlockEntityData implements TextMessageProvider, BlockActivateListener {
 	private String contents;
 	private static final Debugger debug = new Debugger("CHAT");
 
@@ -56,6 +62,13 @@ public class WWChatter extends SkeletalBlockEntityData implements TextMessagePro
 		if(SignalUtils.hasIncomingSignal(x, y, owner)) {
 			debug.printl(contents);
 		}
+	}
+
+	@Override
+	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window) {
+		if(window == null) return;
+		NewTextEditor editor = new NewTextEditor(this, this, window);
+		window.openDialogWindow(editor, editor.title);
 	}
 
 }

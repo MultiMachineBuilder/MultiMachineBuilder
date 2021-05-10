@@ -11,7 +11,7 @@ import mmb.BEANS.RunOnStart;
  * Class must have implicit or explicit constructor with no inputs
  * Class should set its public static variable which contains its instance
  * 
- * @deprecated Use {@link RunOnStart} with addMod() and events instead
+ * @discouraged Use {@link RunOnStart} with addMod() and events instead
  */
 public interface AddonCentral {
 	

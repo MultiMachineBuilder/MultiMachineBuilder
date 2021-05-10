@@ -5,7 +5,7 @@ package mmb;
 
 /**
  * @author oskar
- *
+ * A version of Consumer, which accepts primitive boolean values
  */
 @FunctionalInterface
 public interface BooleanConsumer {

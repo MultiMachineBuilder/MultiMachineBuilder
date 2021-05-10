@@ -5,6 +5,8 @@ package mmb.FILES;
 
 import java.util.Map;
 
+import javax.annotation.Nonnull;
+
 import org.apache.commons.csv.CSVRecord;
 
 import mmb.debug.Debugger;
@@ -19,6 +21,7 @@ public class Downloadable {
 	public String download;
 	private final Debugger debug;
 	/**
+	 * @param record record to be parsed
 	 * 
 	 */
 	public Downloadable(CSVRecord record) {
@@ -35,7 +38,8 @@ public class Downloadable {
 	 * @param directory
 	 */
 	public void download(AdvancedFile directory) {
-		String fileName = download.substring(download.lastIndexOf(47 /*slash*/)+1, download.length()-1);
+		@SuppressWarnings("null")
+		@Nonnull String fileName = download.substring(download.lastIndexOf(47 /*slash*/)+1, download.length()-1);
 		String tgt = "mods/"+fileName;
 		try {
 			//fileName = fileName.substring(fileName.lastIndexOf(92 /*backslash*/)+1, fileName.length()-1);

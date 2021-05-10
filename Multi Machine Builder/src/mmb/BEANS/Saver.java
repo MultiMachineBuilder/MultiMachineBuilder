@@ -4,6 +4,7 @@
 package mmb.BEANS;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author oskar
@@ -14,5 +15,5 @@ public interface Saver<T> {
 	/**
 	 * @return the saved data
 	 */
-	@Nonnull public T save();
+	public T save();
 }

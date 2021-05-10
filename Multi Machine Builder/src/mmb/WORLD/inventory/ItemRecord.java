@@ -5,13 +5,16 @@ package mmb.WORLD.inventory;
 
 import javax.annotation.Nonnull;
 
-import mmb.BEANS.Identifiable;
+import monniasza.collects.Identifiable;
 
 /**
  * @author oskar
  *
  */
 public interface ItemRecord extends Identifiable<ItemEntry> {
+	public default String toRecipeOutputString() {
+		return item().title() + "× "+ amount();
+	}
 	@Override
 	@Nonnull default ItemEntry id() {
 		return item();

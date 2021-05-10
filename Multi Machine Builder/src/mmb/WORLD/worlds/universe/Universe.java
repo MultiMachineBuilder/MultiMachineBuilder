@@ -18,14 +18,14 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.GameObject;
 import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
-import mmb.COLLECTIONS.Collects;
-import mmb.COLLECTIONS.HashSelfSet;
-import mmb.COLLECTIONS.SelfSet;
 import mmb.DATA.json.JsonTool;
 import mmb.RUNTIME.actions.WorldBehavior;
 import mmb.WORLD.worlds.DataLayers;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
+import monniasza.collects.Collects;
+import monniasza.collects.selfset.HashSelfSet;
+import monniasza.collects.selfset.SelfSet;
 
 /**
  * @author oskar

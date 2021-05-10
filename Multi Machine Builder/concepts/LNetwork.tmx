@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="8" tileheight="8" infinite="1" nextlayerid="3" nextobjectid="1">
+ <tileset firstgid="1" name="LNetwork longer wires" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../../../../Desktop/MMB future textures/LNetwork longer wires.png" trans="ffffff" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="5" name="LNetwork components" tilewidth="16" tileheight="8" tilecount="20" columns="4">
+  <image source="../../../../../Desktop/MMB future textures/LNetwork components.png" trans="ffffff" width="64" height="40"/>
+ </tileset>
+ <tileset firstgid="25" name="LNetwork terminals" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../../../../Desktop/MMB future textures/LNetwork terminals.png" trans="ffffff" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="29" name="LNetwork wires" tilewidth="16" tileheight="16" tilecount="4" columns="2">
+  <image source="../../../../../Desktop/MMB future textures/LNetwork wires.png" trans="ffffff" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="33" name="Blocks" tilewidth="32" tileheight="32" tilecount="11" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="32" height="32" source="../textures/copper_ore.png"/>
+  </tile>
+  <tile id="1">
+   <image width="32" height="32" source="../textures/crafting.png"/>
+  </tile>
+  <tile id="2">
+   <image width="32" height="32" source="../textures/example rotation.png"/>
+  </tile>
+  <tile id="3">
+   <image width="32" height="32" source="../textures/grass.png"/>
+  </tile>
+  <tile id="4">
+   <image width="32" height="32" source="../textures/iron_ore.png"/>
+  </tile>
+  <tile id="5">
+   <image width="32" height="32" source="../textures/leaves.png"/>
+  </tile>
+  <tile id="6">
+   <image width="32" height="32" source="../textures/log.png"/>
+  </tile>
+  <tile id="8">
+   <image width="32" height="32" source="../textures/plank.png"/>
+  </tile>
+  <tile id="9">
+   <image width="32" height="32" source="../textures/printer.png"/>
+  </tile>
+  <tile id="10">
+   <image width="32" height="32" source="../textures/silicon_ore.png"/>
+  </tile>
+  <tile id="12">
+   <image width="32" height="32" source="../textures/stone.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="46" name="machines" tilewidth="32" tileheight="32" tilecount="96" columns="12">
+  <image source="../../../../../Desktop/MMb concepts/machines.png" trans="ffffff" width="384" height="256"/>
+ </tileset>
+ <layer id="2" name="background" width="100" height="100" locked="1">
+  <data encoding="csv">
+   <chunk x="0" y="0" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+36,0,0,0,45,0,0,0,36,0,0,0,45,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+45,0,0,0,36,0,0,0,45,0,0,0,36,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+36,0,0,0,45,0,0,0,36,0,0,0,45,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+45,0,0,0,36,0,0,0,45,0,0,0,36,0,0,0
+</chunk>
+  </data>
+ </layer>
+ <layer id="1" name="Warstwa Kafelków 1" width="100" height="100">
+  <data encoding="csv">
+   <chunk x="0" y="0" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+25,0,0,0,26,0,0,0,27,0,0,0,28,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+1,0,0,0,2,0,0,0,3,0,0,0,2147483649,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,2684354576,32,0,2684354584,0,0,0,0,0,0,0,0,
+84,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,2684354576,32,0,2684354584,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0
+</chunk>
+  </data>
+ </layer>
+</map>

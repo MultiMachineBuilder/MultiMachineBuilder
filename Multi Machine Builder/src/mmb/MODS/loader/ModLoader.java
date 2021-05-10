@@ -24,7 +24,9 @@ import mmb.MODS.info.AddonState;
 import mmb.RUNTIME.LockCounter;
 import mmb.SOUND.MP3Loader;
 import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.blocks.machine.Furnace;
 import mmb.WORLD.item.ContentsItems;
+import mmb.WORLD.tool.Tools;
 
 /**
  * @author oskar
@@ -136,6 +138,8 @@ public class ModLoader {
 		state1("Loading blocks");
 		new ContentsBlocks(); //just for initialization
 		new ContentsItems();
+		Furnace.init();
+		Tools.initialize();
 		FullScreen.initialize();
 	}
 	private static void firstRuns() {
@@ -249,7 +253,7 @@ public class ModLoader {
 		try {
 			external = new String(Files.readAllBytes(Paths.get("ext.txt"))).split("\n");
 		} catch (IOException e1) {
-			debug.pstm(e1, "Unable to load external mods");
+			debug.pstm(e1, "Unable to load list of external mods");
 		}
 		//Notify user
 		state1("Initial load");

@@ -26,7 +26,7 @@ public class Debugger {
 			e1.printStackTrace();
 		}
 		try {
-			OutputStream osLog = new FileOutputStream("log.txt");
+			// deepcode ignore MissingClose: must stay open for entire run duration			OutputStream osLog = new FileOutputStream("log.txt");
 			System.setOut(new TeePrintStream("log.txt", System.out));
 		} catch (FileNotFoundException e1) {
 			Main.crash(e1);

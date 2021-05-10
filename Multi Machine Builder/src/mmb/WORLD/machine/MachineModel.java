@@ -10,14 +10,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Nullable;
-import javax.swing.Icon;
-
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.GameObject;
 import mmb.WORLD.gui.Placer;
-import mmb.WORLD.gui.WorldWindow;
-import mmb.WORLD.texture.BlockDrawer;
+import mmb.WORLD.gui.window.WorldWindow;
+import mmb.WORLD.item.Item;
 import mmb.WORLD.worlds.world.World;
 import mmb.WORLD.worlds.world.World.BlockMap;
 import mmb.debug.Debugger;
@@ -26,13 +24,10 @@ import mmb.debug.Debugger;
  * @author oskar
  *
  */
-public class MachineModel implements Placer {
+public class MachineModel extends Item implements Placer {
 	private static final Debugger debug = new Debugger("MACHINES");
 	public final Class<? extends Machine> machineClass;
-	public final String name;
 	private final String errorMessage;
-	public BlockDrawer icon;
-	public String title;
 	
 	public Previewer preview = (a, b, c, d) -> {};
 	
@@ -41,7 +36,7 @@ public class MachineModel implements Placer {
 		models.put((Class<? extends MachineModel>) machineClass, this);
 		models2.put(name, this);
 		this.machineClass = machineClass;
-		this.name = name;
+		this.id = name;
 		this.errorMessage = "Failed to create a machine "+name;
 		title = name;
 	}
@@ -130,41 +125,18 @@ public class MachineModel implements Placer {
 	public static Map<String, MachineModel> getMachineModels(){
 		return Collections.unmodifiableMap(models2);
 	}
-	@Override
-	public Icon getIcon() {
-		return icon.toIcon();
-	}
-	@Override
-	public String title() {
-		return title;
-	}
+
 	@Override
 	public void place(int x, int y, World map) {
 		map.placeMachine(this, x, y);
 	}
-	/**
-	 * @deprecated Use {@link #openGUI(WorldWindow)} instead
-	 */
-	@Override
-	public void openGUI() {
-		openGUI(null);
-	}
 	@Override
 	public void openGUI(WorldWindow window) {
-		// TODO Auto-generated method stub
-		
-	}
-	/**
-	 * @deprecated Use {@link #closeGUI(WorldWindow)} instead
-	 */
-	@Override
-	public void closeGUI() {
-		closeGUI(null);
+		//unused
 	}
 	@Override
 	public void closeGUI(WorldWindow window) {
-		// TODO Auto-generated method stub
-		
+		//unused
 	}
 	@Override
 	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation) {

@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 import javax.annotation.Nonnull;
 
-import mmb.COLLECTIONS.MapIterator;
+import monniasza.collects.MapIterator;
 
 /**
  * @author oskar

@@ -5,9 +5,9 @@ package mmb.WORLD.worlds.universe;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.BEANS.Identifiable;
 import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
+import monniasza.collects.Identifiable;
 
 /**
  * @author oskar
