@@ -6,6 +6,7 @@ package mmb.WORLD.gui.window;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -21,6 +22,7 @@ import mmb.WORLD.gui.WorldToolList;
 import mmb.WORLD.machine.MachineModel;
 import mmb.WORLD.player.Player;
 import mmb.WORLD.tool.ToolSelectionModel;
+import mmb.WORLD.tool.ToolStandard;
 import mmb.WORLD.worlds.universe.Universe;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
@@ -38,7 +40,6 @@ import java.util.TimerTask;
 import javax.swing.JSplitPane;
 import javax.annotation.Nonnull;
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 
@@ -89,7 +90,6 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 		}
 	}
 	
-	private WorldFrame worldFrame;	
 	/**
 	 * Creates a new world window
 	 */
@@ -98,7 +98,37 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 		setTitle("Test");
 		setBounds(100, 100, 824, 445);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		addWindowListener(this);
+		addWindowListener(new WindowAdapter() {
+			boolean iconified = false;
+			boolean open = false;
+			@Override
+			public void windowClosed(WindowEvent arg0) {
+				open = false;
+				recalc();
+			}
+
+			@Override
+			public void windowDeiconified(WindowEvent arg0) {
+				iconified = false;
+				recalc();
+			}
+
+			@Override
+			public void windowIconified(WindowEvent arg0) {
+				iconified = true;
+				recalc();
+			}
+
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+				open = true;
+				recalc();
+			}
+			private void recalc() {
+				boolean running = !iconified && open;
+			}
+			
+		});
 		
 		//root split pane
 			JSplitPane rootPane = new JSplitPane();
@@ -110,6 +140,13 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 				//[start] World pane
 					JSplitPane worldPane = new JSplitPane();
 					worldPane.setDividerLocation(256);
+					//[start] The world frame
+						worldFrame = new WorldFrame();
+						worldFrame.setBackground(Color.GRAY);
+						worldFrame.addTitleListener(this::setTitle);
+						worldFrame.setWindow(this);
+						worldPane.setRightComponent(worldFrame);
+					//[end]
 					//[start] Scrollable Placement List Pane
 						JSplitPane scrollistBipane = new JSplitPane();
 						scrollistBipane.setResizeWeight(0.5);
@@ -123,22 +160,21 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 							scrollistPane.setViewportView(scrollablePlacementList);
 							scrollistBipane.setLeftComponent(scrollistPane);
 						//Tool Pane
-							toolPane = new JScrollPane();
-							toolList = new WorldToolList(toolModel);
+							JScrollPane toolPane = new JScrollPane();
+							toolList = new WorldToolList(toolModel, this);
 							toolList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 							toolPane.setViewportView(toolList);
+							for(int i = 0; i < toolList.model.getSize(); i++) {
+								if(toolList.model.elementAt(i) instanceof ToolStandard) {
+									toolList.setSelectedIndex(i);
+									break;
+								}
+							}
 							scrollistBipane.setRightComponent(toolPane);
 						worldPane.setLeftComponent(scrollistBipane);
 					//[end]
-					//[start] The world frame
-						worldFrame = new WorldFrame();
-						worldFrame.setBackground(Color.GRAY);
-						worldFrame.addTitleListener(this::setTitle);
-						worldFrame.setActive(true);
-						worldFrame.setPlacer(scrollablePlacementList);
-						worldFrame.setWindow(this);
-						worldPane.setRightComponent(worldFrame);
-					//[end]
+					worldFrame.setActive(true);
+					worldFrame.setPlacer(scrollablePlacementList);
 					pane.add("World", worldPane);
 				//[end]
 				//[start] Inventory pane
@@ -159,27 +195,22 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 		//Menu bar
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-			//Go to world
-				JButton btnGTW = new JButton("Go to world");
-				btnGTW.addActionListener(e -> worldFrame.requestFocus());
-				btnGTW.setFocusable(false);
-				menuBar.add(btnGTW);
 			//Menu
-				mnNewMenu = new JMenu("New menu");
+				JMenu mnNewMenu = new JMenu("New menu");
 				menuBar.add(mnNewMenu);
 				//Full screen
-					mntmFullScreen = new BoundCheckBoxMenuItem();
+					BoundCheckBoxMenuItem mntmFullScreen = new BoundCheckBoxMenuItem();
 					mntmFullScreen.setText("FullScreen");
 					mntmFullScreen.setBackground(Color.YELLOW);
 					mntmFullScreen.setVariable(FullScreen.isFullScreen);
 					mnNewMenu.add(mntmFullScreen);
 				//To main menu
-					mntmMMenu = new JMenuItem("To main menu");
+					JMenuItem mntmMMenu = new JMenuItem("To main menu");
 					mntmMMenu.setBackground(Color.ORANGE);
 					mntmMMenu.addActionListener(e -> dispose());
 					mnNewMenu.add(mntmMMenu);
 				//To desktop
-					mntmExitDesktop = new JMenuItem("To desktop");
+					JMenuItem mntmExitDesktop = new JMenuItem("To desktop");
 					mntmExitDesktop.setBackground(Color.RED);
 					mntmExitDesktop.addActionListener(e -> {
 						dispose();
@@ -187,7 +218,7 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 					});
 					mnNewMenu.add(mntmExitDesktop);
 				//Debug display
-					bchckbxmntmDebugDisplay = new BoundCheckBoxMenuItem();
+					BoundCheckBoxMenuItem bchckbxmntmDebugDisplay = new BoundCheckBoxMenuItem();
 					bchckbxmntmDebugDisplay.setText("Debug display");
 					bchckbxmntmDebugDisplay.setVariable(WorldFrame.DEBUG_DISPLAY);
 					mnNewMenu.add(bchckbxmntmDebugDisplay);
@@ -205,10 +236,17 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 	}
 	private static Debugger debug = new Debugger("WORLD TEST");
 	
+	//menu
 	private JMenuBar menuBar;
-	//[start] mod window functions
-	private JTabbedPane dialogs;
+	public void addMenu(Component comp) {
+		menuBar.add(comp);
+	}
+	public void removeMenu(Component comp) {
+		menuBar.remove(comp);
+	}
 	
+	//dialogs [BROKEN]
+	private JTabbedPane dialogs;
 	public void openDialogWindow(Component comp, String s) {
 		dialogs.add(s, comp);
 	}
@@ -216,6 +254,8 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 		dialogs.remove(comp);
 	}
 	
+	//tabs
+	private JTabbedPane pane;
 	public void openWindow(Component comp, String s) {
 		pane.add(s, comp);
 	}
@@ -226,14 +266,11 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 	public void closeWindow(Component component) {
 		pane.remove(component);
 	}
-	//[end]
+
+	//tool list
+	private WorldToolList toolList;
 	
 	private JSplitPane toolEditorSplitPane;
-	private JMenu mnNewMenu;
-	private BoundCheckBoxMenuItem mntmFullScreen;
-	private JMenuItem mntmMMenu;
-	private JMenuItem mntmExitDesktop;
-	private BoundCheckBoxMenuItem bchckbxmntmDebugDisplay;
 	private TabInventory panelPlayerInv;
 	private JScrollPane scrollistPane;
 	/**
@@ -244,7 +281,6 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 		toolEditorSplitPane.setLeftComponent(comp);
 	}
 	
-	//[start] world functions
 	/**
 	 * @param s save file
 	 * @param deserialized new world
@@ -254,29 +290,25 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 		worldFrame.enterWorld(deserialized);
 		panelPlayerInv.setPlayer(worldFrame.getMap().player);
 	}
-	/** @return a world which is currently played*/
+	/** @return a world which is currently played */
 	public Universe getWorld() {
 		return worldFrame.getWorld();
 	}
-	/**
-	 * @return the WorldFrame associated with this WorldWindow
-	 */
+	private WorldFrame worldFrame;
+	/** @return the WorldFrame associated with this WorldWindow */
 	public WorldFrame getWorldFrame() {
 		return worldFrame;
 	}
-	/**
-	 * @return the BlockMap associated with the WorldFrame
-	 */
+
+	/** @return the BlockMap associated with the WorldFrame */
 	public World getMap() {
 		return worldFrame.getMap();
 	}
-	/**
-	 * @return the Player associated with the world
-	 */
+	/** @return the Player associated with the world */
 	public Player getPlayer() {
-		return worldFrame.getMap().player;
+		if(worldFrame == null) return null;
+		return worldFrame.getPlayer();
 	}
-	//[end]
 	//[start] WindowListener
 	@Override
 	public void windowActivated(WindowEvent e) {
@@ -318,9 +350,8 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 		
 	}
 	private ScrollablePlacementList scrollablePlacementList;
-	private JTabbedPane pane;
-	private JScrollPane toolPane;
-	private WorldToolList toolList;
+	
+	
 	/**
 	 * @author oskar
 	 * A {@code ScrollablePlacementList} is used to select a block or machine

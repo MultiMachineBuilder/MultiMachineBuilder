@@ -272,7 +272,9 @@ null
 (MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD - Multi Machine Builder) java.io.FileNotFoundException
 (MOD - Multi Machine Builder) Failed to read the file C:\Users\oskar\eclipse-workspace\Multi Machine Builder
-(MOD - Multi Machine Builder) java.io.FileNotFoundException
+(MOD - Multi Machine Builder) java.io.FileNotFoundException(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
+
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - Multi Machine Builder) 
 (MOD - Multi Machine Builder) java.io.FileInputStream.open0(Native Method)
 (MOD - Multi Machine Builder) java.io.FileInputStream.open(Unknown Source)
@@ -281,8 +283,6 @@ null
 (MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:107)
 (MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:79)
 (MOD - Multi Machine Builder) java.lang.Thread.run(Unknown Source)
-(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
@@ -331,7 +331,7 @@ null
 (MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Sun May 09 20:32:49 CEST 2021
+(MOD-LOADER) RELEASED Tue May 18 07:57:24 CEST 2021
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) HOORAY, IT'S OVER!
@@ -341,14 +341,4 @@ null
 (SELECT A SAVE) Found save: main.mworld
 (SELECT A SAVE) Found save: Test.mworld
 (SELECT A SAVE) Found 4 saves
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(MAP anonymous) Became anonymous
-(ITEMS) Attempting to load a non-data item
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting(WORLDS) Opening a new world
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(WORLD - main null) Exiting(WORLDS) The given world is null, exiting
 (SETTINGS) Saved settings file

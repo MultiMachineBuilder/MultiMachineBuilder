@@ -8,6 +8,7 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
+import mmb.WORLD.gui.window.WorldWindow;
 import mmb.debug.Debugger;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
@@ -60,10 +61,12 @@ public class Tools {
 	 * @param c input collection
 	 * @throws NullPointerException if {@code c} is null
 	 */
-	public static void createWindowTools(@Nonnull Collection<? super WindowTool> c) {
+	public static void createWindowTools(@Nonnull Collection<? super WindowTool> c, WorldWindow window) {
 		Objects.requireNonNull(c, "c is null");
 		for(WindowToolModel wtm: toollist) {
-			c.add(wtm.create());
+			WindowTool tool = wtm.create();
+			tool.setWindow(window);
+			c.add(tool);
 		}
 	}
 }

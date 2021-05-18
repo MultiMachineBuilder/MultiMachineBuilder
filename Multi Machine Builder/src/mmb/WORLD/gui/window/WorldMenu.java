@@ -3,15 +3,11 @@
  */
 package mmb.WORLD.gui.window;
 
-import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
 import mmb.BEANS.Rotable;
-import mmb.BEANS.TextMessageProvider;
-import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockEntry;
-import mmb.WORLD.gui.NewTextEditor;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 

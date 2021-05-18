@@ -254,5 +254,21 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/Collections Framework"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Timer"/>
+	<classpathentry kind="lib" path="lib/fastutil/fastutil-8.5.4.jar" sourcepath="lib/fastutil/fastutil-8.5.4-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/fastutil/fastutil-8.5.4-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/fastutil/fastutil-core-8.5.4.jar" sourcepath="lib/fastutil/fastutil-core-8.5.4-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/fastutil/fastutil-core-8.5.4-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/fastutil/fastutil-extra-8.5.4.jar" sourcepath="lib/fastutil/fastutil-extra-8.5.4-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/fastutil/fastutil-extra-8.5.4-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -20,13 +20,13 @@ import org.joml.Vector2d;
 import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
-import mmb.BEANS.BlockActivateListener;
 import mmb.DATA.variables.ListenerBooleanVariable;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.gui.FPSCounter;
 import mmb.WORLD.gui.Placer;
 import mmb.WORLD.gui.window.WorldWindow.ScrollablePlacementList;
 import mmb.WORLD.machine.Machine;
+import mmb.WORLD.player.Player;
 import mmb.WORLD.tool.WindowTool;
 import mmb.WORLD.worlds.universe.Universe;
 import mmb.WORLD.worlds.world.World;
@@ -168,6 +168,14 @@ public class WorldFrame extends JComponent {
 		world = null;
 	}
 	
+	/**
+	 * A convienience method to get player
+	 * @return
+	 */
+	public Player getPlayer() {
+		if(map != null) return map.player;
+		return null;
+	}
 	//[end]
 	//Mouse and key listener
 	private class Listener implements MouseListener, KeyListener, MouseMotionListener, MouseWheelListener{
@@ -396,7 +404,10 @@ public class WorldFrame extends JComponent {
 	
 	//[end]
 	//[start] Activity
-	private transient Timer timer = new Timer(20, e -> repaint());
+	private transient Timer timer = new Timer(20, e -> {
+		repaint();
+		requestFocusInWindow();
+	});
 	/**
 	 * @return is timer active?
 	 */

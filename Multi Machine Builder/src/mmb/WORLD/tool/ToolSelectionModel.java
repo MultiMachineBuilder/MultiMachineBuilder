@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import mmb.WORLD.gui.window.WorldWindow;
+import mmb.WORLD.player.Player;
 import mmb.debug.Debugger;
 
 /**
@@ -36,8 +37,14 @@ public class ToolSelectionModel {
 	private void resetTools() {
 		if(toolTL == null) setTool(toolIL);
 		else {
-			if(window != null && !window.getPlayer().creative.getValue()) setTool(toolIL);
-			else setTool(toolTL);
+			if(window != null) {
+				Player p = window.getPlayer();
+				if(p != null && p.creative.getValue()) {
+					setTool(toolIL);
+					return;
+				}
+			}
+			setTool(toolTL);
 		}
 	}
 

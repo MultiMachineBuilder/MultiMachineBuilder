@@ -11,7 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
+import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.tool.ToolSelectionModel;
+import mmb.WORLD.tool.ToolStandard;
 import mmb.WORLD.tool.Tools;
 import mmb.WORLD.tool.WindowTool;
 import mmb.debug.Debugger;
@@ -27,7 +29,7 @@ public class WorldToolList extends JList<WindowTool> {
 	private static final long serialVersionUID = -8108364897856379665L;
 	@Nonnull public final DefaultListModel<WindowTool> model = new DefaultListModel<>();
 	private static final Debugger debug = new Debugger("TOOL LIST");
-	public WorldToolList(ToolSelectionModel tsmodel) {
+	public WorldToolList(ToolSelectionModel tsmodel, WorldWindow window) {
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		addListSelectionListener(e -> {
 			WindowTool tool = getSelectedValue();
@@ -35,7 +37,7 @@ public class WorldToolList extends JList<WindowTool> {
 			debug.printl("Tool selected: "+ tool.id);
 			tsmodel.toolSelectedToolList(tool);
 		});
-		Tools.createWindowTools(Collects.toWritableList(model));
+		Tools.createWindowTools(Collects.toWritableList(model), window);
 		setCellRenderer(new CellRenderer());
 		setModel(model);
 	}

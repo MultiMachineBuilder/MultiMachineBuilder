@@ -14,8 +14,6 @@ import com.pploder.events.Event;
 import mmb.WORLD.player.Player;
 import mmb.debug.Debugger;
 
-import java.awt.event.ActionEvent;
-
 import javax.annotation.Nonnull;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -27,9 +25,7 @@ import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.item.ItemType;
 
 import java.awt.Color;
-import java.awt.event.ActionListener;
 import mmb.MENU.components.BoundCheckBox;
-import javax.swing.JTextField;
 import javax.swing.JSpinner;
 
 /**
