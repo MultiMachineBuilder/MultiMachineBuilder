@@ -11,7 +11,13 @@ import org.ainslec.picocog.PicoWriter;
 import org.joml.Vector3d;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.NullNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.TextNode;
+
 import mmb.BEANS.Saver;
+import mmb.DATA.json.JsonTool;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.item.Items;
@@ -77,17 +83,29 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput {
 	 * @return item it if loaded successfully, or null if failed
 	 */
 	@SuppressWarnings("null")
-	@Nullable public static ItemEntry loadFromJson(JsonNode data) {
-		if(data.isObject()) {
-			String id = data.get("blocktype").asText();
+	@Nullable public static ItemEntry loadFromJson(@Nullable JsonNode data) {
+		if(data == null) return null;
+		if(data.isNull()) return null;
+		if(data.isArray()) {
+			String id = data.get(0).asText();
+			JsonNode idata = data.get(1);
 			ItemType type = Items.items.get(id);
 			if(type == null) return null;
-			return type.load(data);
+			return type.load(idata);
 		}
 		if(data.isTextual()) {
 			return Items.items.get(data.asText()).create();
 		}
 		return null;
+	}
+	public static JsonNode saveItem(@Nullable ItemEntry item) {
+		if(item == null) return NullNode.instance;
+		JsonNode save = item.save();
+		if(save == null) return new TextNode(item.type().id());
+		ArrayNode array = JsonTool.newArrayNode();
+		array.add(item.type().id());
+		array.add(save);
+		return array;
 	}
 	public default void render(Graphics g, int x, int y) {
 		type().getTexture().draw(null, x, y, g);

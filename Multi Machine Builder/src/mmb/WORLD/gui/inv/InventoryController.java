@@ -23,6 +23,8 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * @author oskar
@@ -35,11 +37,10 @@ public class InventoryController extends JPanel {
 	private final DefaultListModel<ItemRecord> model = new DefaultListModel<>();
 	private Inventory inv;
 	private JLabel label;
-	private JButton btnDrop;
-	private JButton btnPick;
 	private JButton btnRefresh;
 	private InventoryOrchestrator orchestrator;
 	private JScrollPane scrollPane;
+	private JButton btnUnsel;
 
 	public void refresh() {
 		if(inv == null) return;
@@ -60,16 +61,6 @@ public class InventoryController extends JPanel {
 		label.setHorizontalAlignment(SwingConstants.LEFT);
 		add(label, "flowx,cell 0 0,alignx center");
 		
-		btnDrop = new JButton("Drop here");
-		btnDrop.setEnabled(false);
-		btnDrop.setBackground(Color.RED);
-		add(btnDrop, "cell 0 0,growx");
-		
-		btnPick = new JButton("Pick");
-		btnPick.setEnabled(false);
-		btnPick.setBackground(Color.GREEN);
-		add(btnPick, "cell 0 0,growx");
-		
 		scrollPane = new JScrollPane();
 		add(scrollPane, "cell 0 1,grow");
 		
@@ -83,6 +74,14 @@ public class InventoryController extends JPanel {
 		btnRefresh.setEnabled(false);
 		btnRefresh.setBackground(Color.YELLOW);
 		add(btnRefresh, "cell 0 0,growx");
+		
+		btnUnsel = new JButton("Unselect");
+		btnUnsel.addActionListener(e -> {
+			invlist.setSelectedValue(null, true);
+			invlist.setSelectedIndex(-1);
+		});
+		btnUnsel.setBackground(Color.BLUE);
+		add(btnUnsel, "cell 0 0,growx");
 	}
 
 	
@@ -177,8 +176,6 @@ public class InventoryController extends JPanel {
 		boolean hasInv = inv != null;
 		boolean both = hasInv && hasOrch;
 		btnRefresh.setEnabled(hasInv);
-		btnPick.setEnabled(both);
-		btnDrop.setEnabled(both);
 	}
 
 	private static class CellRenderer extends JLabel implements ListCellRenderer<ItemRecord>{
@@ -203,7 +200,7 @@ public class InventoryController extends JPanel {
 			}
 			setOpaque(true);
 			setIcon(itemType.id().type().getIcon());
-			setText(itemType.id().type().title() + " × " + itemType.amount());
+			setText(itemType.id().title() + " × " + itemType.amount());
 			
 			if (isSelected) {
 			    setBackground(list.getSelectionBackground());

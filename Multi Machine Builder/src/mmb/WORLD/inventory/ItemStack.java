@@ -18,6 +18,11 @@ import monniasza.collects.Identifiable;
  * An item entry is intended for use in inventories.
  */
 public class ItemStack implements Identifiable<ItemEntry>, Saver<ItemEntry>, Loader<ItemEntry>, RecipeOutput {
+	@Override
+	public String toString() {
+		return "ItemStack " + item + " × " + amount;
+	}
+
 	/**
 	 * An item stored in the inventory
 	 */

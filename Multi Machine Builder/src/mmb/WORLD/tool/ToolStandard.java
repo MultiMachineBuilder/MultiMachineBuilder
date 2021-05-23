@@ -25,6 +25,7 @@ public class ToolStandard extends WindowTool{
 	public void mousePressed(MouseEvent e) {
 		int x = frame.getMouseoverBlockX();
 		int y = frame.getMouseoverBlockY();
+		debug.printl("Click");
 		switch(e.getButton()) {
 		case 0:
 			break;

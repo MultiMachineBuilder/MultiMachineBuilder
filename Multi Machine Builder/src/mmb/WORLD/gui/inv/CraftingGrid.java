@@ -3,18 +3,27 @@
  */
 package mmb.WORLD.gui.inv;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 
+import javax.annotation.Nonnull;
 import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
+
+import com.pploder.events.CatchingEvent;
+import com.pploder.events.Event;
 
 import mmb.WORLD.gui.Variable;
 import mmb.WORLD.inventory.ItemEntry;
+import mmb.debug.Debugger;
+import monniasza.collects.grid.Grid;
 
 /**
  * @author oskar
  *
  */
-public class CraftingGrid extends JPanel {
+public class CraftingGrid extends JPanel{
 	private static final long serialVersionUID = 7986725815517020684L;
 	
 	/**
@@ -31,16 +40,31 @@ public class CraftingGrid extends JPanel {
 	 * @param size grid size
 	 */
 	public CraftingGrid(int size) {
+		Border border = new BevelBorder(BevelBorder.LOWERED);
 		this.size = size;
 		setLayout(new GridLayout(size, size));
 		slots = new ItemSelectionSlot[size][size];
+		Dimension dim = new Dimension(40, 40);
 		for(int i = 0; i < size; i++) {
 			for(int j = 0; j < size; j++){
 				ItemSelectionSlot slot = new ItemSelectionSlot();
 				slots[i][j] = slot;
+				slot.setBorder(border);
+				slot.setMinimumSize(dim);
+				slot.setMaximumSize(dim);
+				slot.setPreferredSize(dim);
+				int x = i;
+				int y = j;
+				slot.stateChanged.addListener(item -> gridStateChanged.trigger(new ItemGridStateChangedEvent(x, y, item)));
 				add(slot);
 			}
 		}
+		
+		int layoutSize = size * 40;
+		Dimension largerDim = new Dimension(layoutSize, layoutSize);
+		setMinimumSize(largerDim);
+		setMaximumSize(largerDim);
+		setPreferredSize(largerDim);
 	}
 	
 	/**
@@ -113,4 +137,53 @@ public class CraftingGrid extends JPanel {
 			}
 		}
 	}
+
+	private static final Debugger debug = new Debugger("CRAFTING GRID");
+	/**
+	 * Invoked when any item in the grid changes
+	 */
+	public final Event<ItemGridStateChangedEvent> gridStateChanged
+	= new CatchingEvent<>(debug, "Failed to run grid state changed event");
+	/**
+	 * @author oskar
+	 * Represents the change in selected item in this grid.
+	 */
+	public final class ItemGridStateChangedEvent{
+		public final int x;
+		public final int y;
+		public final ItemEntry newEntry;
+		public ItemGridStateChangedEvent(int x, int y, ItemEntry newEntry) {
+			super();
+			this.x = x;
+			this.y = y;
+			this.newEntry = newEntry;
+		}
+		@Override
+		public String toString() {
+			return "ItemGridStateChangedEvent [x=" + x + ", y=" + y + ", newEntry=" + newEntry + "]";
+		}
+	}
+	@Nonnull public final Grid<ItemEntry> items = new Grid<ItemEntry>() {
+
+		@Override
+		public void set(int x, int y, ItemEntry data) {
+			slots[x][y].setSelection(data);
+		}
+
+		@Override
+		public ItemEntry get(int x, int y) {
+			return slots[x][y].getSelection();
+		}
+
+		@Override
+		public int width() {
+			return size;
+		}
+
+		@Override
+		public int height() {
+			return size;
+		}
+		
+	};
 }

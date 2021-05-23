@@ -77,8 +77,7 @@ public class Furnace extends SkeletalBlockEntityRotary implements BlockActivateL
 	protected void save1(ObjectNode node) {
 		node.set("in", in.save());
 		node.set("out", _out.save());
-		JsonNode smeltData = NullNode.instance;
-		if(smeltingUnderway != null) smeltData = smeltingUnderway.save();
+		JsonNode smeltData = ItemEntry.saveItem(smeltingUnderway);
 		node.set("smelt", smeltData);
 		node.set("remain", new IntNode(remaining));
 	}
@@ -89,7 +88,7 @@ public class Furnace extends SkeletalBlockEntityRotary implements BlockActivateL
 		in.load(invin);
 		ArrayNode invout = JsonTool.requestArray("out", node);
 		_out.load(invout);
-		ArrayNode itemUnderWay = JsonTool.requestArray("smelt", node);
+		JsonNode itemUnderWay = node.get("smelt");
 		smeltingUnderway = ItemEntry.loadFromJson(itemUnderWay);
 		JsonNode remainNode = node.get("remain");
 		if(remainNode != null) remaining = remainNode.asInt();
@@ -161,10 +160,10 @@ public class Furnace extends SkeletalBlockEntityRotary implements BlockActivateL
 				RecipeOutput result = recipes.get(smeltingUnderway);
 				if(result == null) {
 					//Unsmeltable, return original
-					if(smeltingUnderway != null) {
+					if(smeltingUnderway != null) 
 						_out.insert(smeltingUnderway, 1);
-					}
-				}else {
+					
+				}else{
 					//Smeltable, eject expected item
 					result.produceResults(_out);
 				}

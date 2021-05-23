@@ -19,7 +19,10 @@ import mmb.WORLD.worlds.world.World.BlockMap;
  *
  */
 public class Block extends BlockBase implements BlockEntry{
-	
+	@Override
+	public String toString() {
+		return "Block " + title + "(" + id + ")";
+	}
 	@Override
 	public @Nonnull JsonNode save() {
 		return new TextNode(id);

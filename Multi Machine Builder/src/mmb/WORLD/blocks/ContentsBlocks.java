@@ -252,8 +252,6 @@ public class ContentsBlocks {
 		TOGGLE.setFactory(FlipGate::new);
 		TOGGLE.drawer = BlockDrawer.ofImage(Textures.get("logic/toggle inert.png"));
 		
-		Crafting.setupRefsTable();
-		
 		//Register
 		grass.register("mmb.grass");
 		air.register("mmb.air");
@@ -294,6 +292,8 @@ public class ContentsBlocks {
 		IMOVER.register("itemsystem.mover");
 		FURNACE.register("industry.furnace");
 		TOGGLE.register("wireworld.toggle");
+		
+		Crafting.setupRefsTable();
 	}
 
 }

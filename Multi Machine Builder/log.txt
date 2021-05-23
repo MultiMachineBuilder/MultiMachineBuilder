@@ -52,6 +52,7 @@
 (TEXTURES) Loading texture: item/platinum ingot.png
 (TEXTURES) Loading texture: item/silicon ingot.png
 (TEXTURES) Loading texture: item/silver ingot.png
+(TEXTURES) Loading texture: item/stencil.png
 (TEXTURES) Loading texture: item/uranium ingot.png
 (TEXTURES) Loading texture: item/zinc ingot.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/brown.png
@@ -127,6 +128,7 @@
 (TEXTURES) Loading texture: machine/claw.png
 (TEXTURES) Loading texture: machine/CW.png
 (TEXTURES) Loading texture: machine/imover.png
+(TEXTURES) Loading texture: machine/pipes.png
 (TEXTURES) Loading texture: machine/placer.png
 (TEXTURES) Loading texture: machine/smelter active.png
 (TEXTURES) Loading texture: machine/smelter inert.png
@@ -181,18 +183,6 @@
 (TEXTURES) Loading texture: UIs/yellow signpost.png
 (TEXTURES) Loading texture: uranium ore.png
 (BLOCKS) Creating blocks
-(BLOCKS) Adding crafting.1 with title Crafter Mk1 and descripion:
-null
-(BLOCKS) Adding crafting.2 with title Crafter Mk2 and descripion:
-null
-(BLOCKS) Adding crafting.3 with title Crafter Mk3 and descripion:
-null
-(BLOCKS) Adding crafting.4 with title Crafter Mk4 and descripion:
-null
-(BLOCKS) Adding crafting.5 with title Crafter Mk5 and descripion:
-null
-(BLOCKS) Adding crafting.6 with title Crafter Mk6 and descripion:
-null
 (BLOCKS) Adding mmb.grass with title Grass and descripion:
 A default block in the world
 (BLOCKS) Adding mmb.air with title Air and descripion:
@@ -261,6 +251,18 @@ null
 null
 (BLOCKS) Adding wireworld.toggle with title Toggle Latch and descripion:
 null
+(BLOCKS) Adding crafting.1 with title Crafter Mk1 and descripion:
+null
+(BLOCKS) Adding crafting.2 with title Crafter Mk2 and descripion:
+null
+(BLOCKS) Adding crafting.3 with title Crafter Mk3 and descripion:
+null
+(BLOCKS) Adding crafting.4 with title Crafter Mk4 and descripion:
+null
+(BLOCKS) Adding crafting.5 with title Crafter Mk5 and descripion:
+null
+(BLOCKS) Adding crafting.6 with title Crafter Mk6 and descripion:
+null
 (TOOLS) Tools initialized
 (FullScreen) Setting up FullScreen
 (MOD-LOADER) Loading mods
@@ -269,19 +271,19 @@ null
 (MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD-LOADER) Found 2 mod files
-(MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD - Multi Machine Builder) java.io.FileNotFoundException
+(MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD - Multi Machine Builder) Failed to read the file C:\Users\oskar\eclipse-workspace\Multi Machine Builder
-(MOD - Multi Machine Builder) java.io.FileNotFoundException(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
-
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - Multi Machine Builder) java.io.FileNotFoundException
 (MOD - Multi Machine Builder) 
 (MOD - Multi Machine Builder) java.io.FileInputStream.open0(Native Method)
 (MOD - Multi Machine Builder) java.io.FileInputStream.open(Unknown Source)
 (MOD - Multi Machine Builder) java.io.FileInputStream.<init>(Unknown Source)
 (MOD - Multi Machine Builder) mmb.FILES.LocalFile.getInputStream(LocalFile.java:33)
-(MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:107)
+(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar(MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:107)
+
 (MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:79)
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - Multi Machine Builder) java.lang.Thread.run(Unknown Source)
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
@@ -331,14 +333,32 @@ null
 (MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Tue May 18 07:57:24 CEST 2021
+(MOD-LOADER) RELEASED Sun May 23 15:53:28 CEST 2021
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) HOORAY, IT'S OVER!
 (Main menu) MainMenu created
 (SELECT A SAVE) Found save: Block Clicking Claw.mworld
 (SELECT A SAVE) Found save: Example Base.mworld
+(SELECT A SAVE) Found save: ItemEntitites.mworld
 (SELECT A SAVE) Found save: main.mworld
 (SELECT A SAVE) Found save: Test.mworld
-(SELECT A SAVE) Found 4 saves
+(SELECT A SAVE) Found 5 saves
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@23c630
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Parsed file
+(MAP anonymous) Became anonymous
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(SELECT A SAVE) Loaded
+(WORLD - IDLE) Exiting(WORLDS) Opening a new world
+(WORLD TEST) Exiting the world
+(WORLD - ) Saving main BlockMap
+(WORLD - main null) Exiting(WORLDS) The given world is null, exiting
 (SETTINGS) Saved settings file

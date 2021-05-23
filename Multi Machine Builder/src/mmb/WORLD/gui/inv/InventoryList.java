@@ -75,7 +75,7 @@ public class InventoryList extends JList<ItemRecord> {
 		public Component getListCellRendererComponent(JList<? extends ItemRecord> list, ItemRecord itemType, int index,
 		boolean isSelected, boolean cellHasFocus) {
 			setIcon(itemType.id().type().getIcon());
-			setText(itemType.id().type().title() + " × " + itemType.amount());
+			setText(itemType.id().title() + " × " + itemType.amount());
 			
 			if (isSelected) {
 			    setBackground(list.getSelectionBackground());

@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.tool;
 
+import java.util.Objects;
+
 import javax.swing.Icon;
 
 import org.junit.jupiter.api.Assertions;
@@ -26,20 +28,23 @@ public class ToolSelectionModel {
 	}
 
 	public void toolSelectedItemList(WindowTool tool) {
+		debug.printl("IL tool: "+tool);
 		toolIL = tool;
 		resetTools();
 	}
 	public void toolSelectedToolList(WindowTool tool) {
+		debug.printl("TL tool: "+tool);
 		toolTL = tool;
 		resetTools();
 	}
 	
 	private void resetTools() {
+		debug.printl("Reset tools");
 		if(toolTL == null) setTool(toolIL);
 		else {
 			if(window != null) {
 				Player p = window.getPlayer();
-				if(p != null && p.creative.getValue()) {
+				if(!(p == null || p.creative.getValue())) { //true
 					setTool(toolIL);
 					return;
 				}
@@ -50,7 +55,6 @@ public class ToolSelectionModel {
 
 	private WindowTool tool;
 	public void setTool(WindowTool newTool) {
-		
 		if(tool == newTool) return;
 		if(tool != null) {
 			tool.deselected();

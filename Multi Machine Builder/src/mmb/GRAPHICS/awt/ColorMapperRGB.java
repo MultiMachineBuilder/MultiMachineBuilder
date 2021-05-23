@@ -4,7 +4,6 @@
 package mmb.GRAPHICS.awt;
 
 import java.awt.Color;
-import java.awt.image.LookupTable;
 import java.util.Arrays;
 
 /**

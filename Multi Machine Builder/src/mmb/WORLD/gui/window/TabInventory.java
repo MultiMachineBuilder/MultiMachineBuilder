@@ -27,6 +27,8 @@ import mmb.WORLD.item.ItemType;
 import java.awt.Color;
 import mmb.MENU.components.BoundCheckBox;
 import javax.swing.JSpinner;
+import mmb.WORLD.gui.inv.CraftGUI;
+import mmb.WORLD.blocks.machine.Crafting;
 
 /**
  * @author oskar
@@ -53,8 +55,8 @@ public class TabInventory extends JPanel {
 	 * Create an inventory panel without a player
 	 */
 	public TabInventory() {
-		timer = new Timer(0, e -> inventoryController.refresh());
-		setLayout(new MigLayout("", "[::250.00,grow,fill][:320.00:320.00,grow,fill][grow]", "[20px][grow]"));
+		timer = new Timer(0, e -> craftGUI.inventoryController.refresh());
+		setLayout(new MigLayout("", "[::250.00,grow,fill][:400.00:400.00,grow,fill][grow]", "[20px][grow]"));
 		
 		lblNewLabel = new JLabel("Creative items");
 		add(lblNewLabel, "flowx,cell 0 0");
@@ -100,9 +102,6 @@ public class TabInventory extends JPanel {
 		btnNewButton_2.setBackground(new Color(255, 0, 0));
 		panel.add(btnNewButton_2, "cell 0 3 2 1,growx");
 		
-		inventoryController = new InventoryController();
-		add(inventoryController, "cell 1 0 1 2,alignx center,growy");
-		
 		btnAdd = new JButton("Add one");
 		btnAdd.addActionListener(e -> addItems(1));
 		btnAdd.setBackground(new Color(0, 170, 0));
@@ -116,15 +115,18 @@ public class TabInventory extends JPanel {
 		});
 		btnNewButton_1.setBackground(new Color(0, 204, 0));
 		add(btnNewButton_1, "cell 0 0");
+		
+		craftGUI = new CraftGUI(1, null, null, null);
+		add(craftGUI, "cell 1 0 1 2,grow");
 	}
 	private void removeItems(int amount) {
-		ItemRecord record = inventoryController.getSelectedValue();
+		ItemRecord record = craftGUI.inventoryController.getSelectedValue();
 		if(record == null) return;
 		record.extract(amount);
-		inventoryController.refresh();
+		craftGUI.inventoryController.refresh();
 	}
 	private void addItems(int amount) {
-		Inventory inv = inventoryController.getInv();
+		Inventory inv = craftGUI.inventoryController.getInv();
 		if(inv == null) {
 			debug.printl("Got null inventory");
 			return;
@@ -135,7 +137,7 @@ public class TabInventory extends JPanel {
 			return;
 		}
 		inv.insert(item.create(), amount);
-		inventoryController.refresh();
+		craftGUI.inventoryController.refresh();
 	}
 
 	/**
@@ -151,13 +153,12 @@ public class TabInventory extends JPanel {
 		if(this.player == player) return;
 		this.player = player;
 		playerChanged.trigger(player);
-		inventoryController.setInv(player.inv);
+		craftGUI.inventoryController.setInv(player.inv);
 		checkSurvival.setVariable(player.creative);
 	}
 	
 	private final Timer timer;
 	private JLabel lblNewLabel;
-	@Nonnull private InventoryController inventoryController;
 	private JButton btnAdd;
 	private JButton btnRemove;
 	private BoundCheckBox checkSurvival;
@@ -167,6 +168,7 @@ public class TabInventory extends JPanel {
 	private JSpinner itemAmt;
 	private JButton btnNewButton_1;
 	private JButton btnNewButton_2;
+	private CraftGUI craftGUI;
 
 	public void dispose() {
 		timer.stop();

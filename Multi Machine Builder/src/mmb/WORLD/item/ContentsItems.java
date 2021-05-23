@@ -12,6 +12,7 @@ import mmb.WORLD.texture.BlockDrawer;
  */
 public class ContentsItems {
 	public static final Item copper, iron, silicon, leaf, coal;
+	public static final ItemEntityType stencil;
 	
 	static {
 		copper = new Item();
@@ -43,5 +44,12 @@ public class ContentsItems {
 		coal.drawer = BlockDrawer.ofImage(Textures.get("item/coal.png"));
 		coal.volume = 0.00125;
 		coal.register("gem.coal");
+		
+		stencil = new ItemEntityType();
+		stencil.setTitle("Crafting stencil");
+		stencil.setTexture(BlockDrawer.ofImage(Textures.get("item/stencil.png")));
+		stencil.setVolume(0.001);
+		stencil.setFactory(Stencil::new);
+		stencil.register("crafting.cstencil");
 	}
 }
