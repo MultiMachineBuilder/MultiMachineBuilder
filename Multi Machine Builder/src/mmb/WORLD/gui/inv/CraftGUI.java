@@ -31,6 +31,8 @@ import javax.swing.Box;
 import java.awt.Color;
 import java.awt.Component;
 import java.util.concurrent.atomic.AtomicReference;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * @author oskar
@@ -115,6 +117,7 @@ public class CraftGUI extends JPanel {
 		);
 		btnCraft.addActionListener(e -> {
 			debug.printl("Running the crafing");
+			if(outs.get() == null) return;
 			Craftings.transact(ins, outs.get(), inventoryController.getInv(), inventoryController.getInv());
 			inventoryController.refresh();
 		});
@@ -148,6 +151,13 @@ public class CraftGUI extends JPanel {
 				Grid.copy(0, 0, stencil, 0, 0, craftingGrid.items, sizeX, sizeY);
 			}//else it is not a stencil
 		});
+		
+		btnNewButton = new JButton("Clear");
+		btnNewButton.addActionListener(e -> {
+			craftingGrid.items.fill(0, 0, size, size, null);
+		});
+		btnNewButton.setBackground(new Color(255, 69, 0));
+		verticalBox.add(btnNewButton);
 		verticalBox.add(btnLoad);
 		
 		btnSave = new JButton("Stencil \u2190 Grid");
@@ -177,4 +187,5 @@ public class CraftGUI extends JPanel {
 	private JButton btnExit;
 	private JButton btnLoad;
 	private JButton btnSave;
+	private JButton btnNewButton;
 }
