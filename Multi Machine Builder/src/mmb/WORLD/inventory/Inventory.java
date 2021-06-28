@@ -12,6 +12,9 @@ import org.ainslec.picocog.PicoWriter;
 import org.joml.Vector3d;
 
 import mmb.WORLD.crafting.RecipeOutput;
+import mmb.WORLD.inventory.io.InventoryReader;
+import mmb.WORLD.inventory.io.InventoryWriter;
+import mmb.WORLD.items.ItemEntry;
 
 /**
  * @author oskar
@@ -20,9 +23,9 @@ import mmb.WORLD.crafting.RecipeOutput;
 public interface Inventory extends Iterable<ItemRecord>, RecipeOutput {
 	
 	@Override
-	default void produceResults(Inventory tgt, int amount) {
+	default void produceResults(InventoryWriter tgt, int amount) {
 		for(ItemRecord record: this) {
-			tgt.insert(null, amount);
+			tgt.write(record.item(), record.amount()*amount);
 		}
 	}
 	@Override
@@ -82,5 +85,91 @@ public interface Inventory extends Iterable<ItemRecord>, RecipeOutput {
 	}
 	@Nonnull default public Inventory readOnly() {
 		return ReadOnlyInventory.decorate(this);
+	}
+
+	public default InventoryReader createReader() {
+		return new InventoryReader() {
+			private final Iterator<ItemRecord> records = iterator();
+			private ItemRecord current = records.hasNext() ? records.next() : null;
+			
+			@Override
+			public int currentAmount() {
+				if(current == null) return 0;
+				return current.amount();
+			}
+
+			@Override
+			public ItemEntry currentItem() {
+				if(current == null) return null;
+				return current.item();
+			}
+
+			@Override
+			public int extract(int amount) {
+				if(current == null) return 0;
+				return current.extract(amount);
+			}
+
+			@Override
+			public void skip() {
+				current = null;
+				records.next();
+			}
+
+			@Override
+			public int extract(@SuppressWarnings("null") ItemEntry entry, int amount) {
+				return extract(entry, amount);
+			}
+
+			@Override
+			public void next() {
+				current = records.next();
+			}
+
+			@Override
+			public boolean hasNext() {
+				return records.hasNext();
+			}
+
+			@Override
+			public boolean hasCurrent() {
+				if(current == null) return false;
+				return current.amount() > 0;
+			}
+
+			@Override
+			public ExtractionLevel level() {
+				return ExtractionLevel.RANDOM;
+			}
+		};
+	}
+	public default InventoryWriter createWriter() {
+		return new InventoryWriter() {
+			@Override
+			public int write(ItemEntry ent, int amount) {
+				return insert(ent, amount);
+			}
+
+			@Override
+			public int toBeWritten(ItemEntry item, int amount) {
+				return insertibleRemain(amount, item);
+			}
+		};
+	}
+	
+	public default double remainVolume() {
+		return capacity() - volume();
+	}
+	public default double iremainVolume() {
+		if(!canInsert()) return 0;
+		return capacity() - volume();
+	}
+	public default int insertibleRemain(int amount, double ivolume) {
+		double tvolume = ivolume * amount;
+		tvolume = Math.min(iremainVolume(), tvolume) / ivolume;
+		return (int) Math.floor(tvolume);
+	}
+	public default int insertibleRemain(int amount, ItemEntry item) {
+		return insertibleRemain(amount, item.volume());
 	}
 }

@@ -6,7 +6,7 @@ package mmb.WORLD.block;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
-import mmb.WORLD.worlds.world.World.BlockMap;
+import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar

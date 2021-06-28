@@ -57,7 +57,7 @@ public class CreativeItemList extends JList<ItemType> {
 		}
 	}
 	@Override
-	public String getToolTipText(MouseEvent event) {
+	public String getToolTipText(@SuppressWarnings("null") MouseEvent event) {
 		int index = locationToIndex(event.getPoint());
 		if(index > -1) {
 			String description = model.get(index).description();

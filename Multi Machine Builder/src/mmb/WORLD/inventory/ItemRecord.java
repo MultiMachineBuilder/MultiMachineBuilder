@@ -5,6 +5,7 @@ package mmb.WORLD.inventory;
 
 import javax.annotation.Nonnull;
 
+import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Identifiable;
 
 /**

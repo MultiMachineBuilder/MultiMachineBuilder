@@ -11,6 +11,8 @@ import java.net.URL;
 import java.util.jar.JarInputStream;
 import java.util.zip.ZipInputStream;
 
+import javax.annotation.Nonnull;
+
 import org.apache.commons.io.IOUtils;
 
 /**
@@ -23,14 +25,14 @@ public interface AdvancedFile {
 	 * @return input stream
 	 * @throws IOException if file can't be retrieved
 	 */
-	InputStream getInputStream() throws IOException;
+	@Nonnull InputStream getInputStream() throws IOException;
 	
 	/**
 	 * Open an output stream to given advanced file
 	 * @return output stream
 	 * @throws IOException if file can't be retrieved or is read-only
 	 */
-	OutputStream getOutputStream() throws IOException;
+	@Nonnull OutputStream getOutputStream() throws IOException;
 	
 	/**
 	 * @return file equivalent {@code File} object
@@ -43,7 +45,7 @@ public interface AdvancedFile {
 	 * Gets string path of file
 	 * @return path
 	 */
-	String name();
+	@Nonnull String name();
 	
 	/**
 	 * Gets URL of the file

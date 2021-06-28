@@ -15,7 +15,7 @@ import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
 import mmb.WORLD.gui.Variable;
-import mmb.WORLD.inventory.ItemEntry;
+import mmb.WORLD.items.ItemEntry;
 import mmb.debug.Debugger;
 import monniasza.collects.grid.Grid;
 

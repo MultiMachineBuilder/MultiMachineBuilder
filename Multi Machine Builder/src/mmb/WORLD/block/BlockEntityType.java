@@ -3,13 +3,19 @@
  */
 package mmb.WORLD.block;
 
+import java.awt.Color;
+import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
+import javax.annotation.Nonnull;
+
 import mmb.WORLD.block.properties.BlockProperty;
+import mmb.WORLD.texture.BlockDrawer;
+import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
-import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar
@@ -28,7 +34,7 @@ public class BlockEntityType extends BlockBase{
 	/**
 	 * This map contains 
 	 */
-	public Map<String, Object> settings = new HashMap<>();
+	public final Map<String, Object> settings = new HashMap<>();
 
 	//Behavior
 	/**
@@ -144,6 +150,117 @@ public class BlockEntityType extends BlockBase{
 	}
 	@Override
 	public BlockEntityType nasBlockEntityType() {
+		return this;
+	}
+
+
+	/**
+	 * Sets texture. This is a convenience chainable method
+	 * @param texture path to texture, starting from `/textures`
+	 * @return this
+	 */
+	@Override
+	public BlockEntityType texture(String texture) {
+		setTexture(texture);
+		return this;
+	}
+	/**
+	 * Sets texture. This is a convenience chainable method
+	 * @param texture texture
+	 * @return this
+	 */
+	@Override
+	public BlockEntityType texture(BufferedImage texture) {
+		setTexture(texture);
+		return this;
+	}
+	/**
+	 * Sets texture. This is a convenience chainable method
+	 * @param texture color
+	 * @return this
+	 */
+	@Override
+	public BlockEntityType texture(Color texture) {
+		setTexture(BlockDrawer.ofColor(texture));
+		return this;
+	}
+	/**
+	 * Sets texture. This is a convenience chainable method
+	 * @param texture texture
+	 * @return this
+	 */
+	@Override
+	public BlockEntityType texture(BlockDrawer texture) {
+		setTexture(texture);
+		return this;
+	}
+	/**
+	 * Sets block factory.This is a convenience chainable method
+	 * @param factory block entity factory lambda expression
+	 * @return this
+	 */
+	public BlockEntityType factory(BlockFactory factory) {
+		setFactory(factory);
+		return this;
+	}
+	/**
+	 * Sets title.This is a convenience chainable method
+	 * @param title title
+	 * @return this
+	 */
+	@Override
+	public BlockEntityType title(String title) {
+		setTitle(title);
+		return this;
+	}
+	/**
+	 * Sets description.This is a convenience chainable method
+	 * @param description description
+	 * @return this
+	 */
+	@Override
+	public BlockEntityType describe(String description) {
+		setDescription(description);
+		return this;
+	}
+	/**
+	 * Sets dropped item.This is a convenience chainable method
+	 * @param drop drop
+	 * @return this
+	 */
+	@Override
+	public BlockEntityType drop(Drop drop) {
+		setDrop(drop);
+		return this;
+	}
+	/**
+	 * Registers this block. This is a convenience chainable method
+	 * @param id block id
+	 * @return this
+	 */
+	@Override
+	public BlockEntityType finish(String id) {
+		register(id);
+		return this;
+	}
+	/**
+	 * Sets title.This is a convenience chainable method
+	 * @param block title
+	 * @return this
+	 */
+	@Override
+	public BlockEntityType leaveBehind(BlockType block) {
+		setLeaveBehind(block);
+		return this;
+	}
+	/**
+	 * Sets volume. This is a convenience chainable method
+	 * @param volume volume
+	 * @return this
+	 */
+	@Override
+	@Nonnull public BlockEntityType volumed(double volume) {
+		this.volume = volume;
 		return this;
 	}
 }

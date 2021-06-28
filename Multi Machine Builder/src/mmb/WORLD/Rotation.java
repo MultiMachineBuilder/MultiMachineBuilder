@@ -21,7 +21,7 @@ public enum Rotation {
 		@Override
 		public Side L() {return Side.L;}
 		@Override
-		public Side R() {return Side.UR;}
+		public Side R() {return Side.R;}
 		@Override
 		public Side DL() {return Side.DL;}
 		@Override
@@ -111,4 +111,32 @@ public enum Rotation {
 	@Nonnull public abstract Side UR();
 	@Nonnull public abstract Rotation cw();
 	@Nonnull public abstract Rotation ccw();
+	
+	/**
+	 * Applies a rotation to the side
+	 * @param s source side
+	 * @return rotated side
+	 */
+	public @Nonnull Side apply(Side s) {
+		switch(s) {
+		case D:
+			return D();
+		case DL:
+			return DL();
+		case DR:
+			return DR();
+		case L:
+			return L();
+		case R:
+			return R();
+		case U:
+			return U();
+		case UL:
+			return UL();
+		case UR:
+			return UR();
+		default:
+			throw new NullPointerException("side is null");
+		}
+	}
 }

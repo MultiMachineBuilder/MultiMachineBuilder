@@ -13,13 +13,13 @@ import mmb.WORLD.block.BlockType;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.worlds.BlockChangeRequest;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.world.World.BlockMap;
 
 public class WorldProxy implements MapProxy{
 	public WorldProxy(World target) {
 		that = target;
 	}
 	@Nonnull private World that;
+	@SuppressWarnings("null")
 	@Override
 	public void close() {
 		BlockMap bm = that.getMap();
@@ -33,7 +33,7 @@ public class WorldProxy implements MapProxy{
 				that.debug.pstm(e, "Failed to run the requested action");
 			}
 		}
-		that = null;
+		that = null; //NOSONAR
 	}
 	@Override
 	public void placeImmediately(BlockType block, int x, int y) {

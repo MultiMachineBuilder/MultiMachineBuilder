@@ -9,8 +9,8 @@ import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityDataless;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.MapProxy;
+import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
-import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar

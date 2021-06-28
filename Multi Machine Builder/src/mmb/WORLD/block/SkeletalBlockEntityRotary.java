@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.BEANS.Rotable;
 import mmb.WORLD.RotatedImageGroup;
 import mmb.WORLD.Rotation;
-import mmb.WORLD.worlds.world.World.BlockMap;
+import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar

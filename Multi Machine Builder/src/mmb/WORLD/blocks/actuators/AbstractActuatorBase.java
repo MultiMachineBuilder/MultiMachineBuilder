@@ -9,7 +9,7 @@ import mmb.WORLD.Rotation;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.world.World.BlockMap;
+import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar

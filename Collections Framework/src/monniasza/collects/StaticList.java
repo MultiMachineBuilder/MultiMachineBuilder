@@ -17,6 +17,11 @@ import java.util.ListIterator;
  */
 public class StaticList<E> extends AbstractList<E> {
 	private final Object[] array;
+	/**
+	 * Creates a fixed size list by copying an array
+	 * @param array
+	 */
+	@SafeVarargs
 	public StaticList(E... array) {
 		this.array = Arrays.copyOf(array, 0);
 	}

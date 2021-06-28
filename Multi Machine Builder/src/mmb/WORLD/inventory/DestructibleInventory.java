@@ -5,6 +5,8 @@ package mmb.WORLD.inventory;
 
 import java.util.Iterator;
 
+import mmb.WORLD.items.ItemEntry;
+
 /**
  * @author oskar
  *
@@ -18,7 +20,7 @@ public class DestructibleInventory implements Inventory{
 	/**
 	 * @param entry
 	 * @return
-	 * @see mmb.WORLD.inventory.Inventory#get(mmb.WORLD.inventory.ItemEntry)
+	 * @see mmb.WORLD.inventory.Inventory#get(mmb.WORLD.items.ItemEntry)
 	 */
 	@Override
 	public ItemRecord get(ItemEntry entry) {
@@ -28,7 +30,7 @@ public class DestructibleInventory implements Inventory{
 	 * @param ent
 	 * @param amount
 	 * @return
-	 * @see mmb.WORLD.inventory.Inventory#insert(mmb.WORLD.inventory.ItemEntry, int)
+	 * @see mmb.WORLD.inventory.Inventory#insert(mmb.WORLD.items.ItemEntry, int)
 	 */
 	@Override
 	public int insert(ItemEntry ent, int amount) {
@@ -38,7 +40,7 @@ public class DestructibleInventory implements Inventory{
 	 * @param ent
 	 * @param amount
 	 * @return
-	 * @see mmb.WORLD.inventory.Inventory#extract(mmb.WORLD.inventory.ItemEntry, int)
+	 * @see mmb.WORLD.inventory.Inventory#extract(mmb.WORLD.items.ItemEntry, int)
 	 */
 	@Override
 	public int extract(ItemEntry ent, int amount) {

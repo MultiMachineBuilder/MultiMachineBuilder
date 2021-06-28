@@ -12,7 +12,7 @@ import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
 import mmb.WORLD.gui.Variable;
-import mmb.WORLD.inventory.ItemEntry;
+import mmb.WORLD.items.ItemEntry;
 import mmb.debug.Debugger;
 
 import java.awt.event.MouseAdapter;
@@ -27,18 +27,18 @@ public class ItemSelectionSlot extends JComponent {
 	
 	private boolean canSet = true;
 	
-	private Variable<@Nullable ItemEntry> selectionSrc;
+	private Variable<mmb.WORLD.items.ItemEntry> selectionSrc;
 	private ItemEntry selection;
 	/**
 	 * @return the selection source
 	 */
-	public Variable<@Nullable ItemEntry> getSelectionSrc() {
+	public Variable<mmb.WORLD.items.ItemEntry> getSelectionSrc() {
 		return selectionSrc;
 	}
 	/**
 	 * @param selectionSrc new selection source
 	 */
-	public void setSelectionSrc(Variable<@Nullable ItemEntry> selectionSrc) {
+	public void setSelectionSrc(Variable<mmb.WORLD.items.ItemEntry> selectionSrc) {
 		this.selectionSrc = selectionSrc;
 	}
 	/**

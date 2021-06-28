@@ -16,8 +16,8 @@ import mmb.GameObject;
 import mmb.WORLD.gui.Placer;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.item.Item;
+import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
-import mmb.WORLD.worlds.world.World.BlockMap;
 import mmb.debug.Debugger;
 
 /**

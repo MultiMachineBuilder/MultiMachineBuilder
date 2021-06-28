@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.DATA.json.JsonTool;
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.SimpleInventory;
+import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.item.Item;
 import mmb.debug.Debugger;
 

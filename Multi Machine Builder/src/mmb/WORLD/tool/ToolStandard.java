@@ -8,6 +8,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import mmb.BEANS.BlockActivateListener;
+import mmb.BEANS.Rotable;
 import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.gui.Placer;
@@ -23,9 +24,12 @@ import mmb.debug.Debugger;
 public class ToolStandard extends WindowTool{
 	@Override
 	public void mousePressed(MouseEvent e) {
+		if(frame.ctrlPressed()) {
+			mousePressedCtrl(e);
+			return;
+		}
 		int x = frame.getMouseoverBlockX();
 		int y = frame.getMouseoverBlockY();
-		debug.printl("Click");
 		switch(e.getButton()) {
 		case 0:
 			break;
@@ -50,6 +54,30 @@ public class ToolStandard extends WindowTool{
 			break;
 		default:
 			break;
+		}
+	}
+	private void mousePressedCtrl(MouseEvent e) {
+		int x = frame.getMouseoverBlockX();
+		int y = frame.getMouseoverBlockY();
+		BlockEntry block = frame.getMap().get(x, y);
+		switch(e.getButton()) {
+		case 1: //LMB
+			//Turn CCW
+			if(block instanceof Rotable) 
+				((Rotable)block).ccw();
+			break;
+		case 2: //MMB
+			//Turn around
+			if(block instanceof Rotable) {
+				((Rotable)block).ccw();
+				((Rotable)block).ccw();
+			}
+			break;
+		case 3: //RMB
+			//Turn CW
+			if(block instanceof Rotable) {
+				((Rotable)block).cw();
+			}
 		}
 	}
 	private WorldFrame frame;

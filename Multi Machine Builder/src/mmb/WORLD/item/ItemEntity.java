@@ -6,7 +6,7 @@ package mmb.WORLD.item;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.BEANS.Loader;
-import mmb.WORLD.inventory.ItemEntry;
+import mmb.WORLD.items.ItemEntry;
 
 /**
  * @author oskar

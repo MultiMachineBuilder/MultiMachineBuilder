@@ -12,7 +12,7 @@ import mmb.WORLD.gui.inv.InventoryOrchestrator;
 import javax.swing.JLabel;
 import mmb.WORLD.gui.inv.MoveItems;
 import mmb.WORLD.gui.window.WorldWindow;
-import mmb.WORLD.inventory.ItemEntry;
+import mmb.WORLD.items.ItemEntry;
 
 import javax.swing.JButton;
 import java.awt.Color;

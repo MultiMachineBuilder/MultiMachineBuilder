@@ -16,7 +16,7 @@ import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
 import mmb.DATA.json.JsonTool;
 import mmb.DATA.variables.ListenerBooleanVariable;
-import mmb.WORLD.inventory.SimpleInventory;
+import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.debug.Debugger;
 
 /**

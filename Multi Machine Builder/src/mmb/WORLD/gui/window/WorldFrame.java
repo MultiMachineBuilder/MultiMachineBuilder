@@ -9,8 +9,6 @@ import java.awt.event.*;
 import java.util.Objects;
 
 import javax.swing.Timer;
-import java.util.function.Consumer;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JComponent;
@@ -21,6 +19,7 @@ import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
 import mmb.DATA.variables.ListenerBooleanVariable;
+import mmb.MENU.StringRenderer;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.gui.FPSCounter;
 import mmb.WORLD.gui.Placer;
@@ -29,8 +28,8 @@ import mmb.WORLD.machine.Machine;
 import mmb.WORLD.player.Player;
 import mmb.WORLD.tool.WindowTool;
 import mmb.WORLD.worlds.universe.Universe;
+import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
-import mmb.WORLD.worlds.world.World.BlockMap;
 import mmb.debug.Debugger;
 import java.awt.Color;
 
@@ -39,14 +38,21 @@ import java.awt.Color;
  *
  */
 public class WorldFrame extends JComponent {
-
+	//Serialization
 	private static final long serialVersionUID = 7346245653768692732L;
+	
+	//Debugging
+	private transient Debugger debug = new Debugger("WORLD - anonymous");
+	private static Debugger sdebug = new Debugger("WORLDS");
+	/** The global boolean variable controlling debug display */
+	public static final ListenerBooleanVariable DEBUG_DISPLAY = new ListenerBooleanVariable();
+	
+	//Frames Per Second
 	public final FPSCounter fps = new FPSCounter();
 	
-	/**
-	 * Create a new WorldFrame
-	 */
-	public WorldFrame() {
+	/** Create a new WorldFrame */
+	public WorldFrame(WorldWindow window) {
+		this.window = window;
 		Listener listener = new Listener();
 		addMouseListener(listener);
 		addMouseWheelListener(listener);
@@ -57,25 +63,21 @@ public class WorldFrame extends JComponent {
 		timer.start();
 	}
 
-	private transient Debugger debug = new Debugger("WORLD - anonymous");
-	private static Debugger sdebug = new Debugger("WORLDS");
-	
-	//[start] alt messages
+	//Loading message
 	private String altMessage = "Loading";
-	/**
-	 * @return the altMessage
-	 */
+	/** @return current loading message */
 	public String getAltMessage() {
 		return altMessage;
 	}
 	/**
-	 * @param altMessage the altMessage to set
+	 * Sets the loading message
+	 * @param altMessage new loading message
 	 */
 	public void setAltMessage(String altMessage) {
 		this.altMessage = altMessage;
 	}
-	//[end]
-	//[start] title
+
+	//Title
 	private String title = "none";
 	/**
 	 * @return the title
@@ -83,35 +85,17 @@ public class WorldFrame extends JComponent {
 	public String getTitle() {
 		return title;
 	}
-	//[end]
-	//[start] listeners
+
+	//Events
+	/**
+	 * Runs when title changes
+	 */
 	public final Event<String> titleChange = new CatchingEvent<>(debug, "Failed to run a title listener");
-	/** Add a title listener 
-	 * @param arg0 title listener to be added
-	 */
-	@Deprecated
-	public void addTitleListener(Consumer<String> arg0) {
-		titleChange.addListener(arg0);
-	}
-	/** Remove a title listener 
-	 * @param arg0 title listener to be removed*/
-	@Deprecated
-	public void removeTitleListener(Consumer<String> arg0) {
-		titleChange.removeListener(arg0);
-	}
-	//[end]
-	//[start] world & map access
-	private transient Universe world;
-	private transient World map;
 	
+	//Universe
+	private transient Universe world;
 	/**
-	 * @return the subWorldName
-	 */
-	public String getSubWorldName() {
-		return map.getName();
-	}
-	/**
-	 * @return the world
+	 * @return currently active universe
 	 */
 	public Universe getWorld() {
 		return world;
@@ -128,12 +112,20 @@ public class WorldFrame extends JComponent {
 		}else{
 			sdebug.printl("Opening a new world");
 			map = w.getMain();
-			w.setActive(true);
+			w.start();
 		}
 	}
 	
+	//World
+	private transient World map;
 	/**
-	 * @return the map
+	 * @return current map name, or null if it is main
+	 */
+	public String getSubWorldName() {
+		return map.getName();
+	}
+	/**
+	 * @return currently active map
 	 */
 	public World getMap() {
 		return map;
@@ -156,7 +148,7 @@ public class WorldFrame extends JComponent {
 			sdebug.printl("The given world is null, exiting");
 		} else {
 			world = map.getUniverse();
-			world.setActive(true);
+			world.start();
 		}
 	}
 	/** Quits any open maps and universes */
@@ -168,15 +160,32 @@ public class WorldFrame extends JComponent {
 		world = null;
 	}
 	
+	//Player
 	/**
 	 * A convienience method to get player
-	 * @return
+	 * @return the player belonging to the world
 	 */
 	public Player getPlayer() {
 		if(map != null) return map.player;
 		return null;
 	}
-	//[end]
+	//Modifier keys
+	private boolean alt;
+	/** @return is [Alt] pressed? */
+	public boolean altPressed() {
+		return alt;
+	}
+	private boolean ctrl;
+	/** @return is [Ctrl] pressed? */
+	public boolean ctrlPressed() {
+		return ctrl;
+	}
+	private boolean shift;
+	/** @return is [Shift] pressed? */
+	public boolean shiftPressed() {
+		return shift;
+	}
+	
 	//Mouse and key listener
 	private class Listener implements MouseListener, KeyListener, MouseMotionListener, MouseWheelListener{
 		@Override
@@ -204,7 +213,7 @@ public class WorldFrame extends JComponent {
 		}
 	
 		@Override
-		public void keyPressed(@Nullable KeyEvent e) {
+		public void keyPressed(@SuppressWarnings("null") @Nonnull KeyEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			switch(e.getKeyCode()) {
 			case KeyEvent.VK_A:
@@ -219,6 +228,15 @@ public class WorldFrame extends JComponent {
 			case KeyEvent.VK_S:
 				perspective.y -= 1;
 				break;
+			case KeyEvent.VK_ALT:
+				alt = true;
+				break;
+			case KeyEvent.VK_CONTROL:
+				ctrl = true;
+				break;
+			case KeyEvent.VK_SHIFT:
+				shift = true;
+				break;
 			default:
 				break;
 			}
@@ -227,7 +245,21 @@ public class WorldFrame extends JComponent {
 		}
 	
 		@Override
-		public void keyReleased(@Nullable KeyEvent e) {
+		public void keyReleased(@SuppressWarnings("null") @Nonnull KeyEvent e) {
+			Objects.requireNonNull(e, "event is null");
+			switch(e.getKeyCode()) {
+			case KeyEvent.VK_ALT:
+				alt = false;
+				break;
+			case KeyEvent.VK_CONTROL:
+				ctrl = false;
+				break;
+			case KeyEvent.VK_SHIFT:
+				shift = false;
+				break;
+			default:
+				break;
+			}
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.keyReleased(e);
 		}
@@ -272,7 +304,8 @@ public class WorldFrame extends JComponent {
 			if(tool != null) tool.mouseReleased(e);
 		} 
 	}
-	//[start] graphics
+	
+	//Graphics
 	@Override
 	public void paint(@Nullable Graphics g) {
 		resetMouseoverBlock();
@@ -299,7 +332,9 @@ public class WorldFrame extends JComponent {
 			debug.id = "WORLD - "+title;
 		}
 		titleChange.trigger(title);
-	}	
+	}
+	public final Event<StringBuilder> informators =
+			new CatchingEvent<StringBuilder>(debug, "Failed to process render task");
 	private void render(Graphics g) {
 		//Count frames
 		fps.count();
@@ -315,7 +350,7 @@ public class WorldFrame extends JComponent {
 		
 		//Perspective => offset
 		pos.set(perspective);
-		pos.add(tilesW/2, tilesH/2);		
+		pos.add(tilesW/2, tilesH/2);
 		
 		//fill with background
 		g.setColor(getBackground());
@@ -356,33 +391,47 @@ public class WorldFrame extends JComponent {
 		}
 		
 		//Draw pointer
-		int x = (int)((mouseoverBlockX+pos.x)*32);
-		int y = (int)((mouseoverBlockY+pos.y)*32);
+		int x = (int)((mouseover.x+pos.x)*32);
+		int y = (int)((mouseover.y+pos.y)*32);
 		
 		//Preview
 		Placer placer0 = placer.getSelectedValue();
 		if(placer0 != null)
-			placer0.preview(g, new Point(x, y), m, new Point(mouseoverBlockX, mouseoverBlockY));
+			placer0.preview(g, new Point(x, y), m, new Point(mouseover));
 		g.setColor(Color.BLACK);
-		g.drawRect(x, y, 32, 32);
-		g.drawRect(x+2, y+2, 28, 28);
+		g.drawRect(x, y, 31, 31);
+		g.drawRect(x+2, y+2, 27, 27);
 		g.setColor(Color.RED);
-		g.drawRect(x+1, y+1, 30, 30);
+		g.drawRect(x+1, y+1, 29, 29);
 		
 		//Debug use only
 		if(DEBUG_DISPLAY.getValue()) {
-			g.setColor(Color.CYAN);
+			/*g.setColor(Color.CYAN);
 			g.fillRect(0, 0, 150, 102);
-			g.setColor(Color.BLACK);
-			g.drawString("Offset: "+pos.x+","+pos.y, 2, 11);
-			g.drawString("Selected block: "+mouseoverBlockX+","+mouseoverBlockY, 2, 28);
+			g.setColor(Color.BLACK);*/
+			/*g.drawString("Offset: "+pos.x+","+pos.y, 2, 11);
+			g.drawString("Selected block: "+mouseover.x+","+mouseover.y, 2, 28);
 			g.drawString("BlockEntities: " + m.getBlockEntities().size(), 2, 45);
 			g.drawString("FPS: "+fps.get(), 2, 62);
 			g.drawString("TPS: "+map.tps.get(), 2, 79);
-			g.drawString("BPF: "+bpf, 2, 96);
+			g.drawString("BPF: "+bpf, 2, 96);*/
+			StringBuilder sb = new StringBuilder();
+			sb.append("Position: ").append(perspective).append("\r\n");
+			sb.append("Selected block: ").append(mouseover.x).append(',').append(mouseover.y).append("\r\n");
+			sb.append("BlockEntities: ").append(m.getBlockEntities().size()).append("\r\n");
+			sb.append("FPS: ").append(fps.get()).append("\r\n");
+			sb.append("TPS: ").append(map.tps.get()).append("\r\n");
+			sb.append("BPF: ").append(bpf).append("\r\n");
+			//Information for mouseover block
+			BlockEntry ent = getMouseoverBlockEntry();
+			if(ent != null) ent.debug(sb);
+			
+			informators.trigger(sb);
+			//Display mouseover block info
+			StringRenderer.renderStringBounded(Color.BLACK, Color.CYAN, Color.BLACK, sb.toString(), 0, 0, 5, 5, g);
 		}
 	}
-	private void renderTile(int x, int y, Graphics g, @Nullable BlockEntry blockEntry) {
+	private void renderTile(int x, int y, @Nonnull Graphics g, @Nullable BlockEntry blockEntry) {
 		if(blockEntry == null) return;
 		try {
 			blockEntry.render(x, y, g);
@@ -391,19 +440,14 @@ public class WorldFrame extends JComponent {
 		}
 	}
 
-	/**
-	 * The global boolean variable controlling debug display
-	 */
-	public static final ListenerBooleanVariable DEBUG_DISPLAY = new ListenerBooleanVariable();
-	
+	//Positioning
 	private Vector2d pos = new Vector2d();
 	/**
 	 * The perspective is a snapped camera position
 	 */
 	public final Vector2d perspective = new Vector2d();
 	
-	//[end]
-	//[start] Activity
+	//Activity
 	private transient Timer timer = new Timer(20, e -> {
 		repaint();
 		requestFocusInWindow();
@@ -428,55 +472,50 @@ public class WorldFrame extends JComponent {
 			timer.stop();
 		}
 	}
-	//[end]
-	//[start] Mouse position
-	private Point mousePosition = new Point();
-	/**
-	 * Set mouse position from pair of coordinates
-	 * @param x X coordinate
-	 * @param y Y coordinate
-	 */
-	public void setMousePosition(int x, int y) {
-		mousePosition.x = x;
-		mousePosition.y = y;
-	}
-	/**
-	 * Set mouseover position from the event
-	 * @param e mouse event
-	 */
-	public void setMousePosition(MouseEvent e) {
-		setMousePosition(e.getX(), e.getY());
-	}
-	//[end]
+	
 	public void showPopup(MouseEvent e) {
 		if(map == null) return;
-		if(map.inBounds(mouseoverBlockX, mouseoverBlockY)) {
-			WorldMenu menu = new WorldMenu(map.get(mouseoverBlockX, mouseoverBlockY), this, window);
+		if(map.inBounds(mouseover)) {
+			WorldMenu menu = new WorldMenu(map.get(mouseover), this);
 			menu.show(this, e.getX(), e.getY());
 		}
 	}
-	//[start] Window reference
-	private WorldWindow window;
+	
+	//Window reference
 	/**
-	 * @return the window
+	 * The reference to the world window
 	 */
-	public WorldWindow getWindow() {
-		return window;
+	public final WorldWindow window;
+	
+	//Mouse position
+	private Point mousePosition = new Point();
+	private void setMousePosition(MouseEvent e) {
+		mousePosition.setLocation(e.getX(), e.getY());
 	}
-	/**
-	 * @param window the window to set
-	 */
-	public void setWindow(WorldWindow window) {
-		this.window = window;
+
+	//Mouseover block
+	@Nonnull private final Point mouseover = new Point();
+	/** @return block position over which mouse is over*/
+	public Point getMouseoverBlock() {
+		return new Point(mouseover);
 	}
-	//[end]
-	//[start] Mouseover block
-	private int mouseoverBlockX;
-	private int mouseoverBlockY;
+	public BlockEntry getMouseoverBlockEntry() {
+		if(map.inBounds(mouseover)) return map.get(mouseover);
+		return null;
+	}
+	/** @return X coordinate of mouseover block */
+	public int getMouseoverBlockX() {
+		return mouseover.x;
+	}
+	/** @return Y coordinate of mouseover block */
+	public int getMouseoverBlockY() {
+		return mouseover.y;
+	}
 	private void resetMouseoverBlock() {
-		mouseoverBlockX = (int)Math.floor((mousePosition.x / 32.0)-pos.x);
-		mouseoverBlockY = (int)Math.floor((mousePosition.y / 32.0)-pos.y);
+		blockAt(mousePosition, mouseover);
 	}
+	
+	//Block position mapper
 	/**
 	 * Get the block at given screen position
 	 * @param x on-frame X coordinate
@@ -484,30 +523,37 @@ public class WorldFrame extends JComponent {
 	 * @return the new point with block coordinates
 	 */
 	public Point blockAt(int x, int y) {
-		int xx = (int)Math.floor((x / 32.0)-pos.x);
-		int yy = (int)Math.floor((y / 32.0)-pos.y);
-		return new Point(xx, yy);
+		return blockAt(x, y, new Point());
 	}
 	/**
-	 * @return block position over which mouse is over
+	 * @param x on-frame X coordinate
+	 * @param y on-frame Y coordinate
+	 * @param tgt where to write data?
+	 * @return target point with written position
 	 */
-	public Point getMouseoverBlock() {
-		return new Point(mouseoverBlockX, mouseoverBlockY);
+	public Point blockAt(int x, int y, Point tgt) {
+		tgt.x = (int)Math.floor((x / 32.0)-pos.x);
+		tgt.y = (int)Math.floor((y / 32.0)-pos.y);
+		return tgt;
 	}
 	/**
-	 * @return the mouseoverBlockX
+	 * @param p on-frame position
+	 * @return the new point with block coordinates
 	 */
-	public int getMouseoverBlockX() {
-		return mouseoverBlockX;
+	public Point blockAt(Point p) {
+		return blockAt(p.x, p.y);
 	}
 	/**
-	 * @return the mouseoverBlockY
+	 * @param p on-frame position
+	 * @param tgt where to write data?
+	 * @return target point with written position
 	 */
-	public int getMouseoverBlockY() {
-		return mouseoverBlockY;
+	public Point blockAt(Point p, Point tgt) {
+		return blockAt(p.x, p.y, tgt);
 	}
-	//[end]
-	//[start] Scrollable Placement List
+	
+	
+	//Scrollable Placement List
 	private ScrollablePlacementList placer;
 	/**
 	 * @return the associated Scrollable Placement List
@@ -521,6 +567,4 @@ public class WorldFrame extends JComponent {
 	public void setPlacer(ScrollablePlacementList placer) {
 		this.placer = placer;
 	}
-	//[end]
-
 }

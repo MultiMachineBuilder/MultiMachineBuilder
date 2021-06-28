@@ -16,12 +16,25 @@ import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
+import monniasza.collects.grid.Grid;
 
 /**
  * @author oskar
- *
+ * Represents a grid of blocks. NOTE: iteration and copying is now broken, to be fixed
  */
-public interface BlockArrayProvider {
+public interface BlockArrayProvider extends Grid<@Nonnull BlockEntry> {
+	@Override
+	default void set(int x, int y, BlockEntry data) {
+		set(data, x, y);
+	}
+	@Override
+	default int width() {
+		return sizeX();
+	}
+	@Override
+	default int height() {
+		return sizeY();
+	}
 	/**
 	 * Gets block at given location
 	 * @param x X coordinate
@@ -29,7 +42,17 @@ public interface BlockArrayProvider {
 	 * @return a block at given location, or null if absent
 	 * @throws MapCoordinatesOutOfBoundsException if the coordinates are out of bounds
 	 */
-	@Nullable public BlockEntry get(int x, int y);
+	@Override
+	public @Nonnull BlockEntry get(int x, int y);
+	/**
+	 * Gets block at given location
+	 * @param p position
+	 * @return a block at given location, or null if absent
+	 * @throws MapCoordinatesOutOfBoundsException if the coordinates are out of bounds
+	 */
+	public default @Nonnull BlockEntry get(Point p) {
+		return get(p.x, p.y);
+	}
 	/**
 	 * Places a block of given type
 	 * @param block a block entry to place
@@ -37,7 +60,6 @@ public interface BlockArrayProvider {
 	 * @param y Y coordinate
 	 * @return a new block entry, or null if placement failed
 	 */
-
 	@Nullable public BlockEntry set(BlockEntry block, int x, int y);
 	/**
 	 * Places a block of given type
@@ -65,7 +87,8 @@ public interface BlockArrayProvider {
 		return new Point(startX(), startY());
 	}
 	/** @return this map's size in form of a new {@link Dimension} */
-	@Nonnull default public Dimension size() {
+	//@Override
+	@Nonnull default public Dimension rectsize() {
 		return new Dimension(sizeX(), sizeY());
 	}
 	/** @return this map's bounds in form of a new {@link Rectangle} */
@@ -83,6 +106,14 @@ public interface BlockArrayProvider {
 	 * @return is given point in bounds?
 	 */
 	public boolean inBounds(int x, int y);
+	/**
+	 * Checks if given point is located inside the bounds
+	 * @param p position
+	 * @return is given point in bounds?
+	 */
+	public default boolean inBounds(Point p) {
+		return inBounds(p.x, p.y);
+	}
 	/**
 	 * @param s side, from which to get
 	 * @param x X coordinate
@@ -119,7 +150,6 @@ public interface BlockArrayProvider {
 	 */
 	public default boolean click(int x, int y) {
 		BlockEntry ent = get(x, y);
-		if(ent == null) return false;
 		boolean result = ent instanceof BlockActivateListener;
 		if(result) {
 			((BlockActivateListener) ent).click(x, y, parent(), null);

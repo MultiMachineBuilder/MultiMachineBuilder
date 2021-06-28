@@ -12,7 +12,7 @@ import javax.swing.Icon;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.Placer;
 import mmb.WORLD.item.ItemType;
-import mmb.WORLD.worlds.world.World.BlockMap;
+import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar

@@ -7,7 +7,7 @@ import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityDataless;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.world.World.BlockMap;
+import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar

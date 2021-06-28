@@ -20,11 +20,10 @@ import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.gui.inv.CraftGUI;
 import mmb.WORLD.gui.window.WorldWindow;
-import mmb.WORLD.inventory.ItemEntry;
 import mmb.WORLD.inventory.ItemStack;
+import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.worlds.world.World;
-import mmb.WORLD.worlds.world.World.BlockMap;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 

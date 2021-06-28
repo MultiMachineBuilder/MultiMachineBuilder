@@ -12,8 +12,8 @@ import mmb.DATA.json.JsonTool;
 import mmb.WORLD.Side;
 import mmb.WORLD.block.SkeletalBlockEntityData;
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.SimpleInventory;
-import mmb.WORLD.worlds.world.World.BlockMap;
+import mmb.WORLD.inventory.storage.SimpleInventory;
+import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar

@@ -3,8 +3,6 @@
  */
 package mmb.WORLD.tool;
 
-import java.util.Objects;
-
 import javax.swing.Icon;
 
 import org.junit.jupiter.api.Assertions;

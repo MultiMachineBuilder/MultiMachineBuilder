@@ -30,8 +30,6 @@ public class Collects {
 		return (Iterator<T>) iter;
 	}
 
-
-	
 	@Nonnull public static <T> HashSet<T> newUnion(Collection<? extends T> a, Collection<? extends T> b){
 		HashSet<T> set = new HashSet<>(a);
 		set.addAll(b);

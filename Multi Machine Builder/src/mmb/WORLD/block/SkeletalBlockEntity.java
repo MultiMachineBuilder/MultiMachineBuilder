@@ -8,7 +8,7 @@ import java.awt.Point;
 import javax.annotation.Nonnull;
 
 import mmb.WORLD.texture.BlockDrawer;
-import mmb.WORLD.worlds.world.World.BlockMap;
+import mmb.WORLD.worlds.world.BlockMap;
 import mmb.debug.Debugger;
 
 /**

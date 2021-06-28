@@ -8,7 +8,7 @@ import javax.swing.Icon;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.BEANS.Titled;
-import mmb.WORLD.inventory.ItemEntry;
+import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.texture.BlockDrawer;
 import monniasza.collects.Identifiable;
 

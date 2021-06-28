@@ -4,10 +4,10 @@
 package mmb.MENU.NewWorld;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -17,19 +17,25 @@ import mmb.MENU.FullScreen;
 import mmb.MENU.MMBFrame;
 import mmb.MENU.main.MainMenu;
 import mmb.MENU.main.PanelSaves;
-import mmb.WORLD.block.BlockEntry;
-import mmb.WORLD.block.SkeletalBlockEntity;
-import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.generator.Generator;
+import mmb.WORLD.generator.Generators;
 import mmb.WORLD.worlds.universe.Universe;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.ListCellRenderer;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.nio.file.Files;
+import java.util.Random;
+
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * @author oskar
@@ -45,34 +51,59 @@ public class NewGame extends MMBFrame {
 	private final transient Debugger debug = new Debugger("NewGame");
 	private int w;
 	private int h;
+	private int csize;
+	private JList<Generator> list;
+	private JTextField txtcsize;
+	private JTextField txtSeed;
+	private long seed;
 
 	private void getWorldSize() {
 		w = 0;
 		h = 0;
+		csize = 0;
+		seed = 0;
 		try {
 			w = Integer.parseInt(txtWidth.getText());
 			h = Integer.parseInt(txtWidth.getText());
+			csize = Integer.parseInt(txtcsize.getText());
+			seed = Long.parseLong(txtSeed.getText());
 		} catch (NumberFormatException e2) {
 			w = -2;
 			h = 0;
-			debug.pstm(e2, "Incorrect dimensions: "+txtWidth.getText()+","+txtHeight.getText());
+			csize = 0;
+			seed = 0;
+			debug.pstm(e2,
+					"Incorrect dimensions: "+txtWidth.getText()+
+					","+txtHeight.getText()+
+					", chunk size: "+txtcsize.getText()+
+					", seed: "+txtSeed.getText()
+			);
 			return;
 		}
-		if(w < 0 || h < 0) {
+		if(w < 0 || h < 0 || csize < 0) {
 			w = -1;
 			h = 0;
+			csize = 0;
+			seed = 0;
 		}
 	}
+	private static final Random r = new Random();
 	/**
 	 * Create the dialog.
 	 */
 	public NewGame() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent arg0) {
+				exit();
+			}
+		});
 		setTitle("Create a new world");
 		setBounds(100, 100, 610, 432);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		contentPanel.setLayout(new MigLayout("", "[][grow]", "[][][]"));
+		contentPanel.setLayout(new MigLayout("", "[][grow]", "[][][][][][grow]"));
 		
 			JLabel lblHeight = new JLabel("Height");
 			contentPanel.add(lblHeight, "cell 0 0,alignx trailing");
@@ -97,6 +128,33 @@ public class NewGame extends MMBFrame {
 			txtName.setText("Name");
 			contentPanel.add(txtName, "cell 1 2,growx");
 			txtName.setColumns(10);
+			
+			JLabel lblNewLabel_1 = new JLabel("Chunk size");
+			contentPanel.add(lblNewLabel_1, "cell 0 3,alignx trailing");
+			
+			txtcsize = new JTextField();
+			txtcsize.setText("32");
+			contentPanel.add(txtcsize, "cell 1 3,growx");
+			txtcsize.setColumns(10);
+			
+			JLabel lblSeed = new JLabel("Seed");
+			contentPanel.add(lblSeed, "cell 0 4,alignx trailing");
+			
+			txtSeed = new JTextField();
+			contentPanel.add(txtSeed, "cell 1 4,growx");
+			txtSeed.setColumns(10);
+			txtSeed.setText(Long.toString(r.nextLong()));
+			
+			JLabel lblNewLabel = new JLabel("World generator");
+			contentPanel.add(lblNewLabel, "cell 0 5");
+			
+			JScrollPane scrollPane = new JScrollPane();
+			contentPanel.add(scrollPane, "cell 1 5,grow");
+			
+			list = new JList<>();
+			list.setModel(Generators.generators);
+			list.setCellRenderer(new CellRenderer());
+			scrollPane.setViewportView(list);
 	
 		JPanel buttonPane = new JPanel();
 		buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -115,29 +173,52 @@ public class NewGame extends MMBFrame {
 			
 		//pack();
 	}
+	
+	private class CellRenderer extends JLabel implements ListCellRenderer<Generator>{
+		public CellRenderer() {setOpaque(true);}
+		@Override
+		public Component getListCellRendererComponent(
+			@SuppressWarnings("null") JList<? extends Generator> list,
+			@SuppressWarnings("null") Generator item, int index,
+			boolean isSelected, boolean cellHasFocus
+		){
+			setText(item.title());
+			
+			if (isSelected) {
+			    setBackground(list.getSelectionBackground());
+			    setForeground(list.getSelectionForeground());
+			} else {
+			    setBackground(list.getBackground());
+			    setForeground(list.getForeground());
+			}
+			return this;
+		}
+		
+	}
 
 	private void save() {
+		Generator gen = list.getSelectedValue();
+		if(gen == null) {
+			debug.printl("generator is not selected");
+			return;
+		}
 		String n = txtName.getText();
 		debug.printl("World name: "+n);
-		Universe world = null;
 		getWorldSize();
 		if(w == -1) debug.printl("Incorrect dimensions: "+txtWidth.getText()+","+txtHeight.getText());
 		if(w < 0) return;
 		
 		
 		//Fill and create the map
+		
 		int ww = (2*w)+1;
 		int hh = (2*h)+1;
-		BlockEntry[][] ents = new BlockEntry[ww][hh];
-		World main = new World(ents, -w, -h);
-		for(int i = 0; i < ww; i++) {
-			for(int j = 0; j < hh; j++) {
-				ents[i][j] = ContentsBlocks.grass;
-			}
-		}
+		World main = new World(ww, hh, -w, -h);
+		gen.generate(main.getMap(), csize);
+
 		
 		//Create and set up the world
-		world = new Universe();
+		Universe world = new Universe();
 		world.setMain(main);
 		
 		//Write to a new file
@@ -169,11 +250,10 @@ public class NewGame extends MMBFrame {
 	
 	private void exit() {
 		dispose();
-		FullScreen.setWindow(MainMenu.INSTANCE);
+		//FullScreen.setWindow(MainMenu.INSTANCE);
 	}
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
-		
+		FullScreen.setWindow(MainMenu.INSTANCE);
 	}
 }

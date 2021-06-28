@@ -4,6 +4,7 @@
 package mmb.WORLD.gui;
 
 import java.lang.reflect.Field;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -65,5 +66,13 @@ public interface Variable<T> {
 			}
 			
 		};
+	}
+
+	public static <U> Variable<U> ofArraySlot(int slot, U[] array){
+		return delegate(() -> array[slot], val -> array[slot] = val);
+	}
+	
+	public static <U> Variable<U> ofListSlot(int slot, List<U> array){
+		return delegate(() -> array.get(slot), val -> array.set(slot, val));
 	}
 }

@@ -4,38 +4,26 @@
 package mmb.WORLD.worlds.world;
 
 import java.awt.Point;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
-import java.util.Timer;
-import java.util.TimerTask;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.IntNode;
-import com.fasterxml.jackson.databind.node.NullNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
 
 import io.vavr.Tuple2;
 import mmb.BEANS.BlockActivateListener;
 import mmb.BEANS.Loader;
-import mmb.BEANS.RunOnTick;
 import mmb.BEANS.Saver;
 import mmb.DATA.json.JsonTool;
+import mmb.RUNTIME.TaskLoop;
 import mmb.WORLD.block.BlockEntity;
-import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.FPSCounter;
-import mmb.WORLD.inventory.ItemEntry;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockLoader;
-import mmb.WORLD.block.BlockType;
 import mmb.WORLD.machine.Machine;
 import mmb.WORLD.machine.MachineModel;
 import mmb.WORLD.player.Player;
@@ -58,6 +46,7 @@ import monniasza.collects.selfset.SelfSet;
  * <br> and at first {@code setName()} to set target name
  */
 public class World implements Identifiable<String>, BlockArrayProviderSupplier{
+	protected Debugger debug = new Debugger("MAP anonymous");
 	public final FPSCounter tps = new FPSCounter();
 	private static final String txtMAP = "MAP - ";
 	public final Player player = new Player();
@@ -117,8 +106,7 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 	 * @param startY starting Y
 	 */
 	public World(BlockEntry[][] entries, int startX, int startY) {
-		BlockMap map = new BlockMap(entries, startX, startY);
-		setMap(map);
+		setMap(new BlockMap(this, entries, startX, startY));
 	}
 	/**
 	 * Create an empty world with given bounds
@@ -128,7 +116,7 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 	 * @param startY starting Y
 	 */
 	public World(int sizeX, int sizeY, int startX, int startY) {
-		this(new BlockEntry[sizeX][sizeY], startX, startY);
+		setMap(new BlockMap(this, sizeX, sizeY, startX, startY));
 	}
 	/**
 	 * Creates a world without a map
@@ -141,7 +129,7 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 	//[start] serialization
 	public final Serialization saveLoad = new Serialization();
 	public class Serialization implements Saver<JsonNode>, Loader<JsonNode>{
-		private Serialization() {};	
+		private Serialization() {}	
 		@Override
 		public void load(JsonNode json) {
 			//Dimensions
@@ -153,7 +141,7 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 			int endY = sizeY + startY;
 			
 			//Prepare the map
-			setMap(new BlockMap(sizeX, sizeY, startX, startY));
+			setMap(new BlockMap(World.this, sizeX, sizeY, startX, startY));
 			
 			//Blocks
 			ArrayNode worldArray = (ArrayNode) json.get("world");
@@ -230,8 +218,7 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 			for(int y = pY; y < eY; y++) {
 				for(int x = pX; x < eX; x++) {
 					BlockEntry ent = get(x, y);
-					if(ent == null) blockArrayNode.add(NullNode.getInstance());
-					else blockArrayNode.add(ent.save());
+					blockArrayNode.add(ent.save());
 				}
 			}
 			master.set("world", blockArrayNode);
@@ -267,57 +254,51 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 	//[start] activity
 	@SuppressWarnings("null")
 	private void update() {//Run the map
+		//debug.printl("update");
 		tps.count();
 		//Set up the proxy
-		try(final MapProxy proxy = createProxy()){
+		try(MapProxy proxy = createProxy()){
 			map.update(proxy); //Run every machine
-		}catch(Exception e) {debug.pstm(e, "Failed to run the map");}
+		}catch(Exception e) {
+			debug.pstm(e, "Failed to run the map");
+		}
 	}
-	private Timer timer = new Timer();
-	private boolean running = false;
+	private final static long PERIOD = 20_000_000; //nanoseconds
+	private TaskLoop timer = new TaskLoop(() -> update(), PERIOD);
 	/**
 	 * @return the running
 	 */
 	public boolean isRunning() {
-		return running;
+		return timer.getState() == 1;
 	}
 	/**
-	 * @param b the running to set
+	 * Starts the timer.
+	 * @throws IllegalStateException when timer is running or destroyed.
 	 */
-	public void setRunning(boolean b) {
-		if(b) {
-			if(running || hasShutDown) return;
-			timer.scheduleAtFixedRate(new TimerTask() {
-				@Override public void run() {
-					update();
-				}
-			}, 0, 20);
-		}else {
-			if(running) timer.cancel();
-		}
-		running = b;
-	}	
+	public void startTimer() {
+		timer.start();
+	}
 	/**
 	 * Destroy all map resources
 	 */
 	public void destroy() {
-		setRunning(false);
+		debug.printl("Destroying");
 		shutdown();
 		setMap(null);
 	}
-	private boolean hasShutDown = false;
 	/**
 	 * @return the hasShutDown
 	 */
 	public boolean hasShutDown() {
-		return hasShutDown;
+		return timer.getState() == 2;
 	}
 	/**
-	 * Shut down the map, but keep the resouirces
+	 * Shut down the map, but keep the resources
 	 */
 	@SuppressWarnings("null")
 	public void shutdown() {
-		if(hasShutDown) return;
+		debug.printl("Shutdown");
+		if(hasShutDown()) return;
 		//Shut down block entities
 		for(BlockEntity ent: map.getBlockEntities()) {
 			try {
@@ -334,12 +315,9 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 				debug.pstm(e, "Failed to shut down machine "+m.id()+" at ["+m.posX()+","+m.posY()+"]");
 			}
 		}
-		hasShutDown = true;
-		setRunning(false);
+		if(isRunning()) timer.destroy();
 	}
-	//[end]
 	//[start] [DEPRECATED] machines (moved to BlockMap)
-	private Map<Point, Machine> machinesPoints = new HashMap<>();
 	SetProxy<Machine> machinesProxy = new SetProxy<>();
 	/**
 	 * An unmodifiable set of all machines
@@ -382,7 +360,7 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 	}
 	/**
 	 * @deprecated Machine functionality moved to {@link BlockMap}.
-	 * Use {@link mmb.WORLD.worlds.world.World.BlockMap#placeMachine(Machine)} instead
+	 * Use {@link mmb.WORLD.worlds.world.BlockMap#placeMachine(Machine)} instead
 	 */
 	public Machine placeMachine(Machine machine) {
 		return map.placeMachine(machine);
@@ -393,14 +371,14 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 	 * @param setup if true, call onLoad. Else call onPlace
 	 * @return newly placed machine, or null if placement failed
 	 * @deprecated Machine functionality moved to {@link BlockMap}.
-	 * Use {@link mmb.WORLD.worlds.world.World.BlockMap#placeMachine(mmb.WORLD.worlds.world.World,Machine,boolean)} instead
+	 * Use {@link mmb.WORLD.worlds.world.BlockMap#placeMachine(mmb.WORLD.worlds.world.World,Machine,boolean)} instead
 	 */
 	public Machine placeMachine(Machine machine, boolean setup) {
 		return map.placeMachine(machine, setup);
 	}
 	/**
 	 * @deprecated Machine functionality moved to {@link BlockMap}.
-	 * Use {@link mmb.WORLD.worlds.world.World.BlockMap#placeMachineLoaded(mmb.WORLD.worlds.world.World,Machine)} instead
+	 * Use {@link mmb.WORLD.worlds.world.BlockMap#placeMachineLoaded(mmb.WORLD.worlds.world.World,Machine)} instead
 	 */
 	public Machine placeMachineLoaded(Machine machine) {
 		return map.placeMachineLoaded(machine);
@@ -451,7 +429,6 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 	@Override
 	public boolean click(int x, int y) {
 		BlockEntry ent = get(x, y);
-		if(ent == null) return false;
 		boolean result = ent instanceof BlockActivateListener;
 		if(result) {
 			((BlockActivateListener) ent).click(x, y, this);
@@ -459,14 +436,15 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 		return result;
 	}
 	//[end]
-	protected Debugger debug = new Debugger("MAP anonymous");
+	
 	
 	@Override
 	public World parent() {
 		return this;
 	}
-	//[start] map
+
 	private BlockMap map;
+	
 	@Override
 	public BlockMap getMap() {
 		return map;
@@ -492,324 +470,4 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 	public MapProxy createProxy() {
 		return new WorldProxy(this);
 	}
-	/**
-	 * @author oskar
-	 * A collection of blocks and block entities
-	 */
-	public class BlockMap implements BlockArrayProvider{
-		//[start] Blocks
-		private Set<BlockEntity> _blockents = new HashSet<>();
-		/**
-		 * an unmodifiable {@link Set} of {@link BlockEntity}s on this {@code BlockMap}
-		 */
-		private final Set<BlockEntity> blockents = Collections.unmodifiableSet(_blockents);
-		
-		private Set<RunOnTick> runs = new HashSet<>();
-		
-		protected BlockEntry[][] entries;
-		@Override
-		public BlockEntry get(int x, int y) {
-			return entries[x-startX][y-startY];
-		}
-		/**
-		 * Get a block using array index
-		 * @param i horizontal array index
-		 * @param j vertical array index
-		 * @return 
-		 */
-		public BlockEntry getindex(int i, int j) {
-			return entries[i][j];
-		}
-		@Override
-		public BlockEntry set(BlockEntry b, int x, int y) {
-			BlockEntry old = entries[x-startX][y-startY];
-			//Remove old block entity
-			if(old != null) {
-				if(old.isBlockEntity()) {
-					BlockEntity old0 = old.asBlockEntity();
-					try {
-						old0.onBreak(this, null);
-						_blockents.remove(old0);
-					} catch (Exception e) {
-						debug.pstm(e, "Failed to remove BlockEntity ["+x+","+y+"]");
-						return null;
-					}
-				}
-				if(old instanceof RunOnTick) {
-					runs.remove(old);
-				}
-			}
-			//Add new block entity
-			if(b.isBlockEntity()) {
-				BlockEntity new0 = b.asBlockEntity();
-				try {
-					new0.onPlace(this, null);
-					_blockents.add(new0);
-				}catch(Exception e) {
-					debug.pstm(e, "Failed to place BlockEntity ["+x+","+y+"]");
-					place(ContentsBlocks.grass, x, y);
-					return null;
-				}
-			}
-			if(b instanceof RunOnTick) 
-				runs.add((RunOnTick) b);
-			
-			//Set block
-			entries[x-startX][y-startY] = b;
-			return b;
-		}
-		@Override
-		public BlockEntry place(BlockType type, int x, int y) {
-			BlockEntry blockent = type.create(x, y, this);
-			return set(blockent, x, y);
-		}
-		@Override
-		public boolean isValid() {
-			return entries != null;
-		}
-		//[end]		
-		//[start] Constructors
-		/**
-		 * Creates a world with given entries and specific starting position
-		 * @param entries world data
-		 * @param startX starting X
-		 * @param startY starting Y
-		 */
-		public BlockMap(BlockEntry[][] entries, int startX, int startY) {
-			this.entries = entries;
-			this.startX = startX;
-			this.startY = startY;
-			sizeX = entries.length;
-			sizeY = entries[0].length;
-			endX = startX + sizeX;
-			endY = startY + sizeY;
-		}
-		/**
-		 * Create an empty world with given bounds
-		 * @param sizeX horizontal size
-		 * @param sizeY vertical size
-		 * @param startX starting X
-		 * @param startY starting Y
-		 */
-		public BlockMap(int sizeX, int sizeY, int startX, int startY) {
-			this(new BlockEntry[sizeX][sizeY], startX, startY);
-		}
-		//[end]	
-		@Override
-		public Set<BlockEntity> getBlockEntities() {
-			return blockents;
-		}
-		//[start] bounds
-		/** Starting X coordinate, inclusive */
-		public final int startX;
-		/** Starting Y coordinate, inclusive */
-		public final int startY;
-		/** Map width */
-		public final int sizeX;
-		/** Map height */
-		public final int sizeY;
-		/** Ending X coordinate, exclusive*/
-		public final int endX;
-		/** Ending Y coordinate, exclusive*/
-		public final int endY;
-		
-		@Override
-		public int startX() {
-			return startX;
-		}
-		@Override
-		public int startY() {
-			return startY;
-		}
-		@Override
-		public int sizeX() {
-			return sizeX;
-		}
-		@Override
-		public int sizeY() {
-			return sizeY;
-		}
-		@Override
-		public boolean inBounds(int x, int y) {
-			if(x < startX) return false;
-			if(y < startY) return false;
-			if(x >= endX) return false;
-			return y < endY;
-		}
-		//[end]
-		@Override
-		@Nonnull public World parent() {
-			return World.this;
-		}
-		/**
-		 * @return the owner
-		 */
-		@Override
-		public World getOwner() {
-			return World.this;
-		}
-		void update(MapProxy proxy) {
-			if(entries == null) return;
-			for(Machine m: _machines) {
-				try {
-					m.onUpdate(proxy);
-				}catch(Exception e) {
-					debug.pstm(e, "Failed to run a machine");
-				}
-			}
-			//Run every block
-			for(RunOnTick ent: runs) {
-				try {ent.onTick(proxy);} //NOSONAR
-				catch(Exception e){
-					if(ent instanceof BlockEntity) {
-						debug.pstm(e, "Failed to run block entity at ["+((BlockEntity) ent).posX()+","+((BlockEntity) ent).posY()+"]");
-					}else {
-						debug.pstm(e, "Failed to run a block");
-					}
-					
-				}
-			}
-		}
-		
-		//[start] Machines
-		/**
-		 * Remove the machine at given location
-		 * @param p location
-		 * @return was machine removed?
-		 */
-		public boolean removeMachine(Point p) {
-			Machine machine = World.this.machinesPoints.get(p);
-			if(machine == null) return false;
-			//Calculate coordinates
-			int posX = machine.posX();
-			int posY = machine.posY();
-			int mendX = posX + machine.sizeX();
-			int mendY = posY + machine.sizeY();
-			try {
-				machine.onRemove(null);
-			}catch(Exception e) {
-				World.this.debug.pstm(e, "Failed to remove "+machine.id()+" at ["+posX+","+posY+"]");
-				return false;
-			}
-			
-			//Remove
-			for(int x = posX; x < mendX; x++) {
-				for(int y = posY; y < mendY; y++) {
-					Point pt = new Point(x, y);
-					World.this.machinesPoints.remove(pt);
-				}
-			}
-			_machines.remove(machine);
-			return true;
-		}
-		/**
-		 * Remove the machine at given location
-		 * @param x X coordinate
-		 * @param y Y coordinate
-		 * @return was machine removed?
-		 */
-		public boolean removeMachine(int x, int y) {
-			return World.this.removeMachine(new Point(x, y));
-		}
-		/**
-		 * Place the machine, using the machine model, with default properties
-		 * @param m machine model which creates the machine
-		 * @param x X coordinate
-		 * @param y Y coordinate
-		 * @return newly placed machine, or null if placement failed
-		 */
-		public Machine placeMachine(MachineModel m, int x, int y) {
-			Machine machine = m.place();
-			if(machine == null) return null;
-			machine.setPos(x, y);
-			return World.this.placeMachine(machine);
-		}
-		public Machine placeMachine(Machine machine) {
-			return World.this.placeMachine(machine, false);
-		}
-		/**
-		 * 
-		 * @param machine machine to place
-		 * @param setup if true, call onLoad. Else call onPlace
-		 * @return newly placed machine, or null if placement failed
-		 */
-		public Machine placeMachine(Machine machine, boolean setup) {
-			machine.setMap(World.this);
-			int posX = machine.posX();
-			int posY= machine.posY();
-			int mendX = posX + machine.sizeX();
-			int mendY = posY + machine.sizeY();
-			try {
-				if(!setup) machine.onPlace(null);
-				//When successfull, place
-				for(int x = posX; x < mendX; x++) {
-					for(int y = posY; y < mendY; y++) {
-						Point pt = new Point(x, y);
-						Machine old = World.this.machinesPoints.put(pt, machine);
-						if(old != null) {
-							//Overwriting existing machine, do not place the machine
-							World.this.machinesPoints.put(pt, old);
-							return null;
-						}
-					}
-				}
-			}catch(Exception e) {
-				World.this.debug.pstm(e, "Failed to place "+machine.id()+" at ["+posX+","+posY+"]");
-				return null; //null indicates that machine was not placed
-			}
-			World.this.debug.printl("Placed machine");
-			_machines.add(machine);
-			return machine;
-		}
-		/**
-		 * @param x X coordinate
-		 * @param y Y coordinate
-		 * @return machine, or null if not found
-		 */
-		@Nullable
-		public Machine getMachine(int x, int y) {
-			return getMachine(new Point(x, y));
-		}
-		@Nullable
-		public Machine getMachine(Point p) {
-			return machinesPoints.get(p);
-		}
-		/**
-		 * Place the machine, using the machine model, with default properties
-		 * @param m machine model which creates the machine
-		 * @param p position
-		 * @return newly placed machine, or null if placement failed
-		 */
-		public Machine placeMachine(MachineModel m, Point p) {
-			return World.this.placeMachine(m, p.x, p.y);
-		}
-		/**
-		 * @param machine machine to be placed
-		 * @return newly placed machine, or null if placement failed
-		 */
-		public Machine placeMachineLoaded(Machine machine) {
-			return placeMachine(machine, true);
-		}
-		
-		private Set<Machine> _machines = new HashSet<>();
-		/**
-		 * The immutable set of all machines
-		 */
-		public final Set<Machine> machines = Collections.unmodifiableSet(_machines);
-		
-		
-		/**
-		 * @param ent item to be dropped
-		 * @param x X coordinate of the item
-		 * @param y Y coordinate of the item
-		 */
-		public void dropItem(ItemEntry ent, int x, int y) {
-			// TODO Auto-generated method stub
-			
-		}
-		Multimap<Point, ItemEntry> drops = HashMultimap.create();
-		
-		//[end]
-	}
-	//[end]
 }

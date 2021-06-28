@@ -5,7 +5,7 @@ package mmb.WORLD.block;
 
 import javax.annotation.Nonnull;
 
-import mmb.WORLD.worlds.world.World.BlockMap;
+import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar

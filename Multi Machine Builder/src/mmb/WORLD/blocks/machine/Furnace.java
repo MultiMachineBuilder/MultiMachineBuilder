@@ -27,14 +27,14 @@ import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.gui.machine.Smelting;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.ItemEntry;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.inventory.NoSuchInventory;
-import mmb.WORLD.inventory.SimpleInventory;
-import mmb.WORLD.item.ContentsItems;
+import mmb.WORLD.inventory.storage.SimpleInventory;
+import mmb.WORLD.items.ContentsItems;
+import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.worlds.MapProxy;
+import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
-import mmb.WORLD.worlds.world.World.BlockMap;
 
 /**
  * @author oskar
@@ -59,8 +59,13 @@ public class Furnace extends SkeletalBlockEntityRotary implements BlockActivateL
 	private static boolean inited = false;
 	public static void init() {
 		if(inited) return;
-		//Coal recipe
-		recipes.put(ContentsBlocks.logs, ContentsItems.coal);
+		
+		recipes.put(ContentsBlocks.logs, ContentsItems.coal);//Wood log => coal
+		recipes.put(ContentsBlocks.iron_ore, ContentsItems.iron);
+		recipes.put(ContentsBlocks.copper_ore, ContentsItems.copper);
+		recipes.put(ContentsBlocks.silicon_ore, ContentsItems.silicon);
+		recipes.put(ContentsBlocks.gold_ore, ContentsItems.gold);
+		recipes.put(ContentsBlocks.silver_ore, ContentsItems.silver);
 		inited = true;
 	}
 	
@@ -165,7 +170,7 @@ public class Furnace extends SkeletalBlockEntityRotary implements BlockActivateL
 					
 				}else{
 					//Smeltable, eject expected item
-					result.produceResults(_out);
+					result.produceResults(_out.createWriter());
 				}
 				smeltingUnderway = null;
 				if(openWindow != null) openWindow.invOutput.refresh();

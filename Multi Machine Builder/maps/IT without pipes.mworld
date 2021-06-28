@@ -1,0 +1,40 @@
+{
+  "main" : {
+    "sizeX" : 7,
+    "sizeY" : 7,
+    "startX" : -3,
+    "startY" : -3,
+    "world" : [ "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+      "blocktype" : "pipe.L",
+      "side" : "N",
+      "items" : [ null, null ]
+    }, {
+      "blocktype" : "pipe.I",
+      "side" : "N",
+      "items" : [ null, null ]
+    }, {
+      "blocktype" : "pipe.L",
+      "side" : "E",
+      "items" : [ null, null ]
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+      "blocktype" : "itemsystem.mover",
+      "side" : "N"
+    }, "mmb.grass", {
+      "blocktype" : "chest.beginning",
+      "inventory" : [ 6.0, [ "mmb.stone", "mmb.stone", 8 ] ],
+      "color" : [ 255, 255, 255, 255 ]
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+      "blocktype" : "chest.beginning",
+      "inventory" : [ 6.0 ],
+      "color" : [ 255, 255, 255, 255 ]
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass" ],
+    "machines" : [ ],
+    "data" : { },
+    "player" : {
+      "inventory" : [ 2.0 ],
+      "creative" : true
+    }
+  },
+  "data" : { },
+  "maps" : { }
+}

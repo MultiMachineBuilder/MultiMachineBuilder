@@ -137,7 +137,7 @@ public class Universe implements GameObject, Saver<JsonNode>, Loader<JsonNode>{
 		}else debug.printl("Not an ObjectNode");
 	}
 	@Override
-	public JsonNode save() {
+	@Nonnull public JsonNode save() {
 		//Save the main map
 		debug.printl("Saving main BlockMap");
 		JsonNode mainNode = main.saveLoad.save();
@@ -163,16 +163,15 @@ public class Universe implements GameObject, Saver<JsonNode>, Loader<JsonNode>{
 	}
 	//[end]
 	//[start] activity
-	public void setActive(boolean active) {
-		main.setRunning(active);;
-		maps.values().forEach(map -> map.setRunning(active));
+	public void start() {
+		main.startTimer();
+		maps.values().forEach(map -> map.startTimer());
 	}
 	/**
 	 * Destroy all associated resources.
 	 */
 	@Override
 	public void destroy() {
-		
 		//Shut down all active behaviors
 		behaviors.forEach(e -> e.close(this));
 		

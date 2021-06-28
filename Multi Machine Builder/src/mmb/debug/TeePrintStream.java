@@ -8,7 +8,6 @@ import java.io.FileNotFoundException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
-import java.util.Locale;
 
 /**
  * @author oskar
@@ -67,7 +66,7 @@ public class TeePrintStream extends PrintStream {
 		super.flush();
 	}
 	@Override
-	public void write(byte[] buf, int off, int len) {
+	public void write(@SuppressWarnings("null") byte[] buf, int off, int len) {
 		second.write(buf, off, len);
 		super.write(buf, off, len);
 	}

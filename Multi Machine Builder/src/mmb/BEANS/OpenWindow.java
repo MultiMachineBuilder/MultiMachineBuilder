@@ -6,7 +6,6 @@ package mmb.BEANS;
 import java.awt.Component;
 
 import mmb.WORLD.gui.window.WorldWindow;
-import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar

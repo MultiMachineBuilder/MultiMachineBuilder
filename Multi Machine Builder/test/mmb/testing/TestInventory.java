@@ -7,9 +7,9 @@ import javax.annotation.Nonnull;
 
 import mmb.ERRORS.UndeclarableThrower;
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.SimpleInventory;
+import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.item.Item;
-import mmb.WORLD.item.NoSuchItemEntry;
+import mmb.WORLD.items.NoSuchItemEntry;
 import mmb.debug.Debugger;
 
 /**
@@ -83,6 +83,8 @@ public class TestInventory {
 		if(npiecesAafter != 0) throw new Error(npiecesAafter + " pieces are left, expected 0");
 		int npiecesBafter = inv.get(itemB).amount();
 		if(npiecesBafter != 0) throw new Error(npiecesBafter + " pieces are left, expected 0");
+		
+		//Test writer/reader
 	}
 	
 	@SuppressWarnings("null")

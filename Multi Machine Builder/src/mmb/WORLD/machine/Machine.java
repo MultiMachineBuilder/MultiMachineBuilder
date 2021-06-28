@@ -178,7 +178,7 @@ public interface Machine extends GameObject, Loader<JsonNode>, Saver<JsonNode>{
 	 * 		<br>MapBehavior instance if mined by a MapBehavior
 	 * 		<br>null if mined by player in LSP
 	 */
-	public void onRemove(GameObject obj);
+	public void onRemove(@Nullable GameObject obj);
 	/**    
 	 * Prepares a block for server shutdown.
 	 * <br>Does not run when block is broken.

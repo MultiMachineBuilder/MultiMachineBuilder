@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 
 import javax.annotation.Nonnull;
 
+import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.texture.BlockDrawer;
 
 /**
@@ -37,6 +38,9 @@ public class RotatedImageGroup {
 		progress = rotate(progress);
 		rig.L = BlockDrawer.ofImage(progress);
 		return rig;
+	}
+	@Nonnull public static RotatedImageGroup create(String texture) {
+		return create(Textures.get(texture));
 	}
 	private static BufferedImage rotate(BufferedImage img) {
 		BufferedImage result = new BufferedImage(32, 32, img.getType());

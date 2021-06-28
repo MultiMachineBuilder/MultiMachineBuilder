@@ -3,8 +3,11 @@
  */
 package monniasza.collects.grid;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Objects;
+
+import javax.annotation.Nullable;
 
 /**
  * @author oskar
@@ -12,6 +15,22 @@ import java.util.Objects;
  * Contains a grid with fixed size
  */
 public class FixedGrid<T> implements Grid<T> {
+	@Override
+	public String toString() {
+		return "FixedGrid [arr=" + Arrays.deepToString(arr) + ", h=" + h + ", w=" + w + "]";
+	}
+	/*@Override
+	public void fill(int x, int y, int w, int h, T data) {
+		// TODO Auto-generated method stub
+		Grid.super.fill(x, y, w, h, data);
+	}*/
+	@Override
+	public void fill(T data) {
+		for(Object[] array: arr) {
+			Arrays.fill(array, data);
+		}
+	}
+
 	private final Object[][] arr;
 	private final int h;
 	private final int w;
@@ -63,6 +82,19 @@ public class FixedGrid<T> implements Grid<T> {
 		this(s, s, data);
 	}
 	
+	/**
+	 * Copies given 2D array into a grid
+	 * @param data data to copy
+	 * NOTE: The FixedGrid created in this way checks incoming types
+	 */
+	public FixedGrid(T[][] data) {
+		w = data.length;
+		h = data[0].length;
+		arr = (Object[][]) Array.newInstance(data.getClass().getComponentType(), w);
+		for(int i = 0; i < w; i++) {
+			arr[i] = Arrays.copyOf(data[i], data[i].length);
+		}
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -72,7 +104,7 @@ public class FixedGrid<T> implements Grid<T> {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(@Nullable Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)

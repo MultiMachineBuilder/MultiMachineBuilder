@@ -16,8 +16,8 @@ import mmb.WORLD.gui.NewTextEditor;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.SignalUtils;
+import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
-import mmb.WORLD.worlds.world.World.BlockMap;
 import mmb.debug.Debugger;
 
 /**

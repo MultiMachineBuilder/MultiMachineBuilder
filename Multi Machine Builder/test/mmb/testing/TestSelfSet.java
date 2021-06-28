@@ -6,7 +6,6 @@ package mmb.testing;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Assert;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import monniasza.collects.Identifiable;
@@ -18,14 +17,6 @@ import monniasza.collects.selfset.SelfSet;
  *
  */
 class TestSelfSet {
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-	}
-
 	class TestValue{
 		public boolean equals(Object other) {
 			return this == other;

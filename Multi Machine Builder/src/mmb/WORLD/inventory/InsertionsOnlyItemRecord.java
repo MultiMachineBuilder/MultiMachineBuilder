@@ -5,13 +5,15 @@ package mmb.WORLD.inventory;
 
 import javax.annotation.Nonnull;
 
+import mmb.WORLD.items.ItemEntry;
+
 /**
  * @author oskar
  *
  */
 public class InsertionsOnlyItemRecord implements ItemRecord {
-	private final ItemRecord ir;
-	private final Inventory inv;
+	@Nonnull private final ItemRecord ir;
+	@Nonnull private final Inventory inv;
 	private InsertionsOnlyItemRecord(ItemRecord ir, Inventory inv) {
 		super();
 		this.ir = ir;
@@ -47,8 +49,7 @@ public class InsertionsOnlyItemRecord implements ItemRecord {
 
 	@Override
 	public ItemEntry item() {
-		// TODO Auto-generated method stub
-		return null;
+		return ir.item();
 	}
 
 	@Override
@@ -59,7 +60,7 @@ public class InsertionsOnlyItemRecord implements ItemRecord {
 
 	@Override
 	public int extract(int amount) {
-		// TODO Auto-generated method stub
+		// No extration allowed
 		return 0;
 	}
 

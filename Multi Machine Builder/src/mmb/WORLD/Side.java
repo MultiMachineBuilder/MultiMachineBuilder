@@ -68,4 +68,42 @@ public enum Side {
 	 * @param y Y coordinate
 	 */
 	@Nonnull abstract public Point offset(int x, int y);
+	/**
+	 * @return opposite side
+	 */
+	@Nonnull public Side negate() {
+		switch(this) {
+		case D:
+			return U;
+		case DL:
+			return UR;
+		case DR:
+			return UL;
+		case L:
+			return R;
+		case R:
+			return L;
+		case U:
+			return D;
+		case UL:
+			return DR;
+		case UR:
+			return DL;
+		default:
+			throw new InternalError("Somehow an unknown side appearred");
+		}
+	}
+	@Nonnull public Side ccw() {
+		return Rotation.W.apply(this);
+	}
+	@Nonnull public Side cw() {
+		return Rotation.E.apply(this);
+	}
+	/**
+	 * @param pt
+	 * @return
+	 */
+	@Nonnull public Point offset(Point pt) {
+		return offset(pt.x, pt.y);
+	}
 }

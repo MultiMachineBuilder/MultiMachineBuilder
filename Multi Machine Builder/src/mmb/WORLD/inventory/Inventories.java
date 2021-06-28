@@ -5,12 +5,14 @@ package mmb.WORLD.inventory;
 
 import javax.annotation.Nullable;
 
+import mmb.WORLD.items.ItemEntry;
+
 /**
  * @author oskar
  *
  */
 public class Inventories {
-	private Inventories(){};
+	private Inventories(){}
 	
 	public static int transfer(Inventory src, Inventory tgt, ItemEntry item, int amount) {
 		return transfer(src.get(item), tgt, amount);

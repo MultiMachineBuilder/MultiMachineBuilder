@@ -6,6 +6,7 @@ package mmb.WORLD.texture;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
+import javax.annotation.Nonnull;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -16,10 +17,13 @@ import mmb.WORLD.block.BlockEntry;
  * Draws a block using teture
  */
 public class TextureDrawer implements BlockDrawer {
-	public final BufferedImage img;
-	private final Icon icon;
 	/**
-	 * 
+	 * The image which is drawn
+	 */
+	public final BufferedImage img;
+	@Nonnull private final Icon icon;
+	/**
+	 * @param img the image to be drawn
 	 */
 	public TextureDrawer(BufferedImage img) {
 		this.img = img;

@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.inventory;
 
+import mmb.WORLD.items.ItemEntry;
+
 /**
  * @author oskar
  *

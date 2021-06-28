@@ -11,6 +11,8 @@ import org.joml.Vector3d;
 import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
 import mmb.WORLD.crafting.RecipeOutput;
+import mmb.WORLD.inventory.io.InventoryWriter;
+import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Identifiable;
 
 /**
@@ -102,8 +104,8 @@ public class ItemStack implements Identifiable<ItemEntry>, Saver<ItemEntry>, Loa
 	}
 
 	@Override
-	public void produceResults(Inventory tgt, int amount) {
-		tgt.insert(item, amount*this.amount);
+	public void produceResults(InventoryWriter tgt, int amount) {
+		tgt.write(item, amount*this.amount);
 	}
 
 	@Override

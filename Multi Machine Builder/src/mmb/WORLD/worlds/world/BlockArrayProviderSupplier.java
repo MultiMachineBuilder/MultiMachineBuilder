@@ -8,7 +8,6 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.Set;
 
-import mmb.BEANS.RunOnTick;
 import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockEntry;
@@ -38,8 +37,8 @@ public interface BlockArrayProviderSupplier extends BlockArrayProvider {
 		return getMap().start();
 	}
 	@Override
-	default Dimension size() {
-		return getMap().size();
+	default Dimension rectsize() {
+		return getMap().rectsize();
 	}
 	@Override
 	default Rectangle bounds() {

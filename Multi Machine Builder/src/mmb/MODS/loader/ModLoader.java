@@ -25,7 +25,9 @@ import mmb.RUNTIME.LockCounter;
 import mmb.SOUND.MP3Loader;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.blocks.machine.Furnace;
-import mmb.WORLD.item.ContentsItems;
+import mmb.WORLD.blocks.pipe.Pipes;
+import mmb.WORLD.generator.Generators;
+import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.tool.Tools;
 
 /**
@@ -137,7 +139,9 @@ public class ModLoader {
 		walkTextures(new File("textures/"));
 		state1("Loading blocks");
 		new ContentsBlocks(); //just for initialization
+		Pipes.init();
 		new ContentsItems();
+		Generators.init();
 		Furnace.init();
 		Tools.initialize();
 		FullScreen.initialize();

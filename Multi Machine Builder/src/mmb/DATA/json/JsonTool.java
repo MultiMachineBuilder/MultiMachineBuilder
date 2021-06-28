@@ -3,9 +3,16 @@
  */
 package mmb.DATA.json;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Function;
+
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.TreeNode;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -60,7 +67,48 @@ public class JsonTool {
 	 * @return serialized string
 	 * @throws JsonProcessingException when serialization fails
 	 */
-	public static String save(JsonNode node) throws JsonProcessingException {
+	public static String save(Object node) throws JsonProcessingException {
 		return writer.writeValueAsString(node);
+	}
+	/**
+	 * @param node source node
+	 * @return JSON node representing the object
+	 */
+	public static JsonNode saveNode(@Nullable Object node) {
+		return mapper.valueToTree(node);
+	}
+	/**
+	 * @param <T> expected type
+	 * @param node source node
+	 * @param type expected type
+	 * @return parsed value
+	 * @throws JsonProcessingException when parsing fails
+	 * @throws IllegalArgumentException at mapper's discretion
+	 */
+	public static <T> T loadPOJO(TreeNode node, Class<T> type) throws JsonProcessingException, IllegalArgumentException {
+		return mapper.treeToValue(node, type);
+	}
+
+	public static <T> T[] loadArray(Class<T> itemType, Function<JsonNode, T> converter, ArrayNode data) {
+		@SuppressWarnings("unchecked")
+		T[] result = (T[]) Array.newInstance(itemType, data.size());
+		return loadToArray(converter, data, result);
+	}
+	public static <T> T[] loadToArray(Function<JsonNode, T> converter, ArrayNode data, T[] tgt) {
+		for(int i = 0; i < tgt.length; i++) {
+			tgt[i] = converter.apply(data.get(i));
+		}
+		return tgt;
+	}
+	@SuppressWarnings("null")
+	public static <T> ArrayNode saveArray(Function<T, JsonNode> converter, T[] data) {
+		return saveArray(converter, Arrays.asList(data));
+	}
+	public static <T> ArrayNode saveArray(Function<T, JsonNode> converter, List<? extends T> data) {
+		ArrayNode result = newArrayNode();
+		for(T item: data) {
+			result.add(converter.apply(item));
+		}
+		return result;
 	}
 }

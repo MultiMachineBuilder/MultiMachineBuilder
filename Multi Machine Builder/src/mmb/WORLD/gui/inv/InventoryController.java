@@ -8,7 +8,7 @@ import javax.swing.ListCellRenderer;
 
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
-import mmb.WORLD.inventory.SimpleInventory;
+import mmb.WORLD.inventory.storage.SimpleInventory;
 import net.miginfocom.swing.MigLayout;
 
 import java.awt.Component;

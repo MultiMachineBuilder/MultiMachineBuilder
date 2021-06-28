@@ -15,7 +15,8 @@ public interface BooleanConsumer {
 	 */
 	public void accept(boolean bool);
 	/**
-	 * Returns a composed {@code BooleanConsumer} that performs, in sequence, this operation followed by the after operation.
+	 * Returns a composed {@code BooleanConsumer} that performs,
+	 * in sequence, this operation followed by the after operation.
 	 * If performing either operation throws an exception, it is relayed to the caller of the composed operation.
 	 * If performing this operation throws an exception,the after operation will not be performed.
 	 * @param other second operation

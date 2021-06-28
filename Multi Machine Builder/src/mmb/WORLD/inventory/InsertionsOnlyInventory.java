@@ -7,6 +7,7 @@ import java.util.Iterator;
 
 import javax.annotation.Nonnull;
 
+import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.MapIterator;
 
 /**

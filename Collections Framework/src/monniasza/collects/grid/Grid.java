@@ -96,9 +96,11 @@ public interface Grid<T> extends Iterable<T>{
 			int Y1 = y1;
 			for(int j = 0; j < h; j++) {
 				tgt.set(X2, Y2, src.get(X1, Y1));
+				Y2++;
+				Y1++;
 			}
 			X1++;
-			Y1++;
+			X2++;
 		}
 	}
 
@@ -112,5 +114,8 @@ public interface Grid<T> extends Iterable<T>{
 				set(X, Y, data);
 			}
 		}
+	}
+	public default void fill(T data) {
+		fill(0, 0, width(), height(), data);
 	}
 }

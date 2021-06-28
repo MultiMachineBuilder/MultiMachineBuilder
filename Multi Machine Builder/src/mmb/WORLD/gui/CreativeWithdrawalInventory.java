@@ -8,10 +8,10 @@ import java.util.Iterator;
 import javax.annotation.Nonnull;
 
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.ItemEntry;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.item.Items;
+import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.MapIterator;
 
 /**

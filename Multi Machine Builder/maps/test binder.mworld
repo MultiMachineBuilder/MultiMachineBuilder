@@ -1,0 +1,64 @@
+{
+  "main" : {
+    "sizeX" : 9,
+    "sizeY" : 9,
+    "startX" : -4,
+    "startY" : -4,
+    "world" : [ "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+      "blocktype" : "industry.furnace",
+      "side" : "N",
+      "in" : [ 2.0 ],
+      "out" : [ 2.0, [ "gem.coal", 1 ] ],
+      "smelt" : [ "mmb.tree", "mmb.tree" ],
+      "remain" : 20
+    }, "mmb.grass", {
+      "blocktype" : "industry.furnace",
+      "side" : "N",
+      "in" : [ 2.0 ],
+      "out" : [ 2.0, [ "gem.coal", 1 ] ],
+      "smelt" : null,
+      "remain" : 0
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+      "blocktype" : "pipe.toright",
+      "side" : "N",
+      "items" : [ null, null, null ]
+    }, {
+      "blocktype" : "pipe.L",
+      "side" : "E",
+      "items" : [ null, null ]
+    }, {
+      "blocktype" : "pipe.I",
+      "side" : "E",
+      "items" : [ null, null ]
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+      "blocktype" : "itemsystem.mover",
+      "side" : "N"
+    }, {
+      "blocktype" : "itemsystem.mover",
+      "side" : "N"
+    }, {
+      "blocktype" : "itemsystem.mover",
+      "side" : "N"
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+      "blocktype" : "chest.beginning",
+      "inventory" : [ 6.0 ],
+      "color" : [ 255, 255, 255, 255 ]
+    }, {
+      "blocktype" : "chest.beginning",
+      "inventory" : [ 6.0 ],
+      "color" : [ 255, 255, 255, 255 ]
+    }, {
+      "blocktype" : "chest.beginning",
+      "inventory" : [ 6.0 ],
+      "color" : [ 255, 255, 255, 255 ]
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass" ],
+    "machines" : [ ],
+    "data" : { },
+    "player" : {
+      "inventory" : [ 2.0, [ "gem.coal", 1 ] ],
+      "creative" : true
+    }
+  },
+  "data" : { },
+  "maps" : { }
+}

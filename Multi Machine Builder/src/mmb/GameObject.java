@@ -45,7 +45,7 @@ public interface GameObject extends Identifiable<String>{
 	/**
 	 * Get the GameObject which owns this GameObject.
 	 * If this is a top level GameObject, return null.
-	 * The ownership is different from containment, which can be retrieved by {@link getContainer()}
+	 * The ownership is different from containment, which can be retrieved by {@link #getContainer()}
 	 * 
 	 * <br>If object is owned by a player, it returns a player.
 	 * If object is public, it returns a server, or null if in local mode

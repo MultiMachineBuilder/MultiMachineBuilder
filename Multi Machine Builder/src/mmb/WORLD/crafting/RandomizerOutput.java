@@ -8,6 +8,7 @@ import java.util.Random;
 import org.joml.Vector3d;
 
 import mmb.WORLD.inventory.Inventory;
+import mmb.WORLD.inventory.io.InventoryWriter;
 
 /**
  * @author oskar
@@ -26,7 +27,7 @@ public abstract class RandomizerOutput implements RecipeOutput {
 	}
 	protected static final Random random = new Random();
 	@Override
-	public void produceResults(Inventory tgt, int amount) {
+	public void produceResults(InventoryWriter tgt, int amount) {
 		double mul = randomize(amount);
 		output.produceResults(tgt, (int) Math.round(mul));
 	}

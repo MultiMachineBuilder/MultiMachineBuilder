@@ -11,6 +11,7 @@ import org.ainslec.picocog.PicoWriter;
 import org.joml.Vector3d;
 
 import mmb.WORLD.inventory.Inventory;
+import mmb.WORLD.inventory.io.InventoryWriter;
 
 /**
  * @author oskar
@@ -41,7 +42,7 @@ public class MergedOutput implements RecipeOutput{
 	}
 	
 	@Override
-	public void produceResults(Inventory tgt, int amount) {
+	public void produceResults(InventoryWriter tgt, int amount) {
 		for(RecipeOutput rout: out) {
 			rout.produceResults(tgt, amount);
 		}

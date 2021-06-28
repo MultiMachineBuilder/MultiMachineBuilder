@@ -6,7 +6,7 @@ package mmb.WORLD.crafting;
 import org.ainslec.picocog.PicoWriter;
 import org.joml.Vector3d;
 
-import mmb.WORLD.inventory.Inventory;
+import mmb.WORLD.inventory.io.InventoryWriter;
 
 /**
  * @author oskar
@@ -16,7 +16,7 @@ public class MutipliedOutput implements RecipeOutput {
 	private RecipeOutput toMutiply;
 	private int mutiplier;
 	@Override
-	public void produceResults(Inventory tgt, int amount) {
+	public void produceResults(InventoryWriter tgt, int amount) {
 		toMutiply.produceResults(tgt, mutiplier * amount);
 	}
 	public MutipliedOutput(RecipeOutput toMutiply, int mutiplier) {

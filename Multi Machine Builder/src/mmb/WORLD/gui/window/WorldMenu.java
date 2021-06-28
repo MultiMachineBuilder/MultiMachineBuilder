@@ -27,7 +27,7 @@ public class WorldMenu extends JPopupMenu {
 	/**
 	 * 
 	 */
-	public WorldMenu(BlockEntry block, WorldFrame frame, WorldWindow window) {
+	public WorldMenu(BlockEntry block, WorldFrame frame) {
 		World map = frame.getMap();
 		int mouseoverX = frame.getMouseoverBlockX();
 		int mouseoverY = frame.getMouseoverBlockY();
@@ -43,6 +43,10 @@ public class WorldMenu extends JPopupMenu {
 			if(map.removeMachine(mouseoverX, mouseoverY)) {
 				debug.printl("Removed machine");
 				return;
+			}
+			//Drop if needed
+			if(!frame.getPlayer().creative.getValue()) {
+				//The player is survival, drop
 			}
 			block
 			.type()

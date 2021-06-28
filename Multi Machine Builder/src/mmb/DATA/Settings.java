@@ -11,6 +11,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
 
+import javax.annotation.Nullable;
+
 import mmb.debug.Debugger;
 
 /**
@@ -89,5 +91,15 @@ public class Settings {
 		default:
 			return def;
 		}
+	}
+	/**
+	 * @param key key
+	 * @param def default value for boolean
+	 * @return retrieved boolean value, or null if unable to retrieve or process
+	 */
+	public static @Nullable Boolean getOptionalBool(String key, boolean def) {
+		String result = props.getProperty(key);
+		if(result == null) return null;
+		return Boolean.valueOf(result);
 	}
 }

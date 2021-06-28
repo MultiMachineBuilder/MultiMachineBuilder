@@ -5,7 +5,7 @@ package mmb.WORLD.crafting;
 
 import it.unimi.dsi.fastutil.chars.Char2ObjectMap;
 import it.unimi.dsi.fastutil.chars.Char2ObjectOpenHashMap;
-import mmb.WORLD.inventory.ItemEntry;
+import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 

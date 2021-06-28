@@ -1,8 +1,6 @@
 package mmb.debug;
 
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
@@ -26,7 +24,6 @@ public class Debugger {
 			e1.printStackTrace();
 		}
 		try {
-			// deepcode ignore MissingClose: must stay open for entire run duration			OutputStream osLog = new FileOutputStream("log.txt");
 			System.setOut(new TeePrintStream("log.txt", System.out));
 		} catch (FileNotFoundException e1) {
 			Main.crash(e1);

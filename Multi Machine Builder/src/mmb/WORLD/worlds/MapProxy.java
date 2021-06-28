@@ -86,8 +86,6 @@ public interface MapProxy extends AutoCloseable{
 		return new Dimension(sizeX(), sizeY());
 	}
 	
-	public void close();
-	
 	/** Run given action when map proxy is closed */
 	public void later(Runnable r);
 	

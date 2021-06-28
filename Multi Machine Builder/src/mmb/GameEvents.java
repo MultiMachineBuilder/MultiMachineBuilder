@@ -10,6 +10,6 @@ import mmb.DATA.variables.ListenerBooleanVariable;
  *
  */
 public class GameEvents {
-	private GameEvents() {};
+	private GameEvents() {}
 	public static final ListenerBooleanVariable fullScreen = new ListenerBooleanVariable();
 }

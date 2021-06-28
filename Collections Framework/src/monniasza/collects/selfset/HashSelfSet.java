@@ -190,13 +190,13 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 		return new Set<V>(){
 
 			@Override
-			public boolean add(V e) {
+			public boolean add(@SuppressWarnings("null") V e) {
 				map.put(e.id(), e);
 				return true;
 			}
 
 			@Override
-			public boolean addAll(Collection<? extends V> c) {
+			public boolean addAll(@SuppressWarnings("null") Collection<? extends V> c) {
 				Bool changed = new Bool();
 				for(V value: c) {
 					if(that.add(value)) changed.val = true;
@@ -210,12 +210,12 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 			}
 
 			@Override
-			public boolean contains(Object o) {
+			public boolean contains(@Nullable Object o) {
 				return that.contains(o);
 			}
 
 			@Override
-			public boolean containsAll(Collection<?> c) {
+			public boolean containsAll(@SuppressWarnings("null") Collection<?> c) {
 				return that.containsAll(c);
 			}
 
@@ -230,17 +230,17 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 			}
 
 			@Override
-			public boolean remove(Object o) {
+			public boolean remove(@Nullable Object o) {
 				return vals.remove(o);
 			}
 
 			@Override
-			public boolean removeAll(Collection<?> c) {
+			public boolean removeAll(@SuppressWarnings("null") Collection<?> c) {
 				return vals.removeAll(c);
 			}
 
 			@Override
-			public boolean retainAll(Collection<?> c) {
+			public boolean retainAll(@SuppressWarnings("null") Collection<?> c) {
 				return vals.retainAll(c);
 			}
 
@@ -255,7 +255,7 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 			}
 
 			@Override
-			public <T> T[] toArray(T[] a) {
+			public <T> T[] toArray(@SuppressWarnings("null") T[] a) {
 				return vals.toArray(a);
 			}
 			
@@ -278,7 +278,7 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 	}
 
 	@Override
-	public boolean containsKey(K key) {
+	public boolean containsKey(@Nullable K key) {
 		return map.containsKey(key);
 	}
 

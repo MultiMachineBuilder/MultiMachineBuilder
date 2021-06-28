@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.ExternalLoader;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.worlds.world.World.BlockMap;
+import mmb.WORLD.worlds.world.BlockMap;
 import mmb.debug.Debugger;
 
 /**

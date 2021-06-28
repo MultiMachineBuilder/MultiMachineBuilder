@@ -3,9 +3,9 @@
  */
 package mmb.WORLD.block;
 
-import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.ItemEntry;
-import mmb.WORLD.worlds.world.World.BlockMap;
+import mmb.WORLD.inventory.io.InventoryWriter;
+import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar
@@ -21,10 +21,10 @@ public interface Drop {
 	 * @param y Y coordinate
 	 * @return Were items dropped?
 	 */
-	public boolean drop(Inventory inv, BlockMap map, int x, int y);
+	public boolean drop(InventoryWriter inv, BlockMap map, int x, int y);
 
-	public static boolean tryDrop(ItemEntry ent, Inventory inv, BlockMap map, int x, int y) {
-		int inserted = inv.insert(ent, 1);
+	public static boolean tryDrop(ItemEntry ent, InventoryWriter i, BlockMap map, int x, int y) {
+		int inserted = i.write(ent);
 		if(inserted == 0) map.dropItem(ent, x, y);
 		return true;
 	}

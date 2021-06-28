@@ -5,9 +5,9 @@ package mmb.WORLD.inventory;
 
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.function.Consumer;
-
 import javax.annotation.Nonnull;
+
+import mmb.WORLD.items.ItemEntry;
 
 /**
  * @author oskar
@@ -57,5 +57,5 @@ public class NoSuchInventory implements Inventory{
 	@Override
 	public ItemRecord nget(ItemEntry entry) {
 		return nsir;
-	};
+	}
 }

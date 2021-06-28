@@ -6,7 +6,7 @@ package mmb.WORLD.blocks.gates;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.WORLD.RotatedImageGroup;
-import mmb.WORLD.worlds.world.World.BlockMap;
+import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar

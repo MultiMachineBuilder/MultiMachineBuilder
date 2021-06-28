@@ -10,9 +10,10 @@ import java.util.Collection;
  * @author oskar
  *	A resizable list with limited capacity
  */
-@SuppressWarnings("serial")
-public class LimitedArrayList<E> extends ArrayList<E> {
 
+public class LimitedArrayList<E> extends ArrayList<E> {
+	private static final long serialVersionUID = -7230187565388862552L;
+	
 	public int maxAmount = Integer.MAX_VALUE;
 	public LimitedArrayList() {
 		super();

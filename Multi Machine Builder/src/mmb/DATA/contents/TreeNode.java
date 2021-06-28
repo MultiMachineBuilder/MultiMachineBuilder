@@ -4,6 +4,7 @@
 package mmb.DATA.contents;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -27,9 +28,8 @@ public class TreeNode<T> {
 			parent = null;
 		}
 	}
-	@SuppressWarnings("unchecked")
-	public TreeNode<T>[] getChildren(){
-		return (TreeNode<T>[]) children.toArray();
+	public List<TreeNode<T>> getChildren(){
+		return Collections.unmodifiableList(children);
 	}
 	public TreeNode<T> getParent(){
 		return parent;

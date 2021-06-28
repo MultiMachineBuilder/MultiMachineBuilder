@@ -8,8 +8,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-
 import mmb.DATA.json.JsonTool;
 import mmb.FILES.Save;
 import mmb.MENU.FullScreen;
@@ -56,7 +54,7 @@ import javax.swing.SwingConstants;
  * @author oskar
  *
  */
-public class WorldWindow extends MMBFrame implements WindowListener{
+public class WorldWindow extends MMBFrame{
 	private static final long serialVersionUID = -3444481558687472298L;
 	private transient Save file;
 	private Timer fpsCounter = new Timer();
@@ -94,7 +92,6 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 	 * Creates a new world window
 	 */
 	public WorldWindow() {
-
 		setTitle("Test");
 		setBounds(100, 100, 824, 445);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -106,19 +103,16 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 				open = false;
 				recalc();
 			}
-
 			@Override
 			public void windowDeiconified(WindowEvent arg0) {
 				iconified = false;
 				recalc();
 			}
-
 			@Override
 			public void windowIconified(WindowEvent arg0) {
 				iconified = true;
 				recalc();
 			}
-
 			@Override
 			public void windowOpened(WindowEvent arg0) {
 				open = true;
@@ -126,6 +120,7 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 			}
 			private void recalc() {
 				boolean running = !iconified && open;
+				worldFrame.setActive(running);
 			}
 			
 		});
@@ -141,10 +136,9 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 					JSplitPane worldPane = new JSplitPane();
 					worldPane.setDividerLocation(256);
 					//[start] The world frame
-						worldFrame = new WorldFrame();
+						worldFrame = new WorldFrame(this);
 						worldFrame.setBackground(Color.GRAY);
-						worldFrame.addTitleListener(this::setTitle);
-						worldFrame.setWindow(this);
+						worldFrame.titleChange.addListener(this::updateTitle);
 						worldPane.setRightComponent(worldFrame);
 					//[end]
 					//[start] Scrollable Placement List Pane
@@ -234,6 +228,13 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 			}
 		}, 0, 1000);
 	}
+	private void updateTitle(String s) {
+		StringBuilder sb = new StringBuilder(s).append(' ');
+		if(worldFrame.ctrlPressed()) sb.append("[Ctrl]");
+		if(worldFrame.altPressed()) sb.append("[Alt]");
+		if(worldFrame.shiftPressed()) sb.append("[Shift]");
+		setTitle(sb.toString());
+	}
 	private static Debugger debug = new Debugger("WORLD TEST");
 	
 	//menu
@@ -309,38 +310,8 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 		if(worldFrame == null) return null;
 		return worldFrame.getPlayer();
 	}
-	//[start] WindowListener
-	@Override
-	public void windowActivated(WindowEvent e) {
-		//unused
-		
-	}
-	@Override
-	public void windowClosed(WindowEvent e) {
-		//unused
-	}
-	@Override
-	public void windowClosing(WindowEvent e) {
-		worldFrame.setActive(false);
-	}
-	@Override
-	public void windowDeactivated(WindowEvent e) {
-		//unused
-	}
-	@Override
-	public void windowDeiconified(WindowEvent e) {
-		worldFrame.setActive(true);
-	}
-	@Override
-	public void windowIconified(WindowEvent e) {
-		worldFrame.setActive(false);
-	}
-	@Override
-	public void windowOpened(WindowEvent e) {
-		//unused
-	}
-	//[end]
-	//[start] Scrollable Placement List
+	
+	//Scrollable Placement List
 	public ScrollablePlacementList getPlacer() {
 		return scrollablePlacementList;
 	}
@@ -350,8 +321,6 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 		
 	}
 	private ScrollablePlacementList scrollablePlacementList;
-	
-	
 	/**
 	 * @author oskar
 	 * A {@code ScrollablePlacementList} is used to select a block or machine
@@ -437,6 +406,8 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 		}
 
 		private final class CellRenderer extends JLabel implements ListCellRenderer<Placer>{
+			private static final long serialVersionUID = 5070252011413398383L;
+			
 			public CellRenderer() {
 				setOpaque(true);
 			}
@@ -466,7 +437,7 @@ public class WorldWindow extends MMBFrame implements WindowListener{
 			return WorldWindow.this;
 		}
 	}
-	//[end]
+	
 	
 	/**
 	 * The tool selection. Changes to the model are reflected in the window and vice versa
