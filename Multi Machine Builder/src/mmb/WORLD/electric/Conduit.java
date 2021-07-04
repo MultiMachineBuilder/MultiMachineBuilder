@@ -58,7 +58,7 @@ public class Conduit extends SkeletalBlockEntityData {
 	}
 
 	@Override
-	public void load(JsonNode data) {
+	public void load(@Nonnull JsonNode data) {
 		tf.amt = data.get("charge").asDouble();
 	}
 

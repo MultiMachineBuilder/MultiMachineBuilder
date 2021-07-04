@@ -56,6 +56,7 @@ public class Player implements GameObject, Saver<JsonNode>, Loader<JsonNode> {
 	= new CatchingEvent<>(debug, "Failed to save mod player data");
 	@Override
 	public void load(JsonNode data) {
+		if(data == null) return;
 		ObjectNode on = (ObjectNode) data;
 		JsonNode nodeCreative = on.get("creative");
 		if(nodeCreative != null) creative.setValue(nodeCreative.asBoolean(true));

@@ -42,4 +42,12 @@ public class Bitwise {
 	public static long bitindexL(int pos) {
 		return 1L << (pos + 1);
 	}
+
+	//Boolean to value
+	public static int bool2int(boolean bool) {
+		return bool ? 1 : 0;
+	}
+	public static long bool2long(boolean bool) {
+		return bool ? 1L : 0L;
+	}
 }

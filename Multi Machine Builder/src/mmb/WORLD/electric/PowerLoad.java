@@ -68,7 +68,7 @@ public class PowerLoad extends SkeletalBlockEntityData implements BlockActivateL
 	}
 
 	@Override
-	public void load(JsonNode data) {
+	public void load(@Nonnull JsonNode data) {
 		setPower(data.get("power").asDouble());
 	}
 

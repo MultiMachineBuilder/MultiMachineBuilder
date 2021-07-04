@@ -35,7 +35,7 @@ import java.awt.Color;
 
 /**
  * @author oskar
- *
+ * The WorldFrame represents interface, which user can interact with.
  */
 public class WorldFrame extends JComponent {
 	//Serialization
@@ -48,9 +48,12 @@ public class WorldFrame extends JComponent {
 	public static final ListenerBooleanVariable DEBUG_DISPLAY = new ListenerBooleanVariable();
 	
 	//Frames Per Second
+	/** This variable holds current framerate */
 	public final FPSCounter fps = new FPSCounter();
 	
-	/** Create a new WorldFrame */
+	/** Create a new WorldFrame 
+	 * @param window the window, which contains the frame
+	 */
 	public WorldFrame(WorldWindow window) {
 		this.window = window;
 		Listener listener = new Listener();
@@ -94,9 +97,7 @@ public class WorldFrame extends JComponent {
 	
 	//Universe
 	private transient Universe world;
-	/**
-	 * @return currently active universe
-	 */
+	/** @return currently active universe */
 	public Universe getWorld() {
 		return world;
 	}
@@ -118,15 +119,11 @@ public class WorldFrame extends JComponent {
 	
 	//World
 	private transient World map;
-	/**
-	 * @return current map name, or null if it is main
-	 */
+	/** @return current map name, or null if it is main */
 	public String getSubWorldName() {
 		return map.getName();
 	}
-	/**
-	 * @return currently active map
-	 */
+	/** @return currently active map */
 	public World getMap() {
 		return map;
 	}
@@ -169,6 +166,7 @@ public class WorldFrame extends JComponent {
 		if(map != null) return map.player;
 		return null;
 	}
+	
 	//Modifier keys
 	private boolean alt;
 	/** @return is [Alt] pressed? */
@@ -188,32 +186,26 @@ public class WorldFrame extends JComponent {
 	
 	//Mouse and key listener
 	private class Listener implements MouseListener, KeyListener, MouseMotionListener, MouseWheelListener{
-		@Override
-		public void mouseWheelMoved(@Nullable MouseWheelEvent e) {
+		@Override public void mouseWheelMoved(@Nullable MouseWheelEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			window.scrollScrollist(e.getWheelRotation()*32);
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseWheelMoved(e);
 		}
-	
-		@Override
-		public void mouseDragged(@Nullable MouseEvent e) {
+		@Override public void mouseDragged(@Nullable MouseEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			setMousePosition(e);
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseDragged(e);
 		}
-	
-		@Override
-		public void mouseMoved(@Nullable MouseEvent e) {
+		@Override public void mouseMoved(@Nullable MouseEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			setMousePosition(e);
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseMoved(e);
 		}
 	
-		@Override
-		public void keyPressed(@SuppressWarnings("null") @Nonnull KeyEvent e) {
+		@Override public void keyPressed(@SuppressWarnings("null") @Nonnull KeyEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			switch(e.getKeyCode()) {
 			case KeyEvent.VK_A:
@@ -243,9 +235,7 @@ public class WorldFrame extends JComponent {
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.keyPressed(e);
 		}
-	
-		@Override
-		public void keyReleased(@SuppressWarnings("null") @Nonnull KeyEvent e) {
+		@Override public void keyReleased(@SuppressWarnings("null") @Nonnull KeyEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			switch(e.getKeyCode()) {
 			case KeyEvent.VK_ALT:
@@ -263,49 +253,40 @@ public class WorldFrame extends JComponent {
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.keyReleased(e);
 		}
-	
-		@Override
-		public void keyTyped(@Nullable KeyEvent e) {
+		@Override public void keyTyped(@Nullable KeyEvent e) {
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.keyTyped(e);
 		}
 	
-		@Override
-		public void mouseClicked(@Nullable MouseEvent e) {
+		@Override public void mouseClicked(@Nullable MouseEvent e) {
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseClicked(e);
 		}
-	
-		@Override
-		public void mouseEntered(@Nullable MouseEvent e) {
+		@Override public void mouseEntered(@Nullable MouseEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			setMousePosition(e);
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseEntered(e);
 		}
-	
-		@Override
-		public void mouseExited(@Nullable MouseEvent e) {
+		@Override public void mouseExited(@Nullable MouseEvent e) {
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseExited(e);
 		}
-	
-		@Override
-		public void mousePressed(@Nullable MouseEvent e) {
+		@Override public void mousePressed(@Nullable MouseEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			setMousePosition(e);
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mousePressed(e);
 		}
-	
-		@Override
-		public void mouseReleased(@Nullable MouseEvent e) {
+		@Override public void mouseReleased(@Nullable MouseEvent e) {
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseReleased(e);
 		} 
 	}
 	
 	//Graphics
+	public final Event<StringBuilder> informators =
+			new CatchingEvent<StringBuilder>(debug, "Failed to process render task");
 	@Override
 	public void paint(@Nullable Graphics g) {
 		resetMouseoverBlock();
@@ -322,19 +303,16 @@ public class WorldFrame extends JComponent {
 				setNoMap();
 				debug.id = "WORLD - main";
 				title = "main";
-				render(g);
 			}
 		}else{
 			if(world == null) title = "anonymous ["+map.getName()+"]";
 			else if(map.getName() == null) title = "main "+world.getName();
 			else title = "["+map.getName()+"] "+world.getName();
-			render(g);
 			debug.id = "WORLD - "+title;
 		}
+		render(g);
 		titleChange.trigger(title);
 	}
-	public final Event<StringBuilder> informators =
-			new CatchingEvent<StringBuilder>(debug, "Failed to process render task");
 	private void render(Graphics g) {
 		//Count frames
 		fps.count();
@@ -356,7 +334,7 @@ public class WorldFrame extends JComponent {
 		g.setColor(getBackground());
 		g.fillRect(0, 0, getWidth(), getHeight());
 		
-		//Using corner approach instead
+		//Get in-world bounds
 		Point ul = blockAt(0, 0);
 		Point dr = blockAt(getWidth(), getHeight());
 		
@@ -396,8 +374,9 @@ public class WorldFrame extends JComponent {
 		
 		//Preview
 		Placer placer0 = placer.getSelectedValue();
-		if(placer0 != null)
-			placer0.preview(g, new Point(x, y), m, new Point(mouseover));
+		if(placer0 != null) placer0.preview(g, new Point(x, y), m, new Point(mouseover));
+		
+		//Pointer
 		g.setColor(Color.BLACK);
 		g.drawRect(x, y, 31, 31);
 		g.drawRect(x+2, y+2, 27, 27);
@@ -406,15 +385,6 @@ public class WorldFrame extends JComponent {
 		
 		//Debug use only
 		if(DEBUG_DISPLAY.getValue()) {
-			/*g.setColor(Color.CYAN);
-			g.fillRect(0, 0, 150, 102);
-			g.setColor(Color.BLACK);*/
-			/*g.drawString("Offset: "+pos.x+","+pos.y, 2, 11);
-			g.drawString("Selected block: "+mouseover.x+","+mouseover.y, 2, 28);
-			g.drawString("BlockEntities: " + m.getBlockEntities().size(), 2, 45);
-			g.drawString("FPS: "+fps.get(), 2, 62);
-			g.drawString("TPS: "+map.tps.get(), 2, 79);
-			g.drawString("BPF: "+bpf, 2, 96);*/
 			StringBuilder sb = new StringBuilder();
 			sb.append("Position: ").append(perspective).append("\r\n");
 			sb.append("Selected block: ").append(mouseover.x).append(',').append(mouseover.y).append("\r\n");
@@ -425,7 +395,6 @@ public class WorldFrame extends JComponent {
 			//Information for mouseover block
 			BlockEntry ent = getMouseoverBlockEntry();
 			if(ent != null) ent.debug(sb);
-			
 			informators.trigger(sb);
 			//Display mouseover block info
 			StringRenderer.renderStringBounded(Color.BLACK, Color.CYAN, Color.BLACK, sb.toString(), 0, 0, 5, 5, g);
@@ -482,9 +451,7 @@ public class WorldFrame extends JComponent {
 	}
 	
 	//Window reference
-	/**
-	 * The reference to the world window
-	 */
+	/** The reference to the world window */
 	public final WorldWindow window;
 	
 	//Mouse position
@@ -499,6 +466,7 @@ public class WorldFrame extends JComponent {
 	public Point getMouseoverBlock() {
 		return new Point(mouseover);
 	}
+	/** @return the block which is currently selected with the mouse */
 	public BlockEntry getMouseoverBlockEntry() {
 		if(map.inBounds(mouseover)) return map.get(mouseover);
 		return null;
@@ -552,18 +520,13 @@ public class WorldFrame extends JComponent {
 		return blockAt(p.x, p.y, tgt);
 	}
 	
-	
 	//Scrollable Placement List
 	private ScrollablePlacementList placer;
-	/**
-	 * @return the associated Scrollable Placement List
-	 */
+	/** @return the associated Scrollable Placement List */
 	public ScrollablePlacementList getPlacer() {
 		return placer;
 	}
-	/**
-	 * @param placer the new Scrollable Placement List
-	 */
+	/** @param placer the new Scrollable Placement List */
 	public void setPlacer(ScrollablePlacementList placer) {
 		this.placer = placer;
 	}

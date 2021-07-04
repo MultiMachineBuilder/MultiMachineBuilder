@@ -7,6 +7,7 @@ import java.awt.Point;
 import java.util.Iterator;
 import java.util.Set;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -128,10 +129,11 @@ public class World implements Identifiable<String>, BlockArrayProviderSupplier{
 	//[end]
 	//[start] serialization
 	public final Serialization saveLoad = new Serialization();
-	public class Serialization implements Saver<JsonNode>, Loader<JsonNode>{
+	public class Serialization implements Saver<@Nonnull JsonNode>, Loader<@Nonnull JsonNode>{
 		private Serialization() {}	
 		@Override
 		public void load(JsonNode json) {
+			
 			//Dimensions
 			int sizeX = json.get("sizeX").asInt();
 			int sizeY = json.get("sizeY").asInt();

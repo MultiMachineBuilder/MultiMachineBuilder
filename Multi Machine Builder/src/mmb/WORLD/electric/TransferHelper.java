@@ -10,8 +10,6 @@ import javax.annotation.Nonnull;
 import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.worlds.world.BlockMap;
-import mmb.debug.Debugger;
-import sun.security.util.Debug;
 
 /**
  * @author oskar
@@ -21,7 +19,6 @@ public class TransferHelper extends Battery {
 	public int maxIters = 500;
 	private final BlockMap map;
 	private final int x, y;
-	private static final Debugger debug = new Debugger("CONDUITS");
 	public TransferHelper(BlockMap map, int x, int y, double cap, double pwr) {
 		super(pwr, cap);
 		this.map = map;
@@ -43,49 +40,34 @@ public class TransferHelper extends Battery {
 		BlockEntry here = map.get(pt);
 		
 		if(BlockEntry.isValidConduit(here)) {
-			debug.printl("cap = "+PowerMeter.formatOut(here.condCapacity() * 50)+" "+pt.x+" "+pt.y);
 			//Here is a conduit.
 			//Sides: top, left, right
 			Side left = to.ccw();
 			Side right = to.cw();
-			double remain = Math.min(amount, here.condCapacity());
-			debug.printl("pwr0 = "+PowerMeter.formatOut(remain * 50)+" "+pt.x+" "+pt.y);
+			double max = Math.min(amount, here.condCapacity()); //The power limited by conduit
+			double remain = max;
 			//Forward
 			Point fwd = to.offset(pt);
-			if(remain <= 0) {
-				debugpower(pt, amount, 'F');
-				return amount;
-			}
 			double tfd1 = _insert(to, map, fwd, remain, iters+1);
 			remain -= tfd1;
-			
+			if(remain <= 0) return max;
+						
 			//Left
-			Point toleft = left.offset(pt);
-			if(remain <= 0) {
-				debugpower(pt, amount, 'L');
-				return amount;
-			}
+			Point toleft = left.offset(pt);		
 			double tfd2 = _insert(left, map, toleft, remain, iters+1);
 			remain -= tfd2;
+			if(remain <= 0) return max;
 			
 			//Right
 			Point toright = right.offset(pt);
-			if(remain <= 0) {
-				debugpower(pt, amount, 'R');
-				return amount;
-			}
 			double tfd3 = _insert(right, map, toright, remain, iters+1);
 			remain -= tfd3;
-			debugpower(pt, amount - remain, ' ');
-			return amount - remain;
+			return max - remain;
 		}
 		//Not a conduit, do not continue
 		Electricity elec = here.getElectricalConnection(to.negate());
 		if(elec == null) return 0;
 		return elec.insert(amount);
-	}
-	private static void debugpower(Point pt, double pwr, char side) {
-		debug.printl(side+"power = "+PowerMeter.formatOut(pwr * 50)+" "+pt.x+" "+pt.y);
 	}
 	public double insertSide(double amt, Side to) {
 		double max = Math.min(amt, maxPower);

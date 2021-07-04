@@ -20,10 +20,12 @@ import mmb.WORLD.texture.BlockDrawer;
  * Shared implementation for {@link Block} and {@link BlockEntityType}. More types will be added in future
  */
 public abstract class BlockBase extends Item implements BlockType {
+	@SuppressWarnings("null")
 	@Deprecated
-	public BlockType leaveBehind;
+	@Nonnull public BlockType leaveBehind;
+	@SuppressWarnings("null")
 	@Deprecated
-	public BlockDrawer texture;
+	@Nonnull public BlockDrawer texture;
 	private Drop drop;
 
 	@Override
@@ -61,6 +63,8 @@ public abstract class BlockBase extends Item implements BlockType {
 	}
 	@Override
 	public void register(String id) {
+		Objects.requireNonNull(id, "id is null");
+		if(leaveBehind == null) leaveBehind = ContentsBlocks.grass;
 		this.id = id;
 		register();
 	}

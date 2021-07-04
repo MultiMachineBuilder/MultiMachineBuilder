@@ -55,10 +55,10 @@ public class MoveItems extends JPanel {
 	 * Creates a item movement panel with specificallowed movement directions
 	 * @param left the left inventory controller
 	 * @param right the right inventory controller
-	 * @param sides byte tag of sides. Use {@link #NONE}, {@link #LEFT}, {@link #RIGHT} or {@link #BOTH}
+	 * @param i byte tag of sides. Use {@link #NONE}, {@link #LEFT}, {@link #RIGHT} or {@link #BOTH}
 	 * @throws NullPointerException when any inventory controller is {@code null}
 	 */
-	public MoveItems(InventoryController left, InventoryController right, byte sides) {
+	public MoveItems(InventoryController left, InventoryController right, int i) {
 		Objects.requireNonNull(left, "left is null");
 		Objects.requireNonNull(right, "right is null");
 		layout = new GridBagLayout();
@@ -70,7 +70,7 @@ public class MoveItems extends JPanel {
 		constraints.weighty = 1;
 		constraints.weightx = 1;
 		setLayout(layout);
-		if((sides & LEFT) != 0) {
+		if((i & LEFT) != 0) {
 			JButton btnAllL = new JButton("<< All");
 			btnAllL.addActionListener(e -> {
 				Inventories.transfer(right.getInv(), left.getInv());
@@ -111,7 +111,7 @@ public class MoveItems extends JPanel {
 			layout.setConstraints(btnOneL, constraints);
 			add(btnOneL);
 		}
-		if((sides & RIGHT) != 0) {
+		if((i & RIGHT) != 0) {
 			JButton btnOneR = new JButton("One >>");
 			btnOneR.addActionListener(e -> {
 				Inventories.transfer(left.getSelectedValue(), right.getInv(), 1);

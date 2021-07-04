@@ -16,7 +16,6 @@ import mmb.WORLD.worlds.world.BlockMap;
  * A skeletal implementation for a gate which reads two signals from DL and DR corners, and outputs them to U side
  */
 public abstract class AbstractActuatorBase extends SkeletalBlockEntityRotary{
-	protected boolean result;
 	/**
 	 * @param x
 	 * @param y
@@ -25,12 +24,18 @@ public abstract class AbstractActuatorBase extends SkeletalBlockEntityRotary{
 	protected AbstractActuatorBase(int x, int y, BlockMap owner2) {
 		super(x, y, owner2);
 	}
+	/**
+	 * 
+	 * @param p position of change
+	 * @param ent block to modify
+	 * @param proxy map proxy to use
+	 */
 	protected abstract void run(Point p, BlockEntry ent, MapProxy proxy);
 	@Override
 	public void onTick(MapProxy map) {
 		boolean a = owner.getAtSide(side.D(), x, y).provideSignal(side.U());
 		Point pt = side.U().offset(x, y);
-		if(a) run(pt, owner.get(pt.x, pt.y), map);
+		if(a) run(pt, owner.get(pt), map);
 	}
 	@Override
 	public void setRotation(Rotation rotation) {

@@ -53,6 +53,11 @@ import javax.swing.SwingConstants;
 /**
  * @author oskar
  *
+ *
+ * <h2>WINDOW TABS</h2>
+ * {@link #openWindow(Component, String)} - opens a tab without going to it
+ * {@link #openAndShowWindow(Component, String)} - opens a tab and shows it
+ * {@link #closeWindow(Component)} - closes a tab
  */
 public class WorldWindow extends MMBFrame{
 	private static final long serialVersionUID = -3444481558687472298L;
@@ -264,7 +269,17 @@ public class WorldWindow extends MMBFrame{
 		pane.add(s, comp);
 		pane.setSelectedComponent(comp);
 	}
+	/**
+	 * Closes a tab. If the tab component implements {@link AutoCloseable}, its close() method is called first before removal
+	 * @param component
+	 */
 	public void closeWindow(Component component) {
+		if(component instanceof AutoCloseable)
+			try {
+				((AutoCloseable) component).close();
+			} catch (Exception e) {
+				debug.pstm(e, "Failed to shut down the component");
+			}
 		pane.remove(component);
 	}
 
@@ -326,8 +341,6 @@ public class WorldWindow extends MMBFrame{
 	 * A {@code ScrollablePlacementList} is used to select a block or machine
 	 */
 	public class ScrollablePlacementList extends JList<Placer>{
-		public final Debugger debug = new Debugger("BLOCK LIST");
-
 		private static final long serialVersionUID = -208562764791915412L;
 		/**
 		 * A list of all placers that player can choose
@@ -348,7 +361,6 @@ public class WorldWindow extends MMBFrame{
 		public void setPlacerIndex(int placerIndex) {
 			setSelectedIndex(placerIndex);
 		}
-
 		/**
 		 * @return the placer
 		 * @deprecated Now implements JList. Use getSelectedValue() instead. To be removed in 0.6
@@ -365,12 +377,8 @@ public class WorldWindow extends MMBFrame{
 		public void setPlacer(Placer placer) {
 			setSelectedValue(placer, true);
 		}
-		
-		/**
-		 * Creates a new ScrollablePlacementList.
-		 * @discouraged To be used only in WorldWindow code
-		 */
-		public ScrollablePlacementList(ToolSelectionModel tsmodel) {
+
+		ScrollablePlacementList(ToolSelectionModel tsmodel) {
 			placers = new DefaultListModel<>();
 			setModel(placers);
 			setFocusable(false);
@@ -430,18 +438,13 @@ public class WorldWindow extends MMBFrame{
 			
 		}
 		
-		/**
-		 * @return an associated WorldWindow
-		 */
+		/** @return an associated WorldWindow */
 		public WorldWindow getWindow() {
 			return WorldWindow.this;
 		}
 	}
 	
-	
-	/**
-	 * The tool selection. Changes to the model are reflected in the window and vice versa
-	 */
+	/** The tool selection. Changes to the model are reflected in the window and vice versa */
 	@Nonnull public final ToolSelectionModel toolModel = new ToolSelectionModel(this);
 	
 	public void redrawUIs() {

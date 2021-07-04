@@ -5,6 +5,7 @@ package mmb.WORLD.inventory.storage;
 
 import java.util.Iterator;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -24,9 +25,9 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class SimpleInventory implements Inventory, Saver<JsonNode>, Loader<JsonNode>{
+public class SimpleInventory implements Inventory, Saver<JsonNode>, Loader<@Nullable JsonNode>{
 	private static final Debugger debug = new Debugger("INVENTORIES");
-	private SelfSet<ItemEntry, Node> contents = new HashSelfSet<>();
+	@Nonnull private SelfSet<ItemEntry, Node> contents = new HashSelfSet<>();
 	private double volume = 0;
 	@Deprecated public double capacity = 2;
 	private final class Node implements ItemRecord{
@@ -129,7 +130,8 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>, Loader<JsonN
 	}
 
 	@Override
-	public void load(JsonNode data) {	
+	public void load(@Nullable JsonNode data) {	
+		if(data == null) return;
 		//Prepare
 		contents.clear();
 		capacity = 2;

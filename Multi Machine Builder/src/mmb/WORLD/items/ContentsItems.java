@@ -57,4 +57,9 @@ public class ContentsItems {
 			.texture("item/silver ingot.png")
 			.volumed(0.00125)
 			.finish("ingot.silver");
+	public static final Item diamond = new Item()
+			.title("Diamond")
+			.texture("item/diamond.png")
+			.volumed(0.00125)
+			.finish("gem.coal");
 }

@@ -51,13 +51,14 @@ public class WorldMenu extends JPopupMenu {
 			block
 			.type()
 			.leaveBehind()
-			.place(mouseoverX, mouseoverY, map.getMap());
+			.place(mouseoverX, mouseoverY, 
+					map.getMap());
 		});
 		
 		mntmNewMenuItem_1 = new JMenuItem("Place");
 		mntmNewMenuItem_1.addActionListener(e -> {
 			if(map.inBounds(mouseoverX, mouseoverY)) {
-				frame.getPlacer().getPlacer().place(mouseoverX, mouseoverY, map.getMap());
+				frame.getPlacer().getSelectedValue().place(mouseoverX, mouseoverY, map.getMap());
 			}
 		});
 		add(mntmNewMenuItem_1);
@@ -67,6 +68,7 @@ public class WorldMenu extends JPopupMenu {
 		mntmCCW.addActionListener(e -> {
 				if(block instanceof Rotable) 
 					((Rotable)block).ccw();
+				else block.wrenchCCW();
 		});
 		add(mntmCCW);
 		
@@ -74,6 +76,7 @@ public class WorldMenu extends JPopupMenu {
 		mntmCW.addActionListener(e -> {
 				if(block instanceof Rotable) 
 					((Rotable)block).cw();
+				else block.wrenchCW();
 		});
 		add(mntmCW);
 	}
