@@ -20,11 +20,18 @@ import mmb.WORLD.worlds.world.BlockMap;
  */
 public interface BlockType extends Placer, ItemType {
 	
-	@Override
-	default void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation) {
-		getIcon().paintIcon(null, g, renderStartPos.x, renderStartPos.y);
-	}
+	/*@Override
+	default void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation, int side) {
+		getI*con().paintIcon(null, g, renderStartPos.x, renderStartPos.y);
+	}*/
 
+	/**
+	 * Creates a block entry for this type.
+	 * @param x X coordinate of the block
+	 * @param y Y coordinate of the block
+	 * @param blockMap map which will contain the block
+	 * @return newly created block
+	 */
 	@Nonnull public BlockEntry create(int x, int y, BlockMap blockMap);
 	
 	public boolean isBlockEntity();
@@ -50,7 +57,6 @@ public interface BlockType extends Placer, ItemType {
 	default Icon getIcon() {
 		return getTexture().toIcon();
 	}
-	
 	
 	public Drop getDrop();
 	public void setDrop(Drop drop);

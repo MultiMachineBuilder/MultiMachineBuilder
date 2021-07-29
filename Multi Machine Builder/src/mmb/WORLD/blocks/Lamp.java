@@ -29,12 +29,12 @@ public class Lamp extends SkeletalBlockEntityDataless {
 	}
 
 	@Override
-	public void render(int xx, int yy, Graphics g) {
+	public void render(int xx, int yy, Graphics g, int side) {
 		boolean active = SignalUtils.hasIncomingSignal(x, y, owner);
 		if(active) {
-			on.draw(this, xx, yy, g);
+			on.draw(this, xx, yy, g, side);
 		}else {
-			off.draw(this, xx, yy, g);
+			off.draw(this, xx, yy, g, side);
 		}
 	}
 	

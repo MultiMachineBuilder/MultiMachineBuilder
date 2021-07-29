@@ -8,6 +8,7 @@ import java.util.Iterator;
 
 import com.google.common.collect.Iterators;
 
+import mmb.Bitwise;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
@@ -133,5 +134,14 @@ public class SingleStackedInventory implements Inventory{
 
 	public int itemCount() {
 		return amount;
+	}
+	
+	@Override
+	public boolean isEmpty() {
+		return amount==0 || entry==null;
+	}
+	@Override
+	public int size() {
+		return Bitwise.bool2int(!isEmpty());
 	}
 }

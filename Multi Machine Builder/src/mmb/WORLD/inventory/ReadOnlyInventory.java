@@ -99,4 +99,14 @@ public class ReadOnlyInventory implements Inventory {
 		return result.readOnly();
 	}
 
+	@Override
+	public boolean isEmpty() {
+		return inv.isEmpty();
+	}
+
+	@Override
+	public int size() {
+		return inv.size();
+	}
+
 }

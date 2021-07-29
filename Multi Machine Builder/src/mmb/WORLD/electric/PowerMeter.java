@@ -83,8 +83,8 @@ public class PowerMeter extends SkeletalBlockEntityRotary {
 	}
 
 	@Override
-	public void render(int x, int y, Graphics g) {
-		super.render(x, y, g);
+	public void render(int x, int y, Graphics g, int side) {
+		super.render(x, y, g, side);
 		g.setColor(Color.BLACK);
 		g.drawString(label, x+4, y+20);
 	}

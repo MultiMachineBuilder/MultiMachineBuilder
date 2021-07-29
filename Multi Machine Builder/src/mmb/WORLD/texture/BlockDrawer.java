@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.swing.Icon;
 
 import mmb.WORLD.block.BlockEntry;
@@ -18,9 +19,22 @@ import mmb.WORLD.block.BlockEntry;
  *
  */
 public interface BlockDrawer {
-	public void draw(BlockEntry ent, int x, int y, @Nonnull Graphics g);
-	public default void draw(BlockEntry ent, Point p, Graphics g) {
-		draw(ent, p.x, p.y, g);
+	/**
+	 * @param ent block to be drawn, optional
+	 * @param x left X coordinate on the frame
+	 * @param y upper Y coordinate on the frame
+	 * @param g graphics context
+	 * @param sideSize how big is each side
+	 */
+	public void draw(@Nullable BlockEntry ent, int x, int y, @Nonnull Graphics g, int sideSize);
+	/**
+	 * @param ent block to be drawn, optional
+	 * @param p upper left corner on the frame
+	 * @param g graphics context
+	 * @param sideSize
+	 */
+	public default void draw(@Nullable BlockEntry ent, @Nonnull Point p, @Nonnull Graphics g, int sideSize) {
+		draw(ent, p.x, p.y, g, sideSize);
 	}
 	/**
 	 * 
@@ -63,8 +77,8 @@ public interface BlockDrawer {
 			}
 
 			@Override
-			public void paintIcon(Component c, Graphics g, int x, int y) {
-				draw(null, x, y, g);
+			public void paintIcon(Component c, @SuppressWarnings("null") @Nonnull Graphics g, int x, int y) {
+				draw(null, x, y, g, 32);
 			}
 		};
 	}

@@ -28,7 +28,7 @@ public interface Placer extends Titled {
 	public void openGUI(WorldWindow window);
 	public void closeGUI(WorldWindow window);
 	
-	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation);
+	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation, int side);
 	
 	@FunctionalInterface
 	/**

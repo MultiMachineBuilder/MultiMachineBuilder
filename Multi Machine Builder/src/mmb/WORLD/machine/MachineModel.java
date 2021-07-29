@@ -139,7 +139,7 @@ public class MachineModel extends Item implements Placer {
 		//unused
 	}
 	@Override
-	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation) {
+	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation, int side) {
 		preview.draw(g, renderStartPos, map, targetLocation);
 	}
 }

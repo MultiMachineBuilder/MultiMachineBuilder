@@ -90,11 +90,10 @@ public class WorldFrame extends JComponent {
 	}
 
 	//Events
-	/**
-	 * Runs when title changes
-	 */
+	/** Runs when title changes */
 	public final Event<String> titleChange = new CatchingEvent<>(debug, "Failed to run a title listener");
-	
+	/** Runs on each frame */
+	public final Event<Graphics> redraw = new CatchingEvent<>(debug, "Failed to run a renderer");
 	//Universe
 	private transient Universe world;
 	/** @return currently active universe */
@@ -290,6 +289,7 @@ public class WorldFrame extends JComponent {
 	@Override
 	public void paint(@Nullable Graphics g) {
 		resetMouseoverBlock();
+		redraw.trigger(g);
 		if(g == null) return;
 		if(map == null) {
 			if(world == null) {
@@ -323,8 +323,8 @@ public class WorldFrame extends JComponent {
 		if(m == null) return;
 		
 		//Dimensions in tiles
-		double tilesW = (getWidth()/ 32);
-		double tilesH = (getHeight()/ 32);
+		double tilesW = (getWidth()/ blockScale);
+		double tilesH = (getHeight()/ blockScale);
 		
 		//Perspective => offset
 		pos.set(perspective);
@@ -348,10 +348,10 @@ public class WorldFrame extends JComponent {
 		int bpf = 0;
 
 		//Render tiles
-		int rstartX = (int) ((l+pos.x)*32);
-		int rstartY = (int) ((u+pos.y)*32);
-		for(int i = l, x = rstartX; i <= r; i++, x += 32) {
-			for(int j = u, y = rstartY; j <= d; j++, y += 32) {
+		int rstartX = (int) ((l+pos.x)*blockScale);
+		int rstartY = (int) ((u+pos.y)*blockScale);
+		for(int i = l, x = rstartX; i <= r; i++, x += blockScale) {
+			for(int j = u, y = rstartY; j <= d; j++, y += blockScale) {
 				renderTile(x, y, g, m.get(i, j));
 				bpf++;
 			}
@@ -359,29 +359,32 @@ public class WorldFrame extends JComponent {
 		
 		//Draw machines
 		for(Machine mc: map.getMap().machines) {
-			int x = (int)((mc.posX()+pos.x)*32);
-			int y = (int)((mc.posY()+pos.y)*32);
+			int x = (int)((mc.posX()+pos.x)*blockScale);
+			int y = (int)((mc.posY()+pos.y)*blockScale);
 			int w = mc.sizeX();
 			int h = mc.sizeY();
 			@SuppressWarnings("null")
-			@Nonnull Graphics g2 = g.create(x, y, w*32, h*32);
+			@Nonnull Graphics g2 = g.create(x, y, w*blockScale, h*blockScale);
 			mc.render(g2);
 		}
 		
 		//Draw pointer
-		int x = (int)((mouseover.x+pos.x)*32);
-		int y = (int)((mouseover.y+pos.y)*32);
+		int x = (int)((mouseover.x+pos.x)*blockScale);
+		int y = (int)((mouseover.y+pos.y)*blockScale);
 		
 		//Preview
 		Placer placer0 = placer.getSelectedValue();
-		if(placer0 != null) placer0.preview(g, new Point(x, y), m, new Point(mouseover));
+		if(placer0 != null) placer0.preview(g, new Point(x, y), m, new Point(mouseover), blockScale);
 		
+		int out = blockScale-1;
+		int mid = blockScale-3;
+		int in = blockScale-5;
 		//Pointer
 		g.setColor(Color.BLACK);
-		g.drawRect(x, y, 31, 31);
-		g.drawRect(x+2, y+2, 27, 27);
+		g.drawRect(x, y, out, out);
+		g.drawRect(x+2, y+2, in, in);
 		g.setColor(Color.RED);
-		g.drawRect(x+1, y+1, 29, 29);
+		g.drawRect(x+1, y+1, mid, mid);
 		
 		//Debug use only
 		if(DEBUG_DISPLAY.getValue()) {
@@ -403,7 +406,7 @@ public class WorldFrame extends JComponent {
 	private void renderTile(int x, int y, @Nonnull Graphics g, @Nullable BlockEntry blockEntry) {
 		if(blockEntry == null) return;
 		try {
-			blockEntry.render(x, y, g);
+			blockEntry.render(x, y, g, blockScale);
 		} catch (Exception e) {
 			debug.pstm(e, "Failed to render a "+blockEntry.type().title());
 		}
@@ -500,8 +503,8 @@ public class WorldFrame extends JComponent {
 	 * @return target point with written position
 	 */
 	public Point blockAt(int x, int y, Point tgt) {
-		tgt.x = (int)Math.floor((x / 32.0)-pos.x);
-		tgt.y = (int)Math.floor((y / 32.0)-pos.y);
+		tgt.x = (int)Math.floor(((double)x / blockScale)-pos.x);
+		tgt.y = (int)Math.floor(((double)y / blockScale)-pos.y);
 		return tgt;
 	}
 	/**
@@ -530,4 +533,20 @@ public class WorldFrame extends JComponent {
 	public void setPlacer(ScrollablePlacementList placer) {
 		this.placer = placer;
 	}
+	
+	//Block scaling
+	private int blockScale = 32;
+	/**
+	 * @return the blockScale
+	 */
+	public int getBlockScale() {
+		return blockScale;
+	}
+	/**
+	 * @param blockScale the blockScale to set
+	 */
+	public void setBlockScale(int blockScale) {
+		this.blockScale = blockScale;
+	}
+
 }

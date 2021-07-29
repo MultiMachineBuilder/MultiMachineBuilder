@@ -28,7 +28,7 @@ class TestBlocks {
 		BlockDrawer fake = new BlockDrawer() {
 
 			@Override
-			public void draw(BlockEntry ent, int x, int y, Graphics g) {
+			public void draw(BlockEntry ent, int x, int y, Graphics g, int side) {
 				// TODO Auto-generated method stub
 			}
 

@@ -25,6 +25,7 @@ import mmb.RUNTIME.LockCounter;
 import mmb.SOUND.MP3Loader;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.blocks.machine.Furnace;
+import mmb.WORLD.blocks.machine.Nuker;
 import mmb.WORLD.blocks.pipe.Pipes;
 import mmb.WORLD.generator.Generators;
 import mmb.WORLD.items.ContentsItems;
@@ -141,6 +142,7 @@ public class ModLoader {
 		new ContentsBlocks(); //just for initialization
 		Pipes.init();
 		new ContentsItems();
+		Nuker.init();
 		Generators.init();
 		Furnace.init();
 		Tools.initialize();

@@ -6,6 +6,8 @@ package mmb.GRAPHICS.awt;
 import java.awt.Color;
 import java.util.Arrays;
 
+import javax.annotation.Nullable;
+
 /**
  * @author oskar
  *
@@ -35,7 +37,7 @@ public class ColorMapperRGB extends ColorMapper {
 
     @Override
     public int[] lookupPixel(int[] src,
-                             int[] dest) {
+                             @Nullable int[] dest) {
         if (dest == null) {
             dest = new int[src.length];
         }

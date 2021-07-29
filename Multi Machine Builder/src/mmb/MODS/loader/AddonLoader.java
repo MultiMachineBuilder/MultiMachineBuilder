@@ -18,6 +18,7 @@ import mmb.DATA.contents.*;
 import mmb.DATA.contents.sound.Sounds;
 import mmb.DATA.contents.texture.Textures;
 import mmb.FILES.AdvancedFile;
+import mmb.LAMBDAS.Consumers;
 import mmb.MODS.info.*;
 import mmb.debug.*;
 
@@ -73,19 +74,14 @@ public class AddonLoader {
 	 * @param originalPath
 	 */
 	protected AddonLoader(AdvancedFile source) {
-		super();
-		this.originalPath = source.name();
-		a.file = source;
-		runningOn = new Thread(() -> {init(); GameContents.addons.add(a);});
-		ModLoader.loaders.add(this);
-		runningOn.start();
+		this(source, Consumers.doNothing());
 	}
 	
 	protected AddonLoader(AdvancedFile source, Consumer<AddonInfo> handler) {
 		super();
 		this.originalPath = source.name();
 		a.file = source;
-		runningOn = new Thread(() -> {init(); handler.accept(a); GameContents.addons.add(a);});
+		runningOn = new Thread(() -> {init(); GameContents.addons.add(a); handler.accept(a);});
 		ModLoader.loaders.add(this);
 		runningOn.start();
 	}
@@ -106,7 +102,6 @@ public class AddonLoader {
 		}
 		try(InputStream in = a.file.getInputStream()) {
 			debug.printl("Opening a modfile: " + a.name);
-			
 			if(!a.file.exists()) {
 				debug.printl(a.file.name()+" does not exist.");
 				a.state = AddonState.NOEXIST;
@@ -114,17 +109,15 @@ public class AddonLoader {
 			}
 			if(!a.isOnline()) a.name = AdvancedFile.dirName(a.file.name())[1];
 			unzip(in);
+		}catch(IllegalArgumentException e) {
+			debug.pstm(e, "Make sure that \"" + a.name + "\" is not mistyped.");
+			a.state = AddonState.NOEXIST;
+		}catch(IOException e) {
+			if(a.isOnline()) debug.pstm(e, "Failed to download the file " + a.file.name());
+			else debug.pstm(e, "Failed to read the file " + a.file.name());
+			a.state = AddonState.NOEXIST;
 		}catch(Exception e) {
-			debug.printl(e.getClass().getCanonicalName());
-			if(e instanceof IllegalArgumentException) debug.printl("Make sure that \"" + a.name + "\" is not mistyped.");
-			else if(e instanceof IOException || e instanceof FileNotFoundException) {
-				if(a.isOnline()) debug.printl("Failed to download the file " + a.file.name());
-				else debug.printl("Failed to read the file " + a.file.name());
-			}
-			else debug.printl("Couldn't read " + a.name + " for unknown reasons");
-			
-			
-			debug.pst(e);
+			debug.pstm(e, "Couldn't read " + a.name + " for unknown reasons");
 			a.state = AddonState.NOEXIST;
 		}
 	}
@@ -162,6 +155,7 @@ public class AddonLoader {
 	
 	private void processFile(JarEntry meta, byte[] data){
 		String name = meta.getName();
+		@SuppressWarnings("null")
 		String[] tmp = AdvancedFile.baseExtension(name);
 		String ext = tmp[1];
 		debug.printl("Processing "+name);
@@ -229,22 +223,9 @@ public class AddonLoader {
 				a.central = central;
 				runCentralClass(central);
 			} catch (IllegalAccessException e) {
-				debug.printl("The constructor for" + cname +  " is non-public or absent. To developer: change");
-				debug.printl("...");
-				debug.printl("private/protected/package " + cname + "() {" );
-				debug.printl("...");
-				debug.printl("}");
-				debug.printl("...");
-				debug.printl("into");
-				debug.printl("...");
-				debug.printl("public " + cname + "() {" );
-				debug.printl("...");
-				debug.printl("}");
-				debug.printl("...");
-				debug.pst(e);
+				debug.pstm(e, "The constructor for" + cname +  " is non-public or absent. Make the constructor public");
 			} catch(Exception e) {
-				debug.printl("Couldn't create the main instance of the mod " + a.name);
-				debug.pst(e);
+				debug.pstm(e, "Couldn't create the main instance of the mod " + a.name);
 			}
 		}
 	}
@@ -256,8 +237,8 @@ public class AddonLoader {
     		Class<?> in = interfaces[i];
     		if(AddonCentral.class.isAssignableFrom(in)) runnable = true; //if class implements AddonCentral, run it
     	}
-    	if(runnable) //The given class is a mod central class //NOSONAR
-			cclasses.add((Class<? extends AddonCentral>) c); 
+    	if(runnable) //The given class is a mod central class
+    		cclasses.add((Class<? extends AddonCentral>) c); 
     	a.hasClasses = true;
     }
     	

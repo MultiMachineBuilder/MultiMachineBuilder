@@ -14,7 +14,6 @@ import mmb.MENU.FullScreen;
 import mmb.MENU.MMBFrame;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.Blocks;
-import mmb.WORLD.gui.BlockPlacer;
 import mmb.WORLD.gui.Placer;
 import mmb.WORLD.gui.WorldToolList;
 import mmb.WORLD.machine.MachineModel;
@@ -153,7 +152,7 @@ public class WorldWindow extends MMBFrame{
 						scrollistBipane.setDividerLocation(0.8);
 						//Scrollable Placement List
 							scrollablePlacementList = new ScrollablePlacementList(toolModel);
-							for(BlockType t: Blocks.blocks) scrollablePlacementList.add(new BlockPlacer(t));
+							for(BlockType t: Blocks.blocks) scrollablePlacementList.add(t);
 							for(MachineModel m: MachineModel.getMachineModels().values()) scrollablePlacementList.add(m);
 							scrollistPane = new JScrollPane();
 							scrollistPane.setViewportView(scrollablePlacementList);
@@ -221,6 +220,21 @@ public class WorldWindow extends MMBFrame{
 					bchckbxmntmDebugDisplay.setText("Debug display");
 					bchckbxmntmDebugDisplay.setVariable(WorldFrame.DEBUG_DISPLAY);
 					mnNewMenu.add(bchckbxmntmDebugDisplay);
+					
+					JLabel lblBlockScale = new JLabel("vv Block scale vv 32");
+					mnNewMenu.add(lblBlockScale);
+					
+					JScrollBar slideBlockScale = new JScrollBar();
+					slideBlockScale.setValue(32);
+					slideBlockScale.setMinimum(16);
+					slideBlockScale.setMaximum(64);
+					slideBlockScale.addAdjustmentListener(e -> {
+						worldFrame.setBlockScale(e.getValue());
+						lblBlockScale.setText("vv Block scale vv "+e.getValue());
+					});
+					slideBlockScale.setOrientation(JScrollBar.HORIZONTAL);
+					mnNewMenu.add(slideBlockScale);
+					
 		//Framerate
 		fpsCounter.scheduleAtFixedRate(new TimerTask() {
 			@Override

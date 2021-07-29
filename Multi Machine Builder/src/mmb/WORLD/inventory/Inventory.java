@@ -3,7 +3,10 @@
  */
 package mmb.WORLD.inventory;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -20,7 +23,7 @@ import mmb.WORLD.items.ItemEntry;
  * @author oskar
  *
  */
-public interface Inventory extends Iterable<ItemRecord>, RecipeOutput {
+public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
 	
 	@Override
 	default void produceResults(InventoryWriter tgt, int amount) {
@@ -40,18 +43,96 @@ public interface Inventory extends Iterable<ItemRecord>, RecipeOutput {
 			out.writeln(record.toRecipeOutputString());
 		}
 	}
-	@Override
-	@Nonnull public Iterator<ItemRecord> iterator();
 	/**
 	 * Get the item record under given item type
 	 * @param entry
 	 * @return the item record with given type, or throws if not found
+	 * @throws NullPointerException if {@code entry} is null
+	 * @throws IllegalStateException if item does not exist
 	 */
 	@Nonnull public ItemRecord get(ItemEntry entry);
+	@Override
+	default boolean add(ItemRecord arg0) {
+		return insert(arg0.item(), arg0.amount()) != 0;
+	}
+	@Override
+	default boolean addAll(Collection<? extends ItemRecord> c) {
+		boolean changed = false;
+		for(ItemRecord record: c) {
+			changed |= (insert(record.item(), record.amount())) != 0;
+		}
+		return changed;
+	}
+	@Override
+	default void clear() {
+		for(ItemRecord record: this) {
+			record.extract(record.amount());
+		}
+	}
+	@Override
+	default boolean contains(Object o) {
+		if(o instanceof ItemRecord) {
+			ItemRecord  got = nget(((ItemRecord) o).item());
+			if(got == null) return false;
+			return got.amount() >= ((ItemRecord) o).amount();
+		}
+		return false;
+	}
+	@Override
+	default boolean containsAll(Collection<?> c) {
+		for(ItemRecord record: this) {
+			if(!c.contains(record)) return false;
+		}
+		return true;
+	}
+	@Override
+	default boolean remove(Object o) {
+		if(!(o instanceof ItemRecord)) return false;
+		ItemRecord record = nget(((ItemRecord)o).item());
+		if(record == null) return false;
+		return record.extract(record.amount()) != 0;
+	}
+	@Override
+	default boolean removeAll(Collection<?> c) {
+		boolean changed = false;
+		for(ItemRecord record: this) {
+			if(c.contains(record)) {
+				changed |= (0 != record.extract(record.amount()));
+			}
+		}
+		return changed;// TODO Auto-generated method stub
+	}
+	@Override
+	default boolean retainAll(Collection<?> c) {
+		boolean changed = false;
+		for(ItemRecord record: this) {
+			if(!c.contains(record)) {
+				changed |= (0 != record.extract(record.amount()));
+			}
+		}
+		return changed;
+	}
+	/** @return number of unique cached item records */
+	@Override
+	int size();
+	
+	@Override
+	default ItemRecord[] toArray() {
+		return toArray(new ItemRecord[size()]);
+	}
+	@Override
+	default <T> T[] toArray(@SuppressWarnings("null") T[] arr) {
+		List<ItemRecord> list = new ArrayList<>();
+		for(ItemRecord record: this) {
+			list.add(record);
+		}
+		return list.toArray(arr);
+	}
 	/**
 	 * Get the item record under given item type
 	 * @param entry
 	 * @return the item record with given type, or null if not found
+	 * @throws NullPointerException if {@code entry} is null
 	 */
 	@Nullable public ItemRecord nget(ItemEntry entry);
 	public int insert(ItemEntry ent, int amount);
@@ -156,10 +237,11 @@ public interface Inventory extends Iterable<ItemRecord>, RecipeOutput {
 			}
 		};
 	}
-	
+	/** @return Remaining volume in this inventory */
 	public default double remainVolume() {
 		return capacity() - volume();
 	}
+	/** @return Insertible volume in this inventory */
 	public default double iremainVolume() {
 		if(!canInsert()) return 0;
 		return capacity() - volume();

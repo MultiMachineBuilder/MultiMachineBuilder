@@ -18,7 +18,6 @@ import com.fasterxml.jackson.databind.node.TextNode;
 import mmb.BEANS.Saver;
 import mmb.DATA.json.JsonTool;
 import mmb.WORLD.crafting.RecipeOutput;
-import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.item.Items;
@@ -109,6 +108,6 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput {
 		return array;
 	}
 	public default void render(Graphics g, int x, int y) {
-		type().getTexture().draw(null, x, y, g);
+		type().getTexture().draw(null, x, y, g, 32);
 	}
 }

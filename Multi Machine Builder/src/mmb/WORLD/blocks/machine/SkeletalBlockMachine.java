@@ -8,9 +8,6 @@ import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -55,7 +52,7 @@ public abstract class SkeletalBlockMachine extends SkeletalBlockEntityData imple
 	public static final int SETTING_FLAG_ITEM_INPUT = 4;
 	public static final int SETTING_FLAG_ITEM_OUTPUT = 8;
 	
-	private final Consumer<SideBoolean> SHOVE_ELECTRICITY = s -> {
+	private final Consumer<@Nonnull SideBoolean> SHOVE_ELECTRICITY = s -> {
 		if(s.value){
 			Electricity elec = owner.getAtSide(s.side, x, y).getElectricalConnection(s.side.negate());
 			outElec.extractTo(elec);
@@ -63,6 +60,7 @@ public abstract class SkeletalBlockMachine extends SkeletalBlockEntityData imple
 	};
 	@Override
 	public final void onTick(MapProxy map) {
+		if(gui != null) gui.refresh();
 		cfgOutElec.forEach(SHOVE_ELECTRICITY);
 		onTick0(map);
 	}
@@ -158,7 +156,7 @@ public abstract class SkeletalBlockMachine extends SkeletalBlockEntityData imple
 	public String title() {
 		return type().title();
 	}
-	Component gui;
+	MachineGUI gui;
 	@Override
 	public void click(int blockX, int blockY, World map, WorldWindow window) {
 		if(window == null) return;
@@ -169,10 +167,21 @@ public abstract class SkeletalBlockMachine extends SkeletalBlockEntityData imple
 	
 	/**
 	 * Override to create custom GUI. If set to null, GUI is not created.
+	 * If it implements AutoCloseable, it will be closed.
+	 * If it implements Update, it will be updated every tick
 	 * @return the custom GUI
 	 */
 	@SuppressWarnings("static-method") // the machine should override it
 	protected Component createGUI() {
 		return null;
+	}
+	
+	/**
+	 * @author oskar
+	 * Declare this interface on MachineGUI to update it  on every tick
+	 */
+	public static interface Update{
+		/** Updates the machine GUI */
+		public void update();
 	}
 }

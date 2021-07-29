@@ -4,6 +4,8 @@
 package mmb.WORLD.block;
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.Objects;
 
@@ -12,14 +14,18 @@ import javax.annotation.Nonnull;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.item.Item;
-import mmb.WORLD.item.ItemEntityType;
 import mmb.WORLD.texture.BlockDrawer;
+import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar
  * Shared implementation for {@link Block} and {@link BlockEntityType}. More types will be added in future
  */
 public abstract class BlockBase extends Item implements BlockType {
+	@Override
+	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation, int side) {
+		getTexture().draw(null, renderStartPos, g, side);
+	}
 	@SuppressWarnings("null")
 	@Deprecated
 	@Nonnull public BlockType leaveBehind;

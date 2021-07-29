@@ -7,7 +7,6 @@ import java.util.Random;
 
 import org.joml.Vector3d;
 
-import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.io.InventoryWriter;
 
 /**

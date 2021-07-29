@@ -91,7 +91,7 @@ Cloneable, Iterable<mmb.WORLD.blocks.machine.SideConfig.SideBoolean>, Loader<@Nu
 	
 	public static class SideBoolean implements Comparable<SideBoolean>{
 		public final boolean value;
-		public final Side side;
+		@Nonnull public final Side side;
 		private final String toString;
 		@Override
 		public String toString() {

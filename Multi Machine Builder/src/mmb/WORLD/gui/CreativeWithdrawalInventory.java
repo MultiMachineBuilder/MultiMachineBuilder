@@ -108,4 +108,14 @@ public class CreativeWithdrawalInventory implements Inventory {
 	public ItemRecord nget(ItemEntry entry) {
 		return get(entry);
 	}
+
+	@Override
+	public boolean isEmpty() {
+		return false;
+	}
+
+	@Override
+	public int size() {
+		return Integer.MAX_VALUE;
+	}
 }

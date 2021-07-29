@@ -21,8 +21,8 @@ import mmb.WORLD.worlds.world.BlockMap;
  */
 public abstract class SkeletalBlockEntityRotary extends SkeletalBlockEntityData implements Rotable {
 	@Override
-	public void render(int x, int y, Graphics g) {
-		getImage().get(side).draw(this, x, y, g);
+	public void render(int x, int y, Graphics g, int ss) {
+		getImage().get(side).draw(this, x, y, g, ss);
 	}
 	protected SkeletalBlockEntityRotary(int x, int y, BlockMap owner2) {
 		super(x, y, owner2);

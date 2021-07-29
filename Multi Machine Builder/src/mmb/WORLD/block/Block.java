@@ -57,8 +57,8 @@ public class Block extends BlockBase implements BlockEntry{
 	
 	//Placer preview
 	@Override
-	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation) {
-		drawer.draw(this, renderStartPos, g);
+	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation, int side) {
+		drawer.draw(this, renderStartPos, g, side);
 	}
 
 	//Not a BlockEntity

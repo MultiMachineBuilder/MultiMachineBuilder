@@ -47,4 +47,18 @@ public class Inventories {
 			transfer(rec, tgt, Integer.MAX_VALUE);
 		}
 	}
+	public static boolean transferFirst(Inventory src, Inventory tgt) {
+		for(ItemRecord rec: src) {
+			int tf = transfer(rec, tgt, 1);
+			if(tf == 1) return true;
+		}
+		return false;
+	}
+	public static int transferFirstStack(Inventory src, Inventory tgt) {
+		for(ItemRecord rec: src) {
+			int tf = transfer(rec, tgt, Integer.MAX_VALUE);
+			if(tf > 0) return tf;
+		}
+		return 0;
+	}
 }

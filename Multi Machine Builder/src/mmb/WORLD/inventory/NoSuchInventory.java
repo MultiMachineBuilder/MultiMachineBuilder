@@ -58,4 +58,12 @@ public class NoSuchInventory implements Inventory{
 	public ItemRecord nget(ItemEntry entry) {
 		return nsir;
 	}
+	@Override
+	public boolean isEmpty() {
+		return true;
+	}
+	@Override
+	public int size() {
+		return 0;
+	}
 }

@@ -68,12 +68,8 @@ public class Chest extends AbstractChest implements BlockActivateListener, Color
 
 	private final MappedColorTexture texture = new MappedColorTexture(Color.WHITE, Color.WHITE, origTexture);
 	@Override
-	public void render(int x, int y, Graphics g) {
-		/*
-		super.render(x, y, g);
-		GraphicsUtil.filledCrossedBox(x+2, y+2, 27, 27, c, Color.BLACK, g);
-		*/
-		texture.draw(this, x, y, g);
+	public void render(int x, int y, Graphics g, int side) {
+		texture.draw(this, x, y, g, side);
 	}
 
 	@Override

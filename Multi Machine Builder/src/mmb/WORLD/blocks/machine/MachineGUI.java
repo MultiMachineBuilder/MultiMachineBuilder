@@ -6,6 +6,8 @@ package mmb.WORLD.blocks.machine;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -18,6 +20,7 @@ import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
 import mmb.debug.Debugger;
 import net.miginfocom.swing.MigLayout;
+import mmb.WORLD.blocks.machine.SkeletalBlockMachine.Update;
 import mmb.WORLD.gui.inv.InventoryController;
 import mmb.WORLD.gui.inv.MoveItems;
 
@@ -26,6 +29,16 @@ class MachineGUI extends JPanel implements AutoCloseable{
 	private final SideConfigCtrl sie, soe, sii, soi;
 	private InventoryController playerController;
 	private final Component main;
+	private final List<InventoryController> invctrls = new ArrayList<>();
+	
+	void refresh() {
+		if(main instanceof Update) ((Update) main).update();
+		for(InventoryController invctrl: invctrls) {
+			invctrl.refresh();
+		}
+		//playerController.refresh();
+		repaint();
+	}
 	public MachineGUI(SkeletalBlockMachine machine, WorldWindow window) {
 		playerController = new InventoryController();
 		playerController.setInv(window.getPlayer().inv);
@@ -80,6 +93,7 @@ class MachineGUI extends JPanel implements AutoCloseable{
 	private SideConfigCtrl createCtrlInv(SideConfig cfg, Box box, String s, Inventory inv, boolean exit) {
 		Box subbox = new Box(BoxLayout.X_AXIS);
 		InventoryController invctrl = new InventoryController(inv);
+		invctrls.add(invctrl);
 		MoveItems move = new MoveItems(playerController, invctrl, exit ? MoveItems.LEFT : MoveItems.BOTH);
 		subbox.add(move);
 		subbox.add(invctrl);
@@ -88,7 +102,6 @@ class MachineGUI extends JPanel implements AutoCloseable{
 		box.add(new JLabel(s));
 		box.add(subbox);
 		return result;
-		
 	}
 	private final Debugger debug = new Debugger("MACHINE GUI");
 	@Override

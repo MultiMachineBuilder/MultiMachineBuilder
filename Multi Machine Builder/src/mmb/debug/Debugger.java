@@ -36,16 +36,17 @@ public class Debugger {
 		pst(t);
 	}
 	public void pst(Throwable t) {
-		printl(t.getClass().getCanonicalName());
-		printl(t.getMessage());
-		printStackTrace(t.getStackTrace());
-		if(t.getCause() != null) pstm(t.getCause(), "Caused by: ");
+		printName();
+		t.printStackTrace();
 	}
 	public void print(@Nullable String s) {
+		printName();
+		System.out.print(s);
+	}
+	private void printName() {
 		System.out.print('(');
 		System.out.print(id);
 		System.out.print(") ");
-		System.out.print(s);
 	}
 	public void printl(@Nullable String s) {
 		print(s);

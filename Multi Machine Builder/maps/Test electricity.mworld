@@ -16,18 +16,55 @@
     }, {
       "blocktype" : "elec.largewire",
       "charge" : 0.0
-    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+    }, "mmb.grass", "mmb.grass", "mmb.grass", {
+      "blocktype" : "industry.cycle0",
+      "side" : "N"
+    }, {
+      "blocktype" : "industry.cycle0",
+      "side" : "N"
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "nuke.generator",
       "fuel" : null,
+      "energy" : 2.0E9,
       "inElec" : [ 0.0, 0.0, 0.0 ],
-      "inElecCfg" : [ false, false, false, false ],
-      "outElec" : [ 0.0, 0.0, 0.0 ],
+      "inElecCfg" : [ true, false, false, false ],
+      "outElec" : [ 50000.0, 0.0, 0.0 ],
       "outElecCfg" : [ true, false, false, false ],
       "inItem" : [ 2.0 ],
       "inItemCfg" : [ false, false, false, false ],
       "outItem" : [ 2.0 ],
       "outItemCfg" : [ false, false, false, false ]
-    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+    }, "mmb.grass", "mmb.grass", {
+      "blocktype" : "elec.furnace",
+      "inElec" : [ 0.0, 0.0, 0.0 ],
+      "inElecCfg" : [ true, false, false, false ],
+      "inItem" : [ 2.0 ],
+      "inItemCfg" : [ false, false, false, false ],
+      "outItem" : [ 2.0 ],
+      "outItemCfg" : [ false, false, false, false ]
+    }, "mmb.grass", "mmb.grass", "mmb.grass", {
+      "blocktype" : "elec.furnace",
+      "inElec" : [ 0.0, 0.0, 0.0 ],
+      "inElecCfg" : [ false, true, false, false ],
+      "inItem" : [ 2.0 ],
+      "inItemCfg" : [ true, false, false, false ],
+      "outItem" : [ 2.0 ],
+      "outItemCfg" : [ true, false, false, false ]
+    }, {
+      "blocktype" : "elec.furnace",
+      "inElec" : [ 0.0, 0.0, 0.0 ],
+      "inElecCfg" : [ false, true, false, false ],
+      "inItem" : [ 2.0 ],
+      "inItemCfg" : [ true, false, false, false ],
+      "outItem" : [ 2.0 ],
+      "outItemCfg" : [ true, false, false, false ]
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "elec.infinite", {
+      "blocktype" : "elec.mediumwire",
+      "charge" : 0.0
+    }, {
+      "blocktype" : "elec.mediumwire",
+      "charge" : 0.0
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "industry.furnace",
       "side" : "N",
       "in" : [ 2.0 ],
@@ -38,7 +75,7 @@
     "machines" : [ ],
     "data" : { },
     "player" : {
-      "inventory" : [ 2.0, [ "mmb.uraniumore", "mmb.uraniumore", 1 ] ],
+      "inventory" : [ 2.0, [ "ingot.silver", 1 ], [ "mmb.silverore", "mmb.silverore", 1 ] ],
       "creative" : true
     }
   },

@@ -58,9 +58,10 @@ public interface BlockEntry extends Saver<JsonNode> {
 	 * @param x X coordinate of UL corner
 	 * @param y Y coordinate of UL corner
 	 * @param g graphics context
+	 * @param side TODO
 	 */
-	public default void render(int x, int y, Graphics g) {
-		type().getTexture().draw(this, x, y, g);
+	public default void render(int x, int y, Graphics g, int side) {
+		type().getTexture().draw(this, x, y, g, side);
 	}
 	/**
 	 * @param nother

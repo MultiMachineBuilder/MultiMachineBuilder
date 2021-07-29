@@ -102,4 +102,12 @@ public class DestructibleInventory implements Inventory{
 	public ItemRecord nget(ItemEntry entry) {
 		return inv.nget(entry);
 	}
+	@Override
+	public boolean isEmpty() {
+		return inv.isEmpty();
+	}
+	@Override
+	public int size() {
+		return inv.size();
+	}
 }

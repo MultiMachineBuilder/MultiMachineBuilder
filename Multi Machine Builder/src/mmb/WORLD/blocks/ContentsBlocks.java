@@ -5,7 +5,6 @@ package mmb.WORLD.blocks;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.util.function.Function;
 import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
@@ -30,7 +29,9 @@ import mmb.WORLD.blocks.gates.XORGate;
 import mmb.WORLD.blocks.gates.YESGate;
 import mmb.WORLD.blocks.machine.Chest;
 import mmb.WORLD.blocks.machine.Crafting;
+import mmb.WORLD.blocks.machine.CycleAssembler;
 import mmb.WORLD.blocks.machine.Furnace;
+import mmb.WORLD.blocks.machine.FurnacePlus;
 import mmb.WORLD.blocks.machine.ItemTransporter;
 import mmb.WORLD.blocks.machine.Nuker;
 import mmb.WORLD.electric.Conduit;
@@ -174,6 +175,16 @@ public class ContentsBlocks {
 			.factory(PowerLoad::new)
 			.texture("machine/power/load.png")
 			.finish("elec.load");
+	@Nonnull public static final BlockEntityType EFURNACE = new BlockEntityType()
+			.title("Electrical furnace")
+			.factory(FurnacePlus::new)
+			.texture("machine/esmelter.png")
+			.finish("elec.furnace");
+	@Nonnull public static final BlockEntityType CYCLEASSEMBLY = new BlockEntityType()
+			.title("Cyclic Assembler")
+			.factory(CycleAssembler::new)
+			.texture("machine/cyclic assembler.png")
+			.finish("industry.cycle0");
 	/** Always provides 'true' signal */
  	@Nonnull public static final Block TRUE = new AlwaysTrue()
 			.title("Always True")
@@ -293,12 +304,12 @@ public class ContentsBlocks {
 		.texture(ElecRenderer.render)
 		.finish("elec.mediumwire");*/
 		return b.title(title)
-				.factory(condFact(() -> b, pwr))
+				.factory(condFact(b, pwr))
 				.texture(texture)
 				.finish(id);
 	}
-	private static BlockFactory condFact(Supplier<BlockType> type, double cap) {
-		return (x, y, m) -> new Conduit(x, y, m, type.get(), cap);
+	@Nonnull private static BlockFactory condFact(BlockType type, double cap) {
+		return (x, y, m) -> new Conduit(x, y, m, type, cap);
 	}
 
 }

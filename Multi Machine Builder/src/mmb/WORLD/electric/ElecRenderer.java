@@ -41,19 +41,19 @@ public class ElecRenderer implements BlockDrawer {
 	@Nonnull public static final ElecRenderer renderthick = new ElecRenderer(rig1, icon1, base1);
 	
 	@Override
-	public void draw(BlockEntry ent, int x, int y, Graphics g) {
-		g.drawImage(base, x, y, null);
+	public void draw(BlockEntry ent, int x, int y, Graphics g, int side) {
+		g.drawImage(base, x, y, side, side, null);
 		if(ent instanceof Conduit) {
 			int xx = ((Conduit) ent).x;
 			int yy = ((Conduit) ent).y;
 			Electricity u = ((Conduit) ent).owner.getAtSide(Side.U, xx, yy).getElectricalConnection(Side.D);
-			if(u != null) rig.U.draw(ent, x, y, g);
+			if(u != null) rig.U.draw(ent, x, y, g, side);
 			Electricity d = ((Conduit) ent).owner.getAtSide(Side.D, xx, yy).getElectricalConnection(Side.U);
-			if(d != null) rig.D.draw(ent, x, y, g);
+			if(d != null) rig.D.draw(ent, x, y, g, side);
 			Electricity l = ((Conduit) ent).owner.getAtSide(Side.L, xx, yy).getElectricalConnection(Side.R);
-			if(l != null) rig.L.draw(ent, x, y, g);
+			if(l != null) rig.L.draw(ent, x, y, g, side);
 			Electricity r = ((Conduit) ent).owner.getAtSide(Side.R, xx, yy).getElectricalConnection(Side.L);
-			if(r != null) rig.R.draw(ent, x, y, g);
+			if(r != null) rig.R.draw(ent, x, y, g, side);
 		}
 	}
 

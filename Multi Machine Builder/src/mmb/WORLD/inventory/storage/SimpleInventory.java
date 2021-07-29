@@ -30,6 +30,7 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>, Loader<@Null
 	@Nonnull private SelfSet<ItemEntry, Node> contents = new HashSelfSet<>();
 	private double volume = 0;
 	@Deprecated public double capacity = 2;
+	private int validItems = 0;
 	private final class Node implements ItemRecord{
 		private Node(int amount, ItemEntry type) {
 			this.amount = amount;
@@ -52,6 +53,7 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>, Loader<@Null
 			
 			volume += type.volume(result);
 			amount += result;
+			validItems++;
 			
 			return result;
 		}
@@ -64,6 +66,8 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>, Loader<@Null
 			
 			volume -= type.volume(result);
 			amount -= result;
+			
+			if(amount == 0) validItems--;
 			
 			return result;
 		}
@@ -174,5 +178,15 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>, Loader<@Null
 	@Override
 	public ItemRecord nget(ItemEntry entry) {
 		return contents.get(entry);
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return validItems != 0;
+	}
+
+	@Override
+	public int size() {
+		return validItems;
 	}
 }

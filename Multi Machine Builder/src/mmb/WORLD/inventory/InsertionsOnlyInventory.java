@@ -90,4 +90,14 @@ public class InsertionsOnlyInventory implements Inventory{
 		if(result == null) return null;
 		return result.lockExtractions();
 	}
+
+	@Override
+	public boolean isEmpty() {
+		return inv.isEmpty();
+	}
+
+	@Override
+	public int size() {
+		return inv.size();
+	}
 }

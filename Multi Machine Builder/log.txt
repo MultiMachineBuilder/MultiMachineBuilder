@@ -51,6 +51,7 @@
 (TEXTURES) Loading texture: item/coal.png
 (TEXTURES) Loading texture: item/control rod.png
 (TEXTURES) Loading texture: item/coolant rod.png
+(TEXTURES) Loading texture: item/copper gear.png
 (TEXTURES) Loading texture: item/copper ingot.png
 (TEXTURES) Loading texture: item/copper wire.png
 (TEXTURES) Loading texture: item/depleted rod.png
@@ -66,6 +67,7 @@
 (TEXTURES) Loading texture: item/silicon ingot.png
 (TEXTURES) Loading texture: item/silver ingot.png
 (TEXTURES) Loading texture: item/silver wire.png
+(TEXTURES) Loading texture: item/stainless gear.png
 (TEXTURES) Loading texture: item/steel ingot.png
 (TEXTURES) Loading texture: item/steel rod.png
 (TEXTURES) Loading texture: item/steel wire.png
@@ -155,7 +157,9 @@
 (TEXTURES) Loading texture: machine/chest6.png
 (TEXTURES) Loading texture: machine/claw.png
 (TEXTURES) Loading texture: machine/CW.png
+(TEXTURES) Loading texture: machine/cyclic assembler.png
 (TEXTURES) Loading texture: machine/dropped item interface.png
+(TEXTURES) Loading texture: machine/esmelter.png
 (TEXTURES) Loading texture: machine/imover intersected.png
 (TEXTURES) Loading texture: machine/imover.png
 (TEXTURES) Loading texture: machine/pipe 3-section.png
@@ -165,6 +169,7 @@
 (TEXTURES) Loading texture: machine/pipe elbow.png
 (TEXTURES) Loading texture: machine/pipe merge left.png
 (TEXTURES) Loading texture: machine/pipe merge right.png
+(TEXTURES) Loading texture: machine/pipe oneway.png
 (TEXTURES) Loading texture: machine/pipe straight.png
 (TEXTURES) Loading texture: machine/pipes.png
 (TEXTURES) Loading texture: machine/placer.png
@@ -287,6 +292,10 @@ null
 null
 (BLOCKS) Adding elec.load with title Electrical load and descripion:
 null
+(BLOCKS) Adding elec.furnace with title Electrical furnace and descripion:
+null
+(BLOCKS) Adding industry.cycle0 with title Cyclic Assembler and descripion:
+null
 (BLOCKS) Adding wireworld.true with title Always True and descripion:
 null
 (BLOCKS) Adding wireworld.random with title Random and descripion:
@@ -358,93 +367,83 @@ A pair of curved pipes.
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
 (MOD-LOADER) Found 3 mod files
 (MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
-(MOD - mmb-DE.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
-(MOD - Multi Machine Builder) java.io.FileNotFoundException
-(MOD - Multi Machine Builder) Failed to read the file C:\Users\oskar\eclipse-workspace\Multi Machine Builder
-(MOD - Multi Machine Builder) java.io.FileNotFoundException
-(MOD - Multi Machine Builder) 
-(MOD - Multi Machine Builder) java.io.FileInputStream.open0(Native Method)
-(MOD - Multi Machine Builder) java.io.FileInputStream.open(Unknown Source)
-(MOD - Multi Machine Builder) java.io.FileInputStream.<init>(Unknown Source)
-(MOD - Multi Machine Builder) mmb.FILES.LocalFile.getInputStream(LocalFile.java:33)
-(MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.init(AddonLoader.java:107)
-(MOD - Multi Machine Builder) mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:79)
-(MOD - Multi Machine Builder) java.lang.Thread.run(Unknown Source)
-(MOD - mmb-DE.jar) Loading a modfile: mmb-DE.jar
 (MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
-(MOD - mmb-DE.jar) entry: .project
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - mmb-DE.jar) entry: .classpath
-(MOD - HelloWorld 0.5.jar) (MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
-entry: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - mmb-DE.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) entry: .project
 (MOD - HelloWorld 0.5.jar) entry: .classpath
 (MOD - HelloWorld 0.5.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (MOD - HelloWorld 0.5.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
-(MOD - mmb-DE.jar) Processing .classpath
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - mmb-DE.jar) (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
-File: .classpath
-(MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
-(MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
-(MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWBlock
-(MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
-(MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
-(MOD - mmb-DE.jar) Class: mmbmods.lang.de.package-info
 (MOD - HelloWorld 0.5.jar) Processing .classpath
 (MOD - HelloWorld 0.5.jar) File: .classpath
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.package-info
-(MOD - mmb-DE.jar) Processing .project
-(MOD - mmb-DE.jar) File: .project
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar(MOD - mmb-DE.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+) Processing mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWMachine
+(MOD - mmb-DE.jar) Loading a modfile: mmb-DE.jar
+(MOD - mmb-DE.jar) entry: .project
+(MOD - mmb-DE.jar) entry: .classpath
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+(MOD - Multi Machine Builder) Failed to read the file C:\Users\oskar\eclipse-workspace\Multi Machine Builder
+(MOD - mmb-DE.jar) Processing .classpath
+(MOD - mmb-DE.jar) File: .classpath
+(MOD - Multi Machine Builder) (MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
+(MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
+(MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
 (MOD - HelloWorld 0.5.jar) Processing .project
 (MOD - HelloWorld 0.5.jar) File: .project
 (MOD - HelloWorld 0.5.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (MOD - HelloWorld 0.5.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) Class: mmbmods.lang.de.package-info
 (HW) Hello, world!
-((MOD-LOADER) Start 1st stage for MultiMachineBuilder German/Deutsch
-MOD-LOADER) Start 1st stage for Hello, world!
-(MOD-LOADER) End 1st stage for MultiMachineBuilder German/Deutsch
+(MOD - mmb-DE.jar) Processing .project
+(MOD - mmb-DE.jar) File: .project
+(MOD-LOADER) Start 1st stage for Hello, world!
 (MOD-LOADER) End 1st stage for Hello, world!
-((MOD-LOADER) MOD-LOADER) Start 2nd stage for Hello, world!Start 2nd stage for MultiMachineBuilder German/Deutsch
-
-(MOD-LOADER) End 2nd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) Start 1st stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) End 1st stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) Start 2nd stage for Hello, world!
 (HW) Successfully created Rainbow Machine
 (BLOCKS) Adding wireworld.hw with title Hello, world! and descripion:
 null
 (MOD-LOADER) End 2nd stage for Hello, world!
+(MOD-LOADER) Start 2nd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) End 2nd stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) Start 3rd stage for Hello, world!
-(MOD-LOADER) Start 3rd stage for MultiMachineBuilder German/Deutsch(HW) Successfully created Rainbow Machine
-
-(MOD-LOADER) End 3rd stage for MultiMachineBuilder German/Deutsch
+(HW) Successfully created Rainbow Machine
 (BLOCKS) Adding wireworld.hw with title Hello, world! and descripion:
 null
 (MOD-LOADER) End 3rd stage for Hello, world!
+(MOD-LOADER) Start 3rd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) End 3rd stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) ================MOD INFORMATION FOR C:\Users\oskar\eclipse-workspace\Multi Machine Builder================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder
 (MOD-LOADER) Missing files
 (MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Sun Jul 04 11:57:41 CEST 2021
+(MOD-LOADER) RELEASED Thu Jul 29 19:59:16 CEST 2021
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) ================MOD INFORMATION FOR MultiMachineBuilder German/Deutsch================
@@ -468,7 +467,7 @@ Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
 (SELECT A SAVE) Found save: Test.mworld
 (SELECT A SAVE) Found 10 saves
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@2a0cd4
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@1b5548b
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -480,7 +479,21 @@ Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
 (SELECT A SAVE) Loaded
 (WORLD - IDLE) Exiting(WORLDS) Opening a new world
 (MAP anonymous) Block entity at [-14,-6] took exceptionally long to run
-(TOOL-STANDARD) Running BlockActivateListener for: [-14,-4]
+(MAP anonymous) Block entity at [-8,-5] took exceptionally long to run
+(MAP anonymous) Block entity at [-8,-5] took exceptionally long to run
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(MAP anonymous) Block entity at [-7,-8] took exceptionally long to run
+(MAP anonymous) Block entity at [-14,-6] took exceptionally long to run
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(MAP anonymous) Block entity at [-8,-5] took exceptionally long to run
+(MAP anonymous) Block entity at [-14,-6] took exceptionally long to run
+(MAP anonymous) Block entity at [-14,-4] took exceptionally long to run
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
 (WORLD - main null) Exiting(MAP anonymous) Destroying

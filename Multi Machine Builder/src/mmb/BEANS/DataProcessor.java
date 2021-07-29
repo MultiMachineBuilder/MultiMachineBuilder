@@ -15,6 +15,7 @@ import mmb.DATA.json.JsonTool;
  *
  */
 public class DataProcessor {
+	private DataProcessor() {}
 	public static ArrayNode saveColor(Color c) {
 		ArrayNode result = JsonTool.newArrayNode();
 		result.add(c.getRed());

@@ -36,10 +36,10 @@ public class TestRotatedImageGroup extends JFrame {
 			}
 			@Override
 			public void paint(Graphics g) {
-				rig.U.draw(null, 0, 0, g);
-				rig.D.draw(null, 0, 32, g);
-				rig.L.draw(null, 32, 0, g);
-				rig.R.draw(null, 32, 32, g);
+				rig.U.draw(null, 0, 0, g, 32);
+				rig.D.draw(null, 0, 32, g, 32);
+				rig.L.draw(null, 32, 0, g, 32);
+				rig.R.draw(null, 32, 32, g, 32);
 			}
 		}
 		RotatedImageGroup rig = RotatedImageGroup.create(Textures.get("logic/AND.png"));

@@ -99,7 +99,8 @@ public class Stencil extends ItemEntity implements Grid<ItemEntry> {
 	}
 
 	@Override
-	public void load(JsonNode array) {
+	public void load(@Nullable JsonNode array) {
+		if(array == null) return;
 		if(array.isArray()) {
 			Grid<ItemEntry> grid = SaveGrids.loadGrid(ItemEntry::loadFromJson, (ArrayNode)array);
 			doReplaceTable(grid);
