@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.tool;
 
+import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -98,6 +100,11 @@ public class ToolStandard extends WindowTool{
 	@Override
 	public String title() {
 		return "Standard Tool";
+	}
+	@Override
+	public void preview(int x, int y, int scale, Graphics g) {
+		Placer placer0 = frame.getPlacer().getSelectedValue();
+		if(placer0 != null) placer0.preview(g, new Point(x, y), frame.getMap(), frame.getMouseoverBlock(), scale);
 	}
 
 }

@@ -42,19 +42,7 @@ public interface InventoryWriter {
 		public int write(ItemEntry ent, int amount) {
 			return 0;
 		}
-
-		@Override
-		public int toBeWritten(ItemEntry currentItem, int i) {
-			return 0;
-		}	
 	};
-
-	/**
-	 * @param ent item to be inserted
-	 * @param amount number of items to insert
-	 * @return number of items which will be written
-	 */
-	public int toBeWritten(ItemEntry ent, int amount);
 	
 	/**
 	 * @author oskar
@@ -88,17 +76,7 @@ public interface InventoryWriter {
 			int writeSecond = other.write(ent, next);
 			debug.printl("Second accepted "+writeSecond);
 			return writeFirst+writeSecond;
-		}
-
-		@Override
-		public int toBeWritten(ItemEntry ent, int amount) {
-			int writeFirst = first.toBeWritten(ent, amount);
-			if(writeFirst == amount) return amount; //all accepted
-			int next = amount - writeFirst;
-			int writeSecond = other.toBeWritten(ent, next);
-			return writeFirst+writeSecond;
-		}
-		
+		}		
 	}
 	/**
 	 * @author oskar
@@ -127,27 +105,6 @@ public interface InventoryWriter {
 				if(remaining == 0) return transferred;
 				next();
 			}
-			return transferred;
-		}
-
-		@Override
-		public int toBeWritten(ItemEntry ent, int amount) {
-			int oldpos = pos;
-			next();
-			int remaining = amount;
-			int transferred = 0;
-			for(int i = 0; i < writers.length; i++) {
-				InventoryWriter writer = writers[pos];
-				int now = writer.toBeWritten(ent, remaining);
-				remaining -= now;
-				transferred += now;
-				if(remaining == 0) {
-					pos = oldpos;
-					return transferred;
-				}
-				next();
-			}
-			pos = oldpos;
 			return transferred;
 		}
 		

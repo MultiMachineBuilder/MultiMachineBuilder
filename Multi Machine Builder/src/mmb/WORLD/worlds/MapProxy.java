@@ -11,7 +11,7 @@ import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.worlds.world.BlockArrayProvider;
+import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
@@ -90,5 +90,5 @@ public interface MapProxy extends AutoCloseable{
 	public void later(Runnable r);
 	
 	/** @return associated block map*/
-	public BlockArrayProvider getMap();
+	public World getMap();
 }

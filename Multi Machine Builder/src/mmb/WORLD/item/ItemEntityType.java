@@ -7,10 +7,6 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.fasterxml.jackson.databind.JsonNode;
-
 import mmb.WORLD.items.ItemBase;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.texture.BlockDrawer;
@@ -36,13 +32,6 @@ public class ItemEntityType extends ItemBase{
 	@Override
 	public ItemEntry create() {
 		return factory.create();
-	}
-
-	@Override
-	public ItemEntry load(@Nullable JsonNode node) {
-		ItemEntity result = factory.create();
-		if(node != null) result.load(node);
-		return result;
 	}
 
 	/**
@@ -136,7 +125,7 @@ public class ItemEntityType extends ItemBase{
 	 */
 	@Override
 	@Nonnull public ItemEntityType volumed(double volume) {
-		this.volume = volume;
+		setVolume(volume);
 		return this;
 	}
 

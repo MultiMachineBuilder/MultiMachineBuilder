@@ -78,12 +78,12 @@ public class Collects {
 	@Nonnull public static <K, V extends Identifiable<K>> SelfSet<K, V> unmodifiableSelfSet(SelfSet<K, V> set){
 		return new SelfSet<K, V>() {
 			@Override
-			public boolean add(V e) {
+			public boolean add(@SuppressWarnings("null") V e) {
 				return false;
 			}
 
 			@Override
-			public boolean addAll(Collection<? extends V> c) {
+			public boolean addAll(@SuppressWarnings("null") Collection<? extends V> c) {
 				return false;
 			}
 
@@ -91,7 +91,7 @@ public class Collects {
 			public void clear() {}
 
 			@Override
-			public boolean containsAll(Collection<?> c) {
+			public boolean containsAll(@SuppressWarnings("null") Collection<?> c) {
 				return set.containsAll(c);
 			}
 
@@ -106,12 +106,12 @@ public class Collects {
 			}
 
 			@Override
-			public boolean removeAll(Collection<?> c) {
+			public boolean removeAll(@SuppressWarnings("null") Collection<?> c) {
 				return false;
 			}
 
 			@Override
-			public boolean retainAll(Collection<?> c) {
+			public boolean retainAll(@SuppressWarnings("null") Collection<?> c) {
 				return false;
 			}
 
@@ -126,7 +126,7 @@ public class Collects {
 			}
 
 			@Override
-			public <T> T[] toArray(T[] a) {
+			public <T> T[] toArray(@SuppressWarnings("null") T[] a) {
 				return set.toArray(a);
 			}
 
@@ -156,7 +156,7 @@ public class Collects {
 			}
 
 			@Override
-			public boolean containsKey(K key) {
+			public boolean containsKey(@SuppressWarnings("null") K key) {
 				return set.containsKey(key);
 			}
 		};

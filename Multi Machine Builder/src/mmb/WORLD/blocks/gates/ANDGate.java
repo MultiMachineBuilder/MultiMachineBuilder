@@ -7,17 +7,12 @@ import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.RotatedImageGroup;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.worlds.world.BlockMap;
-import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
  *
  */
 public class ANDGate extends AbstractBiGateBase {
-	public ANDGate(int x, int y, BlockMap owner2) {
-		super(x, y, owner2);
-	}
 
 	@Override
 	public BlockType type() {

@@ -20,6 +20,7 @@ import mmb.debug.Debugger;
  *
  */
 public class Settings {
+	private Settings() {}
 	private static final Debugger debug = new Debugger("SETTINGS");
 	/**
 	 * The settings file
@@ -94,10 +95,9 @@ public class Settings {
 	}
 	/**
 	 * @param key key
-	 * @param def default value for boolean
 	 * @return retrieved boolean value, or null if unable to retrieve or process
 	 */
-	public static @Nullable Boolean getOptionalBool(String key, boolean def) {
+	public static @Nullable Boolean getOptionalBool(String key) {
 		String result = props.getProperty(key);
 		if(result == null) return null;
 		return Boolean.valueOf(result);

@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.GameObject;
-import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
 import mmb.DATA.json.JsonTool;
 import mmb.RUNTIME.actions.WorldBehavior;
@@ -31,7 +30,7 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class Universe implements GameObject, Saver<JsonNode>, Loader<JsonNode>{
+public class Universe implements GameObject, Saver<JsonNode>{
 	private Debugger debug = new Debugger("WORLD - ");
 	//[start] data
 	/**
@@ -116,22 +115,20 @@ public class Universe implements GameObject, Saver<JsonNode>, Loader<JsonNode>{
 				ObjectNode nodeMaps = JsonTool.requestObject("maps", on);
 				Iterator<Entry<String, JsonNode>> iter2 = nodeMaps.fields();
 				for(Entry<String, JsonNode> ent: Collects.iter(iter2)) {
-					World map = new World();
-					map.saveLoad.load(ent.getValue());
+					World map = World.load(ent.getValue());
 					map.setName(ent.getKey());
 					maps.add(map);
 				}
 				
 				//Main map
 				ObjectNode nodeMain = JsonTool.requestObject("main", on);
-				World map = new World();
+				World map = World.load(nodeMain);
 				map.setName(name);
-				map.saveLoad.load(nodeMain);
 				main = map;
 			}else{//Load as a map
-				World map = new World();
+				World map = World.load(on);
 				map.setName(name);
-				map.saveLoad.load(on);
+				//map.saveLoad.load(on);
 				main = map;
 			}
 		}else debug.printl("Not an ObjectNode");
@@ -140,12 +137,12 @@ public class Universe implements GameObject, Saver<JsonNode>, Loader<JsonNode>{
 	@Nonnull public JsonNode save() {
 		//Save the main map
 		debug.printl("Saving main BlockMap");
-		JsonNode mainNode = main.saveLoad.save();
+		JsonNode mainNode = World.save(main);
 		//Save extra maps
 		ObjectNode mapsNode = JsonTool.newObjectNode();
 		for(World map: maps) {
 			debug.printl("Saving BlockMap: "+map.getName());
-			mapsNode.set(map.getName(), map.saveLoad.save());
+			mapsNode.set(map.getName(), World.save(map));
 		}
 		//Save data layers
 		ObjectNode dataNode = JsonTool.newObjectNode();

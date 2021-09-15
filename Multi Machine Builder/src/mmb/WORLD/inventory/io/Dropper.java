@@ -5,16 +5,16 @@ package mmb.WORLD.inventory.io;
 
 import mmb.BEANS.Positioned;
 import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.worlds.world.BlockMap;
+import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
- *
+ * An inventory writer, which drops items
  */
 public class Dropper implements InventoryWriter, Positioned {
-	private final BlockMap map;
+	private final World map;
 	private int x, y;
-	public Dropper(BlockMap map) {
+	public Dropper(World map) {
 		this.map = map;
 	}
 
@@ -24,11 +24,6 @@ public class Dropper implements InventoryWriter, Positioned {
 			map.dropItem(ent, x, y);
 		}
 		return amount; //always accepts
-	}
-
-	@Override
-	public int toBeWritten(ItemEntry currentItem, int amt) {
-		return amt; //always accepts
 	}
 
 	@Override

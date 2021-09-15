@@ -9,10 +9,7 @@ import org.apache.commons.collections4.Bag;
 import org.joml.Vector3d;
 
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.inventory.ItemStack;
-import mmb.WORLD.inventory.io.InventoryReader;
-import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.items.ItemEntry;
 import mmb.debug.Debugger;
 
@@ -40,7 +37,7 @@ public class Craftings {
 		}
 		//Calculate capacity
 		Vector3d calcvec = new Vector3d();
-		out.calcVolumes(calcvec);
+		out.outVolume();
 		double remainCapacity = to.capacity() - to.volume();
 		if(calcvec.x > remainCapacity) {
 			//debug.printl("Required "+calcvec.x+" capacity, got "+remainCapacity);
@@ -61,7 +58,7 @@ public class Craftings {
 		if(from.get(in.item).amount() < in.amount) return;
 		//Calculate capacity
 		Vector3d calcvec = new Vector3d();
-		out.calcVolumes(calcvec);
+		out.outVolume();
 		double remainCapacity = to.capacity() - to.volume();
 		if(calcvec.x > remainCapacity) {
 			debug.printl("Required "+calcvec.x+" capacity, got "+remainCapacity);

@@ -3,12 +3,11 @@
  */
 package mmb.WORLD.inventory;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.ainslec.picocog.PicoWriter;
-import org.joml.Vector3d;
 
-import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.io.InventoryWriter;
@@ -19,7 +18,7 @@ import monniasza.collects.Identifiable;
  * @author oskar
  * An item entry is intended for use in inventories.
  */
-public class ItemStack implements Identifiable<ItemEntry>, Saver<ItemEntry>, Loader<ItemEntry>, RecipeOutput {
+public final class ItemStack implements Identifiable<ItemEntry>, Saver<ItemEntry>, RecipeOutput, Cloneable {
 	@Override
 	public String toString() {
 		return "ItemStack " + item + " × " + amount;
@@ -28,7 +27,7 @@ public class ItemStack implements Identifiable<ItemEntry>, Saver<ItemEntry>, Loa
 	/**
 	 * An item stored in the inventory
 	 */
-	public ItemEntry item;
+	@Nonnull public ItemEntry item;
 	/**
 	 * Number of items in the entry
 	 */
@@ -56,7 +55,7 @@ public class ItemStack implements Identifiable<ItemEntry>, Saver<ItemEntry>, Loa
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + amount;
-		result = prime * result + ((item == null) ? 0 : item.hashCode());
+		result = prime * result + item.hashCode();
 		return result;
 	}
 
@@ -69,10 +68,7 @@ public class ItemStack implements Identifiable<ItemEntry>, Saver<ItemEntry>, Loa
 		ItemStack other = (ItemStack) obj;
 		if (amount != other.amount)
 			return false;
-		if (item == null) {
-			if (other.item != null)
-				return false;
-		} else if (!item.equals(other.item))
+		if (!item.equals(other.item))
 			return false;
 		return true;
 	}
@@ -114,10 +110,15 @@ public class ItemStack implements Identifiable<ItemEntry>, Saver<ItemEntry>, Loa
 	}
 
 	@Override
-	public void calcVolumes(Vector3d out) {
-		double vol = volume();
-		out.x += vol;
-		out.y += vol;
-		out.z += vol;
+	public double outVolume() {
+		return volume();
+	}
+	
+	/**
+	 * @return exact copy of this item stack
+	 */
+	@Override
+	public ItemStack clone() {
+		return new ItemStack(item, amount);
 	}
 }

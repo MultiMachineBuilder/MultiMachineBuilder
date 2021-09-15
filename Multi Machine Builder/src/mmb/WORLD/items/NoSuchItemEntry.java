@@ -3,6 +3,10 @@
  */
 package mmb.WORLD.items;
 
+import javax.annotation.Nullable;
+
+import com.fasterxml.jackson.databind.JsonNode;
+
 import mmb.WORLD.item.ItemType;
 
 /**
@@ -29,6 +33,10 @@ public class NoSuchItemEntry implements ItemEntry {
 	@Override
 	public boolean exists() {
 		return false;
+	}
+	@Override
+	public void load(@Nullable JsonNode data) {
+		throw new IllegalStateException("Loading a NoSuchItemEntry");
 	}
 
 }

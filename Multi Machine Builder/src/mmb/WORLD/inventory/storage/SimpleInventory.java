@@ -9,7 +9,6 @@ import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemLoader;
@@ -25,7 +24,7 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class SimpleInventory implements Inventory, Saver<JsonNode>, Loader<@Nullable JsonNode>{
+public class SimpleInventory implements Inventory, Saver<JsonNode>{
 	private static final Debugger debug = new Debugger("INVENTORIES");
 	@Nonnull private SelfSet<ItemEntry, Node> contents = new HashSelfSet<>();
 	private double volume = 0;
@@ -80,6 +79,24 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>, Loader<@Null
 			return SimpleInventory.this;
 		}
 	}
+	/**
+	 * Creates an inventory with same contents as original
+	 * @param inv source inventory
+	 */
+	public SimpleInventory(Inventory inv) {
+		capacity = inv.capacity();
+		for(ItemRecord record: inv) {
+			insert(record.item(), record.amount());
+		}
+	}
+
+	/**
+	 * Creates an empty inventory
+	 */
+	public SimpleInventory() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public ItemRecord get(ItemEntry entry) {
 		ItemRecord result = contents.get(entry);
@@ -171,7 +188,7 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>, Loader<@Null
 	}
 
 	@Override
-	public JsonNode save() {
+	public @Nonnull JsonNode save() {
 		return ItemLoader.save(contents, capacity); //return the saved inventory
 	}
 

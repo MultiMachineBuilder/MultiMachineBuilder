@@ -12,6 +12,7 @@ import org.apache.commons.collections4.bag.HashBag;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
 
+import mmb.LAMBDAS.Consumers;
 import mmb.WORLD.blocks.machine.Crafting;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.RecipeOutput;
@@ -31,8 +32,6 @@ import javax.swing.Box;
 import java.awt.Color;
 import java.awt.Component;
 import java.util.concurrent.atomic.AtomicReference;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /**
  * @author oskar
@@ -62,7 +61,7 @@ public class CraftGUI extends JPanel {
 		AtomicReference<RecipeOutput> outs = new AtomicReference<>();
 		
 		setLayout(new MigLayout("", "[263px][]", "[155px,grow]"));
-		Grid<ItemEntry> contents = new FixedGrid<>(size, size);
+		Grid<@Nullable ItemEntry> contents = new FixedGrid<>(size, size);
 		
 		verticalBox = Box.createVerticalBox();
 		add(verticalBox, "flowx,cell 1 0,growy");
@@ -102,7 +101,7 @@ public class CraftGUI extends JPanel {
 					ItemRecord sel = inventoryController.getSelectedValue();
 					if(sel == null) return null;
 					return sel.item();
-				}, v -> {}));
+				}, Consumers.doNothing()));
 			}
 		}
 		

@@ -7,6 +7,8 @@ import java.util.ArrayDeque;
 import java.util.Iterator;
 import java.util.Queue;
 
+import javax.annotation.Nonnull;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
@@ -24,8 +26,21 @@ import monniasza.collects.Collects;
  *
  */
 public class ItemLoader {
+	/**
+	 * @author oskar
+	 * This interface provides encapsulation for item loading
+	 */
 	public static interface ItemTarget {
+		/**
+		 * Adds item to the invaentory
+		 * @param entry item to be added
+		 * @param amount number of items to add
+		 */
 		public void addItem(ItemEntry entry, int amount);
+		/**
+		 * Sets capacity of this inventory
+		 * @param capacity
+		 */
 		public void setCapacity(double capacity);
 	}
 	
@@ -75,7 +90,7 @@ public class ItemLoader {
 					case 3: //3 items: [type, info, amount]
 						try {
 							JsonNode idata = a.get(1);
-							ent = type.load(idata);
+							ent = type.loadItem(idata);
 							amt = a.get(2).asInt(-1);
 						}catch(Exception e) {
 							debug.pstm(e, "Failed to create "+id+" with data");
@@ -103,7 +118,12 @@ public class ItemLoader {
 			}
 		}
 	}
-	public static ArrayNode save(Iterable<? extends ItemRecord> iter, double capacity) {
+	/**
+	 * @param iter inventory
+	 * @param capacity inventory's capacity
+	 * @return the inventory representation in JSON
+	 */
+	public static @Nonnull ArrayNode save(Iterable<? extends ItemRecord> iter, double capacity) {
 		Queue<JsonNode> nodes = new ArrayDeque<>(); //prepare the queue
 		nodes.add(new DoubleNode(capacity)); // write the volume
 		for(ItemRecord n: iter) { //write items

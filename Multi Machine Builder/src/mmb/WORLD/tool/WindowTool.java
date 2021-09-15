@@ -3,6 +3,7 @@
  */
 package mmb.WORLD.tool;
 
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -123,4 +124,18 @@ Titled{
 		this.window = window;
 		if(window != null) frame = window.getWorldFrame();
 	}
+	/**
+	 * @return the description of the window tool;
+	 */
+	public String description() {
+		return "";
+	}
+	
+	/**
+	 * @param startX left X coordinate
+	 * @param startY upper Y coordinate
+	 * @param scale display scale
+	 * @param g graphics context
+	 */
+	public abstract void preview(int startX, int startY, int scale, Graphics g);
 }

@@ -7,7 +7,7 @@ import mmb.RANDOM.GeometricRandom;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.worlds.world.BlockMap;
+import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
@@ -19,7 +19,7 @@ import monniasza.collects.grid.Grid;
 public class GeneratorMultiBiome implements Generator {
 	private final Debugger debug = new Debugger("WORLD GEN MULTIBIOME");
 	@Override
-	public Grid<BlockEntry> genChunk(BlockMap map, int minX, int minY, int w, int h) {
+	public Grid<BlockEntry> genChunk(World map, int minX, int minY, int w, int h) {
 		long biomen = random.getLong(minY + ((minX * 991) ^ 0x12433653), minY << 8, 2);
 		biomen = biomen % biomes.length;
 		if(biomen < 0) biomen += biomes.length;

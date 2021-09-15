@@ -8,7 +8,6 @@ import java.util.jar.*;
 
 import mmb.FILES.AdvancedFile;
 import mmb.FILES.OnlineFile;
-import mmb.MODS.loader.StreamClassLoader;
 
 /**
  * @author oskar
@@ -25,7 +24,6 @@ public class AddonInfo {
 	public AdvancedFile file = null;
 	
 	//If file is not corrupt
-	public StreamClassLoader classes;
 	public List<JarEntry> contents = new ArrayList<>();
 	public Map<JarEntry, byte[]> files = new HashMap<>();
 	public boolean hasClasses = false;

@@ -3,6 +3,7 @@
  */
 package mmb.MENU.components;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.Action;
 import javax.swing.Icon;
@@ -27,7 +28,7 @@ public class BoundCheckBoxMenuItem extends JCheckBoxMenuItem {
 		valueChangeUnderway = false;
 	}
 	private transient ListenerBooleanVariable bvar;
-	private transient BooleanConsumer update = this::setSelected;
+	@Nonnull private transient BooleanConsumer update = this::setSelected;
 	public void setVariable(@Nullable ListenerBooleanVariable var) {
 		if(var != null) setSelected(var.getValue());
 		if(bvar != null) bvar.remove(update);

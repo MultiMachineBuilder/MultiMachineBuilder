@@ -4,11 +4,10 @@
 package mmb.WORLD.crafting;
 
 import org.ainslec.picocog.PicoWriter;
-import org.joml.Vector3d;
 
 import mmb.WORLD.block.Drop;
 import mmb.WORLD.inventory.io.InventoryWriter;
-import mmb.WORLD.worlds.world.BlockMap;
+import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
@@ -16,14 +15,14 @@ import mmb.WORLD.worlds.world.BlockMap;
  */
 public interface RecipeOutput extends Drop {
 	@Override
-	default boolean drop(InventoryWriter inv, BlockMap map, int x, int y) {
+	default boolean drop(InventoryWriter inv, World map, int x, int y) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 	/**
 	 * Produces {@code amount} units of this recipe output
-	 * @param tgt
-	 * @param amount
+	 * @param tgt inventory to move items to
+	 * @param amount number of items
 	 */
 	public void produceResults(InventoryWriter tgt, int amount);
 	/**
@@ -40,11 +39,30 @@ public interface RecipeOutput extends Drop {
 	public void represent(PicoWriter out);
 	/**
 	 * Re-calculate the maximum volume of this recipe output.
-	 * X coordinate: min
-	 * Y coordinate: avg
-	 * Z coordinate: max
-	 * @param out target volume output
-	 * @return maximum volume
+	 * @return output volume
 	 */
-	public void calcVolumes(Vector3d out);
+	public double outVolume();
+	public default double outVolume(int amount) {
+		return outVolume() * amount;
+	}
+	
+	/** Represents a recipe output that does nothing */
+	public static final RecipeOutput NONE = new RecipeOutput() {
+
+		@Override
+		public void produceResults(InventoryWriter tgt, int amount) {
+			//no items to insert
+		}
+
+		@Override
+		public void represent(PicoWriter out) {
+			out.write("Nothing");
+		}
+
+		@Override
+		public double outVolume() {
+			return 0;
+		}
+		
+	};
 }

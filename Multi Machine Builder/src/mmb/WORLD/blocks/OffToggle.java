@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.blocks;
 
+import javax.annotation.Nullable;
+
 import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.Side;
 import mmb.WORLD.block.Block;
@@ -20,7 +22,7 @@ public class OffToggle extends Block implements BlockActivateListener {
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, WorldWindow window) {
+	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window) {
 		map.place(ContentsBlocks.ON, blockX, blockY);
 	}
 

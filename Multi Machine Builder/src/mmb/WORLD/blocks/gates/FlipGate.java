@@ -7,17 +7,12 @@ import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.RotatedImageGroup;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar
  *
  */
 public class FlipGate extends AbstractStateGate {
-	public FlipGate(int x, int y, BlockMap owner2) {
-		super(x, y, owner2);
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
 	public BlockType type() {

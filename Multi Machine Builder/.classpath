@@ -8,9 +8,12 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry kind="lib" path="lib/lwjgl-release-3.2.3-custom/joml-1.9.25.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl-release-3.2.3-custom/joml-1.9.25.jar" sourcepath="lib/lwjgl-release-3.2.3-custom/joml-1.9.25-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/lwjgl-release-3.2.3-custom/joml-1.9.25-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/lwjgl-release-3.2.3-custom"/>
-	<classpathentry kind="lib" path="lib/lwjgl-release-3.2.3-custom/joml-1.9.25-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-release-3.2.3-custom/lwjgl-assimp-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-release-3.2.3-custom/lwjgl-assimp-natives-windows.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-release-3.2.3-custom/lwjgl-assimp-sources.jar"/>
@@ -198,7 +201,6 @@
 	<classpathentry kind="lib" path="lib/tritonus/tritonus_share.jar.zip"/>
 	<classpathentry kind="lib" path="lib/mp3spi/mp3spi-1.9.5.jar"/>
 	<classpathentry kind="lib" path="lib/tritonus/tritonus_share.jar"/>
-	<classpathentry kind="lib" path="lib/lwjgl-release-3.2.3-custom/joml-1.9.25-sources.jar"/>
 	<classpathentry kind="lib" path="lib/vavr-master/vavr-0.10.3.jar"/>
 	<classpathentry kind="lib" path="lib/vavr-master/vavr-0.10.3-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/vavr-match-master/vavr-match-0.10.3.jar"/>

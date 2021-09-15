@@ -147,5 +147,11 @@ public class TestSimpleEvent {
 
         Assert.assertEquals(0, counter.get());
     }
+    
+    @Test(expected = NullPointerException.class)
+    public void testRemoveAllOccurrencesNull() {
+        Event<Void> event = new SimpleEvent<>();
+        event.removeAllOccurrences(null);
+    }
 
 }

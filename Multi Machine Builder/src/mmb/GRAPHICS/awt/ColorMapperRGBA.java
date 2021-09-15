@@ -6,6 +6,8 @@ package mmb.GRAPHICS.awt;
 import java.awt.Color;
 import java.util.Arrays;
 
+import javax.annotation.Nullable;
+
 /**
  * @author oskar constructor javadoc, getters and setters
  * @author <a href="https://stackoverflow.com/users/1831987/vgr">VGR</a> original code
@@ -36,8 +38,8 @@ public class ColorMapperRGBA extends ColorMapper {
     }
 
     @Override
-    public int[] lookupPixel(int[] src,
-                             int[] dest) {
+    public int[] lookupPixel(@SuppressWarnings("null") int[] src,
+                             @Nullable int[] dest) {
         if (dest == null) {
             dest = new int[src.length];
         }

@@ -36,7 +36,7 @@ public class StaticList<E> extends AbstractList<E> {
 	}
 
 	@Override
-	public E set(int index, E element) {
+	public E set(int index, @SuppressWarnings("null") E element) {
 		E value = get(index);
 		array[index] = element;
 		return value;

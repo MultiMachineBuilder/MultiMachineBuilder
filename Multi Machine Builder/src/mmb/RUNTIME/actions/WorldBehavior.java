@@ -3,6 +3,8 @@
  */
 package mmb.RUNTIME.actions;
 
+import java.io.IOException;
+
 import mmb.FILES.AdvancedFile;
 import mmb.WORLD.worlds.universe.Universe;
 
@@ -47,16 +49,18 @@ public interface WorldBehavior {
 	 * This method is used for deserialization of data submitted by remote clients.
 	 * @param f the file containing loaded data
 	 * @param id world file path
+	 * @throws IOException when load fails
 	 */
-	default void loadData(AdvancedFile f, String id) {}
+	default void loadData(AdvancedFile f, String id) throws IOException {} 
 	
 	/**
 	 * Implement this method to serialize data for further use.
 	 * This method is used for serialization of data to be sent to clients.
 	 * @param f the file to have data saved
 	 * @param id world file path
+	 * @throws IOException when save fails
 	 */
-	default void saveData(AdvancedFile f, String id) {}
+	default void saveData(AdvancedFile f, String id) throws IOException {}
 	/**
 	 * Implement this method to create new world data if previous load failed or data wasn't created previously.
 	 * This method is used in world creation

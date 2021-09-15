@@ -11,17 +11,12 @@ import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar
  *
  */
 public class ActuatorClick extends AbstractActuatorBase {
-	public ActuatorClick(int x, int y, BlockMap owner2) {
-		super(x, y, owner2);
-	}
-
 	private static final RotatedImageGroup texture = RotatedImageGroup.create(Textures.get("machine/claw.png"));
 	
 	@Override
@@ -36,7 +31,7 @@ public class ActuatorClick extends AbstractActuatorBase {
 
 	@Override
 	protected void run(Point p, BlockEntry ent, MapProxy proxy) {
-		owner.click(p.x, p.y);
+		proxy.getMap().click(p.x, p.y);
 	}
 
 }

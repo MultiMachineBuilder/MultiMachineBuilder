@@ -3,6 +3,9 @@
  */
 package mmb.WORLD.tool;
 
+import java.awt.Graphics;
+
+import javax.annotation.Nullable;
 import javax.swing.Icon;
 
 import org.junit.jupiter.api.Assertions;
@@ -52,7 +55,7 @@ public class ToolSelectionModel {
 	}
 
 	private WindowTool tool;
-	public void setTool(WindowTool newTool) {
+	public void setTool(@Nullable WindowTool newTool) {
 		if(tool == newTool) return;
 		if(tool != null) {
 			tool.deselected();
@@ -66,6 +69,7 @@ public class ToolSelectionModel {
 			debug.printl("New tool: " + newTool.id());
 		}else {
 			debug.printl("New tool: null");
+			return;
 		}
 		tool = newTool;
 	}
@@ -89,6 +93,12 @@ public class ToolSelectionModel {
 		public Icon getIcon() {
 			// TODO Auto-generated method stub
 			return null;
+		}
+
+		@Override
+		public void preview(int startX, int startY, int scale, Graphics g) {
+			// TODO Auto-generated method stub
+			
 		}
 		
 	}

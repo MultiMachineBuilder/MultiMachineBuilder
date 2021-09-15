@@ -12,7 +12,6 @@ import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import mmb.GameObject;
-import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
@@ -39,7 +38,7 @@ import mmb.WORLD.worlds.world.World;
  * 	<li>BlockInterface - connect to other machines</li>
  * </ul>
  */
-public interface Machine extends GameObject, Loader<JsonNode>, Saver<JsonNode>{
+public interface Machine extends GameObject, Saver<JsonNode>{
 	//[start] positioning
 	public default void setPos(Point p) {
 		setPos(p.x, p.y);

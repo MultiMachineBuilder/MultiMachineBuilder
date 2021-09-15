@@ -8,11 +8,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.IntNode;
-import com.fasterxml.jackson.databind.node.NullNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
@@ -33,7 +33,6 @@ import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
 
 /**
@@ -67,15 +66,6 @@ public class Furnace extends SkeletalBlockEntityRotary implements BlockActivateL
 		recipes.put(ContentsBlocks.gold_ore, ContentsItems.gold);
 		recipes.put(ContentsBlocks.silver_ore, ContentsItems.silver);
 		inited = true;
-	}
-	
-	/**
-	 * @param x
-	 * @param y
-	 * @param owner2
-	 */
-	public Furnace(int x, int y, @Nonnull BlockMap owner2) {
-		super(x, y, owner2);
 	}
 
 	@Override
@@ -194,7 +184,7 @@ public class Furnace extends SkeletalBlockEntityRotary implements BlockActivateL
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, WorldWindow window) {
+	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window) {
 		if(window == null) return;
 		if(openWindow != null) return;
 		openWindow = new Smelting(this, window);

@@ -39,7 +39,11 @@ public interface ItemType extends Titled, Identifiable<String>{
 	 * @return a new instance of the item
 	 */
 	public ItemEntry create();
-	public ItemEntry load(JsonNode node);
+	public default ItemEntry loadItem(JsonNode node) {
+		ItemEntry item = create();
+		item.load(node);
+		return item;
+	}
 	
 	default public boolean exists() {
 		return true;

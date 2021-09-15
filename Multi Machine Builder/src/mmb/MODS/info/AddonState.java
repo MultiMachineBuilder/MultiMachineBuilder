@@ -8,7 +8,22 @@ package mmb.MODS.info;
  *
  */
 public enum AddonState {
-	NOEXIST, BROKEN, DISABLE, ENABLE, DEAD, API, MEDIA, EMPTY;
+	/** Indicates a non-existent mod file */
+	NOEXIST,
+	/** Indicates a corrupt mod file */
+	BROKEN,
+	/** Indicates a disabled mod, which won't run*/
+	DISABLE,
+	/** Indicates an active mod*/
+	ENABLE,
+	/** Indicates a mod which failed to load*/
+	DEAD,
+	/** Indicates an API package without any mods*/
+	API,
+	/** Indicates a media package without any code*/
+	MEDIA,
+	/** Indicates an empty file*/
+	EMPTY;
 	
 	@Override
 	public String toString() {

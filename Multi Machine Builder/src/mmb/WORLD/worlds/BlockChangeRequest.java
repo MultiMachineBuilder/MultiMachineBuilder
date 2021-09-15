@@ -6,7 +6,7 @@ package mmb.WORLD.worlds;
 import javax.annotation.Nonnull;
 
 import mmb.WORLD.block.BlockType;
-import mmb.WORLD.worlds.world.BlockArrayProvider;
+import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
@@ -21,7 +21,7 @@ public class BlockChangeRequest {
 		this.y = y;
 		this.block = block;
 	}
-	public void apply(BlockArrayProvider that) {
+	public void apply(World that) {
 		block.place(x, y, that);
 	}
 	public void apply(MapProxy mp) {

@@ -4,6 +4,7 @@
 package mmb.WORLD.tool;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -86,6 +87,13 @@ public class ToolPaint extends WindowTool {
 	@Override
 	public Icon getIcon() {
 		return textureIcon;
+	}
+
+
+	@Override
+	public void preview(int startX, int startY, int scale, Graphics g) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

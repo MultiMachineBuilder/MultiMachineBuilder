@@ -5,7 +5,7 @@ package mmb.WORLD.generator;
 
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.worlds.world.BlockMap;
+import mmb.WORLD.worlds.world.World;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 
@@ -16,8 +16,8 @@ import monniasza.collects.grid.Grid;
 public class GeneratorPlain implements Generator {
 
 	@Override
-	public void generate(BlockMap map, int chunkSize) {
-		map.fill(map.startX, map.startY, map.sizeX, map.sizeY, ContentsBlocks.grass);
+	public void generate(World map, int chunkSize) {
+		map.toGrid().fill(0, 0, map.sizeX, map.sizeY, ContentsBlocks.grass);
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class GeneratorPlain implements Generator {
 	}
 
 	@Override
-	public Grid<BlockEntry> genChunk(BlockMap map, int minX, int minY, int w, int h) {
+	public Grid<BlockEntry> genChunk(World map, int minX, int minY, int w, int h) {
 		Grid<BlockEntry> result = new FixedGrid<>(w, h);
 		result.fill(ContentsBlocks.grass);
 		return result;

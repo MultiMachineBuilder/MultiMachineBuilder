@@ -5,7 +5,7 @@ package mmb.WORLD.block;
 
 import javax.annotation.Nonnull;
 
-import mmb.WORLD.worlds.world.BlockMap;
+import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
@@ -20,5 +20,5 @@ public interface BlockFactory {
 	 * @param map block map
 	 * @return a new {@link BlockEntry}
 	 */
-	@Nonnull public BlockEntity create(int x, int y, BlockMap map);
+	@Nonnull public BlockEntity create(int x, int y, World map);
 }

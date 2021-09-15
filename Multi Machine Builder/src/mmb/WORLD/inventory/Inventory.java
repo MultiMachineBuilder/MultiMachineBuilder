@@ -12,7 +12,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.ainslec.picocog.PicoWriter;
-import org.joml.Vector3d;
 
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.io.InventoryReader;
@@ -21,10 +20,11 @@ import mmb.WORLD.items.ItemEntry;
 
 /**
  * @author oskar
- *
+ * This is a common interface for 
  */
 public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
 	
+	//Recipe output methods
 	@Override
 	default void produceResults(InventoryWriter tgt, int amount) {
 		for(ItemRecord record: this) {
@@ -32,10 +32,8 @@ public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
 		}
 	}
 	@Override
-	default void calcVolumes(Vector3d out) {
-		out.x += volume();
-		out.y += volume();
-		out.z += volume();
+	default double outVolume() {
+		return volume();
 	}
 	@Override
 	default void represent(PicoWriter out) {
@@ -43,6 +41,8 @@ public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
 			out.writeln(record.toRecipeOutputString());
 		}
 	}
+	
+	
 	/**
 	 * Get the item record under given item type
 	 * @param entry
@@ -51,6 +51,8 @@ public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
 	 * @throws IllegalStateException if item does not exist
 	 */
 	@Nonnull public ItemRecord get(ItemEntry entry);
+	
+	//Collection methods
 	@Override
 	default boolean add(ItemRecord arg0) {
 		return insert(arg0.item(), arg0.amount()) != 0;
@@ -115,7 +117,6 @@ public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
 	/** @return number of unique cached item records */
 	@Override
 	int size();
-	
 	@Override
 	default ItemRecord[] toArray() {
 		return toArray(new ItemRecord[size()]);
@@ -168,7 +169,7 @@ public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
 		return ReadOnlyInventory.decorate(this);
 	}
 
-	public default InventoryReader createReader() {
+	@Nonnull public default InventoryReader createReader() {
 		return new InventoryReader() {
 			private final Iterator<ItemRecord> records = iterator();
 			private ItemRecord current = records.hasNext() ? records.next() : null;
@@ -198,8 +199,8 @@ public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
 			}
 
 			@Override
-			public int extract(@SuppressWarnings("null") ItemEntry entry, int amount) {
-				return extract(entry, amount);
+			public int extract(ItemEntry entry, int amount) {
+				return Inventory.this.extract(entry, amount);
 			}
 
 			@Override
@@ -224,16 +225,11 @@ public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
 			}
 		};
 	}
-	public default InventoryWriter createWriter() {
+	@Nonnull public default InventoryWriter createWriter() {
 		return new InventoryWriter() {
 			@Override
 			public int write(ItemEntry ent, int amount) {
 				return insert(ent, amount);
-			}
-
-			@Override
-			public int toBeWritten(ItemEntry item, int amount) {
-				return insertibleRemain(amount, item);
 			}
 		};
 	}
@@ -253,5 +249,26 @@ public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
 	}
 	public default int insertibleRemain(int amount, ItemEntry item) {
 		return insertibleRemain(amount, item.volume());
+	}
+	
+	
+	/**
+	 * Returns how many copies of {@code sub} exist in {@code main}.
+	 * @param main inventory to check
+	 * @param sub copies to count
+	 * @return amount of {@code sub} ins {@code main}
+	 */
+	public static int howManyTimesThisContainsThat(Inventory main, Inventory sub) {
+		int result = Integer.MAX_VALUE;
+		for(ItemRecord record: sub) {
+			int small = record.amount();
+			ItemRecord mrecord = main.nget(record.item());
+			if(mrecord == null) return 0;
+			int big = mrecord.amount();
+			int units = big/small;
+			if(result > units) result = units;
+			if(result == 0) return 0;
+		}
+		return result;
 	}
 }

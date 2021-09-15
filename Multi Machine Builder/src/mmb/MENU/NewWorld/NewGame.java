@@ -55,23 +55,19 @@ public class NewGame extends MMBFrame {
 	private JList<Generator> list;
 	private JTextField txtcsize;
 	private JTextField txtSeed;
-	private long seed;
-
 	private void getWorldSize() {
 		w = 0;
 		h = 0;
 		csize = 0;
-		seed = 0;
 		try {
 			w = Integer.parseInt(txtWidth.getText());
 			h = Integer.parseInt(txtWidth.getText());
 			csize = Integer.parseInt(txtcsize.getText());
-			seed = Long.parseLong(txtSeed.getText());
+			Long.parseLong(txtSeed.getText());
 		} catch (NumberFormatException e2) {
 			w = -2;
 			h = 0;
 			csize = 0;
-			seed = 0;
 			debug.pstm(e2,
 					"Incorrect dimensions: "+txtWidth.getText()+
 					","+txtHeight.getText()+
@@ -84,7 +80,6 @@ public class NewGame extends MMBFrame {
 			w = -1;
 			h = 0;
 			csize = 0;
-			seed = 0;
 		}
 	}
 	private static final Random r = new Random();
@@ -94,8 +89,8 @@ public class NewGame extends MMBFrame {
 	public NewGame() {
 		addWindowListener(new WindowAdapter() {
 			@Override
-			public void windowClosing(WindowEvent arg0) {
-				exit();
+			public void windowClosing(@SuppressWarnings("null") WindowEvent arg0) {
+				dispose();
 			}
 		});
 		setTitle("Create a new world");
@@ -167,11 +162,9 @@ public class NewGame extends MMBFrame {
 			getRootPane().setDefaultButton(okButton);
 		
 			JButton cancelButton = new JButton("Cancel");
-			cancelButton.addActionListener(arg0 -> exit());
+			cancelButton.addActionListener(arg0 -> dispose());
 			cancelButton.setActionCommand("Cancel");
 			buttonPane.add(cancelButton);
-			
-		//pack();
 	}
 	
 	private class CellRenderer extends JLabel implements ListCellRenderer<Generator>{
@@ -193,7 +186,6 @@ public class NewGame extends MMBFrame {
 			}
 			return this;
 		}
-		
 	}
 
 	private void save() {
@@ -214,7 +206,7 @@ public class NewGame extends MMBFrame {
 		int ww = (2*w)+1;
 		int hh = (2*h)+1;
 		World main = new World(ww, hh, -w, -h);
-		gen.generate(main.getMap(), csize);
+		gen.generate(main, csize);
 
 		
 		//Create and set up the world
@@ -244,14 +236,9 @@ public class NewGame extends MMBFrame {
 		
 		world.destroy();
 		
-		exit();
-		PanelSaves.INSTANCE.refresh();
-	}
-	
-	private void exit() {
 		dispose();
-		//FullScreen.setWindow(MainMenu.INSTANCE);
-	}
+		PanelSaves.INSTANCE.refresh();
+	}	
 	@Override
 	public void destroy() {
 		FullScreen.setWindow(MainMenu.INSTANCE);

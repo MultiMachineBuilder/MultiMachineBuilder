@@ -8,9 +8,15 @@ import mmb.WORLD.inventory.Inventory;
 
 /**
  * @author oskar
- *
+ * Describes an object with inventories
  */
 public interface InventoryProvider {
+	/**
+	 * @return inventories normally available to the public
+	 */
 	public Collection<Inventory> provideExposedInventories();
-	public Collection<Inventory> provideHiddedInventories();
+	/**
+	 * @return inventories normally used only inside the object
+	 */
+	public Collection<Inventory> provideHiddenInventories();
 }

@@ -4,13 +4,11 @@
 package mmb.WORLD.items;
 
 import java.awt.Color;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 import javax.annotation.Nonnull;
 
 import mmb.DATA.contents.texture.Textures;
-import mmb.WORLD.item.ItemEntityType;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.item.Items;
 import mmb.WORLD.texture.BlockDrawer;
@@ -44,12 +42,7 @@ public abstract class ItemBase implements ItemType {
 		Items.register(this);
 	}
 
-	/**
-	 * The volume which item takes up
-	 * @deprecated Deprecated in favor of encapsulation. Use {@link #setVolume(double)} and {@link #volume()} instead
-	 */
-	@Deprecated
-	public double volume = 0.02;
+	
 	/** 
 	 * A description contains extra information about the item, which can be used by their users.
 	 * @deprecated Deprecated in favor of encapsulation. {@link #setDescription(String)} and {@link #description()} instead
@@ -79,10 +72,10 @@ public abstract class ItemBase implements ItemType {
 	public void setTexture(@Nonnull BlockDrawer texture) {
 		drawer = texture;
 	}
-	public void setTexture(@Nonnull BufferedImage texture) {
+	public void setTexture(BufferedImage texture) {
 		drawer = BlockDrawer.ofImage(texture);
 	}
-	public void setTexture(@Nonnull String texture) {
+	public void setTexture(String texture) {
 		setTexture(Textures.get(texture));
 	}
 
@@ -125,11 +118,16 @@ public abstract class ItemBase implements ItemType {
 		this.title = title;
 	}
 
+	/**
+	 * The volume which item takes up
+	 * @deprecated Deprecated in favor of encapsulation. Use {@link #setVolume(double)} and {@link #volume()} instead
+	 */
+	@Deprecated
+	public double volume = 0.02;
 	@Override
 	public double volume() {
 		return volume;
 	}
-
 	@Override
 	public void setVolume(double volume) {
 		this.volume = volume;
@@ -141,7 +139,7 @@ public abstract class ItemBase implements ItemType {
 	 * @param texture path to texture, starting from `/textures`
 	 * @return this
 	 */
-	@Nonnull public ItemBase texture(@Nonnull String texture) {
+	@Nonnull public ItemBase texture(String texture) {
 		setTexture(texture);
 		return this;
 	}
@@ -150,7 +148,7 @@ public abstract class ItemBase implements ItemType {
 	 * @param texture texture
 	 * @return this
 	 */
-	@Nonnull public ItemBase texture(@Nonnull BufferedImage texture) {
+	@Nonnull public ItemBase texture(BufferedImage texture) {
 		setTexture(texture);
 		return this;
 	}
@@ -159,7 +157,7 @@ public abstract class ItemBase implements ItemType {
 	 * @param texture color
 	 * @return this
 	 */
-	@Nonnull public ItemBase texture(@Nonnull Color texture) {
+	@Nonnull public ItemBase texture(Color texture) {
 		setTexture(BlockDrawer.ofColor(texture));
 		return this;
 	}
@@ -168,7 +166,7 @@ public abstract class ItemBase implements ItemType {
 	 * @param texture texture
 	 * @return this
 	 */
-	@Nonnull public ItemBase texture(@Nonnull BlockDrawer texture) {
+	@Nonnull public ItemBase texture(BlockDrawer texture) {
 		setTexture(texture);
 		return this;
 	}
@@ -177,7 +175,7 @@ public abstract class ItemBase implements ItemType {
 	 * @param title title
 	 * @return this
 	 */
-	@Nonnull public ItemBase title(@Nonnull String title) {
+	@Nonnull public ItemBase title(String title) {
 		setTitle(title);
 		return this;
 	}
@@ -186,7 +184,7 @@ public abstract class ItemBase implements ItemType {
 	 * @param description description
 	 * @return this
 	 */
-	@Nonnull public ItemBase describe(@Nonnull String description) {
+	@Nonnull public ItemBase describe(String description) {
 		setDescription(description);
 		return this;
 	}
@@ -195,7 +193,7 @@ public abstract class ItemBase implements ItemType {
 	 * @param id block id
 	 * @return this
 	 */
-	@Nonnull public ItemBase finish(@Nonnull String id) {
+	@Nonnull public ItemBase finish(String id) {
 		register(id);
 		return this;
 	}

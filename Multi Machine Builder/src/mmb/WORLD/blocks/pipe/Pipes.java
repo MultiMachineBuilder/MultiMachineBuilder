@@ -39,7 +39,7 @@ public class Pipes {
 		STRAIGHT.setDescription("A pipe which is straight.");
 		STRAIGHT.setTitle("Straight pipe");
 		RotatedImageGroup textureStraight = RotatedImageGroup.create("machine/pipe straight.png");
-		STRAIGHT.setFactory((x, y, m) -> new Pipe(x, y, m, Side.R, Side.L, Pipes.STRAIGHT, textureStraight));
+		STRAIGHT.setFactory(() -> new Pipe(Side.R, Side.L, Pipes.STRAIGHT, textureStraight));
 		STRAIGHT.register("pipe.I");
 		
 		ELBOW = new BlockEntityType();
@@ -47,7 +47,7 @@ public class Pipes {
 		ELBOW.setDescription("A pipe which is bent.");
 		ELBOW.setTitle("Elbow pipe");
 		RotatedImageGroup textureElbow = RotatedImageGroup.create("machine/pipe elbow.png");
-		ELBOW.setFactory((x, y, m) -> new Pipe(x, y, m, Side.R, Side.D, ELBOW, textureElbow));
+		ELBOW.setFactory(() -> new Pipe(Side.R, Side.D, ELBOW, textureElbow));
 		ELBOW.register("pipe.L");
 		
 		IPE = new BlockEntityType();
@@ -55,7 +55,7 @@ public class Pipes {
 		IPE.setDescription("A hybrid of Item Mover and straight pipe");
 		IPE.setTitle("Intersecting Pipe Mover");
 		RotatedImageGroup textureIPE = RotatedImageGroup.create("machine/imover intersected.png");
-		IPE.setFactory((x, y, m) -> new IntersectingPipeExtractor(x, y, m, Side.R, Side.L, IPE, textureIPE));
+		IPE.setFactory(() -> new IntersectingPipeExtractor( Side.R, Side.L, IPE, textureIPE));
 		IPE.register("pipe.IPE");
 		
 		TOLEFT = new BlockEntityType();
@@ -63,7 +63,7 @@ public class Pipes {
 		TOLEFT.setDescription("A pipe which directs its side input to the left.");
 		TOLEFT.setTitle("Left Binding Pipe");
 		RotatedImageGroup textureToLeft = RotatedImageGroup.create("machine/pipe merge left.png");
-		TOLEFT.setFactory((x, y, m) -> new PipeBinder(x, y, m, TOLEFT, Side.L, textureToLeft));
+		TOLEFT.setFactory(() -> new PipeBinder(TOLEFT, Side.L, textureToLeft));
 		TOLEFT.register("pipe.toleft");
 		
 		TORIGHT = new BlockEntityType();
@@ -71,7 +71,7 @@ public class Pipes {
 		TORIGHT.setDescription("A pipe which directs its side input to the right.");
 		TORIGHT.setTitle("Right Binding Pipe");
 		RotatedImageGroup textureToRight = RotatedImageGroup.create("machine/pipe merge right.png");
-		TORIGHT.setFactory((x, y, m) -> new PipeBinder(x, y, m, TORIGHT, Side.R, textureToRight));
+		TORIGHT.setFactory(() -> new PipeBinder(TORIGHT, Side.R, textureToRight));
 		TORIGHT.register("pipe.toright");
 		
 		CROSS = new BlockEntityType();
@@ -79,7 +79,7 @@ public class Pipes {
 		CROSS.setDescription("A pair of disconnected perpendicular pipes.");
 		CROSS.setTitle("Bridging pipe");
 		RotatedImageGroup textureCross = RotatedImageGroup.create("machine/pipe bridged.png");
-		CROSS.setFactory((x, y, m) -> new DualPipe(x, y, m, Side.D, Side.R, CROSS, textureCross));
+		CROSS.setFactory(() -> new DualPipe(Side.D, Side.R, CROSS, textureCross));
 		CROSS.register("pipe.X");
 		
 		DUALTURN = new BlockEntityType();
@@ -87,7 +87,7 @@ public class Pipes {
 		DUALTURN.setDescription("A pair of curved pipes.");
 		DUALTURN.setTitle("Dual pipe");
 		RotatedImageGroup textureDualTurn = RotatedImageGroup.create("machine/pipe biturn.png");
-		DUALTURN.setFactory((x, y, m) -> new DualPipe(x, y, m, Side.R, Side.D, DUALTURN, textureDualTurn));
+		DUALTURN.setFactory(() -> new DualPipe(Side.R, Side.D, DUALTURN, textureDualTurn));
 		DUALTURN.register("pipe.D");
 	}
 	/**

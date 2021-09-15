@@ -10,16 +10,14 @@ import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
+import javax.swing.ListSelectionModel;
 
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.tool.ToolSelectionModel;
-import mmb.WORLD.tool.ToolStandard;
 import mmb.WORLD.tool.Tools;
 import mmb.WORLD.tool.WindowTool;
 import mmb.debug.Debugger;
 import monniasza.collects.Collects;
-
-import javax.swing.ListSelectionModel;
 
 /**
  * @author oskar

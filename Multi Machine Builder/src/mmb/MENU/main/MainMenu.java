@@ -8,8 +8,6 @@ import javax.swing.*;
 import mmb.DATA.Settings;
 import mmb.DATA.contents.GameContents;
 import mmb.debug.Debugger;
-import mmb.testing.TestRotatedImageGroup;
-
 import java.net.URI;
 import java.util.Calendar;
 import java.util.GregorianCalendar;

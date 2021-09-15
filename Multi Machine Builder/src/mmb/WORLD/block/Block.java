@@ -15,7 +15,6 @@ import com.fasterxml.jackson.databind.node.TextNode;
 
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.texture.BlockDrawer;
-import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
 
 /**
@@ -36,12 +35,13 @@ public class Block extends BlockBase implements BlockEntry{
 		return this;
 	}
 	@Override
-	public void place(int x, int y, World map) {
-		map.place(this, x, y);
+	public BlockEntry place(int x, int y, World map) {
+		BlockEntry placed = map.place(this, x, y);
+		return placed;
 	}
 
 	@Override
-	public BlockEntry create(int x, int y, BlockMap map) {
+	public BlockEntry create(int x, int y, World map) {
 		return this;
 	}
 
@@ -57,8 +57,8 @@ public class Block extends BlockBase implements BlockEntry{
 	
 	//Placer preview
 	@Override
-	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation, int side) {
-		drawer.draw(this, renderStartPos, g, side);
+	public void preview(Graphics g, Point renderStartPos, World map, Point targetLocation, int side) {
+		getTexture().draw(this, renderStartPos, g, side);
 	}
 
 	//Not a BlockEntity
@@ -180,7 +180,29 @@ public class Block extends BlockBase implements BlockEntry{
 	 */
 	@Override
 	@Nonnull public Block volumed(double volume) {
-		this.volume = volume;
+		setVolume(volume);
 		return this;
 	}
+	
+	private boolean surface;
+	@Override
+	public boolean isSurface() {
+		return surface;
+	}
+	/**
+	 * Sets whether this block is treated as 'surface block', thus is not mineable in 2D top down world in survival mode and machines.
+	 * @param sf should this block be surface?
+	 */
+	public void setSurface(boolean sf) {
+		surface = sf;
+	}
+	@Override
+	public final BlockEntry blockCopy() {
+		return this;
+	}
+	@Override
+	public void resetMap(World map, int x, int y) {
+		//does nothing
+	}
+
 }

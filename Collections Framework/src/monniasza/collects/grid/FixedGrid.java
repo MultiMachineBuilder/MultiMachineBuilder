@@ -105,22 +105,19 @@ public class FixedGrid<T> implements Grid<T> {
 
 	@Override
 	public boolean equals(@Nullable Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (obj instanceof Grid) {
-			Grid<?> other = (Grid<?>) obj;
-			if(other.width() != arr.length) return false;
-			if(other.height() != h) return false;
-			for(int i = 0; i < w; i++) {
-				for(int j = 0; j < h; j++) {
-					if(!Objects.equals(other.get(i, j), arr[i][j])) return false;
-				}
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (!(obj instanceof Grid)) return false;
+		Grid<?> other = (Grid<?>) obj;
+		if(other.width() != arr.length) return false;
+		if(other.height() != h) return false;
+		for(int i = 0; i < w; i++) {
+			for(int j = 0; j < h; j++) {
+				if(!Objects.equals(other.get(i, j), arr[i][j])) return false;
 			}
-			return true;
 		}
-		return false;
+		return true;
+		
 	}
 
 	@Override
@@ -128,7 +125,7 @@ public class FixedGrid<T> implements Grid<T> {
 		arr[x][y] = data;
 	}
 
-	@SuppressWarnings({"unchecked", "unchested"})
+	@SuppressWarnings({"unchecked", "unchested", "🥊"})
 	@Override
 	public T get(int x, int y) {
 		return (T) arr[x][y];

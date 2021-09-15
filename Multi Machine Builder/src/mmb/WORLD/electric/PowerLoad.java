@@ -18,11 +18,11 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockType;
-import mmb.WORLD.block.SkeletalBlockEntityData;
+import mmb.WORLD.block.BlockEntity;
+import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 
@@ -30,7 +30,7 @@ import mmb.debug.Debugger;
  * @author oskar
  *
  */
-public class PowerLoad extends SkeletalBlockEntityData implements BlockActivateListener {
+public class PowerLoad extends BlockEntityData implements BlockActivateListener {
 	private double power;
 	@Override
 	public Electricity getElectricalConnection(Side s) {
@@ -38,7 +38,11 @@ public class PowerLoad extends SkeletalBlockEntityData implements BlockActivateL
 	}
 
 	private double accumulated = 0;
-	private final Electricity elec = new Electricity() {
+	private static class Elec implements Electricity{
+		private final PowerLoad load;
+		private Elec(PowerLoad load) {
+			this.load = load;
+		}
 		@Override
 		public double amount() {
 			return 0;
@@ -49,18 +53,16 @@ public class PowerLoad extends SkeletalBlockEntityData implements BlockActivateL
 		}
 		@Override
 		public double insert(double amt) {
-			double remain = (power * 0.02) - accumulated;
+			double remain = (load.power * 0.02) - load.accumulated;
 			if(remain < 0) return 0;
 			double result = Math.min(amt, remain);
-			accumulated += result;
+			load.accumulated += result;
 			
 			return result;
-		}
-		private final Debugger debug = new Debugger("ELEC LOAD");
-	};
-	public PowerLoad(int x, int y, @Nonnull BlockMap owner2) {
-		super(x, y, owner2);
+		}	
 	}
+	private static final Debugger debug = new Debugger("ELEC LOAD");
+	private Electricity elec = new Elec(this);
 
 	@Override
 	public BlockType type() {
@@ -136,6 +138,13 @@ public class PowerLoad extends SkeletalBlockEntityData implements BlockActivateL
 	public void click(int blockX, int blockY, World map, WorldWindow window) {
 		if(window == null) return;
 		window.openAndShowWindow(new Dialog(window), "Power load");
+	}
+
+	@Override
+	public PowerLoad clone() {
+		PowerLoad copy = (PowerLoad) super.clone();
+		copy.elec = new Elec(copy);
+		return copy;
 	}
 
 }

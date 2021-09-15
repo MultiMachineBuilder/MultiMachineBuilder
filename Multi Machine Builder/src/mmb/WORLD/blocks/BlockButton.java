@@ -3,24 +3,22 @@
  */
 package mmb.WORLD.blocks;
 
+import javax.annotation.Nullable;
+
 import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockType;
-import mmb.WORLD.block.SkeletalBlockEntityDataless;
+import mmb.WORLD.block.BlockEntityDataless;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
  *
  */
-public class BlockButton extends SkeletalBlockEntityDataless implements BlockActivateListener {
+public class BlockButton extends BlockEntityDataless implements BlockActivateListener {
 	private int pressed;
-	public BlockButton(int x, int y, BlockMap owner2) {
-		super(x, y, owner2);
-	}
 
 	@Override
 	public BlockType type() {
@@ -38,7 +36,7 @@ public class BlockButton extends SkeletalBlockEntityDataless implements BlockAct
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, WorldWindow window) {
+	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window) {
 		pressed = 2;
 	}
 

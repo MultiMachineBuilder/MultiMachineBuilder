@@ -8,7 +8,6 @@ import java.awt.Graphics;
 import javax.annotation.Nullable;
 
 import org.ainslec.picocog.PicoWriter;
-import org.joml.Vector3d;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -29,10 +28,8 @@ import mmb.WORLD.item.Items;
 public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput {
 
 	@Override
-	default void calcVolumes(Vector3d out) {
-		out.x += volume();
-		out.y += volume();
-		out.z += volume();
+	default double outVolume() {
+		return volume();
 	}
 	//Recipe output
 	@Override
@@ -91,7 +88,7 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput {
 			JsonNode idata = data.get(1);
 			ItemType type = Items.items.get(id);
 			if(type == null) return null;
-			return type.load(idata);
+			return type.loadItem(idata);
 		}
 		if(data.isTextual()) {
 			return Items.items.get(data.asText()).create();
@@ -107,7 +104,7 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput {
 		array.add(save);
 		return array;
 	}
-	public default void render(Graphics g, int x, int y) {
-		type().getTexture().draw(null, x, y, g, 32);
+	public default void render(Graphics g, int x, int y, int side) {
+		type().getTexture().draw(null, x, y, g, side);
 	}
 }

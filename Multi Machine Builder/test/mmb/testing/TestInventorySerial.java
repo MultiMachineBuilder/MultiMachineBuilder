@@ -3,6 +3,8 @@
  */
 package mmb.testing;
 
+import javax.annotation.Nonnull;
+
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.DATA.json.JsonTool;
@@ -16,7 +18,7 @@ import mmb.debug.Debugger;
  *
  */
 public class TestInventorySerial {
-	static Item A, B;
+	@Nonnull static Item A, B;
 	/**
 	 * @param args
 	 */

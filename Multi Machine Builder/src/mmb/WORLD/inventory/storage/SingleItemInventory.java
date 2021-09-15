@@ -114,10 +114,11 @@ public class SingleItemInventory implements Inventory {
 
 	@Override
 	public int insert(ItemEntry ent, int amount) {
+		if(!ent.exists()) return 0;
 		if(contents != null) return 0;
 		if(amount <= 0) return 0;
 		contents = ent;
-		return 0;
+		return 1;
 	}
 
 	@Override

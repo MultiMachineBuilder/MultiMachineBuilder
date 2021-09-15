@@ -3,11 +3,13 @@
  */
 package mmb.WORLD.generator;
 
+import javax.annotation.Nonnull;
+
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
 import mmb.BEANS.Titled;
 import mmb.WORLD.block.BlockEntry;
-import mmb.WORLD.worlds.world.BlockMap;
+import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 import monniasza.collects.grid.Grid;
 
@@ -16,31 +18,31 @@ import monniasza.collects.grid.Grid;
  *
  */
 public interface Generator extends Titled{
-	public Grid<BlockEntry> genChunk(BlockMap map, int minX, int minY, int w, int h);
+	@Nonnull public Grid<BlockEntry> genChunk(World map, int minX, int minY, int w, int h);
 	public void setSeed(long seed);
-	default void generate(BlockMap map, int chunkSize) {
+	default void generate(World map, int chunkSize) {
 		Debugger debug = new Debugger("WORLD GEN");
 		int chunkSize0 = chunkSize;
 		if(chunkSize0 > map.sizeX) chunkSize0 = map.sizeX;
 		if(chunkSize0 > map.sizeY) chunkSize0 = map.sizeY;
+		
 		IntList chnkXs = new IntArrayList();
 		int x = map.startX;
-		chnkXs.add(x);
 		while(x < map.endX) {
+			chnkXs.add(x);
 			x += chunkSize0;
-			if(x < map.endX) chnkXs.add(x);
 		}
 		debug.printl(chnkXs.toString());
 		
 		IntList chnkYs = new IntArrayList();
 		int y = map.startY;
-		chnkYs.add(y);
 		while(y < map.endY) {
+			chnkYs.add(y);
 			y += chunkSize0;
-			if(y < map.endY) chnkYs.add(y);
 		}
 		debug.printl(chnkYs.toString());
 		
+		Grid<@Nonnull BlockEntry> grid = map.toGrid();
 		int maxx = chnkXs.size()-1;
 		int maxy = chnkYs.size()-1;
 		int left = chnkXs.getInt(0);
@@ -51,12 +53,13 @@ public interface Generator extends Titled{
 				int down = chnkYs.getInt(j+1);
 				int w = right-left;
 				int h = down-up;
+				debug.printl("["+left+","+up+"] ... ["+right+","+down+"]");
 				Grid<BlockEntry> chunk = genChunk(map, left, up, w, h);
-				Grid.copy(0, 0, chunk, left, up, map, w, h);
+				Grid.copy(0, 0, chunk, left-map.startX, up-map.startY, grid, w, h); //FIXME AIOOBE thrown here
 				up = down;
 			}
 			left = right;
 		}
 	}
-
+	
 }

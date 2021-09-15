@@ -5,18 +5,14 @@ package mmb.WORLD.blocks;
 
 import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockType;
-import mmb.WORLD.block.SkeletalBlockEntityDataless;
+import mmb.WORLD.block.BlockEntityDataless;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar
  *
  */
-public class WWHead extends SkeletalBlockEntityDataless{
-	public WWHead(int x, int y, BlockMap owner2) {
-		super(x, y, owner2);
-	}
+public class WWHead extends BlockEntityDataless{
 
 	@Override
 	public BlockType type() {
@@ -30,7 +26,7 @@ public class WWHead extends SkeletalBlockEntityDataless{
 
 	@Override
 	public void onTick(MapProxy map) {
-		map.place(ContentsBlocks.ww_tail, x, y);
+		map.place(ContentsBlocks.ww_tail, posX(), posY());
 	}
 	
 }

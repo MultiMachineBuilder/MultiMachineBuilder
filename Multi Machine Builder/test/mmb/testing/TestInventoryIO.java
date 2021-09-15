@@ -3,6 +3,7 @@
  */
 package mmb.testing;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
 import mmb.WORLD.inventory.io.InventoryWriter;
@@ -14,7 +15,8 @@ import mmb.WORLD.item.Item;
  *
  */
 class TestInventoryIO {
-	public static void main(String[] args) {
+	@Test
+	public void test() {
 		//Test item
 		Item test = new Item();
 		test.setID("test");

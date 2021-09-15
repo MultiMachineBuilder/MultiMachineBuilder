@@ -9,21 +9,17 @@ import mmb.WORLD.gui.window.WorldWindow;
 
 import javax.swing.JColorChooser;
 import javax.swing.JButton;
-import javax.swing.BoxLayout;
-
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.image.ColorModel;
-
 import net.miginfocom.swing.MigLayout;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /**
  * @author oskar
  *
  */
 public class ColorGUI extends JPanel {
+	private static final long serialVersionUID = 5195216057761670896L;
+	
 	private JColorChooser colorChooser;
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;

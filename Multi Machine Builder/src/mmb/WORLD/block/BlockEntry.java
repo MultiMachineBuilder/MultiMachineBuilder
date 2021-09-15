@@ -4,7 +4,6 @@
 package mmb.WORLD.block;
 
 import java.awt.Graphics;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -18,7 +17,8 @@ import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.NoSuchInventory;
 import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
-import mmb.WORLD.worlds.world.BlockMap;
+import mmb.WORLD.texture.BlockDrawer;
+import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
@@ -40,11 +40,20 @@ public interface BlockEntry extends Saver<JsonNode> {
 	public default boolean provideSignal(Side s) {
 		return false;
 	}
+	
+	//Inventories
 	public default Inventory getInventory(Side s) {
 		return NoSuchInventory.INSTANCE;
 	}
 	public default InventoryReader getOutput(Side s) {
 		return getInventory(s).createReader();
+	}
+	/**
+	 * @param nother
+	 * @return
+	 */
+	public default InventoryWriter getInput(Side s) {
+		return getInventory(s).createWriter();
 	}
 	
 	public default void wrenchCW() {
@@ -55,27 +64,21 @@ public interface BlockEntry extends Saver<JsonNode> {
 	}
 	
 	/**
-	 * @param x X coordinate of UL corner
-	 * @param y Y coordinate of UL corner
+	 * @param x left X coordinate
+	 * @param y upper Y coordinate
 	 * @param g graphics context
-	 * @param side TODO
+	 * @param side side size
 	 */
 	public default void render(int x, int y, Graphics g, int side) {
-		type().getTexture().draw(this, x, y, g, side);
+		BlockDrawer drawer = type().getTexture();
+		drawer.draw(this, x, y, g, side);
 	}
-	/**
-	 * @param nother
-	 * @return
-	 */
-	public default InventoryWriter getInput(Side s) {
-		return getInventory(s).createWriter();
-	}
-
-	public default void onStartup(BlockMap map) {}
-	public default void onPlace(BlockMap map, @Nullable GameObject obj) {}
-	public default void onBreak(BlockMap blockMap, @Nullable GameObject obj) {}
-	public default void onShutdown(BlockMap map) {}
 	
+
+	public default void onStartup(World map) {}
+	public default void onPlace(World map, @Nullable GameObject obj) {}
+	public default void onBreak(World blockMap, @Nullable GameObject obj) {}
+	public default void onShutdown(World map) {}
 	
 	@Nullable public default Electricity getElectricalConnection(Side s) {
 		return null;
@@ -111,5 +114,23 @@ public interface BlockEntry extends Saver<JsonNode> {
 	public default void debug(StringBuilder sb) {
 		//unused
 	}
+	
+	/**
+	 * Creates a block-wise copy of this block entry.
+	 * The returned block entry may have position data attached,
+	 * or it may be identical.
+	 * @return a copy of this block
+	 * @implSpec This method must not throw any exceptions
+	 * @apiNote Used to copy blocks by world editing tools
+	 */
+	@Nonnull public BlockEntry blockCopy();
 
+	/**
+	 * Moves this block to a new map
+	 * @param map new map (can be the same, or null if block goes off map)
+	 * @param x X coordinate on a new map
+	 * @param y Y coordinate on a new map
+	 * @throws IllegalStateException if given map/position combination is not surface
+	 */
+	public void resetMap(@Nullable World map, int x, int y); //should only be called by World
 }

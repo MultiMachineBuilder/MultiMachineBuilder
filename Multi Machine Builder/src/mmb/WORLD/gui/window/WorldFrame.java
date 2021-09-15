@@ -6,6 +6,8 @@ package mmb.WORLD.gui.window;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.*;
+import java.util.Collection;
+import java.util.Map.Entry;
 import java.util.Objects;
 
 import javax.swing.Timer;
@@ -14,21 +16,23 @@ import javax.annotation.Nullable;
 import javax.swing.JComponent;
 
 import org.joml.Vector2d;
+import org.joml.Vector2i;
 
 import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
+import mmb.Vector2iconst;
 import mmb.DATA.variables.ListenerBooleanVariable;
 import mmb.MENU.StringRenderer;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.gui.FPSCounter;
 import mmb.WORLD.gui.Placer;
 import mmb.WORLD.gui.window.WorldWindow.ScrollablePlacementList;
+import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.machine.Machine;
 import mmb.WORLD.player.Player;
 import mmb.WORLD.tool.WindowTool;
 import mmb.WORLD.worlds.universe.Universe;
-import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 import java.awt.Color;
@@ -94,6 +98,7 @@ public class WorldFrame extends JComponent {
 	public final Event<String> titleChange = new CatchingEvent<>(debug, "Failed to run a title listener");
 	/** Runs on each frame */
 	public final Event<Graphics> redraw = new CatchingEvent<>(debug, "Failed to run a renderer");
+	
 	//Universe
 	private transient Universe world;
 	/** @return currently active universe */
@@ -158,7 +163,7 @@ public class WorldFrame extends JComponent {
 	
 	//Player
 	/**
-	 * A convienience method to get player
+	 * A convenience method to get player
 	 * @return the player belonging to the world
 	 */
 	public Player getPlayer() {
@@ -204,7 +209,7 @@ public class WorldFrame extends JComponent {
 			if(tool != null) tool.mouseMoved(e);
 		}
 	
-		@Override public void keyPressed(@SuppressWarnings("null") @Nonnull KeyEvent e) {
+		@Override public void keyPressed(@Nullable KeyEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			switch(e.getKeyCode()) {
 			case KeyEvent.VK_A:
@@ -234,7 +239,7 @@ public class WorldFrame extends JComponent {
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.keyPressed(e);
 		}
-		@Override public void keyReleased(@SuppressWarnings("null") @Nonnull KeyEvent e) {
+		@Override public void keyReleased(@Nullable KeyEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			switch(e.getKeyCode()) {
 			case KeyEvent.VK_ALT:
@@ -253,11 +258,13 @@ public class WorldFrame extends JComponent {
 			if(tool != null) tool.keyReleased(e);
 		}
 		@Override public void keyTyped(@Nullable KeyEvent e) {
+			Objects.requireNonNull(e, "event is null");
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.keyTyped(e);
 		}
 	
 		@Override public void mouseClicked(@Nullable MouseEvent e) {
+			Objects.requireNonNull(e, "event is null");
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseClicked(e);
 		}
@@ -268,6 +275,7 @@ public class WorldFrame extends JComponent {
 			if(tool != null) tool.mouseEntered(e);
 		}
 		@Override public void mouseExited(@Nullable MouseEvent e) {
+			Objects.requireNonNull(e, "event is null");
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseExited(e);
 		}
@@ -278,6 +286,7 @@ public class WorldFrame extends JComponent {
 			if(tool != null) tool.mousePressed(e);
 		}
 		@Override public void mouseReleased(@Nullable MouseEvent e) {
+			Objects.requireNonNull(e, "event is null");
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseReleased(e);
 		} 
@@ -318,10 +327,7 @@ public class WorldFrame extends JComponent {
 		fps.count();
 		
 		//Check validity
-		if(map == null) return;
-		BlockMap m = map.getMap();
-		if(m == null) return;
-		
+		if(map == null || !map.isValid()) return;
 		//Dimensions in tiles
 		double tilesW = (getWidth()/ blockScale);
 		double tilesH = (getHeight()/ blockScale);
@@ -339,10 +345,10 @@ public class WorldFrame extends JComponent {
 		Point dr = blockAt(getWidth(), getHeight());
 		
 		//The four coordinates of targeted rendered blocks
-		int l = Math.max(ul.x, m.startX);
-		int r = Math.min(dr.x, m.endX-1);
-		int u = Math.max(ul.y, m.startY);
-		int d = Math.min(dr.y, m.endY-1);
+		int l = Math.max(ul.x, map.startX);
+		int r = Math.min(dr.x, map.endX-1);
+		int u = Math.max(ul.y, map.startY);
+		int d = Math.min(dr.y, map.endY-1);
 		
 		//Count Blocks Per Frame
 		int bpf = 0;
@@ -352,13 +358,30 @@ public class WorldFrame extends JComponent {
 		int rstartY = (int) ((u+pos.y)*blockScale);
 		for(int i = l, x = rstartX; i <= r; i++, x += blockScale) {
 			for(int j = u, y = rstartY; j <= d; j++, y += blockScale) {
-				renderTile(x, y, g, m.get(i, j));
+				renderTile(x, y, g, map.get(i, j));
 				bpf++;
 			}
 		}
 		
+		int div2 = blockScale/2;
+		int div4 = blockScale/4;
+		Point pt = new Point();
+		//Render dropped items
+		for(Entry<Vector2iconst, ItemEntry> entry: map.drops.entries()) {
+			//Check if the vector is in bounds
+			int x = entry.getKey().x;
+			int y = entry.getKey().y;
+			if(x < l) continue;
+			if(x > r) continue;
+			if(y < u) continue;
+			if(y > d) continue;
+			blockPositionOnScreen(x, y, pt);
+			if(entry.getValue() == null) continue;
+			entry.getValue().render(g, pt.x+div4, pt.y+div4, div2);
+		}
+		
 		//Draw machines
-		for(Machine mc: map.getMap().machines) {
+		for(Machine mc: map.machines) {
 			int x = (int)((mc.posX()+pos.x)*blockScale);
 			int y = (int)((mc.posY()+pos.y)*blockScale);
 			int w = mc.sizeX();
@@ -372,29 +395,24 @@ public class WorldFrame extends JComponent {
 		int x = (int)((mouseover.x+pos.x)*blockScale);
 		int y = (int)((mouseover.y+pos.y)*blockScale);
 		
-		//Preview
-		Placer placer0 = placer.getSelectedValue();
-		if(placer0 != null) placer0.preview(g, new Point(x, y), m, new Point(mouseover), blockScale);
-		
-		int out = blockScale-1;
-		int mid = blockScale-3;
-		int in = blockScale-5;
 		//Pointer
-		g.setColor(Color.BLACK);
-		g.drawRect(x, y, out, out);
-		g.drawRect(x+2, y+2, in, in);
-		g.setColor(Color.RED);
-		g.drawRect(x+1, y+1, mid, mid);
+		thickframe(x, y, blockScale-1, blockScale-1, Color.RED, g);
 		
+		//Preview
+		WindowTool tool = window.toolModel.getTool();
+		Objects.requireNonNull(tool, "tool is null");
+		tool.preview(x, y, blockScale, g);
+			
 		//Debug use only
 		if(DEBUG_DISPLAY.getValue()) {
 			StringBuilder sb = new StringBuilder();
 			sb.append("Position: ").append(perspective).append("\r\n");
 			sb.append("Selected block: ").append(mouseover.x).append(',').append(mouseover.y).append("\r\n");
-			sb.append("BlockEntities: ").append(m.getBlockEntities().size()).append("\r\n");
+			sb.append("BlockEntities: ").append(map.blockents.size()).append("\r\n");
 			sb.append("FPS: ").append(fps.get()).append("\r\n");
 			sb.append("TPS: ").append(map.tps.get()).append("\r\n");
 			sb.append("BPF: ").append(bpf).append("\r\n");
+			sb.append("Dumped items: ").append(map.drops.size()).append("\r\n");
 			//Information for mouseover block
 			BlockEntry ent = getMouseoverBlockEntry();
 			if(ent != null) ent.debug(sb);
@@ -403,7 +421,7 @@ public class WorldFrame extends JComponent {
 			StringRenderer.renderStringBounded(Color.BLACK, Color.CYAN, Color.BLACK, sb.toString(), 0, 0, 5, 5, g);
 		}
 	}
-	private void renderTile(int x, int y, @Nonnull Graphics g, @Nullable BlockEntry blockEntry) {
+	private void renderTile(int x, int y, Graphics g, @Nullable BlockEntry blockEntry) {
 		if(blockEntry == null) return;
 		try {
 			blockEntry.render(x, y, g, blockScale);
@@ -523,6 +541,20 @@ public class WorldFrame extends JComponent {
 		return blockAt(p.x, p.y, tgt);
 	}
 	
+	public Point blockPositionOnScreen(int x, int y) {
+		int X = (int) ((x+pos.x)*blockScale);
+		int Y = (int) ((y+pos.y)*blockScale);
+		return new Point(X, Y);
+		
+	}
+	
+	public Point blockPositionOnScreen(int x, int y, Point tgt) {
+		tgt.x = (int) ((x+pos.x)*blockScale);
+		tgt.y = (int) ((y+pos.y)*blockScale);
+		return tgt;
+		
+	}
+	
 	//Scrollable Placement List
 	private ScrollablePlacementList placer;
 	/** @return the associated Scrollable Placement List */
@@ -549,4 +581,23 @@ public class WorldFrame extends JComponent {
 		this.blockScale = blockScale;
 	}
 
+	public static void thickframe(int x, int y, int w, int h, Color c, Graphics g) {
+		g.setColor(Color.BLACK);
+		g.drawRect(x-1, y-1, w+2, h+2);
+		g.drawRect(x+1, y+1, w-2, h-2);
+		g.setColor(c);
+		g.drawRect(x, y, w, h);
+	}
+	
+	public void renderBlockRange(int x1, int y1, int x2, int y2, Color c, Graphics g) {
+		if(x1 > x2) renderBlockRange(x2, y1, x1, y2, c, g);
+		else if(y1 > y2) renderBlockRange(x1, y2, x2, y1, c, g);
+		else {
+			Point c1 = blockPositionOnScreen(x1, y1);
+			Point c2 = blockPositionOnScreen(x2+1, y2+1);
+			c2.x -= 1;
+			c2.y -= 1;
+			thickframe(c1.x, c1.y, c2.x-c1.x, c2.y-c1.y, c, g);
+		}
+	}
 }

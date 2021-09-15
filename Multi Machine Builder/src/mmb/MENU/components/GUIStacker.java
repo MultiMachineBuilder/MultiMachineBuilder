@@ -117,13 +117,18 @@ public class GUIStacker extends JPanel {
 		BooleanVariable hasCalledClose = new BooleanVariable();
 		GUIStacker stacker = new GUIStacker();
 		class TestComponent extends JComponent implements AutoCloseable{
+			private static final long serialVersionUID = 7804797541646505045L;
+
 			@Override
 			public void close() throws Exception {
 				hasCalledClose.setValue(true);
 				throw new Exception("Exception not properly caught at pop()");
 			}
 		}
-		
+		@SuppressWarnings("resource")
+		Component comp = new TestComponent();
+		stacker.push(comp);
+		stacker.npop();
 	}
 
 }

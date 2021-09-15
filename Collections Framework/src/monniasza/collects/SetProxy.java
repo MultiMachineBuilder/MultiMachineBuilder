@@ -11,8 +11,11 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
+import javax.annotation.Nullable;
+
 /**
  * @author oskar
+ * @param <T> type of stored elements
  *
  */
 public class SetProxy<T> {
@@ -20,11 +23,11 @@ public class SetProxy<T> {
 	public final Set<T> proxy = new ProxySet();
 	private class ProxySet implements Set<T>{
 		@Override
-		public boolean add(T e) {
+		public boolean add(@SuppressWarnings("null") T e) {
 			return set.add(e);
 		}
 		@Override
-		public boolean addAll(Collection<? extends T> c) {
+		public boolean addAll(@SuppressWarnings("null") Collection<? extends T> c) {
 			return set.addAll(c);
 		}
 		@Override
@@ -32,19 +35,19 @@ public class SetProxy<T> {
 			set.clear();
 		}
 		@Override
-		public boolean contains(Object o) {
+		public boolean contains(@Nullable Object o) {
 			return set.contains(o);
 		}
 		@Override
-		public boolean containsAll(Collection<?> c) {
+		public boolean containsAll(@SuppressWarnings("null") Collection<?> c) {
 			return set.containsAll(c);
 		}
 		@Override
-		public boolean equals(Object o) {
+		public boolean equals(@Nullable Object o) {
 			return set.equals(o);
 		}
 		@Override
-		public void forEach(Consumer<? super T> action) {
+		public void forEach(@SuppressWarnings("null") Consumer<? super T> action) {
 			set.forEach(action);
 		}
 		@Override
@@ -64,19 +67,19 @@ public class SetProxy<T> {
 			return set.parallelStream();
 		}
 		@Override
-		public boolean remove(Object o) {
+		public boolean remove(@Nullable Object o) {
 			return set.remove(o);
 		}
 		@Override
-		public boolean removeAll(Collection<?> c) {
+		public boolean removeAll(@SuppressWarnings("null") Collection<?> c) {
 			return set.removeAll(c);
 		}
 		@Override
-		public boolean removeIf(Predicate<? super T> filter) {
+		public boolean removeIf(@SuppressWarnings("null") Predicate<? super T> filter) {
 			return set.removeIf(filter);
 		}
 		@Override
-		public boolean retainAll(Collection<?> c) {
+		public boolean retainAll(@SuppressWarnings("null") Collection<?> c) {
 			return set.retainAll(c);
 		}
 		@Override
@@ -96,7 +99,7 @@ public class SetProxy<T> {
 			return set.toArray();
 		}
 		@Override
-		public <U> U[] toArray(U[] a) {
+		public <U> U[] toArray(@SuppressWarnings("null") U[] a) {
 			return set.toArray(a);
 		}
 	}

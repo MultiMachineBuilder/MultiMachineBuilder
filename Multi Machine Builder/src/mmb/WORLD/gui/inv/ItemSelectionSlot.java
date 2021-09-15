@@ -27,18 +27,18 @@ public class ItemSelectionSlot extends JComponent {
 	
 	private boolean canSet = true;
 	
-	private Variable<mmb.WORLD.items.ItemEntry> selectionSrc;
+	private Variable<@Nullable ItemEntry> selectionSrc;
 	private ItemEntry selection;
 	/**
 	 * @return the selection source
 	 */
-	public Variable<mmb.WORLD.items.ItemEntry> getSelectionSrc() {
+	public Variable<@Nullable ItemEntry> getSelectionSrc() {
 		return selectionSrc;
 	}
 	/**
 	 * @param selectionSrc new selection source
 	 */
-	public void setSelectionSrc(Variable<mmb.WORLD.items.ItemEntry> selectionSrc) {
+	public void setSelectionSrc(Variable<@Nullable ItemEntry> selectionSrc) {
 		this.selectionSrc = selectionSrc;
 	}
 	/**
@@ -60,7 +60,7 @@ public class ItemSelectionSlot extends JComponent {
 	@Override
 	protected void paintComponent(Graphics g) {
 		if(selection != null) {
-			selection.render(g, 4, 4);
+			selection.render(g, 4, 4, 32);
 		}
 	}
 	/**

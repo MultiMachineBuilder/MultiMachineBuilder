@@ -252,6 +252,8 @@ public class WorldWindow extends MMBFrame{
 		if(worldFrame.ctrlPressed()) sb.append("[Ctrl]");
 		if(worldFrame.altPressed()) sb.append("[Alt]");
 		if(worldFrame.shiftPressed()) sb.append("[Shift]");
+		sb.append(' ');
+		sb.append(toolModel.getTool().description());
 		setTitle(sb.toString());
 	}
 	private static Debugger debug = new Debugger("WORLD TEST");
@@ -449,7 +451,6 @@ public class WorldWindow extends MMBFrame{
 				
 				return this;
 			}
-			
 		}
 		
 		/** @return an associated WorldWindow */

@@ -4,6 +4,7 @@
 package mmb.WORLD.player;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -12,7 +13,6 @@ import com.pploder.events.Event;
 
 import io.vavr.Tuple2;
 import mmb.GameObject;
-import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
 import mmb.DATA.json.JsonTool;
 import mmb.DATA.variables.ListenerBooleanVariable;
@@ -23,7 +23,7 @@ import mmb.debug.Debugger;
  * @author oskar
  * A {@code Player} is an object, which represents player data
  */
-public class Player implements GameObject, Saver<JsonNode>, Loader<JsonNode> {
+public class Player implements GameObject, Saver<JsonNode> {
 	private static final Debugger debug = new Debugger("PLAYERS");
 
 	@Override
@@ -39,7 +39,6 @@ public class Player implements GameObject, Saver<JsonNode>, Loader<JsonNode> {
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -55,13 +54,13 @@ public class Player implements GameObject, Saver<JsonNode>, Loader<JsonNode> {
 	public static final Event<Tuple2<Player, ObjectNode>> onPlayerLoaded
 	= new CatchingEvent<>(debug, "Failed to save mod player data");
 	@Override
-	public void load(JsonNode data) {
+	public void load(@Nullable JsonNode data) {
 		if(data == null) return;
 		ObjectNode on = (ObjectNode) data;
 		JsonNode nodeCreative = on.get("creative");
 		if(nodeCreative != null) creative.setValue(nodeCreative.asBoolean(true));
-		inv.capacity = 128;
 		inv.load(JsonTool.requestArray("inventory", on));
+		inv.setCapacity(128);
 		onPlayerLoaded.trigger(new Tuple2<>(this, on));
 	}
 

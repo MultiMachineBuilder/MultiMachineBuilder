@@ -8,9 +8,9 @@
       "blocktype" : "industry.furnace",
       "side" : "N",
       "in" : [ 2.0 ],
-      "out" : [ 2.0, [ "gem.coal", 1 ] ],
-      "smelt" : [ "mmb.tree", "mmb.tree" ],
-      "remain" : 20
+      "out" : [ 2.0 ],
+      "smelt" : null,
+      "remain" : 0
     }, "mmb.grass", {
       "blocktype" : "industry.furnace",
       "side" : "N",
@@ -32,13 +32,16 @@
       "items" : [ null, null ]
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "itemsystem.mover",
-      "side" : "N"
+      "side" : "N",
+      "tmp" : null
     }, {
       "blocktype" : "itemsystem.mover",
-      "side" : "N"
+      "side" : "N",
+      "tmp" : null
     }, {
       "blocktype" : "itemsystem.mover",
-      "side" : "N"
+      "side" : "N",
+      "tmp" : null
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "chest.beginning",
       "inventory" : [ 6.0 ],
@@ -55,7 +58,7 @@
     "machines" : [ ],
     "data" : { },
     "player" : {
-      "inventory" : [ 2.0, [ "gem.coal", 1 ] ],
+      "inventory" : [ 128.0, [ "gem.coal", 3 ] ],
       "creative" : true
     }
   },

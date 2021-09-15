@@ -14,7 +14,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.BEANS.BlockActivateListener;
 import mmb.BEANS.Titled;
 import mmb.WORLD.Side;
-import mmb.WORLD.block.SkeletalBlockEntityData;
+import mmb.WORLD.block.BlockEntity;
+import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.blocks.machine.SideConfig.SideBoolean;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.Electricity;
@@ -23,30 +24,29 @@ import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
  * A block which implements electricity and item I/O capabilities. It has helper indicators.
  */
-public abstract class SkeletalBlockMachine extends SkeletalBlockEntityData implements BlockActivateListener, Titled{
+public abstract class SkeletalBlockMachine extends BlockEntityData implements BlockActivateListener, Titled{
 	
 	//Electrical components
-	protected final Battery inElec = new Battery();
-	public final SideConfig cfgInElec = new SideConfig();
-	protected final Battery outElec  = new Battery();
-	public final SideConfig cfgOutElec = new SideConfig();
+	protected Battery inElec = new Battery();
+	SideConfig cfgInElec = new SideConfig();
+	protected Battery outElec  = new Battery();
+	SideConfig cfgOutElec = new SideConfig();
 	
 	//Item components
-	protected final SimpleInventory inItems = new SimpleInventory();
-	public final SideConfig cfgInItems = new SideConfig();
-	protected final SimpleInventory outItems = new SimpleInventory();
-	public final SideConfig cfgOutItems = new SideConfig();
+	protected SimpleInventory inItems = new SimpleInventory();
+	SideConfig cfgInItems = new SideConfig();
+	protected SimpleInventory outItems = new SimpleInventory();
+	SideConfig cfgOutItems = new SideConfig();
 	
 	//Setting flags
 	/** This constant contains active components. All flags begin with 'SETTING_FLAG_' */
-	public final int flags;
+	int flags;
 	public static final int SETTING_FLAG_ELEC_INPUT = 1;
 	public static final int SETTING_FLAG_ELEC_OUTPUT = 2;
 	public static final int SETTING_FLAG_ITEM_INPUT = 4;
@@ -54,7 +54,8 @@ public abstract class SkeletalBlockMachine extends SkeletalBlockEntityData imple
 	
 	private final Consumer<@Nonnull SideBoolean> SHOVE_ELECTRICITY = s -> {
 		if(s.value){
-			Electricity elec = owner.getAtSide(s.side, x, y).getElectricalConnection(s.side.negate());
+			Electricity elec = getAtSide(s.side).getElectricalConnection(s.side.negate());
+			if(elec == null) return;
 			outElec.extractTo(elec);
 		}
 	};
@@ -81,8 +82,7 @@ public abstract class SkeletalBlockMachine extends SkeletalBlockEntityData imple
 	 * @param owner2
 	 * @param flags
 	 */
-	protected SkeletalBlockMachine(int x, int y, @Nonnull BlockMap owner2, int flags) {
-		super(x, y, owner2);
+	protected SkeletalBlockMachine(int flags) {
 		this.flags = flags;
 	}
 
@@ -183,5 +183,19 @@ public abstract class SkeletalBlockMachine extends SkeletalBlockEntityData imple
 	public static interface Update{
 		/** Updates the machine GUI */
 		public void update();
+	}
+
+	@Override
+	public SkeletalBlockMachine clone() {
+		SkeletalBlockMachine copy = (SkeletalBlockMachine) super.clone();
+		if (cfgInElec != null) copy.cfgInElec = new SideConfig(cfgInElec);
+		if (inElec != null) copy.inElec = new Battery(inElec);
+		if (cfgOutElec != null) copy.cfgOutElec = new SideConfig(cfgOutElec);
+		if (outElec != null) copy.outElec = new Battery(outElec);
+		if (cfgInItems != null) copy.cfgInItems = new SideConfig(cfgInItems);
+		if (inItems != null) copy.inItems = new SimpleInventory(inItems);
+		if (cfgOutItems != null) copy.cfgOutItems = new SideConfig(cfgOutItems);
+		if (outItems != null) copy.outItems = new SimpleInventory(outItems);
+		return copy;
 	}
 }

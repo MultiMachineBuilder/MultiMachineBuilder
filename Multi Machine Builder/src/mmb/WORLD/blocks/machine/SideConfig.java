@@ -13,18 +13,18 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.collect.Iterators;
 
 import mmb.Bitwise;
-import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
 import mmb.DATA.json.JsonTool;
 import mmb.DATA.variables.ListenerBooleanVariable;
 import mmb.WORLD.Side;
+import sun.util.resources.cldr.fr.CalendarData_fr_GA;
 
 /**
  * @author oskar
  *
  */
 public final class SideConfig implements
-Cloneable, Iterable<mmb.WORLD.blocks.machine.SideConfig.SideBoolean>, Loader<@Nullable JsonNode>, Saver<JsonNode>{
+Cloneable, Iterable<mmb.WORLD.blocks.machine.SideConfig.SideBoolean>, Saver<@Nullable JsonNode>{
 	/**
 	 * Creates a side config with all values set to false
 	 */
@@ -43,6 +43,16 @@ Cloneable, Iterable<mmb.WORLD.blocks.machine.SideConfig.SideBoolean>, Loader<@Nu
 		D.setValue(d);
 		L.setValue(l);
 		R.setValue(r);
+	}
+	/**
+	 * Copies the input
+	 * @param cfgInElec value to copy
+	 */
+	public SideConfig(SideConfig cfg) {
+		U.setValue(cfg.U.getValue());
+		D.setValue(cfg.D.getValue());
+		L.setValue(cfg.L.getValue());
+		R.setValue(cfg.R.getValue());
 	}
 	/** Upper side of this config */
 	public final ListenerBooleanVariable U = new ListenerBooleanVariable();
@@ -71,7 +81,7 @@ Cloneable, Iterable<mmb.WORLD.blocks.machine.SideConfig.SideBoolean>, Loader<@Nu
 		return result;
 	}
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(@Nullable Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -134,7 +144,7 @@ Cloneable, Iterable<mmb.WORLD.blocks.machine.SideConfig.SideBoolean>, Loader<@Nu
 				return ((SideBoolean) obj).index == index;
 			return false;
 		}
-		public static @Nonnull SideBoolean of(boolean value, @Nonnull Side side) {
+		public static @Nonnull SideBoolean of(boolean value, Side side) {
 			switch(side) {
 			case D:
 				return value ? T_D : F_D;
@@ -209,7 +219,7 @@ Cloneable, Iterable<mmb.WORLD.blocks.machine.SideConfig.SideBoolean>, Loader<@Nu
 		return JsonTool.newArrayNode().add(U.getValue()).add(D.getValue()).add(L.getValue()).add(R.getValue());
 	}
 	@Override
-	public void load(JsonNode data) {
+	public void load(@Nullable JsonNode data) {
 		if(data == null) return;
 		U.setValue(data.get(0).asBoolean());
 		D.setValue(data.get(1).asBoolean());

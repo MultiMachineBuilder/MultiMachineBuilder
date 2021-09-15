@@ -7,21 +7,17 @@ import java.awt.Graphics;
 
 import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.block.BlockType;
-import mmb.WORLD.block.SkeletalBlockEntityDataless;
+import mmb.WORLD.block.BlockEntityDataless;
 import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.worlds.SignalUtils;
-import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar
  *
  */
-public class Lamp extends SkeletalBlockEntityDataless {
+public class Lamp extends BlockEntityDataless {
 	private static final BlockDrawer on = BlockDrawer.ofImage(Textures.get("logic/on lamp.png"));
 	private static final BlockDrawer off = BlockDrawer.ofImage(Textures.get("logic/off lamp.png"));
-	public Lamp(int x, int y, BlockMap owner2) {
-		super(x, y, owner2);
-	}
 
 	@Override
 	public BlockType type() {
@@ -30,7 +26,7 @@ public class Lamp extends SkeletalBlockEntityDataless {
 
 	@Override
 	public void render(int xx, int yy, Graphics g, int side) {
-		boolean active = SignalUtils.hasIncomingSignal(x, y, owner);
+		boolean active = SignalUtils.hasIncomingSignal(this);
 		if(active) {
 			on.draw(this, xx, yy, g, side);
 		}else {

@@ -51,14 +51,13 @@ public class WorldMenu extends JPopupMenu {
 			block
 			.type()
 			.leaveBehind()
-			.place(mouseoverX, mouseoverY, 
-					map.getMap());
+			.place(mouseoverX, mouseoverY, map);
 		});
 		
 		mntmNewMenuItem_1 = new JMenuItem("Place");
 		mntmNewMenuItem_1.addActionListener(e -> {
 			if(map.inBounds(mouseoverX, mouseoverY)) {
-				frame.getPlacer().getSelectedValue().place(mouseoverX, mouseoverY, map.getMap());
+				frame.getPlacer().getSelectedValue().place(mouseoverX, mouseoverY, map);
 			}
 		});
 		add(mntmNewMenuItem_1);

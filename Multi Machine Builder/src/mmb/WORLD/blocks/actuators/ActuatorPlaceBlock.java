@@ -20,7 +20,6 @@ import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.SelectBlock;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 
@@ -40,10 +39,6 @@ public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockAct
 	@Override
 	protected void load1(ObjectNode node) {
 		block = Blocks.get(node.get("place").asText(null));
-	}
-
-	public ActuatorPlaceBlock(int x, int y, BlockMap owner2) {
-		super(x, y, owner2);
 	}
 
 	@Override
@@ -68,7 +63,7 @@ public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockAct
 	@Override
 	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window) {
 		if(window == null) return;
-		window.openDialogWindow(new SelectBlock(this, window), "["+x+","+y+"]");
+		window.openDialogWindow(new SelectBlock(this, window), "["+posX()+","+posY()+"]");
 	}
 	@Override
 	public BlockType getBlockSetting() {

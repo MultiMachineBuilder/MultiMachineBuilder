@@ -16,7 +16,7 @@
       "blocktype" : "industry.furnace",
       "side" : "N",
       "in" : [ 2.0 ],
-      "out" : [ 2.0, [ "gem.coal", 1 ] ],
+      "out" : [ 2.0 ],
       "smelt" : null,
       "remain" : 0
     }, {
@@ -27,9 +27,10 @@
       "blocktype" : "pipe.L",
       "side" : "E",
       "items" : [ null, null ]
-    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.goldore", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "itemsystem.mover",
-      "side" : "N"
+      "side" : "N",
+      "tmp" : null
     }, "mmb.grass", "mmb.grass", {
       "blocktype" : "pipe.L",
       "side" : "W",
@@ -46,7 +47,17 @@
       "blocktype" : "pipe.L",
       "side" : "E",
       "items" : [ null, null ]
-    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+    }, "mmb.grass", {
+      "blocktype" : "industry.furnace",
+      "side" : "N",
+      "in" : [ 2.0 ],
+      "out" : [ 2.0, [ "gem.coal", 1 ], [ "ingot.gold", 1 ] ],
+      "smelt" : null,
+      "remain" : 0
+    }, "mmb.grass", {
+      "blocktype" : "industry.placeitems",
+      "side" : "N"
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "chest.beginning",
       "inventory" : [ 6.0 ],
       "color" : [ 255, 255, 255, 255 ]
@@ -60,12 +71,29 @@
       "items" : [ null, null ]
     }, {
       "blocktype" : "itemsystem.mover",
-      "side" : "N"
-    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+      "side" : "N",
+      "tmp" : null
+    }, "mmb.grass", {
+      "blocktype" : "itemsystem.mover",
+      "side" : "N",
+      "tmp" : null
+    }, "mmb.grass", {
+      "blocktype" : "itemsystem.mover",
+      "side" : "N",
+      "tmp" : null
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "chest.beginning",
       "inventory" : [ 6.0 ],
       "color" : [ 255, 255, 255, 255 ]
-    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+    }, "mmb.grass", {
+      "blocktype" : "chest.beginning",
+      "inventory" : [ 6.0 ],
+      "color" : [ 255, 255, 255, 255 ]
+    }, "mmb.grass", {
+      "blocktype" : "chest.beginning",
+      "inventory" : [ 6.0 ],
+      "color" : [ 255, 255, 255, 255 ]
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "chest.beginning",
       "inventory" : [ 6.0 ],
       "color" : [ 255, 255, 255, 255 ]
@@ -75,7 +103,8 @@
       "color" : [ 255, 255, 255, 255 ]
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "itemsystem.mover",
-      "side" : "S"
+      "side" : "S",
+      "tmp" : null
     }, {
       "blocktype" : "pipe.toright",
       "side" : "N",
@@ -115,39 +144,39 @@
     }, {
       "blocktype" : "pipe.IPE",
       "side" : "N",
-      "items" : [ [ "mmb.tree", "mmb.tree" ], null ]
+      "tmp" : null
     }, {
       "blocktype" : "pipe.IPE",
       "side" : "N",
-      "items" : [ [ "mmb.tree", "mmb.tree" ], null ]
+      "tmp" : null
     }, {
       "blocktype" : "pipe.IPE",
       "side" : "N",
-      "items" : [ [ "mmb.tree", "mmb.tree" ], null ]
+      "tmp" : null
     }, {
       "blocktype" : "pipe.IPE",
       "side" : "N",
-      "items" : [ [ "mmb.tree", "mmb.tree" ], null ]
+      "tmp" : null
     }, {
       "blocktype" : "pipe.IPE",
       "side" : "N",
-      "items" : [ [ "mmb.tree", "mmb.tree" ], null ]
+      "tmp" : null
     }, {
       "blocktype" : "pipe.IPE",
       "side" : "N",
-      "items" : [ [ "mmb.tree", "mmb.tree" ], null ]
+      "tmp" : null
     }, {
       "blocktype" : "pipe.IPE",
       "side" : "N",
-      "items" : [ [ "mmb.tree", "mmb.tree" ], null ]
+      "tmp" : null
     }, {
       "blocktype" : "pipe.IPE",
       "side" : "N",
-      "items" : [ [ "mmb.tree", "mmb.tree" ], null ]
+      "tmp" : null
     }, {
       "blocktype" : "pipe.L",
       "side" : "E",
-      "items" : [ [ "mmb.tree", "mmb.tree" ], null ]
+      "items" : [ null, null ]
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "industry.furnace",
       "side" : "N",
@@ -207,7 +236,7 @@
     }, {
       "blocktype" : "pipe.I",
       "side" : "W",
-      "items" : [ null, [ "mmb.tree", "mmb.tree" ] ]
+      "items" : [ null, null ]
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "pipe.L",
       "side" : "W",
@@ -239,16 +268,16 @@
     }, {
       "blocktype" : "pipe.toleft",
       "side" : "E",
-      "items" : [ null, null, [ "mmb.tree", "mmb.tree" ] ]
+      "items" : [ null, null, null ]
     }, {
       "blocktype" : "pipe.L",
       "side" : "S",
-      "items" : [ [ "mmb.tree", "mmb.tree" ], null ]
+      "items" : [ null, null ]
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass" ],
     "machines" : [ ],
     "data" : { },
     "player" : {
-      "inventory" : [ 2.0 ],
+      "inventory" : [ 2.0, [ "mmb.goldore", "mmb.goldore", 3 ] ],
       "creative" : true
     }
   },

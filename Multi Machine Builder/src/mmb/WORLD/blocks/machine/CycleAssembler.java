@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.blocks.machine;
 
+import javax.annotation.Nullable;
+
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
@@ -11,7 +13,6 @@ import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.window.WorldWindow;
-import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
 
 /**
@@ -19,10 +20,6 @@ import mmb.WORLD.worlds.world.World;
  *
  */
 public class CycleAssembler extends SkeletalBlockEntityRotary implements BlockActivateListener {
-
-	public CycleAssembler(int x, int y, BlockMap owner2) {
-		super(x, y, owner2);
-	}
 
 	@Override
 	public BlockType type() {
@@ -37,7 +34,7 @@ public class CycleAssembler extends SkeletalBlockEntityRotary implements BlockAc
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, WorldWindow window) {
+	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window) {
 		if(window == null) return;
 	}
 

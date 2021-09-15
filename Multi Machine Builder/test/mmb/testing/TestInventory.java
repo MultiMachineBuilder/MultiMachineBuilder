@@ -3,11 +3,16 @@
  */
 package mmb.testing;
 
+import java.util.function.Supplier;
+
 import javax.annotation.Nonnull;
+
+import org.junit.Test;
 
 import mmb.ERRORS.UndeclarableThrower;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.storage.SimpleInventory;
+import mmb.WORLD.inventory.storage.SingleItemInventory;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.items.NoSuchItemEntry;
 import mmb.debug.Debugger;
@@ -22,25 +27,27 @@ public class TestInventory {
 	static Item itemA = new Item();
 	static Item itemB = new Item();
 	
-	public static void main(String[] args) {
+	@Test
+	public void test() {
 		itemA.register("A");
 		itemB.register("B");
 		
-		test(SimpleInventory.class);
+		test(SimpleInventory::new);
+		test(SingleItemInventory::new);
 	}
 	
 	@SuppressWarnings("null")
-	private static void test(Class<? extends Inventory> invcls) {
+	private static void test(Supplier<Inventory> invcls) {
 		
 		int inserted;
 		Inventory inv;
 		
 		//Do not accept NoSuchItemEntry
-		inv = create(invcls);
+		inv = invcls.get();
 		inserted = inv.insert(NoSuchItemEntry.INSTANCE, 1);
 		if(inserted == 1) throw new Error("Accepts NoSuchItemEntry");
 		
-		inv = create(invcls);
+		inv = invcls.get();
 		//Insert
 		final int amount = 3;
 		

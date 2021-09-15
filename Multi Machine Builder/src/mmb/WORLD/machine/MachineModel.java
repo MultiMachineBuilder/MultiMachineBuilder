@@ -13,10 +13,10 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.GameObject;
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.gui.Placer;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.item.Item;
-import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 
@@ -127,8 +127,9 @@ public class MachineModel extends Item implements Placer {
 	}
 
 	@Override
-	public void place(int x, int y, World map) {
+	public BlockEntry place(int x, int y, World map) {
 		map.placeMachine(this, x, y);
+		return null;
 	}
 	@Override
 	public void openGUI(WorldWindow window) {
@@ -139,7 +140,7 @@ public class MachineModel extends Item implements Placer {
 		//unused
 	}
 	@Override
-	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation, int side) {
+	public void preview(Graphics g, Point renderStartPos, World map, Point targetLocation, int side) {
 		preview.draw(g, renderStartPos, map, targetLocation);
 	}
 }

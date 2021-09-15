@@ -4,19 +4,17 @@
 package mmb.WORLD.blocks;
 
 import java.awt.Color;
-import java.awt.image.BufferedImage;
-import java.util.function.Supplier;
-
 import javax.annotation.Nonnull;
 
 import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.block.BlockEntityType;
-import mmb.WORLD.block.BlockFactory;
-import mmb.WORLD.block.BlockType;
+import mmb.WORLD.block.Drop;
 import mmb.WORLD.blocks.actuators.ActuatorClick;
 import mmb.WORLD.blocks.actuators.ActuatorPlaceBlock;
 import mmb.WORLD.blocks.actuators.ActuatorRotations;
+import mmb.WORLD.blocks.agro.Crop;
+import mmb.WORLD.blocks.chest.Chest;
 import mmb.WORLD.blocks.gates.ANDGate;
 import mmb.WORLD.blocks.gates.AlwaysTrue;
 import mmb.WORLD.blocks.gates.FlipGate;
@@ -27,19 +25,19 @@ import mmb.WORLD.blocks.gates.Randomizer;
 import mmb.WORLD.blocks.gates.UniformRandom;
 import mmb.WORLD.blocks.gates.XORGate;
 import mmb.WORLD.blocks.gates.YESGate;
-import mmb.WORLD.blocks.machine.Chest;
+import mmb.WORLD.blocks.machine.Collector;
 import mmb.WORLD.blocks.machine.Crafting;
 import mmb.WORLD.blocks.machine.CycleAssembler;
 import mmb.WORLD.blocks.machine.Furnace;
 import mmb.WORLD.blocks.machine.FurnacePlus;
-import mmb.WORLD.blocks.machine.ItemTransporter;
 import mmb.WORLD.blocks.machine.Nuker;
+import mmb.WORLD.blocks.machine.PlaceIncomingItems;
+import mmb.WORLD.blocks.pipe.ItemTransporter;
 import mmb.WORLD.electric.Conduit;
 import mmb.WORLD.electric.ElecRenderer;
 import mmb.WORLD.electric.InfiniteGenerator;
 import mmb.WORLD.electric.PowerLoad;
 import mmb.WORLD.electric.PowerMeter;
-import mmb.WORLD.electric.TestElectricity;
 import mmb.WORLD.texture.BlockDrawer;
 import mmb.debug.Debugger;
 
@@ -122,10 +120,14 @@ public class ContentsBlocks {
 			.texture("log.png")
 			.title("Log")
 			.finish("mmb.tree");
-	@Nonnull public static final Block testelec = new TestElectricity()
-			.texture("machine/autoassembly 1.png")
-			.title("Electric Testing Tool")
-			.finish("elec.test");
+	@Nonnull public static final Block sand = new Block()
+			.texture("block/sand.png")
+			.title("Sand")
+			.finish("mmb.sand");
+	@Nonnull public static final Block gravel = new Block()
+			.texture("block/gravel.png")
+			.title("Gravel")
+			.finish("mmb.gravel");
 	@Nonnull public static final BlockEntityType AND = new BlockEntityType()
 			.title("AND")
 			.factory(ANDGate::new)
@@ -218,36 +220,36 @@ public class ContentsBlocks {
 			.texture("logic/randomctrl.png")
 			.finish("wireworld.randomctrl");
 	/** Enabled switch */
-	public static final Block ON = new OnToggle()
+	@Nonnull public static final Block ON = new OnToggle()
 			.texture("logic/on.png")
 			.title("Active Switch")
 			.finish("wireworld.on");
 	/** Disabled switch */
-	public static final Block OFF = new OffToggle()
+	@Nonnull public static final Block OFF = new OffToggle()
 			.texture("logic/off.png")
 			.title("Inactive Switch")
 			.finish("wireworld.off");
-	public static final BlockEntityType URANDOM = new BlockEntityType()
+	@Nonnull public static final BlockEntityType URANDOM = new BlockEntityType()
 			.title("Uniform Random")
 			.factory(UniformRandom::new)
 			.texture("logic/urandom.png")
 			.finish("wireworld.urandom");
-	public static final BlockEntityType LAMP = new BlockEntityType()
+	@Nonnull public static final BlockEntityType LAMP = new BlockEntityType()
 			.title("Lamp")
 			.factory(Lamp::new)
 			.texture("logic/off lamp.png")
 			.finish("wireworld.lamp");
-	public static final BlockEntityType PLACER = new BlockEntityType()
+	@Nonnull public static final BlockEntityType PLACER = new BlockEntityType()
 			.title("Block Placer")
 			.factory(ActuatorPlaceBlock::new)
 			.texture("machine/placer.png")
 			.finish("machines.placer");
-	public static final BlockEntityType CLICKER = new BlockEntityType()
+	@Nonnull public static final BlockEntityType CLICKER = new BlockEntityType()
 			.title("Block Clicking Claw")
 			.factory(ActuatorClick::new)
 			.texture("machine/claw.png")
 			.finish("machines.clicker");
-	public static final BlockEntityType ROTATOR = new BlockEntityType()
+	@Nonnull public static final BlockEntityType ROTATOR = new BlockEntityType()
 			.title("Block Rotator")
 			.factory(ActuatorRotations::new)
 			.texture("machine/CW.png")
@@ -255,61 +257,66 @@ public class ContentsBlocks {
 	/**
 	 * A chest stores items of mutiple types
 	 */
-	public static final BlockEntityType CHEST = new BlockEntityType()
+	@Nonnull public static final BlockEntityType CHEST = new BlockEntityType()
 			.title("Chest")
 			.factory(Chest::new)
 			.texture("machine/chest1.png")
 			.finish("chest.beginning");
-	public static final BlockEntityType IMOVER = new BlockEntityType()
+	@Nonnull public static final BlockEntityType IMOVER = new BlockEntityType()
 			.title("Item Mover")
 			.factory(ItemTransporter::new)
 			.texture(ItemTransporter.TEXTURE)
 			.finish("itemsystem.mover");
-	public static final BlockEntityType FURNACE = new BlockEntityType()
+	@Nonnull public static final BlockEntityType FURNACE = new BlockEntityType()
 			.title("Furnace")
 			.factory(Furnace::new)
 			.texture(Furnace.TEXTURE_INERT)
 			.finish("industry.furnace");
-	
+	@Nonnull public static final BlockEntityType PLACEITEMS = new BlockEntityType()
+			.title("Item & Block Placing Machine")
+			.factory(PlaceIncomingItems::new)
+			.texture("machine/block place interface.png")
+			.finish("industry.placeitems");
+	@Nonnull public static final BlockEntityType COLLECTOR = new BlockEntityType()
+			.title("Dropped item collector")
+			.factory(Collector::new)
+			.texture("machine/vacuum.png")
+			.finish("industry.collector");
+	@Nonnull public static final BlockEntityType AGRO_COPPPER = crop(250, copper_ore, "Copper crop", BlockDrawer.ofImage(Textures.get("block/copper crop.png")), "crop.copper");
 	static {
 		//REQUIRES SPECIAL INIT - SELF-REFERNECE
 		debug.printl("Creating blocks");
 		air = new Block();
-		air.drawer = BlockDrawer.ofColor(Color.CYAN);
-		air.leaveBehind = air;
-		air.title = "Air";
-		
-		BlockDrawer tmp;
-		BufferedImage i = Textures.nget("grass.png");
-		if(i != null) tmp = BlockDrawer.ofImage(i);
-		else tmp = BlockDrawer.ofColor(Color.GREEN);
+		air.texture(Color.CYAN)
+		.leaveBehind(air)
+		.title("Air")
+		.finish("mmb.air");
+		air.setSurface(true);
 		
 		grass = new Block();
-		grass.drawer = tmp;
-		grass.leaveBehind = air;
-		grass.title = "Grass";
-		grass.setDescription("A default block in the world");
-		//NO LONGER REQUIRES SPECIAL INIT
-		
-		//Register
-		grass.register("mmb.grass");
-		air.register("mmb.air");
-		
-		Crafting.setupRefsTable();
+		grass.texture("grass.png")
+		.leaveBehind(air)
+		.title("Grass")
+		.describe("A default block in the world")
+		.finish("mmb.grass");
+		air.setSurface(true);
+		//NO LONGER REQUIRES SPECIAL INIT		
+		Crafting.init();
 	}
 	@Nonnull private static BlockEntityType conduit(String title, double pwr, BlockDrawer texture, String id) {
 		BlockEntityType b = new BlockEntityType();
-		/*return b.title("Medium Power Cable")
-		.factory(condFact(() -> b, 1_000_000))
-		.texture(ElecRenderer.render)
-		.finish("elec.mediumwire");*/
 		return b.title(title)
-				.factory(condFact(b, pwr))
+				.factory(() -> new Conduit(b, pwr))
 				.texture(texture)
 				.finish(id);
 	}
-	@Nonnull private static BlockFactory condFact(BlockType type, double cap) {
-		return (x, y, m) -> new Conduit(x, y, m, type, cap);
+	/** Initializes blocks */
+	public static void init() {
+		//initialization method
 	}
 
+	@Nonnull private static BlockEntityType crop(int duration, Drop cropDrop, String title, BlockDrawer texture, String id) {
+		BlockEntityType result = new BlockEntityType();
+		return result.title(title).factory(() -> new Crop(result, duration, cropDrop)).texture(texture).finish(id);
+	}
 }

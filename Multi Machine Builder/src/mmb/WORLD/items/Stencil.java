@@ -4,6 +4,7 @@
 package mmb.WORLD.items;
 
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
@@ -14,30 +15,36 @@ import org.ainslec.picocog.PicoWriter;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
-import mmb.DATA.SaveGrids;
+import mmb.DATA.Save;
 import mmb.WORLD.blocks.machine.Crafting;
 import mmb.WORLD.crafting.RecipeOutput;
+import mmb.WORLD.inventory.Inventory;
+import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.item.ItemEntity;
+import mmb.WORLD.recipe_old.Recipe;
 import mmb.debug.Debugger;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 
 /**
  * @author oskar
- *
+ * Represents a crafting grid recipe
  */
-public class Stencil extends ItemEntity implements Grid<ItemEntry> {
-
+public class Stencil extends ItemEntity implements Grid<ItemEntry>, Recipe {
+	
+	//Others
+	private static final Debugger debug = new Debugger("STENCIL");
+	
+	//Collection methods
 	@Override
 	public FixedGrid<ItemEntry> copy(int x, int y, int w, int h) {
 		return grid.copy(x, y, w, h);
 	}
 
 	@Override
-	public void forEach(@SuppressWarnings("null") Consumer<? super ItemEntry> c) {
-		grid.forEach(c);
+	public void set(int x, int y, @Nullable ItemEntry data) {
+		throw new UnsupportedOperationException("Stencil is read-only");
 	}
-
 	@Override
 	public ItemEntry get(int x, int y) {
 		return grid.get(x, y);
@@ -47,12 +54,10 @@ public class Stencil extends ItemEntity implements Grid<ItemEntry> {
 	public int width() {
 		return grid.width();
 	}
-
 	@Override
 	public int height() {
 		return grid.height();
 	}
-
 	@Override
 	public int size() {
 		return grid.size();
@@ -67,24 +72,30 @@ public class Stencil extends ItemEntity implements Grid<ItemEntry> {
 	public Iterator<ItemEntry> iterator() {
 		return grid.iterator();
 	}
-
 	@Override
 	public Spliterator<ItemEntry> spliterator() {
 		return grid.spliterator();
 	}
+	@Override
+	public void forEach(@SuppressWarnings("null") Consumer<? super ItemEntry> c) {
+		grid.forEach(c);
+	}
 
 	private Grid<ItemEntry> grid = new FixedGrid<>(0);
+	
+	//Item methods
 	private String title = "Crafting stencil - none";
-	private static final Debugger debug = new Debugger("STENCIL");
 	@Override
 	public String title() {
 		return title;
 	}
 
+	/**
+	 * Creates an empty stencil.
+	 */
 	public Stencil() {
 		super(ContentsItems.stencil);
 	}
-
 	/**
 	 * @param items
 	 */
@@ -102,7 +113,7 @@ public class Stencil extends ItemEntity implements Grid<ItemEntry> {
 	public void load(@Nullable JsonNode array) {
 		if(array == null) return;
 		if(array.isArray()) {
-			Grid<ItemEntry> grid = SaveGrids.loadGrid(ItemEntry::loadFromJson, (ArrayNode)array);
+			Grid<ItemEntry> grid = Save.loadGrid(ItemEntry::loadFromJson, (ArrayNode)array);
 			doReplaceTable(grid);
 		}else{
 			debug.printl("Unsupported JsonNode: "+array.getNodeType());
@@ -110,21 +121,21 @@ public class Stencil extends ItemEntity implements Grid<ItemEntry> {
 	}
 	@Override
 	public JsonNode save() {
-		return SaveGrids.saveGrid(ItemEntry::saveItem, grid);
+		return Save.saveGrid(ItemEntry::saveItem, grid);
 	}
 
 	private void doReplaceTable(Grid<ItemEntry> items) {
 		Grid<ItemEntry> trim = items.trim();
 		grid = trim;
-		RecipeOutput rout = Crafting.recipes.get(trim);
+		results = Crafting.recipes.get(trim);
 		if(trim.size() == 0) {
 			title = "Crafting stencil - none";
-		}else if(rout == null) {
+		}else if(results == null) {
 			title = "Crafting stencil - invalid";
 		}else {
 			PicoWriter writer = new PicoWriter();
 			writer.write("Crafting stencil - ");
-			rout.represent(writer);
+			results.represent(writer);
 			title = writer.toString();
 		}
 	}
@@ -133,10 +144,9 @@ public class Stencil extends ItemEntity implements Grid<ItemEntry> {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((grid == null) ? 0 : grid.hashCode());
+		result = prime * result + Objects.hashCode(grid);
 		return result;
 	}
-
 	@Override
 	public boolean equals(@Nullable Object obj) {
 		if (this == obj)
@@ -154,9 +164,37 @@ public class Stencil extends ItemEntity implements Grid<ItemEntry> {
 		return true;
 	}
 
+	//Crafting methods
 	@Override
-	public void set(int x, int y, @Nullable ItemEntry data) {
-		throw new UnsupportedOperationException("Stencil is read-only");
+	public int maxCraftable(Inventory src, int amount) {
+		return Math.min(amount, Inventory.howManyTimesThisContainsThat(src, inputs()));
+	}
+	@Override
+	public int craft(Inventory src, Inventory tgt, int amount) {
+		return Recipe.transact(inputs(), output(), tgt, src, amount);
+	}
+	
+	private RecipeOutput results;
+	@SuppressWarnings("null")
+	@Override
+	public RecipeOutput output() {
+		if(results == null) return RecipeOutput.NONE;
+		return results;
+	}
+	
+	private Inventory ins;
+	@SuppressWarnings("null")
+	@Override
+	public Inventory inputs() {
+		if(ins == null) {
+			SimpleInventory inv = new SimpleInventory();
+			inv.setCapacity(Double.POSITIVE_INFINITY);
+			for(ItemEntry entry: grid) {
+				inv.insert(entry, 1);
+			}
+			ins = inv.readOnly();
+		}
+		return ins;
 	}
 	
 }

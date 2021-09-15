@@ -6,8 +6,6 @@ package mmb.WORLD.blocks.machine;
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
-import javax.swing.JProgressBar;
-
 import mmb.WORLD.blocks.machine.SkeletalBlockMachine.Update;
 
 /**

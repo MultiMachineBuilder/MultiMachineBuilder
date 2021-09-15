@@ -7,7 +7,6 @@ import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.BEANS.Loader;
 import mmb.BEANS.Saver;
 import mmb.DATA.json.JsonTool;
 
@@ -15,7 +14,7 @@ import mmb.DATA.json.JsonTool;
  * @author oskar
  *
  */
-public class Battery implements Electricity, Saver<JsonNode>, Loader<@Nullable JsonNode> {
+public class Battery implements Electricity, Saver<JsonNode>{
 	public double maxPower;
 	public double capacity;
 	public double amt;
@@ -36,6 +35,16 @@ public class Battery implements Electricity, Saver<JsonNode>, Loader<@Nullable J
 	 */
 	public Battery() {
 		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * Creates a copy of the battery
+	 * @param inElec battery to copy
+	 */
+	public Battery(Battery bat) {
+		maxPower = bat.maxPower;
+		capacity = bat.capacity;
+		amt = bat.amt;
 	}
 
 	@Override

@@ -20,7 +20,7 @@ import mmb.WORLD.gui.Variable;
 import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.worlds.world.BlockMap;
+import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
@@ -85,9 +85,9 @@ public abstract class AbstractBasePipe extends SkeletalBlockEntityRotary {
 	}
 
 	@Override
-	public void onBreak(BlockMap map, GameObject obj) {
+	public void onBreak(World map, GameObject obj) {
 		for(ItemEntry item: items) {
-			map.dropItem(item, x, y);
+			map.dropItem(item, posX(), posY());
 		}
 	}
 
@@ -115,9 +115,7 @@ public abstract class AbstractBasePipe extends SkeletalBlockEntityRotary {
 	}
 	
 	private final RotatedImageGroup texture;
-	protected AbstractBasePipe(int x, int y, @Nonnull BlockMap owner2, @Nonnull BlockType type,
-			int numItems, @Nonnull RotatedImageGroup texture) {
-		super(x, y, owner2);
+	protected AbstractBasePipe(BlockType type, int numItems, RotatedImageGroup texture) {
 		this.type = type;
 		this.items = new ItemEntry[numItems];
 		this.texture = texture;
@@ -146,7 +144,7 @@ public abstract class AbstractBasePipe extends SkeletalBlockEntityRotary {
 		 * @param from item entry source variable
 		 * @param other the side, to which items are pushed
 		 */
-		public Pusher(Variable<@Nullable ItemEntry> from, @Nonnull Side other) {
+		public Pusher(Variable<@Nullable ItemEntry> from, Side other) {
 			this.from = from;
 			this.other = other;
 		}
@@ -170,7 +168,7 @@ public abstract class AbstractBasePipe extends SkeletalBlockEntityRotary {
 		public boolean push() {
 			Side cother = getRotation().apply(other);
 			Side nother = cother.negate();
-			InventoryWriter writer = owner.getAtSide(cother, x, y).getInput(nother);
+			InventoryWriter writer = owner().getAtSide(cother, posX(), posY()).getInput(nother);
 			if(from.get() == null) return true;
 			int amt = writer.write(from.get());
 			if(amt == 1) {
@@ -178,12 +176,6 @@ public abstract class AbstractBasePipe extends SkeletalBlockEntityRotary {
 				return true;
 			}
 			return false;
-		}
-		@Override
-		public int toBeWritten(ItemEntry item, int amount) {
-			boolean possible = push();
-			if(possible && amount > 0) return 1;
-			return 0;
 		}
 	}
 

@@ -4,19 +4,12 @@
 package mmb.WORLD.block;
 
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Point;
 import java.awt.image.BufferedImage;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 
-import mmb.WORLD.block.properties.BlockProperty;
 import mmb.WORLD.texture.BlockDrawer;
-import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
 
 /**
@@ -25,19 +18,6 @@ import mmb.WORLD.worlds.world.World;
  * <br> All block types can be used as item types too.
  */
 public class BlockEntityType extends BlockBase{
-	
-	
-	//Placement
-	/**
-	 * List of block modules used by a block.
-	 * <br> If a block module is absent, it won't be loaded and will be logged
-	 */
-	public final Set<Class<? extends BlockProperty>> properties = new HashSet<>();
-	/**
-	 * This map contains 
-	 */
-	public final Map<String, Object> settings = new HashMap<>();
-
 	//Behavior
 	/**
 	 * <br>Set this variable to handle startup.
@@ -124,20 +104,20 @@ public class BlockEntityType extends BlockBase{
 	 */
 	
 	@Override
-	public void place(int x, int y, World map) {
-		map.place(this, x, y);
+	public BlockEntry place(int x, int y, World map) {
+		return map.place(this, x, y);
 	}
 	@Override
-	public BlockEntity create(int x, int y, BlockMap map) {
-		return factory.create(x, y, map);
+	public BlockEntity create(int x, int y, World map) {
+		return factory.get();
 	}
 
 	//Factory
-	private BlockFactory factory;
+	private Supplier<BlockEntity> factory;
 	/**
 	 * @param factory the factory to set
 	 */
-	public void setFactory(BlockFactory factory) {
+	public void setFactory(Supplier<BlockEntity> factory) {
 		this.factory = factory;
 	}
 	
@@ -201,7 +181,7 @@ public class BlockEntityType extends BlockBase{
 	 * @param factory block entity factory lambda expression
 	 * @return this
 	 */
-	public BlockEntityType factory(BlockFactory factory) {
+	public BlockEntityType factory(Supplier<BlockEntity> factory) {
 		setFactory(factory);
 		return this;
 	}
@@ -262,7 +242,7 @@ public class BlockEntityType extends BlockBase{
 	 */
 	@Override
 	@Nonnull public BlockEntityType volumed(double volume) {
-		this.volume = volume;
+		setVolume(volume);
 		return this;
 	}
 }

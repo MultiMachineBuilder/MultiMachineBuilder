@@ -7,16 +7,12 @@ import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.RotatedImageGroup;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar
  *
  */
 public class NOTGate extends AbstractUnaryGateBase {
-	public NOTGate(int x, int y, BlockMap owner2) {
-		super(x, y, owner2);
-	}
 
 	@Override
 	public BlockType type() {

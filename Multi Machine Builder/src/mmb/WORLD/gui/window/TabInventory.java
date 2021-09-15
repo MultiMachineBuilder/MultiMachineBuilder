@@ -14,12 +14,10 @@ import com.pploder.events.Event;
 import mmb.WORLD.player.Player;
 import mmb.debug.Debugger;
 
-import javax.annotation.Nonnull;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import mmb.WORLD.gui.CreativeItemList;
-import mmb.WORLD.gui.inv.InventoryController;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.item.ItemType;
@@ -28,7 +26,6 @@ import java.awt.Color;
 import mmb.MENU.components.BoundCheckBox;
 import javax.swing.JSpinner;
 import mmb.WORLD.gui.inv.CraftGUI;
-import mmb.WORLD.blocks.machine.Crafting;
 
 /**
  * @author oskar

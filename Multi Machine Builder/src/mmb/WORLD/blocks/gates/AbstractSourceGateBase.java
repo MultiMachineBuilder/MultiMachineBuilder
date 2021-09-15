@@ -3,12 +3,9 @@
  */
 package mmb.WORLD.blocks.gates;
 
-import java.awt.Graphics;
-
 import mmb.WORLD.Side;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar
@@ -17,15 +14,7 @@ import mmb.WORLD.worlds.world.BlockMap;
 public abstract class AbstractSourceGateBase extends SkeletalBlockEntityRotary{
 	
 	protected boolean result;
-	/**
-	 * @param x
-	 * @param y
-	 * @param owner2
-	 */
-	protected AbstractSourceGateBase(int x, int y, BlockMap owner2) {
-		super(x, y, owner2);
-		// TODO Auto-generated constructor stub
-	}
+
 	protected abstract boolean run();
 	
 	@Override

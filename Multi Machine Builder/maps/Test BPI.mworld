@@ -1,0 +1,28 @@
+{
+  "main" : {
+    "sizeX" : 9,
+    "sizeY" : 9,
+    "startX" : -4,
+    "startY" : -4,
+    "world" : [ "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+      "blocktype" : "industry.placeitems",
+      "side" : "N"
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+      "blocktype" : "itemsystem.mover",
+      "side" : "N",
+      "tmp" : null
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+      "blocktype" : "chest.beginning",
+      "inventory" : [ 6.0 ],
+      "color" : [ 255, 255, 255, 255 ]
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass" ],
+    "machines" : [ ],
+    "data" : { },
+    "player" : {
+      "inventory" : [ 2.0 ],
+      "creative" : true
+    }
+  },
+  "data" : { },
+  "maps" : { }
+}

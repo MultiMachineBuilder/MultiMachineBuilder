@@ -32,7 +32,7 @@ public class Debugger {
 	}
 	
 	public void pstm(Throwable t, @Nullable String s) {
-		printl(s);
+		printerrl(s);
 		pst(t);
 	}
 	public void pst(Throwable t) {
@@ -56,11 +56,6 @@ public class Debugger {
 	public String id = "";
 	public Debugger(String id) {
 		this.id = id;
-	}
-	private void printStackTrace(StackTraceElement[] ste) {
-		for(int i = 0; i < ste.length; i++) {
-			printl(ste[i].toString());
-		}
 	}
 	/**
 	 * @param keyChar

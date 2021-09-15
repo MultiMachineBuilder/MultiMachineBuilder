@@ -3,12 +3,14 @@
  */
 package mmb.WORLD.block;
 
+import javax.annotation.Nullable;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.ExternalLoader;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.worlds.world.BlockMap;
+import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 
 /**
@@ -17,11 +19,11 @@ import mmb.debug.Debugger;
  */
 public class BlockLoader implements ExternalLoader<JsonNode, BlockEntry> {
 	public int x, y;
-	public BlockMap map;
+	public World map;
 	private static final Debugger debug = new Debugger("BLOCK LOADER");
 
 	@Override
-	public BlockEntry load(JsonNode data) {
+	public BlockEntry load(@Nullable JsonNode data) {
 		if(data == null || data.isNull() || data.isMissingNode()) return null;
 		if(data.isTextual()) return doLoadBasic(data.asText()); //without properties
 		if(data.isObject()) return doLoadEnhanced((ObjectNode) data); //with properties

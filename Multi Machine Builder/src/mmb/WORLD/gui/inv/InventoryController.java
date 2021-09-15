@@ -8,7 +8,6 @@ import javax.swing.ListCellRenderer;
 
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
-import mmb.WORLD.inventory.storage.SimpleInventory;
 import net.miginfocom.swing.MigLayout;
 
 import java.awt.Component;
@@ -23,8 +22,6 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /**
  * @author oskar

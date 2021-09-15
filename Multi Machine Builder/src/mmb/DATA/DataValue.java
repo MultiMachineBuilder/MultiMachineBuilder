@@ -3,12 +3,14 @@
  */
 package mmb.DATA;
 
+import mmb.WORLD.gui.Variable;
+
 /**
  * @author oskar
  *
  */
-public class DataValue<T> implements GetterSetter<T> {
-	public T value;
+public class DataValue<T> implements Variable<T> {
+	private T value;
 	/**
 	 * 
 	 */

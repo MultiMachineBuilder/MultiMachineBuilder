@@ -44,15 +44,15 @@ public class ElecRenderer implements BlockDrawer {
 	public void draw(BlockEntry ent, int x, int y, Graphics g, int side) {
 		g.drawImage(base, x, y, side, side, null);
 		if(ent instanceof Conduit) {
-			int xx = ((Conduit) ent).x;
-			int yy = ((Conduit) ent).y;
-			Electricity u = ((Conduit) ent).owner.getAtSide(Side.U, xx, yy).getElectricalConnection(Side.D);
+			int xx = ((Conduit) ent).posX();
+			int yy = ((Conduit) ent).posY();
+			Electricity u = ((Conduit) ent).owner().getAtSide(Side.U, xx, yy).getElectricalConnection(Side.D);
 			if(u != null) rig.U.draw(ent, x, y, g, side);
-			Electricity d = ((Conduit) ent).owner.getAtSide(Side.D, xx, yy).getElectricalConnection(Side.U);
+			Electricity d = ((Conduit) ent).owner().getAtSide(Side.D, xx, yy).getElectricalConnection(Side.U);
 			if(d != null) rig.D.draw(ent, x, y, g, side);
-			Electricity l = ((Conduit) ent).owner.getAtSide(Side.L, xx, yy).getElectricalConnection(Side.R);
+			Electricity l = ((Conduit) ent).owner().getAtSide(Side.L, xx, yy).getElectricalConnection(Side.R);
 			if(l != null) rig.L.draw(ent, x, y, g, side);
-			Electricity r = ((Conduit) ent).owner.getAtSide(Side.R, xx, yy).getElectricalConnection(Side.L);
+			Electricity r = ((Conduit) ent).owner().getAtSide(Side.R, xx, yy).getElectricalConnection(Side.L);
 			if(r != null) rig.R.draw(ent, x, y, g, side);
 		}
 	}

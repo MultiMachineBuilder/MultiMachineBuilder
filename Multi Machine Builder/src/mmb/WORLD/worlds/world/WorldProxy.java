@@ -22,7 +22,6 @@ public class WorldProxy implements MapProxy{
 	@SuppressWarnings("null")
 	@Override
 	public void close() {
-		BlockMap bm = that.getMap();
 		for(BlockChangeRequest ent: requests) {
 			ent.apply(that);
 		}
@@ -82,22 +81,22 @@ public class WorldProxy implements MapProxy{
 	}
 	@Override
 	public int sizeX() {
-		return that.sizeX();
+		return that.sizeX;
 	}
 	@Override
 	public int sizeY() {
-		return that.sizeY();
+		return that.sizeY;
 	}
 	@Override
 	public int startX() {
-		return that.startX();
+		return that.startX;
 	}
 	@Override
 	public int startY() {
-		return that.startY();
+		return that.startY;
 	}
 	@Override
-	public BlockArrayProvider getMap() {
-		return that.getMap();
+	public World getMap() {
+		return that;
 	}
 }

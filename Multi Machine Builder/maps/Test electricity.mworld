@@ -75,7 +75,7 @@
     "machines" : [ ],
     "data" : { },
     "player" : {
-      "inventory" : [ 2.0, [ "ingot.silver", 1 ], [ "mmb.silverore", "mmb.silverore", 1 ] ],
+      "inventory" : [ 128.0, [ "mmb.gravel", "mmb.gravel", 1 ], [ "ingot.silver", 2 ] ],
       "creative" : true
     }
   },

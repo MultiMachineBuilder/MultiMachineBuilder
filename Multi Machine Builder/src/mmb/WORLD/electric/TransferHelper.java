@@ -5,11 +5,10 @@ package mmb.WORLD.electric;
 
 import java.awt.Point;
 
-import javax.annotation.Nonnull;
-
 import mmb.WORLD.Side;
+import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockEntry;
-import mmb.WORLD.worlds.world.BlockMap;
+import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
@@ -17,13 +16,10 @@ import mmb.WORLD.worlds.world.BlockMap;
  */
 public class TransferHelper extends Battery {
 	public int maxIters = 500;
-	private final BlockMap map;
-	private final int x, y;
-	public TransferHelper(BlockMap map, int x, int y, double cap, double pwr) {
+	private final BlockEntity blockent;
+	public TransferHelper(BlockEntity ent, double cap, double pwr) {
 		super(pwr, cap);
-		this.map = map;
-		this.x = x;
-		this.y = y;
+		this.blockent = ent;
 	}
 
 	/**
@@ -35,7 +31,7 @@ public class TransferHelper extends Battery {
 	 * @param iters current number of iterations
 	 * @return amount transferred
 	 */
-	public double _insert(Side to, BlockMap map, @Nonnull Point pt, double amount, int iters) {
+	public double _insert(Side to, World map, Point pt, double amount, int iters) {
 		if(iters > maxIters) return 0; //Iteration limit reached
 		BlockEntry here = map.get(pt);
 		
@@ -74,7 +70,7 @@ public class TransferHelper extends Battery {
 		double battins = insert(max);
 		if(battins == max) return max;
 		double remain = max - battins;
-		return battins + _insert(to.negate(), map, new Point(x, y), remain, 0);
+		return battins + _insert(to.negate(), blockent.owner(), blockent.getPosition(), remain, 0);
 	}
 	/**
 	 * @param s side to which power goes

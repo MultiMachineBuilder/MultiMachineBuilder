@@ -2,16 +2,12 @@ package mmb.MODS.info;
 
 import javax.annotation.*;
 
-import mmb.BEANS.RunOnStart;
-
 /**
  * Central class of each addon
  * @author oskar
  * Interface should be implemented by classes only
  * Class must have implicit or explicit constructor with no inputs
  * Class should set its public static variable which contains its instance
- * 
- * @discouraged Use {@link RunOnStart} with addMod() and events instead
  */
 public interface AddonCentral {
 	

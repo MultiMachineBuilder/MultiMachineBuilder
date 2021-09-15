@@ -4,26 +4,26 @@
 package mmb.WORLD.electric;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockType;
-import mmb.WORLD.block.SkeletalBlockEntityData;
-import mmb.WORLD.worlds.world.BlockMap;
+import mmb.WORLD.block.BlockEntity;
+import mmb.WORLD.block.BlockEntityData;
 
 /**
  * @author oskar
  *
  */
-public class Conduit extends SkeletalBlockEntityData {
-	private final Electricity u, d, l, r;
+public class Conduit extends BlockEntityData {
+	private Electricity u, d, l, r;
 	@Nonnull private final BlockType type;
-	private final TransferHelper tf;
-	public Conduit(int x, int y, @Nonnull BlockMap map, @Nonnull BlockType type, double cap) {
-		super(x, y, map);
-		tf = new TransferHelper(map, x, y, 50, cap/50);
+	private TransferHelper tf;
+	public Conduit(BlockType type, double cap) {
+		tf = new TransferHelper(this, 50, cap/50);
 		this.type = type;
 		u = tf.proxy(Side.D);
 		d = tf.proxy(Side.U);
@@ -58,13 +58,25 @@ public class Conduit extends SkeletalBlockEntityData {
 	}
 
 	@Override
-	public void load(@Nonnull JsonNode data) {
+	public void load(@Nullable JsonNode data) {
+		if(data == null) return;
 		tf.amt = data.get("charge").asDouble();
 	}
 
 	@Override
 	protected void save0(ObjectNode node) {
 		node.put("charge", tf.amt);
+	}
+
+	@Override
+	public Conduit clone() {
+		Conduit copy = (Conduit) super.clone();
+		copy.tf = new TransferHelper(copy, 50, tf.maxPower);
+		copy.u = copy.tf.proxy(Side.D);
+		copy.d = copy.tf.proxy(Side.U);
+		copy.l = copy.tf.proxy(Side.R);
+		copy.r = copy.tf.proxy(Side.L);
+		return copy;
 	}
 
 }

@@ -9,9 +9,8 @@ import java.awt.Point;
 import javax.swing.Icon;
 
 import mmb.BEANS.Titled;
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.gui.window.WorldWindow;
-import mmb.WORLD.worlds.world.BlockArrayProvider;
-import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
 
 /**
@@ -20,15 +19,19 @@ import mmb.WORLD.worlds.world.World;
  */
 public interface Placer extends Titled {
 	public Icon getIcon();
-	public default void place(int x, int y, BlockArrayProvider that) {
-		place(x, y, that.getOwner());
-	}
-	public void place(int x, int y, World that);
+
+	/**
+	 * @param x X coordinate of the block
+	 * @param y Y coordinate of the block
+	 * @param that world, which contains the block
+	 * @return placed block, or null if placement failed
+	 */
+	public BlockEntry place(int x, int y, World that);
 
 	public void openGUI(WorldWindow window);
 	public void closeGUI(WorldWindow window);
 	
-	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation, int side);
+	public void preview(Graphics g, Point renderStartPos, World map, Point targetLocation, int side);
 	
 	@FunctionalInterface
 	/**
@@ -36,6 +39,15 @@ public interface Placer extends Titled {
 	 * @author oskar
 	 */
 	public static interface Previewer{
-		public void draw(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation);
+		public void draw(Graphics g, Point renderStartPos, World map, Point targetLocation);
+	}
+
+	/**
+	 * @param pos position of the block
+	 * @param map map, which contains the block
+	 * @return placed block, or null if placement failed
+	 */
+	public default BlockEntry place(Point pos, World map) {
+		return place(pos.x, pos.y, map);
 	}
 }

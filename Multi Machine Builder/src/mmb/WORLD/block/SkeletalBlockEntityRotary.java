@@ -13,24 +13,21 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.BEANS.Rotable;
 import mmb.WORLD.RotatedImageGroup;
 import mmb.WORLD.Rotation;
-import mmb.WORLD.worlds.world.BlockMap;
 
 /**
  * @author oskar
  *
  */
-public abstract class SkeletalBlockEntityRotary extends SkeletalBlockEntityData implements Rotable {
+public abstract class SkeletalBlockEntityRotary extends BlockEntityData implements Rotable {
 	@Override
 	public void render(int x, int y, Graphics g, int ss) {
 		getImage().get(side).draw(this, x, y, g, ss);
-	}
-	protected SkeletalBlockEntityRotary(int x, int y, BlockMap owner2) {
-		super(x, y, owner2);
 	}
 	public abstract RotatedImageGroup getImage();
 	@SuppressWarnings({ "null", "unused" })
 	@Override
 	public final void load(JsonNode data) {
+		if(data == null) return;
 		side = Rotation.valueOf(data.get("side").asText());
 		if(side == null) side = Rotation.N;
 		load1((ObjectNode) data);

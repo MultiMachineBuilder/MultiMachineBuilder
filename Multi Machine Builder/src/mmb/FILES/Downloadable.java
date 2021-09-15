@@ -17,8 +17,10 @@ import mmb.debug.Debugger;
  */
 public class Downloadable {
 
-	public String name;
-	public String download;
+	/** The mod name of downloadable mod*/
+	public final String name;
+	/** The download URL */
+	public final String download;
 	private final Debugger debug;
 	/**
 	 * @param record record to be parsed
@@ -39,7 +41,7 @@ public class Downloadable {
 	 */
 	public void download(AdvancedFile directory) {
 		@SuppressWarnings("null")
-		@Nonnull String fileName = download.substring(download.lastIndexOf(47 /*slash*/)+1, download.length()-1);
+		@Nonnull String fileName = download.substring(download.lastIndexOf('/')+1, download.length()-1);
 		String tgt = "mods/"+fileName;
 		try {
 			//fileName = fileName.substring(fileName.lastIndexOf(92 /*backslash*/)+1, fileName.length()-1);
@@ -55,7 +57,7 @@ public class Downloadable {
 			debug.print("Couldn't download ");
 			debug.print(download);
 			debug.print(" to ");
-			debug.printl(tgt);
+			debug.pstm(e, tgt);
 		}
 		
 	}

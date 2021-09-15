@@ -87,7 +87,7 @@ public class NoSuchItemType implements ItemType {
 
 	@Override
 	public ItemEntry create() {
-		return NoSuchItemEntry.INSTANCE;
+		throw new IllegalStateException("Loading a NoSuchItemType");
 	}
 
 	@Override
@@ -96,8 +96,7 @@ public class NoSuchItemType implements ItemType {
 	}
 
 	@Override
-	public ItemEntry load(JsonNode node) {
-		// TODO Auto-generated method stub
-		return null;
+	public ItemEntry loadItem(JsonNode node) {
+		throw new IllegalStateException("Loading a NoSuchItemType");
 	}
 }

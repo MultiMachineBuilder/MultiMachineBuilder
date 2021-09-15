@@ -30,15 +30,24 @@ public class Tools {
 			new WindowToolModel(ToolStandard.ICON_NORMAL, () -> new ToolStandard(), "standard");
 	public static final WindowToolModel TOOL_PAINT =
 			new WindowToolModel(ToolPaint.icon, () -> new ToolPaint(), "paint");
+	public static final WindowToolModel TOOL_COPY =
+			new WindowToolModel(Copy.icon, () -> new Copy(), "copy");
+	public static final WindowToolModel TOOL_PICKERS =
+			new WindowToolModel(ConfigureDroppedItemExtractors.icon, () -> new ConfigureDroppedItemExtractors(), "droppedItems");
+	public static final WindowToolModel TOOL_DUMP =
+			new WindowToolModel(DumpItems.icon, () -> new DumpItems(), "dumpItems");
 
 	private static boolean initialized = false;
 	/**
 	 * Initializes tool list
 	 */
-	public static void initialize() {
+	public static void init() {
 		if(initialized) return;
 		toollist.add(TOOL_STANDARD);
 		toollist.add(TOOL_PAINT);
+		toollist.add(TOOL_COPY);
+		toollist.add(TOOL_PICKERS);
+		toollist.add(TOOL_DUMP);
 		debug.printl("Tools initialized");
 		initialized = true;
 		
@@ -61,7 +70,7 @@ public class Tools {
 	 * @param c input collection
 	 * @throws NullPointerException if {@code c} is null
 	 */
-	public static void createWindowTools(@Nonnull Collection<? super WindowTool> c, WorldWindow window) {
+	public static void createWindowTools(Collection<? super WindowTool> c, WorldWindow window) {
 		Objects.requireNonNull(c, "c is null");
 		for(WindowToolModel wtm: toollist) {
 			WindowTool tool = wtm.create();

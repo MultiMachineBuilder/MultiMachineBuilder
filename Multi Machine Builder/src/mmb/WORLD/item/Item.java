@@ -17,7 +17,7 @@ import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.items.ItemBase;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.texture.BlockDrawer;
-import mmb.WORLD.worlds.world.BlockMap;
+import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 import monniasza.collects.Identifiable;
 
@@ -71,12 +71,11 @@ public class Item extends ItemBase implements ItemEntry {
 		return drawer.toIcon();
 	}
 	@Override
-	public ItemEntry load(JsonNode node) {
+	public void load(@Nullable JsonNode node) {
 		debug.printl("Attempting to load a non-data item");
-		return this;
 	}
 	@Override
-	public boolean drop(InventoryWriter inv, BlockMap map, int x, int y) {
+	public boolean drop(InventoryWriter inv, World map, int x, int y) {
 		return Drop.tryDrop(this, inv, map, x, y);
 	}
 
@@ -157,7 +156,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 */
 	@Override
 	@Nonnull public Item volumed(double volume) {
-		this.volume = volume;
+		setVolume(volume);
 		return this;
 	}
 }

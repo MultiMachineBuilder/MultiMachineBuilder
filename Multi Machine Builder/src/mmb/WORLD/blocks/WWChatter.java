@@ -11,12 +11,11 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.BEANS.BlockActivateListener;
 import mmb.BEANS.TextMessageProvider;
 import mmb.WORLD.block.BlockType;
-import mmb.WORLD.block.SkeletalBlockEntityData;
+import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.gui.NewTextEditor;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.SignalUtils;
-import mmb.WORLD.worlds.world.BlockMap;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 
@@ -24,16 +23,13 @@ import mmb.debug.Debugger;
  * @author oskar
  *
  */
-public class WWChatter extends SkeletalBlockEntityData implements TextMessageProvider, BlockActivateListener {
+public class WWChatter extends BlockEntityData implements TextMessageProvider, BlockActivateListener {
 	private String contents;
 	private static final Debugger debug = new Debugger("CHAT");
 
-	public WWChatter(int x, int y, BlockMap owner2) {
-		super(x, y, owner2);
-	}
-
 	@Override
-	public void load(JsonNode data) {
+	public void load(@Nullable JsonNode data) {
+		if(data == null) return;
 		contents = data.get("value").asText();
 	}
 
@@ -59,7 +55,7 @@ public class WWChatter extends SkeletalBlockEntityData implements TextMessagePro
 
 	@Override
 	public void onTick(MapProxy map) {
-		if(SignalUtils.hasIncomingSignal(x, y, owner)) {
+		if(SignalUtils.hasIncomingSignal(this)) {
 			debug.printl(contents);
 		}
 	}

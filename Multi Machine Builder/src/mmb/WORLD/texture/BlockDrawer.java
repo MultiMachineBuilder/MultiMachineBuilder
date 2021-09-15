@@ -26,14 +26,14 @@ public interface BlockDrawer {
 	 * @param g graphics context
 	 * @param sideSize how big is each side
 	 */
-	public void draw(@Nullable BlockEntry ent, int x, int y, @Nonnull Graphics g, int sideSize);
+	public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int sideSize);
 	/**
 	 * @param ent block to be drawn, optional
 	 * @param p upper left corner on the frame
 	 * @param g graphics context
 	 * @param sideSize
 	 */
-	public default void draw(@Nullable BlockEntry ent, @Nonnull Point p, @Nonnull Graphics g, int sideSize) {
+	public default void draw(@Nullable BlockEntry ent, Point p, Graphics g, int sideSize) {
 		draw(ent, p.x, p.y, g, sideSize);
 	}
 	/**

@@ -4,8 +4,6 @@
 package mmb.WORLD.blocks.machine;
 
 import java.awt.Component;
-import javax.annotation.Nonnull;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -19,7 +17,6 @@ import mmb.WORLD.item.ItemType;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.world.BlockMap;
 import mmb.debug.Debugger;
 
 /**
@@ -87,13 +84,9 @@ public class Nuker extends SkeletalBlockMachine {
 
 	private double fuelRemain;
 	private final SingleItemInventory nuked = new SingleItemInventory();
-	/**
-	 * @param x
-	 * @param y
-	 * @param owner2
-	 */
-	public Nuker(int x, int y, @Nonnull BlockMap owner2) {
-		super(x, y, owner2, 15);
+
+	public Nuker() {
+		super(15);
 		outElec.maxPower = 50000;
 	}
 

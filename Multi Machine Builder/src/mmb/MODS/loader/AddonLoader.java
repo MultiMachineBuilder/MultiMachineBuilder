@@ -28,6 +28,9 @@ import mmb.debug.*;
  */
 public class AddonLoader {
 	private Debugger debug;
+	/**
+	 * This mod loader's loaded mod
+	 */
 	public final AddonInfo a = new AddonInfo();
 	String originalPath;
 	private Thread runningOn;
@@ -42,11 +45,6 @@ public class AddonLoader {
 	
 	private static final String PREFIX_TEXTURE = "textures/";
 	private static final String PREFIX_SOUND = "sound/";
-	
-	void unaval() {
-		debug.printl("Oh noes, " + a.name + " is inoperative, no fun with it.");	
-	}
-	
 	
 	/**
 	 * Can use optional handler, for this purpose see load(Path, Consumer<AddonInfo>)
@@ -135,22 +133,29 @@ public class AddonLoader {
 				a.contents.add(je);
 				a.files.put(je, bytes);
 			}
-			whenWorking();
+			//If file works, continue loading
+			debug.printl("Injecting "+a.file.name());
+			a.files.forEach(this::processFile);
+			for(Class<? extends AddonCentral> c : cclasses) {
+				String cname = c.getName();
+				try {
+					AddonCentral central = c.newInstance();
+					a.central = central;
+					runCentralClass(central);
+				} catch (IllegalAccessException e) {
+					debug.pstm(e, "The constructor for" + cname +  " is non-public or absent. Make the constructor public");
+				} catch(Exception e) {
+					debug.pstm(e, "Couldn't create the main instance of the mod " + a.name);
+				}
+			}
+			
+			//If file is empty, mark it
 			if(!a.hasValidData) a.state = AddonState.EMPTY;
 		}catch(Exception e) {
 			debug.printl("Couldn't open zip or jar file " + a.name);
 			debug.pst(e);
 			a.state = AddonState.BROKEN;
 		}
-	}
-	
-	/**
-	 * If file works, continue loading
-	 */
-	private void whenWorking() {
-		debug.printl("Injecting "+a.file.name());
-		a.files.forEach(this::processFile);
-		runCentrals();
 	}
 	
 	private void processFile(JarEntry meta, byte[] data){
@@ -171,7 +176,7 @@ public class AddonLoader {
 			}else if(name.startsWith(PREFIX_TEXTURE)){
 				try {
 					String shorter = name.substring(PREFIX_TEXTURE.length());
-					BufferedImage img = ImageIO.read(new ByteArrayInputStream(a.files.get(meta)));
+					BufferedImage img = ImageIO.read(new ByteArrayInputStream(data));
 					Textures.load(shorter, img);
 					debug.printl("Successfully added texture " + name);
 				} catch (Exception e) {
@@ -188,8 +193,7 @@ public class AddonLoader {
 	private static ByteClassLoader bcl = new ByteClassLoader(AddonLoader.class.getClassLoader());
 	@SuppressWarnings("null")
 	private void interpretClassFile(JarEntry ent, byte[] data){
-		// This FileObject represents a class. Now, what class does it represent?
-		
+		// This JarEntry represents a class. Now, what class does it represent?
 		String name = ent.getName();
 		debug.printl("entry: "+name);
         String className = name.replace('/', '.');
@@ -202,6 +206,7 @@ public class AddonLoader {
 			GameContents.loadedClasses.add(c);
 		} catch (ClassNotFoundException e) {
 			debug.pstm(e, "Failed to find class "+name);
+			a.state = AddonState.DEAD;
 		} catch (ClassFormatError e) {
 			debug.pstm(e, "Invalid class file: "+name);
 			a.state = AddonState.DEAD;
@@ -210,35 +215,21 @@ public class AddonLoader {
 			a.state = AddonState.DEAD;
 		}catch (IOException e) {
 			debug.pstm(e, "Failed to open resource "+name);
+			a.state = AddonState.BROKEN;
 		} catch (Exception e) {
 			debug.pstm(e, "Couldn't process classfile " + className + ". Please check if class file exists and works.");
+			a.state = AddonState.DEAD;
 		}
 	}
 	private List<Class<? extends AddonCentral>> cclasses = new ArrayList<>();
-	private void runCentrals() {
-		for(Class<? extends AddonCentral> c : cclasses) {
-			String cname = c.getName();
-			try {
-				AddonCentral central = c.newInstance();
-				a.central = central;
-				runCentralClass(central);
-			} catch (IllegalAccessException e) {
-				debug.pstm(e, "The constructor for" + cname +  " is non-public or absent. Make the constructor public");
-			} catch(Exception e) {
-				debug.pstm(e, "Couldn't create the main instance of the mod " + a.name);
-			}
-		}
-	}
 	@SuppressWarnings("unchecked")
 	private void tryAddCentral(Class<?> c) {
-		boolean runnable = false;
-		Class<?>[] interfaces = c.getInterfaces();
-    	for(int i = 0; i < interfaces.length; i++) {
-    		Class<?> in = interfaces[i];
-    		if(AddonCentral.class.isAssignableFrom(in)) runnable = true; //if class implements AddonCentral, run it
-    	}
-    	if(runnable) //The given class is a mod central class
+		boolean runnable = AddonCentral.class.isAssignableFrom(c);//if class implements AddonCentral, run it
+    	if(runnable) { //The given class is a mod central class
+    		if(!cclasses.isEmpty()) debug.printl("This file contains mutiple mods");
     		cclasses.add((Class<? extends AddonCentral>) c); 
+    	}
+    		
     	a.hasClasses = true;
     }
     	

@@ -15,7 +15,7 @@ import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.texture.BlockDrawer;
-import mmb.WORLD.worlds.world.BlockMap;
+import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
@@ -23,15 +23,13 @@ import mmb.WORLD.worlds.world.BlockMap;
  */
 public abstract class BlockBase extends Item implements BlockType {
 	@Override
-	public void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation, int side) {
+	public void preview(Graphics g, Point renderStartPos, World map, Point targetLocation, int side) {
 		getTexture().draw(null, renderStartPos, g, side);
 	}
+	
+	private BlockType leaveBehind;
 	@SuppressWarnings("null")
-	@Deprecated
-	@Nonnull public BlockType leaveBehind;
-	@SuppressWarnings("null")
-	@Deprecated
-	@Nonnull public BlockDrawer texture;
+	@Nonnull private BlockDrawer texture;
 	private Drop drop;
 
 	@Override
@@ -50,6 +48,7 @@ public abstract class BlockBase extends Item implements BlockType {
 	}
 	@Override
 	public BlockType leaveBehind() {
+		if(leaveBehind == null) leaveBehind = ContentsBlocks.grass;
 		return leaveBehind;
 	}
 	@Override
@@ -75,8 +74,6 @@ public abstract class BlockBase extends Item implements BlockType {
 		register();
 	}
 	
-	
-
 	/**
 	 * Sets texture. This is a convenience chainable method
 	 * @param texture path to texture, starting from `/textures`
@@ -172,7 +169,7 @@ public abstract class BlockBase extends Item implements BlockType {
 	 */
 	@Override
 	@Nonnull public BlockBase volumed(double volume) {
-		this.volume = volume;
+		setVolume(volume);
 		return this;
 	}
 }
