@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="1" nextlayerid="3" nextobjectid="4">
+ <tileset firstgid="1" name="Machines" tilewidth="64" tileheight="64" tilecount="183" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="32" height="32" source="textures/machine/3-way merger.png"/>
+  </tile>
+  <tile id="1">
+   <image width="32" height="32" source="textures/machine/3-way shuffler.png"/>
+  </tile>
+  <tile id="2">
+   <image width="32" height="32" source="textures/machine/assembly 1.png"/>
+  </tile>
+  <tile id="3">
+   <image width="32" height="32" source="textures/machine/assembly 2.png"/>
+  </tile>
+  <tile id="4">
+   <image width="32" height="32" source="textures/machine/assembly 3.png"/>
+  </tile>
+  <tile id="5">
+   <image width="32" height="32" source="textures/machine/assembly 4.png"/>
+  </tile>
+  <tile id="6">
+   <image width="32" height="32" source="textures/machine/assembly 5.png"/>
+  </tile>
+  <tile id="7">
+   <image width="32" height="32" source="textures/machine/assembly 6.png"/>
+  </tile>
+  <tile id="8">
+   <image width="32" height="32" source="textures/machine/autoassembly 1.png"/>
+  </tile>
+  <tile id="9">
+   <image width="32" height="32" source="textures/machine/autoassembly 2.png"/>
+  </tile>
+  <tile id="10">
+   <image width="32" height="32" source="textures/machine/autoassembly 3.png"/>
+  </tile>
+  <tile id="11">
+   <image width="32" height="32" source="textures/machine/autoassembly 4.png"/>
+  </tile>
+  <tile id="12">
+   <image width="32" height="32" source="textures/machine/autoassembly 5.png"/>
+  </tile>
+  <tile id="13">
+   <image width="32" height="32" source="textures/machine/autoassembly 6.png"/>
+  </tile>
+  <tile id="14">
+   <image width="32" height="32" source="textures/machine/block BP interface.png"/>
+  </tile>
+  <tile id="15">
+   <image width="32" height="32" source="textures/machine/block break interface.png"/>
+  </tile>
+  <tile id="16">
+   <image width="32" height="32" source="textures/machine/block place interface.png"/>
+  </tile>
+  <tile id="17">
+   <image width="32" height="32" source="textures/machine/CCW.png"/>
+  </tile>
+  <tile id="18">
+   <image width="32" height="32" source="textures/machine/chest1.png"/>
+  </tile>
+  <tile id="19">
+   <image width="32" height="32" source="textures/machine/chest2.png"/>
+  </tile>
+  <tile id="20">
+   <image width="32" height="32" source="textures/machine/chest3.png"/>
+  </tile>
+  <tile id="21">
+   <image width="32" height="32" source="textures/machine/chest4.png"/>
+  </tile>
+  <tile id="22">
+   <image width="32" height="32" source="textures/machine/chest5.png"/>
+  </tile>
+  <tile id="23">
+   <image width="32" height="32" source="textures/machine/chest6.png"/>
+  </tile>
+  <tile id="24">
+   <image width="32" height="32" source="textures/machine/claw.png"/>
+  </tile>
+  <tile id="25">
+   <image width="32" height="32" source="textures/machine/CW.png"/>
+  </tile>
+  <tile id="26">
+   <image width="32" height="32" source="textures/machine/cyclic assembler.png"/>
+  </tile>
+  <tile id="27">
+   <image width="32" height="32" source="textures/machine/dropped item interface.png"/>
+  </tile>
+  <tile id="28">
+   <image width="32" height="32" source="textures/machine/esmelter.png"/>
+  </tile>
+  <tile id="29">
+   <image width="32" height="32" source="textures/machine/imover intersected.png"/>
+  </tile>
+  <tile id="30">
+   <image width="32" height="32" source="textures/machine/imover.png"/>
+  </tile>
+  <tile id="31">
+   <image width="32" height="32" source="textures/machine/pickaxe workbench.png"/>
+  </tile>
+  <tile id="32">
+   <image width="32" height="32" source="textures/machine/pipe 3-section.png"/>
+  </tile>
+  <tile id="33">
+   <image width="32" height="32" source="textures/machine/pipe 4-section.png"/>
+  </tile>
+  <tile id="34">
+   <image width="32" height="32" source="textures/machine/pipe biturn.png"/>
+  </tile>
+  <tile id="35">
+   <image width="32" height="32" source="textures/machine/pipe bridged.png"/>
+  </tile>
+  <tile id="36">
+   <image width="32" height="32" source="textures/machine/pipe elbow.png"/>
+  </tile>
+  <tile id="37">
+   <image width="32" height="32" source="textures/machine/pipe merge left.png"/>
+  </tile>
+  <tile id="38">
+   <image width="32" height="32" source="textures/machine/pipe merge right.png"/>
+  </tile>
+  <tile id="39">
+   <image width="32" height="32" source="textures/machine/pipe oneway.png"/>
+  </tile>
+  <tile id="40">
+   <image width="32" height="32" source="textures/machine/pipe straight.png"/>
+  </tile>
+  <tile id="42">
+   <image width="32" height="32" source="textures/machine/placer.png"/>
+  </tile>
+  <tile id="43">
+   <image width="32" height="32" source="textures/machine/smelter active.png"/>
+  </tile>
+  <tile id="44">
+   <image width="32" height="32" source="textures/machine/smelter inert 2.png"/>
+  </tile>
+  <tile id="45">
+   <image width="32" height="32" source="textures/machine/smelter inert.png"/>
+  </tile>
+  <tile id="46">
+   <image width="32" height="32" source="textures/machine/vacuum.png"/>
+  </tile>
+  <tile id="47">
+   <image width="32" height="32" source="textures/machine/power/infinity.png"/>
+  </tile>
+  <tile id="48">
+   <image width="32" height="32" source="textures/machine/power/load.png"/>
+  </tile>
+  <tile id="49">
+   <image width="32" height="32" source="textures/machine/power/nuke reactor.png"/>
+  </tile>
+  <tile id="50">
+   <image width="32" height="32" source="textures/machine/power/pmeter.png"/>
+  </tile>
+  <tile id="51">
+   <image width="32" height="32" source="textures/machine/power/thick center.png"/>
+  </tile>
+  <tile id="52">
+   <image width="32" height="32" source="textures/machine/power/thick connector.png"/>
+  </tile>
+  <tile id="53">
+   <image width="32" height="32" source="textures/machine/power/thick wire.png"/>
+  </tile>
+  <tile id="54">
+   <image width="32" height="32" source="textures/machine/power/vthick center.png"/>
+  </tile>
+  <tile id="55">
+   <image width="32" height="32" source="textures/machine/power/vthick connector.png"/>
+  </tile>
+  <tile id="56">
+   <image width="32" height="32" source="textures/machine/power/vthick wire.png"/>
+  </tile>
+  <tile id="57">
+   <image width="32" height="32" source="textures/block/coal crop.png"/>
+  </tile>
+  <tile id="58">
+   <image width="32" height="32" source="textures/block/coal ore.png"/>
+  </tile>
+  <tile id="59">
+   <image width="32" height="32" source="textures/block/copper block.png"/>
+  </tile>
+  <tile id="60">
+   <image width="32" height="32" source="textures/block/copper crop.png"/>
+  </tile>
+  <tile id="61">
+   <image width="32" height="32" source="textures/block/copper ore.png"/>
+  </tile>
+  <tile id="62">
+   <image width="32" height="32" source="textures/block/gold crop.png"/>
+  </tile>
+  <tile id="63">
+   <image width="32" height="32" source="textures/block/gold ore.png"/>
+  </tile>
+  <tile id="64">
+   <image width="64" height="64" source="textures/block/gravel.png"/>
+  </tile>
+  <tile id="65">
+   <image width="32" height="32" source="textures/block/iron block.png"/>
+  </tile>
+  <tile id="66">
+   <image width="32" height="32" source="textures/block/iron crop.png"/>
+  </tile>
+  <tile id="67">
+   <image width="32" height="32" source="textures/block/iron ore.png"/>
+  </tile>
+  <tile id="68">
+   <image width="32" height="32" source="textures/block/leaves.png"/>
+  </tile>
+  <tile id="69">
+   <image width="32" height="32" source="textures/block/message.png"/>
+  </tile>
+  <tile id="70">
+   <image width="64" height="64" source="textures/block/sand.png"/>
+  </tile>
+  <tile id="71">
+   <image width="32" height="32" source="textures/block/silicon block.png"/>
+  </tile>
+  <tile id="72">
+   <image width="32" height="32" source="textures/block/silicon crop.png"/>
+  </tile>
+  <tile id="73">
+   <image width="32" height="32" source="textures/block/silicon ore.png"/>
+  </tile>
+  <tile id="74">
+   <image width="32" height="32" source="textures/block/silver ore.png"/>
+  </tile>
+  <tile id="75">
+   <image width="32" height="32" source="textures/block/tree.png"/>
+  </tile>
+  <tile id="76">
+   <image width="32" height="32" source="textures/block/uranium block.png"/>
+  </tile>
+  <tile id="77">
+   <image width="32" height="32" source="textures/block/uranium ore.png"/>
+  </tile>
+  <tile id="78">
+   <image width="32" height="32" source="textures/Hello World/mini rainbow.png"/>
+  </tile>
+  <tile id="79">
+   <image width="64" height="64" source="textures/Hello World/rainbow.png"/>
+  </tile>
+  <tile id="80">
+   <image width="32" height="32" source="textures/inventory/infinity.png"/>
+  </tile>
+  <tile id="81">
+   <image width="32" height="32" source="textures/item/alu ingot.png"/>
+  </tile>
+  <tile id="82">
+   <image width="32" height="32" source="textures/item/alu wire.png"/>
+  </tile>
+  <tile id="83">
+   <image width="32" height="32" source="textures/item/brass ingot.png"/>
+  </tile>
+  <tile id="84">
+   <image width="32" height="32" source="textures/item/bronze ingot.png"/>
+  </tile>
+  <tile id="85">
+   <image width="32" height="32" source="textures/item/coal.png"/>
+  </tile>
+  <tile id="86">
+   <image width="32" height="32" source="textures/item/control rod.png"/>
+  </tile>
+  <tile id="87">
+   <image width="32" height="32" source="textures/item/coolant rod.png"/>
+  </tile>
+  <tile id="88">
+   <image width="32" height="32" source="textures/item/copper gear.png"/>
+  </tile>
+  <tile id="89">
+   <image width="32" height="32" source="textures/item/copper ingot.png"/>
+  </tile>
+  <tile id="90">
+   <image width="32" height="32" source="textures/item/copper pick head.png"/>
+  </tile>
+  <tile id="91">
+   <image width="32" height="32" source="textures/item/copper wire.png"/>
+  </tile>
+  <tile id="92">
+   <image width="32" height="32" source="textures/item/depleted rod.png"/>
+  </tile>
+  <tile id="93">
+   <image width="32" height="32" source="textures/item/depleted uranium ingot.png"/>
+  </tile>
+  <tile id="94">
+   <image width="32" height="32" source="textures/item/diamond.png"/>
+  </tile>
+  <tile id="95">
+   <image width="32" height="32" source="textures/item/gold ingot.png"/>
+  </tile>
+  <tile id="96">
+   <image width="32" height="32" source="textures/item/gold wire.png"/>
+  </tile>
+  <tile id="97">
+   <image width="32" height="32" source="textures/item/heat rod.png"/>
+  </tile>
+  <tile id="98">
+   <image width="32" height="32" source="textures/item/iron ingot.png"/>
+  </tile>
+  <tile id="99">
+   <image width="32" height="32" source="textures/item/lead ingot.png"/>
+  </tile>
+  <tile id="100">
+   <image width="32" height="32" source="textures/item/lisc.png"/>
+  </tile>
+  <tile id="101">
+   <image width="32" height="32" source="textures/item/platinum ingot.png"/>
+  </tile>
+  <tile id="102">
+   <image width="32" height="32" source="textures/item/silicon ingot.png"/>
+  </tile>
+  <tile id="103">
+   <image width="32" height="32" source="textures/item/silver ingot.png"/>
+  </tile>
+  <tile id="104">
+   <image width="32" height="32" source="textures/item/silver wire.png"/>
+  </tile>
+  <tile id="105">
+   <image width="32" height="32" source="textures/item/stainless gear.png"/>
+  </tile>
+  <tile id="106">
+   <image width="32" height="32" source="textures/item/stainless pick head.png"/>
+  </tile>
+  <tile id="107">
+   <image width="32" height="32" source="textures/item/steel ingot.png"/>
+  </tile>
+  <tile id="108">
+   <image width="32" height="32" source="textures/item/steel pick head.png"/>
+  </tile>
+  <tile id="109">
+   <image width="32" height="32" source="textures/item/steel rod.png"/>
+  </tile>
+  <tile id="110">
+   <image width="32" height="32" source="textures/item/steel wire.png"/>
+  </tile>
+  <tile id="111">
+   <image width="32" height="32" source="textures/item/stencil.png"/>
+  </tile>
+  <tile id="112">
+   <image width="32" height="32" source="textures/item/stone pick head.png"/>
+  </tile>
+  <tile id="113">
+   <image width="32" height="32" source="textures/item/uranium ingot.png"/>
+  </tile>
+  <tile id="114">
+   <image width="32" height="32" source="textures/item/uranium rod.png"/>
+  </tile>
+  <tile id="115">
+   <image width="32" height="32" source="textures/item/wood pick head.png"/>
+  </tile>
+  <tile id="116">
+   <image width="32" height="32" source="textures/item/wood pick.png"/>
+  </tile>
+  <tile id="117">
+   <image width="32" height="32" source="textures/item/zinc ingot.png"/>
+  </tile>
+  <tile id="118">
+   <image width="64" height="64" source="textures/liquid/fuel.png"/>
+  </tile>
+  <tile id="119">
+   <image width="64" height="64" source="textures/liquid/lava.png"/>
+  </tile>
+  <tile id="120">
+   <image width="64" height="64" source="textures/liquid/oxygen.png"/>
+  </tile>
+  <tile id="121">
+   <image width="64" height="64" source="textures/liquid/plasma.png"/>
+  </tile>
+  <tile id="122">
+   <image width="64" height="64" source="textures/liquid/smoke.png"/>
+  </tile>
+  <tile id="123">
+   <image width="64" height="64" source="textures/liquid/steam.png"/>
+  </tile>
+  <tile id="124">
+   <image width="64" height="64" source="textures/liquid/water.png"/>
+  </tile>
+  <tile id="125">
+   <image width="32" height="32" source="textures/logic/8-bit wires.png"/>
+  </tile>
+  <tile id="126">
+   <image width="32" height="32" source="textures/logic/AND.png"/>
+  </tile>
+  <tile id="127">
+   <image width="32" height="32" source="textures/logic/button.png"/>
+  </tile>
+  <tile id="128">
+   <image width="32" height="32" source="textures/logic/drandom.png"/>
+  </tile>
+  <tile id="129">
+   <image width="32" height="32" source="textures/logic/NOT.png"/>
+  </tile>
+  <tile id="130">
+   <image width="32" height="32" source="textures/logic/off lamp.png"/>
+  </tile>
+  <tile id="131">
+   <image width="32" height="32" source="textures/logic/off.png"/>
+  </tile>
+  <tile id="132">
+   <image width="32" height="32" source="textures/logic/on lamp.png"/>
+  </tile>
+  <tile id="133">
+   <image width="32" height="32" source="textures/logic/on.png"/>
+  </tile>
+  <tile id="134">
+   <image width="32" height="32" source="textures/logic/OR.png"/>
+  </tile>
+  <tile id="135">
+   <image width="32" height="32" source="textures/logic/random.png"/>
+  </tile>
+  <tile id="136">
+   <image width="32" height="32" source="textures/logic/randomctrl.png"/>
+  </tile>
+  <tile id="137">
+   <image width="32" height="32" source="textures/logic/toggle inert.png"/>
+  </tile>
+  <tile id="138">
+   <image width="32" height="32" source="textures/logic/toggle off.png"/>
+  </tile>
+  <tile id="139">
+   <image width="32" height="32" source="textures/logic/toggle on.png"/>
+  </tile>
+  <tile id="140">
+   <image width="32" height="32" source="textures/logic/true.png"/>
+  </tile>
+  <tile id="141">
+   <image width="32" height="32" source="textures/logic/urandom.png"/>
+  </tile>
+  <tile id="142">
+   <image width="32" height="32" source="textures/logic/XOR.png"/>
+  </tile>
+  <tile id="143">
+   <image width="32" height="32" source="textures/logic/YES.png"/>
+  </tile>
+  <tile id="144">
+   <image width="32" height="32" source="textures/special/invalid.png"/>
+  </tile>
+  <tile id="145">
+   <image width="32" height="32" source="textures/tool/normal.png"/>
+  </tile>
+  <tile id="146">
+   <image width="32" height="32" source="textures/tool/paint.png"/>
+  </tile>
+  <tile id="147">
+   <image width="32" height="32" source="textures/tool/wrench.png"/>
+  </tile>
+  <tile id="148">
+   <image width="32" height="32" source="textures/brush.png"/>
+  </tile>
+  <tile id="149">
+   <image width="32" height="32" source="textures/chuckBlock.png"/>
+  </tile>
+  <tile id="150">
+   <image width="32" height="32" source="textures/container.png"/>
+  </tile>
+  <tile id="151">
+   <image width="32" height="32" source="textures/copy.png"/>
+  </tile>
+  <tile id="152">
+   <image width="32" height="32" source="textures/crafting.png"/>
+  </tile>
+  <tile id="153">
+   <image width="32" height="32" source="textures/dropItems.png"/>
+  </tile>
+  <tile id="154">
+   <image width="32" height="32" source="textures/example rotation.png"/>
+  </tile>
+  <tile id="155">
+   <image width="32" height="32" source="textures/grass.png"/>
+  </tile>
+  <tile id="157">
+   <image width="32" height="32" source="textures/hoover.png"/>
+  </tile>
+  <tile id="158">
+   <image width="32" height="32" source="textures/log.png"/>
+  </tile>
+  <tile id="159">
+   <image width="32" height="32" source="textures/mine.png"/>
+  </tile>
+  <tile id="160">
+   <image width="32" height="32" source="textures/place.png"/>
+  </tile>
+  <tile id="161">
+   <image width="32" height="32" source="textures/plank.png"/>
+  </tile>
+  <tile id="162">
+   <image width="32" height="32" source="textures/printer.png"/>
+  </tile>
+  <tile id="163">
+   <image width="32" height="32" source="textures/spider.png"/>
+  </tile>
+  <tile id="164">
+   <image width="32" height="32" source="textures/stone.png"/>
+  </tile>
+  <tile id="165">
+   <image width="32" height="32" source="textures/textedit.png"/>
+  </tile>
+  <tile id="166">
+   <image width="32" height="32" source="textures/arrow.png"/>
+  </tile>
+  <tile id="167">
+   <image width="32" height="32" source="textures/item/alu nugget.png"/>
+  </tile>
+  <tile id="168">
+   <image width="32" height="32" source="textures/item/brass gear.png"/>
+  </tile>
+  <tile id="169">
+   <image width="32" height="32" source="textures/item/brass nugget.png"/>
+  </tile>
+  <tile id="170">
+   <image width="32" height="32" source="textures/item/copper nugget.png"/>
+  </tile>
+  <tile id="171">
+   <image width="32" height="32" source="textures/item/copper pick.png"/>
+  </tile>
+  <tile id="172">
+   <image width="32" height="32" source="textures/item/gold nugget.png"/>
+  </tile>
+  <tile id="173">
+   <image width="32" height="32" source="textures/item/iron nugget.png"/>
+  </tile>
+  <tile id="174">
+   <image width="32" height="32" source="textures/item/lead nugget.png"/>
+  </tile>
+  <tile id="175">
+   <image width="32" height="32" source="textures/item/quantum pick.png"/>
+  </tile>
+  <tile id="176">
+   <image width="32" height="32" source="textures/item/silicon nugget.png"/>
+  </tile>
+  <tile id="177">
+   <image width="32" height="32" source="textures/item/silver nugget.png"/>
+  </tile>
+  <tile id="178">
+   <image width="32" height="32" source="textures/item/stainless ingot.png"/>
+  </tile>
+  <tile id="179">
+   <image width="32" height="32" source="textures/item/stainless nugget.png"/>
+  </tile>
+  <tile id="180">
+   <image width="32" height="32" source="textures/item/stainless pick.png"/>
+  </tile>
+  <tile id="181">
+   <image width="32" height="32" source="textures/item/stainless wire.png"/>
+  </tile>
+  <tile id="182">
+   <image width="32" height="32" source="textures/item/steel gear.png"/>
+  </tile>
+  <tile id="183">
+   <image width="32" height="32" source="textures/item/steel nugget.png"/>
+  </tile>
+  <tile id="184">
+   <image width="32" height="32" source="textures/item/uranium nugget.png"/>
+  </tile>
+ </tileset>
+ <layer id="1" name="Warstwa Kafelków 1" width="100" height="100">
+  <data encoding="csv">
+   <chunk x="-16" y="-16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,99,0,99,0,0,0,0
+</chunk>
+   <chunk x="-16" y="0" width="16" height="16">
+0,0,0,0,0,0,0,0,0,99,0,99,0,167,0,41,
+0,0,0,0,0,0,0,0,0,99,0,99,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,99,99,99,0,0,0,0,
+0,0,0,0,0,0,0,0,0,99,0,0,0,167,0,37,
+0,0,0,0,0,0,0,0,0,99,0,99,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,41,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,184,0,0,167,0,36,
+0,0,0,0,0,0,0,0,0,0,0,41,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,37,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,184,0,0,167,0,35,
+0,0,0,0,0,0,0,0,0,0,0,37,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</chunk>
+  </data>
+ </layer>
+ <objectgroup id="2" name="Warstwa Obiektu 1">
+  <object id="1" x="-56.17" y="7.16667" width="93" height="19">
+   <text wrap="1">24</text>
+  </object>
+  <object id="3" x="-58.17" y="134.17" width="93" height="19">
+   <text wrap="1">24</text>
+  </object>
+ </objectgroup>
+</map>

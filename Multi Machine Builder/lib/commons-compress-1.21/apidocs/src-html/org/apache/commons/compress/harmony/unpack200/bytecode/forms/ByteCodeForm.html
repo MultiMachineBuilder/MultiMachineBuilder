@@ -1,0 +1,520 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="de">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> *  Licensed to the Apache Software Foundation (ASF) under one or more<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *  contributor license agreements.  See the NOTICE file distributed with<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *  this work for additional information regarding copyright ownership.<a name="line.4"></a>
+<span class="sourceLineNo">005</span> *  The ASF licenses this file to You under the Apache License, Version 2.0<a name="line.5"></a>
+<span class="sourceLineNo">006</span> *  (the "License"); you may not use this file except in compliance with<a name="line.6"></a>
+<span class="sourceLineNo">007</span> *  the License.  You may obtain a copy of the License at<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *     http://www.apache.org/licenses/LICENSE-2.0<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *  Unless required by applicable law or agreed to in writing, software<a name="line.11"></a>
+<span class="sourceLineNo">012</span> *  distributed under the License is distributed on an "AS IS" BASIS,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<a name="line.13"></a>
+<span class="sourceLineNo">014</span> *  See the License for the specific language governing permissions and<a name="line.14"></a>
+<span class="sourceLineNo">015</span> *  limitations under the License.<a name="line.15"></a>
+<span class="sourceLineNo">016</span> */<a name="line.16"></a>
+<span class="sourceLineNo">017</span>package org.apache.commons.compress.harmony.unpack200.bytecode.forms;<a name="line.17"></a>
+<span class="sourceLineNo">018</span><a name="line.18"></a>
+<span class="sourceLineNo">019</span>import java.util.HashMap;<a name="line.19"></a>
+<span class="sourceLineNo">020</span>import java.util.Map;<a name="line.20"></a>
+<span class="sourceLineNo">021</span><a name="line.21"></a>
+<span class="sourceLineNo">022</span>import org.apache.commons.compress.harmony.unpack200.bytecode.ByteCode;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import org.apache.commons.compress.harmony.unpack200.bytecode.CodeAttribute;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>import org.apache.commons.compress.harmony.unpack200.bytecode.OperandManager;<a name="line.24"></a>
+<span class="sourceLineNo">025</span><a name="line.25"></a>
+<span class="sourceLineNo">026</span>public abstract class ByteCodeForm {<a name="line.26"></a>
+<span class="sourceLineNo">027</span><a name="line.27"></a>
+<span class="sourceLineNo">028</span>    protected static final boolean WIDENED = true;<a name="line.28"></a>
+<span class="sourceLineNo">029</span><a name="line.29"></a>
+<span class="sourceLineNo">030</span>    protected static final ByteCodeForm[] byteCodeArray = new ByteCodeForm[256];<a name="line.30"></a>
+<span class="sourceLineNo">031</span>    protected static final Map byteCodesByName = new HashMap(256);<a name="line.31"></a>
+<span class="sourceLineNo">032</span>    static {<a name="line.32"></a>
+<span class="sourceLineNo">033</span>        byteCodeArray[0] = new NoArgumentForm(0, "nop");<a name="line.33"></a>
+<span class="sourceLineNo">034</span>        byteCodeArray[1] = new NoArgumentForm(1, "aconst_null");<a name="line.34"></a>
+<span class="sourceLineNo">035</span>        byteCodeArray[2] = new NoArgumentForm(2, "iconst_m1");<a name="line.35"></a>
+<span class="sourceLineNo">036</span>        byteCodeArray[3] = new NoArgumentForm(3, "iconst_0");<a name="line.36"></a>
+<span class="sourceLineNo">037</span>        byteCodeArray[4] = new NoArgumentForm(4, "iconst_1");<a name="line.37"></a>
+<span class="sourceLineNo">038</span>        byteCodeArray[5] = new NoArgumentForm(5, "iconst_2");<a name="line.38"></a>
+<span class="sourceLineNo">039</span>        byteCodeArray[6] = new NoArgumentForm(6, "iconst_3");<a name="line.39"></a>
+<span class="sourceLineNo">040</span>        byteCodeArray[7] = new NoArgumentForm(7, "iconst_4");<a name="line.40"></a>
+<span class="sourceLineNo">041</span>        byteCodeArray[8] = new NoArgumentForm(8, "iconst_5");<a name="line.41"></a>
+<span class="sourceLineNo">042</span>        byteCodeArray[9] = new NoArgumentForm(9, "lconst_0");<a name="line.42"></a>
+<span class="sourceLineNo">043</span>        byteCodeArray[10] = new NoArgumentForm(10, "lconst_1");<a name="line.43"></a>
+<span class="sourceLineNo">044</span>        byteCodeArray[11] = new NoArgumentForm(11, "fconst_0");<a name="line.44"></a>
+<span class="sourceLineNo">045</span>        byteCodeArray[12] = new NoArgumentForm(12, "fconst_1");<a name="line.45"></a>
+<span class="sourceLineNo">046</span>        byteCodeArray[13] = new NoArgumentForm(13, "fconst_2");<a name="line.46"></a>
+<span class="sourceLineNo">047</span>        byteCodeArray[14] = new NoArgumentForm(14, "dconst_0");<a name="line.47"></a>
+<span class="sourceLineNo">048</span>        byteCodeArray[15] = new NoArgumentForm(15, "dconst_1");<a name="line.48"></a>
+<span class="sourceLineNo">049</span>        byteCodeArray[16] = new ByteForm(16, "bipush", new int[] {16, -1});<a name="line.49"></a>
+<span class="sourceLineNo">050</span>        byteCodeArray[17] = new ShortForm(17, "sipush", new int[] {17, -1, -1});<a name="line.50"></a>
+<span class="sourceLineNo">051</span>        byteCodeArray[18] = new StringRefForm(18, "ldc", new int[] {18, -1});<a name="line.51"></a>
+<span class="sourceLineNo">052</span>        byteCodeArray[19] = new StringRefForm(19, "ldc_w", new int[] {19, -1, -1}, WIDENED);<a name="line.52"></a>
+<span class="sourceLineNo">053</span>        byteCodeArray[20] = new LongForm(20, "ldc2_w", new int[] {20, -1, -1});<a name="line.53"></a>
+<span class="sourceLineNo">054</span>        byteCodeArray[21] = new LocalForm(21, "iload", new int[] {21, -1});<a name="line.54"></a>
+<span class="sourceLineNo">055</span>        byteCodeArray[22] = new LocalForm(22, "lload", new int[] {22, -1});<a name="line.55"></a>
+<span class="sourceLineNo">056</span>        byteCodeArray[23] = new LocalForm(23, "fload", new int[] {23, -1});<a name="line.56"></a>
+<span class="sourceLineNo">057</span>        byteCodeArray[24] = new LocalForm(24, "dload", new int[] {24, -1});<a name="line.57"></a>
+<span class="sourceLineNo">058</span>        byteCodeArray[25] = new LocalForm(25, "aload", new int[] {25, -1});<a name="line.58"></a>
+<span class="sourceLineNo">059</span>        byteCodeArray[26] = new NoArgumentForm(26, "iload_0");<a name="line.59"></a>
+<span class="sourceLineNo">060</span>        byteCodeArray[27] = new NoArgumentForm(27, "iload_1");<a name="line.60"></a>
+<span class="sourceLineNo">061</span>        byteCodeArray[28] = new NoArgumentForm(28, "iload_2");<a name="line.61"></a>
+<span class="sourceLineNo">062</span>        byteCodeArray[29] = new NoArgumentForm(29, "iload_3");<a name="line.62"></a>
+<span class="sourceLineNo">063</span>        byteCodeArray[30] = new NoArgumentForm(30, "lload_0");<a name="line.63"></a>
+<span class="sourceLineNo">064</span>        byteCodeArray[31] = new NoArgumentForm(31, "lload_1");<a name="line.64"></a>
+<span class="sourceLineNo">065</span>        byteCodeArray[32] = new NoArgumentForm(32, "lload_2");<a name="line.65"></a>
+<span class="sourceLineNo">066</span>        byteCodeArray[33] = new NoArgumentForm(33, "lload_3");<a name="line.66"></a>
+<span class="sourceLineNo">067</span>        byteCodeArray[34] = new NoArgumentForm(34, "fload_0");<a name="line.67"></a>
+<span class="sourceLineNo">068</span>        byteCodeArray[35] = new NoArgumentForm(35, "fload_1");<a name="line.68"></a>
+<span class="sourceLineNo">069</span>        byteCodeArray[36] = new NoArgumentForm(36, "fload_2");<a name="line.69"></a>
+<span class="sourceLineNo">070</span>        byteCodeArray[37] = new NoArgumentForm(37, "fload_3");<a name="line.70"></a>
+<span class="sourceLineNo">071</span>        byteCodeArray[38] = new NoArgumentForm(38, "dload_0");<a name="line.71"></a>
+<span class="sourceLineNo">072</span>        byteCodeArray[39] = new NoArgumentForm(39, "dload_1");<a name="line.72"></a>
+<span class="sourceLineNo">073</span>        byteCodeArray[40] = new NoArgumentForm(40, "dload_2");<a name="line.73"></a>
+<span class="sourceLineNo">074</span>        byteCodeArray[41] = new NoArgumentForm(41, "dload_3");<a name="line.74"></a>
+<span class="sourceLineNo">075</span>        byteCodeArray[42] = new NoArgumentForm(42, "aload_0");<a name="line.75"></a>
+<span class="sourceLineNo">076</span>        byteCodeArray[43] = new NoArgumentForm(43, "aload_1");<a name="line.76"></a>
+<span class="sourceLineNo">077</span>        byteCodeArray[44] = new NoArgumentForm(44, "aload_2");<a name="line.77"></a>
+<span class="sourceLineNo">078</span>        byteCodeArray[45] = new NoArgumentForm(45, "aload_3");<a name="line.78"></a>
+<span class="sourceLineNo">079</span>        byteCodeArray[46] = new NoArgumentForm(46, "iaload");<a name="line.79"></a>
+<span class="sourceLineNo">080</span>        byteCodeArray[47] = new NoArgumentForm(47, "laload");<a name="line.80"></a>
+<span class="sourceLineNo">081</span>        byteCodeArray[48] = new NoArgumentForm(48, "faload");<a name="line.81"></a>
+<span class="sourceLineNo">082</span>        byteCodeArray[49] = new NoArgumentForm(49, "daload");<a name="line.82"></a>
+<span class="sourceLineNo">083</span>        byteCodeArray[50] = new NoArgumentForm(50, "aaload");<a name="line.83"></a>
+<span class="sourceLineNo">084</span>        byteCodeArray[51] = new NoArgumentForm(51, "baload");<a name="line.84"></a>
+<span class="sourceLineNo">085</span>        byteCodeArray[52] = new NoArgumentForm(52, "caload");<a name="line.85"></a>
+<span class="sourceLineNo">086</span>        byteCodeArray[53] = new NoArgumentForm(53, "saload");<a name="line.86"></a>
+<span class="sourceLineNo">087</span>        byteCodeArray[54] = new LocalForm(54, "istore", new int[] {54, -1});<a name="line.87"></a>
+<span class="sourceLineNo">088</span>        byteCodeArray[55] = new LocalForm(55, "lstore", new int[] {55, -1});<a name="line.88"></a>
+<span class="sourceLineNo">089</span>        byteCodeArray[56] = new LocalForm(56, "fstore", new int[] {56, -1});<a name="line.89"></a>
+<span class="sourceLineNo">090</span>        byteCodeArray[57] = new LocalForm(57, "dstore", new int[] {57, -1});<a name="line.90"></a>
+<span class="sourceLineNo">091</span>        byteCodeArray[58] = new LocalForm(58, "astore", new int[] {58, -1});<a name="line.91"></a>
+<span class="sourceLineNo">092</span>        byteCodeArray[59] = new NoArgumentForm(59, "istore_0");<a name="line.92"></a>
+<span class="sourceLineNo">093</span>        byteCodeArray[60] = new NoArgumentForm(60, "istore_1");<a name="line.93"></a>
+<span class="sourceLineNo">094</span>        byteCodeArray[61] = new NoArgumentForm(61, "istore_2");<a name="line.94"></a>
+<span class="sourceLineNo">095</span>        byteCodeArray[62] = new NoArgumentForm(62, "istore_3");<a name="line.95"></a>
+<span class="sourceLineNo">096</span>        byteCodeArray[63] = new NoArgumentForm(63, "lstore_0");<a name="line.96"></a>
+<span class="sourceLineNo">097</span>        byteCodeArray[64] = new NoArgumentForm(64, "lstore_1");<a name="line.97"></a>
+<span class="sourceLineNo">098</span>        byteCodeArray[65] = new NoArgumentForm(65, "lstore_2");<a name="line.98"></a>
+<span class="sourceLineNo">099</span>        byteCodeArray[66] = new NoArgumentForm(66, "lstore_3");<a name="line.99"></a>
+<span class="sourceLineNo">100</span>        byteCodeArray[67] = new NoArgumentForm(67, "fstore_0");<a name="line.100"></a>
+<span class="sourceLineNo">101</span>        byteCodeArray[68] = new NoArgumentForm(68, "fstore_1");<a name="line.101"></a>
+<span class="sourceLineNo">102</span>        byteCodeArray[69] = new NoArgumentForm(69, "fstore_2");<a name="line.102"></a>
+<span class="sourceLineNo">103</span>        byteCodeArray[70] = new NoArgumentForm(70, "fstore_3");<a name="line.103"></a>
+<span class="sourceLineNo">104</span>        byteCodeArray[71] = new NoArgumentForm(71, "dstore_0");<a name="line.104"></a>
+<span class="sourceLineNo">105</span>        byteCodeArray[72] = new NoArgumentForm(72, "dstore_1");<a name="line.105"></a>
+<span class="sourceLineNo">106</span>        byteCodeArray[73] = new NoArgumentForm(73, "dstore_2");<a name="line.106"></a>
+<span class="sourceLineNo">107</span>        byteCodeArray[74] = new NoArgumentForm(74, "dstore_3");<a name="line.107"></a>
+<span class="sourceLineNo">108</span>        byteCodeArray[75] = new NoArgumentForm(75, "astore_0");<a name="line.108"></a>
+<span class="sourceLineNo">109</span>        byteCodeArray[76] = new NoArgumentForm(76, "astore_1");<a name="line.109"></a>
+<span class="sourceLineNo">110</span>        byteCodeArray[77] = new NoArgumentForm(77, "astore_2");<a name="line.110"></a>
+<span class="sourceLineNo">111</span>        byteCodeArray[78] = new NoArgumentForm(78, "astore_3");<a name="line.111"></a>
+<span class="sourceLineNo">112</span>        byteCodeArray[79] = new NoArgumentForm(79, "iastore");<a name="line.112"></a>
+<span class="sourceLineNo">113</span>        byteCodeArray[80] = new NoArgumentForm(80, "lastore");<a name="line.113"></a>
+<span class="sourceLineNo">114</span>        byteCodeArray[81] = new NoArgumentForm(81, "fastore");<a name="line.114"></a>
+<span class="sourceLineNo">115</span>        byteCodeArray[82] = new NoArgumentForm(82, "dastore");<a name="line.115"></a>
+<span class="sourceLineNo">116</span>        byteCodeArray[83] = new NoArgumentForm(83, "aastore");<a name="line.116"></a>
+<span class="sourceLineNo">117</span>        byteCodeArray[84] = new NoArgumentForm(84, "bastore");<a name="line.117"></a>
+<span class="sourceLineNo">118</span>        byteCodeArray[85] = new NoArgumentForm(85, "castore");<a name="line.118"></a>
+<span class="sourceLineNo">119</span>        byteCodeArray[86] = new NoArgumentForm(86, "sastore");<a name="line.119"></a>
+<span class="sourceLineNo">120</span>        byteCodeArray[87] = new NoArgumentForm(87, "pop");<a name="line.120"></a>
+<span class="sourceLineNo">121</span>        byteCodeArray[88] = new NoArgumentForm(88, "pop2");<a name="line.121"></a>
+<span class="sourceLineNo">122</span>        byteCodeArray[89] = new NoArgumentForm(89, "dup");<a name="line.122"></a>
+<span class="sourceLineNo">123</span>        byteCodeArray[90] = new NoArgumentForm(90, "dup_x1");<a name="line.123"></a>
+<span class="sourceLineNo">124</span>        byteCodeArray[91] = new NoArgumentForm(91, "dup_x2");<a name="line.124"></a>
+<span class="sourceLineNo">125</span>        byteCodeArray[92] = new NoArgumentForm(92, "dup2");<a name="line.125"></a>
+<span class="sourceLineNo">126</span>        byteCodeArray[93] = new NoArgumentForm(93, "dup2_x1");<a name="line.126"></a>
+<span class="sourceLineNo">127</span>        byteCodeArray[94] = new NoArgumentForm(94, "dup2_x2");<a name="line.127"></a>
+<span class="sourceLineNo">128</span>        byteCodeArray[95] = new NoArgumentForm(95, "swap");<a name="line.128"></a>
+<span class="sourceLineNo">129</span>        byteCodeArray[96] = new NoArgumentForm(96, "iadd");<a name="line.129"></a>
+<span class="sourceLineNo">130</span>        byteCodeArray[97] = new NoArgumentForm(97, "ladd");<a name="line.130"></a>
+<span class="sourceLineNo">131</span>        byteCodeArray[98] = new NoArgumentForm(98, "fadd");<a name="line.131"></a>
+<span class="sourceLineNo">132</span>        byteCodeArray[99] = new NoArgumentForm(99, "dadd");<a name="line.132"></a>
+<span class="sourceLineNo">133</span>        byteCodeArray[100] = new NoArgumentForm(100, "isub");<a name="line.133"></a>
+<span class="sourceLineNo">134</span>        byteCodeArray[101] = new NoArgumentForm(101, "lsub");<a name="line.134"></a>
+<span class="sourceLineNo">135</span>        byteCodeArray[102] = new NoArgumentForm(102, "fsub");<a name="line.135"></a>
+<span class="sourceLineNo">136</span>        byteCodeArray[103] = new NoArgumentForm(103, "dsub");<a name="line.136"></a>
+<span class="sourceLineNo">137</span>        byteCodeArray[104] = new NoArgumentForm(104, "imul");<a name="line.137"></a>
+<span class="sourceLineNo">138</span>        byteCodeArray[105] = new NoArgumentForm(105, "lmul");<a name="line.138"></a>
+<span class="sourceLineNo">139</span>        byteCodeArray[106] = new NoArgumentForm(106, "fmul");<a name="line.139"></a>
+<span class="sourceLineNo">140</span>        byteCodeArray[107] = new NoArgumentForm(107, "dmul");<a name="line.140"></a>
+<span class="sourceLineNo">141</span>        byteCodeArray[108] = new NoArgumentForm(108, "idiv");<a name="line.141"></a>
+<span class="sourceLineNo">142</span>        byteCodeArray[109] = new NoArgumentForm(109, "ldiv");<a name="line.142"></a>
+<span class="sourceLineNo">143</span>        byteCodeArray[110] = new NoArgumentForm(110, "fdiv");<a name="line.143"></a>
+<span class="sourceLineNo">144</span>        byteCodeArray[111] = new NoArgumentForm(111, "ddiv");<a name="line.144"></a>
+<span class="sourceLineNo">145</span>        byteCodeArray[112] = new NoArgumentForm(112, "irem");<a name="line.145"></a>
+<span class="sourceLineNo">146</span>        byteCodeArray[113] = new NoArgumentForm(113, "lrem");<a name="line.146"></a>
+<span class="sourceLineNo">147</span>        byteCodeArray[114] = new NoArgumentForm(114, "frem");<a name="line.147"></a>
+<span class="sourceLineNo">148</span>        byteCodeArray[115] = new NoArgumentForm(115, "drem");<a name="line.148"></a>
+<span class="sourceLineNo">149</span>        byteCodeArray[116] = new NoArgumentForm(116, "");<a name="line.149"></a>
+<span class="sourceLineNo">150</span>        byteCodeArray[117] = new NoArgumentForm(117, "lneg");<a name="line.150"></a>
+<span class="sourceLineNo">151</span>        byteCodeArray[118] = new NoArgumentForm(118, "fneg");<a name="line.151"></a>
+<span class="sourceLineNo">152</span>        byteCodeArray[119] = new NoArgumentForm(119, "dneg");<a name="line.152"></a>
+<span class="sourceLineNo">153</span>        byteCodeArray[120] = new NoArgumentForm(120, "ishl");<a name="line.153"></a>
+<span class="sourceLineNo">154</span>        byteCodeArray[121] = new NoArgumentForm(121, "lshl");<a name="line.154"></a>
+<span class="sourceLineNo">155</span>        byteCodeArray[122] = new NoArgumentForm(122, "ishr");<a name="line.155"></a>
+<span class="sourceLineNo">156</span>        byteCodeArray[123] = new NoArgumentForm(123, "lshr");<a name="line.156"></a>
+<span class="sourceLineNo">157</span>        byteCodeArray[124] = new NoArgumentForm(124, "iushr");<a name="line.157"></a>
+<span class="sourceLineNo">158</span>        byteCodeArray[125] = new NoArgumentForm(125, "lushr");<a name="line.158"></a>
+<span class="sourceLineNo">159</span>        byteCodeArray[126] = new NoArgumentForm(126, "iand");<a name="line.159"></a>
+<span class="sourceLineNo">160</span>        byteCodeArray[127] = new NoArgumentForm(127, "land");<a name="line.160"></a>
+<span class="sourceLineNo">161</span>        byteCodeArray[128] = new NoArgumentForm(128, "ior");<a name="line.161"></a>
+<span class="sourceLineNo">162</span>        byteCodeArray[129] = new NoArgumentForm(129, "lor");<a name="line.162"></a>
+<span class="sourceLineNo">163</span>        byteCodeArray[130] = new NoArgumentForm(130, "ixor");<a name="line.163"></a>
+<span class="sourceLineNo">164</span>        byteCodeArray[131] = new NoArgumentForm(131, "lxor");<a name="line.164"></a>
+<span class="sourceLineNo">165</span>        byteCodeArray[132] = new IincForm(132, "iinc", new int[] {132, -1, -1});<a name="line.165"></a>
+<span class="sourceLineNo">166</span>        byteCodeArray[133] = new NoArgumentForm(133, "i2l");<a name="line.166"></a>
+<span class="sourceLineNo">167</span>        byteCodeArray[134] = new NoArgumentForm(134, "i2f");<a name="line.167"></a>
+<span class="sourceLineNo">168</span>        byteCodeArray[135] = new NoArgumentForm(135, "i2d");<a name="line.168"></a>
+<span class="sourceLineNo">169</span>        byteCodeArray[136] = new NoArgumentForm(136, "l2i");<a name="line.169"></a>
+<span class="sourceLineNo">170</span>        byteCodeArray[137] = new NoArgumentForm(137, "l2f");<a name="line.170"></a>
+<span class="sourceLineNo">171</span>        byteCodeArray[138] = new NoArgumentForm(138, "l2d");<a name="line.171"></a>
+<span class="sourceLineNo">172</span>        byteCodeArray[139] = new NoArgumentForm(139, "f2i");<a name="line.172"></a>
+<span class="sourceLineNo">173</span>        byteCodeArray[140] = new NoArgumentForm(140, "f2l");<a name="line.173"></a>
+<span class="sourceLineNo">174</span>        byteCodeArray[141] = new NoArgumentForm(141, "f2d");<a name="line.174"></a>
+<span class="sourceLineNo">175</span>        byteCodeArray[142] = new NoArgumentForm(142, "d2i");<a name="line.175"></a>
+<span class="sourceLineNo">176</span>        byteCodeArray[143] = new NoArgumentForm(143, "d2l");<a name="line.176"></a>
+<span class="sourceLineNo">177</span>        byteCodeArray[144] = new NoArgumentForm(144, "d2f");<a name="line.177"></a>
+<span class="sourceLineNo">178</span>        byteCodeArray[145] = new NoArgumentForm(145, "i2b");<a name="line.178"></a>
+<span class="sourceLineNo">179</span>        byteCodeArray[146] = new NoArgumentForm(146, "i2c");<a name="line.179"></a>
+<span class="sourceLineNo">180</span>        byteCodeArray[147] = new NoArgumentForm(147, "i2s");<a name="line.180"></a>
+<span class="sourceLineNo">181</span>        byteCodeArray[148] = new NoArgumentForm(148, "lcmp");<a name="line.181"></a>
+<span class="sourceLineNo">182</span>        byteCodeArray[149] = new NoArgumentForm(149, "fcmpl");<a name="line.182"></a>
+<span class="sourceLineNo">183</span>        byteCodeArray[150] = new NoArgumentForm(150, "fcmpg");<a name="line.183"></a>
+<span class="sourceLineNo">184</span>        byteCodeArray[151] = new NoArgumentForm(151, "dcmpl");<a name="line.184"></a>
+<span class="sourceLineNo">185</span>        byteCodeArray[152] = new NoArgumentForm(152, "dcmpg");<a name="line.185"></a>
+<span class="sourceLineNo">186</span>        byteCodeArray[153] = new LabelForm(153, "ifeq", new int[] {153, -1, -1});<a name="line.186"></a>
+<span class="sourceLineNo">187</span>        byteCodeArray[154] = new LabelForm(154, "ifne", new int[] {154, -1, -1});<a name="line.187"></a>
+<span class="sourceLineNo">188</span>        byteCodeArray[155] = new LabelForm(155, "iflt", new int[] {155, -1, -1});<a name="line.188"></a>
+<span class="sourceLineNo">189</span>        byteCodeArray[156] = new LabelForm(156, "ifge", new int[] {156, -1, -1});<a name="line.189"></a>
+<span class="sourceLineNo">190</span>        byteCodeArray[157] = new LabelForm(157, "ifgt", new int[] {157, -1, -1});<a name="line.190"></a>
+<span class="sourceLineNo">191</span>        byteCodeArray[158] = new LabelForm(158, "ifle", new int[] {158, -1, -1});<a name="line.191"></a>
+<span class="sourceLineNo">192</span>        byteCodeArray[159] = new LabelForm(159, "if_icmpeq", new int[] {159, -1, -1});<a name="line.192"></a>
+<span class="sourceLineNo">193</span>        byteCodeArray[160] = new LabelForm(160, "if_icmpne", new int[] {160, -1, -1});<a name="line.193"></a>
+<span class="sourceLineNo">194</span>        byteCodeArray[161] = new LabelForm(161, "if_icmplt", new int[] {161, -1, -1});<a name="line.194"></a>
+<span class="sourceLineNo">195</span>        byteCodeArray[162] = new LabelForm(162, "if_icmpge", new int[] {162, -1, -1});<a name="line.195"></a>
+<span class="sourceLineNo">196</span>        byteCodeArray[163] = new LabelForm(163, "if_icmpgt", new int[] {163, -1, -1});<a name="line.196"></a>
+<span class="sourceLineNo">197</span>        byteCodeArray[164] = new LabelForm(164, "if_icmple", new int[] {164, -1, -1});<a name="line.197"></a>
+<span class="sourceLineNo">198</span>        byteCodeArray[165] = new LabelForm(165, "if_acmpeq", new int[] {165, -1, -1});<a name="line.198"></a>
+<span class="sourceLineNo">199</span>        byteCodeArray[166] = new LabelForm(166, "if_acmpne", new int[] {166, -1, -1});<a name="line.199"></a>
+<span class="sourceLineNo">200</span>        byteCodeArray[167] = new LabelForm(167, "goto", new int[] {167, -1, -1});<a name="line.200"></a>
+<span class="sourceLineNo">201</span>        byteCodeArray[168] = new LabelForm(168, "jsr", new int[] {168, -1, -1});<a name="line.201"></a>
+<span class="sourceLineNo">202</span>        byteCodeArray[169] = new LocalForm(169, "ret", new int[] {169, -1});<a name="line.202"></a>
+<span class="sourceLineNo">203</span>        byteCodeArray[170] = new TableSwitchForm(170, "tableswitch");<a name="line.203"></a>
+<span class="sourceLineNo">204</span>        byteCodeArray[171] = new LookupSwitchForm(171, "lookupswitch");<a name="line.204"></a>
+<span class="sourceLineNo">205</span>        byteCodeArray[172] = new NoArgumentForm(172, "ireturn");<a name="line.205"></a>
+<span class="sourceLineNo">206</span>        byteCodeArray[173] = new NoArgumentForm(173, "lreturn");<a name="line.206"></a>
+<span class="sourceLineNo">207</span>        byteCodeArray[174] = new NoArgumentForm(174, "freturn");<a name="line.207"></a>
+<span class="sourceLineNo">208</span>        byteCodeArray[175] = new NoArgumentForm(175, "dreturn");<a name="line.208"></a>
+<span class="sourceLineNo">209</span>        byteCodeArray[176] = new NoArgumentForm(176, "areturn");<a name="line.209"></a>
+<span class="sourceLineNo">210</span>        byteCodeArray[177] = new NoArgumentForm(177, "return");<a name="line.210"></a>
+<span class="sourceLineNo">211</span>        byteCodeArray[178] = new FieldRefForm(178, "getstatic", new int[] {178, -1, -1});<a name="line.211"></a>
+<span class="sourceLineNo">212</span>        byteCodeArray[179] = new FieldRefForm(179, "putstatic", new int[] {179, -1, -1});<a name="line.212"></a>
+<span class="sourceLineNo">213</span>        byteCodeArray[180] = new FieldRefForm(180, "getfield", new int[] {180, -1, -1});<a name="line.213"></a>
+<span class="sourceLineNo">214</span>        byteCodeArray[181] = new FieldRefForm(181, "putfield", new int[] {181, -1, -1});<a name="line.214"></a>
+<span class="sourceLineNo">215</span>        byteCodeArray[182] = new MethodRefForm(182, "invokevirtual", new int[] {182, -1, -1});<a name="line.215"></a>
+<span class="sourceLineNo">216</span>        byteCodeArray[183] = new MethodRefForm(183, "invokespecial", new int[] {183, -1, -1});<a name="line.216"></a>
+<span class="sourceLineNo">217</span>        byteCodeArray[184] = new MethodRefForm(184, "invokestatic", new int[] {184, -1, -1});<a name="line.217"></a>
+<span class="sourceLineNo">218</span>        byteCodeArray[185] = new IMethodRefForm(185, "invokeinterface", new int[] {185, -1, -1, /* count */-1, 0});<a name="line.218"></a>
+<span class="sourceLineNo">219</span>        byteCodeArray[186] = new NoArgumentForm(186, "xxxunusedxxx");<a name="line.219"></a>
+<span class="sourceLineNo">220</span>        byteCodeArray[187] = new NewClassRefForm(187, "new", new int[] {187, -1, -1});<a name="line.220"></a>
+<span class="sourceLineNo">221</span>        byteCodeArray[188] = new ByteForm(188, "newarray", new int[] {188, -1});<a name="line.221"></a>
+<span class="sourceLineNo">222</span>        byteCodeArray[189] = new ClassRefForm(189, "anewarray", new int[] {189, -1, -1});<a name="line.222"></a>
+<span class="sourceLineNo">223</span>        byteCodeArray[190] = new NoArgumentForm(190, "arraylength");<a name="line.223"></a>
+<span class="sourceLineNo">224</span>        byteCodeArray[191] = new NoArgumentForm(191, "athrow");<a name="line.224"></a>
+<span class="sourceLineNo">225</span>        byteCodeArray[192] = new ClassRefForm(192, "checkcast", new int[] {192, -1, -1});<a name="line.225"></a>
+<span class="sourceLineNo">226</span>        byteCodeArray[193] = new ClassRefForm(193, "instanceof", new int[] {193, -1, -1});<a name="line.226"></a>
+<span class="sourceLineNo">227</span>        byteCodeArray[194] = new NoArgumentForm(194, "monitorenter");<a name="line.227"></a>
+<span class="sourceLineNo">228</span>        byteCodeArray[195] = new NoArgumentForm(195, "monitorexit");<a name="line.228"></a>
+<span class="sourceLineNo">229</span>        byteCodeArray[196] = new WideForm(196, "wide");<a name="line.229"></a>
+<span class="sourceLineNo">230</span>        byteCodeArray[197] = new MultiANewArrayForm(197, "multianewarray", new int[] {197, -1, -1, -1});<a name="line.230"></a>
+<span class="sourceLineNo">231</span>        byteCodeArray[198] = new LabelForm(198, "ifnull", new int[] {198, -1, -1});<a name="line.231"></a>
+<span class="sourceLineNo">232</span>        byteCodeArray[199] = new LabelForm(199, "ifnonnull", new int[] {199, -1, -1});<a name="line.232"></a>
+<span class="sourceLineNo">233</span>        byteCodeArray[200] = new LabelForm(200, "goto_w", new int[] {200, -1, -1, -1, -1}, WIDENED);<a name="line.233"></a>
+<span class="sourceLineNo">234</span>        byteCodeArray[201] = new LabelForm(201, "jsr_w", new int[] {201, -1, -1, -1, -1}, WIDENED);<a name="line.234"></a>
+<span class="sourceLineNo">235</span><a name="line.235"></a>
+<span class="sourceLineNo">236</span>        // Extra ones defined by pack200<a name="line.236"></a>
+<span class="sourceLineNo">237</span>        byteCodeArray[202] = new ThisFieldRefForm(202, "getstatic_this", new int[] {178, -1, -1});<a name="line.237"></a>
+<span class="sourceLineNo">238</span>        byteCodeArray[203] = new ThisFieldRefForm(203, "putstatic_this", new int[] {179, -1, -1});<a name="line.238"></a>
+<span class="sourceLineNo">239</span>        byteCodeArray[204] = new ThisFieldRefForm(204, "getfield_this", new int[] {180, -1, -1});<a name="line.239"></a>
+<span class="sourceLineNo">240</span>        byteCodeArray[205] = new ThisFieldRefForm(205, "putfield_this", new int[] {181, -1, -1});<a name="line.240"></a>
+<span class="sourceLineNo">241</span>        byteCodeArray[206] = new ThisMethodRefForm(206, "invokevirtual_this", new int[] {182, -1, -1});<a name="line.241"></a>
+<span class="sourceLineNo">242</span>        byteCodeArray[207] = new ThisMethodRefForm(207, "invokespecial_this", new int[] {183, -1, -1});<a name="line.242"></a>
+<span class="sourceLineNo">243</span>        byteCodeArray[208] = new ThisMethodRefForm(208, "invokestatic_this", new int[] {184, -1, -1});<a name="line.243"></a>
+<span class="sourceLineNo">244</span>        byteCodeArray[209] = new ThisFieldRefForm(209, "aload_0_getstatic_this", new int[] {42, 178, -1, -1});<a name="line.244"></a>
+<span class="sourceLineNo">245</span>        byteCodeArray[210] = new ThisFieldRefForm(210, "aload_0_putstatic_this", new int[] {42, 179, -1, -1});<a name="line.245"></a>
+<span class="sourceLineNo">246</span>        byteCodeArray[211] = new ThisFieldRefForm(211, "aload_0_getfield_this", new int[] {42, 180, -1, -1});<a name="line.246"></a>
+<span class="sourceLineNo">247</span>        byteCodeArray[212] = new ThisFieldRefForm(212, "aload_0_putfield_this", new int[] {42, 181, -1, -1});<a name="line.247"></a>
+<span class="sourceLineNo">248</span>        byteCodeArray[213] = new ThisMethodRefForm(213, "aload_0_invokevirtual_this", new int[] {42, 182, -1, -1});<a name="line.248"></a>
+<span class="sourceLineNo">249</span>        byteCodeArray[214] = new ThisMethodRefForm(214, "aload_0_invokespecial_this", new int[] {42, 183, -1, -1});<a name="line.249"></a>
+<span class="sourceLineNo">250</span>        byteCodeArray[215] = new ThisMethodRefForm(215, "aload_0_invokestatic_this", new int[] {42, 184, -1, -1});<a name="line.250"></a>
+<span class="sourceLineNo">251</span>        byteCodeArray[216] = new SuperFieldRefForm(216, "getstatic_super", new int[] {178, -1, -1});<a name="line.251"></a>
+<span class="sourceLineNo">252</span>        byteCodeArray[217] = new SuperFieldRefForm(217, "putstatic_super", new int[] {179, -1, -1});<a name="line.252"></a>
+<span class="sourceLineNo">253</span>        byteCodeArray[218] = new SuperFieldRefForm(218, "getfield_super", new int[] {180, -1, -1});<a name="line.253"></a>
+<span class="sourceLineNo">254</span>        byteCodeArray[219] = new SuperFieldRefForm(219, "putfield_super", new int[] {181, -1, -1});<a name="line.254"></a>
+<span class="sourceLineNo">255</span>        byteCodeArray[220] = new SuperMethodRefForm(220, "invokevirtual_super", new int[] {182, -1, -1});<a name="line.255"></a>
+<span class="sourceLineNo">256</span>        byteCodeArray[221] = new SuperMethodRefForm(221, "invokespecial_super", new int[] {183, -1, -1});<a name="line.256"></a>
+<span class="sourceLineNo">257</span>        byteCodeArray[222] = new SuperMethodRefForm(222, "invokestatic_super", new int[] {184, -1, -1});<a name="line.257"></a>
+<span class="sourceLineNo">258</span>        byteCodeArray[223] = new SuperFieldRefForm(223, "aload_0_getstatic_super", new int[] {42, 178, -1, -1});<a name="line.258"></a>
+<span class="sourceLineNo">259</span>        byteCodeArray[224] = new SuperFieldRefForm(224, "aload_0_putstatic_super", new int[] {42, 179, -1, -1});<a name="line.259"></a>
+<span class="sourceLineNo">260</span>        byteCodeArray[225] = new SuperFieldRefForm(225, "aload_0_getfield_super", new int[] {42, 180, -1, -1});<a name="line.260"></a>
+<span class="sourceLineNo">261</span>        byteCodeArray[226] = new SuperFieldRefForm(226, "aload_0_putfield_super", new int[] {42, 181, -1, -1});<a name="line.261"></a>
+<span class="sourceLineNo">262</span>        byteCodeArray[227] = new SuperMethodRefForm(227, "aload_0_invokevirtual_super", new int[] {42, 182, -1, -1});<a name="line.262"></a>
+<span class="sourceLineNo">263</span>        byteCodeArray[228] = new SuperMethodRefForm(228, "aload_0_invokespecial_super", new int[] {42, 183, -1, -1});<a name="line.263"></a>
+<span class="sourceLineNo">264</span>        byteCodeArray[229] = new SuperMethodRefForm(229, "aload_0_invokestatic_super", new int[] {42, 184, -1, -1});<a name="line.264"></a>
+<span class="sourceLineNo">265</span>        byteCodeArray[230] = new ThisInitMethodRefForm(230, "invokespecial_this_init", new int[] {183, -1, -1});<a name="line.265"></a>
+<span class="sourceLineNo">266</span>        byteCodeArray[231] = new SuperInitMethodRefForm(231, "invokespecial_super_init", new int[] {183, -1, -1});<a name="line.266"></a>
+<span class="sourceLineNo">267</span>        byteCodeArray[232] = new NewInitMethodRefForm(232, "invokespecial_new_init", new int[] {183, -1, -1});<a name="line.267"></a>
+<span class="sourceLineNo">268</span>        byteCodeArray[233] = new NarrowClassRefForm(233, "cldc", new int[] {18, -1});<a name="line.268"></a>
+<span class="sourceLineNo">269</span>        byteCodeArray[234] = new IntRefForm(234, "ildc", new int[] {18, -1});<a name="line.269"></a>
+<span class="sourceLineNo">270</span>        byteCodeArray[235] = new FloatRefForm(235, "fldc", new int[] {18, -1});<a name="line.270"></a>
+<span class="sourceLineNo">271</span>        byteCodeArray[236] = new NarrowClassRefForm(236, "cldc_w", new int[] {19, -1, -1}, WIDENED);<a name="line.271"></a>
+<span class="sourceLineNo">272</span>        byteCodeArray[237] = new IntRefForm(237, "ildc_w", new int[] {19, -1, -1}, WIDENED);<a name="line.272"></a>
+<span class="sourceLineNo">273</span>        byteCodeArray[238] = new FloatRefForm(238, "fldc_w", new int[] {19, -1, -1}, WIDENED);<a name="line.273"></a>
+<span class="sourceLineNo">274</span>        byteCodeArray[239] = new DoubleForm(239, "dldc2_w", new int[] {20, -1, -1});<a name="line.274"></a>
+<span class="sourceLineNo">275</span><a name="line.275"></a>
+<span class="sourceLineNo">276</span>        // Reserved bytecodes<a name="line.276"></a>
+<span class="sourceLineNo">277</span>        byteCodeArray[254] = new NoArgumentForm(254, "impdep1");<a name="line.277"></a>
+<span class="sourceLineNo">278</span>        byteCodeArray[255] = new NoArgumentForm(255, "impdep2");<a name="line.278"></a>
+<span class="sourceLineNo">279</span><a name="line.279"></a>
+<span class="sourceLineNo">280</span>        // Bytecodes that aren't defined in the spec but are useful when<a name="line.280"></a>
+<span class="sourceLineNo">281</span>        // unpacking (all must be &gt;255)<a name="line.281"></a>
+<span class="sourceLineNo">282</span>        // maybe wide versions of the others? etc.<a name="line.282"></a>
+<span class="sourceLineNo">283</span><a name="line.283"></a>
+<span class="sourceLineNo">284</span>        // Put all the bytecodes in a HashMap so we can<a name="line.284"></a>
+<span class="sourceLineNo">285</span>        // get them by either name or number<a name="line.285"></a>
+<span class="sourceLineNo">286</span>        for (int i = 0; i &lt; byteCodeArray.length; i++) {<a name="line.286"></a>
+<span class="sourceLineNo">287</span>            final ByteCodeForm byteCode = byteCodeArray[i];<a name="line.287"></a>
+<span class="sourceLineNo">288</span>            if (byteCode != null) {<a name="line.288"></a>
+<span class="sourceLineNo">289</span>                byteCodesByName.put(byteCode.getName(), byteCode);<a name="line.289"></a>
+<span class="sourceLineNo">290</span>            }<a name="line.290"></a>
+<span class="sourceLineNo">291</span>        }<a name="line.291"></a>
+<span class="sourceLineNo">292</span>    }<a name="line.292"></a>
+<span class="sourceLineNo">293</span><a name="line.293"></a>
+<span class="sourceLineNo">294</span>    private final int opcode;<a name="line.294"></a>
+<span class="sourceLineNo">295</span>    private final String name;<a name="line.295"></a>
+<span class="sourceLineNo">296</span>    private final int[] rewrite;<a name="line.296"></a>
+<span class="sourceLineNo">297</span>    private int firstOperandIndex;<a name="line.297"></a>
+<span class="sourceLineNo">298</span>    private int operandLength;<a name="line.298"></a>
+<span class="sourceLineNo">299</span><a name="line.299"></a>
+<span class="sourceLineNo">300</span>    /**<a name="line.300"></a>
+<span class="sourceLineNo">301</span>     * Answer a new instance of this class with the specified opcode and name. Assume no rewrite.<a name="line.301"></a>
+<span class="sourceLineNo">302</span>     *<a name="line.302"></a>
+<span class="sourceLineNo">303</span>     * @param opcode int corresponding to the opcode's value<a name="line.303"></a>
+<span class="sourceLineNo">304</span>     * @param name String printable name of the opcode<a name="line.304"></a>
+<span class="sourceLineNo">305</span>     */<a name="line.305"></a>
+<span class="sourceLineNo">306</span>    public ByteCodeForm(final int opcode, final String name) {<a name="line.306"></a>
+<span class="sourceLineNo">307</span>        this(opcode, name, new int[] {opcode});<a name="line.307"></a>
+<span class="sourceLineNo">308</span>    }<a name="line.308"></a>
+<span class="sourceLineNo">309</span><a name="line.309"></a>
+<span class="sourceLineNo">310</span>    /**<a name="line.310"></a>
+<span class="sourceLineNo">311</span>     * Answer a new instance of this class with the specified opcode, name, operandType and rewrite<a name="line.311"></a>
+<span class="sourceLineNo">312</span>     *<a name="line.312"></a>
+<span class="sourceLineNo">313</span>     * @param opcode int corresponding to the opcode's value<a name="line.313"></a>
+<span class="sourceLineNo">314</span>     * @param name String printable name of the opcode<a name="line.314"></a>
+<span class="sourceLineNo">315</span>     * @param rewrite int[] Array of ints. Operand positions (which will later be rewritten in ByteCodes) are indicated<a name="line.315"></a>
+<span class="sourceLineNo">316</span>     *        by -1.<a name="line.316"></a>
+<span class="sourceLineNo">317</span>     */<a name="line.317"></a>
+<span class="sourceLineNo">318</span>    public ByteCodeForm(final int opcode, final String name, final int[] rewrite) {<a name="line.318"></a>
+<span class="sourceLineNo">319</span>        this.opcode = opcode;<a name="line.319"></a>
+<span class="sourceLineNo">320</span>        this.name = name;<a name="line.320"></a>
+<span class="sourceLineNo">321</span>        this.rewrite = rewrite;<a name="line.321"></a>
+<span class="sourceLineNo">322</span>        calculateOperandPosition();<a name="line.322"></a>
+<span class="sourceLineNo">323</span>    }<a name="line.323"></a>
+<span class="sourceLineNo">324</span><a name="line.324"></a>
+<span class="sourceLineNo">325</span>    protected void calculateOperandPosition() {<a name="line.325"></a>
+<span class="sourceLineNo">326</span>        firstOperandIndex = -1;<a name="line.326"></a>
+<span class="sourceLineNo">327</span>        operandLength = -1;<a name="line.327"></a>
+<span class="sourceLineNo">328</span><a name="line.328"></a>
+<span class="sourceLineNo">329</span>        // Find the first negative number in the rewrite array<a name="line.329"></a>
+<span class="sourceLineNo">330</span>        int iterationIndex = 0;<a name="line.330"></a>
+<span class="sourceLineNo">331</span>        while (iterationIndex &lt; rewrite.length) {<a name="line.331"></a>
+<span class="sourceLineNo">332</span>            if (rewrite[iterationIndex] &lt; 0) {<a name="line.332"></a>
+<span class="sourceLineNo">333</span>                // Found the first opcode to substitute<a name="line.333"></a>
+<span class="sourceLineNo">334</span>                firstOperandIndex = iterationIndex;<a name="line.334"></a>
+<span class="sourceLineNo">335</span>                iterationIndex = rewrite.length;<a name="line.335"></a>
+<span class="sourceLineNo">336</span>            } else {<a name="line.336"></a>
+<span class="sourceLineNo">337</span>                iterationIndex++;<a name="line.337"></a>
+<span class="sourceLineNo">338</span>            }<a name="line.338"></a>
+<span class="sourceLineNo">339</span>        }<a name="line.339"></a>
+<span class="sourceLineNo">340</span><a name="line.340"></a>
+<span class="sourceLineNo">341</span>        if (firstOperandIndex == -1) {<a name="line.341"></a>
+<span class="sourceLineNo">342</span>            // Nothing more to do since the opcode has no operands<a name="line.342"></a>
+<span class="sourceLineNo">343</span>            return;<a name="line.343"></a>
+<span class="sourceLineNo">344</span>        }<a name="line.344"></a>
+<span class="sourceLineNo">345</span><a name="line.345"></a>
+<span class="sourceLineNo">346</span>        // Find the last negative number in the rewrite array<a name="line.346"></a>
+<span class="sourceLineNo">347</span>        int lastOperandIndex = -1;<a name="line.347"></a>
+<span class="sourceLineNo">348</span>        iterationIndex = firstOperandIndex;<a name="line.348"></a>
+<span class="sourceLineNo">349</span>        while (iterationIndex &lt; rewrite.length) {<a name="line.349"></a>
+<span class="sourceLineNo">350</span>            if (rewrite[iterationIndex] &lt; 0) {<a name="line.350"></a>
+<span class="sourceLineNo">351</span>                lastOperandIndex = iterationIndex;<a name="line.351"></a>
+<span class="sourceLineNo">352</span>            }<a name="line.352"></a>
+<span class="sourceLineNo">353</span>            iterationIndex++;<a name="line.353"></a>
+<span class="sourceLineNo">354</span>        }<a name="line.354"></a>
+<span class="sourceLineNo">355</span><a name="line.355"></a>
+<span class="sourceLineNo">356</span>        // Now we have the first index and the last index.<a name="line.356"></a>
+<span class="sourceLineNo">357</span>        final int difference = lastOperandIndex - firstOperandIndex;<a name="line.357"></a>
+<span class="sourceLineNo">358</span><a name="line.358"></a>
+<span class="sourceLineNo">359</span>        // If last &lt; first, something is wrong.<a name="line.359"></a>
+<span class="sourceLineNo">360</span>        if (difference &lt; 0) {<a name="line.360"></a>
+<span class="sourceLineNo">361</span>            throw new Error("Logic error: not finding rewrite operands correctly");<a name="line.361"></a>
+<span class="sourceLineNo">362</span>        }<a name="line.362"></a>
+<span class="sourceLineNo">363</span>        operandLength = difference + 1;<a name="line.363"></a>
+<span class="sourceLineNo">364</span>    }<a name="line.364"></a>
+<span class="sourceLineNo">365</span><a name="line.365"></a>
+<span class="sourceLineNo">366</span>    public static ByteCodeForm get(final int opcode) {<a name="line.366"></a>
+<span class="sourceLineNo">367</span>        return (ByteCodeForm) byteCodeArray[opcode];<a name="line.367"></a>
+<span class="sourceLineNo">368</span>    }<a name="line.368"></a>
+<span class="sourceLineNo">369</span><a name="line.369"></a>
+<span class="sourceLineNo">370</span>    @Override<a name="line.370"></a>
+<span class="sourceLineNo">371</span>    public String toString() {<a name="line.371"></a>
+<span class="sourceLineNo">372</span>        return this.getClass().getName() + "(" + getName() + ")";<a name="line.372"></a>
+<span class="sourceLineNo">373</span>    }<a name="line.373"></a>
+<span class="sourceLineNo">374</span><a name="line.374"></a>
+<span class="sourceLineNo">375</span>    public int getOpcode() {<a name="line.375"></a>
+<span class="sourceLineNo">376</span>        return opcode;<a name="line.376"></a>
+<span class="sourceLineNo">377</span>    }<a name="line.377"></a>
+<span class="sourceLineNo">378</span><a name="line.378"></a>
+<span class="sourceLineNo">379</span>    public String getName() {<a name="line.379"></a>
+<span class="sourceLineNo">380</span>        return name;<a name="line.380"></a>
+<span class="sourceLineNo">381</span>    }<a name="line.381"></a>
+<span class="sourceLineNo">382</span><a name="line.382"></a>
+<span class="sourceLineNo">383</span>    public int[] getRewrite() {<a name="line.383"></a>
+<span class="sourceLineNo">384</span>        return rewrite;<a name="line.384"></a>
+<span class="sourceLineNo">385</span>    }<a name="line.385"></a>
+<span class="sourceLineNo">386</span><a name="line.386"></a>
+<span class="sourceLineNo">387</span>    public int[] getRewriteCopy() {<a name="line.387"></a>
+<span class="sourceLineNo">388</span>        final int[] result = new int[rewrite.length];<a name="line.388"></a>
+<span class="sourceLineNo">389</span>        System.arraycopy(rewrite, 0, result, 0, rewrite.length);<a name="line.389"></a>
+<span class="sourceLineNo">390</span>        return result;<a name="line.390"></a>
+<span class="sourceLineNo">391</span>    }<a name="line.391"></a>
+<span class="sourceLineNo">392</span><a name="line.392"></a>
+<span class="sourceLineNo">393</span>    public int firstOperandIndex() {<a name="line.393"></a>
+<span class="sourceLineNo">394</span>        return firstOperandIndex;<a name="line.394"></a>
+<span class="sourceLineNo">395</span>    }<a name="line.395"></a>
+<span class="sourceLineNo">396</span><a name="line.396"></a>
+<span class="sourceLineNo">397</span>    public int operandLength() {<a name="line.397"></a>
+<span class="sourceLineNo">398</span>        return operandLength;<a name="line.398"></a>
+<span class="sourceLineNo">399</span>    }<a name="line.399"></a>
+<span class="sourceLineNo">400</span><a name="line.400"></a>
+<span class="sourceLineNo">401</span>    public boolean hasNoOperand() {<a name="line.401"></a>
+<span class="sourceLineNo">402</span>        return false;<a name="line.402"></a>
+<span class="sourceLineNo">403</span>    }<a name="line.403"></a>
+<span class="sourceLineNo">404</span><a name="line.404"></a>
+<span class="sourceLineNo">405</span>    /**<a name="line.405"></a>
+<span class="sourceLineNo">406</span>     * This method will answer true if the receiver is a multi-bytecode instruction (such as aload0_putfield_super);<a name="line.406"></a>
+<span class="sourceLineNo">407</span>     * otherwise, it will answer false.<a name="line.407"></a>
+<span class="sourceLineNo">408</span>     *<a name="line.408"></a>
+<span class="sourceLineNo">409</span>     * @return boolean true if multibytecode, false otherwise<a name="line.409"></a>
+<span class="sourceLineNo">410</span>     */<a name="line.410"></a>
+<span class="sourceLineNo">411</span>    public boolean hasMultipleByteCodes() {<a name="line.411"></a>
+<span class="sourceLineNo">412</span>        // Currently, all multi-bytecode instructions<a name="line.412"></a>
+<span class="sourceLineNo">413</span>        // begin with aload_0, so this is how we test.<a name="line.413"></a>
+<span class="sourceLineNo">414</span>        if ((rewrite.length &gt; 1) &amp;&amp; (rewrite[0] == 42)) {<a name="line.414"></a>
+<span class="sourceLineNo">415</span>            // If there's an instruction (not a negative<a name="line.415"></a>
+<span class="sourceLineNo">416</span>            // number, which is an operand) after the<a name="line.416"></a>
+<span class="sourceLineNo">417</span>            // aload_0, it's a multibytecode instruction.<a name="line.417"></a>
+<span class="sourceLineNo">418</span>            return (rewrite[1] &gt; 0);<a name="line.418"></a>
+<span class="sourceLineNo">419</span>        }<a name="line.419"></a>
+<span class="sourceLineNo">420</span>        return false;<a name="line.420"></a>
+<span class="sourceLineNo">421</span>    }<a name="line.421"></a>
+<span class="sourceLineNo">422</span><a name="line.422"></a>
+<span class="sourceLineNo">423</span>    /**<a name="line.423"></a>
+<span class="sourceLineNo">424</span>     * When passed a byteCode, an OperandTable and a SegmentConstantPool, this method will set the rewrite of the<a name="line.424"></a>
+<span class="sourceLineNo">425</span>     * byteCode appropriately.<a name="line.425"></a>
+<span class="sourceLineNo">426</span>     *<a name="line.426"></a>
+<span class="sourceLineNo">427</span>     * @param byteCode ByteCode to be updated (!)<a name="line.427"></a>
+<span class="sourceLineNo">428</span>     * @param operandManager OperandTable from which to draw info<a name="line.428"></a>
+<span class="sourceLineNo">429</span>     * @param codeLength Length of bytes (excluding this bytecode) from the beginning of the method. Used in calculating<a name="line.429"></a>
+<span class="sourceLineNo">430</span>     *        padding for some variable-length bytecodes (such as lookupswitch, tableswitch).<a name="line.430"></a>
+<span class="sourceLineNo">431</span>     */<a name="line.431"></a>
+<span class="sourceLineNo">432</span>    public abstract void setByteCodeOperands(ByteCode byteCode, OperandManager operandManager, int codeLength);<a name="line.432"></a>
+<span class="sourceLineNo">433</span><a name="line.433"></a>
+<span class="sourceLineNo">434</span>    /**<a name="line.434"></a>
+<span class="sourceLineNo">435</span>     * The ByteCodeForm knows how to fix up a bytecode if it needs to be fixed up because it holds a Label bytecode.<a name="line.435"></a>
+<span class="sourceLineNo">436</span>     *<a name="line.436"></a>
+<span class="sourceLineNo">437</span>     * @param byteCode a ByteCode to be fixed up<a name="line.437"></a>
+<span class="sourceLineNo">438</span>     * @param codeAttribute a CodeAttribute used to determine how the ByteCode should be fixed up.<a name="line.438"></a>
+<span class="sourceLineNo">439</span>     */<a name="line.439"></a>
+<span class="sourceLineNo">440</span>    public void fixUpByteCodeTargets(final ByteCode byteCode, final CodeAttribute codeAttribute) {<a name="line.440"></a>
+<span class="sourceLineNo">441</span>        // Most ByteCodeForms don't have any fixing up to do.<a name="line.441"></a>
+<span class="sourceLineNo">442</span>        return;<a name="line.442"></a>
+<span class="sourceLineNo">443</span>    }<a name="line.443"></a>
+<span class="sourceLineNo">444</span><a name="line.444"></a>
+<span class="sourceLineNo">445</span>    public boolean nestedMustStartClassPool() {<a name="line.445"></a>
+<span class="sourceLineNo">446</span>        return false;<a name="line.446"></a>
+<span class="sourceLineNo">447</span>    }<a name="line.447"></a>
+<span class="sourceLineNo">448</span>}<a name="line.448"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

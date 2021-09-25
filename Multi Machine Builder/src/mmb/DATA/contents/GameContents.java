@@ -7,7 +7,7 @@ import java.util.*;
 
 import mmb.FILES.FileUtil;
 import mmb.FILES.LocalFile;
-import mmb.MODS.info.AddonInfo;
+import mmb.MODS.loader.AddonInfo;
 /**
  * @author oskar
  * @depreacted Use {@link FileUtil} instead.

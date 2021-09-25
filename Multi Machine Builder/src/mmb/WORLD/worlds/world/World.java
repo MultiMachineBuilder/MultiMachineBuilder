@@ -23,13 +23,10 @@ import java.util.function.Consumer;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.joml.Vector2i;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
 import io.vavr.Tuple2;
@@ -40,9 +37,9 @@ import mmb.Vector2iconst;
 import mmb.BEANS.BlockActivateListener;
 import mmb.DATA.json.JsonTool;
 import mmb.RUNTIME.TaskLoop;
-import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.gui.FPSCounter;
+import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockLoader;
@@ -51,6 +48,7 @@ import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.machine.Machine;
 import mmb.WORLD.machine.MachineModel;
 import mmb.WORLD.player.Player;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.DataLayers;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.universe.Universe;
@@ -419,7 +417,7 @@ public class World implements Identifiable<String>{
 		BlockEntry ent = get(x, y);
 		boolean result = ent instanceof BlockActivateListener;
 		if(result) {
-			((BlockActivateListener) ent).click(x, y, this, null);
+			((BlockActivateListener) ent).click(x, y, this, null, 0, 0);
 		}
 		return result;
 	}
@@ -538,7 +536,7 @@ public class World implements Identifiable<String>{
 	 * @return a new block entry, or null if placement failed
 	 */
 	public BlockEntry place(BlockType type, int x, int y) {
-		BlockEntry blockent = type.create(x, y, this);
+		BlockEntry blockent = type.createBlock();
 		return set(blockent, x, y);
 	}
 	/** @return is given map usable? */
@@ -749,7 +747,15 @@ public class World implements Identifiable<String>{
 	 * DO NOT CHANGE ANY VECTORS IN THIS MAP
 	 */
 	public final Multimap<Vector2iconst, ItemEntry> drops = ArrayListMultimap.create();
-	
+	@Nonnull public InventoryWriter createDropper(int x, int y) {
+		Collection<ItemEntry> collect = getDrops(x, y);
+		return (ent, amount) -> {
+			for(int i = 0; i < amount; i++) {
+				collect.add(ent);
+			}
+			return amount;
+		};
+	}
 	/**
 	 * @param x X coordinate of item drop(s)
 	 * @param y Y coordinate of item drop(s)

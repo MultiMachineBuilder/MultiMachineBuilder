@@ -6,10 +6,10 @@ package mmb.WORLD.blocks;
 import javax.annotation.Nullable;
 
 import mmb.BEANS.BlockActivateListener;
-import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.BlockEntityDataless;
 import mmb.WORLD.gui.window.WorldWindow;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
 
@@ -36,7 +36,7 @@ public class BlockButton extends BlockEntityDataless implements BlockActivateLis
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window) {
+	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		pressed = 2;
 	}
 

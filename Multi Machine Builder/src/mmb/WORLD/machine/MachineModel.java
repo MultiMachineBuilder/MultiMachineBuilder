@@ -36,9 +36,9 @@ public class MachineModel extends Item implements Placer {
 		models.put((Class<? extends MachineModel>) machineClass, this);
 		models2.put(name, this);
 		this.machineClass = machineClass;
-		this.id = name;
+		title(name);
+		finish("mmb.multimachine."+name);
 		this.errorMessage = "Failed to create a machine "+name;
-		title = name;
 	}
 	public Machine place() {
 		return place(null);

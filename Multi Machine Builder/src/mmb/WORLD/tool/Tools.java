@@ -36,6 +36,8 @@ public class Tools {
 			new WindowToolModel(ConfigureDroppedItemExtractors.icon, () -> new ConfigureDroppedItemExtractors(), "droppedItems");
 	public static final WindowToolModel TOOL_DUMP =
 			new WindowToolModel(DumpItems.icon, () -> new DumpItems(), "dumpItems");
+	public static final WindowToolModel TOOL_PICKAXE =
+			new WindowToolModel(ToolPickaxe.icon, () -> new ToolPickaxe(), "pickaxe");
 
 	private static boolean initialized = false;
 	/**
@@ -48,6 +50,7 @@ public class Tools {
 		toollist.add(TOOL_COPY);
 		toollist.add(TOOL_PICKERS);
 		toollist.add(TOOL_DUMP);
+		toollist.add(TOOL_PICKAXE);
 		debug.printl("Tools initialized");
 		initialized = true;
 		

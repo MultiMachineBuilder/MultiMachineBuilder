@@ -21,7 +21,7 @@ public interface Grid<T> extends Iterable<T>{
 	default public FixedGrid<T> copy(int x, int y, int w, int h){
 		FixedGrid<T> grid = new FixedGrid<>(w, h);
 		for(int i = 0, X = x; i < w; i++, X++) {
-			for(int j = 0, Y = y; j < w; j++, Y++) {
+			for(int j = 0, Y = y; j < h; j++, Y++) {
 				grid.set(i, j, get(X, Y));
 			}
 		}
@@ -44,9 +44,8 @@ public interface Grid<T> extends Iterable<T>{
 				}
 			}
 		}
-		if(left > right || up > down) return null;
-		FixedGrid<T> clone = copy(left, up, 1+right-left, 1+down-up);
-		return clone;
+		if(left > right || up > down) return new FixedGrid<>(0);
+		return copy(left, up, 1+right-left, 1+down-up);
 	}
 	
 	@Override

@@ -3,9 +3,9 @@
  */
 package mmb.WORLD.machine;
 
-import mmb.WORLD.Side;
 import mmb.WORLD.worlds.world.World;
 import mmb.WORLD.block.BlockEntry;
+import mmb.WORLD.rotate.Side;
 
 /**
  * @author oskar

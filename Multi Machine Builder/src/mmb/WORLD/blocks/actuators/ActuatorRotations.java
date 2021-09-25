@@ -7,16 +7,13 @@ import java.awt.Point;
 
 import javax.annotation.Nullable;
 
-import com.fasterxml.jackson.databind.node.ObjectNode;
-
 import mmb.BEANS.BlockActivateListener;
-import mmb.BEANS.Rotable;
 import mmb.DATA.contents.texture.Textures;
-import mmb.WORLD.RotatedImageGroup;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.window.WorldWindow;
+import mmb.WORLD.rotate.ChirotatedImageGroup;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
 
@@ -24,14 +21,9 @@ import mmb.WORLD.worlds.world.World;
  * @author oskar
  *
  */
-public class ActuatorRotations extends AbstractActuatorBase implements BlockActivateListener {
+public class ActuatorRotations extends AbstractChiralActuatorBase implements BlockActivateListener {
 
-	private static final RotatedImageGroup CW = RotatedImageGroup.create(Textures.get("machine/CW.png"));
-	private static final RotatedImageGroup CCW = RotatedImageGroup.create(Textures.get("machine/CCW.png"));
-	
-	//False - CW
-	//True - CCW
-	private boolean direction;
+	private static final ChirotatedImageGroup TEXTURE = ChirotatedImageGroup.create(Textures.get("machine/CW.png"));
 
 	@Override
 	public BlockType type() {
@@ -39,31 +31,18 @@ public class ActuatorRotations extends AbstractActuatorBase implements BlockActi
 	}
 
 	@Override
-	protected void save1(ObjectNode node) {
-		node.put("dir", direction);
-	}
-
-	@Override
-	protected void load1(ObjectNode node) {
-		direction = node.get("dir").asBoolean();
-	}
-
-	@Override
-	public RotatedImageGroup getImage() {
-		return direction ? CCW : CW;
+	public ChirotatedImageGroup getImage() {
+		return TEXTURE;
 	}
 
 	@Override
 	protected void run(Point p, BlockEntry ent, MapProxy proxy) {
-		if(!(ent instanceof Rotable)) return;
-		Rotable rot = (Rotable) ent;
-		if(direction) rot.ccw();
-		else rot.cw();
+		ent.wrenchRight(getChirality());
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window) {
-		direction = !direction;
+	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+		flip();
 	}
 
 }

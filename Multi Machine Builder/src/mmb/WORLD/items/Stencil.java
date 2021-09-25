@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import mmb.DATA.Save;
-import mmb.WORLD.blocks.machine.Crafting;
+import mmb.WORLD.blocks.machine.manual.Crafting;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.storage.SimpleInventory;

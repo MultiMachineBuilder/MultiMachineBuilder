@@ -3,8 +3,8 @@
  */
 package mmb.WORLD.blocks.gates;
 
-import mmb.WORLD.Side;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 
 /**
@@ -18,12 +18,12 @@ public abstract class AbstractBiGateBase extends SkeletalBlockEntityRotary{
 	
 	@Override
 	public boolean provideSignal(Side s) {
-		return (s == side.U()) && result;
+		return (s == getRotation().U()) && result;
 	}
 	@Override
 	public void onTick(MapProxy map) {
-		boolean a = owner().getAtSide(side.DL(), posX(), posY()).provideSignal(side.DL());
-		boolean b = owner().getAtSide(side.DR(), posX(), posY()).provideSignal(side.DR());
+		boolean a = owner().getAtSide(getRotation().DL(), posX(), posY()).provideSignal(getRotation().DL());
+		boolean b = owner().getAtSide(getRotation().DR(), posX(), posY()).provideSignal(getRotation().DR());
 		result = run(a, b);
 	}
 }

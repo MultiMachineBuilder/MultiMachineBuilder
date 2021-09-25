@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="de">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> *  Licensed to the Apache Software Foundation (ASF) under one or more<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *  contributor license agreements.  See the NOTICE file distributed with<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *  this work for additional information regarding copyright ownership.<a name="line.4"></a>
+<span class="sourceLineNo">005</span> *  The ASF licenses this file to You under the Apache License, Version 2.0<a name="line.5"></a>
+<span class="sourceLineNo">006</span> *  (the "License"); you may not use this file except in compliance with<a name="line.6"></a>
+<span class="sourceLineNo">007</span> *  the License.  You may obtain a copy of the License at<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *     http://www.apache.org/licenses/LICENSE-2.0<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *  Unless required by applicable law or agreed to in writing, software<a name="line.11"></a>
+<span class="sourceLineNo">012</span> *  distributed under the License is distributed on an "AS IS" BASIS,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<a name="line.13"></a>
+<span class="sourceLineNo">014</span> *  See the License for the specific language governing permissions and<a name="line.14"></a>
+<span class="sourceLineNo">015</span> *  limitations under the License.<a name="line.15"></a>
+<span class="sourceLineNo">016</span> */<a name="line.16"></a>
+<span class="sourceLineNo">017</span>package org.apache.commons.compress.harmony.unpack200;<a name="line.17"></a>
+<span class="sourceLineNo">018</span><a name="line.18"></a>
+<span class="sourceLineNo">019</span>import java.util.ArrayList;<a name="line.19"></a>
+<span class="sourceLineNo">020</span>import java.util.Arrays;<a name="line.20"></a>
+<span class="sourceLineNo">021</span>import java.util.Iterator;<a name="line.21"></a>
+<span class="sourceLineNo">022</span>import java.util.List;<a name="line.22"></a>
+<span class="sourceLineNo">023</span><a name="line.23"></a>
+<span class="sourceLineNo">024</span>import org.apache.commons.compress.harmony.unpack200.bytecode.AnnotationDefaultAttribute;<a name="line.24"></a>
+<span class="sourceLineNo">025</span>import org.apache.commons.compress.harmony.unpack200.bytecode.AnnotationsAttribute.Annotation;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import org.apache.commons.compress.harmony.unpack200.bytecode.AnnotationsAttribute.ElementValue;<a name="line.26"></a>
+<span class="sourceLineNo">027</span>import org.apache.commons.compress.harmony.unpack200.bytecode.Attribute;<a name="line.27"></a>
+<span class="sourceLineNo">028</span>import org.apache.commons.compress.harmony.unpack200.bytecode.CPDouble;<a name="line.28"></a>
+<span class="sourceLineNo">029</span>import org.apache.commons.compress.harmony.unpack200.bytecode.CPFloat;<a name="line.29"></a>
+<span class="sourceLineNo">030</span>import org.apache.commons.compress.harmony.unpack200.bytecode.CPInteger;<a name="line.30"></a>
+<span class="sourceLineNo">031</span>import org.apache.commons.compress.harmony.unpack200.bytecode.CPLong;<a name="line.31"></a>
+<span class="sourceLineNo">032</span>import org.apache.commons.compress.harmony.unpack200.bytecode.CPUTF8;<a name="line.32"></a>
+<span class="sourceLineNo">033</span>import org.apache.commons.compress.harmony.unpack200.bytecode.RuntimeVisibleorInvisibleAnnotationsAttribute;<a name="line.33"></a>
+<span class="sourceLineNo">034</span>import org.apache.commons.compress.harmony.unpack200.bytecode.RuntimeVisibleorInvisibleParameterAnnotationsAttribute;<a name="line.34"></a>
+<span class="sourceLineNo">035</span>import org.apache.commons.compress.harmony.unpack200.bytecode.RuntimeVisibleorInvisibleParameterAnnotationsAttribute.ParameterAnnotation;<a name="line.35"></a>
+<span class="sourceLineNo">036</span><a name="line.36"></a>
+<span class="sourceLineNo">037</span>/**<a name="line.37"></a>
+<span class="sourceLineNo">038</span> * A group of metadata bands, such as class_RVA_bands, method_AD_bands etc.<a name="line.38"></a>
+<span class="sourceLineNo">039</span> */<a name="line.39"></a>
+<span class="sourceLineNo">040</span>public class MetadataBandGroup {<a name="line.40"></a>
+<span class="sourceLineNo">041</span><a name="line.41"></a>
+<span class="sourceLineNo">042</span>    private final String type;<a name="line.42"></a>
+<span class="sourceLineNo">043</span>    private final CpBands cpBands;<a name="line.43"></a>
+<span class="sourceLineNo">044</span><a name="line.44"></a>
+<span class="sourceLineNo">045</span>    private static CPUTF8 rvaUTF8;<a name="line.45"></a>
+<span class="sourceLineNo">046</span>    private static CPUTF8 riaUTF8;<a name="line.46"></a>
+<span class="sourceLineNo">047</span>    private static CPUTF8 rvpaUTF8;<a name="line.47"></a>
+<span class="sourceLineNo">048</span>    private static CPUTF8 ripaUTF8;<a name="line.48"></a>
+<span class="sourceLineNo">049</span><a name="line.49"></a>
+<span class="sourceLineNo">050</span>    public static void setRvaAttributeName(final CPUTF8 cpUTF8Value) {<a name="line.50"></a>
+<span class="sourceLineNo">051</span>        rvaUTF8 = cpUTF8Value;<a name="line.51"></a>
+<span class="sourceLineNo">052</span>    }<a name="line.52"></a>
+<span class="sourceLineNo">053</span><a name="line.53"></a>
+<span class="sourceLineNo">054</span>    public static void setRiaAttributeName(final CPUTF8 cpUTF8Value) {<a name="line.54"></a>
+<span class="sourceLineNo">055</span>        riaUTF8 = cpUTF8Value;<a name="line.55"></a>
+<span class="sourceLineNo">056</span>    }<a name="line.56"></a>
+<span class="sourceLineNo">057</span><a name="line.57"></a>
+<span class="sourceLineNo">058</span>    public static void setRvpaAttributeName(final CPUTF8 cpUTF8Value) {<a name="line.58"></a>
+<span class="sourceLineNo">059</span>        rvpaUTF8 = cpUTF8Value;<a name="line.59"></a>
+<span class="sourceLineNo">060</span>    }<a name="line.60"></a>
+<span class="sourceLineNo">061</span><a name="line.61"></a>
+<span class="sourceLineNo">062</span>    public static void setRipaAttributeName(final CPUTF8 cpUTF8Value) {<a name="line.62"></a>
+<span class="sourceLineNo">063</span>        ripaUTF8 = cpUTF8Value;<a name="line.63"></a>
+<span class="sourceLineNo">064</span>    }<a name="line.64"></a>
+<span class="sourceLineNo">065</span><a name="line.65"></a>
+<span class="sourceLineNo">066</span>    public MetadataBandGroup(final String type, final CpBands cpBands) {<a name="line.66"></a>
+<span class="sourceLineNo">067</span>        this.type = type;<a name="line.67"></a>
+<span class="sourceLineNo">068</span>        this.cpBands = cpBands;<a name="line.68"></a>
+<span class="sourceLineNo">069</span>    }<a name="line.69"></a>
+<span class="sourceLineNo">070</span><a name="line.70"></a>
+<span class="sourceLineNo">071</span>    private List attributes;<a name="line.71"></a>
+<span class="sourceLineNo">072</span><a name="line.72"></a>
+<span class="sourceLineNo">073</span>    public int[] param_NB;<a name="line.73"></a>
+<span class="sourceLineNo">074</span>    public int[] anno_N;<a name="line.74"></a>
+<span class="sourceLineNo">075</span>    public CPUTF8[][] type_RS;<a name="line.75"></a>
+<span class="sourceLineNo">076</span>    public int[][] pair_N;<a name="line.76"></a>
+<span class="sourceLineNo">077</span>    public CPUTF8[] name_RU;<a name="line.77"></a>
+<span class="sourceLineNo">078</span>    public int[] T;<a name="line.78"></a>
+<span class="sourceLineNo">079</span>    public CPInteger[] caseI_KI;<a name="line.79"></a>
+<span class="sourceLineNo">080</span>    public CPDouble[] caseD_KD;<a name="line.80"></a>
+<span class="sourceLineNo">081</span>    public CPFloat[] caseF_KF;<a name="line.81"></a>
+<span class="sourceLineNo">082</span>    public CPLong[] caseJ_KJ;<a name="line.82"></a>
+<span class="sourceLineNo">083</span>    public CPUTF8[] casec_RS;<a name="line.83"></a>
+<span class="sourceLineNo">084</span>    public String[] caseet_RS;<a name="line.84"></a>
+<span class="sourceLineNo">085</span>    public String[] caseec_RU;<a name="line.85"></a>
+<span class="sourceLineNo">086</span>    public CPUTF8[] cases_RU;<a name="line.86"></a>
+<span class="sourceLineNo">087</span>    public int[] casearray_N;<a name="line.87"></a>
+<span class="sourceLineNo">088</span>    public CPUTF8[] nesttype_RS;<a name="line.88"></a>
+<span class="sourceLineNo">089</span>    public int[] nestpair_N;<a name="line.89"></a>
+<span class="sourceLineNo">090</span>    public CPUTF8[] nestname_RU;<a name="line.90"></a>
+<span class="sourceLineNo">091</span><a name="line.91"></a>
+<span class="sourceLineNo">092</span>    private int caseI_KI_Index;<a name="line.92"></a>
+<span class="sourceLineNo">093</span><a name="line.93"></a>
+<span class="sourceLineNo">094</span>    private int caseD_KD_Index;<a name="line.94"></a>
+<span class="sourceLineNo">095</span><a name="line.95"></a>
+<span class="sourceLineNo">096</span>    private int caseF_KF_Index;<a name="line.96"></a>
+<span class="sourceLineNo">097</span><a name="line.97"></a>
+<span class="sourceLineNo">098</span>    private int caseJ_KJ_Index;<a name="line.98"></a>
+<span class="sourceLineNo">099</span><a name="line.99"></a>
+<span class="sourceLineNo">100</span>    private int casec_RS_Index;<a name="line.100"></a>
+<span class="sourceLineNo">101</span><a name="line.101"></a>
+<span class="sourceLineNo">102</span>    private int caseet_RS_Index;<a name="line.102"></a>
+<span class="sourceLineNo">103</span><a name="line.103"></a>
+<span class="sourceLineNo">104</span>    private int caseec_RU_Index;<a name="line.104"></a>
+<span class="sourceLineNo">105</span><a name="line.105"></a>
+<span class="sourceLineNo">106</span>    private int cases_RU_Index;<a name="line.106"></a>
+<span class="sourceLineNo">107</span><a name="line.107"></a>
+<span class="sourceLineNo">108</span>    private int casearray_N_Index;<a name="line.108"></a>
+<span class="sourceLineNo">109</span><a name="line.109"></a>
+<span class="sourceLineNo">110</span>    private int T_index;<a name="line.110"></a>
+<span class="sourceLineNo">111</span><a name="line.111"></a>
+<span class="sourceLineNo">112</span>    private int nesttype_RS_Index;<a name="line.112"></a>
+<span class="sourceLineNo">113</span><a name="line.113"></a>
+<span class="sourceLineNo">114</span>    private int nestpair_N_Index;<a name="line.114"></a>
+<span class="sourceLineNo">115</span><a name="line.115"></a>
+<span class="sourceLineNo">116</span>    private Iterator nestname_RU_Iterator;<a name="line.116"></a>
+<span class="sourceLineNo">117</span><a name="line.117"></a>
+<span class="sourceLineNo">118</span>    private int anno_N_Index;<a name="line.118"></a>
+<span class="sourceLineNo">119</span><a name="line.119"></a>
+<span class="sourceLineNo">120</span>    private int pair_N_Index;<a name="line.120"></a>
+<span class="sourceLineNo">121</span><a name="line.121"></a>
+<span class="sourceLineNo">122</span>    public List getAttributes() {<a name="line.122"></a>
+<span class="sourceLineNo">123</span>        // TODO: Optimize iterators!<a name="line.123"></a>
+<span class="sourceLineNo">124</span>        if (attributes == null) {<a name="line.124"></a>
+<span class="sourceLineNo">125</span>            attributes = new ArrayList();<a name="line.125"></a>
+<span class="sourceLineNo">126</span>            if (name_RU != null) {<a name="line.126"></a>
+<span class="sourceLineNo">127</span>                final Iterator name_RU_Iterator = Arrays.asList(name_RU).iterator();<a name="line.127"></a>
+<span class="sourceLineNo">128</span>                if (!type.equals("AD")) {<a name="line.128"></a>
+<span class="sourceLineNo">129</span>                    T_index = 0;<a name="line.129"></a>
+<span class="sourceLineNo">130</span>                }<a name="line.130"></a>
+<span class="sourceLineNo">131</span>                caseI_KI_Index = 0;<a name="line.131"></a>
+<span class="sourceLineNo">132</span>                caseD_KD_Index = 0;<a name="line.132"></a>
+<span class="sourceLineNo">133</span>                caseF_KF_Index = 0;<a name="line.133"></a>
+<span class="sourceLineNo">134</span>                caseJ_KJ_Index = 0;<a name="line.134"></a>
+<span class="sourceLineNo">135</span>                casec_RS_Index = 0;<a name="line.135"></a>
+<span class="sourceLineNo">136</span>                caseet_RS_Index = 0;<a name="line.136"></a>
+<span class="sourceLineNo">137</span>                caseec_RU_Index = 0;<a name="line.137"></a>
+<span class="sourceLineNo">138</span>                cases_RU_Index = 0;<a name="line.138"></a>
+<span class="sourceLineNo">139</span>                casearray_N_Index = 0;<a name="line.139"></a>
+<span class="sourceLineNo">140</span>                nesttype_RS_Index = 0;<a name="line.140"></a>
+<span class="sourceLineNo">141</span>                nestpair_N_Index = 0;<a name="line.141"></a>
+<span class="sourceLineNo">142</span>                nestname_RU_Iterator = Arrays.asList(nestname_RU).iterator();<a name="line.142"></a>
+<span class="sourceLineNo">143</span>                if (type.equals("RVA") || type.equals("RIA")) {<a name="line.143"></a>
+<span class="sourceLineNo">144</span>                    for (int i = 0; i &lt; anno_N.length; i++) {<a name="line.144"></a>
+<span class="sourceLineNo">145</span>                        attributes.add(getAttribute(anno_N[i], type_RS[i], pair_N[i], name_RU_Iterator));<a name="line.145"></a>
+<span class="sourceLineNo">146</span>                    }<a name="line.146"></a>
+<span class="sourceLineNo">147</span>                } else if (type.equals("RVPA") || type.equals("RIPA")) {<a name="line.147"></a>
+<span class="sourceLineNo">148</span>                    anno_N_Index = 0;<a name="line.148"></a>
+<span class="sourceLineNo">149</span>                    pair_N_Index = 0;<a name="line.149"></a>
+<span class="sourceLineNo">150</span>                    for (int i = 0; i &lt; param_NB.length; i++) {<a name="line.150"></a>
+<span class="sourceLineNo">151</span>                        attributes.add(getParameterAttribute(param_NB[i], name_RU_Iterator));<a name="line.151"></a>
+<span class="sourceLineNo">152</span>                    }<a name="line.152"></a>
+<span class="sourceLineNo">153</span>                }<a name="line.153"></a>
+<span class="sourceLineNo">154</span>            } else if (type.equals("AD")) {<a name="line.154"></a>
+<span class="sourceLineNo">155</span>                for (int i = 0; i &lt; T.length; i++) {<a name="line.155"></a>
+<span class="sourceLineNo">156</span>                    attributes.add(new AnnotationDefaultAttribute(new ElementValue(T[i], getNextValue(T[i]))));<a name="line.156"></a>
+<span class="sourceLineNo">157</span>                }<a name="line.157"></a>
+<span class="sourceLineNo">158</span>            }<a name="line.158"></a>
+<span class="sourceLineNo">159</span>        }<a name="line.159"></a>
+<span class="sourceLineNo">160</span>        return attributes;<a name="line.160"></a>
+<span class="sourceLineNo">161</span>    }<a name="line.161"></a>
+<span class="sourceLineNo">162</span><a name="line.162"></a>
+<span class="sourceLineNo">163</span>    private Attribute getAttribute(final int numAnnotations, final CPUTF8[] types, final int[] pairCounts,<a name="line.163"></a>
+<span class="sourceLineNo">164</span>        final Iterator namesIterator) {<a name="line.164"></a>
+<span class="sourceLineNo">165</span>        final Annotation[] annotations = new Annotation[numAnnotations];<a name="line.165"></a>
+<span class="sourceLineNo">166</span>        for (int i = 0; i &lt; numAnnotations; i++) {<a name="line.166"></a>
+<span class="sourceLineNo">167</span>            annotations[i] = getAnnotation(types[i], pairCounts[i], namesIterator);<a name="line.167"></a>
+<span class="sourceLineNo">168</span>        }<a name="line.168"></a>
+<span class="sourceLineNo">169</span>        return new RuntimeVisibleorInvisibleAnnotationsAttribute(type.equals("RVA") ? rvaUTF8 : riaUTF8, annotations);<a name="line.169"></a>
+<span class="sourceLineNo">170</span>    }<a name="line.170"></a>
+<span class="sourceLineNo">171</span><a name="line.171"></a>
+<span class="sourceLineNo">172</span>    private Attribute getParameterAttribute(final int numParameters, final Iterator namesIterator) {<a name="line.172"></a>
+<span class="sourceLineNo">173</span>        final ParameterAnnotation[] parameter_annotations = new ParameterAnnotation[numParameters];<a name="line.173"></a>
+<span class="sourceLineNo">174</span>        for (int i = 0; i &lt; numParameters; i++) {<a name="line.174"></a>
+<span class="sourceLineNo">175</span>            final int numAnnotations = anno_N[anno_N_Index++];<a name="line.175"></a>
+<span class="sourceLineNo">176</span>            final int[] pairCounts = pair_N[pair_N_Index++];<a name="line.176"></a>
+<span class="sourceLineNo">177</span>            final Annotation[] annotations = new Annotation[numAnnotations];<a name="line.177"></a>
+<span class="sourceLineNo">178</span>            for (int j = 0; j &lt; annotations.length; j++) {<a name="line.178"></a>
+<span class="sourceLineNo">179</span>                annotations[j] = getAnnotation(type_RS[anno_N_Index - 1][j], pairCounts[j], namesIterator);<a name="line.179"></a>
+<span class="sourceLineNo">180</span>            }<a name="line.180"></a>
+<span class="sourceLineNo">181</span>            parameter_annotations[i] = new ParameterAnnotation(annotations);<a name="line.181"></a>
+<span class="sourceLineNo">182</span>        }<a name="line.182"></a>
+<span class="sourceLineNo">183</span>        return new RuntimeVisibleorInvisibleParameterAnnotationsAttribute(type.equals("RVPA") ? rvpaUTF8 : ripaUTF8,<a name="line.183"></a>
+<span class="sourceLineNo">184</span>            parameter_annotations);<a name="line.184"></a>
+<span class="sourceLineNo">185</span>    }<a name="line.185"></a>
+<span class="sourceLineNo">186</span><a name="line.186"></a>
+<span class="sourceLineNo">187</span>    private Annotation getAnnotation(final CPUTF8 type, final int pairCount, final Iterator namesIterator) {<a name="line.187"></a>
+<span class="sourceLineNo">188</span>        final CPUTF8[] elementNames = new CPUTF8[pairCount];<a name="line.188"></a>
+<span class="sourceLineNo">189</span>        final ElementValue[] elementValues = new ElementValue[pairCount];<a name="line.189"></a>
+<span class="sourceLineNo">190</span>        for (int j = 0; j &lt; elementNames.length; j++) {<a name="line.190"></a>
+<span class="sourceLineNo">191</span>            elementNames[j] = (CPUTF8) namesIterator.next();<a name="line.191"></a>
+<span class="sourceLineNo">192</span>            final int t = T[T_index++];<a name="line.192"></a>
+<span class="sourceLineNo">193</span>            elementValues[j] = new ElementValue(t, getNextValue(t));<a name="line.193"></a>
+<span class="sourceLineNo">194</span>        }<a name="line.194"></a>
+<span class="sourceLineNo">195</span>        return new Annotation(pairCount, type, elementNames, elementValues);<a name="line.195"></a>
+<span class="sourceLineNo">196</span>    }<a name="line.196"></a>
+<span class="sourceLineNo">197</span><a name="line.197"></a>
+<span class="sourceLineNo">198</span>    private Object getNextValue(final int t) {<a name="line.198"></a>
+<span class="sourceLineNo">199</span>        switch (t) {<a name="line.199"></a>
+<span class="sourceLineNo">200</span>        case 'B':<a name="line.200"></a>
+<span class="sourceLineNo">201</span>        case 'C':<a name="line.201"></a>
+<span class="sourceLineNo">202</span>        case 'I':<a name="line.202"></a>
+<span class="sourceLineNo">203</span>        case 'S':<a name="line.203"></a>
+<span class="sourceLineNo">204</span>        case 'Z':<a name="line.204"></a>
+<span class="sourceLineNo">205</span>            return caseI_KI[caseI_KI_Index++];<a name="line.205"></a>
+<span class="sourceLineNo">206</span>        case 'D':<a name="line.206"></a>
+<span class="sourceLineNo">207</span>            return caseD_KD[caseD_KD_Index++];<a name="line.207"></a>
+<span class="sourceLineNo">208</span>        case 'F':<a name="line.208"></a>
+<span class="sourceLineNo">209</span>            return caseF_KF[caseF_KF_Index++];<a name="line.209"></a>
+<span class="sourceLineNo">210</span>        case 'J':<a name="line.210"></a>
+<span class="sourceLineNo">211</span>            return caseJ_KJ[caseJ_KJ_Index++];<a name="line.211"></a>
+<span class="sourceLineNo">212</span>        case 'c':<a name="line.212"></a>
+<span class="sourceLineNo">213</span>            return casec_RS[casec_RS_Index++];<a name="line.213"></a>
+<span class="sourceLineNo">214</span>        case 'e':<a name="line.214"></a>
+<span class="sourceLineNo">215</span>            // TODO: check this - it may not work if the first string already<a name="line.215"></a>
+<span class="sourceLineNo">216</span>            // has a colon in it<a name="line.216"></a>
+<span class="sourceLineNo">217</span>            final String enumString = caseet_RS[caseet_RS_Index++] + ":" + caseec_RU[caseec_RU_Index++];<a name="line.217"></a>
+<span class="sourceLineNo">218</span>            return cpBands.cpNameAndTypeValue(enumString);<a name="line.218"></a>
+<span class="sourceLineNo">219</span>        case 's':<a name="line.219"></a>
+<span class="sourceLineNo">220</span>            return cases_RU[cases_RU_Index++];<a name="line.220"></a>
+<span class="sourceLineNo">221</span>        case '[':<a name="line.221"></a>
+<span class="sourceLineNo">222</span>            final int arraySize = casearray_N[casearray_N_Index++];<a name="line.222"></a>
+<span class="sourceLineNo">223</span>            final ElementValue[] nestedArray = new ElementValue[arraySize];<a name="line.223"></a>
+<span class="sourceLineNo">224</span>            for (int i = 0; i &lt; arraySize; i++) {<a name="line.224"></a>
+<span class="sourceLineNo">225</span>                final int nextT = T[T_index++];<a name="line.225"></a>
+<span class="sourceLineNo">226</span>                nestedArray[i] = new ElementValue(nextT, getNextValue(nextT));<a name="line.226"></a>
+<span class="sourceLineNo">227</span>            }<a name="line.227"></a>
+<span class="sourceLineNo">228</span>            return nestedArray;<a name="line.228"></a>
+<span class="sourceLineNo">229</span>        case '@':<a name="line.229"></a>
+<span class="sourceLineNo">230</span>            final CPUTF8 type = nesttype_RS[nesttype_RS_Index++];<a name="line.230"></a>
+<span class="sourceLineNo">231</span>            final int numPairs = nestpair_N[nestpair_N_Index++];<a name="line.231"></a>
+<span class="sourceLineNo">232</span><a name="line.232"></a>
+<span class="sourceLineNo">233</span>            return getAnnotation(type, numPairs, nestname_RU_Iterator);<a name="line.233"></a>
+<span class="sourceLineNo">234</span>        }<a name="line.234"></a>
+<span class="sourceLineNo">235</span>        return null;<a name="line.235"></a>
+<span class="sourceLineNo">236</span>    }<a name="line.236"></a>
+<span class="sourceLineNo">237</span><a name="line.237"></a>
+<span class="sourceLineNo">238</span>}<a name="line.238"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

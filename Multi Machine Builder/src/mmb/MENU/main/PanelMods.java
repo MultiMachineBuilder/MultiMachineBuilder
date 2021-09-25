@@ -13,8 +13,8 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 import mmb.DATA.contents.GameContents;
-import mmb.MODS.info.AddonInfo;
 import mmb.MODS.info.AddonState;
+import mmb.MODS.loader.AddonInfo;
 import mmb.debug.Debugger;
 import net.miginfocom.swing.MigLayout;
 import java.awt.BorderLayout;

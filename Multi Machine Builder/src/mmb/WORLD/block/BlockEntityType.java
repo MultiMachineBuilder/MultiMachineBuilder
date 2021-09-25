@@ -108,7 +108,7 @@ public class BlockEntityType extends BlockBase{
 		return map.place(this, x, y);
 	}
 	@Override
-	public BlockEntity create(int x, int y, World map) {
+	public BlockEntity createBlock() {
 		return factory.get();
 	}
 

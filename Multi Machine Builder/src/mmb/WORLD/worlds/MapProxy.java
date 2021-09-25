@@ -7,10 +7,10 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.inventory.Inventory;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.world.World;
 
 /**

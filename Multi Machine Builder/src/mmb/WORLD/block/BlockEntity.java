@@ -10,8 +10,9 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import mmb.GameObject;
 import mmb.BEANS.Positioned;
-import mmb.WORLD.Side;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
@@ -45,7 +46,7 @@ public abstract class BlockEntity implements BlockEntry, Positioned, Cloneable {
 	}
 	@Override
 	public void resetMap(@Nullable World map, int x, int y) {
-		if(map != null && (map.get(x, y).type().isSurface())) throw new IllegalStateException("The position ["+x+","+y+"] on target map is not surface");
+		if(map != null && (!map.get(x, y).type().isSurface())) throw new IllegalStateException("The position ["+x+","+y+"] on target map is not surface");
 		owner = map;
 		this.x = x;
 		this.y = y;
@@ -131,10 +132,27 @@ public abstract class BlockEntity implements BlockEntry, Positioned, Cloneable {
 	private boolean underDemolition;
 	private List<BlockEntityDemolitionListener> demoListeners = new ArrayList<>();
 	/**
+	 * Adds a block entity demolition listener
 	 * @param listener
 	 */
 	public void addBlockEntityDemolitionListener(BlockEntityDemolitionListener listener) {
 		if(underDemolition) return;
 		demoListeners.add(listener);
+	}
+	/**
+	 * Removes a block entity demolition listener
+	 * @param listener listener to remove
+	 */
+	public void removeBlockEntityDemolitionListener(BlockEntityDemolitionListener listener) {
+		if(underDemolition) return;
+		demoListeners.remove(listener);
+	}
+	@Override
+	public final void onBreak(World blockMap, @Nullable GameObject obj) {
+		if(underDemolition) return;
+		BlockEntityDemolitionEvent event = new BlockEntityDemolitionEvent(x, y, this, blockMap, obj);
+		for(BlockEntityDemolitionListener listener: demoListeners) {
+			listener.blockDemolished(event);
+		}
 	}
 }

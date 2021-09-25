@@ -35,19 +35,73 @@ public class GeneratorMultiBiome implements Generator {
 		return result;
 	}
 	
-	
 	protected enum Biome{
 		QUARRY {
 			@Override
 			public Block randomize(long genseed) {
-				int subseed = (int) (genseed % 10);
+				int subseed = (int) (genseed % 100);
 				switch(subseed) {
 				case 0:
-					return ContentsBlocks.copper_ore;
 				case 1:
-					return ContentsBlocks.silicon_ore;
 				case 2:
+				case 3:
+				case 4:
+				case 5:
+				case 6:
+				case 7:
+				case 8:
+				case 9:
+					return ContentsBlocks.copper_ore;
+				case 10:
+				case 11:
+				case 12:
+				case 13:
+				case 14:
+				case 15:
+				case 16:
+				case 17:
+				case 18:
+				case 19:
+					return ContentsBlocks.silicon_ore;
+				case 20:
+				case 21:
+				case 22:
+				case 23:
+				case 24:
+				case 25:
+				case 26:
+				case 27:
+				case 28:
+				case 29:
 					return ContentsBlocks.iron_ore;
+				case 30:
+				case 31:
+				case 32:
+				case 33:
+				case 34:
+				case 35:
+				case 36:
+				case 37:
+				case 38:
+				case 39:
+				case 40:
+				case 41:
+				case 42:
+				case 43:
+				case 44:
+				case 45:
+				case 46:
+				case 47:
+				case 48:
+				case 49:
+					return ContentsBlocks.coal_ore;
+				case 50:
+				case 51:
+				case 52:
+				case 53:
+				case 54:
+				case 55:
+					return ContentsBlocks.gold_ore;
 				default:
 					return ContentsBlocks.stone;
 				}
@@ -56,14 +110,55 @@ public class GeneratorMultiBiome implements Generator {
 		WOOD {
 			@Override
 			public Block randomize(long genseed) {
-				if(genseed % 20 > 7) return ContentsBlocks.plank;
-				return ContentsBlocks.logs;
+				int subseed = (int) (genseed % 20);
+				switch(subseed) {
+				case 0:
+				case 1:
+				case 2:
+				case 3:
+				case 4:
+				case 5:
+				case 6:
+				case 7:
+					return ContentsBlocks.plank;
+				case 8:
+				case 9:
+				case 10:
+					return ContentsBlocks.leaves;
+				case 11:
+				case 12:
+				case 13:
+				case 14:
+				case 15:
+				case 16:
+				case 17:
+				case 18:
+				case 19:
+				default:
+					return ContentsBlocks.logs;
+				}	
 			}
 		},
 		PLAINS {
 			@Override
 			public Block randomize(long genseed) {
 				return ContentsBlocks.grass;
+			}
+		},
+		SAVANNA {
+			@Override
+			public Block randomize(long genseed) {
+				if((genseed & 7) == 0) {
+					//First 3 bits arefavorable
+					return WOOD.randomize(genseed >> 3);
+				}
+				return ContentsBlocks.grass;
+			}
+		},
+		DESERT {
+			@Override
+			public Block randomize(long genseed) {
+				return ContentsBlocks.sand;
 			}
 		};
 		

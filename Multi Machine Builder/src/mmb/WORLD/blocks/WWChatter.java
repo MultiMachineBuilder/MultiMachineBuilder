@@ -61,7 +61,7 @@ public class WWChatter extends BlockEntityData implements TextMessageProvider, B
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window) {
+	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		NewTextEditor editor = new NewTextEditor(this, this, window);
 		window.openDialogWindow(editor, editor.title);

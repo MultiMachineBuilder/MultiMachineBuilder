@@ -10,9 +10,6 @@ import javax.annotation.Nonnull;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.DATA.contents.texture.Textures;
-import mmb.WORLD.RotatedImageGroup;
-import mmb.WORLD.Rotation;
-import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.blocks.ContentsBlocks;
@@ -22,6 +19,9 @@ import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.inventory.storage.SingleItemInventory;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.rotate.RotatedImageGroup;
+import mmb.WORLD.rotate.Rotation;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 
 /**
@@ -45,7 +45,7 @@ public class ItemTransporter extends SkeletalBlockEntityRotary {
 
 	@Override
 	public void onTick(MapProxy map) {
-		moveItems(posX(), posY(), map, side, inv);
+		moveItems(posX(), posY(), map, getRotation(), inv);
 	}
 	
 	@Nonnull private SingleItemInventory inv = new SingleItemInventory();

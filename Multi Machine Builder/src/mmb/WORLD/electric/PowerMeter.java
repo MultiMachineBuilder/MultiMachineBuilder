@@ -6,11 +6,11 @@ package mmb.WORLD.electric;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import mmb.WORLD.RotatedImageGroup;
-import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.rotate.RotatedImageGroup;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.debug.Debugger;
 
@@ -37,7 +37,7 @@ public class PowerMeter extends SkeletalBlockEntityRotary {
 		}
 		@Override
 		public double insert(double amt) {
-			Electricity elec = getAtSide(side.R()).getElectricalConnection(side.L());
+			Electricity elec = getAtSide(getRotation().R()).getElectricalConnection(getRotation().L());
 			if(elec == null) return 0;
 			double tfd = elec.insert(amt);
 			moved += tfd;
@@ -47,8 +47,8 @@ public class PowerMeter extends SkeletalBlockEntityRotary {
 	};
 	@Override
 	public Electricity getElectricalConnection(Side s) {
-		if(s == side.L()) return IN;
-		if(s == side.R()) return Electricity.NONE;
+		if(s == getRotation().L()) return IN;
+		if(s == getRotation().R()) return Electricity.NONE;
 		return null;
 	}
 

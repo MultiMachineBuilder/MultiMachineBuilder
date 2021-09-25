@@ -9,7 +9,6 @@ import javax.swing.Icon;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.Placer;
 import mmb.WORLD.item.ItemType;
-import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
@@ -24,12 +23,9 @@ public interface BlockType extends Placer, ItemType {
 
 	/**
 	 * Creates a block entry for this type.
-	 * @param x X coordinate of the block
-	 * @param y Y coordinate of the block
-	 * @param map map which will contain the block
 	 * @return newly created block
 	 */
-	@Nonnull public BlockEntry create(int x, int y, World map);
+	@Nonnull public BlockEntry createBlock();
 	
 	public boolean isBlockEntity();
 	@Nonnull public BlockEntityType asBlockEntityType();
@@ -60,6 +56,15 @@ public interface BlockType extends Placer, ItemType {
 	
 	public Drop getDrop();
 	public void setDrop(Drop drop);
+	
+	/**
+	 * @return required pickaxe level
+	 */
+	public int getRequiredPickaxe();
+	/**
+	 * @param level new required pickaxe level
+	 */
+	public void setRequiredPickaxe(int level);
 	
 	/**
 	 * @return is given block a surface block?

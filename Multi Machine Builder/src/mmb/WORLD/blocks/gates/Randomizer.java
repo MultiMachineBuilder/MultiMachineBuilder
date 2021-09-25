@@ -3,8 +3,8 @@
  */
 package mmb.WORLD.blocks.gates;
 
-import mmb.WORLD.Side;
 import mmb.WORLD.block.Block;
+import mmb.WORLD.rotate.Side;
 
 /**
  * @author oskar

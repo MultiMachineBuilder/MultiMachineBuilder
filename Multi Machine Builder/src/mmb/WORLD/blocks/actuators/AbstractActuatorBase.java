@@ -5,7 +5,6 @@ package mmb.WORLD.blocks.actuators;
 
 import java.awt.Point;
 
-import mmb.WORLD.Rotation;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.worlds.MapProxy;
@@ -16,7 +15,7 @@ import mmb.WORLD.worlds.MapProxy;
  */
 public abstract class AbstractActuatorBase extends SkeletalBlockEntityRotary{
 	/**
-	 * 
+	 * Invoked when actuator runs
 	 * @param p position of change
 	 * @param ent block to modify
 	 * @param proxy map proxy to use
@@ -24,16 +23,8 @@ public abstract class AbstractActuatorBase extends SkeletalBlockEntityRotary{
 	protected abstract void run(Point p, BlockEntry ent, MapProxy proxy);
 	@Override
 	public void onTick(MapProxy map) {
-		boolean a = owner().getAtSide(side.D(), posX(), posY()).provideSignal(side.U());
-		Point pt = side.U().offset(posX(), posY());
+		boolean a = owner().getAtSide(getRotation().D(), posX(), posY()).provideSignal(getRotation().U());
+		Point pt = getRotation().U().offset(posX(), posY());
 		if(a) run(pt, owner().get(pt), map);
-	}
-	@Override
-	public void setRotation(Rotation rotation) {
-		side = rotation;
-	}
-	@Override
-	public Rotation getRotation() {
-		return side;
 	}
 }

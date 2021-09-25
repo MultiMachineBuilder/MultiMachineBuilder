@@ -10,15 +10,14 @@ import javax.annotation.Nonnull;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.BEANS.Rotable;
-import mmb.WORLD.RotatedImageGroup;
-import mmb.WORLD.Rotation;
+import mmb.WORLD.rotate.RotatedImageGroup;
+import mmb.WORLD.rotate.Rotation;
 
 /**
  * @author oskar
  *
  */
-public abstract class SkeletalBlockEntityRotary extends BlockEntityData implements Rotable {
+public abstract class SkeletalBlockEntityRotary extends BlockEntityData {
 	@Override
 	public void render(int x, int y, Graphics g, int ss) {
 		getImage().get(side).draw(this, x, y, g, ss);
@@ -32,7 +31,7 @@ public abstract class SkeletalBlockEntityRotary extends BlockEntityData implemen
 		if(side == null) side = Rotation.N;
 		load1((ObjectNode) data);
 	}
-	@Nonnull protected Rotation side = Rotation.N;
+	@Nonnull private Rotation side = Rotation.N;
 	@Override
 	public void setRotation(Rotation rotation) {
 		side = rotation;
@@ -48,4 +47,8 @@ public abstract class SkeletalBlockEntityRotary extends BlockEntityData implemen
 	}
 	protected void save1(ObjectNode node) {}
 	protected void load1(ObjectNode node) {}
+	@Override
+	public boolean isRotary() {
+		return true;
+	}
 }

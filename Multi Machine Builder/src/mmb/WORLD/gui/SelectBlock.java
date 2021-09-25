@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import mmb.BEANS.BlockSetting;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.gui.window.WorldWindow;
+import mmb.WORLD.items.ItemEntry;
 
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;
@@ -44,9 +45,9 @@ public class SelectBlock extends JPanel {
 		btnOK = new JButton("OK");
 		btnOK.setBackground(Color.GREEN);
 		btnOK.addActionListener(e -> {
-			Placer placer = window.getPlacer().getSelectedValue();
-			if(placer instanceof BlockType)
-				setting.setBlockSetting((BlockType) placer);
+			ItemEntry item = window.getPlacer().getSelectedValue().item();
+			if(item instanceof BlockType)
+				setting.setBlockSetting((BlockType) item);
 			close();
 		});
 		add(btnOK);

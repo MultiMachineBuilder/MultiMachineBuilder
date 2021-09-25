@@ -16,12 +16,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
-import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.window.WorldWindow;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
@@ -135,7 +135,7 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, WorldWindow window) {
+	public void click(int blockX, int blockY, World map, WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		window.openAndShowWindow(new Dialog(window), "Power load");
 	}

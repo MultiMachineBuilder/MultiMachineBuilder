@@ -5,6 +5,8 @@ package mmb.WORLD;
 
 import java.awt.Point;
 
+import mmb.WORLD.rotate.Side;
+
 /**
  * @author oskar
  *

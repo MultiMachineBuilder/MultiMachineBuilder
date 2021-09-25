@@ -5,11 +5,11 @@ package mmb.WORLD.blocks.pipe;
 
 import javax.annotation.Nonnull;
 
-import mmb.WORLD.RotatedImageGroup;
-import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.gui.Variable;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.rotate.RotatedImageGroup;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 
 /**

@@ -12,14 +12,14 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.GameObject;
 import mmb.DATA.json.JsonTool;
-import mmb.WORLD.RotatedImageGroup;
-import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.gui.Variable;
 import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.rotate.RotatedImageGroup;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.world.World;
 
 /**
@@ -30,19 +30,19 @@ public abstract class AbstractBasePipe extends SkeletalBlockEntityRotary {
 	
 	@Override
 	public InventoryReader getOutput(Side s) {
-		if(s == side.U() && outU != null) return outU;
-		if(s == side.D() && outD != null) return outD;
-		if(s == side.L() && outL != null) return outL;
-		if(s == side.R() && outR != null) return outR;
+		if(s == getRotation().U() && outU != null) return outU;
+		if(s == getRotation().D() && outD != null) return outD;
+		if(s == getRotation().L() && outL != null) return outL;
+		if(s == getRotation().R() && outR != null) return outR;
 		return InventoryReader.NONE;
 	}
 
 	@Override
 	public InventoryWriter getInput(Side s) {
-		if(s == side.U() && inU != null) return inU;
-		if(s == side.D() && inD != null) return inD;
-		if(s == side.L() && inL != null) return inL;
-		if(s == side.R() && inR != null) return inR;
+		if(s == getRotation().U() && inU != null) return inU;
+		if(s == getRotation().D() && inD != null) return inD;
+		if(s == getRotation().L() && inL != null) return inL;
+		if(s == getRotation().R() && inR != null) return inR;
 		return InventoryWriter.NONE;
 	}
 	
@@ -84,13 +84,6 @@ public abstract class AbstractBasePipe extends SkeletalBlockEntityRotary {
 		}
 	}
 
-	@Override
-	public void onBreak(World map, GameObject obj) {
-		for(ItemEntry item: items) {
-			map.dropItem(item, posX(), posY());
-		}
-	}
-
 	@Nonnull private final BlockType type;
 
 	@Override
@@ -119,6 +112,11 @@ public abstract class AbstractBasePipe extends SkeletalBlockEntityRotary {
 		this.type = type;
 		this.items = new ItemEntry[numItems];
 		this.texture = texture;
+		addBlockEntityDemolitionListener(event -> {
+			for(ItemEntry item: items) {
+				event.world.dropItem(item, posX(), posY());
+			}
+		});
 	}
 
 	@Override

@@ -6,7 +6,6 @@ package mmb.WORLD.gui.window;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.*;
-import java.util.Collection;
 import java.util.Map.Entry;
 import java.util.Objects;
 
@@ -16,8 +15,6 @@ import javax.annotation.Nullable;
 import javax.swing.JComponent;
 
 import org.joml.Vector2d;
-import org.joml.Vector2i;
-
 import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
@@ -26,7 +23,6 @@ import mmb.DATA.variables.ListenerBooleanVariable;
 import mmb.MENU.StringRenderer;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.gui.FPSCounter;
-import mmb.WORLD.gui.Placer;
 import mmb.WORLD.gui.window.WorldWindow.ScrollablePlacementList;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.machine.Machine;
@@ -407,7 +403,14 @@ public class WorldFrame extends JComponent {
 		if(DEBUG_DISPLAY.getValue()) {
 			StringBuilder sb = new StringBuilder();
 			sb.append("Position: ").append(perspective).append("\r\n");
-			sb.append("Selected block: ").append(mouseover.x).append(',').append(mouseover.y).append("\r\n");
+			sb.append("Block position: ").append(mouseover.x).append(',').append(mouseover.y).append("\r\n");
+			//Get selected block
+			if(map.inBounds(mouseover)) {
+				BlockEntry block = map.get(mouseover);
+				sb.append("Selected block: ").append(block.type()).append(" ,is surface: ").append(block.type().isSurface()).append("\r\n");
+			}else {
+				sb.append("Out of bounds").append("\r\n");
+			}
 			sb.append("BlockEntities: ").append(map.blockents.size()).append("\r\n");
 			sb.append("FPS: ").append(fps.get()).append("\r\n");
 			sb.append("TPS: ").append(map.tps.get()).append("\r\n");

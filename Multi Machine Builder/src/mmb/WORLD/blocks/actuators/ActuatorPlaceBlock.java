@@ -12,13 +12,13 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.BEANS.BlockActivateListener;
 import mmb.BEANS.BlockSetting;
 import mmb.DATA.contents.texture.Textures;
-import mmb.WORLD.RotatedImageGroup;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.Blocks;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.SelectBlock;
 import mmb.WORLD.gui.window.WorldWindow;
+import mmb.WORLD.rotate.RotatedImageGroup;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
@@ -61,7 +61,7 @@ public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockAct
 		}
 	}
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window) {
+	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		window.openDialogWindow(new SelectBlock(this, window), "["+posX()+","+posY()+"]");
 	}

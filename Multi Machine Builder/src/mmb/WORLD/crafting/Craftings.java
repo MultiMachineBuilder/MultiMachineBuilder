@@ -57,11 +57,10 @@ public class Craftings {
 		Objects.requireNonNull(from, "from is null");
 		if(from.get(in.item).amount() < in.amount) return;
 		//Calculate capacity
-		Vector3d calcvec = new Vector3d();
-		out.outVolume();
+		double volume = out.outVolume();
 		double remainCapacity = to.capacity() - to.volume();
-		if(calcvec.x > remainCapacity) {
-			debug.printl("Required "+calcvec.x+" capacity, got "+remainCapacity);
+		if(volume > remainCapacity) {
+			debug.printl("Required "+volume+" capacity, got "+remainCapacity);
 			return;
 		} //Not enough space in the output
 		//Withdraw from input

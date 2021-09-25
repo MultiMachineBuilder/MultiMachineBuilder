@@ -28,9 +28,7 @@ public abstract class BlockBase extends Item implements BlockType {
 	}
 	
 	private BlockType leaveBehind;
-	@SuppressWarnings("null")
-	@Nonnull private BlockDrawer texture;
-	private Drop drop;
+	private Drop drop = this;
 
 	@Override
 	public void openGUI(WorldWindow window) {
@@ -171,5 +169,17 @@ public abstract class BlockBase extends Item implements BlockType {
 	@Nonnull public BlockBase volumed(double volume) {
 		setVolume(volume);
 		return this;
+	}
+
+	
+	private int pickaxe = 0;
+	@Override
+	public int getRequiredPickaxe() {
+		return pickaxe;
+	}
+
+	@Override
+	public void setRequiredPickaxe(int level) {
+		pickaxe = level;
 	}
 }

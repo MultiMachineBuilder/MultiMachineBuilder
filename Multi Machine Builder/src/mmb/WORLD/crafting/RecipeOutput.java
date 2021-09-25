@@ -3,6 +3,9 @@
  */
 package mmb.WORLD.crafting;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import org.ainslec.picocog.PicoWriter;
 
 import mmb.WORLD.block.Drop;
@@ -15,9 +18,11 @@ import mmb.WORLD.worlds.world.World;
  */
 public interface RecipeOutput extends Drop {
 	@Override
-	default boolean drop(InventoryWriter inv, World map, int x, int y) {
-		// TODO Auto-generated method stub
-		return false;
+	default boolean drop(@Nullable InventoryWriter inv, World map, int x, int y) {
+		@Nonnull InventoryWriter dropper = map.createDropper(x, y);
+		InventoryWriter priority = (inv == null)? dropper :new InventoryWriter.Priority(inv, dropper);
+		produceResults(priority, 1);
+		return true;
 	}
 	/**
 	 * Produces {@code amount} units of this recipe output

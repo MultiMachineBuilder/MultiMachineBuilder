@@ -1,0 +1,611 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="de">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> *  Licensed to the Apache Software Foundation (ASF) under one or more<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *  contributor license agreements.  See the NOTICE file distributed with<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *  this work for additional information regarding copyright ownership.<a name="line.4"></a>
+<span class="sourceLineNo">005</span> *  The ASF licenses this file to You under the Apache License, Version 2.0<a name="line.5"></a>
+<span class="sourceLineNo">006</span> *  (the "License"); you may not use this file except in compliance with<a name="line.6"></a>
+<span class="sourceLineNo">007</span> *  the License.  You may obtain a copy of the License at<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *     http://www.apache.org/licenses/LICENSE-2.0<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *  Unless required by applicable law or agreed to in writing, software<a name="line.11"></a>
+<span class="sourceLineNo">012</span> *  distributed under the License is distributed on an "AS IS" BASIS,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<a name="line.13"></a>
+<span class="sourceLineNo">014</span> *  See the License for the specific language governing permissions and<a name="line.14"></a>
+<span class="sourceLineNo">015</span> *  limitations under the License.<a name="line.15"></a>
+<span class="sourceLineNo">016</span> */<a name="line.16"></a>
+<span class="sourceLineNo">017</span>package org.apache.commons.compress.harmony.unpack200;<a name="line.17"></a>
+<span class="sourceLineNo">018</span><a name="line.18"></a>
+<span class="sourceLineNo">019</span>import java.io.ByteArrayOutputStream;<a name="line.19"></a>
+<span class="sourceLineNo">020</span>import java.io.IOException;<a name="line.20"></a>
+<span class="sourceLineNo">021</span>import java.io.InputStream;<a name="line.21"></a>
+<span class="sourceLineNo">022</span>import java.util.ArrayList;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import java.util.Collections;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>import java.util.List;<a name="line.24"></a>
+<span class="sourceLineNo">025</span><a name="line.25"></a>
+<span class="sourceLineNo">026</span>import org.apache.commons.compress.harmony.pack200.Codec;<a name="line.26"></a>
+<span class="sourceLineNo">027</span>import org.apache.commons.compress.harmony.pack200.Pack200Exception;<a name="line.27"></a>
+<span class="sourceLineNo">028</span>import org.apache.commons.compress.harmony.unpack200.bytecode.Attribute;<a name="line.28"></a>
+<span class="sourceLineNo">029</span>import org.apache.commons.compress.harmony.unpack200.bytecode.BCIRenumberedAttribute;<a name="line.29"></a>
+<span class="sourceLineNo">030</span>import org.apache.commons.compress.harmony.unpack200.bytecode.ByteCode;<a name="line.30"></a>
+<span class="sourceLineNo">031</span>import org.apache.commons.compress.harmony.unpack200.bytecode.CPClass;<a name="line.31"></a>
+<span class="sourceLineNo">032</span>import org.apache.commons.compress.harmony.unpack200.bytecode.CodeAttribute;<a name="line.32"></a>
+<span class="sourceLineNo">033</span>import org.apache.commons.compress.harmony.unpack200.bytecode.ExceptionTableEntry;<a name="line.33"></a>
+<span class="sourceLineNo">034</span>import org.apache.commons.compress.harmony.unpack200.bytecode.NewAttribute;<a name="line.34"></a>
+<span class="sourceLineNo">035</span>import org.apache.commons.compress.harmony.unpack200.bytecode.OperandManager;<a name="line.35"></a>
+<span class="sourceLineNo">036</span><a name="line.36"></a>
+<span class="sourceLineNo">037</span>/**<a name="line.37"></a>
+<span class="sourceLineNo">038</span> * Bytecode bands<a name="line.38"></a>
+<span class="sourceLineNo">039</span> */<a name="line.39"></a>
+<span class="sourceLineNo">040</span>public class BcBands extends BandSet {<a name="line.40"></a>
+<span class="sourceLineNo">041</span><a name="line.41"></a>
+<span class="sourceLineNo">042</span>    // The bytecodes for each method in each class as they come (i.e. in their<a name="line.42"></a>
+<span class="sourceLineNo">043</span>    // packed format)<a name="line.43"></a>
+<span class="sourceLineNo">044</span>    private byte[][][] methodByteCodePacked;<a name="line.44"></a>
+<span class="sourceLineNo">045</span><a name="line.45"></a>
+<span class="sourceLineNo">046</span>    // The bands<a name="line.46"></a>
+<span class="sourceLineNo">047</span>    // TODO: Haven't resolved references yet. Do we want to?<a name="line.47"></a>
+<span class="sourceLineNo">048</span>    private int[] bcCaseCount;<a name="line.48"></a>
+<span class="sourceLineNo">049</span>    private int[] bcCaseValue;<a name="line.49"></a>
+<span class="sourceLineNo">050</span>    private int[] bcByte;<a name="line.50"></a>
+<span class="sourceLineNo">051</span>    private int[] bcLocal;<a name="line.51"></a>
+<span class="sourceLineNo">052</span>    private int[] bcShort;<a name="line.52"></a>
+<span class="sourceLineNo">053</span>    private int[] bcLabel;<a name="line.53"></a>
+<span class="sourceLineNo">054</span>    private int[] bcIntRef;<a name="line.54"></a>
+<span class="sourceLineNo">055</span>    private int[] bcFloatRef;<a name="line.55"></a>
+<span class="sourceLineNo">056</span>    private int[] bcLongRef;<a name="line.56"></a>
+<span class="sourceLineNo">057</span>    private int[] bcDoubleRef;<a name="line.57"></a>
+<span class="sourceLineNo">058</span>    private int[] bcStringRef;<a name="line.58"></a>
+<span class="sourceLineNo">059</span>    private int[] bcClassRef;<a name="line.59"></a>
+<span class="sourceLineNo">060</span>    private int[] bcFieldRef;<a name="line.60"></a>
+<span class="sourceLineNo">061</span>    private int[] bcMethodRef;<a name="line.61"></a>
+<span class="sourceLineNo">062</span>    private int[] bcIMethodRef;<a name="line.62"></a>
+<span class="sourceLineNo">063</span>    private int[] bcThisField;<a name="line.63"></a>
+<span class="sourceLineNo">064</span>    private int[] bcSuperField;<a name="line.64"></a>
+<span class="sourceLineNo">065</span>    private int[] bcThisMethod;<a name="line.65"></a>
+<span class="sourceLineNo">066</span>    private int[] bcSuperMethod;<a name="line.66"></a>
+<span class="sourceLineNo">067</span>    private int[] bcInitRef;<a name="line.67"></a>
+<span class="sourceLineNo">068</span>    private int[] bcEscRef;<a name="line.68"></a>
+<span class="sourceLineNo">069</span>    private int[] bcEscRefSize;<a name="line.69"></a>
+<span class="sourceLineNo">070</span>    private int[] bcEscSize;<a name="line.70"></a>
+<span class="sourceLineNo">071</span>    private int[][] bcEscByte;<a name="line.71"></a>
+<span class="sourceLineNo">072</span><a name="line.72"></a>
+<span class="sourceLineNo">073</span>    private List wideByteCodes;<a name="line.73"></a>
+<span class="sourceLineNo">074</span><a name="line.74"></a>
+<span class="sourceLineNo">075</span>    /**<a name="line.75"></a>
+<span class="sourceLineNo">076</span>     * @param segment TODO<a name="line.76"></a>
+<span class="sourceLineNo">077</span>     */<a name="line.77"></a>
+<span class="sourceLineNo">078</span>    public BcBands(final Segment segment) {<a name="line.78"></a>
+<span class="sourceLineNo">079</span>        super(segment);<a name="line.79"></a>
+<span class="sourceLineNo">080</span>    }<a name="line.80"></a>
+<span class="sourceLineNo">081</span><a name="line.81"></a>
+<span class="sourceLineNo">082</span>    /*<a name="line.82"></a>
+<span class="sourceLineNo">083</span>     * (non-Javadoc)<a name="line.83"></a>
+<span class="sourceLineNo">084</span>     *<a name="line.84"></a>
+<span class="sourceLineNo">085</span>     * @see org.apache.commons.compress.harmony.unpack200.BandSet#unpack(java.io.InputStream)<a name="line.85"></a>
+<span class="sourceLineNo">086</span>     */<a name="line.86"></a>
+<span class="sourceLineNo">087</span>    @Override<a name="line.87"></a>
+<span class="sourceLineNo">088</span>    public void read(final InputStream in) throws IOException, Pack200Exception {<a name="line.88"></a>
+<span class="sourceLineNo">089</span><a name="line.89"></a>
+<span class="sourceLineNo">090</span>        final AttributeLayoutMap attributeDefinitionMap = segment.getAttrDefinitionBands().getAttributeDefinitionMap();<a name="line.90"></a>
+<span class="sourceLineNo">091</span>        final int classCount = header.getClassCount();<a name="line.91"></a>
+<span class="sourceLineNo">092</span>        final long[][] methodFlags = segment.getClassBands().getMethodFlags();<a name="line.92"></a>
+<span class="sourceLineNo">093</span><a name="line.93"></a>
+<span class="sourceLineNo">094</span>        int bcCaseCountCount = 0;<a name="line.94"></a>
+<span class="sourceLineNo">095</span>        int bcByteCount = 0;<a name="line.95"></a>
+<span class="sourceLineNo">096</span>        int bcShortCount = 0;<a name="line.96"></a>
+<span class="sourceLineNo">097</span>        int bcLocalCount = 0;<a name="line.97"></a>
+<span class="sourceLineNo">098</span>        int bcLabelCount = 0;<a name="line.98"></a>
+<span class="sourceLineNo">099</span>        int bcIntRefCount = 0;<a name="line.99"></a>
+<span class="sourceLineNo">100</span>        int bcFloatRefCount = 0;<a name="line.100"></a>
+<span class="sourceLineNo">101</span>        int bcLongRefCount = 0;<a name="line.101"></a>
+<span class="sourceLineNo">102</span>        int bcDoubleRefCount = 0;<a name="line.102"></a>
+<span class="sourceLineNo">103</span>        int bcStringRefCount = 0;<a name="line.103"></a>
+<span class="sourceLineNo">104</span>        int bcClassRefCount = 0;<a name="line.104"></a>
+<span class="sourceLineNo">105</span>        int bcFieldRefCount = 0;<a name="line.105"></a>
+<span class="sourceLineNo">106</span>        int bcMethodRefCount = 0;<a name="line.106"></a>
+<span class="sourceLineNo">107</span>        int bcIMethodRefCount = 0;<a name="line.107"></a>
+<span class="sourceLineNo">108</span>        int bcThisFieldCount = 0;<a name="line.108"></a>
+<span class="sourceLineNo">109</span>        int bcSuperFieldCount = 0;<a name="line.109"></a>
+<span class="sourceLineNo">110</span>        int bcThisMethodCount = 0;<a name="line.110"></a>
+<span class="sourceLineNo">111</span>        int bcSuperMethodCount = 0;<a name="line.111"></a>
+<span class="sourceLineNo">112</span>        int bcInitRefCount = 0;<a name="line.112"></a>
+<span class="sourceLineNo">113</span>        int bcEscCount = 0;<a name="line.113"></a>
+<span class="sourceLineNo">114</span>        int bcEscRefCount = 0;<a name="line.114"></a>
+<span class="sourceLineNo">115</span><a name="line.115"></a>
+<span class="sourceLineNo">116</span>        final AttributeLayout abstractModifier = attributeDefinitionMap.getAttributeLayout(AttributeLayout.ACC_ABSTRACT,<a name="line.116"></a>
+<span class="sourceLineNo">117</span>            AttributeLayout.CONTEXT_METHOD);<a name="line.117"></a>
+<span class="sourceLineNo">118</span>        final AttributeLayout nativeModifier = attributeDefinitionMap.getAttributeLayout(AttributeLayout.ACC_NATIVE,<a name="line.118"></a>
+<span class="sourceLineNo">119</span>            AttributeLayout.CONTEXT_METHOD);<a name="line.119"></a>
+<span class="sourceLineNo">120</span><a name="line.120"></a>
+<span class="sourceLineNo">121</span>        methodByteCodePacked = new byte[classCount][][];<a name="line.121"></a>
+<span class="sourceLineNo">122</span>        int bcParsed = 0;<a name="line.122"></a>
+<span class="sourceLineNo">123</span><a name="line.123"></a>
+<span class="sourceLineNo">124</span>        final List switchIsTableSwitch = new ArrayList();<a name="line.124"></a>
+<span class="sourceLineNo">125</span>        wideByteCodes = new ArrayList();<a name="line.125"></a>
+<span class="sourceLineNo">126</span>        for (int c = 0; c &lt; classCount; c++) {<a name="line.126"></a>
+<span class="sourceLineNo">127</span>            final int numberOfMethods = methodFlags[c].length;<a name="line.127"></a>
+<span class="sourceLineNo">128</span>            methodByteCodePacked[c] = new byte[numberOfMethods][];<a name="line.128"></a>
+<span class="sourceLineNo">129</span>            for (int m = 0; m &lt; numberOfMethods; m++) {<a name="line.129"></a>
+<span class="sourceLineNo">130</span>                final long methodFlag = methodFlags[c][m];<a name="line.130"></a>
+<span class="sourceLineNo">131</span>                if (!abstractModifier.matches(methodFlag) &amp;&amp; !nativeModifier.matches(methodFlag)) {<a name="line.131"></a>
+<span class="sourceLineNo">132</span>                    final ByteArrayOutputStream codeBytes = new ByteArrayOutputStream();<a name="line.132"></a>
+<span class="sourceLineNo">133</span>                    byte code;<a name="line.133"></a>
+<span class="sourceLineNo">134</span>                    while ((code = (byte) (0xff &amp; in.read())) != -1) {<a name="line.134"></a>
+<span class="sourceLineNo">135</span>                        codeBytes.write(code);<a name="line.135"></a>
+<span class="sourceLineNo">136</span>                    }<a name="line.136"></a>
+<span class="sourceLineNo">137</span>                    methodByteCodePacked[c][m] = codeBytes.toByteArray();<a name="line.137"></a>
+<span class="sourceLineNo">138</span>                    bcParsed += methodByteCodePacked[c][m].length;<a name="line.138"></a>
+<span class="sourceLineNo">139</span>                    final int[] codes = new int[methodByteCodePacked[c][m].length];<a name="line.139"></a>
+<span class="sourceLineNo">140</span>                    for (int i = 0; i &lt; codes.length; i++) {<a name="line.140"></a>
+<span class="sourceLineNo">141</span>                        codes[i] = methodByteCodePacked[c][m][i] &amp; 0xff;<a name="line.141"></a>
+<span class="sourceLineNo">142</span>                    }<a name="line.142"></a>
+<span class="sourceLineNo">143</span>                    for (int i = 0; i &lt; methodByteCodePacked[c][m].length; i++) {<a name="line.143"></a>
+<span class="sourceLineNo">144</span>                        final int codePacked = 0xff &amp; methodByteCodePacked[c][m][i];<a name="line.144"></a>
+<span class="sourceLineNo">145</span>                        switch (codePacked) {<a name="line.145"></a>
+<span class="sourceLineNo">146</span>                        case 16: // bipush<a name="line.146"></a>
+<span class="sourceLineNo">147</span>                        case 188: // newarray<a name="line.147"></a>
+<span class="sourceLineNo">148</span>                            bcByteCount++;<a name="line.148"></a>
+<span class="sourceLineNo">149</span>                            break;<a name="line.149"></a>
+<span class="sourceLineNo">150</span>                        case 17: // sipush<a name="line.150"></a>
+<span class="sourceLineNo">151</span>                            bcShortCount++;<a name="line.151"></a>
+<span class="sourceLineNo">152</span>                            break;<a name="line.152"></a>
+<span class="sourceLineNo">153</span>                        case 18: // (a)ldc<a name="line.153"></a>
+<span class="sourceLineNo">154</span>                        case 19: // aldc_w<a name="line.154"></a>
+<span class="sourceLineNo">155</span>                            bcStringRefCount++;<a name="line.155"></a>
+<span class="sourceLineNo">156</span>                            break;<a name="line.156"></a>
+<span class="sourceLineNo">157</span>                        case 234: // ildc<a name="line.157"></a>
+<span class="sourceLineNo">158</span>                        case 237: // ildc_w<a name="line.158"></a>
+<span class="sourceLineNo">159</span>                            bcIntRefCount++;<a name="line.159"></a>
+<span class="sourceLineNo">160</span>                            break;<a name="line.160"></a>
+<span class="sourceLineNo">161</span>                        case 235: // fldc<a name="line.161"></a>
+<span class="sourceLineNo">162</span>                        case 238: // fldc_w<a name="line.162"></a>
+<span class="sourceLineNo">163</span>                            bcFloatRefCount++;<a name="line.163"></a>
+<span class="sourceLineNo">164</span>                            break;<a name="line.164"></a>
+<span class="sourceLineNo">165</span>                        case 197: // multianewarray<a name="line.165"></a>
+<span class="sourceLineNo">166</span>                            bcByteCount++;<a name="line.166"></a>
+<span class="sourceLineNo">167</span>                            // fallthrough intended<a name="line.167"></a>
+<span class="sourceLineNo">168</span>                        case 233: // cldc<a name="line.168"></a>
+<span class="sourceLineNo">169</span>                        case 236: // cldc_w<a name="line.169"></a>
+<span class="sourceLineNo">170</span>                        case 187: // new<a name="line.170"></a>
+<span class="sourceLineNo">171</span>                        case 189: // anewarray<a name="line.171"></a>
+<span class="sourceLineNo">172</span>                        case 192: // checkcast<a name="line.172"></a>
+<span class="sourceLineNo">173</span>                        case 193: // instanceof<a name="line.173"></a>
+<span class="sourceLineNo">174</span>                            bcClassRefCount++;<a name="line.174"></a>
+<span class="sourceLineNo">175</span>                            break;<a name="line.175"></a>
+<span class="sourceLineNo">176</span>                        case 20: // lldc2_w<a name="line.176"></a>
+<span class="sourceLineNo">177</span>                            bcLongRefCount++;<a name="line.177"></a>
+<span class="sourceLineNo">178</span>                            break;<a name="line.178"></a>
+<span class="sourceLineNo">179</span>                        case 239: // dldc2_w<a name="line.179"></a>
+<span class="sourceLineNo">180</span>                            bcDoubleRefCount++;<a name="line.180"></a>
+<span class="sourceLineNo">181</span>                            break;<a name="line.181"></a>
+<span class="sourceLineNo">182</span>                        case 169: // ret<a name="line.182"></a>
+<span class="sourceLineNo">183</span>                            bcLocalCount++;<a name="line.183"></a>
+<span class="sourceLineNo">184</span>                            break;<a name="line.184"></a>
+<span class="sourceLineNo">185</span>                        case 167: // goto<a name="line.185"></a>
+<span class="sourceLineNo">186</span>                        case 168: // jsr<a name="line.186"></a>
+<span class="sourceLineNo">187</span>                        case 200: // goto_w<a name="line.187"></a>
+<span class="sourceLineNo">188</span>                        case 201: // jsr_w<a name="line.188"></a>
+<span class="sourceLineNo">189</span>                            bcLabelCount++;<a name="line.189"></a>
+<span class="sourceLineNo">190</span>                            break;<a name="line.190"></a>
+<span class="sourceLineNo">191</span>                        case 170: // tableswitch<a name="line.191"></a>
+<span class="sourceLineNo">192</span>                            switchIsTableSwitch.add(Boolean.valueOf(true));<a name="line.192"></a>
+<span class="sourceLineNo">193</span>                            bcCaseCountCount++;<a name="line.193"></a>
+<span class="sourceLineNo">194</span>                            bcLabelCount++;<a name="line.194"></a>
+<span class="sourceLineNo">195</span>                            break;<a name="line.195"></a>
+<span class="sourceLineNo">196</span>                        case 171: // lookupswitch<a name="line.196"></a>
+<span class="sourceLineNo">197</span>                            switchIsTableSwitch.add(Boolean.valueOf(false));<a name="line.197"></a>
+<span class="sourceLineNo">198</span>                            bcCaseCountCount++;<a name="line.198"></a>
+<span class="sourceLineNo">199</span>                            bcLabelCount++;<a name="line.199"></a>
+<span class="sourceLineNo">200</span>                            break;<a name="line.200"></a>
+<span class="sourceLineNo">201</span>                        case 178: // getstatic<a name="line.201"></a>
+<span class="sourceLineNo">202</span>                        case 179: // putstatic<a name="line.202"></a>
+<span class="sourceLineNo">203</span>                        case 180: // getfield<a name="line.203"></a>
+<span class="sourceLineNo">204</span>                        case 181: // putfield<a name="line.204"></a>
+<span class="sourceLineNo">205</span>                            bcFieldRefCount++;<a name="line.205"></a>
+<span class="sourceLineNo">206</span>                            break;<a name="line.206"></a>
+<span class="sourceLineNo">207</span>                        case 182: // invokevirtual<a name="line.207"></a>
+<span class="sourceLineNo">208</span>                        case 183: // invokespecial<a name="line.208"></a>
+<span class="sourceLineNo">209</span>                        case 184: // invokestatic<a name="line.209"></a>
+<span class="sourceLineNo">210</span>                            bcMethodRefCount++;<a name="line.210"></a>
+<span class="sourceLineNo">211</span>                            break;<a name="line.211"></a>
+<span class="sourceLineNo">212</span>                        case 185: // invokeinterface<a name="line.212"></a>
+<span class="sourceLineNo">213</span>                            bcIMethodRefCount++;<a name="line.213"></a>
+<span class="sourceLineNo">214</span>                            break;<a name="line.214"></a>
+<span class="sourceLineNo">215</span>                        case 202: // getstatic_this<a name="line.215"></a>
+<span class="sourceLineNo">216</span>                        case 203: // putstatic_this<a name="line.216"></a>
+<span class="sourceLineNo">217</span>                        case 204: // getfield_this<a name="line.217"></a>
+<span class="sourceLineNo">218</span>                        case 205: // putfield_this<a name="line.218"></a>
+<span class="sourceLineNo">219</span>                        case 209: // aload_0_getstatic_this<a name="line.219"></a>
+<span class="sourceLineNo">220</span>                        case 210: // aload_0_putstatic_this<a name="line.220"></a>
+<span class="sourceLineNo">221</span>                        case 211: // aload_0_putfield_this<a name="line.221"></a>
+<span class="sourceLineNo">222</span>                        case 212: // aload_0_putfield_this<a name="line.222"></a>
+<span class="sourceLineNo">223</span>                            bcThisFieldCount++;<a name="line.223"></a>
+<span class="sourceLineNo">224</span>                            break;<a name="line.224"></a>
+<span class="sourceLineNo">225</span>                        case 206: // invokevirtual_this<a name="line.225"></a>
+<span class="sourceLineNo">226</span>                        case 207: // invokespecial_this<a name="line.226"></a>
+<span class="sourceLineNo">227</span>                        case 208: // invokestatic_this<a name="line.227"></a>
+<span class="sourceLineNo">228</span>                        case 213: // aload_0_invokevirtual_this<a name="line.228"></a>
+<span class="sourceLineNo">229</span>                        case 214: // aload_0_invokespecial_this<a name="line.229"></a>
+<span class="sourceLineNo">230</span>                        case 215: // aload_0_invokestatic_this<a name="line.230"></a>
+<span class="sourceLineNo">231</span>                            bcThisMethodCount++;<a name="line.231"></a>
+<span class="sourceLineNo">232</span>                            break;<a name="line.232"></a>
+<span class="sourceLineNo">233</span>                        case 216: // getstatic_super<a name="line.233"></a>
+<span class="sourceLineNo">234</span>                        case 217: // putstatic_super<a name="line.234"></a>
+<span class="sourceLineNo">235</span>                        case 218: // getfield_super<a name="line.235"></a>
+<span class="sourceLineNo">236</span>                        case 219: // putfield_super<a name="line.236"></a>
+<span class="sourceLineNo">237</span>                        case 223: // aload_0_getstatic_super<a name="line.237"></a>
+<span class="sourceLineNo">238</span>                        case 224: // aload_0_putstatic_super<a name="line.238"></a>
+<span class="sourceLineNo">239</span>                        case 225: // aload_0_getfield_super<a name="line.239"></a>
+<span class="sourceLineNo">240</span>                        case 226: // aload_0_putfield_super<a name="line.240"></a>
+<span class="sourceLineNo">241</span>                            bcSuperFieldCount++;<a name="line.241"></a>
+<span class="sourceLineNo">242</span>                            break;<a name="line.242"></a>
+<span class="sourceLineNo">243</span>                        case 220: // invokevirtual_super<a name="line.243"></a>
+<span class="sourceLineNo">244</span>                        case 221: // invokespecial_super<a name="line.244"></a>
+<span class="sourceLineNo">245</span>                        case 222: // invokestatic_super<a name="line.245"></a>
+<span class="sourceLineNo">246</span>                        case 227: // aload_0_invokevirtual_super<a name="line.246"></a>
+<span class="sourceLineNo">247</span>                        case 228: // aload_0_invokespecial_super<a name="line.247"></a>
+<span class="sourceLineNo">248</span>                        case 229: // aload_0_invokestatic_super<a name="line.248"></a>
+<span class="sourceLineNo">249</span>                            bcSuperMethodCount++;<a name="line.249"></a>
+<span class="sourceLineNo">250</span>                            break;<a name="line.250"></a>
+<span class="sourceLineNo">251</span>                        case 132: // iinc<a name="line.251"></a>
+<span class="sourceLineNo">252</span>                            bcLocalCount++;<a name="line.252"></a>
+<span class="sourceLineNo">253</span>                            bcByteCount++;<a name="line.253"></a>
+<span class="sourceLineNo">254</span>                            break;<a name="line.254"></a>
+<span class="sourceLineNo">255</span>                        case 196: // wide<a name="line.255"></a>
+<span class="sourceLineNo">256</span>                            final int nextInstruction = 0xff &amp; methodByteCodePacked[c][m][i + 1];<a name="line.256"></a>
+<span class="sourceLineNo">257</span>                            wideByteCodes.add(Integer.valueOf(nextInstruction));<a name="line.257"></a>
+<span class="sourceLineNo">258</span>                            if (nextInstruction == 132) { // iinc<a name="line.258"></a>
+<span class="sourceLineNo">259</span>                                bcLocalCount++;<a name="line.259"></a>
+<span class="sourceLineNo">260</span>                                bcShortCount++;<a name="line.260"></a>
+<span class="sourceLineNo">261</span>                            } else if (endsWithLoad(nextInstruction) || endsWithStore(nextInstruction)<a name="line.261"></a>
+<span class="sourceLineNo">262</span>                                || nextInstruction == 169) {<a name="line.262"></a>
+<span class="sourceLineNo">263</span>                                bcLocalCount++;<a name="line.263"></a>
+<span class="sourceLineNo">264</span>                            } else {<a name="line.264"></a>
+<span class="sourceLineNo">265</span>                                segment.log(Segment.LOG_LEVEL_VERBOSE,<a name="line.265"></a>
+<span class="sourceLineNo">266</span>                                    "Found unhandled " + ByteCode.getByteCode(nextInstruction));<a name="line.266"></a>
+<span class="sourceLineNo">267</span>                            }<a name="line.267"></a>
+<span class="sourceLineNo">268</span>                            i++;<a name="line.268"></a>
+<span class="sourceLineNo">269</span>                            break;<a name="line.269"></a>
+<span class="sourceLineNo">270</span>                        case 230: // invokespecial_this_init<a name="line.270"></a>
+<span class="sourceLineNo">271</span>                        case 231: // invokespecial_super_init<a name="line.271"></a>
+<span class="sourceLineNo">272</span>                        case 232: // invokespecial_new_init<a name="line.272"></a>
+<span class="sourceLineNo">273</span>                            bcInitRefCount++;<a name="line.273"></a>
+<span class="sourceLineNo">274</span>                            break;<a name="line.274"></a>
+<span class="sourceLineNo">275</span>                        case 253: // ref_escape<a name="line.275"></a>
+<span class="sourceLineNo">276</span>                            bcEscRefCount++;<a name="line.276"></a>
+<span class="sourceLineNo">277</span>                            break;<a name="line.277"></a>
+<span class="sourceLineNo">278</span>                        case 254: // byte_escape<a name="line.278"></a>
+<span class="sourceLineNo">279</span>                            bcEscCount++;<a name="line.279"></a>
+<span class="sourceLineNo">280</span>                            break;<a name="line.280"></a>
+<span class="sourceLineNo">281</span>                        default:<a name="line.281"></a>
+<span class="sourceLineNo">282</span>                            if (endsWithLoad(codePacked) || endsWithStore(codePacked)) {<a name="line.282"></a>
+<span class="sourceLineNo">283</span>                                bcLocalCount++;<a name="line.283"></a>
+<span class="sourceLineNo">284</span>                            } else if (startsWithIf(codePacked)) {<a name="line.284"></a>
+<span class="sourceLineNo">285</span>                                bcLabelCount++;<a name="line.285"></a>
+<span class="sourceLineNo">286</span>                            }<a name="line.286"></a>
+<span class="sourceLineNo">287</span>                        }<a name="line.287"></a>
+<span class="sourceLineNo">288</span>                    }<a name="line.288"></a>
+<span class="sourceLineNo">289</span>                }<a name="line.289"></a>
+<span class="sourceLineNo">290</span>            }<a name="line.290"></a>
+<span class="sourceLineNo">291</span>        }<a name="line.291"></a>
+<span class="sourceLineNo">292</span>        // other bytecode bands<a name="line.292"></a>
+<span class="sourceLineNo">293</span>        bcCaseCount = decodeBandInt("bc_case_count", in, Codec.UNSIGNED5, bcCaseCountCount);<a name="line.293"></a>
+<span class="sourceLineNo">294</span>        int bcCaseValueCount = 0;<a name="line.294"></a>
+<span class="sourceLineNo">295</span>        for (int i = 0; i &lt; bcCaseCount.length; i++) {<a name="line.295"></a>
+<span class="sourceLineNo">296</span>            final boolean isTableSwitch = ((Boolean) switchIsTableSwitch.get(i)).booleanValue();<a name="line.296"></a>
+<span class="sourceLineNo">297</span>            if (isTableSwitch) {<a name="line.297"></a>
+<span class="sourceLineNo">298</span>                bcCaseValueCount += 1;<a name="line.298"></a>
+<span class="sourceLineNo">299</span>            } else {<a name="line.299"></a>
+<span class="sourceLineNo">300</span>                bcCaseValueCount += bcCaseCount[i];<a name="line.300"></a>
+<span class="sourceLineNo">301</span>            }<a name="line.301"></a>
+<span class="sourceLineNo">302</span>        }<a name="line.302"></a>
+<span class="sourceLineNo">303</span>        bcCaseValue = decodeBandInt("bc_case_value", in, Codec.DELTA5, bcCaseValueCount);<a name="line.303"></a>
+<span class="sourceLineNo">304</span>        // Every case value needs a label. We weren't able to count these<a name="line.304"></a>
+<span class="sourceLineNo">305</span>        // above, because we didn't know how many cases there were.<a name="line.305"></a>
+<span class="sourceLineNo">306</span>        // Have to correct it now.<a name="line.306"></a>
+<span class="sourceLineNo">307</span>        for (int index = 0; index &lt; bcCaseCountCount; index++) {<a name="line.307"></a>
+<span class="sourceLineNo">308</span>            bcLabelCount += bcCaseCount[index];<a name="line.308"></a>
+<span class="sourceLineNo">309</span>        }<a name="line.309"></a>
+<span class="sourceLineNo">310</span>        bcByte = decodeBandInt("bc_byte", in, Codec.BYTE1, bcByteCount);<a name="line.310"></a>
+<span class="sourceLineNo">311</span>        bcShort = decodeBandInt("bc_short", in, Codec.DELTA5, bcShortCount);<a name="line.311"></a>
+<span class="sourceLineNo">312</span>        bcLocal = decodeBandInt("bc_local", in, Codec.UNSIGNED5, bcLocalCount);<a name="line.312"></a>
+<span class="sourceLineNo">313</span>        bcLabel = decodeBandInt("bc_label", in, Codec.BRANCH5, bcLabelCount);<a name="line.313"></a>
+<span class="sourceLineNo">314</span>        bcIntRef = decodeBandInt("bc_intref", in, Codec.DELTA5, bcIntRefCount);<a name="line.314"></a>
+<span class="sourceLineNo">315</span>        bcFloatRef = decodeBandInt("bc_floatref", in, Codec.DELTA5, bcFloatRefCount);<a name="line.315"></a>
+<span class="sourceLineNo">316</span>        bcLongRef = decodeBandInt("bc_longref", in, Codec.DELTA5, bcLongRefCount);<a name="line.316"></a>
+<span class="sourceLineNo">317</span>        bcDoubleRef = decodeBandInt("bc_doubleref", in, Codec.DELTA5, bcDoubleRefCount);<a name="line.317"></a>
+<span class="sourceLineNo">318</span>        bcStringRef = decodeBandInt("bc_stringref", in, Codec.DELTA5, bcStringRefCount);<a name="line.318"></a>
+<span class="sourceLineNo">319</span>        bcClassRef = decodeBandInt("bc_classref", in, Codec.UNSIGNED5, bcClassRefCount);<a name="line.319"></a>
+<span class="sourceLineNo">320</span>        bcFieldRef = decodeBandInt("bc_fieldref", in, Codec.DELTA5, bcFieldRefCount);<a name="line.320"></a>
+<span class="sourceLineNo">321</span>        bcMethodRef = decodeBandInt("bc_methodref", in, Codec.UNSIGNED5, bcMethodRefCount);<a name="line.321"></a>
+<span class="sourceLineNo">322</span>        bcIMethodRef = decodeBandInt("bc_imethodref", in, Codec.DELTA5, bcIMethodRefCount);<a name="line.322"></a>
+<span class="sourceLineNo">323</span>        bcThisField = decodeBandInt("bc_thisfield", in, Codec.UNSIGNED5, bcThisFieldCount);<a name="line.323"></a>
+<span class="sourceLineNo">324</span>        bcSuperField = decodeBandInt("bc_superfield", in, Codec.UNSIGNED5, bcSuperFieldCount);<a name="line.324"></a>
+<span class="sourceLineNo">325</span>        bcThisMethod = decodeBandInt("bc_thismethod", in, Codec.UNSIGNED5, bcThisMethodCount);<a name="line.325"></a>
+<span class="sourceLineNo">326</span>        bcSuperMethod = decodeBandInt("bc_supermethod", in, Codec.UNSIGNED5, bcSuperMethodCount);<a name="line.326"></a>
+<span class="sourceLineNo">327</span>        bcInitRef = decodeBandInt("bc_initref", in, Codec.UNSIGNED5, bcInitRefCount);<a name="line.327"></a>
+<span class="sourceLineNo">328</span>        bcEscRef = decodeBandInt("bc_escref", in, Codec.UNSIGNED5, bcEscRefCount);<a name="line.328"></a>
+<span class="sourceLineNo">329</span>        bcEscRefSize = decodeBandInt("bc_escrefsize", in, Codec.UNSIGNED5, bcEscRefCount);<a name="line.329"></a>
+<span class="sourceLineNo">330</span>        bcEscSize = decodeBandInt("bc_escsize", in, Codec.UNSIGNED5, bcEscCount);<a name="line.330"></a>
+<span class="sourceLineNo">331</span>        bcEscByte = decodeBandInt("bc_escbyte", in, Codec.BYTE1, bcEscSize);<a name="line.331"></a>
+<span class="sourceLineNo">332</span>    }<a name="line.332"></a>
+<span class="sourceLineNo">333</span><a name="line.333"></a>
+<span class="sourceLineNo">334</span>    @Override<a name="line.334"></a>
+<span class="sourceLineNo">335</span>    public void unpack() throws Pack200Exception {<a name="line.335"></a>
+<span class="sourceLineNo">336</span>        final int classCount = header.getClassCount();<a name="line.336"></a>
+<span class="sourceLineNo">337</span>        final long[][] methodFlags = segment.getClassBands().getMethodFlags();<a name="line.337"></a>
+<span class="sourceLineNo">338</span>        final int[] codeMaxNALocals = segment.getClassBands().getCodeMaxNALocals();<a name="line.338"></a>
+<span class="sourceLineNo">339</span>        final int[] codeMaxStack = segment.getClassBands().getCodeMaxStack();<a name="line.339"></a>
+<span class="sourceLineNo">340</span>        final ArrayList[][] methodAttributes = segment.getClassBands().getMethodAttributes();<a name="line.340"></a>
+<span class="sourceLineNo">341</span>        final String[][] methodDescr = segment.getClassBands().getMethodDescr();<a name="line.341"></a>
+<span class="sourceLineNo">342</span><a name="line.342"></a>
+<span class="sourceLineNo">343</span>        final AttributeLayoutMap attributeDefinitionMap = segment.getAttrDefinitionBands().getAttributeDefinitionMap();<a name="line.343"></a>
+<span class="sourceLineNo">344</span><a name="line.344"></a>
+<span class="sourceLineNo">345</span>        final AttributeLayout abstractModifier = attributeDefinitionMap.getAttributeLayout(AttributeLayout.ACC_ABSTRACT,<a name="line.345"></a>
+<span class="sourceLineNo">346</span>            AttributeLayout.CONTEXT_METHOD);<a name="line.346"></a>
+<span class="sourceLineNo">347</span>        final AttributeLayout nativeModifier = attributeDefinitionMap.getAttributeLayout(AttributeLayout.ACC_NATIVE,<a name="line.347"></a>
+<span class="sourceLineNo">348</span>            AttributeLayout.CONTEXT_METHOD);<a name="line.348"></a>
+<span class="sourceLineNo">349</span>        final AttributeLayout staticModifier = attributeDefinitionMap.getAttributeLayout(AttributeLayout.ACC_STATIC,<a name="line.349"></a>
+<span class="sourceLineNo">350</span>            AttributeLayout.CONTEXT_METHOD);<a name="line.350"></a>
+<span class="sourceLineNo">351</span><a name="line.351"></a>
+<span class="sourceLineNo">352</span>        final int[] wideByteCodeArray = new int[wideByteCodes.size()];<a name="line.352"></a>
+<span class="sourceLineNo">353</span>        for (int index = 0; index &lt; wideByteCodeArray.length; index++) {<a name="line.353"></a>
+<span class="sourceLineNo">354</span>            wideByteCodeArray[index] = ((Integer) wideByteCodes.get(index)).intValue();<a name="line.354"></a>
+<span class="sourceLineNo">355</span>        }<a name="line.355"></a>
+<span class="sourceLineNo">356</span>        final OperandManager operandManager = new OperandManager(bcCaseCount, bcCaseValue, bcByte, bcShort, bcLocal,<a name="line.356"></a>
+<span class="sourceLineNo">357</span>            bcLabel, bcIntRef, bcFloatRef, bcLongRef, bcDoubleRef, bcStringRef, bcClassRef, bcFieldRef, bcMethodRef,<a name="line.357"></a>
+<span class="sourceLineNo">358</span>            bcIMethodRef, bcThisField, bcSuperField, bcThisMethod, bcSuperMethod, bcInitRef, wideByteCodeArray);<a name="line.358"></a>
+<span class="sourceLineNo">359</span>        operandManager.setSegment(segment);<a name="line.359"></a>
+<span class="sourceLineNo">360</span><a name="line.360"></a>
+<span class="sourceLineNo">361</span>        int i = 0;<a name="line.361"></a>
+<span class="sourceLineNo">362</span>        final ArrayList orderedCodeAttributes = segment.getClassBands().getOrderedCodeAttributes();<a name="line.362"></a>
+<span class="sourceLineNo">363</span>        int codeAttributeIndex = 0;<a name="line.363"></a>
+<span class="sourceLineNo">364</span><a name="line.364"></a>
+<span class="sourceLineNo">365</span>        // Exception table fields<a name="line.365"></a>
+<span class="sourceLineNo">366</span>        final int[] handlerCount = segment.getClassBands().getCodeHandlerCount();<a name="line.366"></a>
+<span class="sourceLineNo">367</span>        final int[][] handlerStartPCs = segment.getClassBands().getCodeHandlerStartP();<a name="line.367"></a>
+<span class="sourceLineNo">368</span>        final int[][] handlerEndPCs = segment.getClassBands().getCodeHandlerEndPO();<a name="line.368"></a>
+<span class="sourceLineNo">369</span>        final int[][] handlerCatchPCs = segment.getClassBands().getCodeHandlerCatchPO();<a name="line.369"></a>
+<span class="sourceLineNo">370</span>        final int[][] handlerClassTypes = segment.getClassBands().getCodeHandlerClassRCN();<a name="line.370"></a>
+<span class="sourceLineNo">371</span><a name="line.371"></a>
+<span class="sourceLineNo">372</span>        final boolean allCodeHasFlags = segment.getSegmentHeader().getOptions().hasAllCodeFlags();<a name="line.372"></a>
+<span class="sourceLineNo">373</span>        final boolean[] codeHasFlags = segment.getClassBands().getCodeHasAttributes();<a name="line.373"></a>
+<span class="sourceLineNo">374</span><a name="line.374"></a>
+<span class="sourceLineNo">375</span>        for (int c = 0; c &lt; classCount; c++) {<a name="line.375"></a>
+<span class="sourceLineNo">376</span>            final int numberOfMethods = methodFlags[c].length;<a name="line.376"></a>
+<span class="sourceLineNo">377</span>            for (int m = 0; m &lt; numberOfMethods; m++) {<a name="line.377"></a>
+<span class="sourceLineNo">378</span>                final long methodFlag = methodFlags[c][m];<a name="line.378"></a>
+<span class="sourceLineNo">379</span>                if (!abstractModifier.matches(methodFlag) &amp;&amp; !nativeModifier.matches(methodFlag)) {<a name="line.379"></a>
+<span class="sourceLineNo">380</span>                    final int maxStack = codeMaxStack[i];<a name="line.380"></a>
+<span class="sourceLineNo">381</span>                    int maxLocal = codeMaxNALocals[i];<a name="line.381"></a>
+<span class="sourceLineNo">382</span>                    if (!staticModifier.matches(methodFlag)) {<a name="line.382"></a>
+<span class="sourceLineNo">383</span>                        maxLocal++; // one for 'this' parameter<a name="line.383"></a>
+<span class="sourceLineNo">384</span>                    }<a name="line.384"></a>
+<span class="sourceLineNo">385</span>                    // I believe this has to take wide arguments into account<a name="line.385"></a>
+<span class="sourceLineNo">386</span>                    maxLocal += SegmentUtils.countInvokeInterfaceArgs(methodDescr[c][m]);<a name="line.386"></a>
+<span class="sourceLineNo">387</span>                    final String[] cpClass = segment.getCpBands().getCpClass();<a name="line.387"></a>
+<span class="sourceLineNo">388</span>                    operandManager.setCurrentClass(cpClass[segment.getClassBands().getClassThisInts()[c]]);<a name="line.388"></a>
+<span class="sourceLineNo">389</span>                    operandManager.setSuperClass(cpClass[segment.getClassBands().getClassSuperInts()[c]]);<a name="line.389"></a>
+<span class="sourceLineNo">390</span>                    final List exceptionTable = new ArrayList();<a name="line.390"></a>
+<span class="sourceLineNo">391</span>                    if (handlerCount != null) {<a name="line.391"></a>
+<span class="sourceLineNo">392</span>                        for (int j = 0; j &lt; handlerCount[i]; j++) {<a name="line.392"></a>
+<span class="sourceLineNo">393</span>                            final int handlerClass = handlerClassTypes[i][j] - 1;<a name="line.393"></a>
+<span class="sourceLineNo">394</span>                            CPClass cpHandlerClass = null;<a name="line.394"></a>
+<span class="sourceLineNo">395</span>                            if (handlerClass != -1) {<a name="line.395"></a>
+<span class="sourceLineNo">396</span>                                // The handlerClass will be null if the<a name="line.396"></a>
+<span class="sourceLineNo">397</span>                                // catch is a finally (that is, the<a name="line.397"></a>
+<span class="sourceLineNo">398</span>                                // exception table catch_type should be 0<a name="line.398"></a>
+<span class="sourceLineNo">399</span>                                cpHandlerClass = segment.getCpBands().cpClassValue(handlerClass);<a name="line.399"></a>
+<span class="sourceLineNo">400</span>                            }<a name="line.400"></a>
+<span class="sourceLineNo">401</span>                            final ExceptionTableEntry entry = new ExceptionTableEntry(handlerStartPCs[i][j],<a name="line.401"></a>
+<span class="sourceLineNo">402</span>                                handlerEndPCs[i][j], handlerCatchPCs[i][j], cpHandlerClass);<a name="line.402"></a>
+<span class="sourceLineNo">403</span>                            exceptionTable.add(entry);<a name="line.403"></a>
+<span class="sourceLineNo">404</span>                        }<a name="line.404"></a>
+<span class="sourceLineNo">405</span>                    }<a name="line.405"></a>
+<span class="sourceLineNo">406</span>                    final CodeAttribute codeAttr = new CodeAttribute(maxStack, maxLocal, methodByteCodePacked[c][m],<a name="line.406"></a>
+<span class="sourceLineNo">407</span>                        segment, operandManager, exceptionTable);<a name="line.407"></a>
+<span class="sourceLineNo">408</span>                    final ArrayList methodAttributesList = methodAttributes[c][m];<a name="line.408"></a>
+<span class="sourceLineNo">409</span>                    // Make sure we add the code attribute in the right place<a name="line.409"></a>
+<span class="sourceLineNo">410</span>                    int indexForCodeAttr = 0;<a name="line.410"></a>
+<span class="sourceLineNo">411</span>                    for (int index = 0; index &lt; methodAttributesList.size(); index++) {<a name="line.411"></a>
+<span class="sourceLineNo">412</span>                        final Attribute attribute = (Attribute) methodAttributesList.get(index);<a name="line.412"></a>
+<span class="sourceLineNo">413</span>                        if (!(attribute instanceof NewAttribute)<a name="line.413"></a>
+<span class="sourceLineNo">414</span>                            || (((NewAttribute) attribute).getLayoutIndex() &gt;= 15)) {<a name="line.414"></a>
+<span class="sourceLineNo">415</span>                            break;<a name="line.415"></a>
+<span class="sourceLineNo">416</span>                        }<a name="line.416"></a>
+<span class="sourceLineNo">417</span>                        indexForCodeAttr++;<a name="line.417"></a>
+<span class="sourceLineNo">418</span>                    }<a name="line.418"></a>
+<span class="sourceLineNo">419</span>                    methodAttributesList.add(indexForCodeAttr, codeAttr);<a name="line.419"></a>
+<span class="sourceLineNo">420</span>                    codeAttr.renumber(codeAttr.byteCodeOffsets);<a name="line.420"></a>
+<span class="sourceLineNo">421</span>                    List currentAttributes;<a name="line.421"></a>
+<span class="sourceLineNo">422</span>                    if (allCodeHasFlags) {<a name="line.422"></a>
+<span class="sourceLineNo">423</span>                        currentAttributes = (List) orderedCodeAttributes.get(i);<a name="line.423"></a>
+<span class="sourceLineNo">424</span>                    } else if (codeHasFlags[i]) {<a name="line.424"></a>
+<span class="sourceLineNo">425</span>                        currentAttributes = (List) orderedCodeAttributes.get(codeAttributeIndex);<a name="line.425"></a>
+<span class="sourceLineNo">426</span>                        codeAttributeIndex++;<a name="line.426"></a>
+<span class="sourceLineNo">427</span>                    } else {<a name="line.427"></a>
+<span class="sourceLineNo">428</span>                        currentAttributes = Collections.EMPTY_LIST;<a name="line.428"></a>
+<span class="sourceLineNo">429</span>                    }<a name="line.429"></a>
+<span class="sourceLineNo">430</span>                    for (int index = 0; index &lt; currentAttributes.size(); index++) {<a name="line.430"></a>
+<span class="sourceLineNo">431</span>                        final Attribute currentAttribute = (Attribute) currentAttributes.get(index);<a name="line.431"></a>
+<span class="sourceLineNo">432</span>                        codeAttr.addAttribute(currentAttribute);<a name="line.432"></a>
+<span class="sourceLineNo">433</span>                        // Fix up the line numbers if needed<a name="line.433"></a>
+<span class="sourceLineNo">434</span>                        if (currentAttribute.hasBCIRenumbering()) {<a name="line.434"></a>
+<span class="sourceLineNo">435</span>                            ((BCIRenumberedAttribute) currentAttribute).renumber(codeAttr.byteCodeOffsets);<a name="line.435"></a>
+<span class="sourceLineNo">436</span>                        }<a name="line.436"></a>
+<span class="sourceLineNo">437</span>                    }<a name="line.437"></a>
+<span class="sourceLineNo">438</span>                    i++;<a name="line.438"></a>
+<span class="sourceLineNo">439</span>                }<a name="line.439"></a>
+<span class="sourceLineNo">440</span>            }<a name="line.440"></a>
+<span class="sourceLineNo">441</span>        }<a name="line.441"></a>
+<span class="sourceLineNo">442</span>    }<a name="line.442"></a>
+<span class="sourceLineNo">443</span><a name="line.443"></a>
+<span class="sourceLineNo">444</span>    private boolean startsWithIf(final int codePacked) {<a name="line.444"></a>
+<span class="sourceLineNo">445</span>        return (codePacked &gt;= 153 &amp;&amp; codePacked &lt;= 166) || (codePacked == 198) || (codePacked == 199);<a name="line.445"></a>
+<span class="sourceLineNo">446</span>    }<a name="line.446"></a>
+<span class="sourceLineNo">447</span><a name="line.447"></a>
+<span class="sourceLineNo">448</span>    private boolean endsWithLoad(final int codePacked) {<a name="line.448"></a>
+<span class="sourceLineNo">449</span>        return (codePacked &gt;= 21 &amp;&amp; codePacked &lt;= 25);<a name="line.449"></a>
+<span class="sourceLineNo">450</span>    }<a name="line.450"></a>
+<span class="sourceLineNo">451</span><a name="line.451"></a>
+<span class="sourceLineNo">452</span>    private boolean endsWithStore(final int codePacked) {<a name="line.452"></a>
+<span class="sourceLineNo">453</span>        return (codePacked &gt;= 54 &amp;&amp; codePacked &lt;= 58);<a name="line.453"></a>
+<span class="sourceLineNo">454</span>    }<a name="line.454"></a>
+<span class="sourceLineNo">455</span><a name="line.455"></a>
+<span class="sourceLineNo">456</span>    public byte[][][] getMethodByteCodePacked() {<a name="line.456"></a>
+<span class="sourceLineNo">457</span>        return methodByteCodePacked;<a name="line.457"></a>
+<span class="sourceLineNo">458</span>    }<a name="line.458"></a>
+<span class="sourceLineNo">459</span><a name="line.459"></a>
+<span class="sourceLineNo">460</span>    public int[] getBcCaseCount() {<a name="line.460"></a>
+<span class="sourceLineNo">461</span>        return bcCaseCount;<a name="line.461"></a>
+<span class="sourceLineNo">462</span>    }<a name="line.462"></a>
+<span class="sourceLineNo">463</span><a name="line.463"></a>
+<span class="sourceLineNo">464</span>    public int[] getBcCaseValue() {<a name="line.464"></a>
+<span class="sourceLineNo">465</span>        return bcCaseValue;<a name="line.465"></a>
+<span class="sourceLineNo">466</span>    }<a name="line.466"></a>
+<span class="sourceLineNo">467</span><a name="line.467"></a>
+<span class="sourceLineNo">468</span>    public int[] getBcByte() {<a name="line.468"></a>
+<span class="sourceLineNo">469</span>        return bcByte;<a name="line.469"></a>
+<span class="sourceLineNo">470</span>    }<a name="line.470"></a>
+<span class="sourceLineNo">471</span><a name="line.471"></a>
+<span class="sourceLineNo">472</span>    public int[] getBcClassRef() {<a name="line.472"></a>
+<span class="sourceLineNo">473</span>        return bcClassRef;<a name="line.473"></a>
+<span class="sourceLineNo">474</span>    }<a name="line.474"></a>
+<span class="sourceLineNo">475</span><a name="line.475"></a>
+<span class="sourceLineNo">476</span>    public int[] getBcDoubleRef() {<a name="line.476"></a>
+<span class="sourceLineNo">477</span>        return bcDoubleRef;<a name="line.477"></a>
+<span class="sourceLineNo">478</span>    }<a name="line.478"></a>
+<span class="sourceLineNo">479</span><a name="line.479"></a>
+<span class="sourceLineNo">480</span>    public int[] getBcFieldRef() {<a name="line.480"></a>
+<span class="sourceLineNo">481</span>        return bcFieldRef;<a name="line.481"></a>
+<span class="sourceLineNo">482</span>    }<a name="line.482"></a>
+<span class="sourceLineNo">483</span><a name="line.483"></a>
+<span class="sourceLineNo">484</span>    public int[] getBcFloatRef() {<a name="line.484"></a>
+<span class="sourceLineNo">485</span>        return bcFloatRef;<a name="line.485"></a>
+<span class="sourceLineNo">486</span>    }<a name="line.486"></a>
+<span class="sourceLineNo">487</span><a name="line.487"></a>
+<span class="sourceLineNo">488</span>    public int[] getBcIMethodRef() {<a name="line.488"></a>
+<span class="sourceLineNo">489</span>        return bcIMethodRef;<a name="line.489"></a>
+<span class="sourceLineNo">490</span>    }<a name="line.490"></a>
+<span class="sourceLineNo">491</span><a name="line.491"></a>
+<span class="sourceLineNo">492</span>    public int[] getBcInitRef() {<a name="line.492"></a>
+<span class="sourceLineNo">493</span>        return bcInitRef;<a name="line.493"></a>
+<span class="sourceLineNo">494</span>    }<a name="line.494"></a>
+<span class="sourceLineNo">495</span><a name="line.495"></a>
+<span class="sourceLineNo">496</span>    public int[] getBcIntRef() {<a name="line.496"></a>
+<span class="sourceLineNo">497</span>        return bcIntRef;<a name="line.497"></a>
+<span class="sourceLineNo">498</span>    }<a name="line.498"></a>
+<span class="sourceLineNo">499</span><a name="line.499"></a>
+<span class="sourceLineNo">500</span>    public int[] getBcLabel() {<a name="line.500"></a>
+<span class="sourceLineNo">501</span>        return bcLabel;<a name="line.501"></a>
+<span class="sourceLineNo">502</span>    }<a name="line.502"></a>
+<span class="sourceLineNo">503</span><a name="line.503"></a>
+<span class="sourceLineNo">504</span>    public int[] getBcLocal() {<a name="line.504"></a>
+<span class="sourceLineNo">505</span>        return bcLocal;<a name="line.505"></a>
+<span class="sourceLineNo">506</span>    }<a name="line.506"></a>
+<span class="sourceLineNo">507</span><a name="line.507"></a>
+<span class="sourceLineNo">508</span>    public int[] getBcLongRef() {<a name="line.508"></a>
+<span class="sourceLineNo">509</span>        return bcLongRef;<a name="line.509"></a>
+<span class="sourceLineNo">510</span>    }<a name="line.510"></a>
+<span class="sourceLineNo">511</span><a name="line.511"></a>
+<span class="sourceLineNo">512</span>    public int[] getBcMethodRef() {<a name="line.512"></a>
+<span class="sourceLineNo">513</span>        return bcMethodRef;<a name="line.513"></a>
+<span class="sourceLineNo">514</span>    }<a name="line.514"></a>
+<span class="sourceLineNo">515</span><a name="line.515"></a>
+<span class="sourceLineNo">516</span>    public int[] getBcShort() {<a name="line.516"></a>
+<span class="sourceLineNo">517</span>        return bcShort;<a name="line.517"></a>
+<span class="sourceLineNo">518</span>    }<a name="line.518"></a>
+<span class="sourceLineNo">519</span><a name="line.519"></a>
+<span class="sourceLineNo">520</span>    public int[] getBcStringRef() {<a name="line.520"></a>
+<span class="sourceLineNo">521</span>        return bcStringRef;<a name="line.521"></a>
+<span class="sourceLineNo">522</span>    }<a name="line.522"></a>
+<span class="sourceLineNo">523</span><a name="line.523"></a>
+<span class="sourceLineNo">524</span>    public int[] getBcSuperField() {<a name="line.524"></a>
+<span class="sourceLineNo">525</span>        return bcSuperField;<a name="line.525"></a>
+<span class="sourceLineNo">526</span>    }<a name="line.526"></a>
+<span class="sourceLineNo">527</span><a name="line.527"></a>
+<span class="sourceLineNo">528</span>    public int[] getBcSuperMethod() {<a name="line.528"></a>
+<span class="sourceLineNo">529</span>        return bcSuperMethod;<a name="line.529"></a>
+<span class="sourceLineNo">530</span>    }<a name="line.530"></a>
+<span class="sourceLineNo">531</span><a name="line.531"></a>
+<span class="sourceLineNo">532</span>    public int[] getBcThisField() {<a name="line.532"></a>
+<span class="sourceLineNo">533</span>        return bcThisField;<a name="line.533"></a>
+<span class="sourceLineNo">534</span>    }<a name="line.534"></a>
+<span class="sourceLineNo">535</span><a name="line.535"></a>
+<span class="sourceLineNo">536</span>    public int[] getBcThisMethod() {<a name="line.536"></a>
+<span class="sourceLineNo">537</span>        return bcThisMethod;<a name="line.537"></a>
+<span class="sourceLineNo">538</span>    }<a name="line.538"></a>
+<span class="sourceLineNo">539</span>}<a name="line.539"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

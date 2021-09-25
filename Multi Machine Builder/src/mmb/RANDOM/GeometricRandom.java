@@ -39,7 +39,7 @@ public class GeometricRandom {
 		int higher = i1 ^ i4 ^ i6;
 		long result = 0x100000000L * higher;
 		result += lower;
-		return result;
+		return result*3L;
 	}
 
 }

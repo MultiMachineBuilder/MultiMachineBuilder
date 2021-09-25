@@ -26,12 +26,13 @@ import mmb.WORLD.blocks.gates.UniformRandom;
 import mmb.WORLD.blocks.gates.XORGate;
 import mmb.WORLD.blocks.gates.YESGate;
 import mmb.WORLD.blocks.machine.Collector;
-import mmb.WORLD.blocks.machine.Crafting;
 import mmb.WORLD.blocks.machine.CycleAssembler;
 import mmb.WORLD.blocks.machine.Furnace;
 import mmb.WORLD.blocks.machine.FurnacePlus;
 import mmb.WORLD.blocks.machine.Nuker;
 import mmb.WORLD.blocks.machine.PlaceIncomingItems;
+import mmb.WORLD.blocks.machine.manual.Crafting;
+import mmb.WORLD.blocks.machine.manual.PickaxeWorkbench;
 import mmb.WORLD.blocks.pipe.ItemTransporter;
 import mmb.WORLD.electric.Conduit;
 import mmb.WORLD.electric.ElecRenderer;
@@ -112,6 +113,10 @@ public class ContentsBlocks {
 			.texture("block/uranium ore.png")
 			.title("Uranium ore")
 			.finish("mmb.uraniumore");
+	@Nonnull public static final Block coal_ore = new Block()
+			.texture("block/coal ore.png")
+			.title("Coal ore")
+			.finish("ore.coal");
 	@Nonnull public static final Block crafting = new Block()
 			.texture("crafting.png")
 			.title("Assembly Table")
@@ -192,7 +197,7 @@ public class ContentsBlocks {
 			.title("Always True")
 			.texture("logic/true.png")
 			.finish("wireworld.true");
-	/** Generates a random signal for every neighbour */
+	/** Generates a random signal for every neighbor */
 	@Nonnull public static final Block RANDOM = new Randomizer()
 			.texture("logic/random.png")
 			.title("Random")
@@ -282,7 +287,22 @@ public class ContentsBlocks {
 			.factory(Collector::new)
 			.texture("machine/vacuum.png")
 			.finish("industry.collector");
-	@Nonnull public static final BlockEntityType AGRO_COPPPER = crop(250, copper_ore, "Copper crop", BlockDrawer.ofImage(Textures.get("block/copper crop.png")), "crop.copper");
+	@Nonnull public static final BlockEntityType AGRO_COPPPER =
+			crop(1500, copper_ore, "Copper crop", BlockDrawer.ofImage(Textures.get("block/copper crop.png")), "crop.copper");
+	@Nonnull public static final BlockEntityType AGRO_IRON =
+			crop(1500, iron_ore, "Iron crop", BlockDrawer.ofImage(Textures.get("block/iron crop.png")), "crop.iron");
+	@Nonnull public static final BlockEntityType AGRO_SILICON =
+			crop(1500, silicon_ore, "Silicon crop", BlockDrawer.ofImage(Textures.get("block/silicon crop.png")), "crop.silicon");
+	@Nonnull public static final BlockEntityType AGRO_GOLD =
+			crop(1500, gold_ore, "Gold crop", BlockDrawer.ofImage(Textures.get("block/gold crop.png")), "crop.gold");
+	@Nonnull public static final BlockEntityType AGRO_COAL =
+			crop(1500, coal_ore, "Coal crop", BlockDrawer.ofImage(Textures.get("block/coal crop.png")), "crop.coal");
+	@Nonnull public static final BlockEntityType AGRO_TREE =
+			crop(1500, logs, "Tree", BlockDrawer.ofImage(Textures.get("block/tree.png")), "crop.tree");
+	@Nonnull public static final Block PICKBUILDER = new PickaxeWorkbench()
+			.texture("machine/pickaxe workbench.png")
+			.title("Pickaxe workbench")
+			.finish("machines.pickbuilder");
 	static {
 		//REQUIRES SPECIAL INIT - SELF-REFERNECE
 		debug.printl("Creating blocks");
@@ -299,7 +319,7 @@ public class ContentsBlocks {
 		.title("Grass")
 		.describe("A default block in the world")
 		.finish("mmb.grass");
-		air.setSurface(true);
+		grass.setSurface(true);
 		//NO LONGER REQUIRES SPECIAL INIT		
 		Crafting.init();
 	}

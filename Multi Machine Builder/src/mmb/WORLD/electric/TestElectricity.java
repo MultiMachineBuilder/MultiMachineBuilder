@@ -3,8 +3,8 @@
  */
 package mmb.WORLD.electric;
 
-import mmb.WORLD.Side;
 import mmb.WORLD.block.Block;
+import mmb.WORLD.rotate.Side;
 import mmb.debug.Debugger;
 
 /**

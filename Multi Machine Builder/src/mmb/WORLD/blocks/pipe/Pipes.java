@@ -3,9 +3,11 @@
  */
 package mmb.WORLD.blocks.pipe;
 
-import mmb.WORLD.RotatedImageGroup;
-import mmb.WORLD.Side;
+import javax.annotation.Nonnull;
+
 import mmb.WORLD.block.BlockEntityType;
+import mmb.WORLD.rotate.RotatedImageGroup;
+import mmb.WORLD.rotate.Side;
 
 /**
  * @author oskar
@@ -15,23 +17,23 @@ public class Pipes {
 	/**
 	 * Represets a straight pipe
 	 */
-	public static final BlockEntityType STRAIGHT;
+	@Nonnull public static final BlockEntityType STRAIGHT;
 	/**
 	 * Represents an elbow pipe
 	 */
-	public static final BlockEntityType ELBOW;
+	@Nonnull public static final BlockEntityType ELBOW;
 	/**
 	 * An Intersecting Pipe Extractor has a perpendicular straight pipe
 	 */
-	public static final BlockEntityType IPE;
+	@Nonnull public static final BlockEntityType IPE;
 	
-	public static final BlockEntityType TOLEFT;
+	@Nonnull public static final BlockEntityType TOLEFT;
 	
-	public static final BlockEntityType TORIGHT;
+	@Nonnull public static final BlockEntityType TORIGHT;
 	
-	public static final BlockEntityType CROSS;
+	@Nonnull public static final BlockEntityType CROSS;
 	
-	public static final BlockEntityType DUALTURN;
+	@Nonnull public static final BlockEntityType DUALTURN;
 	
 	static {
 		STRAIGHT = new BlockEntityType();

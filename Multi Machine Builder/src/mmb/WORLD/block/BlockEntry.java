@@ -11,12 +11,16 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.GameObject;
 import mmb.BEANS.Saver;
-import mmb.WORLD.Side;
 import mmb.WORLD.electric.Electricity;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.NoSuchInventory;
 import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
+import mmb.WORLD.rotate.Chiral;
+import mmb.WORLD.rotate.Chirality;
+import mmb.WORLD.rotate.Rotable;
+import mmb.WORLD.rotate.Rotation;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.worlds.world.World;
 
@@ -25,7 +29,7 @@ import mmb.WORLD.worlds.world.World;
  * The following methods can be overridden:
  * provideSignal - 
  */
-public interface BlockEntry extends Saver<JsonNode> {
+public interface BlockEntry extends Saver<JsonNode>, Rotable, Chiral {
 	public boolean isBlockEntity();
 	@Nonnull public BlockEntity asBlockEntity();
 	public BlockEntity nasBlockEntity();
@@ -56,12 +60,7 @@ public interface BlockEntry extends Saver<JsonNode> {
 		return getInventory(s).createWriter();
 	}
 	
-	public default void wrenchCW() {
-		//to be implemented by sublasses
-	}
-	public default void wrenchCCW() {
-		//to be implemented by sublasses
-	}
+	
 	
 	/**
 	 * @param x left X coordinate
@@ -133,4 +132,66 @@ public interface BlockEntry extends Saver<JsonNode> {
 	 * @throws IllegalStateException if given map/position combination is not surface
 	 */
 	public void resetMap(@Nullable World map, int x, int y); //should only be called by World
+	
+	//Rotations - rotary
+	/**
+	 * Checks if given block supports rotations
+	 * @return is given block rotable?
+	 */
+	public default boolean isRotary() {
+		return false;
+	}
+	@Override
+	default void setRotation(Rotation rotation) {
+		//does nothing
+	}
+	@Override
+	@Nonnull default Rotation getRotation() {
+		return Rotation.N;
+	}
+	/** Rotates the block clockwise */
+	public default void wrenchCW() {
+		setRotation(getRotation().cw());
+	}
+	/** Rotates the block counter-clockwise */
+	public default void wrenchCCW() {
+		setRotation(getRotation().cw());
+	}
+	/**
+	 * Wrenches the block in chirality's "right" direction
+	 * @param chiral chirality to use
+	 */
+	public default void wrenchRight(Chirality chiral) {
+		setRotation(chiral.right(getRotation()));
+	}
+	/**
+	 * Wrenches the block in chirality's "left" direction
+	 * @param chiral chirality to use
+	 */
+	public default void wrenchLeft(Chirality chiral) {
+		setRotation(chiral.left(getRotation()));
+	}
+	
+	//Rotations - chiral
+	/**
+	 * Checks if given block is chiral
+	 * @return is given block chiral?
+	 */
+	public default boolean isChiral() {
+		return false;
+	}
+	@Override
+	@Nonnull default Chirality getChirality() {
+		return Chirality.R;
+	}
+	@Override
+	default void setChirality(Chirality chirality) {
+		//does nothing
+	}
+	/**
+	 * Reverses the chirality of this block
+	 */
+	default void flip() {
+		setChirality(getChirality().reverse());
+	}
 }

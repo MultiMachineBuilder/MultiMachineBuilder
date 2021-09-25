@@ -12,12 +12,17 @@ import java.util.jar.*;
 
 import javax.imageio.ImageIO;
 
+import org.apache.commons.compress.archivers.ArchiveEntry;
+import org.apache.commons.compress.archivers.jar.JarArchiveEntry;
+import org.apache.commons.compress.archivers.jar.JarArchiveInputStream;
 import org.apache.commons.io.IOUtils;
 import io.github.micwan88.helperclass4j.ByteClassLoader;
+import it.unimi.dsi.fastutil.bytes.ByteList;
 import mmb.DATA.contents.*;
 import mmb.DATA.contents.sound.Sounds;
 import mmb.DATA.contents.texture.Textures;
 import mmb.FILES.AdvancedFile;
+import mmb.FILES.ByteListInputStream;
 import mmb.LAMBDAS.Consumers;
 import mmb.MODS.info.*;
 import mmb.debug.*;
@@ -122,20 +127,21 @@ public class AddonLoader {
 	
 	private void unzip(InputStream in) {
 		//Unzip the file
-		try(JarInputStream jis = new JarInputStream(in)) {
+		try(JarArchiveInputStream jis = new JarArchiveInputStream(in)) {
 			//Trying to load modfile
 			debug.printl("Loading a modfile: " + a.name);
 			while(true) {
-				JarEntry je = jis.getNextJarEntry();
+				JarArchiveEntry je = jis.getNextJarEntry();
 				if(je == null) break;
 				debug.printl("entry: "+je.getName());
 				byte[] bytes = IOUtils.toByteArray(jis);
-				a.contents.add(je);
-				a.files.put(je, bytes);
+				ByteList list = ByteList.of(bytes);
+				a.contents0.add(je);
+				a.files0.put(je, list);
 			}
 			//If file works, continue loading
 			debug.printl("Injecting "+a.file.name());
-			a.files.forEach(this::processFile);
+			a.files0.forEach(this::processFile);
 			for(Class<? extends AddonCentral> c : cclasses) {
 				String cname = c.getName();
 				try {
@@ -158,7 +164,7 @@ public class AddonLoader {
 		}
 	}
 	
-	private void processFile(JarEntry meta, byte[] data){
+	private void processFile(ArchiveEntry meta, ByteList data){
 		String name = meta.getName();
 		@SuppressWarnings("null")
 		String[] tmp = AdvancedFile.baseExtension(name);
@@ -174,9 +180,9 @@ public class AddonLoader {
 			}else if(ext.equals("mcmod")) {
 				debug.printl("Found Minecraft mod (found mcmod.info)");
 			}else if(name.startsWith(PREFIX_TEXTURE)){
-				try {
+				try(InputStream is = ByteListInputStream.of(data)){
 					String shorter = name.substring(PREFIX_TEXTURE.length());
-					BufferedImage img = ImageIO.read(new ByteArrayInputStream(data));
+					BufferedImage img = ImageIO.read(is);
 					Textures.load(shorter, img);
 					debug.printl("Successfully added texture " + name);
 				} catch (Exception e) {
@@ -186,22 +192,22 @@ public class AddonLoader {
 			}else if(name.startsWith(PREFIX_SOUND)) {
 				debug.printl("Sound file");
 				String shorter = name.substring(PREFIX_SOUND.length());
-				Sounds.load(new ByteArrayInputStream(a.files.get(meta)), shorter);
+				Sounds.load(ByteListInputStream.of(a.files0.get(meta)), shorter);
 			}
 		}
 	}
 	private static ByteClassLoader bcl = new ByteClassLoader(AddonLoader.class.getClassLoader());
 	@SuppressWarnings("null")
-	private void interpretClassFile(JarEntry ent, byte[] data){
+	private void interpretClassFile(ArchiveEntry meta, ByteList data){
 		// This JarEntry represents a class. Now, what class does it represent?
-		String name = ent.getName();
+		String name = meta.getName();
 		debug.printl("entry: "+name);
         String className = name.replace('/', '.');
         className = className.substring(0, className.length() - ".class".length());
         debug.printl("Class: "+className);
         try {
 			@SuppressWarnings("rawtypes")
-			Class c = bcl.loadClass(className, data, false);
+			Class c = bcl.loadClass(className, data.toByteArray(), false);
 			tryAddCentral(c);
 			GameContents.loadedClasses.add(c);
 		} catch (ClassNotFoundException e) {

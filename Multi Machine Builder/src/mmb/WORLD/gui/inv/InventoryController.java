@@ -5,6 +5,7 @@ package mmb.WORLD.gui.inv;
 
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
+import javax.swing.ListSelectionModel;
 
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
@@ -22,6 +23,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
+import javax.swing.event.ListSelectionListener;
 
 /**
  * @author oskar
@@ -30,8 +32,10 @@ import javax.swing.SwingConstants;
 public class InventoryController extends JPanel {
 	private static final long serialVersionUID = -3804277344383315579L;
 	
-	private JList<ItemRecord> invlist;
-	private final DefaultListModel<ItemRecord> model = new DefaultListModel<>();
+	private final JList<ItemRecord> invlist;
+	private DefaultListModel<ItemRecord> model0 = new DefaultListModel<>();
+	
+	
 	private Inventory inv;
 	private JLabel label;
 	private JButton btnRefresh;
@@ -40,12 +44,14 @@ public class InventoryController extends JPanel {
 	private JButton btnUnsel;
 
 	public void refresh() {
+		int[] selection = getSelectedIndices();
 		if(inv == null) return;
-		model.clear();
+		model0.clear();
 		for(ItemRecord record: inv) {
-			model.addElement(record);
+			model0.addElement(record);
 		}
 		repaint();
+		setSelectedIndices(selection);
 	}
 	/**
 	 * Create the panel.
@@ -63,7 +69,7 @@ public class InventoryController extends JPanel {
 		
 		invlist = new JList<>();
 		scrollPane.setViewportView(invlist);
-		invlist.setModel(model);
+		invlist.setModel(model0);
 		invlist.setCellRenderer(new CellRenderer());
 		
 		btnRefresh = new JButton("Refresh");
@@ -80,14 +86,22 @@ public class InventoryController extends JPanel {
 		btnUnsel.setBackground(Color.BLUE);
 		add(btnUnsel, "cell 0 0,growx");
 	}
-
-	
 	/**
 	 * @param out
 	 */
-	public InventoryController(Inventory out) {
+	public InventoryController(@Nullable Inventory out) {
 		this();
 		setInv(out);
+	}
+	/**
+	 * Creates an InventoryController which mirrors other InventoryController, while also being a different component
+	 * @param other
+	 */
+	public InventoryController(InventoryController other) {
+		this(other.inv);
+		setSelectionModel(other.getSelectionModel());
+		setSelectionMode(other.getSelectionMode());
+		setModel(other.getModel());
 	}
 	/**
 	 * @return
@@ -216,4 +230,61 @@ public class InventoryController extends JPanel {
 	public void setTitle(String title) {
 		label.setText(title);
 	}
+	
+	
+	/**
+	 * @return the model
+	 */
+	public DefaultListModel<ItemRecord> getModel() {
+		return model0;
+	}
+	/**
+	 * @param model the model to set
+	 */
+	public void setModel(DefaultListModel<ItemRecord> model) {
+		this.model0 = model;
+		invlist.setModel(model);
+	}
+	/**
+	 * @return
+	 * @see javax.swing.JList#getSelectionMode()
+	 */
+	public int getSelectionMode() {
+		return invlist.getSelectionMode();
+	}
+	/**
+	 * @return
+	 * @see javax.swing.JList#getSelectionModel()
+	 */
+	public ListSelectionModel getSelectionModel() {
+		return invlist.getSelectionModel();
+	}
+	/**
+	 * @param selectionMode
+	 * @see javax.swing.JList#setSelectionMode(int)
+	 */
+	public void setSelectionMode(int selectionMode) {
+		invlist.setSelectionMode(selectionMode);
+	}
+	/**
+	 * @param selectionModel
+	 * @see javax.swing.JList#setSelectionModel(javax.swing.ListSelectionModel)
+	 */
+	public void setSelectionModel(ListSelectionModel selectionModel) {
+		invlist.setSelectionModel(selectionModel);
+	}
+	/**
+	 * @param listener
+	 * @see javax.swing.JList#addListSelectionListener(javax.swing.event.ListSelectionListener)
+	 */
+	public void addListSelectionListener(ListSelectionListener listener) {
+		invlist.addListSelectionListener(listener);
+	}
+	/**
+	 * @param listener
+	 * @see javax.swing.JList#removeListSelectionListener(javax.swing.event.ListSelectionListener)
+	 */
+	public void removeListSelectionListener(ListSelectionListener listener) {
+		invlist.removeListSelectionListener(listener);
+	}	
 }

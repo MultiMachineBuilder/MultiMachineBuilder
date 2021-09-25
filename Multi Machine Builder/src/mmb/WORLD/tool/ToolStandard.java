@@ -10,12 +10,14 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import mmb.BEANS.BlockActivateListener;
-import mmb.BEANS.Rotable;
 import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.gui.Placer;
 import mmb.WORLD.gui.window.WorldFrame;
 import mmb.WORLD.gui.window.WorldWindow;
+import mmb.WORLD.inventory.ItemRecord;
+import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.rotate.Rotable;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 
@@ -41,12 +43,22 @@ public class ToolStandard extends WindowTool{
 			if(!map.inBounds(x, y)) break;
 			BlockEntry ent = map.get(x, y);
 			if(ent instanceof BlockActivateListener) {
-				((BlockActivateListener) ent).click(x, y, map, window);
+				((BlockActivateListener) ent).click(x, y, map, window, 0, 0);
 				debug.printl("Running BlockActivateListener for: ["+x+","+y+"]");
 			}else {
-				Placer placer0 = window.getPlacer().getSelectedValue();
-				if(placer0 == null) return;
-				placer0.place(x, y, map);
+				//Place the block
+				ItemRecord record = window.getPlacer().getSelectedValue();
+				if(record == null) return;
+				ItemEntry item = record.item();
+				if(item instanceof Placer) {
+					//If in survival, consume items
+					if(!window.getPlayer().creative.getValue()) {
+						//In survival
+						int extracted = record.extract(1);
+						if(extracted == 0) return;
+					}
+					 ((Placer)item).place(x, y, map);
+				}
 			}
 			break;
 		case 3: //RMB
@@ -103,8 +115,14 @@ public class ToolStandard extends WindowTool{
 	}
 	@Override
 	public void preview(int x, int y, int scale, Graphics g) {
-		Placer placer0 = frame.getPlacer().getSelectedValue();
-		if(placer0 != null) placer0.preview(g, new Point(x, y), frame.getMap(), frame.getMouseoverBlock(), scale);
+		ItemRecord record = frame.getPlacer().getSelectedValue();
+		if(record == null) return;
+		ItemEntry placer0 = record.item();
+		if(placer0 instanceof Placer) ((Placer) placer0).preview(g, new Point(x, y), frame.getMap(), frame.getMouseoverBlock(), scale);
+	}
+	@Override
+	public String description() {
+		return "Press LMB to place, RMB to open menu, Ctrl+LMB to turn CCW, Ctrl+RMB to turn CW, Shift+LMB to reverse chirality";
 	}
 
 }

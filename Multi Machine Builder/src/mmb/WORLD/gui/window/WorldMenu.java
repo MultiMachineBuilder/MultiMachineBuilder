@@ -6,8 +6,10 @@ package mmb.WORLD.gui.window;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
-import mmb.BEANS.Rotable;
 import mmb.WORLD.block.BlockEntry;
+import mmb.WORLD.gui.Placer;
+import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.rotate.Rotable;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 
@@ -46,7 +48,8 @@ public class WorldMenu extends JPopupMenu {
 			}
 			//Drop if needed
 			if(!frame.getPlayer().creative.getValue()) {
-				//The player is survival, drop
+				//The player is survival, requires pickaxe
+				return;
 			}
 			block
 			.type()
@@ -57,7 +60,10 @@ public class WorldMenu extends JPopupMenu {
 		mntmNewMenuItem_1 = new JMenuItem("Place");
 		mntmNewMenuItem_1.addActionListener(e -> {
 			if(map.inBounds(mouseoverX, mouseoverY)) {
-				frame.getPlacer().getSelectedValue().place(mouseoverX, mouseoverY, map);
+				ItemEntry item = frame.getPlacer().getSelectedValue().item();
+				if(item instanceof Placer) {
+					((Placer)item).place(mouseoverX, mouseoverY, map);
+				}
 			}
 		});
 		add(mntmNewMenuItem_1);

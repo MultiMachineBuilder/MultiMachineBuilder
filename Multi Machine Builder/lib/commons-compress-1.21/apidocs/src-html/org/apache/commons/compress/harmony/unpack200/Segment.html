@@ -1,0 +1,664 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="de">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> *  Licensed to the Apache Software Foundation (ASF) under one or more<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *  contributor license agreements.  See the NOTICE file distributed with<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *  this work for additional information regarding copyright ownership.<a name="line.4"></a>
+<span class="sourceLineNo">005</span> *  The ASF licenses this file to You under the Apache License, Version 2.0<a name="line.5"></a>
+<span class="sourceLineNo">006</span> *  (the "License"); you may not use this file except in compliance with<a name="line.6"></a>
+<span class="sourceLineNo">007</span> *  the License.  You may obtain a copy of the License at<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *     http://www.apache.org/licenses/LICENSE-2.0<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *  Unless required by applicable law or agreed to in writing, software<a name="line.11"></a>
+<span class="sourceLineNo">012</span> *  distributed under the License is distributed on an "AS IS" BASIS,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<a name="line.13"></a>
+<span class="sourceLineNo">014</span> *  See the License for the specific language governing permissions and<a name="line.14"></a>
+<span class="sourceLineNo">015</span> *  limitations under the License.<a name="line.15"></a>
+<span class="sourceLineNo">016</span> */<a name="line.16"></a>
+<span class="sourceLineNo">017</span>package org.apache.commons.compress.harmony.unpack200;<a name="line.17"></a>
+<span class="sourceLineNo">018</span><a name="line.18"></a>
+<span class="sourceLineNo">019</span>import java.io.BufferedInputStream;<a name="line.19"></a>
+<span class="sourceLineNo">020</span>import java.io.ByteArrayInputStream;<a name="line.20"></a>
+<span class="sourceLineNo">021</span>import java.io.ByteArrayOutputStream;<a name="line.21"></a>
+<span class="sourceLineNo">022</span>import java.io.DataOutputStream;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import java.io.IOException;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>import java.io.InputStream;<a name="line.24"></a>
+<span class="sourceLineNo">025</span>import java.io.OutputStream;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import java.io.PrintWriter;<a name="line.26"></a>
+<span class="sourceLineNo">027</span>import java.util.ArrayList;<a name="line.27"></a>
+<span class="sourceLineNo">028</span>import java.util.HashSet;<a name="line.28"></a>
+<span class="sourceLineNo">029</span>import java.util.List;<a name="line.29"></a>
+<span class="sourceLineNo">030</span>import java.util.Set;<a name="line.30"></a>
+<span class="sourceLineNo">031</span>import java.util.TimeZone;<a name="line.31"></a>
+<span class="sourceLineNo">032</span>import java.util.jar.JarEntry;<a name="line.32"></a>
+<span class="sourceLineNo">033</span>import java.util.jar.JarOutputStream;<a name="line.33"></a>
+<span class="sourceLineNo">034</span>import java.util.zip.CRC32;<a name="line.34"></a>
+<span class="sourceLineNo">035</span>import java.util.zip.GZIPInputStream;<a name="line.35"></a>
+<span class="sourceLineNo">036</span>import java.util.zip.ZipEntry;<a name="line.36"></a>
+<span class="sourceLineNo">037</span><a name="line.37"></a>
+<span class="sourceLineNo">038</span>import org.apache.commons.compress.harmony.pack200.Codec;<a name="line.38"></a>
+<span class="sourceLineNo">039</span>import org.apache.commons.compress.harmony.pack200.Pack200Exception;<a name="line.39"></a>
+<span class="sourceLineNo">040</span>import org.apache.commons.compress.harmony.unpack200.bytecode.Attribute;<a name="line.40"></a>
+<span class="sourceLineNo">041</span>import org.apache.commons.compress.harmony.unpack200.bytecode.CPClass;<a name="line.41"></a>
+<span class="sourceLineNo">042</span>import org.apache.commons.compress.harmony.unpack200.bytecode.CPField;<a name="line.42"></a>
+<span class="sourceLineNo">043</span>import org.apache.commons.compress.harmony.unpack200.bytecode.CPMethod;<a name="line.43"></a>
+<span class="sourceLineNo">044</span>import org.apache.commons.compress.harmony.unpack200.bytecode.CPUTF8;<a name="line.44"></a>
+<span class="sourceLineNo">045</span>import org.apache.commons.compress.harmony.unpack200.bytecode.ClassConstantPool;<a name="line.45"></a>
+<span class="sourceLineNo">046</span>import org.apache.commons.compress.harmony.unpack200.bytecode.ClassFile;<a name="line.46"></a>
+<span class="sourceLineNo">047</span>import org.apache.commons.compress.harmony.unpack200.bytecode.ClassFileEntry;<a name="line.47"></a>
+<span class="sourceLineNo">048</span>import org.apache.commons.compress.harmony.unpack200.bytecode.InnerClassesAttribute;<a name="line.48"></a>
+<span class="sourceLineNo">049</span>import org.apache.commons.compress.harmony.unpack200.bytecode.SourceFileAttribute;<a name="line.49"></a>
+<span class="sourceLineNo">050</span><a name="line.50"></a>
+<span class="sourceLineNo">051</span>/**<a name="line.51"></a>
+<span class="sourceLineNo">052</span> * A Pack200 archive consists of one or more segments. Each segment is stand-alone, in the sense that every segment has<a name="line.52"></a>
+<span class="sourceLineNo">053</span> * the magic number header; thus, every segment is also a valid archive. However, it is possible to combine<a name="line.53"></a>
+<span class="sourceLineNo">054</span> * (non-GZipped) archives into a single large archive by concatenation alone. Thus all the hard work in unpacking an<a name="line.54"></a>
+<span class="sourceLineNo">055</span> * archive falls to understanding a segment.<a name="line.55"></a>
+<span class="sourceLineNo">056</span> *<a name="line.56"></a>
+<span class="sourceLineNo">057</span> * The first component of a segment is the header; this contains (amongst other things) the expected counts of constant<a name="line.57"></a>
+<span class="sourceLineNo">058</span> * pool entries, which in turn defines how many values need to be read from the stream. Because values are variable<a name="line.58"></a>
+<span class="sourceLineNo">059</span> * width (see {@link Codec}), it is not possible to calculate the start of the next segment, although one of the header<a name="line.59"></a>
+<span class="sourceLineNo">060</span> * values does hint at the size of the segment if non-zero, which can be used for buffering purposes.<a name="line.60"></a>
+<span class="sourceLineNo">061</span> *<a name="line.61"></a>
+<span class="sourceLineNo">062</span> * Note that this does not perform any buffering of the input stream; each value will be read on a byte-by-byte basis.<a name="line.62"></a>
+<span class="sourceLineNo">063</span> * It does not perform GZip decompression automatically; both of these are expected to be done by the caller if the<a name="line.63"></a>
+<span class="sourceLineNo">064</span> * stream has the magic header for GZip streams ({@link GZIPInputStream#GZIP_MAGIC}). In any case, if GZip decompression<a name="line.64"></a>
+<span class="sourceLineNo">065</span> * is being performed the input stream will be buffered at a higher level, and thus this can read on a byte-oriented<a name="line.65"></a>
+<span class="sourceLineNo">066</span> * basis.<a name="line.66"></a>
+<span class="sourceLineNo">067</span> */<a name="line.67"></a>
+<span class="sourceLineNo">068</span>public class Segment {<a name="line.68"></a>
+<span class="sourceLineNo">069</span><a name="line.69"></a>
+<span class="sourceLineNo">070</span>    public static final int LOG_LEVEL_VERBOSE = 2;<a name="line.70"></a>
+<span class="sourceLineNo">071</span><a name="line.71"></a>
+<span class="sourceLineNo">072</span>    public static final int LOG_LEVEL_STANDARD = 1;<a name="line.72"></a>
+<span class="sourceLineNo">073</span><a name="line.73"></a>
+<span class="sourceLineNo">074</span>    public static final int LOG_LEVEL_QUIET = 0;<a name="line.74"></a>
+<span class="sourceLineNo">075</span><a name="line.75"></a>
+<span class="sourceLineNo">076</span>    private SegmentHeader header;<a name="line.76"></a>
+<span class="sourceLineNo">077</span><a name="line.77"></a>
+<span class="sourceLineNo">078</span>    private CpBands cpBands;<a name="line.78"></a>
+<span class="sourceLineNo">079</span><a name="line.79"></a>
+<span class="sourceLineNo">080</span>    private AttrDefinitionBands attrDefinitionBands;<a name="line.80"></a>
+<span class="sourceLineNo">081</span><a name="line.81"></a>
+<span class="sourceLineNo">082</span>    private IcBands icBands;<a name="line.82"></a>
+<span class="sourceLineNo">083</span><a name="line.83"></a>
+<span class="sourceLineNo">084</span>    private ClassBands classBands;<a name="line.84"></a>
+<span class="sourceLineNo">085</span><a name="line.85"></a>
+<span class="sourceLineNo">086</span>    private BcBands bcBands;<a name="line.86"></a>
+<span class="sourceLineNo">087</span><a name="line.87"></a>
+<span class="sourceLineNo">088</span>    private FileBands fileBands;<a name="line.88"></a>
+<span class="sourceLineNo">089</span><a name="line.89"></a>
+<span class="sourceLineNo">090</span>    private boolean overrideDeflateHint;<a name="line.90"></a>
+<span class="sourceLineNo">091</span><a name="line.91"></a>
+<span class="sourceLineNo">092</span>    private boolean deflateHint;<a name="line.92"></a>
+<span class="sourceLineNo">093</span><a name="line.93"></a>
+<span class="sourceLineNo">094</span>    private boolean doPreRead;<a name="line.94"></a>
+<span class="sourceLineNo">095</span><a name="line.95"></a>
+<span class="sourceLineNo">096</span>    private int logLevel;<a name="line.96"></a>
+<span class="sourceLineNo">097</span><a name="line.97"></a>
+<span class="sourceLineNo">098</span>    private PrintWriter logStream;<a name="line.98"></a>
+<span class="sourceLineNo">099</span><a name="line.99"></a>
+<span class="sourceLineNo">100</span>    private byte[][] classFilesContents;<a name="line.100"></a>
+<span class="sourceLineNo">101</span><a name="line.101"></a>
+<span class="sourceLineNo">102</span>    private boolean[] fileDeflate;<a name="line.102"></a>
+<span class="sourceLineNo">103</span><a name="line.103"></a>
+<span class="sourceLineNo">104</span>    private boolean[] fileIsClass;<a name="line.104"></a>
+<span class="sourceLineNo">105</span><a name="line.105"></a>
+<span class="sourceLineNo">106</span>    private InputStream internalBuffer;<a name="line.106"></a>
+<span class="sourceLineNo">107</span><a name="line.107"></a>
+<span class="sourceLineNo">108</span>    private ClassFile buildClassFile(final int classNum) throws Pack200Exception {<a name="line.108"></a>
+<span class="sourceLineNo">109</span>        final ClassFile classFile = new ClassFile();<a name="line.109"></a>
+<span class="sourceLineNo">110</span>        final int[] major = classBands.getClassVersionMajor();<a name="line.110"></a>
+<span class="sourceLineNo">111</span>        final int[] minor = classBands.getClassVersionMinor();<a name="line.111"></a>
+<span class="sourceLineNo">112</span>        if (major != null) {<a name="line.112"></a>
+<span class="sourceLineNo">113</span>            classFile.major = major[classNum];<a name="line.113"></a>
+<span class="sourceLineNo">114</span>            classFile.minor = minor[classNum];<a name="line.114"></a>
+<span class="sourceLineNo">115</span>        } else {<a name="line.115"></a>
+<span class="sourceLineNo">116</span>            classFile.major = header.getDefaultClassMajorVersion();<a name="line.116"></a>
+<span class="sourceLineNo">117</span>            classFile.minor = header.getDefaultClassMinorVersion();<a name="line.117"></a>
+<span class="sourceLineNo">118</span>        }<a name="line.118"></a>
+<span class="sourceLineNo">119</span>        // build constant pool<a name="line.119"></a>
+<span class="sourceLineNo">120</span>        final ClassConstantPool cp = classFile.pool;<a name="line.120"></a>
+<span class="sourceLineNo">121</span>        final int fullNameIndexInCpClass = classBands.getClassThisInts()[classNum];<a name="line.121"></a>
+<span class="sourceLineNo">122</span>        final String fullName = cpBands.getCpClass()[fullNameIndexInCpClass];<a name="line.122"></a>
+<span class="sourceLineNo">123</span>        // SourceFile attribute<a name="line.123"></a>
+<span class="sourceLineNo">124</span>        int i = fullName.lastIndexOf("/") + 1; // if lastIndexOf==-1, then<a name="line.124"></a>
+<span class="sourceLineNo">125</span>        // -1+1=0, so str.substring(0)<a name="line.125"></a>
+<span class="sourceLineNo">126</span>        // == str<a name="line.126"></a>
+<span class="sourceLineNo">127</span><a name="line.127"></a>
+<span class="sourceLineNo">128</span>        // Get the source file attribute<a name="line.128"></a>
+<span class="sourceLineNo">129</span>        final ArrayList classAttributes = classBands.getClassAttributes()[classNum];<a name="line.129"></a>
+<span class="sourceLineNo">130</span>        SourceFileAttribute sourceFileAttribute = null;<a name="line.130"></a>
+<span class="sourceLineNo">131</span>        for (int index = 0; index &lt; classAttributes.size(); index++) {<a name="line.131"></a>
+<span class="sourceLineNo">132</span>            if (((Attribute) classAttributes.get(index)).isSourceFileAttribute()) {<a name="line.132"></a>
+<span class="sourceLineNo">133</span>                sourceFileAttribute = ((SourceFileAttribute) classAttributes.get(index));<a name="line.133"></a>
+<span class="sourceLineNo">134</span>            }<a name="line.134"></a>
+<span class="sourceLineNo">135</span>        }<a name="line.135"></a>
+<span class="sourceLineNo">136</span><a name="line.136"></a>
+<span class="sourceLineNo">137</span>        if (sourceFileAttribute == null) {<a name="line.137"></a>
+<span class="sourceLineNo">138</span>            // If we don't have a source file attribute yet, we need<a name="line.138"></a>
+<span class="sourceLineNo">139</span>            // to infer it from the class.<a name="line.139"></a>
+<span class="sourceLineNo">140</span>            final AttributeLayout SOURCE_FILE = attrDefinitionBands.getAttributeDefinitionMap()<a name="line.140"></a>
+<span class="sourceLineNo">141</span>                .getAttributeLayout(AttributeLayout.ATTRIBUTE_SOURCE_FILE, AttributeLayout.CONTEXT_CLASS);<a name="line.141"></a>
+<span class="sourceLineNo">142</span>            if (SOURCE_FILE.matches(classBands.getRawClassFlags()[classNum])) {<a name="line.142"></a>
+<span class="sourceLineNo">143</span>                int firstDollar = -1;<a name="line.143"></a>
+<span class="sourceLineNo">144</span>                for (int index = 0; index &lt; fullName.length(); index++) {<a name="line.144"></a>
+<span class="sourceLineNo">145</span>                    if (fullName.charAt(index) &lt;= '$') {<a name="line.145"></a>
+<span class="sourceLineNo">146</span>                        firstDollar = index;<a name="line.146"></a>
+<span class="sourceLineNo">147</span>                    }<a name="line.147"></a>
+<span class="sourceLineNo">148</span>                }<a name="line.148"></a>
+<span class="sourceLineNo">149</span>                String fileName = null;<a name="line.149"></a>
+<span class="sourceLineNo">150</span><a name="line.150"></a>
+<span class="sourceLineNo">151</span>                if (firstDollar &gt; -1 &amp;&amp; (i &lt;= firstDollar)) {<a name="line.151"></a>
+<span class="sourceLineNo">152</span>                    fileName = fullName.substring(i, firstDollar) + ".java";<a name="line.152"></a>
+<span class="sourceLineNo">153</span>                } else {<a name="line.153"></a>
+<span class="sourceLineNo">154</span>                    fileName = fullName.substring(i) + ".java";<a name="line.154"></a>
+<span class="sourceLineNo">155</span>                }<a name="line.155"></a>
+<span class="sourceLineNo">156</span>                sourceFileAttribute = new SourceFileAttribute(cpBands.cpUTF8Value(fileName, false));<a name="line.156"></a>
+<span class="sourceLineNo">157</span>                classFile.attributes = new Attribute[] {(Attribute) cp.add(sourceFileAttribute)};<a name="line.157"></a>
+<span class="sourceLineNo">158</span>            } else {<a name="line.158"></a>
+<span class="sourceLineNo">159</span>                classFile.attributes = new Attribute[] {};<a name="line.159"></a>
+<span class="sourceLineNo">160</span>            }<a name="line.160"></a>
+<span class="sourceLineNo">161</span>        } else {<a name="line.161"></a>
+<span class="sourceLineNo">162</span>            classFile.attributes = new Attribute[] {(Attribute) cp.add(sourceFileAttribute)};<a name="line.162"></a>
+<span class="sourceLineNo">163</span>        }<a name="line.163"></a>
+<span class="sourceLineNo">164</span><a name="line.164"></a>
+<span class="sourceLineNo">165</span>        // If we see any class attributes, add them to the class's attributes<a name="line.165"></a>
+<span class="sourceLineNo">166</span>        // that will<a name="line.166"></a>
+<span class="sourceLineNo">167</span>        // be written out. Keep SourceFileAttributes out since we just<a name="line.167"></a>
+<span class="sourceLineNo">168</span>        // did them above.<a name="line.168"></a>
+<span class="sourceLineNo">169</span>        final ArrayList classAttributesWithoutSourceFileAttribute = new ArrayList(classAttributes.size());<a name="line.169"></a>
+<span class="sourceLineNo">170</span>        for (int index = 0; index &lt; classAttributes.size(); index++) {<a name="line.170"></a>
+<span class="sourceLineNo">171</span>            final Attribute attrib = (Attribute) classAttributes.get(index);<a name="line.171"></a>
+<span class="sourceLineNo">172</span>            if (!attrib.isSourceFileAttribute()) {<a name="line.172"></a>
+<span class="sourceLineNo">173</span>                classAttributesWithoutSourceFileAttribute.add(attrib);<a name="line.173"></a>
+<span class="sourceLineNo">174</span>            }<a name="line.174"></a>
+<span class="sourceLineNo">175</span>        }<a name="line.175"></a>
+<span class="sourceLineNo">176</span>        final Attribute[] originalAttributes = classFile.attributes;<a name="line.176"></a>
+<span class="sourceLineNo">177</span>        classFile.attributes = new Attribute[originalAttributes.length<a name="line.177"></a>
+<span class="sourceLineNo">178</span>            + classAttributesWithoutSourceFileAttribute.size()];<a name="line.178"></a>
+<span class="sourceLineNo">179</span>        System.arraycopy(originalAttributes, 0, classFile.attributes, 0, originalAttributes.length);<a name="line.179"></a>
+<span class="sourceLineNo">180</span>        for (int index = 0; index &lt; classAttributesWithoutSourceFileAttribute.size(); index++) {<a name="line.180"></a>
+<span class="sourceLineNo">181</span>            final Attribute attrib = ((Attribute) classAttributesWithoutSourceFileAttribute.get(index));<a name="line.181"></a>
+<span class="sourceLineNo">182</span>            cp.add(attrib);<a name="line.182"></a>
+<span class="sourceLineNo">183</span>            classFile.attributes[originalAttributes.length + index] = attrib;<a name="line.183"></a>
+<span class="sourceLineNo">184</span>        }<a name="line.184"></a>
+<span class="sourceLineNo">185</span><a name="line.185"></a>
+<span class="sourceLineNo">186</span>        // this/superclass<a name="line.186"></a>
+<span class="sourceLineNo">187</span>        final ClassFileEntry cfThis = cp.add(cpBands.cpClassValue(fullNameIndexInCpClass));<a name="line.187"></a>
+<span class="sourceLineNo">188</span>        final ClassFileEntry cfSuper = cp.add(cpBands.cpClassValue(classBands.getClassSuperInts()[classNum]));<a name="line.188"></a>
+<span class="sourceLineNo">189</span>        // add interfaces<a name="line.189"></a>
+<span class="sourceLineNo">190</span>        final ClassFileEntry cfInterfaces[] = new ClassFileEntry[classBands.getClassInterfacesInts()[classNum].length];<a name="line.190"></a>
+<span class="sourceLineNo">191</span>        for (i = 0; i &lt; cfInterfaces.length; i++) {<a name="line.191"></a>
+<span class="sourceLineNo">192</span>            cfInterfaces[i] = cp.add(cpBands.cpClassValue(classBands.getClassInterfacesInts()[classNum][i]));<a name="line.192"></a>
+<span class="sourceLineNo">193</span>        }<a name="line.193"></a>
+<span class="sourceLineNo">194</span>        // add fields<a name="line.194"></a>
+<span class="sourceLineNo">195</span>        final ClassFileEntry cfFields[] = new ClassFileEntry[classBands.getClassFieldCount()[classNum]];<a name="line.195"></a>
+<span class="sourceLineNo">196</span>        // fieldDescr and fieldFlags used to create this<a name="line.196"></a>
+<span class="sourceLineNo">197</span>        for (i = 0; i &lt; cfFields.length; i++) {<a name="line.197"></a>
+<span class="sourceLineNo">198</span>            final int descriptorIndex = classBands.getFieldDescrInts()[classNum][i];<a name="line.198"></a>
+<span class="sourceLineNo">199</span>            final int nameIndex = cpBands.getCpDescriptorNameInts()[descriptorIndex];<a name="line.199"></a>
+<span class="sourceLineNo">200</span>            final int typeIndex = cpBands.getCpDescriptorTypeInts()[descriptorIndex];<a name="line.200"></a>
+<span class="sourceLineNo">201</span>            final CPUTF8 name = cpBands.cpUTF8Value(nameIndex);<a name="line.201"></a>
+<span class="sourceLineNo">202</span>            final CPUTF8 descriptor = cpBands.cpSignatureValue(typeIndex);<a name="line.202"></a>
+<span class="sourceLineNo">203</span>            cfFields[i] = cp.add(new CPField(name, descriptor, classBands.getFieldFlags()[classNum][i],<a name="line.203"></a>
+<span class="sourceLineNo">204</span>                classBands.getFieldAttributes()[classNum][i]));<a name="line.204"></a>
+<span class="sourceLineNo">205</span>        }<a name="line.205"></a>
+<span class="sourceLineNo">206</span>        // add methods<a name="line.206"></a>
+<span class="sourceLineNo">207</span>        final ClassFileEntry cfMethods[] = new ClassFileEntry[classBands.getClassMethodCount()[classNum]];<a name="line.207"></a>
+<span class="sourceLineNo">208</span>        // methodDescr and methodFlags used to create this<a name="line.208"></a>
+<span class="sourceLineNo">209</span>        for (i = 0; i &lt; cfMethods.length; i++) {<a name="line.209"></a>
+<span class="sourceLineNo">210</span>            final int descriptorIndex = classBands.getMethodDescrInts()[classNum][i];<a name="line.210"></a>
+<span class="sourceLineNo">211</span>            final int nameIndex = cpBands.getCpDescriptorNameInts()[descriptorIndex];<a name="line.211"></a>
+<span class="sourceLineNo">212</span>            final int typeIndex = cpBands.getCpDescriptorTypeInts()[descriptorIndex];<a name="line.212"></a>
+<span class="sourceLineNo">213</span>            final CPUTF8 name = cpBands.cpUTF8Value(nameIndex);<a name="line.213"></a>
+<span class="sourceLineNo">214</span>            final CPUTF8 descriptor = cpBands.cpSignatureValue(typeIndex);<a name="line.214"></a>
+<span class="sourceLineNo">215</span>            cfMethods[i] = cp.add(new CPMethod(name, descriptor, classBands.getMethodFlags()[classNum][i],<a name="line.215"></a>
+<span class="sourceLineNo">216</span>                classBands.getMethodAttributes()[classNum][i]));<a name="line.216"></a>
+<span class="sourceLineNo">217</span>        }<a name="line.217"></a>
+<span class="sourceLineNo">218</span>        cp.addNestedEntries();<a name="line.218"></a>
+<span class="sourceLineNo">219</span><a name="line.219"></a>
+<span class="sourceLineNo">220</span>        // add inner class attribute (if required)<a name="line.220"></a>
+<span class="sourceLineNo">221</span>        boolean addInnerClassesAttr = false;<a name="line.221"></a>
+<span class="sourceLineNo">222</span>        final IcTuple[] ic_local = getClassBands().getIcLocal()[classNum];<a name="line.222"></a>
+<span class="sourceLineNo">223</span>        final boolean ic_local_sent = ic_local != null;<a name="line.223"></a>
+<span class="sourceLineNo">224</span>        final InnerClassesAttribute innerClassesAttribute = new InnerClassesAttribute("InnerClasses");<a name="line.224"></a>
+<span class="sourceLineNo">225</span>        final IcTuple[] ic_relevant = getIcBands().getRelevantIcTuples(fullName, cp);<a name="line.225"></a>
+<span class="sourceLineNo">226</span>        final List ic_stored = computeIcStored(ic_local, ic_relevant);<a name="line.226"></a>
+<span class="sourceLineNo">227</span>        for (int index = 0; index &lt; ic_stored.size(); index++) {<a name="line.227"></a>
+<span class="sourceLineNo">228</span>            final IcTuple icStored = (IcTuple) ic_stored.get(index);<a name="line.228"></a>
+<span class="sourceLineNo">229</span>            final int innerClassIndex = icStored.thisClassIndex();<a name="line.229"></a>
+<span class="sourceLineNo">230</span>            final int outerClassIndex = icStored.outerClassIndex();<a name="line.230"></a>
+<span class="sourceLineNo">231</span>            final int simpleClassNameIndex = icStored.simpleClassNameIndex();<a name="line.231"></a>
+<span class="sourceLineNo">232</span><a name="line.232"></a>
+<span class="sourceLineNo">233</span>            final String innerClassString = icStored.thisClassString();<a name="line.233"></a>
+<span class="sourceLineNo">234</span>            final String outerClassString = icStored.outerClassString();<a name="line.234"></a>
+<span class="sourceLineNo">235</span>            final String simpleClassName = icStored.simpleClassName();<a name="line.235"></a>
+<span class="sourceLineNo">236</span><a name="line.236"></a>
+<span class="sourceLineNo">237</span>            CPClass innerClass = null;<a name="line.237"></a>
+<span class="sourceLineNo">238</span>            CPUTF8 innerName = null;<a name="line.238"></a>
+<span class="sourceLineNo">239</span>            CPClass outerClass = null;<a name="line.239"></a>
+<span class="sourceLineNo">240</span><a name="line.240"></a>
+<span class="sourceLineNo">241</span>            innerClass = innerClassIndex != -1 ? cpBands.cpClassValue(innerClassIndex)<a name="line.241"></a>
+<span class="sourceLineNo">242</span>                : cpBands.cpClassValue(innerClassString);<a name="line.242"></a>
+<span class="sourceLineNo">243</span>            if (!icStored.isAnonymous()) {<a name="line.243"></a>
+<span class="sourceLineNo">244</span>                innerName = simpleClassNameIndex != -1 ? cpBands.cpUTF8Value(simpleClassNameIndex)<a name="line.244"></a>
+<span class="sourceLineNo">245</span>                    : cpBands.cpUTF8Value(simpleClassName);<a name="line.245"></a>
+<span class="sourceLineNo">246</span>            }<a name="line.246"></a>
+<span class="sourceLineNo">247</span><a name="line.247"></a>
+<span class="sourceLineNo">248</span>            if (icStored.isMember()) {<a name="line.248"></a>
+<span class="sourceLineNo">249</span>                outerClass = outerClassIndex != -1 ? cpBands.cpClassValue(outerClassIndex)<a name="line.249"></a>
+<span class="sourceLineNo">250</span>                    : cpBands.cpClassValue(outerClassString);<a name="line.250"></a>
+<span class="sourceLineNo">251</span>            }<a name="line.251"></a>
+<span class="sourceLineNo">252</span>            final int flags = icStored.F;<a name="line.252"></a>
+<span class="sourceLineNo">253</span>            innerClassesAttribute.addInnerClassesEntry(innerClass, outerClass, innerName, flags);<a name="line.253"></a>
+<span class="sourceLineNo">254</span>            addInnerClassesAttr = true;<a name="line.254"></a>
+<span class="sourceLineNo">255</span>        }<a name="line.255"></a>
+<span class="sourceLineNo">256</span>        // If ic_local is sent and it's empty, don't add<a name="line.256"></a>
+<span class="sourceLineNo">257</span>        // the inner classes attribute.<a name="line.257"></a>
+<span class="sourceLineNo">258</span>        if (ic_local_sent &amp;&amp; (ic_local.length == 0)) {<a name="line.258"></a>
+<span class="sourceLineNo">259</span>            addInnerClassesAttr = false;<a name="line.259"></a>
+<span class="sourceLineNo">260</span>        }<a name="line.260"></a>
+<span class="sourceLineNo">261</span><a name="line.261"></a>
+<span class="sourceLineNo">262</span>        // If ic_local is not sent and ic_relevant is empty,<a name="line.262"></a>
+<span class="sourceLineNo">263</span>        // don't add the inner class attribute.<a name="line.263"></a>
+<span class="sourceLineNo">264</span>        if (!ic_local_sent &amp;&amp; (ic_relevant.length == 0)) {<a name="line.264"></a>
+<span class="sourceLineNo">265</span>            addInnerClassesAttr = false;<a name="line.265"></a>
+<span class="sourceLineNo">266</span>        }<a name="line.266"></a>
+<span class="sourceLineNo">267</span><a name="line.267"></a>
+<span class="sourceLineNo">268</span>        if (addInnerClassesAttr) {<a name="line.268"></a>
+<span class="sourceLineNo">269</span>            // Need to add the InnerClasses attribute to the<a name="line.269"></a>
+<span class="sourceLineNo">270</span>            // existing classFile attributes.<a name="line.270"></a>
+<span class="sourceLineNo">271</span>            final Attribute[] originalAttrs = classFile.attributes;<a name="line.271"></a>
+<span class="sourceLineNo">272</span>            final Attribute[] newAttrs = new Attribute[originalAttrs.length + 1];<a name="line.272"></a>
+<span class="sourceLineNo">273</span>            for (int index = 0; index &lt; originalAttrs.length; index++) {<a name="line.273"></a>
+<span class="sourceLineNo">274</span>                newAttrs[index] = originalAttrs[index];<a name="line.274"></a>
+<span class="sourceLineNo">275</span>            }<a name="line.275"></a>
+<span class="sourceLineNo">276</span>            newAttrs[newAttrs.length - 1] = innerClassesAttribute;<a name="line.276"></a>
+<span class="sourceLineNo">277</span>            classFile.attributes = newAttrs;<a name="line.277"></a>
+<span class="sourceLineNo">278</span>            cp.addWithNestedEntries(innerClassesAttribute);<a name="line.278"></a>
+<span class="sourceLineNo">279</span>        }<a name="line.279"></a>
+<span class="sourceLineNo">280</span>        // sort CP according to cp_All<a name="line.280"></a>
+<span class="sourceLineNo">281</span>        cp.resolve(this);<a name="line.281"></a>
+<span class="sourceLineNo">282</span>        // NOTE the indexOf is only valid after the cp.resolve()<a name="line.282"></a>
+<span class="sourceLineNo">283</span>        // build up remainder of file<a name="line.283"></a>
+<span class="sourceLineNo">284</span>        classFile.accessFlags = (int) classBands.getClassFlags()[classNum];<a name="line.284"></a>
+<span class="sourceLineNo">285</span>        classFile.thisClass = cp.indexOf(cfThis);<a name="line.285"></a>
+<span class="sourceLineNo">286</span>        classFile.superClass = cp.indexOf(cfSuper);<a name="line.286"></a>
+<span class="sourceLineNo">287</span>        // TODO placate format of file for writing purposes<a name="line.287"></a>
+<span class="sourceLineNo">288</span>        classFile.interfaces = new int[cfInterfaces.length];<a name="line.288"></a>
+<span class="sourceLineNo">289</span>        for (i = 0; i &lt; cfInterfaces.length; i++) {<a name="line.289"></a>
+<span class="sourceLineNo">290</span>            classFile.interfaces[i] = cp.indexOf(cfInterfaces[i]);<a name="line.290"></a>
+<span class="sourceLineNo">291</span>        }<a name="line.291"></a>
+<span class="sourceLineNo">292</span>        classFile.fields = cfFields;<a name="line.292"></a>
+<span class="sourceLineNo">293</span>        classFile.methods = cfMethods;<a name="line.293"></a>
+<span class="sourceLineNo">294</span>        return classFile;<a name="line.294"></a>
+<span class="sourceLineNo">295</span>    }<a name="line.295"></a>
+<span class="sourceLineNo">296</span><a name="line.296"></a>
+<span class="sourceLineNo">297</span>    /**<a name="line.297"></a>
+<span class="sourceLineNo">298</span>     * Given an ic_local and an ic_relevant, use them to calculate what should be added as ic_stored.<a name="line.298"></a>
+<span class="sourceLineNo">299</span>     *<a name="line.299"></a>
+<span class="sourceLineNo">300</span>     * @param ic_local IcTuple[] array of local transmitted tuples<a name="line.300"></a>
+<span class="sourceLineNo">301</span>     * @param ic_relevant IcTuple[] array of relevant tuples<a name="line.301"></a>
+<span class="sourceLineNo">302</span>     * @return List of tuples to be stored. If ic_local is null or empty, the values returned may not be correct. The<a name="line.302"></a>
+<span class="sourceLineNo">303</span>     *         caller will have to determine if this is the case.<a name="line.303"></a>
+<span class="sourceLineNo">304</span>     */<a name="line.304"></a>
+<span class="sourceLineNo">305</span>    private List computeIcStored(final IcTuple[] ic_local, final IcTuple[] ic_relevant) {<a name="line.305"></a>
+<span class="sourceLineNo">306</span>        final List result = new ArrayList(ic_relevant.length);<a name="line.306"></a>
+<span class="sourceLineNo">307</span>        final List duplicates = new ArrayList(ic_relevant.length);<a name="line.307"></a>
+<span class="sourceLineNo">308</span>        final Set isInResult = new HashSet(ic_relevant.length);<a name="line.308"></a>
+<span class="sourceLineNo">309</span><a name="line.309"></a>
+<span class="sourceLineNo">310</span>        // need to compute:<a name="line.310"></a>
+<span class="sourceLineNo">311</span>        // result = ic_local XOR ic_relevant<a name="line.311"></a>
+<span class="sourceLineNo">312</span><a name="line.312"></a>
+<span class="sourceLineNo">313</span>        // add ic_local<a name="line.313"></a>
+<span class="sourceLineNo">314</span>        if (ic_local != null) {<a name="line.314"></a>
+<span class="sourceLineNo">315</span>            for (int index = 0; index &lt; ic_local.length; index++) {<a name="line.315"></a>
+<span class="sourceLineNo">316</span>                if (isInResult.add(ic_local[index])) {<a name="line.316"></a>
+<span class="sourceLineNo">317</span>                    result.add(ic_local[index]);<a name="line.317"></a>
+<span class="sourceLineNo">318</span>                }<a name="line.318"></a>
+<span class="sourceLineNo">319</span>            }<a name="line.319"></a>
+<span class="sourceLineNo">320</span>        }<a name="line.320"></a>
+<span class="sourceLineNo">321</span><a name="line.321"></a>
+<span class="sourceLineNo">322</span>        // add ic_relevant<a name="line.322"></a>
+<span class="sourceLineNo">323</span>        for (int index = 0; index &lt; ic_relevant.length; index++) {<a name="line.323"></a>
+<span class="sourceLineNo">324</span>            if (isInResult.add(ic_relevant[index])) {<a name="line.324"></a>
+<span class="sourceLineNo">325</span>                result.add(ic_relevant[index]);<a name="line.325"></a>
+<span class="sourceLineNo">326</span>            } else {<a name="line.326"></a>
+<span class="sourceLineNo">327</span>                duplicates.add(ic_relevant[index]);<a name="line.327"></a>
+<span class="sourceLineNo">328</span>            }<a name="line.328"></a>
+<span class="sourceLineNo">329</span>        }<a name="line.329"></a>
+<span class="sourceLineNo">330</span><a name="line.330"></a>
+<span class="sourceLineNo">331</span>        // eliminate "duplicates"<a name="line.331"></a>
+<span class="sourceLineNo">332</span>        for (int index = 0; index &lt; duplicates.size(); index++) {<a name="line.332"></a>
+<span class="sourceLineNo">333</span>            final IcTuple tuple = (IcTuple) duplicates.get(index);<a name="line.333"></a>
+<span class="sourceLineNo">334</span>            result.remove(tuple);<a name="line.334"></a>
+<span class="sourceLineNo">335</span>        }<a name="line.335"></a>
+<span class="sourceLineNo">336</span><a name="line.336"></a>
+<span class="sourceLineNo">337</span>        return result;<a name="line.337"></a>
+<span class="sourceLineNo">338</span>    }<a name="line.338"></a>
+<span class="sourceLineNo">339</span><a name="line.339"></a>
+<span class="sourceLineNo">340</span>    /**<a name="line.340"></a>
+<span class="sourceLineNo">341</span>     * This performs reading the data from the stream into non-static instance of Segment. After the completion of this<a name="line.341"></a>
+<span class="sourceLineNo">342</span>     * method stream can be freed.<a name="line.342"></a>
+<span class="sourceLineNo">343</span>     *<a name="line.343"></a>
+<span class="sourceLineNo">344</span>     * @param in the input stream to read from<a name="line.344"></a>
+<span class="sourceLineNo">345</span>     * @throws IOException if a problem occurs during reading from the underlying stream<a name="line.345"></a>
+<span class="sourceLineNo">346</span>     * @throws Pack200Exception if a problem occurs with an unexpected value or unsupported codec<a name="line.346"></a>
+<span class="sourceLineNo">347</span>     */<a name="line.347"></a>
+<span class="sourceLineNo">348</span>    private void readSegment(final InputStream in) throws IOException, Pack200Exception {<a name="line.348"></a>
+<span class="sourceLineNo">349</span>        log(LOG_LEVEL_VERBOSE, "-------");<a name="line.349"></a>
+<span class="sourceLineNo">350</span>        cpBands = new CpBands(this);<a name="line.350"></a>
+<span class="sourceLineNo">351</span>        cpBands.read(in);<a name="line.351"></a>
+<span class="sourceLineNo">352</span>        attrDefinitionBands = new AttrDefinitionBands(this);<a name="line.352"></a>
+<span class="sourceLineNo">353</span>        attrDefinitionBands.read(in);<a name="line.353"></a>
+<span class="sourceLineNo">354</span>        icBands = new IcBands(this);<a name="line.354"></a>
+<span class="sourceLineNo">355</span>        icBands.read(in);<a name="line.355"></a>
+<span class="sourceLineNo">356</span>        classBands = new ClassBands(this);<a name="line.356"></a>
+<span class="sourceLineNo">357</span>        classBands.read(in);<a name="line.357"></a>
+<span class="sourceLineNo">358</span>        bcBands = new BcBands(this);<a name="line.358"></a>
+<span class="sourceLineNo">359</span>        bcBands.read(in);<a name="line.359"></a>
+<span class="sourceLineNo">360</span>        fileBands = new FileBands(this);<a name="line.360"></a>
+<span class="sourceLineNo">361</span>        fileBands.read(in);<a name="line.361"></a>
+<span class="sourceLineNo">362</span><a name="line.362"></a>
+<span class="sourceLineNo">363</span>        fileBands.processFileBits();<a name="line.363"></a>
+<span class="sourceLineNo">364</span>    }<a name="line.364"></a>
+<span class="sourceLineNo">365</span><a name="line.365"></a>
+<span class="sourceLineNo">366</span>    /**<a name="line.366"></a>
+<span class="sourceLineNo">367</span>     * This performs the actual work of parsing against a non-static instance of Segment. This method is intended to run<a name="line.367"></a>
+<span class="sourceLineNo">368</span>     * concurrently for multiple segments.<a name="line.368"></a>
+<span class="sourceLineNo">369</span>     *<a name="line.369"></a>
+<span class="sourceLineNo">370</span>     * @throws IOException if a problem occurs during reading from the underlying stream<a name="line.370"></a>
+<span class="sourceLineNo">371</span>     * @throws Pack200Exception if a problem occurs with an unexpected value or unsupported codec<a name="line.371"></a>
+<span class="sourceLineNo">372</span>     */<a name="line.372"></a>
+<span class="sourceLineNo">373</span>    private void parseSegment() throws IOException, Pack200Exception {<a name="line.373"></a>
+<span class="sourceLineNo">374</span><a name="line.374"></a>
+<span class="sourceLineNo">375</span>        header.unpack();<a name="line.375"></a>
+<span class="sourceLineNo">376</span>        cpBands.unpack();<a name="line.376"></a>
+<span class="sourceLineNo">377</span>        attrDefinitionBands.unpack();<a name="line.377"></a>
+<span class="sourceLineNo">378</span>        icBands.unpack();<a name="line.378"></a>
+<span class="sourceLineNo">379</span>        classBands.unpack();<a name="line.379"></a>
+<span class="sourceLineNo">380</span>        bcBands.unpack();<a name="line.380"></a>
+<span class="sourceLineNo">381</span>        fileBands.unpack();<a name="line.381"></a>
+<span class="sourceLineNo">382</span><a name="line.382"></a>
+<span class="sourceLineNo">383</span>        int classNum = 0;<a name="line.383"></a>
+<span class="sourceLineNo">384</span>        final int numberOfFiles = header.getNumberOfFiles();<a name="line.384"></a>
+<span class="sourceLineNo">385</span>        final String[] fileName = fileBands.getFileName();<a name="line.385"></a>
+<span class="sourceLineNo">386</span>        final int[] fileOptions = fileBands.getFileOptions();<a name="line.386"></a>
+<span class="sourceLineNo">387</span>        final SegmentOptions options = header.getOptions();<a name="line.387"></a>
+<span class="sourceLineNo">388</span><a name="line.388"></a>
+<span class="sourceLineNo">389</span>        classFilesContents = new byte[numberOfFiles][];<a name="line.389"></a>
+<span class="sourceLineNo">390</span>        fileDeflate = new boolean[numberOfFiles];<a name="line.390"></a>
+<span class="sourceLineNo">391</span>        fileIsClass = new boolean[numberOfFiles];<a name="line.391"></a>
+<span class="sourceLineNo">392</span><a name="line.392"></a>
+<span class="sourceLineNo">393</span>        final ByteArrayOutputStream bos = new ByteArrayOutputStream();<a name="line.393"></a>
+<span class="sourceLineNo">394</span>        final DataOutputStream dos = new DataOutputStream(bos);<a name="line.394"></a>
+<span class="sourceLineNo">395</span><a name="line.395"></a>
+<span class="sourceLineNo">396</span>        for (int i = 0; i &lt; numberOfFiles; i++) {<a name="line.396"></a>
+<span class="sourceLineNo">397</span>            String name = fileName[i];<a name="line.397"></a>
+<span class="sourceLineNo">398</span><a name="line.398"></a>
+<span class="sourceLineNo">399</span>            final boolean nameIsEmpty = (name == null) || name.equals("");<a name="line.399"></a>
+<span class="sourceLineNo">400</span>            final boolean isClass = (fileOptions[i] &amp; 2) == 2 || nameIsEmpty;<a name="line.400"></a>
+<span class="sourceLineNo">401</span>            if (isClass &amp;&amp; nameIsEmpty) {<a name="line.401"></a>
+<span class="sourceLineNo">402</span>                name = cpBands.getCpClass()[classBands.getClassThisInts()[classNum]] + ".class";<a name="line.402"></a>
+<span class="sourceLineNo">403</span>                fileName[i] = name;<a name="line.403"></a>
+<span class="sourceLineNo">404</span>            }<a name="line.404"></a>
+<span class="sourceLineNo">405</span><a name="line.405"></a>
+<span class="sourceLineNo">406</span>            if (!overrideDeflateHint) {<a name="line.406"></a>
+<span class="sourceLineNo">407</span>                fileDeflate[i] = (fileOptions[i] &amp; 1) == 1 || options.shouldDeflate();<a name="line.407"></a>
+<span class="sourceLineNo">408</span>            } else {<a name="line.408"></a>
+<span class="sourceLineNo">409</span>                fileDeflate[i] = deflateHint;<a name="line.409"></a>
+<span class="sourceLineNo">410</span>            }<a name="line.410"></a>
+<span class="sourceLineNo">411</span><a name="line.411"></a>
+<span class="sourceLineNo">412</span>            fileIsClass[i] = isClass;<a name="line.412"></a>
+<span class="sourceLineNo">413</span><a name="line.413"></a>
+<span class="sourceLineNo">414</span>            if (isClass) {<a name="line.414"></a>
+<span class="sourceLineNo">415</span>                final ClassFile classFile = buildClassFile(classNum);<a name="line.415"></a>
+<span class="sourceLineNo">416</span>                classFile.write(dos);<a name="line.416"></a>
+<span class="sourceLineNo">417</span>                dos.flush();<a name="line.417"></a>
+<span class="sourceLineNo">418</span><a name="line.418"></a>
+<span class="sourceLineNo">419</span>                classFilesContents[classNum] = bos.toByteArray();<a name="line.419"></a>
+<span class="sourceLineNo">420</span>                bos.reset();<a name="line.420"></a>
+<span class="sourceLineNo">421</span><a name="line.421"></a>
+<span class="sourceLineNo">422</span>                classNum++;<a name="line.422"></a>
+<span class="sourceLineNo">423</span>            }<a name="line.423"></a>
+<span class="sourceLineNo">424</span>        }<a name="line.424"></a>
+<span class="sourceLineNo">425</span>    }<a name="line.425"></a>
+<span class="sourceLineNo">426</span><a name="line.426"></a>
+<span class="sourceLineNo">427</span>    /**<a name="line.427"></a>
+<span class="sourceLineNo">428</span>     * Unpacks a packed stream (either .pack. or .pack.gz) into a corresponding JarOuputStream.<a name="line.428"></a>
+<span class="sourceLineNo">429</span>     *<a name="line.429"></a>
+<span class="sourceLineNo">430</span>     * @param in a packed stream.<a name="line.430"></a>
+<span class="sourceLineNo">431</span>     * @param out output stream.<a name="line.431"></a>
+<span class="sourceLineNo">432</span>     * @throws Pack200Exception if there is a problem unpacking<a name="line.432"></a>
+<span class="sourceLineNo">433</span>     * @throws IOException if there is a problem with I/O during unpacking<a name="line.433"></a>
+<span class="sourceLineNo">434</span>     */<a name="line.434"></a>
+<span class="sourceLineNo">435</span>    public void unpack(final InputStream in, final JarOutputStream out) throws IOException, Pack200Exception {<a name="line.435"></a>
+<span class="sourceLineNo">436</span>        unpackRead(in);<a name="line.436"></a>
+<span class="sourceLineNo">437</span>        unpackProcess();<a name="line.437"></a>
+<span class="sourceLineNo">438</span>        unpackWrite(out);<a name="line.438"></a>
+<span class="sourceLineNo">439</span>    }<a name="line.439"></a>
+<span class="sourceLineNo">440</span><a name="line.440"></a>
+<span class="sourceLineNo">441</span>    /*<a name="line.441"></a>
+<span class="sourceLineNo">442</span>     * Package-private accessors for unpacking stages<a name="line.442"></a>
+<span class="sourceLineNo">443</span>     */<a name="line.443"></a>
+<span class="sourceLineNo">444</span>    void unpackRead(InputStream in) throws IOException, Pack200Exception {<a name="line.444"></a>
+<span class="sourceLineNo">445</span>        if (!in.markSupported()) {<a name="line.445"></a>
+<span class="sourceLineNo">446</span>            in = new BufferedInputStream(in);<a name="line.446"></a>
+<span class="sourceLineNo">447</span>        }<a name="line.447"></a>
+<span class="sourceLineNo">448</span><a name="line.448"></a>
+<span class="sourceLineNo">449</span>        header = new SegmentHeader(this);<a name="line.449"></a>
+<span class="sourceLineNo">450</span>        header.read(in);<a name="line.450"></a>
+<span class="sourceLineNo">451</span><a name="line.451"></a>
+<span class="sourceLineNo">452</span>        final int size = (int) header.getArchiveSize() - header.getArchiveSizeOffset();<a name="line.452"></a>
+<span class="sourceLineNo">453</span><a name="line.453"></a>
+<span class="sourceLineNo">454</span>        if (doPreRead &amp;&amp; header.getArchiveSize() != 0) {<a name="line.454"></a>
+<span class="sourceLineNo">455</span>            final byte[] data = new byte[size];<a name="line.455"></a>
+<span class="sourceLineNo">456</span>            in.read(data);<a name="line.456"></a>
+<span class="sourceLineNo">457</span>            internalBuffer = new BufferedInputStream(new ByteArrayInputStream(data));<a name="line.457"></a>
+<span class="sourceLineNo">458</span>        } else {<a name="line.458"></a>
+<span class="sourceLineNo">459</span>            readSegment(in);<a name="line.459"></a>
+<span class="sourceLineNo">460</span>        }<a name="line.460"></a>
+<span class="sourceLineNo">461</span>    }<a name="line.461"></a>
+<span class="sourceLineNo">462</span><a name="line.462"></a>
+<span class="sourceLineNo">463</span>    void unpackProcess() throws IOException, Pack200Exception {<a name="line.463"></a>
+<span class="sourceLineNo">464</span>        if (internalBuffer != null) {<a name="line.464"></a>
+<span class="sourceLineNo">465</span>            readSegment(internalBuffer);<a name="line.465"></a>
+<span class="sourceLineNo">466</span>        }<a name="line.466"></a>
+<span class="sourceLineNo">467</span>        parseSegment();<a name="line.467"></a>
+<span class="sourceLineNo">468</span>    }<a name="line.468"></a>
+<span class="sourceLineNo">469</span><a name="line.469"></a>
+<span class="sourceLineNo">470</span>    void unpackWrite(final JarOutputStream out) throws IOException, Pack200Exception {<a name="line.470"></a>
+<span class="sourceLineNo">471</span>        writeJar(out);<a name="line.471"></a>
+<span class="sourceLineNo">472</span>        if (logStream != null) {<a name="line.472"></a>
+<span class="sourceLineNo">473</span>            logStream.close();<a name="line.473"></a>
+<span class="sourceLineNo">474</span>        }<a name="line.474"></a>
+<span class="sourceLineNo">475</span>    }<a name="line.475"></a>
+<span class="sourceLineNo">476</span><a name="line.476"></a>
+<span class="sourceLineNo">477</span>    /**<a name="line.477"></a>
+<span class="sourceLineNo">478</span>     * Writes the segment to an output stream. The output stream should be pre-buffered for efficiency. Also takes the<a name="line.478"></a>
+<span class="sourceLineNo">479</span>     * same input stream for reading, since the file bits may not be loaded and thus just copied from one stream to<a name="line.479"></a>
+<span class="sourceLineNo">480</span>     * another. Doesn't close the output stream when finished, in case there are more entries (e.g. further segments) to<a name="line.480"></a>
+<span class="sourceLineNo">481</span>     * be written.<a name="line.481"></a>
+<span class="sourceLineNo">482</span>     *<a name="line.482"></a>
+<span class="sourceLineNo">483</span>     * @param out the JarOutputStream to write data to<a name="line.483"></a>
+<span class="sourceLineNo">484</span>     * @throws IOException if an error occurs while reading or writing to the streams<a name="line.484"></a>
+<span class="sourceLineNo">485</span>     * @throws Pack200Exception if an error occurs while processing data<a name="line.485"></a>
+<span class="sourceLineNo">486</span>     */<a name="line.486"></a>
+<span class="sourceLineNo">487</span>    public void writeJar(final JarOutputStream out) throws IOException, Pack200Exception {<a name="line.487"></a>
+<span class="sourceLineNo">488</span>        final String[] fileName = fileBands.getFileName();<a name="line.488"></a>
+<span class="sourceLineNo">489</span>        final int[] fileModtime = fileBands.getFileModtime();<a name="line.489"></a>
+<span class="sourceLineNo">490</span>        final long[] fileSize = fileBands.getFileSize();<a name="line.490"></a>
+<span class="sourceLineNo">491</span>        final byte[][] fileBits = fileBands.getFileBits();<a name="line.491"></a>
+<span class="sourceLineNo">492</span><a name="line.492"></a>
+<span class="sourceLineNo">493</span>        // now write the files out<a name="line.493"></a>
+<span class="sourceLineNo">494</span>        int classNum = 0;<a name="line.494"></a>
+<span class="sourceLineNo">495</span>        final int numberOfFiles = header.getNumberOfFiles();<a name="line.495"></a>
+<span class="sourceLineNo">496</span>        final long archiveModtime = header.getArchiveModtime();<a name="line.496"></a>
+<span class="sourceLineNo">497</span><a name="line.497"></a>
+<span class="sourceLineNo">498</span>        for (int i = 0; i &lt; numberOfFiles; i++) {<a name="line.498"></a>
+<span class="sourceLineNo">499</span>            final String name = fileName[i];<a name="line.499"></a>
+<span class="sourceLineNo">500</span>            // For Pack200 archives, modtime is in seconds<a name="line.500"></a>
+<span class="sourceLineNo">501</span>            // from the epoch. JarEntries need it to be in<a name="line.501"></a>
+<span class="sourceLineNo">502</span>            // milliseconds from the epoch.<a name="line.502"></a>
+<span class="sourceLineNo">503</span>            // Even though we're adding two longs and multiplying<a name="line.503"></a>
+<span class="sourceLineNo">504</span>            // by 1000, we won't overflow because both longs are<a name="line.504"></a>
+<span class="sourceLineNo">505</span>            // always under 2^32.<a name="line.505"></a>
+<span class="sourceLineNo">506</span>            final long modtime = 1000 * (archiveModtime + fileModtime[i]);<a name="line.506"></a>
+<span class="sourceLineNo">507</span>            final boolean deflate = fileDeflate[i];<a name="line.507"></a>
+<span class="sourceLineNo">508</span><a name="line.508"></a>
+<span class="sourceLineNo">509</span>            final JarEntry entry = new JarEntry(name);<a name="line.509"></a>
+<span class="sourceLineNo">510</span>            if (deflate) {<a name="line.510"></a>
+<span class="sourceLineNo">511</span>                entry.setMethod(ZipEntry.DEFLATED);<a name="line.511"></a>
+<span class="sourceLineNo">512</span>            } else {<a name="line.512"></a>
+<span class="sourceLineNo">513</span>                entry.setMethod(ZipEntry.STORED);<a name="line.513"></a>
+<span class="sourceLineNo">514</span>                final CRC32 crc = new CRC32();<a name="line.514"></a>
+<span class="sourceLineNo">515</span>                if (fileIsClass[i]) {<a name="line.515"></a>
+<span class="sourceLineNo">516</span>                    crc.update(classFilesContents[classNum]);<a name="line.516"></a>
+<span class="sourceLineNo">517</span>                    entry.setSize(classFilesContents[classNum].length);<a name="line.517"></a>
+<span class="sourceLineNo">518</span>                } else {<a name="line.518"></a>
+<span class="sourceLineNo">519</span>                    crc.update(fileBits[i]);<a name="line.519"></a>
+<span class="sourceLineNo">520</span>                    entry.setSize(fileSize[i]);<a name="line.520"></a>
+<span class="sourceLineNo">521</span>                }<a name="line.521"></a>
+<span class="sourceLineNo">522</span>                entry.setCrc(crc.getValue());<a name="line.522"></a>
+<span class="sourceLineNo">523</span>            }<a name="line.523"></a>
+<span class="sourceLineNo">524</span>            // On Windows at least, need to correct for timezone<a name="line.524"></a>
+<span class="sourceLineNo">525</span>            entry.setTime(modtime - TimeZone.getDefault().getRawOffset());<a name="line.525"></a>
+<span class="sourceLineNo">526</span>            out.putNextEntry(entry);<a name="line.526"></a>
+<span class="sourceLineNo">527</span><a name="line.527"></a>
+<span class="sourceLineNo">528</span>            // write to output stream<a name="line.528"></a>
+<span class="sourceLineNo">529</span>            if (fileIsClass[i]) {<a name="line.529"></a>
+<span class="sourceLineNo">530</span>                entry.setSize(classFilesContents[classNum].length);<a name="line.530"></a>
+<span class="sourceLineNo">531</span>                out.write(classFilesContents[classNum]);<a name="line.531"></a>
+<span class="sourceLineNo">532</span>                classNum++;<a name="line.532"></a>
+<span class="sourceLineNo">533</span>            } else {<a name="line.533"></a>
+<span class="sourceLineNo">534</span>                entry.setSize(fileSize[i]);<a name="line.534"></a>
+<span class="sourceLineNo">535</span>                out.write(fileBits[i]);<a name="line.535"></a>
+<span class="sourceLineNo">536</span>            }<a name="line.536"></a>
+<span class="sourceLineNo">537</span>        }<a name="line.537"></a>
+<span class="sourceLineNo">538</span>    }<a name="line.538"></a>
+<span class="sourceLineNo">539</span><a name="line.539"></a>
+<span class="sourceLineNo">540</span>    public SegmentConstantPool getConstantPool() {<a name="line.540"></a>
+<span class="sourceLineNo">541</span>        return cpBands.getConstantPool();<a name="line.541"></a>
+<span class="sourceLineNo">542</span>    }<a name="line.542"></a>
+<span class="sourceLineNo">543</span><a name="line.543"></a>
+<span class="sourceLineNo">544</span>    public SegmentHeader getSegmentHeader() {<a name="line.544"></a>
+<span class="sourceLineNo">545</span>        return header;<a name="line.545"></a>
+<span class="sourceLineNo">546</span>    }<a name="line.546"></a>
+<span class="sourceLineNo">547</span><a name="line.547"></a>
+<span class="sourceLineNo">548</span>    public void setPreRead(final boolean value) {<a name="line.548"></a>
+<span class="sourceLineNo">549</span>        doPreRead = value;<a name="line.549"></a>
+<span class="sourceLineNo">550</span>    }<a name="line.550"></a>
+<span class="sourceLineNo">551</span><a name="line.551"></a>
+<span class="sourceLineNo">552</span>    protected AttrDefinitionBands getAttrDefinitionBands() {<a name="line.552"></a>
+<span class="sourceLineNo">553</span>        return attrDefinitionBands;<a name="line.553"></a>
+<span class="sourceLineNo">554</span>    }<a name="line.554"></a>
+<span class="sourceLineNo">555</span><a name="line.555"></a>
+<span class="sourceLineNo">556</span>    protected ClassBands getClassBands() {<a name="line.556"></a>
+<span class="sourceLineNo">557</span>        return classBands;<a name="line.557"></a>
+<span class="sourceLineNo">558</span>    }<a name="line.558"></a>
+<span class="sourceLineNo">559</span><a name="line.559"></a>
+<span class="sourceLineNo">560</span>    protected CpBands getCpBands() {<a name="line.560"></a>
+<span class="sourceLineNo">561</span>        return cpBands;<a name="line.561"></a>
+<span class="sourceLineNo">562</span>    }<a name="line.562"></a>
+<span class="sourceLineNo">563</span><a name="line.563"></a>
+<span class="sourceLineNo">564</span>    protected IcBands getIcBands() {<a name="line.564"></a>
+<span class="sourceLineNo">565</span>        return icBands;<a name="line.565"></a>
+<span class="sourceLineNo">566</span>    }<a name="line.566"></a>
+<span class="sourceLineNo">567</span><a name="line.567"></a>
+<span class="sourceLineNo">568</span>    public void setLogLevel(final int logLevel) {<a name="line.568"></a>
+<span class="sourceLineNo">569</span>        this.logLevel = logLevel;<a name="line.569"></a>
+<span class="sourceLineNo">570</span>    }<a name="line.570"></a>
+<span class="sourceLineNo">571</span><a name="line.571"></a>
+<span class="sourceLineNo">572</span>    public void setLogStream(final OutputStream logStream) {<a name="line.572"></a>
+<span class="sourceLineNo">573</span>        this.logStream = new PrintWriter(logStream);<a name="line.573"></a>
+<span class="sourceLineNo">574</span>    }<a name="line.574"></a>
+<span class="sourceLineNo">575</span><a name="line.575"></a>
+<span class="sourceLineNo">576</span>    public void log(final int logLevel, final String message) {<a name="line.576"></a>
+<span class="sourceLineNo">577</span>        if (this.logLevel &gt;= logLevel) {<a name="line.577"></a>
+<span class="sourceLineNo">578</span>            logStream.println(message);<a name="line.578"></a>
+<span class="sourceLineNo">579</span>        }<a name="line.579"></a>
+<span class="sourceLineNo">580</span>    }<a name="line.580"></a>
+<span class="sourceLineNo">581</span><a name="line.581"></a>
+<span class="sourceLineNo">582</span>    /**<a name="line.582"></a>
+<span class="sourceLineNo">583</span>     * Override the archive's deflate hint with the given boolean<a name="line.583"></a>
+<span class="sourceLineNo">584</span>     *<a name="line.584"></a>
+<span class="sourceLineNo">585</span>     * @param deflateHint - the deflate hint to use<a name="line.585"></a>
+<span class="sourceLineNo">586</span>     */<a name="line.586"></a>
+<span class="sourceLineNo">587</span>    public void overrideDeflateHint(final boolean deflateHint) {<a name="line.587"></a>
+<span class="sourceLineNo">588</span>        this.overrideDeflateHint = true;<a name="line.588"></a>
+<span class="sourceLineNo">589</span>        this.deflateHint = deflateHint;<a name="line.589"></a>
+<span class="sourceLineNo">590</span>    }<a name="line.590"></a>
+<span class="sourceLineNo">591</span><a name="line.591"></a>
+<span class="sourceLineNo">592</span>}<a name="line.592"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

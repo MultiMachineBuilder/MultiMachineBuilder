@@ -206,4 +206,16 @@ public abstract class ItemBase implements ItemType {
 		this.volume = volume;
 		return this;
 	}
+
+	
+	private boolean stacks;
+	@Override
+	public void setUnstackable(boolean value) {
+		stacks = value;
+	}
+
+	@Override
+	public boolean isUnstackable() {
+		return stacks;
+	}
 }

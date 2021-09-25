@@ -11,9 +11,9 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import mmb.DATA.contents.texture.Textures;
-import mmb.WORLD.RotatedImageGroup;
-import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockEntry;
+import mmb.WORLD.rotate.RotatedImageGroup;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.texture.BlockDrawer;
 
 /**

@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingConstants;
 
 import mmb.DATA.contents.texture.Textures;
-import mmb.WORLD.RotatedImageGroup;
+import mmb.WORLD.rotate.RotatedImageGroup;
 
 /**
  * @author oskar

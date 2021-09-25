@@ -72,7 +72,7 @@ public class Chest extends AbstractChest implements BlockActivateListener, Color
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window) {
+	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		window.openAndShowWindow(new ChestGui(this, window), "chest");
 	}

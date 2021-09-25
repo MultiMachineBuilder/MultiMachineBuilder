@@ -32,7 +32,7 @@ public class BlockLoader implements ExternalLoader<JsonNode, BlockEntry> {
 	private BlockEntry doLoadBasic(String text) {
 		BlockType type = Blocks.get(text);
 				if(type == null) return ContentsBlocks.grass;
-		return type.create(x, y, map);
+		return type.createBlock();
 	}
 	private BlockEntry doLoadEnhanced(ObjectNode on) {
 		//find block type
@@ -43,7 +43,7 @@ public class BlockLoader implements ExternalLoader<JsonNode, BlockEntry> {
 			return null;
 		}
 		if(typ.isBlockEntity()) {
-			BlockEntity block = typ.create(x, y, map).asBlockEntity();
+			BlockEntity block = typ.createBlock().asBlockEntity();
 			try {
 				block.load(on);
 				block.onStartup(map);
@@ -52,6 +52,6 @@ public class BlockLoader implements ExternalLoader<JsonNode, BlockEntry> {
 			}
 			return block;
 		}
-		return typ.create(x, y, map);
+		return typ.createBlock();
 	}
 }

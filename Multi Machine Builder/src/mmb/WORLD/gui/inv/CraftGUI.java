@@ -13,7 +13,7 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
 
 import mmb.LAMBDAS.Consumers;
-import mmb.WORLD.blocks.machine.Crafting;
+import mmb.WORLD.blocks.machine.manual.Crafting;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.gui.Variable;
@@ -56,7 +56,7 @@ public class CraftGUI extends JPanel {
 	 * @param crafter the crafter, which owns this GUI (optional)
 	 * @param window the window, which stores this GUI (optional)
 	 */
-	public CraftGUI(int size, Inventory inv, @Nullable Crafting crafter, @Nullable WorldWindow window) {
+	public CraftGUI(int size, @Nullable Inventory inv, @Nullable Crafting crafter, @Nullable WorldWindow window) {
 		Bag<ItemEntry> ins = new HashBag<>();
 		AtomicReference<RecipeOutput> outs = new AtomicReference<>();
 		

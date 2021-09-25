@@ -272,5 +272,10 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/fastutil/fastutil-extra-8.5.4-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="lib/commons-compress-1.21/commons-compress-1.21.jar" sourcepath="lib/commons-compress-1.21/commons-compress-1.21-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/commons-compress-1.21/commons-compress-1.21-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

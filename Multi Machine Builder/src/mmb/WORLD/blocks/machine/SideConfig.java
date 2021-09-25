@@ -16,8 +16,7 @@ import mmb.Bitwise;
 import mmb.BEANS.Saver;
 import mmb.DATA.json.JsonTool;
 import mmb.DATA.variables.ListenerBooleanVariable;
-import mmb.WORLD.Side;
-import sun.util.resources.cldr.fr.CalendarData_fr_GA;
+import mmb.WORLD.rotate.Side;
 
 /**
  * @author oskar
@@ -176,7 +175,7 @@ Cloneable, Iterable<mmb.WORLD.blocks.machine.SideConfig.SideBoolean>, Saver<@Nul
 				SideBoolean.of(R.getValue(), Side.R));
 	}
 	@Override
-	public void forEach(Consumer<? super SideBoolean> c) {
+	public void forEach(@SuppressWarnings("null") Consumer<? super SideBoolean> c) {
 		c.accept(SideBoolean.of(U.getValue(), Side.U));
 		c.accept(SideBoolean.of(D.getValue(), Side.D));
 		c.accept(SideBoolean.of(L.getValue(), Side.L));

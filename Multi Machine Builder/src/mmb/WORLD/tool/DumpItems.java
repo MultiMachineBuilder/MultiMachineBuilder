@@ -47,22 +47,23 @@ public class DumpItems extends WindowTool {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		Point trashed = frame.blockAt(e.getPoint());
-		Placer placer = window.getPlacer().getSelectedValue();
 		switch(e.getButton()) {
 		case 1: //LMB drop
-			if(placer instanceof ItemEntry) {
-				ItemEntry item = (ItemEntry) placer;
-				Toolkit.getDefaultToolkit().beep();
+			ItemEntry item = window.getPlacer().getSelectedValue().item();
+			int extract = window.getPlayer().inv.extract(item, 1);
+			if(extract == 1)
 				frame.getMap().dropItem(item, trashed.x, trashed.y);
-			}
 			break;
 		case 3: //RMB pick up
 			Collection<ItemEntry> items = frame.getMap().getDrops(trashed.x, trashed.y);
 			Iterator<ItemEntry> iter = items.iterator();
-			Toolkit.getDefaultToolkit().beep();
 			while(iter.hasNext()) {
-				ItemEntry item = iter.next();
-				int tf = window.getPlayer().inv.insert(item, 1);
+				ItemEntry item0 = iter.next();
+				if(item0 == null) {
+					iter.remove();
+					continue;
+				}
+				int tf = window.getPlayer().inv.insert(item0, 1);
 				if(tf == 1) iter.remove();
 			}
 		}

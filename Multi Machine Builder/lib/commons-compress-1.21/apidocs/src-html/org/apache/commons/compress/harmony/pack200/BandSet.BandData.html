@@ -1,0 +1,864 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="de">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> *  Licensed to the Apache Software Foundation (ASF) under one or more<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *  contributor license agreements.  See the NOTICE file distributed with<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *  this work for additional information regarding copyright ownership.<a name="line.4"></a>
+<span class="sourceLineNo">005</span> *  The ASF licenses this file to You under the Apache License, Version 2.0<a name="line.5"></a>
+<span class="sourceLineNo">006</span> *  (the "License"); you may not use this file except in compliance with<a name="line.6"></a>
+<span class="sourceLineNo">007</span> *  the License.  You may obtain a copy of the License at<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *     http://www.apache.org/licenses/LICENSE-2.0<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *  Unless required by applicable law or agreed to in writing, software<a name="line.11"></a>
+<span class="sourceLineNo">012</span> *  distributed under the License is distributed on an "AS IS" BASIS,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<a name="line.13"></a>
+<span class="sourceLineNo">014</span> *  See the License for the specific language governing permissions and<a name="line.14"></a>
+<span class="sourceLineNo">015</span> *  limitations under the License.<a name="line.15"></a>
+<span class="sourceLineNo">016</span> */<a name="line.16"></a>
+<span class="sourceLineNo">017</span>package org.apache.commons.compress.harmony.pack200;<a name="line.17"></a>
+<span class="sourceLineNo">018</span><a name="line.18"></a>
+<span class="sourceLineNo">019</span>import java.io.IOException;<a name="line.19"></a>
+<span class="sourceLineNo">020</span>import java.io.OutputStream;<a name="line.20"></a>
+<span class="sourceLineNo">021</span>import java.util.ArrayList;<a name="line.21"></a>
+<span class="sourceLineNo">022</span>import java.util.Collections;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import java.util.HashMap;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>import java.util.Iterator;<a name="line.24"></a>
+<span class="sourceLineNo">025</span>import java.util.List;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import java.util.Map;<a name="line.26"></a>
+<span class="sourceLineNo">027</span><a name="line.27"></a>
+<span class="sourceLineNo">028</span>/**<a name="line.28"></a>
+<span class="sourceLineNo">029</span> * Abstract superclass for a set of bands<a name="line.29"></a>
+<span class="sourceLineNo">030</span> */<a name="line.30"></a>
+<span class="sourceLineNo">031</span>public abstract class BandSet {<a name="line.31"></a>
+<span class="sourceLineNo">032</span><a name="line.32"></a>
+<span class="sourceLineNo">033</span>    protected final SegmentHeader segmentHeader;<a name="line.33"></a>
+<span class="sourceLineNo">034</span>    final int effort;<a name="line.34"></a>
+<span class="sourceLineNo">035</span><a name="line.35"></a>
+<span class="sourceLineNo">036</span>    // Minimum size of band for each effort level where we consider alternative codecs<a name="line.36"></a>
+<span class="sourceLineNo">037</span>    // Note: these values have been tuned - please test carefully if changing them<a name="line.37"></a>
+<span class="sourceLineNo">038</span>    private static final int[] effortThresholds = {0, 0, 1000, 500, 100, 100, 100, 100, 100, 0};<a name="line.38"></a>
+<span class="sourceLineNo">039</span><a name="line.39"></a>
+<span class="sourceLineNo">040</span>    private long[] canonicalLargest;<a name="line.40"></a>
+<span class="sourceLineNo">041</span>    private long[] canonicalSmallest;<a name="line.41"></a>
+<span class="sourceLineNo">042</span><a name="line.42"></a>
+<span class="sourceLineNo">043</span>    /**<a name="line.43"></a>
+<span class="sourceLineNo">044</span>     * Create a new BandSet<a name="line.44"></a>
+<span class="sourceLineNo">045</span>     * <a name="line.45"></a>
+<span class="sourceLineNo">046</span>     * @param effort - the packing effort to be used (must be 1-9)<a name="line.46"></a>
+<span class="sourceLineNo">047</span>     * @param header - the segment header<a name="line.47"></a>
+<span class="sourceLineNo">048</span>     */<a name="line.48"></a>
+<span class="sourceLineNo">049</span>    public BandSet(final int effort, final SegmentHeader header) {<a name="line.49"></a>
+<span class="sourceLineNo">050</span>        this.effort = effort;<a name="line.50"></a>
+<span class="sourceLineNo">051</span>        this.segmentHeader = header;<a name="line.51"></a>
+<span class="sourceLineNo">052</span>    }<a name="line.52"></a>
+<span class="sourceLineNo">053</span><a name="line.53"></a>
+<span class="sourceLineNo">054</span>    /**<a name="line.54"></a>
+<span class="sourceLineNo">055</span>     * Write the packed set of bands to the given output stream<a name="line.55"></a>
+<span class="sourceLineNo">056</span>     * <a name="line.56"></a>
+<span class="sourceLineNo">057</span>     * @param out TODO<a name="line.57"></a>
+<span class="sourceLineNo">058</span>     * @throws IOException If an I/O error occurs.<a name="line.58"></a>
+<span class="sourceLineNo">059</span>     * @throws Pack200Exception TODO<a name="line.59"></a>
+<span class="sourceLineNo">060</span>     */<a name="line.60"></a>
+<span class="sourceLineNo">061</span>    public abstract void pack(OutputStream out) throws IOException, Pack200Exception;<a name="line.61"></a>
+<span class="sourceLineNo">062</span><a name="line.62"></a>
+<span class="sourceLineNo">063</span>    /**<a name="line.63"></a>
+<span class="sourceLineNo">064</span>     * Encode a band without considering other Codecs<a name="line.64"></a>
+<span class="sourceLineNo">065</span>     * <a name="line.65"></a>
+<span class="sourceLineNo">066</span>     * @param band - the band<a name="line.66"></a>
+<span class="sourceLineNo">067</span>     * @param codec - the Codec to use<a name="line.67"></a>
+<span class="sourceLineNo">068</span>     * @return the encoded band<a name="line.68"></a>
+<span class="sourceLineNo">069</span>     * @throws Pack200Exception TODO<a name="line.69"></a>
+<span class="sourceLineNo">070</span>     */<a name="line.70"></a>
+<span class="sourceLineNo">071</span>    public byte[] encodeScalar(final int[] band, final BHSDCodec codec) throws Pack200Exception {<a name="line.71"></a>
+<span class="sourceLineNo">072</span>        return codec.encode(band);<a name="line.72"></a>
+<span class="sourceLineNo">073</span>    }<a name="line.73"></a>
+<span class="sourceLineNo">074</span><a name="line.74"></a>
+<span class="sourceLineNo">075</span>    /**<a name="line.75"></a>
+<span class="sourceLineNo">076</span>     * Encode a single value with the given Codec<a name="line.76"></a>
+<span class="sourceLineNo">077</span>     * <a name="line.77"></a>
+<span class="sourceLineNo">078</span>     * @param value - the value to encode<a name="line.78"></a>
+<span class="sourceLineNo">079</span>     * @param codec - Codec to use<a name="line.79"></a>
+<span class="sourceLineNo">080</span>     * @return the encoded value<a name="line.80"></a>
+<span class="sourceLineNo">081</span>     * @throws Pack200Exception TODO<a name="line.81"></a>
+<span class="sourceLineNo">082</span>     */<a name="line.82"></a>
+<span class="sourceLineNo">083</span>    public byte[] encodeScalar(final int value, final BHSDCodec codec) throws Pack200Exception {<a name="line.83"></a>
+<span class="sourceLineNo">084</span>        return codec.encode(value);<a name="line.84"></a>
+<span class="sourceLineNo">085</span>    }<a name="line.85"></a>
+<span class="sourceLineNo">086</span><a name="line.86"></a>
+<span class="sourceLineNo">087</span>    /**<a name="line.87"></a>
+<span class="sourceLineNo">088</span>     * Encode a band of integers. The default codec may be used, but other Codecs are considered if effort is greater<a name="line.88"></a>
+<span class="sourceLineNo">089</span>     * than 1.<a name="line.89"></a>
+<span class="sourceLineNo">090</span>     *<a name="line.90"></a>
+<span class="sourceLineNo">091</span>     * @param name - name of the band (used for debugging)<a name="line.91"></a>
+<span class="sourceLineNo">092</span>     * @param ints - the band<a name="line.92"></a>
+<span class="sourceLineNo">093</span>     * @param defaultCodec - the default Codec<a name="line.93"></a>
+<span class="sourceLineNo">094</span>     * @return the encoded band<a name="line.94"></a>
+<span class="sourceLineNo">095</span>     * @throws Pack200Exception TODO<a name="line.95"></a>
+<span class="sourceLineNo">096</span>     */<a name="line.96"></a>
+<span class="sourceLineNo">097</span>    public byte[] encodeBandInt(final String name, final int[] ints, final BHSDCodec defaultCodec)<a name="line.97"></a>
+<span class="sourceLineNo">098</span>        throws Pack200Exception {<a name="line.98"></a>
+<span class="sourceLineNo">099</span>        byte[] encodedBand = null;<a name="line.99"></a>
+<span class="sourceLineNo">100</span>        // Useful for debugging<a name="line.100"></a>
+<span class="sourceLineNo">101</span>//        if(ints.length &gt; 0) {<a name="line.101"></a>
+<span class="sourceLineNo">102</span>//            System.out.println("encoding " + name + " " + ints.length);<a name="line.102"></a>
+<span class="sourceLineNo">103</span>//        }<a name="line.103"></a>
+<span class="sourceLineNo">104</span>        if (effort &gt; 1 &amp;&amp; (ints.length &gt;= effortThresholds[effort])) {<a name="line.104"></a>
+<span class="sourceLineNo">105</span>            final BandAnalysisResults results = analyseBand(name, ints, defaultCodec);<a name="line.105"></a>
+<span class="sourceLineNo">106</span>            final Codec betterCodec = results.betterCodec;<a name="line.106"></a>
+<span class="sourceLineNo">107</span>            encodedBand = results.encodedBand;<a name="line.107"></a>
+<span class="sourceLineNo">108</span>            if (betterCodec != null) {<a name="line.108"></a>
+<span class="sourceLineNo">109</span>                if (betterCodec instanceof BHSDCodec) {<a name="line.109"></a>
+<span class="sourceLineNo">110</span>                    final int[] specifierBand = CodecEncoding.getSpecifier(betterCodec, defaultCodec);<a name="line.110"></a>
+<span class="sourceLineNo">111</span>                    int specifier = specifierBand[0];<a name="line.111"></a>
+<span class="sourceLineNo">112</span>                    if (specifierBand.length &gt; 1) {<a name="line.112"></a>
+<span class="sourceLineNo">113</span>                        for (int i = 1; i &lt; specifierBand.length; i++) {<a name="line.113"></a>
+<span class="sourceLineNo">114</span>                            segmentHeader.appendBandCodingSpecifier(specifierBand[i]);<a name="line.114"></a>
+<span class="sourceLineNo">115</span>                        }<a name="line.115"></a>
+<span class="sourceLineNo">116</span>                    }<a name="line.116"></a>
+<span class="sourceLineNo">117</span>                    if (defaultCodec.isSigned()) {<a name="line.117"></a>
+<span class="sourceLineNo">118</span>                        specifier = -1 - specifier;<a name="line.118"></a>
+<span class="sourceLineNo">119</span>                    } else {<a name="line.119"></a>
+<span class="sourceLineNo">120</span>                        specifier = specifier + defaultCodec.getL();<a name="line.120"></a>
+<span class="sourceLineNo">121</span>                    }<a name="line.121"></a>
+<span class="sourceLineNo">122</span>                    final byte[] specifierEncoded = defaultCodec.encode(new int[] {specifier});<a name="line.122"></a>
+<span class="sourceLineNo">123</span>                    final byte[] band = new byte[specifierEncoded.length + encodedBand.length];<a name="line.123"></a>
+<span class="sourceLineNo">124</span>                    System.arraycopy(specifierEncoded, 0, band, 0, specifierEncoded.length);<a name="line.124"></a>
+<span class="sourceLineNo">125</span>                    System.arraycopy(encodedBand, 0, band, specifierEncoded.length, encodedBand.length);<a name="line.125"></a>
+<span class="sourceLineNo">126</span>                    return band;<a name="line.126"></a>
+<span class="sourceLineNo">127</span>                }<a name="line.127"></a>
+<span class="sourceLineNo">128</span>                if (betterCodec instanceof PopulationCodec) {<a name="line.128"></a>
+<span class="sourceLineNo">129</span>                    final int[] extraSpecifierInfo = results.extraMetadata;<a name="line.129"></a>
+<span class="sourceLineNo">130</span>                    for (int i = 0; i &lt; extraSpecifierInfo.length; i++) {<a name="line.130"></a>
+<span class="sourceLineNo">131</span>                        segmentHeader.appendBandCodingSpecifier(extraSpecifierInfo[i]);<a name="line.131"></a>
+<span class="sourceLineNo">132</span>                    }<a name="line.132"></a>
+<span class="sourceLineNo">133</span>                    return encodedBand;<a name="line.133"></a>
+<span class="sourceLineNo">134</span>                }<a name="line.134"></a>
+<span class="sourceLineNo">135</span>                if (betterCodec instanceof RunCodec) {<a name="line.135"></a>
+<span class="sourceLineNo">136</span><a name="line.136"></a>
+<span class="sourceLineNo">137</span>                }<a name="line.137"></a>
+<span class="sourceLineNo">138</span>            }<a name="line.138"></a>
+<span class="sourceLineNo">139</span>        }<a name="line.139"></a>
+<span class="sourceLineNo">140</span><a name="line.140"></a>
+<span class="sourceLineNo">141</span>        // If we get here then we've decided to use the default codec.<a name="line.141"></a>
+<span class="sourceLineNo">142</span>        if (ints.length &gt; 0) {<a name="line.142"></a>
+<span class="sourceLineNo">143</span>            if (encodedBand == null) {<a name="line.143"></a>
+<span class="sourceLineNo">144</span>                encodedBand = defaultCodec.encode(ints);<a name="line.144"></a>
+<span class="sourceLineNo">145</span>            }<a name="line.145"></a>
+<span class="sourceLineNo">146</span>            final int first = ints[0];<a name="line.146"></a>
+<span class="sourceLineNo">147</span>            if (defaultCodec.getB() != 1) {<a name="line.147"></a>
+<span class="sourceLineNo">148</span>                if (defaultCodec.isSigned() &amp;&amp; first &gt;= -256 &amp;&amp; first &lt;= -1) {<a name="line.148"></a>
+<span class="sourceLineNo">149</span>                    final int specifier = -1 - CodecEncoding.getSpecifierForDefaultCodec(defaultCodec);<a name="line.149"></a>
+<span class="sourceLineNo">150</span>                    final byte[] specifierEncoded = defaultCodec.encode(new int[] {specifier});<a name="line.150"></a>
+<span class="sourceLineNo">151</span>                    final byte[] band = new byte[specifierEncoded.length + encodedBand.length];<a name="line.151"></a>
+<span class="sourceLineNo">152</span>                    System.arraycopy(specifierEncoded, 0, band, 0, specifierEncoded.length);<a name="line.152"></a>
+<span class="sourceLineNo">153</span>                    System.arraycopy(encodedBand, 0, band, specifierEncoded.length, encodedBand.length);<a name="line.153"></a>
+<span class="sourceLineNo">154</span>                    return band;<a name="line.154"></a>
+<span class="sourceLineNo">155</span>                }<a name="line.155"></a>
+<span class="sourceLineNo">156</span>                if (!defaultCodec.isSigned() &amp;&amp; first &gt;= defaultCodec.getL() &amp;&amp; first &lt;= defaultCodec.getL() + 255) {<a name="line.156"></a>
+<span class="sourceLineNo">157</span>                    final int specifier = CodecEncoding.getSpecifierForDefaultCodec(defaultCodec) + defaultCodec.getL();<a name="line.157"></a>
+<span class="sourceLineNo">158</span>                    final byte[] specifierEncoded = defaultCodec.encode(new int[] {specifier});<a name="line.158"></a>
+<span class="sourceLineNo">159</span>                    final byte[] band = new byte[specifierEncoded.length + encodedBand.length];<a name="line.159"></a>
+<span class="sourceLineNo">160</span>                    System.arraycopy(specifierEncoded, 0, band, 0, specifierEncoded.length);<a name="line.160"></a>
+<span class="sourceLineNo">161</span>                    System.arraycopy(encodedBand, 0, band, specifierEncoded.length, encodedBand.length);<a name="line.161"></a>
+<span class="sourceLineNo">162</span>                    return band;<a name="line.162"></a>
+<span class="sourceLineNo">163</span>                }<a name="line.163"></a>
+<span class="sourceLineNo">164</span>            }<a name="line.164"></a>
+<span class="sourceLineNo">165</span>            return encodedBand;<a name="line.165"></a>
+<span class="sourceLineNo">166</span>        }<a name="line.166"></a>
+<span class="sourceLineNo">167</span>        return new byte[0];<a name="line.167"></a>
+<span class="sourceLineNo">168</span>    }<a name="line.168"></a>
+<span class="sourceLineNo">169</span><a name="line.169"></a>
+<span class="sourceLineNo">170</span>    private BandAnalysisResults analyseBand(final String name, final int[] band, final BHSDCodec defaultCodec)<a name="line.170"></a>
+<span class="sourceLineNo">171</span>        throws Pack200Exception {<a name="line.171"></a>
+<span class="sourceLineNo">172</span><a name="line.172"></a>
+<span class="sourceLineNo">173</span>        final BandAnalysisResults results = new BandAnalysisResults();<a name="line.173"></a>
+<span class="sourceLineNo">174</span><a name="line.174"></a>
+<span class="sourceLineNo">175</span>        if (canonicalLargest == null) {<a name="line.175"></a>
+<span class="sourceLineNo">176</span>            canonicalLargest = new long[116];<a name="line.176"></a>
+<span class="sourceLineNo">177</span>            canonicalSmallest = new long[116];<a name="line.177"></a>
+<span class="sourceLineNo">178</span>            for (int i = 1; i &lt; canonicalLargest.length; i++) {<a name="line.178"></a>
+<span class="sourceLineNo">179</span>                canonicalLargest[i] = CodecEncoding.getCanonicalCodec(i).largest();<a name="line.179"></a>
+<span class="sourceLineNo">180</span>                canonicalSmallest[i] = CodecEncoding.getCanonicalCodec(i).smallest();<a name="line.180"></a>
+<span class="sourceLineNo">181</span>            }<a name="line.181"></a>
+<span class="sourceLineNo">182</span>        }<a name="line.182"></a>
+<span class="sourceLineNo">183</span>        final BandData bandData = new BandData(band);<a name="line.183"></a>
+<span class="sourceLineNo">184</span><a name="line.184"></a>
+<span class="sourceLineNo">185</span>        // Check that there is a reasonable saving to be made<a name="line.185"></a>
+<span class="sourceLineNo">186</span>        final byte[] encoded = defaultCodec.encode(band);<a name="line.186"></a>
+<span class="sourceLineNo">187</span>        results.encodedBand = encoded;<a name="line.187"></a>
+<span class="sourceLineNo">188</span><a name="line.188"></a>
+<span class="sourceLineNo">189</span>        // Note: these values have been tuned - please test carefully if changing them<a name="line.189"></a>
+<span class="sourceLineNo">190</span>        if (encoded.length &lt;= band.length + 23 - 2 * effort) { // TODO: tweak<a name="line.190"></a>
+<span class="sourceLineNo">191</span>            return results;<a name="line.191"></a>
+<span class="sourceLineNo">192</span>        }<a name="line.192"></a>
+<span class="sourceLineNo">193</span><a name="line.193"></a>
+<span class="sourceLineNo">194</span>        // Check if we can use BYTE1 as that's a 1:1 mapping if we can<a name="line.194"></a>
+<span class="sourceLineNo">195</span>        if (!bandData.anyNegatives() &amp;&amp; bandData.largest &lt;= Codec.BYTE1.largest()) {<a name="line.195"></a>
+<span class="sourceLineNo">196</span>            results.encodedBand = Codec.BYTE1.encode(band);<a name="line.196"></a>
+<span class="sourceLineNo">197</span>            results.betterCodec = Codec.BYTE1;<a name="line.197"></a>
+<span class="sourceLineNo">198</span>            return results;<a name="line.198"></a>
+<span class="sourceLineNo">199</span>        }<a name="line.199"></a>
+<span class="sourceLineNo">200</span><a name="line.200"></a>
+<span class="sourceLineNo">201</span>        // Consider a population codec (but can't be nested)<a name="line.201"></a>
+<span class="sourceLineNo">202</span>        if (effort &gt; 3 &amp;&amp; !name.equals("POPULATION")) {<a name="line.202"></a>
+<span class="sourceLineNo">203</span>            final int numDistinctValues = bandData.numDistinctValues();<a name="line.203"></a>
+<span class="sourceLineNo">204</span>            final float distinctValuesAsProportion = (float) numDistinctValues / (float) band.length;<a name="line.204"></a>
+<span class="sourceLineNo">205</span><a name="line.205"></a>
+<span class="sourceLineNo">206</span>            // Note: these values have been tuned - please test carefully if changing them<a name="line.206"></a>
+<span class="sourceLineNo">207</span>            if (numDistinctValues &lt; 100 || distinctValuesAsProportion &lt; 0.02<a name="line.207"></a>
+<span class="sourceLineNo">208</span>                || (effort &gt; 6 &amp;&amp; distinctValuesAsProportion &lt; 0.04)) { // TODO: tweak<a name="line.208"></a>
+<span class="sourceLineNo">209</span>                encodeWithPopulationCodec(name, band, defaultCodec, bandData, results);<a name="line.209"></a>
+<span class="sourceLineNo">210</span>                if (timeToStop(results)) {<a name="line.210"></a>
+<span class="sourceLineNo">211</span>                    return results;<a name="line.211"></a>
+<span class="sourceLineNo">212</span>                }<a name="line.212"></a>
+<span class="sourceLineNo">213</span>            }<a name="line.213"></a>
+<span class="sourceLineNo">214</span>        }<a name="line.214"></a>
+<span class="sourceLineNo">215</span><a name="line.215"></a>
+<span class="sourceLineNo">216</span>        final List codecFamiliesToTry = new ArrayList();<a name="line.216"></a>
+<span class="sourceLineNo">217</span><a name="line.217"></a>
+<span class="sourceLineNo">218</span>        // See if the deltas are mainly small increments<a name="line.218"></a>
+<span class="sourceLineNo">219</span>        if (bandData.mainlyPositiveDeltas() &amp;&amp; bandData.mainlySmallDeltas()) {<a name="line.219"></a>
+<span class="sourceLineNo">220</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.deltaUnsignedCodecs2);<a name="line.220"></a>
+<span class="sourceLineNo">221</span>        }<a name="line.221"></a>
+<span class="sourceLineNo">222</span><a name="line.222"></a>
+<span class="sourceLineNo">223</span>        if (bandData.wellCorrelated()) { // Try delta encodings<a name="line.223"></a>
+<span class="sourceLineNo">224</span>            if (bandData.mainlyPositiveDeltas()) {<a name="line.224"></a>
+<span class="sourceLineNo">225</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.deltaUnsignedCodecs1);<a name="line.225"></a>
+<span class="sourceLineNo">226</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.deltaUnsignedCodecs3);<a name="line.226"></a>
+<span class="sourceLineNo">227</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.deltaUnsignedCodecs4);<a name="line.227"></a>
+<span class="sourceLineNo">228</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.deltaUnsignedCodecs5);<a name="line.228"></a>
+<span class="sourceLineNo">229</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.nonDeltaUnsignedCodecs1);<a name="line.229"></a>
+<span class="sourceLineNo">230</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.nonDeltaUnsignedCodecs3);<a name="line.230"></a>
+<span class="sourceLineNo">231</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.nonDeltaUnsignedCodecs4);<a name="line.231"></a>
+<span class="sourceLineNo">232</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.nonDeltaUnsignedCodecs5);<a name="line.232"></a>
+<span class="sourceLineNo">233</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.nonDeltaUnsignedCodecs2);<a name="line.233"></a>
+<span class="sourceLineNo">234</span>            } else {<a name="line.234"></a>
+<span class="sourceLineNo">235</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.deltaSignedCodecs1);<a name="line.235"></a>
+<span class="sourceLineNo">236</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.deltaSignedCodecs3);<a name="line.236"></a>
+<span class="sourceLineNo">237</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.deltaSignedCodecs2);<a name="line.237"></a>
+<span class="sourceLineNo">238</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.deltaSignedCodecs4);<a name="line.238"></a>
+<span class="sourceLineNo">239</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.deltaSignedCodecs5);<a name="line.239"></a>
+<span class="sourceLineNo">240</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.nonDeltaSignedCodecs1);<a name="line.240"></a>
+<span class="sourceLineNo">241</span>                codecFamiliesToTry.add(CanonicalCodecFamilies.nonDeltaSignedCodecs2);<a name="line.241"></a>
+<span class="sourceLineNo">242</span>            }<a name="line.242"></a>
+<span class="sourceLineNo">243</span>        } else if (bandData.anyNegatives()) {<a name="line.243"></a>
+<span class="sourceLineNo">244</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.nonDeltaSignedCodecs1);<a name="line.244"></a>
+<span class="sourceLineNo">245</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.nonDeltaSignedCodecs2);<a name="line.245"></a>
+<span class="sourceLineNo">246</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.deltaSignedCodecs1);<a name="line.246"></a>
+<span class="sourceLineNo">247</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.deltaSignedCodecs2);<a name="line.247"></a>
+<span class="sourceLineNo">248</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.deltaSignedCodecs3);<a name="line.248"></a>
+<span class="sourceLineNo">249</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.deltaSignedCodecs4);<a name="line.249"></a>
+<span class="sourceLineNo">250</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.deltaSignedCodecs5);<a name="line.250"></a>
+<span class="sourceLineNo">251</span>        } else {<a name="line.251"></a>
+<span class="sourceLineNo">252</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.nonDeltaUnsignedCodecs1);<a name="line.252"></a>
+<span class="sourceLineNo">253</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.nonDeltaUnsignedCodecs3);<a name="line.253"></a>
+<span class="sourceLineNo">254</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.nonDeltaUnsignedCodecs4);<a name="line.254"></a>
+<span class="sourceLineNo">255</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.nonDeltaUnsignedCodecs5);<a name="line.255"></a>
+<span class="sourceLineNo">256</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.nonDeltaUnsignedCodecs2);<a name="line.256"></a>
+<span class="sourceLineNo">257</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.deltaUnsignedCodecs1);<a name="line.257"></a>
+<span class="sourceLineNo">258</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.deltaUnsignedCodecs3);<a name="line.258"></a>
+<span class="sourceLineNo">259</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.deltaUnsignedCodecs4);<a name="line.259"></a>
+<span class="sourceLineNo">260</span>            codecFamiliesToTry.add(CanonicalCodecFamilies.deltaUnsignedCodecs5);<a name="line.260"></a>
+<span class="sourceLineNo">261</span>        }<a name="line.261"></a>
+<span class="sourceLineNo">262</span>        if (name.equalsIgnoreCase("cpint")) {<a name="line.262"></a>
+<span class="sourceLineNo">263</span>            System.out.print("");<a name="line.263"></a>
+<span class="sourceLineNo">264</span>        }<a name="line.264"></a>
+<span class="sourceLineNo">265</span><a name="line.265"></a>
+<span class="sourceLineNo">266</span>        for (final Iterator iterator = codecFamiliesToTry.iterator(); iterator.hasNext();) {<a name="line.266"></a>
+<span class="sourceLineNo">267</span>            final BHSDCodec[] family = (BHSDCodec[]) iterator.next();<a name="line.267"></a>
+<span class="sourceLineNo">268</span>            tryCodecs(name, band, defaultCodec, bandData, results, encoded, family);<a name="line.268"></a>
+<span class="sourceLineNo">269</span>            if (timeToStop(results)) {<a name="line.269"></a>
+<span class="sourceLineNo">270</span>                break;<a name="line.270"></a>
+<span class="sourceLineNo">271</span>            }<a name="line.271"></a>
+<span class="sourceLineNo">272</span>        }<a name="line.272"></a>
+<span class="sourceLineNo">273</span><a name="line.273"></a>
+<span class="sourceLineNo">274</span>        return results;<a name="line.274"></a>
+<span class="sourceLineNo">275</span>    }<a name="line.275"></a>
+<span class="sourceLineNo">276</span><a name="line.276"></a>
+<span class="sourceLineNo">277</span>    private boolean timeToStop(final BandAnalysisResults results) {<a name="line.277"></a>
+<span class="sourceLineNo">278</span>        // if tried more than effort number of codecs for this band then return<a name="line.278"></a>
+<span class="sourceLineNo">279</span>        // Note: these values have been tuned - please test carefully if changing them<a name="line.279"></a>
+<span class="sourceLineNo">280</span>        if (effort &gt; 6) {<a name="line.280"></a>
+<span class="sourceLineNo">281</span>            return results.numCodecsTried &gt;= effort * 2;<a name="line.281"></a>
+<span class="sourceLineNo">282</span>        }<a name="line.282"></a>
+<span class="sourceLineNo">283</span>        return results.numCodecsTried &gt;= effort;<a name="line.283"></a>
+<span class="sourceLineNo">284</span>        // May want to also check how much we've saved if performance needs improving, e.g. saved more than effort*2 %<a name="line.284"></a>
+<span class="sourceLineNo">285</span>        // || (float)results.saved/(float)results.encodedBand.length &gt; (float)effort * 2/100;<a name="line.285"></a>
+<span class="sourceLineNo">286</span>    }<a name="line.286"></a>
+<span class="sourceLineNo">287</span><a name="line.287"></a>
+<span class="sourceLineNo">288</span>    private void tryCodecs(final String name, final int[] band, final BHSDCodec defaultCodec, final BandData bandData,<a name="line.288"></a>
+<span class="sourceLineNo">289</span>        final BandAnalysisResults results, final byte[] encoded, final BHSDCodec[] potentialCodecs)<a name="line.289"></a>
+<span class="sourceLineNo">290</span>        throws Pack200Exception {<a name="line.290"></a>
+<span class="sourceLineNo">291</span>        for (int i = 0; i &lt; potentialCodecs.length; i++) {<a name="line.291"></a>
+<span class="sourceLineNo">292</span>            final BHSDCodec potential = potentialCodecs[i];<a name="line.292"></a>
+<span class="sourceLineNo">293</span>            if (potential.equals(defaultCodec)) {<a name="line.293"></a>
+<span class="sourceLineNo">294</span>                return; // don't try codecs with greater cardinality in the same 'family' as the default codec as there<a name="line.294"></a>
+<span class="sourceLineNo">295</span>                        // won't be any savings<a name="line.295"></a>
+<span class="sourceLineNo">296</span>            }<a name="line.296"></a>
+<span class="sourceLineNo">297</span>            if (potential.isDelta()) {<a name="line.297"></a>
+<span class="sourceLineNo">298</span>                if (potential.largest() &gt;= bandData.largestDelta &amp;&amp; potential.smallest() &lt;= bandData.smallestDelta<a name="line.298"></a>
+<span class="sourceLineNo">299</span>                    &amp;&amp; potential.largest() &gt;= bandData.largest &amp;&amp; potential.smallest() &lt;= bandData.smallest) {<a name="line.299"></a>
+<span class="sourceLineNo">300</span>                    // TODO: can represent some negative deltas with overflow<a name="line.300"></a>
+<span class="sourceLineNo">301</span>                    final byte[] encoded2 = potential.encode(band);<a name="line.301"></a>
+<span class="sourceLineNo">302</span>                    results.numCodecsTried++;<a name="line.302"></a>
+<span class="sourceLineNo">303</span>                    final byte[] specifierEncoded = defaultCodec.encode(CodecEncoding.getSpecifier(potential, null));<a name="line.303"></a>
+<span class="sourceLineNo">304</span>                    final int saved = encoded.length - encoded2.length - specifierEncoded.length;<a name="line.304"></a>
+<span class="sourceLineNo">305</span>                    if (saved &gt; results.saved) {<a name="line.305"></a>
+<span class="sourceLineNo">306</span>                        results.betterCodec = potential;<a name="line.306"></a>
+<span class="sourceLineNo">307</span>                        results.encodedBand = encoded2;<a name="line.307"></a>
+<span class="sourceLineNo">308</span>                        results.saved = saved;<a name="line.308"></a>
+<span class="sourceLineNo">309</span>                    }<a name="line.309"></a>
+<span class="sourceLineNo">310</span>                }<a name="line.310"></a>
+<span class="sourceLineNo">311</span>            } else if (potential.largest() &gt;= bandData.largest &amp;&amp; potential.smallest() &lt;= bandData.smallest) {<a name="line.311"></a>
+<span class="sourceLineNo">312</span>                final byte[] encoded2 = potential.encode(band);<a name="line.312"></a>
+<span class="sourceLineNo">313</span>                results.numCodecsTried++;<a name="line.313"></a>
+<span class="sourceLineNo">314</span>                final byte[] specifierEncoded = defaultCodec.encode(CodecEncoding.getSpecifier(potential, null));<a name="line.314"></a>
+<span class="sourceLineNo">315</span>                final int saved = encoded.length - encoded2.length - specifierEncoded.length;<a name="line.315"></a>
+<span class="sourceLineNo">316</span>                if (saved &gt; results.saved) {<a name="line.316"></a>
+<span class="sourceLineNo">317</span>                    results.betterCodec = potential;<a name="line.317"></a>
+<span class="sourceLineNo">318</span>                    results.encodedBand = encoded2;<a name="line.318"></a>
+<span class="sourceLineNo">319</span>                    results.saved = saved;<a name="line.319"></a>
+<span class="sourceLineNo">320</span>                }<a name="line.320"></a>
+<span class="sourceLineNo">321</span>            }<a name="line.321"></a>
+<span class="sourceLineNo">322</span>            if (timeToStop(results)) {<a name="line.322"></a>
+<span class="sourceLineNo">323</span>                return;<a name="line.323"></a>
+<span class="sourceLineNo">324</span>            }<a name="line.324"></a>
+<span class="sourceLineNo">325</span>        }<a name="line.325"></a>
+<span class="sourceLineNo">326</span>    }<a name="line.326"></a>
+<span class="sourceLineNo">327</span><a name="line.327"></a>
+<span class="sourceLineNo">328</span>// This could be useful if further enhancements are done but is not currently used<a name="line.328"></a>
+<span class="sourceLineNo">329</span>//<a name="line.329"></a>
+<span class="sourceLineNo">330</span>//    private void encodeWithRunCodec(String name, int[] band, int index,<a name="line.330"></a>
+<span class="sourceLineNo">331</span>//            BHSDCodec defaultCodec, BandData bandData,<a name="line.331"></a>
+<span class="sourceLineNo">332</span>//            BandAnalysisResults results) throws Pack200Exception {<a name="line.332"></a>
+<span class="sourceLineNo">333</span>//        int[] firstBand = new int[index];<a name="line.333"></a>
+<span class="sourceLineNo">334</span>//        int[] secondBand = new int[band.length - index];<a name="line.334"></a>
+<span class="sourceLineNo">335</span>//        System.arraycopy(band, 0, firstBand, 0, index);<a name="line.335"></a>
+<span class="sourceLineNo">336</span>//        System.arraycopy(band, index, secondBand, 0, secondBand.length);<a name="line.336"></a>
+<span class="sourceLineNo">337</span>//        BandAnalysisResults firstResults = analyseBand(name + "A", firstBand, defaultCodec);<a name="line.337"></a>
+<span class="sourceLineNo">338</span>//        BandAnalysisResults secondResults = analyseBand(name + "B", secondBand, defaultCodec);<a name="line.338"></a>
+<span class="sourceLineNo">339</span>//        int specifier = 117;<a name="line.339"></a>
+<span class="sourceLineNo">340</span>//        byte[] specifierEncoded = defaultCodec.encode(new int[] {specifier});<a name="line.340"></a>
+<span class="sourceLineNo">341</span>//        int totalLength = firstResults.encodedBand.length + secondResults.encodedBand.length + specifierEncoded.length + 4; // TODO actual<a name="line.341"></a>
+<span class="sourceLineNo">342</span>//        if(totalLength &lt; results.encodedBand.length) {<a name="line.342"></a>
+<span class="sourceLineNo">343</span>//            System.out.println("using run codec");<a name="line.343"></a>
+<span class="sourceLineNo">344</span>//            results.saved += results.encodedBand.length - totalLength;<a name="line.344"></a>
+<span class="sourceLineNo">345</span>//            byte[] encodedBand = new byte[specifierEncoded.length + firstResults.encodedBand.length + secondResults.encodedBand.length];<a name="line.345"></a>
+<span class="sourceLineNo">346</span>//            System.arraycopy(specifierEncoded, 0, encodedBand, 0, specifierEncoded.length);<a name="line.346"></a>
+<span class="sourceLineNo">347</span>//            System.arraycopy(firstResults.encodedBand, 0, encodedBand, specifierEncoded.length, firstResults.encodedBand.length);<a name="line.347"></a>
+<span class="sourceLineNo">348</span>//            System.arraycopy(secondResults.encodedBand, 0, encodedBand, specifierEncoded.length + firstResults.encodedBand.length, secondResults.encodedBand.length);<a name="line.348"></a>
+<span class="sourceLineNo">349</span>//            results.encodedBand = encodedBand;<a name="line.349"></a>
+<span class="sourceLineNo">350</span>//            results.betterCodec = new RunCodec(index, firstResults.betterCodec, secondResults.betterCodec);<a name="line.350"></a>
+<span class="sourceLineNo">351</span>//        }<a name="line.351"></a>
+<span class="sourceLineNo">352</span>//    }<a name="line.352"></a>
+<span class="sourceLineNo">353</span><a name="line.353"></a>
+<span class="sourceLineNo">354</span>    private void encodeWithPopulationCodec(final String name, final int[] band, final BHSDCodec defaultCodec,<a name="line.354"></a>
+<span class="sourceLineNo">355</span>        final BandData bandData, final BandAnalysisResults results) throws Pack200Exception {<a name="line.355"></a>
+<span class="sourceLineNo">356</span>        results.numCodecsTried += 3; // quite a bit more effort to try this codec<a name="line.356"></a>
+<span class="sourceLineNo">357</span>        final Map distinctValues = bandData.distinctValues;<a name="line.357"></a>
+<span class="sourceLineNo">358</span><a name="line.358"></a>
+<span class="sourceLineNo">359</span>        final List favoured = new ArrayList();<a name="line.359"></a>
+<span class="sourceLineNo">360</span>        for (final Iterator iterator = distinctValues.keySet().iterator(); iterator.hasNext();) {<a name="line.360"></a>
+<span class="sourceLineNo">361</span>            final Integer value = (Integer) iterator.next();<a name="line.361"></a>
+<span class="sourceLineNo">362</span>            final Integer count = (Integer) distinctValues.get(value);<a name="line.362"></a>
+<span class="sourceLineNo">363</span>            if (count.intValue() &gt; 2 || distinctValues.size() &lt; 256) { // TODO: tweak<a name="line.363"></a>
+<span class="sourceLineNo">364</span>                favoured.add(value);<a name="line.364"></a>
+<span class="sourceLineNo">365</span>            }<a name="line.365"></a>
+<span class="sourceLineNo">366</span>        }<a name="line.366"></a>
+<span class="sourceLineNo">367</span><a name="line.367"></a>
+<span class="sourceLineNo">368</span>        // Sort the favoured list with the most commonly occurring first<a name="line.368"></a>
+<span class="sourceLineNo">369</span>        if (distinctValues.size() &gt; 255) {<a name="line.369"></a>
+<span class="sourceLineNo">370</span>            Collections.sort(favoured,<a name="line.370"></a>
+<span class="sourceLineNo">371</span>                (arg0, arg1) -&gt; ((Integer) distinctValues.get(arg1)).compareTo((Integer) distinctValues.get(arg0)));<a name="line.371"></a>
+<span class="sourceLineNo">372</span>        }<a name="line.372"></a>
+<span class="sourceLineNo">373</span><a name="line.373"></a>
+<span class="sourceLineNo">374</span>        final IntList unfavoured = new IntList();<a name="line.374"></a>
+<span class="sourceLineNo">375</span>        final Map favouredToIndex = new HashMap();<a name="line.375"></a>
+<span class="sourceLineNo">376</span>        for (int i = 0; i &lt; favoured.size(); i++) {<a name="line.376"></a>
+<span class="sourceLineNo">377</span>            final Integer value = (Integer) favoured.get(i);<a name="line.377"></a>
+<span class="sourceLineNo">378</span>            favouredToIndex.put(value, Integer.valueOf(i));<a name="line.378"></a>
+<span class="sourceLineNo">379</span>        }<a name="line.379"></a>
+<span class="sourceLineNo">380</span><a name="line.380"></a>
+<span class="sourceLineNo">381</span>        final int[] tokens = new int[band.length];<a name="line.381"></a>
+<span class="sourceLineNo">382</span>        for (int i = 0; i &lt; band.length; i++) {<a name="line.382"></a>
+<span class="sourceLineNo">383</span>            final Integer favouredIndex = (Integer) favouredToIndex.get(Integer.valueOf(band[i]));<a name="line.383"></a>
+<span class="sourceLineNo">384</span>            if (favouredIndex == null) {<a name="line.384"></a>
+<span class="sourceLineNo">385</span>                tokens[i] = 0;<a name="line.385"></a>
+<span class="sourceLineNo">386</span>                unfavoured.add(band[i]);<a name="line.386"></a>
+<span class="sourceLineNo">387</span>            } else {<a name="line.387"></a>
+<span class="sourceLineNo">388</span>                tokens[i] = favouredIndex.intValue() + 1;<a name="line.388"></a>
+<span class="sourceLineNo">389</span>            }<a name="line.389"></a>
+<span class="sourceLineNo">390</span>        }<a name="line.390"></a>
+<span class="sourceLineNo">391</span>        favoured.add(favoured.get(favoured.size() - 1)); // repeat last value<a name="line.391"></a>
+<span class="sourceLineNo">392</span>        final int[] favouredBand = integerListToArray(favoured);<a name="line.392"></a>
+<span class="sourceLineNo">393</span>        final int[] unfavouredBand = unfavoured.toArray();<a name="line.393"></a>
+<span class="sourceLineNo">394</span><a name="line.394"></a>
+<span class="sourceLineNo">395</span>        // Analyse the three bands to get the best codec<a name="line.395"></a>
+<span class="sourceLineNo">396</span>        final BandAnalysisResults favouredResults = analyseBand("POPULATION", favouredBand, defaultCodec);<a name="line.396"></a>
+<span class="sourceLineNo">397</span>        final BandAnalysisResults unfavouredResults = analyseBand("POPULATION", unfavouredBand, defaultCodec);<a name="line.397"></a>
+<span class="sourceLineNo">398</span><a name="line.398"></a>
+<span class="sourceLineNo">399</span>        int tdefL = 0;<a name="line.399"></a>
+<span class="sourceLineNo">400</span>        int l = 0;<a name="line.400"></a>
+<span class="sourceLineNo">401</span>        Codec tokenCodec = null;<a name="line.401"></a>
+<span class="sourceLineNo">402</span>        byte[] tokensEncoded;<a name="line.402"></a>
+<span class="sourceLineNo">403</span>        final int k = favoured.size() - 1;<a name="line.403"></a>
+<span class="sourceLineNo">404</span>        if (k &lt; 256) {<a name="line.404"></a>
+<span class="sourceLineNo">405</span>            tdefL = 1;<a name="line.405"></a>
+<span class="sourceLineNo">406</span>            tokensEncoded = Codec.BYTE1.encode(tokens);<a name="line.406"></a>
+<span class="sourceLineNo">407</span>        } else {<a name="line.407"></a>
+<span class="sourceLineNo">408</span>            final BandAnalysisResults tokenResults = analyseBand("POPULATION", tokens, defaultCodec);<a name="line.408"></a>
+<span class="sourceLineNo">409</span>            tokenCodec = tokenResults.betterCodec;<a name="line.409"></a>
+<span class="sourceLineNo">410</span>            tokensEncoded = tokenResults.encodedBand;<a name="line.410"></a>
+<span class="sourceLineNo">411</span>            if (tokenCodec == null) {<a name="line.411"></a>
+<span class="sourceLineNo">412</span>                tokenCodec = defaultCodec;<a name="line.412"></a>
+<span class="sourceLineNo">413</span>            }<a name="line.413"></a>
+<span class="sourceLineNo">414</span>            l = ((BHSDCodec) tokenCodec).getL();<a name="line.414"></a>
+<span class="sourceLineNo">415</span>            final int h = ((BHSDCodec) tokenCodec).getH();<a name="line.415"></a>
+<span class="sourceLineNo">416</span>            final int s = ((BHSDCodec) tokenCodec).getS();<a name="line.416"></a>
+<span class="sourceLineNo">417</span>            final int b = ((BHSDCodec) tokenCodec).getB();<a name="line.417"></a>
+<span class="sourceLineNo">418</span>            final int d = ((BHSDCodec) tokenCodec).isDelta() ? 1 : 0;<a name="line.418"></a>
+<span class="sourceLineNo">419</span>            if (s == 0 &amp;&amp; d == 0) {<a name="line.419"></a>
+<span class="sourceLineNo">420</span>                boolean canUseTDefL = true;<a name="line.420"></a>
+<span class="sourceLineNo">421</span>                if (b &gt; 1) {<a name="line.421"></a>
+<span class="sourceLineNo">422</span>                    final BHSDCodec oneLowerB = new BHSDCodec(b - 1, h);<a name="line.422"></a>
+<span class="sourceLineNo">423</span>                    if (oneLowerB.largest() &gt;= k) {<a name="line.423"></a>
+<span class="sourceLineNo">424</span>                        canUseTDefL = false;<a name="line.424"></a>
+<span class="sourceLineNo">425</span>                    }<a name="line.425"></a>
+<span class="sourceLineNo">426</span>                }<a name="line.426"></a>
+<span class="sourceLineNo">427</span>                if (canUseTDefL) {<a name="line.427"></a>
+<span class="sourceLineNo">428</span>                    switch (l) {<a name="line.428"></a>
+<span class="sourceLineNo">429</span>                    case 4:<a name="line.429"></a>
+<span class="sourceLineNo">430</span>                        tdefL = 1;<a name="line.430"></a>
+<span class="sourceLineNo">431</span>                        break;<a name="line.431"></a>
+<span class="sourceLineNo">432</span>                    case 8:<a name="line.432"></a>
+<span class="sourceLineNo">433</span>                        tdefL = 2;<a name="line.433"></a>
+<span class="sourceLineNo">434</span>                        break;<a name="line.434"></a>
+<span class="sourceLineNo">435</span>                    case 16:<a name="line.435"></a>
+<span class="sourceLineNo">436</span>                        tdefL = 3;<a name="line.436"></a>
+<span class="sourceLineNo">437</span>                        break;<a name="line.437"></a>
+<span class="sourceLineNo">438</span>                    case 32:<a name="line.438"></a>
+<span class="sourceLineNo">439</span>                        tdefL = 4;<a name="line.439"></a>
+<span class="sourceLineNo">440</span>                        break;<a name="line.440"></a>
+<span class="sourceLineNo">441</span>                    case 64:<a name="line.441"></a>
+<span class="sourceLineNo">442</span>                        tdefL = 5;<a name="line.442"></a>
+<span class="sourceLineNo">443</span>                        break;<a name="line.443"></a>
+<span class="sourceLineNo">444</span>                    case 128:<a name="line.444"></a>
+<span class="sourceLineNo">445</span>                        tdefL = 6;<a name="line.445"></a>
+<span class="sourceLineNo">446</span>                        break;<a name="line.446"></a>
+<span class="sourceLineNo">447</span>                    case 192:<a name="line.447"></a>
+<span class="sourceLineNo">448</span>                        tdefL = 7;<a name="line.448"></a>
+<span class="sourceLineNo">449</span>                        break;<a name="line.449"></a>
+<span class="sourceLineNo">450</span>                    case 224:<a name="line.450"></a>
+<span class="sourceLineNo">451</span>                        tdefL = 8;<a name="line.451"></a>
+<span class="sourceLineNo">452</span>                        break;<a name="line.452"></a>
+<span class="sourceLineNo">453</span>                    case 240:<a name="line.453"></a>
+<span class="sourceLineNo">454</span>                        tdefL = 9;<a name="line.454"></a>
+<span class="sourceLineNo">455</span>                        break;<a name="line.455"></a>
+<span class="sourceLineNo">456</span>                    case 248:<a name="line.456"></a>
+<span class="sourceLineNo">457</span>                        tdefL = 10;<a name="line.457"></a>
+<span class="sourceLineNo">458</span>                        break;<a name="line.458"></a>
+<span class="sourceLineNo">459</span>                    case 252:<a name="line.459"></a>
+<span class="sourceLineNo">460</span>                        tdefL = 11;<a name="line.460"></a>
+<span class="sourceLineNo">461</span>                        break;<a name="line.461"></a>
+<span class="sourceLineNo">462</span>                    }<a name="line.462"></a>
+<span class="sourceLineNo">463</span>                }<a name="line.463"></a>
+<span class="sourceLineNo">464</span>            }<a name="line.464"></a>
+<span class="sourceLineNo">465</span>        }<a name="line.465"></a>
+<span class="sourceLineNo">466</span><a name="line.466"></a>
+<span class="sourceLineNo">467</span>        final byte[] favouredEncoded = favouredResults.encodedBand;<a name="line.467"></a>
+<span class="sourceLineNo">468</span>        final byte[] unfavouredEncoded = unfavouredResults.encodedBand;<a name="line.468"></a>
+<span class="sourceLineNo">469</span>        final Codec favouredCodec = favouredResults.betterCodec;<a name="line.469"></a>
+<span class="sourceLineNo">470</span>        final Codec unfavouredCodec = unfavouredResults.betterCodec;<a name="line.470"></a>
+<span class="sourceLineNo">471</span><a name="line.471"></a>
+<span class="sourceLineNo">472</span>        int specifier = 141 + (favouredCodec == null ? 1 : 0) + (4 * tdefL) + (unfavouredCodec == null ? 2 : 0);<a name="line.472"></a>
+<span class="sourceLineNo">473</span>        final IntList extraBandMetadata = new IntList(3);<a name="line.473"></a>
+<span class="sourceLineNo">474</span>        if (favouredCodec != null) {<a name="line.474"></a>
+<span class="sourceLineNo">475</span>            final int[] specifiers = CodecEncoding.getSpecifier(favouredCodec, null);<a name="line.475"></a>
+<span class="sourceLineNo">476</span>            for (int i = 0; i &lt; specifiers.length; i++) {<a name="line.476"></a>
+<span class="sourceLineNo">477</span>                extraBandMetadata.add(specifiers[i]);<a name="line.477"></a>
+<span class="sourceLineNo">478</span>            }<a name="line.478"></a>
+<span class="sourceLineNo">479</span>        }<a name="line.479"></a>
+<span class="sourceLineNo">480</span>        if (tdefL == 0) {<a name="line.480"></a>
+<span class="sourceLineNo">481</span>            final int[] specifiers = CodecEncoding.getSpecifier(tokenCodec, null);<a name="line.481"></a>
+<span class="sourceLineNo">482</span>            for (int i = 0; i &lt; specifiers.length; i++) {<a name="line.482"></a>
+<span class="sourceLineNo">483</span>                extraBandMetadata.add(specifiers[i]);<a name="line.483"></a>
+<span class="sourceLineNo">484</span>            }<a name="line.484"></a>
+<span class="sourceLineNo">485</span>        }<a name="line.485"></a>
+<span class="sourceLineNo">486</span>        if (unfavouredCodec != null) {<a name="line.486"></a>
+<span class="sourceLineNo">487</span>            final int[] specifiers = CodecEncoding.getSpecifier(unfavouredCodec, null);<a name="line.487"></a>
+<span class="sourceLineNo">488</span>            for (int i = 0; i &lt; specifiers.length; i++) {<a name="line.488"></a>
+<span class="sourceLineNo">489</span>                extraBandMetadata.add(specifiers[i]);<a name="line.489"></a>
+<span class="sourceLineNo">490</span>            }<a name="line.490"></a>
+<span class="sourceLineNo">491</span>        }<a name="line.491"></a>
+<span class="sourceLineNo">492</span>        final int[] extraMetadata = extraBandMetadata.toArray();<a name="line.492"></a>
+<span class="sourceLineNo">493</span>        final byte[] extraMetadataEncoded = Codec.UNSIGNED5.encode(extraMetadata);<a name="line.493"></a>
+<span class="sourceLineNo">494</span>        if (defaultCodec.isSigned()) {<a name="line.494"></a>
+<span class="sourceLineNo">495</span>            specifier = -1 - specifier;<a name="line.495"></a>
+<span class="sourceLineNo">496</span>        } else {<a name="line.496"></a>
+<span class="sourceLineNo">497</span>            specifier = specifier + defaultCodec.getL();<a name="line.497"></a>
+<span class="sourceLineNo">498</span>        }<a name="line.498"></a>
+<span class="sourceLineNo">499</span>        final byte[] firstValueEncoded = defaultCodec.encode(new int[] {specifier});<a name="line.499"></a>
+<span class="sourceLineNo">500</span>        final int totalBandLength = firstValueEncoded.length + favouredEncoded.length + tokensEncoded.length<a name="line.500"></a>
+<span class="sourceLineNo">501</span>            + unfavouredEncoded.length;<a name="line.501"></a>
+<span class="sourceLineNo">502</span><a name="line.502"></a>
+<span class="sourceLineNo">503</span>        if (totalBandLength + extraMetadataEncoded.length &lt; results.encodedBand.length) {<a name="line.503"></a>
+<span class="sourceLineNo">504</span>            results.saved += results.encodedBand.length - (totalBandLength + extraMetadataEncoded.length);<a name="line.504"></a>
+<span class="sourceLineNo">505</span>            final byte[] encodedBand = new byte[totalBandLength];<a name="line.505"></a>
+<span class="sourceLineNo">506</span>            System.arraycopy(firstValueEncoded, 0, encodedBand, 0, firstValueEncoded.length);<a name="line.506"></a>
+<span class="sourceLineNo">507</span>            System.arraycopy(favouredEncoded, 0, encodedBand, firstValueEncoded.length, favouredEncoded.length);<a name="line.507"></a>
+<span class="sourceLineNo">508</span>            System.arraycopy(tokensEncoded, 0, encodedBand, firstValueEncoded.length + favouredEncoded.length,<a name="line.508"></a>
+<span class="sourceLineNo">509</span>                tokensEncoded.length);<a name="line.509"></a>
+<span class="sourceLineNo">510</span>            System.arraycopy(unfavouredEncoded, 0, encodedBand,<a name="line.510"></a>
+<span class="sourceLineNo">511</span>                firstValueEncoded.length + favouredEncoded.length + tokensEncoded.length, unfavouredEncoded.length);<a name="line.511"></a>
+<span class="sourceLineNo">512</span>            results.encodedBand = encodedBand;<a name="line.512"></a>
+<span class="sourceLineNo">513</span>            results.extraMetadata = extraMetadata;<a name="line.513"></a>
+<span class="sourceLineNo">514</span>            if (l != 0) {<a name="line.514"></a>
+<span class="sourceLineNo">515</span>                results.betterCodec = new PopulationCodec(favouredCodec, l, unfavouredCodec);<a name="line.515"></a>
+<span class="sourceLineNo">516</span>            } else {<a name="line.516"></a>
+<span class="sourceLineNo">517</span>                results.betterCodec = new PopulationCodec(favouredCodec, tokenCodec, unfavouredCodec);<a name="line.517"></a>
+<span class="sourceLineNo">518</span>            }<a name="line.518"></a>
+<span class="sourceLineNo">519</span>        }<a name="line.519"></a>
+<span class="sourceLineNo">520</span>    }<a name="line.520"></a>
+<span class="sourceLineNo">521</span><a name="line.521"></a>
+<span class="sourceLineNo">522</span>    /**<a name="line.522"></a>
+<span class="sourceLineNo">523</span>     * Encode a band of longs (values are split into their high and low 32 bits and then encoded as two separate bands<a name="line.523"></a>
+<span class="sourceLineNo">524</span>     *<a name="line.524"></a>
+<span class="sourceLineNo">525</span>     * @param name - name of the band (for debugging purposes)<a name="line.525"></a>
+<span class="sourceLineNo">526</span>     * @param flags - the band<a name="line.526"></a>
+<span class="sourceLineNo">527</span>     * @param loCodec - Codec for the low 32-bits band<a name="line.527"></a>
+<span class="sourceLineNo">528</span>     * @param hiCodec - Codec for the high 32-bits band<a name="line.528"></a>
+<span class="sourceLineNo">529</span>     * @param haveHiFlags - ignores the high band if true as all values would be zero<a name="line.529"></a>
+<span class="sourceLineNo">530</span>     * @return the encoded band<a name="line.530"></a>
+<span class="sourceLineNo">531</span>     * @throws Pack200Exception TODO<a name="line.531"></a>
+<span class="sourceLineNo">532</span>     */<a name="line.532"></a>
+<span class="sourceLineNo">533</span>    protected byte[] encodeFlags(final String name, final long[] flags, final BHSDCodec loCodec,<a name="line.533"></a>
+<span class="sourceLineNo">534</span>        final BHSDCodec hiCodec, final boolean haveHiFlags) throws Pack200Exception {<a name="line.534"></a>
+<span class="sourceLineNo">535</span>        if (!haveHiFlags) {<a name="line.535"></a>
+<span class="sourceLineNo">536</span>            final int[] loBits = new int[flags.length];<a name="line.536"></a>
+<span class="sourceLineNo">537</span>            for (int i = 0; i &lt; flags.length; i++) {<a name="line.537"></a>
+<span class="sourceLineNo">538</span>                loBits[i] = (int) flags[i];<a name="line.538"></a>
+<span class="sourceLineNo">539</span>            }<a name="line.539"></a>
+<span class="sourceLineNo">540</span>            return encodeBandInt(name, loBits, loCodec);<a name="line.540"></a>
+<span class="sourceLineNo">541</span>        }<a name="line.541"></a>
+<span class="sourceLineNo">542</span>        final int[] hiBits = new int[flags.length];<a name="line.542"></a>
+<span class="sourceLineNo">543</span>        final int[] loBits = new int[flags.length];<a name="line.543"></a>
+<span class="sourceLineNo">544</span>        for (int i = 0; i &lt; flags.length; i++) {<a name="line.544"></a>
+<span class="sourceLineNo">545</span>            final long l = flags[i];<a name="line.545"></a>
+<span class="sourceLineNo">546</span>            hiBits[i] = (int) (l &gt;&gt; 32);<a name="line.546"></a>
+<span class="sourceLineNo">547</span>            loBits[i] = (int) l;<a name="line.547"></a>
+<span class="sourceLineNo">548</span>        }<a name="line.548"></a>
+<span class="sourceLineNo">549</span>        final byte[] hi = encodeBandInt(name, hiBits, hiCodec);<a name="line.549"></a>
+<span class="sourceLineNo">550</span>        final byte[] lo = encodeBandInt(name, loBits, loCodec);<a name="line.550"></a>
+<span class="sourceLineNo">551</span>        final byte[] total = new byte[hi.length + lo.length];<a name="line.551"></a>
+<span class="sourceLineNo">552</span>        System.arraycopy(hi, 0, total, 0, hi.length);<a name="line.552"></a>
+<span class="sourceLineNo">553</span>        System.arraycopy(lo, 0, total, hi.length + 1, lo.length);<a name="line.553"></a>
+<span class="sourceLineNo">554</span>        return total;<a name="line.554"></a>
+<span class="sourceLineNo">555</span>    }<a name="line.555"></a>
+<span class="sourceLineNo">556</span><a name="line.556"></a>
+<span class="sourceLineNo">557</span>    /**<a name="line.557"></a>
+<span class="sourceLineNo">558</span>     * Converts a list of Integers to an int[] array.<a name="line.558"></a>
+<span class="sourceLineNo">559</span>     * <a name="line.559"></a>
+<span class="sourceLineNo">560</span>     * @param integerList conversion source.<a name="line.560"></a>
+<span class="sourceLineNo">561</span>     * @return conversion result.<a name="line.561"></a>
+<span class="sourceLineNo">562</span>     */<a name="line.562"></a>
+<span class="sourceLineNo">563</span>    protected int[] integerListToArray(final List integerList) {<a name="line.563"></a>
+<span class="sourceLineNo">564</span>        final int[] array = new int[integerList.size()];<a name="line.564"></a>
+<span class="sourceLineNo">565</span>        for (int i = 0; i &lt; array.length; i++) {<a name="line.565"></a>
+<span class="sourceLineNo">566</span>            array[i] = ((Integer) integerList.get(i)).intValue();<a name="line.566"></a>
+<span class="sourceLineNo">567</span>        }<a name="line.567"></a>
+<span class="sourceLineNo">568</span>        return array;<a name="line.568"></a>
+<span class="sourceLineNo">569</span>    }<a name="line.569"></a>
+<span class="sourceLineNo">570</span><a name="line.570"></a>
+<span class="sourceLineNo">571</span>    /**<a name="line.571"></a>
+<span class="sourceLineNo">572</span>     * Converts a list of Longs to an long[] array.<a name="line.572"></a>
+<span class="sourceLineNo">573</span>     * <a name="line.573"></a>
+<span class="sourceLineNo">574</span>     * @param longList conversion source.<a name="line.574"></a>
+<span class="sourceLineNo">575</span>     * @return conversion result.<a name="line.575"></a>
+<span class="sourceLineNo">576</span>     */<a name="line.576"></a>
+<span class="sourceLineNo">577</span>    protected long[] longListToArray(final List longList) {<a name="line.577"></a>
+<span class="sourceLineNo">578</span>        final long[] array = new long[longList.size()];<a name="line.578"></a>
+<span class="sourceLineNo">579</span>        for (int i = 0; i &lt; array.length; i++) {<a name="line.579"></a>
+<span class="sourceLineNo">580</span>            array[i] = ((Long) longList.get(i)).longValue();<a name="line.580"></a>
+<span class="sourceLineNo">581</span>        }<a name="line.581"></a>
+<span class="sourceLineNo">582</span>        return array;<a name="line.582"></a>
+<span class="sourceLineNo">583</span>    }<a name="line.583"></a>
+<span class="sourceLineNo">584</span><a name="line.584"></a>
+<span class="sourceLineNo">585</span>    /**<a name="line.585"></a>
+<span class="sourceLineNo">586</span>     * Converts a list of ConstantPoolEntrys to an int[] array of their indices<a name="line.586"></a>
+<span class="sourceLineNo">587</span>     * <a name="line.587"></a>
+<span class="sourceLineNo">588</span>     * @param list conversion source.<a name="line.588"></a>
+<span class="sourceLineNo">589</span>     * @return conversion result.<a name="line.589"></a>
+<span class="sourceLineNo">590</span>     */<a name="line.590"></a>
+<span class="sourceLineNo">591</span>    protected int[] cpEntryListToArray(final List list) {<a name="line.591"></a>
+<span class="sourceLineNo">592</span>        final int[] array = new int[list.size()];<a name="line.592"></a>
+<span class="sourceLineNo">593</span>        for (int i = 0; i &lt; array.length; i++) {<a name="line.593"></a>
+<span class="sourceLineNo">594</span>            array[i] = ((ConstantPoolEntry) list.get(i)).getIndex();<a name="line.594"></a>
+<span class="sourceLineNo">595</span>            if (array[i] &lt; 0) {<a name="line.595"></a>
+<span class="sourceLineNo">596</span>                throw new RuntimeException("Index should be &gt; 0");<a name="line.596"></a>
+<span class="sourceLineNo">597</span>            }<a name="line.597"></a>
+<span class="sourceLineNo">598</span>        }<a name="line.598"></a>
+<span class="sourceLineNo">599</span>        return array;<a name="line.599"></a>
+<span class="sourceLineNo">600</span>    }<a name="line.600"></a>
+<span class="sourceLineNo">601</span><a name="line.601"></a>
+<span class="sourceLineNo">602</span>    /**<a name="line.602"></a>
+<span class="sourceLineNo">603</span>     * Converts a list of ConstantPoolEntrys or nulls to an int[] array of their indices +1 (or 0 for nulls)<a name="line.603"></a>
+<span class="sourceLineNo">604</span>     * <a name="line.604"></a>
+<span class="sourceLineNo">605</span>     * @param theList conversion source.<a name="line.605"></a>
+<span class="sourceLineNo">606</span>     * @return conversion result.<a name="line.606"></a>
+<span class="sourceLineNo">607</span>     */<a name="line.607"></a>
+<span class="sourceLineNo">608</span>    protected int[] cpEntryOrNullListToArray(final List theList) {<a name="line.608"></a>
+<span class="sourceLineNo">609</span>        final int[] array = new int[theList.size()];<a name="line.609"></a>
+<span class="sourceLineNo">610</span>        for (int j = 0; j &lt; array.length; j++) {<a name="line.610"></a>
+<span class="sourceLineNo">611</span>            final ConstantPoolEntry cpEntry = (ConstantPoolEntry) theList.get(j);<a name="line.611"></a>
+<span class="sourceLineNo">612</span>            array[j] = cpEntry == null ? 0 : cpEntry.getIndex() + 1;<a name="line.612"></a>
+<span class="sourceLineNo">613</span>            if (cpEntry != null &amp;&amp; cpEntry.getIndex() &lt; 0) {<a name="line.613"></a>
+<span class="sourceLineNo">614</span>                throw new RuntimeException("Index should be &gt; 0");<a name="line.614"></a>
+<span class="sourceLineNo">615</span>            }<a name="line.615"></a>
+<span class="sourceLineNo">616</span>        }<a name="line.616"></a>
+<span class="sourceLineNo">617</span>        return array;<a name="line.617"></a>
+<span class="sourceLineNo">618</span>    }<a name="line.618"></a>
+<span class="sourceLineNo">619</span><a name="line.619"></a>
+<span class="sourceLineNo">620</span>    protected byte[] encodeFlags(final String name, final long[][] flags, final BHSDCodec loCodec,<a name="line.620"></a>
+<span class="sourceLineNo">621</span>        final BHSDCodec hiCodec, final boolean haveHiFlags) throws Pack200Exception {<a name="line.621"></a>
+<span class="sourceLineNo">622</span>        return encodeFlags(name, flatten(flags), loCodec, hiCodec, haveHiFlags);<a name="line.622"></a>
+<span class="sourceLineNo">623</span>    }<a name="line.623"></a>
+<span class="sourceLineNo">624</span><a name="line.624"></a>
+<span class="sourceLineNo">625</span>    /*<a name="line.625"></a>
+<span class="sourceLineNo">626</span>     * Flatten a 2-dimension array into a 1-dimension array<a name="line.626"></a>
+<span class="sourceLineNo">627</span>     */<a name="line.627"></a>
+<span class="sourceLineNo">628</span>    private long[] flatten(final long[][] flags) {<a name="line.628"></a>
+<span class="sourceLineNo">629</span>        int totalSize = 0;<a name="line.629"></a>
+<span class="sourceLineNo">630</span>        for (int i = 0; i &lt; flags.length; i++) {<a name="line.630"></a>
+<span class="sourceLineNo">631</span>            totalSize += flags[i].length;<a name="line.631"></a>
+<span class="sourceLineNo">632</span>        }<a name="line.632"></a>
+<span class="sourceLineNo">633</span>        final long[] flatArray = new long[totalSize];<a name="line.633"></a>
+<span class="sourceLineNo">634</span>        int index = 0;<a name="line.634"></a>
+<span class="sourceLineNo">635</span>        for (int i = 0; i &lt; flags.length; i++) {<a name="line.635"></a>
+<span class="sourceLineNo">636</span>            for (int j = 0; j &lt; flags[i].length; j++) {<a name="line.636"></a>
+<span class="sourceLineNo">637</span>                flatArray[index] = flags[i][j];<a name="line.637"></a>
+<span class="sourceLineNo">638</span>                index++;<a name="line.638"></a>
+<span class="sourceLineNo">639</span>            }<a name="line.639"></a>
+<span class="sourceLineNo">640</span>        }<a name="line.640"></a>
+<span class="sourceLineNo">641</span>        return flatArray;<a name="line.641"></a>
+<span class="sourceLineNo">642</span>    }<a name="line.642"></a>
+<span class="sourceLineNo">643</span><a name="line.643"></a>
+<span class="sourceLineNo">644</span>    /**<a name="line.644"></a>
+<span class="sourceLineNo">645</span>     * BandData represents information about a band, e.g. largest value etc and is used in the heuristics that calculate<a name="line.645"></a>
+<span class="sourceLineNo">646</span>     * whether an alternative Codec could make the encoded band smaller.<a name="line.646"></a>
+<span class="sourceLineNo">647</span>     */<a name="line.647"></a>
+<span class="sourceLineNo">648</span>    public class BandData {<a name="line.648"></a>
+<span class="sourceLineNo">649</span><a name="line.649"></a>
+<span class="sourceLineNo">650</span>        private final int[] band;<a name="line.650"></a>
+<span class="sourceLineNo">651</span>        private int smallest = Integer.MAX_VALUE;<a name="line.651"></a>
+<span class="sourceLineNo">652</span>        private int largest = Integer.MIN_VALUE;<a name="line.652"></a>
+<span class="sourceLineNo">653</span>        private int smallestDelta;<a name="line.653"></a>
+<span class="sourceLineNo">654</span>        private int largestDelta;<a name="line.654"></a>
+<span class="sourceLineNo">655</span><a name="line.655"></a>
+<span class="sourceLineNo">656</span>        private int deltaIsAscending = 0;<a name="line.656"></a>
+<span class="sourceLineNo">657</span>        private int smallDeltaCount = 0;<a name="line.657"></a>
+<span class="sourceLineNo">658</span><a name="line.658"></a>
+<span class="sourceLineNo">659</span>        private double averageAbsoluteDelta = 0;<a name="line.659"></a>
+<span class="sourceLineNo">660</span>        private double averageAbsoluteValue = 0;<a name="line.660"></a>
+<span class="sourceLineNo">661</span><a name="line.661"></a>
+<span class="sourceLineNo">662</span>        private Map distinctValues;<a name="line.662"></a>
+<span class="sourceLineNo">663</span><a name="line.663"></a>
+<span class="sourceLineNo">664</span>        /**<a name="line.664"></a>
+<span class="sourceLineNo">665</span>         * Create a new instance of BandData. The band is then analysed.<a name="line.665"></a>
+<span class="sourceLineNo">666</span>         * <a name="line.666"></a>
+<span class="sourceLineNo">667</span>         * @param band - the band of integers<a name="line.667"></a>
+<span class="sourceLineNo">668</span>         */<a name="line.668"></a>
+<span class="sourceLineNo">669</span>        public BandData(final int[] band) {<a name="line.669"></a>
+<span class="sourceLineNo">670</span>            this.band = band;<a name="line.670"></a>
+<span class="sourceLineNo">671</span>            final Integer one = Integer.valueOf(1);<a name="line.671"></a>
+<span class="sourceLineNo">672</span>            for (int i = 0; i &lt; band.length; i++) {<a name="line.672"></a>
+<span class="sourceLineNo">673</span>                if (band[i] &lt; smallest) {<a name="line.673"></a>
+<span class="sourceLineNo">674</span>                    smallest = band[i];<a name="line.674"></a>
+<span class="sourceLineNo">675</span>                }<a name="line.675"></a>
+<span class="sourceLineNo">676</span>                if (band[i] &gt; largest) {<a name="line.676"></a>
+<span class="sourceLineNo">677</span>                    largest = band[i];<a name="line.677"></a>
+<span class="sourceLineNo">678</span>                }<a name="line.678"></a>
+<span class="sourceLineNo">679</span>                if (i != 0) {<a name="line.679"></a>
+<span class="sourceLineNo">680</span>                    final int delta = band[i] - band[i - 1];<a name="line.680"></a>
+<span class="sourceLineNo">681</span>                    if (delta &lt; smallestDelta) {<a name="line.681"></a>
+<span class="sourceLineNo">682</span>                        smallestDelta = delta;<a name="line.682"></a>
+<span class="sourceLineNo">683</span>                    }<a name="line.683"></a>
+<span class="sourceLineNo">684</span>                    if (delta &gt; largestDelta) {<a name="line.684"></a>
+<span class="sourceLineNo">685</span>                        largestDelta = delta;<a name="line.685"></a>
+<span class="sourceLineNo">686</span>                    }<a name="line.686"></a>
+<span class="sourceLineNo">687</span>                    if (delta &gt;= 0) {<a name="line.687"></a>
+<span class="sourceLineNo">688</span>                        deltaIsAscending++;<a name="line.688"></a>
+<span class="sourceLineNo">689</span>                    }<a name="line.689"></a>
+<span class="sourceLineNo">690</span>                    averageAbsoluteDelta += (double) Math.abs(delta) / (double) (band.length - 1);<a name="line.690"></a>
+<span class="sourceLineNo">691</span>                    if (Math.abs(delta) &lt; 256) {<a name="line.691"></a>
+<span class="sourceLineNo">692</span>                        smallDeltaCount++;<a name="line.692"></a>
+<span class="sourceLineNo">693</span>                    }<a name="line.693"></a>
+<span class="sourceLineNo">694</span>                } else {<a name="line.694"></a>
+<span class="sourceLineNo">695</span>                    smallestDelta = band[0];<a name="line.695"></a>
+<span class="sourceLineNo">696</span>                    largestDelta = band[0];<a name="line.696"></a>
+<span class="sourceLineNo">697</span>                }<a name="line.697"></a>
+<span class="sourceLineNo">698</span>                averageAbsoluteValue += (double) Math.abs(band[i]) / (double) band.length;<a name="line.698"></a>
+<span class="sourceLineNo">699</span>                if (effort &gt; 3) { // do calculations needed to consider population codec<a name="line.699"></a>
+<span class="sourceLineNo">700</span>                    if (distinctValues == null) {<a name="line.700"></a>
+<span class="sourceLineNo">701</span>                        distinctValues = new HashMap();<a name="line.701"></a>
+<span class="sourceLineNo">702</span>                    }<a name="line.702"></a>
+<span class="sourceLineNo">703</span>                    final Integer value = Integer.valueOf(band[i]);<a name="line.703"></a>
+<span class="sourceLineNo">704</span>                    Integer count = (Integer) distinctValues.get(value);<a name="line.704"></a>
+<span class="sourceLineNo">705</span>                    if (count == null) {<a name="line.705"></a>
+<span class="sourceLineNo">706</span>                        count = one;<a name="line.706"></a>
+<span class="sourceLineNo">707</span>                    } else {<a name="line.707"></a>
+<span class="sourceLineNo">708</span>                        count = Integer.valueOf(count.intValue() + 1);<a name="line.708"></a>
+<span class="sourceLineNo">709</span>                    }<a name="line.709"></a>
+<span class="sourceLineNo">710</span>                    distinctValues.put(value, count);<a name="line.710"></a>
+<span class="sourceLineNo">711</span>                }<a name="line.711"></a>
+<span class="sourceLineNo">712</span>            }<a name="line.712"></a>
+<span class="sourceLineNo">713</span>        }<a name="line.713"></a>
+<span class="sourceLineNo">714</span><a name="line.714"></a>
+<span class="sourceLineNo">715</span>        /**<a name="line.715"></a>
+<span class="sourceLineNo">716</span>         * Returns true if the deltas between adjacent band elements are mainly small (heuristic).<a name="line.716"></a>
+<span class="sourceLineNo">717</span>         *<a name="line.717"></a>
+<span class="sourceLineNo">718</span>         * @return true if the deltas between adjacent band elements are mainly small (heuristic).<a name="line.718"></a>
+<span class="sourceLineNo">719</span>         */<a name="line.719"></a>
+<span class="sourceLineNo">720</span>        public boolean mainlySmallDeltas() {<a name="line.720"></a>
+<span class="sourceLineNo">721</span>            // Note: the value below has been tuned - please test carefully if changing it<a name="line.721"></a>
+<span class="sourceLineNo">722</span>            return (float) smallDeltaCount / (float) band.length &gt; 0.7F;<a name="line.722"></a>
+<span class="sourceLineNo">723</span>        }<a name="line.723"></a>
+<span class="sourceLineNo">724</span><a name="line.724"></a>
+<span class="sourceLineNo">725</span>        /**<a name="line.725"></a>
+<span class="sourceLineNo">726</span>         * Returns true if the band is well correlated (i.e. would be suitable for a delta encoding) (heuristic).<a name="line.726"></a>
+<span class="sourceLineNo">727</span>         *<a name="line.727"></a>
+<span class="sourceLineNo">728</span>         * @return true if the band is well correlated (i.e. would be suitable for a delta encoding) (heuristic).<a name="line.728"></a>
+<span class="sourceLineNo">729</span>         */<a name="line.729"></a>
+<span class="sourceLineNo">730</span>        public boolean wellCorrelated() {<a name="line.730"></a>
+<span class="sourceLineNo">731</span>            // Note: the value below has been tuned - please test carefully if changing it<a name="line.731"></a>
+<span class="sourceLineNo">732</span>            return averageAbsoluteDelta * 3.1 &lt; averageAbsoluteValue;<a name="line.732"></a>
+<span class="sourceLineNo">733</span>        }<a name="line.733"></a>
+<span class="sourceLineNo">734</span><a name="line.734"></a>
+<span class="sourceLineNo">735</span>        /**<a name="line.735"></a>
+<span class="sourceLineNo">736</span>         * Returns true if the band deltas are mainly positive (heuristic).<a name="line.736"></a>
+<span class="sourceLineNo">737</span>         *<a name="line.737"></a>
+<span class="sourceLineNo">738</span>         * @return true if the band deltas are mainly positive (heuristic).<a name="line.738"></a>
+<span class="sourceLineNo">739</span>         */<a name="line.739"></a>
+<span class="sourceLineNo">740</span>        public boolean mainlyPositiveDeltas() {<a name="line.740"></a>
+<span class="sourceLineNo">741</span>            // Note: the value below has been tuned - please test carefully if changing it<a name="line.741"></a>
+<span class="sourceLineNo">742</span>            return (float) deltaIsAscending / (float) band.length &gt; 0.95F;<a name="line.742"></a>
+<span class="sourceLineNo">743</span>        }<a name="line.743"></a>
+<span class="sourceLineNo">744</span><a name="line.744"></a>
+<span class="sourceLineNo">745</span>        /**<a name="line.745"></a>
+<span class="sourceLineNo">746</span>         * Returns true if any band elements are negative.<a name="line.746"></a>
+<span class="sourceLineNo">747</span>         *<a name="line.747"></a>
+<span class="sourceLineNo">748</span>         * @return true if any band elements are negative.<a name="line.748"></a>
+<span class="sourceLineNo">749</span>         */<a name="line.749"></a>
+<span class="sourceLineNo">750</span>        public boolean anyNegatives() {<a name="line.750"></a>
+<span class="sourceLineNo">751</span>            return smallest &lt; 0;<a name="line.751"></a>
+<span class="sourceLineNo">752</span>        }<a name="line.752"></a>
+<span class="sourceLineNo">753</span><a name="line.753"></a>
+<span class="sourceLineNo">754</span>        /**<a name="line.754"></a>
+<span class="sourceLineNo">755</span>         * Returns the total number of distinct values found in the band.<a name="line.755"></a>
+<span class="sourceLineNo">756</span>         *<a name="line.756"></a>
+<span class="sourceLineNo">757</span>         * @return the total number of distinct values found in the band.<a name="line.757"></a>
+<span class="sourceLineNo">758</span>         */<a name="line.758"></a>
+<span class="sourceLineNo">759</span>        public int numDistinctValues() {<a name="line.759"></a>
+<span class="sourceLineNo">760</span>            if (distinctValues == null) {<a name="line.760"></a>
+<span class="sourceLineNo">761</span>                return band.length;<a name="line.761"></a>
+<span class="sourceLineNo">762</span>            }<a name="line.762"></a>
+<span class="sourceLineNo">763</span>            return distinctValues.size();<a name="line.763"></a>
+<span class="sourceLineNo">764</span>        }<a name="line.764"></a>
+<span class="sourceLineNo">765</span><a name="line.765"></a>
+<span class="sourceLineNo">766</span>    }<a name="line.766"></a>
+<span class="sourceLineNo">767</span><a name="line.767"></a>
+<span class="sourceLineNo">768</span>    /**<a name="line.768"></a>
+<span class="sourceLineNo">769</span>     * Results obtained by trying different Codecs to encode a band<a name="line.769"></a>
+<span class="sourceLineNo">770</span>     */<a name="line.770"></a>
+<span class="sourceLineNo">771</span>    public class BandAnalysisResults {<a name="line.771"></a>
+<span class="sourceLineNo">772</span><a name="line.772"></a>
+<span class="sourceLineNo">773</span>        // The number of Codecs tried so far<a name="line.773"></a>
+<span class="sourceLineNo">774</span>        private int numCodecsTried = 0;<a name="line.774"></a>
+<span class="sourceLineNo">775</span><a name="line.775"></a>
+<span class="sourceLineNo">776</span>        // The number of bytes saved by using betterCodec instead of the default codec<a name="line.776"></a>
+<span class="sourceLineNo">777</span>        private int saved = 0;<a name="line.777"></a>
+<span class="sourceLineNo">778</span><a name="line.778"></a>
+<span class="sourceLineNo">779</span>        // Extra metadata to pass to the segment header (to be appended to the<a name="line.779"></a>
+<span class="sourceLineNo">780</span>        // band_headers band)<a name="line.780"></a>
+<span class="sourceLineNo">781</span>        private int[] extraMetadata;<a name="line.781"></a>
+<span class="sourceLineNo">782</span><a name="line.782"></a>
+<span class="sourceLineNo">783</span>        // The results of encoding the band with betterCodec<a name="line.783"></a>
+<span class="sourceLineNo">784</span>        private byte[] encodedBand;<a name="line.784"></a>
+<span class="sourceLineNo">785</span><a name="line.785"></a>
+<span class="sourceLineNo">786</span>        // The best Codec found so far, or should be null if the default is the<a name="line.786"></a>
+<span class="sourceLineNo">787</span>        // best so far<a name="line.787"></a>
+<span class="sourceLineNo">788</span>        private Codec betterCodec;<a name="line.788"></a>
+<span class="sourceLineNo">789</span><a name="line.789"></a>
+<span class="sourceLineNo">790</span>    }<a name="line.790"></a>
+<span class="sourceLineNo">791</span><a name="line.791"></a>
+<span class="sourceLineNo">792</span>}<a name="line.792"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

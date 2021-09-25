@@ -13,7 +13,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
 import mmb.BEANS.Titled;
-import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.blocks.machine.SideConfig.SideBoolean;
@@ -23,6 +22,7 @@ import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.inventory.storage.SimpleInventory;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
 
@@ -158,7 +158,7 @@ public abstract class SkeletalBlockMachine extends BlockEntityData implements Bl
 	}
 	MachineGUI gui;
 	@Override
-	public void click(int blockX, int blockY, World map, WorldWindow window) {
+	public void click(int blockX, int blockY, World map, WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(gui != null) return;
 		gui = new MachineGUI(this, window);

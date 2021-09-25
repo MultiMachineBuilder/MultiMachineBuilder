@@ -3,8 +3,8 @@
  */
 package mmb.WORLD.blocks;
 
-import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockType;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.block.BlockEntityDataless;
 import mmb.WORLD.worlds.MapProxy;
 

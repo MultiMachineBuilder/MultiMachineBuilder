@@ -16,10 +16,13 @@ import com.fasterxml.jackson.databind.node.TextNode;
 
 import mmb.BEANS.Saver;
 import mmb.DATA.json.JsonTool;
+import mmb.WORLD.block.Drop;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.item.Items;
+import mmb.WORLD.tool.WindowTool;
+import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
@@ -106,5 +109,12 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput {
 	}
 	public default void render(Graphics g, int x, int y, int side) {
 		type().getTexture().draw(null, x, y, g, side);
+	}
+	public default WindowTool getTool() {
+		return null;
+	}
+	@Override
+	default boolean drop(InventoryWriter inv, World map, int x, int y) {
+		return Drop.tryDrop(this, inv, map, x, y);
 	}
 }

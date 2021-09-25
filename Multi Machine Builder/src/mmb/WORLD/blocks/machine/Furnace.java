@@ -18,8 +18,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.BEANS.BlockActivateListener;
 import mmb.DATA.contents.texture.Textures;
 import mmb.DATA.json.JsonTool;
-import mmb.WORLD.RotatedImageGroup;
-import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.blocks.ContentsBlocks;
@@ -28,10 +26,13 @@ import mmb.WORLD.gui.machine.Smelting;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
+import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.inventory.NoSuchInventory;
 import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.rotate.RotatedImageGroup;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
 
@@ -65,6 +66,7 @@ public class Furnace extends SkeletalBlockEntityRotary implements BlockActivateL
 		recipes.put(ContentsBlocks.silicon_ore, ContentsItems.silicon);
 		recipes.put(ContentsBlocks.gold_ore, ContentsItems.gold);
 		recipes.put(ContentsBlocks.silver_ore, ContentsItems.silver);
+		recipes.put(ContentsBlocks.coal_ore, new ItemStack(ContentsItems.coal, 3));
 		inited = true;
 	}
 
@@ -91,10 +93,10 @@ public class Furnace extends SkeletalBlockEntityRotary implements BlockActivateL
 
 	@Override
 	public Inventory getInventory(Side s) {
-		if(s == side.U()) {
+		if(s == getRotation().U()) {
 			return out;
 		}
-		if(s == side.D()) {
+		if(s == getRotation().D()) {
 			return in;
 		}
 		return NoSuchInventory.INSTANCE;
@@ -184,7 +186,7 @@ public class Furnace extends SkeletalBlockEntityRotary implements BlockActivateL
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window) {
+	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(openWindow != null) return;
 		openWindow = new Smelting(this, window);

@@ -5,11 +5,8 @@ package mmb.testing;
 
 import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
-
 import org.junit.Test;
 
-import mmb.ERRORS.UndeclarableThrower;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.inventory.storage.SingleItemInventory;
@@ -92,17 +89,5 @@ public class TestInventory {
 		if(npiecesBafter != 0) throw new Error(npiecesBafter + " pieces are left, expected 0");
 		
 		//Test writer/reader
-	}
-	
-	@SuppressWarnings("null")
-	@Nonnull private static <T> T create(Class<? extends T> cls) {
-		try {
-			return cls.newInstance();
-		} catch (Exception e) {
-			debug.pstm(e, "The class does not work");
-			UndeclarableThrower.shoot(e);
-			//NOSONAR unreachable, but required
-			return null;
-		}
 	}
 }

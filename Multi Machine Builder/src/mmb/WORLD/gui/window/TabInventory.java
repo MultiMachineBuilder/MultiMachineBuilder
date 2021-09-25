@@ -26,6 +26,8 @@ import java.awt.Color;
 import mmb.MENU.components.BoundCheckBox;
 import javax.swing.JSpinner;
 import mmb.WORLD.gui.inv.CraftGUI;
+import java.awt.event.ActionListener;
+import java.util.List;
 
 /**
  * @author oskar
@@ -52,6 +54,8 @@ public class TabInventory extends JPanel {
 	 * Create an inventory panel without a player
 	 */
 	public TabInventory() {
+		craftGUI = new CraftGUI(2, null, null, null);
+		
 		timer = new Timer(0, e -> craftGUI.inventoryController.refresh());
 		setLayout(new MigLayout("", "[::250.00,grow,fill][:400.00:400.00,grow,fill][grow]", "[20px][grow]"));
 		
@@ -64,8 +68,10 @@ public class TabInventory extends JPanel {
 		creativeItemList = new CreativeItemList();
 		creativeScrollPane.setViewportView(creativeItemList);
 		
+		add(craftGUI, "cell 1 0 1 2,growy");
+		
 		panel = new JPanel();
-		add(panel, "cell 2 1,grow");
+		add(panel, "cell 2 0 1 2,grow");
 		panel.setLayout(new MigLayout("", "[][]", "[][][][]"));
 		
 		checkSurvival = new BoundCheckBox();
@@ -112,14 +118,14 @@ public class TabInventory extends JPanel {
 		});
 		btnNewButton_1.setBackground(new Color(0, 204, 0));
 		add(btnNewButton_1, "cell 0 0");
-		
-		craftGUI = new CraftGUI(1, null, null, null);
-		add(craftGUI, "cell 1 0 1 2,grow");
 	}
 	private void removeItems(int amount) {
-		ItemRecord record = craftGUI.inventoryController.getSelectedValue();
-		if(record == null) return;
-		record.extract(amount);
+		int remain = amount;
+		List<ItemRecord> records = craftGUI.inventoryController.getSelectedValuesList();
+		for(ItemRecord record: records) {
+			if(remain == 0) return;
+			remain -= record.extract(amount);
+		}
 		craftGUI.inventoryController.refresh();
 	}
 	private void addItems(int amount) {
@@ -165,7 +171,7 @@ public class TabInventory extends JPanel {
 	private JSpinner itemAmt;
 	private JButton btnNewButton_1;
 	private JButton btnNewButton_2;
-	private CraftGUI craftGUI;
+	public final CraftGUI craftGUI;
 
 	public void dispose() {
 		timer.stop();

@@ -45,6 +45,7 @@ public class ConfigureDroppedItemExtractors extends WindowTool {
 		}else {
 			int rangeX = Collector.clamp(4, mouse.x-collector.posX(), 16);
 			int rangeY = Collector.clamp(4, mouse.y-collector.posY(), 16);
+			frame.renderBlockRange(collector.posX(), collector.posY(), collector.posX()+collector.getRangeX()-1, collector.posY()+collector.getRangeY()-1, Color.BLUE, g);
 			frame.renderBlockRange(collector.posX(), collector.posY(), collector.posX()+rangeX-1, collector.posY()+rangeY-1, Color.ORANGE, g);
 		}
 	}
@@ -63,8 +64,8 @@ public class ConfigureDroppedItemExtractors extends WindowTool {
 				}
 			}else {
 				//Select range
-				int rangeX = mouse.x-collector.posX();
-				int rangeY = mouse.y-collector.posY();
+				int rangeX = Collector.clamp(4, mouse.x-collector.posX(), 16);
+				int rangeY = Collector.clamp(4, mouse.y-collector.posY(), 16);
 				collector.setRangeX(rangeX);
 				collector.setRangeY(rangeY);
 				collector = null;

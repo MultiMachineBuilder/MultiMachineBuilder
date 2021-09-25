@@ -53,7 +53,6 @@ public interface InventoryWriter {
 	 */
 	public static class Priority implements InventoryWriter{
 		private final InventoryWriter first, other;
-		private static final Debugger debug = new Debugger("INVIN-PRIORITY");
 		/**
 		 * Creates a priority writer
 		 * @param here preferred inventory
@@ -68,13 +67,10 @@ public interface InventoryWriter {
 		public int write(ItemEntry ent, int amount) {
 			int writeFirst = first.write(ent, amount);
 			if(writeFirst == amount) {
-				debug.printl("Main accepted all "+amount);
 				return amount; //all accepted
 			}
-			debug.printl("Main accepted some or none "+writeFirst);
 			int next = amount - writeFirst;
 			int writeSecond = other.write(ent, next);
-			debug.printl("Second accepted "+writeSecond);
 			return writeFirst+writeSecond;
 		}		
 	}

@@ -41,15 +41,20 @@ public class ToolSelectionModel {
 	
 	private void resetTools() {
 		debug.printl("Reset tools");
-		if(toolTL == null) setTool(toolIL);
-		else {
-			if(window != null) {
-				Player p = window.getPlayer();
-				if(!(p == null || p.creative.getValue())) { //true
+		if(toolTL == null) {
+			setTool(toolIL);
+		} else if(window != null) {
+			Player p = window.getPlayer();
+			if(!(p == null || p.creative.getValue())) { //true
+				if(toolIL == null) {
+					setTool(window.std);
+				}else {
 					setTool(toolIL);
-					return;
 				}
+			}else {
+				setTool(toolTL);
 			}
+		}else {
 			setTool(toolTL);
 		}
 	}

@@ -5,9 +5,9 @@ package mmb.WORLD.worlds;
 
 import javax.annotation.Nullable;
 
-import mmb.WORLD.Side;
 import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockEntry;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.world.World;
 
 /**

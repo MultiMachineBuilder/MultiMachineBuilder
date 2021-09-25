@@ -16,10 +16,14 @@ import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.Blocks;
 import mmb.WORLD.gui.Placer;
 import mmb.WORLD.gui.WorldToolList;
+import mmb.WORLD.gui.inv.InventoryController;
+import mmb.WORLD.inventory.ItemRecord;
+import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.machine.MachineModel;
 import mmb.WORLD.player.Player;
 import mmb.WORLD.tool.ToolSelectionModel;
 import mmb.WORLD.tool.ToolStandard;
+import mmb.WORLD.tool.WindowTool;
 import mmb.WORLD.worlds.universe.Universe;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
@@ -43,6 +47,7 @@ import javax.swing.JList;
 import mmb.MENU.main.MainMenu;
 import javax.swing.JTabbedPane;
 import javax.swing.ListCellRenderer;
+import javax.swing.ListModel;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import mmb.MENU.components.BoundCheckBoxMenuItem;
@@ -93,6 +98,10 @@ public class WorldWindow extends MMBFrame{
 	}
 	
 	/**
+	 * The default tool
+	 */
+	public final ToolStandard std;
+	/**
 	 * Creates a new world window
 	 */
 	public WorldWindow() {
@@ -138,7 +147,7 @@ public class WorldWindow extends MMBFrame{
 				pane = new JTabbedPane();
 				//[start] World pane
 					JSplitPane worldPane = new JSplitPane();
-					worldPane.setDividerLocation(256);
+					worldPane.setDividerLocation(320);
 					//[start] The world frame
 						worldFrame = new WorldFrame(this);
 						worldFrame.setBackground(Color.GRAY);
@@ -152,22 +161,27 @@ public class WorldWindow extends MMBFrame{
 						scrollistBipane.setDividerLocation(0.8);
 						//Scrollable Placement List
 							scrollablePlacementList = new ScrollablePlacementList(toolModel);
-							for(BlockType t: Blocks.blocks) scrollablePlacementList.add(t);
-							for(MachineModel m: MachineModel.getMachineModels().values()) scrollablePlacementList.add(m);
 							scrollistPane = new JScrollPane();
 							scrollistPane.setViewportView(scrollablePlacementList);
 							scrollistBipane.setLeftComponent(scrollistPane);
+							ListSelectionModel selModel = scrollablePlacementList.getSelectionModel();
+							DefaultListModel<ItemRecord> invModel = scrollablePlacementList.getModel();
 						//Tool Pane
 							JScrollPane toolPane = new JScrollPane();
 							toolList = new WorldToolList(toolModel, this);
 							toolList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 							toolPane.setViewportView(toolList);
+							WindowTool std0 = null;
 							for(int i = 0; i < toolList.model.getSize(); i++) {
-								if(toolList.model.elementAt(i) instanceof ToolStandard) {
+								WindowTool tool = toolList.model.elementAt(i);
+								if(tool instanceof ToolStandard) {
 									toolList.setSelectedIndex(i);
+									std0 = tool;
 									break;
 								}
 							}
+							if(std0 == null) throw new IllegalStateException("ToolStandard is missing");
+							std = (ToolStandard) std0;
 							scrollistBipane.setRightComponent(toolPane);
 						worldPane.setLeftComponent(scrollistBipane);
 					//[end]
@@ -177,6 +191,8 @@ public class WorldWindow extends MMBFrame{
 				//[end]
 				//[start] Inventory pane
 					panelPlayerInv = new TabInventory();
+					panelPlayerInv.craftGUI.inventoryController.setModel(invModel);
+					panelPlayerInv.craftGUI.inventoryController.setSelectionModel(selModel);
 					pane.addTab("Inventory", panelPlayerInv);
 				//[end]
 			rootPane.setLeftComponent(pane);
@@ -321,6 +337,7 @@ public class WorldWindow extends MMBFrame{
 		file = s;
 		worldFrame.enterWorld(deserialized);
 		panelPlayerInv.setPlayer(worldFrame.getMap().player);
+		scrollablePlacementList.setInv(worldFrame.getMap().player.inv);
 	}
 	/** @return a world which is currently played */
 	public Universe getWorld() {
@@ -356,101 +373,20 @@ public class WorldWindow extends MMBFrame{
 	 * @author oskar
 	 * A {@code ScrollablePlacementList} is used to select a block or machine
 	 */
-	public class ScrollablePlacementList extends JList<Placer>{
+	public class ScrollablePlacementList extends InventoryController{
 		private static final long serialVersionUID = -208562764791915412L;
-		/**
-		 * A list of all placers that player can choose
-		 */
-		public final DefaultListModel<Placer> placers;
-		/**
-		 * @return the index, at which the placer is selected
-		 * @deprecated Now implements JList. Use getSelectedIndex() instead. To be removed in 0.6
-		 */
-		@Deprecated
-		public int getPlacerIndex() {
-			return getSelectedIndex();
-		}
-		/**
-		 * @param placerIndex the index of a placer within the ScrollablePlacementList
-		 * @deprecated Now implements JList. Use getSelectedIndex() instead. To be removed in 0.6
-		 */
-		public void setPlacerIndex(int placerIndex) {
-			setSelectedIndex(placerIndex);
-		}
-		/**
-		 * @return the placer
-		 * @deprecated Now implements JList. Use getSelectedValue() instead. To be removed in 0.6
-		 */
-		@Deprecated
-		public Placer getPlacer() {
-			return getSelectedValue();
-		}
-		/**
-		 * @param placer the placer to set
-		 * @deprecated Now implements JList. Use setSelectedValue() instead. To be removed in 0.6
-		 */
-		@Deprecated
-		public void setPlacer(Placer placer) {
-			setSelectedValue(placer, true);
-		}
-
+		
 		ScrollablePlacementList(ToolSelectionModel tsmodel) {
-			placers = new DefaultListModel<>();
-			setModel(placers);
 			setFocusable(false);
-			setCellRenderer(new CellRenderer());
 			addListSelectionListener(e -> {
-				tsmodel.toolSelectedItemList(null);
-			});
-		}
-		/**
-		 * A convienience method to add a placer
-		 * @param arg0 the placer to be added
-		 * @see java.util.List#add(java.lang.Object)
-		 */
-		public void add(Placer arg0) {
-			placers.addElement(arg0);
-		}
-
-		/**
-		 * A convenience method to remove a placer
-		 * @param arg0 the placer to be removed
-		 * @see java.util.List#remove(java.lang.Object)
-		 */
-		public void remove(Placer arg0) {
-			placers.removeElement(arg0);
-		}
-
-		/**
-		 * @return number of registered placers
-		 * @see java.util.List#size()
-		 */
-		public int listSize() {
-			return placers.size();
-		}
-
-		private final class CellRenderer extends JLabel implements ListCellRenderer<Placer>{
-			private static final long serialVersionUID = 5070252011413398383L;
-			
-			public CellRenderer() {
-				setOpaque(true);
-			}
-			@Override
-			public Component getListCellRendererComponent(JList<? extends Placer> list, Placer placer, int index,
-					boolean isSelected, boolean cellHasFocus) {
-				setIcon(placer.getIcon());
-				setText(placer.title());
-				
-				if (isSelected) {
-				    setBackground(list.getSelectionBackground());
-				    setForeground(list.getSelectionForeground());
-				} else {
-				    setBackground(list.getBackground());
-				    setForeground(list.getForeground());
+				ItemRecord record = getSelectedValue();
+				if(record == null) {
+					tsmodel.toolSelectedItemList(null);
+				}else {
+					tsmodel.toolSelectedItemList(record.item().getTool());
 				}
 				
-				return this;
-			}
+			});
 		}
 		
 		/** @return an associated WorldWindow */
@@ -465,5 +401,9 @@ public class WorldWindow extends MMBFrame{
 	public void redrawUIs() {
 		scrollablePlacementList.repaint();
 		toolList.repaint();
+	}
+	
+	public InventoryController playerInventory() {
+		return new InventoryController(panelPlayerInv.craftGUI.inventoryController);
 	}
 }

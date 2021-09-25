@@ -41,7 +41,7 @@ public class Block extends BlockBase implements BlockEntry{
 	}
 
 	@Override
-	public BlockEntry create(int x, int y, World map) {
+	public BlockEntry createBlock() {
 		return this;
 	}
 

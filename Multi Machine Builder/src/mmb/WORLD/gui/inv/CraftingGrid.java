@@ -45,16 +45,16 @@ public class CraftingGrid extends JPanel{
 		setLayout(new GridLayout(size, size));
 		slots = new ItemSelectionSlot[size][size];
 		Dimension dim = new Dimension(40, 40);
-		for(int i = 0; i < size; i++) {
-			for(int j = 0; j < size; j++){
+		for(int yy = 0; yy < size; yy++) {
+			for(int xx = 0; xx < size; xx++){
 				ItemSelectionSlot slot = new ItemSelectionSlot();
-				slots[i][j] = slot;
+				slots[xx][yy] = slot;
 				slot.setBorder(border);
 				slot.setMinimumSize(dim);
 				slot.setMaximumSize(dim);
 				slot.setPreferredSize(dim);
-				int x = i;
-				int y = j;
+				int x = xx;
+				int y = yy;
 				slot.stateChanged.addListener(item -> gridStateChanged.trigger(new ItemGridStateChangedEvent(x, y, item)));
 				add(slot);
 			}

@@ -22,7 +22,6 @@ import mmb.ERRORS.UndeclarableThrower;
 import mmb.FILES.FileUtil;
 import mmb.LAMBDAS.Lambdas;
 import mmb.MENU.FullScreen;
-import mmb.MODS.info.AddonInfo;
 import mmb.MODS.info.AddonState;
 import mmb.SOUND.MP3Loader;
 import mmb.WORLD.blocks.ContentsBlocks;

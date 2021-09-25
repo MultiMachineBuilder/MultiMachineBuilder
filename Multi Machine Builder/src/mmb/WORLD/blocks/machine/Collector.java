@@ -23,6 +23,7 @@ import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
@@ -99,6 +100,10 @@ public class Collector extends BlockEntityData implements BlockActivateListener 
 				Iterator<ItemEntry> iterator = collect.iterator();
 				while(iterator.hasNext()) {
 					ItemEntry item = iterator.next();
+					if(item == null) {
+						iterator.remove();
+						continue;
+					}
 					int tf = inv0.insert(item, 1);
 					if(tf == 1) {
 						iterator.remove();
@@ -126,10 +131,15 @@ public class Collector extends BlockEntityData implements BlockActivateListener 
 	
 	CollectorGUI gui;
 	@Override
-	public void click(int blockX, int blockY, World map, WorldWindow window) {
+	public void click(int blockX, int blockY, World map, WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(gui != null) return;
 		gui = new CollectorGUI(this, window);
 		window.openAndShowWindow(gui, "Item collector");
+	}
+
+	@Override
+	public Inventory getInventory(Side s) {
+		return inv;
 	}
 }

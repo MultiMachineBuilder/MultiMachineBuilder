@@ -64,7 +64,7 @@ public class FixedGrid<T> implements Grid<T> {
 			throw new IllegalArgumentException("Minimum amount of items: "+reqd+", provided: "+data.length);
 		}
 		for(int i = 0, y = 0; y < h; y++) {
-			for(int x = 0; x < w; x++) {
+			for(int x = 0; x < w; x++, i++) {
 				set(x, y, data[i]);
 			}
 		}

@@ -99,4 +99,14 @@ public class NoSuchItemType implements ItemType {
 	public ItemEntry loadItem(JsonNode node) {
 		throw new IllegalStateException("Loading a NoSuchItemType");
 	}
+
+	@Override
+	public void setUnstackable(boolean value) {
+		throw new UnsupportedOperationException("NoSuchItemType should not be used");
+	}
+
+	@Override
+	public boolean isUnstackable() {
+		return true;
+	}
 }
