@@ -4,6 +4,9 @@
 package mmb.WORLD.blocks.machine;
 
 import java.awt.Component;
+
+import javax.annotation.Nonnull;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -83,7 +86,7 @@ public class Nuker extends SkeletalBlockMachine {
 	}
 
 	private double fuelRemain;
-	private final SingleItemInventory nuked = new SingleItemInventory();
+	@Nonnull private final SingleItemInventory nuked = new SingleItemInventory();
 
 	public Nuker() {
 		super(15);

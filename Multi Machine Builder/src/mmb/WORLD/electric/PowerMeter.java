@@ -12,7 +12,6 @@ import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.rotate.RotatedImageGroup;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.debug.Debugger;
 
 /**
  * @author oskar
@@ -56,7 +55,6 @@ public class PowerMeter extends SkeletalBlockEntityRotary {
 	
 	private double moved;
 	private String label;
-	private static final Debugger debug = new Debugger("POWER METER");
 	@Override
 	public void onTick(MapProxy map) {
 		//Measure power throughput

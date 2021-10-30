@@ -3,6 +3,7 @@
  */
 package mmb.WORLD.block;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -19,19 +20,43 @@ import mmb.debug.Debugger;
  */
 public class BlockLoader implements ExternalLoader<JsonNode, BlockEntry> {
 	public int x, y;
-	public World map;
+	@Nonnull public final World map;
+	/**
+	 * Constructs a BlockLoader with given map
+	 * @param map the map to use to load the blocks
+	 */
+	public BlockLoader(World map) {
+		super();
+		this.map = map;
+	}
 	private static final Debugger debug = new Debugger("BLOCK LOADER");
 
 	@Override
 	public BlockEntry load(@Nullable JsonNode data) {
-		if(data == null || data.isNull() || data.isMissingNode()) return null;
-		if(data.isTextual()) return doLoadBasic(data.asText()); //without properties
+		if(data == null) {
+			debug.printl("The block data is null");
+			return null;
+		}
+		if(data.isNull()) {
+			debug.printl("The block data is null node");
+			return null;
+		}
+		if(data.isMissingNode()) {
+			debug.printl("The block data is a virtual node");
+			return null;
+		}
 		if(data.isObject()) return doLoadEnhanced((ObjectNode) data); //with properties
+		String text = data.asText(); //without properties
+		if(text != null) return doLoadBasic(text);
+		debug.printl("Unknown block data: "+data);
 		return null;
 	}
-	private BlockEntry doLoadBasic(String text) {
+	private static BlockEntry doLoadBasic(String text) {
 		BlockType type = Blocks.get(text);
-				if(type == null) return ContentsBlocks.grass;
+				if(type == null) {
+					debug.printl("Unknown block type: \""+text+"\"");
+					return ContentsBlocks.grass;
+				}
 		return type.createBlock();
 	}
 	private BlockEntry doLoadEnhanced(ObjectNode on) {
@@ -42,16 +67,12 @@ public class BlockLoader implements ExternalLoader<JsonNode, BlockEntry> {
 			debug.printl("Block type "+blockName+" was not found");
 			return null;
 		}
-		if(typ.isBlockEntity()) {
-			BlockEntity block = typ.createBlock().asBlockEntity();
-			try {
-				block.load(on);
-				block.onStartup(map);
-			}catch(Exception e) {
-				debug.pstm(e, "Failed to load a block "+blockName+" at ["+x+","+y+"]");
-			}
-			return block;
+		BlockEntry block = typ.createBlock();
+		try {
+			block.load(on);
+		}catch(Exception e) {
+			debug.pstm(e, "Failed to load a block "+blockName+" at ["+x+","+y+"]");
 		}
-		return typ.createBlock();
+		return block;
 	}
 }

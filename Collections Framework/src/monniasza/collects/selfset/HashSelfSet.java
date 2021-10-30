@@ -68,7 +68,7 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 	}
 
 	@Override
-	public boolean remove(@SuppressWarnings("null") Object o) {
+	public boolean remove(@Nullable Object o) {
 		return keys.remove(o) || vals.remove(o);
 	}
 
@@ -263,12 +263,12 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 	}
 
 	@Override
-	public V get(K key) {
+	public V get(@Nullable K key) {
 		return map.get(key);
 	}
 
 	@Override
-	public V getOrDefault(K key, V defalt) {
+	public V getOrDefault(@Nullable K key, V defalt) {
 		return map.getOrDefault(key, defalt);
 	}
 

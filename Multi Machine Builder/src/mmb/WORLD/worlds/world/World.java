@@ -47,7 +47,6 @@ import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.machine.Machine;
 import mmb.WORLD.machine.MachineModel;
-import mmb.WORLD.player.Player;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.DataLayers;
 import mmb.WORLD.worlds.MapProxy;
@@ -165,8 +164,7 @@ public class World implements Identifiable<String>{
 		
 		//Blocks
 		ArrayNode worldArray = (ArrayNode) json.get("world");
-		BlockLoader bloader = new BlockLoader();
-		bloader.map = world;
+		BlockLoader bloader = new BlockLoader(world);
 		Iterator<JsonNode> iter = worldArray.elements();
 		for(int y = startY; y < endY; y++) {
 			for(int x = startX; x < endX; x++) {
@@ -174,6 +172,8 @@ public class World implements Identifiable<String>{
 				bloader.x = x;
 				bloader.y = y;
 				BlockEntry block = bloader.load(node);
+				if(block == null) block = ContentsBlocks.grass;
+				block.onStartup(world);
 				world.set(block, x, y);
 			}
 		}
@@ -196,9 +196,10 @@ public class World implements Identifiable<String>{
 			int x = aMachine.get(1).asInt();
 			int y = aMachine.get(2).asInt();
 			JsonNode machineData  = aMachine.get(3);
+			if(type == null || machineData == null) continue;
 			try {
 				Machine machine = MachineModel.forID(type).initialize(x, y, machineData);
-				world.placeMachine(machine);
+				if(machine != null) world.placeMachine(machine);
 			} catch(Exception e) {
 				world.debug.pstm(e, "Failed to place a machine of type "+type+" at ["+x+","+y+"]");
 			}
@@ -217,7 +218,7 @@ public class World implements Identifiable<String>{
 			}
 		}
 		
-		WorldEvents.load.trigger(new Tuple2<World, ObjectNode>(world, (ObjectNode) json));
+		WorldEvents.load.trigger(new Tuple2<>(world, (ObjectNode) json));
 		
 		//Player data
 		world.player.load(JsonTool.requestObject("player", (ObjectNode) json));
@@ -295,7 +296,7 @@ public class World implements Identifiable<String>{
 			//Player
 			master.set("player", world.player.save());
 			
-			WorldEvents.save.trigger(new Tuple2<World, ObjectNode>(world, master));
+			WorldEvents.save.trigger(new Tuple2<>(world, master));
 			return master;
 		}
 	
@@ -304,16 +305,12 @@ public class World implements Identifiable<String>{
 	private TaskLoop timer = new TaskLoop(() -> update(), PERIOD);
 	/** The Ticks Per Second counter */
 	public final FPSCounter tps = new FPSCounter();
+	private volatile boolean underTick = false;
+	private volatile boolean stopping = false;
 	@SuppressWarnings("null")
 	private void update() {//Run the map
 		if(entries == null) return;
-		if(runLock != null) {
-			Thread.currentThread().interrupt();
-			synchronized(runLock){
-				runLock.notifyAll();
-			}
-			return;
-		}
+		underTick = true;
 		tps.count();
 		//Set up the proxy
 		try(MapProxy proxy = createProxy()){
@@ -343,6 +340,13 @@ public class World implements Identifiable<String>{
 			}
 		}catch(Exception e) {
 			debug.pstm(e, "Failed to run the map");
+		}
+		//Run the player
+		player.onTick(this);
+		underTick = false;
+		if(stopping) {
+			Thread.currentThread().interrupt();
+			return;
 		}
 	}
 	/** @return is this world running? */
@@ -391,19 +395,14 @@ public class World implements Identifiable<String>{
 	}
 	
 	//Lock out the world
-	private Object runLock;
 	private void preventRuns() {
-		runLock = new Object();
-		synchronized(runLock) {
-			try {
-				runLock.wait();
-			} catch (InterruptedException e) {
-				Thread.currentThread().interrupt();
-			}
-		}
+		if(timer.getState() == 0) return;
+		stopping = true;
+		while(!underTick) {Thread.yield();}
 	}
 	
 	//Data layers
+	/** The list of data layers */
 	public final SelfSet<String,WorldDataLayer> data = new HashSelfSet<>();
 	
 	//Player actions
@@ -461,26 +460,7 @@ public class World implements Identifiable<String>{
 	 * @return the block entry at given location from side
 	 */
 	public BlockEntry getAtSide(Side s, int x, int y) {
-		switch(s) {
-		case D:
-			return get(x, y+1);
-		case DL:
-			return get(x-1, y+1);
-		case DR:
-			return get(x+1, y+1);
-		case L:
-			return get(x-1, y);
-		case R:
-			return get(x+1, y);
-		case U:
-			return get(x, y-1);
-		case UL:
-			return get(x-1, y-1);
-		case UR:
-			return get(x+1, y-1);
-		default:
-			return get(x, y);
-		}
+		return get(x+s.blockOffsetX, y+s.blockOffsetY);
 	}
 	
 	private BlockEntry set0(BlockEntry b, int x, int y) {
@@ -543,10 +523,7 @@ public class World implements Identifiable<String>{
 	public boolean isValid() {
 		return entries != null;
 	}
-	
-	//Dropped items
-	
-	
+		
 	//Bounds
 	/** Leftmost X coordinate, inclusive */ public final int startX;
 	/** @return leftmost X coordinate, inclusive */ public int startX() {return startX;}
@@ -747,6 +724,12 @@ public class World implements Identifiable<String>{
 	 * DO NOT CHANGE ANY VECTORS IN THIS MAP
 	 */
 	public final Multimap<Vector2iconst, ItemEntry> drops = ArrayListMultimap.create();
+	/**
+	 * Creates an {@code InventoryWriter} which drops items at given location
+	 * @param x X coordinate of item drop(s)
+	 * @param y Y coordinate of item drop(s)
+	 * @return the inventory writer
+	 */
 	@Nonnull public InventoryWriter createDropper(int x, int y) {
 		Collection<ItemEntry> collect = getDrops(x, y);
 		return (ent, amount) -> {
@@ -759,14 +742,16 @@ public class World implements Identifiable<String>{
 	/**
 	 * @param x X coordinate of item drop(s)
 	 * @param y Y coordinate of item drop(s)
-	 * @return
+	 * @return dropped item list at given location.
+	 * The item list is bound to the location, so any changes which are made to the list are reflected in the world and vice versa.
 	 */
 	public Collection<ItemEntry> getDrops(int x, int y){
 		return getDrops(new Vector2iconst(x, y));
 	}
 	/**
-	 * @param v
-	 * @return
+	 * @param v posiion of item drop(s)
+	 * @return dropped item list at given location.
+	 * The item list is bound to the location, so any changes which are made to the list are reflected in the world and vice versa.
 	 */
 	public Collection<ItemEntry> getDrops(Vector2iconst v) {
 		return drops.get(v);
@@ -787,7 +772,7 @@ public class World implements Identifiable<String>{
 	 * Any changes in the grid are represented in the block map and vice versa.
 	 * @return the {@link Grid} representation of this block map
 	 */
-	public Grid<@Nonnull BlockEntry> toGrid() {
+	@Nonnull public Grid<@Nonnull BlockEntry> toGrid() {
 		return new Grid<@Nonnull BlockEntry>() {
 			@Override
 			public void set(int x, int y, BlockEntry data) {

@@ -236,7 +236,7 @@ public class NewGame extends MMBFrame {
 		
 		world.destroy();
 		
-		dispose();
+		FullScreen.setWindow(MainMenu.INSTANCE);
 		PanelSaves.INSTANCE.refresh();
 	}	
 	@Override

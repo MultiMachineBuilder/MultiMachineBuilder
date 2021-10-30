@@ -7,9 +7,8 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.function.*;
-import java.util.jar.*;
-
 import javax.imageio.ImageIO;
 
 import org.apache.commons.compress.archivers.ArchiveEntry;
@@ -93,16 +92,21 @@ public class AddonLoader {
 	 * Determine if file can be loaded
 	 */
 	private void init() {
+		//Part -1: initialize
 		String debugName = AdvancedFile.dirName(a.file.name())[1];
 		debug = new Debugger("MOD - "+ debugName);
 		a.name = originalPath;
 		a.path = originalPath;
 		
-		//Trying to open file
+		//Part 0: pre-download checks
 		if(a.file.isDirectory()) {
 			debug.printl("The mod is a directory, aborting");
+			a.state = AddonState.DIRECTORY;
 			return;
 		}
+		
+		//Part 1: download
+		byte[] data = null;
 		try(InputStream in = a.file.getInputStream()) {
 			debug.printl("Opening a modfile: " + a.name);
 			if(!a.file.exists()) {
@@ -111,7 +115,7 @@ public class AddonLoader {
 				return;
 			}
 			if(!a.isOnline()) a.name = AdvancedFile.dirName(a.file.name())[1];
-			unzip(in);
+			data = IOUtils.toByteArray(in);
 		}catch(IllegalArgumentException e) {
 			debug.pstm(e, "Make sure that \"" + a.name + "\" is not mistyped.");
 			a.state = AddonState.NOEXIST;
@@ -122,65 +126,55 @@ public class AddonLoader {
 		}catch(Exception e) {
 			debug.pstm(e, "Couldn't read " + a.name + " for unknown reasons");
 			a.state = AddonState.NOEXIST;
+		}catch(OutOfMemoryError e) {
+			debug.pstm(e, "The mod is too big to load");
+			a.state = AddonState.BLOATED;
 		}
-	}
-	
-	private void unzip(InputStream in) {
-		//Unzip the file
-		try(JarArchiveInputStream jis = new JarArchiveInputStream(in)) {
+		
+		//Part 2: Unzip the file
+		if(data == null) return; //Failed to load, abort
+		try(JarArchiveInputStream jis = new JarArchiveInputStream(new ByteArrayInputStream(data))) {
 			//Trying to load modfile
 			debug.printl("Loading a modfile: " + a.name);
 			while(true) {
 				JarArchiveEntry je = jis.getNextJarEntry();
-				if(je == null) break;
+				if(je == null) break; //No more entries, break
 				debug.printl("entry: "+je.getName());
 				byte[] bytes = IOUtils.toByteArray(jis);
 				ByteList list = ByteList.of(bytes);
 				a.contents0.add(je);
 				a.files0.put(je, list);
 			}
-			//If file works, continue loading
-			debug.printl("Injecting "+a.file.name());
-			a.files0.forEach(this::processFile);
-			for(Class<? extends AddonCentral> c : cclasses) {
-				String cname = c.getName();
-				try {
-					AddonCentral central = c.newInstance();
-					a.central = central;
-					runCentralClass(central);
-				} catch (IllegalAccessException e) {
-					debug.pstm(e, "The constructor for" + cname +  " is non-public or absent. Make the constructor public");
-				} catch(Exception e) {
-					debug.pstm(e, "Couldn't create the main instance of the mod " + a.name);
-				}
-			}
 			
-			//If file is empty, mark it
-			if(!a.hasValidData) a.state = AddonState.EMPTY;
 		}catch(Exception e) {
 			debug.printl("Couldn't open zip or jar file " + a.name);
 			debug.pst(e);
 			a.state = AddonState.BROKEN;
 		}
-	}
-	
-	private void processFile(ArchiveEntry meta, ByteList data){
-		String name = meta.getName();
-		@SuppressWarnings("null")
-		String[] tmp = AdvancedFile.baseExtension(name);
-		String ext = tmp[1];
-		debug.printl("Processing "+name);
-		if(meta.isDirectory()) {
-			debug.printl("Directory: "+name);
-		}else {
+		
+		//Part 3: process files
+		if(a.state == AddonState.BROKEN) return; //the mod is corrupt or empty, abort
+		List<Entry<ArchiveEntry, ByteList>> cfiles = new ArrayList<>();
+		debug.printl("Injecting "+a.file.name());
+		for(Entry<ArchiveEntry, ByteList> entry: a.files0.entrySet()) {
+			ArchiveEntry meta = entry.getKey();
+			ByteList data0 = entry.getValue();
+			String name = meta.getName();
+			@SuppressWarnings("null")
+			String[] tmp = AdvancedFile.baseExtension(name);
+			String ext = tmp[1];
+			debug.printl("Processing "+name);
+			if(meta.isDirectory()) {
+				debug.printl("Directory: "+name); continue;
+			}
 			a.hasValidData = true;
 			debug.printl("File: "+name);
 			if(ext.endsWith("class")) {
-				interpretClassFile(meta, data);
+				cfiles.add(entry);
 			}else if(ext.equals("mcmod")) {
 				debug.printl("Found Minecraft mod (found mcmod.info)");
 			}else if(name.startsWith(PREFIX_TEXTURE)){
-				try(InputStream is = ByteListInputStream.of(data)){
+				try(InputStream is = ByteListInputStream.of(data0)){
 					String shorter = name.substring(PREFIX_TEXTURE.length());
 					BufferedImage img = ImageIO.read(is);
 					Textures.load(shorter, img);
@@ -195,53 +189,68 @@ public class AddonLoader {
 				Sounds.load(ByteListInputStream.of(a.files0.get(meta)), shorter);
 			}
 		}
-	}
-	private static ByteClassLoader bcl = new ByteClassLoader(AddonLoader.class.getClassLoader());
-	@SuppressWarnings("null")
-	private void interpretClassFile(ArchiveEntry meta, ByteList data){
-		// This JarEntry represents a class. Now, what class does it represent?
-		String name = meta.getName();
-		debug.printl("entry: "+name);
-        String className = name.replace('/', '.');
-        className = className.substring(0, className.length() - ".class".length());
-        debug.printl("Class: "+className);
-        try {
-			@SuppressWarnings("rawtypes")
-			Class c = bcl.loadClass(className, data.toByteArray(), false);
-			tryAddCentral(c);
-			GameContents.loadedClasses.add(c);
-		} catch (ClassNotFoundException e) {
-			debug.pstm(e, "Failed to find class "+name);
-			a.state = AddonState.DEAD;
-		} catch (ClassFormatError e) {
-			debug.pstm(e, "Invalid class file: "+name);
-			a.state = AddonState.DEAD;
-		} catch(NoClassDefFoundError e) {
-			debug.pstm(e, "Missing dependencies in "+name);
-			a.state = AddonState.DEAD;
-		}catch (IOException e) {
-			debug.pstm(e, "Failed to open resource "+name);
-			a.state = AddonState.BROKEN;
-		} catch (Exception e) {
-			debug.pstm(e, "Couldn't process classfile " + className + ". Please check if class file exists and works.");
-			a.state = AddonState.DEAD;
+		
+		//Part 3A: mark empty mods
+		if(!a.hasValidData) a.state = AddonState.EMPTY;
+		
+		//Part 4: load classes
+		for(Entry<ArchiveEntry, ByteList> entry: cfiles) {
+			ArchiveEntry meta = entry.getKey();
+			ByteList data0 = entry.getValue();
+			// This JarEntry represents a class. Now, what class does it represent?
+			String name = meta.getName();
+			debug.printl("entry: "+name);
+			String className = name.replace('/', '.');
+			className = className.substring(0, className.length() - ".class".length());
+			debug.printl("Class: "+className);
+			try {
+				Class<?> c1 = bcl.loadClass(className, data0.toByteArray(), false);
+				boolean runnable = AddonCentral.class.isAssignableFrom(c1);//if class implements AddonCentral, run it
+				if(runnable) { //The given class is a mod central class
+					if(!cclasses.isEmpty()) debug.printl("This file contains mutiple mods");
+					@SuppressWarnings("unchecked")
+					Class<? extends AddonCentral> c2 = (Class<? extends AddonCentral>) c1;
+					cclasses.add(c2); 
+				}
+					
+				a.hasClasses = true;
+				GameContents.loadedClasses.add(c1);
+			} catch (ClassNotFoundException e) {
+				debug.pstm(e, "Failed to find class "+name);
+				a.state = AddonState.DEAD;
+			} catch (ClassFormatError e) {
+				debug.pstm(e, "Invalid class file: "+name);
+				a.state = AddonState.DEAD;
+			} catch(NoClassDefFoundError e) {
+				debug.pstm(e, "Missing dependencies in "+name);
+				a.state = AddonState.DEAD;
+			}catch (IOException e) {
+				debug.pstm(e, "Failed to open resource "+name);
+				a.state = AddonState.BROKEN;
+			} catch (Exception e) {
+				debug.pstm(e, "Couldn't process classfile " + className + ". Please check if class file exists and works.");
+				a.state = AddonState.DEAD;
+			}
+		}
+		
+		//Part 5: create addon centrals
+		for(Class<? extends AddonCentral> c : cclasses) {
+			String cname = c.getName();
+			try {
+				AddonCentral central = c.newInstance();
+				a.central = central;
+				a.mmbmod = central.info();
+				a.name = a.mmbmod.name;
+			} catch (IllegalAccessException e) {
+				debug.pstm(e, "The constructor for" + cname +  " is non-public or absent. Make the constructor public");
+				a.state = AddonState.DEAD;
+			} catch(Exception e) {
+				debug.pstm(e, "Couldn't create the main instance of the mod " + a.name);
+				a.state = AddonState.DEAD;
+			}
 		}
 	}
-	private List<Class<? extends AddonCentral>> cclasses = new ArrayList<>();
-	@SuppressWarnings("unchecked")
-	private void tryAddCentral(Class<?> c) {
-		boolean runnable = AddonCentral.class.isAssignableFrom(c);//if class implements AddonCentral, run it
-    	if(runnable) { //The given class is a mod central class
-    		if(!cclasses.isEmpty()) debug.printl("This file contains mutiple mods");
-    		cclasses.add((Class<? extends AddonCentral>) c); 
-    	}
-    		
-    	a.hasClasses = true;
-    }
-    	
 	
-	void runCentralClass(AddonCentral c) {
-		a.mmbmod = c.info();
-		a.name = a.mmbmod.name;
-	}
+	private static ByteClassLoader bcl = new ByteClassLoader(AddonLoader.class.getClassLoader());
+	private List<Class<? extends AddonCentral>> cclasses = new ArrayList<>();
 }

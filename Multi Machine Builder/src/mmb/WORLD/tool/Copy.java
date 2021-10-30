@@ -160,8 +160,6 @@ public class Copy extends WindowTool {
 				int sizeY = sizey-scale;
 				int startX = x-sizeX;
 				int startY = y-sizeY;
-				
-				Point p = new Point();
 				for(int px = startX, i = 0; i < grid.width(); px += scale, i++) {
 					for(int py = startY, j = 0; j < grid.height(); py += scale, j++) {
 						BlockEntry todraw = grid.get(i, j);

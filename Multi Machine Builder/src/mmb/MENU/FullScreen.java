@@ -23,8 +23,6 @@ public class FullScreen {
 	private static boolean isInitialized = false;
 	private static Debugger debug = new Debugger("FullScreen");
 	
-	private static boolean setFullScreenWindowMethodRunning = false;
-	
 	static GraphicsDevice device = GraphicsEnvironment
 	        .getLocalGraphicsEnvironment().getScreenDevices()[0];
 	
@@ -34,7 +32,7 @@ public class FullScreen {
 		isFullScreen.add(b -> {
 			debug.printl("Setting fullscreen mode to: "+b);
 			Settings.set("fullscreen", Boolean.toString(b));
-			if(!setFullScreenWindowMethodRunning) setFullScreen(b);
+			setFullScreen(b);
 		});
 		isInitialized = true;
 	}
@@ -43,7 +41,7 @@ public class FullScreen {
 	public static void setWindow(MMBFrame win) {
 		if(fullScreenFrame != null) {
 			fullScreenFrame.undergoingScreenTransform = true;
-			fullScreenFrame.dispose(); //Dispose of the old frame
+			fullScreenFrame.dispose(); //Dispose of the old frame GETS STUCK
 			fullScreenFrame.undergoingScreenTransform = false;
 		}
 		fullScreenFrame = win;

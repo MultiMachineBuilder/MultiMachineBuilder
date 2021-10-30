@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.block;
 
+import javax.annotation.Nullable;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
@@ -12,7 +14,7 @@ import com.fasterxml.jackson.databind.node.TextNode;
  */
 public abstract class BlockEntityDataless extends BlockEntity{
 	@Override
-	public void load(JsonNode data) {
+	public void load(@Nullable JsonNode data) {
 		//unused
 	}
 	@Override

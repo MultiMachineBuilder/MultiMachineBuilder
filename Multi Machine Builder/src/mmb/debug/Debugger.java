@@ -1,9 +1,10 @@
 package mmb.debug;
 
-import java.io.FileNotFoundException;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-
 import javax.annotation.Nullable;
 
 import mmb.Main;
@@ -17,18 +18,23 @@ public class Debugger {
 	private static boolean initialized = false;
 	//Static code
 	static {
-		try {
-			PrintWriter writer = new PrintWriter("log.txt", "UTF-8");
-			writer.close();
-		} catch (FileNotFoundException | UnsupportedEncodingException e1) {
-			e1.printStackTrace();
+		if(Main.isRunning()){ //suppress init if the game is not run
+			System.out.println("Creating log file");
+			try {
+				File file = new File("log.txt");
+				boolean create = file.createNewFile();
+				if(!create) {
+					PrintWriter writer = new PrintWriter(file, "UTF-8");
+					writer.close();
+				}
+				OutputStream stream = new FileOutputStream(file, false);
+				System.setOut(new TeePrintStream(stream, System.out));
+				System.setErr(new TeePrintStream(stream, System.err));
+			} catch (IOException e1) {
+				Main.crash(e1);
+			}
+			initialized = true;
 		}
-		try {
-			System.setOut(new TeePrintStream("log.txt", System.out));
-		} catch (FileNotFoundException e1) {
-			Main.crash(e1);
-		}
-		initialized = true;
 	}
 	
 	public void pstm(Throwable t, @Nullable String s) {
@@ -67,13 +73,13 @@ public class Debugger {
 		System.out.print(ch);
 	}
 
-	public void printerr(String s) {
+	public void printerr(@Nullable String s) {
 		System.err.print('(');
 		System.err.print(id);
 		System.err.print(") ");
 		System.err.print(s);
 	}
-	public void printerrl(String s) {
+	public void printerrl(@Nullable String s) {
 		printerr(s);
 		System.err.print('\n');
 	}

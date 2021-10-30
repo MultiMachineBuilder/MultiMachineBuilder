@@ -137,17 +137,20 @@ public class PanelSaves extends JPanel {
 				JsonNode node = JsonTool.parse(loadedData);
 				if(node == null) {
 					debug.printl("Failed to parse JSON data");
-					ww.dispose();
-					return;
+					EventQueue.invokeLater(() -> ww.dispose()); //Control given back to EDT to close unnecessary window
 				}
 				debug.printl("Parsed file");
 				world.load(node);
 				debug.printl("Loaded");
 				ww.setWorld(s, world);
+				return;
 			}catch(Exception e) {
 				debug.pstm(e, "Failed to load the world");
-				ww.dispose();
 			}
+			EventQueue.invokeLater(() -> {
+				ww.dispose();
+				FullScreen.setWindow(MainMenu.INSTANCE);
+			});//Control given back to EDT to close unnecessary window
 		}).start();
 	}
 	

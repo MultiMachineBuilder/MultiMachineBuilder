@@ -26,7 +26,7 @@ import mmb.WORLD.items.pickaxe.Pickaxe.PickaxeType;
  */
 public class ToolPickaxe extends WindowTool {
 	//Mock pickaxe for testing.
-	@Nonnull private static  PickaxeType mockType = new PickaxeType().setDurability(Integer.MAX_VALUE);
+	@Nonnull private static PickaxeType mockType = new PickaxeType().setDurability(Integer.MAX_VALUE);
 	@Nonnull private static Pickaxe pick0 = (Pickaxe) mockType.create();
 	
 	private Pickaxe pick;
@@ -55,7 +55,7 @@ public class ToolPickaxe extends WindowTool {
 		frame.blockAt(startX+1, startY+1, block);
 		if(!frame.getMap().inBounds(block)) return;
 		BlockEntry block1 = frame.getMap().get(block);
-		if(block1.type().isSurface()) return;
+		if(block1.isSurface()) return;
 		if(pressed) {
 			int mid = scale/2;
 			int midX = mid+startX;
@@ -77,19 +77,21 @@ public class ToolPickaxe extends WindowTool {
 		}
 	}
 	private void breakBlock(BlockEntry block1) {
+		Pickaxe pick = null;
 		ItemRecord record = window.getPlacer().getSelectedValue();
 		if(record != null) {
 			ItemEntry entry = record.item();
 			if(entry instanceof Pickaxe) {
-				Pickaxe pick = (Pickaxe) entry;
+				pick = (Pickaxe) entry;
 				int uses = pick.getUses();
+				pick.setUses(uses+1);
 				if(uses > pick.durability) {
 					//Break the pickaxe
 					record.extract(Integer.MAX_VALUE);
-				}else {
-					pick.setUses(uses+1);
+					pressed = false;
+					window.getPlacer().refresh();
+					return;
 				}
-				window.getPlacer().refresh();
 			}
 		}
 		//Mine the block
@@ -99,6 +101,12 @@ public class ToolPickaxe extends WindowTool {
 		});
 		boolean hasDrops = drop.drop(window.getPlayer().inv.createWriter(), frame.getMap(), block.x, block.y);
 		
+		if(record != null && pick != null && pick.getUses() > pick.durability) {
+			//Break the pickaxe
+			record.extract(Integer.MAX_VALUE);
+		}
+		
+		window.getPlacer().refresh();
 		//Unpress the button
 		pressed = false;
 	}

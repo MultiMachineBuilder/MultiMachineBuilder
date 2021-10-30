@@ -81,6 +81,8 @@ public class WorldEvents {
 		 * @param block the block entry
 		 * @param owner performer
 		 * @param task thing to do
+		 * @param x X coordinate of the block entry
+		 * @param y Y coordinate of the block entry
 		 */
 		public BlockModifyEvent(World world, BlockEntry block, GameObject owner, BlockAction task, int x, int y) {
 			this.world = world;

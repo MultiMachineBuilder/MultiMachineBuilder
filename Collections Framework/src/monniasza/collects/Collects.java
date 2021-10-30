@@ -75,7 +75,7 @@ public class Collects {
 		}
 		return set;
 	}
-	@Nonnull public static <K, V extends Identifiable<K>> SelfSet<K, V> unmodifiableSelfSet(SelfSet<K, V> set){
+	@Nonnull public static <K, V extends Identifiable<K>> SelfSet<K, V> unmodifiableSelfSet(SelfSet<? extends K, ? extends V> set){
 		return new SelfSet<K, V>() {
 			@Override
 			public boolean add(@SuppressWarnings("null") V e) {
@@ -102,7 +102,7 @@ public class Collects {
 
 			@Override
 			public Iterator<V> iterator() {
-				return set.iterator();
+				return (Iterator<V>) set.iterator();
 			}
 
 			@Override
@@ -141,13 +141,13 @@ public class Collects {
 			}
 
 			@Override
-			public V get(K key) {
-				return set.get(key);
+			public V get(@Nullable K key) {
+				return ((SelfSet<K, V>)set).get(key);
 			}
 
 			@Override
-			public V getOrDefault(K key, V defalt) {
-				return set.getOrDefault(key, defalt);
+			public V getOrDefault(@Nullable K key, V defalt) {
+				return ((SelfSet<K, V>)set).getOrDefault(key, defalt);
 			}
 
 			@Override
@@ -156,8 +156,8 @@ public class Collects {
 			}
 
 			@Override
-			public boolean containsKey(@SuppressWarnings("null") K key) {
-				return set.containsKey(key);
+			public boolean containsKey(@Nullable K key) {
+				return ((SelfSet<K, V>)set).containsKey(key);
 			}
 		};
 	}

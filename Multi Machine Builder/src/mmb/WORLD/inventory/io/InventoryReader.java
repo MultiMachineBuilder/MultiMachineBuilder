@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.inventory.io;
 
+import javax.annotation.Nonnull;
+
 import mmb.WORLD.items.ItemEntry;
 
 /**
@@ -13,7 +15,7 @@ public interface InventoryReader {
 	/**
 	 * An inventory reader without items
 	 */
-	InventoryReader NONE  = new InventoryReader() {
+	@Nonnull InventoryReader NONE  = new InventoryReader() {
 
 		@Override
 		public int currentAmount() {

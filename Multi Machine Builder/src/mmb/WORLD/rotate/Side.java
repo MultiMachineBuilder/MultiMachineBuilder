@@ -12,54 +12,14 @@ import javax.annotation.Nonnull;
  *
  */
 public enum Side {
-	U {
-		@Override
-		public Point offset(int x, int y) {
-			return new Point(x, y-1);
-		}
-	},
-	UR {
-		@Override
-		public Point offset(int x, int y) {
-			return new Point(x+1, y-1);
-		}
-	},
-	R {
-		@Override
-		public Point offset(int x, int y) {
-			return new Point(x+1, y);
-		}
-	},
-	DR {
-		@Override
-		public Point offset(int x, int y) {
-			return new Point(x+1, y+1);
-		}
-	},
-	D {
-		@Override
-		public Point offset(int x, int y) {
-			return new Point(x, y+1);
-		}
-	},
-	DL {
-		@Override
-		public Point offset(int x, int y) {
-			return new Point(x-1, y+1);
-		}
-	},
-	L {
-		@Override
-		public Point offset(int x, int y) {
-			return new Point(x-1, y);
-		}
-	},
-	UL {
-		@Override
-		public Point offset(int x, int y) {
-			return new Point(x-1, y-1);
-		}
-	};
+	U(0.5, 0, 0, -1),
+	UR(1, 0, 1, -1),
+	R(1, 0.5, 1, 0),
+	DR(1, 1, 1, 1),
+	D(0.5, 1, 0, 1),
+	DL(0, 1, -1, 1),
+	L(0, 0.5, -1, 0),
+	UL(0, 0, -1, -1);
 	
 	public static final byte r = 1, l = 2, d = 4, u = 8;
 
@@ -67,7 +27,9 @@ public enum Side {
 	 * @param x X coordinate
 	 * @param y Y coordinate
 	 */
-	@Nonnull abstract public Point offset(int x, int y);
+	@Nonnull public Point offset(int x, int y) {
+		return new Point(x+blockOffsetX, y+blockOffsetY);
+	}
 	/**
 	 * @return opposite side
 	 */
@@ -106,4 +68,16 @@ public enum Side {
 	@Nonnull public Point offset(Point pt) {
 		return offset(pt.x, pt.y);
 	}
+	
+	Side(double sox, double soy, int box, int boy){
+		sideOffsetX = sox;
+		blockOffsetX = box;
+		sideOffsetY = soy;
+		blockOffsetY = boy;
+	}
+	
+	public final double sideOffsetX;
+	public final double sideOffsetY;
+	public final int blockOffsetX;
+	public final int blockOffsetY;
 }

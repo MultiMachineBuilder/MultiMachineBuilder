@@ -45,8 +45,22 @@ public abstract class SkeletalBlockEntityRotary extends BlockEntityData {
 		node.put("side", side.toString());
 		save1(node);
 	}
-	protected void save1(ObjectNode node) {}
-	protected void load1(ObjectNode node) {}
+	
+	/**
+	 * Additional function used to save additional data
+	 * @param node node, to which data can be saved
+	 */
+	protected void save1(ObjectNode node) {
+		//optional
+	}
+	/**
+	 * Additional function used to save additional data
+	 * @param node node, to which data can be loaded
+	 */
+	protected void load1(ObjectNode node) {
+		//optional
+	}
+	
 	@Override
 	public boolean isRotary() {
 		return true;

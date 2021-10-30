@@ -1,0 +1,585 @@
+(MAIN) RAM avaliable: 259522560
+(MAIN) Java version is: 1.8.0_301
+(TEXTURES) Loading texture: arrow.png
+(TEXTURES) Loading texture: base/axe.png
+(TEXTURES) Loading texture: base/block base.png
+(TEXTURES) Loading texture: base/dust.png
+(TEXTURES) Loading texture: base/gear.png
+(TEXTURES) Loading texture: base/ingot.png
+(TEXTURES) Loading texture: base/ore base.png
+(TEXTURES) Loading texture: base/pickaxe.png
+(TEXTURES) Loading texture: base/rod.png
+(TEXTURES) Failed to load base\Texture Generator.ods
+(TEXTURES) Loading texture: block/coal crop.png
+(TEXTURES) Loading texture: block/coal ore.png
+(TEXTURES) Loading texture: block/copper block.png
+(TEXTURES) Loading texture: block/copper crop.png
+(TEXTURES) Loading texture: block/copper ore.png
+(TEXTURES) Loading texture: block/gold crop.png
+(TEXTURES) Loading texture: block/gold ore.png
+(TEXTURES) Loading texture: block/gravel.png
+(TEXTURES) Loading texture: block/iron block.png
+(TEXTURES) Loading texture: block/iron crop.png
+(TEXTURES) Loading texture: block/iron ore.png
+(TEXTURES) Loading texture: block/leaves.png
+(TEXTURES) Loading texture: block/message.png
+(TEXTURES) Loading texture: block/sand.png
+(TEXTURES) Loading texture: block/silicon block.png
+(TEXTURES) Loading texture: block/silicon crop.png
+(TEXTURES) Loading texture: block/silicon ore.png
+(TEXTURES) Loading texture: block/silver ore.png
+(TEXTURES) Loading texture: block/tree.png
+(TEXTURES) Loading texture: block/uranium block.png
+(TEXTURES) Loading texture: block/uranium ore.png
+(TEXTURES) Failed to load Blocks.tsx
+(TEXTURES) Loading texture: brush.png
+(TEXTURES) Loading texture: chuckBlock.png
+(TEXTURES) Loading texture: colorable.png
+(TEXTURES) Loading texture: container.png
+(TEXTURES) Loading texture: copy.png
+(TEXTURES) Loading texture: crafting.png
+(TEXTURES) Loading texture: dropItems.png
+(TEXTURES) Loading texture: example rotation.png
+(TEXTURES) Loading texture: example rotations.png
+(TEXTURES) Loading texture: grass.png
+(TEXTURES) Loading texture: Hello World/mini rainbow.png
+(TEXTURES) Loading texture: Hello World/rainbow.png
+(TEXTURES) Loading texture: highway/exit.png
+(TEXTURES) Loading texture: highway/hway sig.png
+(TEXTURES) Loading texture: highway/hway sign.png
+(TEXTURES) Loading texture: highway/merge.png
+(TEXTURES) Loading texture: highway/reduce.png
+(TEXTURES) Loading texture: highway/symexit.png
+(TEXTURES) Loading texture: highway/symmerge.png
+(TEXTURES) Loading texture: highway/widen.png
+(TEXTURES) Loading texture: highways.png
+(TEXTURES) Loading texture: hoover.png
+(TEXTURES) Loading texture: inventory/infinity.png
+(TEXTURES) Loading texture: item/alu ingot.png
+(TEXTURES) Loading texture: item/alu nugget.png
+(TEXTURES) Loading texture: item/alu wire.png
+(TEXTURES) Loading texture: item/brass gear.png
+(TEXTURES) Loading texture: item/brass ingot.png
+(TEXTURES) Loading texture: item/brass nugget.png
+(TEXTURES) Loading texture: item/bronze ingot.png
+(TEXTURES) Loading texture: item/coal.png
+(TEXTURES) Loading texture: item/control rod.png
+(TEXTURES) Loading texture: item/coolant rod.png
+(TEXTURES) Loading texture: item/copper gear.png
+(TEXTURES) Loading texture: item/copper ingot.png
+(TEXTURES) Loading texture: item/copper nugget.png
+(TEXTURES) Loading texture: item/copper pick head.png
+(TEXTURES) Loading texture: item/copper pick.png
+(TEXTURES) Loading texture: item/copper wire.png
+(TEXTURES) Loading texture: item/depleted rod.png
+(TEXTURES) Loading texture: item/depleted uranium ingot.png
+(TEXTURES) Loading texture: item/diamond.png
+(TEXTURES) Loading texture: item/frame 1.png
+(TEXTURES) Loading texture: item/gold ingot.png
+(TEXTURES) Loading texture: item/gold nugget.png
+(TEXTURES) Loading texture: item/gold wire.png
+(TEXTURES) Loading texture: item/heat rod.png
+(TEXTURES) Loading texture: item/iron ingot.png
+(TEXTURES) Loading texture: item/iron nugget.png
+(TEXTURES) Loading texture: item/lead ingot.png
+(TEXTURES) Loading texture: item/lead nugget.png
+(TEXTURES) Loading texture: item/lisc.png
+(TEXTURES) Loading texture: item/platinum ingot.png
+(TEXTURES) Loading texture: item/quantum pick.png
+(TEXTURES) Loading texture: item/ring 1.png
+(TEXTURES) Loading texture: item/silicon ingot.png
+(TEXTURES) Loading texture: item/silicon nugget.png
+(TEXTURES) Loading texture: item/silver ingot.png
+(TEXTURES) Loading texture: item/silver nugget.png
+(TEXTURES) Loading texture: item/silver wire.png
+(TEXTURES) Loading texture: item/stainless gear.png
+(TEXTURES) Loading texture: item/stainless ingot.png
+(TEXTURES) Loading texture: item/stainless nugget.png
+(TEXTURES) Loading texture: item/stainless pick head.png
+(TEXTURES) Loading texture: item/stainless pick.png
+(TEXTURES) Loading texture: item/stainless wire.png
+(TEXTURES) Loading texture: item/steel gear.png
+(TEXTURES) Loading texture: item/steel ingot.png
+(TEXTURES) Loading texture: item/steel nugget.png
+(TEXTURES) Loading texture: item/steel pick head.png
+(TEXTURES) Loading texture: item/steel rod.png
+(TEXTURES) Loading texture: item/steel wire.png
+(TEXTURES) Loading texture: item/stencil.png
+(TEXTURES) Loading texture: item/stone pick head.png
+(TEXTURES) Loading texture: item/uranium ingot.png
+(TEXTURES) Loading texture: item/uranium nugget.png
+(TEXTURES) Loading texture: item/uranium rod.png
+(TEXTURES) Loading texture: item/wood pick head.png
+(TEXTURES) Loading texture: item/wood pick.png
+(TEXTURES) Loading texture: item/zinc ingot.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/brown.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/brown_inlay.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/brown_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/grey.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/grey_inlay.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/grey_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/tan.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/tan_inlay.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/tan_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/white.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/white_inlay.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/white_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/blue.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/blue_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/green.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/green_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/grey.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/grey_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/red.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/red_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/yellow.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/yellow_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/list.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/blue.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/blue_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/green.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/green_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/red.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/red_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/yellow.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/yellow_pressed.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/space.png
+(TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/space_inlay.png
+(TEXTURES) Loading texture: lane changes.png
+(TEXTURES) Loading texture: liquid/fuel.png
+(TEXTURES) Loading texture: liquid/lava.png
+(TEXTURES) Loading texture: liquid/oxygen.png
+(TEXTURES) Loading texture: liquid/plasma.png
+(TEXTURES) Loading texture: liquid/smoke.png
+(TEXTURES) Loading texture: liquid/steam.png
+(TEXTURES) Loading texture: liquid/water.png
+(TEXTURES) Loading texture: log.png
+(TEXTURES) Loading texture: logic/8-bit wires.png
+(TEXTURES) Loading texture: logic/AND.png
+(TEXTURES) Loading texture: logic/button.png
+(TEXTURES) Loading texture: logic/drandom.png
+(TEXTURES) Loading texture: logic/LNetwork attachment.png
+(TEXTURES) Loading texture: logic/logic gates.png
+(TEXTURES) Loading texture: logic/NOT.png
+(TEXTURES) Loading texture: logic/off lamp.png
+(TEXTURES) Loading texture: logic/off.png
+(TEXTURES) Loading texture: logic/on lamp.png
+(TEXTURES) Loading texture: logic/on.png
+(TEXTURES) Loading texture: logic/OR.png
+(TEXTURES) Loading texture: logic/random.png
+(TEXTURES) Loading texture: logic/randomctrl.png
+(TEXTURES) Loading texture: logic/toggle inert.png
+(TEXTURES) Loading texture: logic/toggle off.png
+(TEXTURES) Loading texture: logic/toggle on.png
+(TEXTURES) Loading texture: logic/true.png
+(TEXTURES) Loading texture: logic/urandom.png
+(TEXTURES) Loading texture: logic/XOR.png
+(TEXTURES) Loading texture: logic/YES.png
+(TEXTURES) Loading texture: machine/3-way merger.png
+(TEXTURES) Loading texture: machine/3-way shuffler.png
+(TEXTURES) Loading texture: machine/assembly 1.png
+(TEXTURES) Loading texture: machine/assembly 2.png
+(TEXTURES) Loading texture: machine/assembly 3.png
+(TEXTURES) Loading texture: machine/assembly 4.png
+(TEXTURES) Loading texture: machine/assembly 5.png
+(TEXTURES) Loading texture: machine/assembly 6.png
+(TEXTURES) Loading texture: machine/autoassembly 1.png
+(TEXTURES) Loading texture: machine/autoassembly 2.png
+(TEXTURES) Loading texture: machine/autoassembly 3.png
+(TEXTURES) Loading texture: machine/autoassembly 4.png
+(TEXTURES) Loading texture: machine/autoassembly 5.png
+(TEXTURES) Loading texture: machine/autoassembly 6.png
+(TEXTURES) Loading texture: machine/AutoCrafter 1.png
+(TEXTURES) Loading texture: machine/block BP interface.png
+(TEXTURES) Loading texture: machine/block break interface.png
+(TEXTURES) Loading texture: machine/block place interface.png
+(TEXTURES) Loading texture: machine/CCW.png
+(TEXTURES) Loading texture: machine/chest1.png
+(TEXTURES) Loading texture: machine/chest2.png
+(TEXTURES) Loading texture: machine/chest3.png
+(TEXTURES) Loading texture: machine/chest4.png
+(TEXTURES) Loading texture: machine/chest5.png
+(TEXTURES) Loading texture: machine/chest6.png
+(TEXTURES) Loading texture: machine/claw.png
+(TEXTURES) Loading texture: machine/CW.png
+(TEXTURES) Loading texture: machine/cyclic assembler.png
+(TEXTURES) Loading texture: machine/dropped item interface.png
+(TEXTURES) Loading texture: machine/esmelter.png
+(TEXTURES) Loading texture: machine/imover intersected.png
+(TEXTURES) Loading texture: machine/imover.png
+(TEXTURES) Loading texture: machine/imoverL.png
+(TEXTURES) Loading texture: machine/imoverR.png
+(TEXTURES) Loading texture: machine/ivacuum.png
+(TEXTURES) Loading texture: machine/pickaxe workbench.png
+(TEXTURES) Loading texture: machine/pipe 3-section.png
+(TEXTURES) Loading texture: machine/pipe 4-section.png
+(TEXTURES) Loading texture: machine/pipe biturn.png
+(TEXTURES) Loading texture: machine/pipe bridged.png
+(TEXTURES) Loading texture: machine/pipe elbow.png
+(TEXTURES) Loading texture: machine/pipe merge left.png
+(TEXTURES) Loading texture: machine/pipe merge right.png
+(TEXTURES) Loading texture: machine/pipe oneway.png
+(TEXTURES) Loading texture: machine/pipe straight.png
+(TEXTURES) Loading texture: machine/pipes.png
+(TEXTURES) Loading texture: machine/placer.png
+(TEXTURES) Loading texture: machine/power/cable.png
+(TEXTURES) Loading texture: machine/power/infinity.png
+(TEXTURES) Loading texture: machine/power/load.png
+(TEXTURES) Loading texture: machine/power/nuke reactor.png
+(TEXTURES) Loading texture: machine/power/pmeter.png
+(TEXTURES) Loading texture: machine/power/thick center.png
+(TEXTURES) Loading texture: machine/power/thick connector.png
+(TEXTURES) Loading texture: machine/power/thick wire.png
+(TEXTURES) Loading texture: machine/power/vthick center.png
+(TEXTURES) Loading texture: machine/power/vthick connector.png
+(TEXTURES) Loading texture: machine/power/vthick wire.png
+(TEXTURES) Loading texture: machine/smelter active.png
+(TEXTURES) Loading texture: machine/smelter inert 2.png
+(TEXTURES) Loading texture: machine/smelter inert.png
+(TEXTURES) Loading texture: machine/vacuum.png
+(TEXTURES) Failed to load Machines.tsx
+(TEXTURES) Loading texture: mine.png
+(TEXTURES) Loading texture: minecxraft.bmp
+(TEXTURES) Loading texture: nuclear reactor.png
+(TEXTURES) Loading texture: old/extract.png
+(TEXTURES) Loading texture: old/imover 2.png
+(TEXTURES) Loading texture: old/pipe elbow 2.png
+(TEXTURES) Loading texture: old/pipe straight 2.png
+(TEXTURES) Loading texture: place.png
+(TEXTURES) Loading texture: plank.png
+(TEXTURES) Loading texture: printer.png
+(TEXTURES) Loading texture: road/road center.png
+(TEXTURES) Loading texture: road/road connector.png
+(TEXTURES) Loading texture: routes/adjoin inner.png
+(TEXTURES) Loading texture: routes/adjoin side.png
+(TEXTURES) Loading texture: routes/adjoin small.png
+(TEXTURES) Loading texture: routes/end hway sign.png
+(TEXTURES) Loading texture: routes/half medium offset single.png
+(TEXTURES) Loading texture: routes/half short hway offset single.png
+(TEXTURES) Loading texture: routes/half vshort highway offset single.png
+(TEXTURES) Failed to load routes\highways corrupt.png
+(TEXTURES) Loading texture: routes/highways.png
+(TEXTURES) Failed to load routes\highways.tsx
+(TEXTURES) Loading texture: routes/hway sign.png
+(TEXTURES) Loading texture: routes/item routes/1-way simple.png
+(TEXTURES) Loading texture: routes/item routes/2 carriage misc.png
+(TEXTURES) Loading texture: routes/item routes/2 lane.png
+(TEXTURES) Loading texture: routes/item routes/2-carriage interchanges.png
+(TEXTURES) Loading texture: routes/item routes/2-carriage interconnectors.png
+(TEXTURES) Loading texture: routes/item routes/2-way simple.png
+(TEXTURES) Loading texture: routes/item routes/net machines.png
+(TEXTURES) Loading texture: routes/item routes/route control.png
+(TEXTURES) Loading texture: routes/item routes.png
+(TEXTURES) Loading texture: routes/long hway offset single.png
+(TEXTURES) Loading texture: routes/long hway ramp.png
+(TEXTURES) Loading texture: routes/medium hway offset single.png
+(TEXTURES) Loading texture: routes/medium hway ramp.png
+(TEXTURES) Loading texture: routes/roads.png
+(TEXTURES) Loading texture: routes/short hway offset single.png
+(TEXTURES) Loading texture: routes/short hway ramp.png
+(TEXTURES) Loading texture: routes/turn transition.png
+(TEXTURES) Loading texture: space tiling.png
+(TEXTURES) Loading texture: special/invalid.png
+(TEXTURES) Loading texture: spider.png
+(TEXTURES) Loading texture: stone.png
+(TEXTURES) Loading texture: textedit.png
+(TEXTURES) Loading texture: tool/normal.png
+(TEXTURES) Loading texture: tool/paint.png
+(TEXTURES) Loading texture: tool/wrench.png
+(TEXTURES) Loading texture: tools.png
+(TEXTURES) Loading texture: UIs/blue signpost.png
+(TEXTURES) Loading texture: UIs/green signpost.png
+(TEXTURES) Loading texture: UIs/orange signpost.png
+(TEXTURES) Loading texture: UIs/red signpost.png
+(TEXTURES) Loading texture: UIs/yellow signpost.png
+(BLOCKS) Adding wireworld.wire with title WireWorld cell and descripion:
+null
+(BLOCKS) Adding wireworld.head with title WireWorld head and descripion:
+null
+(BLOCKS) Adding wireworld.tail with title WireWorld head and descripion:
+null
+(BLOCKS) Adding wireworld.chatter with title Chatbox and descripion:
+A block which prints out its text, when activated by a signal
+(BLOCKS) Adding mmb.planks with title Wooden planks and descripion:
+null
+(BLOCKS) Adding mmb.stone with title Stone and descripion:
+null
+(BLOCKS) Adding mmb.leaves with title Leaves and descripion:
+null
+(BLOCKS) Adding mmb.iore with title Iron ore and descripion:
+null
+(BLOCKS) Adding mmb.cpore with title Copper ore and descripion:
+null
+(BLOCKS) Adding mmb.silicon_ore with title Silicon ore and descripion:
+null
+(BLOCKS) Adding mmb.goldore with title Golden ore and descripion:
+null
+(BLOCKS) Adding mmb.silverore with title Silver ore and descripion:
+null
+(BLOCKS) Adding mmb.uraniumore with title Uranium ore and descripion:
+null
+(BLOCKS) Adding ore.coal with title Coal ore and descripion:
+null
+(BLOCKS) Adding mmb.craft with title Assembly Table and descripion:
+null
+(BLOCKS) Adding mmb.tree with title Log and descripion:
+null
+(BLOCKS) Adding mmb.sand with title Sand and descripion:
+null
+(BLOCKS) Adding mmb.gravel with title Gravel and descripion:
+null
+(BLOCKS) Adding wireworld.and with title AND and descripion:
+null
+(BLOCKS) Adding wireworld.or with title OR and descripion:
+null
+(BLOCKS) Adding wireworld.xor with title XOR and descripion:
+null
+(BLOCKS) Adding wireworld.button with title Button and descripion:
+null
+(BLOCKS) Adding wireworld.toggle with title Toggle Latch and descripion:
+null
+(BLOCKS) Adding elec.mediumwire with title Medium Power Cable and descripion:
+null
+(BLOCKS) Adding elec.largewire with title Large Power Cable and descripion:
+null
+(BLOCKS) Adding elec.infinite with title Infinite Generator (Creative only) and descripion:
+null
+(BLOCKS) Adding nuke.generator with title Nuclear reactor and descripion:
+null
+(BLOCKS) Adding elec.meter with title Power meter and descripion:
+null
+(BLOCKS) Adding elec.load with title Electrical load and descripion:
+null
+(BLOCKS) Adding elec.furnace with title Electrical furnace and descripion:
+null
+(BLOCKS) Adding industry.cycle0 with title Cyclic Assembler and descripion:
+null
+(BLOCKS) Adding wireworld.true with title Always True and descripion:
+null
+(BLOCKS) Adding wireworld.random with title Random and descripion:
+null
+(BLOCKS) Adding wireworld.yes with title YES and descripion:
+null
+(BLOCKS) Adding wireworld.not with title NOT and descripion:
+null
+(BLOCKS) Adding wireworld.randomctrl with title Random if and descripion:
+null
+(BLOCKS) Adding wireworld.on with title Active Switch and descripion:
+null
+(BLOCKS) Adding wireworld.off with title Inactive Switch and descripion:
+null
+(BLOCKS) Adding wireworld.urandom with title Uniform Random and descripion:
+null
+(BLOCKS) Adding wireworld.lamp with title Lamp and descripion:
+null
+(BLOCKS) Adding machines.placer with title Creative Block Placer and descripion:
+null
+(BLOCKS) Adding machines.clicker with title Block Clicking Claw and descripion:
+null
+(BLOCKS) Adding machines.rotator with title Block Rotator and descripion:
+null
+(BLOCKS) Adding chest.beginning with title Chest and descripion:
+null
+(BLOCKS) Adding itemsystem.mover with title Item Mover and descripion:
+null
+(BLOCKS) Adding industry.furnace with title Furnace and descripion:
+null
+(BLOCKS) Adding industry.placeitems with title Item & Block Placing Machine and descripion:
+null
+(BLOCKS) Adding industry.collector with title Dropped item collector and descripion:
+null
+(BLOCKS) Adding crop.copper with title Copper crop and descripion:
+null
+(BLOCKS) Adding crop.iron with title Iron crop and descripion:
+null
+(BLOCKS) Adding crop.silicon with title Silicon crop and descripion:
+null
+(BLOCKS) Adding crop.gold with title Gold crop and descripion:
+null
+(BLOCKS) Adding crop.coal with title Coal crop and descripion:
+null
+(BLOCKS) Adding crop.tree with title Tree and descripion:
+null
+(BLOCKS) Adding machines.pickbuilder with title Pickaxe workbench and descripion:
+null
+(BLOCKS) Adding industry.autocraft1 with title AutoCrafter 3X3 and descripion:
+null
+(BLOCKS) Creating blocks
+(BLOCKS) Adding mmb.air with title Air and descripion:
+null
+(BLOCKS) Adding mmb.grass with title Grass and descripion:
+A default block in the world
+(BLOCKS) Adding crafting.1 with title Crafter Mk1 and descripion:
+null
+(BLOCKS) Adding crafting.2 with title Crafter Mk2 and descripion:
+null
+(BLOCKS) Adding crafting.3 with title Crafter Mk3 and descripion:
+null
+(BLOCKS) Adding crafting.4 with title Crafter Mk4 and descripion:
+null
+(BLOCKS) Adding crafting.5 with title Crafter Mk5 and descripion:
+null
+(BLOCKS) Adding crafting.6 with title Crafter Mk6 and descripion:
+null
+(BLOCKS) Adding pipe.I with title Straight pipe and descripion:
+A pipe which is straight.
+(BLOCKS) Adding pipe.L with title Elbow pipe and descripion:
+A pipe which is bent.
+(BLOCKS) Adding pipe.IPE with title Intersecting Pipe Mover and descripion:
+A hybrid of Item Mover and straight pipe
+(BLOCKS) Adding pipe.toleft with title Left Binding Pipe and descripion:
+A pipe which directs its side input to the left.
+(BLOCKS) Adding pipe.toright with title Right Binding Pipe and descripion:
+A pipe which directs its side input to the right.
+(BLOCKS) Adding pipe.X with title Bridging pipe and descripion:
+A pair of disconnected perpendicular pipes.
+(BLOCKS) Adding pipe.D with title Dual pipe and descripion:
+A pair of curved pipes.
+(TOOLS) Tools initialized
+(FullScreen) Setting up FullScreen
+(MOD-LOADER) Loading mods
+(MOD-LOADER) Finding all files to load
+(MOD-LOADER) Added missing mods directory
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+(MOD-LOADER) Found 2 mod files
+(MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD - mmb-DE.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
+(MOD - mmb-DE.jar) Loading a modfile: mmb-DE.jar
+(MOD - mmb-DE.jar) entry: META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5.jar) entry: META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - mmb-DE.jar) entry: .project
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class(MOD - mmb-DE.jar) entry: .classpath
+
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) entry: .project
+(MOD - HelloWorld 0.5.jar) entry: .classpath
+(MOD - HelloWorld 0.5.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - mmb-DE.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+(MOD - HelloWorld 0.5.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD - mmb-DE.jar) Processing .classpath
+(MOD - mmb-DE.jar) File: .classpath
+(MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
+(MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
+(MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) Class: mmbmods.lang.de.package-info
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWBlock
+(MOD - mmb-DE.jar) Processing .project
+(MOD - mmb-DE.jar) File: .project
+(MOD - mmb-DE.jar) Processing META-INF/MANIFEST.MF
+(MOD - mmb-DE.jar) File: META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5.jar) Processing .classpath
+(MOD - HelloWorld 0.5.jar) File: .classpath
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.package-info
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWMachine
+(MOD - HelloWorld 0.5.jar) Processing .project
+(MOD - HelloWorld 0.5.jar) File: .project
+(MOD - HelloWorld 0.5.jar) Processing META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5.jar) File: META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - HelloWorld 0.5.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(HW) Hello, world!
+(MOD-LOADER(MOD-LOADER) Start 1st stage for Hello, world!
+) Start 1st stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) End 1st stage for Hello, world!
+(MOD-LOADER) End 1st stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) Start 2nd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) Start 2nd stage for Hello, world!
+(MOD-LOADER) End 2nd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) Start 3rd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) End 3rd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER(MOD-LOADER) ================MOD INFORMATION FOR MultiMachineBuilder German/Deutsch================
+) Start 3rd stage for Hello, world!
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+(MOD-LOADER) Operative
+(MOD-LOADER) RELEASED Tue Jul 12 00:00:00 CEST 3921
+(MOD-LOADER) MADE BY Monniasza
+(MOD-LOADER) DESCRIPTION: This mod contains German translation of the game
+Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
+(MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD-LOADER) Operative
+(MOD-LOADER) RELEASED Sun Oct 10 21:38:07 CEST 2021
+(MOD-LOADER) MADE BY Monniasza
+(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
+(MOD-LOADER) HOORAY, IT'S OVER!
+(HW) Successfully created Rainbow Machine
+(HW) Successfully created Rainbow Machine
+(BLOCKS) Adding wireworld.hw with title Hello, world! and descripion:
+null
+(BLOCKS) Adding wireworld.hw with title Hello, world! and descripion:
+null
+(MOD-LOADER) End 2nd stage for Hello, world!
+(MOD-LOADER) End 3rd stage for Hello, world!
+(Main menu) MainMenu created
+(SELECT A SAVE) Found save: Agriculture test.mworld
+(SELECT A SAVE) Found save: Block Clicking Claw.mworld
+(SELECT A SAVE) Found save: Let's Play.mworld
+(SELECT A SAVE) Found save: main.mworld
+(SELECT A SAVE) Found save: survival.mworld
+(SELECT A SAVE) Found save: test binder.mworld
+(SELECT A SAVE) Found save: Test BPI.mworld
+(SELECT A SAVE) Found save: Test electricity.mworld
+(SELECT A SAVE) Found save: Test pipes.mworld
+(SELECT A SAVE) Found save: Test world gen.mworld
+(SELECT A SAVE) Found save: Test.mworld
+(SELECT A SAVE) Found 11 saves
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@28788c
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Parsed file
+(BLOCK LOADER) Failed to load a block industry.autocraft1 at [-7,-11]
+(BLOCK LOADER) java.lang.IllegalStateException: The stencil item is invalid: Block Grass(mmb.grass)
+	at mmb.WORLD.blocks.machine.line.AutoCrafter.load2(AutoCrafter.java:120)
+	at mmb.WORLD.blocks.machine.SkeletalBlockLinear.load1(SkeletalBlockLinear.java:46)
+	at mmb.WORLD.block.SkeletalBlockEntityRotary.load(SkeletalBlockEntityRotary.java:32)
+	at mmb.WORLD.block.SkeletalBlockEntityRotary.load(SkeletalBlockEntityRotary.java:1)
+	at mmb.WORLD.block.BlockLoader.doLoadEnhanced(BlockLoader.java:73)
+	at mmb.WORLD.block.BlockLoader.load(BlockLoader.java:48)
+	at mmb.WORLD.worlds.world.World.load(World.java:175)
+	at mmb.WORLD.worlds.universe.Universe.load(Universe.java:125)
+	at mmb.MENU.main.PanelSaves.lambda$6(PanelSaves.java:143)
+	at java.lang.Thread.run(Unknown Source)
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(MAP anonymous) Became anonymous
+(SELECT A SAVE) Loaded
+(WORLD - IDLE) Exiting(WORLDS) Opening a new world
+(MAP anonymous) Block entity at [-16,0] took exceptionally long to run
+(MAP anonymous) Block entity at [-7,-11] took exceptionally long to run
+(WORLD TEST) Exiting the world
+(WORLD - ) Saving main BlockMap
+(WORLD - main null) Exiting(MAP anonymous) Destroying
+(MAP anonymous) Shutdown
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
+(SETTINGS) Saved settings file

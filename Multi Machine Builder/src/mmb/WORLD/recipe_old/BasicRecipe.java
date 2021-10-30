@@ -3,10 +3,6 @@
  */
 package mmb.WORLD.recipe_old;
 
-import javax.annotation.Nonnull;
-
-import org.joml.Vector3d;
-
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.storage.SingleItemInventory;
@@ -30,20 +26,17 @@ public class BasicRecipe implements Recipe {
 	private final RecipeOutput output;
 	private final ItemEntry item;
 	
-	Vector3d volumes;
+	double volume = Double.NaN;
 	
-	@SuppressWarnings("null")
-	private @Nonnull Vector3d getVolumes() {
-		if(volumes == null) {
-			volumes = new Vector3d();
-			output.outVolume();
-		}
-		return volumes;
+	private double getVolume() {
+		if(Double.isFinite(volume)) 
+			volume = output.outVolume();
+		return volume;
 	}
 	@Override
 	public int maxCraftable(Inventory src, int amount) {
-		Vector3d vols = getVolumes();
-		double maxVol = vols.z * amount;
+		double vol = getVolume();
+		double maxVol = vol * amount;
 		double remainingVolume = src.iremainVolume();
 		//If max volume < space, then craft all
 		if(maxVol < remainingVolume) return amount;

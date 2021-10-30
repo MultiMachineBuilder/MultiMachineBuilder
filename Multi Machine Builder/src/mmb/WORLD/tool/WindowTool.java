@@ -53,48 +53,47 @@ Titled{
 		this.id = s;
 	}
 	@Override
-	public void keyPressed(KeyEvent e) {
-		//to be implemented by its user
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
+	public void keyPressed(@SuppressWarnings("null") KeyEvent e) {
 		//to be implemented by its user
 	}
 	@Override
-	public void keyTyped(KeyEvent e) {
+	public void keyReleased(@SuppressWarnings("null") KeyEvent e) {
 		//to be implemented by its user
 	}
 	@Override
-	public void mouseWheelMoved(MouseWheelEvent e) {
+	public void keyTyped(@SuppressWarnings("null") KeyEvent e) {
 		//to be implemented by its user
 	}
 	@Override
-	public void mouseDragged(MouseEvent e) {
+	public void mouseWheelMoved(@SuppressWarnings("null") MouseWheelEvent e) {
 		//to be implemented by its user
 	}
 	@Override
-	public void mouseMoved(MouseEvent e) {
+	public void mouseDragged(@SuppressWarnings("null") MouseEvent e) {
 		//to be implemented by its user
 	}
 	@Override
-	public void mouseClicked(MouseEvent e) {
+	public void mouseMoved(@SuppressWarnings("null") MouseEvent e) {
 		//to be implemented by its user
 	}
 	@Override
-	public void mouseEntered(MouseEvent e) {
+	public void mouseClicked(@SuppressWarnings("null") MouseEvent e) {
 		//to be implemented by its user
 	}
 	@Override
-	public void mouseExited(MouseEvent e) {
+	public void mouseEntered(@SuppressWarnings("null") MouseEvent e) {
 		//to be implemented by its user
 	}
 	@Override
-	public void mousePressed(MouseEvent e) {
+	public void mouseExited(@SuppressWarnings("null") MouseEvent e) {
 		//to be implemented by its user
 	}
 	@Override
-	public void mouseReleased(MouseEvent e) {
+	public void mousePressed(@SuppressWarnings("null") MouseEvent e) {
+		//to be implemented by its user
+	}
+	@Override
+	public void mouseReleased(@SuppressWarnings("null") MouseEvent e) {
 		//to be implemented by its user
 	}
 	/**

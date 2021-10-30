@@ -10,6 +10,7 @@ import mmb.BEANS.TextMessageProvider;
 import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.gui.window.WorldWindow;
 
+import javax.annotation.Nonnull;
 import javax.swing.JButton;
 import java.awt.Component;
 import java.awt.Color;
@@ -25,11 +26,14 @@ public class NewTextEditor extends JPanel {
 	private JTextPane textPane;
 	private JButton btnOk;
 	private JButton btnCancel;
-	public final String title;
+	@Nonnull public final String title;
 	private final WorldWindow frame;
 
 	/**
 	 * Create the panel.
+	 * @param sv block with editable text message
+	 * @param ent block entity
+	 * @param frame world window
 	 */
 	public NewTextEditor(TextMessageProvider sv, BlockEntity ent, WorldWindow frame) {
 		this.frame = frame;

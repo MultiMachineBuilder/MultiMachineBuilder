@@ -30,7 +30,7 @@ import monniasza.collects.grid.Grid;
  * @author oskar
  * Represents a crafting grid recipe
  */
-public class Stencil extends ItemEntity implements Grid<ItemEntry>, Recipe {
+public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>, Recipe {
 	
 	//Others
 	private static final Debugger debug = new Debugger("STENCIL");
@@ -167,7 +167,9 @@ public class Stencil extends ItemEntity implements Grid<ItemEntry>, Recipe {
 	//Crafting methods
 	@Override
 	public int maxCraftable(Inventory src, int amount) {
-		return Math.min(amount, Inventory.howManyTimesThisContainsThat(src, inputs()));
+		Inventory ins = inputs();
+		debug.printl(ins+" in "+src);
+		return Math.min(amount, Inventory.howManyTimesThisContainsThat(src, ins));
 	}
 	@Override
 	public int craft(Inventory src, Inventory tgt, int amount) {
@@ -185,14 +187,15 @@ public class Stencil extends ItemEntity implements Grid<ItemEntry>, Recipe {
 	private Inventory ins;
 	@SuppressWarnings("null")
 	@Override
-	public Inventory inputs() {
+	public Inventory inputs() { //FIXME the inventory contains null records
 		if(ins == null) {
 			SimpleInventory inv = new SimpleInventory();
 			inv.setCapacity(Double.POSITIVE_INFINITY);
 			for(ItemEntry entry: grid) {
-				inv.insert(entry, 1);
+				if(entry != null) inv.insert(entry, 1);
 			}
 			ins = inv.readOnly();
+			debug.printl("Ingredients: "+inv);
 		}
 		return ins;
 	}

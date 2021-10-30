@@ -10,11 +10,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
-import mmb.DATA.json.JsonTool;
 import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.block.BlockType;
@@ -26,14 +24,12 @@ import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
-import mmb.debug.Debugger;
 
 /**
  * @author oskar
  *
  */
 public class Collector extends BlockEntityData implements BlockActivateListener {
-	private static final Debugger debug = new Debugger("EXTRACTOR");
 	/**
 	 * The inventory, in which collected items go
 	 */
@@ -131,7 +127,7 @@ public class Collector extends BlockEntityData implements BlockActivateListener 
 	
 	CollectorGUI gui;
 	@Override
-	public void click(int blockX, int blockY, World map, WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(gui != null) return;
 		gui = new CollectorGUI(this, window);

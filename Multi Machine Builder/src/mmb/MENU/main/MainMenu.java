@@ -19,8 +19,11 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import mmb.MENU.FullScreen;
 import mmb.MENU.MMBFrame;
+import mmb.MENU.TestCollision;
 import mmb.MENU.components.BoundCheckBoxMenuItem;
 import mmb.MENU.settings.PanelSettings;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * @author oskar
@@ -59,6 +62,7 @@ public class MainMenu extends MMBFrame {
 	
 	private JButton btnExit;
 	private JLabel timerLBL;
+	private JButton TEST;
 	/**
 	 * Launch the application.
 	 */
@@ -110,6 +114,10 @@ public class MainMenu extends MMBFrame {
 		btnExit.setToolTipText("Exit the game");
 		btnExit.addActionListener(e -> System.exit(0));
 		aside.add(btnExit);
+		
+		TEST = new JButton("TEST");
+		TEST.addActionListener(e -> new TestCollision().setVisible(true));
+		aside.add(TEST);
 		
 		timerLBL = new JLabel("Current time goes here");
 		timerLBL.setToolTipText("The current time");

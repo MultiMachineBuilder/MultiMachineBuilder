@@ -12,6 +12,8 @@ import mmb.debug.Debugger;
  */
 public class Main {
 	public static void main(String[] args) {
+		running = true;
+		debug = new Debugger("MAIN");
 		//count RAM
 		debug.printl("RAM avaliable: "+Runtime.getRuntime().maxMemory());
 		Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler.INSTANCE);
@@ -37,7 +39,7 @@ public class Main {
 			Main.crash(e);
 		}
 	}
-	private static final Debugger debug= new Debugger("MAIN");
+	private static Debugger debug;
 	/**
 	 * @param e throwable, which caused the crash
 	 * @throws SecurityException if run by the mod
@@ -52,5 +54,14 @@ public class Main {
 	}
 	public static void state2(String str) {
 		loader.st2.setText(str);
+	}
+	
+	private static boolean running;
+	/**
+	 * Checks if the game is run as executable. Used to suppress debugger initialization when designing GUIss
+	 * @return is the game executed?
+	 */
+	public static boolean isRunning() {
+		return running;
 	}
 }

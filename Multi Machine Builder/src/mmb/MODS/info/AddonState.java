@@ -9,43 +9,30 @@ package mmb.MODS.info;
  */
 public enum AddonState {
 	/** Indicates a non-existent mod file */
-	NOEXIST,
+	NOEXIST("Missing files"),
 	/** Indicates a corrupt mod file */
-	BROKEN,
+	BROKEN("Corrupt"),
 	/** Indicates a disabled mod, which won't run*/
-	DISABLE,
+	DISABLE("Disabled"),
 	/** Indicates an active mod*/
-	ENABLE,
+	ENABLE("Operative"),
 	/** Indicates a mod which failed to load*/
-	DEAD,
+	DEAD("Crashed"),
 	/** Indicates an API package without any mods*/
-	API,
+	API("API"),
 	/** Indicates a media package without any code*/
-	MEDIA,
+	MEDIA("Media package"),
 	/** Indicates an empty file*/
-	EMPTY;
+	EMPTY("Empty"),
+	/** Indicates a directory */
+	DIRECTORY("Directory"),
+	/** Indicates a mod which must be downloaded, but no network is avaliable */
+	CONNECTLOST("No network connection"),
+	/** Indicates that the file is too big to load */
+	BLOATED("Too big");
 	
-	@Override
-	public String toString() {
-		switch(this) {
-		case BROKEN:
-			return "Corrupt";
-		case DEAD:
-			return "Crashed";
-		case DISABLE:
-			return "Disabled";
-		case ENABLE:
-			return "Operative";
-		case NOEXIST:
-			return "Missing files";
-		case API:
-			return "API";
-		case MEDIA:
-			return "Media package";
-		case EMPTY:
-			return "Empty";
-		default:
-			return "Unknown";
-		}
+	public final String title;
+	AddonState(String title){
+		this.title = title;
 	}
 }

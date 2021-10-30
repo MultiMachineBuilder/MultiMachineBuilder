@@ -45,7 +45,7 @@ Cloneable, Iterable<mmb.WORLD.blocks.machine.SideConfig.SideBoolean>, Saver<@Nul
 	}
 	/**
 	 * Copies the input
-	 * @param cfgInElec value to copy
+	 * @param cfg value to copy
 	 */
 	public SideConfig(SideConfig cfg) {
 		U.setValue(cfg.U.getValue());
@@ -130,7 +130,7 @@ Cloneable, Iterable<mmb.WORLD.blocks.machine.SideConfig.SideBoolean>, Saver<@Nul
 		@Nonnull public static final SideBoolean F_DL = new SideBoolean(false, Side.DL);
 		@Nonnull public static final SideBoolean F_DR = new SideBoolean(false, Side.DR);
 		@Override
-		public int compareTo(SideBoolean o) {
+		public int compareTo(@SuppressWarnings("null") SideBoolean o) {
 			return Integer.compare(index, o.index);
 		}
 		@Override
@@ -138,7 +138,7 @@ Cloneable, Iterable<mmb.WORLD.blocks.machine.SideConfig.SideBoolean>, Saver<@Nul
 			return index;
 		}
 		@Override
-		public boolean equals(Object obj) {
+		public boolean equals(@Nullable Object obj) {
 			if(obj instanceof SideBoolean) 
 				return ((SideBoolean) obj).index == index;
 			return false;

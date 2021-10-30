@@ -26,7 +26,7 @@ public class ElectricalBatteryVisualiser extends JProgressBar {
 		repaint();
 	}
 	@Override
-	public void paint(Graphics g) {
+	public void paint(@SuppressWarnings("null") Graphics g) {
 		if(battery != null) {
 			setMaximum((int) battery.capacity());
 			setMinimum(0);

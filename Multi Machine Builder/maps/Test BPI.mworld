@@ -16,10 +16,11 @@
       "inventory" : [ 6.0 ],
       "color" : [ 255, 255, 255, 255 ]
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass" ],
+    "drops" : [ ],
     "machines" : [ ],
     "data" : { },
     "player" : {
-      "inventory" : [ 2.0 ],
+      "inventory" : [ 128.0 ],
       "creative" : true
     }
   },

@@ -109,4 +109,9 @@ public class ReadOnlyInventory implements Inventory {
 		return inv.size();
 	}
 
+	@Override
+	public String toString() {
+		return "Read only "+inv;
+	}
+
 }

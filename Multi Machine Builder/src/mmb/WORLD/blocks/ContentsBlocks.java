@@ -25,20 +25,25 @@ import mmb.WORLD.blocks.gates.Randomizer;
 import mmb.WORLD.blocks.gates.UniformRandom;
 import mmb.WORLD.blocks.gates.XORGate;
 import mmb.WORLD.blocks.gates.YESGate;
+import mmb.WORLD.blocks.ipipe.ItemTransporter;
 import mmb.WORLD.blocks.machine.Collector;
 import mmb.WORLD.blocks.machine.CycleAssembler;
-import mmb.WORLD.blocks.machine.Furnace;
 import mmb.WORLD.blocks.machine.FurnacePlus;
 import mmb.WORLD.blocks.machine.Nuker;
 import mmb.WORLD.blocks.machine.PlaceIncomingItems;
+import mmb.WORLD.blocks.machine.line.AutoCrafter;
+import mmb.WORLD.blocks.machine.line.Furnace;
 import mmb.WORLD.blocks.machine.manual.Crafting;
 import mmb.WORLD.blocks.machine.manual.PickaxeWorkbench;
-import mmb.WORLD.blocks.pipe.ItemTransporter;
+import mmb.WORLD.blocks.ppipe.PlayerPipe;
+import mmb.WORLD.blocks.ppipe.PlayerPipeEntry;
 import mmb.WORLD.electric.Conduit;
 import mmb.WORLD.electric.ElecRenderer;
 import mmb.WORLD.electric.InfiniteGenerator;
 import mmb.WORLD.electric.PowerLoad;
 import mmb.WORLD.electric.PowerMeter;
+import mmb.WORLD.rotate.ChirotatedImageGroup;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.texture.BlockDrawer;
 import mmb.debug.Debugger;
 
@@ -49,10 +54,12 @@ import mmb.debug.Debugger;
 public class ContentsBlocks {
 	private static final Debugger debug = new Debugger("BLOCKS");
 
+	//WireWorld wires
+	/** A WireWorld cell */
 	@SuppressWarnings("null")
 	@Nonnull public static final BlockEntityType ww_wire = new BlockEntityType()
 		.texture(Color.ORANGE)
-		.title("WireWorld conductor")
+		.title("WireWorld cell")
 		.factory(WWWire::new)
 		.finish("wireworld.wire");
 		@SuppressWarnings("null")
@@ -69,6 +76,8 @@ public class ContentsBlocks {
 		.factory(WWTail::new)
 		.leaveBehind(ww_wire)
 		.finish("wireworld.tail");
+	
+	//WireWorld output devices
 	@Nonnull public static final BlockEntityType ww_chatter = new BlockEntityType()
 		.texture("printer.png")
 		.title("Chatbox")
@@ -245,7 +254,7 @@ public class ContentsBlocks {
 			.texture("logic/off lamp.png")
 			.finish("wireworld.lamp");
 	@Nonnull public static final BlockEntityType PLACER = new BlockEntityType()
-			.title("Block Placer")
+			.title("Creative Block Placer")
 			.factory(ActuatorPlaceBlock::new)
 			.texture("machine/placer.png")
 			.finish("machines.placer");
@@ -303,11 +312,26 @@ public class ContentsBlocks {
 			.texture("machine/pickaxe workbench.png")
 			.title("Pickaxe workbench")
 			.finish("machines.pickbuilder");
+	@Nonnull public static final BlockEntityType AUTOCRAFTER = new BlockEntityType()
+			.title("AutoCrafter 3X3")
+			.factory(AutoCrafter::new)
+			.texture("machine/AutoCrafter 1.png")
+			.finish("industry.autocraft1");
+	
+	@Nonnull public static final BlockEntityType PPIPE_lin = ppipe(1, Side.U, Side.D, "machine/ppipe straight.png", "Player Pipe - straight", "playerpipe.straight");
+	@Nonnull public static final BlockEntityType PPIPE_bend = ppipe(0.8, Side.R, Side.D, "machine/ppipe turn.png", "Player Pipe - turn", "playerpipe.bend");
+	@Nonnull public static final BlockEntityType PPIPE_cap = new BlockEntityType()
+			.title("Player Pipe - end")
+			.factory(PlayerPipeEntry::new)
+			.texture("machine/pipe exit.png")
+			.finish("playerpipe.end");
 	static {
 		//REQUIRES SPECIAL INIT - SELF-REFERNECE
 		debug.printl("Creating blocks");
 		air = new Block();
-		air.texture(Color.CYAN)
+		@SuppressWarnings("null")
+		@Nonnull Color c = Color.CYAN;
+		air.texture(c)
 		.leaveBehind(air)
 		.title("Air")
 		.finish("mmb.air");
@@ -338,5 +362,14 @@ public class ContentsBlocks {
 	@Nonnull private static BlockEntityType crop(int duration, Drop cropDrop, String title, BlockDrawer texture, String id) {
 		BlockEntityType result = new BlockEntityType();
 		return result.title(title).factory(() -> new Crop(result, duration, cropDrop)).texture(texture).finish(id);
+	}
+	@Nonnull private static BlockEntityType ppipe(double length, Side a, Side b, String texture, String title, String id) {
+		BlockEntityType type = new BlockEntityType();
+		ChirotatedImageGroup tex = ChirotatedImageGroup.create(texture);
+		return type
+		.title(title)
+		.factory(() -> new PlayerPipe(type, tex, a, b, length))
+		.texture(texture)
+		.finish(id);
 	}
 }

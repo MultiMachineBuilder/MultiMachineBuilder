@@ -4,7 +4,9 @@
 package mmb.WORLD.items.pickaxe;
 
 import java.awt.Graphics;
+import java.awt.Color;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -68,6 +70,32 @@ public class Pickaxe extends ItemEntity {
 		//render durability
 		if(uses > 0) {
 			double percent = 1.0-((double)uses/durability);
+			int min = side/10;
+			int max = (side*9)/10;
+			if(percent < 0) {
+				g.setColor(Color.RED);
+				g.drawLine(x+min, y+max, x+max, y+max);
+			}else if(percent > 1) {
+				g.setColor(Color.CYAN);
+				g.drawLine(x+min, y+max, x+max, y+max);
+			}else{
+				g.setColor(Color.BLACK);
+				g.drawLine(x+min, y+max, x+max, y+max);
+				int red = 0, green = 0;
+				if(percent > 0.5) {
+					green = 255;
+					red = (int)(511*(1-percent));
+				}else {
+					red = 255;
+					green = (int)(511*percent);
+				}
+				Color c = new Color(red, green, 0);
+				int scale = (side*8)/10;
+				double offset = min+(scale*percent);
+				g.setColor(c);
+				g.drawLine(x+min, y+max, (int)(x+min+offset), y+max);
+			}
+			
 		}
 	}
 	
@@ -113,7 +141,7 @@ public class Pickaxe extends ItemEntity {
 	 * @param id ID of the pickaxe
 	 * @return a new registered pickaxe type
 	 */
-	public static PickaxeType create(int durability, String texture, String title, String id) {
+	@Nonnull public static PickaxeType create(int durability, String texture, String title, String id) {
 		PickaxeType result = new PickaxeType();
 		return (PickaxeType) result.setDurability(durability).texture(texture).title(title).finish(id);
 	}

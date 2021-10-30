@@ -3,6 +3,7 @@
  */
 package mmb.WORLD.gui.window;
 
+import java.awt.Adjustable;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -12,19 +13,14 @@ import mmb.DATA.json.JsonTool;
 import mmb.FILES.Save;
 import mmb.MENU.FullScreen;
 import mmb.MENU.MMBFrame;
-import mmb.WORLD.block.BlockType;
-import mmb.WORLD.block.Blocks;
-import mmb.WORLD.gui.Placer;
 import mmb.WORLD.gui.WorldToolList;
 import mmb.WORLD.gui.inv.InventoryController;
 import mmb.WORLD.inventory.ItemRecord;
-import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.machine.MachineModel;
-import mmb.WORLD.player.Player;
 import mmb.WORLD.tool.ToolSelectionModel;
 import mmb.WORLD.tool.ToolStandard;
 import mmb.WORLD.tool.WindowTool;
 import mmb.WORLD.worlds.universe.Universe;
+import mmb.WORLD.worlds.world.Player;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 
@@ -42,17 +38,17 @@ import javax.swing.JSplitPane;
 import javax.annotation.Nonnull;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
-import javax.swing.JList;
-
 import mmb.MENU.main.MainMenu;
 import javax.swing.JTabbedPane;
-import javax.swing.ListCellRenderer;
-import javax.swing.ListModel;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+
 import mmb.MENU.components.BoundCheckBoxMenuItem;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
+import javax.swing.JCheckBoxMenuItem;
+import net.miginfocom.swing.MigLayout;
 
 /**
  * @author oskar
@@ -67,16 +63,25 @@ public class WorldWindow extends MMBFrame{
 	private static final long serialVersionUID = -3444481558687472298L;
 	private transient Save file;
 	private Timer fpsCounter = new Timer();
+	private boolean destroyRunning = false;
 	
 	@Override
 	public void destroy() {
-		debug.printl("Exiting the world");
-		fpsCounter.cancel();
-		save();
-		panelPlayerInv.dispose();
-		worldFrame.enterWorld(null);
-		worldFrame.setActive(false);
-		FullScreen.setWindow(MainMenu.INSTANCE);
+		if(destroyRunning) return;
+		try {
+			destroyRunning = true;
+			debug.printl("Exiting the world");
+			fpsCounter.cancel();
+			save();
+			panelPlayerInv.dispose();
+			worldFrame.setActive(false);
+			//This gets stuck
+			worldFrame.enterWorld(null);
+			FullScreen.setWindow(MainMenu.INSTANCE); //this gets stuck ONLY if the world is broken
+			debug.printl("Exited the world");
+		}finally {
+			destroyRunning = false;
+		}
 	}
 	/**
 	 * Saves the world
@@ -86,12 +91,14 @@ public class WorldWindow extends MMBFrame{
 		if(file == null) return;
 		JsonNode object = worldFrame.getWorld().save();
 		try {
+			debug.printl("Saving the world");
 			String text = JsonTool.save(object);
 			try(OutputStream os = file.file.getOutputStream()) { //save the world
 				byte[] bin = text.getBytes();
 				os.write(bin);
 				os.flush();
 			}
+			debug.printl("Saved the world");
 		} catch (Exception e) {
 			debug.pstm(e, "Failed to write the new world.");
 		}
@@ -112,22 +119,22 @@ public class WorldWindow extends MMBFrame{
 			boolean iconified = false;
 			boolean open = false;
 			@Override
-			public void windowClosed(WindowEvent arg0) {
+			public void windowClosed(@SuppressWarnings("null") WindowEvent arg0) {
 				open = false;
 				recalc();
 			}
 			@Override
-			public void windowDeiconified(WindowEvent arg0) {
+			public void windowDeiconified(@SuppressWarnings("null") WindowEvent arg0) {
 				iconified = false;
 				recalc();
 			}
 			@Override
-			public void windowIconified(WindowEvent arg0) {
+			public void windowIconified(@SuppressWarnings("null") WindowEvent arg0) {
 				iconified = true;
 				recalc();
 			}
 			@Override
-			public void windowOpened(WindowEvent arg0) {
+			public void windowOpened(@SuppressWarnings("null") WindowEvent arg0) {
 				open = true;
 				recalc();
 			}
@@ -148,11 +155,20 @@ public class WorldWindow extends MMBFrame{
 				//[start] World pane
 					JSplitPane worldPane = new JSplitPane();
 					worldPane.setDividerLocation(320);
-					//[start] The world frame
+					//[start] The world frame panel
+						JPanel worldFramePanel = new JPanel();
+						worldFramePanel.setLayout(new MigLayout("", "[101px,grow,center]", "[80px,grow][]"));
+						worldPane.setRightComponent(worldFramePanel);
+						
 						worldFrame = new WorldFrame(this);
 						worldFrame.setBackground(Color.GRAY);
 						worldFrame.titleChange.addListener(this::updateTitle);
-						worldPane.setRightComponent(worldFrame);
+						worldFramePanel.add(worldFrame, "cell 0 0,grow");
+						
+						lblStatus = new JLabel("STATUSBAR");
+						lblStatus.setOpaque(true);
+						lblStatus.setBackground(new Color(65, 105, 225));
+						worldFramePanel.add(lblStatus, "cell 0 1,growx");
 					//[end]
 					//[start] Scrollable Placement List Pane
 						JSplitPane scrollistBipane = new JSplitPane();
@@ -248,8 +264,17 @@ public class WorldWindow extends MMBFrame{
 						worldFrame.setBlockScale(e.getValue());
 						lblBlockScale.setText("vv Block scale vv "+e.getValue());
 					});
-					slideBlockScale.setOrientation(JScrollBar.HORIZONTAL);
+					slideBlockScale.setOrientation(Adjustable.HORIZONTAL);
 					mnNewMenu.add(slideBlockScale);
+					
+					checkBindCameraPlayer = new JCheckBoxMenuItem("Camera is bound to the player");
+					menuBar.add(checkBindCameraPlayer);
+					
+					lblTool = new JLabel("Tool description goes here");
+					lblTool.setForeground(Color.WHITE);
+					lblTool.setBackground(Color.BLUE);
+					lblTool.setOpaque(true);
+					menuBar.add(lblTool);
 					
 		//Framerate
 		fpsCounter.scheduleAtFixedRate(new TimerTask() {
@@ -264,13 +289,38 @@ public class WorldWindow extends MMBFrame{
 		}, 0, 1000);
 	}
 	private void updateTitle(String s) {
+		//Update the status
+		if(getPlayer() != null) {
+			StringBuilder status = new StringBuilder("Press Q to stop here. Speed: ");
+			double speedMPST = getPlayer().speedTrue.length();
+			status.append(speedMPST * 3.6);
+			status.append(" km/h true");
+			lblStatus.setText(status.toString());
+			
+			status.append(", ");
+			double speedMPSP = getPlayer().speed.length();
+			status.append(speedMPSP * 3.6);
+			status.append(" km/h physical ");
+			
+			status.append(getPlayer().physics.description());
+			lblStatus.setText(status.toString());
+		}
+		
 		StringBuilder sb = new StringBuilder(s).append(' ');
 		if(worldFrame.ctrlPressed()) sb.append("[Ctrl]");
 		if(worldFrame.altPressed()) sb.append("[Alt]");
 		if(worldFrame.shiftPressed()) sb.append("[Shift]");
-		sb.append(' ');
-		sb.append(toolModel.getTool().description());
 		setTitle(sb.toString());
+		
+		String oldDescription = lblTool.getText();
+		String tool = toolModel.getTool().description();
+		if(oldDescription.equals(tool)) return;
+		
+		//Process the text
+		String processed = tool.replace("<", "&lt;")
+				.replace(">", "&gt;")
+				.replace("\n", "<br>");
+		lblTool.setText("<html>"+processed+"</html>");
 	}
 	private static Debugger debug = new Debugger("WORLD TEST");
 	
@@ -368,7 +418,7 @@ public class WorldWindow extends MMBFrame{
 		scrollBar.setValue(amount+scrollBar.getValue());
 		
 	}
-	private ScrollablePlacementList scrollablePlacementList;
+	@Nonnull private ScrollablePlacementList scrollablePlacementList;
 	/**
 	 * @author oskar
 	 * A {@code ScrollablePlacementList} is used to select a block or machine
@@ -397,6 +447,9 @@ public class WorldWindow extends MMBFrame{
 	
 	/** The tool selection. Changes to the model are reflected in the window and vice versa */
 	@Nonnull public final ToolSelectionModel toolModel = new ToolSelectionModel(this);
+	private JLabel lblTool;
+	private JCheckBoxMenuItem checkBindCameraPlayer;
+	private JLabel lblStatus;
 	
 	public void redrawUIs() {
 		scrollablePlacementList.repaint();
@@ -405,5 +458,8 @@ public class WorldWindow extends MMBFrame{
 	
 	public InventoryController playerInventory() {
 		return new InventoryController(panelPlayerInv.craftGUI.inventoryController);
+	}
+	protected JCheckBoxMenuItem getCheckBindCameraPlayer() {
+		return checkBindCameraPlayer;
 	}
 }

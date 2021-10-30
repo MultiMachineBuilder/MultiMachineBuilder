@@ -46,7 +46,7 @@ public abstract class BlockEntity implements BlockEntry, Positioned, Cloneable {
 	}
 	@Override
 	public void resetMap(@Nullable World map, int x, int y) {
-		if(map != null && (!map.get(x, y).type().isSurface())) throw new IllegalStateException("The position ["+x+","+y+"] on target map is not surface");
+		if(map != null && (!map.get(x, y).isSurface())) throw new IllegalStateException("The position ["+x+","+y+"] on target map is not surface");
 		owner = map;
 		this.x = x;
 		this.y = y;
@@ -59,7 +59,7 @@ public abstract class BlockEntity implements BlockEntry, Positioned, Cloneable {
 	public int posY() {
 		return y;
 	}
-	public Point getPosition() {
+	@Nonnull public Point getPosition() {
 		return new Point(x, y);
 	}
 	
@@ -126,7 +126,13 @@ public abstract class BlockEntity implements BlockEntry, Positioned, Cloneable {
 		}
 	}
 	
-	public void onTick(MapProxy map) {}
+	/**
+	 * Invoken on every tick
+	 * @param map map proxy
+	 */
+	public void onTick(MapProxy map) {
+		//Optional
+	}
 	
 	//Block demolition event
 	private boolean underDemolition;

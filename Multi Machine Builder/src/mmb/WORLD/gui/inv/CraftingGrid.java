@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
@@ -80,36 +81,6 @@ public class CraftingGrid extends JPanel{
 	}
 	
 	/**
-	 * @return new grid, which can be filled with items
-	 */
-	public ItemEntry[][] generateEmptyItemsGrid(){
-		return new ItemEntry[size][size];
-	}
-	/**
-	 * @return new array, which can be filled with items
-	 */
-	public ItemEntry[] generateEmptyItemsArray(){
-		return new ItemEntry[size*size];
-	}
-	
-	/**
-	 * @return new grid with items
-	 */
-	public ItemEntry[][] generateItemsGrid(){
-		ItemEntry[][] data = generateEmptyItemsGrid();
-		readData(data);
-		return data;
-	}
-	/**
-	 * @return new array with items
-	 */
-	public ItemEntry[] generateItemsArray(){
-		ItemEntry[] data = generateEmptyItemsArray();
-		readData(data);
-		return data;
-	}
-
-	/**
 	 * Read the item data into the grid
 	 * @param data target grid
 	 */
@@ -152,7 +123,7 @@ public class CraftingGrid extends JPanel{
 		public final int x;
 		public final int y;
 		public final ItemEntry newEntry;
-		public ItemGridStateChangedEvent(int x, int y, ItemEntry newEntry) {
+		public ItemGridStateChangedEvent(int x, int y, @Nullable ItemEntry newEntry) {
 			super();
 			this.x = x;
 			this.y = y;
@@ -163,10 +134,10 @@ public class CraftingGrid extends JPanel{
 			return "ItemGridStateChangedEvent [x=" + x + ", y=" + y + ", newEntry=" + newEntry + "]";
 		}
 	}
-	@Nonnull public final Grid<ItemEntry> items = new Grid<ItemEntry>() {
+	@Nonnull public final Grid<@Nullable ItemEntry> items = new Grid<@Nullable ItemEntry>() {
 
 		@Override
-		public void set(int x, int y, ItemEntry data) {
+		public void set(int x, int y, @Nullable ItemEntry data) {
 			slots[x][y].setSelection(data);
 		}
 

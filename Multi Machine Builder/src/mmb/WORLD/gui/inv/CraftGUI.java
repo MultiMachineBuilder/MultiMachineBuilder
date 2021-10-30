@@ -27,8 +27,11 @@ import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 
 import javax.swing.JLabel;
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.Box;
+import javax.swing.BoxLayout;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.util.concurrent.atomic.AtomicReference;
@@ -55,18 +58,29 @@ public class CraftGUI extends JPanel {
 	 * @param inv inventory, which will be used as a selector
 	 * @param crafter the crafter, which owns this GUI (optional)
 	 * @param window the window, which stores this GUI (optional)
+	 * @wbp.parser.constructor
 	 */
 	public CraftGUI(int size, @Nullable Inventory inv, @Nullable Crafting crafter, @Nullable WorldWindow window) {
+		this(size, crafter, window, new InventoryController(inv));
+	}
+	/**
+	 * Creates a crafting GUI with given size and inventory controller
+	 * @param size size of each grid side in squares
+	 * @param crafter the crafter, which owns this GUI (optional)
+	 * @param window the window, which stores this GUI (optional)
+	 * @param ctrl inventory controller, which will be used as a selector
+	 */
+	public CraftGUI(int size, @Nullable Crafting crafter, @Nullable WorldWindow window, InventoryController ctrl) {
 		Bag<ItemEntry> ins = new HashBag<>();
 		AtomicReference<RecipeOutput> outs = new AtomicReference<>();
 		
 		setLayout(new MigLayout("", "[263px][]", "[155px,grow]"));
 		Grid<@Nullable ItemEntry> contents = new FixedGrid<>(size, size);
 		
-		verticalBox = Box.createVerticalBox();
+		verticalBox = new Box(BoxLayout.Y_AXIS);
 		add(verticalBox, "flowx,cell 1 0,growy");
 		
-		inventoryController = new InventoryController(inv);
+		inventoryController = ctrl;	
 		add(inventoryController, "cell 0 0,alignx left,growy");
 		
 		lblRecipeOutputs = new JLabel("Recipe output: none");
@@ -78,9 +92,10 @@ public class CraftGUI extends JPanel {
 			debug.printl("Recipe state changed: "+e);
 			contents.set(e.x, e.y, e.newEntry);
 			outs.set(Crafting.findRecipe(contents));  //Find new item to be crafted
-			debug.printl("Recipe output: "+outs.get());
+			RecipeOutput rout = outs.get();
+			debug.printl("Recipe output: "+rout);
 			ins.clear();
-			if(outs.get() == null)
+			if(rout == null)
 				lblRecipeOutputs.setText("Recipe output: none");
 			else {
 				for(ItemEntry item: contents) {
@@ -116,17 +131,22 @@ public class CraftGUI extends JPanel {
 		);
 		btnCraft.addActionListener(e -> {
 			debug.printl("Running the crafing");
-			if(outs.get() == null) return;
-			Craftings.transact(ins, outs.get(), inventoryController.getInv(), inventoryController.getInv());
+			RecipeOutput rout = outs.get();
+			if(rout == null) return;
+			Inventory inv0 = inventoryController.getInv();
+			if(inv0 == null) return;
+			Craftings.transact(ins, rout, inv0, inv0);
 			inventoryController.refresh();
 		});
 		verticalBox.add(btnCraft);
 		
-		if(crafter != null && window != null) {
+		if(window != null) {
 			btnExit = new JButton("Close this GUI");
 			btnExit.setForeground(new Color(0, 0, 0));
 			btnExit.setToolTipText("Closes this crafting GUI, discarding any selections.");
-			btnExit.addActionListener(e -> crafter.closeWindow(window));
+			btnExit.addActionListener(e -> {
+				if(crafter != null) crafter.closeWindow(window);
+			});
 			btnExit.setBackground(Color.RED);
 			verticalBox.add(btnExit);
 		}
@@ -171,7 +191,9 @@ public class CraftGUI extends JPanel {
 			ItemEntry item = record.item();
 			if(item instanceof Stencil) {
 				Stencil newStencil = new Stencil(craftingGrid.items);
-				Craftings.transact(item, newStencil, inventoryController.getInv(), inventoryController.getInv());
+				Inventory inv0 = inventoryController.getInv();
+				if(inv0 == null) return;
+				Craftings.transact(item, newStencil, inv0, inv0);
 			}//else it is not a stencil
 		});
 		verticalBox.add(btnSave);
@@ -180,11 +202,11 @@ public class CraftGUI extends JPanel {
 	/**
 	 * The Box column with all crafting controls
 	 */
-	public final Box verticalBox;
-	private JButton btnCraft;
-	private JLabel lblRecipeOutputs;
-	private JButton btnExit;
-	private JButton btnLoad;
-	private JButton btnSave;
-	private JButton btnNewButton;
+	@Nonnull public final Box verticalBox;
+	@Nonnull private JButton btnCraft;
+	@Nonnull private JLabel lblRecipeOutputs;
+	private JButton btnExit;	
+	@Nonnull private JButton btnLoad;
+	@Nonnull private JButton btnSave;
+	@Nonnull private JButton btnNewButton;
 }

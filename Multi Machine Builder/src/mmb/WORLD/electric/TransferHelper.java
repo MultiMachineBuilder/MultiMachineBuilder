@@ -74,7 +74,7 @@ public class TransferHelper extends Battery {
 	}
 	/**
 	 * @param s side to which power goes
-	 * @return
+	 * @return electricity proxy for this transfer helper
 	 */
 	public Electricity proxy(Side s) {
 		Side n = s.negate();

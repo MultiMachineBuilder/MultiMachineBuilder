@@ -15,6 +15,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.util.List;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
@@ -97,6 +98,7 @@ public class InventoryController extends JPanel {
 	 * Creates an InventoryController which mirrors other InventoryController, while also being a different component
 	 * @param other
 	 */
+	@SuppressWarnings("null")
 	public InventoryController(InventoryController other) {
 		this(other.inv);
 		setSelectionModel(other.getSelectionModel());
@@ -104,28 +106,30 @@ public class InventoryController extends JPanel {
 		setModel(other.getModel());
 	}
 	/**
-	 * @return
+	 * @return selected index, or -1 if not selected
 	 * @see javax.swing.JList#getSelectedIndex()
 	 */
 	public int getSelectedIndex() {
 		return invlist.getSelectedIndex();
 	}
 	/**
-	 * @return
+	 * @return selected indices list
 	 * @see javax.swing.JList#getSelectedIndices()
 	 */
-	public int[] getSelectedIndices() {
+	@SuppressWarnings("null")
+	@Nonnull public int[] getSelectedIndices() {
 		return invlist.getSelectedIndices();
 	}
 	/**
-	 * @return
+	 * @return selected value, or null if not selected
 	 * @see javax.swing.JList#getSelectedValue()
 	 */
 	public ItemRecord getSelectedValue() {
 		return invlist.getSelectedValue();
 	}
 
-	public List<ItemRecord> getSelectedValuesList() {
+	@SuppressWarnings("null")
+	@Nonnull public List<ItemRecord> getSelectedValuesList() {
 		return invlist.getSelectedValuesList();
 	}
 	/**
@@ -159,7 +163,7 @@ public class InventoryController extends JPanel {
 	}
 	/**
 	 * Sets the inventory of this list
-	 * @param inv2 the new inventory
+	 * @param inv the new inventory
 	 */
 	public void setInv(@Nullable Inventory inv) {
 		this.inv = inv;
@@ -183,9 +187,7 @@ public class InventoryController extends JPanel {
 	}
 
 	private void configureButtons() {
-		boolean hasOrch = orchestrator != null;
 		boolean hasInv = inv != null;
-		boolean both = hasInv && hasOrch;
 		btnRefresh.setEnabled(hasInv);
 	}
 
@@ -210,7 +212,7 @@ public class InventoryController extends JPanel {
 				setMinimumSize(PRESENT);
 			}
 			setOpaque(true);
-			setIcon(itemType.id().type().getIcon());
+			setIcon(itemType.item().icon());
 			setText(itemType.id().title() + " × " + itemType.amount());
 			
 			if (isSelected) {
@@ -246,14 +248,14 @@ public class InventoryController extends JPanel {
 		invlist.setModel(model);
 	}
 	/**
-	 * @return
+	 * @return current selection mode
 	 * @see javax.swing.JList#getSelectionMode()
 	 */
 	public int getSelectionMode() {
 		return invlist.getSelectionMode();
 	}
 	/**
-	 * @return
+	 * @return current selection model
 	 * @see javax.swing.JList#getSelectionModel()
 	 */
 	public ListSelectionModel getSelectionModel() {

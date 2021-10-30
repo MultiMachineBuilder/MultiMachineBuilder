@@ -13,7 +13,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
 import mmb.BEANS.Titled;
-import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.blocks.machine.SideConfig.SideBoolean;
 import mmb.WORLD.electric.Battery;
@@ -33,16 +32,16 @@ import mmb.WORLD.worlds.world.World;
 public abstract class SkeletalBlockMachine extends BlockEntityData implements BlockActivateListener, Titled{
 	
 	//Electrical components
-	protected Battery inElec = new Battery();
-	SideConfig cfgInElec = new SideConfig();
-	protected Battery outElec  = new Battery();
-	SideConfig cfgOutElec = new SideConfig();
+	@Nonnull protected Battery inElec = new Battery();
+	@Nonnull SideConfig cfgInElec = new SideConfig();
+	@Nonnull protected Battery outElec  = new Battery();
+	@Nonnull SideConfig cfgOutElec = new SideConfig();
 	
 	//Item components
-	protected SimpleInventory inItems = new SimpleInventory();
-	SideConfig cfgInItems = new SideConfig();
-	protected SimpleInventory outItems = new SimpleInventory();
-	SideConfig cfgOutItems = new SideConfig();
+	@Nonnull protected SimpleInventory inItems = new SimpleInventory();
+	@Nonnull SideConfig cfgInItems = new SideConfig();
+	@Nonnull protected SimpleInventory outItems = new SimpleInventory();
+	@Nonnull SideConfig cfgOutItems = new SideConfig();
 	
 	//Setting flags
 	/** This constant contains active components. All flags begin with 'SETTING_FLAG_' */
@@ -76,7 +75,6 @@ public abstract class SkeletalBlockMachine extends BlockEntityData implements Bl
 	
 	
 	/**
-	 * 
 	 * @param x
 	 * @param y
 	 * @param owner2
@@ -146,23 +144,38 @@ public abstract class SkeletalBlockMachine extends BlockEntityData implements Bl
 		}
 	}
 	
-	protected void save1(ObjectNode node) {}
-	protected void load1(ObjectNode node) {}
+	/**
+	 * Additional function used to save additional data
+	 * @param node node, to which data can be saved
+	 */
+	protected void save1(ObjectNode node) {
+		//optional
+	}
+	/**
+	 * Additional function used to save additional data
+	 * @param node node, to which data can be loaded
+	 */
+	protected void load1(ObjectNode node) {
+		//optional
+	}	
+	
 	/**
 	 * Represents title of this machine
 	 * @return the title of this machine
 	 */
 	@Override
-	public String title() {
+	@Nonnull public String title() {
 		return type().title();
 	}
 	MachineGUI gui;
 	@Override
-	public void click(int blockX, int blockY, World map, WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		if(window == null) return;
-		if(gui != null) return;
-		gui = new MachineGUI(this, window);
-		window.openAndShowWindow(gui, title());
+		MachineGUI gui0 = gui;
+		if(gui0 != null) return;
+		gui0 = new MachineGUI(this, window);
+		window.openAndShowWindow(gui0, title());
+		gui = gui0;
 	}
 	
 	/**
@@ -188,14 +201,14 @@ public abstract class SkeletalBlockMachine extends BlockEntityData implements Bl
 	@Override
 	public SkeletalBlockMachine clone() {
 		SkeletalBlockMachine copy = (SkeletalBlockMachine) super.clone();
-		if (cfgInElec != null) copy.cfgInElec = new SideConfig(cfgInElec);
-		if (inElec != null) copy.inElec = new Battery(inElec);
-		if (cfgOutElec != null) copy.cfgOutElec = new SideConfig(cfgOutElec);
-		if (outElec != null) copy.outElec = new Battery(outElec);
-		if (cfgInItems != null) copy.cfgInItems = new SideConfig(cfgInItems);
-		if (inItems != null) copy.inItems = new SimpleInventory(inItems);
-		if (cfgOutItems != null) copy.cfgOutItems = new SideConfig(cfgOutItems);
-		if (outItems != null) copy.outItems = new SimpleInventory(outItems);
+		copy.cfgInElec = new SideConfig(cfgInElec);
+		copy.inElec = new Battery(inElec);
+		copy.cfgOutElec = new SideConfig(cfgOutElec);
+		copy.outElec = new Battery(outElec);
+		copy.cfgInItems = new SideConfig(cfgInItems);
+		copy.inItems = new SimpleInventory(inItems);
+		copy.cfgOutItems = new SideConfig(cfgOutItems);
+		copy.outItems = new SimpleInventory(outItems);
 		return copy;
 	}
 }

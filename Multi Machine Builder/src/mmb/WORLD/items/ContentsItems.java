@@ -80,7 +80,7 @@ public class ContentsItems {
 			.title("Gold nugget")
 			.texture("item/gold nugget.png")
 			.volumed(0.000078125)
-			.finish("ingot.gold");
+			.finish("nugget.gold");
 	@Nonnull public static final Item nuggetUranium = new Item()
 			.title("Uranium nugget")
 			.texture("item/uranium nugget.png")
@@ -133,9 +133,7 @@ public class ContentsItems {
 			.texture("item/steel wire.png")
 			.volumed(0.00125)
 			.finish("wirespool.steel");
-	
-	
-	
+		
 	//Pickaxe heads
 	@Nonnull public static final Item pickHeadWood = new Item()
 			.title("Wooden pickaxe head")
@@ -172,4 +170,20 @@ public class ContentsItems {
 			.volumed(0.001)
 			.factory(Stencil::new)
 			.finish("crafting.cstencil");
+	
+	//Machine parts
+	@Nonnull public static final Item frame1 = new Item()
+		.title("Machine Frame #1")
+		.texture("item/frame 1.png")
+		.finish("industry.frame1");
+	@Nonnull public static final Item rod1 = new Item()
+		.title("Machine Rod #1")
+		.texture("item/steel rod.png")
+		.volumed(0.00125)
+		.finish("industry.rod1");
+	@Nonnull public static final Item bearing1 = new Item()
+			.title("Machine Bearing #1")
+			.texture("item/ring 1.png")
+			.volumed(0.00125)
+			.finish("industry.bearing1");
 }

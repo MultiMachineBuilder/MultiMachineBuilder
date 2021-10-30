@@ -11,7 +11,6 @@ import javax.swing.Timer;
 import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
-import mmb.WORLD.player.Player;
 import mmb.debug.Debugger;
 
 import javax.swing.JButton;
@@ -21,12 +20,14 @@ import mmb.WORLD.gui.CreativeItemList;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.item.ItemType;
+import mmb.WORLD.worlds.world.Player;
 
 import java.awt.Color;
 import mmb.MENU.components.BoundCheckBox;
 import javax.swing.JSpinner;
 import mmb.WORLD.gui.inv.CraftGUI;
-import java.awt.event.ActionListener;
+import mmb.WORLD.gui.inv.InventoryController;
+
 import java.util.List;
 
 /**
@@ -45,6 +46,7 @@ public class TabInventory extends JPanel {
 	
 	/**
 	 * Create an inventory panel with a player pre-set
+	 * @param player player represented in this tab
 	 */
 	public TabInventory(Player player) {
 		this();
@@ -54,7 +56,8 @@ public class TabInventory extends JPanel {
 	 * Create an inventory panel without a player
 	 */
 	public TabInventory() {
-		craftGUI = new CraftGUI(2, null, null, null);
+		InventoryController ctrl = new InventoryController();
+		craftGUI = new CraftGUI(2, null, null, ctrl);
 		
 		timer = new Timer(0, e -> craftGUI.inventoryController.refresh());
 		setLayout(new MigLayout("", "[::250.00,grow,fill][:400.00:400.00,grow,fill][grow]", "[20px][grow]"));

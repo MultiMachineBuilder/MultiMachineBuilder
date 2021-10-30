@@ -26,6 +26,8 @@ public class ColorGUI extends JPanel {
 
 	/**
 	 * Create the panel.
+	 * @param c color reference
+	 * @param win world window
 	 */
 	@SuppressWarnings("null")
 	public ColorGUI(Variable<Color> c, WorldWindow win) {

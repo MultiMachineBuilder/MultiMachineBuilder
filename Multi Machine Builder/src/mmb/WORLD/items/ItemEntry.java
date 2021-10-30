@@ -3,9 +3,11 @@
  */
 package mmb.WORLD.items;
 
+import java.awt.Component;
 import java.awt.Graphics;
 
 import javax.annotation.Nullable;
+import javax.swing.Icon;
 
 import org.ainslec.picocog.PicoWriter;
 
@@ -116,5 +118,21 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput {
 	@Override
 	default boolean drop(InventoryWriter inv, World map, int x, int y) {
 		return Drop.tryDrop(this, inv, map, x, y);
+	}
+	/**
+	 * @return
+	 */
+	public default Icon icon() {
+		return new Icon() {
+			@Override public int getIconHeight() {
+				return 32;
+			}
+			@Override public int getIconWidth() {
+				return 32;
+			}
+			@Override public void paintIcon(Component c, Graphics g, int x, int y) {
+				render(g, x, y, 32);
+			}
+		};
 	}
 }

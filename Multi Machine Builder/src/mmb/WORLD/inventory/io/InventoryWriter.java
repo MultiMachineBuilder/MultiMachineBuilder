@@ -3,9 +3,10 @@
  */
 package mmb.WORLD.inventory.io;
 
+import javax.annotation.Nonnull;
+
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
-import mmb.debug.Debugger;
 
 /**
  * @author oskar
@@ -37,12 +38,7 @@ public interface InventoryWriter {
 	/**
 	 * Represents an interface which does not allow input
 	 */
-	public static final InventoryWriter NONE = new InventoryWriter() {
-		@Override
-		public int write(ItemEntry ent, int amount) {
-			return 0;
-		}
-	};
+	@Nonnull public static final InventoryWriter NONE = (ent, amt) -> 0;
 	
 	/**
 	 * @author oskar

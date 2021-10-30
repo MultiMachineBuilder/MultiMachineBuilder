@@ -22,13 +22,17 @@ import mmb.Vector2iconst;
 import mmb.DATA.variables.ListenerBooleanVariable;
 import mmb.MENU.StringRenderer;
 import mmb.WORLD.block.BlockEntry;
+import mmb.WORLD.blocks.ppipe.Direction;
+import mmb.WORLD.blocks.ppipe.PipeTunnelEntry;
 import mmb.WORLD.gui.FPSCounter;
 import mmb.WORLD.gui.window.WorldWindow.ScrollablePlacementList;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.machine.Machine;
-import mmb.WORLD.player.Player;
+import mmb.WORLD.rotate.ChiralRotation;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.tool.WindowTool;
 import mmb.WORLD.worlds.universe.Universe;
+import mmb.WORLD.worlds.world.Player;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 import java.awt.Color;
@@ -150,7 +154,7 @@ public class WorldFrame extends JComponent {
 	}
 	/** Quits any open maps and universes */
 	public void setNoMap() {
-		debug.print("Exiting");
+		debug.printl("Exiting");
 		if(world != null) world.destroy();
 		else if(map != null) map.destroy();
 		map = null;
@@ -185,6 +189,7 @@ public class WorldFrame extends JComponent {
 	}
 	
 	//Mouse and key listener
+	boolean u, d, l, r;
 	private class Listener implements MouseListener, KeyListener, MouseMotionListener, MouseWheelListener{
 		@Override public void mouseWheelMoved(@Nullable MouseWheelEvent e) {
 			Objects.requireNonNull(e, "event is null");
@@ -220,6 +225,10 @@ public class WorldFrame extends JComponent {
 			case KeyEvent.VK_S:
 				perspective.y -= 1;
 				break;
+			case KeyEvent.VK_Q:
+				map.player.speed.x = 0;
+				map.player.speed.y = 0;
+				break;
 			case KeyEvent.VK_ALT:
 				alt = true;
 				break;
@@ -229,9 +238,22 @@ public class WorldFrame extends JComponent {
 			case KeyEvent.VK_SHIFT:
 				shift = true;
 				break;
+			case KeyEvent.VK_DOWN:
+				d = true;
+				break;
+			case KeyEvent.VK_UP:
+				u = true;
+				break;
+			case KeyEvent.VK_LEFT:
+				l = true;
+				break;
+			case KeyEvent.VK_RIGHT:
+				r = true;
+				break;
 			default:
 				break;
 			}
+			map.player.setControls(u, d, l, r);
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.keyPressed(e);
 		}
@@ -247,9 +269,22 @@ public class WorldFrame extends JComponent {
 			case KeyEvent.VK_SHIFT:
 				shift = false;
 				break;
+			case KeyEvent.VK_DOWN:
+				d = false;
+				break;
+			case KeyEvent.VK_UP:
+				u = false;
+				break;
+			case KeyEvent.VK_LEFT:
+				l = false;
+				break;
+			case KeyEvent.VK_RIGHT:
+				r = false;
+				break;
 			default:
 				break;
 			}
+			map.player.setControls(u, d, l, r);
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.keyReleased(e);
 		}
@@ -328,6 +363,12 @@ public class WorldFrame extends JComponent {
 		double tilesW = (getWidth()/ blockScale);
 		double tilesH = (getHeight()/ blockScale);
 		
+		//Bind camera to player
+		if(window.getCheckBindCameraPlayer().isSelected()) {
+			perspective.set(map.player.pos);
+			perspective.negate();
+		}
+				
 		//Perspective => offset
 		pos.set(perspective);
 		pos.add(tilesW/2, tilesH/2);
@@ -362,6 +403,7 @@ public class WorldFrame extends JComponent {
 		int div2 = blockScale/2;
 		int div4 = blockScale/4;
 		Point pt = new Point();
+		
 		//Render dropped items
 		for(Entry<Vector2iconst, ItemEntry> entry: map.drops.entries()) {
 			//Check if the vector is in bounds
@@ -372,8 +414,8 @@ public class WorldFrame extends JComponent {
 			if(y < u) continue;
 			if(y > d) continue;
 			blockPositionOnScreen(x, y, pt);
-			if(entry.getValue() == null) continue;
-			entry.getValue().render(g, pt.x+div4, pt.y+div4, div2);
+			if(entry.getValue() != null)
+				entry.getValue().render(g, pt.x+div4, pt.y+div4, div2);
 		}
 		
 		//Draw machines
@@ -386,6 +428,12 @@ public class WorldFrame extends JComponent {
 			@Nonnull Graphics g2 = g.create(x, y, w*blockScale, h*blockScale);
 			mc.render(g2);
 		}
+		
+		//Render player
+		Point pul = worldPositionOnScreen(map.player.pos.x - 0.3, map.player.pos.y - 0.3);
+		Point pdr = worldPositionOnScreen(map.player.pos.x + 0.3, map.player.pos.y + 0.3);
+		g.setColor(Color.RED);
+		g.fillRect(pul.x, pul.y, pdr.x-pul.x, pdr.y-pul.y);
 		
 		//Draw pointer
 		int x = (int)((mouseover.x+pos.x)*blockScale);
@@ -402,12 +450,23 @@ public class WorldFrame extends JComponent {
 		//Debug use only
 		if(DEBUG_DISPLAY.getValue()) {
 			StringBuilder sb = new StringBuilder();
-			sb.append("Position: ").append(perspective).append("\r\n");
+			sb.append("Camera position: ").append(perspective).append("\r\n");
+			sb.append("Player position: ").append(map.player.pos).append("\r\n");
 			sb.append("Block position: ").append(mouseover.x).append(',').append(mouseover.y).append("\r\n");
 			//Get selected block
 			if(map.inBounds(mouseover)) {
 				BlockEntry block = map.get(mouseover);
-				sb.append("Selected block: ").append(block.type()).append(" ,is surface: ").append(block.type().isSurface()).append("\r\n");
+				sb.append("Selected block: ").append(block.type()).append(" ,is surface: ").append(block.isSurface()).append("\r\n");
+				sb.append("Pipe connections: ↑");
+				printPipeTunnel(sb, block.getPipeTunnel(Side.U));
+				sb.append(" ↓");
+				printPipeTunnel(sb, block.getPipeTunnel(Side.D));
+				sb.append(" ←");
+				printPipeTunnel(sb, block.getPipeTunnel(Side.L));
+				sb.append(" →");
+				printPipeTunnel(sb, block.getPipeTunnel(Side.R));
+				sb.append("\r\n");
+				sb.append("Chirotation: ").append(block.getChirotation()).append("\r\n");
 			}else {
 				sb.append("Out of bounds").append("\r\n");
 			}
@@ -423,6 +482,11 @@ public class WorldFrame extends JComponent {
 			//Display mouseover block info
 			StringRenderer.renderStringBounded(Color.BLACK, Color.CYAN, Color.BLACK, sb.toString(), 0, 0, 5, 5, g);
 		}
+	}
+	private static void printPipeTunnel(StringBuilder sb, @Nullable PipeTunnelEntry ent) {
+		if(ent == null) sb.append('✗');
+		else if(ent.dir == Direction.BWD) sb.append('B');
+		else sb.append('F');
 	}
 	private void renderTile(int x, int y, Graphics g, @Nullable BlockEntry blockEntry) {
 		if(blockEntry == null) return;
@@ -479,7 +543,7 @@ public class WorldFrame extends JComponent {
 	public final WorldWindow window;
 	
 	//Mouse position
-	private Point mousePosition = new Point();
+	@Nonnull private Point mousePosition = new Point();
 	private void setMousePosition(MouseEvent e) {
 		mousePosition.setLocation(e.getX(), e.getY());
 	}
@@ -487,7 +551,7 @@ public class WorldFrame extends JComponent {
 	//Mouseover block
 	@Nonnull private final Point mouseover = new Point();
 	/** @return block position over which mouse is over*/
-	public Point getMouseoverBlock() {
+	@Nonnull public Point getMouseoverBlock() {
 		return new Point(mouseover);
 	}
 	/** @return the block which is currently selected with the mouse */
@@ -556,6 +620,12 @@ public class WorldFrame extends JComponent {
 		tgt.y = (int) ((y+pos.y)*blockScale);
 		return tgt;
 		
+	}
+	
+	public Point worldPositionOnScreen(double x, double y) {
+		int X = (int) ((x+pos.x)*blockScale);
+		int Y = (int) ((y+pos.y)*blockScale);
+		return new Point(X, Y);
 	}
 	
 	//Scrollable Placement List

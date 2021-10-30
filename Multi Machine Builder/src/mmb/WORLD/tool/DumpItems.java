@@ -5,7 +5,6 @@ package mmb.WORLD.tool;
 
 import java.awt.Graphics;
 import java.awt.Point;
-import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.util.Collection;
 import java.util.Iterator;
@@ -14,7 +13,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import mmb.DATA.contents.texture.Textures;
-import mmb.WORLD.gui.Placer;
 import mmb.WORLD.items.ItemEntry;
 
 /**

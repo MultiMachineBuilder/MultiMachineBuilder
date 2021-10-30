@@ -22,7 +22,7 @@ import mmb.WORLD.items.ItemEntry;
  * @author oskar
  * This is a common interface for 
  */
-public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
+public interface Inventory extends Collection<@Nonnull ItemRecord>, RecipeOutput {
 	
 	//Recipe output methods
 	@Override
@@ -58,7 +58,7 @@ public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
 		return insert(arg0.item(), arg0.amount()) != 0;
 	}
 	@Override
-	default boolean addAll(Collection<? extends ItemRecord> c) {
+	default boolean addAll(@SuppressWarnings("null") Collection<? extends ItemRecord> c) {
 		boolean changed = false;
 		for(ItemRecord record: c) {
 			changed |= (insert(record.item(), record.amount())) != 0;
@@ -72,7 +72,7 @@ public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
 		}
 	}
 	@Override
-	default boolean contains(Object o) {
+	default boolean contains(@Nullable Object o) {
 		if(o instanceof ItemRecord) {
 			ItemRecord  got = nget(((ItemRecord) o).item());
 			if(got == null) return false;
@@ -81,21 +81,21 @@ public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
 		return false;
 	}
 	@Override
-	default boolean containsAll(Collection<?> c) {
+	default boolean containsAll(@SuppressWarnings("null") Collection<?> c) {
 		for(ItemRecord record: this) {
 			if(!c.contains(record)) return false;
 		}
 		return true;
 	}
 	@Override
-	default boolean remove(Object o) {
+	default boolean remove(@Nullable Object o) {
 		if(!(o instanceof ItemRecord)) return false;
 		ItemRecord record = nget(((ItemRecord)o).item());
 		if(record == null) return false;
 		return record.extract(record.amount()) != 0;
 	}
 	@Override
-	default boolean removeAll(Collection<?> c) {
+	default boolean removeAll(@SuppressWarnings("null") Collection<?> c) {
 		boolean changed = false;
 		for(ItemRecord record: this) {
 			if(c.contains(record)) {
@@ -105,7 +105,7 @@ public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
 		return changed;// TODO Auto-generated method stub
 	}
 	@Override
-	default boolean retainAll(Collection<?> c) {
+	default boolean retainAll(@SuppressWarnings("null") Collection<?> c) {
 		boolean changed = false;
 		for(ItemRecord record: this) {
 			if(!c.contains(record)) {
@@ -261,7 +261,7 @@ public interface Inventory extends Collection<ItemRecord>, RecipeOutput {
 	public static int howManyTimesThisContainsThat(Inventory main, Inventory sub) {
 		int result = Integer.MAX_VALUE;
 		for(ItemRecord record: sub) {
-			int small = record.amount();
+			int small = record.amount(); //the sub contains null records
 			ItemRecord mrecord = main.nget(record.item());
 			if(mrecord == null) return 0;
 			int big = mrecord.amount();

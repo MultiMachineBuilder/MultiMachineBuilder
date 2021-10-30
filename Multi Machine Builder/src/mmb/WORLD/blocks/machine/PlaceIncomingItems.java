@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.blocks.machine;
 
+import javax.annotation.Nonnull;
+
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
@@ -19,10 +21,10 @@ import mmb.debug.Debugger;
  */
 public class PlaceIncomingItems extends SkeletalBlockEntityRotary {
 	private static final Debugger debug = new Debugger("BLOCK PLACE MACHINE");
-	private InventoryWriter placer = (ent, amount) -> {
+	@Nonnull private InventoryWriter placer = (ent, amount) -> {
 		if(amount < 1) return 0;
 		BlockEntry blk = getAtSide(getRotation().U());
-		if(blk.type().isSurface()) return 0;
+		if(blk.isSurface()) return 0;
 		debug.printl("Item given");
 		if(ent instanceof Placer) {
 			debug.printl("Placer given, placing");

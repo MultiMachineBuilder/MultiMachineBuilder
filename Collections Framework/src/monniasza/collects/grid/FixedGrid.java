@@ -7,6 +7,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Objects;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
@@ -34,6 +35,12 @@ public class FixedGrid<T> implements Grid<T> {
 	private final Object[][] arr;
 	private final int h;
 	private final int w;
+	
+	@Nonnull public static <U> FixedGrid<U> fill(int w, int h, U data){
+		FixedGrid<U> grid = new FixedGrid<>(w, h);
+		grid.fill(0, 0, w, h, data);
+		return grid;
+	}
 	
 	/**
 	 * @param w width

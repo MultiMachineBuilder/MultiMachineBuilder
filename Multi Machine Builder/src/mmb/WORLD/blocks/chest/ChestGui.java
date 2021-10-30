@@ -7,10 +7,10 @@ import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
 import mmb.WORLD.gui.ColorGUI;
-import mmb.WORLD.player.Player;
 import mmb.WORLD.gui.inv.InventoryController;
 import mmb.WORLD.gui.inv.InventoryOrchestrator;
 import mmb.WORLD.gui.window.WorldWindow;
+import mmb.WORLD.worlds.world.Player;
 
 import javax.swing.JButton;
 import javax.annotation.Nonnull;
@@ -60,12 +60,12 @@ public class ChestGui extends JPanel{
 		refresh();
 	}
 	private static final long serialVersionUID = -3527290050616724746L;
-	private InventoryController playerCtrl;
+	@Nonnull private InventoryController playerCtrl;
 	@Nonnull private InventoryOrchestrator inventoryOrchestrator;
-	private InventoryController chestCtrl;
-	private JButton close;
-	private JButton color;
-	private MoveItems moveItems;
+	@Nonnull private InventoryController chestCtrl;
+	@Nonnull private JButton close;
+	@Nonnull private JButton color;
+	@Nonnull private MoveItems moveItems;
 	
 	private void refresh() {
 		chestCtrl.refresh();

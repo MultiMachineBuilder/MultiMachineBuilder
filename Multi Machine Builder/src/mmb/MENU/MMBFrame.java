@@ -20,10 +20,18 @@ public abstract class MMBFrame extends JFrame {
 	public boolean isUndergoingScreenTransform() {
 		return undergoingScreenTransform;
 	}
+	boolean isDisposing;
 	@Override
 	public synchronized void dispose() {
-		if(!undergoingScreenTransform) destroy();
-		super.dispose();
+		if(isDisposing) return;
+		try {
+			isDisposing = true;
+			if(!undergoingScreenTransform) destroy();
+			super.dispose();
+		}finally {
+			isDisposing = false;
+		}
+		
 	}
 	/**
 	 * Destroy any involved data, resetting for next set-up

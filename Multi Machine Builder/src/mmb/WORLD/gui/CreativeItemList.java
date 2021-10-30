@@ -7,6 +7,7 @@ import java.awt.Component;
 import java.awt.event.MouseEvent;
 import java.util.Vector;
 
+import javax.annotation.Nonnull;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
@@ -35,13 +36,13 @@ public class CreativeItemList extends JList<ItemType> {
 	}
 
 	private final ListCellRenderer<ItemType> cellrender = new ItemListCellRenderer();
-	public static class ItemListCellRenderer extends JLabel implements ListCellRenderer<ItemType>{
+	public static class ItemListCellRenderer extends JLabel implements ListCellRenderer<@Nonnull ItemType>{
 		private static final long serialVersionUID = -3535344904857285958L;
 		public ItemListCellRenderer() {
 			setOpaque(true);
 		}
 		@Override
-		public Component getListCellRendererComponent(JList<? extends ItemType> list, ItemType itemType, int index,
+		public Component getListCellRendererComponent(@SuppressWarnings("null") JList<? extends ItemType> list, ItemType itemType, int index,
 		boolean isSelected, boolean cellHasFocus) {
 			setIcon(itemType.getIcon());
 			setText(itemType.title());

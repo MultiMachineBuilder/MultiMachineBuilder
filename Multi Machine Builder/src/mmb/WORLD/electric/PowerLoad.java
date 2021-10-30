@@ -6,7 +6,7 @@ package mmb.WORLD.electric;
 import java.awt.Color;
 import java.awt.Dimension;
 
-import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -17,14 +17,12 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.block.BlockType;
-import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
-import mmb.debug.Debugger;
 
 /**
  * @author oskar
@@ -61,7 +59,6 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 			return result;
 		}	
 	}
-	private static final Debugger debug = new Debugger("ELEC LOAD");
 	private Electricity elec = new Elec(this);
 
 	@Override
@@ -70,7 +67,8 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 	}
 
 	@Override
-	public void load(@Nonnull JsonNode data) {
+	public void load(@Nullable JsonNode data) {
+		if(data == null) return;
 		setPower(data.get("power").asDouble());
 	}
 
@@ -105,10 +103,12 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 		private static final long serialVersionUID = 4755568394083395990L;
 		final JTextField field;
 		/**
+		 * Creates a power load dialog window
+		 * @param window 
 		 * @wbp.parser.entryPoint
 		 */
 		public Dialog(WorldWindow window) {
-			BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
+			setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 			JButton cancel = new JButton("Cancel");
 			cancel.setBackground(Color.RED);
 			cancel.addActionListener(e -> cancel(window));
@@ -135,7 +135,7 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		window.openAndShowWindow(new Dialog(window), "Power load");
 	}

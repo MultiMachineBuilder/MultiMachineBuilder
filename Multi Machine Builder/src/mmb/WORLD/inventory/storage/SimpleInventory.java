@@ -7,6 +7,8 @@ import java.util.Iterator;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import org.ainslec.picocog.PicoWriter;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import mmb.BEANS.Saver;
@@ -145,6 +147,7 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 		return volume;
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public Iterator<ItemRecord> iterator() {
 		return Collects.downcastIterator(contents.iterator());
@@ -205,5 +208,22 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 	@Override
 	public int size() {
 		return validItems;
+	}
+	
+	public String toString() {
+		PicoWriter writer = new PicoWriter();
+		writer.writeln("Volume: "+volume);
+		writer.writeln("Capacity: "+capacity);
+		writer.writeln("Size: "+contents.size());
+		writer.indentRight();
+		for(ItemRecord record: this) {
+			if(record == null) {
+				writer.writeln("NULL record");
+			}else {
+				writer.writeln(record.amount()+" × "+record.item());
+			}
+			
+		}
+		return writer.toString();
 	}
 }

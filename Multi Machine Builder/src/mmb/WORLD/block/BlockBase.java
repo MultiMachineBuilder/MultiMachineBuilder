@@ -46,8 +46,12 @@ public abstract class BlockBase extends Item implements BlockType {
 	}
 	@Override
 	public BlockType leaveBehind() {
-		if(leaveBehind == null) leaveBehind = ContentsBlocks.grass;
-		return leaveBehind;
+		BlockType leave0 = leaveBehind;
+		if(leave0 == null) {
+			leaveBehind = ContentsBlocks.grass;
+			return ContentsBlocks.grass;
+		}
+		return leave0;
 	}
 	@Override
 	public Drop getDrop() {
@@ -68,7 +72,7 @@ public abstract class BlockBase extends Item implements BlockType {
 	public void register(String id) {
 		Objects.requireNonNull(id, "id is null");
 		if(leaveBehind == null) leaveBehind = ContentsBlocks.grass;
-		this.id = id;
+		setID(id);
 		register();
 	}
 	
@@ -170,7 +174,6 @@ public abstract class BlockBase extends Item implements BlockType {
 		setVolume(volume);
 		return this;
 	}
-
 	
 	private int pickaxe = 0;
 	@Override

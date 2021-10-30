@@ -5,6 +5,8 @@ package mmb.WORLD.block;
 
 import java.util.Objects;
 
+import javax.annotation.Nullable;
+
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.item.Items;
 import mmb.debug.Debugger;
@@ -25,7 +27,6 @@ public class Blocks {
 	@SuppressWarnings("null")
 	public static final SelfSet<String, BlockType> blocks = Collects.unmodifiableSelfSet(_blocks);
 	
-	@SuppressWarnings("null")
 	public static void register(BlockType type) {
 		Objects.requireNonNull(type, "The block must not be null");
 		Objects.requireNonNull(type.id(), "The block's ID can't be null");
@@ -48,7 +49,7 @@ public class Blocks {
 	 * @param name ID of the block
 	 * @return a block with given name, or null if not found
 	 */
-	public static BlockType get(String name) {
+	public static BlockType get(@Nullable String name) {
 		return _blocks.get(name);
 	}
 	/**

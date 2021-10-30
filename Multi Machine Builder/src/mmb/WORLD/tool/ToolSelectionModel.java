@@ -5,6 +5,7 @@ package mmb.WORLD.tool;
 
 import java.awt.Graphics;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.Icon;
 
@@ -12,7 +13,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import mmb.WORLD.gui.window.WorldWindow;
-import mmb.WORLD.player.Player;
+import mmb.WORLD.worlds.world.Player;
 import mmb.debug.Debugger;
 
 /**
@@ -22,18 +23,18 @@ import mmb.debug.Debugger;
 public class ToolSelectionModel {
 	private WindowTool toolIL;
 	private WindowTool toolTL;
-	public final WorldWindow window;
+	@Nonnull public final WorldWindow window;
 	private static final Debugger debug = new Debugger("TOOL SELECTOR");
 	public ToolSelectionModel(WorldWindow window) {
 		this.window = window;
 	}
 
-	public void toolSelectedItemList(WindowTool tool) {
+	public void toolSelectedItemList(@Nullable WindowTool tool) {
 		debug.printl("IL tool: "+tool);
 		toolIL = tool;
 		resetTools();
 	}
-	public void toolSelectedToolList(WindowTool tool) {
+	public void toolSelectedToolList(@Nullable WindowTool tool) {
 		debug.printl("TL tool: "+tool);
 		toolTL = tool;
 		resetTools();
@@ -90,8 +91,7 @@ public class ToolSelectionModel {
 
 		@Override
 		public String title() {
-			// TODO Auto-generated method stub
-			return null;
+			return "Dummy tool";
 		}
 
 		@Override

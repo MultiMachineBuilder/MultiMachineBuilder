@@ -9,6 +9,7 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
@@ -24,11 +25,11 @@ import mmb.WORLD.worlds.world.World;
 public class Block extends BlockBase implements BlockEntry{
 	@Override
 	public String toString() {
-		return "Block " + title + "(" + id + ")";
+		return "Block " + title() + "(" + id() + ")";
 	}
 	@Override
 	public @Nonnull JsonNode save() {
-		return new TextNode(id);
+		return new TextNode(id());
 	}
 	@Override
 	public BlockType type() {
@@ -201,7 +202,7 @@ public class Block extends BlockBase implements BlockEntry{
 		return this;
 	}
 	@Override
-	public void resetMap(World map, int x, int y) {
+	public void resetMap(@Nullable World map, int x, int y) {
 		//does nothing
 	}
 

@@ -7,13 +7,13 @@ import javax.swing.border.EmptyBorder;
 import mmb.DATA.Settings;
 import mmb.MENU.main.MainMenu;
 import mmb.MODS.loader.ModLoader;
-import mmb.debug.Debugger;
-
 import javax.swing.JLabel;
 import java.io.File;
 import net.miginfocom.swing.MigLayout;
 
 public class Loading extends JFrame {
+	private static final long serialVersionUID = -8763636851592865062L;
+	
 	private final JPanel contentPane;
 	JLabel st1 = new JLabel("State 1");
 	JLabel st2 = new JLabel("State 2");

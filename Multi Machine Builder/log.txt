@@ -15,6 +15,8 @@
 (TEXTURES) Loading texture: block/copper block.png
 (TEXTURES) Loading texture: block/copper crop.png
 (TEXTURES) Loading texture: block/copper ore.png
+(TEXTURES) Loading texture: block/frame.png
+(TEXTURES) Loading texture: block/framesolid.png
 (TEXTURES) Loading texture: block/gold crop.png
 (TEXTURES) Loading texture: block/gold ore.png
 (TEXTURES) Loading texture: block/gravel.png
@@ -23,6 +25,7 @@
 (TEXTURES) Loading texture: block/iron ore.png
 (TEXTURES) Loading texture: block/leaves.png
 (TEXTURES) Loading texture: block/message.png
+(TEXTURES) Loading texture: block/metal.png
 (TEXTURES) Loading texture: block/sand.png
 (TEXTURES) Loading texture: block/silicon block.png
 (TEXTURES) Loading texture: block/silicon crop.png
@@ -74,6 +77,7 @@
 (TEXTURES) Loading texture: item/depleted rod.png
 (TEXTURES) Loading texture: item/depleted uranium ingot.png
 (TEXTURES) Loading texture: item/diamond.png
+(TEXTURES) Loading texture: item/frame 1.png
 (TEXTURES) Loading texture: item/gold ingot.png
 (TEXTURES) Loading texture: item/gold nugget.png
 (TEXTURES) Loading texture: item/gold wire.png
@@ -85,6 +89,7 @@
 (TEXTURES) Loading texture: item/lisc.png
 (TEXTURES) Loading texture: item/platinum ingot.png
 (TEXTURES) Loading texture: item/quantum pick.png
+(TEXTURES) Loading texture: item/ring 1.png
 (TEXTURES) Loading texture: item/silicon ingot.png
 (TEXTURES) Loading texture: item/silicon nugget.png
 (TEXTURES) Loading texture: item/silver ingot.png
@@ -187,6 +192,7 @@
 (TEXTURES) Loading texture: machine/autoassembly 4.png
 (TEXTURES) Loading texture: machine/autoassembly 5.png
 (TEXTURES) Loading texture: machine/autoassembly 6.png
+(TEXTURES) Loading texture: machine/AutoCrafter 1.png
 (TEXTURES) Loading texture: machine/block BP interface.png
 (TEXTURES) Loading texture: machine/block break interface.png
 (TEXTURES) Loading texture: machine/block place interface.png
@@ -213,6 +219,7 @@
 (TEXTURES) Loading texture: machine/pipe biturn.png
 (TEXTURES) Loading texture: machine/pipe bridged.png
 (TEXTURES) Loading texture: machine/pipe elbow.png
+(TEXTURES) Loading texture: machine/pipe exit.png
 (TEXTURES) Loading texture: machine/pipe merge left.png
 (TEXTURES) Loading texture: machine/pipe merge right.png
 (TEXTURES) Loading texture: machine/pipe oneway.png
@@ -230,6 +237,8 @@
 (TEXTURES) Loading texture: machine/power/vthick center.png
 (TEXTURES) Loading texture: machine/power/vthick connector.png
 (TEXTURES) Loading texture: machine/power/vthick wire.png
+(TEXTURES) Loading texture: machine/ppipe straight.png
+(TEXTURES) Loading texture: machine/ppipe turn.png
 (TEXTURES) Loading texture: machine/smelter active.png
 (TEXTURES) Loading texture: machine/smelter inert 2.png
 (TEXTURES) Loading texture: machine/smelter inert.png
@@ -289,7 +298,7 @@
 (TEXTURES) Loading texture: UIs/orange signpost.png
 (TEXTURES) Loading texture: UIs/red signpost.png
 (TEXTURES) Loading texture: UIs/yellow signpost.png
-(BLOCKS) Adding wireworld.wire with title WireWorld conductor and descripion:
+(BLOCKS) Adding wireworld.wire with title WireWorld cell and descripion:
 null
 (BLOCKS) Adding wireworld.head with title WireWorld head and descripion:
 null
@@ -369,7 +378,7 @@ null
 null
 (BLOCKS) Adding wireworld.lamp with title Lamp and descripion:
 null
-(BLOCKS) Adding machines.placer with title Block Placer and descripion:
+(BLOCKS) Adding machines.placer with title Creative Block Placer and descripion:
 null
 (BLOCKS) Adding machines.clicker with title Block Clicking Claw and descripion:
 null
@@ -398,6 +407,14 @@ null
 (BLOCKS) Adding crop.tree with title Tree and descripion:
 null
 (BLOCKS) Adding machines.pickbuilder with title Pickaxe workbench and descripion:
+null
+(BLOCKS) Adding industry.autocraft1 with title AutoCrafter 3X3 and descripion:
+null
+(BLOCKS) Adding playerpipe.straight with title Player Pipe - straight and descripion:
+null
+(BLOCKS) Adding playerpipe.bend with title Player Pipe - turn and descripion:
+null
+(BLOCKS) Adding playerpipe.end with title Player Pipe - end and descripion:
 null
 (BLOCKS) Creating blocks
 (BLOCKS) Adding mmb.air with title Air and descripion:
@@ -439,73 +456,72 @@ A pair of curved pipes.
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
 (MOD-LOADER) Found 2 mod files
-(MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
-(MOD - mmb-DE.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
-(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
+((MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+MOD - mmb-DE.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
 (MOD - mmb-DE.jar) Loading a modfile: mmb-DE.jar
+(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
 (MOD - HelloWorld 0.5.jar) entry: META-INF/MANIFEST.MF
 (MOD - mmb-DE.jar) entry: META-INF/MANIFEST.MF
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - mmb-DE.jar) entry: .project
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - mmb-DE.jar) entry: .classpath
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) entry: .project
 (MOD - HelloWorld 0.5.jar) entry: .classpath
 (MOD - HelloWorld 0.5.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (MOD - mmb-DE.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
-(MOD - HelloWorld 0.5.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
-(MOD - mmb-DE.jar) Processing .classpath
+(MOD - HelloWorld 0.5.jar) (MOD - mmb-DE.jar) Processing .classpath
+Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD - mmb-DE.jar) File: .classpath
-((MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
-MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - mmb-DE.jar(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
-) entry: mmbmods/lang/de/German.class
-(MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
-(MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
+(MOD - HelloWorld 0.5.jar) Processing .classpath
+(MOD - mmb-DE.jar) Processing .project
+(MOD - HelloWorld 0.5.jar) File: .classpath
+(MOD - mmb-DE.jar) File: .project
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) (MOD - mmb-DE.jar) Processing META-INF/MANIFEST.MF
+Processing mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) Processing .project
+(MOD - HelloWorld 0.5.jar) File: .project
+(MOD - mmb-DE.jar) File: META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5.jar) Processing META-INF/MANIFEST.MF
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
+(MOD - HelloWorld 0.5.jar) File: META-INF/MANIFEST.MF
+(MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
+(MOD - HelloWorld 0.5.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - HelloWorld 0.5.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
 (MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - mmb-DE.jar) Class: mmbmods.lang.de.package-info
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWBlock
-(MOD - mmb-DE.jar) Processing .project
-(MOD - mmb-DE.jar) File: .project
-(MOD - mmb-DE.jar) Processing META-INF/MANIFEST.MF
-(MOD - mmb-DE.jar) File: META-INF/MANIFEST.MF
-(MOD - HelloWorld 0.5.jar) Processing .classpath
-(MOD - HelloWorld 0.5.jar) File: .classpath
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.package-info
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWMachine
-(MOD - HelloWorld 0.5.jar) Processing .project
-(MOD - HelloWorld 0.5.jar) File: .project
-(MOD - HelloWorld 0.5.jar) Processing META-INF/MANIFEST.MF
-(MOD - HelloWorld 0.5.jar) File: META-INF/MANIFEST.MF
-(MOD - HelloWorld 0.5.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - HelloWorld 0.5.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (HW) Hello, world!
-(MOD-LOADER) Start 1st stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) Start 1st stage for Hello, world!
-(MOD-LOADER) End 1st stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) End 1st stage for Hello, world!
-(MOD-LOADER) Start 2nd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) Start 2nd stage for Hello, world!
+(MOD-LOADER) Start 1st stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) End 1st stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) Start 2nd stage for MultiMachineBuilder German/Deutsch(MOD-LOADER) Start 2nd stage for Hello, world!
+
 (MOD-LOADER) End 2nd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER(MOD-LOADER) ) Start 3rd stage for Hello, world!
-Start 3rd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) Start 3rd stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) End 3rd stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) ================MOD INFORMATION FOR MultiMachineBuilder German/Deutsch================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
@@ -517,75 +533,35 @@ Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
 (MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Sat Sep 25 20:11:38 CEST 2021
+(MOD-LOADER) RELEASED Fri Oct 29 17:13:00 CEST 2021
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) HOORAY, IT'S OVER!
 (HW) Successfully created Rainbow Machine
-(HW) Successfully created Rainbow Machine
-(BLOCKS) Adding wireworld.hw with title Hello, world! and descripion:
-null
 (BLOCKS) Adding wireworld.hw with title Hello, world! and descripion:
 null
 (MOD-LOADER) End 2nd stage for Hello, world!
+(MOD-LOADER) Start 3rd stage for Hello, world!
+(HW) Successfully created Rainbow Machine
+(BLOCKS) Adding wireworld.hw with title Hello, world! and descripion:
+null
 (MOD-LOADER) End 3rd stage for Hello, world!
 (Main menu) MainMenu created
 (SELECT A SAVE) Found save: Agriculture test.mworld
 (SELECT A SAVE) Found save: Block Clicking Claw.mworld
-(SELECT A SAVE) Found save: Example Base.mworld
-(SELECT A SAVE) Found save: IT without pipes.mworld
-(SELECT A SAVE) Found save: ItemEntitites.mworld
-(SELECT A SAVE) Found save: items.mworld
+(SELECT A SAVE) Found save: Let's Play.mworld
 (SELECT A SAVE) Found save: main.mworld
-(SELECT A SAVE) Found save: MultiBiome 2.mworld
-(SELECT A SAVE) Found save: MultiBiome 3.mworld
-(SELECT A SAVE) Found save: MultiBiome 4.mworld
-(SELECT A SAVE) Found save: ProSmelt.mworld
+(SELECT A SAVE) Found save: survival.mworld
 (SELECT A SAVE) Found save: test binder.mworld
 (SELECT A SAVE) Found save: Test BPI.mworld
-(SELECT A SAVE) Found save: Test chirality.mworld
-(SELECT A SAVE) Found save: Test crops.mworld
 (SELECT A SAVE) Found save: Test electricity.mworld
 (SELECT A SAVE) Found save: Test pipes.mworld
-(SELECT A SAVE) Found save: Test world gen.mworld
+(SELECT A SAVE) Found save: Test player.mworld
+(SELECT A SAVE) Found save: Test tube.mworld
 (SELECT A SAVE) Found save: Test.mworld
-(SELECT A SAVE) Found 19 saves
+(SELECT A SAVE) Found 12 saves
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@28788c
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting(WORLDS) Opening a new world
-(MAP anonymous) Block entity at [-3,-3] took exceptionally long to run
-(TOOL-STANDARD) Running BlockActivateListener for: [-3,-3]
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(WORLD - main null) Exiting(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@5ef1e
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - anonymous) Exiting(WORLDS) Opening a new world
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(WORLD - main null) Exiting(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@13cec
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@d29388
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -596,18 +572,28 @@ null
 (ITEMS) Attempting to load a non-data item
 (ITEMS) Attempting to load a non-data item
 (ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
 (MAP anonymous) Became anonymous
 (SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting(WORLDS) Opening a new world
-(MAP anonymous) Block entity at [-16,-3] took exceptionally long to run
-(MAP anonymous) Block entity at [-13,-6] took exceptionally long to run
-(MAP anonymous) Block entity at [-11,-8] took exceptionally long to run
+(WORLD - IDLE) Exiting
+(WORLDS) Opening a new world
+(MAP anonymous) Block entity at [-16,0] took exceptionally long to run
+(MAP anonymous) Block entity at [-6,-11] took exceptionally long to run
+(MAP anonymous) Block entity at [-6,-11] took exceptionally long to run
+(MAP anonymous) Block entity at [-16,0] took exceptionally long to run
+(MAP anonymous) Block entity at [-7,-11] took exceptionally long to run
+(MAP anonymous) Block entity at [-7,-11] took exceptionally long to run
+(MAP anonymous) Block entity at [2,-17] took exceptionally long to run
+(MAP anonymous) Block entity at [-6,-11] took exceptionally long to run
+(MAP anonymous) Block entity at [-6,-11] took exceptionally long to run
+(MAP anonymous) Block entity at [2,-13] took exceptionally long to run
+(MAP anonymous) Block entity at [-6,-11] took exceptionally long to run
+(MAP anonymous) Block entity at [-16,0] took exceptionally long to run
+(MAP anonymous) Block entity at [-6,-11] took exceptionally long to run
+(MAP anonymous) Block entity at [2,-13] took exceptionally long to run
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
-(WORLD - main null) Exiting(MAP anonymous) Destroying
+(WORLD TEST) Saving the world
+(WORLD TEST) Saved the world
+(WORLD - main null) Exiting
+(MAP anonymous) Destroying
 (MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(SETTINGS) Saved settings file

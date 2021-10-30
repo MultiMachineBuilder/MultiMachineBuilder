@@ -16,7 +16,6 @@ import mmb.BEANS.*;
 import mmb.DATA.Save;
 import mmb.DATA.contents.texture.Textures;
 import mmb.GRAPHICS.awt.MappedColorTexture;
-import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.window.WorldWindow;
@@ -48,10 +47,11 @@ public class Chest extends AbstractChest implements BlockActivateListener, Color
 		return ContentsBlocks.CHEST;
 	}
 
+	@SuppressWarnings("null")
 	@Override
-	protected void load1(JsonNode node) {
-		inv.capacity = 6;
-		ObjectNode on = (ObjectNode) node;
+	protected void load1(ObjectNode node) {
+		inv.setCapacity(6);
+		ObjectNode on = node;
 		JsonNode cnode = on.get("color");
 		if(!(cnode == null || cnode.isMissingNode() || cnode.isNull()))
 			setColor(Save.loadColor(cnode));
@@ -59,12 +59,14 @@ public class Chest extends AbstractChest implements BlockActivateListener, Color
 			setColor(Color.WHITE);
 	}
 
+	@SuppressWarnings("null")
 	@Override
-	protected void save1(JsonNode node) {
-		ObjectNode on = (ObjectNode) node;
+	protected void save1(ObjectNode node) {
+		ObjectNode on = node;
 		on.set("color", Save.saveColor(c));
 	}
 
+	@SuppressWarnings("null")
 	private final MappedColorTexture texture = new MappedColorTexture(Color.WHITE, Color.WHITE, origTexture);
 	@Override
 	public void render(int x, int y, Graphics g, int side) {
@@ -76,6 +78,7 @@ public class Chest extends AbstractChest implements BlockActivateListener, Color
 		if(window == null) return;
 		window.openAndShowWindow(new ChestGui(this, window), "chest");
 	}
+	@SuppressWarnings("null")
 	@Override
 	public Chest clone() {
 		Chest copy = (Chest) super.clone();

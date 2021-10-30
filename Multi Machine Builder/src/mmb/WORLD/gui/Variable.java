@@ -14,6 +14,7 @@ import mmb.ERRORS.UndeclarableThrower;
 
 /**
  * @author oskar
+ * @param <T> type of variable
  *
  */
 public interface Variable<T> {
@@ -42,7 +43,7 @@ public interface Variable<T> {
 		};
 	}
 	
-	public static <U> Variable<U> delegate(Field field, Object obj){
+	public static @Nonnull <U> Variable<U> delegate(Field field, Object obj){
 		return new Variable<U>(){
 
 			@SuppressWarnings("unchecked")
@@ -68,11 +69,11 @@ public interface Variable<T> {
 		};
 	}
 
-	public static <U> Variable<U> ofArraySlot(int slot, U[] array){
+	public static @Nonnull <U> Variable<U> ofArraySlot(int slot, U[] array){
 		return delegate(() -> array[slot], val -> array[slot] = val);
 	}
 	
-	public static <U> Variable<U> ofListSlot(int slot, List<U> array){
+	public static @Nonnull <U> Variable<U> ofListSlot(int slot, List<U> array){
 		return delegate(() -> array.get(slot), val -> array.set(slot, val));
 	}
 }

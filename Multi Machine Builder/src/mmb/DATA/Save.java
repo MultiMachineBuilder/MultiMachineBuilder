@@ -21,7 +21,7 @@ import monniasza.collects.grid.Grid;
  */
 public class Save {
 	private Save() {}
-	@Nonnull public static <T> FixedGrid<T> loadGrid(Function<JsonNode, T> itemLoader, ArrayNode array){
+	@Nonnull public static <T> FixedGrid<T> loadGrid(Function<JsonNode, @Nonnull T> itemLoader, ArrayNode array){
 		int width = array.get(0).asInt();
 		int height = array.get(1).asInt();
 		FixedGrid<T> grid = new FixedGrid<>(width, height);
@@ -46,7 +46,7 @@ public class Save {
 		return array;
 	}
 	
-	public static ArrayNode saveColor(Color c) {
+	@Nonnull public static ArrayNode saveColor(Color c) {
 		ArrayNode result = JsonTool.newArrayNode();
 		result.add(c.getRed());
 		result.add(c.getGreen());
@@ -54,7 +54,7 @@ public class Save {
 		result.add(c.getAlpha());
 		return result;
 	}
-	public static Color loadColor(JsonNode node) {
+	@Nonnull public static Color loadColor(JsonNode node) {
 		int r = node.get(0).asInt(0);
 		int g = node.get(1).asInt(0);
 		int b = node.get(2).asInt(0);

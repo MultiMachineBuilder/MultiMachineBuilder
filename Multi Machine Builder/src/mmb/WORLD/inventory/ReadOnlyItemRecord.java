@@ -16,8 +16,7 @@ public class ReadOnlyItemRecord implements ItemRecord{
 	 * @return
 	 */
 	public static ItemRecord decorate(ItemRecord itemRecord) {
-		// TODO Auto-generated method stub
-		return null;
+		return new ReadOnlyItemRecord(itemRecord);
 	}
 
 	private final ItemRecord rec;

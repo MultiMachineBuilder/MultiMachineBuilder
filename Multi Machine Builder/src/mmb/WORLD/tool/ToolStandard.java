@@ -5,6 +5,7 @@ package mmb.WORLD.tool;
 
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -17,19 +18,22 @@ import mmb.WORLD.gui.window.WorldFrame;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.rotate.Rotable;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 
 /**
  * @author oskar
- *
+ * This class defines a standard tool, applicable to most items.
  */
 public class ToolStandard extends WindowTool{
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if(frame.ctrlPressed()) {
 			mousePressedCtrl(e);
+			return;
+		}
+		if(frame.shiftPressed()) {
+			mousePressedShift(e);
 			return;
 		}
 		int x = frame.getMouseoverBlockX();
@@ -77,21 +81,50 @@ public class ToolStandard extends WindowTool{
 		switch(e.getButton()) {
 		case 1: //LMB
 			//Turn CCW
-			if(block instanceof Rotable) 
-				((Rotable)block).ccw();
+			block.ccw();
 			break;
 		case 2: //MMB
 			//Turn around
-			if(block instanceof Rotable) {
-				((Rotable)block).ccw();
-				((Rotable)block).ccw();
-			}
+			block.ccw();
+			block.ccw();
 			break;
 		case 3: //RMB
 			//Turn CW
-			if(block instanceof Rotable) {
-				((Rotable)block).cw();
+			block.cw();
+		}
+	}
+	private void mousePressedShift(MouseEvent e) {
+		int x = frame.getMouseoverBlockX();
+		int y = frame.getMouseoverBlockY();
+		World map = frame.getMap();
+		switch(e.getButton()) {
+		case 1: //LMB
+			//Place
+			if(map.inBounds(x, y)) {
+				ItemEntry item = frame.getPlacer().getSelectedValue().item();
+				if(item instanceof Placer) {
+					((Placer)item).place(x, y, map);
+				}
 			}
+			break;
+		case 2: //MMB
+			//Go here
+			frame.perspective.x = -x;
+			frame.perspective.y = -y;
+			break;
+		case 3: //RMB
+			//Mine
+			if(map.removeMachine(x, y)) {
+				debug.printl("Removed machine");
+				return;
+			}
+			//Drop if needed
+			if(!frame.getPlayer().creative.getValue()) {
+				//The player is survival, requires pickaxe
+				return;
+			}
+			BlockEntry block = frame.getMap().get(x, y);
+			block.type().leaveBehind().place(x, y, map);
 		}
 	}
 	private WorldFrame frame;
@@ -122,7 +155,42 @@ public class ToolStandard extends WindowTool{
 	}
 	@Override
 	public String description() {
-		return "Press LMB to place, RMB to open menu, Ctrl+LMB to turn CCW, Ctrl+RMB to turn CW, Shift+LMB to reverse chirality";
+		return "Press LMB to place, RMB to open menu"
+				+ "\nCtrl+LMB to turn CCW, Ctrl+RMB to turn CW, Shift+LMB to reverse chirality"
+				+ "\nShift+LMB to place, Shift+MMB to go to the mouse pointer, Shift+RB to mine"
+				+ "\nI to flip on |, J to flip \\, K to flip ― and L to flip /";
 	}
-
+	@Override
+	public void keyPressed(KeyEvent e) {
+		World map = frame.getMap();
+		if(!map.inBounds(bx, by)) return;
+		BlockEntry ent = map.get(bx, by);
+		switch(e.getKeyCode()) {
+		case KeyEvent.VK_I:
+			ent.flipH();
+			debug.printl("Flipped");
+			break;
+		case KeyEvent.VK_J:
+			ent.flipNW();
+			debug.printl("Flipped");
+			break;
+		case KeyEvent.VK_K:
+			ent.flipV();
+			debug.printl("Flipped");
+			break;
+		case KeyEvent.VK_L:
+			ent.flipNE();
+			debug.printl("Flipped");
+			break;
+		default:
+			break;
+		}
+	}
+	private int bx, by;
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		bx = frame.getMouseoverBlockX();
+		by = frame.getMouseoverBlockY();
+	}
+	
 }

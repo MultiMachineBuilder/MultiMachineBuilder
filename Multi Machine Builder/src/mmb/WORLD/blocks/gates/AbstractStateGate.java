@@ -22,18 +22,31 @@ public abstract class AbstractStateGate extends AbstractUnaryGateBase {
 
 	protected boolean state;
 	@Override
-	protected void save1(ObjectNode node) {
+	protected final void save1(ObjectNode node) {
 		node.put("state", state);
+		save2(node);
 	}
 
 	@Override
-	protected void load1(ObjectNode node) {
+	protected final void load1(ObjectNode node) {
 		state = node.get("state").asBoolean();
+		load2(node);
 	}
 	
-	protected void save2(ObjectNode node) {}
-
-	protected void load2(ObjectNode node) {}
+	/**
+	 * Additional function used to save additional data
+	 * @param node node, to which data can be saved
+	 */
+	protected void save2(ObjectNode node) {
+		//optional
+	}
+	/**
+	 * Additional function used to save additional data
+	 * @param node node, to which data can be loaded
+	 */
+	protected void load2(ObjectNode node) {
+		//optional
+	}
 	
 	protected abstract RotatedImageGroup getOnImage();
 	protected abstract RotatedImageGroup getOffImage();

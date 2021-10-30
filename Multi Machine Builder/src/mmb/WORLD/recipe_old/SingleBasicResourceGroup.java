@@ -3,6 +3,7 @@
  */
 package mmb.WORLD.recipe_old;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,5 +27,14 @@ public class SingleBasicResourceGroup implements RecipeGroup {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public void getRecipes(Inventory inv, Collection<Recipe> out) {
+		for(ItemRecord record: inv) {
+			if(recipes.containsKey(record.item())) {
+				out.add(new BasicRecipe(recipes.get(record.item()), record.item()));
+			}
+		}
 	}
 }

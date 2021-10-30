@@ -39,7 +39,7 @@ public class Battery implements Electricity, Saver<JsonNode>{
 
 	/**
 	 * Creates a copy of the battery
-	 * @param inElec battery to copy
+	 * @param bat battery to copy
 	 */
 	public Battery(Battery bat) {
 		maxPower = bat.maxPower;

@@ -9,6 +9,7 @@ import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Nonnull;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -27,7 +28,7 @@ import mmb.WORLD.gui.inv.MoveItems;
 class MachineGUI extends JPanel implements AutoCloseable{
 	private static final long serialVersionUID = -4029353853474275301L;
 	private final SideConfigCtrl sie, soe, sii, soi;
-	private InventoryController playerController;
+	@Nonnull private InventoryController playerController;
 	private final Component main;
 	private final List<InventoryController> invctrls = new ArrayList<>();
 	

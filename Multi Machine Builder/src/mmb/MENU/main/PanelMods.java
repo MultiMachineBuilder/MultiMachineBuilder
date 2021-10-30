@@ -84,7 +84,7 @@ public class PanelMods extends JPanel {
 			descr = mod.mmbmod.description;
 			author = mod.mmbmod.author;
 		}
-		String state = mod.state.toString();
+		String state = mod.state.title;
 		String ver = "";
 		String name = mod.name;
 		tablemodel.addRow(new Object[] {name, descr, state, release, ver, author});

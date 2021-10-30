@@ -113,11 +113,11 @@ public class BlockEntityType extends BlockBase{
 	}
 
 	//Factory
-	private Supplier<BlockEntity> factory;
+	private Supplier<@Nonnull BlockEntity> factory;
 	/**
 	 * @param factory the factory to set
 	 */
-	public void setFactory(Supplier<BlockEntity> factory) {
+	public void setFactory(Supplier<@Nonnull BlockEntity> factory) {
 		this.factory = factory;
 	}
 	

@@ -8,6 +8,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 
 import mmb.WORLD.gui.window.WorldWindow;
+import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.items.ItemEntry;
@@ -27,13 +28,15 @@ import java.awt.Dimension;
  *
  */
 public class PickaxeGUI extends JPanel {
+	private static final long serialVersionUID = -7967104797035980435L;
 	private ItemType crafted = null;
 	public PickaxeGUI(WorldWindow window) {
 		setLayout(new MigLayout("", "[grow][]", "[grow][][][]"));
 		
 		InventoryController inventoryController = new InventoryController();
 		add(inventoryController, "cell 0 0 1 4,grow");
-		inventoryController.setInv(window.getPlayer().inv);
+		Inventory inv= window.getPlayer().inv;
+		inventoryController.setInv(inv);
 		
 		ItemSelectionSlot slot = new ItemSelectionSlot();
 		add(slot, "cell 1 0");
@@ -57,8 +60,10 @@ public class PickaxeGUI extends JPanel {
 		JButton btnCraft = new JButton("< Craft");
 		btnCraft.addActionListener(e -> {
 			if(crafted != null) {
-				ItemEntry item = crafted.create();
-				Craftings.transact(slot.getSelection(), item, inventoryController.getInv(), inventoryController.getInv());
+				ItemEntry result = crafted.create();
+				ItemEntry sel = slot.getSelection();
+				if(sel == null) return;
+				Craftings.transact(sel, result, inv, inv);
 				inventoryController.refresh();
 			}
 		});

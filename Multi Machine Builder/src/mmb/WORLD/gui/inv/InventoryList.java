@@ -6,6 +6,7 @@ package mmb.WORLD.gui.inv;
 import java.awt.Component;
 import java.awt.Graphics;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
@@ -66,13 +67,13 @@ public class InventoryList extends JList<ItemRecord> {
 		}
 	}
 	
-	public static class ItemListCellRenderer extends JLabel implements ListCellRenderer<ItemRecord>{
+	public static class ItemListCellRenderer extends JLabel implements ListCellRenderer<@Nonnull ItemRecord>{
 		private static final long serialVersionUID = -3535344904857285958L;
 		public ItemListCellRenderer() {
 			setOpaque(true);
 		}
 		@Override
-		public Component getListCellRendererComponent(JList<? extends ItemRecord> list, ItemRecord itemType, int index,
+		public Component getListCellRendererComponent(@SuppressWarnings("null") JList<? extends ItemRecord> list, ItemRecord itemType, int index,
 		boolean isSelected, boolean cellHasFocus) {
 			setIcon(itemType.id().type().getIcon());
 			setText(itemType.id().title() + " × " + itemType.amount());

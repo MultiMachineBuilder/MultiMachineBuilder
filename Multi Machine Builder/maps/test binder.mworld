@@ -21,14 +21,17 @@
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "pipe.toright",
       "side" : "N",
+      "dir" : false,
       "items" : [ null, null, null ]
     }, {
       "blocktype" : "pipe.L",
       "side" : "E",
+      "dir" : false,
       "items" : [ null, null ]
     }, {
       "blocktype" : "pipe.I",
       "side" : "E",
+      "dir" : false,
       "items" : [ null, null ]
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "itemsystem.mover",

@@ -3,6 +3,8 @@
  */
 package mmb.BEANS;
 
+import javax.annotation.Nonnull;
+
 /**
  * @author oskar
  *
@@ -12,5 +14,5 @@ public interface Titled {
 	/**
 	 * @return the GUI title
 	 */
-	public String title();
+	public @Nonnull String title();
 }

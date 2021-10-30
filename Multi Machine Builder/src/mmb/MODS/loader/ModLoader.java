@@ -3,8 +3,6 @@
  */
 package mmb.MODS.loader;
 
-import static mmb.Loading.*;
-
 import java.io.*;
 import java.net.MalformedURLException;
 import java.nio.file.*;
@@ -25,9 +23,9 @@ import mmb.MENU.FullScreen;
 import mmb.MODS.info.AddonState;
 import mmb.SOUND.MP3Loader;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.blocks.machine.Furnace;
+import mmb.WORLD.blocks.ipipe.Pipes;
 import mmb.WORLD.blocks.machine.Nuker;
-import mmb.WORLD.blocks.pipe.Pipes;
+import mmb.WORLD.blocks.machine.line.Furnace;
 import mmb.WORLD.generator.Generators;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.tool.Tools;
@@ -333,7 +331,7 @@ public final class ModLoader {
 			debug.printl("================MOD INFORMATION FOR " + ai.name + "================");
 			debug.printl("LOCATED AT " + ai.path);
 
-			debug.printl(ai.state.toString());
+			debug.printl(ai.state.title);
 			try {
 				switch(ai.state) {
 				case DEAD:

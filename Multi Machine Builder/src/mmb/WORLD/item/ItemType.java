@@ -3,6 +3,7 @@
  */
 package mmb.WORLD.item;
 
+import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -38,8 +39,8 @@ public interface ItemType extends Titled, Identifiable<String>{
 	/**
 	 * @return a new instance of the item
 	 */
-	public ItemEntry create();
-	public default ItemEntry loadItem(JsonNode node) {
+	@Nonnull public ItemEntry create();
+	@Nonnull public default ItemEntry loadItem(JsonNode node) {
 		ItemEntry item = create();
 		item.load(node);
 		return item;

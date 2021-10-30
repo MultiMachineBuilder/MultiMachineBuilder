@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.generator;
 
+import javax.annotation.Nonnull;
+
 import mmb.RANDOM.GeometricRandom;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.block.BlockEntry;
@@ -11,6 +13,7 @@ import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
+import java.awt.Rectangle;
 
 /**
  * @author oskar
@@ -18,12 +21,21 @@ import monniasza.collects.grid.Grid;
  */
 public class GeneratorMultiBiome implements Generator {
 	private final Debugger debug = new Debugger("WORLD GEN MULTIBIOME");
+	private static final Rectangle rect = new Rectangle(-1, -1, 2, 2);
+	private Rectangle chunk = new Rectangle();
 	@Override
 	public Grid<BlockEntry> genChunk(World map, int minX, int minY, int w, int h) {
 		long biomen = random.getLong(minY + ((minX * 991) ^ 0x12433653), minY << 8, 2);
 		biomen = biomen % biomes.length;
 		if(biomen < 0) biomen += biomes.length;
 		Biome biome = biomes[(int) biomen];
+		//If this chunk touches a [(-1, -1), (0, 0)] rectangle, set it to plains
+		chunk.x = minX;
+		chunk.y = minY;
+		chunk.width = w;
+		chunk.height = h;
+		if(rect.intersects(chunk)) biome = Biome.PLAINS;
+		//Generate blocks
 		Grid<BlockEntry> result = new FixedGrid<>(w, h);
 		debug.printl(w+", "+h);
 		for(int i = 0; i < w; i++) {
@@ -162,7 +174,7 @@ public class GeneratorMultiBiome implements Generator {
 			}
 		};
 		
-		public abstract Block randomize(long genseed);
+		@Nonnull public abstract Block randomize(long genseed);
 	}
 	private final Biome[] biomes = Biome.values();
 

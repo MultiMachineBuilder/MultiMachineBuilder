@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
-			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5">
+		<attributes>
+			<attribute name="annotationpath" value="/Multi Machine Builder/lib/eclipse-null-eea-augments-2.4.0/libraries/junit5"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="lib" path="lib/lwjgl-release-3.2.3-custom/joml-1.9.25.jar" sourcepath="lib/lwjgl-release-3.2.3-custom/joml-1.9.25-sources.jar">
 		<attributes>
@@ -183,18 +186,18 @@
 	<classpathentry kind="src" path="lib/easy-events/easy-events-master/src/main/java"/>
 	<classpathentry kind="src" path="lib/easy-events/easy-events-master/src/test/java"/>
 	<classpathentry kind="src" path="test"/>
-	<classpathentry kind="lib" path="lib/NanoXML/nanoxml-2.2.1.jar"/>
 	<classpathentry kind="lib" path="lib/Java MP3/javamp3-1.0.1.jar"/>
 	<classpathentry kind="lib" path="lib/guava-30.0-jre.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/guava-30.0-jre-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/commons-io-2.7/commons-io-2.7.jar"/>
-	<classpathentry kind="lib" path="lib/commons-io-2.7/commons-io-2.7-javadoc.jar"/>
-	<classpathentry kind="lib" path="lib/commons-io-2.7/commons-io-2.7-sources.jar"/>
-	<classpathentry kind="lib" path="lib/commons-csv-1.8/commons-csv-1.8.jar"/>
-	<classpathentry kind="lib" path="lib/commons-csv-1.8/commons-csv-1.8-sources.jar"/>
+	<classpathentry kind="lib" path="lib/commons-io-2.7/commons-io-2.7.jar" sourcepath="lib/commons-io-2.7/commons-io-2.7-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/commons-io-2.7/commons-io-2.7-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/commons-csv-1.8/commons-csv-1.8.jar" sourcepath="lib/commons-csv-1.8/commons-csv-1.8-sources.jar"/>
 	<classpathentry kind="lib" path="lib/xerces-2_12_1/resolver.jar"/>
 	<classpathentry kind="lib" path="lib/xerces-2_12_1/serializer.jar"/>
 	<classpathentry kind="lib" path="lib/mp3spi/mp3spi-1.9.5.jar.zip"/>
@@ -205,13 +208,12 @@
 	<classpathentry kind="lib" path="lib/vavr-master/vavr-0.10.3-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/vavr-match-master/vavr-match-0.10.3.jar"/>
 	<classpathentry kind="lib" path="lib/vavr-match-master/vavr-match-0.10.3-javadoc.jar"/>
-	<classpathentry kind="lib" path="lib/commons-lang3-3.11/commons-lang3-3.11.jar"/>
-	<classpathentry kind="lib" path="lib/commons-lang3-3.11/commons-lang3-3.11-javadoc.jar"/>
-	<classpathentry kind="lib" path="lib/commons-lang3-3.11/commons-lang3-3.11-sources.jar"/>
-	<classpathentry kind="lib" path="lib/commons-lang3-3.11/commons-lang3-3.11-tests.jar"/>
-	<classpathentry kind="lib" path="lib/commons-lang3-3.11/commons-lang3-3.11-test-sources.jar"/>
-	<classpathentry kind="lib" path="lib/javac-warning-annotation-master/javac-warning-annotation-1.0.0.jar"/>
-	<classpathentry kind="lib" path="lib/javac-warning-annotation-master/javac-warning-annotation-1.0.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.11/commons-lang3-3.11.jar" sourcepath="lib/commons-lang3-3.11/commons-lang3-3.11-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/commons-lang3-3.11/commons-lang3-3.11-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.11/commons-lang3-3.11-tests.jar" sourcepath="lib/commons-lang3-3.11/commons-lang3-3.11-test-sources.jar"/>
 	<classpathentry kind="src" path=".apt_generated">
 		<attributes>
 			<attribute name="optional" value="true"/>
@@ -223,11 +225,12 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/commons-collections4-4.4/commons-collections4-4.4.jar"/>
-	<classpathentry kind="lib" path="lib/commons-collections4-4.4/commons-collections4-4.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="lib/commons-collections4-4.4/commons-collections4-4.4-sources.jar"/>
-	<classpathentry kind="lib" path="lib/commons-collections4-4.4/commons-collections4-4.4-tests.jar"/>
-	<classpathentry kind="lib" path="lib/commons-collections4-4.4/commons-collections4-4.4-test-sources.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections4-4.4/commons-collections4-4.4.jar" sourcepath="lib/commons-collections4-4.4/commons-collections4-4.4-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/commons-collections4-4.4/commons-collections4-4.4-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/commons-collections4-4.4/commons-collections4-4.4-tests.jar" sourcepath="lib/commons-collections4-4.4/commons-collections4-4.4-test-sources.jar"/>
 	<classpathentry kind="lib" path="lib/helperclass4j-1.0.3.jar"/>
 	<classpathentry kind="lib" path="lib/miglayout15-swing.jar"/>
 	<classpathentry kind="lib" path="lib/jackson/jackson-annotations-2.12.1.jar" sourcepath="lib/jackson/jackson-core-2.12.1-sources.jar">
@@ -245,11 +248,16 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/jackson/jackson-databind-2.12.1-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/com.google.errorprone/jsr305-3.0.2.jar"/>
-	<classpathentry kind="lib" path="lib/com.google.errorprone/jsr305-3.0.2-javadoc.jar"/>
-	<classpathentry kind="lib" path="lib/com.google.errorprone/jsr305-3.0.2-sources.jar"/>
-	<classpathentry kind="lib" path="lib/easy-events/easy-events-1.1.0.jar"/>
-	<classpathentry kind="lib" path="lib/easy-events/easy-events-1.1.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/com.google.errorprone/jsr305-3.0.2.jar" sourcepath="lib/com.google.errorprone/jsr305-3.0.2-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/com.google.errorprone/jsr305-3.0.2-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/easy-events/easy-events-1.1.0.jar" sourcepath="lib/easy-events/easy-events-master/src/main/java">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/easy-events/easy-events-1.1.0-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/picocog/picocog-1.0.7.jar" sourcepath="lib/picocog/picocog-1.0.7-sources.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/picocog/picocog-1.0.7-javadoc.jar!/"/>

@@ -5,6 +5,8 @@ package mmb.WORLD.crafting;
 
 import java.util.Objects;
 
+import javax.annotation.Nonnull;
+
 import org.apache.commons.collections4.Bag;
 import org.joml.Vector3d;
 
@@ -25,7 +27,7 @@ public class Craftings {
 	 * @param from source inventory
 	 * @param to target inventory
 	 */
-	public static void transact(Bag<ItemEntry> in, RecipeOutput out, Inventory from, Inventory to) {
+	public static void transact(Bag<@Nonnull ItemEntry> in, RecipeOutput out, Inventory from, Inventory to) {
 		//Count
 		for(ItemEntry ent: in.uniqueSet()) {
 			int amt = in.getCount(ent);

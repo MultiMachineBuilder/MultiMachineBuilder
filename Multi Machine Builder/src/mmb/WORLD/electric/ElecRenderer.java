@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -21,27 +22,27 @@ import mmb.WORLD.texture.BlockDrawer;
  *
  */
 public class ElecRenderer implements BlockDrawer {
-	private final RotatedImageGroup rig;
-	private final ImageIcon icon;
-	private final BufferedImage base;
+	@Nonnull private final RotatedImageGroup rig;
+	@Nonnull private final ImageIcon icon;
+	@Nonnull private final BufferedImage base;
 	public ElecRenderer(RotatedImageGroup rig, ImageIcon icon, BufferedImage base) {
 		this.rig = rig;
 		this.icon = icon;
 		this.base = base;
 	}
 	
-	private static final RotatedImageGroup rig0 = RotatedImageGroup.create("machine/power/thick connector.png");
-	private static final ImageIcon icon0 = new ImageIcon(Textures.get("machine/power/thick wire.png"));
-	private static final BufferedImage base0 = Textures.get("machine/power/thick center.png");
+	@Nonnull private static final RotatedImageGroup rig0 = RotatedImageGroup.create("machine/power/thick connector.png");
+	@Nonnull private static final ImageIcon icon0 = new ImageIcon(Textures.get("machine/power/thick wire.png"));
+	@Nonnull private static final BufferedImage base0 = Textures.get("machine/power/thick center.png");
 	@Nonnull public static final ElecRenderer render = new ElecRenderer(rig0, icon0, base0);
 	
-	private static final RotatedImageGroup rig1 = RotatedImageGroup.create("machine/power/vthick connector.png");
-	private static final ImageIcon icon1 = new ImageIcon(Textures.get("machine/power/vthick wire.png"));
-	private static final BufferedImage base1 = Textures.get("machine/power/vthick center.png");
+	@Nonnull private static final RotatedImageGroup rig1 = RotatedImageGroup.create("machine/power/vthick connector.png");
+	@Nonnull private static final ImageIcon icon1 = new ImageIcon(Textures.get("machine/power/vthick wire.png"));
+	@Nonnull private static final BufferedImage base1 = Textures.get("machine/power/vthick center.png");
 	@Nonnull public static final ElecRenderer renderthick = new ElecRenderer(rig1, icon1, base1);
 	
 	@Override
-	public void draw(BlockEntry ent, int x, int y, Graphics g, int side) {
+	public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int side) {
 		g.drawImage(base, x, y, side, side, null);
 		if(ent instanceof Conduit) {
 			int xx = ((Conduit) ent).posX();

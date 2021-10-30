@@ -53,9 +53,10 @@ public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockAct
 
 	@Override
 	protected void run(Point p, BlockEntry ent, MapProxy proxy) {
-		if(block == null) return;
+		BlockType block0 = block;
+		if(block0 == null) return;
 		try {
-			proxy.place(block, p);
+			proxy.place(block0, p);
 		}catch(Exception e) {
 			debug.pstm(e, "Failed to place a block");
 		}
@@ -70,7 +71,7 @@ public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockAct
 		return block;
 	}
 	@Override
-	public void setBlockSetting(BlockType setting) {
+	public void setBlockSetting(@Nullable BlockType setting) {
 		block = setting;
 	}
 

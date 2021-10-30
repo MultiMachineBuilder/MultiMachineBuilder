@@ -11,14 +11,14 @@ import mmb.WORLD.gui.inv.InventoryController;
 import mmb.WORLD.gui.inv.MoveItems;
 import javax.swing.JButton;
 import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /**
  * @author oskar
  *
  */
 public class CollectorGUI extends JPanel {
+	private static final long serialVersionUID = 2506447463267036557L;
+
 	public CollectorGUI(Collector collector, WorldWindow window) {
 		setLayout(new MigLayout("", "[][][]", "[grow][]"));
 		

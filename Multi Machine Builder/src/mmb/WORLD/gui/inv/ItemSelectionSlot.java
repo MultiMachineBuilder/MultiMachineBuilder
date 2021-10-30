@@ -44,13 +44,13 @@ public class ItemSelectionSlot extends JComponent {
 	/**
 	 * @return currently selected item
 	 */
-	public ItemEntry getSelection() {
+	public @Nullable ItemEntry getSelection() {
 		return selection;
 	}
 	/**
 	 * @param selection item to be selected
 	 */
-	public void setSelection(ItemEntry selection) {
+	public void setSelection(@Nullable ItemEntry selection) {
 		if(!canSet) return;
 		this.selection = selection;
 		stateChanged.trigger(selection);
@@ -69,7 +69,7 @@ public class ItemSelectionSlot extends JComponent {
 	public ItemSelectionSlot() {
 		addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
+			public void mouseClicked(@SuppressWarnings("null") MouseEvent arg0) {
 				if(selectionSrc != null) setSelection(selectionSrc.get());
 				repaint();
 			}

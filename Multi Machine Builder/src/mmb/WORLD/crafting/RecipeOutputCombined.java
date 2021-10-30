@@ -30,7 +30,8 @@ public class RecipeOutputCombined implements RecipeOutput{
 		out = outputArray;
 	}
 	/**
-	 * 
+	 * Creates a combined recipe output
+	 * @param outputs source recipe outputs
 	 */
 	public RecipeOutputCombined(RecipeOutput... outputs) {
 		out = Arrays.copyOf(outputs, outputs.length);
