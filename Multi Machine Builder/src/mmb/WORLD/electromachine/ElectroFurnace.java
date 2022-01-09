@@ -114,7 +114,6 @@ public class ElectroFurnace extends SkeletalBlockEntityRotary implements BlockAc
 	public void onTick(MapProxy map) {
 		helper.cycle();
 		Electricity.equatePPs(this, map, elec, 0.9);
-		//elec.pressure = 0.9*elec.pressure; //Vent power pressure to get electricity
-		debug.printl("Energy: "+elec.amt+", Power pressure: "+elec.pressure+" at ["+posX()+","+posY()+"]");
+		//debug.printl("Energy: "+elec.amt+", Power pressure: "+elec.pressure+" at ["+posX()+","+posY()+"]");
 	}
 }

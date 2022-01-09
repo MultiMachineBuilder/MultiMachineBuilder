@@ -112,6 +112,7 @@ public class CoalGen extends SkeletalBlockEntityRotary implements BlockActivateL
 	public void onTick(MapProxy map) {
 		burner.cycle();
 		fuel.extractTo(buffer);
+		Electricity.equatePPs(this, map, buffer, 0.999);
 		Electricity to = getAtSide(getRotation().U()).getElectricalConnection(getRotation().D());
 		if(to != null) buffer.extractTo(to);
 		if(tab != null) tab.refresh();

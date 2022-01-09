@@ -142,7 +142,7 @@ public class Battery implements Electricity, Saver<JsonNode>{
 	 * @param elec
 	 */
 	public void extractTo(Electricity elec) {
-		double insert = elec.insert(Math.min(remain(), amt), voltage);
+		double insert = elec.insert(amt, voltage);
 		amt -= insert;
 	}
 	

@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.electric;
 
+import java.util.Arrays;
+
 import com.google.common.util.concurrent.Runnables;
 
 import mmb.WORLD.block.BlockEntity;
@@ -43,67 +45,51 @@ public class TransferHelper{
 	public double _transfer(World map, int x, int y, double amount, int iters, VoltageTier volt, Side s, Runnable blow) {
 		if(iters > maxIters) return 0; //Iteration limit reached
 		BlockEntry here = map.get(x, y);
+		
 		if(here instanceof Conduit) {
 			//Here is a conduit
 			Conduit cond = (Conduit)here;
-			debug.printl("Power pressure: "+cond.getTransfer().pressure+" at ["+x+","+y+"]"); //TF does not work - but readout is correct
+			//debug.printl("Power pressure: "+cond.getTransfer().pressure+" at ["+x+","+y+"]"); //TF does not work - but readout is correct
 			double sgn = Math.signum(amount);
+			//debug.printl("Signum: "+sgn);
+			//debug.printl("Amount: "+amount);
 			double max = sgn*Math.min(sgn*amount, cond.condCapacity()); //The power limited by conduit
-			double remain = max;
-			
+			//debug.printl("Max: "+max);
 			double pressure0 = cond.getTransfer().pressure;
 			
 			double pdiffU = 0, pdiffD = 0, pdiffL = 0, pdiffR = 0;
+			double pu = Double.NaN, pd = Double.NaN, pl = Double.NaN, pr = Double.NaN; 
 			//Get power connections
 			//Move up Y-
 			Electricity eu = map.get(x, y-1).getElectricalConnection(Side.D);
 			if(eu != null) {
-				double pu = eu.pressure();
-				pdiffU = pu*sgn - sgn*pressure0; //new pressure - curr pressure (new pressure > curr pressure -> positive result)
-				boolean isDescU = pdiffU < delta;
-				/*if(isDescU) {
-					//Go upwards
-					double tfd1 = _transfer(map, x, y-1, remain, iters+1, volt, Side.D, blow);
-					remain -= tfd1;
-					if(remain * sgn <= 0) return max;
-				}*/
+				pu = eu.pressure();
+				pdiffU = sgn*(pressure0 - pu); //curr - new pressure (new pressure > curr pressure -> negative result)
 			}
 			//Move down Y+
 			Electricity ed = map.get(x, y+1).getElectricalConnection(Side.U);
 			if(ed != null) {
-				double pd = ed.pressure();
-				pdiffD = pd*sgn - sgn*pressure0;
-				boolean isDescD = pdiffD < delta;
-				/*if(isDescD) {
-					double tfd2 = _transfer(map, x, y+1, remain, iters+1, volt, Side.U, blow);
-					remain -= tfd2;
-					if(remain * sgn <= 0) return max;
-				}*/
+				pd = ed.pressure();
+				pdiffD = sgn*(pressure0 - pd);
 			}
 			//Move left X-
 			Electricity el = map.get(x-1, y).getElectricalConnection(Side.R);
 			if(el != null) {
-				double pl = el.pressure();
-				pdiffL = pl*sgn - sgn*pressure0;
-				boolean isDescL = pdiffL < delta;
-				/*if(isDescL) {
-					double tfd3 = _transfer(map, x-1, y, remain, iters+1, volt, Side.R, blow);
-					remain -= tfd3;
-					if(remain * sgn <= 0) return max;
-				}	*/
+				pl = el.pressure();
+				pdiffL = sgn*(pressure0 - pl);
 			}
 			//Move right X+
 			Electricity er = map.get(x+1, y).getElectricalConnection(Side.L);
 			if(er != null) {
-				double pr = er.pressure();
-				pdiffR = pr*sgn - sgn*pressure0;
-				boolean isDescR = pdiffR < delta;
-				/*if(isDescR) {
-					double tfd4 = _transfer(map, x+1, y, remain, iters+1, volt, Side.L, blow);
-					remain -= tfd4;
-					if(remain * sgn <= 0) return max;
-				}*/
+				pr = er.pressure();
+				pdiffR = sgn*(pressure0 - pr);
 			}
+			
+			//double[] pressures = {pu, pd, pl, pr};
+			//debug.printl("Pressures (NaN means disconnected): "+Arrays.toString(pressures));
+			
+			//double[] incrs = {pdiffU, pdiffD, pdiffL, pdiffR};
+			//debug.printl("Grades: "+Arrays.toString(incrs));
 			
 			//Cap the values
 			if(pdiffU < 0) pdiffU = 0;
@@ -113,7 +99,7 @@ public class TransferHelper{
 			
 			//Calculate shares
 			double sum = pdiffU+pdiffD+pdiffL+pdiffR;
-			if(sum == 0) return 0;
+			if(sum == 0) return 0; //Sum is always 0
 			double shareU = pdiffU/sum;
 			double totalU = shareU*max;
 			double shareD = pdiffD/sum;
@@ -123,6 +109,9 @@ public class TransferHelper{
 			double shareR = pdiffR/sum;
 			double totalR = shareR*max;
 			
+			//double[] shares = {shareU, shareD, shareL, shareR};
+			//debug.printl("Shares: "+Arrays.toString(shares));
+			
 			//Transfer
 			double transferSum = 0;
 			if(shareU > delta) transferSum += _transfer(map, x, y-1, totalU, iters+1, volt, Side.D, blow);
@@ -130,8 +119,8 @@ public class TransferHelper{
 			if(shareL > delta) transferSum += _transfer(map, x-1, y, totalL, iters+1, volt, Side.R, blow);
 			if(shareR > delta) transferSum += _transfer(map, x+1, y, totalR, iters+1, volt, Side.L, blow);
 			double remaining = max-transferSum;
-			cond.getTransfer().pressure += /*remain*/ remaining;
-			return /*max - remain*/ transferSum;
+			cond.getTransfer().pressure += remaining;
+			return transferSum;
 		}
 		//Not a conduit, do not continue
 		Electricity elec = here.getElectricalConnection(s);

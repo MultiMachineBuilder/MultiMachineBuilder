@@ -93,34 +93,7 @@ public class Conduit extends BlockEntityData {
 
 	@Override
 	public void onTick(MapProxy map) {
-		/*map.later(() -> {
-			double weight = tf.pressureWt; //the initial weight sum is current weight
-			double sum = weight * tf.pressure; //the initial sum is current power pressure volume
-			Electricity uu = getAtSide(Side.U).getElectricalConnection(Side.D);
-			if(uu != null) {
-				weight += uu.pressureWeight();
-				sum += uu.pressure() * uu.pressureWeight();
-			}
-			Electricity dd = getAtSide(Side.D).getElectricalConnection(Side.U);
-			if(dd != null) {
-				weight += dd.pressureWeight();
-				sum += dd.pressure() * dd.pressureWeight();
-			}
-			Electricity ll = getAtSide(Side.L).getElectricalConnection(Side.R);
-			if(ll != null) {
-				weight += ll.pressureWeight();
-				sum += ll.pressure() * ll.pressureWeight();
-			}
-			Electricity rr = getAtSide(Side.R).getElectricalConnection(Side.L);
-			if(rr != null) {
-				weight += rr.pressureWeight();
-				sum += rr.pressure() * rr.pressureWeight();
-			}
-			double newPressure = (0.99 * sum) / weight;
-			tf.pressure = newPressure;
-			if(Double.isNaN(newPressure)) tf.pressure = 0;
-		});*/
 		Electricity.equatePPs(this, map, tf, 0.99);
-		debug.printl("Power pressure: "+tf.pressure+" at ["+posX()+","+posY()+"]");
+		//debug.printl("Power pressure: "+tf.pressure+" at ["+posX()+","+posY()+"]");
 	}
 }
