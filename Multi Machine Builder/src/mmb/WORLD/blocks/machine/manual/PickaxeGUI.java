@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 
+import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
@@ -27,7 +28,7 @@ import java.awt.Dimension;
  * @author oskar
  *
  */
-public class PickaxeGUI extends JPanel {
+public class PickaxeGUI extends GUITab {
 	private static final long serialVersionUID = -7967104797035980435L;
 	private ItemType crafted = null;
 	public PickaxeGUI(WorldWindow window) {
@@ -63,7 +64,7 @@ public class PickaxeGUI extends JPanel {
 				ItemEntry result = crafted.create();
 				ItemEntry sel = slot.getSelection();
 				if(sel == null) return;
-				Craftings.transact(sel, result, inv, inv);
+				Craftings.transact(sel, result.single(), inv, inv);
 				inventoryController.refresh();
 			}
 		});
@@ -76,6 +77,16 @@ public class PickaxeGUI extends JPanel {
 		});
 		btnExit.setBackground(Color.RED);
 		add(btnExit, "cell 1 3,growx");
+		
+	}
+	@Override
+	public void createTab(WorldWindow window) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void destroyTab(WorldWindow window) {
+		// TODO Auto-generated method stub
 		
 	}
 }

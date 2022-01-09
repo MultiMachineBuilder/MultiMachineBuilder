@@ -13,6 +13,7 @@ import javax.annotation.Nullable;
 
 import org.ainslec.picocog.PicoWriter;
 
+import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
@@ -22,27 +23,7 @@ import mmb.WORLD.items.ItemEntry;
  * @author oskar
  * This is a common interface for 
  */
-public interface Inventory extends Collection<@Nonnull ItemRecord>, RecipeOutput {
-	
-	//Recipe output methods
-	@Override
-	default void produceResults(InventoryWriter tgt, int amount) {
-		for(ItemRecord record: this) {
-			tgt.write(record.item(), record.amount()*amount);
-		}
-	}
-	@Override
-	default double outVolume() {
-		return volume();
-	}
-	@Override
-	default void represent(PicoWriter out) {
-		for(ItemRecord record: this) {
-			out.writeln(record.toRecipeOutputString());
-		}
-	}
-	
-	
+public interface Inventory extends Collection<@Nonnull ItemRecord> {	
 	/**
 	 * Get the item record under given item type
 	 * @param entry
@@ -263,6 +244,25 @@ public interface Inventory extends Collection<@Nonnull ItemRecord>, RecipeOutput
 		for(ItemRecord record: sub) {
 			int small = record.amount(); //the sub contains null records
 			ItemRecord mrecord = main.nget(record.item());
+			if(mrecord == null) return 0;
+			int big = mrecord.amount();
+			int units = big/small;
+			if(result > units) result = units;
+			if(result == 0) return 0;
+		}
+		return result;
+	}
+	/**
+	 * Returns how many copies of {@code sub} exist in {@code main}.
+	 * @param main inventory to check
+	 * @param sub copies to count
+	 * @return amount of {@code sub} ins {@code main}
+	 */
+	public static int howManyTimesThisContainsThat(Inventory main, RecipeOutput sub) {
+		int result = Integer.MAX_VALUE;
+		for(Entry<ItemEntry> record: sub.getContents().object2IntEntrySet()) {
+			int small = record.getIntValue(); //the sub contains null records
+			ItemRecord mrecord = main.nget(record.getKey());
 			if(mrecord == null) return 0;
 			int big = mrecord.amount();
 			int units = big/small;

@@ -24,7 +24,6 @@ public abstract class ColorMapper extends LookupTable {
 	
 	/**
 	 * Creates a compatible color mapper.
-	 * If image is binary, the 'from' color is false color and 'to' color is true color
 	 * @param type image type, in same form as from {@link BufferedImage}
 	 * @param from source color
 	 * @param to target color

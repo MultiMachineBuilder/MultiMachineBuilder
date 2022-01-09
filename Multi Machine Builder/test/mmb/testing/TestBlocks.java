@@ -48,11 +48,6 @@ class TestBlocks {
 		correct.setTexture(fake);
 		correct.register("test");
 		assertEquals(correct, Blocks.get("test"), "Block was not properly added");
-		Blocks.remove(correct);
-		assertNull(Blocks.get("test"), "Block was not properly removed");
-		correct.register();
-		Blocks.remove("test");
-		assertNull(Blocks.get("test"), "Block was not properly removed by title");
 	}
 
 }

@@ -103,8 +103,8 @@
     "player" : {
       "inventory" : [ 128.0, [ "playerpipe.bend", 1 ], [ "playerpipe.end", 1 ], [ "playerpipe.straight", 1 ] ],
       "creative" : true,
-      "x" : -8.5,
-      "y" : -3.4404000000000536
+      "x" : -0.5,
+      "y" : -3.3796000000000554
     }
   },
   "data" : { },

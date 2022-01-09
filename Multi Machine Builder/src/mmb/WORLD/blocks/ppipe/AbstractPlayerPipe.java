@@ -19,14 +19,16 @@ import mmb.debug.Debugger;
  */
 public abstract class AbstractPlayerPipe extends BlockEntityChirotable {
 	public AbstractPlayerPipe() {
-		addChiralityListener(e -> initConnections());
-		addRotationListener(e -> initConnections());
+		addChiralityListener(e -> initConnections(posX(), posY()));
+		addRotationListener(e -> initConnections(posX(), posY()));
 	}
 	public final Sided<PipeTunnelEntry> sides = new Sided<>();
 	/**
 	 * Set the pipe connections for this pipe, and reset any path
+	 * @param x X coordinate of the pipe
+	 * @param y Y coordinate of the pipe
 	 */
-	protected abstract void initConnections();
+	protected abstract void initConnections(int x, int y);
 	/**
 	 * @author oskar
 	 * A helper class to make pipe tunnels
@@ -34,6 +36,10 @@ public abstract class AbstractPlayerPipe extends BlockEntityChirotable {
 	protected class TunnelHelper extends PipeTunnel{
 		@Nonnull protected final Side from;
 		@Nonnull protected final Side to;
+		/**
+		 * @param from side, from which player enters in FWD direction
+		 * @param to side, to which player goes in FWD direction
+		 */
 		public TunnelHelper(Side from, Side to) {
 			super();
 			this.from = from;
@@ -51,12 +57,12 @@ public abstract class AbstractPlayerPipe extends BlockEntityChirotable {
 		}
 	}
 	@Override
-	public void onStartup(World map) {
-		initConnections();
+	public void onStartup(World map, int x, int y) {
+		initConnections(x, y);
 	}
 	@Override
-	public void onPlace(World map, @Nullable GameObject obj) {
-		initConnections();
+	public void onPlace(World map, @Nullable GameObject obj, int x, int y) {
+		initConnections(x, y);
 	}
 	@Override
 	public PipeTunnelEntry getPipeTunnel(Side s) {

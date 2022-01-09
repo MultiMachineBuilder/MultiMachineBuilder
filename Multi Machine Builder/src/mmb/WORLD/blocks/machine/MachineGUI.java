@@ -14,9 +14,8 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 import mmb.WORLD.gui.machine.SideConfigCtrl;
+import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
 import mmb.debug.Debugger;
@@ -25,14 +24,15 @@ import mmb.WORLD.blocks.machine.SkeletalBlockMachine.Update;
 import mmb.WORLD.gui.inv.InventoryController;
 import mmb.WORLD.gui.inv.MoveItems;
 
-class MachineGUI extends JPanel implements AutoCloseable{
+class MachineGUI extends GUITab{
 	private static final long serialVersionUID = -4029353853474275301L;
 	private final SideConfigCtrl sie, soe, sii, soi;
 	@Nonnull private InventoryController playerController;
 	private final Component main;
 	private final List<InventoryController> invctrls = new ArrayList<>();
+	private final SkeletalBlockMachine machine;
 	
-	void refresh() {
+ 	void refresh() {
 		if(main instanceof Update) ((Update) main).update();
 		for(InventoryController invctrl: invctrls) {
 			invctrl.refresh();
@@ -41,6 +41,7 @@ class MachineGUI extends JPanel implements AutoCloseable{
 		repaint();
 	}
 	public MachineGUI(SkeletalBlockMachine machine, WorldWindow window) {
+		this.machine = machine;
 		playerController = new InventoryController();
 		playerController.setInv(window.getPlayer().inv);
 		Box box = new Box(BoxLayout.Y_AXIS);
@@ -70,11 +71,7 @@ class MachineGUI extends JPanel implements AutoCloseable{
 		JButton exit = new JButton();
 		exit.setBackground(Color.red);
 		exit.setText("Exit");
-		exit.addActionListener(e -> {
-			close();
-			window.closeWindow(this);
-			machine.gui = null;
-		});
+		exit.addActionListener(e -> window.closeWindow(this));
 		
 		
 		add(playerController, "cell 0 0,grow");
@@ -106,7 +103,12 @@ class MachineGUI extends JPanel implements AutoCloseable{
 	}
 	private final Debugger debug = new Debugger("MACHINE GUI");
 	@Override
-	public void close() {
+	public void createTab(WorldWindow window) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void destroyTab(WorldWindow window) {
 		if(sie != null) sie.close();
 		if(soe != null) soe.close();
 		if(sii != null) sii.close();
@@ -117,5 +119,6 @@ class MachineGUI extends JPanel implements AutoCloseable{
 			} catch (Exception e) {
 				debug.pstm(e, "Failed to close machine GUI");
 			}
+		machine.gui = null;
 	}
 }

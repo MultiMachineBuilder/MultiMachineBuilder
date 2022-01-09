@@ -18,6 +18,7 @@ import org.joml.Vector2d;
 import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
+import it.unimi.dsi.fastutil.doubles.DoubleList;
 import mmb.Vector2iconst;
 import mmb.DATA.variables.ListenerBooleanVariable;
 import mmb.MENU.StringRenderer;
@@ -27,7 +28,7 @@ import mmb.WORLD.blocks.ppipe.PipeTunnelEntry;
 import mmb.WORLD.gui.FPSCounter;
 import mmb.WORLD.gui.window.WorldWindow.ScrollablePlacementList;
 import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.machine.Machine;
+import mmb.WORLD.mbmachine.Machine;
 import mmb.WORLD.rotate.ChiralRotation;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.tool.WindowTool;
@@ -195,6 +196,7 @@ public class WorldFrame extends JComponent {
 			Objects.requireNonNull(e, "event is null");
 			window.scrollScrollist(e.getWheelRotation()*32);
 			WindowTool tool = window.toolModel.getTool();
+			setZoom(zoomsel + e.getWheelRotation());
 			if(tool != null) tool.mouseWheelMoved(e);
 		}
 		@Override public void mouseDragged(@Nullable MouseEvent e) {
@@ -530,6 +532,10 @@ public class WorldFrame extends JComponent {
 		}
 	}
 	
+	/**
+	 * Shows a pop-up menu
+	 * @param e mouse event for the pop-up
+	 */
 	public void showPopup(MouseEvent e) {
 		if(map == null) return;
 		if(map.inBounds(mouseover)) {
@@ -608,6 +614,11 @@ public class WorldFrame extends JComponent {
 		return blockAt(p.x, p.y, tgt);
 	}
 	
+	/**
+	 * @param x X coordinate of the screen
+	 * @param y Y coordinate of the screen
+	 * @return point with on-screen block position of UL corner
+	 */
 	public Point blockPositionOnScreen(int x, int y) {
 		int X = (int) ((x+pos.x)*blockScale);
 		int Y = (int) ((y+pos.y)*blockScale);
@@ -673,4 +684,31 @@ public class WorldFrame extends JComponent {
 			thickframe(c1.x, c1.y, c2.x-c1.x, c2.y-c1.y, c, g);
 		}
 	}
+	
+	/**
+	 * @return current zoom level index
+	 */
+	public int getZoom() {
+		return zoomsel;
+	}
+	/**
+	 * @param zoomsel new zoom level index
+	 */
+	public void setZoom(int zoomsel) {
+		if(zoomsel < 0 ) this.zoomsel = 0;
+		if(zoomsel >= zoomlevels.size()) this.zoomsel = zoomlevels.size() - 1;
+		this.zoomsel = zoomsel;
+	}
+
+	/**
+	 * Zoom levels selectable with scroll wheel
+	 */
+	public final DoubleList zoomlevels =
+			DoubleList.of(   0.012, 0.016,  0.024,  0.032,  0.048,  0.064,  0.080,
+					         0.120, 0.160,  0.240,  0.320,  0.480,  0.640,  0.800,
+					         1.200, 1.600,  2.400,  3.200,  4.800,  6.400,  8.000,
+					        12,     16,     24,     32,     48,     64,     80,
+					       120,    160,    240,    320,    480,    640,    800,
+					      1200,   1600,   2400,   3200,   4800,   6400,   8000);
+	private int zoomsel = 23;
 }

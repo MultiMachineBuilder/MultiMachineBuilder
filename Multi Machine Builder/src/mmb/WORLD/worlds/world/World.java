@@ -41,12 +41,12 @@ import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.gui.FPSCounter;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.mbmachine.Machine;
+import mmb.WORLD.mbmachine.MachineModel;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockLoader;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.machine.Machine;
-import mmb.WORLD.machine.MachineModel;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.DataLayers;
 import mmb.WORLD.worlds.MapProxy;
@@ -173,7 +173,7 @@ public class World implements Identifiable<String>{
 				bloader.y = y;
 				BlockEntry block = bloader.load(node);
 				if(block == null) block = ContentsBlocks.grass;
-				block.onStartup(world);
+				block.onStartup(world, 0, 0);
 				world.set(block, x, y);
 			}
 		}
@@ -333,7 +333,7 @@ public class World implements Identifiable<String>{
 						debug.printl("Block entity at ["+ent.posX()+","+ent.posY()+
 							"] took exceptionally long to run");
 					}
-				}catch(Exception e){
+				}catch(Exception|StackOverflowError e){
 					debug.pstm(e, "Failed to run block entity at ["
 						+ent.posX()+","+ent.posY()+"]");
 				}
@@ -469,7 +469,7 @@ public class World implements Identifiable<String>{
 		if(old.isBlockEntity()) {
 			BlockEntity old0 = old.asBlockEntity();
 			try {
-				old0.onBreak(this, null);
+				old0.onBreak(this, null, x, y);
 				_blockents.remove(old0);
 			} catch (Exception e) {
 				debug.pstm(e, "Failed to remove BlockEntity ["+x+","+y+"]");
@@ -480,7 +480,7 @@ public class World implements Identifiable<String>{
 		if(b.isBlockEntity()) {
 			BlockEntity new0 = b.asBlockEntity();
 			try {
-				new0.onPlace(this, null);
+				new0.onPlace(this, null, x, y);
 				_blockents.add(new0);
 			}catch(Exception e) {
 				debug.pstm(e, "Failed to place BlockEntity ["+x+","+y+"]");
@@ -703,9 +703,7 @@ public class World implements Identifiable<String>{
 	}
 	
 	Set<Machine> _machines = new HashSet<>();
-	/**
-	 * The immutable set of all machines
-	 */
+	/** The immutable set of all machines */
 	public final Set<Machine> machines = Collections.unmodifiableSet(_machines);
 	Map<Point, Machine> machinesPoints = new HashMap<>();
 	
@@ -795,8 +793,6 @@ public class World implements Identifiable<String>{
 			}	
 		};
 	}
-	
-	//Block Allocation Table
 	
 	//Slot reservation
 	private Long2ObjectMap<ReentrantLock> locks = new Long2ObjectOpenHashMap<>(); //Phase 1: obtain

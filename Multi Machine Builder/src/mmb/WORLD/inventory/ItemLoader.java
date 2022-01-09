@@ -68,7 +68,7 @@ public class ItemLoader {
 				
 				//Get the type
 				String id = a.get(0).asText();
-				ItemType type = Items.items.get(id);
+				ItemType type = Items.get(id);
 				if(type == null) { //unsupported item
 					debug.printl("Unsupported item: "+id);
 					continue loop;

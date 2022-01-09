@@ -51,20 +51,20 @@ public class PlayerPipe extends AbstractPlayerPipe {
 	 */
 
 	@Override
-	protected void initConnections() {
+	protected void initConnections(int x, int y) {
 		sides.reset();
 		sides.set(from, tunnel.FWD);
 		Side from1 = getChirotation().apply(from);
 		double ox1 = from1.sideOffsetX;
 		double oy1 = from1.sideOffsetY;
-		tunnel.path.beginX = ox1 + posX();
-		tunnel.path.beginY = oy1 + posY();
+		tunnel.path.beginX = ox1 + x;
+		tunnel.path.beginY = oy1 + y;
 		sides.set(to, tunnel.BWD);
 		Side to1 = getChirotation().apply(to);
 		double ox2 = to1.sideOffsetX;
 		double oy2 = to1.sideOffsetY;
-		tunnel.path.endX = ox2 + posX();
-		tunnel.path.endY = oy2 + posY();
+		tunnel.path.endX = ox2 + x;
+		tunnel.path.endY = oy2 + y;
 	}
 
 	@Override

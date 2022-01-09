@@ -5,6 +5,7 @@ package mmb.WORLD.gui;
 
 import javax.swing.JPanel;
 
+import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
 
 import javax.swing.JColorChooser;
@@ -17,7 +18,7 @@ import net.miginfocom.swing.MigLayout;
  * @author oskar
  *
  */
-public class ColorGUI extends JPanel {
+public class ColorGUI extends GUITab {
 	private static final long serialVersionUID = 5195216057761670896L;
 	
 	private JColorChooser colorChooser;
@@ -51,6 +52,16 @@ public class ColorGUI extends JPanel {
 		btnNewButton_1.addActionListener(e -> win.closeWindow(this));
 		btnNewButton_1.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(btnNewButton_1, "cell 0 2,growx,aligny center");
+	}
+
+	@Override
+	public void createTab(WorldWindow window) {
+		//unused
+	}
+
+	@Override
+	public void destroyTab(WorldWindow window) {
+		//unused
 	}
 
 }

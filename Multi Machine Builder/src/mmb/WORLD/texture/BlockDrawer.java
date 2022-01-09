@@ -59,7 +59,7 @@ public interface BlockDrawer {
 	@Nonnull public Icon toIcon();
 	
 	/**
-	 * Creates an  {@link Icon} representation of this {@code BlockDrawer}.
+	 * Creates an {@link Icon} representation of this {@code BlockDrawer}.
 	 * If this drawer is mutable, any changes in this block drawer are represented in the icon.
 	 * @return an icon representation of this block drawer
 	 */

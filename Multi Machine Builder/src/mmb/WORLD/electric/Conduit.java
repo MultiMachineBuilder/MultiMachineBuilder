@@ -11,6 +11,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.rotate.Side;
+import mmb.WORLD.worlds.MapProxy;
+import mmb.debug.Debugger;
 import mmb.WORLD.block.BlockEntityData;
 
 /**
@@ -21,8 +23,14 @@ public class Conduit extends BlockEntityData {
 	private Electricity u, d, l, r;
 	@Nonnull private final BlockType type;
 	private TransferHelper tf;
+	private static final Debugger debug = new Debugger("CONDUIT");
+	/**
+	 * @param type block type
+	 * @param cap capacity in coulombs per tick
+	 */
 	public Conduit(BlockType type, double cap) {
-		tf = new TransferHelper(this, 50, cap/50);
+		tf = new TransferHelper(this, cap);
+		tf.pressureWt = cap*100;
 		this.type = type;
 		u = tf.proxy(Side.D);
 		d = tf.proxy(Side.U);
@@ -33,11 +41,6 @@ public class Conduit extends BlockEntityData {
 	@Override
 	public BlockType type() {
 		return type;
-	}
-
-	@Override
-	public double condCapacity() {
-		return tf.maxPower;
 	}
 
 	@Override
@@ -58,24 +61,66 @@ public class Conduit extends BlockEntityData {
 
 	@Override
 	public void load(@Nullable JsonNode data) {
-		if(data == null) return;
-		tf.amt = data.get("charge").asDouble();
+		
 	}
 
 	@Override
 	protected void save0(ObjectNode node) {
-		node.put("charge", tf.amt);
+
+	}
+	
+	/**
+	 * @return maximum power in coulombs per tick
+	 */
+	public double condCapacity() {
+		return tf.power;
 	}
 
 	@Override
 	public Conduit clone() {
 		Conduit copy = (Conduit) super.clone();
-		copy.tf = new TransferHelper(copy, 50, tf.maxPower);
+		copy.tf = new TransferHelper(copy, tf.power);
 		copy.u = copy.tf.proxy(Side.D);
 		copy.d = copy.tf.proxy(Side.U);
 		copy.l = copy.tf.proxy(Side.R);
 		copy.r = copy.tf.proxy(Side.L);
 		return copy;
 	}
+	
+	public TransferHelper getTransfer() {
+		return tf;
+	}
 
+	@Override
+	public void onTick(MapProxy map) {
+		/*map.later(() -> {
+			double weight = tf.pressureWt; //the initial weight sum is current weight
+			double sum = weight * tf.pressure; //the initial sum is current power pressure volume
+			Electricity uu = getAtSide(Side.U).getElectricalConnection(Side.D);
+			if(uu != null) {
+				weight += uu.pressureWeight();
+				sum += uu.pressure() * uu.pressureWeight();
+			}
+			Electricity dd = getAtSide(Side.D).getElectricalConnection(Side.U);
+			if(dd != null) {
+				weight += dd.pressureWeight();
+				sum += dd.pressure() * dd.pressureWeight();
+			}
+			Electricity ll = getAtSide(Side.L).getElectricalConnection(Side.R);
+			if(ll != null) {
+				weight += ll.pressureWeight();
+				sum += ll.pressure() * ll.pressureWeight();
+			}
+			Electricity rr = getAtSide(Side.R).getElectricalConnection(Side.L);
+			if(rr != null) {
+				weight += rr.pressureWeight();
+				sum += rr.pressure() * rr.pressureWeight();
+			}
+			double newPressure = (0.99 * sum) / weight;
+			tf.pressure = newPressure;
+			if(Double.isNaN(newPressure)) tf.pressure = 0;
+		});*/
+		Electricity.equatePPs(this, map, tf, 0.99);
+		debug.printl("Power pressure: "+tf.pressure+" at ["+posX()+","+posY()+"]");
+	}
 }

@@ -17,6 +17,7 @@ import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.blocks.machine.SideConfig.SideBoolean;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.Electricity;
+import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
@@ -32,9 +33,9 @@ import mmb.WORLD.worlds.world.World;
 public abstract class SkeletalBlockMachine extends BlockEntityData implements BlockActivateListener, Titled{
 	
 	//Electrical components
-	@Nonnull protected Battery inElec = new Battery();
+	@Nonnull protected Battery inElec = new Battery(200, 20000, this, VoltageTier.V1);
 	@Nonnull SideConfig cfgInElec = new SideConfig();
-	@Nonnull protected Battery outElec  = new Battery();
+	@Nonnull protected Battery outElec  = new Battery(200, 20000, this, VoltageTier.V1);
 	@Nonnull SideConfig cfgOutElec = new SideConfig();
 	
 	//Item components

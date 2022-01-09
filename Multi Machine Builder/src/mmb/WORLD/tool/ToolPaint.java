@@ -39,7 +39,6 @@ public class ToolPaint extends WindowTool {
 		}
 	}
 
-
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if(e.getButton() == MouseEvent.BUTTON1) {
@@ -50,7 +49,6 @@ public class ToolPaint extends WindowTool {
 		}
 	}
 
-
 	@Nonnull private static final BufferedImage img = Textures.get("tool/paint.png");
 	@SuppressWarnings("null")
 	@Nonnull private Color c = Color.WHITE;
@@ -58,7 +56,7 @@ public class ToolPaint extends WindowTool {
 	private final MappedColorTexture texture = new MappedColorTexture(Color.RED, Color.WHITE, img);
 	public static final Icon icon = new ImageIcon(img);
 	private final Icon textureIcon = texture.iconRenderer();
-	private final Variable<Color> cvar = Variable.delegate(this::getColor, this::setColor);
+	@Nonnull private final Variable<Color> cvar = Variable.delegate(this::getColor, this::setColor);
 	/**
 	 * @return this paintbrushes current color
 	 */
@@ -83,12 +81,10 @@ public class ToolPaint extends WindowTool {
 		return "Paintbrush";
 	}
 
-	
 	@Override
 	public Icon getIcon() {
 		return textureIcon;
 	}
-
 
 	@Override
 	public void preview(int startX, int startY, int scale, Graphics g) {
@@ -96,4 +92,8 @@ public class ToolPaint extends WindowTool {
 		
 	}
 
+	@Override
+	public String description() {
+		return "Press C to change color or X to set back to white";
+	}
 }

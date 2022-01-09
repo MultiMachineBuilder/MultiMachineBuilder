@@ -3,13 +3,12 @@
  */
 package mmb.WORLD.blocks.machine.line;
 
-import javax.swing.JPanel;
-
+import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.items.Stencil;
+import mmb.WORLD.items.data.Stencil;
 import net.miginfocom.swing.MigLayout;
 import mmb.WORLD.gui.inv.CraftGUI;
 
@@ -25,7 +24,7 @@ import javax.swing.JProgressBar;
  * @author oskar
  *
  */
-class AutoCraftGUI extends JPanel {
+class AutoCraftGUI extends GUITab {
 	private AutoCrafter crafter;
 	public AutoCraftGUI(AutoCrafter crafter, WorldWindow window) {
 		this.crafter = crafter;
@@ -47,10 +46,7 @@ class AutoCraftGUI extends JPanel {
 		
 		JButton button = new JButton("Exit");
 		button.setBackground(Color.RED);
-		button.addActionListener(e -> {
-			window.closeWindow(this);
-			crafter.closeWindow();
-		});
+		button.addActionListener(e -> window.closeWindow(this));
 		craftGUI.verticalBox.add(button);
 		
 		invIn = new InventoryController();
@@ -131,5 +127,14 @@ class AutoCraftGUI extends JPanel {
 	}
 	public InventoryController getInvIn() {
 		return invIn;
+	}
+	
+	@Override
+	public void createTab(WorldWindow window) {
+		//unused
+	}
+	@Override
+	public void destroyTab(WorldWindow window) {
+		crafter.closeWindow();
 	}
 }

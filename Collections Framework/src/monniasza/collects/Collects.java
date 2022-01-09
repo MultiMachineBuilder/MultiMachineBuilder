@@ -102,7 +102,7 @@ public class Collects {
 
 			@Override
 			public Iterator<V> iterator() {
-				return (Iterator<V>) set.iterator();
+				return downcastIterator(set.iterator());
 			}
 
 			@Override
@@ -156,8 +156,8 @@ public class Collects {
 			}
 
 			@Override
-			public boolean containsKey(@Nullable K key) {
-				return ((SelfSet<K, V>)set).containsKey(key);
+			public boolean containsKey(@Nullable Object key) {
+				return set.containsKey(key);
 			}
 		};
 	}
@@ -230,6 +230,11 @@ public class Collects {
 			public T remove(int index) {
 				return list.remove(index);
 			}
+			@Override
+			public T set(int index, @SuppressWarnings("null") T e) {
+				return list.set(index, e);
+			}
+			
 		};
 	}
 }

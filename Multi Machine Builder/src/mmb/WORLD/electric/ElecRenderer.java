@@ -3,8 +3,10 @@
  */
 package mmb.WORLD.electric;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.awt.image.LookupOp;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -12,6 +14,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import mmb.DATA.contents.texture.Textures;
+import mmb.GRAPHICS.awt.ColorMapper;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.rotate.RotatedImageGroup;
 import mmb.WORLD.rotate.Side;
@@ -22,25 +25,31 @@ import mmb.WORLD.texture.BlockDrawer;
  *
  */
 public class ElecRenderer implements BlockDrawer {
-	@Nonnull private final RotatedImageGroup rig;
-	@Nonnull private final ImageIcon icon;
-	@Nonnull private final BufferedImage base;
+	//Static stuff
+	@Nonnull public static final ElecRenderer tiny= gen("tiny");
+	@Nonnull public static final ElecRenderer small = gen("small");
+	@Nonnull public static final ElecRenderer medium = gen("medium");
+	@Nonnull public static final ElecRenderer large = gen("large");
+	
+	@Nonnull private static ElecRenderer gen(String title) {
+		String rigPath = "machine/power/"+title+" connector.png";
+		String iconPath = "machine/power/"+title+" wire.png";
+		String basePath = "machine/power/"+title+" center.png";
+		RotatedImageGroup rig = RotatedImageGroup.create(rigPath);
+		ImageIcon icon = new ImageIcon(Textures.get(iconPath));
+		BufferedImage base = Textures.get(basePath);
+		return new ElecRenderer(rig, icon, base);
+	}
+	
+	//Instance stuff
+	@Nonnull public final RotatedImageGroup rig;
+	@Nonnull public final ImageIcon icon;
+	@Nonnull public final BufferedImage base;
 	public ElecRenderer(RotatedImageGroup rig, ImageIcon icon, BufferedImage base) {
 		this.rig = rig;
 		this.icon = icon;
 		this.base = base;
 	}
-	
-	@Nonnull private static final RotatedImageGroup rig0 = RotatedImageGroup.create("machine/power/thick connector.png");
-	@Nonnull private static final ImageIcon icon0 = new ImageIcon(Textures.get("machine/power/thick wire.png"));
-	@Nonnull private static final BufferedImage base0 = Textures.get("machine/power/thick center.png");
-	@Nonnull public static final ElecRenderer render = new ElecRenderer(rig0, icon0, base0);
-	
-	@Nonnull private static final RotatedImageGroup rig1 = RotatedImageGroup.create("machine/power/vthick connector.png");
-	@Nonnull private static final ImageIcon icon1 = new ImageIcon(Textures.get("machine/power/vthick wire.png"));
-	@Nonnull private static final BufferedImage base1 = Textures.get("machine/power/vthick center.png");
-	@Nonnull public static final ElecRenderer renderthick = new ElecRenderer(rig1, icon1, base1);
-	
 	@Override
 	public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int side) {
 		g.drawImage(base, x, y, side, side, null);
@@ -57,10 +66,29 @@ public class ElecRenderer implements BlockDrawer {
 			if(r != null) rig.R.draw(ent, x, y, g, side);
 		}
 	}
-
 	@Override
 	public Icon toIcon() {
 		return icon;
 	}
-
+	@Nonnull public static ElecRenderer repaint(Color c, ElecRenderer renderer) {
+		BufferedImage conn0 = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
+		Graphics g = conn0.createGraphics();
+		renderer.rig.U.draw(null, 0, 0, g, 32);
+		g.dispose();
+		BufferedImage icon0 = (BufferedImage) renderer.icon.getImage();
+		BufferedImage base0 = renderer.base;
+		ColorMapper mapperC = ColorMapper.ofType(conn0.getType(), Color.RED, c);
+		ColorMapper mapperI = ColorMapper.ofType(icon0.getType(), Color.RED, c);
+		ColorMapper mapperB = ColorMapper.ofType(base0.getType(), Color.RED, c);
+		LookupOp opC = new LookupOp(mapperC, null);
+		LookupOp opI = new LookupOp(mapperI, null);
+		LookupOp opB = new LookupOp(mapperB, null);
+		BufferedImage conn1 = opC.createCompatibleDestImage(conn0, null);
+		opC.filter(conn0, conn1);
+		BufferedImage icon1 = opI.createCompatibleDestImage(icon0, null);
+		opC.filter(icon0, icon1);
+		BufferedImage base1 = opB.createCompatibleDestImage(base0, null);
+		opC.filter(base0, base1);
+		return new ElecRenderer(RotatedImageGroup.create(conn1), new ImageIcon(icon1), base1);
+	}
 }

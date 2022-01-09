@@ -25,29 +25,77 @@ public class PowerMeter extends SkeletalBlockEntityRotary {
 
 	private final Electricity IN = new Electricity() {
 		@Override
-		public double amount() {
-			// TODO Auto-generated method stub
-			return 0;
-		}
-		@Override
-		public double capacity() {
-			// TODO Auto-generated method stub
-			return 0;
-		}
-		@Override
-		public double insert(double amt) {
-			Electricity elec = getAtSide(getRotation().R()).getElectricalConnection(getRotation().L());
+		public double insert(double amt, VoltageTier volt) {
+			Electricity elec = getelec();
 			if(elec == null) return 0;
-			double tfd = elec.insert(amt);
+			double tfd = elec.insert(amt, volt);
 			moved += tfd;
-			//debug.printl(Double.toString(tfd));
 			return tfd;
+		}
+		@Override
+		public VoltageTier voltage() {
+			return VoltageTier.V9;
+		}
+		@Override
+		public double pressure() {
+			Electricity elec = getelec();
+			if(elec == null) return 0;
+			return elec.pressure();
+		}
+		@Override
+		public double pressureWeight() {
+			Electricity elec = getelec();
+			if(elec == null) return 0;
+			return elec.pressure();
+		}
+		@Override
+		public double extract(double amt, VoltageTier volt, Runnable blow) {
+			return 0;
+		}
+		private Electricity getelec() {
+			return owner().getAtSide(getRotation().R(), posX(), posY()).getElectricalConnection(getRotation().L());
+		}
+	};
+	private final Electricity OUT = new Electricity() {
+		@Override
+		public double insert(double amt, VoltageTier volt) {
+			return 0;
+		}
+		@Override
+		public double extract(double amt, VoltageTier volt, Runnable blow) {
+			Electricity elec = owner().getAtSide(getRotation().L(), posX(), posY()).getElectricalConnection(getRotation().R());
+			if(elec == null) return 0;
+			double ex = elec.extract(amt, volt, blow);
+			moved += ex;
+			return ex;
+		}
+
+		@Override
+		public VoltageTier voltage() {
+			return VoltageTier.V9;
+		}
+
+		@Override
+		public double pressure() {
+			Electricity elec = getelec();
+			if(elec == null) return 0;
+			return elec.pressure();
+		}
+
+		@Override
+		public double pressureWeight() {
+			Electricity elec = getelec();
+			if(elec == null) return 0;
+			return elec.pressureWeight();
+		}
+		private Electricity getelec() {
+			return owner().getAtSide(getRotation().L(), posX(), posY()).getElectricalConnection(getRotation().R());
 		}
 	};
 	@Override
 	public Electricity getElectricalConnection(Side s) {
 		if(s == getRotation().L()) return IN;
-		if(s == getRotation().R()) return Electricity.NONE;
+		if(s == getRotation().R()) return OUT;
 		return null;
 	}
 

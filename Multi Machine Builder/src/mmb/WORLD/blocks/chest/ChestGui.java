@@ -9,6 +9,7 @@ import net.miginfocom.swing.MigLayout;
 import mmb.WORLD.gui.ColorGUI;
 import mmb.WORLD.gui.inv.InventoryController;
 import mmb.WORLD.gui.inv.InventoryOrchestrator;
+import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.world.Player;
 
@@ -21,7 +22,7 @@ import mmb.WORLD.gui.inv.MoveItems;
  * @author oskar
  *
  */
-public class ChestGui extends JPanel{
+public class ChestGui extends GUITab{
 	public ChestGui(Chest chest, WorldWindow window) {
 		setLayout(new MigLayout("", "[300.00,grow][132.00,grow][300.00,grow]", "[grow][30.00]"));
 		
@@ -70,6 +71,16 @@ public class ChestGui extends JPanel{
 	private void refresh() {
 		chestCtrl.refresh();
 		playerCtrl.refresh();
+	}
+
+	@Override
+	public void createTab(WorldWindow window) {
+		//unused
+	}
+
+	@Override
+	public void destroyTab(WorldWindow window) {
+		//unused
 	}
 
 }

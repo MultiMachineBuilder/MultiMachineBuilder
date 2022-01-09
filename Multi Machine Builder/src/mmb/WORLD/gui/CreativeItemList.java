@@ -5,14 +5,19 @@ package mmb.WORLD.gui;
 
 import java.awt.Component;
 import java.awt.event.MouseEvent;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Vector;
 
 import javax.annotation.Nonnull;
+import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.item.Items;
+import monniasza.collects.Collects;
 
 /**
  * @author oskar
@@ -21,15 +26,18 @@ import mmb.WORLD.item.Items;
 public class CreativeItemList extends JList<ItemType> {
 	private static final long serialVersionUID = -5883411113161667818L;
 	public CreativeItemList() {
-		setListData(model);
+		setModel(model);
 		setToolTipText("");
-	}
-	//deepcode ignore ApiMigration: required by Swing	private static final Vector<ItemType> model = new Vector<>();
+	}	@Nonnull public static final DefaultListModel<ItemType> model = new DefaultListModel<>();
+	@Nonnull public static final List<ItemType> list = Collects.toWritableList(model);
 	static {
-		for(ItemType item: Items.items) {
-			model.addElement(item);
-		}
+		list.addAll(Items.items);
+		resort((l, r) -> l.title().compareTo(r.title()));
 	}
+	public static void resort(Comparator<ItemType> sort) {
+		Collections.sort(list, sort);
+	}
+	
 	@Override
 	public ListCellRenderer<? super ItemType> getCellRenderer() {
 		return cellrender;

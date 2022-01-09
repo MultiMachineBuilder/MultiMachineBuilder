@@ -4,9 +4,12 @@
 package mmb.WORLD.blocks;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+
 import javax.annotation.Nonnull;
 
 import mmb.DATA.contents.texture.Textures;
+import mmb.GRAPHICS.texgen.TexGen;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.block.Drop;
@@ -33,18 +36,21 @@ import mmb.WORLD.blocks.machine.Nuker;
 import mmb.WORLD.blocks.machine.PlaceIncomingItems;
 import mmb.WORLD.blocks.machine.line.AutoCrafter;
 import mmb.WORLD.blocks.machine.line.Furnace;
-import mmb.WORLD.blocks.machine.manual.Crafting;
 import mmb.WORLD.blocks.machine.manual.PickaxeWorkbench;
+import mmb.WORLD.blocks.ppipe.JoiningPlayerPipe;
 import mmb.WORLD.blocks.ppipe.PlayerPipe;
 import mmb.WORLD.blocks.ppipe.PlayerPipeEntry;
-import mmb.WORLD.electric.Conduit;
-import mmb.WORLD.electric.ElecRenderer;
+import mmb.WORLD.blocks.ppipe.TwinPlayerPipe;
+import mmb.WORLD.contentgen.ElectricMachineGroup;
+import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.electric.InfiniteGenerator;
 import mmb.WORLD.electric.PowerLoad;
 import mmb.WORLD.electric.PowerMeter;
+import mmb.WORLD.electric.VoltageTier;
+import mmb.WORLD.electromachine.CoalGen;
+import mmb.WORLD.electromachine.ElectroFurnace;
 import mmb.WORLD.rotate.ChirotatedImageGroup;
 import mmb.WORLD.rotate.Side;
-import mmb.WORLD.texture.BlockDrawer;
 import mmb.debug.Debugger;
 
 /**
@@ -53,7 +59,31 @@ import mmb.debug.Debugger;
  */
 public class ContentsBlocks {
 	private static final Debugger debug = new Debugger("BLOCKS");
-
+	
+	//Simple blocks
+	@Nonnull public static final Block air = createAir();
+	private static Block createAir() {
+		debug.printl("Creating blocks");
+		Block result = new Block();
+		result.texture(Color.CYAN)
+		.leaveBehind(result)
+		.title("Air")
+		.finish("mmb.air");
+		result.setSurface(true);
+		return result;
+	}
+	@Nonnull public static final Block grass = createGrass(); //REQUIRES SPECIAL INIT
+	private static Block createGrass() {
+		Block grass = new Block();
+		grass.texture("grass.png")
+		.leaveBehind(air)
+		.title("Grass")
+		.describe("A default block in the world")
+		.finish("mmb.grass");
+		grass.setSurface(true);
+		return grass;
+	}
+	
 	//WireWorld wires
 	/** A WireWorld cell */
 	@SuppressWarnings("null")
@@ -85,7 +115,7 @@ public class ContentsBlocks {
 		.describe("A block which prints out its text, when activated by a signal")
 		.finish("wireworld.chatter");
 	
-	@Nonnull public static final Block air, grass; //REQUIRES SPECIAL INIT
+	//Simple blocks
 	@Nonnull public static final Block plank = new Block()
 			.texture("plank.png")
 			.title("Wooden planks")
@@ -98,34 +128,12 @@ public class ContentsBlocks {
 			.texture("block/leaves.png")
 			.title("Leaves")
 			.finish("mmb.leaves");
-	@Nonnull public static final Block iron_ore = new Block()
-			.texture("block/iron ore.png")
-			.title("Iron ore")
-			.finish("mmb.iore");
-	@Nonnull public static final Block copper_ore = new Block()
-			.texture("block/copper ore.png")
-			.title("Copper ore")
-			.finish("mmb.cpore");
-	@Nonnull public static final Block silicon_ore = new Block()
-			.texture("block/silicon ore.png")
-			.title("Silicon ore")
-			.finish("mmb.silicon_ore");
-	@Nonnull public static final Block gold_ore = new Block()
-			.texture("block/gold ore.png")
-			.title("Golden ore")
-			.finish("mmb.goldore");
-	@Nonnull public static final Block silver_ore = new Block()
-			.texture("block/silver ore.png")
-			.title("Silver ore")
-			.finish("mmb.silverore");
-	@Nonnull public static final Block uranium_ore = new Block()
-			.texture("block/uranium ore.png")
-			.title("Uranium ore")
-			.finish("mmb.uraniumore");
+
 	@Nonnull public static final Block coal_ore = new Block()
 			.texture("block/coal ore.png")
 			.title("Coal ore")
 			.finish("ore.coal");
+
 	@Nonnull public static final Block crafting = new Block()
 			.texture("crafting.png")
 			.title("Assembly Table")
@@ -142,6 +150,8 @@ public class ContentsBlocks {
 			.texture("block/gravel.png")
 			.title("Gravel")
 			.finish("mmb.gravel");
+	
+	//Logic gates
 	@Nonnull public static final BlockEntityType AND = new BlockEntityType()
 			.title("AND")
 			.factory(ANDGate::new)
@@ -167,20 +177,20 @@ public class ContentsBlocks {
 			.factory(FlipGate::new)
 			.texture("logic/toggle inert.png")
 			.finish("wireworld.toggle");
-	@Nonnull public static final BlockEntityType CONDUIT =
-			conduit("Medium Power Cable", 1_000_000, ElecRenderer.render, "elec.mediumwire");
-	@Nonnull public static final BlockEntityType CONDUITA =
-			conduit("Large Power Cable", 3_000_000, ElecRenderer.renderthick, "elec.largewire");
+		
+	//Power generators
 	@Nonnull public static final BlockEntityType INFINIGEN = new BlockEntityType()
 			.title("Infinite Generator (Creative only)")
-			.factory(InfiniteGenerator::new)
+			.factory(() -> new InfiniteGenerator(VoltageTier.V1))
 			.texture("machine/power/infinity.png")
-			.finish("elec.infinite");
-	@Nonnull public static final BlockEntityType NUKEGEN = new BlockEntityType()
-			.title("Nuclear reactor")
-			.factory(Nuker::new)
-			.texture("machine/power/nuke reactor.png")
-			.finish("nuke.generator");
+			.finish("elec.infinite1");
+	@Nonnull public static final BlockEntityType COALGEN1 = coalgen(VoltageTier.V1, CoalGen.img, "Furnace Generator I", "elec.coalgen1");
+	@Nonnull public static final BlockEntityType COALGEN2 = coalgen(VoltageTier.V2, CoalGen.img1, "Furnace Generator II", "elec.coalgen2");
+	@Nonnull public static final BlockEntityType COALGEN3 = coalgen(VoltageTier.V3, CoalGen.img2, "Furnace Generator III", "elec.coalgen3");
+	
+	//Infinite power generator series
+	
+	//Electrical equipment
 	@Nonnull public static final BlockEntityType PMETER = new BlockEntityType()
 			.title("Power meter")
 			.factory(PowerMeter::new)
@@ -191,16 +201,19 @@ public class ContentsBlocks {
 			.factory(PowerLoad::new)
 			.texture("machine/power/load.png")
 			.finish("elec.load");
+	
+	//Modular machines
 	@Nonnull public static final BlockEntityType EFURNACE = new BlockEntityType()
 			.title("Electrical furnace")
 			.factory(FurnacePlus::new)
 			.texture("machine/esmelter.png")
 			.finish("elec.furnace");
-	@Nonnull public static final BlockEntityType CYCLEASSEMBLY = new BlockEntityType()
-			.title("Cyclic Assembler")
-			.factory(CycleAssembler::new)
-			.texture("machine/cyclic assembler.png")
-			.finish("industry.cycle0");
+	@Nonnull public static final BlockEntityType NUKEGEN = new BlockEntityType()
+			.title("Nuclear reactor")
+			.factory(Nuker::new)
+			.texture("machine/power/nuke reactor.png")
+			.finish("nuke.generator");
+	
 	/** Always provides 'true' signal */
  	@Nonnull public static final Block TRUE = new AlwaysTrue()
 			.title("Always True")
@@ -281,11 +294,7 @@ public class ContentsBlocks {
 			.factory(ItemTransporter::new)
 			.texture(ItemTransporter.TEXTURE)
 			.finish("itemsystem.mover");
-	@Nonnull public static final BlockEntityType FURNACE = new BlockEntityType()
-			.title("Furnace")
-			.factory(Furnace::new)
-			.texture(Furnace.TEXTURE_INERT)
-			.finish("industry.furnace");
+	
 	@Nonnull public static final BlockEntityType PLACEITEMS = new BlockEntityType()
 			.title("Item & Block Placing Machine")
 			.factory(PlaceIncomingItems::new)
@@ -296,18 +305,25 @@ public class ContentsBlocks {
 			.factory(Collector::new)
 			.texture("machine/vacuum.png")
 			.finish("industry.collector");
-	@Nonnull public static final BlockEntityType AGRO_COPPPER =
-			crop(1500, copper_ore, "Copper crop", BlockDrawer.ofImage(Textures.get("block/copper crop.png")), "crop.copper");
-	@Nonnull public static final BlockEntityType AGRO_IRON =
-			crop(1500, iron_ore, "Iron crop", BlockDrawer.ofImage(Textures.get("block/iron crop.png")), "crop.iron");
-	@Nonnull public static final BlockEntityType AGRO_SILICON =
-			crop(1500, silicon_ore, "Silicon crop", BlockDrawer.ofImage(Textures.get("block/silicon crop.png")), "crop.silicon");
-	@Nonnull public static final BlockEntityType AGRO_GOLD =
-			crop(1500, gold_ore, "Gold crop", BlockDrawer.ofImage(Textures.get("block/gold crop.png")), "crop.gold");
+	
+	//Crops
 	@Nonnull public static final BlockEntityType AGRO_COAL =
-			crop(1500, coal_ore, "Coal crop", BlockDrawer.ofImage(Textures.get("block/coal crop.png")), "crop.coal");
+			crop(1500, coal_ore, "Coal crop", TexGen.genCrop(Materials.colorCoal), "crop.coal");
+	
 	@Nonnull public static final BlockEntityType AGRO_TREE =
-			crop(1500, logs, "Tree", BlockDrawer.ofImage(Textures.get("block/tree.png")), "crop.tree");
+			crop(1500, logs, "Tree", Textures.get("block/tree.png"), "crop.tree");
+	
+	//Automatic processing machines
+	@Nonnull public static final BlockEntityType FURNACE = new BlockEntityType()
+			.title("Furnace")
+			.factory(Furnace::new)
+			.texture(Furnace.TEXTURE_INERT)
+			.finish("industry.furnace");
+	@Nonnull public static final BlockEntityType CYCLEASSEMBLY = new BlockEntityType()
+			.title("Cyclic Assembler")
+			.factory(CycleAssembler::new)
+			.texture("machine/cyclic assembler.png")
+			.finish("industry.cycle0");
 	@Nonnull public static final Block PICKBUILDER = new PickaxeWorkbench()
 			.texture("machine/pickaxe workbench.png")
 			.title("Pickaxe workbench")
@@ -318,48 +334,30 @@ public class ContentsBlocks {
 			.texture("machine/AutoCrafter 1.png")
 			.finish("industry.autocraft1");
 	
+	//Electrical processing machines
+	@Nonnull public static final ElectricMachineGroup efurnace = new ElectricMachineGroup(Textures.get("machine/electrosmelter.png"), ElectroFurnace::new, "Electric furnace", "electrofurnace");
+	
+	//Player pipes
 	@Nonnull public static final BlockEntityType PPIPE_lin = ppipe(1, Side.U, Side.D, "machine/ppipe straight.png", "Player Pipe - straight", "playerpipe.straight");
 	@Nonnull public static final BlockEntityType PPIPE_bend = ppipe(0.8, Side.R, Side.D, "machine/ppipe turn.png", "Player Pipe - turn", "playerpipe.bend");
+	@Nonnull public static final BlockEntityType PPIPE_lin2 = ppipe2(1, Side.U, Side.D, Side.L, Side.R, "machine/ppipe cross.png", "Player Pipe - crossover", "playerpipe.straight2");
+	@Nonnull public static final BlockEntityType PPIPE_bend2 = ppipe2(0.8, Side.R, Side.D, Side.L, Side.U, "machine/ppipe biturn.png", "Player Pipe - two bends", "playerpipe.bend2");
 	@Nonnull public static final BlockEntityType PPIPE_cap = new BlockEntityType()
 			.title("Player Pipe - end")
 			.factory(PlayerPipeEntry::new)
 			.texture("machine/pipe exit.png")
 			.finish("playerpipe.end");
-	static {
-		//REQUIRES SPECIAL INIT - SELF-REFERNECE
-		debug.printl("Creating blocks");
-		air = new Block();
-		@SuppressWarnings("null")
-		@Nonnull Color c = Color.CYAN;
-		air.texture(c)
-		.leaveBehind(air)
-		.title("Air")
-		.finish("mmb.air");
-		air.setSurface(true);
+	@Nonnull public static final BlockEntityType PPIPE_join = ppipea(1, Side.U, "machine/ppipe adjoin.png","Player Pipe - adjoin" ,"playerpipe.adj");
+	@Nonnull public static final BlockEntityType PPIPE_join2 = ppipea(0.8, Side.L, "machine/ppipe adjoin2.png","Player Pipe - wye" ,"playerpipe.adj2");
 		
-		grass = new Block();
-		grass.texture("grass.png")
-		.leaveBehind(air)
-		.title("Grass")
-		.describe("A default block in the world")
-		.finish("mmb.grass");
-		grass.setSurface(true);
-		//NO LONGER REQUIRES SPECIAL INIT		
-		Crafting.init();
-	}
-	@Nonnull private static BlockEntityType conduit(String title, double pwr, BlockDrawer texture, String id) {
-		BlockEntityType b = new BlockEntityType();
-		return b.title(title)
-				.factory(() -> new Conduit(b, pwr))
-				.texture(texture)
-				.finish(id);
-	}
 	/** Initializes blocks */
 	public static void init() {
 		//initialization method
 	}
 
-	@Nonnull private static BlockEntityType crop(int duration, Drop cropDrop, String title, BlockDrawer texture, String id) {
+	//Reusable block methods
+	@Nonnull
+	public static BlockEntityType crop(int duration, Drop cropDrop, String title, BufferedImage texture, String id) {
 		BlockEntityType result = new BlockEntityType();
 		return result.title(title).factory(() -> new Crop(result, duration, cropDrop)).texture(texture).finish(id);
 	}
@@ -371,5 +369,31 @@ public class ContentsBlocks {
 		.factory(() -> new PlayerPipe(type, tex, a, b, length))
 		.texture(texture)
 		.finish(id);
+	}
+	@Nonnull private static BlockEntityType ppipe2(double length, Side a1, Side b1, Side a2, Side b2, String texture, String title, String id) {
+		BlockEntityType type = new BlockEntityType();
+		ChirotatedImageGroup tex = ChirotatedImageGroup.create(texture);
+		return type
+		.title(title)
+		.factory(() -> new TwinPlayerPipe(type, tex, a1, b1, a2, b2, length))
+		.texture(texture)
+		.finish(id);
+	}
+	@Nonnull private static BlockEntityType ppipea(double length, Side main, String texture, String title, String id) {
+		BlockEntityType type = new BlockEntityType();
+		ChirotatedImageGroup tex = ChirotatedImageGroup.create(texture);
+		return type
+		.title(title)
+		.factory(() -> new JoiningPlayerPipe(length, main, tex, type))
+		.texture(texture)
+		.finish(id);
+	}
+	@Nonnull private static BlockEntityType coalgen(VoltageTier volt, BufferedImage texture,String title, String id) {
+		BlockEntityType type = new BlockEntityType();
+		return type
+				.title(title)
+				.factory(() -> new CoalGen(volt, type))
+				.texture(texture)
+				.finish(id);
 	}
 }

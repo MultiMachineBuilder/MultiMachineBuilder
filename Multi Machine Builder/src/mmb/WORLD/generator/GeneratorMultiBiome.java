@@ -9,6 +9,7 @@ import mmb.RANDOM.GeometricRandom;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 import monniasza.collects.grid.FixedGrid;
@@ -63,7 +64,7 @@ public class GeneratorMultiBiome implements Generator {
 				case 7:
 				case 8:
 				case 9:
-					return ContentsBlocks.copper_ore;
+					return Materials.copper.ore;
 				case 10:
 				case 11:
 				case 12:
@@ -74,7 +75,7 @@ public class GeneratorMultiBiome implements Generator {
 				case 17:
 				case 18:
 				case 19:
-					return ContentsBlocks.silicon_ore;
+					return Materials.silicon.ore;
 				case 20:
 				case 21:
 				case 22:
@@ -85,7 +86,7 @@ public class GeneratorMultiBiome implements Generator {
 				case 27:
 				case 28:
 				case 29:
-					return ContentsBlocks.iron_ore;
+					return Materials.iron.ore;
 				case 30:
 				case 31:
 				case 32:
@@ -113,7 +114,7 @@ public class GeneratorMultiBiome implements Generator {
 				case 53:
 				case 54:
 				case 55:
-					return ContentsBlocks.gold_ore;
+					return Materials.gold.ore;
 				default:
 					return ContentsBlocks.stone;
 				}

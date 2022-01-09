@@ -14,6 +14,8 @@ import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.contentgen.Materials;
+import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.inventory.Inventories;
 import mmb.WORLD.inventory.storage.SingleItemInventory;
 import mmb.WORLD.item.ItemType;
@@ -59,10 +61,10 @@ public class Nuker extends SkeletalBlockMachine {
 			debug.printl("Invalid remaining energy: "+fuelRemain);
 			fuelRemain = 0;
 		}else if(fuelRemain < 20_000) {
-			fuelRemain -= outElec.insert(fuelRemain);
+			fuelRemain -= outElec.insert(fuelRemain, VoltageTier.V1);
 			if(fuelRemain < 1) fuelRemain = 0;
 		}else {
-			fuelRemain -= outElec.insert(20_000);
+			fuelRemain -= outElec.insert(20_000, VoltageTier.V1);
 		}
 	}
 
@@ -114,7 +116,7 @@ public class Nuker extends SkeletalBlockMachine {
 	private static boolean inited;
 	public static void init() {
 		if(inited) throw new IllegalStateException("Already initialized");
-		fuels.put(ContentsItems.uranium, 1000_000_000.0); //uranium - 1 GJ
+		fuels.put(Materials.uranium.base, 1000_000_000.0); //uranium - 1 GJ
 		inited = true;
 	}
 	

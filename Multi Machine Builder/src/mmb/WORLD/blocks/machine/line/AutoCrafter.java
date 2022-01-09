@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.IntNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
@@ -18,7 +19,7 @@ import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.items.Stencil;
+import mmb.WORLD.items.data.Stencil;
 import mmb.WORLD.rotate.RotatedImageGroup;
 import mmb.WORLD.worlds.world.World;
 
@@ -53,9 +54,9 @@ public class AutoCrafter extends SkeletalBlockLinear implements BlockActivateLis
 				if(ir.amount() == 0) continue;
 				//Item exists
 				if(stencil != null && stencil.containsRequiredIngredients(incoming)) {
-					Inventory ins = stencil.inputs();
-					for(ItemRecord record: ins) {
-						incoming.extract(record.item(), record.amount());
+					RecipeOutput ins = stencil.inputs();
+					for(Entry<ItemEntry> record: ins.getContents().object2IntEntrySet()) {
+						incoming.extract(record.getKey(), record.getIntValue());
 					}
 					//Extracted
 					remaining = 50;

@@ -64,7 +64,7 @@ public class Debugger {
 		this.id = id;
 	}
 	/**
-	 * @param keyChar
+	 * @param ch characted to be printed
 	 */
 	public void printl(char ch) {
 		System.out.print('(');

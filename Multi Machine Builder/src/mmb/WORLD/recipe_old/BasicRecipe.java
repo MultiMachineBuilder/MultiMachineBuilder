@@ -3,6 +3,10 @@
  */
 package mmb.WORLD.recipe_old;
 
+import java.util.Collections;
+import java.util.Set;
+
+import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.storage.SingleItemInventory;
@@ -18,9 +22,6 @@ public class BasicRecipe implements Recipe {
 		super();
 		this.output = output;
 		this.item = item;
-		SingleItemInventory tmp = new SingleItemInventory();
-		tmp.setContents(item);
-		items = tmp.readOnly();
 	}
 
 	private final RecipeOutput output;
@@ -50,14 +51,17 @@ public class BasicRecipe implements Recipe {
 		return 0;
 	}
 
-	private final Inventory items;
 	@Override
 	public RecipeOutput output() {
 		return output;
 	}
 	@Override
-	public Inventory inputs() {
-		return items;
+	public RecipeOutput inputs() {
+		return item;
+	}
+	@Override
+	public Set<ItemEntry> id() {
+		return Collections.singleton(item);
 	}
 
 }

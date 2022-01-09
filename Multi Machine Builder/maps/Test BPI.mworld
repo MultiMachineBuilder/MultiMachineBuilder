@@ -21,7 +21,9 @@
     "data" : { },
     "player" : {
       "inventory" : [ 128.0 ],
-      "creative" : true
+      "creative" : true,
+      "x" : -0.30000000000000004,
+      "y" : 0.30000000000000004
     }
   },
   "data" : { },

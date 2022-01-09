@@ -185,6 +185,7 @@ public class Block extends BlockBase implements BlockEntry{
 		return this;
 	}
 	
+	//Surface block options
 	private boolean surface;
 	@Override
 	public boolean isSurface() {
@@ -197,6 +198,7 @@ public class Block extends BlockBase implements BlockEntry{
 	public void setSurface(boolean sf) {
 		surface = sf;
 	}
+	
 	@Override
 	public final BlockEntry blockCopy() {
 		return this;

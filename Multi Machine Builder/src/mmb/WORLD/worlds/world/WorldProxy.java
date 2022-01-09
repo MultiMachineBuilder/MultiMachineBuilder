@@ -15,6 +15,7 @@ import mmb.WORLD.worlds.BlockChangeRequest;
 import mmb.WORLD.worlds.MapProxy;
 
 public class WorldProxy implements MapProxy{
+
 	public WorldProxy(World target) {
 		that = target;
 	}

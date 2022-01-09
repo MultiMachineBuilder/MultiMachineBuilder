@@ -12,8 +12,6 @@ import mmb.WORLD.worlds.world.World;
  *
  */
 public class PlayerPhysicsNormal implements PlayerPhysics {
-	
-
 	@Override
 	public void onTick(World w, Player p, int ctrlX, int ctrlY) {
 		//Collision check - ensure in boundaries
@@ -46,14 +44,14 @@ public class PlayerPhysicsNormal implements PlayerPhysics {
 		int R = (int) Math.floor(r);
 		int U = (int) Math.floor(u);
 		int D = (int) Math.floor(d);
-		if (L != R) {
+		if(L != R) {
 			if (U == D) {
 				//The player spans 2 blocks horizontally
 				BlockEntry ll = w.get(L, U);
 				BlockEntry rr = w.get(R, U);
 				ll.onPlayerCollide(L, U, w, p);
 				rr.onPlayerCollide(R, U, w, p);
-			} else {
+			}else{
 				//The player spans 4 blocks
 				BlockEntry ul = w.get(L, U);
 				BlockEntry ur = w.get(R, U);
@@ -64,13 +62,13 @@ public class PlayerPhysicsNormal implements PlayerPhysics {
 				dl.onPlayerCollide(L, D, w, p);
 				dr.onPlayerCollide(R, D, w, p);
 			}
-		} else if (U != D) {
+		}else if(U != D){
 			//The player spans 2 blocks horizontally
 			BlockEntry uu = w.get(L, U);
 			BlockEntry dd = w.get(L, D);
 			uu.onPlayerCollide(L, U, w, p);
 			dd.onPlayerCollide(L, D, w, p);
-		} else {
+		}else{
 			BlockEntry b = w.get(L, U);
 			b.onPlayerCollide(L, U, w, p);
 		}

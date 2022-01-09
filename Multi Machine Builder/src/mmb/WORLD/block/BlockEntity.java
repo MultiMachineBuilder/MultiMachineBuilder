@@ -19,7 +19,7 @@ import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
- * For machines, use {@link mmb.WORLD.machine.Machine}. For blocks, use {@link BlockEntityType}
+ * For machines, use {@link mmb.WORLD.mbmachine.Machine}. For blocks, use {@link BlockEntityType}
  * Events: <ul>
  * 	<li>Motion: runs when block entity is moved</li>
  * 	<li>Demolition: runs when block entity is mined</li>
@@ -154,11 +154,17 @@ public abstract class BlockEntity implements BlockEntry, Positioned, Cloneable {
 		demoListeners.remove(listener);
 	}
 	@Override
-	public final void onBreak(World blockMap, @Nullable GameObject obj) {
+	public final void onBreak(World blockMap, @Nullable GameObject obj, int x, int y) {
 		if(underDemolition) return;
 		BlockEntityDemolitionEvent event = new BlockEntityDemolitionEvent(x, y, this, blockMap, obj);
 		for(BlockEntityDemolitionListener listener: demoListeners) {
 			listener.blockDemolished(event);
 		}
+	}
+	/**
+	 * Breaks this block entity
+	 */
+	public void blow() {
+		owner().set(type().leaveBehind().createBlock(), posX(), posY());
 	}
 }

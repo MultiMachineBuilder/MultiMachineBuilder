@@ -51,7 +51,7 @@ public interface ItemType extends Titled, Identifiable<String>{
 	}
 
 	/**
-	 * @param should this item be unstackable?
+	 * @param value should this item be unstackable?
 	 */
 	public void setUnstackable(boolean value);
 	/**

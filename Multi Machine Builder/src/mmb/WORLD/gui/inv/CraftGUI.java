@@ -3,8 +3,6 @@
  */
 package mmb.WORLD.gui.inv;
 
-import javax.swing.JPanel;
-
 import org.ainslec.picocog.PicoWriter;
 import org.apache.commons.collections4.Bag;
 import org.apache.commons.collections4.bag.HashBag;
@@ -17,11 +15,13 @@ import mmb.WORLD.blocks.machine.manual.Crafting;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.gui.Variable;
+import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
+import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.items.Stencil;
+import mmb.WORLD.items.data.Stencil;
 import mmb.debug.Debugger;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
@@ -40,7 +40,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * @author oskar
  *
  */
-public class CraftGUI extends JPanel {
+public class CraftGUI extends GUITab {
 	private static final long serialVersionUID = 4989669443794364281L;
 	private static final Debugger debug = new Debugger("CRAFTING GUI");
 	
@@ -193,7 +193,7 @@ public class CraftGUI extends JPanel {
 				Stencil newStencil = new Stencil(craftingGrid.items);
 				Inventory inv0 = inventoryController.getInv();
 				if(inv0 == null) return;
-				Craftings.transact(item, newStencil, inv0, inv0);
+				Craftings.transact(item, new ItemStack(newStencil, 1), inv0, inv0);
 			}//else it is not a stencil
 		});
 		verticalBox.add(btnSave);
@@ -209,4 +209,14 @@ public class CraftGUI extends JPanel {
 	@Nonnull private JButton btnLoad;
 	@Nonnull private JButton btnSave;
 	@Nonnull private JButton btnNewButton;
+	@Override
+	public void createTab(WorldWindow window) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void destroyTab(WorldWindow window) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -19,6 +19,7 @@ import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
@@ -42,21 +43,29 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 			this.load = load;
 		}
 		@Override
-		public double amount() {
-			return 0;
-		}
-		@Override
-		public double capacity() {
-			return 0;
-		}
-		@Override
-		public double insert(double amt) {
-			double remain = (load.power * 0.02) - load.accumulated;
+		public double insert(double amt, VoltageTier volt) {
+			double pwr = volt.power(amt);
+			double remain = load.power - load.accumulated;
 			if(remain < 0) return 0;
-			double result = Math.min(amt, remain);
+			double result = Math.min(pwr, remain);
 			load.accumulated += result;
-			
-			return result;
+			return result/volt.volts;
+		}
+		@Override
+		public VoltageTier voltage() {
+			return VoltageTier.V9;
+		}
+		@Override
+		public double pressure() {
+			return 0;
+		}
+		@Override
+		public double pressureWeight() {
+			return 0;
+		}
+		@Override
+		public double extract(double amt, VoltageTier volt, Runnable blow) {
+			return 0;
 		}	
 	}
 	private Electricity elec = new Elec(this);
@@ -78,14 +87,14 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 	}
 
 	/**
-	 * @return current power limit in watts
+	 * @return current power limit in joules per tick
 	 */
 	public double getPower() {
 		return power;
 	}
 
 	/**
-	 * @param power new power limit in watts
+	 * @param power new power limit in joules per tick
 	 * @throws IllegalArgumentException if power is negative or NaN
 	 */
 	public void setPower(double power) {
@@ -99,7 +108,7 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 		accumulated = 0;
 	}
 	
-	private class Dialog extends JPanel{
+	private class Dialog extends GUITab{
 		private static final long serialVersionUID = 4755568394083395990L;
 		final JTextField field;
 		/**
@@ -131,6 +140,16 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 		}
 		void cancel(WorldWindow window) {
 			window.closeWindow(this);
+		}
+		@Override
+		public void createTab(WorldWindow window) {
+			// TODO Auto-generated method stub
+			
+		}
+		@Override
+		public void destroyTab(WorldWindow window) {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 

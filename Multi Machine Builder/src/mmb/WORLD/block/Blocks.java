@@ -3,7 +3,12 @@
  */
 package mmb.WORLD.block;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.annotation.Nullable;
 
@@ -27,22 +32,30 @@ public class Blocks {
 	@SuppressWarnings("null")
 	public static final SelfSet<String, BlockType> blocks = Collects.unmodifiableSelfSet(_blocks);
 	
+	public static final Map<String, BlockType> _deprecator = new HashMap<>();
+	public static final Map<String, BlockType> deprecator = Collections.unmodifiableMap(_deprecator);
+	
+	private static final Set<String> _keys = new HashSet<>();
+	public static final Set<String> keys = Collections.unmodifiableSet(_keys);
+	
 	public static void register(BlockType type) {
 		Objects.requireNonNull(type, "The block must not be null");
-		Objects.requireNonNull(type.id(), "The block's ID can't be null");
-		StringBuilder sb = new StringBuilder();
-		sb.append("Adding ").append(type.id())
-		.append(" with title ").append(type.title())
-		.append(" and descripion:\n").append(type.description());
-		debug.printl(sb.toString());
+		Objects.requireNonNull(type.id(), "The block's ID must not be null");
+		debug.printl("Adding "+type.id()+" with title "+type.title()+" and description:\n "+type.description());
 		Items.register(type);
 		_blocks.add(type);
+		_keys.add(type.id());
 	}
 	
-	public static void remove(BlockType typ) {
-		Items.remove(typ);
-		_blocks.remove(typ);
-		
+	/**
+	 * @param deprecated the deprecated ID of a block
+	 * @param type block type to be deprecated
+	 * @throws IllegalStateException if block is not already registered before deprecation
+	 */
+	public static void deprecate(String deprecated, BlockType type) {
+		if(!blocks.contains(type)) throw new IllegalStateException("Block type "+type+" is not registered before deprecation");
+		debug.printl("Deprecating "+type.id()+" as "+deprecated);
+		_deprecator.put(deprecated, type);
 	}
 	/**
 	 * Get a block with following ID, or null if block with given ID is not found
@@ -50,21 +63,9 @@ public class Blocks {
 	 * @return a block with given name, or null if not found
 	 */
 	public static BlockType get(@Nullable String name) {
-		return _blocks.get(name);
-	}
-	/**
-	 * Remove given block by name
-	 * @param s block name
-	 */
-	public static void remove(String s) {
-		Objects.requireNonNull(s, "Block name can't be null");
-		debug.printl("Removing "+s);
-		_blocks.removeKey(s);
-		Items.remove(s);
-	}
-
-	public static BlockType[] getBlocks() {
-		return _blocks.toArray(new BlockType[_blocks.size()]);
+		BlockType get = blocks.get(name);
+		if(get == null) get = deprecator.get(name);
+		return get;
 	}
 
 	public static boolean isGround(BlockEntry ent) {

@@ -43,7 +43,9 @@ public class RotatedImageGroup {
 		return create(Textures.get(texture));
 	}
 	static BufferedImage rotate(BufferedImage img) {
-		BufferedImage result = new BufferedImage(32, 32, img.getType());
+		int type = img.getType();
+		if(type == 0) type = 5;
+		BufferedImage result = new BufferedImage(32, 32, type);
 		for(int i = 0; i < 32; i++) {
 			for(int j = 0; j < 32; j++) {
 				result.setRGB(31-j, i, img.getRGB(i, j));

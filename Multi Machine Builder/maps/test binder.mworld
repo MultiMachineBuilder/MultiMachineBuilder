@@ -15,7 +15,7 @@
       "blocktype" : "industry.furnace",
       "side" : "N",
       "in" : [ 2.0 ],
-      "out" : [ 2.0, [ "gem.coal", 1 ] ],
+      "out" : [ 2.0 ],
       "smelt" : null,
       "remain" : 0
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
@@ -62,8 +62,10 @@
     "machines" : [ ],
     "data" : { },
     "player" : {
-      "inventory" : [ 128.0, [ "gem.coal", 3 ] ],
-      "creative" : true
+      "inventory" : [ 128.0, [ "gem.coal", 4 ] ],
+      "creative" : true,
+      "x" : 0.30000000000000004,
+      "y" : 0.30000000000000004
     }
   },
   "data" : { },

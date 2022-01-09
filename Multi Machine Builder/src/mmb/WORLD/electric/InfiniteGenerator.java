@@ -24,7 +24,7 @@ public class InfiniteGenerator extends BlockEntityDataless {
 	public void shoveElectricity(Side s, double amt) {
 		Electricity elec = getAtSide(s).getElectricalConnection(s.negate());
 		if(elec == null) return;
-		elec.insert(amt);
+		elec.insert(amt, voltage);
 	}
 
 	@Override
@@ -37,4 +37,11 @@ public class InfiniteGenerator extends BlockEntityDataless {
 		return ContentsBlocks.INFINIGEN;
 	}
 
+	/**
+	 * The voltage of this generator
+	 */
+	public final VoltageTier voltage;
+	public InfiniteGenerator(VoltageTier voltage) {
+		this.voltage = voltage;
+	}
 }

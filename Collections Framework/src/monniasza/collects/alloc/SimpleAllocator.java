@@ -56,6 +56,7 @@ public class SimpleAllocator<T extends AllocationListener<T>> implements Allocat
 			//Reuse the value
 			IntIterator iterator = free.intIterator();
 			next = iterator.nextInt();
+			iterator.remove();
 		}
 		Node node = new Node(obj);
 		data.put(next, node);

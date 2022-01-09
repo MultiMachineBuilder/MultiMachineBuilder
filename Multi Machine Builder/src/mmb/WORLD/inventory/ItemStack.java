@@ -8,6 +8,10 @@ import javax.annotation.Nullable;
 
 import org.ainslec.picocog.PicoWriter;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import mmb.BEANS.Saver;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.io.InventoryWriter;
@@ -18,7 +22,7 @@ import monniasza.collects.Identifiable;
  * @author oskar
  * An item entry is intended for use in inventories.
  */
-public final class ItemStack implements Identifiable<ItemEntry>, Saver<ItemEntry>, RecipeOutput, Cloneable {
+public final class ItemStack implements Identifiable<ItemEntry>, RecipeOutput{
 	@Override
 	public String toString() {
 		return "ItemStack " + item + " × " + amount;
@@ -27,11 +31,11 @@ public final class ItemStack implements Identifiable<ItemEntry>, Saver<ItemEntry
 	/**
 	 * An item stored in the inventory
 	 */
-	@Nonnull public ItemEntry item;
+	@Nonnull public final ItemEntry item;
 	/**
 	 * Number of items in the entry
 	 */
-	public int amount;
+	public final int amount;
 	
 	/**
 	 * @param item item type in this stack
@@ -88,18 +92,6 @@ public final class ItemStack implements Identifiable<ItemEntry>, Saver<ItemEntry
 	}
 
 	@Override
-	public void load(ItemEntry data) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ItemEntry save() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void produceResults(InventoryWriter tgt, int amount) {
 		tgt.write(item, amount*this.amount);
 	}
@@ -113,12 +105,25 @@ public final class ItemStack implements Identifiable<ItemEntry>, Saver<ItemEntry
 	public double outVolume() {
 		return volume();
 	}
-	
-	/**
-	 * @return exact copy of this item stack
-	 */
+		
 	@Override
-	public ItemStack clone() {
-		return new ItemStack(item, amount);
+	public Object2IntMap<ItemEntry> getContents() {
+		return Object2IntMaps.singleton(item, amount);
+	}
+
+	@Override
+	public boolean contains(ItemEntry entry) {
+		return item.equals(entry);
+	}
+
+	@Override
+	public int get(ItemEntry entry) {
+		return getOrDefault(entry, 0);
+	}
+
+	@Override
+	public int getOrDefault(ItemEntry entry, int value) {
+		if(contains(entry)) return amount;
+		return value;
 	}
 }

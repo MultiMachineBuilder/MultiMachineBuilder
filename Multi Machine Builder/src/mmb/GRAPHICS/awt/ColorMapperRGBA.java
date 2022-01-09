@@ -9,9 +9,9 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 
 /**
- * @author oskar constructor javadoc, getters and setters
+ * @author oskar constructor javadoc, getters and setters <br>
  * @author <a href="https://stackoverflow.com/users/1831987/vgr">VGR</a> original code
- * <br> from: {@link "https://stackoverflow.com/a/27464772/11654970"}
+ * <br> from: <a href="https://stackoverflow.com/a/27464772/11654970">https://stackoverflow.com/a/27464772/11654970</a>
  */
 public class ColorMapperRGBA extends ColorMapper {
 	private final int[] from;

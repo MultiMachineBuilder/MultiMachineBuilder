@@ -82,5 +82,11 @@ public class MappedColorTexture implements BlockDrawer {
 	public Icon toIcon() {
 		return icon;
 	}
+	/**
+	 * @return the result
+	 */
+	public BufferedImage getResult() {
+		return result;
+	}
 	
 }

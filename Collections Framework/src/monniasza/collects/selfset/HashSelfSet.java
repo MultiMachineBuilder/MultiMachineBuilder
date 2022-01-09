@@ -278,7 +278,7 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 	}
 
 	@Override
-	public boolean containsKey(@Nullable K key) {
+	public boolean containsKey(@Nullable Object key) {
 		return map.containsKey(key);
 	}
 

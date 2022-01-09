@@ -217,12 +217,7 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 		writer.writeln("Size: "+contents.size());
 		writer.indentRight();
 		for(ItemRecord record: this) {
-			if(record == null) {
-				writer.writeln("NULL record");
-			}else {
-				writer.writeln(record.amount()+" × "+record.item());
-			}
-			
+			writer.writeln(record.amount()+" × "+record.item());
 		}
 		return writer.toString();
 	}

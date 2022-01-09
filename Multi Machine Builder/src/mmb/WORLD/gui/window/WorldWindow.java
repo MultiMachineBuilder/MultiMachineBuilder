@@ -30,6 +30,8 @@ import javax.swing.JScrollPane;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
+import it.unimi.dsi.fastutil.doubles.DoubleList;
+
 import java.io.OutputStream;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -211,7 +213,12 @@ public class WorldWindow extends MMBFrame{
 					panelPlayerInv.craftGUI.inventoryController.setSelectionModel(selModel);
 					pane.addTab("Inventory", panelPlayerInv);
 				//[end]
+				//[start] Recipe pane
+					TabRecipes recipePane = new TabRecipes();
+					pane.addTab("Recipes", null, recipePane, null);
+				//[end]
 			rootPane.setLeftComponent(pane);
+
 			//tool panel
 				//editor split pane: placement/destruction GUI
 					toolEditorSplitPane = new JSplitPane();
@@ -344,24 +351,25 @@ public class WorldWindow extends MMBFrame{
 	
 	//tabs
 	private JTabbedPane pane;
-	public void openWindow(Component comp, String s) {
+	public void openWindow(GUITab comp, String s) {
+		comp.createTab(this);
 		pane.add(s, comp);
 	}
-	public void openAndShowWindow(Component comp, String s) {
+	public void openAndShowWindow(GUITab comp, String s) {
+		comp.createTab(this);
 		pane.add(s, comp);
 		pane.setSelectedComponent(comp);
 	}
 	/**
-	 * Closes a tab. If the tab component implements {@link AutoCloseable}, its close() method is called first before removal
+	 * Closes a tab. Its destroyTab() method is called to dispose of resources
 	 * @param component
 	 */
-	public void closeWindow(Component component) {
-		if(component instanceof AutoCloseable)
-			try {
-				((AutoCloseable) component).close();
-			} catch (Exception e) {
-				debug.pstm(e, "Failed to shut down the component");
-			}
+	public void closeWindow(GUITab component) {
+		try {
+			component.destroyTab(this);
+		} catch (Exception e) {
+			debug.pstm(e, "Failed to shut down the component");
+		}
 		pane.remove(component);
 	}
 

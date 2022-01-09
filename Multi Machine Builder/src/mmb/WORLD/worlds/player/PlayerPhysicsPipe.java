@@ -28,8 +28,8 @@ public class PlayerPhysicsPipe implements PlayerPhysics {
 		boolean check = true;
 		while(check) {
 			//Perform checks
-			boolean below = progress < 0;
-			boolean above = progress > pipe.path.length;
+			boolean below = direction == Direction.BWD && progress < 0;
+			boolean above = direction == Direction.FWD && progress > pipe.path.length;
 			check = below || above;
 			
 			//Some old values
@@ -39,11 +39,10 @@ public class PlayerPhysicsPipe implements PlayerPhysics {
 			//Define replacements
 			Direction newdir = direction;
 			double newprog = progress;
+			double oldprog = progress;
 			PipeTunnel newpipe = pipe;
 			
-			//Player jumps over diagonals
 			if(below) {
-				double oldprog = progress;
 				PipeTunnelEntry pte = pipe.findPrev();
 				if(pte == null) {
 					progress += len;
@@ -53,11 +52,9 @@ public class PlayerPhysicsPipe implements PlayerPhysics {
 				newprog += len;
 				newpipe = pte.pipe;
 				newdir = pte.dir;
-				if(olddir != newdir) {
-					newprog = -oldprog;
-				}
+				if(olddir != newdir) newprog = -oldprog;
 			}
-			if(above) { //When encountering smaller diagonal pipe in other direction, it is skipped
+			if(above) {
 				PipeTunnelEntry pte = pipe.findNext();
 				if(pte == null) {
 					progress -= len;
@@ -67,9 +64,27 @@ public class PlayerPhysicsPipe implements PlayerPhysics {
 				newprog -= len;
 				newpipe = pte.pipe;
 				newdir = pte.dir;
-				if(olddir != newdir) {
-					newprog = len - progress;
-				}
+				/*
+				 * 0123456789ABCDEFGHIJKLMN
+				 *       EDCBA9876543210
+				 * 0 - - - a>|<b - - - 0
+				 * 
+				 * 
+				 * pt1
+				 * 0 2 4 6 8 A
+				 * 0 - - - a>|
+				 *       |<->|
+				 * pt2
+				 * A 8 6 4 2 0
+				 * |<b - - - 0
+				 * |<->|
+				 * 0 - - - a>|<b - - - 0
+				 *       |<->|<->|
+				 *         pt1   pt2
+				 *       |<-------->|
+				 *        len travel
+				 */
+				if(olddir != newdir) newprog = (len+newpipe.path.length)/2 - newprog;
 			}
 			
 			//Update the values
@@ -77,7 +92,6 @@ public class PlayerPhysicsPipe implements PlayerPhysics {
 			progress = newprog;
 			pipe = newpipe;
 		}
-		
 		
 		//Move along the pipe
 		double speed = p.speed.x;

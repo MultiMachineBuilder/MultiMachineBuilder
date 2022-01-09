@@ -26,6 +26,9 @@ import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.blocks.ipipe.Pipes;
 import mmb.WORLD.blocks.machine.Nuker;
 import mmb.WORLD.blocks.machine.line.Furnace;
+import mmb.WORLD.blocks.machine.manual.Crafting;
+import mmb.WORLD.contentgen.Materials;
+import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.generator.Generators;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.tool.Tools;
@@ -79,6 +82,13 @@ public final class ModLoader {
 		Main.state1("Loading textures");
 		walkTextures(new File("textures/"));
 		
+		Materials.init();
+		//Check voltage tiers
+		VoltageTier[] volts = VoltageTier.values();
+		for(VoltageTier volt: volts) {
+			debug.printl(volt.name+", structural: "+volt.construction+", electrical: "+volt.electrical);
+		}
+		
 		Main.state1("Loading blocks");
 		ContentsBlocks.init();
 		Pipes.init();
@@ -87,6 +97,7 @@ public final class ModLoader {
 		ContentsItems.init();
 		
 		Main.state1("Loading machines");
+		Crafting.init();
 		Nuker.init();
 		Generators.init();
 		Furnace.init();
@@ -132,6 +143,11 @@ public final class ModLoader {
 				AddonLoader.load(FileUtil.getFile(p));
 			} catch (MalformedURLException e) {
 				debug.pstm(e, "The external mod has incorrect URL: "+p);
+				AddonInfo info = new AddonInfo();
+				info.name = p;
+				info.path = p;
+				info.state = AddonState.NOEXIST;
+				GameContents.addons.add(info);
 			}
 		}
 		

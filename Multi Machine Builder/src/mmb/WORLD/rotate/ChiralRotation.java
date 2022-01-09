@@ -23,6 +23,7 @@ public enum ChiralRotation {
 		@Override public ChiralRotation ccw() {return Wl;}
 		@Override public ChiralRotation opposite() {return Sl;}
 		@Override public ChiralRotation flip() {return Nr;}
+		@Override public ChiralRotation negate() {return Nl;}
 	},
 	Nr(Rotation.N, Chirality.R) {
 		@Override public Side U() {return Side.U;}
@@ -37,6 +38,7 @@ public enum ChiralRotation {
 		@Override public ChiralRotation ccw() {return Wr;}
 		@Override public ChiralRotation opposite() {return Sr;}
 		@Override public ChiralRotation flip() {return Nl;}
+		@Override public ChiralRotation negate() {return Nr;}
 	},
 	El(Rotation.E, Chirality.L) {
 		@Override public Side U() {return Side.R;}
@@ -51,6 +53,7 @@ public enum ChiralRotation {
 		@Override public ChiralRotation ccw() {return Nl;}
 		@Override public ChiralRotation opposite() {return Wl;}
 		@Override public ChiralRotation flip() {return Er;}
+		@Override public ChiralRotation negate() {return El;}
 	},
 	Er(Rotation.E, Chirality.R) {
 		@Override public Side U() {return Side.R;}
@@ -65,6 +68,8 @@ public enum ChiralRotation {
 		@Override public ChiralRotation ccw() {return Nr;}
 		@Override public ChiralRotation opposite() {return Wr;}
 		@Override public ChiralRotation flip() {return El;}
+		@Override
+		public ChiralRotation negate() {return Wr;}
 	},
 	Sl(Rotation.S, Chirality.L) {
 		@Override public Side U() {return Side.D;}
@@ -79,6 +84,7 @@ public enum ChiralRotation {
 		@Override public ChiralRotation ccw() {return El;}
 		@Override public ChiralRotation opposite() {return Nl;}
 		@Override public ChiralRotation flip() {return Sr;}
+		@Override public ChiralRotation negate() {return Sl;}
 	},
 	Sr(Rotation.S, Chirality.R) {
 		@Override public Side U() {return Side.D;}
@@ -93,6 +99,7 @@ public enum ChiralRotation {
 		@Override public ChiralRotation ccw() {return Er;}
 		@Override public ChiralRotation opposite() {return Nr;}
 		@Override public ChiralRotation flip() {return Sl;}
+		@Override public ChiralRotation negate() {return Sr;}
 	},
 	Wl(Rotation.W, Chirality.L) {
 		@Override public Side U() {return Side.L;}
@@ -107,6 +114,8 @@ public enum ChiralRotation {
 		@Override public ChiralRotation ccw() {return Sl;}
 		@Override public ChiralRotation opposite() {return El;}
 		@Override public ChiralRotation flip() {return Wr;}
+		@Override
+		public ChiralRotation negate() {return Wl;}
 	},
 	Wr(Rotation.W, Chirality.R) {
 		@Override public Side U() {return Side.L;}
@@ -121,6 +130,8 @@ public enum ChiralRotation {
 		@Override public ChiralRotation ccw() {return Sr;}
 		@Override public ChiralRotation opposite() {return Er;}
 		@Override public ChiralRotation flip() {return Wl;}
+		@Override
+		public ChiralRotation negate() {return Er;}
 	};
 	
 	@Nonnull public final Rotation rotation;
@@ -218,14 +229,12 @@ public enum ChiralRotation {
 		case UR:
 			return UR();
 		default:
-			throw new IllegalArgumentException("Uknown side: "+s);
+			throw new IllegalArgumentException("Ukndown side: "+s);
 		}
 	}
 
 	/**
-	 * @return
+	 * @return the chirotation {@code Y}, which for {@code Y.apply(this.apply(X))}, where {@code X} is any valid side, returns {@code X}
 	 */
-	public ChiralRotation negate() {
-		return of(rotation.flipH(), chirality);
-	}
+	public abstract ChiralRotation negate();
 }

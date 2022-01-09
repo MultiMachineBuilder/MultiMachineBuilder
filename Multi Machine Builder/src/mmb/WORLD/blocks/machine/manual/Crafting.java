@@ -15,6 +15,7 @@ import javax.annotation.Nullable;
 import it.unimi.dsi.fastutil.ints.IntList;
 import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.block.Block;
+import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.gui.inv.CraftGUI;
 import mmb.WORLD.gui.window.WorldWindow;
@@ -105,47 +106,51 @@ public class Crafting extends Block implements BlockActivateListener {
 			ttypes[i] = initCraftingType(i);
 		}
 		types = Collections.unmodifiableList(Arrays.asList(ttypes));
-		
+	}
+	private static boolean inited = false;
+	public static void init(){
+		if(inited) return;
+		inited = true;
 		//Generate recipes
 		//Crafting ingredients
 		addRecipe(logs, plank, 16); // wood → planks
-		addRecipeGrid(plank, 2, 2, types.get(0)); //4*wood plank → crafting table 1
+		addRecipeGrid(plank, 2, 2, types.get(0), 1); //4*wood plank → crafting table 1
 		addRecipe(new FixedGrid<>(3,
 				plank, logs,  plank,
 				null,  plank, null,
 				null,  plank, null),
-				pickHeadWood);
+				pickHeadWood, 1);
 		
 		//Pipes
 		addRecipe(new FixedGrid<>(3,
-				iron, null,  iron,
-				iron,  null, iron,
-				iron,  null, iron),
+				Materials.iron.base,  null, Materials.iron.base,
+				Materials.iron.base,  null, Materials.iron.base,
+				Materials.iron.base,  null, Materials.iron.base),
 				STRAIGHT, 24);
 		addRecipe(new FixedGrid<>(3,
-				iron, iron,  iron,
-				iron,  null, null,
-				iron,  null, iron),
+				Materials.iron.base, Materials.iron.base,  Materials.iron.base,
+				Materials.iron.base,  null, null,
+				Materials.iron.base,  null, Materials.iron.base),
 				ELBOW, 24);
 		addRecipe(new FixedGrid<>(3,
 				ELBOW, null,       null,
-				null,  nuggetIron, null,
+				null,  Materials.iron.nugget, null,
 				null,  null,       ELBOW),
-				DUALTURN);
+				DUALTURN, 1);
 		addRecipe(new FixedGrid<>(3,
 				STRAIGHT, null,       null,
-				null,  nuggetIron, null,
+				null,  Materials.iron.nugget, null,
 				null,  null,       STRAIGHT),
-				CROSS);
-		addRecipeGrid(new ItemEntry[]{ELBOW, nuggetIron, STRAIGHT}, 3, 1, TOLEFT);
-		addRecipeGrid(new ItemEntry[]{STRAIGHT, nuggetIron, ELBOW}, 3, 1, TORIGHT);
+				CROSS, 1);
+		addRecipeGrid(new ItemEntry[]{ELBOW, Materials.iron.nugget, STRAIGHT}, 3, 1, TOLEFT, 1);
+		addRecipeGrid(new ItemEntry[]{STRAIGHT, Materials.iron.nugget, ELBOW}, 3, 1, TORIGHT, 1);
 		
 		//Actuator blocks
 		//No recipe for Creative Block Placer
-		addRecipeGrid(new ItemEntry[]{rod1, bearing1, frame1}, 1, 3, ROTATOR); //Block Rotator
+		addRecipeGrid(new ItemEntry[]{rod1, bearing1, frame1}, 1, 3, ROTATOR, 1); //Block Rotator
 		
 		//WireWorld blocks
-		addRecipeGrid(new ItemEntry[]{silicon, copper}, 1, 2, ww_wire, 24); //WireWorld cell
+		addRecipeGrid(new ItemEntry[]{Materials.silicon.base, Materials.copper.base}, 1, 2, ww_wire, 24); //WireWorld cell
 		
 		//WireWorld gates - 2 inputs
 		addRecipe(new FixedGrid<ItemEntry>(3, 2,
@@ -163,11 +168,15 @@ public class Crafting extends Block implements BlockActivateListener {
 		
 		//WireWorld gates - 1 input
 		addRecipeGrid(ww_wire, 1, 2, YES); //YES
-		addRecipeGrid(new ItemEntry[]{ww_wire, YES}, 1, 2, NOT); //YES
+		addRecipeGrid(new ItemEntry[]{ww_wire, YES}, 1, 2, NOT); //NOT
 		
+		ItemEntry silicon = Materials.silicon.base;
+		ItemEntry iron = Materials.iron.base;
+		ItemEntry steel = Materials.steel.base;
+		ItemEntry nuggetSteel = Materials.steel.nugget;
 		//WireWorld signallers
 		addRecipeGrid(new ItemEntry[]{
-				silicon, ww_wire, silicon,
+				silicon , ww_wire, silicon,
 				ww_wire, ww_wire, ww_wire,
 				silicon, ww_wire, silicon
 				}, 3, 3, TRUE, 4); //Always true
@@ -198,25 +207,13 @@ public class Crafting extends Block implements BlockActivateListener {
 				nuggetSteel,  null,         nuggetSteel,
 				nuggetSteel,  nuggetSteel,  nuggetSteel,
 				}, 3, 3, bearing1);
-		
-		//Ingot <--> nugget
-		ingotNugget(stainless, nuggetStainless);
-		ingotNugget(gold, nuggetGold);
-		ingotNugget(iron, nuggetIron);
-		ingotNugget(copper, nuggetCopper);
-		ingotNugget(silicon, nuggetSilicon);
-		ingotNugget(uranium, nuggetUranium);
-		ingotNugget(steel, nuggetSteel);
 	}
 	
-	private static void ingotNugget(Item ingot, Item nugget) {
-		addRecipeGrid(nugget, 4, 4, ingot);
+	public static void ingotNugget(Item ingot, Item nugget) {
+		addRecipeGrid(nugget, 4, 4, ingot, 1);
 		addRecipeGrid(ingot, 1, 1, nugget, 16);
 	}
 	
-	public static void init() {
-		//initialization
-	}
 	static Block initCraftingType(int tier) {
 		int increased = tier + 1;
 		String textureName = "machine/assembly "+increased+".png";

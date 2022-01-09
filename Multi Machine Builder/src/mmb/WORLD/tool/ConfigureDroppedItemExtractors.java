@@ -23,7 +23,6 @@ import mmb.WORLD.blocks.machine.Collector;
 public class ConfigureDroppedItemExtractors extends WindowTool {
 	public ConfigureDroppedItemExtractors() {
 		super("droppedItems");
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

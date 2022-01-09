@@ -29,6 +29,7 @@ import mmb.WORLD.gui.inv.CraftGUI;
 import mmb.WORLD.gui.inv.InventoryController;
 
 import java.util.List;
+import mmb.WORLD.gui.SelectSortItemTypes;
 
 /**
  * @author oskar
@@ -60,25 +61,20 @@ public class TabInventory extends JPanel {
 		craftGUI = new CraftGUI(2, null, null, ctrl);
 		
 		timer = new Timer(0, e -> craftGUI.inventoryController.refresh());
-		setLayout(new MigLayout("", "[::250.00,grow,fill][:400.00:400.00,grow,fill][grow]", "[20px][grow]"));
+		setLayout(new MigLayout("", "[100px:100px:100px,grow][::250.00,grow,fill][:400.00:400.00,grow,fill]", "[20px][center][grow]"));
 		
-		lblNewLabel = new JLabel("Creative items");
-		add(lblNewLabel, "flowx,cell 0 0");
-		
-		creativeScrollPane = new JScrollPane();
-		add(creativeScrollPane, "cell 0 1,grow");
-		
-		creativeItemList = new CreativeItemList();
-		creativeScrollPane.setViewportView(creativeItemList);
-		
-		add(craftGUI, "cell 1 0 1 2,growy");
+		lblSort = new JLabel("Sort ordering:");
+		add(lblSort, "cell 0 0");
 		
 		panel = new JPanel();
-		add(panel, "cell 2 0 1 2,grow");
-		panel.setLayout(new MigLayout("", "[][]", "[][][][]"));
+		add(panel, "cell 1 0 1 2,growx,aligny top");
+		panel.setLayout(new MigLayout("", "[][]", "[][][][][]"));
+		
+		lblNewLabel = new JLabel("Creative items");
+		panel.add(lblNewLabel, "cell 0 0");
 		
 		checkSurvival = new BoundCheckBox();
-		panel.add(checkSurvival, "cell 0 0");
+		panel.add(checkSurvival, "cell 1 0");
 		checkSurvival.setText("Creative");
 		
 		lblNewLabel_1 = new JLabel("Items to remove/add");
@@ -87,8 +83,22 @@ public class TabInventory extends JPanel {
 		itemAmt = new JSpinner();
 		panel.add(itemAmt, "cell 1 1,growx");
 		
+		btnAdd = new JButton("Add one");
+		panel.add(btnAdd, "cell 0 2,growx");
+		btnAdd.addActionListener(e -> addItems(1));
+		btnAdd.setBackground(new Color(0, 170, 0));
+		
+		btnNewButton_1 = new JButton("Add #");
+		panel.add(btnNewButton_1, "cell 1 2,growx");
+		btnNewButton_1.addActionListener(e -> {
+			@SuppressWarnings("boxing")
+			int amt = (Integer)(itemAmt.getValue());
+			addItems(amt);
+		});
+		btnNewButton_1.setBackground(new Color(0, 204, 0));
+		
 		btnRemove = new JButton("Remove one");
-		panel.add(btnRemove, "cell 0 2,growx");
+		panel.add(btnRemove, "cell 0 3,growx");
 		btnRemove.addActionListener(e -> removeItems(1));
 		
 		btnRemove.setBackground(new Color(170, 0, 0));
@@ -101,26 +111,23 @@ public class TabInventory extends JPanel {
 			removeItems(amt);
 		});
 		btnNewButton.setBackground(new Color(204, 0, 0));
-		panel.add(btnNewButton, "cell 1 2");
+		panel.add(btnNewButton, "cell 1 3");
 		
 		btnNewButton_2 = new JButton("Empty this slot");
 		btnNewButton_2.addActionListener(e -> removeItems(Integer.MAX_VALUE));
 		btnNewButton_2.setBackground(new Color(255, 0, 0));
-		panel.add(btnNewButton_2, "cell 0 3 2 1,growx");
+		panel.add(btnNewButton_2, "cell 0 4 2 1,growx");
 		
-		btnAdd = new JButton("Add one");
-		btnAdd.addActionListener(e -> addItems(1));
-		btnAdd.setBackground(new Color(0, 170, 0));
-		add(btnAdd, "cell 0 0");
+		selectSortItemTypes = new SelectSortItemTypes();
+		add(selectSortItemTypes, "cell 0 1 1 2,grow");
 		
-		btnNewButton_1 = new JButton("Add #");
-		btnNewButton_1.addActionListener(e -> {
-			@SuppressWarnings("boxing")
-			int amt = (Integer)(itemAmt.getValue());
-			addItems(amt);
-		});
-		btnNewButton_1.setBackground(new Color(0, 204, 0));
-		add(btnNewButton_1, "cell 0 0");
+		add(craftGUI, "cell 2 0 1 3,growy");
+		
+		creativeScrollPane = new JScrollPane();
+		add(creativeScrollPane, "cell 1 2,grow");
+		
+		creativeItemList = new CreativeItemList();
+		creativeScrollPane.setViewportView(creativeItemList);
 	}
 	private void removeItems(int amount) {
 		int remain = amount;
@@ -137,12 +144,18 @@ public class TabInventory extends JPanel {
 			debug.printl("Got null inventory");
 			return;
 		}
-		ItemType item = creativeItemList.getSelectedValue();
-		if(item == null) {
-			debug.printl("Got null item");
+		List<ItemType> items = creativeItemList.getSelectedValuesList();
+		if(items == null) {
+			debug.printl("Got null item list");
 			return;
 		}
-		inv.insert(item.create(), amount);
+		for(ItemType item: items) {
+			if(item == null) {
+				debug.printl("Got null item");
+				continue;
+			}
+			inv.insert(item.create(), amount);
+		}
 		craftGUI.inventoryController.refresh();
 	}
 
@@ -175,6 +188,8 @@ public class TabInventory extends JPanel {
 	private JButton btnNewButton_1;
 	private JButton btnNewButton_2;
 	public final CraftGUI craftGUI;
+	private SelectSortItemTypes selectSortItemTypes;
+	private JLabel lblSort;
 
 	public void dispose() {
 		timer.stop();

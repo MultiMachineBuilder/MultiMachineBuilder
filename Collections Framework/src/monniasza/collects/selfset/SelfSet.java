@@ -47,7 +47,7 @@ public interface SelfSet<K, V extends Identifiable<K>> extends Set<V>{
 	 */
 	public boolean removeKey(K key);
 	
-	public boolean containsKey(@Nullable K key);
+	public boolean containsKey(@Nullable Object key);
 
 	@SuppressWarnings({"unchecked", "sexy"})
 	@Override

@@ -93,8 +93,10 @@ public interface BlockEntry extends Saver<JsonNode>, Rotable, Chiral {
 	 * Called when world is initialized
 	 * <br>Exception handling: If exception is thrown by this method, the block is not properly initialized
 	 * @param map world, which is initialized
+	 * @param x X coordinate of the block
+	 * @param y	Y cordinate of the block
 	 */
-	public default void onStartup(World map) {
+	public default void onStartup(World map, int x, int y) {
 		//optional
 	}
 	/**
@@ -102,8 +104,10 @@ public interface BlockEntry extends Saver<JsonNode>, Rotable, Chiral {
 	 * <br>Exception handling: If exception is thrown by this method, the block is not placed
 	 * @param map world, in which the block is placed
 	 * @param obj player, which placed the block
+	 * @param x X coordinate of the block
+	 * @param y	Y cordinate of the block
 	 */
-	public default void onPlace(World map, @Nullable GameObject obj) {
+	public default void onPlace(World map, @Nullable GameObject obj, int x, int y) {
 		//optional
 	}
 	/**
@@ -111,12 +115,14 @@ public interface BlockEntry extends Saver<JsonNode>, Rotable, Chiral {
 	 * <br>Exception handling: If exception is thrown by this method, the block is not broken
 	 * @param map world, in which block is broken
 	 * @param obj player, which broke the block
+	 * @param x X coordinate of the block
+	 * @param y	Y cordinate of the block
 	 */
-	public default void onBreak(World map, @Nullable GameObject obj) {
+	public default void onBreak(World map, @Nullable GameObject obj, int x, int y) {
 		//optional
 	}
 	/**
-	 * Called when world is initialized
+	 * Called when world is closed
 	 * <br>Exception handling: If exception is thrown by this method, the block is not properly closed
 	 * @param map world, which is shutting down
 	 */
@@ -132,30 +138,7 @@ public interface BlockEntry extends Saver<JsonNode>, Rotable, Chiral {
 	@Nullable public default Electricity getElectricalConnection(Side s) {
 		return null;
 	}
-	/**
-	 * Returns conduit capacity of this wire. If value passes {@link BlockEntry#isValidConduitCapacity(double) isValidConduit()}, it represents a valid conduit.
-	 * @return the capacity of conduit, or NaN if not.
-	 */
-	public default double condCapacity() {
-		return Double.NaN;
-	}
-	/**
-	 * Checks if given block entry is a valid conduit.
-	 * @param ent block to check
-	 * @return is given block conduit?
-	 */
-	public static boolean isValidConduit(@Nullable BlockEntry ent) {
-		if(ent == null) return false;
-		return isValidConduitCapacity(ent.condCapacity());
-	}
-	/**
-	 * Checks if given {@code double} value represents a valid conduit capacity
-	 * @param cap capacity to check
-	 * @return is given capacity valid?
-	 */
-	public static boolean isValidConduitCapacity(double cap) {
-		return Double.isFinite(cap) && cap >= 0;
-	}
+
 	/**
 	 * Prints debug information for use in debug menu
 	 * @param sb string builder
@@ -297,23 +280,22 @@ public interface BlockEntry extends Saver<JsonNode>, Rotable, Chiral {
 		return type().isSurface();
 	}
 	/**
-	 * DOES NOT PROPERLY COLLIDE OUTSIDE FROM [0,0] TO [1,1]
 	 * @param x1
 	 * @param y1
 	 * @param x2
 	 * @param y2
 	 * @param player player to displace
-	 * @param move TODO
+	 * @param move TODO should player be moved
 	 * @return rectangle collision: 0 if none, 1 if horizontal, 2 if vertical
 	 */
 	static int displaceFrom(double x1, double y1, double x2, double y2, Player player, boolean move) {
 		//Displace on X axis
-		double X1 = player.pos.x-0.3;
-		double Y1 = player.pos.y-0.3;
-		double X2 = player.pos.x+0.3;
-		double Y2 = player.pos.y+0.3;
+		double px1 = player.pos.x-0.3;
+		double py1 = player.pos.y-0.3;
+		double px2 = player.pos.x+0.3;
+		double py2 = player.pos.y+0.3;
 		Vector2d offset = new Vector2d();
-		int coll = displace(x1, y1, x2, y2, X1, Y1, X2, Y2, offset);
+		int coll = displace(x1, y1, x2, y2, px1, py1, px2, py2, offset);
 		if(move) {
 			player.pos.add(offset);
 			if(coll == 1) {
@@ -326,41 +308,42 @@ public interface BlockEntry extends Saver<JsonNode>, Rotable, Chiral {
 		return coll;
 	}
 	/**
-	 * @param x1 first X coordinate of the stationary rectangle
-	 * @param y1 first Y coordinate of the stationary rectangle
-	 * @param x2 second X coordinate of the stationary rectangle
-	 * @param y2 second Y coordinate of the stationary rectangle
-	 * @param X1 first X coordinate of the movable rectangle
-	 * @param Y1 first Y coordinate of the movable rectangle
-	 * @param X2 second X coordinate of the movable rectangle
-	 * @param Y2 second Y coordinate of the movable rectangle
+	 * DOES NOT WORK AT SOME POSITIONS
+	 * @param cx1 first X coordinate of the stationary rectangle
+	 * @param cy1 first Y coordinate of the stationary rectangle
+	 * @param cx2 second X coordinate of the stationary rectangle
+	 * @param cy2 second Y coordinate of the stationary rectangle
+	 * @param px1 first X coordinate of the movable rectangle
+	 * @param py1 first Y coordinate of the movable rectangle
+	 * @param px2 second X coordinate of the movable rectangle
+	 * @param py2 second Y coordinate of the movable rectangle
 	 * @param out the vector, which stores offset
 	 * @return rectangle collision: 0 if none, 1 if horizontal, 2 if vertical
 	 */
-	static int displace(double x1, double y1, double x2, double y2, double X1, double Y1, double X2, double Y2, Vector2d out) {
-		double radx = (x2-x1)/2;
-		double x = (x1+x2)/2;
-		double radX = (X2-X1)/2;
-		double X = (X1+X2)/2;
-		double distX = Math.abs(X-x);
-		double infringeX = (radX+radx) - distX;
-		boolean hz = infringeX >= 0;
+	static int displace(double cx1, double cy1, double cx2, double cy2, double px1, double py1, double px2, double py2, Vector2d out) {
+		double radCX =    (cx2-cx1)/2;
+		double centerCX = (cx2+cx1)/2;
+		double radPX =    (px2-px1)/2;
+		double centerPX = (px2+px1)/2;
+		double distX = Math.abs(centerPX-centerCX);
+		double infringeX = (radPX+radCX) - distX;
+		boolean colx = infringeX > 0;
 		
-		double rady = (y2-y1)/2;
-		double y = (y1+y2)/2;
-		double radY = (Y2-Y1)/2;
-		double Y = (Y1+Y2)/2;
-		double distY = Math.abs(Y-y);
-		double infringeY = (radY+rady) - distY;
-		boolean vert = infringeY >= 0;
+		double radCY =    (cy2-cy1)/2;
+		double centerCY = (cy2+cy1)/2;
+		double radPY =    (py2-py1)/2;
+		double centerPY = (py2+py1)/2;
+		double distY = Math.abs(centerPY-centerCY);
+		double infringeY = (radPY+radCY) - distY;
+		boolean coly = infringeY > 0;
 		
-		boolean collide = hz && vert;
+		boolean collide = colx && coly;
 		if(!collide)
 			return 0;
 		
 		if(infringeX < infringeY) {
 			//displace horizontally
-			if(X > x) {
+			if(centerPX > centerCX) {
 				//displace right
 				out.x = infringeX;
 			}else{
@@ -369,18 +352,18 @@ public interface BlockEntry extends Saver<JsonNode>, Rotable, Chiral {
 			}
 			return 1; //not working as expected
 		}
-		//displace vertically
-		if(Y > y) {
-			//displace down
-			out.y = infringeY;
-		}else{
-			//displace up
-			out.y = -infringeY;
-		}
-		return 2;
+			//displace vertically
+			if(centerPY > centerCY) {
+				//displace down
+				out.y = infringeY;
+			}else{
+				//displace up
+				out.y = -infringeY;
+			}
+			return 2;
 	}
 	
-	//Pipe tunnnels
+	//Pipe tunnels
 	/**
 	 * Gets the pipe tunnel at given side
 	 * @param s the side from which pipe enters

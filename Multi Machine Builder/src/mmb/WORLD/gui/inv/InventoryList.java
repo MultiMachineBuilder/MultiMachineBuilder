@@ -75,7 +75,7 @@ public class InventoryList extends JList<ItemRecord> {
 		@Override
 		public Component getListCellRendererComponent(@SuppressWarnings("null") JList<? extends ItemRecord> list, ItemRecord itemType, int index,
 		boolean isSelected, boolean cellHasFocus) {
-			setIcon(itemType.id().type().getIcon());
+			setIcon(itemType.id().icon());
 			setText(itemType.id().title() + " × " + itemType.amount());
 			
 			if (isSelected) {

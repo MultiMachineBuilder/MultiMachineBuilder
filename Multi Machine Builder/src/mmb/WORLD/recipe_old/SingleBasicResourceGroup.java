@@ -6,11 +6,15 @@ package mmb.WORLD.recipe_old;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
+import mmb.WORLD.crafting.Recipe;
+import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
+import monniasza.collects.selfset.SelfSet;
 
 /**
  * @author oskar
