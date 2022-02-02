@@ -15,6 +15,7 @@ import mmb.debug.Debugger;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 import java.awt.Rectangle;
+import java.util.Random;
 
 /**
  * @author oskar
@@ -26,7 +27,8 @@ public class GeneratorMultiBiome implements Generator {
 	private Rectangle chunk = new Rectangle();
 	@Override
 	public Grid<BlockEntry> genChunk(World map, int minX, int minY, int w, int h) {
-		long biomen = random.getLong(minY + ((minX * 991) ^ 0x12433653), minY << 8, 2);
+		long n = random.getLong(minY + ((minX * 991) ^ 0x12433653), minY << 8, 2);
+		long biomen = n;
 		biomen = biomen % biomes.length;
 		if(biomen < 0) biomen += biomes.length;
 		Biome biome = biomes[(int) biomen];
@@ -36,12 +38,13 @@ public class GeneratorMultiBiome implements Generator {
 		chunk.width = w;
 		chunk.height = h;
 		if(rect.intersects(chunk)) biome = Biome.PLAINS;
+		Random rnd = new Random(n);
 		//Generate blocks
 		Grid<BlockEntry> result = new FixedGrid<>(w, h);
 		debug.printl(w+", "+h);
 		for(int i = 0; i < w; i++) {
 			for(int j = 0; j < h; j++) {
-				long randomized = random.getLong((i+minX) << 16, j+minY, j + ((i * 65537) ^ w));
+				long randomized = /*random.getLong((i+minX) << 16, j+minY, j + ((i * 65537) ^ w))*/rnd.nextLong();
 				result.set(i, j, biome.randomize(randomized));
 			}
 		}
@@ -52,13 +55,14 @@ public class GeneratorMultiBiome implements Generator {
 		QUARRY {
 			@Override
 			public Block randomize(long genseed) {
-				int subseed = (int) (genseed % 100);
+				int subseed = (int) (genseed % 250);
 				switch(subseed) {
 				case 0:
 				case 1:
 				case 2:
 				case 3:
 				case 4:
+					return Materials.lead.ore;
 				case 5:
 				case 6:
 				case 7:
@@ -70,6 +74,7 @@ public class GeneratorMultiBiome implements Generator {
 				case 12:
 				case 13:
 				case 14:
+					return Materials.zinc.ore;
 				case 15:
 				case 16:
 				case 17:
@@ -81,6 +86,7 @@ public class GeneratorMultiBiome implements Generator {
 				case 22:
 				case 23:
 				case 24:
+					return Materials.tin.ore;
 				case 25:
 				case 26:
 				case 27:
@@ -97,6 +103,7 @@ public class GeneratorMultiBiome implements Generator {
 				case 37:
 				case 38:
 				case 39:
+					return Materials.rudimentary.ore;
 				case 40:
 				case 41:
 				case 42:
@@ -109,12 +116,38 @@ public class GeneratorMultiBiome implements Generator {
 				case 49:
 					return ContentsBlocks.coal_ore;
 				case 50:
+					return ContentsBlocks.diamond_ore;
 				case 51:
 				case 52:
+					return Materials.platinum.ore;
 				case 53:
 				case 54:
+					return Materials.tungsten.ore;
 				case 55:
+				case 56:
 					return Materials.gold.ore;
+				case 57:
+				case 58:
+					return Materials.iridium.ore;
+				case 59:
+				case 60:
+				case 61:
+				case 62:
+				case 63:
+					return Materials.nickel.ore;
+				case 64:
+				case 65:
+				case 66:
+					return Materials.silver.ore;
+				case 67:
+				case 68:
+				case 69:
+					return Materials.cobalt.ore;
+				case 70:
+				case 71:
+				case 72:
+				case 73:
+					return Materials.uranium.ore;
 				default:
 					return ContentsBlocks.stone;
 				}

@@ -9,10 +9,8 @@ import java.util.Vector;
 import java.util.stream.Collectors;
 
 import javax.annotation.Nonnull;
-import javax.swing.JComponent;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
 import javax.swing.ListCellRenderer;
 
 import mmb.WORLD.crafting.RecipeOutput;
@@ -21,12 +19,13 @@ import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
 
 import javax.swing.JList;
+import javax.swing.JPanel;
 
 /**
  * @author oskar
  *
  */
-public class SimpleRecipeView extends JComponent {
+public class SimpleRecipeView extends JPanel {
 	private static final long serialVersionUID = -2864705123116802475L;
 	private JLabel lblVolt;
 	private JLabel lblEnergy;
@@ -60,7 +59,7 @@ public class SimpleRecipeView extends JComponent {
 		outList.setCellRenderer(new CellRenderer());
 		add(outList, "cell 1 3,growx,aligny center");
 	}
-	public void set(SimpleProcessingRecipe recipe, Vector<ItemStack> vector) {
+	public void set(SimpleProcessingRecipe recipe, ItemStack[] vector) {
 		lblVolt.setText("Voltage tier: "+recipe.voltage.name);
 		lblEnergy.setText("Energy: "+recipe.energy);
 		ItemEntry item = recipe.input;
@@ -112,5 +111,13 @@ public class SimpleRecipeView extends JComponent {
 				.stream()
 				.map(ent -> new ItemStack(ent.getKey(), ent.getIntValue()))
 				.collect(Collectors.toCollection(() -> new Vector<ItemStack>()));
+	}
+	@Nonnull public static ItemStack[] list2arr(RecipeOutput output){
+		return output
+				.getContents()
+				.object2IntEntrySet()
+				.stream()
+				.map(entry -> new ItemStack(entry.getKey(), entry.getIntValue()))
+				.toArray(n -> new ItemStack[n]);
 	}
 }

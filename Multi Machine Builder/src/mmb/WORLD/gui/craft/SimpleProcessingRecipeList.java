@@ -39,10 +39,10 @@ public class SimpleProcessingRecipeList extends JScrollPane {
 	}
 	static class RecipeEntry{
 		@Nonnull public final SimpleProcessingRecipe recipe;
-		@Nonnull public final Vector<ItemStack> stack;
+		@Nonnull public final ItemStack[] stack;
 		public RecipeEntry(SimpleProcessingRecipe recipe) {
 			this.recipe = recipe;
-			stack = SimpleRecipeView.list2vector(recipe.output);
+			stack = SimpleRecipeView.list2arr(recipe.output);
 		}
 	}
 	class CellRenderer extends SimpleRecipeView implements ListCellRenderer<RecipeEntry>{

@@ -18,8 +18,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
 
 /**
  * @author oskar
@@ -34,6 +33,8 @@ public class ElectroFurnaceTab extends GUITab implements Refreshable{
 	@Nonnull private JProgressBar progressSmelt;
 	@Nonnull private JProgressBar progressEnergy;
 	private JLabel lblVolts;
+	private JCheckBox checkAutoExtract;
+	private JLabel lblTYpe;
 
 	/**
 	 * Create the panel.
@@ -45,7 +46,7 @@ public class ElectroFurnaceTab extends GUITab implements Refreshable{
 		lblVolts = new JLabel("Voltage tier: "+furnace.type().volt.name);
 		lblVolts.setOpaque(true);
 		lblVolts.setBackground(furnace.type().volt.c);
-		add(lblVolts, "cell 2 0,growx");
+		add(lblVolts, "flowy,cell 2 0,growx");
 		
 		InventoryController invPlayer = new InventoryController(window.getPlayer().inv);
 		add(invPlayer, "cell 0 0 1 5,grow");
@@ -83,6 +84,12 @@ public class ElectroFurnaceTab extends GUITab implements Refreshable{
 		progressSmelt = new JProgressBar();
 		progressSmelt.setStringPainted(true);
 		add(progressSmelt, "cell 2 3,grow");
+		
+		lblTYpe = new JLabel(furnace.recipes.title);
+		add(lblTYpe, "cell 2 0");
+		
+		checkAutoExtract = new JCheckBox("Auto-extract items");
+		add(checkAutoExtract, "cell 2 0");
 	}
 
 	

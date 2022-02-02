@@ -19,7 +19,6 @@ import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.inventory.Inventories;
 import mmb.WORLD.inventory.storage.SingleItemInventory;
 import mmb.WORLD.item.ItemType;
-import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.debug.Debugger;

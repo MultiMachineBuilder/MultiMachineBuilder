@@ -53,6 +53,15 @@ public class Player implements GameObject, Saver<JsonNode> {
 	
 	@Nonnull public final SimpleInventory inv = new SimpleInventory();
 	@Nonnull public final ListenerBooleanVariable creative = new ListenerBooleanVariable();
+	public boolean isCreative() {
+		return creative.getValue();
+	}
+	public boolean isSurvival() {
+		return !isCreative();
+	}
+	public void setCreative(boolean value) {
+		creative.setValue(value);
+	}
 
 	public static final Event<Tuple2<Player, ObjectNode>> onPlayerSaved
 	= new CatchingEvent<>(debug, "Failed to save mod player data");

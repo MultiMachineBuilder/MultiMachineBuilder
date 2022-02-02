@@ -13,6 +13,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import mmb.DATA.contents.texture.Textures;
+import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.ItemEntry;
 
 /**
@@ -48,6 +49,8 @@ public class DumpItems extends WindowTool {
 		switch(e.getButton()) {
 		case 1: //LMB drop
 			ItemEntry item = window.getPlacer().getSelectedValue().item();
+			//In survival, the Item Bucket cannot be dropped
+			if(window.getPlayer().isSurvival() && item == ContentsItems.bucket) return;
 			int extract = window.getPlayer().inv.extract(item, 1);
 			if(extract == 1)
 				frame.getMap().dropItem(item, trashed.x, trashed.y);

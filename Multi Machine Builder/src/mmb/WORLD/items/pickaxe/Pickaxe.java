@@ -28,9 +28,10 @@ public class Pickaxe extends ItemEntity {
 	/**
 	 * @param type
 	 */
-	protected Pickaxe(ItemEntityType type, int durability) {
+	protected Pickaxe(PickaxeType type, int durability) {
 		super(type);
 		this.durability = durability;
+		pick = new ToolPickaxe(this);
 	}
 
 	@Override
@@ -111,6 +112,7 @@ public class Pickaxe extends ItemEntity {
 		}
 
 		private int durability;
+		private int time;
 
 		/**
 		 * @return the durability
@@ -132,30 +134,50 @@ public class Pickaxe extends ItemEntity {
 		public ItemEntry create() {
 			return new Pickaxe(this, durability);
 		}
+
+		/**
+		 * @return the time
+		 */
+		public int getTime() {
+			return time;
+		}
+
+		/**
+		 * @param time the time to set
+		 */
+		public PickaxeType setTime(int time) {
+			this.time = time;
+			return this;
+		}
 	}
 	/**
 	 * Creates and registers an pickaxe
+	 * @param time time to mine a block in ticks
 	 * @param durability maximum uses of the pickaxe
 	 * @param texture texture of the pickaxe
 	 * @param title title of the pickaxe
 	 * @param id ID of the pickaxe
 	 * @return a new registered pickaxe type
 	 */
-	@Nonnull public static PickaxeType create(int durability, String texture, String title, String id) {
+	@Nonnull public static PickaxeType create(int time, int durability, String texture, String title, String id) {
 		PickaxeType result = new PickaxeType();
-		return (PickaxeType) result.setDurability(durability).texture(texture).title(title).finish(id);
+		return (PickaxeType) result.setDurability(durability).setTime(time).texture(texture).title(title).finish(id);
 	}
 
-	private ToolPickaxe pick;
+	private final ToolPickaxe pick;
 	@Override
 	public WindowTool getTool() {
-		if(pick == null) pick = new ToolPickaxe(this);
 		return pick;
 	}
 
 	@Override
 	public String title() {
 		return type().title() + " ("+(durability-uses)+"/"+durability+")";
+	}
+
+	@Override
+	public PickaxeType type() {
+		return (PickaxeType) super.type();
 	}
 
 }

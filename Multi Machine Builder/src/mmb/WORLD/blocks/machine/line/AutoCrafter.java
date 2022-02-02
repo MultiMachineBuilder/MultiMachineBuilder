@@ -16,7 +16,6 @@ import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.blocks.machine.SkeletalBlockLinear;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.gui.window.WorldWindow;
-import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.items.data.Stencil;

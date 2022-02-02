@@ -16,6 +16,7 @@ import org.apache.commons.io.IOUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
+import mmb.Main;
 import mmb.DATA.json.JsonTool;
 import mmb.FILES.AdvancedFile;
 import mmb.FILES.LocalFile;
@@ -128,6 +129,7 @@ public class PanelSaves extends JPanel {
 		WorldWindow ww = new WorldWindow();
 		FullScreen.setWindow(ww);
 		new Thread(() -> {
+			boolean fail = true;
 			try(InputStream in = s.file.getInputStream()) {
 				debug.printl("Opened a file");
 				String loadedData = IOUtils.toString(in, Charset.defaultCharset());
@@ -143,14 +145,23 @@ public class PanelSaves extends JPanel {
 				world.load(node);
 				debug.printl("Loaded");
 				ww.setWorld(s, world);
+				fail = false;
 				return;
 			}catch(Exception e) {
 				debug.pstm(e, "Failed to load the world");
+			}catch(OutOfMemoryError e) {
+				debug.pstm(e, "Ran out of memory while loading");
+			}catch(Throwable e) {
+				debug.printerrl("Fatal error while world loading:");
+				Main.crash(e);
+			}finally {
+				if(fail) {
+					EventQueue.invokeLater(() -> {
+						ww.dispose();
+						FullScreen.setWindow(MainMenu.INSTANCE);
+					});//Control given back to EDT to close unnecessary window
+				}
 			}
-			EventQueue.invokeLater(() -> {
-				ww.dispose();
-				FullScreen.setWindow(MainMenu.INSTANCE);
-			});//Control given back to EDT to close unnecessary window
 		}).start();
 	}
 	

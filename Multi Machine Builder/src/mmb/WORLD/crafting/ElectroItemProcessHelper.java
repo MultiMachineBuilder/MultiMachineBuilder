@@ -14,7 +14,6 @@ import com.google.common.util.concurrent.Runnables;
 import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup.SimpleProcessingRecipe;
 import mmb.WORLD.electric.Battery;
-import mmb.WORLD.electric.Electricity;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
@@ -31,14 +30,18 @@ public class ElectroItemProcessHelper{
 	private final double speed;
 	@Nonnull private final Battery elec;
 	@Nonnull private final VoltageTier volt;
-	//private final int batch;
 	/** The object which is currently refreshed. It may be null */
 	public Refreshable refreshable;
-	/** The item which is currently smelted */
-	public SimpleProcessingRecipe underway;
+	
 	/** Energy put into item to smelt it */
 	public double progress;
+	
+	//Info about recipe
 	public double currRequired;
+	
+	/** The item which is currently smelted */
+	public SimpleProcessingRecipe underway;
+	public VoltageTier voltRequired;
 	/**
 	 * @param recipes list of recipes to use
 	 * @param input input inventory
@@ -48,7 +51,7 @@ public class ElectroItemProcessHelper{
 	 * @param volt voltage tier
 	 */
 	public ElectroItemProcessHelper(SimpleProcessingRecipeGroup recipes, Inventory input, Inventory output,
-			double speed, Battery elec, VoltageTier volt/*, int batch*/) {
+			double speed, Battery elec, VoltageTier volt) {
 		super();
 		this.recipes = recipes;
 		this.input = input;
@@ -56,7 +59,6 @@ public class ElectroItemProcessHelper{
 		this.speed = speed;
 		this.elec = elec;
 		this.volt = volt;
-		//this.batch = batch;
 	}
 	
 	public void save(ObjectNode node) {
@@ -122,7 +124,7 @@ public class ElectroItemProcessHelper{
 				RecipeOutput result = underway.output;
 				//Eject expected item
 				result.produceResults(output.createWriter());
-				
+				progress -= currRequired;
 				underway = null;
 				if(refreshable != null) refreshable.refreshOutputs();
 			}// else continue smelting

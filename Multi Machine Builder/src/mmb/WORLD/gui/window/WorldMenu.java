@@ -7,12 +7,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
 import mmb.WORLD.block.BlockEntry;
-import mmb.WORLD.gui.Placer;
-import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.tool.ToolStandard;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /**
  * @author oskar
@@ -45,34 +42,33 @@ public class WorldMenu extends JPopupMenu {
 		});
 		add(mntmGoHere);
 		
-		mntmMine = new JMenuItem("Mine (Shift+RMB)");
-		mntmMine.addActionListener(e -> {
-			if(map.removeMachine(mouseoverX, mouseoverY)) {
-				debug.printl("Removed machine");
-				return;
-			}
-			//Drop if needed
-			if(!frame.getPlayer().creative.getValue()) {
-				//The player is survival, requires pickaxe
-				return;
-			}
-			block
-			.type()
-			.leaveBehind()
-			.place(mouseoverX, mouseoverY, map);
-		});
+		if(frame.getPlayer().isCreative()){
+			mntmMine = new JMenuItem("Mine (Shift+RMB)");
+			mntmMine.addActionListener(e -> {
+				if(map.removeMachine(mouseoverX, mouseoverY)) {
+					debug.printl("Removed machine");
+					return;
+				}
+				//Drop if needed
+				if(frame.getPlayer().isSurvival()) {
+					//The player is survival, requires pickaxe
+					return;
+				}
+				block
+				.type()
+				.leaveBehind()
+				.place(mouseoverX, mouseoverY, map);
+			});
+			add(mntmMine);
+		}
+		
 		
 		mntmNewMenuItem_1 = new JMenuItem("Place (Shift+LMB)");
 		mntmNewMenuItem_1.addActionListener(e -> {
-			if(map.inBounds(mouseoverX, mouseoverY)) {
-				ItemEntry item = frame.getPlacer().getSelectedValue().item();
-				if(item instanceof Placer) {
-					((Placer)item).place(mouseoverX, mouseoverY, map);
-				}
-			}
+			ToolStandard.placeBlock(mouseoverX, mouseoverY, map, frame.window);
 		});
 		add(mntmNewMenuItem_1);
-		add(mntmMine);
+		
 		
 		mntmCCW = new JMenuItem("Turn CCW (Ctrl+LMB)");
 		mntmCCW.addActionListener(e -> {

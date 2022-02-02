@@ -50,19 +50,7 @@ public class ToolStandard extends WindowTool{
 				((BlockActivateListener) ent).click(x, y, map, window, 0, 0);
 				debug.printl("Running BlockActivateListener for: ["+x+","+y+"]");
 			}else {
-				//Place the block
-				ItemRecord record = window.getPlacer().getSelectedValue();
-				if(record == null) return;
-				ItemEntry item = record.item();
-				if(item instanceof Placer) {
-					//If in survival, consume items
-					if(!window.getPlayer().creative.getValue()) {
-						//In survival
-						int extracted = record.extract(1);
-						if(extracted == 0) return;
-					}
-					 ((Placer)item).place(x, y, map);
-				}
+				placeBlock(x, y, map, window);
 			}
 			break;
 		case 3: //RMB
@@ -72,6 +60,26 @@ public class ToolStandard extends WindowTool{
 			break;
 		default:
 			break;
+		}
+	}
+	/**
+	 * @param x
+	 * @param y
+	 * @param map
+	 */
+	public static void placeBlock(int x, int y, World map, WorldWindow window) {
+		//Place the block
+		ItemRecord record = window.getPlacer().getSelectedValue();
+		if(record == null) return;
+		ItemEntry item = record.item();
+		if(item instanceof Placer) {
+			//If in survival, consume items
+			if(window.getPlayer().isSurvival()) {
+				//In survival
+				int extracted = record.extract(1);
+				if(extracted == 0) return;
+			}
+			 ((Placer)item).place(x, y, map);
 		}
 	}
 	private void mousePressedCtrl(MouseEvent e) {
@@ -99,13 +107,7 @@ public class ToolStandard extends WindowTool{
 		World map = frame.getMap();
 		switch(e.getButton()) {
 		case 1: //LMB
-			//Place
-			if(map.inBounds(x, y)) {
-				ItemEntry item = frame.getPlacer().getSelectedValue().item();
-				if(item instanceof Placer) {
-					((Placer)item).place(x, y, map);
-				}
-			}
+			placeBlock(x, y, map, window);
 			break;
 		case 2: //MMB
 			//Go here
@@ -119,7 +121,7 @@ public class ToolStandard extends WindowTool{
 				return;
 			}
 			//Drop if needed
-			if(!frame.getPlayer().creative.getValue()) {
+			if(frame.getPlayer().isSurvival()) {
 				//The player is survival, requires pickaxe
 				return;
 			}

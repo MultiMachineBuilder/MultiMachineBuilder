@@ -48,11 +48,7 @@
 (TEXTURES) Loading texture: highways.png
 (TEXTURES) Loading texture: hoover.png
 (TEXTURES) Loading texture: inventory/infinity.png
-(TEXTURES) Loading texture: item/brass dust.png
-(TEXTURES) Loading texture: item/brass gear.png
-(TEXTURES) Loading texture: item/brass ingot.png
-(TEXTURES) Loading texture: item/coal dust.png
-(TEXTURES) Loading texture: item/coal.png
+(TEXTURES) Loading texture: item/cluster.png
 (TEXTURES) Loading texture: item/control rod.png
 (TEXTURES) Loading texture: item/coolant rod.png
 (TEXTURES) Loading texture: item/copper pick head.png
@@ -62,35 +58,35 @@
 (TEXTURES) Loading texture: item/diamond.png
 (TEXTURES) Loading texture: item/dust.png
 (TEXTURES) Loading texture: item/foil.png
+(TEXTURES) Loading texture: item/fragment.png
 (TEXTURES) Loading texture: item/frame 1.png
 (TEXTURES) Loading texture: item/gear.png
 (TEXTURES) Loading texture: item/gem.png
 (TEXTURES) Loading texture: item/heat rod.png
 (TEXTURES) Loading texture: item/ingot.png
+(TEXTURES) Loading texture: item/ldust.png
 (TEXTURES) Loading texture: item/lisc.png
 (TEXTURES) Loading texture: item/list.png
 (TEXTURES) Loading texture: item/minidust.png
+(TEXTURES) Loading texture: item/motor 1.png
 (TEXTURES) Loading texture: item/nugget.png
 (TEXTURES) Loading texture: item/package code.png
 (TEXTURES) Loading texture: item/package.png
 (TEXTURES) Loading texture: item/panel.png
-(TEXTURES) Loading texture: item/platinum ingot.png
 (TEXTURES) Loading texture: item/quantum pick.png
 (TEXTURES) Loading texture: item/ring 1.png
+(TEXTURES) Loading texture: item/rudimentary pick head.png
+(TEXTURES) Loading texture: item/rudimentary pick.png
 (TEXTURES) Loading texture: item/silicon ingot.png
 (TEXTURES) Loading texture: item/silicon nugget.png
+(TEXTURES) Loading texture: item/smalldust.png
 (TEXTURES) Loading texture: item/stainless pick head.png
 (TEXTURES) Loading texture: item/stainless pick.png
 (TEXTURES) Loading texture: item/stainless wire.png
-(TEXTURES) Loading texture: item/steel dust.png
-(TEXTURES) Loading texture: item/steel gear.png
-(TEXTURES) Loading texture: item/steel ingot.png
 (TEXTURES) Loading texture: item/steel pick head.png
 (TEXTURES) Loading texture: item/steel rod.png
-(TEXTURES) Loading texture: item/steel wire.png
 (TEXTURES) Loading texture: item/stencil.png
 (TEXTURES) Loading texture: item/stone pick head.png
-(TEXTURES) Loading texture: item/uranium ingot.png
 (TEXTURES) Loading texture: item/uranium rod.png
 (TEXTURES) Loading texture: item/wire overlay.png
 (TEXTURES) Loading texture: item/wire spool.png
@@ -186,6 +182,7 @@
 (TEXTURES) Loading texture: machine/chest5.png
 (TEXTURES) Loading texture: machine/chest6.png
 (TEXTURES) Loading texture: machine/claw.png
+(TEXTURES) Loading texture: machine/cluster mill.png
 (TEXTURES) Loading texture: machine/coalgen.png
 (TEXTURES) Loading texture: machine/CW.png
 (TEXTURES) Loading texture: machine/cyclic assembler.png
@@ -234,12 +231,14 @@
 (TEXTURES) Loading texture: machine/ppipe cross.png
 (TEXTURES) Loading texture: machine/ppipe straight.png
 (TEXTURES) Loading texture: machine/ppipe turn.png
+(TEXTURES) Loading texture: machine/pulverizer.png
 (TEXTURES) Loading texture: machine/smelter active.png
 (TEXTURES) Loading texture: machine/smelter inert 2.png
 (TEXTURES) Loading texture: machine/smelter inert.png
 (TEXTURES) Loading texture: machine/switch straight.png
 (TEXTURES) Loading texture: machine/switch turn.png
 (TEXTURES) Loading texture: machine/vacuum.png
+(TEXTURES) Loading texture: machine/wiremill.png
 (TEXTURES) Failed to load Machines.tsx
 (TEXTURES) Loading texture: mine.png
 (TEXTURES) Loading texture: minecxraft.bmp
@@ -337,6 +336,10 @@
  null
 (ITEMS) Adding ore.coal with title Coal ore and description:
  null
+(BLOCKS) Adding ore.diamond with title Diamond ore and description:
+ null
+(ITEMS) Adding ore.diamond with title Diamond ore and description:
+ null
 (BLOCKS) Adding mmb.craft with title Assembly Table and description:
  null
 (ITEMS) Adding mmb.craft with title Assembly Table and description:
@@ -352,6 +355,10 @@
 (BLOCKS) Adding mmb.gravel with title Gravel and description:
  null
 (ITEMS) Adding mmb.gravel with title Gravel and description:
+ null
+(BLOCKS) Adding REMOVE THIS with title Crash on load and description:
+ null
+(ITEMS) Adding REMOVE THIS with title Crash on load and description:
  null
 (BLOCKS) Adding wireworld.and with title AND and description:
  null
@@ -373,10 +380,6 @@
  null
 (ITEMS) Adding wireworld.toggle with title Toggle Latch and description:
  null
-(BLOCKS) Adding elec.infinite1 with title Infinite Generator (Creative only) and description:
- null
-(ITEMS) Adding elec.infinite1 with title Infinite Generator (Creative only) and description:
- null
 (BLOCKS) Adding elec.coalgen1 with title Furnace Generator I and description:
  null
 (ITEMS) Adding elec.coalgen1 with title Furnace Generator I and description:
@@ -388,6 +391,42 @@
 (BLOCKS) Adding elec.coalgen3 with title Furnace Generator III and description:
  null
 (ITEMS) Adding elec.coalgen3 with title Furnace Generator III and description:
+ null
+(BLOCKS) Adding industry.infinigen0 with title Infinite generator ULV and description:
+ null
+(ITEMS) Adding industry.infinigen0 with title Infinite generator ULV and description:
+ null
+(BLOCKS) Adding industry.infinigen1 with title Infinite generator VLV and description:
+ null
+(ITEMS) Adding industry.infinigen1 with title Infinite generator VLV and description:
+ null
+(BLOCKS) Adding industry.infinigen2 with title Infinite generator LV and description:
+ null
+(ITEMS) Adding industry.infinigen2 with title Infinite generator LV and description:
+ null
+(BLOCKS) Adding industry.infinigen3 with title Infinite generator MV and description:
+ null
+(ITEMS) Adding industry.infinigen3 with title Infinite generator MV and description:
+ null
+(BLOCKS) Adding industry.infinigen4 with title Infinite generator HV and description:
+ null
+(ITEMS) Adding industry.infinigen4 with title Infinite generator HV and description:
+ null
+(BLOCKS) Adding industry.infinigen5 with title Infinite generator VHV and description:
+ null
+(ITEMS) Adding industry.infinigen5 with title Infinite generator VHV and description:
+ null
+(BLOCKS) Adding industry.infinigen6 with title Infinite generator UHV and description:
+ null
+(ITEMS) Adding industry.infinigen6 with title Infinite generator UHV and description:
+ null
+(BLOCKS) Adding industry.infinigen7 with title Infinite generator EV and description:
+ null
+(ITEMS) Adding industry.infinigen7 with title Infinite generator EV and description:
+ null
+(BLOCKS) Adding industry.infinigen8 with title Infinite generator MAX and description:
+ null
+(ITEMS) Adding industry.infinigen8 with title Infinite generator MAX and description:
  null
 (BLOCKS) Adding elec.meter with title Power meter and description:
  null
@@ -485,6 +524,34 @@
  null
 (ITEMS) Adding industry.cycle0 with title Cyclic Assembler and description:
  null
+(ITEMS) Adding pickHead.wood with title Wooden pickaxe head and description:
+ null
+(ITEMS) Adding pickHead.rudimentary with title Rudimentary pickaxe head and description:
+ null
+(ITEMS) Adding plant.leaf with title Leaf and description:
+ null
+(ITEMS) Adding pick.weak with title Very weak pickaxe and description:
+ null
+(ITEMS) Adding pick.wood with title Wooden pickaxe and description:
+ null
+(ITEMS) Adding pick.rudimentary with title Rudimentary pickaxe and description:
+ null
+(ITEMS) Adding mmb.bucket with title Item Bucket and description:
+ null
+(ITEMS) Adding crafting.cstencil with title Crafting stencil and description:
+ null
+(ITEMS) Adding crafting.BOMItems with title Bill Of Materials and description:
+ null
+(ITEMS) Adding industry.frame1 with title Machine Frame #1 and description:
+ null
+(ITEMS) Adding industry.rod1 with title Machine Rod #1 and description:
+ null
+(ITEMS) Adding industry.bearing1 with title Machine Bearing #1 and description:
+ null
+(ITEMS) Adding industry.motor1 with title Machine Motor #1 and description:
+ null
+(ITEMS) Adding boxed.packItem with title Simple Item Package and description:
+ null
 (BLOCKS) Adding machines.pickbuilder with title Pickaxe workbench and description:
  null
 (ITEMS) Adding machines.pickbuilder with title Pickaxe workbench and description:
@@ -529,6 +596,150 @@
  null
 (ITEMS) Adding industry.electrofurnace8 with title Electric furnace MAX and description:
  null
+(BLOCKS) Adding industry.crusher0 with title Crusher ULV and description:
+ null
+(ITEMS) Adding industry.crusher0 with title Crusher ULV and description:
+ null
+(BLOCKS) Adding industry.crusher1 with title Crusher VLV and description:
+ null
+(ITEMS) Adding industry.crusher1 with title Crusher VLV and description:
+ null
+(BLOCKS) Adding industry.crusher2 with title Crusher LV and description:
+ null
+(ITEMS) Adding industry.crusher2 with title Crusher LV and description:
+ null
+(BLOCKS) Adding industry.crusher3 with title Crusher MV and description:
+ null
+(ITEMS) Adding industry.crusher3 with title Crusher MV and description:
+ null
+(BLOCKS) Adding industry.crusher4 with title Crusher HV and description:
+ null
+(ITEMS) Adding industry.crusher4 with title Crusher HV and description:
+ null
+(BLOCKS) Adding industry.crusher5 with title Crusher VHV and description:
+ null
+(ITEMS) Adding industry.crusher5 with title Crusher VHV and description:
+ null
+(BLOCKS) Adding industry.crusher6 with title Crusher UHV and description:
+ null
+(ITEMS) Adding industry.crusher6 with title Crusher UHV and description:
+ null
+(BLOCKS) Adding industry.crusher7 with title Crusher EV and description:
+ null
+(ITEMS) Adding industry.crusher7 with title Crusher EV and description:
+ null
+(BLOCKS) Adding industry.crusher8 with title Crusher MAX and description:
+ null
+(ITEMS) Adding industry.crusher8 with title Crusher MAX and description:
+ null
+(BLOCKS) Adding industry.clustermill0 with title Cluster mill ULV and description:
+ null
+(ITEMS) Adding industry.clustermill0 with title Cluster mill ULV and description:
+ null
+(BLOCKS) Adding industry.clustermill1 with title Cluster mill VLV and description:
+ null
+(ITEMS) Adding industry.clustermill1 with title Cluster mill VLV and description:
+ null
+(BLOCKS) Adding industry.clustermill2 with title Cluster mill LV and description:
+ null
+(ITEMS) Adding industry.clustermill2 with title Cluster mill LV and description:
+ null
+(BLOCKS) Adding industry.clustermill3 with title Cluster mill MV and description:
+ null
+(ITEMS) Adding industry.clustermill3 with title Cluster mill MV and description:
+ null
+(BLOCKS) Adding industry.clustermill4 with title Cluster mill HV and description:
+ null
+(ITEMS) Adding industry.clustermill4 with title Cluster mill HV and description:
+ null
+(BLOCKS) Adding industry.clustermill5 with title Cluster mill VHV and description:
+ null
+(ITEMS) Adding industry.clustermill5 with title Cluster mill VHV and description:
+ null
+(BLOCKS) Adding industry.clustermill6 with title Cluster mill UHV and description:
+ null
+(ITEMS) Adding industry.clustermill6 with title Cluster mill UHV and description:
+ null
+(BLOCKS) Adding industry.clustermill7 with title Cluster mill EV and description:
+ null
+(ITEMS) Adding industry.clustermill7 with title Cluster mill EV and description:
+ null
+(BLOCKS) Adding industry.clustermill8 with title Cluster mill MAX and description:
+ null
+(ITEMS) Adding industry.clustermill8 with title Cluster mill MAX and description:
+ null
+(BLOCKS) Adding industry.wiremill0 with title Wiremill ULV and description:
+ null
+(ITEMS) Adding industry.wiremill0 with title Wiremill ULV and description:
+ null
+(BLOCKS) Adding industry.wiremill1 with title Wiremill VLV and description:
+ null
+(ITEMS) Adding industry.wiremill1 with title Wiremill VLV and description:
+ null
+(BLOCKS) Adding industry.wiremill2 with title Wiremill LV and description:
+ null
+(ITEMS) Adding industry.wiremill2 with title Wiremill LV and description:
+ null
+(BLOCKS) Adding industry.wiremill3 with title Wiremill MV and description:
+ null
+(ITEMS) Adding industry.wiremill3 with title Wiremill MV and description:
+ null
+(BLOCKS) Adding industry.wiremill4 with title Wiremill HV and description:
+ null
+(ITEMS) Adding industry.wiremill4 with title Wiremill HV and description:
+ null
+(BLOCKS) Adding industry.wiremill5 with title Wiremill VHV and description:
+ null
+(ITEMS) Adding industry.wiremill5 with title Wiremill VHV and description:
+ null
+(BLOCKS) Adding industry.wiremill6 with title Wiremill UHV and description:
+ null
+(ITEMS) Adding industry.wiremill6 with title Wiremill UHV and description:
+ null
+(BLOCKS) Adding industry.wiremill7 with title Wiremill EV and description:
+ null
+(ITEMS) Adding industry.wiremill7 with title Wiremill EV and description:
+ null
+(BLOCKS) Adding industry.wiremill8 with title Wiremill MAX and description:
+ null
+(ITEMS) Adding industry.wiremill8 with title Wiremill MAX and description:
+ null
+(BLOCKS) Adding industry.alloyer0 with title Alloy smelter ULV and description:
+ null
+(ITEMS) Adding industry.alloyer0 with title Alloy smelter ULV and description:
+ null
+(BLOCKS) Adding industry.alloyer1 with title Alloy smelter VLV and description:
+ null
+(ITEMS) Adding industry.alloyer1 with title Alloy smelter VLV and description:
+ null
+(BLOCKS) Adding industry.alloyer2 with title Alloy smelter LV and description:
+ null
+(ITEMS) Adding industry.alloyer2 with title Alloy smelter LV and description:
+ null
+(BLOCKS) Adding industry.alloyer3 with title Alloy smelter MV and description:
+ null
+(ITEMS) Adding industry.alloyer3 with title Alloy smelter MV and description:
+ null
+(BLOCKS) Adding industry.alloyer4 with title Alloy smelter HV and description:
+ null
+(ITEMS) Adding industry.alloyer4 with title Alloy smelter HV and description:
+ null
+(BLOCKS) Adding industry.alloyer5 with title Alloy smelter VHV and description:
+ null
+(ITEMS) Adding industry.alloyer5 with title Alloy smelter VHV and description:
+ null
+(BLOCKS) Adding industry.alloyer6 with title Alloy smelter UHV and description:
+ null
+(ITEMS) Adding industry.alloyer6 with title Alloy smelter UHV and description:
+ null
+(BLOCKS) Adding industry.alloyer7 with title Alloy smelter EV and description:
+ null
+(ITEMS) Adding industry.alloyer7 with title Alloy smelter EV and description:
+ null
+(BLOCKS) Adding industry.alloyer8 with title Alloy smelter MAX and description:
+ null
+(ITEMS) Adding industry.alloyer8 with title Alloy smelter MAX and description:
+ null
 (BLOCKS) Adding playerpipe.straight with title Player Pipe - straight and description:
  null
 (ITEMS) Adding playerpipe.straight with title Player Pipe - straight and description:
@@ -561,13 +772,21 @@
  null
 (ITEMS) Adding block.rudimentary with title Rudimentary block and description:
  null
+(ITEMS) Adding fcluster.rudimentary with title Rudimentary cluster and description:
+ null
 (ITEMS) Adding ingot.rudimentary with title Rudimentary ingot and description:
+ null
+(ITEMS) Adding frag.rudimentary with title Rudimentary fragment and description:
  null
 (ITEMS) Adding nugget.rudimentary with title Rudimentary nugget and description:
  null
 (ITEMS) Adding wirespool.rudimentary with title Rudimentary wire spool and description:
  null
+(ITEMS) Adding ldust.rudimentary with title Rudimentary large dust and description:
+ null
 (ITEMS) Adding dust.rudimentary with title Rudimentary dust and description:
+ null
+(ITEMS) Adding mdust.rudimentary with title Rudimentary small dust and description:
  null
 (ITEMS) Adding minidust.rudimentary with title Rudimentary tiny dust and description:
  null
@@ -613,13 +832,21 @@
  null
 (ITEMS) Adding block.coal with title Coal block and description:
  null
+(ITEMS) Adding fcluster.coal with title Coal cluster and description:
+ null
 (ITEMS) Adding gem.coal with title Coal and description:
+ null
+(ITEMS) Adding frag.coal with title Coal fragment and description:
  null
 (ITEMS) Adding nugget.coal with title Coal nugget and description:
  null
 (ITEMS) Adding wirespool.coal with title Coal wire spool and description:
  null
+(ITEMS) Adding ldust.coal with title Coal large dust and description:
+ null
 (ITEMS) Adding dust.coal with title Coal dust and description:
+ null
+(ITEMS) Adding mdust.coal with title Coal small dust and description:
  null
 (ITEMS) Adding minidust.coal with title Coal tiny dust and description:
  null
@@ -633,13 +860,21 @@
  null
 (ITEMS) Adding block.copper with title Copper block and description:
  null
+(ITEMS) Adding fcluster.copper with title Copper cluster and description:
+ null
 (ITEMS) Adding ingot.copper with title Copper ingot and description:
+ null
+(ITEMS) Adding frag.copper with title Copper fragment and description:
  null
 (ITEMS) Adding nugget.copper with title Copper nugget and description:
  null
 (ITEMS) Adding wirespool.copper with title Copper wire spool and description:
  null
+(ITEMS) Adding ldust.copper with title Copper large dust and description:
+ null
 (ITEMS) Adding dust.copper with title Copper dust and description:
+ null
+(ITEMS) Adding mdust.copper with title Copper small dust and description:
  null
 (ITEMS) Adding minidust.copper with title Copper tiny dust and description:
  null
@@ -661,13 +896,21 @@
  null
 (ITEMS) Adding block.iron with title Iron block and description:
  null
+(ITEMS) Adding fcluster.iron with title Iron cluster and description:
+ null
 (ITEMS) Adding ingot.iron with title Iron ingot and description:
+ null
+(ITEMS) Adding frag.iron with title Iron fragment and description:
  null
 (ITEMS) Adding nugget.iron with title Iron nugget and description:
  null
 (ITEMS) Adding wirespool.iron with title Iron wire spool and description:
  null
+(ITEMS) Adding ldust.iron with title Iron large dust and description:
+ null
 (ITEMS) Adding dust.iron with title Iron dust and description:
+ null
+(ITEMS) Adding mdust.iron with title Iron small dust and description:
  null
 (ITEMS) Adding minidust.iron with title Iron tiny dust and description:
  null
@@ -689,13 +932,21 @@
  null
 (ITEMS) Adding block.silicon with title Silicon block and description:
  null
+(ITEMS) Adding fcluster.silicon with title Silicon cluster and description:
+ null
 (ITEMS) Adding ingot.silicon with title Silicon ingot and description:
+ null
+(ITEMS) Adding frag.silicon with title Silicon fragment and description:
  null
 (ITEMS) Adding nugget.silicon with title Silicon nugget and description:
  null
 (ITEMS) Adding wirespool.silicon with title Silicon wire spool and description:
  null
+(ITEMS) Adding ldust.silicon with title Silicon large dust and description:
+ null
 (ITEMS) Adding dust.silicon with title Silicon dust and description:
+ null
+(ITEMS) Adding mdust.silicon with title Silicon small dust and description:
  null
 (ITEMS) Adding minidust.silicon with title Silicon tiny dust and description:
  null
@@ -717,13 +968,21 @@
  null
 (ITEMS) Adding block.tin with title Tin block and description:
  null
+(ITEMS) Adding fcluster.tin with title Tin cluster and description:
+ null
 (ITEMS) Adding ingot.tin with title Tin ingot and description:
+ null
+(ITEMS) Adding frag.tin with title Tin fragment and description:
  null
 (ITEMS) Adding nugget.tin with title Tin nugget and description:
  null
 (ITEMS) Adding wirespool.tin with title Tin wire spool and description:
  null
+(ITEMS) Adding ldust.tin with title Tin large dust and description:
+ null
 (ITEMS) Adding dust.tin with title Tin dust and description:
+ null
+(ITEMS) Adding mdust.tin with title Tin small dust and description:
  null
 (ITEMS) Adding minidust.tin with title Tin tiny dust and description:
  null
@@ -745,13 +1004,21 @@
  null
 (ITEMS) Adding block.zinc with title Zinc block and description:
  null
+(ITEMS) Adding fcluster.zinc with title Zinc cluster and description:
+ null
 (ITEMS) Adding ingot.zinc with title Zinc ingot and description:
+ null
+(ITEMS) Adding frag.zinc with title Zinc fragment and description:
  null
 (ITEMS) Adding nugget.zinc with title Zinc nugget and description:
  null
 (ITEMS) Adding wirespool.zinc with title Zinc wire spool and description:
  null
+(ITEMS) Adding ldust.zinc with title Zinc large dust and description:
+ null
 (ITEMS) Adding dust.zinc with title Zinc dust and description:
+ null
+(ITEMS) Adding mdust.zinc with title Zinc small dust and description:
  null
 (ITEMS) Adding minidust.zinc with title Zinc tiny dust and description:
  null
@@ -773,13 +1040,21 @@
  null
 (ITEMS) Adding block.alu with title Aluminum block and description:
  null
+(ITEMS) Adding fcluster.alu with title Aluminum cluster and description:
+ null
 (ITEMS) Adding ingot.alu with title Aluminum ingot and description:
+ null
+(ITEMS) Adding frag.alu with title Aluminum fragment and description:
  null
 (ITEMS) Adding nugget.alu with title Aluminum nugget and description:
  null
 (ITEMS) Adding wirespool.alu with title Aluminum wire spool and description:
  null
+(ITEMS) Adding ldust.alu with title Aluminum large dust and description:
+ null
 (ITEMS) Adding dust.alu with title Aluminum dust and description:
+ null
+(ITEMS) Adding mdust.alu with title Aluminum small dust and description:
  null
 (ITEMS) Adding minidust.alu with title Aluminum tiny dust and description:
  null
@@ -801,13 +1076,21 @@
  null
 (ITEMS) Adding block.lead with title Lead block and description:
  null
+(ITEMS) Adding fcluster.lead with title Lead cluster and description:
+ null
 (ITEMS) Adding ingot.lead with title Lead ingot and description:
+ null
+(ITEMS) Adding frag.lead with title Lead fragment and description:
  null
 (ITEMS) Adding nugget.lead with title Lead nugget and description:
  null
 (ITEMS) Adding wirespool.lead with title Lead wire spool and description:
  null
+(ITEMS) Adding ldust.lead with title Lead large dust and description:
+ null
 (ITEMS) Adding dust.lead with title Lead dust and description:
+ null
+(ITEMS) Adding mdust.lead with title Lead small dust and description:
  null
 (ITEMS) Adding minidust.lead with title Lead tiny dust and description:
  null
@@ -825,17 +1108,61 @@
  null
 (ITEMS) Adding crop.lead with title Lead crop and description:
  null
+(BLOCKS) Adding block.nickel with title Nickel block and description:
+ null
+(ITEMS) Adding block.nickel with title Nickel block and description:
+ null
+(ITEMS) Adding fcluster.nickel with title Nickel cluster and description:
+ null
+(ITEMS) Adding ingot.nickel with title Nickel ingot and description:
+ null
+(ITEMS) Adding frag.nickel with title Nickel fragment and description:
+ null
+(ITEMS) Adding nugget.nickel with title Nickel nugget and description:
+ null
+(ITEMS) Adding wirespool.nickel with title Nickel wire spool and description:
+ null
+(ITEMS) Adding ldust.nickel with title Nickel large dust and description:
+ null
+(ITEMS) Adding dust.nickel with title Nickel dust and description:
+ null
+(ITEMS) Adding mdust.nickel with title Nickel small dust and description:
+ null
+(ITEMS) Adding minidust.nickel with title Nickel tiny dust and description:
+ null
+(ITEMS) Adding panel.nickel with title Nickel plate and description:
+ null
+(ITEMS) Adding foil.nickel with title Nickel foil and description:
+ null
+(ITEMS) Adding gear.nickel with title Nickel gear and description:
+ null
+(BLOCKS) Adding ore.nickel with title Nickel ore and description:
+ null
+(ITEMS) Adding ore.nickel with title Nickel ore and description:
+ null
+(BLOCKS) Adding crop.nickel with title Nickel crop and description:
+ null
+(ITEMS) Adding crop.nickel with title Nickel crop and description:
+ null
 (BLOCKS) Adding block.silver with title Silver block and description:
  null
 (ITEMS) Adding block.silver with title Silver block and description:
  null
+(ITEMS) Adding fcluster.silver with title Silver cluster and description:
+ null
 (ITEMS) Adding ingot.silver with title Silver ingot and description:
+ null
+(ITEMS) Adding frag.silver with title Silver fragment and description:
  null
 (ITEMS) Adding nugget.silver with title Silver nugget and description:
  null
 (ITEMS) Adding wirespool.silver with title Silver wire spool and description:
  null
+(ITEMS) Adding ldust.silver with title Silver large dust and description:
+ null
 (ITEMS) Adding dust.silver with title Silver dust and description:
+ null
+(ITEMS) Adding mdust.silver with title Silver small dust and description:
  null
 (ITEMS) Adding minidust.silver with title Silver tiny dust and description:
  null
@@ -857,13 +1184,21 @@
  null
 (ITEMS) Adding block.uranium with title Uranium block and description:
  null
+(ITEMS) Adding fcluster.uranium with title Uranium cluster and description:
+ null
 (ITEMS) Adding ingot.uranium with title Uranium ingot and description:
+ null
+(ITEMS) Adding frag.uranium with title Uranium fragment and description:
  null
 (ITEMS) Adding nugget.uranium with title Uranium nugget and description:
  null
 (ITEMS) Adding wirespool.uranium with title Uranium wire spool and description:
  null
+(ITEMS) Adding ldust.uranium with title Uranium large dust and description:
+ null
 (ITEMS) Adding dust.uranium with title Uranium dust and description:
+ null
+(ITEMS) Adding mdust.uranium with title Uranium small dust and description:
  null
 (ITEMS) Adding minidust.uranium with title Uranium tiny dust and description:
  null
@@ -885,13 +1220,21 @@
  null
 (ITEMS) Adding block.steel with title Steel block and description:
  null
+(ITEMS) Adding fcluster.steel with title Steel cluster and description:
+ null
 (ITEMS) Adding ingot.steel with title Steel ingot and description:
+ null
+(ITEMS) Adding frag.steel with title Steel fragment and description:
  null
 (ITEMS) Adding nugget.steel with title Steel nugget and description:
  null
 (ITEMS) Adding wirespool.steel with title Steel wire spool and description:
  null
+(ITEMS) Adding ldust.steel with title Steel large dust and description:
+ null
 (ITEMS) Adding dust.steel with title Steel dust and description:
+ null
+(ITEMS) Adding mdust.steel with title Steel small dust and description:
  null
 (ITEMS) Adding minidust.steel with title Steel tiny dust and description:
  null
@@ -905,13 +1248,21 @@
  null
 (ITEMS) Adding block.bronze with title Bronze block and description:
  null
+(ITEMS) Adding fcluster.bronze with title Bronze cluster and description:
+ null
 (ITEMS) Adding ingot.bronze with title Bronze ingot and description:
+ null
+(ITEMS) Adding frag.bronze with title Bronze fragment and description:
  null
 (ITEMS) Adding nugget.bronze with title Bronze nugget and description:
  null
 (ITEMS) Adding wirespool.bronze with title Bronze wire spool and description:
  null
+(ITEMS) Adding ldust.bronze with title Bronze large dust and description:
+ null
 (ITEMS) Adding dust.bronze with title Bronze dust and description:
+ null
+(ITEMS) Adding mdust.bronze with title Bronze small dust and description:
  null
 (ITEMS) Adding minidust.bronze with title Bronze tiny dust and description:
  null
@@ -925,13 +1276,21 @@
  null
 (ITEMS) Adding block.brass with title Brass block and description:
  null
+(ITEMS) Adding fcluster.brass with title Brass cluster and description:
+ null
 (ITEMS) Adding ingot.brass with title Brass ingot and description:
+ null
+(ITEMS) Adding frag.brass with title Brass fragment and description:
  null
 (ITEMS) Adding nugget.brass with title Brass nugget and description:
  null
 (ITEMS) Adding wirespool.brass with title Brass wire spool and description:
  null
+(ITEMS) Adding ldust.brass with title Brass large dust and description:
+ null
 (ITEMS) Adding dust.brass with title Brass dust and description:
+ null
+(ITEMS) Adding mdust.brass with title Brass small dust and description:
  null
 (ITEMS) Adding minidust.brass with title Brass tiny dust and description:
  null
@@ -945,13 +1304,21 @@
  null
 (ITEMS) Adding block.quartz with title Quartz block and description:
  null
+(ITEMS) Adding fcluster.quartz with title Quartz cluster and description:
+ null
 (ITEMS) Adding gem.quartz with title Quartz and description:
+ null
+(ITEMS) Adding frag.quartz with title Quartz fragment and description:
  null
 (ITEMS) Adding nugget.quartz with title Quartz nugget and description:
  null
 (ITEMS) Adding wirespool.quartz with title Quartz wire spool and description:
  null
+(ITEMS) Adding ldust.quartz with title Quartz large dust and description:
+ null
 (ITEMS) Adding dust.quartz with title Quartz dust and description:
+ null
+(ITEMS) Adding mdust.quartz with title Quartz small dust and description:
  null
 (ITEMS) Adding minidust.quartz with title Quartz tiny dust and description:
  null
@@ -965,13 +1332,21 @@
  null
 (ITEMS) Adding block.cobalt with title Cobalt block and description:
  null
+(ITEMS) Adding fcluster.cobalt with title Cobalt cluster and description:
+ null
 (ITEMS) Adding ingot.cobalt with title Cobalt ingot and description:
+ null
+(ITEMS) Adding frag.cobalt with title Cobalt fragment and description:
  null
 (ITEMS) Adding nugget.cobalt with title Cobalt nugget and description:
  null
 (ITEMS) Adding wirespool.cobalt with title Cobalt wire spool and description:
  null
+(ITEMS) Adding ldust.cobalt with title Cobalt large dust and description:
+ null
 (ITEMS) Adding dust.cobalt with title Cobalt dust and description:
+ null
+(ITEMS) Adding mdust.cobalt with title Cobalt small dust and description:
  null
 (ITEMS) Adding minidust.cobalt with title Cobalt tiny dust and description:
  null
@@ -993,13 +1368,21 @@
  null
 (ITEMS) Adding block.gold with title Gold block and description:
  null
+(ITEMS) Adding fcluster.gold with title Gold cluster and description:
+ null
 (ITEMS) Adding ingot.gold with title Gold ingot and description:
+ null
+(ITEMS) Adding frag.gold with title Gold fragment and description:
  null
 (ITEMS) Adding nugget.gold with title Gold nugget and description:
  null
 (ITEMS) Adding wirespool.gold with title Gold wire spool and description:
  null
+(ITEMS) Adding ldust.gold with title Gold large dust and description:
+ null
 (ITEMS) Adding dust.gold with title Gold dust and description:
+ null
+(ITEMS) Adding mdust.gold with title Gold small dust and description:
  null
 (ITEMS) Adding minidust.gold with title Gold tiny dust and description:
  null
@@ -1021,13 +1404,21 @@
  null
 (ITEMS) Adding block.stainless with title Stainless steel block and description:
  null
+(ITEMS) Adding fcluster.stainless with title Stainless steel cluster and description:
+ null
 (ITEMS) Adding ingot.stainless with title Stainless steel ingot and description:
+ null
+(ITEMS) Adding frag.stainless with title Stainless steel fragment and description:
  null
 (ITEMS) Adding nugget.stainless with title Stainless steel nugget and description:
  null
 (ITEMS) Adding wirespool.stainless with title Stainless steel wire spool and description:
  null
+(ITEMS) Adding ldust.stainless with title Stainless steel large dust and description:
+ null
 (ITEMS) Adding dust.stainless with title Stainless steel dust and description:
+ null
+(ITEMS) Adding mdust.stainless with title Stainless steel small dust and description:
  null
 (ITEMS) Adding minidust.stainless with title Stainless steel tiny dust and description:
  null
@@ -1041,13 +1432,21 @@
  null
 (ITEMS) Adding block.diamond with title Diamond block and description:
  null
+(ITEMS) Adding fcluster.diamond with title Diamond cluster and description:
+ null
 (ITEMS) Adding gem.diamond with title Diamond and description:
+ null
+(ITEMS) Adding frag.diamond with title Diamond fragment and description:
  null
 (ITEMS) Adding nugget.diamond with title Diamond nugget and description:
  null
 (ITEMS) Adding wirespool.diamond with title Diamond wire spool and description:
  null
+(ITEMS) Adding ldust.diamond with title Diamond large dust and description:
+ null
 (ITEMS) Adding dust.diamond with title Diamond dust and description:
+ null
+(ITEMS) Adding mdust.diamond with title Diamond small dust and description:
  null
 (ITEMS) Adding minidust.diamond with title Diamond tiny dust and description:
  null
@@ -1061,13 +1460,21 @@
  null
 (ITEMS) Adding block.HSS with title High Speed Steel block and description:
  null
+(ITEMS) Adding fcluster.HSS with title High Speed Steel cluster and description:
+ null
 (ITEMS) Adding ingot.HSS with title High Speed Steel ingot and description:
+ null
+(ITEMS) Adding frag.HSS with title High Speed Steel fragment and description:
  null
 (ITEMS) Adding nugget.HSS with title High Speed Steel nugget and description:
  null
 (ITEMS) Adding wirespool.HSS with title High Speed Steel wire spool and description:
  null
+(ITEMS) Adding ldust.HSS with title High Speed Steel large dust and description:
+ null
 (ITEMS) Adding dust.HSS with title High Speed Steel dust and description:
+ null
+(ITEMS) Adding mdust.HSS with title High Speed Steel small dust and description:
  null
 (ITEMS) Adding minidust.HSS with title High Speed Steel tiny dust and description:
  null
@@ -1081,13 +1488,21 @@
  null
 (ITEMS) Adding block.platinum with title Platinum block and description:
  null
+(ITEMS) Adding fcluster.platinum with title Platinum cluster and description:
+ null
 (ITEMS) Adding ingot.platinum with title Platinum ingot and description:
+ null
+(ITEMS) Adding frag.platinum with title Platinum fragment and description:
  null
 (ITEMS) Adding nugget.platinum with title Platinum nugget and description:
  null
 (ITEMS) Adding wirespool.platinum with title Platinum wire spool and description:
  null
+(ITEMS) Adding ldust.platinum with title Platinum large dust and description:
+ null
 (ITEMS) Adding dust.platinum with title Platinum dust and description:
+ null
+(ITEMS) Adding mdust.platinum with title Platinum small dust and description:
  null
 (ITEMS) Adding minidust.platinum with title Platinum tiny dust and description:
  null
@@ -1109,13 +1524,21 @@
  null
 (ITEMS) Adding block.tungsten with title Tungsten block and description:
  null
+(ITEMS) Adding fcluster.tungsten with title Tungsten cluster and description:
+ null
 (ITEMS) Adding ingot.tungsten with title Tungsten ingot and description:
+ null
+(ITEMS) Adding frag.tungsten with title Tungsten fragment and description:
  null
 (ITEMS) Adding nugget.tungsten with title Tungsten nugget and description:
  null
 (ITEMS) Adding wirespool.tungsten with title Tungsten wire spool and description:
  null
+(ITEMS) Adding ldust.tungsten with title Tungsten large dust and description:
+ null
 (ITEMS) Adding dust.tungsten with title Tungsten dust and description:
+ null
+(ITEMS) Adding mdust.tungsten with title Tungsten small dust and description:
  null
 (ITEMS) Adding minidust.tungsten with title Tungsten tiny dust and description:
  null
@@ -1137,13 +1560,21 @@
  null
 (ITEMS) Adding block.iridium with title Iridium block and description:
  null
+(ITEMS) Adding fcluster.iridium with title Iridium cluster and description:
+ null
 (ITEMS) Adding ingot.iridium with title Iridium ingot and description:
+ null
+(ITEMS) Adding frag.iridium with title Iridium fragment and description:
  null
 (ITEMS) Adding nugget.iridium with title Iridium nugget and description:
  null
 (ITEMS) Adding wirespool.iridium with title Iridium wire spool and description:
  null
+(ITEMS) Adding ldust.iridium with title Iridium large dust and description:
+ null
 (ITEMS) Adding dust.iridium with title Iridium dust and description:
+ null
+(ITEMS) Adding mdust.iridium with title Iridium small dust and description:
  null
 (ITEMS) Adding minidust.iridium with title Iridium tiny dust and description:
  null
@@ -1165,13 +1596,21 @@
  null
 (ITEMS) Adding block.tungstenC with title Tungsten Carbide block and description:
  null
+(ITEMS) Adding fcluster.tungstenC with title Tungsten Carbide cluster and description:
+ null
 (ITEMS) Adding ingot.tungstenC with title Tungsten Carbide ingot and description:
+ null
+(ITEMS) Adding frag.tungstenC with title Tungsten Carbide fragment and description:
  null
 (ITEMS) Adding nugget.tungstenC with title Tungsten Carbide nugget and description:
  null
 (ITEMS) Adding wirespool.tungstenC with title Tungsten Carbide wire spool and description:
  null
+(ITEMS) Adding ldust.tungstenC with title Tungsten Carbide large dust and description:
+ null
 (ITEMS) Adding dust.tungstenC with title Tungsten Carbide dust and description:
+ null
+(ITEMS) Adding mdust.tungstenC with title Tungsten Carbide small dust and description:
  null
 (ITEMS) Adding minidust.tungstenC with title Tungsten Carbide tiny dust and description:
  null
@@ -1185,13 +1624,21 @@
  null
 (ITEMS) Adding block.crystal with title Crystalline block and description:
  null
+(ITEMS) Adding fcluster.crystal with title Crystalline cluster and description:
+ null
 (ITEMS) Adding ingot.crystal with title Crystalline ingot and description:
+ null
+(ITEMS) Adding frag.crystal with title Crystalline fragment and description:
  null
 (ITEMS) Adding nugget.crystal with title Crystalline nugget and description:
  null
 (ITEMS) Adding wirespool.crystal with title Crystalline wire spool and description:
  null
+(ITEMS) Adding ldust.crystal with title Crystalline large dust and description:
+ null
 (ITEMS) Adding dust.crystal with title Crystalline dust and description:
+ null
+(ITEMS) Adding mdust.crystal with title Crystalline small dust and description:
  null
 (ITEMS) Adding minidust.crystal with title Crystalline tiny dust and description:
  null
@@ -1205,13 +1652,21 @@
  null
 (ITEMS) Adding block.stellar with title Stellarine block and description:
  null
+(ITEMS) Adding fcluster.stellar with title Stellarine cluster and description:
+ null
 (ITEMS) Adding ingot.stellar with title Stellarine ingot and description:
+ null
+(ITEMS) Adding frag.stellar with title Stellarine fragment and description:
  null
 (ITEMS) Adding nugget.stellar with title Stellarine nugget and description:
  null
 (ITEMS) Adding wirespool.stellar with title Stellarine wire spool and description:
  null
+(ITEMS) Adding ldust.stellar with title Stellarine large dust and description:
+ null
 (ITEMS) Adding dust.stellar with title Stellarine dust and description:
+ null
+(ITEMS) Adding mdust.stellar with title Stellarine small dust and description:
  null
 (ITEMS) Adding minidust.stellar with title Stellarine tiny dust and description:
  null
@@ -1225,13 +1680,21 @@
  null
 (ITEMS) Adding block.duranium with title Duranium block and description:
  null
+(ITEMS) Adding fcluster.duranium with title Duranium cluster and description:
+ null
 (ITEMS) Adding ingot.duranium with title Duranium ingot and description:
+ null
+(ITEMS) Adding frag.duranium with title Duranium fragment and description:
  null
 (ITEMS) Adding nugget.duranium with title Duranium nugget and description:
  null
 (ITEMS) Adding wirespool.duranium with title Duranium wire spool and description:
  null
+(ITEMS) Adding ldust.duranium with title Duranium large dust and description:
+ null
 (ITEMS) Adding dust.duranium with title Duranium dust and description:
+ null
+(ITEMS) Adding mdust.duranium with title Duranium small dust and description:
  null
 (ITEMS) Adding minidust.duranium with title Duranium tiny dust and description:
  null
@@ -1245,13 +1708,21 @@
  null
 (ITEMS) Adding block.unobtainium with title Unobtainium block and description:
  null
+(ITEMS) Adding fcluster.unobtainium with title Unobtainium cluster and description:
+ null
 (ITEMS) Adding ingot.unobtainium with title Unobtainium ingot and description:
+ null
+(ITEMS) Adding frag.unobtainium with title Unobtainium fragment and description:
  null
 (ITEMS) Adding nugget.unobtainium with title Unobtainium nugget and description:
  null
 (ITEMS) Adding wirespool.unobtainium with title Unobtainium wire spool and description:
  null
+(ITEMS) Adding ldust.unobtainium with title Unobtainium large dust and description:
+ null
 (ITEMS) Adding dust.unobtainium with title Unobtainium dust and description:
+ null
+(ITEMS) Adding mdust.unobtainium with title Unobtainium small dust and description:
  null
 (ITEMS) Adding minidust.unobtainium with title Unobtainium tiny dust and description:
  null
@@ -1415,7 +1886,8 @@
 (BLOCKS) Deprecating elecwire.small.rudimentary as elec.smallwire
 (BLOCKS) Deprecating elecwire.medium.rudimentary as elec.mediumwire
 (BLOCKS) Deprecating elecwire.large.rudimentary as elec.largewire
-(BLOCKS) Deprecating elec.infinite1 as elec.infinite
+(BLOCKS) Deprecating industry.infinigen0 as elec.infinite
+(BLOCKS) Deprecating industry.infinigen0 as elec.infinite1
 (MATERIALS) Color of the coal: java.awt.Color[r=0,g=0,b=0]
 (MOD-LOADER) ULV, structural: null, electrical: null
 (MOD-LOADER) VLV, structural: null, electrical: null
@@ -1454,26 +1926,6 @@
  A pair of curved pipes.
 (ITEMS) Adding pipe.D with title Dual pipe and description:
  A pair of curved pipes.
-(ITEMS) Adding pickHead.wood with title Wooden pickaxe head and description:
- null
-(ITEMS) Adding plant.leaf with title Leaf and description:
- null
-(ITEMS) Adding pick.weak with title Very weak pickaxe and description:
- null
-(ITEMS) Adding pick.wood with title Wooden pickaxe and description:
- null
-(ITEMS) Adding crafting.cstencil with title Crafting stencil and description:
- null
-(ITEMS) Adding crafting.BOMItems with title Bill Of Materials and description:
- null
-(ITEMS) Adding industry.frame1 with title Machine Frame #1 and description:
- null
-(ITEMS) Adding industry.rod1 with title Machine Rod #1 and description:
- null
-(ITEMS) Adding industry.bearing1 with title Machine Bearing #1 and description:
- null
-(ITEMS) Adding boxed.packItem with title Simple Item Package and description:
- null
 (TOOLS) Tools initialized
 (FullScreen) Setting up FullScreen
 (MOD-LOADER) Loading mods
@@ -1487,8 +1939,8 @@
 (MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD - mmb-DE.jar) Loading a modfile: mmb-DE.jar
 (MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
-(MOD - HelloWorld 0.5.jar(MOD - mmb-DE.jar) entry: META-INF/MANIFEST.MF
-) entry: META-INF/MANIFEST.MF
+(MOD - mmb-DE.jar) entry: META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5.jar) entry: META-INF/MANIFEST.MF
 (MOD - mmb-DE.jar) entry: .project
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - mmb-DE.jar) entry: .classpath
@@ -1501,22 +1953,22 @@
 (MOD - HelloWorld 0.5.jar) entry: .classpath
 (MOD - HelloWorld 0.5.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (MOD - mmb-DE.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
-(MOD - HelloWorld 0.5.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
-(MOD - mmb-DE.jar) Processing .classpath
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar(MOD - mmb-DE.jar) Processing .classpath
+) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD - mmb-DE.jar) File: .classpath
-(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
 (MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
 (MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - mmb-DE.jar) Processing .project
+(MOD - mmb-DE.jar) File: .project
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - mmb-DE.jar) File: .project(MOD - HelloWorld 0.5.jar) Processing .classpath
-
 (MOD - mmb-DE.jar) Processing META-INF/MANIFEST.MF
 (MOD - mmb-DE.jar) File: META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5.jar) Processing .classpath
 (MOD - HelloWorld 0.5.jar) File: .classpath
 (MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/package-info.class
@@ -1532,21 +1984,21 @@
 (MOD - HelloWorld 0.5.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWBlock
-
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - mmb-DE.jar) Class: mmbmods.lang.de.package-info
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWBlock
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.package-info
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWMachine
 (HW) Hello, world!
 (MOD-LOADER) Start 1st stage for Hello, world!
-(MOD-LOADER) End 1st stage for Hello, world!
 (MOD-LOADER) Start 1st stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) End 1st stage for Hello, world!
 (MOD-LOADER) End 1st stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) Start 2nd stage for Hello, world!
-(MOD-LOADER) Start 2nd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) Start 2nd stage for Hello, world!(MOD-LOADER) Start 2nd stage for MultiMachineBuilder German/Deutsch
+
 (MOD-LOADER) End 2nd stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) Start 3rd stage for Hello, world!
 (MOD-LOADER) Start 3rd stage for MultiMachineBuilder German/Deutsch
@@ -1554,7 +2006,7 @@
 (MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Sun Jan 09 11:22:01 CET 2022
+(MOD-LOADER) RELEASED Wed Feb 02 14:43:26 CET 2022
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) ================MOD INFORMATION FOR MultiMachineBuilder German/Deutsch================
@@ -1569,26 +2021,28 @@ Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
  null
 (ITEMS) Adding mmb.multimachine.hw.HelloWorldMachine with title hw.HelloWorldMachine and description:
  null
-(HW) Successfully created Rainbow Machine(HW) Successfully created Rainbow Machine
-
+(HW) Successfully created Rainbow Machine
+(HW) Successfully created Rainbow Machine
+(BLOCKS) Adding wireworld.hw with title Hello, world! and description:
+ null
 (BLOCKS) Adding wireworld.hw with title Hello, world! and description:
  null
 (ITEMS) Adding wireworld.hw with title Hello, world! and description:
  null
-(MOD-LOADER) (BLOCKS) Adding wireworld.hw with title Hello, world! and description:
- null
-End 3rd stage for Hello, world!
 (ITEMS) Adding wireworld.hw with title Hello, world! and description:
  null
 (MOD-LOADER) End 2nd stage for Hello, world!
+(MOD-LOADER) End 3rd stage for Hello, world!
 (Main menu) MainMenu created
 (SELECT A SAVE) Found save: Agriculture test.mworld
 (SELECT A SAVE) Found save: Block Clicking Claw.mworld
 (SELECT A SAVE) Found save: Distrib2.mworld
 (SELECT A SAVE) Found save: Distributor.mworld
-(SELECT A SAVE) Found save: Let's Play.mworld
+(SELECT A SAVE) Found save: EVIL.mworld
+(SELECT A SAVE) Found save: Machine Builder 0.5-pre4.mworld
 (SELECT A SAVE) Found save: main.mworld
-(SELECT A SAVE) Found save: survival.mworld
+(SELECT A SAVE) Found save: Surv.mworld
+(SELECT A SAVE) Found save: Surv2.mworld
 (SELECT A SAVE) Found save: test binder.mworld
 (SELECT A SAVE) Found save: Test BPI.mworld
 (SELECT A SAVE) Found save: Test electricity.mworld
@@ -1597,985 +2051,23 @@ End 3rd stage for Hello, world!
 (SELECT A SAVE) Found save: Test tube.mworld
 (SELECT A SAVE) Found save: Test.mworld
 (SELECT A SAVE) Found save: The longest player pipe ever.mworld
-(SELECT A SAVE) Found 15 saves
+(SELECT A SAVE) Found 17 saves
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@116665a
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@19b3954
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
 (SELECT A SAVE) Opened a file
 (SELECT A SAVE) Loaded a file
 (SELECT A SAVE) Parsed file
-(ITEMS) Attempting to load a non-data item
+(COMPLEX RECIPE RPOCESSOR) IUW data:null
 (MAP anonymous) Became anonymous
 (SELECT A SAVE) Loaded
 (WORLD - IDLE) Exiting
 (WORLDS) Opening a new world
-(MAP anonymous) Block entity at [-8,1] took exceptionally long to run
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 1326644.9657717682, NaN, 0.0]
-(TRANSFER HELPER) Grades: [0.0, -1326644.9657717682, 0.0, 0.0]
-(MAP anonymous) Block entity at [-8,2] took exceptionally long to run
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363382.1971242971, NaN, 2442.4941464454946]
-(TRANSFER HELPER) Grades: [0.0, -363361.1834042588, 0.0, -2421.4804264071904]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363372.398707144, NaN, 1213.7953285578858]
-(TRANSFER HELPER) Grades: [0.0, -363345.78116511746, 0.0, -1187.1777865313054]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363377.89628446056, NaN, 806.9223945339216]
-(TRANSFER HELPER) Grades: [0.0, -363345.7754172131, 0.0, -774.8015272864617]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363383.3310844009, NaN, 606.3964152584826]
-(TRANSFER HELPER) Grades: [0.0, -363345.7699778903, 0.0, -568.8353087479028]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363388.70877592877, NaN, 475.55721679208665]
-(TRANSFER HELPER) Grades: [0.0, -363345.7645956433, 0.0, -432.61303650662694]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363394.031321214, NaN, 379.87706241784355]
-(TRANSFER HELPER) Grades: [0.0, -363345.75926856726, 0.0, -331.60500977110235]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363399.2998576061, NaN, 307.5541784753601]
-(TRANSFER HELPER) Grades: [0.0, -363345.75399553677, 0.0, -254.00831640603204]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363404.51523949427, NaN, 252.56450645549177]
-(TRANSFER HELPER) Grades: [0.0, -363345.7487757013, 0.0, -193.7980426624784]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363409.67818210355, NaN, 210.88208285124628]
-(TRANSFER HELPER) Grades: [0.0, -363345.7436083469, 0.0, -146.947509094574]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363414.7893199976, NaN, 179.51196596964073]
-(TRANSFER HELPER) Grades: [0.0, -363345.73849283974, 0.0, -110.46113881178434]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363419.84923786775, NaN, 156.15183335032125]
-(TRANSFER HELPER) Grades: [0.0, -363345.73342859535, 0.0, -82.03602407790468]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363424.858488404, NaN, 139.0154937987084]
-(TRANSFER HELPER) Grades: [0.0, -363345.728415061, 0.0, -59.88542045571084]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363429.8176029833, NaN, 126.71373387871544]
-(TRANSFER HELPER) Grades: [0.0, -363345.72345170507, 0.0, -42.61958260046724]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363434.7270981222, NaN, 118.1653820146721]
-(TRANSFER HELPER) Grades: [0.0, -363345.71853801084, 0.0, -29.1568219033404]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363439.58747938677, NaN, 112.52887251728987]
-(TRANSFER HELPER) Grades: [0.0, -363345.7136734723, 0.0, -18.655066602803913]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363444.39924377296, NaN, 109.14913462766852]
-(TRANSFER HELPER) Grades: [0.0, -363345.7088575921, 0.0, -10.458748446814909]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363449.1628811621, NaN, 107.51627935978965]
-(TRANSFER HELPER) Grades: [0.0, -363345.70408988005, 0.0, -4.05748807777654]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 363453.87887522014, NaN, 107.23344334328877]
-(TRANSFER HELPER) Grades: [0.0, -363345.699369852, 0.0, 0.9460620248049878]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [96.5100988665516, NaN, 108.17950536809376, 109.25405476332487]
-(TRANSFER HELPER) Grades: [10.723344476737168, 0.0, -0.9460620248049878, -2.0206114200361043]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 373348.3305759167, NaN, 8308.495247742578]
-(TRANSFER HELPER) Grades: [0.0, -363335.6366195543, 0.0, 1704.198708619775]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [7477.645665168957, NaN, 10012.693956362353, 5057.158873101774]
-(TRANSFER HELPER) Grades: [830.8495825736209, 0.0, -1704.198708619775, 3251.336374640804]
-(TRANSFER HELPER) Shares: [0.20353055722639604, 0.0, 0.0, 0.796469442773604]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [98.32873910592032, NaN, 8308.495247742578, NaN]
-(TRANSFER HELPER) Grades: [4958.830133995853, 0.0, -3251.336374640804, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 383143.6867945536, NaN, 17699.16952787109]
-(TRANSFER HELPER) Grades: [0.0, -363325.83288681944, 0.0, 2118.684379863076]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [15929.252447592506, NaN, 19817.853907734167, 15508.293656837963]
-(TRANSFER HELPER) Grades: [1769.9170802785848, 0.0, -2118.684379863076, 2190.8758710331276]
-(TRANSFER HELPER) Shares: [0.44685927844131157, 0.0, 0.0, 0.5531407215586884]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [11719.667894544446, NaN, 17699.16952787109, NaN]
-(TRANSFER HELPER) Grades: [3788.6257622935173, 0.0, -2190.8758710331276, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 392840.81705735123, NaN, 26844.747720283875]
-(TRANSFER HELPER) Grades: [0.0, -363316.1274660255, 0.0, 2679.9418710419122]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [24160.27281905222, NaN, 29524.689591325787, 24125.231585098525]
-(TRANSFER HELPER) Grades: [2684.4749012316533, 0.0, -2679.9418710419122, 2719.5161351853494]
-(TRANSFER HELPER) Shares: [0.49675783752068087, 0.0, 0.0, 0.5032421624793191]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [18935.730745308036, NaN, 26844.747720283875, NaN]
-(TRANSFER HELPER) Grades: [5189.500839790489, 0.0, -2719.5161351853494, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 402440.5794025993, NaN, 35853.527704417036]
-(TRANSFER HELPER) Grades: [0.0, -363306.5194984452, 0.0, 3280.5321997370847]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [32268.17478693949, NaN, 39134.05990415412, 32670.310558863344]
-(TRANSFER HELPER) Grades: [3585.3529174775467, 0.0, -3280.5321997370847, 3183.217145553692]
-(TRANSFER HELPER) Shares: [0.5297061098709941, 0.0, 0.0, 0.4702938901290059]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [26241.887841928816, NaN, 35853.527704417036, NaN]
-(TRANSFER HELPER) Grades: [6428.422716934529, 0.0, -3183.217145553692, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(MAP anonymous) Block entity at [-8,2] took exceptionally long to run
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 411943.832659325, NaN, 44778.82174140852]
-(TRANSFER HELPER) Grades: [0.0, -363297.0081243636, 0.0, 3868.0027935528706]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [40300.93940205934, NaN, 48646.82453496139, 41195.926689371874]
-(TRANSFER HELPER) Grades: [4477.882339349184, 0.0, -3868.0027935528706, 3582.895052036649]
-(TRANSFER HELPER) Shares: [0.5555149487361458, 0.0, 0.0, 0.4444850512638542]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [33635.92445801014, NaN, 44778.82174140852, NaN]
-(TRANSFER HELPER) Grades: [7560.002231361737, 0.0, -3582.895052036649, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 421351.44535919995, NaN, 53639.75156621888]
-(TRANSFER HELPER) Grades: [0.0, -363287.5924742104, 0.0, 4424.101318770641]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [48275.776226476555, NaN, 58063.85288498952, 49705.84482816902]
-(TRANSFER HELPER) Grades: [5363.9753397423265, 0.0, -4424.101318770641, 3933.90673804986]
-(TRANSFER HELPER) Shares: [0.5769029220701862, 0.0, 0.0, 0.4230970779298138]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [41076.69941570717, NaN, 53639.75156621888, NaN]
-(TRANSFER HELPER) Grades: [8629.145412461854, 0.0, -3933.90673804986, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 430664.29293971194, NaN, 62442.214939776]
-(TRANSFER HELPER) Grades: [0.0, -363278.2716715474, 0.0, 4943.806328388579]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [56197.99324512999, NaN, 67386.02126816458, 58197.93955657659]
-(TRANSFER HELPER) Grades: [6244.22169464601, 0.0, -4943.806328388579, 4244.275383199412]
-(TRANSFER HELPER) Shares: [0.5953399851572172, 0.0, 0.0, 0.40466001484278274]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [48543.133970030045, NaN, 62442.214939776, NaN]
-(TRANSFER HELPER) Grades: [9654.805586546543, 0.0, -4244.275383199412, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 439883.25471363973, NaN, 71186.66506115788]
-(TRANSFER HELPER) Grades: [0.0, -363269.0448361053, 0.0, 5427.544816376554]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [64067.99833722544, NaN, 76614.20987753443, 66666.80448616031]
-(TRANSFER HELPER) Grades: [7118.666723932438, 0.0, -5427.544816376554, 4519.860574997569]
-(TRANSFER HELPER) Shares: [0.6116466921538171, 0.0, 0.0, 0.38835330784618294]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [56020.08564677241, NaN, 71186.66506115788, NaN]
-(TRANSFER HELPER) Grades: [10646.718839387904, 0.0, -4519.860574997569, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 449009.2112483769, NaN, 79871.39453187336]
-(TRANSFER HELPER) Grades: [0.0, -363259.9110864013, 0.0, 5877.905630102163]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [71884.25484411886, NaN, 85749.30016197552, 75105.92861630776]
-(TRANSFER HELPER) Grades: [7987.139687754505, 0.0, -5877.905630102163, 4765.465915565597]
-(TRANSFER HELPER) Shares: [0.6263143341996774, 0.0, 0.0, 0.37368566580032264]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [63495.30370904661, NaN, 79871.39453187336, NaN]
-(TRANSFER HELPER) Grades: [11610.624907261154, 0.0, -4765.465915565597, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 458043.04227457516, NaN, 88493.98721613243]
-(TRANSFER HELPER) Grades: [0.0, -363250.8695418234, 0.0, 6298.185516619342]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [79644.58824358055, NaN, 94792.17273275177, 83508.81449306129]
-(TRANSFER HELPER) Grades: [8849.398972551877, 0.0, -6298.185516619342, 4985.17272307114]
-(TRANSFER HELPER) Shares: [0.6396583260580195, 0.0, 0.0, 0.3603416739419804]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [70958.50663612579, NaN, 88493.98721613243, NaN]
-(TRANSFER HELPER) Grades: [12550.307856935498, 0.0, -4985.17272307114, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 466985.62506851647, NaN, 97051.96602598755]
-(TRANSFER HELPER) Grades: [0.0, -363241.9193242423, 0.0, 6691.73971828667]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [87346.76915643303, NaN, 103743.70574427422, 91869.49108290703]
-(TRANSFER HELPER) Grades: [9705.196869554522, 0.0, -6691.73971828667, 5182.474943080524]
-(TRANSFER HELPER) Shares: [0.651894869237902, 0.0, 0.0, 0.34810513076209804]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [78401.00798664069, NaN, 97051.96602598755, NaN]
-(TRANSFER HELPER) Grades: [13468.48309626634, 0.0, -5182.474943080524, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 475837.83321990725, NaN, 105543.0706314756]
-(TRANSFER HELPER) Grades: [0.0, -363233.05955923884, 0.0, 7061.7030291928095]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [94988.76328568363, NaN, 112604.7736606684, 100182.70880096086]
-(TRANSFER HELPER) Grades: [10554.307345791967, 0.0, -7061.7030291928095, 5360.361830514739]
-(TRANSFER HELPER) Shares: [0.6631810708013278, 0.0, 0.0, 0.3368189291986722]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [85815.48801689544, NaN, 105543.0706314756, NaN]
-(TRANSFER HELPER) Grades: [14367.220784065416, 0.0, -5360.361830514739, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 484600.53570199996, NaN, 113965.36048007382]
-(TRANSFER HELPER) Grades: [0.0, -363224.2893770299, 0.0, 7410.885844896213]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [102568.82413403741, NaN, 121376.24632497004, 108443.97491952723]
-(TRANSFER HELPER) Grades: [11396.536346036417, 0.0, -7410.885844896213, 5521.385560546594]
-(TRANSFER HELPER) Shares: [0.6736368928149419, 0.0, 0.0, 0.3263631071850581]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [93195.80813697493, NaN, 113965.36048007382, NaN]
-(TRANSFER HELPER) Grades: [15248.166782552304, 0.0, -5521.385560546594, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 493274.5961748501, NaN, 122317.23531863562]
-(TRANSFER HELPER) Grades: [0.0, -363215.60791316215, 0.0, 7741.752943052372]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [110085.51147364017, NaN, 130058.98826168799, 116649.51343635902]
-(TRANSFER HELPER) Grades: [12231.723844995446, 0.0, -7741.752943052372, 5667.721882276601]
-(TRANSFER HELPER) Shares: [0.6833576877947054, 0.0, 0.0, 0.31664231220529454]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [100536.84523338484, NaN, 122317.23531863562, NaN]
-(TRANSFER HELPER) Grades: [16112.668202974179, 0.0, -5667.721882276601, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 501860.8724667425, NaN, 130597.41811315184]
-(TRANSFER HELPER) Grades: [0.0, -363207.01430902805, 0.0, 8056.440044562667]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [117537.675973864, NaN, 138653.8581577145, 124796.19331681807]
-(TRANSFER HELPER) Grades: [13059.742139287846, 0.0, -8056.440044562667, 5801.224796333772]
-(TRANSFER HELPER) Shares: [0.6924216655415829, 0.0, 0.0, 0.3075783344584171]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [107834.34273148511, NaN, 130597.41811315184, NaN]
-(TRANSFER HELPER) Grades: [16961.850585332955, 0.0, -5801.224796333772, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 510360.2161910995, NaN, 138804.92257578007]
-(TRANSFER HELPER) Grades: [0.0, -363198.50771224755, 0.0, 8356.785903071868]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [124924.42997563352, NaN, 147161.70847885194, 132881.44755965646]
-(TRANSFER HELPER) Grades: [13880.49260014655, 0.0, -8356.785903071868, 5923.475016123615]
-(TRANSFER HELPER) Shares: [0.7008945312929556, 0.0, 0.0, 0.29910546870704435]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [115084.77881191461, NaN, 138804.92257578007, NaN]
-(TRANSFER HELPER) Grades: [17796.668747741845, 0.0, -5923.475016123615, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 518773.47246612975, NaN, 146939.01625343726]
-(TRANSFER HELPER) Grades: [0.0, -363190.08727694687, 0.0, 8644.368935745588]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [132245.1142711589, NaN, 155583.38518918285, 140903.1941042006]
-(TRANSFER HELPER) Grades: [14693.90198227836, 0.0, -8644.368935745588, 6035.822149236657]
-(TRANSFER HELPER) Shares: [0.708832490440116, 0.0, 0.0, 0.291167509559884]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [122285.25182643207, NaN, 146939.01625343726, NaN]
-(TRANSFER HELPER) Grades: [18617.94227776854, 0.0, -6035.822149236657, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 527101.4797122983, NaN, 154999.18442136198]
-(TRANSFER HELPER) Grades: [0.0, -363181.75216396013, 0.0, 8920.543126976147]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [139499.26560814187, NaN, 163919.72754833812, 148859.76353805955]
-(TRANSFER HELPER) Grades: [15499.918813220109, 0.0, -8920.543126976147, 6139.420883302431]
-(TRANSFER HELPER) Shares: [0.716284278106275, 0.0, 0.0, 0.28371572189372496]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [129433.38207192517, NaN, 154999.18442136198, NaN]
-(TRANSFER HELPER) Grades: [19426.38146613438, 0.0, -6139.420883302431, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 535345.0695087365, NaN, 162985.09709705666]
-(TRANSFER HELPER) Grades: [0.0, -363173.5015409717, 0.0, 9186.470870708145]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [146686.58700232327, NaN, 172171.5679677648, 156749.83539669617]
-(TRANSFER HELPER) Grades: [16298.510094733385, 0.0, -9186.470870708145, 6235.261700360483]
-(TRANSFER HELPER) Shares: [0.7232925869197785, 0.0, 0.0, 0.2767074130802215]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [136527.22846114635, NaN, 162985.09709705666, NaN]
-(TRANSFER HELPER) Grades: [20222.60693554982, 0.0, -6235.261700360483, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 543505.0664943359, NaN, 170896.57999503892]
-(TRANSFER HELPER) Grades: [0.0, -363165.3345826153, 0.0, 9443.151916681643]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [153806.9215967592, NaN, 180339.73191172056, 164572.38323948282]
-(TRANSFER HELPER) Grades: [17089.658398279716, 0.0, -9443.151916681643, 6324.196755556099]
-(TRANSFER HELPER) Shares: [0.729895110651181, 0.0, 0.0, 0.270104889348819]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [143565.21834236852, NaN, 170896.57999503892, NaN]
-(TRANSFER HELPER) Grades: [21007.1648971143, 0.0, -6324.196755556099, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 551582.2883027698, NaN, 178733.58949824478]
-(TRANSFER HELPER) Grades: [0.0, -363157.2504705377, 0.0, 9691.448333987268]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [160860.23013608335, NaN, 188425.03783223205, 172326.62792215977]
-(TRANSFER HELPER) Grades: [17873.359362161427, 0.0, -9691.448333987268, 6406.961576085014]
-(TRANSFER HELPER) Shares: [0.7361253340769172, 0.0, 0.0, 0.2638746659230829]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [150546.0886751014, NaN, 178733.58949824478, NaN]
-(TRANSFER HELPER) Grades: [21780.53924705836, 0.0, -6406.961576085014, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 559577.5455233451, NaN, 186496.19137314317]
-(TRANSFER HELPER) Grades: [0.0, -363149.24839343794, 0.0, 9932.105756764038]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [167846.5718101103, NaN, 196428.2971299072, 180011.99817074096]
-(TRANSFER HELPER) Grades: [18649.619563032873, 0.0, -9932.105756764038, 6484.19320240221]
-(TRANSFER HELPER) Shares: [0.7420131492616391, 0.0, 0.0, 0.25798685073836086]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [157468.83686653167, NaN, 186496.19137314317, NaN]
-(TRANSFER HELPER) Grades: [22543.161304209294, 0.0, -6484.19320240221, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 567491.641681575, NaN, 194184.54281471384]
-(TRANSFER HELPER) Grades: [0.0, -363141.32754708617, 0.0, 10165.771319774998]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [174766.08809431514, NaN, 204350.31413448884, 187628.09748178118]
-(TRANSFER HELPER) Grades: [19418.454720398702, 0.0, -10165.771319774998, 6556.445332932664]
-(TRANSFER HELPER) Shares: [0.7475853489533725, 0.0, 0.0, 0.2524146510466276]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [164332.6797414972, NaN, 194184.54281471384, NaN]
-(TRANSFER HELPER) Grades: [23295.41774028397, 0.0, -6556.445332932664, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 575325.3732348667, NaN, 201798.87737350372]
-(TRANSFER HELPER) Grades: [0.0, -363133.4871343283, 0.0, 10393.008727034641]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [181618.9891841842, NaN, 212191.88610053837, 195174.6764105416]
-(TRANSFER HELPER) Grades: [20179.88818931952, 0.0, -10393.008727034641, 6624.200962962117]
-(TRANSFER HELPER) Shares: [0.7528660300550356, 0.0, 0.0, 0.24713396994496442]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [171137.01931217127, NaN, 201798.87737350372, NaN]
-(TRANSFER HELPER) Grades: [24037.657098370342, 0.0, -6624.200962962117, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 583079.5295798432, NaN, 209339.49233554627]
-(TRANSFER HELPER) Grades: [0.0, -363125.72636507766, 0.0, 10614.310879219207]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [188405.54263714235, NaN, 219953.80321476547, 202651.60939769988]
-(TRANSFER HELPER) Grades: [20933.949698403914, 0.0, -10614.310879219207, 6687.882937846385]
-(TRANSFER HELPER) Shares: [0.75787692924222, 0.0, 0.0, 0.2421230707577799]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [177881.41420616792, NaN, 209339.49233554627, NaN]
-(TRANSFER HELPER) Grades: [24770.195191531966, 0.0, -6687.882937846385, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 590754.8930686632, NaN, 216806.7381677153]
-(TRANSFER HELPER) Grades: [0.0, -363118.0444562993, 0.0, 10830.110444648657]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [195126.06387337125, NaN, 227636.84861236394, 210058.87539248183]
-(TRANSFER HELPER) Grades: [21680.674294344033, 0.0, -10830.110444648657, 6747.862775233458]
-(TRANSFER HELPER) Shares: [0.7626377059530575, 0.0, 0.0, 0.2373622940469425]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [184565.55579002143, NaN, 216806.7381677153, NaN]
-(TRANSFER HELPER) Grades: [25493.319602460397, 0.0, -6747.862775233458, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 598352.239032334, NaN, 224201.00969060333]
-(TRANSFER HELPER) Grades: [0.0, -363110.4406319858, 0.0, 11040.788709744811]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [201780.90823140004, NaN, 235241.79840034814, 217396.54163773634]
-(TRANSFER HELPER) Grades: [22420.101459203288, 0.0, -11040.788709744811, 6804.468052866985]
-(TRANSFER HELPER) Shares: [0.7671661835752066, 0.0, 0.0, 0.23283381642479345]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [191189.24818309574, NaN, 224201.00969060333, NaN]
-(TRANSFER HELPER) Grades: [26207.293454640603, 0.0, -6804.468052866985, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 605872.3358094908, NaN, 231522.7386903733]
-(TRANSFER HELPER) Grades: [0.0, -363102.91412312933, 0.0, 11246.682995988114]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [208370.46431877135, NaN, 242769.42168636143, 224664.75008205566]
-(TRANSFER HELPER) Grades: [23152.27437160196, 0.0, -11246.682995988114, 6857.988608317653]
-(TRANSFER HELPER) Shares: [0.7714785567555189, 0.0, 0.0, 0.22852144324448112]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [197752.3914934694, NaN, 231522.7386903733, NaN]
-(TRANSFER HELPER) Grades: [26912.35858858627, 0.0, -6857.988608317653, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 613315.9447794713, NaN, 238772.38772650648]
-(TRANSFER HELPER) Grades: [0.0, -363095.4641676872, 0.0, 11448.092885277525]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [214895.14843901485, NaN, 250220.480611784, 231863.7059721208]
-(TRANSFER HELPER) Grades: [23877.239287491626, 0.0, -11448.092885277525, 6908.681754385674]
-(TRANSFER HELPER) Shares: [0.775589570798029, 0.0, 0.0, 0.22441042920197096]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [204254.9677230568, NaN, 238772.38772650648, NaN]
-(TRANSFER HELPER) Grades: [27608.738249064016, 0.0, -6908.681754385674, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 620683.8203987856, NaN, 245950.44493247996]
-(TRANSFER HELPER) Grades: [0.0, -363088.09001054673, 0.0, 11645.285455758945]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [221355.3999122566, NaN, 257595.7303882389, 238993.66825425954]
-(TRANSFER HELPER) Grades: [24595.045020223362, 0.0, -11645.285455758945, 6956.776678220427]
-(TRANSFER HELPER) Shares: [0.7795126777556698, 0.0, 0.0, 0.22048732224433024]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [210697.02888613692, NaN, 245950.44493247996, NaN]
-(TRANSFER HELPER) Grades: [28296.639368122618, 0.0, -6956.776678220427, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 627976.7102402814, NaN, 253057.4196408717]
-(TRANSFER HELPER) Grades: [0.0, -363080.79090348445, 0.0, 11838.499695925275]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [227751.6771378139, NaN, 264895.919336797, 246054.94147831504]
-(TRANSFER HELPER) Grades: [25305.742503057787, 0.0, -11838.499695925275, 7002.478162556654]
-(TRANSFER HELPER) Shares: [0.7832601728510115, 0.0, 0.0, 0.21673982714898857]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [217078.6869659307, NaN, 253057.4196408717, NaN]
-(TRANSFER HELPER) Grades: [28976.25451238433, 0.0, -7002.478162556654, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 635195.3550344631, NaN, 260093.8386935014]
-(TRANSFER HELPER) Grades: [0.0, -363073.5661051266, 0.0, 12027.950235835131]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [234084.4542733216, NaN, 272121.78892933653, 253047.86895052023]
-(TRANSFER HELPER) Grades: [26009.38442017979, 0.0, -12027.950235835131, 7045.969742981164]
-(TRANSFER HELPER) Shares: [0.7868433141510959, 0.0, 0.0, 0.2131566858489041]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [223400.10540029558, NaN, 260093.8386935014, NaN]
-(TRANSFER HELPER) Grades: [29647.763550224656, 0.0, -7045.969742981164, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 642340.4887125337, NaN, 267060.2433215325]
-(TRANSFER HELPER) Grades: [0.0, -363066.4148809038, 0.0, 12213.83051009744]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [240354.2184268243, NaN, 279274.07383162994, 259972.82692652513]
-(TRANSFER HELPER) Grades: [26706.024894708185, 0.0, -12213.83051009744, 7087.416395007371]
-(TRANSFER HELPER) Shares: [0.790272427887825, 0.0, 0.0, 0.209727572112175]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [229661.49184223954, NaN, 267060.2433215325, NaN]
-(TRANSFER HELPER) Grades: [30311.335084285587, 0.0, -7087.416395007371, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 649412.8384508268, NaN, 273957.1865006217]
-(TRANSFER HELPER) Grades: [0.0, -363059.33650300856, 0.0, 12396.315447196539]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [246561.46727641055, NaN, 286353.50194781827, 266830.2196724053]
-(TRANSFER HELPER) Grades: [27395.719224211178, 0.0, -12396.315447196539, 7126.966828216449]
-(TRANSFER HELPER) Shares: [0.7935570014050143, 0.0, 0.0, 0.20644299859498572]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [235863.0919857617, NaN, 273957.1865006217, NaN]
-(TRANSFER HELPER) Grades: [30967.127686643566, 0.0, -7126.966828216449, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 656413.1247163534, NaN, 280785.23070283403]
-(TRANSFER HELPER) Grades: [0.0, -363052.3302503483, 0.0, 12575.563763171027]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [252706.70704693647, NaN, 293360.79446600506, 273620.47525164875]
-(TRANSFER HELPER) Grades: [28078.52365589756, 0.0, -12575.563763171027, 7164.7554511852795]
-(TRANSFER HELPER) Shares: [0.7967057653910138, 0.0, 0.0, 0.20329423460898619]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [242005.184284237, NaN, 280785.23070283403, NaN]
-(TRANSFER HELPER) Grades: [31615.29096741174, 0.0, -7164.7554511852795, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 663342.0613132511, NaN, 287544.9459807175]
-(TRANSFER HELPER) Grades: [0.0, -363045.39540849964, 0.0, 12751.719924034027]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [258790.45078569328, NaN, 300296.6659047515, 280344.0419208737]
-(TRANSFER HELPER) Grades: [28754.49519502421, 0.0, -12751.719924034027, 7200.9040598438005]
-(TRANSFER HELPER) Shares: [0.7997267667979276, 0.0, 0.0, 0.20027323320207238]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [248088.0754186103, NaN, 287544.9459807175, NaN]
-(TRANSFER HELPER) Grades: [32255.966502263385, 0.0, -7200.9040598438005, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 670200.3554299572, NaN, 294236.90833016246]
-(TRANSFER HELPER) Grades: [0.0, -363038.5312696608, 0.0, 12924.91583013389]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [264813.21688898024, NaN, 307161.82416029635, 287001.38503733434]
-(TRANSFER HELPER) Grades: [29423.69144118222, 0.0, -12924.91583013389, 7235.523292828118]
-(TRANSFER HELPER) Shares: [0.8026274336390679, 0.0, 0.0, 0.19737256636093217]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [254112.09639726975, NaN, 294236.90833016246, NaN]
-(TRANSFER HELPER) Grades: [32889.288640064595, 0.0, -7235.523292828118, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 676988.7076869607, NaN, 300861.69828787714]
-(TRANSFER HELPER) Grades: [0.0, -363031.7371326038, 0.0, 13095.272266479733]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [270775.5278398327, NaN, 313956.97055435687, 293592.98439791304]
-(TRANSFER HELPER) Grades: [30086.17044804443, 0.0, -13095.272266479733, 7268.7138899640995]
-(TRANSFER HELPER) Shares: [0.805414632683839, 0.0, 0.0, 0.194585367316161]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [260077.59918962512, NaN, 300861.69828787714, NaN]
-(TRANSFER HELPER) Grades: [33515.38520828792, 0.0, -7268.7138899640995, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 683707.8121850176, NaN, 307419.89972686314]
-(TRANSFER HELPER) Grades: [0.0, -363025.0123026262, 0.0, 13262.900155528274]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [276677.9091239503, NaN, 320682.7998823914, 300119.33194294554]
-(TRANSFER HELPER) Grades: [30741.990602912847, 0.0, -13262.900155528274, 7300.567783917591]
-(TRANSFER HELPER) Shares: [0.808094720925896, 0.0, 0.0, 0.191905279074104]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [265984.9538119462, NaN, 307419.89972686314, NaN]
-(TRANSFER HELPER) Grades: [34134.378130999336, 0.0, -7300.567783917591, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 690358.3565537266, NaN, 313912.09881947335]
-(TRANSFER HELPER) Grades: [0.0, -363018.35609150276, 0.0, 13427.901642750483]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [282520.88829644886, NaN, 327340.00046222383, 306580.92976943223]
-(TRANSFER HELPER) Grades: [31391.210523024492, 0.0, -13427.901642750483, 7331.1690500411205]
-(TRANSFER HELPER) Shares: [0.8106735915800869, 0.0, 0.0, 0.1893264084199131]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [271834.5457975927, NaN, 313912.09881947335, NaN]
-(TRANSFER HELPER) Grades: [34746.3839718395, 0.0, -7331.1690500411205, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 696941.0220003825, NaN, 320338.8831427223]
-(TRANSFER HELPER) Grades: [0.0, -363011.76781743614, 0.0, 13590.371040224098]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [288304.99417663977, NaN, 333929.2541829464, 312978.2884073941]
-(TRANSFER HELPER) Grades: [32033.888966082537, 0.0, -13590.371040224098, 7360.5947353282245]
-(TRANSFER HELPER) Shares: [0.8131567152620245, 0.0, 0.0, 0.18684328473797546]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [277626.77399493166, NaN, 320338.8831427223, NaN]
-(TRANSFER HELPER) Grades: [35351.51441246242, 0.0, -7360.5947353282245, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 703456.4833590384, NaN, 326700.84090470604]
-(TRANSFER HELPER) Grades: [0.0, -363005.2468050078, 0.0, 13750.39564932452]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [294030.7561518078, NaN, 340451.23655403056, 319311.92532071366]
-(TRANSFER HELPER) Grades: [32670.084752898256, 0.0, -13750.39564932452, 7388.915583992377]
-(TRANSFER HELPER) Shares: [0.8155491769177308, 0.0, 0.0, 0.1844508230822692]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [283362.0486454414, NaN, 326700.84090470604, NaN]
-(TRANSFER HELPER) Grades: [35949.876675272244, 0.0, -7388.915583992377, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 709905.4091397137, NaN, 332998.5602744359]
-(TRANSFER HELPER) Grades: [0.0, -362998.7923851292, 0.0, 13908.056480148633]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [299698.70357406157, NaN, 346906.61675458454, 325582.3636000523]
-(TRANSFER HELPER) Grades: [33299.85670037434, 0.0, -13908.056480148633, 7416.196674383595]
-(TRANSFER HELPER) Shares: [0.817855708997049, 0.0, 0.0, 0.18214429100295101]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [289040.7897021022, NaN, 332998.5602744359, NaN]
-(TRANSFER HELPER) Grades: [36541.57389795012, 0.0, -7416.196674383595, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 716288.4615776986, NaN, 339232.6288002377]
-(TRANSFER HELPER) Grades: [0.0, -362992.40389499173, 0.0, 14063.428882469132]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [305309.36523689283, NaN, 353296.05768270686, 331790.1308206002]
-(TRANSFER HELPER) Grades: [33923.263563344895, 0.0, -14063.428882469132, 7442.497979637526]
-(TRANSFER HELPER) Shares: [0.8200807213012588, 0.0, 0.0, 0.17991927869874122]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [294663.4253544606, NaN, 339232.6288002377, NaN]
-(TRANSFER HELPER) Grades: [37126.705466139596, 0.0, -7442.497979637526, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 722606.2966829075, NaN, 345403.6329042209]
-(TRANSFER HELPER) Grades: [0.0, -362986.080678018, 0.0, 14216.58310066862]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [310863.2689201985, NaN, 359620.2160048895, 337935.75804169715]
-(TRANSFER HELPER) Grades: [34540.363984022406, 0.0, -14216.58310066862, 7467.8748625237495]
-(TRANSFER HELPER) Shares: [0.822228327881026, 0.0, 0.0, 0.177771672118974]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [300230.39073197613, NaN, 345403.6329042209, NaN]
-(TRANSFER HELPER) Grades: [37705.36730972101, 0.0, -7467.8748625237495, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 728859.5642892453, NaN, 351512.1574422718]
-(TRANSFER HELPER) Grades: [0.0, -362979.82208381215, 0.0, 14367.584763161314]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [316360.9409942749, NaN, 365879.74220543314, 344019.7789289091]
-(TRANSFER HELPER) Grades: [35151.21644799691, 0.0, -14367.584763161314, 7492.378513362724]
-(TRANSFER HELPER) Shares: [0.8243023713138692, 0.0, 0.0, 0.17569762868613084]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [305742.12676159857, NaN, 351512.1574422718, NaN]
-(TRANSFER HELPER) Grades: [38277.65216731053, 0.0, -7492.378513362724, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 735048.9081039487, NaN, 357558.78532065067]
-(TRANSFER HELPER) Grades: [0.0, -362973.62746811, 0.0, 14516.495315188018]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [321802.9060747549, NaN, 372075.2806358387, 350042.728982107]
-(TRANSFER HELPER) Grades: [35755.879245895776, 0.0, -14516.495315188018, 7516.056338543654]
-(TRANSFER HELPER) Shares: [0.8263064446498569, 0.0, 0.0, 0.17369355535014305]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [311199.07915913936, NaN, 357558.78532065067, NaN]
-(TRANSFER HELPER) Grades: [38843.64982296765, 0.0, -7516.056338543654, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 741174.9657568778, NaN, 363544.0971616172]
-(TRANSFER HELPER) Grades: [0.0, -362967.49619273085, 0.0, 14663.372402529756]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [327189.68672167073, NaN, 378207.46956414694, 356005.14485555486]
-(TRANSFER HELPER) Grades: [36354.410439946456, 0.0, -14663.372402529756, 7538.952306062332]
-(TRANSFER HELPER) Shares: [0.8282439112790955, 0.0, 0.0, 0.17175608872090456]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [316601.6975370315, NaN, 363544.0971616172, NaN]
-(TRANSFER HELPER) Grades: [39403.447318523366, 0.0, -7538.952306062332, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 747238.3688497244, NaN, 369468.67101164]
-(TRANSFER HELPER) Grades: [0.0, -362961.42762552673, 0.0, 14808.27021255769]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [332521.803176843, NaN, 384276.9412241977, 361907.5637580814]
-(TRANSFER HELPER) Grades: [36946.86783479701, 0.0, -14808.27021255769, 7561.1072535585845]
-(TRANSFER HELPER) Shares: [0.8301179229441791, 0.0, 0.0, 0.16988207705582095]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [321950.43461360125, NaN, 369468.67101164, NaN]
-(TRANSFER HELPER) Grades: [39957.12914448016, 0.0, -7561.1072535585845, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 753239.7430051216, NaN, 375333.0820866905]
-(TRANSFER HELPER) Grades: [0.0, -362955.4211403348, 0.0, 14951.239778096264]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [337799.77313464455, NaN, 390284.3218647868, 367750.5229231359]
-(TRANSFER HELPER) Grades: [37533.308952045976, 0.0, -14951.239778096264, 7582.55916355463]
-(TRANSFER HELPER) Shares: [0.831931436094152, 0.0, 0.0, 0.16806856390584798]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [327245.74551111093, NaN, 375333.0820866905, NaN]
-(TRANSFER HELPER) Grades: [40504.77741202497, 0.0, -7582.55916355463, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 759179.7079156261, NaN, 381137.90254991053]
-(TRANSFER HELPER) Grades: [0.0, -362949.47611692676, 0.0, 15092.329248788825]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [343024.11154190183, NaN, 396230.23179869936, 373534.559139986]
-(TRANSFER HELPER) Grades: [38113.7910080087, 0.0, -15092.329248788825, 7603.343409924535]
-(TRANSFER HELPER) Shares: [0.8336872267536084, 0.0, 0.0, 0.1663127732463916]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [332488.08713162283, NaN, 381137.90254991053, NaN]
-(TRANSFER HELPER) Grades: [41046.47200836317, 0.0, -7603.343409924535, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 765058.8773925622, NaN, 386883.70131761476]
-(TRANSFER HELPER) Grades: [0.0, -362943.59194096137, 0.0, 15231.584133986093]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [348195.3304232968, NaN, 402115.28545160085, 379260.20833854034]
-(TRANSFER HELPER) Grades: [38688.37089431798, 0.0, -15231.584133986093, 7623.492979074421]
-(TRANSFER HELPER) Shares: [0.8353879040602735, 0.0, 0.0, 0.16461209593972645]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [337677.9176012564, NaN, 386883.70131761476, NaN]
-(TRANSFER HELPER) Grades: [41582.29073728394, 0.0, -7623.492979074421, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 770877.8594147041, NaN, 392571.0438901486]
-(TRANSFER HELPER) Grades: [0.0, -362937.7680039349, 0.0, 15369.04752062069]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [353313.9387291391, NaN, 407940.09141076927, 384928.0052213168]
-(TRANSFER HELPER) Grades: [39257.10516100947, 0.0, -15369.04752062069, 7643.038668831752]
-(TRANSFER HELPER) Shares: [0.8370359226069429, 0.0, 0.0, 0.16296407739305704]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [342815.69577468926, NaN, 392571.0438901486, NaN]
-(TRANSFER HELPER) Grades: [42112.309446627565, 0.0, -7643.038668831752, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 776637.256176786, NaN, 398200.4922046002]
-(TRANSFER HELPER) Grades: [0.0, -362932.0037031323, 0.0, 15504.760269053571]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [358380.44220280694, NaN, 413705.25247365376, 390538.48293695535]
-(TRANSFER HELPER) Grades: [39820.05000179325, 0.0, -15504.760269053571, 7662.00926764484]
-(TRANSFER HELPER) Shares: [0.8386335937081713, 0.0, 0.0, 0.16136640629182875]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [347901.88079285173, NaN, 398200.4922046002, NaN]
-(TRANSFER HELPER) Grades: [42636.602144103614, 0.0, -7662.00926764484, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 782337.6641378271, NaN, 403772.60450677056]
-(TRANSFER HELPER) Grades: [0.0, -362926.2984415802, 0.0, 15638.761189476354]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [363395.34326552, NaN, 419411.3656962469, 396092.1727904219]
-(TRANSFER HELPER) Grades: [40377.261241250555, 0.0, -15638.761189476354, 7680.431716348685]
-(TRANSFER HELPER) Shares: [0.840183095698642, 0.0, 0.0, 0.159816904301358]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [352936.9316876886, NaN, 403772.60450677056, NaN]
-(TRANSFER HELPER) Grades: [43155.2411027333, 0.0, -7680.431716348685, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 787979.6740692552, NaN, 409287.9352401485]
-(TRANSFER HELPER) Grades: [0.0, -362920.6516279971, 0.0, 15771.087201109622]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [368359.1409164172, NaN, 425059.02244125813, 401589.6039856879]
-(TRANSFER HELPER) Grades: [40928.79432373133, 0.0, -15771.087201109622, 7698.331254460616]
-(TRANSFER HELPER) Shares: [0.8416864833583105, 0.0, 0.0, 0.1583135166416895]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [357921.3070286563, NaN, 409287.9352401485, NaN]
-(TRANSFER HELPER) Grades: [43668.29695703159, 0.0, -7698.331254460616, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 793563.8711028241, NaN, 414747.03494993015]
-(TRANSFER HELPER) Grades: [0.0, -362915.0626767465, 0.0, 15901.773476147442]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [373272.3306461738, NaN, 430648.8084260776, 407031.3033972114]
-(TRANSFER HELPER) Grades: [41474.704303756356, 0.0, -15901.773476147442, 7715.731552718731]
-(TRANSFER HELPER) Shares: [0.8431456965489952, 0.0, 0.0, 0.15685430345100482]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [362855.4646063091, NaN, 414747.03494993015, NaN]
-(TRANSFER HELPER) Grades: [44175.838790902344, 0.0, -7715.731552718731, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 799090.83477831, NaN, 420150.45020037744]
-(TRANSFER HELPER) Grades: [0.0, -362909.5310077888, 0.0, 16030.853570143809]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [378135.4043626244, NaN, 436181.30377052125, 412417.79536701465]
-(TRANSFER HELPER) Grades: [42015.045837753045, 0.0, -16030.853570143809, 7732.654833362787]
-(TRANSFER HELPER) Shares: [0.8445625681378985, 0.0, 0.0, 0.1554374318621015]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [367739.86114890233, NaN, 420150.45020037744, NaN]
-(TRANSFER HELPER) Grades: [44677.93421811232, 0.0, -7732.654833362787, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 804561.1390909815, NaN, 425498.7235040195]
-(TRANSFER HELPER) Grades: [0.0, -362904.0560466332, 0.0, 16158.359540328733]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [382948.8503270445, NaN, 441657.0830443482, 417749.60152455186]
-(TRANSFER HELPER) Grades: [42549.873176975, 0.0, -16158.359540328733, 7749.121979467629]
-(TRANSFER HELPER) Shares: [0.8459388312755375, 0.0, 0.0, 0.1540611687244625]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [372574.9520684504, NaN, 425498.7235040195, NaN]
-(TRANSFER HELPER) Grades: [45174.64945610147, 0.0, -7749.121979467629, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(MAP anonymous) Block entity at [-8,2] took exceptionally long to run
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 809975.3525388353, NaN, 430792.3932613929]
-(TRANSFER HELPER) Grades: [0.0, -362898.637224292, 0.0, 16284.32205315039]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [387713.1530999155, NaN, 447076.7153145433, 423027.2406269057]
-(TRANSFER HELPER) Grades: [43079.24016147741, 0.0, -16284.32205315039, 7765.152634487196]
-(TRANSFER HELPER) Shares: [0.8472761260883128, 0.0, 0.0, 0.1527238739116872]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [377361.1912331073, NaN, 430792.3932613929, NaN]
-(TRANSFER HELPER) Grades: [45666.0493937984, 0.0, -7765.152634487196, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 815334.0381695887, NaN, 436031.9937101696]
-(TRANSFER HELPER) Grades: [0.0, -362893.27397723193, 0.0, 16408.7704821871]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [392428.7934951413, NaN, 452440.7641923567, 428251.2284171492]
-(TRANSFER HELPER) Grades: [43603.20021502831, 0.0, -16408.7704821871, 7780.765293020406]
-(TRANSFER HELPER) Shares: [0.8485760058397666, 0.0, 0.0, 0.15142399416023344]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [382099.03076310887, NaN, 436031.9937101696, NaN]
-(TRANSFER HELPER) Grades: [46152.197654040356, 0.0, -7780.765293020406, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 820637.7536274233, NaN, 441218.05488266493]
-(TRANSFER HELPER) Grades: [0.0, -362887.96574732795, 0.0, 16531.73299743043]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [397096.2485418048, NaN, 457749.78788009536, 433422.07749896735]
-(TRANSFER HELPER) Grades: [44121.806340860145, 0.0, -16531.73299743043, 7795.97738369758]
-(TRANSFER HELPER) Shares: [0.8498399426089139, 0.0, 0.0, 0.15016005739108604]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [386788.92084784847, NaN, 441218.05488266493, NaN]
-(TRANSFER HELPER) Grades: [46633.15665111889, 0.0, -7795.97738369758, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 825887.0511994769, NaN, 446351.1025708337]
-(TRANSFER HELPER) Grades: [0.0, -362882.711981817, 0.0, 16653.236646826263]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [401715.99145266414, NaN, 463004.33921765996, 438540.2972258551]
-(TRANSFER HELPER) Grades: [44635.11111816956, 0.0, -16653.236646826263, 7810.80534497858]
-(TRANSFER HELPER) Shares: [0.8510693325291216, 0.0, 0.0, 0.14893066747087835]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [391431.30958193075, NaN, 446351.1025708337, NaN]
-(TRANSFER HELPER) Grades: [47108.98764392437, 0.0, -7810.80534497858, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(MAP anonymous) Block entity at [-8,2] took exceptionally long to run
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 831082.4778620739, NaN, 451431.65829796763]
-(TRANSFER HELPER) Grades: [0.0, -362877.5121332517, 0.0, 16773.30743085459]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [406288.491598681, NaN, 468204.9657288222, 443606.3936034029]
-(TRANSFER HELPER) Grades: [45143.16669928661, 0.0, -16773.30743085459, 7825.264694564743]
-(TRANSFER HELPER) Shares: [0.8522655006266032, 0.0, 0.0, 0.14773449937339678]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [396026.6428183004, NaN, 451431.65829796763, NaN]
-(TRANSFER HELPER) Grades: [47579.750785102486, 0.0, -7825.264694564743, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 836224.5753266928, NaN, 456460.2392963978]
-(TRANSFER HELPER) Grades: [0.0, -362872.3656594537, 0.0, 16891.97037084133]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [410814.2144889524, NaN, 473352.2096672391, 448620.86920335086]
-(TRANSFER HELPER) Grades: [45646.024807445356, 0.0, -16891.97037084133, 7839.37009304692]
-(TRANSFER HELPER) Shares: [0.85342970529372, 0.0, 0.0, 0.14657029470628002]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [400575.3640367521, NaN, 456460.2392963978, NaN]
-(TRANSFER HELPER) Grades: [48045.50516659877, 0.0, -7839.37009304692, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 841313.880085667, NaN, 461437.3584905831]
-(TRANSFER HELPER) Grades: [0.0, -362867.2720234684, 0.0, 17009.24957161554]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [415293.62175549014, NaN, 478446.6080621986, 453584.22308823897]
-(TRANSFER HELPER) Grades: [46143.73673509294, 0.0, -17009.24957161554, 7853.135402344109]
-(TRANSFER HELPER) Shares: [0.8545631424287745, 0.0, 0.0, 0.14543685757122554]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [405077.9142263202, NaN, 461437.3584905831, NaN]
-(TRANSFER HELPER) Grades: [48506.30886191875, 0.0, -7853.135402344109, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 846350.9234576127, NaN, 466363.52448503673]
-(TRANSFER HELPER) Grades: [0.0, -362862.23069351976, 0.0, 17125.168279056263]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [419727.1711423555, NaN, 483488.692764093, 458496.950745611]
-(TRANSFER HELPER) Grades: [46636.35334268125, 0.0, -17125.168279056263, 7866.573739425745]
-(TRANSFER HELPER) Shares: [0.8556669492709081, 0.0, 0.0, 0.1443330507290919]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [409534.7317802053, NaN, 466363.52448503673, NaN]
-(TRANSFER HELPER) Grades: [48962.218965405715, 0.0, -7866.573739425745, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 851336.2316325833, NaN, 471239.24155660043]
-(TRANSFER HELPER) Grades: [0.0, -362857.2411429648, 0.0, 17239.74893301807]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [424115.3164987049, NaN, 488478.9904896185, 463359.5440308428]
-(TRANSFER HELPER) Grades: [47123.92505789554, 0.0, -17239.74893301807, 7879.697525757656]
-(TRANSFER HELPER) Shares: [0.8567422079559636, 0.0, 0.0, 0.14325779204403644]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [413946.2524020438, NaN, 471239.24155660043, NaN]
-(TRANSFER HELPER) Grades: [49413.291628798994, 0.0, -7879.697525757656, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 856270.3257169446, NaN, 476065.0096506306]
-(TRANSFER HELPER) Grades: [0.0, -362852.30285024806, 0.0, 17353.013216066]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [428458.5077753582, NaN, 493418.0228666966, 468172.49111776496]
-(TRANSFER HELPER) Grades: [47606.50187527237, 0.0, -17353.013216066, 7892.518532865623]
-(TRANSFER HELPER) Shares: [0.8577899488166765, 0.0, 0.0, 0.14221005118332355]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [418312.9090224508, NaN, 476065.0096506306, NaN]
-(TRANSFER HELPER) Grades: [49859.58209531417, 0.0, -7892.518532865623, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 861153.7217779725, NaN, 480841.3243807067]
-(TRANSFER HELPER) Grades: [0.0, -362847.4152988587, 0.0, 17464.982098407112]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [432757.1910245361, NaN, 498306.3064791138, 472936.2764563373]
-(TRANSFER HELPER) Grades: [48084.13335617061, 0.0, -17464.982098407112, 7905.047924369399]
-(TRANSFER HELPER) Shares: [0.8588111534483729, 0.0, 0.0, 0.14118884655162714]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [422635.13172487845, NaN, 480841.3243807067, NaN]
-(TRANSFER HELPER) Grades: [50301.14473145886, 0.0, -7905.047924369399, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 865986.9308881643, NaN, 485568.677031513]
-(TRANSFER HELPER) Grades: [0.0, -362842.5779772837, 0.0, 17575.675879367627]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [437011.8084024535, NaN, 503144.35291088064, 477651.3807367112]
-(TRANSFER HELPER) Grades: [48556.86862905952, 0.0, -17575.675879367627, 7917.29629480181]
-(TRANSFER HELPER) Shares: [0.8598067575593913, 0.0, 0.0, 0.14019324244060868]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [426913.34767993225, NaN, 485568.677031513, NaN]
-(TRANSFER HELPER) Grades: [50738.03305677895, 0.0, -7917.29629480181, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 870770.45916927, NaN, 490247.5545645809]
-(TRANSFER HELPER) Grades: [0.0, -362837.7903789663, 0.0, 17685.11422572279]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [441222.7981744876, NaN, 507932.6687903037, 482318.28085908113]
-(TRANSFER HELPER) Grades: [49024.7563900933, 0.0, -17685.11422572279, 7929.273705499771]
-(TRANSFER HELPER) Shares: [0.860777653623614, 0.0, 0.0, 0.13922234637638597]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [431147.9810873724, NaN, 490247.5545645809, NaN]
-(TRANSFER HELPER) Grades: [51170.29977170873, 0.0, -7929.273705499771, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 875504.8078360326, NaN, 494878.43962661136]
-(TRANSFER HELPER) Grades: [0.0, -362833.05200226017, 0.0, 17793.316207161057]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [445390.5947226686, NaN, 512671.7558337724, 486937.4499087926]
-(TRANSFER HELPER) Grades: [49487.84490394278, 0.0, -17793.316207161057, 7940.989717818738]
-(TRANSFER HELPER) Shares: [0.8617246933510008, 0.0, 0.0, 0.13827530664899926]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [435339.4531251085, NaN, 494878.43962661136, NaN]
-(TRANSFER HELPER) Grades: [51597.996783684124, 0.0, -7940.989717818738, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 880190.4732396451, NaN, 499461.81056012405]
-(TRANSFER HELPER) Grades: [0.0, -362828.3623503874, 0.0, 17900.300329133694]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [449515.6285552633, NaN, 517362.11088925775, 491509.3571362203]
-(TRANSFER HELPER) Grades: [49946.18200486078, 0.0, -17900.300329133694, 7952.453423903731]
-(TRANSFER HELPER) Shares: [0.8626486899904917, 0.0, 0.0, 0.13735131000950823]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [439488.1819045612, NaN, 499461.81056012405, NaN]
-(TRANSFER HELPER) Grades: [52021.175231659145, 0.0, -7952.453423903731, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 884827.9469109142, NaN, 503998.1414162082]
-(TRANSFER HELPER) Grades: [0.0, -362823.7209313941, 0.0, 18006.084563311888]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [453598.3263182512, NaN, 522004.22597952007, 496034.46794098336]
-(TRANSFER HELPER) Grades: [50399.81509795698, 0.0, -18006.084563311888, 7963.673475224816]
-(TRANSFER HELPER) Shares: [0.8635504204783923, 0.0, 0.0, 0.13644957952160777]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [443594.58243182657, NaN, 503998.1414162082, NaN]
-(TRANSFER HELPER) Grades: [52439.8855091568, 0.0, -7963.673475224816, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 889417.7156031367, NaN, 508487.90196916735]
-(TRANSFER HELPER) Grades: [0.0, -362819.1272581086, 0.0, 18110.686375860765]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [457639.1108085045, NaN, 526598.5883450281, 500513.24386010546]
-(TRANSFER HELPER) Grades: [50848.79116066283, 0.0, -18110.686375860765, 7974.658109061886]
-(TRANSFER HELPER) Shares: [0.8644306274442446, 0.0, 0.0, 0.13556937255575535]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [447659.0665741344, NaN, 508487.90196916735, NaN]
-(TRANSFER HELPER) Grades: [52854.17728597106, 0.0, -7974.658109061886, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 893960.261334684, NaN, 512931.55773287645]
-(TRANSFER HELPER) Grades: [0.0, -362814.5808480984, 0.0, 18214.122753709147]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [461638.40098850994, NaN, 531145.6804865856, 504946.1425597646]
-(TRANSFER HELPER) Grades: [51293.15674436651, 0.0, -18214.122753709147, 7985.415173111833]
-(TRANSFER HELPER) Shares: [0.8652900210850504, 0.0, 0.0, 0.13470997891494962]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [451682.04303113936, NaN, 512931.55773287645, NaN]
-(TRANSFER HELPER) Grades: [53264.09952862526, 0.0, -7985.415173111833, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 898456.061431291, NaN, 517329.5699786803]
-(TRANSFER HELPER) Grades: [0.0, -362810.0812236266, 0.0, 18316.41022898414]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [465596.61200247705, NaN, 535645.9802076644, 509333.6178303109]
-(TRANSFER HELPER) Grades: [51732.95797620324, 0.0, -18316.41022898414, 7995.952148369397]
-(TRANSFER HELPER) Shares: [0.8661292809178542, 0.0, 0.0, 0.1338707190821458]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [455663.9173106283, NaN, 517329.5699786803, NaN]
-(TRANSFER HELPER) Grades: [53669.70051968261, 0.0, -7995.952148369397, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 902905.5885680595, NaN, 521682.39575468487]
-(TRANSFER HELPER) Grades: [0.0, -362805.6279116123, 0.0, 18417.56490176235]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [469514.1551937003, NaN, 540099.9606564472, 513676.11958426243]
-(TRANSFER HELPER) Grades: [52168.24056098459, 0.0, -18417.56490176235, 8006.2761704224395]
-(TRANSFER HELPER) Shares: [0.866949057419788, 0.0, 0.0, 0.13305094258021194]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [459605.09170826204, NaN, 521682.39575468487, NaN]
-(TRANSFER HELPER) Grades: [54071.027876000386, 0.0, -8006.2761704224395, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 907309.3108111613, NaN, 525990.4879063031]
-(TRANSFER HELPER) Grades: [0.0, -362801.22044358705, 0.0, 18517.602461271104]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [473391.4381230506, NaN, 544508.0903675742, 517974.093857015]
-(TRANSFER HELPER) Grades: [52599.04978325253, 0.0, -18517.602461271104, 8016.394049288123]
-(TRANSFER HELPER) Shares: [0.8677499735639217, 0.0, 0.0, 0.13225002643607833]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [463505.965291012, NaN, 525990.4879063031, NaN]
-(TRANSFER HELPER) Grades: [54468.128566003, 0.0, -8016.394049288123, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 911667.691659251, NaN, 530254.2950979318]
-(TRANSFER HELPER) Grades: [0.0, -362796.8583556537, 0.0, 18616.538205665536]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [477228.8645884841, NaN, 548870.8333035973, 522227.9828100255]
-(TRANSFER HELPER) Grades: [53025.430509447644, 0.0, -18616.538205665536, 8026.312287906243]
-(TRANSFER HELPER) Shares: [0.8685326262585559, 0.0, 0.0, 0.13146737374144413]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [467366.9338839762, NaN, 530254.2950979318, NaN]
-(TRANSFER HELPER) Grades: [54861.04892604932, 0.0, -8026.312287906243, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 915981.1900845857, NaN, 534474.2618356439]
-(TRANSFER HELPER) Grades: [0.0, -362792.541188446, 0.0, 18714.387060495792]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [481026.83464546606, NaN, 553188.6488961397, 526438.2247362522]
-(TRANSFER HELPER) Grades: [53447.42719017784, 0.0, -18714.387060495792, 8036.037099391688]
-(TRANSFER HELPER) Shares: [0.8692975876970066, 0.0, 0.0, 0.1307024123029934]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [471188.39006029034, NaN, 534474.2618356439, NaN]
-(TRANSFER HELPER) Grades: [55249.83467596187, 0.0, -8036.037099391688, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 920250.2605738479, NaN, 538650.828490798]
-(TRANSFER HELPER) Grades: [0.0, -362788.2684870863, 0.0, 18811.16359596362]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [484785.74462821824, NaN, 557461.9920867616, 530605.2540676526]
-(TRANSFER HELPER) Grades: [53865.08386257978, 0.0, -18811.16359596362, 8045.574423145386]
-(TRANSFER HELPER) Shares: [0.8700454066242667, 0.0, 0.0, 0.12995459337573328]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [474970.72313387645, NaN, 538650.828490798, NaN]
-(TRANSFER HELPER) Grades: [55634.53093377617, 0.0, -8045.574423145386, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 924475.3531686787, NaN, 542784.4313244664]
-(TRANSFER HELPER) Grades: [0.0, -362784.03980114684, 0.0, 18906.882043065503]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [488505.98717170465, NaN, 561691.3133675319, 534729.5013845575]
-(TRANSFER HELPER) Grades: [54278.44415276172, 0.0, -18906.882043065503, 8054.929939908907]
-(TRANSFER HELPER) Shares: [0.8707766095264843, 0.0, 0.0, 0.12922339047351575]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [478714.3191547907, NaN, 542784.4313244664, NaN]
-(TRANSFER HELPER) Grades: [56015.18222976674, 0.0, -8054.929939908907, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 928656.9135059121, NaN, 546875.5025125993]
-(TRANSFER HELPER) Grades: [0.0, -362779.8546846077, 0.0, 19001.55630870501]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [492187.95123428025, NaN, 565877.0588213044, 538811.3934267587]
-(TRANSFER HELPER) Grades: [54687.55127831909, 0.0, -19001.55630870501, 8064.109085840639]
-(TRANSFER HELPER) Shares: [0.8714917017487173, 0.0, 0.0, 0.12850829825128277]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [482419.560906955, NaN, 546875.5025125993, NaN]
-(TRANSFER HELPER) Grades: [56391.83251980372, 0.0, -8064.109085840639, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 932795.3828575197, NaN, 550924.4701718491]
-(TRANSFER HELPER) Grades: [0.0, -362775.7126958179, 0.0, 19095.199989852612]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [495832.02212093107, NaN, 570019.6701617017, 542851.3531061566]
-(TRANSFER HELPER) Grades: [55092.44805091806, 0.0, -19095.199989852612, 8073.117065692553]
-(TRANSFER HELPER) Shares: [0.8721911685458891, 0.0, 0.0, 0.1278088314541109]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [486086.8279080754, NaN, 550924.4701718491, NaN]
-(TRANSFER HELPER) Grades: [56764.52519808116, 0.0, -8073.117065692553, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 936891.198170261, NaN, 554931.7583859789]
-(TRANSFER HELPER) Grades: [0.0, -362771.613397456, 0.0, 19187.826386826113]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [499438.5815070434, NaN, 574119.584772805, 546849.7995208324]
-(TRANSFER HELPER) Grades: [55493.17687893548, 0.0, -19187.826386826113, 8081.958865146502]
-(TRANSFER HELPER) Shares: [0.8728754760716523, 0.0, 0.0, 0.12712452392834767]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [489716.4964115677, NaN, 554931.7583859789, NaN]
-(TRANSFER HELPER) Grades: [57133.30310926464, 0.0, -8081.958865146502, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 940944.7921050389, NaN, 558897.7872327954]
-(TRANSFER HELPER) Grades: [0.0, -362767.5563564893, 0.0, 19279.448515754193]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [503008.0074626422, NaN, 578177.2357485496, 550807.1479704179]
-(TRANSFER HELPER) Grades: [55889.77977015317, 0.0, -19279.448515754193, 8090.639262377517]
-(TRANSFER HELPER) Shares: [0.8735450723093287, 0.0, 0.0, 0.1264549276906713]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [493308.9394103211, NaN, 558897.7872327954, NaN]
-(TRANSFER HELPER) Grades: [57498.20856009674, 0.0, -8090.639262377517, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 944956.5930759646, NaN, 562822.9728115433]
-(TRANSFER HELPER) Grades: [0.0, -362763.5411441359, 0.0, 19370.07912028546]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [506540.67447704735, NaN, 582193.0519318287, 554723.8099726484]
-(TRANSFER HELPER) Grades: [56282.29833449592, 0.0, -19370.07912028546, 8099.162838894874]
-(TRANSFER HELPER) Shares: [0.87420038794891, 0.0, 0.0, 0.12579961205108997]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [496864.5266421542, NaN, 562822.9728115433, NaN]
-(TRANSFER HELPER) Grades: [57859.28333049419, 0.0, -8099.162838894874, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 948927.0252891297, NaN, 566707.7272707091]
-(TRANSFER HELPER) Grades: [0.0, -362759.56733582565, 0.0, 19459.730682594934]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [510036.9534838959, NaN, 586167.457953304, 558600.1932809906]
-(TRANSFER HELPER) Grades: [56670.773786813195, 0.0, -19459.730682594934, 8107.533989718533]
-(TRANSFER HELPER) Shares: [0.874841837213664, 0.0, 0.0, 0.12515816278633599]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [500383.62459681765, NaN, 566707.7272707091, NaN]
-(TRANSFER HELPER) Grades: [58216.56868417293, 0.0, -8107.533989718533, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 952856.5087810864, NaN, 570552.4588361845]
-(TRANSFER HELPER) Grades: [0.0, -362755.6345111617, 0.0, 19548.415433740243]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [513497.21188648953, NaN, 590100.8742699247, 562436.7019032525]
-(TRANSFER HELPER) Grades: [57055.246949694934, 0.0, -19548.415433740243, 8115.756932931952]
-(TRANSFER HELPER) Shares: [0.8754698186397674, 0.0, 0.0, 0.12453018136023265]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [503866.5965244218, NaN, 570552.4588361845, NaN]
-(TRANSFER HELPER) Grades: [58570.10537883069, 0.0, -8115.756932931952, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 956745.459457037, NaN, 574357.5718397422]
-(TRANSFER HELPER) Grades: [0.0, -362751.74225388176, 0.0, 19636.14536341303]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [516921.8135834232, NaN, 593993.7172031553, 566233.7361210822]
-(TRANSFER HELPER) Grades: [57435.75825631904, 0.0, -19636.14536341303, 8123.835718660033]
-(TRANSFER HELPER) Shares: [0.8760847158119907, 0.0, 0.0, 0.12391528418800929]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [507313.80244516756, NaN, 574357.5718397422, NaN]
-(TRANSFER HELPER) Grades: [58919.93367591465, 0.0, -8123.835718660033, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 960594.2891287338, NaN, 578123.4667477848]
-(TRANSFER HELPER) Grades: [0.0, -362747.89015182096, 0.0, 19722.932229128084]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [520311.11899445835, NaN, 597846.3989769128, 569991.6925102767]
-(TRANSFER HELPER) Grades: [57812.34775332641, 0.0, -19722.932229128084, 8131.774237508071]
-(TRANSFER HELPER) Shares: [0.8766868980583546, 0.0, 0.0, 0.12331310194164538]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [510725.59916027467, NaN, 578123.4667477848, NaN]
-(TRANSFER HELPER) Grades: [59266.09335000202, 0.0, -8131.774237508071, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 964403.4055520876, NaN, 581850.5401903249]
-(TRANSFER HELPER) Grades: [0.0, -362744.0777968733, 0.0, 19808.78756488941]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [523665.4850866057, NaN, 601659.3277552143, 573710.9639618235]
-(TRANSFER HELPER) Grades: [58185.055103719176, 0.0, -19808.78756488941, 8139.576228501392]
-(TRANSFER HELPER) Shares: [0.8772767211063686, 0.0, 0.0, 0.12272327889363145]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [514102.3402640075, NaN, 581850.5401903249, NaN]
-(TRANSFER HELPER) Grades: [59608.62369781599, 0.0, -8139.576228501392, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 968173.2124644907, NaN, 585539.184990167]
-(TRANSFER HELPER) Grades: [0.0, -362740.30478495534, 0.0, 19893.722689368296]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [526985.2654003886, NaN, 605432.9076795353, 577391.939703608]
-(TRANSFER HELPER) Grades: [58553.91958977841, 0.0, -19893.722689368296, 8147.245286558988]
-(TRANSFER HELPER) Shares: [0.8778545277033195, 0.0, 0.0, 0.12214547229668049]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [517444.3761567067, NaN, 585539.184990167, NaN]
-(TRANSFER HELPER) Grades: [59947.563546901336, 0.0, -8147.245286558988, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 971904.109621848, NaN, 589189.7901922518]
-(TRANSFER HELPER) Grades: [0.0, -362736.57071596815, 0.0, 19977.74871362804]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [530270.8100762533, NaN, 609167.5389058798, 581035.0053227197]
-(TRANSFER HELPER) Grades: [58918.980115998536, 0.0, -19977.74871362804, 8154.784869532101]
-(TRANSFER HELPER) Shares: [0.8784206482028961, 0.0, 0.0, 0.12157935179710393]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [520752.05405874306, NaN, 589189.7901922518, NaN]
-(TRANSFER HELPER) Grades: [60282.95126397663, 0.0, -8154.784869532101, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 975596.4928353247, NaN, 592802.7410931392]
-(TRANSFER HELPER) Grades: [0.0, -362732.8751937613, 0.0, 20060.876548424247]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [533522.4658811026, NaN, 612863.6176415634, 584640.542788302]
-(TRANSFER HELPER) Grades: [59280.27521203656, 0.0, -20060.876548424247, 8162.19830483722]
-(TRANSFER HELPER) Shares: [0.8789754011202587, 0.0, 0.0, 0.12102459887974124]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [524025.71802531305, NaN, 592802.7410931392, NaN]
-(TRANSFER HELPER) Grades: [60614.824762988894, 0.0, -8162.19830483722, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 979250.7540078051, NaN, 596378.4192705984]
-(TRANSFER HELPER) Grades: [0.0, -362729.2178260955, 0.0, 20143.116911111167]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [536740.5762349284, NaN, 616521.5361817096, 588208.9304748885]
-(TRANSFER HELPER) Grades: [59637.84303567, 0.0, -20143.116911111167, 8169.488795709913]
-(TRANSFER HELPER) Shares: [0.8795190936575205, 0.0, 0.0, 0.12048090634247952]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [527265.7089620088, NaN, 596378.4192705984, NaN]
-(TRANSFER HELPER) Grades: [60943.22151287971, 0.0, -8169.488795709913, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 982867.2811700692, NaN, 599917.2026132845]
-(TRANSFER HELPER) Grades: [0.0, -362725.59822460776, 0.0, 20224.480332177016]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [539925.4812375196, NaN, 620141.6829454615, 591740.5431861787]
-(TRANSFER HELPER) Grades: [59991.72137576481, 0.0, -20224.480332177016, 8176.659427105798]
-(TRANSFER HELPER) Shares: [0.8800520222014504, 0.0, 0.0, 0.1199479777985496]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [530472.3646410913, NaN, 599917.2026132845, NaN]
-(TRANSFER HELPER) Grades: [61268.17854508734, 0.0, -8176.659427105798, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 986446.4585166823, NaN, 603419.4653504718]
-(TRANSFER HELPER) Grades: [0.0, -362722.0160047739, 0.0, 20304.977161436575]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [543077.5176952225, NaN, 623724.4425119084, 595235.7521792029]
-(TRANSFER HELPER) Grades: [60341.94765524927, 0.0, -20304.977161436575, 8183.71317126893]
-(TRANSFER HELPER) Shares: [0.8805744727951317, 0.0, 0.0, 0.11942552720486833]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [533646.019718408, NaN, 603419.4653504718, NaN]
-(TRANSFER HELPER) Grades: [61589.732460794854, 0.0, -8183.71317126893, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 989988.6664416029, NaN, 606885.5780818299]
-(TRANSFER HELPER) Grades: [0.0, -362718.47078587394, 0.0, 20384.617573898984]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [546197.019147739, NaN, 627270.1956557289, 598694.9251888391]
-(TRANSFER HELPER) Grades: [60688.55893409089, 0.0, -20384.617573898984, 8190.652892990853]
-(TRANSFER HELPER) Shares: [0.881086721585126, 0.0, 0.0, 0.118913278414874]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [536787.005750898, NaN, 606885.5780818299, NaN]
-(TRANSFER HELPER) Grades: [61907.91943794105, 0.0, -8190.652892990853, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 993494.2815735098, NaN, 610315.9078072178]
-(TRANSFER HELPER) Grades: [0.0, -362714.9621909566, 0.0, 20463.411575335427]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [549284.3158949415, NaN, 630779.3193825532, 602118.4264526372]
-(TRANSFER HELPER) Grades: [61031.591912276344, 0.0, -20463.411575335427, 8197.48135458061]
-(TRANSFER HELPER) Shares: [0.8815890352456139, 0.0, 0.0, 0.11841096475438607]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [539895.6512146323, NaN, 610315.9078072178, NaN]
-(TRANSFER HELPER) Grades: [62222.77523800486, 0.0, -8197.48135458061, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
+(MAP anonymous) Block entity at [-10,-2] took exceptionally long to run
+(MAP anonymous) Block entity at [-11,-2] took exceptionally long to run
+(MAP anonymous) Block entity at [-11,-2] took exceptionally long to run
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
 (WORLD TEST) Saving the world
@@ -2583,12 +2075,6 @@ End 3rd stage for Hello, world!
 (WORLD - main null) Exiting
 (MAP anonymous) Destroying
 (MAP anonymous) Shutdown
-(TRANSFER HELPER) Pressures (NaN means disconnected): [NaN, 996963.676810846, NaN, 613710.8179564803]
-(TRANSFER HELPER) Grades: [0.0, -362711.4898468036, 0.0, 20541.369007562054]
-(TRANSFER HELPER) Shares: [0.0, 0.0, 0.0, 1.0]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [552339.73502369, NaN, 634252.1869640424, 605506.6167359176]
-(TRANSFER HELPER) Grades: [61371.082932790276, 0.0, -20541.369007562054, 8204.201220562682]
-(TRANSFER HELPER) Shares: [0.882081671380895, 0.0, 0.0, 0.11791832861910498]
-(TRANSFER HELPER) Pressures (NaN means disconnected): [542972.281523337, NaN, 613710.8179564803, NaN]
-(TRANSFER HELPER) Grades: [62534.33521258063, 0.0, -8204.201220562682, 0.0]
-(TRANSFER HELPER) Shares: [1.0, 0.0, 0.0, 0.0]
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
+(SETTINGS) Saved settings file

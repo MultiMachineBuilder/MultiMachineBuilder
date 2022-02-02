@@ -11,8 +11,6 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.ainslec.picocog.PicoWriter;
-
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.io.InventoryReader;

@@ -13,15 +13,12 @@ import javax.swing.JLabel;
 import mmb.WORLD.gui.inv.MoveItems;
 import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
-import mmb.WORLD.items.ItemEntry;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JProgressBar;
 import javax.swing.Box;
-import javax.swing.SwingConstants;
 
 /**
  * @author oskar

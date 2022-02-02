@@ -3,6 +3,7 @@
  */
 package mmb.WORLD.items.data;
 
+import java.awt.Component;
 import java.util.Iterator;
 import java.util.Objects;
 import java.util.Set;
@@ -19,12 +20,12 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.DATA.Save;
-import mmb.WORLD.blocks.machine.manual.Crafting;
+import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.Recipe;
+import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.SimpleItemList;
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.item.ItemEntity;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.ItemEntry;
@@ -36,7 +37,7 @@ import monniasza.collects.grid.Grid;
  * @author oskar
  * Represents a crafting grid recipe
  */
-public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>, Recipe {
+public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>, Recipe<Stencil> {
 	
 	//Others
 	private static final Debugger debug = new Debugger("STENCIL");
@@ -133,7 +134,7 @@ public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>, Re
 	private void doReplaceTable(Grid<ItemEntry> items) {
 		Grid<ItemEntry> trim = items.trim();
 		grid = trim;
-		results = Crafting.recipes.get(trim);
+		results = Craftings.crafting.findRecipe(items).out;
 		if(trim.size() == 0) {
 			title = "Crafting stencil - none";
 		}else if(results == null) {
@@ -174,12 +175,12 @@ public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>, Re
 	@Override
 	public int maxCraftable(Inventory src, int amount) {
 		RecipeOutput ins = inputs();
-		debug.printl(ins+" in "+src);
+		//debug.printl(ins+" in "+src);
 		return Math.min(amount, Inventory.howManyTimesThisContainsThat(src, ins));
 	}
 	@Override
 	public int craft(Inventory src, Inventory tgt, int amount) {
-		return Recipe.transact(inputs(), output(), tgt, src, amount);
+		return Craftings.transact(inputs(), output(), tgt, src, amount);
 	}
 	
 	private RecipeOutput results;
@@ -206,7 +207,23 @@ public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>, Re
 	}
 
 	@Override
-	public Set<ItemEntry> id() {
+	public ItemEntry catalyst() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RecipeGroup group() {
+		return Craftings.crafting;
+	}
+
+	@Override
+	public Stencil that() {
+		return this;
+	}
+
+	@Override
+	public Component createComponent() {
 		// TODO Auto-generated method stub
 		return null;
 	}

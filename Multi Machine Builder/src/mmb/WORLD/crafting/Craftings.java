@@ -12,7 +12,9 @@ import org.joml.Vector3d;
 
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
+import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup;
+import mmb.WORLD.crafting.recipes.CraftingRecipeGroup;
 import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemStack;
@@ -82,5 +84,34 @@ public class Craftings {
 	@Nonnull public static final SimpleProcessingRecipeGroup smelting = new SimpleProcessingRecipeGroup("Furnace");
 	@Nonnull public static final SimpleProcessingRecipeGroup clusterMill = new SimpleProcessingRecipeGroup("Cluster mill");
 	@Nonnull public static final SimpleProcessingRecipeGroup crusher = new SimpleProcessingRecipeGroup("Crusher");
-	@Nonnull public static final ComplexProcessingRecipeGroup alloyer = new ComplexProcessingRecipeGroup("Alloyer", true);
+	@Nonnull public static final SimpleProcessingRecipeGroup wiremill = new SimpleProcessingRecipeGroup("Wiremill");
+	@Nonnull public static final ComplexProcessingRecipeGroup alloyer = new ComplexProcessingRecipeGroup("Alloyer", 2);
+	@Nonnull public static final CraftingRecipeGroup crafting = new CraftingRecipeGroup("Crafting table");
+	/**
+	 * Crafts items according to a recipe
+	 * @param input items to be consumed
+	 * @param rout items to be crafted
+	 * @param tgt target inventory
+	 * @param src source inventory
+	 * @param amount number of recipes to craft
+	 * @return number of recipes crafted
+	 */
+	public static int transact(RecipeOutput input, RecipeOutput rout, Inventory tgt, Inventory src, int amount) {
+		if(!tgt.exists()) return 0;
+		if(!tgt.canInsert()) return 0;
+		if(!src.exists()) return 0;
+		if(!src.canExtract()) return 0;
+		double volume = rout.outVolume(); //Per unit
+		int fitsInOut = (int) (tgt.iremainVolume()/volume);
+		int ingrsInIn = Inventory.howManyTimesThisContainsThat(tgt, input);
+		int craftable = Math.min(fitsInOut, ingrsInIn);
+		//Remove ingredients from input
+		for(Entry<ItemEntry> irecord: input.getContents().object2IntEntrySet()) {
+			int amt = irecord.getIntValue()*craftable;
+			src.extract(irecord.getKey(), amt);
+		}
+		//Insert output
+		rout.produceResults(tgt.createWriter(), craftable);
+		return craftable;
+	}
 }

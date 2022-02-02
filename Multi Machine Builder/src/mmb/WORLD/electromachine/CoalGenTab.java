@@ -6,7 +6,6 @@ package mmb.WORLD.electromachine;
 import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
 import net.miginfocom.swing.MigLayout;
-import mmb.UnitFormatter;
 import mmb.WORLD.electric.Electricity;
 import mmb.WORLD.gui.inv.InventoryController;
 import mmb.WORLD.gui.inv.MoveItems;

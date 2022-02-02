@@ -11,6 +11,10 @@ import javax.swing.JLabel;
 import java.io.File;
 import net.miginfocom.swing.MigLayout;
 
+/**
+ * @author oskar
+ * A dialog window with loading information
+ */
 public class Loading extends JFrame {
 	private static final long serialVersionUID = -8763636851592865062L;
 	

@@ -9,7 +9,6 @@ import java.awt.Dimension;
 import javax.annotation.Nullable;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.fasterxml.jackson.databind.JsonNode;

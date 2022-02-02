@@ -41,6 +41,7 @@ public class Main {
 	}
 	private static Debugger debug;
 	/**
+	 * Crashes the game to the desktop
 	 * @param e throwable, which caused the crash
 	 * @throws SecurityException if run by the mod
 	 */

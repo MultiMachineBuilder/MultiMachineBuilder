@@ -12,6 +12,7 @@ import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.item.ItemType;
+import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.worlds.world.World;
 
@@ -29,4 +30,8 @@ public class PickaxeWorkbench extends Block implements BlockActivateListener {
 	}
 	
 	public static Map<ItemEntry, ItemType> recipes = new HashMap<>();
+	static {
+		recipes.put(ContentsItems.pickHeadWood, ContentsItems.pickWood);
+		recipes.put(ContentsItems.pickHeadRudimentary, ContentsItems.pickRudimentary);
+	}
 }

@@ -3,8 +3,6 @@
  */
 package mmb.WORLD.blocks.machine;
 
-import javax.swing.JPanel;
-
 import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
 import net.miginfocom.swing.MigLayout;

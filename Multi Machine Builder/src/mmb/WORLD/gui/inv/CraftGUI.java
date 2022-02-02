@@ -14,6 +14,7 @@ import mmb.LAMBDAS.Consumers;
 import mmb.WORLD.blocks.machine.manual.Crafting;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.RecipeOutput;
+import mmb.WORLD.crafting.recipes.CraftingRecipeGroup.CraftingRecipe;
 import mmb.WORLD.gui.Variable;
 import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
@@ -91,7 +92,8 @@ public class CraftGUI extends GUITab {
 		craftingGrid.gridStateChanged.addListener(e -> {
 			debug.printl("Recipe state changed: "+e);
 			contents.set(e.x, e.y, e.newEntry);
-			outs.set(Crafting.findRecipe(contents));  //Find new item to be crafted
+			CraftingRecipe recipe = Craftings.crafting.findRecipe(contents);
+			outs.set(recipe == null ? null: recipe.out);  //Find new item to be crafted
 			RecipeOutput rout = outs.get();
 			debug.printl("Recipe output: "+rout);
 			ins.clear();

@@ -188,7 +188,6 @@ public final class ModLoader {
 						}
 					}catch(VirtualMachineError e){
 						Main.crash(e);
-						throw e; //unreachable
 					// deepcode ignore DontCatch: guarantee that game fully loads
 					}catch(Throwable e){
 						debug.pstm(e, "Failed to run a mod "+ ai.name);

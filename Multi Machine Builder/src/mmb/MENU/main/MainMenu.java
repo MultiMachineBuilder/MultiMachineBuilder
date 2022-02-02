@@ -22,8 +22,6 @@ import mmb.MENU.MMBFrame;
 import mmb.MENU.TestCollision;
 import mmb.MENU.components.BoundCheckBoxMenuItem;
 import mmb.MENU.settings.PanelSettings;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /**
  * @author oskar

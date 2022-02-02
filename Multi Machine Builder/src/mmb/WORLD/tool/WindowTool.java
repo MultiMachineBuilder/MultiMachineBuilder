@@ -21,9 +21,9 @@ import monniasza.collects.Identifiable;
 
 /**
  * @author oskar
- * The {@code Tool} interface describes a world tool, which applies its code to the world frame.
- * The tool supports {@link MouseListener}, {@link MouseMotionListener}, {@link MouseWheelListener} and {@link KeyListener},
- * which are delegated from the world frame to the tool. Each registered tool is created once per created world window.
+ * <br>The {@code Tool} interface describes a world tool, which applies its code to the world frame.
+ * <br>The tool supports {@link MouseListener}, {@link MouseMotionListener}, {@link MouseWheelListener} and {@link KeyListener},
+ * <br>which are delegated from the world frame to the tool. Each registered tool is created once per created world window.
  * 
  * Events:
  * windowClosed

@@ -14,7 +14,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.BEANS.BlockActivateListener;
 import mmb.DATA.contents.texture.Textures;
 import mmb.GRAPHICS.awt.ColorMapper;
-import mmb.GRAPHICS.texgen.TexGen;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.blocks.FuelBurner;

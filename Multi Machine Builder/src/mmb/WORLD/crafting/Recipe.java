@@ -3,21 +3,20 @@
  */
 package mmb.WORLD.crafting;
 
-import java.util.Set;
+import java.awt.Component;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
-import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
-import monniasza.collects.Identifiable;
 
 /**
  * @author oskar
  * Represents a recipe
+ * @param <T> the type of recipe
  */
-public interface Recipe extends Identifiable<Set<ItemEntry>> {
+public interface Recipe<T extends Recipe<T>>{
 	
 	//CONTAINS methods
 	/**
@@ -62,32 +61,18 @@ public interface Recipe extends Identifiable<Set<ItemEntry>> {
 	 * @implNote the returned value should be read only
 	 */
 	@Nonnull public RecipeOutput inputs();
-	
+	/** @return the catalyst. If the method returns {@code null}, it means there is no catalyst */
+	@Nullable public ItemEntry catalyst();
 	/**
-	 * Crafts items according to a recipe
-	 * @param recipeOutput items to be consumed
-	 * @param rout items to be crafted
-	 * @param tgt target inventory
-	 * @param src source inventory
-	 * @param amount number of recipes to craft
-	 * @return number of recipes crafted
+	 * @return the parent recipe group
+	 * @throws UnsupportedOperationException if the implementation is a stencil, or something similar (optional operation)
 	 */
-	public static int transact(RecipeOutput recipeOutput, RecipeOutput rout, Inventory tgt, Inventory src, int amount) {
-		if(!tgt.exists()) return 0;
-		if(!tgt.canInsert()) return 0;
-		if(!src.exists()) return 0;
-		if(!src.canExtract()) return 0;
-		double volume = rout.outVolume(); //Per unit
-		int fitsInOut = (int) (tgt.iremainVolume()/volume);
-		int ingrsInIn = Inventory.howManyTimesThisContainsThat(tgt, recipeOutput);
-		int craftable = Math.min(fitsInOut, ingrsInIn);
-		//Remove ingredients from input
-		for(Entry<ItemEntry> irecord: recipeOutput.getContents().object2IntEntrySet()) {
-			int amt = irecord.getIntValue()*craftable;
-			src.extract(irecord.getKey(), amt);
-		}
-		//Insert output
-		rout.produceResults(tgt.createWriter(), craftable);
-		return craftable;
-	}
+	@Nonnull public RecipeGroup group();
+	/**
+	 * @return this object
+	 * @apiNote Used to enforce type safety in recipes
+	 */
+	@Nonnull public T that();
+	/** @return the AWT or Swing component for this recipe */
+	@Nonnull public Component createComponent();
 }

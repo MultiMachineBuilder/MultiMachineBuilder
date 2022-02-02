@@ -3,8 +3,6 @@
  */
 package mmb.WORLD.blocks.chest;
 
-import javax.swing.JPanel;
-
 import net.miginfocom.swing.MigLayout;
 import mmb.WORLD.gui.ColorGUI;
 import mmb.WORLD.gui.inv.InventoryController;

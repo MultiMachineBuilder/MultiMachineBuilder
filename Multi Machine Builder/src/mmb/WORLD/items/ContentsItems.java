@@ -28,28 +28,26 @@ public class ContentsItems {
 			.texture("item/wood pick head.png")
 			.volumed(0.00125)
 			.finish("pickHead.wood");
-	
+	@Nonnull public static final Item pickHeadRudimentary = new Item()
+			.title("Rudimentary pickaxe head")
+			.texture("item/rudimentary pick head.png")
+			.volumed(0.00125)
+			.finish("pickHead.rudimentary");
 	//Minerals
 	@Nonnull public static final Item leaf = new Item()
 			.title("Leaf")
 			.texture("item/lisc.png")
 			.volumed(0.000125)
 			.finish("plant.leaf");
-	/*@Nonnull public static final Item coal = new Item()
-			.title("Coal")
-			.texture("item/coal.png")
-			.volumed(0.00125)
-			.finish("gem.coal");*/
-	/*@Nonnull public static final Item diamond = new Item()
-			.title("Diamond")
-			.texture("item/diamond.png")
-			.volumed(0.00125)
-			.finish("gem.diamond");*/
 	
 	//Pickaxes
-	@Nonnull public static final PickaxeType pickVW = Pickaxe.create(5, "item/wood pick.png", "Very weak pickaxe", "pick.weak");
-	@Nonnull public static final PickaxeType pickWood = Pickaxe.create(100, "item/wood pick.png", "Wooden pickaxe", "pick.wood");
-
+	@Nonnull public static final PickaxeType pickVW = Pickaxe.create(120, 15, "item/wood pick.png", "Very weak pickaxe", "pick.weak");
+	@Nonnull public static final PickaxeType pickWood = Pickaxe.create(100, 100, "item/wood pick.png", "Wooden pickaxe", "pick.wood");
+	@Nonnull public static final PickaxeType pickRudimentary = Pickaxe.create(50, 400, "item/rudimentary pick.png", "Rudimentary pickaxe", "pick.rudimentary");
+	@Nonnull public static final Item bucket = new Bucket()
+			.title("Item Bucket")
+			.texture("dropItems.png")
+			.finish("mmb.bucket");
 	//Crafting aids
 	@Nonnull public static final ItemEntityType stencil = new ItemEntityType()
 			.title("Crafting stencil")
@@ -79,6 +77,11 @@ public class ContentsItems {
 			.texture("item/ring 1.png")
 			.volumed(0.00125)
 			.finish("industry.bearing1");
+	@Nonnull public static final Item motor1 = new Item()
+			.title("Machine Motor #1")
+			.texture("item/motor 1.png")
+			.volumed(0.00125)
+			.finish("industry.motor1");
 
 	//Packaged items
 	@Nonnull public static final ItemEntityType pack = new ItemEntityType()

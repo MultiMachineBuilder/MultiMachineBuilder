@@ -3,8 +3,6 @@
  */
 package mmb.WORLD.electric;
 
-import java.util.Arrays;
-
 import com.google.common.util.concurrent.Runnables;
 
 import mmb.WORLD.block.BlockEntity;

@@ -3,7 +3,6 @@
  */
 package mmb.WORLD.blocks.machine.manual;
 
-import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 

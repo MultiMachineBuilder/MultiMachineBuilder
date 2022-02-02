@@ -17,8 +17,11 @@ import mmb.MENU.FullScreen;
 import mmb.MENU.MMBFrame;
 import mmb.MENU.main.MainMenu;
 import mmb.MENU.main.PanelSaves;
+import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.generator.Generator;
 import mmb.WORLD.generator.Generators;
+import mmb.WORLD.inventory.Inventory;
+import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.worlds.universe.Universe;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
@@ -202,12 +205,16 @@ public class NewGame extends MMBFrame {
 		
 		
 		//Fill and create the map
-		
 		int ww = (2*w)+1;
 		int hh = (2*h)+1;
 		World main = new World(ww, hh, -w, -h);
 		gen.generate(main, csize);
 
+		//Initialize the player
+		Inventory inv = main.player.inv;
+		inv.insert(ContentsBlocks.logs, 2);
+		inv.insert(ContentsItems.pickVW.create(), 1);
+		inv.insert(ContentsItems.bucket, 1);
 		
 		//Create and set up the world
 		Universe world = new Universe();

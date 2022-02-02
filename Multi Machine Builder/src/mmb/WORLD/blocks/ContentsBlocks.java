@@ -31,6 +31,7 @@ import mmb.WORLD.blocks.gates.YESGate;
 import mmb.WORLD.blocks.ipipe.ItemTransporter;
 import mmb.WORLD.blocks.machine.Collector;
 import mmb.WORLD.blocks.machine.CycleAssembler;
+import mmb.WORLD.blocks.machine.ElectroMachineGroup;
 import mmb.WORLD.blocks.machine.FurnacePlus;
 import mmb.WORLD.blocks.machine.Nuker;
 import mmb.WORLD.blocks.machine.PlaceIncomingItems;
@@ -43,10 +44,14 @@ import mmb.WORLD.blocks.ppipe.PlayerPipeEntry;
 import mmb.WORLD.blocks.ppipe.TwinPlayerPipe;
 import mmb.WORLD.contentgen.ElectricMachineGroup;
 import mmb.WORLD.contentgen.Materials;
+import mmb.WORLD.crafting.Craftings;
+import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup;
+import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup;
 import mmb.WORLD.electric.InfiniteGenerator;
 import mmb.WORLD.electric.PowerLoad;
 import mmb.WORLD.electric.PowerMeter;
 import mmb.WORLD.electric.VoltageTier;
+import mmb.WORLD.electromachine.AlloySmelter;
 import mmb.WORLD.electromachine.CoalGen;
 import mmb.WORLD.electromachine.ElectroFurnace;
 import mmb.WORLD.rotate.ChirotatedImageGroup;
@@ -85,20 +90,25 @@ public class ContentsBlocks {
 	}
 	
 	//WireWorld wires
-	/** A WireWorld cell */
+	/**
+	 * A WireWorld cell.
+	 * This block turns into head if it is provided with 1 or 2 signals in 8 block neighborhood.
+	 */
 	@SuppressWarnings("null")
 	@Nonnull public static final BlockEntityType ww_wire = new BlockEntityType()
 		.texture(Color.ORANGE)
 		.title("WireWorld cell")
 		.factory(WWWire::new)
 		.finish("wireworld.wire");
-		@SuppressWarnings("null")
+	/** This block emits a signal, and it turns into a tail */
+	@SuppressWarnings("null")
 	@Nonnull public static final BlockEntityType ww_head = new BlockEntityType()
 		.texture(Color.WHITE)
 		.title("WireWorld head")
 		.factory(WWHead::new)
 		.leaveBehind(ww_wire)
 		.finish("wireworld.head");
+	/** This block is left by a head and it turns into wire. This block does not emit any signal. */
 	@SuppressWarnings("null")
 	@Nonnull public static final BlockEntityType ww_tail = new BlockEntityType()
 		.texture(Color.BLUE)
@@ -108,6 +118,7 @@ public class ContentsBlocks {
 		.finish("wireworld.tail");
 	
 	//WireWorld output devices
+	/** This block logs specified message if it is activated by a gate, wire or other signal source */
 	@Nonnull public static final BlockEntityType ww_chatter = new BlockEntityType()
 		.texture("printer.png")
 		.title("Chatbox")
@@ -116,6 +127,7 @@ public class ContentsBlocks {
 		.finish("wireworld.chatter");
 	
 	//Simple blocks
+	/** A block of wood planks */
 	@Nonnull public static final Block plank = new Block()
 			.texture("plank.png")
 			.title("Wooden planks")
@@ -130,10 +142,14 @@ public class ContentsBlocks {
 			.finish("mmb.leaves");
 
 	@Nonnull public static final Block coal_ore = new Block()
-			.texture("block/coal ore.png")
+			.texture(TexGen.genOre(Color.BLACK))
 			.title("Coal ore")
 			.finish("ore.coal");
-
+	@Nonnull public static final Block diamond_ore = new Block()
+			.texture(TexGen.genOre(Color.CYAN))
+			.title("Diamond ore")
+			.finish("ore.diamond");
+	
 	@Nonnull public static final Block crafting = new Block()
 			.texture("crafting.png")
 			.title("Assembly Table")
@@ -150,28 +166,38 @@ public class ContentsBlocks {
 			.texture("block/gravel.png")
 			.title("Gravel")
 			.finish("mmb.gravel");
+	/** A block, which upon loading crashes the game*/
+	@Nonnull public static final Block COL = new COLBlock()
+			.texture("block/gravel.png")
+			.title("Crash on load")
+			.finish("REMOVE THIS");
 	
 	//Logic gates
+	/** This block receives signals from DR and DR corners and outputs a signal if both inputs are active */
 	@Nonnull public static final BlockEntityType AND = new BlockEntityType()
 			.title("AND")
 			.factory(ANDGate::new)
 			.texture("logic/AND.png")
 			.finish("wireworld.and");
+	/** This block receives signals from DR and DR corners and outputs a signal if any input is active */
 	@Nonnull public static final BlockEntityType OR = new BlockEntityType()
 			.title("OR")
 			.factory(ORGate::new)
 			.texture("logic/OR.png")
 			.finish("wireworld.or");
+	/** This block receives signals from DR and DR corners and outputs a signal if only one input are active */
 	@Nonnull public static final BlockEntityType XOR = new BlockEntityType()
 			.title("XOR")
 			.factory(XORGate::new)
 			.texture("logic/XOR.png")
 			.finish("wireworld.xor");
+	/** This block emits a pulse when pressed by a player or Block Clicking Claw */
 	@Nonnull public static final BlockEntityType BUTTON = new BlockEntityType()
 			.title("Button")
 			.factory(BlockButton::new)
 			.texture("logic/button.png")
 			.finish("wireworld.button");
+	/** This block toggles state when clicked by a player or Block Clicking Claw */
 	@Nonnull public static final BlockEntityType TOGGLE = new BlockEntityType()
 			.title("Toggle Latch")
 			.factory(FlipGate::new)
@@ -179,14 +205,12 @@ public class ContentsBlocks {
 			.finish("wireworld.toggle");
 		
 	//Power generators
-	@Nonnull public static final BlockEntityType INFINIGEN = new BlockEntityType()
-			.title("Infinite Generator (Creative only)")
-			.factory(() -> new InfiniteGenerator(VoltageTier.V1))
-			.texture("machine/power/infinity.png")
-			.finish("elec.infinite1");
 	@Nonnull public static final BlockEntityType COALGEN1 = coalgen(VoltageTier.V1, CoalGen.img, "Furnace Generator I", "elec.coalgen1");
 	@Nonnull public static final BlockEntityType COALGEN2 = coalgen(VoltageTier.V2, CoalGen.img1, "Furnace Generator II", "elec.coalgen2");
 	@Nonnull public static final BlockEntityType COALGEN3 = coalgen(VoltageTier.V3, CoalGen.img2, "Furnace Generator III", "elec.coalgen3");
+	/** A series of 9 infinite power generators. They are used for testing.*/
+	@Nonnull public static final ElectricMachineGroup infinigens =
+			new ElectricMachineGroup(Textures.get("machine/power/infinity.png"), type -> new InfiniteGenerator(type.volt, type), "Infinite generator", "infinigen");
 	
 	//Infinite power generator series
 	
@@ -309,7 +333,6 @@ public class ContentsBlocks {
 	//Crops
 	@Nonnull public static final BlockEntityType AGRO_COAL =
 			crop(1500, coal_ore, "Coal crop", TexGen.genCrop(Materials.colorCoal), "crop.coal");
-	
 	@Nonnull public static final BlockEntityType AGRO_TREE =
 			crop(1500, logs, "Tree", Textures.get("block/tree.png"), "crop.tree");
 	
@@ -335,7 +358,11 @@ public class ContentsBlocks {
 			.finish("industry.autocraft1");
 	
 	//Electrical processing machines
-	@Nonnull public static final ElectricMachineGroup efurnace = new ElectricMachineGroup(Textures.get("machine/electrosmelter.png"), ElectroFurnace::new, "Electric furnace", "electrofurnace");
+	@Nonnull public static final ElectricMachineGroup efurnace = machinesSimple("machine/electrosmelter.png", Craftings.smelting, "Electric furnace", "electrofurnace");
+	@Nonnull public static final ElectricMachineGroup crusher = machinesSimple("machine/pulverizer.png", Craftings.crusher, "Crusher", "crusher");
+	@Nonnull public static final ElectricMachineGroup cmill = machinesSimple("machine/cluster mill.png", Craftings.clusterMill, "Cluster mill", "clustermill");
+	@Nonnull public static final ElectricMachineGroup wiremill = machinesSimple("machine/wiremill.png", Craftings.wiremill, "Wiremill", "wiremill");
+	@Nonnull public static final ElectricMachineGroup alloyer = machinesComplex("machine/alloyer.png", Craftings.alloyer, "Alloy smelter", "alloyer");
 	
 	//Player pipes
 	@Nonnull public static final BlockEntityType PPIPE_lin = ppipe(1, Side.U, Side.D, "machine/ppipe straight.png", "Player Pipe - straight", "playerpipe.straight");
@@ -396,4 +423,11 @@ public class ContentsBlocks {
 				.texture(texture)
 				.finish(id);
 	}
+	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, SimpleProcessingRecipeGroup group, String title, String id) {
+		return new ElectricMachineGroup(Textures.get(texture), type -> new ElectroFurnace(type, group), title, id);
+	}
+	@Nonnull private static ElectricMachineGroup machinesComplex(String texture, ComplexProcessingRecipeGroup group, String title, String id) {
+		return new ElectricMachineGroup(Textures.get(texture), type -> new AlloySmelter(type, group), title, id);
+	}
+
 }

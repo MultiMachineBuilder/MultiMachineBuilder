@@ -3,31 +3,19 @@
  */
 package mmb.WORLD.gui.craft;
 
-import java.awt.Component;
-import java.awt.Dimension;
 import java.util.Vector;
-import java.util.stream.Collectors;
-
-import javax.annotation.Nonnull;
-import javax.swing.JComponent;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.ListCellRenderer;
-
-import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup.ComplexProcessingRecipe;
-import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup.SimpleProcessingRecipe;
 import mmb.WORLD.inventory.ItemStack;
-import mmb.WORLD.items.ItemEntry;
-
 import javax.swing.JList;
+import javax.swing.JPanel;
 
 /**
  * @author oskar
  *
  */
-public class ComplexRecipeView extends JComponent {
+public class ComplexRecipeView extends JPanel {
 	private static final long serialVersionUID = -2864705123116802475L;
 	private JLabel lblVolt;
 	private JLabel lblEnergy;
@@ -63,7 +51,7 @@ public class ComplexRecipeView extends JComponent {
 		inList.setCellRenderer(SimpleRecipeView.renderer);
 		add(inList, "cell 0 3,growx,aligny center");
 	}
-	public void set(ComplexProcessingRecipe recipe, Vector<ItemStack> vectorO, Vector<ItemStack> vectorI) {
+	public void set(ComplexProcessingRecipe recipe, ItemStack[] vectorO, ItemStack[] vectorI) {
 		lblVolt.setText("Voltage tier: "+recipe.voltage.name);
 		lblEnergy.setText("Energy: "+recipe.energy);
 		inList.setListData(vectorI);

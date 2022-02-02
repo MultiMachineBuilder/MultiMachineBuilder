@@ -8,8 +8,6 @@ import java.awt.event.MouseEvent;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Vector;
-
 import javax.annotation.Nonnull;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;

@@ -9,7 +9,6 @@ import mmb.UnitFormatter;
 import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar

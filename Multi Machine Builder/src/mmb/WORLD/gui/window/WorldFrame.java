@@ -29,7 +29,6 @@ import mmb.WORLD.gui.FPSCounter;
 import mmb.WORLD.gui.window.WorldWindow.ScrollablePlacementList;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.mbmachine.Machine;
-import mmb.WORLD.rotate.ChiralRotation;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.tool.WindowTool;
 import mmb.WORLD.worlds.universe.Universe;

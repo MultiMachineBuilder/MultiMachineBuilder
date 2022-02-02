@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Point;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -29,12 +30,13 @@ public class ToolPickaxe extends WindowTool {
 	@Nonnull private static PickaxeType mockType = new PickaxeType().setDurability(Integer.MAX_VALUE);
 	@Nonnull private static Pickaxe pick0 = (Pickaxe) mockType.create();
 	
-	private Pickaxe pick;
-	public ToolPickaxe(Pickaxe pick) {
+	@Nullable private final Pickaxe pick;
+	public ToolPickaxe(@Nullable Pickaxe pick) {
 		super("pickaxe");
+		this.pick = pick;
 	}
 	public ToolPickaxe() {
-		this(pick0);
+		this(null);
 	}
 
 	@Override
@@ -62,13 +64,17 @@ public class ToolPickaxe extends WindowTool {
 			int midY = mid+startY;
 			long now = System.nanoTime();
 			long elapsed = now - lastPressedTime;
+			long time = toMine;
+			final Pickaxe pick2 = pick;
+			if (pick2 != null) 
+				time = 20_000_000L * pick2.type().getTime();
 			lastPressedTime = now;
 			sincePress += elapsed;
-			if(sincePress > toMine) { //block should be mined
-				sincePress = toMine;
+			if(sincePress > time) { //block should be mined
+				sincePress = time;
 				breakBlock(block1);
 			}
-			int crossscale = (int) (((double)sincePress/toMine) * mid);
+			int crossscale = (int) (((double)sincePress/time) * mid);
 			g.setColor(Color.BLACK);
 			g.drawLine(midX, midY, midX-crossscale, midY-crossscale);
 			g.drawLine(midX, midY, midX+crossscale, midY-crossscale);

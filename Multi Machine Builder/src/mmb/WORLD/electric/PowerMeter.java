@@ -29,7 +29,7 @@ public class PowerMeter extends SkeletalBlockEntityRotary {
 			Electricity elec = getelec();
 			if(elec == null) return 0;
 			double tfd = elec.insert(amt, volt);
-			moved += tfd;
+			moved += tfd * volt.volts;
 			return tfd;
 		}
 		@Override
@@ -52,9 +52,6 @@ public class PowerMeter extends SkeletalBlockEntityRotary {
 		public double extract(double amt, VoltageTier volt, Runnable blow) {
 			return 0;
 		}
-		private Electricity getelec() {
-			return owner().getAtSide(getRotation().R(), posX(), posY()).getElectricalConnection(getRotation().L());
-		}
 	};
 	private final Electricity OUT = new Electricity() {
 		@Override
@@ -63,10 +60,10 @@ public class PowerMeter extends SkeletalBlockEntityRotary {
 		}
 		@Override
 		public double extract(double amt, VoltageTier volt, Runnable blow) {
-			Electricity elec = owner().getAtSide(getRotation().L(), posX(), posY()).getElectricalConnection(getRotation().R());
+			Electricity elec = getelec();
 			if(elec == null) return 0;
 			double ex = elec.extract(amt, volt, blow);
-			moved += ex;
+			moved += ex*volt.volts;
 			return ex;
 		}
 
@@ -88,10 +85,11 @@ public class PowerMeter extends SkeletalBlockEntityRotary {
 			if(elec == null) return 0;
 			return elec.pressureWeight();
 		}
-		private Electricity getelec() {
-			return owner().getAtSide(getRotation().L(), posX(), posY()).getElectricalConnection(getRotation().R());
-		}
+		
 	};
+	private Electricity getelec() {
+		return owner().getAtSide(getRotation().L(), posX(), posY()).getElectricalConnection(getRotation().R());
+	}
 	@Override
 	public Electricity getElectricalConnection(Side s) {
 		if(s == getRotation().L()) return IN;
@@ -107,8 +105,6 @@ public class PowerMeter extends SkeletalBlockEntityRotary {
 	public void onTick(MapProxy map) {
 		//Measure power throughput
 		label = formatOut(moved * 50);
-		//debug.printl(label);
-		//debug.printl(Double.toString(moved));
 		moved = 0;
 	}
 

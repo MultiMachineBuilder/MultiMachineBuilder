@@ -11,13 +11,11 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
-import mmb.WORLD.blocks.machine.line.FurnaceGUI;
 import mmb.WORLD.contentgen.ElectricMachineGroup.ElectroMachineType;
-import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.ElectroItemProcessHelper;
+import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.Electricity;
-import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.io.InventoryReader;
@@ -53,9 +51,10 @@ public class ElectroFurnace extends SkeletalBlockEntityRotary implements BlockAc
 	@Nonnull private final ElectroMachineType type;
 	
 	//Constructor
-	public ElectroFurnace(ElectroMachineType type) {
+	public ElectroFurnace(ElectroMachineType type, SimpleProcessingRecipeGroup group) {
 		elec = new Battery(20_000, 40_000, this, type.volt);
-		helper = new ElectroItemProcessHelper(Craftings.smelting, in, out0, 1000, elec, type.volt);
+		this.recipes = group;
+		helper = new ElectroItemProcessHelper(group, in, out0, 1000, elec, type.volt);
 		this.type = type;
 	}
 	
@@ -92,12 +91,13 @@ public class ElectroFurnace extends SkeletalBlockEntityRotary implements BlockAc
 		elec.load(bat);
 		in.load(node.get("in"));
 		in.setCapacity(2);
-		out0.load(node.get("in"));
+		out0.load(node.get("out"));
 		out0.setCapacity(2);
 	}
 
 	
 	ElectroFurnaceTab tab;
+	public final SimpleProcessingRecipeGroup recipes;
 	//GUI
 	@Override
 	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
@@ -109,11 +109,9 @@ public class ElectroFurnace extends SkeletalBlockEntityRotary implements BlockAc
 		tab.refreshProgress(0, null);
 	}
 
-	@Nonnull private static final Debugger debug = new Debugger("ELECTRIC FURNACE");
 	@Override
 	public void onTick(MapProxy map) {
 		helper.cycle();
 		Electricity.equatePPs(this, map, elec, 0.9);
-		//debug.printl("Energy: "+elec.amt+", Power pressure: "+elec.pressure+" at ["+posX()+","+posY()+"]");
 	}
 }

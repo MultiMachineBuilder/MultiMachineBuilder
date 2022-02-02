@@ -4,8 +4,11 @@
 package mmb.WORLD.electric;
 
 import mmb.WORLD.block.BlockType;
+
+import javax.annotation.Nonnull;
+
 import mmb.WORLD.block.BlockEntityDataless;
-import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 
@@ -16,15 +19,15 @@ import mmb.WORLD.worlds.MapProxy;
 public class InfiniteGenerator extends BlockEntityDataless {
 	@Override
 	public void onTick(MapProxy map) {
-		shoveElectricity(Side.U, 1_000_000);
-		shoveElectricity(Side.D, 1_000_000);
-		shoveElectricity(Side.L, 1_000_000);
-		shoveElectricity(Side.R, 1_000_000);
+		shoveElectricity(Side.U);
+		shoveElectricity(Side.D);
+		shoveElectricity(Side.L);
+		shoveElectricity(Side.R);
 	}
-	public void shoveElectricity(Side s, double amt) {
+	public void shoveElectricity(Side s) {
 		Electricity elec = getAtSide(s).getElectricalConnection(s.negate());
 		if(elec == null) return;
-		elec.insert(amt, voltage);
+		elec.insert(Double.POSITIVE_INFINITY, voltage);
 	}
 
 	@Override
@@ -34,14 +37,16 @@ public class InfiniteGenerator extends BlockEntityDataless {
 
 	@Override
 	public BlockType type() {
-		return ContentsBlocks.INFINIGEN;
+		return type;
 	}
 
 	/**
 	 * The voltage of this generator
 	 */
-	public final VoltageTier voltage;
-	public InfiniteGenerator(VoltageTier voltage) {
+	@Nonnull public final VoltageTier voltage;
+	private final BlockEntityType type;
+	public InfiniteGenerator(VoltageTier voltage, BlockEntityType type) {
 		this.voltage = voltage;
+		this.type = type;
 	}
 }

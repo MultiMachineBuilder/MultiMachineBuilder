@@ -30,7 +30,7 @@ public class TestInventorySerial {
 		B.register("B");
 		//Prepare the inventory
 		SimpleInventory inv = new SimpleInventory();
-		inv.capacity = 1;
+		inv.setCapacity(1);
 		//Populate the inventory
 		inv.insert(A, 3);
 		inv.insert(B, 2);

@@ -795,7 +795,7 @@ public class World implements Identifiable<String>{
 	}
 	
 	//Slot reservation
-	private Long2ObjectMap<ReentrantLock> locks = new Long2ObjectOpenHashMap<>(); //Phase 1: obtain
+	private Long2ObjectMap<ReentrantLock> locks = new Long2ObjectOpenHashMap<>();
 	private Slot returnSlot(Lock lck, int x, int y) {
 		return new Slot() {
 			private boolean close = false;

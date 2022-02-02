@@ -4,9 +4,7 @@
 package mmb.WORLD.blocks;
 
 import mmb.WORLD.crafting.Craftings;
-import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup.SimpleProcessingRecipe;
 import mmb.WORLD.electric.Battery;
-import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 

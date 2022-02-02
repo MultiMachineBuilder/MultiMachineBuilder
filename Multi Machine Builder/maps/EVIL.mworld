@@ -1,0 +1,20 @@
+{
+  "main" : {
+    "sizeX" : 1,
+    "sizeY" : 1,
+    "startX" : 0,
+    "startY" : 0,
+    "world" : [ "REMOVE THIS" ],
+    "drops" : [ ],
+    "machines" : [ ],
+    "data" : { },
+    "player" : {
+      "inventory" : [ 128.0 ],
+      "creative" : false,
+      "x" : 0.4,
+      "y" : -0.29999999999999993
+    }
+  },
+  "data" : { },
+  "maps" : { }
+}

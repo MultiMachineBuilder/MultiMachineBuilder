@@ -30,8 +30,6 @@ import javax.swing.JScrollPane;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import it.unimi.dsi.fastutil.doubles.DoubleList;
-
 import java.io.OutputStream;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -208,7 +206,7 @@ public class WorldWindow extends MMBFrame{
 					pane.add("World", worldPane);
 				//[end]
 				//[start] Inventory pane
-					panelPlayerInv = new TabInventory();
+					panelPlayerInv = new TabInventory(this);
 					panelPlayerInv.craftGUI.inventoryController.setModel(invModel);
 					panelPlayerInv.craftGUI.inventoryController.setSelectionModel(selModel);
 					pane.addTab("Inventory", panelPlayerInv);

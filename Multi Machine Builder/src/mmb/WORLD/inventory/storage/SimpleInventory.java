@@ -30,8 +30,7 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 	private static final Debugger debug = new Debugger("INVENTORIES");
 	@Nonnull private SelfSet<ItemEntry, Node> contents = new HashSelfSet<>();
 	private double volume = 0;
-	@Deprecated public double capacity = 2;
-	private int validItems = 0;
+	private double capacity = 2;
 	private final class Node implements ItemRecord{
 		private Node(int amount, ItemEntry type) {
 			this.amount = amount;
@@ -54,7 +53,6 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 			
 			volume += type.volume(result);
 			amount += result;
-			validItems++;
 			
 			return result;
 		}
@@ -67,8 +65,6 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 			
 			volume -= type.volume(result);
 			amount -= result;
-			
-			if(amount == 0) validItems--;
 			
 			return result;
 		}
@@ -202,12 +198,12 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 
 	@Override
 	public boolean isEmpty() {
-		return validItems != 0;
+		return contents.isEmpty();
 	}
 
 	@Override
 	public int size() {
-		return validItems;
+		return contents.size();
 	}
 	
 	public String toString() {

@@ -46,7 +46,7 @@ public class ToolSelectionModel {
 			setTool(toolIL);
 		} else if(window != null) {
 			Player p = window.getPlayer();
-			if(!(p == null || p.creative.getValue())) { //true
+			if(!(p == null || p.isCreative())) { //true
 				if(toolIL == null) {
 					setTool(window.std);
 				}else {

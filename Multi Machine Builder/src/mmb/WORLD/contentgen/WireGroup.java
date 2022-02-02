@@ -9,8 +9,10 @@ import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
 import mmb.WORLD.block.BlockEntityType;
+import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.electric.Conduit;
 import mmb.WORLD.electric.ElecRenderer;
+import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;
@@ -39,14 +41,24 @@ public class WireGroup implements Identifiable<String> {
 		ElecRenderer small0 =  ElecRenderer.repaint(c, ElecRenderer.small);
 		ElecRenderer medium0 = ElecRenderer.repaint(c, ElecRenderer.medium);
 		ElecRenderer large0 =  ElecRenderer.repaint(c, ElecRenderer.large);
-		tiny   = WireGroup.conduit(title+" tiny power cable", mul,    tiny0,   "elecwire.tiny."+id);
-		small  = WireGroup.conduit(title+" small power cable", mul*3,  small0,  "elecwire.small."+id);
-		medium = WireGroup.conduit(title+" medium power cable", mul*10, medium0, "elecwire.medium."+id);
-		large  = WireGroup.conduit(title+" large power cable", mul*30, large0,  "elecwire.large."+id);
+		tiny   = conduit(title+" tiny power cable", mul,    tiny0,   "elecwire.tiny."+id);
+		small  = conduit(title+" small power cable", mul*3,  small0,  "elecwire.small."+id);
+		medium = conduit(title+" medium power cable", mul*10, medium0, "elecwire.medium."+id);
+		large  = conduit(title+" large power cable", mul*30, large0,  "elecwire.large."+id);
 		this.title = title;
 		this.id = id;
 		_index.add(this);
+		
 		//Crafting recipes
+		Craftings.wiremill.add(group.base, medium, group.volt, group.power/2);
+		Craftings.wiremill.add(medium, group.wire, 16, group.volt, group.power/2);
+		
+		Craftings.crafting.addRecipeGrid(medium, 1, 3, large);
+		Craftings.crafting.addRecipe(large, medium, 3);
+		Craftings.crafting.addRecipe(medium, tiny, 10);
+		Craftings.crafting.addRecipeGrid(tiny, 1, 3, small);
+		Craftings.crafting.addRecipeGrid(new ItemEntry[] {small, small, small, tiny}, 2, 2, medium);
+		Craftings.crafting.addRecipe(small, tiny, 3);
 	}
 	//Various helper methods
 	@Nonnull public static BlockEntityType conduit(String title, double pwr, ElecRenderer texture, String id) {

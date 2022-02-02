@@ -70,7 +70,6 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput{
 		return null;
 	}
 	
-	
 	public default void render(Graphics g, int x, int y, int side) {
 		type().getTexture().draw(null, x, y, g, side);
 	}
@@ -136,7 +135,7 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput{
 	}
 	@Override
 	default int get(ItemEntry entry) {
-		return Bitwise.bool2int(equals(entry));
+		return getOrDefault(entry, 0);
 	}
 	@Override
 	default int getOrDefault(ItemEntry entry, int value) {

@@ -10,14 +10,16 @@
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "smelt" : null,
-      "remain" : 0
+      "remain" : 0.0,
+      "energy" : [ 20000.0, 120000.0, 0.0, 0.0, 1.0 ]
     }, "mmb.grass", {
       "blocktype" : "industry.furnace",
       "side" : "N",
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "smelt" : null,
-      "remain" : 0
+      "remain" : 0.0,
+      "energy" : [ 20000.0, 120000.0, 0.0, 0.0, 1.0 ]
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "pipe.toright",
       "side" : "N",

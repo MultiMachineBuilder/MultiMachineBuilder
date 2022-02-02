@@ -16,10 +16,12 @@ import mmb.debug.Debugger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.gui.CreativeItemList;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.item.ItemType;
+import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.worlds.world.Player;
 
 import java.awt.Color;
@@ -29,7 +31,16 @@ import mmb.WORLD.gui.inv.CraftGUI;
 import mmb.WORLD.gui.inv.InventoryController;
 
 import java.util.List;
+import java.util.Objects;
+
 import mmb.WORLD.gui.SelectSortItemTypes;
+
+import javax.annotation.Nonnull;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
 
 /**
  * @author oskar
@@ -44,30 +55,37 @@ public class TabInventory extends JPanel {
 	private static final Debugger debug = new Debugger("PLAYER INVENTORY");
 	private Player player;
 	public final Event<Player> playerChanged = new CatchingEvent<>(debug, "Failed to process player changed event");
+	public final WorldWindow window;
 	
 	/**
 	 * Create an inventory panel with a player pre-set
 	 * @param player player represented in this tab
 	 */
-	public TabInventory(Player player) {
-		this();
+	public TabInventory(WorldWindow window, Player player) {
+		this(window);
 		setPlayer(player);
 	}	
 	/**
 	 * Create an inventory panel without a player
+	 * @wbp.parser.constructor
 	 */
-	public TabInventory() {
+	public TabInventory(WorldWindow window) {
+		this.window = window;
+		setLayout(new MigLayout("", "[:400.00:400.00,grow,fill][][grow]", "[20px,grow]"));
 		InventoryController ctrl = new InventoryController();
 		craftGUI = new CraftGUI(2, null, null, ctrl);
-		
 		timer = new Timer(0, e -> craftGUI.inventoryController.refresh());
-		setLayout(new MigLayout("", "[100px:100px:100px,grow][::250.00,grow,fill][:400.00:400.00,grow,fill]", "[20px][center][grow]"));
+		add(craftGUI, "cell 1 0,growy");
+		
+		creativePanel = new JPanel();
+		add(creativePanel, "cell 0 0,grow");
+		creativePanel.setLayout(new MigLayout("", "[][]", "[][grow]"));
 		
 		lblSort = new JLabel("Sort ordering:");
-		add(lblSort, "cell 0 0");
+		creativePanel.add(lblSort, "cell 0 0");
 		
 		panel = new JPanel();
-		add(panel, "cell 1 0 1 2,growx,aligny top");
+		creativePanel.add(panel, "cell 1 0,growx");
 		panel.setLayout(new MigLayout("", "[][]", "[][][][][]"));
 		
 		lblNewLabel = new JLabel("Creative items");
@@ -103,7 +121,6 @@ public class TabInventory extends JPanel {
 		
 		btnRemove.setBackground(new Color(170, 0, 0));
 		
-		
 		btnNewButton = new JButton("Remove #");
 		btnNewButton.addActionListener(e -> {
 			@SuppressWarnings("boxing")
@@ -119,15 +136,71 @@ public class TabInventory extends JPanel {
 		panel.add(btnNewButton_2, "cell 0 4 2 1,growx");
 		
 		selectSortItemTypes = new SelectSortItemTypes();
-		add(selectSortItemTypes, "cell 0 1 1 2,grow");
-		
-		add(craftGUI, "cell 2 0 1 3,growy");
+		creativePanel.add(selectSortItemTypes, "cell 0 1,growy");
 		
 		creativeScrollPane = new JScrollPane();
-		add(creativeScrollPane, "cell 1 2,grow");
+		creativePanel.add(creativeScrollPane, "cell 1 1,growy");
 		
 		creativeItemList = new CreativeItemList();
 		creativeScrollPane.setViewportView(creativeItemList);
+		
+		craftingsPanel = new JPanel();
+		add(craftingsPanel, "cell 2 0,grow");
+		craftingsPanel.setLayout(new BoxLayout(craftingsPanel, BoxLayout.Y_AXIS));
+		
+		lblRecipes = new JLabel("Find recipes which:");
+		craftingsPanel.add(lblRecipes);
+		
+		btnCraftTo = new JButton("PRODUCE given item");
+		btnCraftTo.addActionListener(e -> {
+			ItemEntry item = findSourceItem();
+			if(item != null) {
+				queryRecipes(producing(item));
+			}else {
+				queryRecipes(all());
+			}
+		});
+		btnCraftTo.setBackground(Color.GREEN);
+		craftingsPanel.add(btnCraftTo);
+		
+		btnCraftFrom = new JButton("CONSUME given item");
+		btnCraftFrom.setBackground(Color.RED);
+		btnCraftFrom.addActionListener(e -> {
+			ItemEntry item = findSourceItem();
+			if(item != null) {
+				queryRecipes(consuming(item));
+			}else {
+				queryRecipes(all());
+			}
+		});
+		craftingsPanel.add(btnCraftFrom);
+		
+		btnCraftBy = new JButton("use given MACHINE(s)");
+		btnCraftBy.setEnabled(false);
+		btnCraftBy.setBackground(Color.BLUE);
+		craftingsPanel.add(btnCraftBy);
+		
+		btnCraftWith = new JButton("use given CATALYST");
+		btnCraftWith.setBackground(new Color(255, 255, 0));
+		btnCraftWith.addActionListener(e -> {
+			ItemEntry item = findSourceItem();
+			if(item != null) {
+				queryRecipes(catalysing(item));
+			}else {
+				queryRecipes(all());
+			}
+		});
+		craftingsPanel.add(btnCraftWith);
+		
+		btnCraftAll = new JButton("ALL recipes");
+		btnCraftAll.setBackground(Color.GRAY);
+		btnCraftAll.addActionListener(e -> queryRecipes(all()));
+		craftingsPanel.add(btnCraftAll);
+		
+		checkUseCIL = new JCheckBox("Use the creative item list");
+		checkUseCIL.setSelected(true);
+		craftingsPanel.add(checkUseCIL);
+		
 	}
 	private void removeItems(int amount) {
 		int remain = amount;
@@ -190,7 +263,98 @@ public class TabInventory extends JPanel {
 	public final CraftGUI craftGUI;
 	private SelectSortItemTypes selectSortItemTypes;
 	private JLabel lblSort;
+	private JPanel creativePanel;
+	private JPanel craftingsPanel;
+	private JLabel lblRecipes;
+	private JButton btnCraftTo;
+	private JButton btnCraftFrom;
+	private JButton btnCraftBy;
+	private JButton btnCraftWith;
+	private JButton btnCraftAll;
+	private JCheckBox checkUseCIL;
 
+	/**
+	 * @author oskar
+	 * Describes a rule or set of rules to filter recipes
+	 */
+	public static interface RecipeQuery{
+		/**
+		 * @return the displayed query string
+		 */
+		public String name();
+		/**
+		 * @param recipe the recipe to test
+		 * @return does recipe match?
+		 */
+		public boolean filter(Recipe<?> recipe);
+	}
+	private void queryRecipes(RecipeQuery query) {
+		debug.printl("Querying recipes");
+		window.openAndShowWindow(new QueriedRecipes(query, window), "Recipe search: "+query.name());
+		debug.printl("Query finished");
+	}
+	
+	@Nonnull public static RecipeQuery all() {
+		return new RecipeQuery() {
+			@Override
+			public String name() {
+				return "All recipes";
+			}
+
+			@Override
+			public boolean filter(Recipe<?> recipe) {
+				return true;
+			}
+		};
+	}
+	@Nonnull public static RecipeQuery consuming(ItemEntry item) {
+		return new RecipeQuery() {
+			@Override
+			public String name() {
+				return "Recipes which consume: "+item.title();
+			}
+
+			@Override
+			public boolean filter(Recipe<?> recipe) {
+				return recipe.inputs().contains(item);
+			}
+		};
+	}
+	@Nonnull public static RecipeQuery producing(ItemEntry item) {
+		return new RecipeQuery() {
+			@Override
+			public String name() {
+				return "Recipes which produce: "+item.title();
+			}
+
+			@Override
+			public boolean filter(Recipe<?> recipe) {
+				return recipe.output().contains(item);
+			}
+		};
+	}
+	@Nonnull public static RecipeQuery catalysing(ItemEntry item) {
+		return new RecipeQuery() {
+			@Override
+			public String name() {
+				return "Recipes which produce: "+item.title();
+			}
+
+			@Override
+			public boolean filter(Recipe<?> recipe) {
+				return Objects.equals(item, recipe.catalyst());
+			}
+		};
+	}
+	
+	private ItemEntry findSourceItem() {
+		ItemRecord record = craftGUI.inventoryController.getSelectedValue();
+		if(record != null) return record.item();
+		ItemType type = creativeItemList.getSelectedValue();
+		if(type == null) return null;
+		return type.create();
+	}
+	
 	public void dispose() {
 		timer.stop();
 	}
