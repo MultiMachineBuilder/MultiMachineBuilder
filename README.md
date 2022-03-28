@@ -5,6 +5,18 @@ Multi Machine Builder is a computer game written in Java that lets you build mac
 * Report bugs in the issues
 * Submit bugfixes and new code in pull requests
 * Submit your creations and feedback in discussions
+## Modding
+1. Make a project in your IDE
+2. Add the game directory into a project
+3. Add game JAR as dependency
+4. Create a class which implements `mmb.MODS.AddonCentral`
+5. Implement all required methods
+6. Add mod information into your AddonCentral
+7. Add more classes
+8. Add content into resources directory
+9. Test your mod
+10. Export your mod
+11. Publish your mod and post it in the discussions
 ## How to use
 * Create a world by pressing 'New world' button
 * Specify the chunk size, world size, name and type
@@ -23,7 +35,7 @@ Multi Machine Builder is a computer game written in Java that lets you build mac
 ### How to use mods
 1. Link a mod from [Settings/External mods]
 or copy it to mods directory [Mods/Open mods directory]
-2. Read the instruction on the mod's homepage
+2. Read the instructions on the mod's homepage
 ### Creative tips
 Use the copy tool to quickly build repeating sections
 Make anything you like
