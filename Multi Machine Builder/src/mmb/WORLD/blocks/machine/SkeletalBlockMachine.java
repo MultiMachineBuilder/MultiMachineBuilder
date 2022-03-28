@@ -198,18 +198,4 @@ public abstract class SkeletalBlockMachine extends BlockEntityData implements Bl
 		/** Updates the machine GUI */
 		public void update();
 	}
-
-	@Override
-	public SkeletalBlockMachine clone() {
-		SkeletalBlockMachine copy = (SkeletalBlockMachine) super.clone();
-		copy.cfgInElec = new SideConfig(cfgInElec);
-		copy.inElec = new Battery(inElec);
-		copy.cfgOutElec = new SideConfig(cfgOutElec);
-		copy.outElec = new Battery(outElec);
-		copy.cfgInItems = new SideConfig(cfgInItems);
-		copy.inItems = new SimpleInventory(inItems);
-		copy.cfgOutItems = new SideConfig(cfgOutItems);
-		copy.outItems = new SimpleInventory(outItems);
-		return copy;
-	}
 }

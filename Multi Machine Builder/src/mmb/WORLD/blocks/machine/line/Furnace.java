@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
 import mmb.DATA.contents.texture.Textures;
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.blocks.FuelBurner;
@@ -41,7 +42,7 @@ public class Furnace extends SkeletalBlockLinear implements BlockActivateListene
 	private FurnaceGUI openWindow;
 	@Nonnull private Battery elec = new Battery(20_000, 120_000, this, VoltageTier.V1);
 	@Nonnull private ElectroItemProcessHelper processor = new ElectroItemProcessHelper(Craftings.smelting, incoming, output, 500, elec, VoltageTier.V1);
-	@Nonnull private final FuelBurner burner = new FuelBurner(1, incoming, elec);
+	@Nonnull private final FuelBurner burner = new FuelBurner(1, incoming, elec, Craftings.furnaceFuels);
 	private static boolean inited = false;
 	public static void init() {
 		if(inited) return;
@@ -105,6 +106,16 @@ public class Furnace extends SkeletalBlockLinear implements BlockActivateListene
 	 */
 	public double getFuelLevel() {
 		return elec.amt * 100;
+	}
+
+	@Override
+	public BlockEntry blockCopy() {
+		Furnace copy = new Furnace();
+		copy.elec.set(elec);
+		copy.incoming.set(incoming);
+		copy.outgoing.set(outgoing);
+		copy.processor.set(processor);
+		return copy;
 	}
 }
 

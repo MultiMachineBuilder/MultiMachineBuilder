@@ -20,5 +20,4 @@ public class COLBlock extends Block {
 		if(stk.contains("mmb.WORLD.worlds.world.World.load")) throw err;
 		return this;
 	}
-
 }

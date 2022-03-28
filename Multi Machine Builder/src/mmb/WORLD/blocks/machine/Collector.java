@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockEntityData;
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.window.WorldWindow;
@@ -110,14 +111,6 @@ public class Collector extends BlockEntityData implements BlockActivateListener 
 		}
 	}
 
-	@Override
-	public BlockEntity clone() {
-		Collector copy = (Collector) super.clone();
-		copy.inv0 = new SimpleInventory(inv0);
-		copy.inv = copy.inv0.lockInsertions();
-		return copy;
-	}
-
 	public static int clamp(int min, int value, int max) {
 		if(value < min) return min;
 		if(value > max) return max;
@@ -137,5 +130,14 @@ public class Collector extends BlockEntityData implements BlockActivateListener 
 	@Override
 	public Inventory getInventory(Side s) {
 		return inv;
+	}
+
+	@Override
+	public BlockEntry blockCopy() {
+		Collector copy = new Collector();
+		copy.inv0.set(inv);
+		copy.rangeX = rangeX;
+		copy.rangeY = rangeY;
+		return copy;
 	}
 }

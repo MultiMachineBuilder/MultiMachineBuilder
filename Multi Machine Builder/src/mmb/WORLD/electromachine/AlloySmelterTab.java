@@ -35,24 +35,19 @@ public class AlloySmelterTab extends GUITab implements Refreshable{
 	@Nonnull private JLabel lblSmelt;
 	@Nonnull private JProgressBar progressSmelt;
 	@Nonnull private JProgressBar progressEnergy;
-	private JLabel lblVolts;
-	private JCheckBox checkAutoExtract;
-	private JLabel lblTYpe;
 
 	/**
 	 * Create the panel.
 	 */
 	public AlloySmelterTab(AlloySmelter alloySmelter, WorldWindow window) {
 		this.furnace = alloySmelter;
-		setLayout(new MigLayout("", "[grow][grow][grow]", "[][grow][][][grow]"));
-		
-		lblVolts = new JLabel("Voltage tier: "+alloySmelter.type().volt.name);
-		lblVolts.setOpaque(true);
-		lblVolts.setBackground(alloySmelter.type().volt.c);
-		add(lblVolts, "flowy,cell 2 0,growx");
+		setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][][][grow]"));
 		
 		InventoryController invPlayer = new InventoryController(window.getPlayer().inv);
 		add(invPlayer, "cell 0 0 1 5,grow");
+		
+		MachineInfoTab machineInfoTab = new MachineInfoTab(alloySmelter);
+		add(machineInfoTab, "cell 2 0,grow");
 		
 		invInput = new InventoryController(alloySmelter.in);
 		invInput.setTitle("  Input  ");
@@ -87,14 +82,7 @@ public class AlloySmelterTab extends GUITab implements Refreshable{
 		progressSmelt = new JProgressBar();
 		progressSmelt.setStringPainted(true);
 		add(progressSmelt, "cell 2 3,grow");
-		
-		lblTYpe = new JLabel(alloySmelter.recipes.title);
-		add(lblTYpe, "cell 2 0");
-		
-		checkAutoExtract = new JCheckBox("Auto-extract items");
-		add(checkAutoExtract, "cell 2 0");
 	}
-
 	
 	@Override
 	public void createTab(WorldWindow window) {
@@ -107,12 +95,10 @@ public class AlloySmelterTab extends GUITab implements Refreshable{
 		furnace.tab = null;
 	}
 
-
 	@Override
 	public void refreshInputs() {
 		invInput.refresh();
 	}
-
 
 	@Override
 	public void refreshOutputs() {
@@ -125,7 +111,7 @@ public class AlloySmelterTab extends GUITab implements Refreshable{
 			lblSmelt.setText("Not smelting");
 		}else {
 			progressSmelt.setMaximum((int)energy);
-			progressSmelt.setValue((int)progress);
+			progressSmelt.setValue((int)(progress*100));
 			PicoWriter writer = new PicoWriter();
 			underway.represent(writer);
 			lblSmelt.setText("Currently smelted: "+writer.toString());

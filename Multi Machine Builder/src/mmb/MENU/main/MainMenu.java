@@ -7,6 +7,7 @@ import javax.swing.*;
 
 import mmb.DATA.Settings;
 import mmb.DATA.contents.GameContents;
+import mmb.DATA.contents.texture.Textures;
 import mmb.debug.Debugger;
 import java.net.URI;
 import java.util.Calendar;
@@ -22,6 +23,8 @@ import mmb.MENU.MMBFrame;
 import mmb.MENU.TestCollision;
 import mmb.MENU.components.BoundCheckBoxMenuItem;
 import mmb.MENU.settings.PanelSettings;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * @author oskar
@@ -56,11 +59,20 @@ public class MainMenu extends MMBFrame {
 	BoundCheckBoxMenuItem stngFullScreen;
 	
 	private final JPanel contentPane;
+	
+	//Various webistes
 	public static final String GITHUB = "https://github.com/MultiMachineBuilder/MultiMachineBuilder";
+	private static final String helpUA = "https://good.od.ua/en/stopwar";
+	//https://www.gov.pl/web/mswia-pl/informacja-dla-uchodżców-z-ukrainy
+	private static final String refugeesEN = "https://www.gov.pl/web/mswia-en/information-for-refugees-from-ukraine";
+	private static final String refugeesUA = "http://www.ua.gov.pl/";
 	
 	private JButton btnExit;
 	private JLabel timerLBL;
 	private JButton TEST;
+	private JButton btnUkraine;
+	private JButton btnRefugee;
+	private JButton btnRefugee1;
 	/**
 	 * Launch the application.
 	 */
@@ -88,6 +100,44 @@ public class MainMenu extends MMBFrame {
 		stngFullScreen.setVariable(FullScreen.isFullScreen);
 		mnNewMenu.add(stngFullScreen);
 		
+		btnUkraine = new JButton("HELP UKRAINIAN REFUGEES");
+		mainMenuBar.add(btnUkraine);
+		Icon ua0 = new ImageIcon(Textures.get("ukraine.png"));
+		btnUkraine.setIcon(ua0);
+		btnUkraine.addActionListener(e -> {
+			try {
+				Desktop.getDesktop().browse(new URI(helpUA));
+			} catch (Exception ex) {
+				debug.pstm(ex, "Unable to help Ukrainian refugees");
+			}
+		});
+		
+		//This button is for English speakers. It leads to a site for refugees.
+		btnRefugee = new JButton("For Ukrainian refugees (EN)");
+		Icon ua1 = new ImageIcon(Textures.get("ukraine1.png"));
+		btnRefugee.setIcon(ua1);
+		mainMenuBar.add(btnRefugee);
+		btnRefugee.addActionListener(e -> {
+			try {
+				Desktop.getDesktop().browse(new URI(refugeesEN)); //An English-language site for Ukrainian refugees
+			} catch (Exception ex) {
+				debug.pstm(ex, "Unable to get help as a refugee");
+			}
+		});
+		
+		//This button is for Ukrainian speakers. It means the same thing as the English one
+		btnRefugee1 = new JButton("Для українських біженців (UA)");
+		btnRefugee1.setIcon(ua1);
+		btnRefugee1.addActionListener(e -> {
+			try {
+				Desktop.getDesktop().browse(new URI(refugeesUA)); //An Ukrainian-language site for Ukrainian refugees
+			} catch (Exception ex) {
+				debug.pstm(ex, "Не в змозі отримати допомогу як біженець/Unable to get help as a refugee");
+			}
+		});
+		mainMenuBar.add(btnRefugee1);
+		
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -109,6 +159,7 @@ public class MainMenu extends MMBFrame {
 			}
 		});
 		btnExit = new JButton("Exit");
+		btnExit.setBackground(Color.RED);
 		btnExit.setToolTipText("Exit the game");
 		btnExit.addActionListener(e -> System.exit(0));
 		aside.add(btnExit);

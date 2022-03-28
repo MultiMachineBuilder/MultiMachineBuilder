@@ -3,10 +3,12 @@
  */
 package mmb.WORLD.blocks;
 
+import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
+import mmb.WORLD.items.ItemEntry;
 
 /**
  * @author oskar
@@ -16,16 +18,18 @@ public class FuelBurner {
 	public final double mul;
 	public final Inventory inv;
 	public final Battery bat;
+	public final Object2DoubleMap<ItemEntry> fuels;
 	/**
 	 * @param mul efficiency multiplier (1 is equal to normal furnace efficiency)
 	 * @param inv the inventory to extract fuels from
 	 * @param bat the target power output
 	 */
-	public FuelBurner(double mul, Inventory inv, Battery bat) {
+	public FuelBurner(double mul, Inventory inv, Battery bat, Object2DoubleMap<ItemEntry> fuels) {
 		super();
 		this.mul = mul;
 		this.inv = inv;
 		this.bat = bat;
+		this.fuels = fuels;
 	}
 	/**
 	 * Polls the inventory and burns any fuels within
@@ -33,7 +37,7 @@ public class FuelBurner {
 	public void cycle(){
 		for(ItemRecord ir: inv) {
 			if(ir.amount() == 0) continue; //The item record is empty
-			double fv = Craftings.furnaceFuels.getOrDefault(ir.item(), Double.NaN)*mul; //Fuel energy in joules
+			double fv = fuels.getOrDefault(ir.item(), Double.NaN)*mul; //Fuel energy in joules
 			if(Double.isNaN(fv)) continue; //The item is not a fuel
 			double remain = bat.remain();
 			double fv2 = fv/bat.voltage.volts; //Fuel energy in coulombs

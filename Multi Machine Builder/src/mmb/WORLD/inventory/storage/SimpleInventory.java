@@ -206,6 +206,7 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 		return contents.size();
 	}
 	
+	@Override
 	public String toString() {
 		PicoWriter writer = new PicoWriter();
 		writer.writeln("Volume: "+volume);
@@ -213,8 +214,31 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 		writer.writeln("Size: "+contents.size());
 		writer.indentRight();
 		for(ItemRecord record: this) {
-			writer.writeln(record.amount()+" × "+record.item());
+			writer.writeln(record.amount()+" ï¿½ "+record.item());
 		}
 		return writer.toString();
 	}
+
+	@Override
+	public void clear() {
+		volume = 0;
+		contents.clear();
+	}
+	/**
+	 * Replaces all inventory contents and settings with given inventory
+	 * @param in
+	 */
+	public void set(Inventory in) {
+		capacity = in.capacity();
+		clear();
+		for(ItemRecord irecord: in) {
+			double vol = irecord.volume();
+			contents.add(new Node(irecord.amount(), irecord.item()));
+			volume += vol;
+		}
+	}
+	
+	//Methods for ListenableInventory
+	protected void _inventoryItemAdded(ItemRecord record, ItemEntry item, int amount) {}
+	protected void _inventoryItemRemoved(ItemRecord record, ItemEntry item, int amount) {}
 }

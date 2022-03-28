@@ -11,12 +11,13 @@ import com.fasterxml.jackson.databind.JsonNode;
 import mmb.BEANS.Saver;
 import mmb.DATA.json.JsonTool;
 import mmb.WORLD.block.BlockEntity;
+import mmb.WORLD.electric.Electricity.SettablePressure;
 
 /**
  * @author oskar
  *
  */
-public class Battery implements Electricity, Saver<JsonNode>{
+public class Battery implements SettablePressure, Saver<JsonNode>{
 	public double maxPower;
 	/**
 	 * The energy capacity in coulombs
@@ -152,6 +153,22 @@ public class Battery implements Electricity, Saver<JsonNode>{
 	public void takeFrom(Electricity elec) {
 		double insert = elec.extract(Math.min(remain(), amt), voltage, () -> blow.blow());
 		amt -= insert;
+	}
+
+	/**
+	 * @param bat
+	 */
+	public void set(Battery bat) {
+		maxPower = bat.maxPower;
+		capacity = bat.capacity;
+		amt = bat.amt;
+		pressure = bat.pressure;
+		pressureWt = bat.pressureWt;
+	}
+
+	@Override
+	public void setPressure(double pressure) {
+		this.pressure = pressure;
 	}
 
 }

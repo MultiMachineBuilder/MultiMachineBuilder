@@ -21,7 +21,7 @@ import monniasza.collects.selfset.SelfSet;
  */
 public class DataLayers {
 	private static final Debugger debug = new Debugger("DATA LAYERS");
-	//[start] Universe data layers
+	//Universe data layers
 	private static Map<String, Class<? extends UniverseDataLayer>> udatas = new HashMap<>();
 	public static void registerUniverseData(String name, Class<? extends UniverseDataLayer> cls) {
 		udatas.put(name, cls);
@@ -62,8 +62,8 @@ public class DataLayers {
 		prop.load(je);
 		return prop;
 	}
-	//[end]
-	//[start] Map data layers
+	
+	//Map data layers
 	private static Map<String, Class<? extends WorldDataLayer>> mdatas = new HashMap<>();
 	public static void registerMapData(String name, Class<? extends WorldDataLayer> cls) {
 		mdatas.put(name, cls);
@@ -110,5 +110,4 @@ public class DataLayers {
 		prop.load(je);
 		return prop;
 	}
-	//[end]
 }

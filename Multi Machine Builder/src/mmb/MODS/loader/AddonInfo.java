@@ -35,7 +35,9 @@ public class AddonInfo {
 		BiMap<String, ArchiveEntry> entries0 = HashBiMap.create();
 		List<ArchiveEntry> contents0 = new ArrayList<>();
 		Map<ArchiveEntry, ByteList> files0 = new HashMap<>();
+	/** Active if mod contains any valid code */
 	public boolean hasClasses = false;
+	/** Active if mod contains any valid files */
 	public boolean hasValidData = false;
 	
 	//About MMB

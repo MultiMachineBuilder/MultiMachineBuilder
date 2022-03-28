@@ -1,4 +1,4 @@
-(MAIN) RAM avaliable: 259522560
+(MAIN) RAM avaliable: 1037959168
 (MAIN) Java version is: 1.8.0_301
 (TEXTURES) Loading texture: arrow.png
 (TEXTURES) Loading texture: base/axe.png
@@ -11,6 +11,7 @@
 (TEXTURES) Loading texture: base/rod.png
 (TEXTURES) Failed to load base\Texture Generator.ods
 (TEXTURES) Loading texture: block/block.png
+(TEXTURES) Loading texture: block/clay.png
 (TEXTURES) Loading texture: block/clear transformer.png
 (TEXTURES) Loading texture: block/coal crop.png
 (TEXTURES) Loading texture: block/coal ore.png
@@ -48,7 +49,19 @@
 (TEXTURES) Loading texture: highways.png
 (TEXTURES) Loading texture: hoover.png
 (TEXTURES) Loading texture: inventory/infinity.png
+(TEXTURES) Loading texture: item/capacitor.png
+(TEXTURES) Loading texture: item/circuit 0.png
+(TEXTURES) Loading texture: item/circuit 1.png
+(TEXTURES) Loading texture: item/circuit 2.png
+(TEXTURES) Loading texture: item/circuit 3.png
+(TEXTURES) Loading texture: item/circuit 4.png
+(TEXTURES) Loading texture: item/circuit 5.png
+(TEXTURES) Loading texture: item/circuit 6.png
+(TEXTURES) Loading texture: item/circuit 7.png
+(TEXTURES) Loading texture: item/circuit 8.png
+(TEXTURES) Loading texture: item/circuit 9.png
 (TEXTURES) Loading texture: item/cluster.png
+(TEXTURES) Loading texture: item/component code.png
 (TEXTURES) Loading texture: item/control rod.png
 (TEXTURES) Loading texture: item/coolant rod.png
 (TEXTURES) Loading texture: item/copper pick head.png
@@ -56,6 +69,7 @@
 (TEXTURES) Loading texture: item/depleted rod.png
 (TEXTURES) Loading texture: item/depleted uranium ingot.png
 (TEXTURES) Loading texture: item/diamond.png
+(TEXTURES) Loading texture: item/diode.png
 (TEXTURES) Loading texture: item/dust.png
 (TEXTURES) Loading texture: item/foil.png
 (TEXTURES) Loading texture: item/fragment.png
@@ -63,6 +77,8 @@
 (TEXTURES) Loading texture: item/gear.png
 (TEXTURES) Loading texture: item/gem.png
 (TEXTURES) Loading texture: item/heat rod.png
+(TEXTURES) Loading texture: item/IC.png
+(TEXTURES) Loading texture: item/inductor.png
 (TEXTURES) Loading texture: item/ingot.png
 (TEXTURES) Loading texture: item/ldust.png
 (TEXTURES) Loading texture: item/lisc.png
@@ -73,7 +89,10 @@
 (TEXTURES) Loading texture: item/package code.png
 (TEXTURES) Loading texture: item/package.png
 (TEXTURES) Loading texture: item/panel.png
+(TEXTURES) Loading texture: item/paper.png
 (TEXTURES) Loading texture: item/quantum pick.png
+(TEXTURES) Loading texture: item/resistor array.png
+(TEXTURES) Loading texture: item/resistor.png
 (TEXTURES) Loading texture: item/ring 1.png
 (TEXTURES) Loading texture: item/rudimentary pick head.png
 (TEXTURES) Loading texture: item/rudimentary pick.png
@@ -87,6 +106,17 @@
 (TEXTURES) Loading texture: item/steel rod.png
 (TEXTURES) Loading texture: item/stencil.png
 (TEXTURES) Loading texture: item/stone pick head.png
+(TEXTURES) Loading texture: item/substrate 0.png
+(TEXTURES) Loading texture: item/substrate 1.png
+(TEXTURES) Loading texture: item/substrate 2.png
+(TEXTURES) Loading texture: item/substrate 3.png
+(TEXTURES) Loading texture: item/substrate 4.png
+(TEXTURES) Loading texture: item/substrate 5.png
+(TEXTURES) Loading texture: item/substrate 6.png
+(TEXTURES) Loading texture: item/substrate 7.png
+(TEXTURES) Loading texture: item/substrate 8.png
+(TEXTURES) Loading texture: item/substrate 9.png
+(TEXTURES) Loading texture: item/transistor.png
 (TEXTURES) Loading texture: item/uranium rod.png
 (TEXTURES) Loading texture: item/wire overlay.png
 (TEXTURES) Loading texture: item/wire spool.png
@@ -195,6 +225,7 @@
 (TEXTURES) Loading texture: machine/imoverR.png
 (TEXTURES) Loading texture: machine/item package.png
 (TEXTURES) Loading texture: machine/ivacuum.png
+(TEXTURES) Loading texture: machine/machinemaker.png
 (TEXTURES) Loading texture: machine/pickaxe workbench.png
 (TEXTURES) Loading texture: machine/pipe 3-section.png
 (TEXTURES) Loading texture: machine/pipe 4-section.png
@@ -235,8 +266,11 @@
 (TEXTURES) Loading texture: machine/smelter active.png
 (TEXTURES) Loading texture: machine/smelter inert 2.png
 (TEXTURES) Loading texture: machine/smelter inert.png
+(TEXTURES) Loading texture: machine/splicer.png
+(TEXTURES) Loading texture: machine/splitter.png
 (TEXTURES) Loading texture: machine/switch straight.png
 (TEXTURES) Loading texture: machine/switch turn.png
+(TEXTURES) Loading texture: machine/transformer.png
 (TEXTURES) Loading texture: machine/vacuum.png
 (TEXTURES) Loading texture: machine/wiremill.png
 (TEXTURES) Failed to load Machines.tsx
@@ -295,6 +329,8 @@
 (TEXTURES) Loading texture: UIs/orange signpost.png
 (TEXTURES) Loading texture: UIs/red signpost.png
 (TEXTURES) Loading texture: UIs/yellow signpost.png
+(TEXTURES) Loading texture: ukraine.png
+(TEXTURES) Loading texture: ukraine1.png
 (BLOCKS) Creating blocks
 (BLOCKS) Adding mmb.air with title Air and description:
  null
@@ -380,6 +416,18 @@
  null
 (ITEMS) Adding wireworld.toggle with title Toggle Latch and description:
  null
+(BLOCKS) Adding wireworld.yes with title YES and description:
+ null
+(ITEMS) Adding wireworld.yes with title YES and description:
+ null
+(BLOCKS) Adding wireworld.not with title NOT and description:
+ null
+(ITEMS) Adding wireworld.not with title NOT and description:
+ null
+(BLOCKS) Adding wireworld.randomctrl with title Random if and description:
+ null
+(ITEMS) Adding wireworld.randomctrl with title Random if and description:
+ null
 (BLOCKS) Adding elec.coalgen1 with title Furnace Generator I and description:
  null
 (ITEMS) Adding elec.coalgen1 with title Furnace Generator I and description:
@@ -412,22 +460,40 @@
  null
 (ITEMS) Adding industry.infinigen4 with title Infinite generator HV and description:
  null
-(BLOCKS) Adding industry.infinigen5 with title Infinite generator VHV and description:
+(BLOCKS) Adding industry.infinigen5 with title Infinite generator EV and description:
  null
-(ITEMS) Adding industry.infinigen5 with title Infinite generator VHV and description:
+(ITEMS) Adding industry.infinigen5 with title Infinite generator EV and description:
  null
-(BLOCKS) Adding industry.infinigen6 with title Infinite generator UHV and description:
+(BLOCKS) Adding industry.infinigen6 with title Infinite generator IV and description:
  null
-(ITEMS) Adding industry.infinigen6 with title Infinite generator UHV and description:
+(ITEMS) Adding industry.infinigen6 with title Infinite generator IV and description:
  null
-(BLOCKS) Adding industry.infinigen7 with title Infinite generator EV and description:
+(BLOCKS) Adding industry.infinigen7 with title Infinite generator LuV and description:
  null
-(ITEMS) Adding industry.infinigen7 with title Infinite generator EV and description:
+(ITEMS) Adding industry.infinigen7 with title Infinite generator LuV and description:
  null
 (BLOCKS) Adding industry.infinigen8 with title Infinite generator MAX and description:
  null
 (ITEMS) Adding industry.infinigen8 with title Infinite generator MAX and description:
  null
+(ITEMS) Tagging Item Infinite generator ULV(industry.infinigen0) with machine-infinigen
+(ITEMS) Tagging Item Infinite generator VLV(industry.infinigen1) with machine-infinigen
+(ITEMS) Tagging Item Infinite generator LV(industry.infinigen2) with machine-infinigen
+(ITEMS) Tagging Item Infinite generator MV(industry.infinigen3) with machine-infinigen
+(ITEMS) Tagging Item Infinite generator HV(industry.infinigen4) with machine-infinigen
+(ITEMS) Tagging Item Infinite generator EV(industry.infinigen5) with machine-infinigen
+(ITEMS) Tagging Item Infinite generator IV(industry.infinigen6) with machine-infinigen
+(ITEMS) Tagging Item Infinite generator LuV(industry.infinigen7) with machine-infinigen
+(ITEMS) Tagging Item Infinite generator MAX(industry.infinigen8) with machine-infinigen
+(ITEMS) Tagging Item Infinite generator ULV(industry.infinigen0) with voltage-ULV
+(ITEMS) Tagging Item Infinite generator VLV(industry.infinigen1) with voltage-VLV
+(ITEMS) Tagging Item Infinite generator LV(industry.infinigen2) with voltage-LV
+(ITEMS) Tagging Item Infinite generator MV(industry.infinigen3) with voltage-MV
+(ITEMS) Tagging Item Infinite generator HV(industry.infinigen4) with voltage-HV
+(ITEMS) Tagging Item Infinite generator EV(industry.infinigen5) with voltage-EV
+(ITEMS) Tagging Item Infinite generator IV(industry.infinigen6) with voltage-IV
+(ITEMS) Tagging Item Infinite generator LuV(industry.infinigen7) with voltage-LuV
+(ITEMS) Tagging Item Infinite generator MAX(industry.infinigen8) with voltage-MAX
 (BLOCKS) Adding elec.meter with title Power meter and description:
  null
 (ITEMS) Adding elec.meter with title Power meter and description:
@@ -451,18 +517,6 @@
 (BLOCKS) Adding wireworld.random with title Random and description:
  null
 (ITEMS) Adding wireworld.random with title Random and description:
- null
-(BLOCKS) Adding wireworld.yes with title YES and description:
- null
-(ITEMS) Adding wireworld.yes with title YES and description:
- null
-(BLOCKS) Adding wireworld.not with title NOT and description:
- null
-(ITEMS) Adding wireworld.not with title NOT and description:
- null
-(BLOCKS) Adding wireworld.randomctrl with title Random if and description:
- null
-(ITEMS) Adding wireworld.randomctrl with title Random if and description:
  null
 (BLOCKS) Adding wireworld.on with title Active Switch and description:
  null
@@ -538,20 +592,255 @@
  null
 (ITEMS) Adding mmb.bucket with title Item Bucket and description:
  null
+(ITEMS) Adding mmb.cdie with title Configure dropped item extractors and description:
+ null
 (ITEMS) Adding crafting.cstencil with title Crafting stencil and description:
  null
 (ITEMS) Adding crafting.BOMItems with title Bill Of Materials and description:
  null
-(ITEMS) Adding industry.frame1 with title Machine Frame #1 and description:
+(ITEMS) Adding mmb.paper with title Paper and description:
  null
-(ITEMS) Adding industry.rod1 with title Machine Rod #1 and description:
+(ITEMS) Adding mmb.ccode0 with title Color Code000 and description:
  null
-(ITEMS) Adding industry.bearing1 with title Machine Bearing #1 and description:
+(ITEMS) Adding mmb.ccode1 with title Color Code001 and description:
  null
-(ITEMS) Adding industry.motor1 with title Machine Motor #1 and description:
+(ITEMS) Adding mmb.ccode2 with title Color Code002 and description:
+ null
+(ITEMS) Adding mmb.ccode3 with title Color Code003 and description:
+ null
+(ITEMS) Adding mmb.ccode4 with title Color Code010 and description:
+ null
+(ITEMS) Adding mmb.ccode5 with title Color Code011 and description:
+ null
+(ITEMS) Adding mmb.ccode6 with title Color Code012 and description:
+ null
+(ITEMS) Adding mmb.ccode7 with title Color Code013 and description:
+ null
+(ITEMS) Adding mmb.ccode8 with title Color Code020 and description:
+ null
+(ITEMS) Adding mmb.ccode9 with title Color Code021 and description:
+ null
+(ITEMS) Adding mmb.ccode10 with title Color Code022 and description:
+ null
+(ITEMS) Adding mmb.ccode11 with title Color Code023 and description:
+ null
+(ITEMS) Adding mmb.ccode12 with title Color Code030 and description:
+ null
+(ITEMS) Adding mmb.ccode13 with title Color Code031 and description:
+ null
+(ITEMS) Adding mmb.ccode14 with title Color Code032 and description:
+ null
+(ITEMS) Adding mmb.ccode15 with title Color Code033 and description:
+ null
+(ITEMS) Adding mmb.ccode16 with title Color Code100 and description:
+ null
+(ITEMS) Adding mmb.ccode17 with title Color Code101 and description:
+ null
+(ITEMS) Adding mmb.ccode18 with title Color Code102 and description:
+ null
+(ITEMS) Adding mmb.ccode19 with title Color Code103 and description:
+ null
+(ITEMS) Adding mmb.ccode20 with title Color Code110 and description:
+ null
+(ITEMS) Adding mmb.ccode21 with title Color Code111 and description:
+ null
+(ITEMS) Adding mmb.ccode22 with title Color Code112 and description:
+ null
+(ITEMS) Adding mmb.ccode23 with title Color Code113 and description:
+ null
+(ITEMS) Adding mmb.ccode24 with title Color Code120 and description:
+ null
+(ITEMS) Adding mmb.ccode25 with title Color Code121 and description:
+ null
+(ITEMS) Adding mmb.ccode26 with title Color Code122 and description:
+ null
+(ITEMS) Adding mmb.ccode27 with title Color Code123 and description:
+ null
+(ITEMS) Adding mmb.ccode28 with title Color Code130 and description:
+ null
+(ITEMS) Adding mmb.ccode29 with title Color Code131 and description:
+ null
+(ITEMS) Adding mmb.ccode30 with title Color Code132 and description:
+ null
+(ITEMS) Adding mmb.ccode31 with title Color Code133 and description:
+ null
+(ITEMS) Adding mmb.ccode32 with title Color Code200 and description:
+ null
+(ITEMS) Adding mmb.ccode33 with title Color Code201 and description:
+ null
+(ITEMS) Adding mmb.ccode34 with title Color Code202 and description:
+ null
+(ITEMS) Adding mmb.ccode35 with title Color Code203 and description:
+ null
+(ITEMS) Adding mmb.ccode36 with title Color Code210 and description:
+ null
+(ITEMS) Adding mmb.ccode37 with title Color Code211 and description:
+ null
+(ITEMS) Adding mmb.ccode38 with title Color Code212 and description:
+ null
+(ITEMS) Adding mmb.ccode39 with title Color Code213 and description:
+ null
+(ITEMS) Adding mmb.ccode40 with title Color Code220 and description:
+ null
+(ITEMS) Adding mmb.ccode41 with title Color Code221 and description:
+ null
+(ITEMS) Adding mmb.ccode42 with title Color Code222 and description:
+ null
+(ITEMS) Adding mmb.ccode43 with title Color Code223 and description:
+ null
+(ITEMS) Adding mmb.ccode44 with title Color Code230 and description:
+ null
+(ITEMS) Adding mmb.ccode45 with title Color Code231 and description:
+ null
+(ITEMS) Adding mmb.ccode46 with title Color Code232 and description:
+ null
+(ITEMS) Adding mmb.ccode47 with title Color Code233 and description:
+ null
+(ITEMS) Adding mmb.ccode48 with title Color Code300 and description:
+ null
+(ITEMS) Adding mmb.ccode49 with title Color Code301 and description:
+ null
+(ITEMS) Adding mmb.ccode50 with title Color Code302 and description:
+ null
+(ITEMS) Adding mmb.ccode51 with title Color Code303 and description:
+ null
+(ITEMS) Adding mmb.ccode52 with title Color Code310 and description:
+ null
+(ITEMS) Adding mmb.ccode53 with title Color Code311 and description:
+ null
+(ITEMS) Adding mmb.ccode54 with title Color Code312 and description:
+ null
+(ITEMS) Adding mmb.ccode55 with title Color Code313 and description:
+ null
+(ITEMS) Adding mmb.ccode56 with title Color Code320 and description:
+ null
+(ITEMS) Adding mmb.ccode57 with title Color Code321 and description:
+ null
+(ITEMS) Adding mmb.ccode58 with title Color Code322 and description:
+ null
+(ITEMS) Adding mmb.ccode59 with title Color Code323 and description:
+ null
+(ITEMS) Adding mmb.ccode60 with title Color Code330 and description:
+ null
+(ITEMS) Adding mmb.ccode61 with title Color Code331 and description:
+ null
+(ITEMS) Adding mmb.ccode62 with title Color Code332 and description:
+ null
+(ITEMS) Adding mmb.ccode63 with title Color Code333 and description:
+ null
+(ITEMS) Adding industry.frame1 with title Basic Machine Frame and description:
+ null
+(ITEMS) Adding industry.rod1 with title Basic Machine Rod and description:
+ null
+(ITEMS) Adding industry.bearing1 with title Basic Machine Bearing and description:
+ null
+(ITEMS) Adding industry.motor1 with title Basic Machine Motor and description:
+ null
+(ITEMS) Adding industry.resistor1 with title Basic Resistor and description:
+ null
+(ITEMS) Adding industry.resistors1 with title Basic Resistor Array and description:
+ null
+(ITEMS) Adding industry.capacitor1 with title Basic Capacitor and description:
+ null
+(ITEMS) Adding industry.inductor1 with title Basic Inductor and description:
+ null
+(ITEMS) Adding industry.diode1 with title Basic Diode and description:
+ null
+(ITEMS) Adding industry.transistor1 with title Basic Transistor and description:
+ null
+(ITEMS) Adding industry.IC1 with title Basic IC and description:
+ null
+(ITEMS) Adding industry.processor0 with title Primitive Circuit and description:
+ null
+(ITEMS) Adding industry.substrate0 with title Primitive Substrate and description:
+ null
+(ITEMS) Adding industry.processor1 with title Basic Circuit and description:
+ null
+(ITEMS) Adding industry.substrate1 with title Basic Substrate and description:
  null
 (ITEMS) Adding boxed.packItem with title Simple Item Package and description:
  null
+(ITEMS) Tagging Item Wooden pickaxe head(pickHead.wood) with shape-pickhead
+(ITEMS) Tagging Item Rudimentary pickaxe head(pickHead.rudimentary) with shape-pickhead
+(ITEMS) Tagging Item Very weak pickaxe(pick.weak) with tool
+(ITEMS) Tagging Item Wooden pickaxe(pick.wood) with tool
+(ITEMS) Tagging Item Rudimentary pickaxe(pick.rudimentary) with tool
+(ITEMS) Tagging Item Item Bucket(mmb.bucket) with tool
+(ITEMS) Tagging Item Configure dropped item extractors(mmb.cdie) with tool
+(ITEMS) Tagging Item Color Code000(mmb.ccode0) with craftcode
+(ITEMS) Tagging Item Color Code001(mmb.ccode1) with craftcode
+(ITEMS) Tagging Item Color Code002(mmb.ccode2) with craftcode
+(ITEMS) Tagging Item Color Code003(mmb.ccode3) with craftcode
+(ITEMS) Tagging Item Color Code010(mmb.ccode4) with craftcode
+(ITEMS) Tagging Item Color Code011(mmb.ccode5) with craftcode
+(ITEMS) Tagging Item Color Code012(mmb.ccode6) with craftcode
+(ITEMS) Tagging Item Color Code013(mmb.ccode7) with craftcode
+(ITEMS) Tagging Item Color Code020(mmb.ccode8) with craftcode
+(ITEMS) Tagging Item Color Code021(mmb.ccode9) with craftcode
+(ITEMS) Tagging Item Color Code022(mmb.ccode10) with craftcode
+(ITEMS) Tagging Item Color Code023(mmb.ccode11) with craftcode
+(ITEMS) Tagging Item Color Code030(mmb.ccode12) with craftcode
+(ITEMS) Tagging Item Color Code031(mmb.ccode13) with craftcode
+(ITEMS) Tagging Item Color Code032(mmb.ccode14) with craftcode
+(ITEMS) Tagging Item Color Code033(mmb.ccode15) with craftcode
+(ITEMS) Tagging Item Color Code100(mmb.ccode16) with craftcode
+(ITEMS) Tagging Item Color Code101(mmb.ccode17) with craftcode
+(ITEMS) Tagging Item Color Code102(mmb.ccode18) with craftcode
+(ITEMS) Tagging Item Color Code103(mmb.ccode19) with craftcode
+(ITEMS) Tagging Item Color Code110(mmb.ccode20) with craftcode
+(ITEMS) Tagging Item Color Code111(mmb.ccode21) with craftcode
+(ITEMS) Tagging Item Color Code112(mmb.ccode22) with craftcode
+(ITEMS) Tagging Item Color Code113(mmb.ccode23) with craftcode
+(ITEMS) Tagging Item Color Code120(mmb.ccode24) with craftcode
+(ITEMS) Tagging Item Color Code121(mmb.ccode25) with craftcode
+(ITEMS) Tagging Item Color Code122(mmb.ccode26) with craftcode
+(ITEMS) Tagging Item Color Code123(mmb.ccode27) with craftcode
+(ITEMS) Tagging Item Color Code130(mmb.ccode28) with craftcode
+(ITEMS) Tagging Item Color Code131(mmb.ccode29) with craftcode
+(ITEMS) Tagging Item Color Code132(mmb.ccode30) with craftcode
+(ITEMS) Tagging Item Color Code133(mmb.ccode31) with craftcode
+(ITEMS) Tagging Item Color Code200(mmb.ccode32) with craftcode
+(ITEMS) Tagging Item Color Code201(mmb.ccode33) with craftcode
+(ITEMS) Tagging Item Color Code202(mmb.ccode34) with craftcode
+(ITEMS) Tagging Item Color Code203(mmb.ccode35) with craftcode
+(ITEMS) Tagging Item Color Code210(mmb.ccode36) with craftcode
+(ITEMS) Tagging Item Color Code211(mmb.ccode37) with craftcode
+(ITEMS) Tagging Item Color Code212(mmb.ccode38) with craftcode
+(ITEMS) Tagging Item Color Code213(mmb.ccode39) with craftcode
+(ITEMS) Tagging Item Color Code220(mmb.ccode40) with craftcode
+(ITEMS) Tagging Item Color Code221(mmb.ccode41) with craftcode
+(ITEMS) Tagging Item Color Code222(mmb.ccode42) with craftcode
+(ITEMS) Tagging Item Color Code223(mmb.ccode43) with craftcode
+(ITEMS) Tagging Item Color Code230(mmb.ccode44) with craftcode
+(ITEMS) Tagging Item Color Code231(mmb.ccode45) with craftcode
+(ITEMS) Tagging Item Color Code232(mmb.ccode46) with craftcode
+(ITEMS) Tagging Item Color Code233(mmb.ccode47) with craftcode
+(ITEMS) Tagging Item Color Code300(mmb.ccode48) with craftcode
+(ITEMS) Tagging Item Color Code301(mmb.ccode49) with craftcode
+(ITEMS) Tagging Item Color Code302(mmb.ccode50) with craftcode
+(ITEMS) Tagging Item Color Code303(mmb.ccode51) with craftcode
+(ITEMS) Tagging Item Color Code310(mmb.ccode52) with craftcode
+(ITEMS) Tagging Item Color Code311(mmb.ccode53) with craftcode
+(ITEMS) Tagging Item Color Code312(mmb.ccode54) with craftcode
+(ITEMS) Tagging Item Color Code313(mmb.ccode55) with craftcode
+(ITEMS) Tagging Item Color Code320(mmb.ccode56) with craftcode
+(ITEMS) Tagging Item Color Code321(mmb.ccode57) with craftcode
+(ITEMS) Tagging Item Color Code322(mmb.ccode58) with craftcode
+(ITEMS) Tagging Item Color Code323(mmb.ccode59) with craftcode
+(ITEMS) Tagging Item Color Code330(mmb.ccode60) with craftcode
+(ITEMS) Tagging Item Color Code331(mmb.ccode61) with craftcode
+(ITEMS) Tagging Item Color Code332(mmb.ccode62) with craftcode
+(ITEMS) Tagging Item Color Code333(mmb.ccode63) with craftcode
+(ITEMS) Tagging Item Basic Resistor(industry.resistor1) with parts-electronic
+(ITEMS) Tagging Item Basic Capacitor(industry.capacitor1) with parts-electronic
+(ITEMS) Tagging Item Basic Inductor(industry.inductor1) with parts-electronic
+(ITEMS) Tagging Item Basic Diode(industry.diode1) with parts-electronic
+(ITEMS) Tagging Item Basic Transistor(industry.transistor1) with parts-electronic
+(ITEMS) Tagging Item Basic IC(industry.IC1) with parts-electronic
+(ITEMS) Tagging Item Primitive Circuit(industry.processor0) with parts-electronic
+(ITEMS) Tagging Item Primitive Substrate(industry.substrate0) with parts-electronic
+(ITEMS) Tagging Item Basic Circuit(industry.processor1) with parts-electronic
+(ITEMS) Tagging Item Basic Substrate(industry.substrate1) with parts-electronic
 (BLOCKS) Adding machines.pickbuilder with title Pickaxe workbench and description:
  null
 (ITEMS) Adding machines.pickbuilder with title Pickaxe workbench and description:
@@ -580,22 +869,40 @@
  null
 (ITEMS) Adding industry.electrofurnace4 with title Electric furnace HV and description:
  null
-(BLOCKS) Adding industry.electrofurnace5 with title Electric furnace VHV and description:
+(BLOCKS) Adding industry.electrofurnace5 with title Electric furnace EV and description:
  null
-(ITEMS) Adding industry.electrofurnace5 with title Electric furnace VHV and description:
+(ITEMS) Adding industry.electrofurnace5 with title Electric furnace EV and description:
  null
-(BLOCKS) Adding industry.electrofurnace6 with title Electric furnace UHV and description:
+(BLOCKS) Adding industry.electrofurnace6 with title Electric furnace IV and description:
  null
-(ITEMS) Adding industry.electrofurnace6 with title Electric furnace UHV and description:
+(ITEMS) Adding industry.electrofurnace6 with title Electric furnace IV and description:
  null
-(BLOCKS) Adding industry.electrofurnace7 with title Electric furnace EV and description:
+(BLOCKS) Adding industry.electrofurnace7 with title Electric furnace LuV and description:
  null
-(ITEMS) Adding industry.electrofurnace7 with title Electric furnace EV and description:
+(ITEMS) Adding industry.electrofurnace7 with title Electric furnace LuV and description:
  null
 (BLOCKS) Adding industry.electrofurnace8 with title Electric furnace MAX and description:
  null
 (ITEMS) Adding industry.electrofurnace8 with title Electric furnace MAX and description:
  null
+(ITEMS) Tagging Item Electric furnace ULV(industry.electrofurnace0) with machine-electrofurnace
+(ITEMS) Tagging Item Electric furnace VLV(industry.electrofurnace1) with machine-electrofurnace
+(ITEMS) Tagging Item Electric furnace LV(industry.electrofurnace2) with machine-electrofurnace
+(ITEMS) Tagging Item Electric furnace MV(industry.electrofurnace3) with machine-electrofurnace
+(ITEMS) Tagging Item Electric furnace HV(industry.electrofurnace4) with machine-electrofurnace
+(ITEMS) Tagging Item Electric furnace EV(industry.electrofurnace5) with machine-electrofurnace
+(ITEMS) Tagging Item Electric furnace IV(industry.electrofurnace6) with machine-electrofurnace
+(ITEMS) Tagging Item Electric furnace LuV(industry.electrofurnace7) with machine-electrofurnace
+(ITEMS) Tagging Item Electric furnace MAX(industry.electrofurnace8) with machine-electrofurnace
+(ITEMS) Tagging Item Electric furnace ULV(industry.electrofurnace0) with voltage-ULV
+(ITEMS) Tagging Item Electric furnace VLV(industry.electrofurnace1) with voltage-VLV
+(ITEMS) Tagging Item Electric furnace LV(industry.electrofurnace2) with voltage-LV
+(ITEMS) Tagging Item Electric furnace MV(industry.electrofurnace3) with voltage-MV
+(ITEMS) Tagging Item Electric furnace HV(industry.electrofurnace4) with voltage-HV
+(ITEMS) Tagging Item Electric furnace EV(industry.electrofurnace5) with voltage-EV
+(ITEMS) Tagging Item Electric furnace IV(industry.electrofurnace6) with voltage-IV
+(ITEMS) Tagging Item Electric furnace LuV(industry.electrofurnace7) with voltage-LuV
+(ITEMS) Tagging Item Electric furnace MAX(industry.electrofurnace8) with voltage-MAX
 (BLOCKS) Adding industry.crusher0 with title Crusher ULV and description:
  null
 (ITEMS) Adding industry.crusher0 with title Crusher ULV and description:
@@ -616,22 +923,40 @@
  null
 (ITEMS) Adding industry.crusher4 with title Crusher HV and description:
  null
-(BLOCKS) Adding industry.crusher5 with title Crusher VHV and description:
+(BLOCKS) Adding industry.crusher5 with title Crusher EV and description:
  null
-(ITEMS) Adding industry.crusher5 with title Crusher VHV and description:
+(ITEMS) Adding industry.crusher5 with title Crusher EV and description:
  null
-(BLOCKS) Adding industry.crusher6 with title Crusher UHV and description:
+(BLOCKS) Adding industry.crusher6 with title Crusher IV and description:
  null
-(ITEMS) Adding industry.crusher6 with title Crusher UHV and description:
+(ITEMS) Adding industry.crusher6 with title Crusher IV and description:
  null
-(BLOCKS) Adding industry.crusher7 with title Crusher EV and description:
+(BLOCKS) Adding industry.crusher7 with title Crusher LuV and description:
  null
-(ITEMS) Adding industry.crusher7 with title Crusher EV and description:
+(ITEMS) Adding industry.crusher7 with title Crusher LuV and description:
  null
 (BLOCKS) Adding industry.crusher8 with title Crusher MAX and description:
  null
 (ITEMS) Adding industry.crusher8 with title Crusher MAX and description:
  null
+(ITEMS) Tagging Item Crusher ULV(industry.crusher0) with machine-crusher
+(ITEMS) Tagging Item Crusher VLV(industry.crusher1) with machine-crusher
+(ITEMS) Tagging Item Crusher LV(industry.crusher2) with machine-crusher
+(ITEMS) Tagging Item Crusher MV(industry.crusher3) with machine-crusher
+(ITEMS) Tagging Item Crusher HV(industry.crusher4) with machine-crusher
+(ITEMS) Tagging Item Crusher EV(industry.crusher5) with machine-crusher
+(ITEMS) Tagging Item Crusher IV(industry.crusher6) with machine-crusher
+(ITEMS) Tagging Item Crusher LuV(industry.crusher7) with machine-crusher
+(ITEMS) Tagging Item Crusher MAX(industry.crusher8) with machine-crusher
+(ITEMS) Tagging Item Crusher ULV(industry.crusher0) with voltage-ULV
+(ITEMS) Tagging Item Crusher VLV(industry.crusher1) with voltage-VLV
+(ITEMS) Tagging Item Crusher LV(industry.crusher2) with voltage-LV
+(ITEMS) Tagging Item Crusher MV(industry.crusher3) with voltage-MV
+(ITEMS) Tagging Item Crusher HV(industry.crusher4) with voltage-HV
+(ITEMS) Tagging Item Crusher EV(industry.crusher5) with voltage-EV
+(ITEMS) Tagging Item Crusher IV(industry.crusher6) with voltage-IV
+(ITEMS) Tagging Item Crusher LuV(industry.crusher7) with voltage-LuV
+(ITEMS) Tagging Item Crusher MAX(industry.crusher8) with voltage-MAX
 (BLOCKS) Adding industry.clustermill0 with title Cluster mill ULV and description:
  null
 (ITEMS) Adding industry.clustermill0 with title Cluster mill ULV and description:
@@ -652,22 +977,40 @@
  null
 (ITEMS) Adding industry.clustermill4 with title Cluster mill HV and description:
  null
-(BLOCKS) Adding industry.clustermill5 with title Cluster mill VHV and description:
+(BLOCKS) Adding industry.clustermill5 with title Cluster mill EV and description:
  null
-(ITEMS) Adding industry.clustermill5 with title Cluster mill VHV and description:
+(ITEMS) Adding industry.clustermill5 with title Cluster mill EV and description:
  null
-(BLOCKS) Adding industry.clustermill6 with title Cluster mill UHV and description:
+(BLOCKS) Adding industry.clustermill6 with title Cluster mill IV and description:
  null
-(ITEMS) Adding industry.clustermill6 with title Cluster mill UHV and description:
+(ITEMS) Adding industry.clustermill6 with title Cluster mill IV and description:
  null
-(BLOCKS) Adding industry.clustermill7 with title Cluster mill EV and description:
+(BLOCKS) Adding industry.clustermill7 with title Cluster mill LuV and description:
  null
-(ITEMS) Adding industry.clustermill7 with title Cluster mill EV and description:
+(ITEMS) Adding industry.clustermill7 with title Cluster mill LuV and description:
  null
 (BLOCKS) Adding industry.clustermill8 with title Cluster mill MAX and description:
  null
 (ITEMS) Adding industry.clustermill8 with title Cluster mill MAX and description:
  null
+(ITEMS) Tagging Item Cluster mill ULV(industry.clustermill0) with machine-clustermill
+(ITEMS) Tagging Item Cluster mill VLV(industry.clustermill1) with machine-clustermill
+(ITEMS) Tagging Item Cluster mill LV(industry.clustermill2) with machine-clustermill
+(ITEMS) Tagging Item Cluster mill MV(industry.clustermill3) with machine-clustermill
+(ITEMS) Tagging Item Cluster mill HV(industry.clustermill4) with machine-clustermill
+(ITEMS) Tagging Item Cluster mill EV(industry.clustermill5) with machine-clustermill
+(ITEMS) Tagging Item Cluster mill IV(industry.clustermill6) with machine-clustermill
+(ITEMS) Tagging Item Cluster mill LuV(industry.clustermill7) with machine-clustermill
+(ITEMS) Tagging Item Cluster mill MAX(industry.clustermill8) with machine-clustermill
+(ITEMS) Tagging Item Cluster mill ULV(industry.clustermill0) with voltage-ULV
+(ITEMS) Tagging Item Cluster mill VLV(industry.clustermill1) with voltage-VLV
+(ITEMS) Tagging Item Cluster mill LV(industry.clustermill2) with voltage-LV
+(ITEMS) Tagging Item Cluster mill MV(industry.clustermill3) with voltage-MV
+(ITEMS) Tagging Item Cluster mill HV(industry.clustermill4) with voltage-HV
+(ITEMS) Tagging Item Cluster mill EV(industry.clustermill5) with voltage-EV
+(ITEMS) Tagging Item Cluster mill IV(industry.clustermill6) with voltage-IV
+(ITEMS) Tagging Item Cluster mill LuV(industry.clustermill7) with voltage-LuV
+(ITEMS) Tagging Item Cluster mill MAX(industry.clustermill8) with voltage-MAX
 (BLOCKS) Adding industry.wiremill0 with title Wiremill ULV and description:
  null
 (ITEMS) Adding industry.wiremill0 with title Wiremill ULV and description:
@@ -688,22 +1031,40 @@
  null
 (ITEMS) Adding industry.wiremill4 with title Wiremill HV and description:
  null
-(BLOCKS) Adding industry.wiremill5 with title Wiremill VHV and description:
+(BLOCKS) Adding industry.wiremill5 with title Wiremill EV and description:
  null
-(ITEMS) Adding industry.wiremill5 with title Wiremill VHV and description:
+(ITEMS) Adding industry.wiremill5 with title Wiremill EV and description:
  null
-(BLOCKS) Adding industry.wiremill6 with title Wiremill UHV and description:
+(BLOCKS) Adding industry.wiremill6 with title Wiremill IV and description:
  null
-(ITEMS) Adding industry.wiremill6 with title Wiremill UHV and description:
+(ITEMS) Adding industry.wiremill6 with title Wiremill IV and description:
  null
-(BLOCKS) Adding industry.wiremill7 with title Wiremill EV and description:
+(BLOCKS) Adding industry.wiremill7 with title Wiremill LuV and description:
  null
-(ITEMS) Adding industry.wiremill7 with title Wiremill EV and description:
+(ITEMS) Adding industry.wiremill7 with title Wiremill LuV and description:
  null
 (BLOCKS) Adding industry.wiremill8 with title Wiremill MAX and description:
  null
 (ITEMS) Adding industry.wiremill8 with title Wiremill MAX and description:
  null
+(ITEMS) Tagging Item Wiremill ULV(industry.wiremill0) with machine-wiremill
+(ITEMS) Tagging Item Wiremill VLV(industry.wiremill1) with machine-wiremill
+(ITEMS) Tagging Item Wiremill LV(industry.wiremill2) with machine-wiremill
+(ITEMS) Tagging Item Wiremill MV(industry.wiremill3) with machine-wiremill
+(ITEMS) Tagging Item Wiremill HV(industry.wiremill4) with machine-wiremill
+(ITEMS) Tagging Item Wiremill EV(industry.wiremill5) with machine-wiremill
+(ITEMS) Tagging Item Wiremill IV(industry.wiremill6) with machine-wiremill
+(ITEMS) Tagging Item Wiremill LuV(industry.wiremill7) with machine-wiremill
+(ITEMS) Tagging Item Wiremill MAX(industry.wiremill8) with machine-wiremill
+(ITEMS) Tagging Item Wiremill ULV(industry.wiremill0) with voltage-ULV
+(ITEMS) Tagging Item Wiremill VLV(industry.wiremill1) with voltage-VLV
+(ITEMS) Tagging Item Wiremill LV(industry.wiremill2) with voltage-LV
+(ITEMS) Tagging Item Wiremill MV(industry.wiremill3) with voltage-MV
+(ITEMS) Tagging Item Wiremill HV(industry.wiremill4) with voltage-HV
+(ITEMS) Tagging Item Wiremill EV(industry.wiremill5) with voltage-EV
+(ITEMS) Tagging Item Wiremill IV(industry.wiremill6) with voltage-IV
+(ITEMS) Tagging Item Wiremill LuV(industry.wiremill7) with voltage-LuV
+(ITEMS) Tagging Item Wiremill MAX(industry.wiremill8) with voltage-MAX
 (BLOCKS) Adding industry.alloyer0 with title Alloy smelter ULV and description:
  null
 (ITEMS) Adding industry.alloyer0 with title Alloy smelter ULV and description:
@@ -724,22 +1085,202 @@
  null
 (ITEMS) Adding industry.alloyer4 with title Alloy smelter HV and description:
  null
-(BLOCKS) Adding industry.alloyer5 with title Alloy smelter VHV and description:
+(BLOCKS) Adding industry.alloyer5 with title Alloy smelter EV and description:
  null
-(ITEMS) Adding industry.alloyer5 with title Alloy smelter VHV and description:
+(ITEMS) Adding industry.alloyer5 with title Alloy smelter EV and description:
  null
-(BLOCKS) Adding industry.alloyer6 with title Alloy smelter UHV and description:
+(BLOCKS) Adding industry.alloyer6 with title Alloy smelter IV and description:
  null
-(ITEMS) Adding industry.alloyer6 with title Alloy smelter UHV and description:
+(ITEMS) Adding industry.alloyer6 with title Alloy smelter IV and description:
  null
-(BLOCKS) Adding industry.alloyer7 with title Alloy smelter EV and description:
+(BLOCKS) Adding industry.alloyer7 with title Alloy smelter LuV and description:
  null
-(ITEMS) Adding industry.alloyer7 with title Alloy smelter EV and description:
+(ITEMS) Adding industry.alloyer7 with title Alloy smelter LuV and description:
  null
 (BLOCKS) Adding industry.alloyer8 with title Alloy smelter MAX and description:
  null
 (ITEMS) Adding industry.alloyer8 with title Alloy smelter MAX and description:
  null
+(ITEMS) Tagging Item Alloy smelter ULV(industry.alloyer0) with machine-alloyer
+(ITEMS) Tagging Item Alloy smelter VLV(industry.alloyer1) with machine-alloyer
+(ITEMS) Tagging Item Alloy smelter LV(industry.alloyer2) with machine-alloyer
+(ITEMS) Tagging Item Alloy smelter MV(industry.alloyer3) with machine-alloyer
+(ITEMS) Tagging Item Alloy smelter HV(industry.alloyer4) with machine-alloyer
+(ITEMS) Tagging Item Alloy smelter EV(industry.alloyer5) with machine-alloyer
+(ITEMS) Tagging Item Alloy smelter IV(industry.alloyer6) with machine-alloyer
+(ITEMS) Tagging Item Alloy smelter LuV(industry.alloyer7) with machine-alloyer
+(ITEMS) Tagging Item Alloy smelter MAX(industry.alloyer8) with machine-alloyer
+(ITEMS) Tagging Item Alloy smelter ULV(industry.alloyer0) with voltage-ULV
+(ITEMS) Tagging Item Alloy smelter VLV(industry.alloyer1) with voltage-VLV
+(ITEMS) Tagging Item Alloy smelter LV(industry.alloyer2) with voltage-LV
+(ITEMS) Tagging Item Alloy smelter MV(industry.alloyer3) with voltage-MV
+(ITEMS) Tagging Item Alloy smelter HV(industry.alloyer4) with voltage-HV
+(ITEMS) Tagging Item Alloy smelter EV(industry.alloyer5) with voltage-EV
+(ITEMS) Tagging Item Alloy smelter IV(industry.alloyer6) with voltage-IV
+(ITEMS) Tagging Item Alloy smelter LuV(industry.alloyer7) with voltage-LuV
+(ITEMS) Tagging Item Alloy smelter MAX(industry.alloyer8) with voltage-MAX
+(BLOCKS) Adding industry.assembler0 with title Machine Assembler ULV and description:
+ null
+(ITEMS) Adding industry.assembler0 with title Machine Assembler ULV and description:
+ null
+(BLOCKS) Adding industry.assembler1 with title Machine Assembler VLV and description:
+ null
+(ITEMS) Adding industry.assembler1 with title Machine Assembler VLV and description:
+ null
+(BLOCKS) Adding industry.assembler2 with title Machine Assembler LV and description:
+ null
+(ITEMS) Adding industry.assembler2 with title Machine Assembler LV and description:
+ null
+(BLOCKS) Adding industry.assembler3 with title Machine Assembler MV and description:
+ null
+(ITEMS) Adding industry.assembler3 with title Machine Assembler MV and description:
+ null
+(BLOCKS) Adding industry.assembler4 with title Machine Assembler HV and description:
+ null
+(ITEMS) Adding industry.assembler4 with title Machine Assembler HV and description:
+ null
+(BLOCKS) Adding industry.assembler5 with title Machine Assembler EV and description:
+ null
+(ITEMS) Adding industry.assembler5 with title Machine Assembler EV and description:
+ null
+(BLOCKS) Adding industry.assembler6 with title Machine Assembler IV and description:
+ null
+(ITEMS) Adding industry.assembler6 with title Machine Assembler IV and description:
+ null
+(BLOCKS) Adding industry.assembler7 with title Machine Assembler LuV and description:
+ null
+(ITEMS) Adding industry.assembler7 with title Machine Assembler LuV and description:
+ null
+(BLOCKS) Adding industry.assembler8 with title Machine Assembler MAX and description:
+ null
+(ITEMS) Adding industry.assembler8 with title Machine Assembler MAX and description:
+ null
+(ITEMS) Tagging Item Machine Assembler ULV(industry.assembler0) with machine-assembler
+(ITEMS) Tagging Item Machine Assembler VLV(industry.assembler1) with machine-assembler
+(ITEMS) Tagging Item Machine Assembler LV(industry.assembler2) with machine-assembler
+(ITEMS) Tagging Item Machine Assembler MV(industry.assembler3) with machine-assembler
+(ITEMS) Tagging Item Machine Assembler HV(industry.assembler4) with machine-assembler
+(ITEMS) Tagging Item Machine Assembler EV(industry.assembler5) with machine-assembler
+(ITEMS) Tagging Item Machine Assembler IV(industry.assembler6) with machine-assembler
+(ITEMS) Tagging Item Machine Assembler LuV(industry.assembler7) with machine-assembler
+(ITEMS) Tagging Item Machine Assembler MAX(industry.assembler8) with machine-assembler
+(ITEMS) Tagging Item Machine Assembler ULV(industry.assembler0) with voltage-ULV
+(ITEMS) Tagging Item Machine Assembler VLV(industry.assembler1) with voltage-VLV
+(ITEMS) Tagging Item Machine Assembler LV(industry.assembler2) with voltage-LV
+(ITEMS) Tagging Item Machine Assembler MV(industry.assembler3) with voltage-MV
+(ITEMS) Tagging Item Machine Assembler HV(industry.assembler4) with voltage-HV
+(ITEMS) Tagging Item Machine Assembler EV(industry.assembler5) with voltage-EV
+(ITEMS) Tagging Item Machine Assembler IV(industry.assembler6) with voltage-IV
+(ITEMS) Tagging Item Machine Assembler LuV(industry.assembler7) with voltage-LuV
+(ITEMS) Tagging Item Machine Assembler MAX(industry.assembler8) with voltage-MAX
+(BLOCKS) Adding industry.spllitter0 with title Material Splitter ULV and description:
+ null
+(ITEMS) Adding industry.spllitter0 with title Material Splitter ULV and description:
+ null
+(BLOCKS) Adding industry.spllitter1 with title Material Splitter VLV and description:
+ null
+(ITEMS) Adding industry.spllitter1 with title Material Splitter VLV and description:
+ null
+(BLOCKS) Adding industry.spllitter2 with title Material Splitter LV and description:
+ null
+(ITEMS) Adding industry.spllitter2 with title Material Splitter LV and description:
+ null
+(BLOCKS) Adding industry.spllitter3 with title Material Splitter MV and description:
+ null
+(ITEMS) Adding industry.spllitter3 with title Material Splitter MV and description:
+ null
+(BLOCKS) Adding industry.spllitter4 with title Material Splitter HV and description:
+ null
+(ITEMS) Adding industry.spllitter4 with title Material Splitter HV and description:
+ null
+(BLOCKS) Adding industry.spllitter5 with title Material Splitter EV and description:
+ null
+(ITEMS) Adding industry.spllitter5 with title Material Splitter EV and description:
+ null
+(BLOCKS) Adding industry.spllitter6 with title Material Splitter IV and description:
+ null
+(ITEMS) Adding industry.spllitter6 with title Material Splitter IV and description:
+ null
+(BLOCKS) Adding industry.spllitter7 with title Material Splitter LuV and description:
+ null
+(ITEMS) Adding industry.spllitter7 with title Material Splitter LuV and description:
+ null
+(BLOCKS) Adding industry.spllitter8 with title Material Splitter MAX and description:
+ null
+(ITEMS) Adding industry.spllitter8 with title Material Splitter MAX and description:
+ null
+(ITEMS) Tagging Item Material Splitter ULV(industry.spllitter0) with machine-spllitter
+(ITEMS) Tagging Item Material Splitter VLV(industry.spllitter1) with machine-spllitter
+(ITEMS) Tagging Item Material Splitter LV(industry.spllitter2) with machine-spllitter
+(ITEMS) Tagging Item Material Splitter MV(industry.spllitter3) with machine-spllitter
+(ITEMS) Tagging Item Material Splitter HV(industry.spllitter4) with machine-spllitter
+(ITEMS) Tagging Item Material Splitter EV(industry.spllitter5) with machine-spllitter
+(ITEMS) Tagging Item Material Splitter IV(industry.spllitter6) with machine-spllitter
+(ITEMS) Tagging Item Material Splitter LuV(industry.spllitter7) with machine-spllitter
+(ITEMS) Tagging Item Material Splitter MAX(industry.spllitter8) with machine-spllitter
+(ITEMS) Tagging Item Material Splitter ULV(industry.spllitter0) with voltage-ULV
+(ITEMS) Tagging Item Material Splitter VLV(industry.spllitter1) with voltage-VLV
+(ITEMS) Tagging Item Material Splitter LV(industry.spllitter2) with voltage-LV
+(ITEMS) Tagging Item Material Splitter MV(industry.spllitter3) with voltage-MV
+(ITEMS) Tagging Item Material Splitter HV(industry.spllitter4) with voltage-HV
+(ITEMS) Tagging Item Material Splitter EV(industry.spllitter5) with voltage-EV
+(ITEMS) Tagging Item Material Splitter IV(industry.spllitter6) with voltage-IV
+(ITEMS) Tagging Item Material Splitter LuV(industry.spllitter7) with voltage-LuV
+(ITEMS) Tagging Item Material Splitter MAX(industry.spllitter8) with voltage-MAX
+(BLOCKS) Adding industry.splicer0 with title Material Combiner ULV and description:
+ null
+(ITEMS) Adding industry.splicer0 with title Material Combiner ULV and description:
+ null
+(BLOCKS) Adding industry.splicer1 with title Material Combiner VLV and description:
+ null
+(ITEMS) Adding industry.splicer1 with title Material Combiner VLV and description:
+ null
+(BLOCKS) Adding industry.splicer2 with title Material Combiner LV and description:
+ null
+(ITEMS) Adding industry.splicer2 with title Material Combiner LV and description:
+ null
+(BLOCKS) Adding industry.splicer3 with title Material Combiner MV and description:
+ null
+(ITEMS) Adding industry.splicer3 with title Material Combiner MV and description:
+ null
+(BLOCKS) Adding industry.splicer4 with title Material Combiner HV and description:
+ null
+(ITEMS) Adding industry.splicer4 with title Material Combiner HV and description:
+ null
+(BLOCKS) Adding industry.splicer5 with title Material Combiner EV and description:
+ null
+(ITEMS) Adding industry.splicer5 with title Material Combiner EV and description:
+ null
+(BLOCKS) Adding industry.splicer6 with title Material Combiner IV and description:
+ null
+(ITEMS) Adding industry.splicer6 with title Material Combiner IV and description:
+ null
+(BLOCKS) Adding industry.splicer7 with title Material Combiner LuV and description:
+ null
+(ITEMS) Adding industry.splicer7 with title Material Combiner LuV and description:
+ null
+(BLOCKS) Adding industry.splicer8 with title Material Combiner MAX and description:
+ null
+(ITEMS) Adding industry.splicer8 with title Material Combiner MAX and description:
+ null
+(ITEMS) Tagging Item Material Combiner ULV(industry.splicer0) with machine-splicer
+(ITEMS) Tagging Item Material Combiner VLV(industry.splicer1) with machine-splicer
+(ITEMS) Tagging Item Material Combiner LV(industry.splicer2) with machine-splicer
+(ITEMS) Tagging Item Material Combiner MV(industry.splicer3) with machine-splicer
+(ITEMS) Tagging Item Material Combiner HV(industry.splicer4) with machine-splicer
+(ITEMS) Tagging Item Material Combiner EV(industry.splicer5) with machine-splicer
+(ITEMS) Tagging Item Material Combiner IV(industry.splicer6) with machine-splicer
+(ITEMS) Tagging Item Material Combiner LuV(industry.splicer7) with machine-splicer
+(ITEMS) Tagging Item Material Combiner MAX(industry.splicer8) with machine-splicer
+(ITEMS) Tagging Item Material Combiner ULV(industry.splicer0) with voltage-ULV
+(ITEMS) Tagging Item Material Combiner VLV(industry.splicer1) with voltage-VLV
+(ITEMS) Tagging Item Material Combiner LV(industry.splicer2) with voltage-LV
+(ITEMS) Tagging Item Material Combiner MV(industry.splicer3) with voltage-MV
+(ITEMS) Tagging Item Material Combiner HV(industry.splicer4) with voltage-HV
+(ITEMS) Tagging Item Material Combiner EV(industry.splicer5) with voltage-EV
+(ITEMS) Tagging Item Material Combiner IV(industry.splicer6) with voltage-IV
+(ITEMS) Tagging Item Material Combiner LuV(industry.splicer7) with voltage-LuV
+(ITEMS) Tagging Item Material Combiner MAX(industry.splicer8) with voltage-MAX
 (BLOCKS) Adding playerpipe.straight with title Player Pipe - straight and description:
  null
 (ITEMS) Adding playerpipe.straight with title Player Pipe - straight and description:
@@ -768,6 +1309,94 @@
  null
 (ITEMS) Adding playerpipe.adj2 with title Player Pipe - wye and description:
  null
+(BLOCKS) Adding liquid.water with title Water and description:
+ null
+(ITEMS) Adding liquid.water with title Water and description:
+ null
+(BLOCKS) Adding liquid.lava with title Lava and description:
+ null
+(ITEMS) Adding liquid.lava with title Lava and description:
+ null
+(BLOCKS) Adding liquid.steam with title Steam and description:
+ null
+(ITEMS) Adding liquid.steam with title Steam and description:
+ null
+(BLOCKS) Adding mmb.clay with title Clay and description:
+ null
+(ITEMS) Adding mmb.clay with title Clay and description:
+ null
+(ITEMS) Tagging Item WireWorld cell(wireworld.wire) with wireworld
+(ITEMS) Tagging Item WireWorld head(wireworld.head) with wireworld
+(ITEMS) Tagging Item WireWorld head(wireworld.tail) with wireworld
+(ITEMS) Tagging Item Chatbox(wireworld.chatter) with wireworld
+(ITEMS) Tagging Item AND(wireworld.and) with wireworld
+(ITEMS) Tagging Item OR(wireworld.or) with wireworld
+(ITEMS) Tagging Item XOR(wireworld.xor) with wireworld
+(ITEMS) Tagging Item Button(wireworld.button) with wireworld
+(ITEMS) Tagging Item Toggle Latch(wireworld.toggle) with wireworld
+(ITEMS) Tagging Item YES(wireworld.yes) with wireworld
+(ITEMS) Tagging Item NOT(wireworld.not) with wireworld
+(ITEMS) Tagging Item Random if(wireworld.randomctrl) with wireworld
+(ITEMS) Tagging Block Always True(wireworld.true) with wireworld
+(ITEMS) Tagging Block Random(wireworld.random) with wireworld
+(ITEMS) Tagging Block Active Switch(wireworld.on) with wireworld
+(ITEMS) Tagging Block Inactive Switch(wireworld.off) with wireworld
+(ITEMS) Tagging Item Uniform Random(wireworld.urandom) with wireworld
+(ITEMS) Tagging Item Lamp(wireworld.lamp) with wireworld
+(ITEMS) Tagging Item Player Pipe - straight(playerpipe.straight) with player-pipe
+(ITEMS) Tagging Item Player Pipe - turn(playerpipe.bend) with player-pipe
+(ITEMS) Tagging Item Player Pipe - crossover(playerpipe.straight2) with player-pipe
+(ITEMS) Tagging Item Player Pipe - two bends(playerpipe.bend2) with player-pipe
+(ITEMS) Tagging Item Player Pipe - adjoin(playerpipe.adj) with player-pipe
+(ITEMS) Tagging Item Player Pipe - wye(playerpipe.adj2) with player-pipe
+(ITEMS) Tagging Item Player Pipe - end(playerpipe.end) with player-pipe
+(ITEMS) Tagging Block Pickaxe workbench(machines.pickbuilder) with workbench
+(BLOCKS) Adding crafting.1 with title Crafter Mk1 and description:
+ null
+(ITEMS) Adding crafting.1 with title Crafter Mk1 and description:
+ null
+(BLOCKS) Adding crafting.2 with title Crafter Mk2 and description:
+ null
+(ITEMS) Adding crafting.2 with title Crafter Mk2 and description:
+ null
+(BLOCKS) Adding crafting.3 with title Crafter Mk3 and description:
+ null
+(ITEMS) Adding crafting.3 with title Crafter Mk3 and description:
+ null
+(BLOCKS) Adding crafting.4 with title Crafter Mk4 and description:
+ null
+(ITEMS) Adding crafting.4 with title Crafter Mk4 and description:
+ null
+(BLOCKS) Adding crafting.5 with title Crafter Mk5 and description:
+ null
+(ITEMS) Adding crafting.5 with title Crafter Mk5 and description:
+ null
+(BLOCKS) Adding crafting.6 with title Crafter Mk6 and description:
+ null
+(ITEMS) Adding crafting.6 with title Crafter Mk6 and description:
+ null
+(ITEMS) Tagging Block Crafter Mk1(crafting.1) with workbench
+(ITEMS) Tagging Block Crafter Mk2(crafting.2) with workbench
+(ITEMS) Tagging Block Crafter Mk3(crafting.3) with workbench
+(ITEMS) Tagging Block Crafter Mk4(crafting.4) with workbench
+(ITEMS) Tagging Block Crafter Mk5(crafting.5) with workbench
+(ITEMS) Tagging Block Crafter Mk6(crafting.6) with workbench
+(ITEMS) Tagging Block Water(liquid.water) with fluid
+(ITEMS) Tagging Block Lava(liquid.lava) with fluid
+(ITEMS) Tagging Block Steam(liquid.steam) with fluid
+(ITEMS) Tagging Block Crash on load(REMOVE THIS) with special
+(ITEMS) Tagging Block Air(mmb.air) with special
+(ITEMS) Tagging Block Grass(mmb.grass) with special
+(ITEMS) Tagging Block Air(mmb.air) with basic
+(ITEMS) Tagging Block Grass(mmb.grass) with basic
+(ITEMS) Tagging Block Wooden planks(mmb.planks) with basic
+(ITEMS) Tagging Block Stone(mmb.stone) with basic
+(ITEMS) Tagging Block Leaves(mmb.leaves) with basic
+(ITEMS) Tagging Block Log(mmb.tree) with basic
+(ITEMS) Tagging Block Sand(mmb.sand) with basic
+(ITEMS) Tagging Block Gravel(mmb.gravel) with basic
+(ITEMS) Tagging Block Clay(mmb.clay) with basic
+(ITEMS) Tagging Block Water(liquid.water) with basic
 (BLOCKS) Adding block.rudimentary with title Rudimentary block and description:
  null
 (ITEMS) Adding block.rudimentary with title Rudimentary block and description:
@@ -796,30 +1425,32 @@
  null
 (ITEMS) Adding gear.rudimentary with title Rudimentary gear and description:
  null
-(BLOCKS) Adding crafting.1 with title Crafter Mk1 and description:
- null
-(ITEMS) Adding crafting.1 with title Crafter Mk1 and description:
- null
-(BLOCKS) Adding crafting.2 with title Crafter Mk2 and description:
- null
-(ITEMS) Adding crafting.2 with title Crafter Mk2 and description:
- null
-(BLOCKS) Adding crafting.3 with title Crafter Mk3 and description:
- null
-(ITEMS) Adding crafting.3 with title Crafter Mk3 and description:
- null
-(BLOCKS) Adding crafting.4 with title Crafter Mk4 and description:
- null
-(ITEMS) Adding crafting.4 with title Crafter Mk4 and description:
- null
-(BLOCKS) Adding crafting.5 with title Crafter Mk5 and description:
- null
-(ITEMS) Adding crafting.5 with title Crafter Mk5 and description:
- null
-(BLOCKS) Adding crafting.6 with title Crafter Mk6 and description:
- null
-(ITEMS) Adding crafting.6 with title Crafter Mk6 and description:
- null
+(ITEMS) Tagging Block Rudimentary block(block.rudimentary) with material-rudimentary
+(ITEMS) Tagging Item Rudimentary cluster(fcluster.rudimentary) with material-rudimentary
+(ITEMS) Tagging Item Rudimentary ingot(ingot.rudimentary) with material-rudimentary
+(ITEMS) Tagging Item Rudimentary fragment(frag.rudimentary) with material-rudimentary
+(ITEMS) Tagging Item Rudimentary nugget(nugget.rudimentary) with material-rudimentary
+(ITEMS) Tagging Item Rudimentary wire spool(wirespool.rudimentary) with material-rudimentary
+(ITEMS) Tagging Item Rudimentary large dust(ldust.rudimentary) with material-rudimentary
+(ITEMS) Tagging Item Rudimentary dust(dust.rudimentary) with material-rudimentary
+(ITEMS) Tagging Item Rudimentary small dust(mdust.rudimentary) with material-rudimentary
+(ITEMS) Tagging Item Rudimentary tiny dust(minidust.rudimentary) with material-rudimentary
+(ITEMS) Tagging Item Rudimentary plate(panel.rudimentary) with material-rudimentary
+(ITEMS) Tagging Item Rudimentary foil(foil.rudimentary) with material-rudimentary
+(ITEMS) Tagging Item Rudimentary gear(gear.rudimentary) with material-rudimentary
+(ITEMS) Tagging Block Rudimentary block(block.rudimentary) with shape-block
+(ITEMS) Tagging Item Rudimentary cluster(fcluster.rudimentary) with shape-cluster
+(ITEMS) Tagging Item Rudimentary ingot(ingot.rudimentary) with shape-base
+(ITEMS) Tagging Item Rudimentary fragment(frag.rudimentary) with shape-frag
+(ITEMS) Tagging Item Rudimentary nugget(nugget.rudimentary) with shape-nugget
+(ITEMS) Tagging Item Rudimentary wire spool(wirespool.rudimentary) with shape-wire
+(ITEMS) Tagging Item Rudimentary large dust(ldust.rudimentary) with shape-megadust
+(ITEMS) Tagging Item Rudimentary dust(dust.rudimentary) with shape-dust
+(ITEMS) Tagging Item Rudimentary small dust(mdust.rudimentary) with shape-smalldust
+(ITEMS) Tagging Item Rudimentary tiny dust(minidust.rudimentary) with shape-tinydust
+(ITEMS) Tagging Item Rudimentary plate(panel.rudimentary) with shape-panel
+(ITEMS) Tagging Item Rudimentary foil(foil.rudimentary) with shape-foil
+(ITEMS) Tagging Item Rudimentary gear(gear.rudimentary) with shape-gear
 (BLOCKS) Adding ore.rudimentary with title Rudimentary ore and description:
  null
 (ITEMS) Adding ore.rudimentary with title Rudimentary ore and description:
@@ -856,6 +1487,32 @@
  null
 (ITEMS) Adding gear.coal with title Coal gear and description:
  null
+(ITEMS) Tagging Block Coal block(block.coal) with material-coal
+(ITEMS) Tagging Item Coal cluster(fcluster.coal) with material-coal
+(ITEMS) Tagging Item Coal(gem.coal) with material-coal
+(ITEMS) Tagging Item Coal fragment(frag.coal) with material-coal
+(ITEMS) Tagging Item Coal nugget(nugget.coal) with material-coal
+(ITEMS) Tagging Item Coal wire spool(wirespool.coal) with material-coal
+(ITEMS) Tagging Item Coal large dust(ldust.coal) with material-coal
+(ITEMS) Tagging Item Coal dust(dust.coal) with material-coal
+(ITEMS) Tagging Item Coal small dust(mdust.coal) with material-coal
+(ITEMS) Tagging Item Coal tiny dust(minidust.coal) with material-coal
+(ITEMS) Tagging Item Coal plate(panel.coal) with material-coal
+(ITEMS) Tagging Item Coal foil(foil.coal) with material-coal
+(ITEMS) Tagging Item Coal gear(gear.coal) with material-coal
+(ITEMS) Tagging Block Coal block(block.coal) with shape-block
+(ITEMS) Tagging Item Coal cluster(fcluster.coal) with shape-cluster
+(ITEMS) Tagging Item Coal(gem.coal) with shape-base
+(ITEMS) Tagging Item Coal fragment(frag.coal) with shape-frag
+(ITEMS) Tagging Item Coal nugget(nugget.coal) with shape-nugget
+(ITEMS) Tagging Item Coal wire spool(wirespool.coal) with shape-wire
+(ITEMS) Tagging Item Coal large dust(ldust.coal) with shape-megadust
+(ITEMS) Tagging Item Coal dust(dust.coal) with shape-dust
+(ITEMS) Tagging Item Coal small dust(mdust.coal) with shape-smalldust
+(ITEMS) Tagging Item Coal tiny dust(minidust.coal) with shape-tinydust
+(ITEMS) Tagging Item Coal plate(panel.coal) with shape-panel
+(ITEMS) Tagging Item Coal foil(foil.coal) with shape-foil
+(ITEMS) Tagging Item Coal gear(gear.coal) with shape-gear
 (BLOCKS) Adding block.copper with title Copper block and description:
  null
 (ITEMS) Adding block.copper with title Copper block and description:
@@ -884,6 +1541,32 @@
  null
 (ITEMS) Adding gear.copper with title Copper gear and description:
  null
+(ITEMS) Tagging Block Copper block(block.copper) with material-copper
+(ITEMS) Tagging Item Copper cluster(fcluster.copper) with material-copper
+(ITEMS) Tagging Item Copper ingot(ingot.copper) with material-copper
+(ITEMS) Tagging Item Copper fragment(frag.copper) with material-copper
+(ITEMS) Tagging Item Copper nugget(nugget.copper) with material-copper
+(ITEMS) Tagging Item Copper wire spool(wirespool.copper) with material-copper
+(ITEMS) Tagging Item Copper large dust(ldust.copper) with material-copper
+(ITEMS) Tagging Item Copper dust(dust.copper) with material-copper
+(ITEMS) Tagging Item Copper small dust(mdust.copper) with material-copper
+(ITEMS) Tagging Item Copper tiny dust(minidust.copper) with material-copper
+(ITEMS) Tagging Item Copper plate(panel.copper) with material-copper
+(ITEMS) Tagging Item Copper foil(foil.copper) with material-copper
+(ITEMS) Tagging Item Copper gear(gear.copper) with material-copper
+(ITEMS) Tagging Block Copper block(block.copper) with shape-block
+(ITEMS) Tagging Item Copper cluster(fcluster.copper) with shape-cluster
+(ITEMS) Tagging Item Copper ingot(ingot.copper) with shape-base
+(ITEMS) Tagging Item Copper fragment(frag.copper) with shape-frag
+(ITEMS) Tagging Item Copper nugget(nugget.copper) with shape-nugget
+(ITEMS) Tagging Item Copper wire spool(wirespool.copper) with shape-wire
+(ITEMS) Tagging Item Copper large dust(ldust.copper) with shape-megadust
+(ITEMS) Tagging Item Copper dust(dust.copper) with shape-dust
+(ITEMS) Tagging Item Copper small dust(mdust.copper) with shape-smalldust
+(ITEMS) Tagging Item Copper tiny dust(minidust.copper) with shape-tinydust
+(ITEMS) Tagging Item Copper plate(panel.copper) with shape-panel
+(ITEMS) Tagging Item Copper foil(foil.copper) with shape-foil
+(ITEMS) Tagging Item Copper gear(gear.copper) with shape-gear
 (BLOCKS) Adding ore.copper with title Copper ore and description:
  null
 (ITEMS) Adding ore.copper with title Copper ore and description:
@@ -920,6 +1603,32 @@
  null
 (ITEMS) Adding gear.iron with title Iron gear and description:
  null
+(ITEMS) Tagging Block Iron block(block.iron) with material-iron
+(ITEMS) Tagging Item Iron cluster(fcluster.iron) with material-iron
+(ITEMS) Tagging Item Iron ingot(ingot.iron) with material-iron
+(ITEMS) Tagging Item Iron fragment(frag.iron) with material-iron
+(ITEMS) Tagging Item Iron nugget(nugget.iron) with material-iron
+(ITEMS) Tagging Item Iron wire spool(wirespool.iron) with material-iron
+(ITEMS) Tagging Item Iron large dust(ldust.iron) with material-iron
+(ITEMS) Tagging Item Iron dust(dust.iron) with material-iron
+(ITEMS) Tagging Item Iron small dust(mdust.iron) with material-iron
+(ITEMS) Tagging Item Iron tiny dust(minidust.iron) with material-iron
+(ITEMS) Tagging Item Iron plate(panel.iron) with material-iron
+(ITEMS) Tagging Item Iron foil(foil.iron) with material-iron
+(ITEMS) Tagging Item Iron gear(gear.iron) with material-iron
+(ITEMS) Tagging Block Iron block(block.iron) with shape-block
+(ITEMS) Tagging Item Iron cluster(fcluster.iron) with shape-cluster
+(ITEMS) Tagging Item Iron ingot(ingot.iron) with shape-base
+(ITEMS) Tagging Item Iron fragment(frag.iron) with shape-frag
+(ITEMS) Tagging Item Iron nugget(nugget.iron) with shape-nugget
+(ITEMS) Tagging Item Iron wire spool(wirespool.iron) with shape-wire
+(ITEMS) Tagging Item Iron large dust(ldust.iron) with shape-megadust
+(ITEMS) Tagging Item Iron dust(dust.iron) with shape-dust
+(ITEMS) Tagging Item Iron small dust(mdust.iron) with shape-smalldust
+(ITEMS) Tagging Item Iron tiny dust(minidust.iron) with shape-tinydust
+(ITEMS) Tagging Item Iron plate(panel.iron) with shape-panel
+(ITEMS) Tagging Item Iron foil(foil.iron) with shape-foil
+(ITEMS) Tagging Item Iron gear(gear.iron) with shape-gear
 (BLOCKS) Adding ore.iron with title Iron ore and description:
  null
 (ITEMS) Adding ore.iron with title Iron ore and description:
@@ -956,6 +1665,32 @@
  null
 (ITEMS) Adding gear.silicon with title Silicon gear and description:
  null
+(ITEMS) Tagging Block Silicon block(block.silicon) with material-silicon
+(ITEMS) Tagging Item Silicon cluster(fcluster.silicon) with material-silicon
+(ITEMS) Tagging Item Silicon ingot(ingot.silicon) with material-silicon
+(ITEMS) Tagging Item Silicon fragment(frag.silicon) with material-silicon
+(ITEMS) Tagging Item Silicon nugget(nugget.silicon) with material-silicon
+(ITEMS) Tagging Item Silicon wire spool(wirespool.silicon) with material-silicon
+(ITEMS) Tagging Item Silicon large dust(ldust.silicon) with material-silicon
+(ITEMS) Tagging Item Silicon dust(dust.silicon) with material-silicon
+(ITEMS) Tagging Item Silicon small dust(mdust.silicon) with material-silicon
+(ITEMS) Tagging Item Silicon tiny dust(minidust.silicon) with material-silicon
+(ITEMS) Tagging Item Silicon plate(panel.silicon) with material-silicon
+(ITEMS) Tagging Item Silicon foil(foil.silicon) with material-silicon
+(ITEMS) Tagging Item Silicon gear(gear.silicon) with material-silicon
+(ITEMS) Tagging Block Silicon block(block.silicon) with shape-block
+(ITEMS) Tagging Item Silicon cluster(fcluster.silicon) with shape-cluster
+(ITEMS) Tagging Item Silicon ingot(ingot.silicon) with shape-base
+(ITEMS) Tagging Item Silicon fragment(frag.silicon) with shape-frag
+(ITEMS) Tagging Item Silicon nugget(nugget.silicon) with shape-nugget
+(ITEMS) Tagging Item Silicon wire spool(wirespool.silicon) with shape-wire
+(ITEMS) Tagging Item Silicon large dust(ldust.silicon) with shape-megadust
+(ITEMS) Tagging Item Silicon dust(dust.silicon) with shape-dust
+(ITEMS) Tagging Item Silicon small dust(mdust.silicon) with shape-smalldust
+(ITEMS) Tagging Item Silicon tiny dust(minidust.silicon) with shape-tinydust
+(ITEMS) Tagging Item Silicon plate(panel.silicon) with shape-panel
+(ITEMS) Tagging Item Silicon foil(foil.silicon) with shape-foil
+(ITEMS) Tagging Item Silicon gear(gear.silicon) with shape-gear
 (BLOCKS) Adding ore.silicon with title Silicon ore and description:
  null
 (ITEMS) Adding ore.silicon with title Silicon ore and description:
@@ -992,6 +1727,32 @@
  null
 (ITEMS) Adding gear.tin with title Tin gear and description:
  null
+(ITEMS) Tagging Block Tin block(block.tin) with material-tin
+(ITEMS) Tagging Item Tin cluster(fcluster.tin) with material-tin
+(ITEMS) Tagging Item Tin ingot(ingot.tin) with material-tin
+(ITEMS) Tagging Item Tin fragment(frag.tin) with material-tin
+(ITEMS) Tagging Item Tin nugget(nugget.tin) with material-tin
+(ITEMS) Tagging Item Tin wire spool(wirespool.tin) with material-tin
+(ITEMS) Tagging Item Tin large dust(ldust.tin) with material-tin
+(ITEMS) Tagging Item Tin dust(dust.tin) with material-tin
+(ITEMS) Tagging Item Tin small dust(mdust.tin) with material-tin
+(ITEMS) Tagging Item Tin tiny dust(minidust.tin) with material-tin
+(ITEMS) Tagging Item Tin plate(panel.tin) with material-tin
+(ITEMS) Tagging Item Tin foil(foil.tin) with material-tin
+(ITEMS) Tagging Item Tin gear(gear.tin) with material-tin
+(ITEMS) Tagging Block Tin block(block.tin) with shape-block
+(ITEMS) Tagging Item Tin cluster(fcluster.tin) with shape-cluster
+(ITEMS) Tagging Item Tin ingot(ingot.tin) with shape-base
+(ITEMS) Tagging Item Tin fragment(frag.tin) with shape-frag
+(ITEMS) Tagging Item Tin nugget(nugget.tin) with shape-nugget
+(ITEMS) Tagging Item Tin wire spool(wirespool.tin) with shape-wire
+(ITEMS) Tagging Item Tin large dust(ldust.tin) with shape-megadust
+(ITEMS) Tagging Item Tin dust(dust.tin) with shape-dust
+(ITEMS) Tagging Item Tin small dust(mdust.tin) with shape-smalldust
+(ITEMS) Tagging Item Tin tiny dust(minidust.tin) with shape-tinydust
+(ITEMS) Tagging Item Tin plate(panel.tin) with shape-panel
+(ITEMS) Tagging Item Tin foil(foil.tin) with shape-foil
+(ITEMS) Tagging Item Tin gear(gear.tin) with shape-gear
 (BLOCKS) Adding ore.tin with title Tin ore and description:
  null
 (ITEMS) Adding ore.tin with title Tin ore and description:
@@ -1028,6 +1789,32 @@
  null
 (ITEMS) Adding gear.zinc with title Zinc gear and description:
  null
+(ITEMS) Tagging Block Zinc block(block.zinc) with material-zinc
+(ITEMS) Tagging Item Zinc cluster(fcluster.zinc) with material-zinc
+(ITEMS) Tagging Item Zinc ingot(ingot.zinc) with material-zinc
+(ITEMS) Tagging Item Zinc fragment(frag.zinc) with material-zinc
+(ITEMS) Tagging Item Zinc nugget(nugget.zinc) with material-zinc
+(ITEMS) Tagging Item Zinc wire spool(wirespool.zinc) with material-zinc
+(ITEMS) Tagging Item Zinc large dust(ldust.zinc) with material-zinc
+(ITEMS) Tagging Item Zinc dust(dust.zinc) with material-zinc
+(ITEMS) Tagging Item Zinc small dust(mdust.zinc) with material-zinc
+(ITEMS) Tagging Item Zinc tiny dust(minidust.zinc) with material-zinc
+(ITEMS) Tagging Item Zinc plate(panel.zinc) with material-zinc
+(ITEMS) Tagging Item Zinc foil(foil.zinc) with material-zinc
+(ITEMS) Tagging Item Zinc gear(gear.zinc) with material-zinc
+(ITEMS) Tagging Block Zinc block(block.zinc) with shape-block
+(ITEMS) Tagging Item Zinc cluster(fcluster.zinc) with shape-cluster
+(ITEMS) Tagging Item Zinc ingot(ingot.zinc) with shape-base
+(ITEMS) Tagging Item Zinc fragment(frag.zinc) with shape-frag
+(ITEMS) Tagging Item Zinc nugget(nugget.zinc) with shape-nugget
+(ITEMS) Tagging Item Zinc wire spool(wirespool.zinc) with shape-wire
+(ITEMS) Tagging Item Zinc large dust(ldust.zinc) with shape-megadust
+(ITEMS) Tagging Item Zinc dust(dust.zinc) with shape-dust
+(ITEMS) Tagging Item Zinc small dust(mdust.zinc) with shape-smalldust
+(ITEMS) Tagging Item Zinc tiny dust(minidust.zinc) with shape-tinydust
+(ITEMS) Tagging Item Zinc plate(panel.zinc) with shape-panel
+(ITEMS) Tagging Item Zinc foil(foil.zinc) with shape-foil
+(ITEMS) Tagging Item Zinc gear(gear.zinc) with shape-gear
 (BLOCKS) Adding ore.zinc with title Zinc ore and description:
  null
 (ITEMS) Adding ore.zinc with title Zinc ore and description:
@@ -1064,6 +1851,32 @@
  null
 (ITEMS) Adding gear.alu with title Aluminum gear and description:
  null
+(ITEMS) Tagging Block Aluminum block(block.alu) with material-alu
+(ITEMS) Tagging Item Aluminum cluster(fcluster.alu) with material-alu
+(ITEMS) Tagging Item Aluminum ingot(ingot.alu) with material-alu
+(ITEMS) Tagging Item Aluminum fragment(frag.alu) with material-alu
+(ITEMS) Tagging Item Aluminum nugget(nugget.alu) with material-alu
+(ITEMS) Tagging Item Aluminum wire spool(wirespool.alu) with material-alu
+(ITEMS) Tagging Item Aluminum large dust(ldust.alu) with material-alu
+(ITEMS) Tagging Item Aluminum dust(dust.alu) with material-alu
+(ITEMS) Tagging Item Aluminum small dust(mdust.alu) with material-alu
+(ITEMS) Tagging Item Aluminum tiny dust(minidust.alu) with material-alu
+(ITEMS) Tagging Item Aluminum plate(panel.alu) with material-alu
+(ITEMS) Tagging Item Aluminum foil(foil.alu) with material-alu
+(ITEMS) Tagging Item Aluminum gear(gear.alu) with material-alu
+(ITEMS) Tagging Block Aluminum block(block.alu) with shape-block
+(ITEMS) Tagging Item Aluminum cluster(fcluster.alu) with shape-cluster
+(ITEMS) Tagging Item Aluminum ingot(ingot.alu) with shape-base
+(ITEMS) Tagging Item Aluminum fragment(frag.alu) with shape-frag
+(ITEMS) Tagging Item Aluminum nugget(nugget.alu) with shape-nugget
+(ITEMS) Tagging Item Aluminum wire spool(wirespool.alu) with shape-wire
+(ITEMS) Tagging Item Aluminum large dust(ldust.alu) with shape-megadust
+(ITEMS) Tagging Item Aluminum dust(dust.alu) with shape-dust
+(ITEMS) Tagging Item Aluminum small dust(mdust.alu) with shape-smalldust
+(ITEMS) Tagging Item Aluminum tiny dust(minidust.alu) with shape-tinydust
+(ITEMS) Tagging Item Aluminum plate(panel.alu) with shape-panel
+(ITEMS) Tagging Item Aluminum foil(foil.alu) with shape-foil
+(ITEMS) Tagging Item Aluminum gear(gear.alu) with shape-gear
 (BLOCKS) Adding ore.alu with title Aluminum ore and description:
  null
 (ITEMS) Adding ore.alu with title Aluminum ore and description:
@@ -1100,6 +1913,32 @@
  null
 (ITEMS) Adding gear.lead with title Lead gear and description:
  null
+(ITEMS) Tagging Block Lead block(block.lead) with material-lead
+(ITEMS) Tagging Item Lead cluster(fcluster.lead) with material-lead
+(ITEMS) Tagging Item Lead ingot(ingot.lead) with material-lead
+(ITEMS) Tagging Item Lead fragment(frag.lead) with material-lead
+(ITEMS) Tagging Item Lead nugget(nugget.lead) with material-lead
+(ITEMS) Tagging Item Lead wire spool(wirespool.lead) with material-lead
+(ITEMS) Tagging Item Lead large dust(ldust.lead) with material-lead
+(ITEMS) Tagging Item Lead dust(dust.lead) with material-lead
+(ITEMS) Tagging Item Lead small dust(mdust.lead) with material-lead
+(ITEMS) Tagging Item Lead tiny dust(minidust.lead) with material-lead
+(ITEMS) Tagging Item Lead plate(panel.lead) with material-lead
+(ITEMS) Tagging Item Lead foil(foil.lead) with material-lead
+(ITEMS) Tagging Item Lead gear(gear.lead) with material-lead
+(ITEMS) Tagging Block Lead block(block.lead) with shape-block
+(ITEMS) Tagging Item Lead cluster(fcluster.lead) with shape-cluster
+(ITEMS) Tagging Item Lead ingot(ingot.lead) with shape-base
+(ITEMS) Tagging Item Lead fragment(frag.lead) with shape-frag
+(ITEMS) Tagging Item Lead nugget(nugget.lead) with shape-nugget
+(ITEMS) Tagging Item Lead wire spool(wirespool.lead) with shape-wire
+(ITEMS) Tagging Item Lead large dust(ldust.lead) with shape-megadust
+(ITEMS) Tagging Item Lead dust(dust.lead) with shape-dust
+(ITEMS) Tagging Item Lead small dust(mdust.lead) with shape-smalldust
+(ITEMS) Tagging Item Lead tiny dust(minidust.lead) with shape-tinydust
+(ITEMS) Tagging Item Lead plate(panel.lead) with shape-panel
+(ITEMS) Tagging Item Lead foil(foil.lead) with shape-foil
+(ITEMS) Tagging Item Lead gear(gear.lead) with shape-gear
 (BLOCKS) Adding ore.lead with title Lead ore and description:
  null
 (ITEMS) Adding ore.lead with title Lead ore and description:
@@ -1136,6 +1975,32 @@
  null
 (ITEMS) Adding gear.nickel with title Nickel gear and description:
  null
+(ITEMS) Tagging Block Nickel block(block.nickel) with material-nickel
+(ITEMS) Tagging Item Nickel cluster(fcluster.nickel) with material-nickel
+(ITEMS) Tagging Item Nickel ingot(ingot.nickel) with material-nickel
+(ITEMS) Tagging Item Nickel fragment(frag.nickel) with material-nickel
+(ITEMS) Tagging Item Nickel nugget(nugget.nickel) with material-nickel
+(ITEMS) Tagging Item Nickel wire spool(wirespool.nickel) with material-nickel
+(ITEMS) Tagging Item Nickel large dust(ldust.nickel) with material-nickel
+(ITEMS) Tagging Item Nickel dust(dust.nickel) with material-nickel
+(ITEMS) Tagging Item Nickel small dust(mdust.nickel) with material-nickel
+(ITEMS) Tagging Item Nickel tiny dust(minidust.nickel) with material-nickel
+(ITEMS) Tagging Item Nickel plate(panel.nickel) with material-nickel
+(ITEMS) Tagging Item Nickel foil(foil.nickel) with material-nickel
+(ITEMS) Tagging Item Nickel gear(gear.nickel) with material-nickel
+(ITEMS) Tagging Block Nickel block(block.nickel) with shape-block
+(ITEMS) Tagging Item Nickel cluster(fcluster.nickel) with shape-cluster
+(ITEMS) Tagging Item Nickel ingot(ingot.nickel) with shape-base
+(ITEMS) Tagging Item Nickel fragment(frag.nickel) with shape-frag
+(ITEMS) Tagging Item Nickel nugget(nugget.nickel) with shape-nugget
+(ITEMS) Tagging Item Nickel wire spool(wirespool.nickel) with shape-wire
+(ITEMS) Tagging Item Nickel large dust(ldust.nickel) with shape-megadust
+(ITEMS) Tagging Item Nickel dust(dust.nickel) with shape-dust
+(ITEMS) Tagging Item Nickel small dust(mdust.nickel) with shape-smalldust
+(ITEMS) Tagging Item Nickel tiny dust(minidust.nickel) with shape-tinydust
+(ITEMS) Tagging Item Nickel plate(panel.nickel) with shape-panel
+(ITEMS) Tagging Item Nickel foil(foil.nickel) with shape-foil
+(ITEMS) Tagging Item Nickel gear(gear.nickel) with shape-gear
 (BLOCKS) Adding ore.nickel with title Nickel ore and description:
  null
 (ITEMS) Adding ore.nickel with title Nickel ore and description:
@@ -1144,6 +2009,60 @@
  null
 (ITEMS) Adding crop.nickel with title Nickel crop and description:
  null
+(BLOCKS) Adding block.redstone with title Redstone block and description:
+ null
+(ITEMS) Adding block.redstone with title Redstone block and description:
+ null
+(ITEMS) Adding fcluster.redstone with title Redstone cluster and description:
+ null
+(ITEMS) Adding gem.redstone with title Redstone and description:
+ null
+(ITEMS) Adding frag.redstone with title Redstone fragment and description:
+ null
+(ITEMS) Adding nugget.redstone with title Redstone nugget and description:
+ null
+(ITEMS) Adding wirespool.redstone with title Redstone wire spool and description:
+ null
+(ITEMS) Adding ldust.redstone with title Redstone large dust and description:
+ null
+(ITEMS) Adding dust.redstone with title Redstone dust and description:
+ null
+(ITEMS) Adding mdust.redstone with title Redstone small dust and description:
+ null
+(ITEMS) Adding minidust.redstone with title Redstone tiny dust and description:
+ null
+(ITEMS) Adding panel.redstone with title Redstone plate and description:
+ null
+(ITEMS) Adding foil.redstone with title Redstone foil and description:
+ null
+(ITEMS) Adding gear.redstone with title Redstone gear and description:
+ null
+(ITEMS) Tagging Block Redstone block(block.redstone) with material-redstone
+(ITEMS) Tagging Item Redstone cluster(fcluster.redstone) with material-redstone
+(ITEMS) Tagging Item Redstone(gem.redstone) with material-redstone
+(ITEMS) Tagging Item Redstone fragment(frag.redstone) with material-redstone
+(ITEMS) Tagging Item Redstone nugget(nugget.redstone) with material-redstone
+(ITEMS) Tagging Item Redstone wire spool(wirespool.redstone) with material-redstone
+(ITEMS) Tagging Item Redstone large dust(ldust.redstone) with material-redstone
+(ITEMS) Tagging Item Redstone dust(dust.redstone) with material-redstone
+(ITEMS) Tagging Item Redstone small dust(mdust.redstone) with material-redstone
+(ITEMS) Tagging Item Redstone tiny dust(minidust.redstone) with material-redstone
+(ITEMS) Tagging Item Redstone plate(panel.redstone) with material-redstone
+(ITEMS) Tagging Item Redstone foil(foil.redstone) with material-redstone
+(ITEMS) Tagging Item Redstone gear(gear.redstone) with material-redstone
+(ITEMS) Tagging Block Redstone block(block.redstone) with shape-block
+(ITEMS) Tagging Item Redstone cluster(fcluster.redstone) with shape-cluster
+(ITEMS) Tagging Item Redstone(gem.redstone) with shape-base
+(ITEMS) Tagging Item Redstone fragment(frag.redstone) with shape-frag
+(ITEMS) Tagging Item Redstone nugget(nugget.redstone) with shape-nugget
+(ITEMS) Tagging Item Redstone wire spool(wirespool.redstone) with shape-wire
+(ITEMS) Tagging Item Redstone large dust(ldust.redstone) with shape-megadust
+(ITEMS) Tagging Item Redstone dust(dust.redstone) with shape-dust
+(ITEMS) Tagging Item Redstone small dust(mdust.redstone) with shape-smalldust
+(ITEMS) Tagging Item Redstone tiny dust(minidust.redstone) with shape-tinydust
+(ITEMS) Tagging Item Redstone plate(panel.redstone) with shape-panel
+(ITEMS) Tagging Item Redstone foil(foil.redstone) with shape-foil
+(ITEMS) Tagging Item Redstone gear(gear.redstone) with shape-gear
 (BLOCKS) Adding block.silver with title Silver block and description:
  null
 (ITEMS) Adding block.silver with title Silver block and description:
@@ -1172,6 +2091,32 @@
  null
 (ITEMS) Adding gear.silver with title Silver gear and description:
  null
+(ITEMS) Tagging Block Silver block(block.silver) with material-silver
+(ITEMS) Tagging Item Silver cluster(fcluster.silver) with material-silver
+(ITEMS) Tagging Item Silver ingot(ingot.silver) with material-silver
+(ITEMS) Tagging Item Silver fragment(frag.silver) with material-silver
+(ITEMS) Tagging Item Silver nugget(nugget.silver) with material-silver
+(ITEMS) Tagging Item Silver wire spool(wirespool.silver) with material-silver
+(ITEMS) Tagging Item Silver large dust(ldust.silver) with material-silver
+(ITEMS) Tagging Item Silver dust(dust.silver) with material-silver
+(ITEMS) Tagging Item Silver small dust(mdust.silver) with material-silver
+(ITEMS) Tagging Item Silver tiny dust(minidust.silver) with material-silver
+(ITEMS) Tagging Item Silver plate(panel.silver) with material-silver
+(ITEMS) Tagging Item Silver foil(foil.silver) with material-silver
+(ITEMS) Tagging Item Silver gear(gear.silver) with material-silver
+(ITEMS) Tagging Block Silver block(block.silver) with shape-block
+(ITEMS) Tagging Item Silver cluster(fcluster.silver) with shape-cluster
+(ITEMS) Tagging Item Silver ingot(ingot.silver) with shape-base
+(ITEMS) Tagging Item Silver fragment(frag.silver) with shape-frag
+(ITEMS) Tagging Item Silver nugget(nugget.silver) with shape-nugget
+(ITEMS) Tagging Item Silver wire spool(wirespool.silver) with shape-wire
+(ITEMS) Tagging Item Silver large dust(ldust.silver) with shape-megadust
+(ITEMS) Tagging Item Silver dust(dust.silver) with shape-dust
+(ITEMS) Tagging Item Silver small dust(mdust.silver) with shape-smalldust
+(ITEMS) Tagging Item Silver tiny dust(minidust.silver) with shape-tinydust
+(ITEMS) Tagging Item Silver plate(panel.silver) with shape-panel
+(ITEMS) Tagging Item Silver foil(foil.silver) with shape-foil
+(ITEMS) Tagging Item Silver gear(gear.silver) with shape-gear
 (BLOCKS) Adding ore.silver with title Silver ore and description:
  null
 (ITEMS) Adding ore.silver with title Silver ore and description:
@@ -1208,6 +2153,32 @@
  null
 (ITEMS) Adding gear.uranium with title Uranium gear and description:
  null
+(ITEMS) Tagging Block Uranium block(block.uranium) with material-uranium
+(ITEMS) Tagging Item Uranium cluster(fcluster.uranium) with material-uranium
+(ITEMS) Tagging Item Uranium ingot(ingot.uranium) with material-uranium
+(ITEMS) Tagging Item Uranium fragment(frag.uranium) with material-uranium
+(ITEMS) Tagging Item Uranium nugget(nugget.uranium) with material-uranium
+(ITEMS) Tagging Item Uranium wire spool(wirespool.uranium) with material-uranium
+(ITEMS) Tagging Item Uranium large dust(ldust.uranium) with material-uranium
+(ITEMS) Tagging Item Uranium dust(dust.uranium) with material-uranium
+(ITEMS) Tagging Item Uranium small dust(mdust.uranium) with material-uranium
+(ITEMS) Tagging Item Uranium tiny dust(minidust.uranium) with material-uranium
+(ITEMS) Tagging Item Uranium plate(panel.uranium) with material-uranium
+(ITEMS) Tagging Item Uranium foil(foil.uranium) with material-uranium
+(ITEMS) Tagging Item Uranium gear(gear.uranium) with material-uranium
+(ITEMS) Tagging Block Uranium block(block.uranium) with shape-block
+(ITEMS) Tagging Item Uranium cluster(fcluster.uranium) with shape-cluster
+(ITEMS) Tagging Item Uranium ingot(ingot.uranium) with shape-base
+(ITEMS) Tagging Item Uranium fragment(frag.uranium) with shape-frag
+(ITEMS) Tagging Item Uranium nugget(nugget.uranium) with shape-nugget
+(ITEMS) Tagging Item Uranium wire spool(wirespool.uranium) with shape-wire
+(ITEMS) Tagging Item Uranium large dust(ldust.uranium) with shape-megadust
+(ITEMS) Tagging Item Uranium dust(dust.uranium) with shape-dust
+(ITEMS) Tagging Item Uranium small dust(mdust.uranium) with shape-smalldust
+(ITEMS) Tagging Item Uranium tiny dust(minidust.uranium) with shape-tinydust
+(ITEMS) Tagging Item Uranium plate(panel.uranium) with shape-panel
+(ITEMS) Tagging Item Uranium foil(foil.uranium) with shape-foil
+(ITEMS) Tagging Item Uranium gear(gear.uranium) with shape-gear
 (BLOCKS) Adding ore.uranium with title Uranium ore and description:
  null
 (ITEMS) Adding ore.uranium with title Uranium ore and description:
@@ -1244,6 +2215,32 @@
  null
 (ITEMS) Adding gear.steel with title Steel gear and description:
  null
+(ITEMS) Tagging Block Steel block(block.steel) with material-steel
+(ITEMS) Tagging Item Steel cluster(fcluster.steel) with material-steel
+(ITEMS) Tagging Item Steel ingot(ingot.steel) with material-steel
+(ITEMS) Tagging Item Steel fragment(frag.steel) with material-steel
+(ITEMS) Tagging Item Steel nugget(nugget.steel) with material-steel
+(ITEMS) Tagging Item Steel wire spool(wirespool.steel) with material-steel
+(ITEMS) Tagging Item Steel large dust(ldust.steel) with material-steel
+(ITEMS) Tagging Item Steel dust(dust.steel) with material-steel
+(ITEMS) Tagging Item Steel small dust(mdust.steel) with material-steel
+(ITEMS) Tagging Item Steel tiny dust(minidust.steel) with material-steel
+(ITEMS) Tagging Item Steel plate(panel.steel) with material-steel
+(ITEMS) Tagging Item Steel foil(foil.steel) with material-steel
+(ITEMS) Tagging Item Steel gear(gear.steel) with material-steel
+(ITEMS) Tagging Block Steel block(block.steel) with shape-block
+(ITEMS) Tagging Item Steel cluster(fcluster.steel) with shape-cluster
+(ITEMS) Tagging Item Steel ingot(ingot.steel) with shape-base
+(ITEMS) Tagging Item Steel fragment(frag.steel) with shape-frag
+(ITEMS) Tagging Item Steel nugget(nugget.steel) with shape-nugget
+(ITEMS) Tagging Item Steel wire spool(wirespool.steel) with shape-wire
+(ITEMS) Tagging Item Steel large dust(ldust.steel) with shape-megadust
+(ITEMS) Tagging Item Steel dust(dust.steel) with shape-dust
+(ITEMS) Tagging Item Steel small dust(mdust.steel) with shape-smalldust
+(ITEMS) Tagging Item Steel tiny dust(minidust.steel) with shape-tinydust
+(ITEMS) Tagging Item Steel plate(panel.steel) with shape-panel
+(ITEMS) Tagging Item Steel foil(foil.steel) with shape-foil
+(ITEMS) Tagging Item Steel gear(gear.steel) with shape-gear
 (BLOCKS) Adding block.bronze with title Bronze block and description:
  null
 (ITEMS) Adding block.bronze with title Bronze block and description:
@@ -1272,6 +2269,32 @@
  null
 (ITEMS) Adding gear.bronze with title Bronze gear and description:
  null
+(ITEMS) Tagging Block Bronze block(block.bronze) with material-bronze
+(ITEMS) Tagging Item Bronze cluster(fcluster.bronze) with material-bronze
+(ITEMS) Tagging Item Bronze ingot(ingot.bronze) with material-bronze
+(ITEMS) Tagging Item Bronze fragment(frag.bronze) with material-bronze
+(ITEMS) Tagging Item Bronze nugget(nugget.bronze) with material-bronze
+(ITEMS) Tagging Item Bronze wire spool(wirespool.bronze) with material-bronze
+(ITEMS) Tagging Item Bronze large dust(ldust.bronze) with material-bronze
+(ITEMS) Tagging Item Bronze dust(dust.bronze) with material-bronze
+(ITEMS) Tagging Item Bronze small dust(mdust.bronze) with material-bronze
+(ITEMS) Tagging Item Bronze tiny dust(minidust.bronze) with material-bronze
+(ITEMS) Tagging Item Bronze plate(panel.bronze) with material-bronze
+(ITEMS) Tagging Item Bronze foil(foil.bronze) with material-bronze
+(ITEMS) Tagging Item Bronze gear(gear.bronze) with material-bronze
+(ITEMS) Tagging Block Bronze block(block.bronze) with shape-block
+(ITEMS) Tagging Item Bronze cluster(fcluster.bronze) with shape-cluster
+(ITEMS) Tagging Item Bronze ingot(ingot.bronze) with shape-base
+(ITEMS) Tagging Item Bronze fragment(frag.bronze) with shape-frag
+(ITEMS) Tagging Item Bronze nugget(nugget.bronze) with shape-nugget
+(ITEMS) Tagging Item Bronze wire spool(wirespool.bronze) with shape-wire
+(ITEMS) Tagging Item Bronze large dust(ldust.bronze) with shape-megadust
+(ITEMS) Tagging Item Bronze dust(dust.bronze) with shape-dust
+(ITEMS) Tagging Item Bronze small dust(mdust.bronze) with shape-smalldust
+(ITEMS) Tagging Item Bronze tiny dust(minidust.bronze) with shape-tinydust
+(ITEMS) Tagging Item Bronze plate(panel.bronze) with shape-panel
+(ITEMS) Tagging Item Bronze foil(foil.bronze) with shape-foil
+(ITEMS) Tagging Item Bronze gear(gear.bronze) with shape-gear
 (BLOCKS) Adding block.brass with title Brass block and description:
  null
 (ITEMS) Adding block.brass with title Brass block and description:
@@ -1300,6 +2323,148 @@
  null
 (ITEMS) Adding gear.brass with title Brass gear and description:
  null
+(ITEMS) Tagging Block Brass block(block.brass) with material-brass
+(ITEMS) Tagging Item Brass cluster(fcluster.brass) with material-brass
+(ITEMS) Tagging Item Brass ingot(ingot.brass) with material-brass
+(ITEMS) Tagging Item Brass fragment(frag.brass) with material-brass
+(ITEMS) Tagging Item Brass nugget(nugget.brass) with material-brass
+(ITEMS) Tagging Item Brass wire spool(wirespool.brass) with material-brass
+(ITEMS) Tagging Item Brass large dust(ldust.brass) with material-brass
+(ITEMS) Tagging Item Brass dust(dust.brass) with material-brass
+(ITEMS) Tagging Item Brass small dust(mdust.brass) with material-brass
+(ITEMS) Tagging Item Brass tiny dust(minidust.brass) with material-brass
+(ITEMS) Tagging Item Brass plate(panel.brass) with material-brass
+(ITEMS) Tagging Item Brass foil(foil.brass) with material-brass
+(ITEMS) Tagging Item Brass gear(gear.brass) with material-brass
+(ITEMS) Tagging Block Brass block(block.brass) with shape-block
+(ITEMS) Tagging Item Brass cluster(fcluster.brass) with shape-cluster
+(ITEMS) Tagging Item Brass ingot(ingot.brass) with shape-base
+(ITEMS) Tagging Item Brass fragment(frag.brass) with shape-frag
+(ITEMS) Tagging Item Brass nugget(nugget.brass) with shape-nugget
+(ITEMS) Tagging Item Brass wire spool(wirespool.brass) with shape-wire
+(ITEMS) Tagging Item Brass large dust(ldust.brass) with shape-megadust
+(ITEMS) Tagging Item Brass dust(dust.brass) with shape-dust
+(ITEMS) Tagging Item Brass small dust(mdust.brass) with shape-smalldust
+(ITEMS) Tagging Item Brass tiny dust(minidust.brass) with shape-tinydust
+(ITEMS) Tagging Item Brass plate(panel.brass) with shape-panel
+(ITEMS) Tagging Item Brass foil(foil.brass) with shape-foil
+(ITEMS) Tagging Item Brass gear(gear.brass) with shape-gear
+(BLOCKS) Adding block.chrome with title Chrome block and description:
+ null
+(ITEMS) Adding block.chrome with title Chrome block and description:
+ null
+(ITEMS) Adding fcluster.chrome with title Chrome cluster and description:
+ null
+(ITEMS) Adding ingot.chrome with title Chrome ingot and description:
+ null
+(ITEMS) Adding frag.chrome with title Chrome fragment and description:
+ null
+(ITEMS) Adding nugget.chrome with title Chrome nugget and description:
+ null
+(ITEMS) Adding wirespool.chrome with title Chrome wire spool and description:
+ null
+(ITEMS) Adding ldust.chrome with title Chrome large dust and description:
+ null
+(ITEMS) Adding dust.chrome with title Chrome dust and description:
+ null
+(ITEMS) Adding mdust.chrome with title Chrome small dust and description:
+ null
+(ITEMS) Adding minidust.chrome with title Chrome tiny dust and description:
+ null
+(ITEMS) Adding panel.chrome with title Chrome plate and description:
+ null
+(ITEMS) Adding foil.chrome with title Chrome foil and description:
+ null
+(ITEMS) Adding gear.chrome with title Chrome gear and description:
+ null
+(ITEMS) Tagging Block Chrome block(block.chrome) with material-chrome
+(ITEMS) Tagging Item Chrome cluster(fcluster.chrome) with material-chrome
+(ITEMS) Tagging Item Chrome ingot(ingot.chrome) with material-chrome
+(ITEMS) Tagging Item Chrome fragment(frag.chrome) with material-chrome
+(ITEMS) Tagging Item Chrome nugget(nugget.chrome) with material-chrome
+(ITEMS) Tagging Item Chrome wire spool(wirespool.chrome) with material-chrome
+(ITEMS) Tagging Item Chrome large dust(ldust.chrome) with material-chrome
+(ITEMS) Tagging Item Chrome dust(dust.chrome) with material-chrome
+(ITEMS) Tagging Item Chrome small dust(mdust.chrome) with material-chrome
+(ITEMS) Tagging Item Chrome tiny dust(minidust.chrome) with material-chrome
+(ITEMS) Tagging Item Chrome plate(panel.chrome) with material-chrome
+(ITEMS) Tagging Item Chrome foil(foil.chrome) with material-chrome
+(ITEMS) Tagging Item Chrome gear(gear.chrome) with material-chrome
+(ITEMS) Tagging Block Chrome block(block.chrome) with shape-block
+(ITEMS) Tagging Item Chrome cluster(fcluster.chrome) with shape-cluster
+(ITEMS) Tagging Item Chrome ingot(ingot.chrome) with shape-base
+(ITEMS) Tagging Item Chrome fragment(frag.chrome) with shape-frag
+(ITEMS) Tagging Item Chrome nugget(nugget.chrome) with shape-nugget
+(ITEMS) Tagging Item Chrome wire spool(wirespool.chrome) with shape-wire
+(ITEMS) Tagging Item Chrome large dust(ldust.chrome) with shape-megadust
+(ITEMS) Tagging Item Chrome dust(dust.chrome) with shape-dust
+(ITEMS) Tagging Item Chrome small dust(mdust.chrome) with shape-smalldust
+(ITEMS) Tagging Item Chrome tiny dust(minidust.chrome) with shape-tinydust
+(ITEMS) Tagging Item Chrome plate(panel.chrome) with shape-panel
+(ITEMS) Tagging Item Chrome foil(foil.chrome) with shape-foil
+(ITEMS) Tagging Item Chrome gear(gear.chrome) with shape-gear
+(BLOCKS) Adding ore.chrome with title Chrome ore and description:
+ null
+(ITEMS) Adding ore.chrome with title Chrome ore and description:
+ null
+(BLOCKS) Adding crop.chrome with title Chrome crop and description:
+ null
+(ITEMS) Adding crop.chrome with title Chrome crop and description:
+ null
+(BLOCKS) Adding block.nichrome with title Nichrome block and description:
+ null
+(ITEMS) Adding block.nichrome with title Nichrome block and description:
+ null
+(ITEMS) Adding fcluster.nichrome with title Nichrome cluster and description:
+ null
+(ITEMS) Adding ingot.nichrome with title Nichrome ingot and description:
+ null
+(ITEMS) Adding frag.nichrome with title Nichrome fragment and description:
+ null
+(ITEMS) Adding nugget.nichrome with title Nichrome nugget and description:
+ null
+(ITEMS) Adding wirespool.nichrome with title Nichrome wire spool and description:
+ null
+(ITEMS) Adding ldust.nichrome with title Nichrome large dust and description:
+ null
+(ITEMS) Adding dust.nichrome with title Nichrome dust and description:
+ null
+(ITEMS) Adding mdust.nichrome with title Nichrome small dust and description:
+ null
+(ITEMS) Adding minidust.nichrome with title Nichrome tiny dust and description:
+ null
+(ITEMS) Adding panel.nichrome with title Nichrome plate and description:
+ null
+(ITEMS) Adding foil.nichrome with title Nichrome foil and description:
+ null
+(ITEMS) Adding gear.nichrome with title Nichrome gear and description:
+ null
+(ITEMS) Tagging Block Nichrome block(block.nichrome) with material-nichrome
+(ITEMS) Tagging Item Nichrome cluster(fcluster.nichrome) with material-nichrome
+(ITEMS) Tagging Item Nichrome ingot(ingot.nichrome) with material-nichrome
+(ITEMS) Tagging Item Nichrome fragment(frag.nichrome) with material-nichrome
+(ITEMS) Tagging Item Nichrome nugget(nugget.nichrome) with material-nichrome
+(ITEMS) Tagging Item Nichrome wire spool(wirespool.nichrome) with material-nichrome
+(ITEMS) Tagging Item Nichrome large dust(ldust.nichrome) with material-nichrome
+(ITEMS) Tagging Item Nichrome dust(dust.nichrome) with material-nichrome
+(ITEMS) Tagging Item Nichrome small dust(mdust.nichrome) with material-nichrome
+(ITEMS) Tagging Item Nichrome tiny dust(minidust.nichrome) with material-nichrome
+(ITEMS) Tagging Item Nichrome plate(panel.nichrome) with material-nichrome
+(ITEMS) Tagging Item Nichrome foil(foil.nichrome) with material-nichrome
+(ITEMS) Tagging Item Nichrome gear(gear.nichrome) with material-nichrome
+(ITEMS) Tagging Block Nichrome block(block.nichrome) with shape-block
+(ITEMS) Tagging Item Nichrome cluster(fcluster.nichrome) with shape-cluster
+(ITEMS) Tagging Item Nichrome ingot(ingot.nichrome) with shape-base
+(ITEMS) Tagging Item Nichrome fragment(frag.nichrome) with shape-frag
+(ITEMS) Tagging Item Nichrome nugget(nugget.nichrome) with shape-nugget
+(ITEMS) Tagging Item Nichrome wire spool(wirespool.nichrome) with shape-wire
+(ITEMS) Tagging Item Nichrome large dust(ldust.nichrome) with shape-megadust
+(ITEMS) Tagging Item Nichrome dust(dust.nichrome) with shape-dust
+(ITEMS) Tagging Item Nichrome small dust(mdust.nichrome) with shape-smalldust
+(ITEMS) Tagging Item Nichrome tiny dust(minidust.nichrome) with shape-tinydust
+(ITEMS) Tagging Item Nichrome plate(panel.nichrome) with shape-panel
+(ITEMS) Tagging Item Nichrome foil(foil.nichrome) with shape-foil
+(ITEMS) Tagging Item Nichrome gear(gear.nichrome) with shape-gear
 (BLOCKS) Adding block.quartz with title Quartz block and description:
  null
 (ITEMS) Adding block.quartz with title Quartz block and description:
@@ -1328,6 +2493,140 @@
  null
 (ITEMS) Adding gear.quartz with title Quartz gear and description:
  null
+(ITEMS) Tagging Block Quartz block(block.quartz) with material-quartz
+(ITEMS) Tagging Item Quartz cluster(fcluster.quartz) with material-quartz
+(ITEMS) Tagging Item Quartz(gem.quartz) with material-quartz
+(ITEMS) Tagging Item Quartz fragment(frag.quartz) with material-quartz
+(ITEMS) Tagging Item Quartz nugget(nugget.quartz) with material-quartz
+(ITEMS) Tagging Item Quartz wire spool(wirespool.quartz) with material-quartz
+(ITEMS) Tagging Item Quartz large dust(ldust.quartz) with material-quartz
+(ITEMS) Tagging Item Quartz dust(dust.quartz) with material-quartz
+(ITEMS) Tagging Item Quartz small dust(mdust.quartz) with material-quartz
+(ITEMS) Tagging Item Quartz tiny dust(minidust.quartz) with material-quartz
+(ITEMS) Tagging Item Quartz plate(panel.quartz) with material-quartz
+(ITEMS) Tagging Item Quartz foil(foil.quartz) with material-quartz
+(ITEMS) Tagging Item Quartz gear(gear.quartz) with material-quartz
+(ITEMS) Tagging Block Quartz block(block.quartz) with shape-block
+(ITEMS) Tagging Item Quartz cluster(fcluster.quartz) with shape-cluster
+(ITEMS) Tagging Item Quartz(gem.quartz) with shape-base
+(ITEMS) Tagging Item Quartz fragment(frag.quartz) with shape-frag
+(ITEMS) Tagging Item Quartz nugget(nugget.quartz) with shape-nugget
+(ITEMS) Tagging Item Quartz wire spool(wirespool.quartz) with shape-wire
+(ITEMS) Tagging Item Quartz large dust(ldust.quartz) with shape-megadust
+(ITEMS) Tagging Item Quartz dust(dust.quartz) with shape-dust
+(ITEMS) Tagging Item Quartz small dust(mdust.quartz) with shape-smalldust
+(ITEMS) Tagging Item Quartz tiny dust(minidust.quartz) with shape-tinydust
+(ITEMS) Tagging Item Quartz plate(panel.quartz) with shape-panel
+(ITEMS) Tagging Item Quartz foil(foil.quartz) with shape-foil
+(ITEMS) Tagging Item Quartz gear(gear.quartz) with shape-gear
+(BLOCKS) Adding block.ender with title Ender block and description:
+ null
+(ITEMS) Adding block.ender with title Ender block and description:
+ null
+(ITEMS) Adding fcluster.ender with title Ender cluster and description:
+ null
+(ITEMS) Adding gem.ender with title Ender and description:
+ null
+(ITEMS) Adding frag.ender with title Ender fragment and description:
+ null
+(ITEMS) Adding nugget.ender with title Ender nugget and description:
+ null
+(ITEMS) Adding wirespool.ender with title Ender wire spool and description:
+ null
+(ITEMS) Adding ldust.ender with title Ender large dust and description:
+ null
+(ITEMS) Adding dust.ender with title Ender dust and description:
+ null
+(ITEMS) Adding mdust.ender with title Ender small dust and description:
+ null
+(ITEMS) Adding minidust.ender with title Ender tiny dust and description:
+ null
+(ITEMS) Adding panel.ender with title Ender plate and description:
+ null
+(ITEMS) Adding foil.ender with title Ender foil and description:
+ null
+(ITEMS) Adding gear.ender with title Ender gear and description:
+ null
+(ITEMS) Tagging Block Ender block(block.ender) with material-ender
+(ITEMS) Tagging Item Ender cluster(fcluster.ender) with material-ender
+(ITEMS) Tagging Item Ender(gem.ender) with material-ender
+(ITEMS) Tagging Item Ender fragment(frag.ender) with material-ender
+(ITEMS) Tagging Item Ender nugget(nugget.ender) with material-ender
+(ITEMS) Tagging Item Ender wire spool(wirespool.ender) with material-ender
+(ITEMS) Tagging Item Ender large dust(ldust.ender) with material-ender
+(ITEMS) Tagging Item Ender dust(dust.ender) with material-ender
+(ITEMS) Tagging Item Ender small dust(mdust.ender) with material-ender
+(ITEMS) Tagging Item Ender tiny dust(minidust.ender) with material-ender
+(ITEMS) Tagging Item Ender plate(panel.ender) with material-ender
+(ITEMS) Tagging Item Ender foil(foil.ender) with material-ender
+(ITEMS) Tagging Item Ender gear(gear.ender) with material-ender
+(ITEMS) Tagging Block Ender block(block.ender) with shape-block
+(ITEMS) Tagging Item Ender cluster(fcluster.ender) with shape-cluster
+(ITEMS) Tagging Item Ender(gem.ender) with shape-base
+(ITEMS) Tagging Item Ender fragment(frag.ender) with shape-frag
+(ITEMS) Tagging Item Ender nugget(nugget.ender) with shape-nugget
+(ITEMS) Tagging Item Ender wire spool(wirespool.ender) with shape-wire
+(ITEMS) Tagging Item Ender large dust(ldust.ender) with shape-megadust
+(ITEMS) Tagging Item Ender dust(dust.ender) with shape-dust
+(ITEMS) Tagging Item Ender small dust(mdust.ender) with shape-smalldust
+(ITEMS) Tagging Item Ender tiny dust(minidust.ender) with shape-tinydust
+(ITEMS) Tagging Item Ender plate(panel.ender) with shape-panel
+(ITEMS) Tagging Item Ender foil(foil.ender) with shape-foil
+(ITEMS) Tagging Item Ender gear(gear.ender) with shape-gear
+(BLOCKS) Adding block.glowstone with title Glowstone block and description:
+ null
+(ITEMS) Adding block.glowstone with title Glowstone block and description:
+ null
+(ITEMS) Adding fcluster.glowstone with title Glowstone cluster and description:
+ null
+(ITEMS) Adding gem.glowstone with title Glowstone and description:
+ null
+(ITEMS) Adding frag.glowstone with title Glowstone fragment and description:
+ null
+(ITEMS) Adding nugget.glowstone with title Glowstone nugget and description:
+ null
+(ITEMS) Adding wirespool.glowstone with title Glowstone wire spool and description:
+ null
+(ITEMS) Adding ldust.glowstone with title Glowstone large dust and description:
+ null
+(ITEMS) Adding dust.glowstone with title Glowstone dust and description:
+ null
+(ITEMS) Adding mdust.glowstone with title Glowstone small dust and description:
+ null
+(ITEMS) Adding minidust.glowstone with title Glowstone tiny dust and description:
+ null
+(ITEMS) Adding panel.glowstone with title Glowstone plate and description:
+ null
+(ITEMS) Adding foil.glowstone with title Glowstone foil and description:
+ null
+(ITEMS) Adding gear.glowstone with title Glowstone gear and description:
+ null
+(ITEMS) Tagging Block Glowstone block(block.glowstone) with material-glowstone
+(ITEMS) Tagging Item Glowstone cluster(fcluster.glowstone) with material-glowstone
+(ITEMS) Tagging Item Glowstone(gem.glowstone) with material-glowstone
+(ITEMS) Tagging Item Glowstone fragment(frag.glowstone) with material-glowstone
+(ITEMS) Tagging Item Glowstone nugget(nugget.glowstone) with material-glowstone
+(ITEMS) Tagging Item Glowstone wire spool(wirespool.glowstone) with material-glowstone
+(ITEMS) Tagging Item Glowstone large dust(ldust.glowstone) with material-glowstone
+(ITEMS) Tagging Item Glowstone dust(dust.glowstone) with material-glowstone
+(ITEMS) Tagging Item Glowstone small dust(mdust.glowstone) with material-glowstone
+(ITEMS) Tagging Item Glowstone tiny dust(minidust.glowstone) with material-glowstone
+(ITEMS) Tagging Item Glowstone plate(panel.glowstone) with material-glowstone
+(ITEMS) Tagging Item Glowstone foil(foil.glowstone) with material-glowstone
+(ITEMS) Tagging Item Glowstone gear(gear.glowstone) with material-glowstone
+(ITEMS) Tagging Block Glowstone block(block.glowstone) with shape-block
+(ITEMS) Tagging Item Glowstone cluster(fcluster.glowstone) with shape-cluster
+(ITEMS) Tagging Item Glowstone(gem.glowstone) with shape-base
+(ITEMS) Tagging Item Glowstone fragment(frag.glowstone) with shape-frag
+(ITEMS) Tagging Item Glowstone nugget(nugget.glowstone) with shape-nugget
+(ITEMS) Tagging Item Glowstone wire spool(wirespool.glowstone) with shape-wire
+(ITEMS) Tagging Item Glowstone large dust(ldust.glowstone) with shape-megadust
+(ITEMS) Tagging Item Glowstone dust(dust.glowstone) with shape-dust
+(ITEMS) Tagging Item Glowstone small dust(mdust.glowstone) with shape-smalldust
+(ITEMS) Tagging Item Glowstone tiny dust(minidust.glowstone) with shape-tinydust
+(ITEMS) Tagging Item Glowstone plate(panel.glowstone) with shape-panel
+(ITEMS) Tagging Item Glowstone foil(foil.glowstone) with shape-foil
+(ITEMS) Tagging Item Glowstone gear(gear.glowstone) with shape-gear
 (BLOCKS) Adding block.cobalt with title Cobalt block and description:
  null
 (ITEMS) Adding block.cobalt with title Cobalt block and description:
@@ -1356,6 +2655,32 @@
  null
 (ITEMS) Adding gear.cobalt with title Cobalt gear and description:
  null
+(ITEMS) Tagging Block Cobalt block(block.cobalt) with material-cobalt
+(ITEMS) Tagging Item Cobalt cluster(fcluster.cobalt) with material-cobalt
+(ITEMS) Tagging Item Cobalt ingot(ingot.cobalt) with material-cobalt
+(ITEMS) Tagging Item Cobalt fragment(frag.cobalt) with material-cobalt
+(ITEMS) Tagging Item Cobalt nugget(nugget.cobalt) with material-cobalt
+(ITEMS) Tagging Item Cobalt wire spool(wirespool.cobalt) with material-cobalt
+(ITEMS) Tagging Item Cobalt large dust(ldust.cobalt) with material-cobalt
+(ITEMS) Tagging Item Cobalt dust(dust.cobalt) with material-cobalt
+(ITEMS) Tagging Item Cobalt small dust(mdust.cobalt) with material-cobalt
+(ITEMS) Tagging Item Cobalt tiny dust(minidust.cobalt) with material-cobalt
+(ITEMS) Tagging Item Cobalt plate(panel.cobalt) with material-cobalt
+(ITEMS) Tagging Item Cobalt foil(foil.cobalt) with material-cobalt
+(ITEMS) Tagging Item Cobalt gear(gear.cobalt) with material-cobalt
+(ITEMS) Tagging Block Cobalt block(block.cobalt) with shape-block
+(ITEMS) Tagging Item Cobalt cluster(fcluster.cobalt) with shape-cluster
+(ITEMS) Tagging Item Cobalt ingot(ingot.cobalt) with shape-base
+(ITEMS) Tagging Item Cobalt fragment(frag.cobalt) with shape-frag
+(ITEMS) Tagging Item Cobalt nugget(nugget.cobalt) with shape-nugget
+(ITEMS) Tagging Item Cobalt wire spool(wirespool.cobalt) with shape-wire
+(ITEMS) Tagging Item Cobalt large dust(ldust.cobalt) with shape-megadust
+(ITEMS) Tagging Item Cobalt dust(dust.cobalt) with shape-dust
+(ITEMS) Tagging Item Cobalt small dust(mdust.cobalt) with shape-smalldust
+(ITEMS) Tagging Item Cobalt tiny dust(minidust.cobalt) with shape-tinydust
+(ITEMS) Tagging Item Cobalt plate(panel.cobalt) with shape-panel
+(ITEMS) Tagging Item Cobalt foil(foil.cobalt) with shape-foil
+(ITEMS) Tagging Item Cobalt gear(gear.cobalt) with shape-gear
 (BLOCKS) Adding ore.cobalt with title Cobalt ore and description:
  null
 (ITEMS) Adding ore.cobalt with title Cobalt ore and description:
@@ -1392,6 +2717,32 @@
  null
 (ITEMS) Adding gear.gold with title Gold gear and description:
  null
+(ITEMS) Tagging Block Gold block(block.gold) with material-gold
+(ITEMS) Tagging Item Gold cluster(fcluster.gold) with material-gold
+(ITEMS) Tagging Item Gold ingot(ingot.gold) with material-gold
+(ITEMS) Tagging Item Gold fragment(frag.gold) with material-gold
+(ITEMS) Tagging Item Gold nugget(nugget.gold) with material-gold
+(ITEMS) Tagging Item Gold wire spool(wirespool.gold) with material-gold
+(ITEMS) Tagging Item Gold large dust(ldust.gold) with material-gold
+(ITEMS) Tagging Item Gold dust(dust.gold) with material-gold
+(ITEMS) Tagging Item Gold small dust(mdust.gold) with material-gold
+(ITEMS) Tagging Item Gold tiny dust(minidust.gold) with material-gold
+(ITEMS) Tagging Item Gold plate(panel.gold) with material-gold
+(ITEMS) Tagging Item Gold foil(foil.gold) with material-gold
+(ITEMS) Tagging Item Gold gear(gear.gold) with material-gold
+(ITEMS) Tagging Block Gold block(block.gold) with shape-block
+(ITEMS) Tagging Item Gold cluster(fcluster.gold) with shape-cluster
+(ITEMS) Tagging Item Gold ingot(ingot.gold) with shape-base
+(ITEMS) Tagging Item Gold fragment(frag.gold) with shape-frag
+(ITEMS) Tagging Item Gold nugget(nugget.gold) with shape-nugget
+(ITEMS) Tagging Item Gold wire spool(wirespool.gold) with shape-wire
+(ITEMS) Tagging Item Gold large dust(ldust.gold) with shape-megadust
+(ITEMS) Tagging Item Gold dust(dust.gold) with shape-dust
+(ITEMS) Tagging Item Gold small dust(mdust.gold) with shape-smalldust
+(ITEMS) Tagging Item Gold tiny dust(minidust.gold) with shape-tinydust
+(ITEMS) Tagging Item Gold plate(panel.gold) with shape-panel
+(ITEMS) Tagging Item Gold foil(foil.gold) with shape-foil
+(ITEMS) Tagging Item Gold gear(gear.gold) with shape-gear
 (BLOCKS) Adding ore.gold with title Gold ore and description:
  null
 (ITEMS) Adding ore.gold with title Gold ore and description:
@@ -1428,6 +2779,32 @@
  null
 (ITEMS) Adding gear.stainless with title Stainless steel gear and description:
  null
+(ITEMS) Tagging Block Stainless steel block(block.stainless) with material-stainless
+(ITEMS) Tagging Item Stainless steel cluster(fcluster.stainless) with material-stainless
+(ITEMS) Tagging Item Stainless steel ingot(ingot.stainless) with material-stainless
+(ITEMS) Tagging Item Stainless steel fragment(frag.stainless) with material-stainless
+(ITEMS) Tagging Item Stainless steel nugget(nugget.stainless) with material-stainless
+(ITEMS) Tagging Item Stainless steel wire spool(wirespool.stainless) with material-stainless
+(ITEMS) Tagging Item Stainless steel large dust(ldust.stainless) with material-stainless
+(ITEMS) Tagging Item Stainless steel dust(dust.stainless) with material-stainless
+(ITEMS) Tagging Item Stainless steel small dust(mdust.stainless) with material-stainless
+(ITEMS) Tagging Item Stainless steel tiny dust(minidust.stainless) with material-stainless
+(ITEMS) Tagging Item Stainless steel plate(panel.stainless) with material-stainless
+(ITEMS) Tagging Item Stainless steel foil(foil.stainless) with material-stainless
+(ITEMS) Tagging Item Stainless steel gear(gear.stainless) with material-stainless
+(ITEMS) Tagging Block Stainless steel block(block.stainless) with shape-block
+(ITEMS) Tagging Item Stainless steel cluster(fcluster.stainless) with shape-cluster
+(ITEMS) Tagging Item Stainless steel ingot(ingot.stainless) with shape-base
+(ITEMS) Tagging Item Stainless steel fragment(frag.stainless) with shape-frag
+(ITEMS) Tagging Item Stainless steel nugget(nugget.stainless) with shape-nugget
+(ITEMS) Tagging Item Stainless steel wire spool(wirespool.stainless) with shape-wire
+(ITEMS) Tagging Item Stainless steel large dust(ldust.stainless) with shape-megadust
+(ITEMS) Tagging Item Stainless steel dust(dust.stainless) with shape-dust
+(ITEMS) Tagging Item Stainless steel small dust(mdust.stainless) with shape-smalldust
+(ITEMS) Tagging Item Stainless steel tiny dust(minidust.stainless) with shape-tinydust
+(ITEMS) Tagging Item Stainless steel plate(panel.stainless) with shape-panel
+(ITEMS) Tagging Item Stainless steel foil(foil.stainless) with shape-foil
+(ITEMS) Tagging Item Stainless steel gear(gear.stainless) with shape-gear
 (BLOCKS) Adding block.diamond with title Diamond block and description:
  null
 (ITEMS) Adding block.diamond with title Diamond block and description:
@@ -1456,6 +2833,32 @@
  null
 (ITEMS) Adding gear.diamond with title Diamond gear and description:
  null
+(ITEMS) Tagging Block Diamond block(block.diamond) with material-diamond
+(ITEMS) Tagging Item Diamond cluster(fcluster.diamond) with material-diamond
+(ITEMS) Tagging Item Diamond(gem.diamond) with material-diamond
+(ITEMS) Tagging Item Diamond fragment(frag.diamond) with material-diamond
+(ITEMS) Tagging Item Diamond nugget(nugget.diamond) with material-diamond
+(ITEMS) Tagging Item Diamond wire spool(wirespool.diamond) with material-diamond
+(ITEMS) Tagging Item Diamond large dust(ldust.diamond) with material-diamond
+(ITEMS) Tagging Item Diamond dust(dust.diamond) with material-diamond
+(ITEMS) Tagging Item Diamond small dust(mdust.diamond) with material-diamond
+(ITEMS) Tagging Item Diamond tiny dust(minidust.diamond) with material-diamond
+(ITEMS) Tagging Item Diamond plate(panel.diamond) with material-diamond
+(ITEMS) Tagging Item Diamond foil(foil.diamond) with material-diamond
+(ITEMS) Tagging Item Diamond gear(gear.diamond) with material-diamond
+(ITEMS) Tagging Block Diamond block(block.diamond) with shape-block
+(ITEMS) Tagging Item Diamond cluster(fcluster.diamond) with shape-cluster
+(ITEMS) Tagging Item Diamond(gem.diamond) with shape-base
+(ITEMS) Tagging Item Diamond fragment(frag.diamond) with shape-frag
+(ITEMS) Tagging Item Diamond nugget(nugget.diamond) with shape-nugget
+(ITEMS) Tagging Item Diamond wire spool(wirespool.diamond) with shape-wire
+(ITEMS) Tagging Item Diamond large dust(ldust.diamond) with shape-megadust
+(ITEMS) Tagging Item Diamond dust(dust.diamond) with shape-dust
+(ITEMS) Tagging Item Diamond small dust(mdust.diamond) with shape-smalldust
+(ITEMS) Tagging Item Diamond tiny dust(minidust.diamond) with shape-tinydust
+(ITEMS) Tagging Item Diamond plate(panel.diamond) with shape-panel
+(ITEMS) Tagging Item Diamond foil(foil.diamond) with shape-foil
+(ITEMS) Tagging Item Diamond gear(gear.diamond) with shape-gear
 (BLOCKS) Adding block.HSS with title High Speed Steel block and description:
  null
 (ITEMS) Adding block.HSS with title High Speed Steel block and description:
@@ -1484,6 +2887,32 @@
  null
 (ITEMS) Adding gear.HSS with title High Speed Steel gear and description:
  null
+(ITEMS) Tagging Block High Speed Steel block(block.HSS) with material-HSS
+(ITEMS) Tagging Item High Speed Steel cluster(fcluster.HSS) with material-HSS
+(ITEMS) Tagging Item High Speed Steel ingot(ingot.HSS) with material-HSS
+(ITEMS) Tagging Item High Speed Steel fragment(frag.HSS) with material-HSS
+(ITEMS) Tagging Item High Speed Steel nugget(nugget.HSS) with material-HSS
+(ITEMS) Tagging Item High Speed Steel wire spool(wirespool.HSS) with material-HSS
+(ITEMS) Tagging Item High Speed Steel large dust(ldust.HSS) with material-HSS
+(ITEMS) Tagging Item High Speed Steel dust(dust.HSS) with material-HSS
+(ITEMS) Tagging Item High Speed Steel small dust(mdust.HSS) with material-HSS
+(ITEMS) Tagging Item High Speed Steel tiny dust(minidust.HSS) with material-HSS
+(ITEMS) Tagging Item High Speed Steel plate(panel.HSS) with material-HSS
+(ITEMS) Tagging Item High Speed Steel foil(foil.HSS) with material-HSS
+(ITEMS) Tagging Item High Speed Steel gear(gear.HSS) with material-HSS
+(ITEMS) Tagging Block High Speed Steel block(block.HSS) with shape-block
+(ITEMS) Tagging Item High Speed Steel cluster(fcluster.HSS) with shape-cluster
+(ITEMS) Tagging Item High Speed Steel ingot(ingot.HSS) with shape-base
+(ITEMS) Tagging Item High Speed Steel fragment(frag.HSS) with shape-frag
+(ITEMS) Tagging Item High Speed Steel nugget(nugget.HSS) with shape-nugget
+(ITEMS) Tagging Item High Speed Steel wire spool(wirespool.HSS) with shape-wire
+(ITEMS) Tagging Item High Speed Steel large dust(ldust.HSS) with shape-megadust
+(ITEMS) Tagging Item High Speed Steel dust(dust.HSS) with shape-dust
+(ITEMS) Tagging Item High Speed Steel small dust(mdust.HSS) with shape-smalldust
+(ITEMS) Tagging Item High Speed Steel tiny dust(minidust.HSS) with shape-tinydust
+(ITEMS) Tagging Item High Speed Steel plate(panel.HSS) with shape-panel
+(ITEMS) Tagging Item High Speed Steel foil(foil.HSS) with shape-foil
+(ITEMS) Tagging Item High Speed Steel gear(gear.HSS) with shape-gear
 (BLOCKS) Adding block.platinum with title Platinum block and description:
  null
 (ITEMS) Adding block.platinum with title Platinum block and description:
@@ -1512,6 +2941,32 @@
  null
 (ITEMS) Adding gear.platinum with title Platinum gear and description:
  null
+(ITEMS) Tagging Block Platinum block(block.platinum) with material-platinum
+(ITEMS) Tagging Item Platinum cluster(fcluster.platinum) with material-platinum
+(ITEMS) Tagging Item Platinum ingot(ingot.platinum) with material-platinum
+(ITEMS) Tagging Item Platinum fragment(frag.platinum) with material-platinum
+(ITEMS) Tagging Item Platinum nugget(nugget.platinum) with material-platinum
+(ITEMS) Tagging Item Platinum wire spool(wirespool.platinum) with material-platinum
+(ITEMS) Tagging Item Platinum large dust(ldust.platinum) with material-platinum
+(ITEMS) Tagging Item Platinum dust(dust.platinum) with material-platinum
+(ITEMS) Tagging Item Platinum small dust(mdust.platinum) with material-platinum
+(ITEMS) Tagging Item Platinum tiny dust(minidust.platinum) with material-platinum
+(ITEMS) Tagging Item Platinum plate(panel.platinum) with material-platinum
+(ITEMS) Tagging Item Platinum foil(foil.platinum) with material-platinum
+(ITEMS) Tagging Item Platinum gear(gear.platinum) with material-platinum
+(ITEMS) Tagging Block Platinum block(block.platinum) with shape-block
+(ITEMS) Tagging Item Platinum cluster(fcluster.platinum) with shape-cluster
+(ITEMS) Tagging Item Platinum ingot(ingot.platinum) with shape-base
+(ITEMS) Tagging Item Platinum fragment(frag.platinum) with shape-frag
+(ITEMS) Tagging Item Platinum nugget(nugget.platinum) with shape-nugget
+(ITEMS) Tagging Item Platinum wire spool(wirespool.platinum) with shape-wire
+(ITEMS) Tagging Item Platinum large dust(ldust.platinum) with shape-megadust
+(ITEMS) Tagging Item Platinum dust(dust.platinum) with shape-dust
+(ITEMS) Tagging Item Platinum small dust(mdust.platinum) with shape-smalldust
+(ITEMS) Tagging Item Platinum tiny dust(minidust.platinum) with shape-tinydust
+(ITEMS) Tagging Item Platinum plate(panel.platinum) with shape-panel
+(ITEMS) Tagging Item Platinum foil(foil.platinum) with shape-foil
+(ITEMS) Tagging Item Platinum gear(gear.platinum) with shape-gear
 (BLOCKS) Adding ore.platinum with title Platinum ore and description:
  null
 (ITEMS) Adding ore.platinum with title Platinum ore and description:
@@ -1520,6 +2975,60 @@
  null
 (ITEMS) Adding crop.platinum with title Platinum crop and description:
  null
+(BLOCKS) Adding block.lumium with title Lumium block and description:
+ null
+(ITEMS) Adding block.lumium with title Lumium block and description:
+ null
+(ITEMS) Adding fcluster.lumium with title Lumium cluster and description:
+ null
+(ITEMS) Adding ingot.lumium with title Lumium ingot and description:
+ null
+(ITEMS) Adding frag.lumium with title Lumium fragment and description:
+ null
+(ITEMS) Adding nugget.lumium with title Lumium nugget and description:
+ null
+(ITEMS) Adding wirespool.lumium with title Lumium wire spool and description:
+ null
+(ITEMS) Adding ldust.lumium with title Lumium large dust and description:
+ null
+(ITEMS) Adding dust.lumium with title Lumium dust and description:
+ null
+(ITEMS) Adding mdust.lumium with title Lumium small dust and description:
+ null
+(ITEMS) Adding minidust.lumium with title Lumium tiny dust and description:
+ null
+(ITEMS) Adding panel.lumium with title Lumium plate and description:
+ null
+(ITEMS) Adding foil.lumium with title Lumium foil and description:
+ null
+(ITEMS) Adding gear.lumium with title Lumium gear and description:
+ null
+(ITEMS) Tagging Block Lumium block(block.lumium) with material-lumium
+(ITEMS) Tagging Item Lumium cluster(fcluster.lumium) with material-lumium
+(ITEMS) Tagging Item Lumium ingot(ingot.lumium) with material-lumium
+(ITEMS) Tagging Item Lumium fragment(frag.lumium) with material-lumium
+(ITEMS) Tagging Item Lumium nugget(nugget.lumium) with material-lumium
+(ITEMS) Tagging Item Lumium wire spool(wirespool.lumium) with material-lumium
+(ITEMS) Tagging Item Lumium large dust(ldust.lumium) with material-lumium
+(ITEMS) Tagging Item Lumium dust(dust.lumium) with material-lumium
+(ITEMS) Tagging Item Lumium small dust(mdust.lumium) with material-lumium
+(ITEMS) Tagging Item Lumium tiny dust(minidust.lumium) with material-lumium
+(ITEMS) Tagging Item Lumium plate(panel.lumium) with material-lumium
+(ITEMS) Tagging Item Lumium foil(foil.lumium) with material-lumium
+(ITEMS) Tagging Item Lumium gear(gear.lumium) with material-lumium
+(ITEMS) Tagging Block Lumium block(block.lumium) with shape-block
+(ITEMS) Tagging Item Lumium cluster(fcluster.lumium) with shape-cluster
+(ITEMS) Tagging Item Lumium ingot(ingot.lumium) with shape-base
+(ITEMS) Tagging Item Lumium fragment(frag.lumium) with shape-frag
+(ITEMS) Tagging Item Lumium nugget(nugget.lumium) with shape-nugget
+(ITEMS) Tagging Item Lumium wire spool(wirespool.lumium) with shape-wire
+(ITEMS) Tagging Item Lumium large dust(ldust.lumium) with shape-megadust
+(ITEMS) Tagging Item Lumium dust(dust.lumium) with shape-dust
+(ITEMS) Tagging Item Lumium small dust(mdust.lumium) with shape-smalldust
+(ITEMS) Tagging Item Lumium tiny dust(minidust.lumium) with shape-tinydust
+(ITEMS) Tagging Item Lumium plate(panel.lumium) with shape-panel
+(ITEMS) Tagging Item Lumium foil(foil.lumium) with shape-foil
+(ITEMS) Tagging Item Lumium gear(gear.lumium) with shape-gear
 (BLOCKS) Adding block.tungsten with title Tungsten block and description:
  null
 (ITEMS) Adding block.tungsten with title Tungsten block and description:
@@ -1548,6 +3057,32 @@
  null
 (ITEMS) Adding gear.tungsten with title Tungsten gear and description:
  null
+(ITEMS) Tagging Block Tungsten block(block.tungsten) with material-tungsten
+(ITEMS) Tagging Item Tungsten cluster(fcluster.tungsten) with material-tungsten
+(ITEMS) Tagging Item Tungsten ingot(ingot.tungsten) with material-tungsten
+(ITEMS) Tagging Item Tungsten fragment(frag.tungsten) with material-tungsten
+(ITEMS) Tagging Item Tungsten nugget(nugget.tungsten) with material-tungsten
+(ITEMS) Tagging Item Tungsten wire spool(wirespool.tungsten) with material-tungsten
+(ITEMS) Tagging Item Tungsten large dust(ldust.tungsten) with material-tungsten
+(ITEMS) Tagging Item Tungsten dust(dust.tungsten) with material-tungsten
+(ITEMS) Tagging Item Tungsten small dust(mdust.tungsten) with material-tungsten
+(ITEMS) Tagging Item Tungsten tiny dust(minidust.tungsten) with material-tungsten
+(ITEMS) Tagging Item Tungsten plate(panel.tungsten) with material-tungsten
+(ITEMS) Tagging Item Tungsten foil(foil.tungsten) with material-tungsten
+(ITEMS) Tagging Item Tungsten gear(gear.tungsten) with material-tungsten
+(ITEMS) Tagging Block Tungsten block(block.tungsten) with shape-block
+(ITEMS) Tagging Item Tungsten cluster(fcluster.tungsten) with shape-cluster
+(ITEMS) Tagging Item Tungsten ingot(ingot.tungsten) with shape-base
+(ITEMS) Tagging Item Tungsten fragment(frag.tungsten) with shape-frag
+(ITEMS) Tagging Item Tungsten nugget(nugget.tungsten) with shape-nugget
+(ITEMS) Tagging Item Tungsten wire spool(wirespool.tungsten) with shape-wire
+(ITEMS) Tagging Item Tungsten large dust(ldust.tungsten) with shape-megadust
+(ITEMS) Tagging Item Tungsten dust(dust.tungsten) with shape-dust
+(ITEMS) Tagging Item Tungsten small dust(mdust.tungsten) with shape-smalldust
+(ITEMS) Tagging Item Tungsten tiny dust(minidust.tungsten) with shape-tinydust
+(ITEMS) Tagging Item Tungsten plate(panel.tungsten) with shape-panel
+(ITEMS) Tagging Item Tungsten foil(foil.tungsten) with shape-foil
+(ITEMS) Tagging Item Tungsten gear(gear.tungsten) with shape-gear
 (BLOCKS) Adding ore.tungsten with title Tungsten ore and description:
  null
 (ITEMS) Adding ore.tungsten with title Tungsten ore and description:
@@ -1556,6 +3091,60 @@
  null
 (ITEMS) Adding crop.tungsten with title Tungsten crop and description:
  null
+(BLOCKS) Adding block.signalum with title Signalum block and description:
+ null
+(ITEMS) Adding block.signalum with title Signalum block and description:
+ null
+(ITEMS) Adding fcluster.signalum with title Signalum cluster and description:
+ null
+(ITEMS) Adding ingot.signalum with title Signalum ingot and description:
+ null
+(ITEMS) Adding frag.signalum with title Signalum fragment and description:
+ null
+(ITEMS) Adding nugget.signalum with title Signalum nugget and description:
+ null
+(ITEMS) Adding wirespool.signalum with title Signalum wire spool and description:
+ null
+(ITEMS) Adding ldust.signalum with title Signalum large dust and description:
+ null
+(ITEMS) Adding dust.signalum with title Signalum dust and description:
+ null
+(ITEMS) Adding mdust.signalum with title Signalum small dust and description:
+ null
+(ITEMS) Adding minidust.signalum with title Signalum tiny dust and description:
+ null
+(ITEMS) Adding panel.signalum with title Signalum plate and description:
+ null
+(ITEMS) Adding foil.signalum with title Signalum foil and description:
+ null
+(ITEMS) Adding gear.signalum with title Signalum gear and description:
+ null
+(ITEMS) Tagging Block Signalum block(block.signalum) with material-signalum
+(ITEMS) Tagging Item Signalum cluster(fcluster.signalum) with material-signalum
+(ITEMS) Tagging Item Signalum ingot(ingot.signalum) with material-signalum
+(ITEMS) Tagging Item Signalum fragment(frag.signalum) with material-signalum
+(ITEMS) Tagging Item Signalum nugget(nugget.signalum) with material-signalum
+(ITEMS) Tagging Item Signalum wire spool(wirespool.signalum) with material-signalum
+(ITEMS) Tagging Item Signalum large dust(ldust.signalum) with material-signalum
+(ITEMS) Tagging Item Signalum dust(dust.signalum) with material-signalum
+(ITEMS) Tagging Item Signalum small dust(mdust.signalum) with material-signalum
+(ITEMS) Tagging Item Signalum tiny dust(minidust.signalum) with material-signalum
+(ITEMS) Tagging Item Signalum plate(panel.signalum) with material-signalum
+(ITEMS) Tagging Item Signalum foil(foil.signalum) with material-signalum
+(ITEMS) Tagging Item Signalum gear(gear.signalum) with material-signalum
+(ITEMS) Tagging Block Signalum block(block.signalum) with shape-block
+(ITEMS) Tagging Item Signalum cluster(fcluster.signalum) with shape-cluster
+(ITEMS) Tagging Item Signalum ingot(ingot.signalum) with shape-base
+(ITEMS) Tagging Item Signalum fragment(frag.signalum) with shape-frag
+(ITEMS) Tagging Item Signalum nugget(nugget.signalum) with shape-nugget
+(ITEMS) Tagging Item Signalum wire spool(wirespool.signalum) with shape-wire
+(ITEMS) Tagging Item Signalum large dust(ldust.signalum) with shape-megadust
+(ITEMS) Tagging Item Signalum dust(dust.signalum) with shape-dust
+(ITEMS) Tagging Item Signalum small dust(mdust.signalum) with shape-smalldust
+(ITEMS) Tagging Item Signalum tiny dust(minidust.signalum) with shape-tinydust
+(ITEMS) Tagging Item Signalum plate(panel.signalum) with shape-panel
+(ITEMS) Tagging Item Signalum foil(foil.signalum) with shape-foil
+(ITEMS) Tagging Item Signalum gear(gear.signalum) with shape-gear
 (BLOCKS) Adding block.iridium with title Iridium block and description:
  null
 (ITEMS) Adding block.iridium with title Iridium block and description:
@@ -1584,6 +3173,32 @@
  null
 (ITEMS) Adding gear.iridium with title Iridium gear and description:
  null
+(ITEMS) Tagging Block Iridium block(block.iridium) with material-iridium
+(ITEMS) Tagging Item Iridium cluster(fcluster.iridium) with material-iridium
+(ITEMS) Tagging Item Iridium ingot(ingot.iridium) with material-iridium
+(ITEMS) Tagging Item Iridium fragment(frag.iridium) with material-iridium
+(ITEMS) Tagging Item Iridium nugget(nugget.iridium) with material-iridium
+(ITEMS) Tagging Item Iridium wire spool(wirespool.iridium) with material-iridium
+(ITEMS) Tagging Item Iridium large dust(ldust.iridium) with material-iridium
+(ITEMS) Tagging Item Iridium dust(dust.iridium) with material-iridium
+(ITEMS) Tagging Item Iridium small dust(mdust.iridium) with material-iridium
+(ITEMS) Tagging Item Iridium tiny dust(minidust.iridium) with material-iridium
+(ITEMS) Tagging Item Iridium plate(panel.iridium) with material-iridium
+(ITEMS) Tagging Item Iridium foil(foil.iridium) with material-iridium
+(ITEMS) Tagging Item Iridium gear(gear.iridium) with material-iridium
+(ITEMS) Tagging Block Iridium block(block.iridium) with shape-block
+(ITEMS) Tagging Item Iridium cluster(fcluster.iridium) with shape-cluster
+(ITEMS) Tagging Item Iridium ingot(ingot.iridium) with shape-base
+(ITEMS) Tagging Item Iridium fragment(frag.iridium) with shape-frag
+(ITEMS) Tagging Item Iridium nugget(nugget.iridium) with shape-nugget
+(ITEMS) Tagging Item Iridium wire spool(wirespool.iridium) with shape-wire
+(ITEMS) Tagging Item Iridium large dust(ldust.iridium) with shape-megadust
+(ITEMS) Tagging Item Iridium dust(dust.iridium) with shape-dust
+(ITEMS) Tagging Item Iridium small dust(mdust.iridium) with shape-smalldust
+(ITEMS) Tagging Item Iridium tiny dust(minidust.iridium) with shape-tinydust
+(ITEMS) Tagging Item Iridium plate(panel.iridium) with shape-panel
+(ITEMS) Tagging Item Iridium foil(foil.iridium) with shape-foil
+(ITEMS) Tagging Item Iridium gear(gear.iridium) with shape-gear
 (BLOCKS) Adding ore.iridium with title Iridium ore and description:
  null
 (ITEMS) Adding ore.iridium with title Iridium ore and description:
@@ -1620,6 +3235,32 @@
  null
 (ITEMS) Adding gear.tungstenC with title Tungsten Carbide gear and description:
  null
+(ITEMS) Tagging Block Tungsten Carbide block(block.tungstenC) with material-tungstenC
+(ITEMS) Tagging Item Tungsten Carbide cluster(fcluster.tungstenC) with material-tungstenC
+(ITEMS) Tagging Item Tungsten Carbide ingot(ingot.tungstenC) with material-tungstenC
+(ITEMS) Tagging Item Tungsten Carbide fragment(frag.tungstenC) with material-tungstenC
+(ITEMS) Tagging Item Tungsten Carbide nugget(nugget.tungstenC) with material-tungstenC
+(ITEMS) Tagging Item Tungsten Carbide wire spool(wirespool.tungstenC) with material-tungstenC
+(ITEMS) Tagging Item Tungsten Carbide large dust(ldust.tungstenC) with material-tungstenC
+(ITEMS) Tagging Item Tungsten Carbide dust(dust.tungstenC) with material-tungstenC
+(ITEMS) Tagging Item Tungsten Carbide small dust(mdust.tungstenC) with material-tungstenC
+(ITEMS) Tagging Item Tungsten Carbide tiny dust(minidust.tungstenC) with material-tungstenC
+(ITEMS) Tagging Item Tungsten Carbide plate(panel.tungstenC) with material-tungstenC
+(ITEMS) Tagging Item Tungsten Carbide foil(foil.tungstenC) with material-tungstenC
+(ITEMS) Tagging Item Tungsten Carbide gear(gear.tungstenC) with material-tungstenC
+(ITEMS) Tagging Block Tungsten Carbide block(block.tungstenC) with shape-block
+(ITEMS) Tagging Item Tungsten Carbide cluster(fcluster.tungstenC) with shape-cluster
+(ITEMS) Tagging Item Tungsten Carbide ingot(ingot.tungstenC) with shape-base
+(ITEMS) Tagging Item Tungsten Carbide fragment(frag.tungstenC) with shape-frag
+(ITEMS) Tagging Item Tungsten Carbide nugget(nugget.tungstenC) with shape-nugget
+(ITEMS) Tagging Item Tungsten Carbide wire spool(wirespool.tungstenC) with shape-wire
+(ITEMS) Tagging Item Tungsten Carbide large dust(ldust.tungstenC) with shape-megadust
+(ITEMS) Tagging Item Tungsten Carbide dust(dust.tungstenC) with shape-dust
+(ITEMS) Tagging Item Tungsten Carbide small dust(mdust.tungstenC) with shape-smalldust
+(ITEMS) Tagging Item Tungsten Carbide tiny dust(minidust.tungstenC) with shape-tinydust
+(ITEMS) Tagging Item Tungsten Carbide plate(panel.tungstenC) with shape-panel
+(ITEMS) Tagging Item Tungsten Carbide foil(foil.tungstenC) with shape-foil
+(ITEMS) Tagging Item Tungsten Carbide gear(gear.tungstenC) with shape-gear
 (BLOCKS) Adding block.crystal with title Crystalline block and description:
  null
 (ITEMS) Adding block.crystal with title Crystalline block and description:
@@ -1648,6 +3289,86 @@
  null
 (ITEMS) Adding gear.crystal with title Crystalline gear and description:
  null
+(ITEMS) Tagging Block Crystalline block(block.crystal) with material-crystal
+(ITEMS) Tagging Item Crystalline cluster(fcluster.crystal) with material-crystal
+(ITEMS) Tagging Item Crystalline ingot(ingot.crystal) with material-crystal
+(ITEMS) Tagging Item Crystalline fragment(frag.crystal) with material-crystal
+(ITEMS) Tagging Item Crystalline nugget(nugget.crystal) with material-crystal
+(ITEMS) Tagging Item Crystalline wire spool(wirespool.crystal) with material-crystal
+(ITEMS) Tagging Item Crystalline large dust(ldust.crystal) with material-crystal
+(ITEMS) Tagging Item Crystalline dust(dust.crystal) with material-crystal
+(ITEMS) Tagging Item Crystalline small dust(mdust.crystal) with material-crystal
+(ITEMS) Tagging Item Crystalline tiny dust(minidust.crystal) with material-crystal
+(ITEMS) Tagging Item Crystalline plate(panel.crystal) with material-crystal
+(ITEMS) Tagging Item Crystalline foil(foil.crystal) with material-crystal
+(ITEMS) Tagging Item Crystalline gear(gear.crystal) with material-crystal
+(ITEMS) Tagging Block Crystalline block(block.crystal) with shape-block
+(ITEMS) Tagging Item Crystalline cluster(fcluster.crystal) with shape-cluster
+(ITEMS) Tagging Item Crystalline ingot(ingot.crystal) with shape-base
+(ITEMS) Tagging Item Crystalline fragment(frag.crystal) with shape-frag
+(ITEMS) Tagging Item Crystalline nugget(nugget.crystal) with shape-nugget
+(ITEMS) Tagging Item Crystalline wire spool(wirespool.crystal) with shape-wire
+(ITEMS) Tagging Item Crystalline large dust(ldust.crystal) with shape-megadust
+(ITEMS) Tagging Item Crystalline dust(dust.crystal) with shape-dust
+(ITEMS) Tagging Item Crystalline small dust(mdust.crystal) with shape-smalldust
+(ITEMS) Tagging Item Crystalline tiny dust(minidust.crystal) with shape-tinydust
+(ITEMS) Tagging Item Crystalline plate(panel.crystal) with shape-panel
+(ITEMS) Tagging Item Crystalline foil(foil.crystal) with shape-foil
+(ITEMS) Tagging Item Crystalline gear(gear.crystal) with shape-gear
+(BLOCKS) Adding block.enderium with title Enderium block and description:
+ null
+(ITEMS) Adding block.enderium with title Enderium block and description:
+ null
+(ITEMS) Adding fcluster.enderium with title Enderium cluster and description:
+ null
+(ITEMS) Adding ingot.enderium with title Enderium ingot and description:
+ null
+(ITEMS) Adding frag.enderium with title Enderium fragment and description:
+ null
+(ITEMS) Adding nugget.enderium with title Enderium nugget and description:
+ null
+(ITEMS) Adding wirespool.enderium with title Enderium wire spool and description:
+ null
+(ITEMS) Adding ldust.enderium with title Enderium large dust and description:
+ null
+(ITEMS) Adding dust.enderium with title Enderium dust and description:
+ null
+(ITEMS) Adding mdust.enderium with title Enderium small dust and description:
+ null
+(ITEMS) Adding minidust.enderium with title Enderium tiny dust and description:
+ null
+(ITEMS) Adding panel.enderium with title Enderium plate and description:
+ null
+(ITEMS) Adding foil.enderium with title Enderium foil and description:
+ null
+(ITEMS) Adding gear.enderium with title Enderium gear and description:
+ null
+(ITEMS) Tagging Block Enderium block(block.enderium) with material-enderium
+(ITEMS) Tagging Item Enderium cluster(fcluster.enderium) with material-enderium
+(ITEMS) Tagging Item Enderium ingot(ingot.enderium) with material-enderium
+(ITEMS) Tagging Item Enderium fragment(frag.enderium) with material-enderium
+(ITEMS) Tagging Item Enderium nugget(nugget.enderium) with material-enderium
+(ITEMS) Tagging Item Enderium wire spool(wirespool.enderium) with material-enderium
+(ITEMS) Tagging Item Enderium large dust(ldust.enderium) with material-enderium
+(ITEMS) Tagging Item Enderium dust(dust.enderium) with material-enderium
+(ITEMS) Tagging Item Enderium small dust(mdust.enderium) with material-enderium
+(ITEMS) Tagging Item Enderium tiny dust(minidust.enderium) with material-enderium
+(ITEMS) Tagging Item Enderium plate(panel.enderium) with material-enderium
+(ITEMS) Tagging Item Enderium foil(foil.enderium) with material-enderium
+(ITEMS) Tagging Item Enderium gear(gear.enderium) with material-enderium
+(ITEMS) Tagging Block Enderium block(block.enderium) with shape-block
+(ITEMS) Tagging Item Enderium cluster(fcluster.enderium) with shape-cluster
+(ITEMS) Tagging Item Enderium ingot(ingot.enderium) with shape-base
+(ITEMS) Tagging Item Enderium fragment(frag.enderium) with shape-frag
+(ITEMS) Tagging Item Enderium nugget(nugget.enderium) with shape-nugget
+(ITEMS) Tagging Item Enderium wire spool(wirespool.enderium) with shape-wire
+(ITEMS) Tagging Item Enderium large dust(ldust.enderium) with shape-megadust
+(ITEMS) Tagging Item Enderium dust(dust.enderium) with shape-dust
+(ITEMS) Tagging Item Enderium small dust(mdust.enderium) with shape-smalldust
+(ITEMS) Tagging Item Enderium tiny dust(minidust.enderium) with shape-tinydust
+(ITEMS) Tagging Item Enderium plate(panel.enderium) with shape-panel
+(ITEMS) Tagging Item Enderium foil(foil.enderium) with shape-foil
+(ITEMS) Tagging Item Enderium gear(gear.enderium) with shape-gear
 (BLOCKS) Adding block.stellar with title Stellarine block and description:
  null
 (ITEMS) Adding block.stellar with title Stellarine block and description:
@@ -1676,6 +3397,32 @@
  null
 (ITEMS) Adding gear.stellar with title Stellarine gear and description:
  null
+(ITEMS) Tagging Block Stellarine block(block.stellar) with material-stellar
+(ITEMS) Tagging Item Stellarine cluster(fcluster.stellar) with material-stellar
+(ITEMS) Tagging Item Stellarine ingot(ingot.stellar) with material-stellar
+(ITEMS) Tagging Item Stellarine fragment(frag.stellar) with material-stellar
+(ITEMS) Tagging Item Stellarine nugget(nugget.stellar) with material-stellar
+(ITEMS) Tagging Item Stellarine wire spool(wirespool.stellar) with material-stellar
+(ITEMS) Tagging Item Stellarine large dust(ldust.stellar) with material-stellar
+(ITEMS) Tagging Item Stellarine dust(dust.stellar) with material-stellar
+(ITEMS) Tagging Item Stellarine small dust(mdust.stellar) with material-stellar
+(ITEMS) Tagging Item Stellarine tiny dust(minidust.stellar) with material-stellar
+(ITEMS) Tagging Item Stellarine plate(panel.stellar) with material-stellar
+(ITEMS) Tagging Item Stellarine foil(foil.stellar) with material-stellar
+(ITEMS) Tagging Item Stellarine gear(gear.stellar) with material-stellar
+(ITEMS) Tagging Block Stellarine block(block.stellar) with shape-block
+(ITEMS) Tagging Item Stellarine cluster(fcluster.stellar) with shape-cluster
+(ITEMS) Tagging Item Stellarine ingot(ingot.stellar) with shape-base
+(ITEMS) Tagging Item Stellarine fragment(frag.stellar) with shape-frag
+(ITEMS) Tagging Item Stellarine nugget(nugget.stellar) with shape-nugget
+(ITEMS) Tagging Item Stellarine wire spool(wirespool.stellar) with shape-wire
+(ITEMS) Tagging Item Stellarine large dust(ldust.stellar) with shape-megadust
+(ITEMS) Tagging Item Stellarine dust(dust.stellar) with shape-dust
+(ITEMS) Tagging Item Stellarine small dust(mdust.stellar) with shape-smalldust
+(ITEMS) Tagging Item Stellarine tiny dust(minidust.stellar) with shape-tinydust
+(ITEMS) Tagging Item Stellarine plate(panel.stellar) with shape-panel
+(ITEMS) Tagging Item Stellarine foil(foil.stellar) with shape-foil
+(ITEMS) Tagging Item Stellarine gear(gear.stellar) with shape-gear
 (BLOCKS) Adding block.duranium with title Duranium block and description:
  null
 (ITEMS) Adding block.duranium with title Duranium block and description:
@@ -1704,6 +3451,32 @@
  null
 (ITEMS) Adding gear.duranium with title Duranium gear and description:
  null
+(ITEMS) Tagging Block Duranium block(block.duranium) with material-duranium
+(ITEMS) Tagging Item Duranium cluster(fcluster.duranium) with material-duranium
+(ITEMS) Tagging Item Duranium ingot(ingot.duranium) with material-duranium
+(ITEMS) Tagging Item Duranium fragment(frag.duranium) with material-duranium
+(ITEMS) Tagging Item Duranium nugget(nugget.duranium) with material-duranium
+(ITEMS) Tagging Item Duranium wire spool(wirespool.duranium) with material-duranium
+(ITEMS) Tagging Item Duranium large dust(ldust.duranium) with material-duranium
+(ITEMS) Tagging Item Duranium dust(dust.duranium) with material-duranium
+(ITEMS) Tagging Item Duranium small dust(mdust.duranium) with material-duranium
+(ITEMS) Tagging Item Duranium tiny dust(minidust.duranium) with material-duranium
+(ITEMS) Tagging Item Duranium plate(panel.duranium) with material-duranium
+(ITEMS) Tagging Item Duranium foil(foil.duranium) with material-duranium
+(ITEMS) Tagging Item Duranium gear(gear.duranium) with material-duranium
+(ITEMS) Tagging Block Duranium block(block.duranium) with shape-block
+(ITEMS) Tagging Item Duranium cluster(fcluster.duranium) with shape-cluster
+(ITEMS) Tagging Item Duranium ingot(ingot.duranium) with shape-base
+(ITEMS) Tagging Item Duranium fragment(frag.duranium) with shape-frag
+(ITEMS) Tagging Item Duranium nugget(nugget.duranium) with shape-nugget
+(ITEMS) Tagging Item Duranium wire spool(wirespool.duranium) with shape-wire
+(ITEMS) Tagging Item Duranium large dust(ldust.duranium) with shape-megadust
+(ITEMS) Tagging Item Duranium dust(dust.duranium) with shape-dust
+(ITEMS) Tagging Item Duranium small dust(mdust.duranium) with shape-smalldust
+(ITEMS) Tagging Item Duranium tiny dust(minidust.duranium) with shape-tinydust
+(ITEMS) Tagging Item Duranium plate(panel.duranium) with shape-panel
+(ITEMS) Tagging Item Duranium foil(foil.duranium) with shape-foil
+(ITEMS) Tagging Item Duranium gear(gear.duranium) with shape-gear
 (BLOCKS) Adding block.unobtainium with title Unobtainium block and description:
  null
 (ITEMS) Adding block.unobtainium with title Unobtainium block and description:
@@ -1732,6 +3505,32 @@
  null
 (ITEMS) Adding gear.unobtainium with title Unobtainium gear and description:
  null
+(ITEMS) Tagging Block Unobtainium block(block.unobtainium) with material-unobtainium
+(ITEMS) Tagging Item Unobtainium cluster(fcluster.unobtainium) with material-unobtainium
+(ITEMS) Tagging Item Unobtainium ingot(ingot.unobtainium) with material-unobtainium
+(ITEMS) Tagging Item Unobtainium fragment(frag.unobtainium) with material-unobtainium
+(ITEMS) Tagging Item Unobtainium nugget(nugget.unobtainium) with material-unobtainium
+(ITEMS) Tagging Item Unobtainium wire spool(wirespool.unobtainium) with material-unobtainium
+(ITEMS) Tagging Item Unobtainium large dust(ldust.unobtainium) with material-unobtainium
+(ITEMS) Tagging Item Unobtainium dust(dust.unobtainium) with material-unobtainium
+(ITEMS) Tagging Item Unobtainium small dust(mdust.unobtainium) with material-unobtainium
+(ITEMS) Tagging Item Unobtainium tiny dust(minidust.unobtainium) with material-unobtainium
+(ITEMS) Tagging Item Unobtainium plate(panel.unobtainium) with material-unobtainium
+(ITEMS) Tagging Item Unobtainium foil(foil.unobtainium) with material-unobtainium
+(ITEMS) Tagging Item Unobtainium gear(gear.unobtainium) with material-unobtainium
+(ITEMS) Tagging Block Unobtainium block(block.unobtainium) with shape-block
+(ITEMS) Tagging Item Unobtainium cluster(fcluster.unobtainium) with shape-cluster
+(ITEMS) Tagging Item Unobtainium ingot(ingot.unobtainium) with shape-base
+(ITEMS) Tagging Item Unobtainium fragment(frag.unobtainium) with shape-frag
+(ITEMS) Tagging Item Unobtainium nugget(nugget.unobtainium) with shape-nugget
+(ITEMS) Tagging Item Unobtainium wire spool(wirespool.unobtainium) with shape-wire
+(ITEMS) Tagging Item Unobtainium large dust(ldust.unobtainium) with shape-megadust
+(ITEMS) Tagging Item Unobtainium dust(dust.unobtainium) with shape-dust
+(ITEMS) Tagging Item Unobtainium small dust(mdust.unobtainium) with shape-smalldust
+(ITEMS) Tagging Item Unobtainium tiny dust(minidust.unobtainium) with shape-tinydust
+(ITEMS) Tagging Item Unobtainium plate(panel.unobtainium) with shape-panel
+(ITEMS) Tagging Item Unobtainium foil(foil.unobtainium) with shape-foil
+(ITEMS) Tagging Item Unobtainium gear(gear.unobtainium) with shape-gear
 (BLOCKS) Adding elecwire.tiny.rudimentary with title Rudimentary tiny power cable and description:
  null
 (ITEMS) Adding elecwire.tiny.rudimentary with title Rudimentary tiny power cable and description:
@@ -1894,9 +3693,9 @@
 (MOD-LOADER) LV, structural: null, electrical: null
 (MOD-LOADER) MV, structural: null, electrical: null
 (MOD-LOADER) HV, structural: null, electrical: null
-(MOD-LOADER) VHV, structural: null, electrical: null
-(MOD-LOADER) UHV, structural: null, electrical: null
 (MOD-LOADER) EV, structural: null, electrical: null
+(MOD-LOADER) IV, structural: null, electrical: null
+(MOD-LOADER) LuV, structural: null, electrical: null
 (MOD-LOADER) MAX, structural: null, electrical: null
 (BLOCKS) Adding pipe.I with title Straight pipe and description:
  A pipe which is straight.
@@ -1926,53 +3725,227 @@
  A pair of curved pipes.
 (ITEMS) Adding pipe.D with title Dual pipe and description:
  A pair of curved pipes.
+(BLOCKS) Adding industry.transformer0 with title Transformer VLV/ULV and description:
+ null
+(ITEMS) Adding industry.transformer0 with title Transformer VLV/ULV and description:
+ null
+(ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with voltage-VLV
+(ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with voltage-ULV
+(ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with machine-transformer
+(BLOCKS) Adding industry.transformer1 with title Transformer LV/VLV and description:
+ null
+(ITEMS) Adding industry.transformer1 with title Transformer LV/VLV and description:
+ null
+(ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with voltage-LV
+(ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with voltage-VLV
+(ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with machine-transformer
+(BLOCKS) Adding industry.transformer2 with title Transformer MV/LV and description:
+ null
+(ITEMS) Adding industry.transformer2 with title Transformer MV/LV and description:
+ null
+(ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with voltage-MV
+(ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with voltage-LV
+(ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with machine-transformer
+(BLOCKS) Adding industry.transformer3 with title Transformer HV/MV and description:
+ null
+(ITEMS) Adding industry.transformer3 with title Transformer HV/MV and description:
+ null
+(ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with voltage-HV
+(ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with voltage-MV
+(ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with machine-transformer
+(BLOCKS) Adding industry.transformer4 with title Transformer EV/HV and description:
+ null
+(ITEMS) Adding industry.transformer4 with title Transformer EV/HV and description:
+ null
+(ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with voltage-EV
+(ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with voltage-HV
+(ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with machine-transformer
+(BLOCKS) Adding industry.transformer5 with title Transformer IV/EV and description:
+ null
+(ITEMS) Adding industry.transformer5 with title Transformer IV/EV and description:
+ null
+(ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with voltage-IV
+(ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with voltage-EV
+(ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with machine-transformer
+(BLOCKS) Adding industry.transformer6 with title Transformer LuV/IV and description:
+ null
+(ITEMS) Adding industry.transformer6 with title Transformer LuV/IV and description:
+ null
+(ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with voltage-LuV
+(ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with voltage-IV
+(ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with machine-transformer
+(BLOCKS) Adding industry.transformer7 with title Transformer MAX/LuV and description:
+ null
+(ITEMS) Adding industry.transformer7 with title Transformer MAX/LuV and description:
+ null
+(ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with voltage-MAX
+(ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with voltage-LuV
+(ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with machine-transformer
 (TOOLS) Tools initialized
 (FullScreen) Setting up FullScreen
 (MOD-LOADER) Loading mods
 (MOD-LOADER) Finding all files to load
 (MOD-LOADER) Added missing mods directory
 (MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5 BROKEN 2.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld BROKEN.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
-(MOD-LOADER) Found 2 mod files
-(MOD - mmb-DE.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+(MOD-LOADER) Found 8 mod files
+(MOD - BEB.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
+(MOD - HelloWorld 0.5 BROKEN 2.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5 BROKEN 2.jar
 (MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD - HelloWorld BROKEN.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld BROKEN.jar
+(MOD - mmb-DE.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+(MOD - 26.11.2021 choinka.zip) Opening a modfile: C:\Users\oskar\Downloads\26.11.2021 choinka.zip
+(MOD-LOADER) The external mod has incorrect URL: steam://rungameid/255710
+(MOD-LOADER) java.net.MalformedURLException: unknown protocol: steam
+	at java.net.URL.<init>(Unknown Source)
+	at java.net.URL.<init>(Unknown Source)
+	at java.net.URL.<init>(Unknown Source)
+	at mmb.FILES.OnlineFile.<init>(OnlineFile.java:35)
+	at mmb.FILES.FileUtil.getFile(FileUtil.java:17)
+	at mmb.MODS.loader.ModLoader.modloading(ModLoader.java:145)
+	at mmb.Loading.continueLoading(Loading.java:43)
+	at mmb.Main.main(Main.java:36)
+((MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
 (MOD - mmb-DE.jar) Loading a modfile: mmb-DE.jar
-(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
-(MOD - mmb-DE.jar) entry: META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5 BROKEN 2.jar) Loading a modfile: HelloWorld 0.5 BROKEN 2.jar
+(MOD - BEB.jar) Loading a modfile: BEB.jar
+(MOD - HelloWorld BROKEN.jar) Loading a modfile: HelloWorld BROKEN.jar
+MOD - 26.11.2021 choinka.zip) Loading a modfile: 26.11.2021 choinka.zip
+((MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/
 (MOD - HelloWorld 0.5.jar) entry: META-INF/MANIFEST.MF
-(MOD - mmb-DE.jar) entry: .project
+(MOD - HelloWorld BROKEN.jar) entry: META-INF/MANIFEST.MF
+(MOD - mmb-DE.jar) entry: META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5 BROKEN 2.jarMOD - BEB.jar) entry: META-INF/MANIFEST.MF
+) entry: META-INF/MANIFEST.MF
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - mmb-DE.jar) entry: .classpath
+((MOD - HelloWorld 0.5 BROKEN 2.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/
+(MOD - mmb-DE.jar) entry: .project
+(MOD - HelloWorld 0.5 BROKEN 2.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class(MOD - HelloWorld 0.5 BROKEN 2.jar) Couldn't open zip or jar file HelloWorld 0.5 BROKEN 2.jar
+MOD - BEB.jar) (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5 BROKEN 2.jar) 
+java.util.zip.ZipException: broken archive, entry with negative size
+	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.readDataDescriptor(ZipArchiveInputStream.java:935)
+	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.closeEntry(ZipArchiveInputStream.java:794)
+	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.getNextZipEntry(ZipArchiveInputStream.java:270)
+(	at org.apache.commons.compress.archivers.jar.JarArchiveInputStream.getNextJarEntry(JarArchiveInputStream.java:56)MOD - HelloWorld 0.5.jar
+) 	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:140)entry: mmbmods/monniasza/helloworld/DataLayerHW.class
+(	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:86)MOD - HelloWorld BROKEN.jar) 
+entry: mmbmods/monniasza/helloworld/HWBlock.class	at java.lang.Thread.run(Unknown Source)
+
+(MOD - mmb-DE.jar) entry: .classpath
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/choinka.html
+(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/choinka.html.bak
+(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/choinka.png
+(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld BROKEN.jar) entry: resources/textures/hw/notepad.png
+(MOD - HelloWorld BROKEN.jar) entry: .project
+(MOD - HelloWorld BROKEN.jar) entry: .classpath
+
+(MOD - HelloWorld BROKEN.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/gwiazda.png
+(MOD - HelloWorld 0.5.jar) entry: resources/textures/hw/notepad.png
 (MOD - HelloWorld 0.5.jar) entry: .project
 (MOD - HelloWorld 0.5.jar) entry: .classpath
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/jquery.js
+entry: mmbmods/beb/package-info.class
+(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
+(MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
+(MOD - BEB.jar) entry: .classpath
 (MOD - HelloWorld 0.5.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - BEB.jar) entry: .project
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/prezent1.png
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/prezent2.png
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/prezent3.png
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/snowfall.js
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/styl.css
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/styl.css.bak
+(MOD - BEB.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
 (MOD - mmb-DE.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
-(MOD - HelloWorld 0.5.jar(MOD - mmb-DE.jar) Processing .classpath
-) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD - BEB.jar) Processing mmbmods/beb/BlockBEB.class
+(MOD - HelloWorld BROKEN.jar) (MOD - 26.11.2021 choinka.zip) Injecting C:\Users\oskar\Downloads\26.11.2021 choinka.zip
+(MOD - BEB.jar) File: mmbmods/beb/BlockBEB.class
+(MOD - mmb-DE.jar) Processing .classpath
+(MOD - HelloWorld 0.5.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD - mmb-DE.jar) File: .classpath
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - BEB.jar) Processing .classpath
+(MOD - BEB.jar) File: .classpath
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/choinka.html.bak
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/choinka.html.bak
+Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld BROKEN.jar
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/choinka.png
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/choinka.png
+(MOD - BEB.jar) Processing mmbmods/beb/package-info.class
+(MOD - BEB.jar) File: mmbmods/beb/package-info.class
 (MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
 (MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
 (MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - mmb-DE.jar) Processing .project
 (MOD - mmb-DE.jar) File: .project
-(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - mmb-DE.jar) Processing META-INF/MANIFEST.MF
 (MOD - mmb-DE.jar) File: META-INF/MANIFEST.MF
-(MOD - HelloWorld 0.5.jar) Processing .classpath
-(MOD - HelloWorld 0.5.jar) File: .classpath
+(MOD - BEB.jar) Processing mmbmods/beb/BEBMod.class
+(MOD - BEB.jar) File: mmbmods/beb/BEBMod.class
+(MOD - BEB.jar) Processing .project
+(MOD - BEB.jar) File: .project
+(MOD - BEB.jar) Processing META-INF/MANIFEST.MF
+(MOD - BEB.jar) File: META-INF/MANIFEST.MF
+(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/snowfall.js
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/snowfall.js
+(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/styl.css.bak
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/styl.css.bak
+(MOD - BEB.jar) Class: mmbmods.beb.BlockBEB
 (MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/
+(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - 26.11.2021 choinka.zip) Directory: 26.11.2021 choinka/
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/prezent2.png
+(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/prezent2.png
+(MOD - HelloWorld 0.5.jar) Processing .classpath
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/
+(MOD - HelloWorld BROKEN.jar) Processing .classpath
+(MOD - HelloWorld BROKEN.jar) File: .classpath
+(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - 26.11.2021 choinka.zip) Directory: 26.11.2021 choinka/26.11.2021 choinka/
+(MOD - HelloWorld 0.5.jar) File: .classpath
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/choinka.html
+(MOD - HelloWorld BROKEN.jar) Processing resources/textures/hw/notepad.png
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/choinka.html
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/gwiazda.png
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/gwiazda.png
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/jquery.js
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/jquery.js
+(MOD - HelloWorld BROKEN.jar(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class) File: resources/textures/hw/notepad.png
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/prezent3.png
+(MOD - BEB.jar) entry: mmbmods/beb/package-info.class
+(MOD - BEB.jar) Class: mmbmods.beb.package-info
+(MOD - HelloWorld 0.5.jar) Processing resources/textures/hw/notepad.png
+(MOD - HelloWorld 0.5.jar) File: resources/textures/hw/notepad.png
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
@@ -1981,65 +3954,145 @@
 (MOD - HelloWorld 0.5.jar) Processing META-INF/MANIFEST.MF
 (MOD - HelloWorld 0.5.jar) File: META-INF/MANIFEST.MF
 (MOD - HelloWorld 0.5.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - HelloWorld 0.5.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
+((MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/prezent3.png
+(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/package-info.class
+
 (MOD - mmb-DE.jar) Class: mmbmods.lang.de.package-info
+(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld BROKEN.jar) Processing .project
+(MOD - HelloWorld BROKEN.jar) File: .project
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/prezent1.png
+MOD - HelloWorld 0.5.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/prezent1.png
+(MOD - HelloWorld BROKEN.jar) Processing META-INF/MANIFEST.MF
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/styl.css
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
+(MOD - BEB.jar) (MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/styl.css
+(MOD - HelloWorld BROKEN.jar) File: META-INF/MANIFEST.MF
+(MOD - HelloWorld BROKEN.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - HelloWorld BROKEN.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+Class: mmbmods.beb.BEBMod
+(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
+(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.HWBlock
+(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.DataLayerHW
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWBlock
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.DataLayerHW
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.package-info
+(BLOCKS) Adding beb.BEB with title Block Entity Bomb and description:
+ null
+(ITEMS) Adding beb.BEB with title Block Entity Bomb and description:
+ null
+(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.package-info
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWMachine
+(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.HWMachine
+(MOD - HelloWorld 0.5.jar) Invalid class file: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) java.lang.ClassFormatError: Invalid code attribute name index 5888 in class file mmbmods/monniasza/helloworld/HWMachine
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
+	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:207)
+	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:86)
+	at java.lang.Thread.run(Unknown Source)
+((HW) Hello, world!
+MOD - HelloWorld BROKEN.jar) Invalid class file: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld BROKEN.jar) java.lang.ClassFormatError: Invalid code attribute name index 5888 in class file mmbmods/monniasza/helloworld/HWMachine
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
+	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:207)
+	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:86)
+	at java.lang.Thread.run(Unknown Source)
 (HW) Hello, world!
-(MOD-LOADER) Start 1st stage for Hello, world!
+(MOD - ) Opening a modfile: https://tomaszjakubowski.edu.pl/
+(MOD - ) Loading a modfile: https://tomaszjakubowski.edu.pl/
+(MOD - ) Couldn't open zip or jar file https://tomaszjakubowski.edu.pl/
+(MOD - ) java.util.zip.ZipException: Unexpected record signature: 0X4F44213C
+	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.getNextZipEntry(ZipArchiveInputStream.java:296)
+	at org.apache.commons.compress.archivers.jar.JarArchiveInputStream.getNextJarEntry(JarArchiveInputStream.java:56)
+	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:140)
+	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:86)
+	at java.lang.Thread.run(Unknown Source)
+(MOD-LOADER) Start 1st stage for BlockEntity Bomb
 (MOD-LOADER) Start 1st stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) End 1st stage for Hello, world!
 (MOD-LOADER) End 1st stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) Start 2nd stage for Hello, world!(MOD-LOADER) Start 2nd stage for MultiMachineBuilder German/Deutsch
-
+(MOD-LOADER) End 1st stage for BlockEntity Bomb
+(MOD-LOADER) 26.11.2021 choinka.zip is not a mod and will not be run
+(MOD-LOADER) Start 2nd stage for BlockEntity Bomb
+(MOD-LOADER) End 2nd stage for BlockEntity Bomb
+(MOD-LOADER) Start 2nd stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) End 2nd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) Start 3rd stage for Hello, world!
-(MOD-LOADER) Start 3rd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) Start 3rd stage for BlockEntity Bomb
+(MOD-LOADER) (MOD-LOADER) Start 3rd stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) End 3rd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+End 3rd stage for BlockEntity Bomb
+(MOD-LOADER) ================MOD INFORMATION FOR steam://rungameid/255710================
+(MOD-LOADER) LOCATED AT steam://rungameid/255710
+(MOD-LOADER) Missing files
+(MOD-LOADER) ================MOD INFORMATION FOR HelloWorld 0.5 BROKEN 2.jar================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5 BROKEN 2.jar
+(MOD-LOADER) Corrupt
+(MOD-LOADER) ================MOD INFORMATION FOR 26.11.2021 choinka.zip================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\Downloads\26.11.2021 choinka.zip
+(MOD-LOADER) Media package
+(MOD-LOADER) ================MOD INFORMATION FOR BlockEntity Bomb================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
 (MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Wed Feb 02 14:43:26 CET 2022
-(MOD-LOADER) MADE BY Monniasza
-(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
+(MOD-LOADER) RELEASED Sun Mar 27 20:55:51 CEST 2022
+(MOD-LOADER) MADE BY 
+(MOD-LOADER) DESCRIPTION: A block that lags out entire game.
 (MOD-LOADER) ================MOD INFORMATION FOR MultiMachineBuilder German/Deutsch================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
 (MOD-LOADER) Operative
 (MOD-LOADER) RELEASED Tue Jul 12 00:00:00 CEST 3921
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: This mod contains German translation of the game
-Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
+Diese Modifikation enhaltet Deutschsprachigen Ãœbersetzung des Spiel
+(MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD-LOADER) Crashed
+(MOD-LOADER) RELEASED Sun Mar 27 20:55:51 CEST 2022
+(MOD-LOADER) MADE BY Monniasza
+(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
+(MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld BROKEN.jar
+(MOD-LOADER) Crashed
+(MOD-LOADER) RELEASED Sun Mar 27 20:55:51 CEST 2022
+(MOD-LOADER) MADE BY Monniasza
+(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
+(MOD-LOADER) ================MOD INFORMATION FOR https://tomaszjakubowski.edu.pl/================
+(MOD-LOADER) LOCATED AT https://tomaszjakubowski.edu.pl/
+(MOD-LOADER) Corrupt
 (MOD-LOADER) HOORAY, IT'S OVER!
-(ITEMS) Adding mmb.multimachine.hw.HelloWorldMachine with title hw.HelloWorldMachine and description:
- null
-(ITEMS) Adding mmb.multimachine.hw.HelloWorldMachine with title hw.HelloWorldMachine and description:
- null
-(HW) Successfully created Rainbow Machine
-(HW) Successfully created Rainbow Machine
-(BLOCKS) Adding wireworld.hw with title Hello, world! and description:
- null
-(BLOCKS) Adding wireworld.hw with title Hello, world! and description:
- null
-(ITEMS) Adding wireworld.hw with title Hello, world! and description:
- null
-(ITEMS) Adding wireworld.hw with title Hello, world! and description:
- null
-(MOD-LOADER) End 2nd stage for Hello, world!
-(MOD-LOADER) End 3rd stage for Hello, world!
 (Main menu) MainMenu created
+(SELECT A SAVE) Found save: 1MiB.mworld
 (SELECT A SAVE) Found save: Agriculture test.mworld
+(SELECT A SAVE) Found save: BEB test 2.mworld
+(SELECT A SAVE) Found save: BEB test.mworld
 (SELECT A SAVE) Found save: Block Clicking Claw.mworld
 (SELECT A SAVE) Found save: Distrib2.mworld
 (SELECT A SAVE) Found save: Distributor.mworld
 (SELECT A SAVE) Found save: EVIL.mworld
-(SELECT A SAVE) Found save: Machine Builder 0.5-pre4.mworld
 (SELECT A SAVE) Found save: main.mworld
 (SELECT A SAVE) Found save: Surv.mworld
 (SELECT A SAVE) Found save: Surv2.mworld
@@ -2050,31 +4103,247 @@ Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
 (SELECT A SAVE) Found save: Test player.mworld
 (SELECT A SAVE) Found save: Test tube.mworld
 (SELECT A SAVE) Found save: Test.mworld
-(SELECT A SAVE) Found save: The longest player pipe ever.mworld
-(SELECT A SAVE) Found 17 saves
+(SELECT A SAVE) Found save: The longest play(SETTINGS) Saved settings file
+AVE) Found save: Tiled.mworld
+(SELECT A SAVE) Found 20 saves
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@19b3954
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@824fd3
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
 (SELECT A SAVE) Opened a file
 (SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(COMPLEX RECIPE RPOCESSOR) IUW data:null
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(MAP anonymous) Block entity at [-10,-2] took exceptionally long to run
-(MAP anonymous) Block entity at [-11,-2] took exceptionally long to run
-(MAP anonymous) Block entity at [-11,-2] took exceptionally long to run
+(SELECT A SAVE) Failed to load the world
+(SELECT A SAVE) com.fasterxml.jackson.core.JsonParseException: Unrecognized token 'e': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (StringReader); line: 1, column: 2]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2337)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:720)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._reportInvalidToken(ReaderBasedJsonParser.java:2903)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddValue(ReaderBasedJsonParser.java:1949)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:781)
+	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4622)
+	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:3042)
+	at mmb.DATA.json.JsonTool.parse(JsonTool.java:62)
+	at mmb.MENU.main.PanelSaves.lambda$6(PanelSaves.java:139)
+	at java.lang.Thread.run(Unknown Source)
 (WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
+(WORLD - IDLE) Exiting
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@1cb2ea
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Failed to load the world
+(SELECT A SAVE) com.fasterxml.jackson.core.JsonParseException: Unrecognized token 'e': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (StringReader); line: 1, column: 2]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2337)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:720)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._reportInvalidToken(ReaderBasedJsonParser.java:2903)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddValue(ReaderBasedJsonParser.java:1949)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:781)
+	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4622)
+	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:3042)
+	at mmb.DATA.json.JsonTool.parse(JsonTool.java:62)
+	at mmb.MENU.main.PanelSaves.lambda$6(PanelSaves.java:139)
+	at java.lang.Thread.run(Unknown Source)
+(WORLD TEST) Exiting the world
+(WORLD - IDLE) Exiting
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@1d37b80
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Failed to load the world
+(SELECT A SAVE) com.fasterxml.jackson.core.JsonParseException: Unrecognized token 'e': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (StringReader); line: 1, column: 2]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2337)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:720)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._reportInvalidToken(ReaderBasedJsonParser.java:2903)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddValue(ReaderBasedJsonParser.java:1949)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:781)
+	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4622)
+	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:3042)
+	at mmb.DATA.json.JsonTool.parse(JsonTool.java:62)
+	at mmb.MENU.main.PanelSaves.lambda$6(PanelSaves.java:139)
+	at java.lang.Thread.run(Unknown Source)
+(WORLD TEST) Exiting the world
+(WORLD - IDLE) Exiting
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@3d3ec
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Failed to load the world
+(SELECT A SAVE) com.fasterxml.jackson.core.JsonParseException: Unexpected character ('ï¿½' (code 65533 / 0xfffd)): expected a valid value (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (StringReader); line: 1, column: 2]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2337)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:710)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportUnexpectedChar(ParserMinimalBase.java:635)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddValue(ReaderBasedJsonParser.java:1952)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:781)
+	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4622)
+	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:3042)
+	at mmb.DATA.json.JsonTool.parse(JsonTool.java:62)
+	at mmb.MENU.main.PanelSaves.lambda$6(PanelSaves.java:139)
+	at java.lang.Thread.run(Unknown Source)
+(WORLD TEST) Exiting the world
+(WORLD - IDLE) Exiting
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@1412559
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Failed to load the world
+(SELECT A SAVE) com.fasterxml.jackson.core.JsonParseException: Unrecognized token 'PK    ': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (String)"PK    ï¿½sTOï¿½l9ï¿½.   .      mimetypeapplication/vnd.oasis.opendocument.spreadsheetPK  ï¿½sTO            '   Configurations2/accelerator/current.xml PK           PK    ï¿½sTO               Configurations2/images/Bitmaps/PK    ï¿½sTO               Configurations2/floater/PK    ï¿½sTO               Configurations2/progressbar/PK    ï¿½sTO               Configurations2/menubar/PK    ï¿½sTO               Configurations2/popupmenu/PK    ï¿½sTO               Configurations2/"[truncated 10911 chars]; line: 1, column: 11]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2337)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:720)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._reportInvalidToken(ReaderBasedJsonParser.java:2903)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddValue(ReaderBasedJsonParser.java:1949)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:781)
+	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4622)
+	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:3042)
+	at mmb.DATA.json.JsonTool.parse(JsonTool.java:62)
+	at mmb.MENU.main.PanelSaves.lambda$6(PanelSaves.java:139)
+	at java.lang.Thread.run(Unknown Source)
+(WORLD TEST) Exiting the world
+(WORLD - IDLE) Exiting
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@16f503f
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Failed to load the world
+(SELECT A SAVE) com.fasterxml.jackson.core.JsonParseException: Unrecognized token 'MZ': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (StringReader); line: 1, column: 3]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2337)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:720)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._reportInvalidToken(ReaderBasedJsonParser.java:2903)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddValue(ReaderBasedJsonParser.java:1949)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:781)
+	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4622)
+	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:3042)
+	at mmb.DATA.json.JsonTool.parse(JsonTool.java:62)
+	at mmb.MENU.main.PanelSaves.lambda$6(PanelSaves.java:139)
+	at java.lang.Thread.run(Unknown Source)
+(WORLD TEST) Exiting the world
+(WORLD - IDLE) Exiting
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@a7fa09
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Failed to load the world
+(SELECT A SAVE) com.fasterxml.jackson.core.JsonParseException: Unrecognized token 'e': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (StringReader); line: 1, column: 2]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2337)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:720)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._reportInvalidToken(ReaderBasedJsonParser.java:2903)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddValue(ReaderBasedJsonParser.java:1949)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:781)
+	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4622)
+	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:3042)
+	at mmb.DATA.json.JsonTool.parse(JsonTool.java:62)
+	at mmb.MENU.main.PanelSaves.lambda$6(PanelSaves.java:139)
+	at java.lang.Thread.run(Unknown Source)
+(WORLD TEST) Exiting the world
+(WORLD - IDLE) Exiting
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@c8487
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Failed to load the world
+(SELECT A SAVE) com.fasterxml.jackson.core.JsonParseException: Unrecognized token 'PK    h': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (String)"PK    hï¿½nN^ï¿½2'   '      mimetypeapplication/vnd.oasis.opendocument.textPK  hï¿½nN            '   Configurations2/accelerator/current.xml PK           PK    hï¿½nN               Configurations2/images/Bitmaps/PK    hï¿½nN               Configurations2/floater/PK    hï¿½nN               Configurations2/progressbar/PK    hï¿½nN               Configurations2/menubar/PK    hï¿½nN               Configurations2/popupmenu/PK    hï¿½nN               Configurations2/statusb"[truncated 17017 chars]; line: 1, column: 12]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2337)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:720)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._reportInvalidToken(ReaderBasedJsonParser.java:2903)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddValue(ReaderBasedJsonParser.java:1949)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:781)
+	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4622)
+	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:3042)
+	at mmb.DATA.json.JsonTool.parse(JsonTool.java:62)
+	at mmb.MENU.main.PanelSaves.lambda$6(PanelSaves.java:139)
+	at java.lang.Thread.run(Unknown Source)
+(WORLD TEST) Exiting the world
+(WORLD - IDLE) Exiting
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@19aa1ab
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Failed to load the world
+(SELECT A SAVE) com.fasterxml.jackson.core.JsonParseException: Illegal character ((CTRL-CHAR, code 0)): only regular white space (\r, \n, \t) is allowed between tokens
+ at [Source: (StringReader); line: 1, column: 2]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2337)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:710)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._throwInvalidSpace(ParserMinimalBase.java:688)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._skipWSOrEnd(ReaderBasedJsonParser.java:2408)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:677)
+	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4622)
+	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:3042)
+	at mmb.DATA.json.JsonTool.parse(JsonTool.java:62)
+	at mmb.MENU.main.PanelSaves.lambda$6(PanelSaves.java:139)
+	at java.lang.Thread.run(Unknown Source)
+(WORLD TEST) Exiting the world
+(WORLD - IDLE) Exiting
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@1ada2c2
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Failed to load the world
+(SELECT A SAVE) com.fasterxml.jackson.core.JsonParseException: Unrecognized token 'PK    TBCQ': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (String)"PK    TBCQï¿½l9ï¿½.   .      mimetypeapplication/vnd.oasis.opendocument.spreadsheetPK  TBCQ            '   Configurations2/accelerator/current.xml PK           PK    TBCQ               Configurations2/images/Bitmaps/PK    TBCQ               Configurations2/floater/PK    TBCQ               Configurations2/progressbar/PK    TBCQ               Configurations2/menubar/PK    TBCQ               Configurations2/popupmenu/PK    TBCQ               Configurations2/"[truncated 8924 chars]; line: 1, column: 15]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2337)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:720)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._reportInvalidToken(ReaderBasedJsonParser.java:2903)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddValue(ReaderBasedJsonParser.java:1949)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:781)
+	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4622)
+	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:3042)
+	at mmb.DATA.json.JsonTool.parse(JsonTool.java:62)
+	at mmb.MENU.main.PanelSaves.lambda$6(PanelSaves.java:139)
+	at java.lang.Thread.run(Unknown Source)
+(WORLD TEST) Exiting the world
+(WORLD - IDLE) Exiting
 (WORLDS) The given world is null, exiting
 (WORLD TEST) Exited the world
 (SETTINGS) Saved settings file

@@ -13,6 +13,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
+
+import mmb.WORLD.gui.window.TabInventory.Tagsel;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.item.Items;
 import monniasza.collects.Collects;
@@ -30,12 +32,11 @@ public class CreativeItemList extends JList<ItemType> {
 	@Nonnull public static final List<ItemType> list = Collects.toWritableList(model);
 	static {
 		list.addAll(Items.items);
-		resort((l, r) -> l.title().compareTo(r.title()));
+		Collections.sort(list, (l, r) -> l.title().compareTo(r.title()));
 	}
-	public static void resort(Comparator<ItemType> sort) {
-		Collections.sort(list, sort);
+	public static void resort(Comparator<ItemType> sort, DefaultListModel model) {
+		Collections.sort(Collects.toWritableList(model), sort);
 	}
-	
 	@Override
 	public ListCellRenderer<? super ItemType> getCellRenderer() {
 		return cellrender;

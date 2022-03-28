@@ -4,16 +4,22 @@
 package mmb.WORLD.contentgen;
 
 import java.awt.Color;
+import java.util.function.Function;
+
 import javax.annotation.Nonnull;
 
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.WORLD.block.Blocks;
 import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.contentgen.MetalGroup.MaterialStack;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.SimpleItemList;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.item.Item;
+import mmb.WORLD.items.ItemEntry;
 import mmb.debug.Debugger;
 
 /**
@@ -58,6 +64,14 @@ public class Materials {
 	@Nonnull public static final Color colorDiamond = new Color(0, 255, 255);
 	@Nonnull public static final Color colorQuartz = new Color(180, 200, 255);
 	@Nonnull public static final Color colorNickel = new Color(128, 128, 255);
+	@Nonnull public static final Color colorSignalum = new Color(180, 60, 0);
+	@Nonnull public static final Color colorEnderium = new Color(20, 80, 80);
+	@Nonnull public static final Color colorChrome = new Color(255, 160, 200);
+	@Nonnull public static final Color colorNichrome = new Color(255, 200, 220);
+	@Nonnull public static final Color colorEnder = new Color(20, 120, 120);
+	@Nonnull public static final Color colorGlowstone = new Color(180, 180, 10);
+	@Nonnull public static final Color colorRedstone = new Color(180, 10, 10);
+	@Nonnull public static final Color colorLumium = new Color(255, 255, 200);
 	
 	//Tier 1 materials
 	@Nonnull public static final BaseMetalGroup rudimentary = new BaseMetalGroup(colorRudimentary, "rudimentary", "Rudimentary", VoltageTier.V1, 50_000, 3);
@@ -72,6 +86,7 @@ public class Materials {
 	@Nonnull public static final BaseMetalGroup alu =     new BaseMetalGroup(colorAlu, "alu", "Aluminum", VoltageTier.V1, 40_000, 1);
 	@Nonnull public static final BaseMetalGroup lead =    new BaseMetalGroup(colorLead, "lead", "Lead", VoltageTier.V1, 25_000, 1);
 	@Nonnull public static final BaseMetalGroup nickel =  new BaseMetalGroup(colorNickel, "nickel", "Nickel", VoltageTier.V1, 120_000, 1);
+	@Nonnull public static final GemGroup redstone =      new GemGroup(colorRedstone, "redstone", "Redstone", VoltageTier.V1, 80_000);
 	
 	//Tier 3 materials
 	@Nonnull public static final BaseMetalGroup silver =  new BaseMetalGroup(colorSilver, "silver", "Silver", VoltageTier.V1, 100_000, 1);
@@ -79,7 +94,11 @@ public class Materials {
 	@Nonnull public static final MetalGroup steel =       new MetalGroup(colorSteel, "steel", "Steel", VoltageTier.V2, 150_000);
 	@Nonnull public static final MetalGroup bronze =      new MetalGroup(colorBronze, "bronze", "Bronze", VoltageTier.V1, 100_000);
 	@Nonnull public static final MetalGroup brass =       new MetalGroup(colorBrass, "brass", "Brass", VoltageTier.V1, 110_000);
+	@Nonnull public static final BaseMetalGroup chrome =  new BaseMetalGroup(colorChrome, "chrome", "Chrome", VoltageTier.V2, 120_000, 1);
+	@Nonnull public static final MetalGroup nichrome =    new MetalGroup(colorNichrome, "nichrome", "Nichrome", VoltageTier.V2, 150_000);
 	@Nonnull public static final GemGroup quartz =        new GemGroup(colorQuartz, "quartz", "Quartz", VoltageTier.V2, 150_000);
+	@Nonnull public static final GemGroup ender =         new GemGroup(colorEnder, "ender", "Ender", VoltageTier.V2, 150_000);
+	@Nonnull public static final GemGroup glowstone =     new GemGroup(colorGlowstone, "glowstone", "Glowstone", VoltageTier.V2, 130_000);
 	
 	//Tier 4 materials
 	@Nonnull public static final BaseMetalGroup cobalt = new BaseMetalGroup(colorCobalt, "cobalt", "Cobalt", VoltageTier.V2, 200_000, 1);
@@ -90,14 +109,17 @@ public class Materials {
 	//Tier 5 materials
 	@Nonnull public static final MetalGroup HSS =     new MetalGroup(colorHSS, "HSS", "High Speed Steel", VoltageTier.V3, 250_000);
 	@Nonnull public static final BaseMetalGroup platinum =    new BaseMetalGroup(colorPlatinum, "platinum", "Platinum", VoltageTier.V2, 170_000, 1);
+	@Nonnull public static final MetalGroup lumium = new MetalGroup(colorLumium, "lumium", "Lumium", VoltageTier.V3, 400_000);
 	
 	//Tier 6 materials
 	@Nonnull public static final BaseMetalGroup tungsten = new BaseMetalGroup(colorTungsten, "tungsten", "Tungsten", VoltageTier.V4, 500_000, 1);
+	@Nonnull public static final MetalGroup signalum = new MetalGroup(colorSignalum, "signalum", "Signalum", VoltageTier.V4, 600_000);
 	@Nonnull public static final BaseMetalGroup iridium =    new BaseMetalGroup(colorIridium, "iridium", "Iridium", VoltageTier.V4, 220_000, 1);
 	
 	//Tier 7 materials
 	@Nonnull public static final MetalGroup tungstenC =     new MetalGroup(colorTungstenC, "tungstenC", "Tungsten Carbide", VoltageTier.V5, 1000_000);
 	@Nonnull public static final MetalGroup crystal =     new MetalGroup(colorCrystal, "crystal", "Crystalline", VoltageTier.V5, 4000_000);
+	@Nonnull public static final MetalGroup enderium = new MetalGroup(colorEnderium, "enderium", "Enderium", VoltageTier.V5, 5000_000);
 	
 	//Tier 8 materials
 	@Nonnull public static final MetalGroup stellar =     new MetalGroup(colorStellar, "stellar", "Stellarine", VoltageTier.V6, 8000_000);
@@ -130,9 +152,14 @@ public class Materials {
 		Blocks.deprecate("elec.largewire", wireRudimentary.large);
 		Blocks.deprecate("elec.infinite", ContentsBlocks.infinigens.blocks.get(0));
 		Blocks.deprecate("elec.infinite1", ContentsBlocks.infinigens.blocks.get(0));
+		
 		//Alloying recipes
 		alloying(copper, 4, zinc, 1, brass, 5, VoltageTier.V2, 80_000);
 		alloying(copper, 3, tin, 1, bronze, 4, VoltageTier.V2, 75_000);
+		alloying(nickel, 1, chrome, 1, nichrome, 2, VoltageTier.V2, 95_000);
+		alloying(signalum, 4, VoltageTier.V4,  800_000, copper.stack(3), silver.stack(1),   redstone.stack(1));
+		alloying(enderium, 2, VoltageTier.V5, 5000_000, tin.stack(3),    platinum.stack(1), ender.stack(1));
+		alloying(lumium, 3, VoltageTier.V5,   400_000, tin.stack(3),     silver.stack(1),   glowstone.stack(1));
 		
 		//Furnace fuels
 		Craftings.furnaceFuels.put(Materials.coal.base, 10_000_000);
@@ -178,7 +205,22 @@ public class Materials {
 		RecipeOutput recs4 = new SimpleItemList(itemStackA2, itemStackB2);
 		Craftings.alloyer.add(recs4, output, ratioOut, volt, energy);
 	}
-	
+
+	public static void alloying(MetalGroup out, int ratioO, VoltageTier volt, double energy, MaterialStack... mats) {
+		malloyingHelper(in -> in.nugget, mats, out, ratioO, volt, energy/16);
+		malloyingHelper(in -> in.frag, mats, out, ratioO, volt, energy/4);
+		malloyingHelper(in -> in.base, mats, out, ratioO, volt, energy);
+		malloyingHelper(in -> in.cluster, mats, out, ratioO, volt, energy*4);
+		malloyingHelper(in -> in.block, mats, out, ratioO, volt, energy*16);
+	}
+	private static void malloyingHelper(Function<@Nonnull MetalGroup, @Nonnull ItemEntry> selector, MaterialStack[] mat, MetalGroup out, int ratioO, VoltageTier volt, double energy) {
+		Object2IntMap<ItemEntry> builder = new Object2IntOpenHashMap<>(mat.length);
+		for(int i = 0; i < mat.length; i++) {
+			builder.put(selector.apply(mat[i].material), mat[i].amount);
+		}
+		RecipeOutput in = new SimpleItemList(builder);
+		Craftings.alloyer.add(in, selector.apply(out), ratioO, volt, energy);
+	}
 	/*
 	 * Minecraft mod-based materials
 	 * 
@@ -201,11 +243,11 @@ public class Materials {
 	 * 3  LV Steel              Silver      Nichrome
 	 * 4  MV Stainless          Gold        Tungsten
 	 * 5  HV Titanium           Platinum    Tungsten
-	 * 6 VHV Signalum           
-	 * 7 UHV Enderium           
-	 * 8  EV Draconium          
-	 * 9  IV Awakened Draconium 
-	 * 10LuV Chaotic Draconium  
-	 * 11 UV
+	 * 6  EV Signalum           
+	 * 7  IV Enderium           
+	 * 8 LuV Draconium          
+	 * 9 ZPM Awakened Draconium 
+	 * 10 UV Chaotic Draconium  
+	 * 11MAX
 	 */
 }

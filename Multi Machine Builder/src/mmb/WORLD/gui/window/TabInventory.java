@@ -12,6 +12,7 @@ import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
 import mmb.debug.Debugger;
+import monniasza.collects.Collects;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -21,26 +22,39 @@ import mmb.WORLD.gui.CreativeItemList;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.item.ItemType;
+import mmb.WORLD.item.Items;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.worlds.world.Player;
 
 import java.awt.Color;
+import java.awt.Component;
+
 import mmb.MENU.components.BoundCheckBox;
 import javax.swing.JSpinner;
+import javax.swing.ListCellRenderer;
+import javax.swing.ListModel;
+
 import mmb.WORLD.gui.inv.CraftGUI;
 import mmb.WORLD.gui.inv.InventoryController;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Objects;
+import java.util.Set;
 
 import mmb.WORLD.gui.SelectSortItemTypes;
 
 import javax.annotation.Nonnull;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
+import javax.swing.JList;
 
 /**
  * @author oskar
@@ -56,6 +70,51 @@ public class TabInventory extends JPanel {
 	private Player player;
 	public final Event<Player> playerChanged = new CatchingEvent<>(debug, "Failed to process player changed event");
 	public final WorldWindow window;
+	
+	public static interface Tagsel{
+		public DefaultListModel<ItemType> eligible();
+		public String title();
+	}
+	
+	private static class AllTagsel implements Tagsel{
+		@Override
+		public DefaultListModel<ItemType> eligible() {
+			return CreativeItemList.model;
+		}
+
+		@Override
+		public String title() {
+			return "%All tags";
+		}
+
+		@Override
+		public String toString() {
+			return "%All tags";
+		}
+	}
+	public static class TaggedSel implements Tagsel{
+		public final String tag;
+		public final DefaultListModel<ItemType> set;
+		public TaggedSel(String s, Set<ItemType> set2) {
+			tag = "*"+s;
+			set = new DefaultListModel<ItemType>();
+			for(ItemType item: set2) {
+				set.addElement(item);
+			}
+		}
+		@Override
+		public DefaultListModel<ItemType> eligible() {
+			return set;
+		}
+		@Override
+		public String title() {
+			return tag;
+		}
+		@Override
+		public String toString() {
+			return tag;
+		}
+	}
 	
 	/**
 	 * Create an inventory panel with a player pre-set
@@ -79,7 +138,7 @@ public class TabInventory extends JPanel {
 		
 		creativePanel = new JPanel();
 		add(creativePanel, "cell 0 0,grow");
-		creativePanel.setLayout(new MigLayout("", "[][]", "[][grow]"));
+		creativePanel.setLayout(new MigLayout("", "[grow][grow]", "[][grow][grow]"));
 		
 		lblSort = new JLabel("Sort ordering:");
 		creativePanel.add(lblSort, "cell 0 0");
@@ -135,19 +194,43 @@ public class TabInventory extends JPanel {
 		btnNewButton_2.setBackground(new Color(255, 0, 0));
 		panel.add(btnNewButton_2, "cell 0 4 2 1,growx");
 		
-		selectSortItemTypes = new SelectSortItemTypes();
-		creativePanel.add(selectSortItemTypes, "cell 0 1,growy");
+		selectSortItemTypes = new SelectSortItemTypes(() -> tags);
+		creativePanel.add(selectSortItemTypes, "cell 0 1,grow");
 		
+		//Creative Item List
 		creativeScrollPane = new JScrollPane();
-		creativePanel.add(creativeScrollPane, "cell 1 1,growy");
-		
+		creativePanel.add(creativeScrollPane, "cell 1 1 1 2,growy");
 		creativeItemList = new CreativeItemList();
 		creativeScrollPane.setViewportView(creativeItemList);
 		
+		//Tags
+		DefaultListModel<Tagsel> model = new DefaultListModel<>();
+		model.addElement(new AllTagsel());
+		for(Entry<String, Collection<ItemType>> data : Items.tags.asMap().entrySet()) {
+			String s = data.getKey();
+			Set<ItemType> set = (Set<ItemType>) data.getValue();
+			model.addElement(new TaggedSel(s, set));
+		}
+		
+		scrollPane = new JScrollPane();
+		creativePanel.add(scrollPane, "cell 0 2,grow");
+		tags = new JList<Tagsel>();
+		scrollPane.setViewportView(tags);
+		tags.setModel(model);
+		tags.addListSelectionListener(e -> {
+			Tagsel sel = tags.getSelectedValue();
+			creativeItemList.resort(selectSortItemTypes.getSelectedValue(), sel.eligible());
+			creativeItemList.setModel(sel.eligible());
+		});
+		//Sort the tags
+		Collections.sort(Collects.toWritableList(model), (a, b) -> a.title().compareTo(b.title()));
+		
+		//Crafting		
 		craftingsPanel = new JPanel();
 		add(craftingsPanel, "cell 2 0,grow");
 		craftingsPanel.setLayout(new BoxLayout(craftingsPanel, BoxLayout.Y_AXIS));
 		
+		//Find recipes
 		lblRecipes = new JLabel("Find recipes which:");
 		craftingsPanel.add(lblRecipes);
 		
@@ -272,6 +355,8 @@ public class TabInventory extends JPanel {
 	private JButton btnCraftWith;
 	private JButton btnCraftAll;
 	private JCheckBox checkUseCIL;
+	private JList<Tagsel> tags;
+	private JScrollPane scrollPane;
 
 	/**
 	 * @author oskar

@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.BEANS.BlockActivateListener;
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.blocks.machine.SkeletalBlockLinear;
@@ -148,6 +149,17 @@ public class AutoCrafter extends SkeletalBlockLinear implements BlockActivateLis
 			this.stencil = stencil;
 			return true;
 		}
+	}
+
+	@Override
+	public BlockEntry blockCopy() {
+		AutoCrafter copy = new AutoCrafter();
+		copy.incoming.set(incoming);
+		copy.outgoing.set(outgoing);
+		copy.remaining = remaining;
+		copy.toCraft = toCraft;
+		copy.stencil = stencil;
+		return copy;
 	}
 
 }

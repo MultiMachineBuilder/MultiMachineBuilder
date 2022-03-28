@@ -16,6 +16,7 @@ import mmb.BEANS.*;
 import mmb.DATA.Save;
 import mmb.DATA.contents.texture.Textures;
 import mmb.GRAPHICS.awt.MappedColorTexture;
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.window.WorldWindow;
@@ -40,6 +41,7 @@ public class Chest extends AbstractChest implements BlockActivateListener, Color
 	}
 
 	public Chest() {
+		inv.setCapacity(6);
 	}
 
 	@Override
@@ -78,11 +80,11 @@ public class Chest extends AbstractChest implements BlockActivateListener, Color
 		if(window == null) return;
 		window.openAndShowWindow(new ChestGui(this, window), "chest");
 	}
-	@SuppressWarnings("null")
 	@Override
-	public Chest clone() {
-		Chest copy = (Chest) super.clone();
-		copy.setColor(c);
+	public BlockEntry blockCopy() {
+		Chest copy = new Chest();
+		copy.c = c;
+		copy.inv.set(inv);
 		return copy;
 	}
 	

@@ -26,9 +26,9 @@ public enum VoltageTier {
 	V3(   1600,  "LV", Materials.steel,       Materials.silver,          8, new Color(255, 255,   0)),
 	V4(   6400,  "MV", Materials.stainless,   Materials.gold,           16, new Color(128, 255,   0)),
 	V5(  25600,  "HV", Materials.HSS,         Materials.platinum,       64, new Color(  0, 255,   0)),
-	V6( 102400, "VHV", Materials.tungsten,    Materials.iridium,       256, new Color(  0, 255, 128)),
-	V7( 409600, "UHV", Materials.tungstenC,   Materials.crystal,      1024, new Color(  0, 255, 255)),
-	V8(1638400,  "EV", Materials.duranium,    Materials.stellar,      4096, new Color(  0, 128, 255)),
+	V6( 102400,  "EV", Materials.signalum,    Materials.iridium,       256, new Color(  0, 255, 180)),
+	V7( 409600,  "IV", Materials.enderium,    Materials.crystal,      1024, new Color(  0, 200, 255)),
+	V8(1638400, "LuV", Materials.duranium,    Materials.stellar,      4096, new Color(  0, 128, 255)),
 	V9(6553600, "MAX", Materials.unobtainium, Materials.unobtainium, 16384, new Color(  0,   0, 255));
 	
 	public final double volts;

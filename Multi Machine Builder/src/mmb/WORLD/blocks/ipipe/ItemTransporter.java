@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.DATA.contents.texture.Textures;
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.blocks.ContentsBlocks;
@@ -95,5 +96,12 @@ public class ItemTransporter extends SkeletalBlockEntityRotary {
 			}
 		}
 		return;
+	}
+
+	@Override
+	public BlockEntry blockCopy() {
+		ItemTransporter copy = new ItemTransporter();
+		copy.inv.setContents(inv.getContents());
+		return copy;
 	}
 }

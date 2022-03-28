@@ -115,7 +115,7 @@ public class AddonLoader {
 				return;
 			}
 			if(!a.isOnline()) a.name = AdvancedFile.dirName(a.file.name())[1];
-			data = IOUtils.toByteArray(in);
+			data = IOUtils.toByteArray(in); //take in byte array and load data
 		}catch(IllegalArgumentException e) {
 			debug.pstm(e, "Make sure that \"" + a.name + "\" is not mistyped.");
 			a.state = AddonState.NOEXIST;

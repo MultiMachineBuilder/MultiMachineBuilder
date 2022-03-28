@@ -24,6 +24,7 @@ import mmb.BEANS.Saver;
 import mmb.DATA.json.JsonTool;
 import mmb.WORLD.block.Drop;
 import mmb.WORLD.crafting.RecipeOutput;
+import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.item.ItemType;
@@ -141,6 +142,12 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput{
 	default int getOrDefault(ItemEntry entry, int value) {
 		return equals(entry)?1:value;
 	}
+	
+	//Inventory management
+	/**
+	 * @param inv
+	 */
+	default void resetInventory(Inventory inv) {}
 	
 	//Serialization
 	/**

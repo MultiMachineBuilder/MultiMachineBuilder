@@ -74,5 +74,12 @@ public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockAct
 	public void setBlockSetting(@Nullable BlockType setting) {
 		block = setting;
 	}
+	@Override
+	public BlockEntry blockCopy() {
+		ActuatorPlaceBlock result = new ActuatorPlaceBlock();
+		result.setChirotation(getChirotation());
+		result.block = block;
+		return result;
+	}
 
 }

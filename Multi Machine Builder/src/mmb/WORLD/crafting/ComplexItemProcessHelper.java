@@ -165,4 +165,14 @@ public class ComplexItemProcessHelper {
 		 */
 		public void refreshProgress(double progress, @Nullable RecipeOutput output, double max);
 	}
+
+	/**
+	 * @param helper the data source
+	 */
+	public void set(ComplexItemProcessHelper helper) {
+		lastKnown = helper.lastKnown;
+		progress = helper.progress;
+		currRequired = helper.currRequired;
+		rout = helper.rout;
+	}
 }

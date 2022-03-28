@@ -34,4 +34,11 @@ public class ActuatorClick extends AbstractActuatorBase {
 		proxy.getMap().click(p.x, p.y);
 	}
 
+	@Override
+	public BlockEntry blockCopy() {
+		ActuatorClick result = new ActuatorClick();
+		result.setChirotation(getChirotation());
+		return result;
+	}
+
 }

@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.blocks.ContentsBlocks;
@@ -48,6 +49,12 @@ public class CycleAssembler extends SkeletalBlockEntityRotary implements BlockAc
 	protected void load1(ObjectNode node) {
 		// TODO Auto-generated method stub
 		super.load1(node);
+	}
+
+	@Override
+	public BlockEntry blockCopy() {
+		CycleAssembler assembler = new CycleAssembler();
+		return assembler;
 	}
 
 }

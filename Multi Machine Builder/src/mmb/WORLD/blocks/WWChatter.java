@@ -12,6 +12,7 @@ import mmb.BEANS.BlockActivateListener;
 import mmb.BEANS.TextMessageProvider;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.BlockEntityData;
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.gui.NewTextEditor;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.MapProxy;
@@ -26,6 +27,17 @@ import mmb.debug.Debugger;
 public class WWChatter extends BlockEntityData implements TextMessageProvider, BlockActivateListener {
 	private String contents;
 	private static final Debugger debug = new Debugger("CHAT");
+
+	/**
+	 * @param contents2
+	 */
+	public WWChatter(@Nullable String contents2) {
+		contents = contents2;
+	}
+	/**
+	 * Creates an empty chatter
+	 */
+	public WWChatter() {}
 
 	@Override
 	public void load(@Nullable JsonNode data) {
@@ -65,6 +77,11 @@ public class WWChatter extends BlockEntityData implements TextMessageProvider, B
 		if(window == null) return;
 		NewTextEditor editor = new NewTextEditor(this, this, window);
 		window.openDialogWindow(editor, editor.title);
+	}
+
+	@Override
+	public BlockEntry blockCopy() {
+		return new WWChatter(contents);
 	}
 
 }

@@ -7,6 +7,7 @@ import javax.annotation.Nonnull;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.inventory.storage.SingleItemInventory;
 import mmb.WORLD.items.ItemEntry;
@@ -39,6 +40,14 @@ public class IntersectingPipeExtractor extends Pipe {
 	@Override
 	protected void load1(ObjectNode node) {
 		inv.setContents(ItemEntry.loadFromJson(node.get("tmp")));
+	}
+
+	@Override
+	public BlockEntry blockCopy() {
+		IntersectingPipeExtractor result = new IntersectingPipeExtractor(sideA, sideB, type(), getImage());
+		System.arraycopy(items, 0, result.items, 0, 2);
+		result.inv.setContents(inv.getContents());
+		return result;
 	}
 	
 

@@ -30,6 +30,7 @@ public enum Rotation {
 		@Override public Rotation cw() {return E;}
 		@Override public Rotation ccw() {return W;}
 		@Override public Rotation opposite() {return S;}
+		@Override public Rotation bwd() {return N;}
 		
 		@Override public ChiralRotation left() {return ChiralRotation.Nl;}
 		@Override public ChiralRotation right() {return ChiralRotation.Nr;}
@@ -38,6 +39,7 @@ public enum Rotation {
 		@Override public Rotation flipV() {return S;}
 		@Override public Rotation flipNW() {return E;}
 		@Override public Rotation flipNE() {return W;}
+		
 	},
 	E{
 		@Override public Side U() {return Side.R;}
@@ -53,6 +55,7 @@ public enum Rotation {
 		@Override public Rotation cw() {return S;}
 		@Override public Rotation ccw() {return N;}
 		@Override public Rotation opposite() {return W;}
+		@Override public Rotation bwd() {return W;}
 		
 		@Override public ChiralRotation left() {return ChiralRotation.El;}
 		@Override public ChiralRotation right() {return ChiralRotation.Er;}
@@ -76,6 +79,7 @@ public enum Rotation {
 		@Override public Rotation cw() {return W;}
 		@Override public Rotation ccw() {return E;}
 		@Override public Rotation opposite() {return N;}
+		@Override public Rotation bwd() {return S;}
 		
 		@Override public ChiralRotation left() {return ChiralRotation.Sl;}
 		@Override public ChiralRotation right() {return ChiralRotation.Sr;}
@@ -99,6 +103,7 @@ public enum Rotation {
 		@Override public Rotation cw() {return N;}
 		@Override public Rotation ccw() {return S;}
 		@Override public Rotation opposite() {return E;}
+		@Override public Rotation bwd() {return W;}
 		
 		@Override public ChiralRotation left() {return ChiralRotation.Wl;}
 		@Override public ChiralRotation right() {return ChiralRotation.Wr;}
@@ -132,6 +137,8 @@ public enum Rotation {
 	@Nonnull public abstract Rotation ccw();
 	/**@return Rotation opposite*/
 	@Nonnull public abstract Rotation opposite();
+	/**@return Rotation backwards*/
+	@Nonnull public abstract Rotation bwd();
 	
 	/**@return Left-handed chiral rotation*/
 	@Nonnull public abstract ChiralRotation left();

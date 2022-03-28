@@ -6,10 +6,13 @@ package mmb.WORLD.gui;
 import java.awt.Component;
 import java.util.Arrays;
 import java.util.Vector;
+import java.util.function.Supplier;
 
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
+
+import mmb.WORLD.gui.window.TabInventory.Tagsel;
 
 /**
  * @author oskar
@@ -18,14 +21,14 @@ import javax.swing.ListCellRenderer;
 public class SelectSortItemTypes extends JList<SortItemTypes> {
 	private static final long serialVersionUID = -5273806463131131444L;
 	
-	public SelectSortItemTypes() {
+	public SelectSortItemTypes(Supplier<JList<Tagsel>> tgt) {
 		Vector<SortItemTypes> model = new Vector<>();
 		model.addAll(Arrays.asList(SortItemTypes.values()));
 		setListData(model);
 		setSelectedIndex(1);
 		addListSelectionListener(e -> {
 			SortItemTypes sort = getSelectedValue();
-			if(sort != null) CreativeItemList.resort(sort);
+			if(sort != null) CreativeItemList.resort(sort, tgt.get().getSelectedValue().eligible());
 		});
 		setCellRenderer(new CellRenderer());
 	}

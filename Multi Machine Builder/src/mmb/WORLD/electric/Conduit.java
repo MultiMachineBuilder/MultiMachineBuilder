@@ -14,6 +14,7 @@ import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.debug.Debugger;
 import mmb.WORLD.block.BlockEntityData;
+import mmb.WORLD.block.BlockEntry;
 
 /**
  * @author oskar
@@ -75,17 +76,6 @@ public class Conduit extends BlockEntityData {
 	public double condCapacity() {
 		return tf.power;
 	}
-
-	@Override
-	public Conduit clone() {
-		Conduit copy = (Conduit) super.clone();
-		copy.tf = new TransferHelper(copy, tf.power);
-		copy.u = copy.tf.proxy(Side.D);
-		copy.d = copy.tf.proxy(Side.U);
-		copy.l = copy.tf.proxy(Side.R);
-		copy.r = copy.tf.proxy(Side.L);
-		return copy;
-	}
 	
 	public TransferHelper getTransfer() {
 		return tf;
@@ -95,5 +85,12 @@ public class Conduit extends BlockEntityData {
 	public void onTick(MapProxy map) {
 		Electricity.equatePPs(this, map, tf, 0.99);
 		//debug.printl("Power pressure: "+tf.pressure+" at ["+posX()+","+posY()+"]");
+	}
+
+	@Override
+	public BlockEntry blockCopy() {
+		Conduit copy = new Conduit(type, tf.power);
+		copy.tf.set(tf);
+		return copy;
 	}
 }

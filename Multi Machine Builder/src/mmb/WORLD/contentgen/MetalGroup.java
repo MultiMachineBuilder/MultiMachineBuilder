@@ -21,6 +21,7 @@ import mmb.WORLD.blocks.machine.manual.Crafting;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.item.Item;
+import mmb.WORLD.item.Items;
 import mmb.WORLD.items.ItemEntry;
 
 /**
@@ -118,23 +119,70 @@ public class MetalGroup{
 				null, frag, null
 		}, 3, 3, gear);
 		
+		//Nugget <-> frag
 		Craftings.crafting.addRecipeGrid(nugget, 2, 2, frag);
-		Craftings.crafting.addRecipeGrid(frag, 2, 2, base);
-		Craftings.crafting.addRecipeGrid(base, 2, 2, cluster);
-		Craftings.crafting.addRecipeGrid(cluster, 2, 2, block);
-		Craftings.crafting.addRecipe(cluster, base, 4);
 		Craftings.crafting.addRecipe(frag, nugget, 4);
+		Craftings.splitter.add(frag,      nugget, 4, volt, baseCost/64);
+		Craftings.combiner.add(nugget, 4, frag,      volt, baseCost/64);
+		
+		//Frag <-> base
+		Craftings.crafting.addRecipeGrid(frag, 2, 2, base);
+		//No crafting base -> fragment
+		Craftings.splitter.add(base,    frag, 4, volt, baseCost/16);
+		Craftings.combiner.add(frag, 4, base,    volt, baseCost/16);
+		
+		//Base <-> cluster
+		Craftings.crafting.addRecipeGrid(base, 2, 2, cluster);
+		Craftings.crafting.addRecipe(cluster, base, 4);
+		Craftings.splitter.add(cluster, base, 4, volt, baseCost/4);
+		Craftings.combiner.add(base, 4, cluster, volt, baseCost/4);
+		
+		//Block <-> cluster
+		Craftings.crafting.addRecipeGrid(cluster, 2, 2, block);
+		//No crafting block -> cluster
+		Craftings.splitter.add(block,      cluster, 4, volt, baseCost);
+		Craftings.combiner.add(cluster, 4, block,      volt, baseCost);
+		
+		//SmallDust <-> TinyDust
 		Craftings.crafting.addRecipeGrid(tinydust, 2, 2, smalldust);
-		Craftings.crafting.addRecipeGrid(smalldust, 2, 2, dust);
-		Craftings.crafting.addRecipeGrid(dust, 2, 2, megadust);
-		//Craftings.crafting.addRecipeGrid(cluster, 2, 2, block);
-		Craftings.crafting.addRecipe(megadust, dust, 4);
 		Craftings.crafting.addRecipe(smalldust, tinydust, 4);
+		Craftings.splitter.add(smalldust,   tinydust, 4, volt, baseCost/256);
+		Craftings.combiner.add(tinydust, 4, smalldust,   volt, baseCost/256);
+		
+		//Dust <-> SmallDust
+		Craftings.crafting.addRecipeGrid(smalldust, 2, 2, dust);
+		//No crafting recipe Dust -> SmallDust
+		Craftings.splitter.add(dust,         smalldust, 4, volt, baseCost/64);
+		Craftings.combiner.add(smalldust, 4, dust,         volt, baseCost/64);
+		
+		//MegaDust <-> Dust
+		Craftings.crafting.addRecipeGrid(dust, 2, 2, megadust);
+		Craftings.crafting.addRecipe(megadust, dust, 4);
+		Craftings.splitter.add(megadust, dust, 4,  volt, baseCost/16);
+		Craftings.combiner.add(dust, 4,  megadust, volt, baseCost/16);
+		
+		//WireMill
 		Craftings.wiremill.add(nugget, wire, volt, baseCost/32);
 				
 		Crafting.ingotNugget(base, nugget);
 		Crafting.ingotNugget(block, base);
 		Crafting.ingotNugget(dust, tinydust);
+		
+		//Tagging
+		Items.tagItems("material-"+id, block, cluster, base, frag, nugget, wire, megadust, dust, smalldust, tinydust, panel, foil, gear);
+		Items.tagItem("shape-block", block);
+		Items.tagItem("shape-cluster", cluster);
+		Items.tagItem("shape-base", base);
+		Items.tagItem("shape-frag", frag);
+		Items.tagItem("shape-nugget", nugget);
+		Items.tagItem("shape-wire", wire);
+		Items.tagItem("shape-megadust", megadust);
+		Items.tagItem("shape-dust", dust);
+		Items.tagItem("shape-smalldust", smalldust);
+		Items.tagItem("shape-tinydust", tinydust);
+		Items.tagItem("shape-panel", panel);
+		Items.tagItem("shape-foil", foil);
+		Items.tagItem("shape-gear", gear);
 		
 		this.id = id;
 		this.title = title;
@@ -303,6 +351,19 @@ public class MetalGroup{
 		return TexGen.genTexture(c, GEAR, null);
 	}
 
+	public static class MaterialStack{
+		@Nonnull public final MetalGroup material;
+		public final int amount;
+		public MaterialStack(MetalGroup material, int amount) {
+			this.material = material;
+			this.amount = amount;
+		}
+	}
+	
+	public final MaterialStack stack(int amount) {
+		return new MaterialStack(this, amount);
+	}
+	
 	private static final Map<String, MetalGroup> byID0 = new HashMap<>();
 	public static final Map<String, MetalGroup> byID = Collections.unmodifiableMap(byID0);
 	private static final NavigableMap<String, MetalGroup> byID0sort = new TreeMap<>();

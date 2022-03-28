@@ -29,6 +29,8 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.pploder.events.CatchingEvent;
+import com.pploder.events.Event;
 
 import java.io.OutputStream;
 import java.util.Timer;
@@ -468,4 +470,9 @@ public class WorldWindow extends MMBFrame{
 	protected JCheckBoxMenuItem getCheckBindCameraPlayer() {
 		return checkBindCameraPlayer;
 	}
+	
+	//Events
+	public static final Event<WorldWindow> wwindowOpen = new CatchingEvent(debug, "Failed to run world window opened event");
+	public        final Event<World> worldLoaded = new CatchingEvent(debug, "Failed to run world world loaded event");
+	public        final Event<World> worldLeft = new CatchingEvent(debug, "Failed to run world world left event");
 }

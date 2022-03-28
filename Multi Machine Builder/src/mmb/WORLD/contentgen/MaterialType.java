@@ -21,7 +21,7 @@ public enum MaterialType {
 	 */
 	METAL_BASE,
 	/**
-	 * Marks a customized material
+	 * Marks a dust-only material
 	 */
-	CUSTOM
+	DUST
 }

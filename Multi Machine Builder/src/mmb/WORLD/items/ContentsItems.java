@@ -3,11 +3,21 @@
  */
 package mmb.WORLD.items;
 
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.awt.image.LookupOp;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import javax.annotation.Nonnull;
 
+import mmb.DATA.contents.texture.Textures;
+import mmb.GRAPHICS.awt.ColorMapper;
 import mmb.WORLD.blocks.machine.pack.Pack;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.item.ItemEntityType;
+import mmb.WORLD.item.Items;
 import mmb.WORLD.items.data.ItemBOM;
 import mmb.WORLD.items.data.Stencil;
 import mmb.WORLD.items.pickaxe.Pickaxe;
@@ -39,8 +49,7 @@ public class ContentsItems {
 			.texture("item/lisc.png")
 			.volumed(0.000125)
 			.finish("plant.leaf");
-	
-	//Pickaxes
+	//Tools
 	@Nonnull public static final PickaxeType pickVW = Pickaxe.create(120, 15, "item/wood pick.png", "Very weak pickaxe", "pick.weak");
 	@Nonnull public static final PickaxeType pickWood = Pickaxe.create(100, 100, "item/wood pick.png", "Wooden pickaxe", "pick.wood");
 	@Nonnull public static final PickaxeType pickRudimentary = Pickaxe.create(50, 400, "item/rudimentary pick.png", "Rudimentary pickaxe", "pick.rudimentary");
@@ -48,6 +57,11 @@ public class ContentsItems {
 			.title("Item Bucket")
 			.texture("dropItems.png")
 			.finish("mmb.bucket");
+	@Nonnull public static final Item configExtractors= new ConfigExtractors()
+			.title("Configure dropped item extractors")
+			.texture("hoover.png")
+			.finish("mmb.cdie");
+	
 	//Crafting aids
 	@Nonnull public static final ItemEntityType stencil = new ItemEntityType()
 			.title("Crafting stencil")
@@ -61,27 +75,112 @@ public class ContentsItems {
 			.volumed(0.001)
 			.factory(ItemBOM::new)
 			.finish("crafting.BOMItems");
+	@Nonnull public static final Item paper = new Item()
+			.title("Paper")
+			.texture("item/paper.png")
+			.volumed(0.001)
+			.finish("mmb.paper");
+	@Nonnull public static final List<@Nonnull Item> craftcodes = createCraftCodes();
+	@Nonnull private static List<@Nonnull Item> createCraftCodes(){
+		Item[] items = new Item[64];
+		BufferedImage texture = Textures.get("item/component code.png");
+		ColorMapper mapper = ColorMapper.ofType(texture.getType(), Color.RED, Color.BLACK);
+		LookupOp op = new LookupOp(mapper, null);
+		for(int r = 0, i = 0; r < 4; r++) {
+			for(int g = 0; g < 4; g++) {
+				for(int b = 0; b < 4; b++, i++) {
+					Color c = new Color(r*85, g*85, b*85);
+					mapper.setTo(c);
+					BufferedImage texture0 = op.filter(texture, null);
+					Item item = new Item()
+							.title(new StringBuilder("Color Code").append(r).append(g).append(b).toString())
+							.texture(texture0)
+							.volumed(0.001)
+							.finish("mmb.ccode"+i);
+					items[i] = item;
+				}
+			}
+		}
+		return Collections.unmodifiableList(Arrays.asList(items));
+	}
 	
 	//Machine parts
 	@Nonnull public static final Item frame1 = new Item()
-		.title("Machine Frame #1")
+		.title("Basic Machine Frame")
 		.texture("item/frame 1.png")
 		.finish("industry.frame1");
 	@Nonnull public static final Item rod1 = new Item()
-		.title("Machine Rod #1")
+		.title("Basic Machine Rod")
 		.texture("item/steel rod.png")
 		.volumed(0.00125)
 		.finish("industry.rod1");
 	@Nonnull public static final Item bearing1 = new Item()
-			.title("Machine Bearing #1")
+			.title("Basic Machine Bearing")
 			.texture("item/ring 1.png")
 			.volumed(0.00125)
 			.finish("industry.bearing1");
 	@Nonnull public static final Item motor1 = new Item()
-			.title("Machine Motor #1")
+			.title("Basic Machine Motor")
 			.texture("item/motor 1.png")
 			.volumed(0.00125)
 			.finish("industry.motor1");
+	
+	//Electronic parts
+	@Nonnull public static final Item resistor = new Item()
+			.title("Basic Resistor")
+			.texture("item/resistor.png")
+			.volumed(0.00125)
+			.finish("industry.resistor1");
+	@Nonnull public static final Item resistors = new Item()
+			.title("Basic Resistor Array")
+			.texture("item/resistor array.png")
+			.volumed(0.00625)
+			.finish("industry.resistors1");
+	@Nonnull public static final Item capacitor = new Item()
+			.title("Basic Capacitor")
+			.texture("item/capacitor.png")
+			.volumed(0.00125)
+			.finish("industry.capacitor1");
+	@Nonnull public static final Item inductor = new Item()
+			.title("Basic Inductor")
+			.texture("item/inductor.png")
+			.volumed(0.00125)
+			.finish("industry.inductor1");
+	@Nonnull public static final Item diode = new Item()
+			.title("Basic Diode")
+			.texture("item/diode.png")
+			.volumed(0.00125)
+			.finish("industry.diode1");
+	@Nonnull public static final Item transistor = new Item()
+			.title("Basic Transistor")
+			.texture("item/transistor.png")
+			.volumed(0.00125)
+			.finish("industry.transistor1");
+	@Nonnull public static final Item IC = new Item()
+			.title("Basic IC")
+			.texture("item/IC.png")
+			.volumed(0.00125)
+			.finish("industry.IC1");
+	@Nonnull public static final Item circuit0 = new Item()
+			.title("Primitive Circuit")
+			.texture("item/circuit 0.png")
+			.volumed(0.00625)
+			.finish("industry.processor0");
+	@Nonnull public static final Item substrate0 = new Item()
+			.title("Primitive Substrate")
+			.texture("item/substrate 0.png")
+			.volumed(0.00125)
+			.finish("industry.substrate0");
+	@Nonnull public static final Item circuit1 = new Item()
+			.title("Basic Circuit")
+			.texture("item/circuit 1.png")
+			.volumed(0.00625)
+			.finish("industry.processor1");
+	@Nonnull public static final Item substrate1 = new Item()
+			.title("Basic Substrate")
+			.texture("item/substrate 1.png")
+			.volumed(0.00125)
+			.finish("industry.substrate1");
 
 	//Packaged items
 	@Nonnull public static final ItemEntityType pack = new ItemEntityType()
@@ -90,4 +189,11 @@ public class ContentsItems {
 			.volumed(0.001)
 			.factory(Pack::createEmpty)
 			.finish("boxed.packItem");
+	
+	static {
+		Items.tagItems("shape-pickhead", pickHeadWood, pickHeadRudimentary);
+		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, bucket, configExtractors);
+		Items.tagItems("craftcode", craftcodes);
+		Items.tagItems("parts-electronic", resistor, capacitor, inductor, diode, transistor, IC, circuit0, substrate0, circuit1, substrate1);
+	}
 }

@@ -29,6 +29,7 @@ import mmb.WORLD.blocks.machine.line.Furnace;
 import mmb.WORLD.blocks.machine.manual.Crafting;
 import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.electric.VoltageTier;
+import mmb.WORLD.electromachine.Transformer.TransformerData;
 import mmb.WORLD.generator.Generators;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.tool.Tools;
@@ -103,6 +104,7 @@ public final class ModLoader {
 		Furnace.init();
 		Tools.init();
 		FullScreen.initialize();
+		TransformerData.init();
 		
 		//Get external mods to load
 		Set<String> external = new HashSet<>();

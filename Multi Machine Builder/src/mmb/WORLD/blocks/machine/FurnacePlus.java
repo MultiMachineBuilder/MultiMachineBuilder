@@ -3,6 +3,7 @@
  */
 package mmb.WORLD.blocks.machine;
 
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 
@@ -18,6 +19,15 @@ public class FurnacePlus extends SkeletalBlockMachine {
 	@Override
 	public BlockType type() {
 		return ContentsBlocks.EFURNACE;
+	}
+
+	@Override
+	public BlockEntry blockCopy() {
+		FurnacePlus copy = new FurnacePlus();
+		copy.cfgInElec.set(cfgInElec);
+		copy.cfgInItems.set(cfgInItems);
+		copy.cfgOutItems.set(cfgOutItems);
+		return copy;
 	}
 
 }

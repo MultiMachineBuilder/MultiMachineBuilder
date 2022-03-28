@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.WORLD.block.BlockEntityData;
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.Drop;
 import mmb.WORLD.worlds.MapProxy;
@@ -83,6 +84,14 @@ public class Crop extends BlockEntityData {
 			drop.drop(null, owner(), posX(), posY());
 			progress -= time;
 		}
+	}
+
+	
+	@Override
+	public BlockEntry blockCopy() {
+		Crop copy = new Crop(type, time, drop);
+		copy.progress = progress;
+		return copy;
 	}
 
 }

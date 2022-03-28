@@ -32,9 +32,7 @@ public class ElectroFurnaceTab extends GUITab implements Refreshable{
 	@Nonnull private JLabel lblSmelt;
 	@Nonnull private JProgressBar progressSmelt;
 	@Nonnull private JProgressBar progressEnergy;
-	private JLabel lblVolts;
-	private JCheckBox checkAutoExtract;
-	private JLabel lblTYpe;
+	private MachineInfoTab machineInfoTab;
 
 	/**
 	 * Create the panel.
@@ -42,11 +40,6 @@ public class ElectroFurnaceTab extends GUITab implements Refreshable{
 	public ElectroFurnaceTab(ElectroFurnace furnace, WorldWindow window) {
 		this.furnace = furnace;
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[][grow][][][grow]"));
-		
-		lblVolts = new JLabel("Voltage tier: "+furnace.type().volt.name);
-		lblVolts.setOpaque(true);
-		lblVolts.setBackground(furnace.type().volt.c);
-		add(lblVolts, "flowy,cell 2 0,growx");
 		
 		InventoryController invPlayer = new InventoryController(window.getPlayer().inv);
 		add(invPlayer, "cell 0 0 1 5,grow");
@@ -85,11 +78,8 @@ public class ElectroFurnaceTab extends GUITab implements Refreshable{
 		progressSmelt.setStringPainted(true);
 		add(progressSmelt, "cell 2 3,grow");
 		
-		lblTYpe = new JLabel(furnace.recipes.title);
-		add(lblTYpe, "cell 2 0");
-		
-		checkAutoExtract = new JCheckBox("Auto-extract items");
-		add(checkAutoExtract, "cell 2 0");
+		machineInfoTab = new MachineInfoTab(furnace);
+		add(machineInfoTab, "cell 2 0,grow");
 	}
 
 	
@@ -104,25 +94,22 @@ public class ElectroFurnaceTab extends GUITab implements Refreshable{
 		furnace.tab = null;
 	}
 
-
 	@Override
 	public void refreshInputs() {
 		invInput.refresh();
 	}
-
 
 	@Override
 	public void refreshOutputs() {
 		invOutput.refresh();
 	}
 
-
 	@Override
 	public void refreshProgress(double progress, @Nullable SimpleProcessingRecipe underway) {
 		if(underway == null) {
 			lblSmelt.setText("Not smelting");
 		}else {
-			progressSmelt.setMaximum((int)underway.energy);
+			progressSmelt.setValue((int)(progress*100));
 			lblSmelt.setText("Currently smelted: "+underway.input.type().title());
 		}
 		double volts = furnace.elec.voltage.volts;

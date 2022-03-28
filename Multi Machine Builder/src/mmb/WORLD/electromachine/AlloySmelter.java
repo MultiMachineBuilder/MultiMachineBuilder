@@ -10,54 +10,37 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
-import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.contentgen.ElectricMachineGroup.ElectroMachineType;
 import mmb.WORLD.crafting.ComplexItemProcessHelper;
-import mmb.WORLD.crafting.ElectroItemProcessHelper;
 import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup;
-import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup;
-import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.Electricity;
 import mmb.WORLD.gui.window.WorldWindow;
-import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
-import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.rotate.RotatedImageGroup;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
-import mmb.debug.Debugger;
 
 /**
  * @author oskar
  *
  */
-public class AlloySmelter extends SkeletalBlockEntityRotary implements BlockActivateListener{
-	@Override
-	public ElectroMachineType type() {
-		return type;
-	}
-
+public class AlloySmelter extends CommonMachine implements BlockActivateListener{
 	@Override
 	public RotatedImageGroup getImage() {
 		return type.rig;
 	}
 
 	//Containers
-	@Nonnull public final SimpleInventory in = new SimpleInventory();
-	@Nonnull private final SimpleInventory out0 = new SimpleInventory();
-	@Nonnull public final Inventory out = out0.lockInsertions();
-	@Nonnull final Battery elec;
 	@Nonnull private final ComplexItemProcessHelper helper;
-	@Nonnull private final ElectroMachineType type;
+	@Nonnull public final ComplexProcessingRecipeGroup group;
 	
 	//Constructor
 	public AlloySmelter(ElectroMachineType type, ComplexProcessingRecipeGroup group) {
-		elec = new Battery(20_000, 40_000, this, type.volt);
-		this.recipes = group;
+		super(type);
+		this.group = group;
 		helper = new ComplexItemProcessHelper(group, in, out0, 1000, elec, type.volt);
-		this.type = type;
 	}
 	
 	//Block I/O
@@ -83,7 +66,8 @@ public class AlloySmelter extends SkeletalBlockEntityRotary implements BlockActi
 		node.set("energy", bat);
 		node.set("in", in.save());
 		node.set("out", out0.save());
-		super.save1(node);
+		node.put("pass", pass);
+		node.put("autoex", autoExtract);
 	}
 
 	@Override
@@ -95,18 +79,21 @@ public class AlloySmelter extends SkeletalBlockEntityRotary implements BlockActi
 		in.setCapacity(2);
 		out0.load(node.get("out"));
 		out0.setCapacity(2);
+		JsonNode passNode = node.get("pass");
+		if(passNode != null) pass = passNode.asBoolean();
+		JsonNode autoNode = node.get("autoex");
+		if(autoNode != null) autoExtract = autoNode.asBoolean();
 	}
 
 	
 	AlloySmelterTab tab;
-	public final ComplexProcessingRecipeGroup recipes;
 	//GUI
 	@Override
 	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(tab != null) return;
 		tab = new AlloySmelterTab(this, window);
-		window.openAndShowWindow(tab, "Electro-Furnace "+type.volt.name);
+		window.openAndShowWindow(tab, group.title+' '+type.volt.name);
 		helper.refreshable = tab;
 		tab.refreshProgress(0, null, 100);
 	}
@@ -116,4 +103,22 @@ public class AlloySmelter extends SkeletalBlockEntityRotary implements BlockActi
 		helper.cycle();
 		Electricity.equatePPs(this, map, elec, 0.9);
 	}
+
+	@Override
+	public ComplexProcessingRecipeGroup recipes() {
+		return group;
+	}
+
+	@Override
+	protected CommonMachine copy0() {
+		AlloySmelter copy = new AlloySmelter(type, group);
+		copy.helper.set(helper);
+		return copy;
+	}
+
+	@Override
+	public String machineName() {
+		return group.title;
+	}
+
 }

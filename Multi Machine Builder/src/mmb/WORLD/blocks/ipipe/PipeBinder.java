@@ -5,6 +5,7 @@ package mmb.WORLD.blocks.ipipe;
 
 import javax.annotation.Nonnull;
 
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.gui.Variable;
 import mmb.WORLD.inventory.io.InventoryReader;
@@ -19,7 +20,7 @@ import mmb.WORLD.worlds.MapProxy;
  * Represents a binding pipe. The binding side goes to UP
  */
 public class PipeBinder extends AbstractBasePipe{
-	
+	@Nonnull private final Side binding;
 	protected final @Nonnull Pusher toCommon, toSide, toMain;
 	/**
 	 * Creates a binding pipe.
@@ -29,6 +30,7 @@ public class PipeBinder extends AbstractBasePipe{
 	 */
 	public PipeBinder(BlockType type, Side binding, ChirotatedImageGroup rig) {
 		super(type, 3, rig);
+		this.binding = binding;
 		Variable<ItemEntry> varM = getSlot(0);
 		Variable<ItemEntry> varS = getSlot(1);
 		Variable<ItemEntry> varC = getSlot(2);
@@ -56,6 +58,12 @@ public class PipeBinder extends AbstractBasePipe{
 		toCommon.push();
 		toSide.push();
 		toMain.push();
+	}
+	@Override
+	public BlockEntry blockCopy() {
+		PipeBinder result = new PipeBinder(type(), binding, getImage());
+		System.arraycopy(items, 0, result.items, 0, 3);
+		return result;
 	}
 
 }

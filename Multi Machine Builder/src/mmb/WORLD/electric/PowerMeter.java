@@ -6,6 +6,7 @@ package mmb.WORLD.electric;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.blocks.ContentsBlocks;
@@ -153,5 +154,11 @@ public class PowerMeter extends SkeletalBlockEntityRotary {
 			//PicoWatts
 			return ((int)(pwr * 100_000_000_000.0)) / 100.0 + "㎺";
 		
+	}
+	@Override
+	public BlockEntry blockCopy() {
+		PowerMeter copy = new PowerMeter();
+		copy.setRotation(getRotation());
+		return copy;
 	}
 }

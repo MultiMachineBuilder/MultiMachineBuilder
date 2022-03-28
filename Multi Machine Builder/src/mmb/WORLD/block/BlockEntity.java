@@ -27,7 +27,7 @@ import mmb.WORLD.worlds.world.World;
  * 	<li></li>
  * </ul>
  */
-public abstract class BlockEntity implements BlockEntry, Positioned, Cloneable {
+public abstract class BlockEntity implements BlockEntry, Positioned{
 	
 	@Override
 	public void setX(int x) {
@@ -50,10 +50,6 @@ public abstract class BlockEntity implements BlockEntry, Positioned, Cloneable {
 		owner = map;
 		this.x = x;
 		this.y = y;
-	}
-	@Override
-	public final BlockEntry blockCopy() {
-		return clone();
 	}
 	@Override
 	public int posY() {
@@ -108,23 +104,6 @@ public abstract class BlockEntity implements BlockEntry, Positioned, Cloneable {
 		return owner().getAtSide(s, x, y);
 	}
 	
-	/**
-	 * Creates a copy of this block entity.
-	 * The returned object has no owner and position, so it can be immediately pasted.
-	 */
-	@Override
-	@Nonnull public BlockEntity clone(){
-		try {
-			BlockEntity copy = (BlockEntity)super.clone();
-			copy.x = 0;
-			copy.y = 0;
-			copy.owner = null;
-			copy.demoListeners = new ArrayList<>();
-			return copy;
-		}catch(CloneNotSupportedException e) {
-			throw new InternalError(e); //last safeguard, if Cloneable fails
-		}
-	}
 	
 	/**
 	 * Invoken on every tick
@@ -134,9 +113,12 @@ public abstract class BlockEntity implements BlockEntry, Positioned, Cloneable {
 		//Optional
 	}
 	
+	protected void clearListeners() {
+		demoListeners = new ArrayList<>();
+	}
 	//Block demolition event
 	private boolean underDemolition;
-	private List<BlockEntityDemolitionListener> demoListeners = new ArrayList<>();
+	List<BlockEntityDemolitionListener> demoListeners = new ArrayList<>();
 	/**
 	 * Adds a block entity demolition listener
 	 * @param listener

@@ -5,7 +5,9 @@ package mmb.WORLD.crafting.recipes;
 
 import java.awt.Component;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.function.Supplier;
 
@@ -111,14 +113,23 @@ public class ComplexProcessingRecipeGroup implements RecipeGroup{
 		public Component createComponent() {
 			ComplexRecipeView component = new ComplexRecipeView();
 			ItemStack[] in = SimpleRecipeView.list2arr(input);
-			ItemStack[] out = SimpleRecipeView.list2arr(input);
-			component.set(this, in, out);
+			ItemStack[] out = SimpleRecipeView.list2arr(output);
+			component.set(this, out, in);
 			return component;
 		}
 	}
 	
 	private final SelfSet<Set<ItemEntry>, ComplexProcessingRecipe> _recipes = new HashSelfSet<>();
 	public final SelfSet<Set<ItemEntry>, ComplexProcessingRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
+	@Nonnull private final Map<ItemEntry, VoltageTier> _minVolt4item = new HashMap<>();
+	@Nonnull public final Map<ItemEntry, VoltageTier> minVolt4item = Collections.unmodifiableMap(_minVolt4item);
+	private void updateMinVolt(VoltageTier volt, ItemEntry item) {
+		_minVolt4item.compute(item, (item0, volt0) ->{
+			if(volt0 == null || volt0.compareTo(volt) > 0) return volt;
+			return volt0;
+		});
+	}
+	
 	/**
 	 * Adds a recipes to this recipe group
 	 * @param in input item

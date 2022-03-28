@@ -10,13 +10,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
-import mmb.WORLD.block.SkeletalBlockEntityRotary;
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.contentgen.ElectricMachineGroup.ElectroMachineType;
 import mmb.WORLD.crafting.ElectroItemProcessHelper;
+import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.Electricity;
 import mmb.WORLD.gui.window.WorldWindow;
+import mmb.WORLD.inventory.Inventories;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
@@ -31,31 +33,24 @@ import mmb.debug.Debugger;
  * @author oskar
  *
  */
-public class ElectroFurnace extends SkeletalBlockEntityRotary implements BlockActivateListener{
-	@Override
-	public ElectroMachineType type() {
-		return type;
-	}
-
+public class ElectroFurnace extends CommonMachine implements BlockActivateListener{
 	@Override
 	public RotatedImageGroup getImage() {
 		return type.rig;
 	}
 
 	//Containers
-	@Nonnull public final SimpleInventory in = new SimpleInventory();
-	@Nonnull private final SimpleInventory out0 = new SimpleInventory();
-	@Nonnull public final Inventory out = out0.lockInsertions();
-	@Nonnull final Battery elec;
 	@Nonnull private final ElectroItemProcessHelper helper;
-	@Nonnull private final ElectroMachineType type;
+	@Nonnull public final SimpleProcessingRecipeGroup group;
+	private boolean pass;
+	private boolean autoExtract;
 	
 	//Constructor
 	public ElectroFurnace(ElectroMachineType type, SimpleProcessingRecipeGroup group) {
-		elec = new Battery(20_000, 40_000, this, type.volt);
+		super(type);
 		this.recipes = group;
 		helper = new ElectroItemProcessHelper(group, in, out0, 1000, elec, type.volt);
-		this.type = type;
+		this.group = group;
 	}
 	
 	//Block I/O
@@ -81,7 +76,8 @@ public class ElectroFurnace extends SkeletalBlockEntityRotary implements BlockAc
 		node.set("energy", bat);
 		node.set("in", in.save());
 		node.set("out", out0.save());
-		super.save1(node);
+		node.put("pass", pass);
+		node.put("autoex", autoExtract);
 	}
 
 	@Override
@@ -93,6 +89,10 @@ public class ElectroFurnace extends SkeletalBlockEntityRotary implements BlockAc
 		in.setCapacity(2);
 		out0.load(node.get("out"));
 		out0.setCapacity(2);
+		JsonNode passNode = node.get("pass");
+		if(passNode != null) pass = passNode.asBoolean();
+		JsonNode autoNode = node.get("autoex");
+		if(autoNode != null) autoExtract = autoNode.asBoolean();
 	}
 
 	
@@ -104,14 +104,41 @@ public class ElectroFurnace extends SkeletalBlockEntityRotary implements BlockAc
 		if(window == null) return;
 		if(tab != null) return;
 		tab = new ElectroFurnaceTab(this, window);
-		window.openAndShowWindow(tab, "Electro-Furnace "+type.volt.name);
+		window.openAndShowWindow(tab, group.title+' '+type.volt.name);
 		helper.refreshable = tab;
 		tab.refreshProgress(0, null);
 	}
 
 	@Override
 	public void onTick(MapProxy map) {
-		helper.cycle();
+		CycleResult tick = helper.cycle();
+		if(pass && tick == CycleResult.UNSUPPORTED) {
+			//Pass on items
+			Inventories.transfer(in, out0);
+			if(tab != null) {
+				tab.refreshInputs();
+				tab.refreshOutputs();
+			}
+		}
 		Electricity.equatePPs(this, map, elec, 0.9);
+	}
+	
+	@Override
+	public SimpleProcessingRecipeGroup recipes() {
+		return group;
+	}
+
+
+	@Override
+	public String machineName() {
+		return group.title;
+	}
+
+	@Override
+	protected CommonMachine copy0() {
+		ElectroFurnace copy = new ElectroFurnace(type, group);
+		copy.elec.set(elec);
+		copy.helper.set(helper);
+		return copy;
 	}
 }

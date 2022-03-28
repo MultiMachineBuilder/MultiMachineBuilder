@@ -148,6 +148,17 @@ public class GeneratorMultiBiome implements Generator {
 				case 72:
 				case 73:
 					return Materials.uranium.ore;
+				case 80:
+				case 81:
+				case 82:
+				case 83:
+				case 84:
+				case 85:
+				case 86:
+				case 87:
+				case 88:
+				case 89:
+					return Materials.alu.ore;
 				default:
 					return ContentsBlocks.stone;
 				}

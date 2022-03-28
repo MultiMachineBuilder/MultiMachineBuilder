@@ -26,7 +26,7 @@ public class ComplexRecipeView extends JPanel {
 	private JLabel lblMachine;
 	
 	public ComplexRecipeView() {
-		setLayout(new MigLayout("", "[grow][grow]", "[][][][]"));
+		setLayout(new MigLayout("", "[grow][grow]", "[][][][fill]"));
 		
 		lblMachine = new JLabel("New label");
 		add(lblMachine, "cell 0 0");

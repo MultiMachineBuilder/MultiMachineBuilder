@@ -5,6 +5,7 @@ package mmb.WORLD.blocks.ipipe;
 
 import javax.annotation.Nonnull;
 
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.gui.Variable;
 import mmb.WORLD.items.ItemEntry;
@@ -20,6 +21,7 @@ import mmb.WORLD.worlds.MapProxy;
  */
 public class DualPipe extends AbstractBasePipe {
 
+	@Nonnull private final Side sideA, sideB;
 	@Nonnull protected final Pusher invwA, invwB, invwC, invwD;
 	/**
 	 * 
@@ -31,6 +33,8 @@ public class DualPipe extends AbstractBasePipe {
 	public DualPipe(Side sideA, Side sideB,
 			BlockType type, ChirotatedImageGroup rig) {
 		super(type, 4, rig);
+		this.sideA = sideA;
+		this.sideB = sideB;
 		Variable<ItemEntry> varA = getSlot(0);
 		Variable<ItemEntry> varU = getSlot(1);
 		Variable<ItemEntry> varB = getSlot(2);
@@ -55,5 +59,12 @@ public class DualPipe extends AbstractBasePipe {
 		invwB.push();
 		invwC.push();
 		invwD.push();
+	}
+
+	@Override
+	public BlockEntry blockCopy() {
+		DualPipe result = new DualPipe(sideA, sideB, type(), getImage());
+		System.arraycopy(items, 0, result.items, 0, 4);
+		return result;
 	}
 }

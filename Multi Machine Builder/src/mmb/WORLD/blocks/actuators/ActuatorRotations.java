@@ -45,4 +45,11 @@ public class ActuatorRotations extends AbstractChiralActuatorBase implements Blo
 		flip();
 	}
 
+	@Override
+	public BlockEntry blockCopy() {
+		ActuatorRotations result = new ActuatorRotations();
+		result.setChirotation(getChirotation());
+		return result;
+	}
+
 }

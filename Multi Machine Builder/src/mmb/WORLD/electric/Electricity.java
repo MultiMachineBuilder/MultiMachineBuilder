@@ -154,6 +154,14 @@ public interface Electricity {
 		};
 	}
 	
+	public static interface SettablePressure extends Electricity{
+		/**
+		 * Sets the power pressure
+		 * @param pressure new power pressure
+		 */
+		public void setPressure(double pressure);
+	}
+	
 	/**
 	 * Balancer power pressure of given block
 	 * @param block block, which owns the battery
@@ -161,10 +169,10 @@ public interface Electricity {
 	 * @param bat battery to balance
 	 * @param mul retention multiplier. Lower values mean faster leakage
 	 */
-	public static void equatePPs(BlockEntity block, MapProxy proxy, Battery bat, double mul){
+	public static void equatePPs(BlockEntity block, MapProxy proxy, SettablePressure bat, double mul){
 		proxy.later(() -> {
-			double weight = bat.pressureWt; //the initial weight sum is current weight
-			double sum = weight * bat.pressure; //the initial sum is current power pressure volume
+			double weight = bat.pressureWeight(); //the initial weight sum is current weight
+			double sum = weight * bat.pressure(); //the initial sum is current power pressure volume
 			Electricity uu = block.getAtSide(Side.U).getElectricalConnection(Side.D);
 			if(uu != null) {
 				weight += uu.pressureWeight();
@@ -186,8 +194,9 @@ public interface Electricity {
 				sum += rr.pressure() * rr.pressureWeight();
 			}
 			double newPressure = (mul * sum) / weight;
-			bat.pressure = newPressure;
-			if(Double.isNaN(newPressure)) bat.pressure = 0;
+			
+			if(Double.isNaN(newPressure)) bat.setPressure(0);
+			else bat.setPressure(newPressure);
 		});
 	}
 	/**

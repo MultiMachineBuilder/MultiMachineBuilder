@@ -52,4 +52,11 @@ public class PlaceIncomingItems extends SkeletalBlockEntityRotary {
 		return InventoryWriter.NONE;
 	}
 
+	@Override
+	public BlockEntry blockCopy() {
+		PlaceIncomingItems copy = new PlaceIncomingItems();
+		copy.setRotation(getRotation());
+		return copy;
+	}
+
 }

@@ -14,9 +14,11 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.BEANS.BlockActivateListener;
 import mmb.DATA.contents.texture.Textures;
 import mmb.GRAPHICS.awt.ColorMapper;
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.blocks.FuelBurner;
+import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.Electricity;
 import mmb.WORLD.electric.VoltageTier;
@@ -80,7 +82,7 @@ public class CoalGen extends SkeletalBlockEntityRotary implements BlockActivateL
 	public CoalGen(VoltageTier volt, BlockType type) {
 		this.volt = volt;
 		this.type = type;
-		this.burner = new FuelBurner(1.5+volt.ordinal(), inv, fuel);
+		this.burner = new FuelBurner(1.5+volt.ordinal(), inv, fuel, Craftings.furnaceFuels);
 		resetBuffer();
 	}
 
@@ -140,6 +142,15 @@ public class CoalGen extends SkeletalBlockEntityRotary implements BlockActivateL
 		fuel.load(node.get("energy"));
 		buffer.load(node.get("out"));
 		resetBuffer();
+	}
+
+	@Override
+	public BlockEntry blockCopy() {
+		CoalGen copy = new CoalGen(volt, type);
+		copy.buffer.set(buffer);
+		copy.fuel.set(fuel);
+		copy.inv.set(inv);
+		return copy;
 	}
 
 }

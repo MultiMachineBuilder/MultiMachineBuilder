@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.item;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -12,6 +14,10 @@ import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimaps;
+import com.google.common.collect.SetMultimap;
 
 import mmb.WORLD.block.BlockType;
 import mmb.debug.Debugger;
@@ -25,14 +31,17 @@ import monniasza.collects.selfset.SelfSet;
  */
 public class Items {
 	private static Debugger debug = new Debugger("ITEMS");
-	@Nonnull                           private static final SelfSet<String, ItemType> _items =      new HashSelfSet<>();
-	@Nonnull                           public  static final SelfSet<String, ItemType>  items =      Collects.unmodifiableSelfSet(_items);
+	@Nonnull                           private static final SelfSet<String, ItemType>     _items =      new HashSelfSet<>();
+	@Nonnull                           public  static final SelfSet<String, ItemType>      items =      Collects.unmodifiableSelfSet(_items);
 	
-	@Nonnull                           private static final Map<String, ItemType>     _deprecator = new HashMap<>();
-	@SuppressWarnings("null") @Nonnull public  static final Map<String, ItemType>      deprecator = Collections.unmodifiableMap(_deprecator);
+	@Nonnull                           private static final Map<String, ItemType>    _deprecator = new HashMap<>();
+	@SuppressWarnings("null") @Nonnull public  static final Map<String, ItemType>     deprecator = Collections.unmodifiableMap(_deprecator);
 	
-	@Nonnull                           private static final Set<String>               _keys =       new HashSet<>();
-	@SuppressWarnings("null") @Nonnull public  static final Set<String>                keys =       Collections.unmodifiableSet(_keys);
+	@Nonnull                           private static final Set<String>                    _keys =       new HashSet<>();
+	@SuppressWarnings("null") @Nonnull public  static final Set<String>                     keys =       Collections.unmodifiableSet(_keys);
+	
+	@SuppressWarnings("null") @Nonnull private static final HashMultimap<String, ItemType> _tags = HashMultimap.create();
+	@SuppressWarnings("null") @Nonnull public  static final SetMultimap<String, ItemType>  tags = Multimaps.unmodifiableSetMultimap(_tags);
 	
 	public static void register(ItemType type) {
 		Objects.requireNonNull(type, "The block must not be null");
@@ -64,4 +73,24 @@ public class Items {
 		return get;
 	}
 
+	public static void tagItem(String tag, ItemType item) {
+		debug.printl("Tagging "+item+" with "+tag);
+		_tags.put(tag, item);
+	}
+	public static void tagsItem(ItemType item, String... tags) {
+		tagsItem(item, Arrays.asList(tags));
+	}
+	public static void tagsItem(ItemType item, Iterable<String> tags) {
+		for(String tag: tags) {
+			tagItem(tag, item);
+		}
+	}
+	public static void tagItems(String tag, ItemType... items) {
+		tagItems(tag, Arrays.asList(items));
+	}
+	public static void tagItems(String tag, Iterable<? extends ItemType> items) {
+		for(ItemType item: items) {
+			tagItem(tag, item);
+		}
+	}
 }

@@ -369,29 +369,32 @@ public class World implements Identifiable<String>{
 	public boolean hasShutDown() {
 		return timer.getState() == 2;
 	}
+	private final Object shutdownLock = new Object();
 	/** Shut down the map, but keep the resources */
 	public void shutdown() {
-		debug.printl("Shutdown");
-		if(hasShutDown()) return;
-		//Stop the game loop
-		preventRuns();
-		//Shut down block entities
-		for(BlockEntity ent: _blockents) {
-			try {
-				ent.onShutdown(this);
-			} catch (Exception e) {
-				debug.pstm(e, "Failed to shut down block "+ent.type().id()+" at ["+ent.posX()+","+ent.posY()+"]");
+		synchronized(shutdownLock) {
+			debug.printl("Shutdown");
+			if(hasShutDown()) return;
+			//Stop the game loop
+			preventRuns();
+			//Shut down block entities
+			for(BlockEntity ent: _blockents) {
+				try {
+					ent.onShutdown(this);
+				} catch (Exception e) {
+					debug.pstm(e, "Failed to shut down block "+ent.type().id()+" at ["+ent.posX()+","+ent.posY()+"]");
+				}
 			}
-		}
-		//Shut down machines
-		for(Machine m: machines) {
-			try {
-				m.onShutdown();
-			}catch(Exception e) {
-				debug.pstm(e, "Failed to shut down machine "+m.id()+" at ["+m.posX()+","+m.posY()+"]");
+			//Shut down machines
+			for(Machine m: machines) {
+				try {
+					m.onShutdown();
+				}catch(Exception e) {
+					debug.pstm(e, "Failed to shut down machine "+m.id()+" at ["+m.posX()+","+m.posY()+"]");
+				}
 			}
+			if(timer.getState() == 1) timer.destroy();
 		}
-		if(isRunning()) timer.destroy();
 	}
 	
 	//Lock out the world

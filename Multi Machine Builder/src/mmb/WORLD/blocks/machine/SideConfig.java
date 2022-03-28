@@ -225,4 +225,13 @@ Cloneable, Iterable<mmb.WORLD.blocks.machine.SideConfig.SideBoolean>, Saver<@Nul
 		L.setValue(data.get(2).asBoolean());
 		R.setValue(data.get(3).asBoolean());
 	}
+	/**
+	 * @param cfgInElec
+	 */
+	public void set(SideConfig cfg) {
+		U.setValue(cfg.U.getValue());
+		D.setValue(cfg.D.getValue());
+		L.setValue(cfg.L.getValue());
+		R.setValue(cfg.R.getValue());
+	}
 }

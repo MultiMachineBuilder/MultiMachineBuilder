@@ -5,6 +5,7 @@ package mmb.WORLD.blocks.ppipe;
 
 import javax.annotation.Nonnull;
 
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.rotate.ChirotatedImageGroup;
 import mmb.WORLD.rotate.Side;
@@ -85,6 +86,12 @@ public class TwinPlayerPipe extends AbstractPlayerPipe {
 	@Override
 	public ChirotatedImageGroup getImage() {
 		return img;
+	}
+
+	@Override
+	public BlockEntry blockCopy() {
+		TwinPlayerPipe copy = new TwinPlayerPipe(type, img, from1, to1, from2, to2, tunnel1.path.length);
+		return copy;
 	}
 
 }

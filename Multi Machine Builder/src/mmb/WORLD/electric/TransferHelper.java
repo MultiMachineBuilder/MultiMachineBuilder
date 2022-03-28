@@ -159,4 +159,14 @@ public class TransferHelper{
 			}
 		};
 	}
+
+	/**
+	 * @param tf
+	 */
+	public void set(TransferHelper tf) {
+		maxIters = tf.maxIters;
+		power = tf.power;
+		pressure = tf.pressure;
+		pressureWt = tf.pressureWt;
+	}
 }

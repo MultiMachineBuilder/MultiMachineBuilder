@@ -15,6 +15,7 @@ import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup.SimpleProcessingRecipe;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.VoltageTier;
+import mmb.WORLD.electromachine.CycleResult;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
@@ -75,8 +76,9 @@ public class ElectroItemProcessHelper{
 		if(remainNode != null) progress = remainNode.asDouble();
 	}
 	
-	public void cycle() {
+	public CycleResult cycle() {
 		if(underway == null || progress > underway.energy) {
+			boolean hasAttempted = false;
 			//Time to take a new item
 			loop:
 			for(ItemRecord ir: input) {
@@ -90,6 +92,7 @@ public class ElectroItemProcessHelper{
 					//Item does not exist
 					continue loop;
 				}
+				hasAttempted = true;
 				SimpleProcessingRecipe candidate = recipes.recipes.get(ir.item());
 				if(candidate == null) {
 					//Recipe does not exist
@@ -107,10 +110,11 @@ public class ElectroItemProcessHelper{
 					underway = candidate;
 					currRequired = candidate.energy;
 					if(refreshable != null) refreshable.refreshInputs();
-					return;
+					return CycleResult.WITHDRAW;
 				}
 				//else item is not smeltable, do not take it
 			}
+			return hasAttempted?CycleResult.UNSUPPORTED:CycleResult.EMPTY;
 		}else if(progress < 0) {
 			progress = 0;
 		}else{
@@ -127,9 +131,11 @@ public class ElectroItemProcessHelper{
 				progress -= currRequired;
 				underway = null;
 				if(refreshable != null) refreshable.refreshOutputs();
+				return CycleResult.OUTPUT;
 			}// else continue smelting
 		}
-		if(refreshable != null) refreshable.refreshProgress(progress, underway);
+		if(refreshable != null) refreshable.refreshProgress(progress/underway.energy, underway);
+		return CycleResult.RUN;
 	}
 	/**
 	 * @author oskar
@@ -145,5 +151,14 @@ public class ElectroItemProcessHelper{
 		 * @param output item which is currently smelted
 		 */
 		public void refreshProgress(double progress, @Nullable SimpleProcessingRecipe output);
+	}
+	/**
+	 * @param helper
+	 */
+	public void set(ElectroItemProcessHelper helper) {
+		progress = helper.progress;
+		currRequired = helper.currRequired;
+		underway = helper.underway;
+		voltRequired = helper.voltRequired;
 	}
 }

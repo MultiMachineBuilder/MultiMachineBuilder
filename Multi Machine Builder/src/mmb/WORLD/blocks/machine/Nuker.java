@@ -10,11 +10,12 @@ import javax.annotation.Nonnull;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
-import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
+import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.blocks.FuelBurner;
 import mmb.WORLD.contentgen.Materials;
+import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.inventory.Inventories;
 import mmb.WORLD.inventory.storage.SingleItemInventory;
@@ -45,9 +46,9 @@ public class Nuker extends SkeletalBlockMachine {
 		ItemEntry cont = nuked.getContents();
 		//Check the cache
 		if(cont != null) {
-			if(fuels.containsKey(cont.type()) && fuelRemain < 1200_000_000L) {
+			if(Craftings.nukeFuels.containsKey(cont.type()) && fuelRemain < 1200_000_000L) {
 				//Valid fuel
-				fuelRemain += fuels.getDouble(cont.type());
+				fuelRemain += Craftings.nukeFuels.getDouble(cont.type());
 				nuked.setContents(null);
 			}else {
 				//Invalid fuel
@@ -115,12 +116,19 @@ public class Nuker extends SkeletalBlockMachine {
 	private static boolean inited;
 	public static void init() {
 		if(inited) throw new IllegalStateException("Already initialized");
-		fuels.put(Materials.uranium.base, 1000_000_000.0); //uranium - 1 GJ
+		Craftings.nukeFuels.put(Materials.uranium.base, 1000_000_000.0); //uranium - 1 GJ
 		inited = true;
 	}
 	
-	/**
-	 * The list of all nuclear reactor recipes
-	 */
-	public static final Object2DoubleMap<ItemType> fuels = new Object2DoubleOpenHashMap<>();
+	private final FuelBurner burner = new FuelBurner(fuelRemain, nuked, outElec, Craftings.nukeFuels);
+	@Override
+	public BlockEntry blockCopy() {
+		Nuker copy = new Nuker();
+		copy.cfgInElec.set(cfgInElec);
+		copy.cfgOutElec.set(cfgOutElec);
+		copy.cfgInItems.set(cfgInItems);
+		copy.cfgOutItems.set(cfgOutItems);
+		copy.fuelRemain = fuelRemain;
+		return copy;
+	}
 }

@@ -52,10 +52,4 @@ public abstract class AbstractChest extends BlockEntityData{
 	public Inventory getInventory(Side s) {
 		return inv;
 	}
-	@Override
-	public BlockEntity clone() {
-		AbstractChest copy = (AbstractChest) super.clone();
-		copy.inv = new SimpleInventory(inv);
-		return copy;
-	}	
 }
