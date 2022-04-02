@@ -21,18 +21,21 @@ import mmb.WORLD.block.BlockEntry;
  *
  */
 public class Conduit extends BlockEntityData {
-	private Electricity u, d, l, r;
+	@Nonnull private Electricity u, d, l, r;
 	@Nonnull private final BlockType type;
-	private TransferHelper tf;
+	@Nonnull private TransferHelper tf;
 	private static final Debugger debug = new Debugger("CONDUIT");
+	@Nonnull public final VoltageTier volt;
 	/**
 	 * @param type block type
 	 * @param cap capacity in coulombs per tick
+	 * @param volt maximum voltage
 	 */
-	public Conduit(BlockType type, double cap) {
-		tf = new TransferHelper(this, cap);
+	public Conduit(BlockType type, double cap, VoltageTier volt) {
+		tf = new TransferHelper(this, cap, volt);
 		tf.pressureWt = cap*100;
 		this.type = type;
+		this.volt = volt;
 		u = tf.proxy(Side.D);
 		d = tf.proxy(Side.U);
 		l = tf.proxy(Side.R);
@@ -89,7 +92,7 @@ public class Conduit extends BlockEntityData {
 
 	@Override
 	public BlockEntry blockCopy() {
-		Conduit copy = new Conduit(type, tf.power);
+		Conduit copy = new Conduit(type, tf.power, volt);
 		copy.tf.set(tf);
 		return copy;
 	}

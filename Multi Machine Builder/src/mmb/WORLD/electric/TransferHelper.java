@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.electric;
 
+import javax.annotation.Nonnull;
+
 import com.google.common.util.concurrent.Runnables;
 
 import mmb.WORLD.block.BlockEntity;
@@ -22,10 +24,12 @@ public class TransferHelper{
 	public double power;
 	public double pressure = 0;
 	public double pressureWt = 1;
+	public VoltageTier volt;
 	private static final Debugger debug = new Debugger("TRANSFER HELPER");
-	public TransferHelper(BlockEntity ent, double pwr) {
+	public TransferHelper(BlockEntity ent, double pwr, VoltageTier volt) {
 		this.blockent = ent;
 		power = pwr;
+		this.volt = volt;
 	}
 
 	/**
@@ -47,12 +51,15 @@ public class TransferHelper{
 		if(here instanceof Conduit) {
 			//Here is a conduit
 			Conduit cond = (Conduit)here;
-			//debug.printl("Power pressure: "+cond.getTransfer().pressure+" at ["+x+","+y+"]"); //TF does not work - but readout is correct
+			
+			//Check voltage
+			if(cond.volt.compareTo(volt) < 0) {
+				cond.blow(); //The conduit was overvoltaged
+				return 0;
+			}
+			
 			double sgn = Math.signum(amount);
-			//debug.printl("Signum: "+sgn);
-			//debug.printl("Amount: "+amount);
 			double max = sgn*Math.min(sgn*amount, cond.condCapacity()); //The power limited by conduit
-			//debug.printl("Max: "+max);
 			double pressure0 = cond.getTransfer().pressure;
 			
 			double pdiffU = 0, pdiffD = 0, pdiffL = 0, pdiffR = 0;
@@ -62,7 +69,7 @@ public class TransferHelper{
 			Electricity eu = map.get(x, y-1).getElectricalConnection(Side.D);
 			if(eu != null) {
 				pu = eu.pressure();
-				pdiffU = sgn*(pressure0 - pu); //curr - new pressure (new pressure > curr pressure -> negative result)
+				pdiffU = sgn*(pressure0 - pu);
 			}
 			//Move down Y+
 			Electricity ed = map.get(x, y+1).getElectricalConnection(Side.U);
@@ -83,12 +90,6 @@ public class TransferHelper{
 				pdiffR = sgn*(pressure0 - pr);
 			}
 			
-			//double[] pressures = {pu, pd, pl, pr};
-			//debug.printl("Pressures (NaN means disconnected): "+Arrays.toString(pressures));
-			
-			//double[] incrs = {pdiffU, pdiffD, pdiffL, pdiffR};
-			//debug.printl("Grades: "+Arrays.toString(incrs));
-			
 			//Cap the values
 			if(pdiffU < 0) pdiffU = 0;
 			if(pdiffD < 0) pdiffD = 0;
@@ -106,9 +107,6 @@ public class TransferHelper{
 			double totalL = shareL*max;
 			double shareR = pdiffR/sum;
 			double totalR = shareR*max;
-			
-			//double[] shares = {shareU, shareD, shareL, shareR};
-			//debug.printl("Shares: "+Arrays.toString(shares));
 			
 			//Transfer
 			double transferSum = 0;
@@ -133,11 +131,16 @@ public class TransferHelper{
 	 * @param s side to which power goes
 	 * @return electricity proxy for this transfer helper
 	 */
-	public Electricity proxy(Side s) {
+	@Nonnull public Electricity proxy(Side s) {
 		return new Electricity() {
 			@Override
 			public double insert(double amt, VoltageTier volt) {
 				if(amt < 0) return 0;
+				if(volt.compareTo(voltage()) > 0) {
+					//The conduit was overvoltaged
+					blockent.blow();
+					return 0;
+				}
 				return transferSide(Math.min(amt, power), volt, s, Runnables.doNothing());
 			}
 			@Override
@@ -147,7 +150,7 @@ public class TransferHelper{
 			}
 			@Override
 			public VoltageTier voltage() {
-				return VoltageTier.V9;
+				return volt;
 			}
 			@Override
 			public double pressure() {

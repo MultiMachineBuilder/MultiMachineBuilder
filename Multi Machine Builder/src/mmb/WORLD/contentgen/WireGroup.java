@@ -12,6 +12,8 @@ import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.electric.Conduit;
 import mmb.WORLD.electric.ElecRenderer;
+import mmb.WORLD.electric.VoltageTier;
+import mmb.WORLD.item.Items;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
@@ -29,24 +31,25 @@ public class WireGroup implements Identifiable<String> {
 	@Nonnull public final BlockEntityType large;
 	@Nonnull public final String id;
 	@Nonnull public final String title;
+	@Nonnull public final VoltageTier volt;
 	/**
 	 * @param c color of the cable
 	 * @param mul power of smallest wire in watts
 	 * @param group the imetal group
-	 * @param id the identifier of the cables
-	 * @param title display title
+	 * @param volt voltage tier
 	 */
-	public WireGroup(Color c, double mul, MetalGroup group, String id, String title) {
+	public WireGroup(Color c, double mul, MetalGroup group, VoltageTier volt) {
+		this.volt = volt;
 		ElecRenderer tiny0  =  ElecRenderer.repaint(c, ElecRenderer.tiny);
 		ElecRenderer small0 =  ElecRenderer.repaint(c, ElecRenderer.small);
 		ElecRenderer medium0 = ElecRenderer.repaint(c, ElecRenderer.medium);
 		ElecRenderer large0 =  ElecRenderer.repaint(c, ElecRenderer.large);
-		tiny   = conduit(title+" tiny power cable", mul,    tiny0,   "elecwire.tiny."+id);
-		small  = conduit(title+" small power cable", mul*3,  small0,  "elecwire.small."+id);
-		medium = conduit(title+" medium power cable", mul*10, medium0, "elecwire.medium."+id);
-		large  = conduit(title+" large power cable", mul*30, large0,  "elecwire.large."+id);
-		this.title = title;
-		this.id = id;
+		this.title = group.title;
+		this.id = group.id;
+		tiny   = conduit(title+" tiny power cable",   mul   ,   tiny0,   "elecwire.tiny."+id, volt);
+		small  = conduit(title+" small power cable",  mul* 3,  small0,  "elecwire.small."+id, volt);
+		medium = conduit(title+" medium power cable", mul*10, medium0, "elecwire.medium."+id, volt);
+		large  = conduit(title+" large power cable",  mul*30,  large0,  "elecwire.large."+id, volt);
 		_index.add(this);
 		
 		//Crafting recipes
@@ -58,17 +61,20 @@ public class WireGroup implements Identifiable<String> {
 		Craftings.crafting.addRecipe(medium, tiny, 10);
 		Craftings.crafting.addRecipeGrid(tiny, 1, 3, small);
 		Craftings.crafting.addRecipeGrid(new ItemEntry[] {small, small, small, tiny}, 2, 2, medium);
+		
 		Craftings.crafting.addRecipe(small, tiny, 3);
+		
+		Items.tagItems("voltage-"+volt.name, tiny, small, medium, large);
 	}
 	//Various helper methods
-	@Nonnull public static BlockEntityType conduit(String title, double pwr, ElecRenderer texture, String id) {
+	@Nonnull public static BlockEntityType conduit(String title, double pwr, ElecRenderer texture, String id, VoltageTier volt) {
 		BlockEntityType b = new BlockEntityType() {
 			@Override public Icon icon() {
 				return texture.icon;
 			}
 		};
 		return b.title(title)
-				.factory(() -> new Conduit(b, pwr))
+				.factory(() -> new Conduit(b, pwr, volt))
 				.texture(texture)
 				.finish(id);
 	}
