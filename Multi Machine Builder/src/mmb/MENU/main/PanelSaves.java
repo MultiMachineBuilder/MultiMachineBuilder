@@ -132,7 +132,7 @@ public class PanelSaves extends JPanel {
 			boolean fail = true;
 			try(InputStream in = s.file.getInputStream()) {
 				debug.printl("Opened a file");
-				String loadedData = IOUtils.toString(in, Charset.defaultCharset());
+				String loadedData = IOUtils.toString(in);
 				debug.printl("Loaded a file");
 				Universe world = new Universe();
 				@SuppressWarnings("null")

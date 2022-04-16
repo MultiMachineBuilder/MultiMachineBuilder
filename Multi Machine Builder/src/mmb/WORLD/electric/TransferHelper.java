@@ -146,7 +146,7 @@ public class TransferHelper{
 			@Override
 			public double extract(double amt, VoltageTier volt, Runnable blow) {
 				if(amt < 0) return 0;
-				return transferSide(-Math.min(amt, power), volt, s, blow);
+				return -transferSide(-Math.min(amt, power), volt, s, blow);
 			}
 			@Override
 			public VoltageTier voltage() {

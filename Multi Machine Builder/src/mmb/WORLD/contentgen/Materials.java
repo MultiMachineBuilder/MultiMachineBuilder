@@ -128,15 +128,15 @@ public class Materials {
 	//Tier 9 materials
 	@Nonnull public static final MetalGroup unobtainium =     new MetalGroup(colorUnobtainium, "unobtainium", "Unobtainium", VoltageTier.V7, 64_000_000);
 	
-	@Nonnull public static final WireGroup wireRudimentary = new WireGroup(colorRudimentary,    50_000, rudimentary, VoltageTier.V1);
-	@Nonnull public static final WireGroup wireCopper      = new WireGroup(colorCopper,        100_000, copper,      VoltageTier.V2);
-	@Nonnull public static final WireGroup wireSilver      = new WireGroup(colorSilver,        200_000, silver,      VoltageTier.V3);
-	@Nonnull public static final WireGroup wireGold        = new WireGroup(colorGold,          500_000, gold,        VoltageTier.V4);
-	@Nonnull public static final WireGroup wirePlatinum    = new WireGroup(colorPlatinum,     1000_000, platinum,    VoltageTier.V5);
-	@Nonnull public static final WireGroup wireIridium     = new WireGroup(colorIridium,      2000_000, iridium,     VoltageTier.V6);
-	@Nonnull public static final WireGroup wireCrystal     = new WireGroup(colorCrystal,      5000_000, crystal,     VoltageTier.V7);
-	@Nonnull public static final WireGroup wireStellar     = new WireGroup(colorStellar,     10000_000, stellar,     VoltageTier.V8);
-	@Nonnull public static final WireGroup wireUnobtainium = new WireGroup(colorUnobtainium, 20000_000, unobtainium, VoltageTier.V9);
+	@Nonnull public static final WireGroup wireRudimentary = new WireGroup(50_000,    rudimentary, VoltageTier.V1);
+	@Nonnull public static final WireGroup wireCopper      = new WireGroup(100_000,        copper, VoltageTier.V2);
+	@Nonnull public static final WireGroup wireSilver      = new WireGroup(200_000,        silver, VoltageTier.V3);
+	@Nonnull public static final WireGroup wireGold        = new WireGroup(500_000,          gold, VoltageTier.V4);
+	@Nonnull public static final WireGroup wirePlatinum    = new WireGroup(1000_000,     platinum, VoltageTier.V5);
+	@Nonnull public static final WireGroup wireIridium     = new WireGroup(2000_000,      iridium, VoltageTier.V6);
+	@Nonnull public static final WireGroup wireCrystal     = new WireGroup(5000_000,      crystal, VoltageTier.V7);
+	@Nonnull public static final WireGroup wireStellar     = new WireGroup(10000_000,     stellar, VoltageTier.V8);
+	@Nonnull public static final WireGroup wireUnobtainium = new WireGroup(20000_000, unobtainium, VoltageTier.V9);
 
 	static {
 		//Deprecation

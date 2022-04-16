@@ -3,8 +3,6 @@
  */
 package mmb.WORLD.contentgen;
 
-import java.awt.Color;
-
 import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
@@ -33,17 +31,16 @@ public class WireGroup implements Identifiable<String> {
 	@Nonnull public final String title;
 	@Nonnull public final VoltageTier volt;
 	/**
-	 * @param c color of the cable
 	 * @param mul power of smallest wire in watts
 	 * @param group the imetal group
 	 * @param volt voltage tier
 	 */
-	public WireGroup(Color c, double mul, MetalGroup group, VoltageTier volt) {
+	public WireGroup(double mul, MetalGroup group, VoltageTier volt) {
 		this.volt = volt;
-		ElecRenderer tiny0  =  ElecRenderer.repaint(c, ElecRenderer.tiny);
-		ElecRenderer small0 =  ElecRenderer.repaint(c, ElecRenderer.small);
-		ElecRenderer medium0 = ElecRenderer.repaint(c, ElecRenderer.medium);
-		ElecRenderer large0 =  ElecRenderer.repaint(c, ElecRenderer.large);
+		ElecRenderer tiny0  =  ElecRenderer.repaint(volt.c, ElecRenderer.tiny);
+		ElecRenderer small0 =  ElecRenderer.repaint(volt.c, ElecRenderer.small);
+		ElecRenderer medium0 = ElecRenderer.repaint(volt.c, ElecRenderer.medium);
+		ElecRenderer large0 =  ElecRenderer.repaint(volt.c, ElecRenderer.large);
 		this.title = group.title;
 		this.id = group.id;
 		tiny   = conduit(title+" tiny power cable",   mul   ,   tiny0,   "elecwire.tiny."+id, volt);
@@ -65,6 +62,7 @@ public class WireGroup implements Identifiable<String> {
 		Craftings.crafting.addRecipe(small, tiny, 3);
 		
 		Items.tagItems("voltage-"+volt.name, tiny, small, medium, large);
+		Items.tagItems("machine-wire", tiny, small, medium, large);
 	}
 	//Various helper methods
 	@Nonnull public static BlockEntityType conduit(String title, double pwr, ElecRenderer texture, String id, VoltageTier volt) {

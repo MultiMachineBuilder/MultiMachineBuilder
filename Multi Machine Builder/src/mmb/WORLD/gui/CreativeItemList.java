@@ -14,7 +14,6 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
-import mmb.WORLD.gui.window.TabInventory.Tagsel;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.item.Items;
 import monniasza.collects.Collects;
@@ -34,7 +33,7 @@ public class CreativeItemList extends JList<ItemType> {
 		list.addAll(Items.items);
 		Collections.sort(list, (l, r) -> l.title().compareTo(r.title()));
 	}
-	public static void resort(Comparator<ItemType> sort, DefaultListModel model) {
+	public static void resort(Comparator<ItemType> sort, DefaultListModel<ItemType> model) {
 		Collections.sort(Collects.toWritableList(model), sort);
 	}
 	@Override

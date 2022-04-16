@@ -3,11 +3,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="/Multi Machine Builder/lib/com.google.errorprone/jsr305-3.0.2.jar"/>
-	<classpathentry kind="lib" path="/Multi Machine Builder/lib/guava-30.0-jre.jar" sourcepath="C:/Users/oskar/.m2/repository/com/google/guava/guava/30.0-jre/guava-30.0-jre-sources.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/guava-30.0-jre-javadoc.jar!/"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="/Multi Machine Builder/lib/fastutil/fastutil-8.5.4.jar" sourcepath="/Multi Machine Builder/lib/fastutil/fastutil-8.5.4-sources.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/fastutil/fastutil-8.5.4-javadoc.jar!/"/>
@@ -23,5 +18,11 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/Multi%20Machine%20Builder/lib/fastutil/fastutil-extra-8.5.4-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+        <attributes>
+            <attribute name="maven.pomderived" value="true"/>
+            <attribute name="org.eclipse.jst.component.nondependency" value=""/>
+        </attributes>
+	</classpathentry> 
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.github.davidmoten.rtree.RTree;
+import com.github.davidmoten.rtree.geometry.Geometry;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
@@ -178,6 +180,8 @@ public class World implements Identifiable<String>{
 			}
 		}
 		
+		
+		
 		//Dropped items
 		ArrayNode drops = JsonTool.requestArray("drops", (ObjectNode) json);
 		for(JsonNode drop: drops) {
@@ -225,6 +229,16 @@ public class World implements Identifiable<String>{
 		
 		//After loading process
 		WorldEvents.afterLoad.trigger(world);
+		
+		//Postload the blocks
+		for(int y = startY; y < endY; y++) {
+			for(int x = startX; x < endX; x++) {
+				bloader.x = x;
+				bloader.y = y;
+				BlockEntry block = world.get(x, y);
+				block.postLoad(world, 0, 0);
+			}
+		}
 		
 		return world;
 	}
@@ -575,7 +589,7 @@ public class World implements Identifiable<String>{
 		return y < endY;
 	}
 
-	//NEW machines
+	//TO BE REMOVED IN 0.6 machines
 	/**
 	 * Remove the machine at given location
 	 * @param p location
@@ -796,6 +810,9 @@ public class World implements Identifiable<String>{
 			}	
 		};
 	}
+	
+	//Visual objects
+	//private RTree<Visual, Geometry> visuals;
 	
 	//Slot reservation
 	private Long2ObjectMap<ReentrantLock> locks = new Long2ObjectOpenHashMap<>();

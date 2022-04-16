@@ -58,6 +58,12 @@ public interface Electricity {
 	 */
 	public double pressureWeight();
 	
+	/**
+	 * Sets the progress bar to display the amount of electricity in a container
+	 * @param bar the progress bar
+	 * @param value the current amount of electricity
+	 * @param max the maximum amount of electricity
+	 */
 	static void formatProgress(JProgressBar bar, double value, double max) {
 		bar.setString(UnitFormatter.formatEnergy(value)+"/"+UnitFormatter.formatEnergy(max));
 		bar.setValue((int) (value * 100 / max));
@@ -90,6 +96,11 @@ public interface Electricity {
 	};
 	
 	//Restricted
+	/**
+	 * Removes ability to insert electricity from this connection
+	 * @param elec the electrical connection
+	 * @return electrical connection without ability to extract
+	 */
 	public static Electricity extractOnly(Electricity elec) {
 		return new Electricity() {
 
@@ -121,8 +132,9 @@ public interface Electricity {
 		};
 	}
 	/**
-	 * @param elec
-	 * @return
+	 * Removes ability to extract electricity from this connection
+	 * @param elec the electrical connection
+	 * @return electrical connection without ability to insert
 	 */
 	public static Electricity insertOnly(Electricity elec) {
 		return new Electricity() {
@@ -154,6 +166,10 @@ public interface Electricity {
 		};
 	}
 	
+	/**
+	 * @author oskar
+	 * Extends the electrical connections by adding ability to set power pressures.
+	 */
 	public static interface SettablePressure extends Electricity{
 		/**
 		 * Sets the power pressure

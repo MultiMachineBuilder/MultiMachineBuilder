@@ -4,7 +4,6 @@
 package mmb.WORLD.blocks;
 
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
-import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;

@@ -5,6 +5,8 @@ package mmb.WORLD.electric;
 
 import java.awt.Color;
 
+import javax.annotation.Nonnull;
+
 import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.contentgen.MetalGroup;
 
@@ -25,18 +27,18 @@ public enum VoltageTier {
 	V2(    400, "VLV", Materials.iron,        Materials.copper,          4, new Color(255, 128,   0)), 
 	V3(   1600,  "LV", Materials.steel,       Materials.silver,          8, new Color(255, 255,   0)),
 	V4(   6400,  "MV", Materials.stainless,   Materials.gold,           16, new Color(128, 255,   0)),
-	V5(  25600,  "HV", Materials.HSS,         Materials.platinum,       64, new Color(  0, 255,   0)),
-	V6( 102400,  "EV", Materials.signalum,    Materials.iridium,       256, new Color(  0, 255, 180)),
+	V5(  25600,  "HV", Materials.HSS,         Materials.platinum,       64, new Color(  0, 255, 128)),
+	V6( 102400,  "EV", Materials.signalum,    Materials.iridium,       256, new Color(  0, 255, 255)),
 	V7( 409600,  "IV", Materials.enderium,    Materials.crystal,      1024, new Color(  0, 200, 255)),
 	V8(1638400, "LuV", Materials.duranium,    Materials.stellar,      4096, new Color(  0, 128, 255)),
 	V9(6553600, "MAX", Materials.unobtainium, Materials.unobtainium, 16384, new Color(  0,   0, 255));
 	
 	public final double volts;
-	public final String name;
-	public final MetalGroup construction;
-	public final MetalGroup electrical;
+	@Nonnull public final String name;
+	@Nonnull public final MetalGroup construction;
+	@Nonnull public final MetalGroup electrical;
 	public final int speedMul;
-	public final Color c;
+	@Nonnull public final Color c;
 	
 	/**
 	 * @param current current or charge

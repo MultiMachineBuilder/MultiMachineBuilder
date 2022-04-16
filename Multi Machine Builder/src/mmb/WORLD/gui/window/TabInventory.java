@@ -17,23 +17,23 @@ import monniasza.collects.Collects;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import mmb.WORLD.block.Block;
+import mmb.WORLD.block.BlockEntityType;
+import mmb.WORLD.block.BlockType;
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.gui.CreativeItemList;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
+import mmb.WORLD.item.Item;
+import mmb.WORLD.item.ItemEntityType;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.item.Items;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.worlds.world.Player;
 
 import java.awt.Color;
-import java.awt.Component;
-
 import mmb.MENU.components.BoundCheckBox;
 import javax.swing.JSpinner;
-import javax.swing.ListCellRenderer;
-import javax.swing.ListModel;
-
 import mmb.WORLD.gui.inv.CraftGUI;
 import mmb.WORLD.gui.inv.InventoryController;
 
@@ -43,16 +43,14 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Predicate;
 
 import mmb.WORLD.gui.SelectSortItemTypes;
 
 import javax.annotation.Nonnull;
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import javax.swing.JList;
 
@@ -84,19 +82,44 @@ public class TabInventory extends JPanel {
 
 		@Override
 		public String title() {
-			return "%All tags";
+			return "1 All tags";
 		}
 
 		@Override
 		public String toString() {
-			return "%All tags";
+			return "1 All tags";
 		}
 	}
+	
+	public static class FilterTagsel implements Tagsel{
+		public final String tag;
+		public final DefaultListModel<ItemType> set;
+		public FilterTagsel(String s, Predicate<ItemType> filter) {
+			tag = "2 "+s;
+			set = new DefaultListModel<ItemType>();
+			for(ItemType item: Items.items) {
+				if(filter.test(item)) set.addElement(item);
+			}
+		}
+		@Override
+		public DefaultListModel<ItemType> eligible() {
+			return set;
+		}
+		@Override
+		public String title() {
+			return tag;
+		}
+		@Override
+		public String toString() {
+			return tag;
+		}
+	}
+	
 	public static class TaggedSel implements Tagsel{
 		public final String tag;
 		public final DefaultListModel<ItemType> set;
 		public TaggedSel(String s, Set<ItemType> set2) {
-			tag = "*"+s;
+			tag = "3 "+s;
 			set = new DefaultListModel<ItemType>();
 			for(ItemType item: set2) {
 				set.addElement(item);
@@ -118,6 +141,7 @@ public class TabInventory extends JPanel {
 	
 	/**
 	 * Create an inventory panel with a player pre-set
+	 * @param window world window, for which the tab is created
 	 * @param player player represented in this tab
 	 */
 	public TabInventory(WorldWindow window, Player player) {
@@ -126,6 +150,7 @@ public class TabInventory extends JPanel {
 	}	
 	/**
 	 * Create an inventory panel without a player
+	 * @param window world window, for which the tab is created
 	 * @wbp.parser.constructor
 	 */
 	public TabInventory(WorldWindow window) {
@@ -206,6 +231,12 @@ public class TabInventory extends JPanel {
 		//Tags
 		DefaultListModel<Tagsel> model = new DefaultListModel<>();
 		model.addElement(new AllTagsel());
+		model.addElement(new FilterTagsel("Blocks", i -> i instanceof BlockType));
+		model.addElement(new FilterTagsel("Items", i -> !(i instanceof BlockType)));
+		model.addElement(new FilterTagsel("Block entities", i -> i instanceof BlockEntityType));
+		model.addElement(new FilterTagsel("Item entities", i -> i instanceof ItemEntityType));
+		model.addElement(new FilterTagsel("Simple blocks", i -> i instanceof Block));
+		model.addElement(new FilterTagsel("Simple items", i -> i instanceof Item && !(i instanceof BlockType)));
 		for(Entry<String, Collection<ItemType>> data : Items.tags.asMap().entrySet()) {
 			String s = data.getKey();
 			Set<ItemType> set = (Set<ItemType>) data.getValue();
@@ -214,7 +245,7 @@ public class TabInventory extends JPanel {
 		
 		scrollPane = new JScrollPane();
 		creativePanel.add(scrollPane, "cell 0 2,grow");
-		tags = new JList<Tagsel>();
+		tags = new JList<>();
 		scrollPane.setViewportView(tags);
 		tags.setModel(model);
 		tags.addListSelectionListener(e -> {

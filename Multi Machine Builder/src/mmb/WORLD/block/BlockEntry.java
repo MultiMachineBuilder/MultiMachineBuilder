@@ -38,6 +38,9 @@ public interface BlockEntry extends Saver<JsonNode>, Rotable, Chiral {
 	public boolean isBlockEntity();
 	@Nonnull public BlockEntity asBlockEntity();
 	public BlockEntity nasBlockEntity();
+	/**
+	 * @return the block type
+	 */
 	@Nonnull public BlockType type();
 	/**
 	 * @param type block type to check
@@ -94,9 +97,19 @@ public interface BlockEntry extends Saver<JsonNode>, Rotable, Chiral {
 	 * <br>Exception handling: If exception is thrown by this method, the block is not properly initialized
 	 * @param map world, which is initialized
 	 * @param x X coordinate of the block
-	 * @param y	Y cordinate of the block
+	 * @param y	Y coordinate of the block
 	 */
 	public default void onStartup(World map, int x, int y) {
+		//optional
+	}
+	/**
+	 * Called just after world is initialized
+	 * <br>Exception handling: If exception is thrown by this method, the block is not properly initialized
+	 * @param map world, which is initialized
+	 * @param x X coordinate of the block
+	 * @param y	Y coordinate of the block
+	 */
+	public default void postLoad(World map, int x, int y) {
 		//optional
 	}
 	/**
@@ -308,7 +321,6 @@ public interface BlockEntry extends Saver<JsonNode>, Rotable, Chiral {
 		return coll;
 	}
 	/**
-	 * DOES NOT WORK AT SOME POSITIONS
 	 * @param cx1 first X coordinate of the stationary rectangle
 	 * @param cy1 first Y coordinate of the stationary rectangle
 	 * @param cx2 second X coordinate of the stationary rectangle

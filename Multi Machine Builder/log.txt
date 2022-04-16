@@ -3552,6 +3552,10 @@
 (ITEMS) Tagging Item Rudimentary small power cable(elecwire.small.rudimentary) with voltage-ULV
 (ITEMS) Tagging Item Rudimentary medium power cable(elecwire.medium.rudimentary) with voltage-ULV
 (ITEMS) Tagging Item Rudimentary large power cable(elecwire.large.rudimentary) with voltage-ULV
+(ITEMS) Tagging Item Rudimentary tiny power cable(elecwire.tiny.rudimentary) with machine-wire
+(ITEMS) Tagging Item Rudimentary small power cable(elecwire.small.rudimentary) with machine-wire
+(ITEMS) Tagging Item Rudimentary medium power cable(elecwire.medium.rudimentary) with machine-wire
+(ITEMS) Tagging Item Rudimentary large power cable(elecwire.large.rudimentary) with machine-wire
 (BLOCKS) Adding elecwire.tiny.copper with title Copper tiny power cable and description:
  null
 (ITEMS) Adding elecwire.tiny.copper with title Copper tiny power cable and description:
@@ -3572,6 +3576,10 @@
 (ITEMS) Tagging Item Copper small power cable(elecwire.small.copper) with voltage-VLV
 (ITEMS) Tagging Item Copper medium power cable(elecwire.medium.copper) with voltage-VLV
 (ITEMS) Tagging Item Copper large power cable(elecwire.large.copper) with voltage-VLV
+(ITEMS) Tagging Item Copper tiny power cable(elecwire.tiny.copper) with machine-wire
+(ITEMS) Tagging Item Copper small power cable(elecwire.small.copper) with machine-wire
+(ITEMS) Tagging Item Copper medium power cable(elecwire.medium.copper) with machine-wire
+(ITEMS) Tagging Item Copper large power cable(elecwire.large.copper) with machine-wire
 (BLOCKS) Adding elecwire.tiny.silver with title Silver tiny power cable and description:
  null
 (ITEMS) Adding elecwire.tiny.silver with title Silver tiny power cable and description:
@@ -3592,6 +3600,10 @@
 (ITEMS) Tagging Item Silver small power cable(elecwire.small.silver) with voltage-LV
 (ITEMS) Tagging Item Silver medium power cable(elecwire.medium.silver) with voltage-LV
 (ITEMS) Tagging Item Silver large power cable(elecwire.large.silver) with voltage-LV
+(ITEMS) Tagging Item Silver tiny power cable(elecwire.tiny.silver) with machine-wire
+(ITEMS) Tagging Item Silver small power cable(elecwire.small.silver) with machine-wire
+(ITEMS) Tagging Item Silver medium power cable(elecwire.medium.silver) with machine-wire
+(ITEMS) Tagging Item Silver large power cable(elecwire.large.silver) with machine-wire
 (BLOCKS) Adding elecwire.tiny.gold with title Gold tiny power cable and description:
  null
 (ITEMS) Adding elecwire.tiny.gold with title Gold tiny power cable and description:
@@ -3612,6 +3624,10 @@
 (ITEMS) Tagging Item Gold small power cable(elecwire.small.gold) with voltage-MV
 (ITEMS) Tagging Item Gold medium power cable(elecwire.medium.gold) with voltage-MV
 (ITEMS) Tagging Item Gold large power cable(elecwire.large.gold) with voltage-MV
+(ITEMS) Tagging Item Gold tiny power cable(elecwire.tiny.gold) with machine-wire
+(ITEMS) Tagging Item Gold small power cable(elecwire.small.gold) with machine-wire
+(ITEMS) Tagging Item Gold medium power cable(elecwire.medium.gold) with machine-wire
+(ITEMS) Tagging Item Gold large power cable(elecwire.large.gold) with machine-wire
 (BLOCKS) Adding elecwire.tiny.platinum with title Platinum tiny power cable and description:
  null
 (ITEMS) Adding elecwire.tiny.platinum with title Platinum tiny power cable and description:
@@ -3632,6 +3648,10 @@
 (ITEMS) Tagging Item Platinum small power cable(elecwire.small.platinum) with voltage-HV
 (ITEMS) Tagging Item Platinum medium power cable(elecwire.medium.platinum) with voltage-HV
 (ITEMS) Tagging Item Platinum large power cable(elecwire.large.platinum) with voltage-HV
+(ITEMS) Tagging Item Platinum tiny power cable(elecwire.tiny.platinum) with machine-wire
+(ITEMS) Tagging Item Platinum small power cable(elecwire.small.platinum) with machine-wire
+(ITEMS) Tagging Item Platinum medium power cable(elecwire.medium.platinum) with machine-wire
+(ITEMS) Tagging Item Platinum large power cable(elecwire.large.platinum) with machine-wire
 (BLOCKS) Adding elecwire.tiny.iridium with title Iridium tiny power cable and description:
  null
 (ITEMS) Adding elecwire.tiny.iridium with title Iridium tiny power cable and description:
@@ -3652,6 +3672,10 @@
 (ITEMS) Tagging Item Iridium small power cable(elecwire.small.iridium) with voltage-EV
 (ITEMS) Tagging Item Iridium medium power cable(elecwire.medium.iridium) with voltage-EV
 (ITEMS) Tagging Item Iridium large power cable(elecwire.large.iridium) with voltage-EV
+(ITEMS) Tagging Item Iridium tiny power cable(elecwire.tiny.iridium) with machine-wire
+(ITEMS) Tagging Item Iridium small power cable(elecwire.small.iridium) with machine-wire
+(ITEMS) Tagging Item Iridium medium power cable(elecwire.medium.iridium) with machine-wire
+(ITEMS) Tagging Item Iridium large power cable(elecwire.large.iridium) with machine-wire
 (BLOCKS) Adding elecwire.tiny.crystal with title Crystalline tiny power cable and description:
  null
 (ITEMS) Adding elecwire.tiny.crystal with title Crystalline tiny power cable and description:
@@ -3672,6 +3696,10 @@
 (ITEMS) Tagging Item Crystalline small power cable(elecwire.small.crystal) with voltage-IV
 (ITEMS) Tagging Item Crystalline medium power cable(elecwire.medium.crystal) with voltage-IV
 (ITEMS) Tagging Item Crystalline large power cable(elecwire.large.crystal) with voltage-IV
+(ITEMS) Tagging Item Crystalline tiny power cable(elecwire.tiny.crystal) with machine-wire
+(ITEMS) Tagging Item Crystalline small power cable(elecwire.small.crystal) with machine-wire
+(ITEMS) Tagging Item Crystalline medium power cable(elecwire.medium.crystal) with machine-wire
+(ITEMS) Tagging Item Crystalline large power cable(elecwire.large.crystal) with machine-wire
 (BLOCKS) Adding elecwire.tiny.stellar with title Stellarine tiny power cable and description:
  null
 (ITEMS) Adding elecwire.tiny.stellar with title Stellarine tiny power cable and description:
@@ -3692,6 +3720,10 @@
 (ITEMS) Tagging Item Stellarine small power cable(elecwire.small.stellar) with voltage-LuV
 (ITEMS) Tagging Item Stellarine medium power cable(elecwire.medium.stellar) with voltage-LuV
 (ITEMS) Tagging Item Stellarine large power cable(elecwire.large.stellar) with voltage-LuV
+(ITEMS) Tagging Item Stellarine tiny power cable(elecwire.tiny.stellar) with machine-wire
+(ITEMS) Tagging Item Stellarine small power cable(elecwire.small.stellar) with machine-wire
+(ITEMS) Tagging Item Stellarine medium power cable(elecwire.medium.stellar) with machine-wire
+(ITEMS) Tagging Item Stellarine large power cable(elecwire.large.stellar) with machine-wire
 (BLOCKS) Adding elecwire.tiny.unobtainium with title Unobtainium tiny power cable and description:
  null
 (ITEMS) Adding elecwire.tiny.unobtainium with title Unobtainium tiny power cable and description:
@@ -3712,6 +3744,10 @@
 (ITEMS) Tagging Item Unobtainium small power cable(elecwire.small.unobtainium) with voltage-MAX
 (ITEMS) Tagging Item Unobtainium medium power cable(elecwire.medium.unobtainium) with voltage-MAX
 (ITEMS) Tagging Item Unobtainium large power cable(elecwire.large.unobtainium) with voltage-MAX
+(ITEMS) Tagging Item Unobtainium tiny power cable(elecwire.tiny.unobtainium) with machine-wire
+(ITEMS) Tagging Item Unobtainium small power cable(elecwire.small.unobtainium) with machine-wire
+(ITEMS) Tagging Item Unobtainium medium power cable(elecwire.medium.unobtainium) with machine-wire
+(ITEMS) Tagging Item Unobtainium large power cable(elecwire.large.unobtainium) with machine-wire
 (BLOCKS) Deprecating ore.iron as mmb.iore
 (BLOCKS) Deprecating ore.copper as mmb.cpore
 (BLOCKS) Deprecating ore.silicon as mmb.silicon_ore
@@ -3830,12 +3866,12 @@
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld BROKEN.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
 (MOD-LOADER) Found 8 mod files
-(MOD - BEB.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
 (MOD - HelloWorld 0.5 BROKEN 2.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5 BROKEN 2.jar
-(MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
-(MOD - HelloWorld BROKEN.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld BROKEN.jar
-(MOD - mmb-DE.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
 (MOD - 26.11.2021 choinka.zip) Opening a modfile: C:\Users\oskar\Downloads\26.11.2021 choinka.zip
+(MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD - mmb-DE.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+(MOD - BEB.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
+(MOD - HelloWorld BROKEN.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld BROKEN.jar
 (MOD-LOADER) The external mod has incorrect URL: steam://rungameid/255710
 (MOD-LOADER) java.net.MalformedURLException: unknown protocol: steam
 	at java.net.URL.<init>(Unknown Source)
@@ -3846,191 +3882,195 @@
 	at mmb.MODS.loader.ModLoader.modloading(ModLoader.java:145)
 	at mmb.Loading.continueLoading(Loading.java:43)
 	at mmb.Main.main(Main.java:36)
-((MOD - HelloWorld BROKEN.jar) Loading a modfile: HelloWorld BROKEN.jar
-(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
 (MOD - HelloWorld 0.5 BROKEN 2.jar) Loading a modfile: HelloWorld 0.5 BROKEN 2.jar
-MOD - BEB.jar) Loading a modfile: BEB.jar
+(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
+(MOD - BEB.jar) Loading a modfile: BEB.jar
 (MOD - 26.11.2021 choinka.zip) Loading a modfile: 26.11.2021 choinka.zip
+(MOD - HelloWorld BROKEN.jar) Loading a modfile: HelloWorld BROKEN.jar
 (MOD - mmb-DE.jar) Loading a modfile: mmb-DE.jar
-(MOD - HelloWorld BROKEN.jar(MOD - HelloWorld 0.5 BROKEN 2.jar) entry: META-INF/MANIFEST.MF
-(MOD - mmb-DE.jar) entry: META-INF/MANIFEST.MF
-(MOD - HelloWorld 0.5.jar) entry: META-INF/MANIFEST.MF
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/
+(MOD - HelloWorld BROKEN.jar(MOD - mmb-DE.jar) entry: META-INF/MANIFEST.MF
+((MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/
 ) entry: META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5 BROKEN 2.jar) entry: META-INF/MANIFEST.MF
 (MOD - BEB.jar) entry: META-INF/MANIFEST.MF
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/
+MOD - HelloWorld 0.5.jar) entry: META-INF/MANIFEST.MF
+(MOD - mmb-DE.jar) entry: .project
 (MOD - BEB.jar) entry: mmbmods/beb/package-info.class
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/choinka.html
-(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - mmb-DE.jar) entry: .classpath
 (MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
+(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
 (MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - BEB.jar) entry: .classpath
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/
+(MOD - BEB.jar) entry: .project
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/choinka.html
 (MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/choinka.html.bak
-(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/choinka.png
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/gwiazda.png
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/jquery.js
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/prezent1.png
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5 BROKEN 2.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5 BROKEN 2.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - HelloWorld 0.5.jar) (MOD - mmb-DE.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+
+(MOD - mmb-DE.jar) Processing .classpath
+(MOD - mmb-DE.jar) File: .classpath
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/prezent2.png
+(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/prezent3.png
 (MOD - HelloWorld BROKEN.jar) entry: resources/textures/hw/notepad.png
 (MOD - HelloWorld BROKEN.jar) entry: .project
-(MOD - HelloWorld BROKEN.jar) entry: .classpath
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/gwiazda.png
-(MOD - HelloWorld BROKEN.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/jquery.js
-(MOD - HelloWorld 0.5 BROKEN 2.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - HelloWorld 0.5 BROKEN 2.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
+(MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
+(MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
 (MOD - HelloWorld 0.5 BROKEN 2.jar) Couldn't open zip or jar file HelloWorld 0.5 BROKEN 2.jar
-(MOD - HelloWorld 0.5 BROKEN 2.jar) java.util.zip.ZipException: broken archive, entry with negative size
-	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.readDataDescriptor(ZipArchiveInputStream.java:935)
-	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.closeEntry(ZipArchiveInputStream.java:794)
-	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.getNextZipEntry(ZipArchiveInputStream.java:270)
-	at org.apache.commons.compress.archivers.jar.JarArchiveInputStream.getNextJarEntry(JarArchiveInputStream.java:56)
-	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:140)
-	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:86)
-	at java.lang.Thread.run(Unknown Source)
-(MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
-(MOD - BEB.jar) entry: .classpath
-(MOD - BEB.jar) entry: .project
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/prezent1.png
-(MOD - mmb-DE.jar) entry: .project
-(MOD - mmb-DE.jar) entry: .classpath
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/prezent2.png
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/prezent3.png
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld 0.5.jar) entry: resources/textures/hw/notepad.png
-(MOD - HelloWorld 0.5.jar) entry: .project(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/snowfall.js
+entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - BEB.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
+(MOD - HelloWorld 0.5 BROKEN 2.jar) (MOD - HelloWorld 0.5.jar) java.util.zip.ZipException: broken archive, entry with negative sizeentry: resources/textures/hw/notepad.png
 
+	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.readDataDescriptor(ZipArchiveInputStream.java:935)(
+MOD - mmb-DE.jar	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.closeEntry(ZipArchiveInputStream.java:794)) 
+Processing .project	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.getNextZipEntry(ZipArchiveInputStream.java:270)
+
+(	at org.apache.commons.compress.archivers.jar.JarArchiveInputStream.getNextJarEntry(JarArchiveInputStream.java:56)MOD - mmb-DE.jar
+(	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:140)MOD - HelloWorld 0.5.jar
+) 	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:86)entry: .project
+
+	at java.lang.Thread.run(Unknown Source)(
+MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/snowfall.js
+(MOD - HelloWorld BROKEN.jar) entry: .classpath
 (MOD - HelloWorld 0.5.jar) entry: .classpath
 (MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/styl.css
-(MOD - HelloWorld 0.5.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+) File: .project
+(MOD - BEB.jar) Processing mmbmods/beb/BlockBEB.class
 (MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/styl.css.bak
-(MOD - mmb-DE.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar(MOD - BEB.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
-((MOD - BEB.jar) Processing mmbmods/beb/BlockBEB.class
-(MOD - BEB.jar) File: mmbmods/beb/BlockBEB.class
-(MOD - BEB.jar) Processing .classpath
-(MOD - BEB.jar) File: .classpath
-(MOD - HelloWorld BROKEN.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld BROKEN.jar
-(MOD - BEB.jar) Processing mmbmods/beb/package-info.class
-(MOD - BEB.jar) File: mmbmods/beb/package-info.class
-(MOD - BEB.jar) Processing mmbmods/beb/BEBMod.class
-(MOD - BEB.jar) File: mmbmods/beb/BEBMod.class
-(MOD - BEB.jar) Processing .project
-(MOD - BEB.jar) File: .project
-(MOD - 26.11.2021 choinka.zip) Injecting C:\Users\oskar\Downloads\26.11.2021 choinka.zip
-MOD - HelloWorld 0.5.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
-
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/choinka.html.bak
-(MOD - BEB.jar) Processing META-INF/MANIFEST.MF
-(MOD - BEB.jar) File: META-INF/MANIFEST.MF
-(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/choinka.html.bak
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - mmb-DE.jar) Processing .classpath
-(MOD - HelloWorld 0.5.jar) Processing .classpath
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/choinka.png
-(MOD - BEB.jar) Class: mmbmods.beb.BlockBEB
-(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/choinka.png
-(MOD - HelloWorld 0.5.jar) File: .classpath
-(MOD - mmb-DE.jar) File: .classpath
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/DataLayerHW.class
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/snowfall.js
-(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/snowfall.js
-(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/DataLayerHW.class
-(MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
-(MOD - HelloWorld 0.5.jar) Processing resources/textures/hw/notepad.png
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/styl.css.bak
-(MOD - HelloWorld BROKEN.jar) Processing .classpath
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/styl.css.bak
-(MOD - HelloWorld 0.5.jar) File: resources/textures/hw/notepad.png
-(MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/package-info.class
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/
-(MOD - HelloWorld BROKEN.jar) File: .classpath
-(MOD - 26.11.2021 choinka.zip) Directory: 26.11.2021 choinka/
-(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/package-info.class
-(MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/prezent2.png
-(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/DataLayerHW.class
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/prezent2.png
-(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
-(MOD - HelloWorld 0.5.jar) Processing .project
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/
-(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/DataLayerHW.class
-(MOD - BEB.jar) entry: mmbmods/beb/package-info.class
-(MOD - HelloWorld BROKEN.jar) Processing resources/textures/hw/notepad.png
-(MOD - HelloWorld BROKEN.jar) File: resources/textures/hw/notepad.png
-(MOD - 26.11.2021 choinka.zip) Directory: 26.11.2021 choinka/26.11.2021 choinka/
-(MOD - HelloWorld 0.5.jar) File: .project
-(MOD - mmb-DE.jar) Processing .project
-(MOD - HelloWorld 0.5.jar) Processing META-INF/MANIFEST.MF
-(MOD - HelloWorld 0.5.jar) File: META-INF/MANIFEST.MF
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/choinka.html
-(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/package-info.class
-(MOD - BEB.jar) Class: mmbmods.beb.package-info
-(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/package-info.class
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/choinka.html
-(MOD - HelloWorld 0.5.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - mmb-DE.jar) File: .project
-(MOD - HelloWorld 0.5.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/gwiazda.png
-(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/gwiazda.png
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
+(MOD - HelloWorld 0.5.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (MOD - mmb-DE.jar) Processing META-INF/MANIFEST.MF
 (MOD - mmb-DE.jar) File: META-INF/MANIFEST.MF
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
-(MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
-(MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
-(MOD - BEB.jar) Class: mmbmods.beb.BEBMod
+(MOD - mmb-DE.jar) (MOD - HelloWorld 0.5.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD - HelloWorld BROKEN.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - 26.11.2021 choinka.zip) Injecting C:\Users\oskar\Downloads\26.11.2021 choinka.zip
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
+entry: mmbmods/lang/de/German.class
+((MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld BROKEN.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld BROKEN.jar
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/choinka.html.bak
+(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
+MOD - BEB.jar) File: mmbmods/beb/BlockBEB.class
+(MOD - HelloWorld 0.5.jar) Processing .classpath
+(MOD - HelloWorld 0.5.jar) File: .classpath
+(MOD - HelloWorld BROKEN.jar) Processing .classpath
+(MOD - HelloWorld BROKEN.jar) File: .classpath
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/choinka.html.bak
+(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - BEB.jar) Processing .classpath
+(MOD - BEB.jar) File: .classpath
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - HelloWorld BROKEN.jar) Processing resources/textures/hw/notepad.png
+(MOD - HelloWorld BROKEN.jar) File: resources/textures/hw/notepad.png
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/choinka.png
+(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) Processing resources/textures/hw/notepad.png
+(MOD - BEB.jar) Processing mmbmods/beb/package-info.class
+(MOD - HelloWorld 0.5.jar) File: resources/textures/hw/notepad.png
+(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/choinka.png
+(MOD - mmb-DE.jar) Class: mmbmods.lang.de.package-info
+(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/package-info.class
+(MOD - BEB.jar) File: mmbmods/beb/package-info.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld BROKEN.jar) Processing .project
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/snowfall.js
+(MOD - HelloWorld BROKEN.jar) File: .project
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - BEB.jar) Processing mmbmods/beb/BEBMod.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld BROKEN.jar) Processing META-INF/MANIFEST.MF
+(MOD - HelloWorld BROKEN.jar) File: META-INF/MANIFEST.MF
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/snowfall.js
+(MOD - HelloWorld BROKEN.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - HelloWorld BROKEN.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - HelloWorld 0.5.jar) Processing .project
+(MOD - HelloWorld 0.5.jar) File: .project
+(MOD - BEB.jar) File: mmbmods/beb/BEBMod.class
+(MOD - HelloWorld 0.5.jar) Processing META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5.jar) File: META-INF/MANIFEST.MF
+(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/styl.css.bak
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/styl.css.bak
+(MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
+(MOD - HelloWorld 0.5.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - HelloWorld 0.5.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
+(MOD - BEB.jar) Processing .project
+(MOD - BEB.jar) File: .project
+(MOD - BEB.jar) Processing META-INF/MANIFEST.MF
+(MOD - BEB.jar) File: META-INF/MANIFEST.MF
+(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
+(MOD - BEB.jar) Class: mmbmods.beb.BlockBEB
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/
+(MOD - 26.11.2021 choinka.zip) Directory: 26.11.2021 choinka/
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/prezent2.png
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/prezent2.png
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/
+(MOD - 26.11.2021 choinka.zip) Directory: 26.11.2021 choinka/26.11.2021 choinka/
+((MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/choinka.html
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/choinka.html
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/gwiazda.png
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/gwiazda.png
 (MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/jquery.js
 (MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/jquery.js
-(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/prezent3.png
-(MOD - HelloWorld BROKEN.jar) Processing .project
 (MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/prezent3.png
-(MOD - HelloWorld BROKEN.jar) File: .project
 (MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/prezent1.png
-(MOD - HelloWorld BROKEN.jar) Processing META-INF/MANIFEST.MF
 (MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/prezent1.png
-(MOD - HelloWorld BROKEN.jar) File: META-INF/MANIFEST.MF
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWBlock
-(MOD - HelloWorld BROKEN.jar(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/styl.css
-) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/styl.css
-(MOD - HelloWorld BROKEN.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
-(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - BEB.jar) entry: mmbmods/beb/package-info.class
+(MOD - BEB.jar) Class: mmbmods.beb.package-info
+MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.HWBlock
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
-(MOD - mmb-DE.jar) Class: mmbmods.lang.de.package-info
+(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/styl.css
+(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/styl.css
+((MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
+MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWBlock
+(MOD - BEB.jar) Class: mmbmods.beb.BEBMod
 (MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.DataLayerHW
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.DataLayerHW
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.package-info
 (MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.package-info
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWMachine
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.package-info
 (MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.HWMachine
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWMachine
+(BLOCKS) Adding beb.BEB with title Block Entity Bomb and description:
+ null
+(ITEMS) Adding beb.BEB with title Block Entity Bomb and description:
+ null
 (MOD - HelloWorld 0.5.jar) Invalid class file: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) java.lang.ClassFormatError: Invalid code attribute name index 5888 in class file mmbmods/monniasza/helloworld/HWMachine
 	at java.lang.ClassLoader.defineClass1(Native Method)
@@ -4043,16 +4083,12 @@ MOD - HelloWorld 0.5.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machi
 	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:207)
 	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:86)
 	at java.lang.Thread.run(Unknown Source)
-(BLOCKS) Adding beb.BEB with title Block Entity Bomb and description:
- null
-(ITEMS) Adding beb.BEB with title Block Entity Bomb and description:
- null
-(MOD - HelloWorld BROKEN.jar(HW) Hello, world!
-) Invalid class file: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld BROKEN.jar) Invalid class file: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld BROKEN.jar) java.lang.ClassFormatError: Invalid code attribute name index 5888 in class file mmbmods/monniasza/helloworld/HWMachine
-	at java.lang.ClassLoader.defineClass1(Native Method)
-	at java.lang.ClassLoader.defineClass(Unknown Source)
-	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.lang.ClassLoader.defineClass1(Native Method)(
+HW	at java.lang.ClassLoader.defineClass(Unknown Source)) 
+Hello, world!	at java.lang.ClassLoader.defineClass(Unknown Source)
+
 	at io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)
 	at java.lang.ClassLoader.loadClass(Unknown Source)
 	at java.lang.ClassLoader.loadClass(Unknown Source)
@@ -4071,19 +4107,19 @@ MOD - HelloWorld 0.5.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machi
 	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:86)
 	at java.lang.Thread.run(Unknown Source)
 (MOD-LOADER) 26.11.2021 choinka.zip is not a mod and will not be run
-(MOD-LOADER) Start 1st stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) Start 1st stage for BlockEntity Bomb
+(MOD-LOADER) Start 1st stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) End 1st stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) End 1st stage for BlockEntity Bomb
-(MOD-LOADER) Start 2nd stage for BlockEntity Bomb
-(MOD-LOADER) End 2nd stage for BlockEntity Bomb
 (MOD-LOADER) Start 2nd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) End 2nd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) Start 3rd stage for BlockEntity Bomb
+(MOD-LOADER) Start 2nd stage for BlockEntity Bomb(MOD-LOADER) End 2nd stage for MultiMachineBuilder German/Deutsch
+
+(MOD-LOADER) End 2nd stage for BlockEntity Bomb
+((MOD-LOADER) Start 3rd stage for BlockEntity Bomb
 (MOD-LOADER) End 3rd stage for BlockEntity Bomb
-((MOD-LOADER) ================MOD INFORMATION FOR steam://rungameid/255710================
 MOD-LOADER) Start 3rd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) End 3rd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) (MOD-LOADER) End 3rd stage for MultiMachineBuilder German/Deutsch
+================MOD INFORMATION FOR steam://rungameid/255710================
 (MOD-LOADER) LOCATED AT steam://rungameid/255710
 (MOD-LOADER) Missing files
 (MOD-LOADER) ================MOD INFORMATION FOR HelloWorld 0.5 BROKEN 2.jar================
@@ -4092,18 +4128,6 @@ MOD-LOADER) Start 3rd stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) ================MOD INFORMATION FOR 26.11.2021 choinka.zip================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\Downloads\26.11.2021 choinka.zip
 (MOD-LOADER) Media package
-(MOD-LOADER) ================MOD INFORMATION FOR BlockEntity Bomb================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
-(MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Sat Apr 02 11:56:53 CEST 2022
-(MOD-LOADER) MADE BY 
-(MOD-LOADER) DESCRIPTION: A block that lags out entire game.
-(MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
-(MOD-LOADER) Crashed
-(MOD-LOADER) RELEASED Sat Apr 02 11:56:53 CEST 2022
-(MOD-LOADER) MADE BY Monniasza
-(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) ================MOD INFORMATION FOR MultiMachineBuilder German/Deutsch================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
 (MOD-LOADER) Operative
@@ -4111,10 +4135,22 @@ MOD-LOADER) Start 3rd stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: This mod contains German translation of the game
 Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
+(MOD-LOADER) ================MOD INFORMATION FOR BlockEntity Bomb================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
+(MOD-LOADER) Operative
+(MOD-LOADER) RELEASED Fri Apr 15 16:52:44 CEST 2022
+(MOD-LOADER) MADE BY 
+(MOD-LOADER) DESCRIPTION: A block that lags out entire game.
+(MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD-LOADER) Crashed
+(MOD-LOADER) RELEASED Fri Apr 15 16:52:44 CEST 2022
+(MOD-LOADER) MADE BY Monniasza
+(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld BROKEN.jar
 (MOD-LOADER) Crashed
-(MOD-LOADER) RELEASED Sat Apr 02 11:56:53 CEST 2022
+(MOD-LOADER) RELEASED Fri Apr 15 16:52:44 CEST 2022
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) ================MOD INFORMATION FOR https://tomaszjakubowski.edu.pl/================
@@ -4143,124 +4179,4 @@ Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
 (SELECT A SAVE) Found save: The longest player pipe ever.mworld
 (SELECT A SAVE) Found save: Tiled.mworld
 (SELECT A SAVE) Found 20 saves
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@1639675
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(COMPLEX RECIPE RPOCESSOR) IUW data:null
-(COMPLEX RECIPE RPOCESSOR) IUW data:null
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.ArrayIndexOutOfBoundsException: 8
-	at javax.swing.plaf.basic.BasicListUI.updateLayoutState(Unknown Source)
-	at javax.swing.plaf.basic.BasicListUI.maybeUpdateLayoutState(Unknown Source)
-	at javax.swing.plaf.basic.BasicListUI.getPreferredSize(Unknown Source)
-	at javax.swing.JComponent.getPreferredSize(Unknown Source)
-	at javax.swing.ScrollPaneLayout.layoutContainer(Unknown Source)
-	at java.awt.Container.layout(Unknown Source)
-	at java.awt.Container.doLayout(Unknown Source)
-	at java.awt.Container.validateTree(Unknown Source)
-	at java.awt.Container.validate(Unknown Source)
-	at javax.swing.RepaintManager$3.run(Unknown Source)
-	at javax.swing.RepaintManager$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at javax.swing.RepaintManager.validateInvalidComponents(Unknown Source)
-	at javax.swing.RepaintManager$ProcessingRunnable.run(Unknown Source)
-	at java.awt.event.InvocationEvent.dispatch(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(MAP anonymous) Block entity at [-7,-3] took exceptionally long to run
-(MAP anonymous) Block entity at [-12,-7] took exceptionally long to run
-(MAP anonymous) Block entity at [-12,-9] took exceptionally long to run
-(TOOL-STANDARD) Running BlockActivateListener for: [-11,-3]
-(TOOL-STANDARD) Running BlockActivateListener for: [-10,-3]
-(MAP anonymous) Block entity at [-10,-3] took exceptionally long to run
-(MAP anonymous) Block entity at [-10,2] took exceptionally long to run
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(MAP anonymous) Failed to run the requested action
-(MAP anonymous) java.lang.IllegalStateException: Not placed in map
-	at mmb.WORLD.block.BlockEntity.owner(BlockEntity.java:74)
-	at mmb.WORLD.block.BlockEntity.getAtSide(BlockEntity.java:104)
-	at mmb.WORLD.electric.Electricity.lambda$1(Electricity.java:213)
-	at mmb.WORLD.worlds.world.WorldProxy.close(WorldProxy.java:31)
-	at mmb.WORLD.worlds.world.World.update(World.java:341)
-	at mmb.WORLD.worlds.world.World.lambda$0(World.java:305)
-	at mmb.RUNTIME.TaskLoop.lambda$0(TaskLoop.java:43)
-	at java.lang.Thread.run(Unknown Source)
-(MAP anonymous) Failed to run the map
-(MAP anonymous) java.util.ConcurrentModificationException
-	at java.util.HashMap$HashIterator.nextNode(Unknown Source)
-	at java.util.HashMap$KeyIterator.next(Unknown Source)
-	at mmb.WORLD.worlds.world.World.update(World.java:326)
-	at mmb.WORLD.worlds.world.World.lambda$0(World.java:305)
-	at mmb.RUNTIME.TaskLoop.lambda$0(TaskLoop.java:43)
-	at java.lang.Thread.run(Unknown Source)
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
+(SETTINGS) Saved settings file
