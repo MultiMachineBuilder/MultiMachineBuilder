@@ -3,14 +3,17 @@
  */
 package mmb.WORLD.worlds.world;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -19,6 +22,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -26,6 +30,7 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.github.davidmoten.rtree.Entries;
 import com.github.davidmoten.rtree.RTree;
 import com.github.davidmoten.rtree.geometry.Geometry;
 import com.google.common.collect.ArrayListMultimap;
@@ -37,6 +42,7 @@ import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import mmb.Bitwise;
 import mmb.Vector2iconst;
 import mmb.BEANS.BlockActivateListener;
+import mmb.DATA.contents.texture.Textures;
 import mmb.DATA.json.JsonTool;
 import mmb.RUNTIME.TaskLoop;
 import mmb.WORLD.block.BlockEntity;
@@ -50,10 +56,18 @@ import mmb.WORLD.block.BlockLoader;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.rotate.Side;
+import mmb.WORLD.visuals.EvilLine;
+import mmb.WORLD.visuals.VisCircle;
+import mmb.WORLD.visuals.VisImgRect;
+import mmb.WORLD.visuals.VisLine;
+import mmb.WORLD.visuals.VisPoint;
+import mmb.WORLD.visuals.VisRect;
+import mmb.WORLD.visuals.Visual;
 import mmb.WORLD.worlds.DataLayers;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.universe.Universe;
 import mmb.debug.Debugger;
+import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
@@ -240,6 +254,26 @@ public class World implements Identifiable<String>{
 			}
 		}
 		
+		//Test visuals
+		world.addVisuals(
+				new VisLine(-1, 0, 1, 2, Color.RED),
+				new VisPoint(0, 0, Color.MAGENTA),
+				new VisRect(2, 3, 3, 4, null, Color.BLACK),
+				new VisRect(2, 4.1, 3, 5.1, Color.YELLOW, null),
+				new VisRect(2, 5.2, 3, 6.2, Color.LIGHT_GRAY, Color.DARK_GRAY),
+				new VisImgRect(2, 6.3, 4, 7.3, Textures.get("UAvsRU.png")),
+				new VisCircle(5, 3, 0.5, null, Color.BLACK),
+				new VisCircle(5, 4.1, 0.5, Color.YELLOW, null),
+				new VisCircle(5, 5.2, 0.5, Color.LIGHT_GRAY, Color.DARK_GRAY));
+		
+		//Performance test visuals
+		for(int i = 0; i < 1000_000; i++) {
+			double x = Math.random();
+			double y = Math.random() + 100;
+			double w = Math.random();
+			double h = Math.random();
+			world.addVisual(new VisRect(x, y, x+w, y+h, null, Color.BLACK));
+		}
 		return world;
 	}
 	/**
@@ -812,7 +846,44 @@ public class World implements Identifiable<String>{
 	}
 	
 	//Visual objects
-	//private RTree<Visual, Geometry> visuals;
+	private AtomicReference<RTree<Visual, Geometry>> visuals = new AtomicReference<>(RTree.star().create());
+	public void addVisual(Visual vis) {
+		visuals.updateAndGet(v -> v.add(vis, vis.border()));
+	}
+	public void addVisuals(Visual... vis) {
+		List<com.github.davidmoten.rtree.Entry<Visual, Geometry>> list = visuals2list(vis);
+		visuals.updateAndGet(v -> v.add(list));
+	}
+	public void addVisuals(Collection<Visual> vis) {
+		List<com.github.davidmoten.rtree.Entry<Visual, Geometry>> list = visuals2list(vis);
+		visuals.updateAndGet(v -> v.add(list));
+	}
+	public void removeVisual(Visual vis) {
+		visuals.updateAndGet(v -> v.delete(vis, vis.border()));
+	}
+	public void removeVisuals(Visual... vis) {
+		List<com.github.davidmoten.rtree.Entry<Visual, Geometry>> list = visuals2list(vis);
+		visuals.updateAndGet(v -> v.delete(list));
+	}
+	public void removeVisuals(Collection<Visual> vis) {
+		List<com.github.davidmoten.rtree.Entry<Visual, Geometry>> list = visuals2list(vis);
+		visuals.updateAndGet(v -> v.delete(list));
+	}
+	
+	private static List<com.github.davidmoten.rtree.Entry<Visual, Geometry>> visuals2list(Visual... vis) {
+		return Arrays.stream(vis).map(
+				val -> Entries.entry(val, val.border())
+				).collect(Collectors.toList());
+	}
+	private static List<com.github.davidmoten.rtree.Entry<Visual, Geometry>> visuals2list(Collection<Visual> vis) {
+		return vis.stream().map(
+				val -> Entries.entry(val, val.border())
+				).collect(Collectors.toList());
+	}
+	
+	public RTree<Visual, Geometry> visuals(){
+		return visuals.get();
+	}
 	
 	//Slot reservation
 	private Long2ObjectMap<ReentrantLock> locks = new Long2ObjectOpenHashMap<>();

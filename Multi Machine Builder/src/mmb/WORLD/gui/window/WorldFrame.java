@@ -8,6 +8,8 @@ import java.awt.Point;
 import java.awt.event.*;
 import java.util.Map.Entry;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.swing.Timer;
 import javax.annotation.Nonnull;
@@ -15,6 +17,9 @@ import javax.annotation.Nullable;
 import javax.swing.JComponent;
 
 import org.joml.Vector2d;
+
+import com.github.davidmoten.rtree.geometry.Geometries;
+import com.github.davidmoten.rtree.geometry.Geometry;
 import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
@@ -31,10 +36,15 @@ import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.mbmachine.Machine;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.tool.WindowTool;
+import mmb.WORLD.visuals.Visual;
 import mmb.WORLD.worlds.universe.Universe;
 import mmb.WORLD.worlds.world.Player;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
+import rx.Observable;
+import rx.Subscriber;
+import rx.Subscription;
+
 import java.awt.Color;
 
 /**
@@ -430,6 +440,29 @@ public class WorldFrame extends JComponent {
 			mc.render(g2);
 		}
 		
+		//Render visual objects
+		Observable<com.github.davidmoten.rtree.Entry<Visual, Geometry>> visuals = map.visuals().search(Geometries.rectangle(l, u, r, d));
+		AtomicInteger nvisuals = new AtomicInteger();
+		AtomicBoolean success = new AtomicBoolean();
+		visuals.subscribe(new Subscriber<com.github.davidmoten.rtree.Entry<Visual, Geometry>>() {
+			@Override
+			public void onCompleted() {
+				success.set(true);
+			}
+
+			@Override
+			public void onError(Throwable e) {
+				debug.pstm(e, "Failed to retrieve or render a visual");
+			}
+
+			@Override
+			public void onNext(com.github.davidmoten.rtree.Entry<Visual, Geometry> t) {
+				t.value().render(g, WorldFrame.this);
+				nvisuals.incrementAndGet();
+			}
+		});
+		
+		
 		//Render player
 		Point pul = worldPositionOnScreen(map.player.pos.x - 0.3, map.player.pos.y - 0.3);
 		Point pdr = worldPositionOnScreen(map.player.pos.x + 0.3, map.player.pos.y + 0.3);
@@ -476,6 +509,9 @@ public class WorldFrame extends JComponent {
 			sb.append("TPS: ").append(map.tps.get()).append("\r\n");
 			sb.append("BPF: ").append(bpf).append("\r\n");
 			sb.append("Dumped items: ").append(map.drops.size()).append("\r\n");
+			sb.append("Visuals on map: ").append(map.visuals().size()).append("\r\n");
+			sb.append("Visuals visible: ").append(nvisuals.get()).append("\r\n");
+			sb.append("Visuals succeeded: ").append(success.get()).append("\r\n");
 			//Information for mouseover block
 			BlockEntry ent = getMouseoverBlockEntry();
 			if(ent != null) ent.debug(sb);

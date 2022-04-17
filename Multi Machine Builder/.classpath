@@ -184,7 +184,13 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="lib/easy-events/easy-events-master/src/main/java"/>
-	<classpathentry kind="src" path="lib/easy-events/easy-events-master/src/test/java"/>
+	<classpathentry kind="src" output="target/test-classes" path="lib/easy-events/easy-events-master/src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="lib" path="lib/Java MP3/javamp3-1.0.1.jar"/>
 	<classpathentry kind="lib" path="lib/xerces-2_12_1/resolver.jar"/>

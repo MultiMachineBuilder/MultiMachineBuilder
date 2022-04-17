@@ -4,6 +4,7 @@
 package mmb.WORLD.worlds.world;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.Nonnull;
@@ -11,9 +12,14 @@ import javax.annotation.Nonnull;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.inventory.Inventory;
+import mmb.WORLD.visuals.Visual;
 import mmb.WORLD.worlds.BlockChangeRequest;
 import mmb.WORLD.worlds.MapProxy;
 
+/**
+ * @author oskar
+ * An implementation of {@code MapProxy} for the {@link World}
+ */
 public class WorldProxy implements MapProxy{
 
 	public WorldProxy(World target) {
@@ -33,6 +39,7 @@ public class WorldProxy implements MapProxy{
 				that.debug.pstm(e, "Failed to run the requested action");
 			}
 		}
+		visuals.apply(that);
 		that = null; //NOSONAR
 	}
 	@Override
@@ -99,5 +106,23 @@ public class WorldProxy implements MapProxy{
 	@Override
 	public World getMap() {
 		return that;
+	}
+	
+	private ModifyVisuals visuals = new ModifyVisuals();
+	@Override
+	public void add(Visual vis) {
+		visuals.add(vis);
+	}
+	@Override
+	public void adds(Collection<Visual> vis) {
+		visuals.adds(vis);
+	}
+	@Override
+	public void remove(Visual vis) {
+		visuals.remove(vis);
+	}
+	@Override
+	public void removes(Collection<Visual> vis) {
+		visuals.removes(vis);
 	}
 }

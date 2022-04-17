@@ -6,11 +6,14 @@ package mmb.WORLD.worlds;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.util.Arrays;
+import java.util.Collection;
 
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.rotate.Side;
+import mmb.WORLD.visuals.Visual;
 import mmb.WORLD.worlds.world.World;
 
 /**
@@ -91,4 +94,16 @@ public interface MapProxy extends AutoCloseable{
 	
 	/** @return associated block map*/
 	public World getMap();
+	
+	//Visuals
+	public void add(Visual vis);
+	public default void adds(Visual... vis) {
+		adds(Arrays.asList(vis));
+	}
+	public void adds(Collection<Visual> vis);
+	public void remove(Visual vis);
+	public default void removes(Visual... vis) {
+		removes(Arrays.asList(vis));
+	}
+	public void removes(Collection<Visual> vis);
 }
