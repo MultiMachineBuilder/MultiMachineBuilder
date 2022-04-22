@@ -1,5 +1,21 @@
 # MultiMachineBuilder
 Multi Machine Builder is a computer game written in Java that lets you build machines.
+## INFORMATION ABOUT RUSSIAN INVASION OF UKRAINE
+You can help Ukrainian refugees from the game since 0.5-pre6
+* Decline any Russian coal, oil or gas offers as they are unstable and subject to disinformation
+* Do not use Sputnik V vaccine
+* Do not watch Russia Today or Sputnik
+* Do not fly on Russian airplanes
+* Do not take any Russian trains, buses, metro or trams
+* Do not use Russian websites
+* Do not read Russian news, because they are usually biased
+### DO THIS INSTEAD
+* Buy coal, oil or gas from USA, OECD or EU
+* Use Moderna or Pfizer vaccines
+* Watch your local TV using a tuner which receives DVB-S2 or DVB-T2
+* Use trains instead of airplanes
+* Use European or American websites
+* Read Wikinews and Wikipedia
 ## Repository and contribution tips
 * Suggest new features in the issues
 * Report bugs in the issues
@@ -57,5 +73,3 @@ Make anything you like
 15. Smelt Bronze, Brass, Steel and Nichrome
 16. Make some VLV machines
 17. ...
-# INFORMATION ABOUT RUSSIAN INVASION OF UKRAINE
-You can help Ukrainian refugees from the game since 0.5-pre6
