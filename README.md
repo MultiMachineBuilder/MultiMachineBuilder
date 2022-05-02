@@ -73,3 +73,5 @@ Make anything you like
 15. Smelt Bronze, Brass, Steel and Nichrome
 16. Make some VLV machines
 17. ...
+
+Check Out [SSTO Project](https://spacedock.info/mod/2417/SSTO%20Project) and its [LPG addon](https://spacedock.info/mod/3022/SSTO%20Project%20LPG)
