@@ -4,6 +4,8 @@
 package mmb.WORLD.crafting.recipes;
 
 import java.awt.Component;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Supplier;
 
@@ -18,6 +20,7 @@ import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.SimpleItemList;
+import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.gui.craft.CraftingRecipeList;
 import mmb.WORLD.gui.craft.CraftingRecipeView;
 import mmb.WORLD.gui.craft.SimpleRecipeView;
@@ -117,8 +120,22 @@ public class CraftingRecipeGroup implements RecipeGroup {
 			component.set(this, vectorO, vectorI);
 			return component;
 		}
+		@Override
+		public double energy() {
+			return 0;
+		}
+		@Override
+		public VoltageTier voltTier() {
+			return VoltageTier.V1;
+		}
 	}
 	
+	@Override
+	public Set<? extends ItemEntry> supportedItems() {
+		return supported0;
+	}
+	private final Set<ItemEntry> supported = new HashSet<>();
+	private final Set<ItemEntry> supported0 = Collections.unmodifiableSet(supported);
 	//internal recipe map
 	private final SelfSet<Grid<ItemEntry>, CraftingRecipe> _recipes = new HashSelfSet<>();
 	/** A read-only map of all recipes */
@@ -137,6 +154,9 @@ public class CraftingRecipeGroup implements RecipeGroup {
 		CraftingRecipe recipe = new CraftingRecipe(in, out);
 		_recipes.add(recipe);
 		GlobalRecipeRegistrar.addRecipe(recipe);
+		for(ItemEntry ent: in) {
+			supported.add(ent);
+		}
 		return recipe;		
 	}
 	public CraftingRecipe addRecipeGrid(ItemEntry in, int w, int h, RecipeOutput out) {

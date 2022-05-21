@@ -77,6 +77,12 @@ public class ElectricMachineGroup {
 			powermul = 1;
 			texture(rig.U);
 		}
+		/**
+		 * Creates an electric machine type. The texture is set automatically
+		 * @param volt voltage tier
+		 * @param rig texture
+		 * @param powermul power mutiplier above the base power
+		 */
 		public ElectroMachineType(VoltageTier volt, RotatedImageGroup rig, double powermul) {
 			super();
 			this.volt = volt;

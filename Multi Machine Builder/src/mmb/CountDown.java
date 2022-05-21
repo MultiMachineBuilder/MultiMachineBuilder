@@ -11,7 +11,7 @@ import java.time.temporal.TemporalUnit;
  *
  */
 public class CountDown {
-	private Instant toEnd;
+	private Instant toEnd = Instant.EPOCH;
 	
 	public long remaining(TemporalUnit tu) {
 		return Instant.now().until(toEnd, tu);

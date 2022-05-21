@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
 		<attributes>
+			<attribute name="annotationpath" value="/Multi Machine Builder/lib/eclipse-null-eea-augments-2.4.0"/>
+			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
@@ -186,12 +188,16 @@
 	<classpathentry kind="src" path="lib/easy-events/easy-events-master/src/main/java"/>
 	<classpathentry kind="src" output="target/test-classes" path="lib/easy-events/easy-events-master/src/test/java">
 		<attributes>
+			<attribute name="test" value="true"/>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="test">
+		<attributes>
 			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="lib" path="lib/Java MP3/javamp3-1.0.1.jar"/>
 	<classpathentry kind="lib" path="lib/xerces-2_12_1/resolver.jar"/>
 	<classpathentry kind="lib" path="lib/xerces-2_12_1/serializer.jar"/>

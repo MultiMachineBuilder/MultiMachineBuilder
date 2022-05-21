@@ -60,7 +60,7 @@ public class ItemSelectionSlot extends JComponent {
 	@Override
 	protected void paintComponent(Graphics g) {
 		if(selection != null) {
-			selection.render(g, 4, 4, 32);
+			selection.render(g, 4, 4, 32, 32);
 		}
 	}
 	/**

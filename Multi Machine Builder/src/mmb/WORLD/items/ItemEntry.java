@@ -19,16 +19,17 @@ import com.fasterxml.jackson.databind.node.TextNode;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMaps;
-import mmb.Bitwise;
 import mmb.BEANS.Saver;
 import mmb.DATA.json.JsonTool;
-import mmb.WORLD.block.Drop;
+import mmb.WORLD.block.BlockEntry;
+import mmb.WORLD.chance.Chance;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.item.Items;
+import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.tool.WindowTool;
 import mmb.WORLD.worlds.world.World;
 
@@ -57,7 +58,7 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput{
 	public default String description() {
 		return type().description();
 	}
-	default public boolean exists() {
+	public default boolean exists() {
 		return true;
 	}
 	/**
@@ -67,19 +68,33 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput{
 	 * , or a JSON node if data is present
 	 */
 	@Override
-	default public @Nullable JsonNode save() {
+	public default @Nullable JsonNode save() {
 		return null;
 	}
 	
-	public default void render(Graphics g, int x, int y, int side) {
-		type().getTexture().draw(null, x, y, g, side);
+	public default void render(Graphics g, int x, int y, int w, int h) {
+		type().getTexture().draw(null, x, y, g, w, h);
 	}
 	public default WindowTool getTool() {
 		return null;
 	}
-	
+	public static BlockDrawer drawer(ItemEntry item) {
+		return new BlockDrawer() {
+
+			@Override
+			public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int w, int h) {
+				item.render(g, x, y, w, h);
+			}
+
+			@Override
+			public Icon toIcon() {
+				return item.icon();
+			}
+			
+		};
+	}
 	/** @return an icon for this item entry */
-	public default Icon icon() {
+	public default @Nonnull Icon icon() {
 		return new Icon() {
 			@Override public int getIconHeight() {
 				return 32;
@@ -88,7 +103,7 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput{
 				return 32;
 			}
 			@Override public void paintIcon(@Nullable Component c, @SuppressWarnings("null") Graphics g, int x, int y) {
-				render(g, x, y, 32);
+				render(g, x, y, 32, 32);
 			}
 		};
 	}
@@ -111,7 +126,7 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput{
 	//Recipe output & drop methods
 	@Override
 	default boolean drop(@Nullable InventoryWriter inv, World map, int x, int y) {
-		return Drop.tryDrop(this, inv, map, x, y);
+		return Chance.tryDrop(this, inv, map, x, y);
 	}
 	@Override
 	default void produceResults(InventoryWriter tgt, int amount) {

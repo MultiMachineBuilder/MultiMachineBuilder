@@ -9,6 +9,7 @@ import javax.annotation.Nonnull;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 
@@ -27,11 +28,14 @@ public class WorldToolList extends JList<WindowTool> {
 	private static final long serialVersionUID = -8108364897856379665L;
 	@Nonnull public final DefaultListModel<WindowTool> model = new DefaultListModel<>();
 	private static final Debugger debug = new Debugger("TOOL LIST");
+	private JPanel DUMMY = new JPanel();
 	public WorldToolList(ToolSelectionModel tsmodel, WorldWindow window) {
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		addListSelectionListener(e -> {
 			WindowTool tool = getSelectedValue();
-			//model.elementAt(e.getFirstIndex());
+			if(window.toolEditorSplitPane != null) {
+				window.toolEditorSplitPane.setRightComponent(tool.GUI() == null?DUMMY:tool.GUI());
+			}
 			debug.printl("Tool selected: "+ tool.id);
 			tsmodel.toolSelectedToolList(tool);
 		});

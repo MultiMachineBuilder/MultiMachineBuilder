@@ -4,6 +4,8 @@
 package mmb.WORLD.crafting.recipes;
 
 import java.awt.Component;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Supplier;
 
@@ -16,8 +18,6 @@ import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.ComplexRecipeView;
-import mmb.WORLD.gui.craft.SimpleProcessingRecipeList;
 import mmb.WORLD.gui.craft.SimpleRecipeView;
 import mmb.WORLD.gui.craft.StackedProcessingRecipeList;
 import mmb.WORLD.gui.craft.StackedRecipeView;
@@ -102,9 +102,23 @@ public class StackedProcessingRecipeGroup implements RecipeGroup{
 			component.set(this, out);
 			return component;
 		}
+		@Override
+		public double energy() {
+			return energy;
+		}
+		@Override
+		public VoltageTier voltTier() {
+			return voltage;
+		}
 	}
-	private final SelfSet<ItemEntry, StackedProcessingRecipe> _recipes = new HashSelfSet<>();
-	public final SelfSet<ItemEntry, StackedProcessingRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
+	@Nonnull private final SelfSet<ItemEntry, StackedProcessingRecipe> _recipes = new HashSelfSet<>();
+	@Nonnull public final SelfSet<ItemEntry, StackedProcessingRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
+	@Override
+	public Set<? extends ItemEntry> supportedItems() {
+		return supported0;
+	}
+	private final Set<ItemEntry> supported = new HashSet<>();
+	private final Set<ItemEntry> supported0 = Collections.unmodifiableSet(supported);
 	/**
 	 * Adds a recipes to this recipe group
 	 * @param in input item
@@ -140,6 +154,7 @@ public class StackedProcessingRecipeGroup implements RecipeGroup{
 		StackedProcessingRecipe recipe = new StackedProcessingRecipe(energy, voltage, in, out, amount);
 		_recipes.add(recipe);
 		GlobalRecipeRegistrar.addRecipe(recipe);
+		supported.add(in);
 		return recipe;
 	}
 	/**

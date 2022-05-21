@@ -12,6 +12,7 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 
 import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.chance.Chance;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.texture.BlockDrawer;
@@ -28,7 +29,7 @@ public abstract class BlockBase extends Item implements BlockType {
 	}
 	
 	private BlockType leaveBehind;
-	private Drop drop = this;
+	private Chance drop = this;
 
 	@Override
 	public void openGUI(WorldWindow window) {
@@ -54,18 +55,18 @@ public abstract class BlockBase extends Item implements BlockType {
 		return leave0;
 	}
 	@Override
-	public Drop getDrop() {
+	public Chance getDrop() {
 		return drop;
 	}
 	@Override
-	public void setDrop(Drop drop) {
+	public void setDrop(Chance drop) {
 		this.drop = Objects.requireNonNull(drop, "drop is null");
 	}
 
 	@Override
 	public void register() {
 		if(leaveBehind == null) leaveBehind = ContentsBlocks.grass; //NOSONAR
-		if(drop == null) drop = (i, m, x, y) -> Drop.tryDrop(this, i, m, x, y);
+		if(drop == null) drop = this;
 		Blocks.register(this);
 	}
 	@Override
@@ -141,7 +142,7 @@ public abstract class BlockBase extends Item implements BlockType {
 	 * @param drop drop
 	 * @return this
 	 */
-	public BlockBase drop(Drop drop) {
+	public BlockBase drop(Chance drop) {
 		setDrop(drop);
 		return this;
 	}

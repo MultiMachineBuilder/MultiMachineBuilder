@@ -66,13 +66,13 @@ public class Pickaxe extends ItemEntity {
 	}
 
 	@Override
-	public void render(Graphics g, int x, int y, int side) {
-		super.render(g, x, y, side);
+	public void render(Graphics g, int x, int y, int w, int h) {
+		super.render(g, x, y, w, h);
 		//render durability
 		if(uses > 0) {
 			double percent = 1.0-((double)uses/durability);
-			int min = side/10;
-			int max = (side*9)/10;
+			int min = w/10;
+			int max = (w*9)/10;
 			if(percent < 0) {
 				g.setColor(Color.RED);
 				g.drawLine(x+min, y+max, x+max, y+max);
@@ -91,7 +91,7 @@ public class Pickaxe extends ItemEntity {
 					green = (int)(511*percent);
 				}
 				Color c = new Color(red, green, 0);
-				int scale = (side*8)/10;
+				int scale = (w*8)/10;
 				double offset = min+(scale*percent);
 				g.setColor(c);
 				g.drawLine(x+min, y+max, (int)(x+min+offset), y+max);
@@ -125,7 +125,7 @@ public class Pickaxe extends ItemEntity {
 		 * @param durability the durability to set
 		 * @return this
 		 */
-		public PickaxeType setDurability(int durability) {
+		@Nonnull public PickaxeType setDurability(int durability) {
 			this.durability = durability;
 			return this;
 		}
@@ -145,7 +145,7 @@ public class Pickaxe extends ItemEntity {
 		/**
 		 * @param time the time to set
 		 */
-		public PickaxeType setTime(int time) {
+		@Nonnull public PickaxeType setTime(int time) {
 			this.time = time;
 			return this;
 		}

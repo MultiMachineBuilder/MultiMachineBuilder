@@ -35,7 +35,7 @@ public class ByteListInputStream{
 		if(list instanceof ByteCollection) return new SpecialCollect((ByteCollection) list);
 		if(list instanceof List) return new BoxedList((List<Byte>) list);
 		if(list instanceof Collection) return new BoxedCollect((Collection<Byte>) list);
-		return of(list);
+		return of(list.iterator());
 	}
 	@Nonnull public static InputStream of(Iterator<Byte> list) {
 		if(list instanceof ByteIterator){

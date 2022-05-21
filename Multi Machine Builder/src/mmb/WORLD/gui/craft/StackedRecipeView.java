@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.ListCellRenderer;
 
 import mmb.WORLD.crafting.RecipeOutput;
-import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup.SimpleProcessingRecipe;
+import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup.ElectroSimpleProcessingRecipe;
 import mmb.WORLD.crafting.recipes.StackedProcessingRecipeGroup.StackedProcessingRecipe;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
@@ -65,7 +65,7 @@ public class StackedRecipeView extends JPanel {
 		lblEnergy.setText("Energy: "+recipe.energy);
 		ItemEntry item = recipe.input;
 		lblIn.setIcon(item.icon());
-		lblIn.setText(item.title() +" × "+recipe.amount);
+		lblIn.setText(item.title() +" ï¿½ "+recipe.amount);
 		outList.setListData(vector);
 		lblMachine.setText("Processing machine: "+recipe.group.title);
 	}
@@ -93,7 +93,7 @@ public class StackedRecipeView extends JPanel {
 			}
 			setOpaque(true);
 			setIcon(itemType.item.icon());
-			setText(itemType.id().title() + " × " + itemType.amount);
+			setText(itemType.id().title() + " ï¿½ " + itemType.amount);
 			
 			if (isSelected) {
 			    setBackground(list.getSelectionBackground());

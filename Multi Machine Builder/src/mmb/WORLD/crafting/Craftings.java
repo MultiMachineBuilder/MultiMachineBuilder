@@ -19,11 +19,14 @@ import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.WORLD.blocks.machine.manual.Crafting;
+import mmb.WORLD.chance.ListChance;
+import mmb.WORLD.chance.RandomChance;
 import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.crafting.recipes.ComplexCatalyzedProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.CraftingRecipeGroup;
-import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup;
+import mmb.WORLD.crafting.recipes.ElectroLuckySimpleProcessingRecipeGroup;
+import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.StackedProcessingRecipeGroup;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.electromachine.Transformer.TransformerData;
@@ -97,15 +100,16 @@ public class Craftings {
 	@Nonnull public static final Object2DoubleMap<ItemEntry> furnaceFuels = new Object2DoubleOpenHashMap<>();
 	/** The list of all nuclear reactor fuels */
 	@Nonnull public static final Object2DoubleMap<ItemEntry> nukeFuels = new Object2DoubleOpenHashMap<>();
-	@Nonnull public static final SimpleProcessingRecipeGroup smelting = new SimpleProcessingRecipeGroup("Furnace");
-	@Nonnull public static final SimpleProcessingRecipeGroup clusterMill = new SimpleProcessingRecipeGroup("Cluster mill");
-	@Nonnull public static final SimpleProcessingRecipeGroup crusher = new SimpleProcessingRecipeGroup("Crusher");
-	@Nonnull public static final SimpleProcessingRecipeGroup wiremill = new SimpleProcessingRecipeGroup("Wiremill");
-	@Nonnull public static final SimpleProcessingRecipeGroup splitter = new SimpleProcessingRecipeGroup("Material Splitter");
+	@Nonnull public static final ElectroSimpleProcessingRecipeGroup smelting = new ElectroSimpleProcessingRecipeGroup("Furnace");
+	@Nonnull public static final ElectroSimpleProcessingRecipeGroup clusterMill = new ElectroSimpleProcessingRecipeGroup("Cluster mill");
+	@Nonnull public static final ElectroSimpleProcessingRecipeGroup crusher = new ElectroSimpleProcessingRecipeGroup("Crusher");
+	@Nonnull public static final ElectroSimpleProcessingRecipeGroup wiremill = new ElectroSimpleProcessingRecipeGroup("Wiremill");
+	@Nonnull public static final ElectroSimpleProcessingRecipeGroup splitter = new ElectroSimpleProcessingRecipeGroup("Material Splitter");
 	@Nonnull public static final StackedProcessingRecipeGroup combiner = new StackedProcessingRecipeGroup("Material Combiner");
 	@Nonnull public static final ComplexProcessingRecipeGroup alloyer = new ComplexProcessingRecipeGroup("Alloyer", 2);
 	@Nonnull public static final ComplexCatalyzedProcessingRecipeGroup assembler = new ComplexCatalyzedProcessingRecipeGroup("Machine Assembler", 2);
 	@Nonnull public static final CraftingRecipeGroup crafting = new CraftingRecipeGroup("Crafting table");
+	@Nonnull public static final ElectroLuckySimpleProcessingRecipeGroup quarry = new ElectroLuckySimpleProcessingRecipeGroup("Quarry");
 	/**
 	 * Crafts items according to a recipe
 	 * @param input items to be consumed
@@ -297,6 +301,7 @@ public class Craftings {
 		
 		_craftrsULV(); //Electric machines - ULV
 		_craftrsVLV();
+		quarry();
 		
 		//Agriculture
 		crafting.addRecipeGrid(new ItemEntry[]{
@@ -403,8 +408,45 @@ public class Craftings {
 		copper.base, circuit1,  iron.base,
 		stone,   wireCopper.medium, stone,
 		iron.base,   resistors, copper.base,
-		}, 3, 3, balloyer.get(1)); //Crusher VLV
+		}, 3, 3, bcrusher.get(1)); //Crusher VLV
+		
+		crafting.addRecipeGrid(new ItemEntry[]{
+		motor2,    circuit1,   motor2,
+		iron.gear, iron.panel, iron.gear,
+		motor2,    circuit1,   motor2,
+		}, 3, 3, bcmill.get(1));//Cluster Mill LV
+		
+		crafting.addRecipeGrid(new ItemEntry[]{
+		motor2,      circuit1,   bearing1,
+		iron.gear,   iron.panel, iron.gear,
+		bearing1, circuit1,   motor2,
+		}, 3, 3, bcmill.get(1));//WireMill LV
 	}
 
-	
+	private static void quarry() {
+		//Tier 1: rudimentary, coal, copper, iron, silicon, nickel, tin, zinc, aluminum, lead, redstone
+		quarry.add(stone, RecipeOutput.NONE, VoltageTier.V1, 20000, new ListChance(
+				new RandomChance(0.2, rudimentary.ore),
+				new RandomChance(0.2, coal_ore),
+				new RandomChance(0.04, copper.ore),
+				new RandomChance(0.05, iron.ore),
+				new RandomChance(0.05, silicon.ore),
+				new RandomChance(0.05, nickel.ore),
+				new RandomChance(0.05, tin.ore),
+				new RandomChance(0.05, zinc.ore),
+				new RandomChance(0.05, alu.ore),
+				new RandomChance(0.05, lead.ore),
+				new RandomChance(0.05, redstone.cluster)
+				));
+		
+		//Tier 2: +silver, uranium, chrome, quartz, ender, glowstone
+		quarry.add(resrc1, stone, 2, VoltageTier.V2, 80000, new ListChance(
+				new RandomChance(0.1, chrome.ore),
+				new RandomChance(0.1, uranium.ore),
+				new RandomChance(0.06, silver.ore),
+				new RandomChance(0.1, quartz.base),
+				new RandomChance(0.08, ender.base),
+				new RandomChance(0.1, glowstone.base)
+				));
+	}
 }

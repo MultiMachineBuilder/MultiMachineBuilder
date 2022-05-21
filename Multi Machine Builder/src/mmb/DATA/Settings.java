@@ -9,8 +9,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Properties;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import mmb.debug.Debugger;
@@ -71,6 +78,16 @@ public class Settings {
 				debug.pstm(e, "Failed to save settings");
 			}
 		}));
+		for(Entry<String, Setting> ent: settingModules.entrySet()) {
+			String key = ent.getKey();
+			Setting setting = ent.getValue();
+			String val = get(key);
+			if(val == null) {
+				setting.onload.accept(setting.defalt);
+				set(key, setting.defalt);
+			}
+			else setting.onload.accept(val);
+		}
 		hasCreated = true;
 	}
 	private static void createDefaultSettings() {
@@ -101,5 +118,38 @@ public class Settings {
 		String result = props.getProperty(key);
 		if(result == null) return null;
 		return Boolean.valueOf(result);
+	}
+	
+	//Setting modules
+	private static final Map<String, Setting> settingModules0 = new HashMap<>();
+	public static final Map<String, Setting> settingModules = Collections.unmodifiableMap(settingModules0);
+	public static class Setting{
+		public final Consumer<@Nonnull String> onload;
+		public final Supplier<String> save;
+		public final String defalt;
+		public Setting(Consumer<@Nonnull String> onload, Supplier<String> save, String defalt) {
+			super();
+			this.onload = onload;
+			this.save = save;
+			this.defalt = defalt;
+		}
+	}
+	
+	/**
+	 * @param name
+	 * @param defalt the default value of the property
+	 * @param onload method which handles setting loading. The method
+	 * @param save method which provides strings for saving
+	 */
+	public static void addSettingString(String name, String defalt, Consumer<@Nonnull String> onload, Supplier<String> save) {
+		settingModules0.put(name, new Setting(onload, save, defalt));
+		if(hasCreated) {
+			String val = get(name);
+			if(val == null) {
+				onload.accept(defalt);
+				set(name, defalt);
+			}
+			else onload.accept(val);
+		}
 	}
 }

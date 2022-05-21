@@ -48,9 +48,9 @@ public class TransferHelper{
 		if(iters > maxIters) return 0; //Iteration limit reached
 		BlockEntry here = map.get(x, y);
 		
-		if(here instanceof Conduit) {
+		if(here instanceof BlockConduit) {
 			//Here is a conduit
-			Conduit cond = (Conduit)here;
+			BlockConduit cond = (BlockConduit)here;
 			
 			//Check voltage
 			if(cond.volt.compareTo(volt) < 0) {

@@ -14,6 +14,7 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
+import mmb.WORLD.chance.Chance;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.worlds.world.World;
@@ -150,7 +151,7 @@ public class Block extends BlockBase implements BlockEntry{
 	 * @return this
 	 */
 	@Override
-	public Block drop(Drop drop) {
+	public Block drop(Chance drop) {
 		setDrop(drop);
 		return this;
 	}

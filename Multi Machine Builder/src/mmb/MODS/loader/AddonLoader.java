@@ -20,6 +20,7 @@ import it.unimi.dsi.fastutil.bytes.ByteList;
 import mmb.DATA.contents.*;
 import mmb.DATA.contents.sound.Sounds;
 import mmb.DATA.contents.texture.Textures;
+import mmb.ERRORS.UndeclarableThrower;
 import mmb.FILES.AdvancedFile;
 import mmb.FILES.ByteListInputStream;
 import mmb.LAMBDAS.Consumers;
@@ -186,7 +187,12 @@ public class AddonLoader {
 			}else if(name.startsWith(PREFIX_SOUND)) {
 				debug.printl("Sound file");
 				String shorter = name.substring(PREFIX_SOUND.length());
-				Sounds.load(ByteListInputStream.of(a.files0.get(meta)), shorter);
+				try(InputStream stream = ByteListInputStream.of(a.files0.get(meta))){
+					Sounds.load((stream), shorter);
+				}catch(IOException e) {
+					UndeclarableThrower.shoot(e);
+				}
+				
 			}
 		}
 		
@@ -237,7 +243,7 @@ public class AddonLoader {
 		for(Class<? extends AddonCentral> c : cclasses) {
 			String cname = c.getName();
 			try {
-				AddonCentral central = c.newInstance();
+				AddonCentral central = c.getConstructor().newInstance();
 				a.central = central;
 				a.mmbmod = central.info();
 				a.name = a.mmbmod.name;

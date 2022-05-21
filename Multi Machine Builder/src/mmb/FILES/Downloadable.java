@@ -44,7 +44,6 @@ public class Downloadable {
 		@Nonnull String fileName = download.substring(download.lastIndexOf('/')+1, download.length()-1);
 		String tgt = "mods/"+fileName;
 		try {
-			//fileName = fileName.substring(fileName.lastIndexOf(92 /*backslash*/)+1, fileName.length()-1);
 			debug.printl("Connecting with "+download);
 			AdvancedFile source = FileUtil.getFile(fileName);
 			

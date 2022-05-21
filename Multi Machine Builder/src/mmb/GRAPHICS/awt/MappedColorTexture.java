@@ -71,9 +71,9 @@ public class MappedColorTexture implements BlockDrawer {
 		resetColors();
 	}
 	@Override
-	public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int side) {
+	public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int w, int h) {
 		synchronized(drawLock) {
-			g.drawImage(result, x, y, side, side, null);
+			g.drawImage(result, x, y, w, h, null);
 		}
 	}
 
@@ -87,6 +87,5 @@ public class MappedColorTexture implements BlockDrawer {
 	 */
 	public BufferedImage getResult() {
 		return result;
-	}
-	
+	}	
 }

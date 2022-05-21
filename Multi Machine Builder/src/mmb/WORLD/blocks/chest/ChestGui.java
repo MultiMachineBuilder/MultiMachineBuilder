@@ -21,14 +21,14 @@ import mmb.WORLD.gui.inv.MoveItems;
  *
  */
 public class ChestGui extends GUITab{
-	public ChestGui(Chest chest, WorldWindow window) {
+	public ChestGui(ArbitraryChest hopper, WorldWindow window) {
 		setLayout(new MigLayout("", "[300.00,grow][132.00,grow][300.00,grow]", "[grow][30.00]"));
 		
 		Player p = window.getPlayer();
 		
 		color = new JButton("Change color");
 		color.addActionListener(e -> {
-			ColorGUI gui = new ColorGUI(chest.getColorVariable(), window);
+			ColorGUI gui = new ColorGUI(hopper.getColor(), c-> hopper.setColor(c), window);
 			window.openAndShowWindow(gui, "Chest color");
 		});
 		
@@ -36,7 +36,7 @@ public class ChestGui extends GUITab{
 		add(inventoryOrchestrator, "cell 0 1 3 1,growx");
 		
 		chestCtrl = new InventoryController();
-		chestCtrl.setInv(chest.inv);
+		chestCtrl.setInv(hopper.inv());
 		chestCtrl.setOrchestrator(inventoryOrchestrator);
 		chestCtrl.setTitle(" Chest ");
 		add(chestCtrl, "cell 2 0,grow");

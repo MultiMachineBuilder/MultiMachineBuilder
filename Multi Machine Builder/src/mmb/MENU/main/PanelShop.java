@@ -30,6 +30,9 @@ public class PanelShop extends JPanel {
 	private JMenuItem mntmOther;
 	private JButton btnDownload;
 	private JButton btnRefresh;
+	private JMenu reportAbuse;
+	private JMenuItem reportMods;
+	private JMenuItem preparePolice;
 
 	/**
 	 * Create the panel.
@@ -58,6 +61,15 @@ public class PanelShop extends JPanel {
 		
 		mntmOther = new JMenuItem("Other...");
 		mnUpload.add(mntmOther);
+		
+		reportAbuse = new JMenu("Report abuse...");
+		menuBar.add(reportAbuse);
+		
+		reportMods = new JMenuItem("Report to the moderators");
+		reportAbuse.add(reportMods);
+		
+		preparePolice = new JMenuItem("Prepare police report");
+		reportAbuse.add(preparePolice);
 		
 		panel = new JPanel();
 		add(panel, BorderLayout.SOUTH);

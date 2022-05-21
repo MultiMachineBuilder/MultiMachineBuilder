@@ -29,8 +29,9 @@ import mmb.WORLD.items.pickaxe.Pickaxe.PickaxeType;
  */
 public class ContentsItems {
 	
+	private ContentsItems() {}
 	/** Initializes items */
-	public static void init() {}
+	public static void init() {/* just for initialization */}
 		
 	//Pickaxe heads
 	@Nonnull public static final Item pickHeadWood = new Item()
@@ -80,7 +81,7 @@ public class ContentsItems {
 			.texture("item/paper.png")
 			.volumed(0.001)
 			.finish("mmb.paper");
-	@Nonnull public static final List<@Nonnull Item> craftcodes = createCraftCodes();
+	@Nonnull public static final List<@Nonnull Item> craftcodes = createCraftCodes(); //NOSONAR the returned list is immutable
 	@Nonnull private static List<@Nonnull Item> createCraftCodes(){
 		Item[] items = new Item[64];
 		BufferedImage texture = Textures.get("item/component code.png");
@@ -93,7 +94,7 @@ public class ContentsItems {
 					mapper.setTo(c);
 					BufferedImage texture0 = op.filter(texture, null);
 					Item item = new Item()
-							.title(new StringBuilder("Color Code").append(r).append(g).append(b).toString())
+							.title(new StringBuilder("Color Code ").append(r).append(g).append(b).toString())
 							.texture(texture0)
 							.volumed(0.001)
 							.finish("mmb.ccode"+i);
@@ -106,24 +107,29 @@ public class ContentsItems {
 	
 	//Machine parts
 	@Nonnull public static final Item frame1 = new Item()
-		.title("Basic Machine Frame")
+		.title("Primitive Machine Frame")
 		.texture("item/frame 1.png")
 		.finish("industry.frame1");
 	@Nonnull public static final Item rod1 = new Item()
-		.title("Basic Machine Rod")
+		.title("Primitive Machine Rod")
 		.texture("item/steel rod.png")
 		.volumed(0.00125)
 		.finish("industry.rod1");
 	@Nonnull public static final Item bearing1 = new Item()
-			.title("Basic Machine Bearing")
+			.title("Primitive Machine Bearing")
 			.texture("item/ring 1.png")
 			.volumed(0.00125)
 			.finish("industry.bearing1");
 	@Nonnull public static final Item motor1 = new Item()
-			.title("Basic Machine Motor")
+			.title("Primitive Machine Motor")
 			.texture("item/motor 1.png")
 			.volumed(0.00125)
 			.finish("industry.motor1");
+	@Nonnull public static final Item motor2 = new Item()
+			.title("Basic Machine Motor")
+			.texture("item/motor 2.png")
+			.volumed(0.00125)
+			.finish("industry.motor2");
 	
 	//Electronic parts
 	@Nonnull public static final Item resistor = new Item()
@@ -181,6 +187,13 @@ public class ContentsItems {
 			.texture("item/substrate 1.png")
 			.volumed(0.00125)
 			.finish("industry.substrate1");
+	
+	//Resource beds
+	@Nonnull public static final Item resrc1 = new Item()
+			.title("Basic Resource Bed")
+			.texture("item/resrcbed.png")
+			.volumed(0.00125)
+			.finish("industry.resrc1");
 
 	//Packaged items
 	@Nonnull public static final ItemEntityType pack = new ItemEntityType()

@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
 import javax.swing.Icon;
@@ -18,7 +19,7 @@ import mmb.DATA.contents.texture.Textures;
 import mmb.GRAPHICS.awt.MappedColorTexture;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.gui.ColorGUI;
-import mmb.WORLD.gui.Variable;
+import mmb.WORLD.gui.window.WorldWindow;
 
 /**
  * @author oskar
@@ -30,8 +31,7 @@ public class ToolPaint extends WindowTool {
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_C:
 			//Open color GUI
-			ColorGUI gui = new ColorGUI(cvar, window);
-			window.openAndShowWindow(gui, "Paint color");
+			ask4color("Paint color", c, cc -> c = cc, window);
 			break;
 		case KeyEvent.VK_X:
 			setColor(Color.WHITE);
@@ -56,7 +56,6 @@ public class ToolPaint extends WindowTool {
 	private final MappedColorTexture texture = new MappedColorTexture(Color.RED, Color.WHITE, img);
 	public static final Icon icon = new ImageIcon(img);
 	private final Icon textureIcon = texture.iconRenderer();
-	@Nonnull private final Variable<Color> cvar = Variable.delegate(this::getColor, this::setColor);
 	/**
 	 * @return this paintbrushes current color
 	 */
@@ -95,5 +94,17 @@ public class ToolPaint extends WindowTool {
 	@Override
 	public String description() {
 		return "Press C to change color or X to set back to white";
+	}
+	
+	/**
+	 * Asks for a paint color
+	 * @param message the message
+	 * @param initial the initial color
+	 * @param action this will run after the color is confirmed
+	 * @param window world window to open the question in
+	 */
+	public static void ask4color(String message, Color initial, Consumer<Color> action, WorldWindow window) {
+		ColorGUI gui = new ColorGUI(initial, action, window);
+		window.openAndShowWindow(gui, message);
 	}
 }

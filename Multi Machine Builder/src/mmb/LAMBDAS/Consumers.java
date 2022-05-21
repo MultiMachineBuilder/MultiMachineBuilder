@@ -12,6 +12,7 @@ import javax.annotation.Nonnull;
  *
  */
 public class Consumers {
+	private Consumers() {}
 	@Nonnull private static final Consumer<?> nothing = v -> {};
 	@SuppressWarnings("unchecked")
 	@Nonnull public static <T> Consumer<T> doNothing(){

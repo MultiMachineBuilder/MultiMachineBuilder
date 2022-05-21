@@ -18,7 +18,7 @@ import mmb.WORLD.gui.window.WorldFrame;
  * @author oskar
  *
  */
-public class VisRect implements Visual {
+public final class VisRect implements Visual {
 	public final double x1, y1, x2, y2;
 	public final Rectangle line;
 	public final Color fill;
@@ -59,6 +59,54 @@ public class VisRect implements Visual {
 		this.y2 = y2;
 		this.fill = fill;
 		this.border = border;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((border == null) ? 0 : border.hashCode());
+		result = prime * result + ((fill == null) ? 0 : fill.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(x1);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(x2);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(y1);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(y2);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(@Nullable Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		VisRect other = (VisRect) obj;
+		if (border == null) {
+			if (other.border != null)
+				return false;
+		} else if (!border.equals(other.border))
+			return false;
+		if (fill == null) {
+			if (other.fill != null)
+				return false;
+		} else if (!fill.equals(other.fill))
+			return false;
+		if (Double.doubleToLongBits(x1) != Double.doubleToLongBits(other.x1))
+			return false;
+		if (Double.doubleToLongBits(x2) != Double.doubleToLongBits(other.x2))
+			return false;
+		if (Double.doubleToLongBits(y1) != Double.doubleToLongBits(other.y1))
+			return false;
+		if (Double.doubleToLongBits(y2) != Double.doubleToLongBits(other.y2))
+			return false;
+		return true;
 	}
 
 }

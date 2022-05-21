@@ -12,12 +12,12 @@ import mmb.DATA.contents.texture.Textures;
 import mmb.GRAPHICS.texgen.TexGen;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.block.BlockEntityType;
-import mmb.WORLD.block.Drop;
 import mmb.WORLD.blocks.actuators.ActuatorClick;
 import mmb.WORLD.blocks.actuators.ActuatorPlaceBlock;
 import mmb.WORLD.blocks.actuators.ActuatorRotations;
 import mmb.WORLD.blocks.agro.Crop;
 import mmb.WORLD.blocks.chest.Chest;
+import mmb.WORLD.blocks.chest.Hopper;
 import mmb.WORLD.blocks.gates.MonoGate.MonoGateType;
 import mmb.WORLD.blocks.gates.AlwaysTrue;
 import mmb.WORLD.blocks.gates.BiGate.BiGateType;
@@ -38,12 +38,13 @@ import mmb.WORLD.blocks.ppipe.JoiningPlayerPipe;
 import mmb.WORLD.blocks.ppipe.PlayerPipe;
 import mmb.WORLD.blocks.ppipe.PlayerPipeEntry;
 import mmb.WORLD.blocks.ppipe.TwinPlayerPipe;
+import mmb.WORLD.chance.Chance;
 import mmb.WORLD.contentgen.ElectricMachineGroup;
 import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.recipes.ComplexCatalyzedProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup;
-import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup;
+import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.StackedProcessingRecipeGroup;
 import mmb.WORLD.electric.InfiniteGenerator;
 import mmb.WORLD.electric.PowerLoad;
@@ -52,6 +53,7 @@ import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.electromachine.AlloySmelter;
 import mmb.WORLD.electromachine.CoalGen;
 import mmb.WORLD.electromachine.ElectroFurnace;
+import mmb.WORLD.electromachine.ElectroQuarry;
 import mmb.WORLD.electromachine.MachineAssembler;
 import mmb.WORLD.electromachine.Splicer;
 import mmb.WORLD.item.Items;
@@ -302,6 +304,24 @@ public class ContentsBlocks {
 			.factory(Chest::new)
 			.texture("machine/chest1.png")
 			.finish("chest.beginning");
+	/**
+	 * A chest that auto-inserts items
+	 */
+	@Nonnull public static final BlockEntityType HOPPER = new BlockEntityType()
+			.title("Hopper Chest")
+			.factory(() -> new Hopper((byte) 1))
+			.texture("machine/hopper.png")
+			.finish("chest.hopper1");
+	@Nonnull public static final BlockEntityType HOPPER_suck = new BlockEntityType()
+			.title("Sucker Chest")
+			.factory(() -> new Hopper((byte) 2))
+			.texture("machine/sucker.png")
+			.finish("chest.hopper2");
+	@Nonnull public static final BlockEntityType HOPPER_both = new BlockEntityType()
+			.title("Hopper Sucker Chest")
+			.factory(() -> new Hopper((byte) 3))
+			.texture("machine/transferrer.png")
+			.finish("chest.hopper3");
 	@Nonnull public static final BlockEntityType IMOVER = new BlockEntityType()
 			.title("Item Mover")
 			.factory(ItemTransporter::new)
@@ -355,6 +375,7 @@ public class ContentsBlocks {
 	@Nonnull public static final ElectricMachineGroup bassembly = machinesAssembly("machine/machinemaker.png", Craftings.assembler, "Machine Assembler", "assembler");
 	@Nonnull public static final ElectricMachineGroup bsplitter = machinesSimple("machine/splitter.png", Craftings.splitter, "Material Splitter", "spllitter", 0.1);
 	@Nonnull public static final ElectricMachineGroup bsplicer = machinesStacked("machine/splicer.png", Craftings.combiner, "Material Combiner", "splicer", 0.1);
+	@Nonnull public static final ElectricMachineGroup bquarry = createQuarry();
 	
 	//Player pipes
 	@Nonnull public static final BlockEntityType PPIPE_lin = ppipe(1, Side.U, Side.D, "machine/ppipe straight.png", "Player Pipe - straight", "playerpipe.straight");
@@ -391,9 +412,11 @@ public class ContentsBlocks {
 		//initialization method
 	}
 
+	
+
 	//Reusable block methods
 	@Nonnull
-	public static BlockEntityType crop(int duration, Drop cropDrop, String title, BufferedImage texture, String id) {
+	public static BlockEntityType crop(int duration, Chance cropDrop, String title, BufferedImage texture, String id) {
 		BlockEntityType result = new BlockEntityType();
 		return result.title(title).factory(() -> new Crop(result, duration, cropDrop)).texture(texture).finish(id);
 	}
@@ -432,7 +455,7 @@ public class ContentsBlocks {
 				.texture(texture)
 				.finish(id);
 	}
-	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, SimpleProcessingRecipeGroup group, String title, String id) {
+	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, ElectroSimpleProcessingRecipeGroup group, String title, String id) {
 		return machinesSimple(texture, group, title, id, 1);
 	}
 	@Nonnull private static ElectricMachineGroup machinesComplex(String texture, ComplexProcessingRecipeGroup group, String title, String id) {
@@ -441,7 +464,7 @@ public class ContentsBlocks {
 	@Nonnull private static ElectricMachineGroup machinesAssembly(String texture, ComplexCatalyzedProcessingRecipeGroup group, String title, String id) {
 		return new ElectricMachineGroup(Textures.get(texture), type -> new MachineAssembler(type, group), title, id);
 	}
-	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, SimpleProcessingRecipeGroup group, String title, String id, double d) {
+	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, ElectroSimpleProcessingRecipeGroup group, String title, String id, double d) {
 		return new ElectricMachineGroup(Textures.get(texture), type -> new ElectroFurnace(type, group), title, id, d);
 	}
 	@Nonnull private static ElectricMachineGroup machinesStacked(String texture, StackedProcessingRecipeGroup group, String title, String id) {
@@ -449,6 +472,12 @@ public class ContentsBlocks {
 	}
 	@Nonnull private static ElectricMachineGroup machinesStacked(String texture, StackedProcessingRecipeGroup group, String title, String id, double power) {
 		return new ElectricMachineGroup(Textures.get(texture), type -> new Splicer(type, group), title, id, power);
+	}
+	/**
+	 * @return
+	 */
+	private static ElectricMachineGroup createQuarry() {
+		return new ElectricMachineGroup(Textures.get("machine/quarry.png"), type -> new ElectroQuarry(type, Craftings.quarry), "Electrical quarry", "quarry");
 	}
 	static {
 		Items.tagItems("wireworld", ww_wire, ww_head, ww_tail, ww_chatter,
@@ -459,5 +488,6 @@ public class ContentsBlocks {
 		Items.tagItems("fluid", water, lava, steam);
 		Items.tagItems("special", COL, air, grass);
 		Items.tagItems("basic", air, grass, plank, stone, leaves, logs, sand, gravel, clay, water);
+		Items.tagItems("chest", CHEST, HOPPER, HOPPER_suck, HOPPER_both);
 	}
 }

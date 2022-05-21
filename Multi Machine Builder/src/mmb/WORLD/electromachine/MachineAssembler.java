@@ -93,24 +93,20 @@ public class MachineAssembler extends CommonMachine implements BlockActivateList
 		catalyst.setContents(ItemEntry.loadFromJson(node.get("catalyst")));
 	}
 
-	
-	MachineAssemblerTab tab;
 	public final ComplexCatalyzedProcessingRecipeGroup recipes;
 	//GUI
 	@Override
 	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(tab != null) return;
-		tab = new MachineAssemblerTab(this, window);
+		tab = new MachineTab(this, window);
 		window.openAndShowWindow(tab, group.title+' '+type.volt.name);
 		helper.refreshable = tab;
-		tab.refreshProgress(0, null, 100);
+		tab.refreshProgress(0, null);
 	}
 
-	@Override
-	public void onTick(MapProxy map) {
+	@Override protected void onTick0(MapProxy map) {
 		helper.cycle();
-		Electricity.equatePPs(this, map, elec, 0.9);
 	}
 
 	@Override
@@ -130,4 +126,11 @@ public class MachineAssembler extends CommonMachine implements BlockActivateList
 	public String machineName() {
 		return group.title;
 	}
+
+	@Override
+	public SingleItemInventory catalyst() {
+		return catalyst;
+	}
+	
+	
 }

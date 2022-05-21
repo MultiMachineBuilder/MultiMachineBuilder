@@ -19,17 +19,13 @@ public class Main {
 		Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler.INSTANCE);
 		try {
 			String jversion = System.getProperty("java.version");
-			boolean j8ol = jversion.charAt(0) == '1';
-			debug.printl("Java version is: "+jversion.toString());
-			if(!j8ol) {
-				debug.printl("Changing scale because Java is >= 9");
-				System.setProperty("sun.java2d.uiScale", "1.0");
-				System.setProperty("prism.allowhidpi", "false");
-				System.setProperty("sun.java2d.uiScale.enabled", "false");
-				System.setProperty("sun.java2d.win.uiScaleX", "1.0");
-				System.setProperty("sun.java2d.win.uiScaleY", "1.0");
-			}
-			
+			debug.printl("Java version is: "+jversion);
+			debug.printl("Changing scale because Java is >= 9");
+			System.setProperty("sun.java2d.uiScale", "1.0");
+			System.setProperty("prism.allowhidpi", "false");
+			System.setProperty("sun.java2d.uiScale.enabled", "false");
+			System.setProperty("sun.java2d.win.uiScaleX", "1.0");
+			System.setProperty("sun.java2d.win.uiScaleY", "1.0");
 			//UI initialized here
 			loader = new Loading();
 			loader.setVisible(true);

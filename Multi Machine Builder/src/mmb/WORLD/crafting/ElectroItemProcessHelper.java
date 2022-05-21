@@ -11,8 +11,8 @@ import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.util.concurrent.Runnables;
 
-import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup;
-import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup.SimpleProcessingRecipe;
+import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup;
+import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup.ElectroSimpleProcessingRecipe;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.electromachine.CycleResult;
@@ -25,7 +25,7 @@ import mmb.WORLD.items.ItemEntry;
  * A class to help make simple item processors
  */
 public class ElectroItemProcessHelper{
-	@Nonnull private final SimpleProcessingRecipeGroup recipes;
+	@Nonnull private final ElectroSimpleProcessingRecipeGroup recipes;
 	@Nonnull private final Inventory input;
 	@Nonnull private final Inventory output;
 	private final double speed;
@@ -41,7 +41,7 @@ public class ElectroItemProcessHelper{
 	public double currRequired;
 	
 	/** The item which is currently smelted */
-	public SimpleProcessingRecipe underway;
+	public ElectroSimpleProcessingRecipe underway;
 	public VoltageTier voltRequired;
 	/**
 	 * @param recipes list of recipes to use
@@ -51,7 +51,7 @@ public class ElectroItemProcessHelper{
 	 * @param elec the power source
 	 * @param volt voltage tier
 	 */
-	public ElectroItemProcessHelper(SimpleProcessingRecipeGroup recipes, Inventory input, Inventory output,
+	public ElectroItemProcessHelper(ElectroSimpleProcessingRecipeGroup recipes, Inventory input, Inventory output,
 			double speed, Battery elec, VoltageTier volt) {
 		super();
 		this.recipes = recipes;
@@ -93,7 +93,7 @@ public class ElectroItemProcessHelper{
 					continue loop;
 				}
 				hasAttempted = true;
-				SimpleProcessingRecipe candidate = recipes.recipes.get(ir.item());
+				ElectroSimpleProcessingRecipe candidate = recipes.recipes.get(ir.item());
 				if(candidate == null) {
 					//Recipe does not exist
 					continue loop;
@@ -137,21 +137,7 @@ public class ElectroItemProcessHelper{
 		if(refreshable != null) refreshable.refreshProgress(progress/underway.energy, underway);
 		return CycleResult.RUN;
 	}
-	/**
-	 * @author oskar
-	 * An object which is refreshed during processing
-	 */
-	public static interface Refreshable{
-		/** Refreshes the input list */
-		public void refreshInputs();
-		/** Refreshes the output list */
-		public void refreshOutputs();
-		/** Refreshes the progress bar 
-		 * @param progress processing progress in ticks
-		 * @param output item which is currently smelted
-		 */
-		public void refreshProgress(double progress, @Nullable SimpleProcessingRecipe output);
-	}
+
 	/**
 	 * @param helper
 	 */

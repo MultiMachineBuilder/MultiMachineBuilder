@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
-import mmb.WORLD.block.Drop;
+import mmb.WORLD.chance.Chance;
 import mmb.WORLD.worlds.MapProxy;
 
 /**
@@ -27,10 +27,10 @@ public class Crop extends BlockEntityData {
 	}
 
 	@Nonnull private BlockType type;
-	@Nonnull private Drop drop;
+	@Nonnull private Chance drop;
 	private int progress;
 	private int time;
-	public Crop(BlockType type, int time, Drop drop) {
+	public Crop(BlockType type, int time, Chance drop) {
 		super();
 		this.type = type;
 		this.time = time;

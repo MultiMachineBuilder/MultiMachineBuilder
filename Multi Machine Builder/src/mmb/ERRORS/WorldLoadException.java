@@ -8,6 +8,7 @@ package mmb.ERRORS;
  *
  */
 public class WorldLoadException extends Exception {
+	private static final long serialVersionUID = -2216087741675886148L;
 
 	/**
 	 * 

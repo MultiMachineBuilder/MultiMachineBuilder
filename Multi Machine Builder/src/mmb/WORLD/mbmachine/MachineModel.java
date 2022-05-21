@@ -29,7 +29,7 @@ public class MachineModel extends Item implements Placer {
 	public final Class<? extends Machine> machineClass;
 	private final String errorMessage;
 	
-	public Previewer preview = (a, b, c, d) -> {};
+	public Previewer preview = (a, b, c, d) -> {/*unused*/};
 	
 	@SuppressWarnings("unchecked")
 	private MachineModel(Class<? extends Machine> machineClass, String name) {
@@ -45,7 +45,7 @@ public class MachineModel extends Item implements Placer {
 	}
 	public Machine place(@Nullable GameObject owner) {
 		try {
-			Machine result = machineClass.newInstance(); //create
+			Machine result = machineClass.getConstructor().newInstance(); //create
 			result.onPlace(owner);
 			return result;
 		} catch (Exception e) {
@@ -56,7 +56,7 @@ public class MachineModel extends Item implements Placer {
 	
 	public Machine initialize() {
 		try {
-			Machine result = machineClass.newInstance(); //create
+			Machine result = machineClass.getConstructor().newInstance(); //create
 			result.onStartup();
 			return result;
 		} catch (Exception e) {
@@ -66,7 +66,7 @@ public class MachineModel extends Item implements Placer {
 	}
 	public Machine initialize(JsonNode je) {
 		try {
-			Machine result = machineClass.newInstance(); //create
+			Machine result = machineClass.getConstructor().newInstance(); //create
 			result.onStartup();
 			result.load(je);
 			result.onDataLoaded();
@@ -78,7 +78,7 @@ public class MachineModel extends Item implements Placer {
 	}
 	public Machine initialize(int x, int y, JsonNode je) {
 		try {
-			Machine result = machineClass.newInstance(); //create
+			Machine result = machineClass.getConstructor().newInstance(); //create
 			result.onStartup();
 			result.load(je);
 			result.setPos(x, y);
@@ -90,17 +90,7 @@ public class MachineModel extends Item implements Placer {
 		}
 	}
 	public Machine initialize(Point p, JsonNode je) {
-		try {
-			Machine result = machineClass.newInstance(); //create
-			result.onStartup();
-			result.load(je);
-			result.setPos(p);
-			result.onDataLoaded();
-			return result;
-		} catch (Exception e) {
-			debug.pstm(e, errorMessage);
-			return null;
-		}
+		return initialize(p.x, p.y, je);
 	}
 	
 	private static final Map<Class<? extends MachineModel>, MachineModel> models = new HashMap<>();

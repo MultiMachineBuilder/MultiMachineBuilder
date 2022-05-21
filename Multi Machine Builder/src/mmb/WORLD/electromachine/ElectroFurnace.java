@@ -14,7 +14,7 @@ import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.contentgen.ElectricMachineGroup.ElectroMachineType;
 import mmb.WORLD.crafting.ElectroItemProcessHelper;
 import mmb.WORLD.crafting.RecipeGroup;
-import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup;
+import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.Electricity;
 import mmb.WORLD.gui.window.WorldWindow;
@@ -41,12 +41,10 @@ public class ElectroFurnace extends CommonMachine implements BlockActivateListen
 
 	//Containers
 	@Nonnull private final ElectroItemProcessHelper helper;
-	@Nonnull public final SimpleProcessingRecipeGroup group;
-	private boolean pass;
-	private boolean autoExtract;
+	@Nonnull public final ElectroSimpleProcessingRecipeGroup group;
 	
 	//Constructor
-	public ElectroFurnace(ElectroMachineType type, SimpleProcessingRecipeGroup group) {
+	public ElectroFurnace(ElectroMachineType type, ElectroSimpleProcessingRecipeGroup group) {
 		super(type);
 		this.recipes = group;
 		helper = new ElectroItemProcessHelper(group, in, out0, 1000, elec, type.volt);
@@ -95,36 +93,24 @@ public class ElectroFurnace extends CommonMachine implements BlockActivateListen
 		if(autoNode != null) autoExtract = autoNode.asBoolean();
 	}
 
-	
-	ElectroFurnaceTab tab;
-	public final SimpleProcessingRecipeGroup recipes;
+	public final ElectroSimpleProcessingRecipeGroup recipes;
 	//GUI
 	@Override
 	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(tab != null) return;
-		tab = new ElectroFurnaceTab(this, window);
+		tab = new MachineTab(this, window);
 		window.openAndShowWindow(tab, group.title+' '+type.volt.name);
 		helper.refreshable = tab;
 		tab.refreshProgress(0, null);
 	}
 
-	@Override
-	public void onTick(MapProxy map) {
-		CycleResult tick = helper.cycle();
-		if(pass && tick == CycleResult.UNSUPPORTED) {
-			//Pass on items
-			Inventories.transfer(in, out0);
-			if(tab != null) {
-				tab.refreshInputs();
-				tab.refreshOutputs();
-			}
-		}
-		Electricity.equatePPs(this, map, elec, 0.9);
+	@Override protected void onTick0(MapProxy map) {
+		helper.cycle();
 	}
 	
 	@Override
-	public SimpleProcessingRecipeGroup recipes() {
+	public ElectroSimpleProcessingRecipeGroup recipes() {
 		return group;
 	}
 

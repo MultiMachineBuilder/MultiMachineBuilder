@@ -4,8 +4,9 @@
 package mmb.WORLD.blocks.machine.line;
 
 import net.miginfocom.swing.MigLayout;
-import mmb.WORLD.crafting.ElectroItemProcessHelper.Refreshable;
-import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup.SimpleProcessingRecipe;
+import mmb.WORLD.crafting.Recipe;
+import mmb.WORLD.crafting.Refreshable;
+import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup.ElectroSimpleProcessingRecipe;
 import mmb.WORLD.gui.inv.InventoryController;
 import mmb.WORLD.gui.inv.InventoryOrchestrator;
 
@@ -18,6 +19,9 @@ import javax.annotation.Nullable;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JProgressBar;
+
+import org.ainslec.picocog.PicoWriter;
+
 import javax.swing.Box;
 
 /**
@@ -114,13 +118,15 @@ public class FurnaceGUI extends GUITab implements Refreshable{
 	}
 	
 	@Override
-	public void refreshProgress(double progress, @Nullable SimpleProcessingRecipe underway) {
+	public void refreshProgress(double progress, @Nullable Recipe underway) {
 		smelt.setValue((int)progress);
 		if(underway == null) {
 			lblSmelt.setText("Not smelting");
 		}else {
-			smelt.setMaximum((int)underway.energy);
-			lblSmelt.setText("Currently smelted: "+underway.input.type().title());
+			smelt.setMaximum((int)underway.energy());
+			PicoWriter writer = new PicoWriter();
+			underway.output().represent(writer);
+			lblSmelt.setText("Currently smelted: "+writer.toString());
 		}
 		double f = furnace.getFuelLevel();
 		int f2 = (int) f;

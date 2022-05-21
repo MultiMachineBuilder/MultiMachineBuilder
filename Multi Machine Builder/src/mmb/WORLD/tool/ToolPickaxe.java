@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
 
 import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.block.BlockEntry;
-import mmb.WORLD.block.Drop;
+import mmb.WORLD.chance.Chance;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.items.pickaxe.Pickaxe;
@@ -26,10 +26,6 @@ import mmb.WORLD.items.pickaxe.Pickaxe.PickaxeType;
  *
  */
 public class ToolPickaxe extends WindowTool {
-	//Mock pickaxe for testing.
-	@Nonnull private static PickaxeType mockType = new PickaxeType().setDurability(Integer.MAX_VALUE);
-	@Nonnull private static Pickaxe pick0 = (Pickaxe) mockType.create();
-	
 	@Nullable private final Pickaxe pick;
 	public ToolPickaxe(@Nullable Pickaxe pick) {
 		super("pickaxe");
@@ -101,7 +97,7 @@ public class ToolPickaxe extends WindowTool {
 			}
 		}
 		//Mine the block
-		Drop drop = block1.type().getDrop();
+		Chance drop = block1.type().getDrop();
 		frame.getMap().reserveAndDo(block.x, block.y, slot -> {
 			BlockEntry changed = slot.set(block1.type().leaveBehind().createBlock());
 		});

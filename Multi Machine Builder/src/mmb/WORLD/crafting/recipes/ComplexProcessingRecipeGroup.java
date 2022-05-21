@@ -98,7 +98,6 @@ public class ComplexProcessingRecipeGroup implements RecipeGroup{
 		}
 		@Override
 		public ItemEntry catalyst() {
-			// TODO Auto-generated method stub
 			return null;
 		}
 		@Override
@@ -117,10 +116,24 @@ public class ComplexProcessingRecipeGroup implements RecipeGroup{
 			component.set(this, out, in);
 			return component;
 		}
+		@Override
+		public double energy() {
+			return energy;
+		}
+		@Override
+		public VoltageTier voltTier() {
+			return voltage;
+		}
 	}
 	
 	private final SelfSet<Set<ItemEntry>, ComplexProcessingRecipe> _recipes = new HashSelfSet<>();
 	public final SelfSet<Set<ItemEntry>, ComplexProcessingRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
+	@Override
+	public Set<? extends ItemEntry> supportedItems() {
+		return supported0;
+	}
+	private final Set<ItemEntry> supported = new HashSet<>();
+	private final Set<ItemEntry> supported0 = Collections.unmodifiableSet(supported);
 	@Nonnull private final Map<ItemEntry, VoltageTier> _minVolt4item = new HashMap<>();
 	@Nonnull public final Map<ItemEntry, VoltageTier> minVolt4item = Collections.unmodifiableMap(_minVolt4item);
 	private void updateMinVolt(VoltageTier volt, ItemEntry item) {
@@ -142,6 +155,7 @@ public class ComplexProcessingRecipeGroup implements RecipeGroup{
 		if(in.getContents().size() == 0) throw new IllegalArgumentException("The recipe must have at least 1 input");
 		ComplexProcessingRecipe recipe = new ComplexProcessingRecipe(energy, voltage, in, out);
 		_recipes.add(recipe);
+		supported.addAll(in.getContents().keySet());
 		GlobalRecipeRegistrar.addRecipe(recipe);
 		return recipe;
 	}

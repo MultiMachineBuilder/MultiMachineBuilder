@@ -9,6 +9,7 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 
+import mmb.WORLD.chance.Chance;
 import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.worlds.world.World;
 
@@ -211,7 +212,7 @@ public class BlockEntityType extends BlockBase{
 	 * @return this
 	 */
 	@Override
-	public BlockEntityType drop(Drop drop) {
+	public BlockEntityType drop(Chance drop) {
 		setDrop(drop);
 		return this;
 	}

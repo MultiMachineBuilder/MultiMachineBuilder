@@ -277,6 +277,18 @@ public class TabInventory extends JPanel {
 		btnCraftTo.setBackground(Color.GREEN);
 		craftingsPanel.add(btnCraftTo);
 		
+		btnGambleTo = new JButton("HAS CHANCE to make given item");
+		btnGambleTo.setBackground(new Color(204, 255, 0));
+		btnGambleTo.addActionListener(e -> {
+			ItemEntry item = findSourceItem();
+			if(item != null) {
+				queryRecipes(gambling(item));
+			}else {
+				queryRecipes(all());
+			}
+		});
+		craftingsPanel.add(btnGambleTo);
+		
 		btnCraftFrom = new JButton("CONSUME given item");
 		btnCraftFrom.setBackground(Color.RED);
 		btnCraftFrom.addActionListener(e -> {
@@ -388,6 +400,7 @@ public class TabInventory extends JPanel {
 	private JCheckBox checkUseCIL;
 	private JList<Tagsel> tags;
 	private JScrollPane scrollPane;
+	private JButton btnGambleTo;
 
 	/**
 	 * @author oskar
@@ -446,6 +459,19 @@ public class TabInventory extends JPanel {
 			@Override
 			public boolean filter(Recipe<?> recipe) {
 				return recipe.output().contains(item);
+			}
+		};
+	}
+	@Nonnull public static RecipeQuery gambling(ItemEntry item) {
+		return new RecipeQuery() {
+			@Override
+			public String name() {
+				return "Recipes which produce: "+item.title();
+			}
+
+			@Override
+			public boolean filter(Recipe<?> recipe) {
+				return recipe.luck().contains(item);
 			}
 		};
 	}

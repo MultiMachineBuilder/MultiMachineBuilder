@@ -12,7 +12,7 @@ import javax.swing.Icon;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.WORLD.block.Drop;
+import mmb.WORLD.chance.Chance;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.items.ItemBase;
 import mmb.WORLD.items.ItemEntry;
@@ -35,7 +35,7 @@ public class Item extends ItemBase implements ItemEntry {
 	@SuppressWarnings("deprecation")
 	@Override
 	public int hashCode() {
-		return id.hashCode();
+		return id().hashCode();
 	}
 	@SuppressWarnings("deprecation")
 	@Override
@@ -44,9 +44,9 @@ public class Item extends ItemBase implements ItemEntry {
 		if(other == null) return false;
 		if(!(other instanceof Identifiable)) return false;
 		Object id1 = ((Identifiable<?>)other).id();
-		if(id == id1) return true;
+		if(id() == id1) return true;
 		if(id1 == null) return false;
-		return id1.equals(id);
+		return id1.equals(id());
 	}
 
 	@Override
@@ -76,7 +76,7 @@ public class Item extends ItemBase implements ItemEntry {
 	}
 	@Override
 	public boolean drop(InventoryWriter inv, World map, int x, int y) {
-		return Drop.tryDrop(this, inv, map, x, y);
+		return Chance.tryDrop(this, inv, map, x, y);
 	}
 
 	/**

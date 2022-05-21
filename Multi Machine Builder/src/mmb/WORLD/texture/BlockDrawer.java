@@ -26,7 +26,26 @@ public interface BlockDrawer {
 	 * @param g graphics context
 	 * @param sideSize how big is each side
 	 */
-	public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int sideSize);
+	public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int w, int h);
+	/**
+	 * @param ent block to be drawn, optional
+	 * @param p upper left corner on the frame
+	 * @param g graphics context
+	 * @param sideSize
+	 */
+	public default void draw(@Nullable BlockEntry ent, Point p, Graphics g, int w, int h) {
+		draw(ent, p.x, p.y, g, w, h);
+	}
+	/**
+	 * @param ent block to be drawn, optional
+	 * @param x left X coordinate on the frame
+	 * @param y upper Y coordinate on the frame
+	 * @param g graphics context
+	 * @param sideSize how big is each side
+	 */
+	public default void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int sideSize) {
+		draw(ent, x, y, g, sideSize, sideSize);
+	}
 	/**
 	 * @param ent block to be drawn, optional
 	 * @param p upper left corner on the frame
@@ -34,7 +53,7 @@ public interface BlockDrawer {
 	 * @param sideSize
 	 */
 	public default void draw(@Nullable BlockEntry ent, Point p, Graphics g, int sideSize) {
-		draw(ent, p.x, p.y, g, sideSize);
+		draw(ent, p.x, p.y, g, sideSize, sideSize);
 	}
 	/**
 	 * 

@@ -15,7 +15,7 @@ public enum Direction {
 		public Direction reverse() {
 			return BWD;
 		}
-	}, BWD(1, -1) {
+	},BWD(1, -1) {
 		@Override
 		public Direction reverse() {
 			return FWD;
@@ -36,7 +36,7 @@ public enum Direction {
 	}
 	
 	/**
-	 * @return
+	 * @return this direction reversed
 	 */
 	@Nonnull public abstract Direction reverse();
 }

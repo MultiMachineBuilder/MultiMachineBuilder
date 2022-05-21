@@ -27,7 +27,7 @@ import mmb.WORLD.worlds.MapProxy;
 
 /**
  * @author oskar
- *
+ * A transformer is a block which allows to change voltage
  */
 public class Transformer extends SkeletalBlockEntityRotary {
 
@@ -54,7 +54,11 @@ public class Transformer extends SkeletalBlockEntityRotary {
 	@Nonnull private static final BufferedImage src0 = Textures.get("machine/transformer.png");
 	@Nonnull private static final ColorMapper mapper = ColorMapper.ofType(src0.getType(), Color.RED, Color.red);
 	@Nonnull private static final LookupOp op = new LookupOp(mapper, null);
-	public static enum TransformerData{
+	/**
+	 * @author oskar
+	 * This class contains information about transformer tiers
+	 */
+	public enum TransformerData{
 		
 		VLV(VoltageTier.V2, VoltageTier.V1),
 		 LV(VoltageTier.V3, VoltageTier.V2),
@@ -72,7 +76,7 @@ public class Transformer extends SkeletalBlockEntityRotary {
 		/**
 		 * Initializes the transformers
 		 */
-		public static void init() {}
+		public static void init() { /* used just for initialization */ }
 		TransformerData(VoltageTier high, VoltageTier low) {
 			this.high = high;
 			this.low = low;
@@ -185,17 +189,6 @@ public class Transformer extends SkeletalBlockEntityRotary {
 		}
 	}
 	
-	@Override
-	protected void save1(ObjectNode node) {
-		// TODO Auto-generated method stub
-		super.save1(node);
-	}
-
-	@Override
-	protected void load1(ObjectNode node) {
-		// TODO Auto-generated method stub
-		super.load1(node);
-	}
 
 	@Override
 	public void onTick(MapProxy map) {

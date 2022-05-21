@@ -1,5 +1,6 @@
-(MAIN) RAM avaliable: 1037959168
-(MAIN) Java version is: 1.8.0_301
+(MAIN) RAM avaliable: 4259315712
+(MAIN) Java version is: 11.0.14.1
+(MAIN) Changing scale because Java is >= 9
 (TEXTURES) Loading texture: arrow.png
 (TEXTURES) Loading texture: base/axe.png
 (TEXTURES) Loading texture: base/block base.png
@@ -85,6 +86,7 @@
 (TEXTURES) Loading texture: item/list.png
 (TEXTURES) Loading texture: item/minidust.png
 (TEXTURES) Loading texture: item/motor 1.png
+(TEXTURES) Loading texture: item/motor 2.png
 (TEXTURES) Loading texture: item/nugget.png
 (TEXTURES) Loading texture: item/package code.png
 (TEXTURES) Loading texture: item/package.png
@@ -93,6 +95,7 @@
 (TEXTURES) Loading texture: item/quantum pick.png
 (TEXTURES) Loading texture: item/resistor array.png
 (TEXTURES) Loading texture: item/resistor.png
+(TEXTURES) Loading texture: item/resrcbed.png
 (TEXTURES) Loading texture: item/ring 1.png
 (TEXTURES) Loading texture: item/rudimentary pick head.png
 (TEXTURES) Loading texture: item/rudimentary pick.png
@@ -219,6 +222,7 @@
 (TEXTURES) Loading texture: machine/dropped item interface.png
 (TEXTURES) Loading texture: machine/electrosmelter.png
 (TEXTURES) Loading texture: machine/esmelter.png
+(TEXTURES) Loading texture: machine/hopper.png
 (TEXTURES) Loading texture: machine/imover intersected.png
 (TEXTURES) Loading texture: machine/imover.png
 (TEXTURES) Loading texture: machine/imoverL.png
@@ -263,13 +267,16 @@
 (TEXTURES) Loading texture: machine/ppipe straight.png
 (TEXTURES) Loading texture: machine/ppipe turn.png
 (TEXTURES) Loading texture: machine/pulverizer.png
+(TEXTURES) Loading texture: machine/quarry.png
 (TEXTURES) Loading texture: machine/smelter active.png
 (TEXTURES) Loading texture: machine/smelter inert 2.png
 (TEXTURES) Loading texture: machine/smelter inert.png
 (TEXTURES) Loading texture: machine/splicer.png
 (TEXTURES) Loading texture: machine/splitter.png
+(TEXTURES) Loading texture: machine/sucker.png
 (TEXTURES) Loading texture: machine/switch straight.png
 (TEXTURES) Loading texture: machine/switch turn.png
+(TEXTURES) Loading texture: machine/transferrer.png
 (TEXTURES) Loading texture: machine/transformer.png
 (TEXTURES) Loading texture: machine/vacuum.png
 (TEXTURES) Loading texture: machine/wiremill.png
@@ -332,6 +339,7 @@
 (TEXTURES) Loading texture: UIs/yellow signpost.png
 (TEXTURES) Loading texture: ukraine.png
 (TEXTURES) Loading texture: ukraine1.png
+(TEXTURES) Loading texture: visuals.png
 (BLOCKS) Creating blocks
 (BLOCKS) Adding mmb.air with title Air and description:
  null
@@ -551,6 +559,18 @@
  null
 (ITEMS) Adding chest.beginning with title Chest and description:
  null
+(BLOCKS) Adding chest.hopper1 with title Hopper Chest and description:
+ null
+(ITEMS) Adding chest.hopper1 with title Hopper Chest and description:
+ null
+(BLOCKS) Adding chest.hopper2 with title Sucker Chest and description:
+ null
+(ITEMS) Adding chest.hopper2 with title Sucker Chest and description:
+ null
+(BLOCKS) Adding chest.hopper3 with title Hopper Sucker Chest and description:
+ null
+(ITEMS) Adding chest.hopper3 with title Hopper Sucker Chest and description:
+ null
 (BLOCKS) Adding itemsystem.mover with title Item Mover and description:
  null
 (ITEMS) Adding itemsystem.mover with title Item Mover and description:
@@ -601,141 +621,143 @@
  null
 (ITEMS) Adding mmb.paper with title Paper and description:
  null
-(ITEMS) Adding mmb.ccode0 with title Color Code000 and description:
+(ITEMS) Adding mmb.ccode0 with title Color Code 000 and description:
  null
-(ITEMS) Adding mmb.ccode1 with title Color Code001 and description:
+(ITEMS) Adding mmb.ccode1 with title Color Code 001 and description:
  null
-(ITEMS) Adding mmb.ccode2 with title Color Code002 and description:
+(ITEMS) Adding mmb.ccode2 with title Color Code 002 and description:
  null
-(ITEMS) Adding mmb.ccode3 with title Color Code003 and description:
+(ITEMS) Adding mmb.ccode3 with title Color Code 003 and description:
  null
-(ITEMS) Adding mmb.ccode4 with title Color Code010 and description:
+(ITEMS) Adding mmb.ccode4 with title Color Code 010 and description:
  null
-(ITEMS) Adding mmb.ccode5 with title Color Code011 and description:
+(ITEMS) Adding mmb.ccode5 with title Color Code 011 and description:
  null
-(ITEMS) Adding mmb.ccode6 with title Color Code012 and description:
+(ITEMS) Adding mmb.ccode6 with title Color Code 012 and description:
  null
-(ITEMS) Adding mmb.ccode7 with title Color Code013 and description:
+(ITEMS) Adding mmb.ccode7 with title Color Code 013 and description:
  null
-(ITEMS) Adding mmb.ccode8 with title Color Code020 and description:
+(ITEMS) Adding mmb.ccode8 with title Color Code 020 and description:
  null
-(ITEMS) Adding mmb.ccode9 with title Color Code021 and description:
+(ITEMS) Adding mmb.ccode9 with title Color Code 021 and description:
  null
-(ITEMS) Adding mmb.ccode10 with title Color Code022 and description:
+(ITEMS) Adding mmb.ccode10 with title Color Code 022 and description:
  null
-(ITEMS) Adding mmb.ccode11 with title Color Code023 and description:
+(ITEMS) Adding mmb.ccode11 with title Color Code 023 and description:
  null
-(ITEMS) Adding mmb.ccode12 with title Color Code030 and description:
+(ITEMS) Adding mmb.ccode12 with title Color Code 030 and description:
  null
-(ITEMS) Adding mmb.ccode13 with title Color Code031 and description:
+(ITEMS) Adding mmb.ccode13 with title Color Code 031 and description:
  null
-(ITEMS) Adding mmb.ccode14 with title Color Code032 and description:
+(ITEMS) Adding mmb.ccode14 with title Color Code 032 and description:
  null
-(ITEMS) Adding mmb.ccode15 with title Color Code033 and description:
+(ITEMS) Adding mmb.ccode15 with title Color Code 033 and description:
  null
-(ITEMS) Adding mmb.ccode16 with title Color Code100 and description:
+(ITEMS) Adding mmb.ccode16 with title Color Code 100 and description:
  null
-(ITEMS) Adding mmb.ccode17 with title Color Code101 and description:
+(ITEMS) Adding mmb.ccode17 with title Color Code 101 and description:
  null
-(ITEMS) Adding mmb.ccode18 with title Color Code102 and description:
+(ITEMS) Adding mmb.ccode18 with title Color Code 102 and description:
  null
-(ITEMS) Adding mmb.ccode19 with title Color Code103 and description:
+(ITEMS) Adding mmb.ccode19 with title Color Code 103 and description:
  null
-(ITEMS) Adding mmb.ccode20 with title Color Code110 and description:
+(ITEMS) Adding mmb.ccode20 with title Color Code 110 and description:
  null
-(ITEMS) Adding mmb.ccode21 with title Color Code111 and description:
+(ITEMS) Adding mmb.ccode21 with title Color Code 111 and description:
  null
-(ITEMS) Adding mmb.ccode22 with title Color Code112 and description:
+(ITEMS) Adding mmb.ccode22 with title Color Code 112 and description:
  null
-(ITEMS) Adding mmb.ccode23 with title Color Code113 and description:
+(ITEMS) Adding mmb.ccode23 with title Color Code 113 and description:
  null
-(ITEMS) Adding mmb.ccode24 with title Color Code120 and description:
+(ITEMS) Adding mmb.ccode24 with title Color Code 120 and description:
  null
-(ITEMS) Adding mmb.ccode25 with title Color Code121 and description:
+(ITEMS) Adding mmb.ccode25 with title Color Code 121 and description:
  null
-(ITEMS) Adding mmb.ccode26 with title Color Code122 and description:
+(ITEMS) Adding mmb.ccode26 with title Color Code 122 and description:
  null
-(ITEMS) Adding mmb.ccode27 with title Color Code123 and description:
+(ITEMS) Adding mmb.ccode27 with title Color Code 123 and description:
  null
-(ITEMS) Adding mmb.ccode28 with title Color Code130 and description:
+(ITEMS) Adding mmb.ccode28 with title Color Code 130 and description:
  null
-(ITEMS) Adding mmb.ccode29 with title Color Code131 and description:
+(ITEMS) Adding mmb.ccode29 with title Color Code 131 and description:
  null
-(ITEMS) Adding mmb.ccode30 with title Color Code132 and description:
+(ITEMS) Adding mmb.ccode30 with title Color Code 132 and description:
  null
-(ITEMS) Adding mmb.ccode31 with title Color Code133 and description:
+(ITEMS) Adding mmb.ccode31 with title Color Code 133 and description:
  null
-(ITEMS) Adding mmb.ccode32 with title Color Code200 and description:
+(ITEMS) Adding mmb.ccode32 with title Color Code 200 and description:
  null
-(ITEMS) Adding mmb.ccode33 with title Color Code201 and description:
+(ITEMS) Adding mmb.ccode33 with title Color Code 201 and description:
  null
-(ITEMS) Adding mmb.ccode34 with title Color Code202 and description:
+(ITEMS) Adding mmb.ccode34 with title Color Code 202 and description:
  null
-(ITEMS) Adding mmb.ccode35 with title Color Code203 and description:
+(ITEMS) Adding mmb.ccode35 with title Color Code 203 and description:
  null
-(ITEMS) Adding mmb.ccode36 with title Color Code210 and description:
+(ITEMS) Adding mmb.ccode36 with title Color Code 210 and description:
  null
-(ITEMS) Adding mmb.ccode37 with title Color Code211 and description:
+(ITEMS) Adding mmb.ccode37 with title Color Code 211 and description:
  null
-(ITEMS) Adding mmb.ccode38 with title Color Code212 and description:
+(ITEMS) Adding mmb.ccode38 with title Color Code 212 and description:
  null
-(ITEMS) Adding mmb.ccode39 with title Color Code213 and description:
+(ITEMS) Adding mmb.ccode39 with title Color Code 213 and description:
  null
-(ITEMS) Adding mmb.ccode40 with title Color Code220 and description:
+(ITEMS) Adding mmb.ccode40 with title Color Code 220 and description:
  null
-(ITEMS) Adding mmb.ccode41 with title Color Code221 and description:
+(ITEMS) Adding mmb.ccode41 with title Color Code 221 and description:
  null
-(ITEMS) Adding mmb.ccode42 with title Color Code222 and description:
+(ITEMS) Adding mmb.ccode42 with title Color Code 222 and description:
  null
-(ITEMS) Adding mmb.ccode43 with title Color Code223 and description:
+(ITEMS) Adding mmb.ccode43 with title Color Code 223 and description:
  null
-(ITEMS) Adding mmb.ccode44 with title Color Code230 and description:
+(ITEMS) Adding mmb.ccode44 with title Color Code 230 and description:
  null
-(ITEMS) Adding mmb.ccode45 with title Color Code231 and description:
+(ITEMS) Adding mmb.ccode45 with title Color Code 231 and description:
  null
-(ITEMS) Adding mmb.ccode46 with title Color Code232 and description:
+(ITEMS) Adding mmb.ccode46 with title Color Code 232 and description:
  null
-(ITEMS) Adding mmb.ccode47 with title Color Code233 and description:
+(ITEMS) Adding mmb.ccode47 with title Color Code 233 and description:
  null
-(ITEMS) Adding mmb.ccode48 with title Color Code300 and description:
+(ITEMS) Adding mmb.ccode48 with title Color Code 300 and description:
  null
-(ITEMS) Adding mmb.ccode49 with title Color Code301 and description:
+(ITEMS) Adding mmb.ccode49 with title Color Code 301 and description:
  null
-(ITEMS) Adding mmb.ccode50 with title Color Code302 and description:
+(ITEMS) Adding mmb.ccode50 with title Color Code 302 and description:
  null
-(ITEMS) Adding mmb.ccode51 with title Color Code303 and description:
+(ITEMS) Adding mmb.ccode51 with title Color Code 303 and description:
  null
-(ITEMS) Adding mmb.ccode52 with title Color Code310 and description:
+(ITEMS) Adding mmb.ccode52 with title Color Code 310 and description:
  null
-(ITEMS) Adding mmb.ccode53 with title Color Code311 and description:
+(ITEMS) Adding mmb.ccode53 with title Color Code 311 and description:
  null
-(ITEMS) Adding mmb.ccode54 with title Color Code312 and description:
+(ITEMS) Adding mmb.ccode54 with title Color Code 312 and description:
  null
-(ITEMS) Adding mmb.ccode55 with title Color Code313 and description:
+(ITEMS) Adding mmb.ccode55 with title Color Code 313 and description:
  null
-(ITEMS) Adding mmb.ccode56 with title Color Code320 and description:
+(ITEMS) Adding mmb.ccode56 with title Color Code 320 and description:
  null
-(ITEMS) Adding mmb.ccode57 with title Color Code321 and description:
+(ITEMS) Adding mmb.ccode57 with title Color Code 321 and description:
  null
-(ITEMS) Adding mmb.ccode58 with title Color Code322 and description:
+(ITEMS) Adding mmb.ccode58 with title Color Code 322 and description:
  null
-(ITEMS) Adding mmb.ccode59 with title Color Code323 and description:
+(ITEMS) Adding mmb.ccode59 with title Color Code 323 and description:
  null
-(ITEMS) Adding mmb.ccode60 with title Color Code330 and description:
+(ITEMS) Adding mmb.ccode60 with title Color Code 330 and description:
  null
-(ITEMS) Adding mmb.ccode61 with title Color Code331 and description:
+(ITEMS) Adding mmb.ccode61 with title Color Code 331 and description:
  null
-(ITEMS) Adding mmb.ccode62 with title Color Code332 and description:
+(ITEMS) Adding mmb.ccode62 with title Color Code 332 and description:
  null
-(ITEMS) Adding mmb.ccode63 with title Color Code333 and description:
+(ITEMS) Adding mmb.ccode63 with title Color Code 333 and description:
  null
-(ITEMS) Adding industry.frame1 with title Basic Machine Frame and description:
+(ITEMS) Adding industry.frame1 with title Primitive Machine Frame and description:
  null
-(ITEMS) Adding industry.rod1 with title Basic Machine Rod and description:
+(ITEMS) Adding industry.rod1 with title Primitive Machine Rod and description:
  null
-(ITEMS) Adding industry.bearing1 with title Basic Machine Bearing and description:
+(ITEMS) Adding industry.bearing1 with title Primitive Machine Bearing and description:
  null
-(ITEMS) Adding industry.motor1 with title Basic Machine Motor and description:
+(ITEMS) Adding industry.motor1 with title Primitive Machine Motor and description:
+ null
+(ITEMS) Adding industry.motor2 with title Basic Machine Motor and description:
  null
 (ITEMS) Adding industry.resistor1 with title Basic Resistor and description:
  null
@@ -759,6 +781,8 @@
  null
 (ITEMS) Adding industry.substrate1 with title Basic Substrate and description:
  null
+(ITEMS) Adding industry.resrc1 with title Basic Resource Bed and description:
+ null
 (ITEMS) Adding boxed.packItem with title Simple Item Package and description:
  null
 (ITEMS) Tagging Item Wooden pickaxe head(pickHead.wood) with shape-pickhead
@@ -768,70 +792,70 @@
 (ITEMS) Tagging Item Rudimentary pickaxe(pick.rudimentary) with tool
 (ITEMS) Tagging Item Item Bucket(mmb.bucket) with tool
 (ITEMS) Tagging Item Configure dropped item extractors(mmb.cdie) with tool
-(ITEMS) Tagging Item Color Code000(mmb.ccode0) with craftcode
-(ITEMS) Tagging Item Color Code001(mmb.ccode1) with craftcode
-(ITEMS) Tagging Item Color Code002(mmb.ccode2) with craftcode
-(ITEMS) Tagging Item Color Code003(mmb.ccode3) with craftcode
-(ITEMS) Tagging Item Color Code010(mmb.ccode4) with craftcode
-(ITEMS) Tagging Item Color Code011(mmb.ccode5) with craftcode
-(ITEMS) Tagging Item Color Code012(mmb.ccode6) with craftcode
-(ITEMS) Tagging Item Color Code013(mmb.ccode7) with craftcode
-(ITEMS) Tagging Item Color Code020(mmb.ccode8) with craftcode
-(ITEMS) Tagging Item Color Code021(mmb.ccode9) with craftcode
-(ITEMS) Tagging Item Color Code022(mmb.ccode10) with craftcode
-(ITEMS) Tagging Item Color Code023(mmb.ccode11) with craftcode
-(ITEMS) Tagging Item Color Code030(mmb.ccode12) with craftcode
-(ITEMS) Tagging Item Color Code031(mmb.ccode13) with craftcode
-(ITEMS) Tagging Item Color Code032(mmb.ccode14) with craftcode
-(ITEMS) Tagging Item Color Code033(mmb.ccode15) with craftcode
-(ITEMS) Tagging Item Color Code100(mmb.ccode16) with craftcode
-(ITEMS) Tagging Item Color Code101(mmb.ccode17) with craftcode
-(ITEMS) Tagging Item Color Code102(mmb.ccode18) with craftcode
-(ITEMS) Tagging Item Color Code103(mmb.ccode19) with craftcode
-(ITEMS) Tagging Item Color Code110(mmb.ccode20) with craftcode
-(ITEMS) Tagging Item Color Code111(mmb.ccode21) with craftcode
-(ITEMS) Tagging Item Color Code112(mmb.ccode22) with craftcode
-(ITEMS) Tagging Item Color Code113(mmb.ccode23) with craftcode
-(ITEMS) Tagging Item Color Code120(mmb.ccode24) with craftcode
-(ITEMS) Tagging Item Color Code121(mmb.ccode25) with craftcode
-(ITEMS) Tagging Item Color Code122(mmb.ccode26) with craftcode
-(ITEMS) Tagging Item Color Code123(mmb.ccode27) with craftcode
-(ITEMS) Tagging Item Color Code130(mmb.ccode28) with craftcode
-(ITEMS) Tagging Item Color Code131(mmb.ccode29) with craftcode
-(ITEMS) Tagging Item Color Code132(mmb.ccode30) with craftcode
-(ITEMS) Tagging Item Color Code133(mmb.ccode31) with craftcode
-(ITEMS) Tagging Item Color Code200(mmb.ccode32) with craftcode
-(ITEMS) Tagging Item Color Code201(mmb.ccode33) with craftcode
-(ITEMS) Tagging Item Color Code202(mmb.ccode34) with craftcode
-(ITEMS) Tagging Item Color Code203(mmb.ccode35) with craftcode
-(ITEMS) Tagging Item Color Code210(mmb.ccode36) with craftcode
-(ITEMS) Tagging Item Color Code211(mmb.ccode37) with craftcode
-(ITEMS) Tagging Item Color Code212(mmb.ccode38) with craftcode
-(ITEMS) Tagging Item Color Code213(mmb.ccode39) with craftcode
-(ITEMS) Tagging Item Color Code220(mmb.ccode40) with craftcode
-(ITEMS) Tagging Item Color Code221(mmb.ccode41) with craftcode
-(ITEMS) Tagging Item Color Code222(mmb.ccode42) with craftcode
-(ITEMS) Tagging Item Color Code223(mmb.ccode43) with craftcode
-(ITEMS) Tagging Item Color Code230(mmb.ccode44) with craftcode
-(ITEMS) Tagging Item Color Code231(mmb.ccode45) with craftcode
-(ITEMS) Tagging Item Color Code232(mmb.ccode46) with craftcode
-(ITEMS) Tagging Item Color Code233(mmb.ccode47) with craftcode
-(ITEMS) Tagging Item Color Code300(mmb.ccode48) with craftcode
-(ITEMS) Tagging Item Color Code301(mmb.ccode49) with craftcode
-(ITEMS) Tagging Item Color Code302(mmb.ccode50) with craftcode
-(ITEMS) Tagging Item Color Code303(mmb.ccode51) with craftcode
-(ITEMS) Tagging Item Color Code310(mmb.ccode52) with craftcode
-(ITEMS) Tagging Item Color Code311(mmb.ccode53) with craftcode
-(ITEMS) Tagging Item Color Code312(mmb.ccode54) with craftcode
-(ITEMS) Tagging Item Color Code313(mmb.ccode55) with craftcode
-(ITEMS) Tagging Item Color Code320(mmb.ccode56) with craftcode
-(ITEMS) Tagging Item Color Code321(mmb.ccode57) with craftcode
-(ITEMS) Tagging Item Color Code322(mmb.ccode58) with craftcode
-(ITEMS) Tagging Item Color Code323(mmb.ccode59) with craftcode
-(ITEMS) Tagging Item Color Code330(mmb.ccode60) with craftcode
-(ITEMS) Tagging Item Color Code331(mmb.ccode61) with craftcode
-(ITEMS) Tagging Item Color Code332(mmb.ccode62) with craftcode
-(ITEMS) Tagging Item Color Code333(mmb.ccode63) with craftcode
+(ITEMS) Tagging Item Color Code 000(mmb.ccode0) with craftcode
+(ITEMS) Tagging Item Color Code 001(mmb.ccode1) with craftcode
+(ITEMS) Tagging Item Color Code 002(mmb.ccode2) with craftcode
+(ITEMS) Tagging Item Color Code 003(mmb.ccode3) with craftcode
+(ITEMS) Tagging Item Color Code 010(mmb.ccode4) with craftcode
+(ITEMS) Tagging Item Color Code 011(mmb.ccode5) with craftcode
+(ITEMS) Tagging Item Color Code 012(mmb.ccode6) with craftcode
+(ITEMS) Tagging Item Color Code 013(mmb.ccode7) with craftcode
+(ITEMS) Tagging Item Color Code 020(mmb.ccode8) with craftcode
+(ITEMS) Tagging Item Color Code 021(mmb.ccode9) with craftcode
+(ITEMS) Tagging Item Color Code 022(mmb.ccode10) with craftcode
+(ITEMS) Tagging Item Color Code 023(mmb.ccode11) with craftcode
+(ITEMS) Tagging Item Color Code 030(mmb.ccode12) with craftcode
+(ITEMS) Tagging Item Color Code 031(mmb.ccode13) with craftcode
+(ITEMS) Tagging Item Color Code 032(mmb.ccode14) with craftcode
+(ITEMS) Tagging Item Color Code 033(mmb.ccode15) with craftcode
+(ITEMS) Tagging Item Color Code 100(mmb.ccode16) with craftcode
+(ITEMS) Tagging Item Color Code 101(mmb.ccode17) with craftcode
+(ITEMS) Tagging Item Color Code 102(mmb.ccode18) with craftcode
+(ITEMS) Tagging Item Color Code 103(mmb.ccode19) with craftcode
+(ITEMS) Tagging Item Color Code 110(mmb.ccode20) with craftcode
+(ITEMS) Tagging Item Color Code 111(mmb.ccode21) with craftcode
+(ITEMS) Tagging Item Color Code 112(mmb.ccode22) with craftcode
+(ITEMS) Tagging Item Color Code 113(mmb.ccode23) with craftcode
+(ITEMS) Tagging Item Color Code 120(mmb.ccode24) with craftcode
+(ITEMS) Tagging Item Color Code 121(mmb.ccode25) with craftcode
+(ITEMS) Tagging Item Color Code 122(mmb.ccode26) with craftcode
+(ITEMS) Tagging Item Color Code 123(mmb.ccode27) with craftcode
+(ITEMS) Tagging Item Color Code 130(mmb.ccode28) with craftcode
+(ITEMS) Tagging Item Color Code 131(mmb.ccode29) with craftcode
+(ITEMS) Tagging Item Color Code 132(mmb.ccode30) with craftcode
+(ITEMS) Tagging Item Color Code 133(mmb.ccode31) with craftcode
+(ITEMS) Tagging Item Color Code 200(mmb.ccode32) with craftcode
+(ITEMS) Tagging Item Color Code 201(mmb.ccode33) with craftcode
+(ITEMS) Tagging Item Color Code 202(mmb.ccode34) with craftcode
+(ITEMS) Tagging Item Color Code 203(mmb.ccode35) with craftcode
+(ITEMS) Tagging Item Color Code 210(mmb.ccode36) with craftcode
+(ITEMS) Tagging Item Color Code 211(mmb.ccode37) with craftcode
+(ITEMS) Tagging Item Color Code 212(mmb.ccode38) with craftcode
+(ITEMS) Tagging Item Color Code 213(mmb.ccode39) with craftcode
+(ITEMS) Tagging Item Color Code 220(mmb.ccode40) with craftcode
+(ITEMS) Tagging Item Color Code 221(mmb.ccode41) with craftcode
+(ITEMS) Tagging Item Color Code 222(mmb.ccode42) with craftcode
+(ITEMS) Tagging Item Color Code 223(mmb.ccode43) with craftcode
+(ITEMS) Tagging Item Color Code 230(mmb.ccode44) with craftcode
+(ITEMS) Tagging Item Color Code 231(mmb.ccode45) with craftcode
+(ITEMS) Tagging Item Color Code 232(mmb.ccode46) with craftcode
+(ITEMS) Tagging Item Color Code 233(mmb.ccode47) with craftcode
+(ITEMS) Tagging Item Color Code 300(mmb.ccode48) with craftcode
+(ITEMS) Tagging Item Color Code 301(mmb.ccode49) with craftcode
+(ITEMS) Tagging Item Color Code 302(mmb.ccode50) with craftcode
+(ITEMS) Tagging Item Color Code 303(mmb.ccode51) with craftcode
+(ITEMS) Tagging Item Color Code 310(mmb.ccode52) with craftcode
+(ITEMS) Tagging Item Color Code 311(mmb.ccode53) with craftcode
+(ITEMS) Tagging Item Color Code 312(mmb.ccode54) with craftcode
+(ITEMS) Tagging Item Color Code 313(mmb.ccode55) with craftcode
+(ITEMS) Tagging Item Color Code 320(mmb.ccode56) with craftcode
+(ITEMS) Tagging Item Color Code 321(mmb.ccode57) with craftcode
+(ITEMS) Tagging Item Color Code 322(mmb.ccode58) with craftcode
+(ITEMS) Tagging Item Color Code 323(mmb.ccode59) with craftcode
+(ITEMS) Tagging Item Color Code 330(mmb.ccode60) with craftcode
+(ITEMS) Tagging Item Color Code 331(mmb.ccode61) with craftcode
+(ITEMS) Tagging Item Color Code 332(mmb.ccode62) with craftcode
+(ITEMS) Tagging Item Color Code 333(mmb.ccode63) with craftcode
 (ITEMS) Tagging Item Basic Resistor(industry.resistor1) with parts-electronic
 (ITEMS) Tagging Item Basic Capacitor(industry.capacitor1) with parts-electronic
 (ITEMS) Tagging Item Basic Inductor(industry.inductor1) with parts-electronic
@@ -1282,6 +1306,60 @@
 (ITEMS) Tagging Item Material Combiner IV(industry.splicer6) with voltage-IV
 (ITEMS) Tagging Item Material Combiner LuV(industry.splicer7) with voltage-LuV
 (ITEMS) Tagging Item Material Combiner MAX(industry.splicer8) with voltage-MAX
+(BLOCKS) Adding industry.quarry0 with title Electrical quarry ULV and description:
+ null
+(ITEMS) Adding industry.quarry0 with title Electrical quarry ULV and description:
+ null
+(BLOCKS) Adding industry.quarry1 with title Electrical quarry VLV and description:
+ null
+(ITEMS) Adding industry.quarry1 with title Electrical quarry VLV and description:
+ null
+(BLOCKS) Adding industry.quarry2 with title Electrical quarry LV and description:
+ null
+(ITEMS) Adding industry.quarry2 with title Electrical quarry LV and description:
+ null
+(BLOCKS) Adding industry.quarry3 with title Electrical quarry MV and description:
+ null
+(ITEMS) Adding industry.quarry3 with title Electrical quarry MV and description:
+ null
+(BLOCKS) Adding industry.quarry4 with title Electrical quarry HV and description:
+ null
+(ITEMS) Adding industry.quarry4 with title Electrical quarry HV and description:
+ null
+(BLOCKS) Adding industry.quarry5 with title Electrical quarry EV and description:
+ null
+(ITEMS) Adding industry.quarry5 with title Electrical quarry EV and description:
+ null
+(BLOCKS) Adding industry.quarry6 with title Electrical quarry IV and description:
+ null
+(ITEMS) Adding industry.quarry6 with title Electrical quarry IV and description:
+ null
+(BLOCKS) Adding industry.quarry7 with title Electrical quarry LuV and description:
+ null
+(ITEMS) Adding industry.quarry7 with title Electrical quarry LuV and description:
+ null
+(BLOCKS) Adding industry.quarry8 with title Electrical quarry MAX and description:
+ null
+(ITEMS) Adding industry.quarry8 with title Electrical quarry MAX and description:
+ null
+(ITEMS) Tagging Item Electrical quarry ULV(industry.quarry0) with machine-quarry
+(ITEMS) Tagging Item Electrical quarry VLV(industry.quarry1) with machine-quarry
+(ITEMS) Tagging Item Electrical quarry LV(industry.quarry2) with machine-quarry
+(ITEMS) Tagging Item Electrical quarry MV(industry.quarry3) with machine-quarry
+(ITEMS) Tagging Item Electrical quarry HV(industry.quarry4) with machine-quarry
+(ITEMS) Tagging Item Electrical quarry EV(industry.quarry5) with machine-quarry
+(ITEMS) Tagging Item Electrical quarry IV(industry.quarry6) with machine-quarry
+(ITEMS) Tagging Item Electrical quarry LuV(industry.quarry7) with machine-quarry
+(ITEMS) Tagging Item Electrical quarry MAX(industry.quarry8) with machine-quarry
+(ITEMS) Tagging Item Electrical quarry ULV(industry.quarry0) with voltage-ULV
+(ITEMS) Tagging Item Electrical quarry VLV(industry.quarry1) with voltage-VLV
+(ITEMS) Tagging Item Electrical quarry LV(industry.quarry2) with voltage-LV
+(ITEMS) Tagging Item Electrical quarry MV(industry.quarry3) with voltage-MV
+(ITEMS) Tagging Item Electrical quarry HV(industry.quarry4) with voltage-HV
+(ITEMS) Tagging Item Electrical quarry EV(industry.quarry5) with voltage-EV
+(ITEMS) Tagging Item Electrical quarry IV(industry.quarry6) with voltage-IV
+(ITEMS) Tagging Item Electrical quarry LuV(industry.quarry7) with voltage-LuV
+(ITEMS) Tagging Item Electrical quarry MAX(industry.quarry8) with voltage-MAX
 (BLOCKS) Adding playerpipe.straight with title Player Pipe - straight and description:
  null
 (ITEMS) Adding playerpipe.straight with title Player Pipe - straight and description:
@@ -1398,6 +1476,10 @@
 (ITEMS) Tagging Block Gravel(mmb.gravel) with basic
 (ITEMS) Tagging Block Clay(mmb.clay) with basic
 (ITEMS) Tagging Block Water(liquid.water) with basic
+(ITEMS) Tagging Item Chest(chest.beginning) with chest
+(ITEMS) Tagging Item Hopper Chest(chest.hopper1) with chest
+(ITEMS) Tagging Item Sucker Chest(chest.hopper2) with chest
+(ITEMS) Tagging Item Hopper Sucker Chest(chest.hopper3) with chest
 (BLOCKS) Adding block.rudimentary with title Rudimentary block and description:
  null
 (ITEMS) Adding block.rudimentary with title Rudimentary block and description:
@@ -3861,301 +3943,228 @@
 (MOD-LOADER) Added missing mods directory
 (MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
-(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5 BROKEN 2.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
-(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld BROKEN.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
-(MOD-LOADER) Found 8 mod files
-(MOD - HelloWorld 0.5 BROKEN 2.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5 BROKEN 2.jar
-(MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
-(MOD - BEB.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
-(MOD - HelloWorld BROKEN.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld BROKEN.jar
-(MOD - 26.11.2021 choinka.zip) Opening a modfile: C:\Users\oskar\Downloads\26.11.2021 choinka.zip
+(MOD-LOADER) Found 3 mod files
 (MOD - mmb-DE.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
-(MOD-LOADER) The external mod has incorrect URL: steam://rungameid/255710
-(MOD-LOADER) java.net.MalformedURLException: unknown protocol: steam
-	at java.net.URL.<init>(Unknown Source)
-	at java.net.URL.<init>(Unknown Source)
-	at java.net.URL.<init>(Unknown Source)
-	at mmb.FILES.OnlineFile.<init>(OnlineFile.java:35)
-	at mmb.FILES.FileUtil.getFile(FileUtil.java:17)
-	at mmb.MODS.loader.ModLoader.modloading(ModLoader.java:145)
-	at mmb.Loading.continueLoading(Loading.java:43)
-	at mmb.Main.main(Main.java:36)
-(MOD - HelloWorld BROKEN.jar) Loading a modfile: HelloWorld BROKEN.jar
-(MOD - BEB.jar) Loading a modfile: BEB.jar
-(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
-(MOD - 26.11.2021 choinka.zip) Loading a modfile: 26.11.2021 choinka.zip
-(MOD - mmb-DE.jar) Loading a modfile: mmb-DE.jar
-(MOD - HelloWorld 0.5 BROKEN 2.jar) Loading a modfile: HelloWorld 0.5 BROKEN 2.jar
-((MOD - HelloWorld BROKEN.jar) entry: META-INF/MANIFEST.MF
+(MOD - BEB.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
+(MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD - HelloWorld 0.5.jar((MOD - BEB.jarMOD - mmb-DE.jar) Loading a modfile: mmb-DE.jar
+) Loading a modfile: HelloWorld 0.5.jar
+) Loading a modfile: BEB.jar
+(MOD - mmb-DE.jar) entry: META-INF/MANIFEST.MF
 (MOD - HelloWorld 0.5.jar) entry: META-INF/MANIFEST.MF
-(MOD - HelloWorld 0.5 BROKEN 2.jar) entry: META-INF/MANIFEST.MF
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/
 (MOD - BEB.jar) entry: META-INF/MANIFEST.MF
-MOD - mmb-DE.jar) entry: META-INF/MANIFEST.MF
-(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - mmb-DE.jar) entry: .project
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/
 (MOD - BEB.jar) entry: mmbmods/beb/package-info.class
-(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld 0.5 BROKEN 2.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
-(MOD - HelloWorld 0.5.jar(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-
-((MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
-(MOD - mmb-DE.jar) entry: .classpath
-(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
-(MOD - BEB.jar) entry: .classpath
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
-(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/package-info.class
-(MOD - BEB.jar) entry: .project
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
-MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/choinka.html
-) entry: mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/choinka.html.bak
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld 0.5 BROKEN 2.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - HelloWorld BROKEN.jar) entry: resources/textures/hw/notepad.png
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
-(MOD - HelloWorld 0.5 BROKEN 2.jar) Couldn't open zip or jar file HelloWorld 0.5 BROKEN 2.jar
-(MOD - HelloWorld 0.5 BROKEN 2.jar) java.util.zip.ZipException: broken archive, entry with negative size
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.readDataDescriptor(ZipArchiveInputStream.java:935)
-
-	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.closeEntry(ZipArchiveInputStream.java:794)
-	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.getNextZipEntry(ZipArchiveInputStream.java:270)
-	at org.apache.commons.compress.archivers.jar.JarArchiveInputStream.getNextJarEntry(JarArchiveInputStream.java:56)
-	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:140)
-	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:86)
-(	at java.lang.Thread.run(Unknown Source)MOD - HelloWorld 0.5.jar
-) entry: resources/textures/hw/notepad.png
 (MOD - HelloWorld 0.5.jar) entry: .project
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/choinka.png
-(MOD - HelloWorld 0.5.jar) entry: .classpath
-(MOD - HelloWorld BROKEN.jar) entry: .project
-(MOD - HelloWorld BROKEN.jar) entry: .classpath
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/gwiazda.png
-(MOD - HelloWorld BROKEN.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - HelloWorld 0.5.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/jquery.js
-(MOD - BEB.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
-(MOD - mmb-DE.jar(MOD - BEB.jar) Processing mmbmods/beb/BlockBEB.class
-(MOD - BEB.jar) File: mmbmods/beb/BlockBEB.class
-(MOD - HelloWorld BROKEN.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld BROKEN.jar
-(MOD - BEB.jar) Processing .classpath
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/prezent1.png
-) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
-(MOD - BEB.jar) File: .classpath
-(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - HelloWorld 0.5.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
-(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - BEB.jar) Processing mmbmods/beb/package-info.class
-(MOD - mmb-DE.jar) Processing .classpath
-(MOD - mmb-DE.jar) File: .classpath
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/prezent2.png
-(MOD - BEB.jar) File: mmbmods/beb/package-info.class
-(MOD - HelloWorld BROKEN.jar) Processing .classpath
-(MOD - HelloWorld BROKEN.jar) File: .classpath
-(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/DataLayerHW.class
-(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/DataLayerHW.class
-(MOD - HelloWorld BROKEN.jar) Processing resources/textures/hw/notepad.png
-(MOD - HelloWorld BROKEN.jar) File: resources/textures/hw/notepad.png
-(MOD - HelloWorld BROKEN.jar) Processing mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld BROKEN.jar) (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
-Processing mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/prezent3.png
-(MOD - BEB.jar) Processing mmbmods/beb/BEBMod.class
-(MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
-(MOD - BEB.jar) File: mmbmods/beb/BEBMod.class
-(MOD - HelloWorld BROKEN.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - HelloWorld BROKEN.jar(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
-) Processing .project
-(MOD - HelloWorld BROKEN.jar(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/snowfall.js
-(MOD - BEB.jar) Processing .project
-(MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
-(MOD - BEB.jar) File: .project
-) File: .project
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld BROKEN.jar) Processing META-INF/MANIFEST.MF
-(MOD - BEB.jar) Processing META-INF/MANIFEST.MF
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/styl.css
-(MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
-(MOD - BEB.jar) File: META-INF/MANIFEST.MF
-(MOD - HelloWorld BROKEN.jar) File: META-INF/MANIFEST.MF
-(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld BROKEN.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - HelloWorld BROKEN.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - mmb-DE.jar) entry: .classpath
 (MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
-(MOD - 26.11.2021 choinka.zip) entry: 26.11.2021 choinka/26.11.2021 choinka/styl.css.bak
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
+(MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - BEB.jar) entry: .classpath
+(MOD - BEB.jar) entry: .project
+(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) entry: bin/resources/textures/hw/notepad.png
+(MOD - HelloWorld 0.5.jar) entry: pom.xml
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) entry: src/resources/textures/hw/notepad.png
+(MOD - HelloWorld 0.5.jar) entry: .classpath
+(MOD - HelloWorld 0.5.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - BEB.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
+(MOD - mmb-DE.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+(MOD - mmb-DE.jar) Processing .classpath
+(MOD - BEB.jar) Processing mmbmods/beb/BlockBEB.class
+(MOD - mmb-DE.jar) File: .classpath(MOD - HelloWorld 0.5.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+
+((MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
+MOD - BEB.jar) File: mmbmods/beb/BlockBEB.class
+(MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
 (MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
-(MOD - BEB.jar) Class: mmbmods.beb.BlockBEB
-(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - mmb-DE.jar) Processing .project
+(MOD - BEB.jar) Processing .classpath
+(MOD - mmb-DE.jar) File: .project
 (MOD - HelloWorld 0.5.jar) Processing .classpath
 (MOD - HelloWorld 0.5.jar) File: .classpath
-(MOD - 26.11.2021 choinka.zip) Injecting C:\Users\oskar\Downloads\26.11.2021 choinka.zip
-(MOD - mmb-DE.jar) Processing .project
-(MOD - mmb-DE.jar) File: .project
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/choinka.html.bak
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/DataLayerHW.class
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/choinka.html.bak
 (MOD - mmb-DE.jar) Processing META-INF/MANIFEST.MF
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/choinka.png
-(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/DataLayerHW.class
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/choinka.png
+(MOD - BEB.jar) File: .classpath
 (MOD - mmb-DE.jar) File: META-INF/MANIFEST.MF
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/snowfall.js
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/snowfall.js
-(MOD - HelloWorld 0.5.jar) Processing resources/textures/hw/notepad.png
-(MOD - HelloWorld 0.5.jar) File: resources/textures/hw/notepad.png
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/styl.css.bak
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/styl.css.bak
+(MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/package-info.class
-(MOD - 26.11.2021 choinka.zip) Directory: 26.11.2021 choinka/
-(MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/prezent2.png
-(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/package-info.class
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/prezent2.png
-(MOD - BEB.jar) entry: mmbmods/beb/package-info.class
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/
+((MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
+MOD - BEB.jar) Processing mmbmods/beb/package-info.class
+(MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - BEB.jar) File: mmbmods/beb/package-info.class
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - BEB.jar) Processing mmbmods/beb/BEBMod.class
+(MOD - BEB.jar) File: mmbmods/beb/BEBMod.class
+(MOD - HelloWorld 0.5.jar) (MOD - BEB.jar) Processing .project
+(MOD - BEB.jar) File: .project
+File: mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - BEB.jar) Processing META-INF/MANIFEST.MF
+(MOD - BEB.jar) File: META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5.jar) Processing .project
+(MOD - HelloWorld 0.5.jar) File: .project
+(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
+(MOD - HelloWorld 0.5.jar) Processing pom.xml
+(MOD - BEB.jar) Class: mmbmods.beb.BlockBEB
+(MOD - HelloWorld 0.5.jar) File: pom.xml
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld 0.5.jar) Processing .project
-(MOD - 26.11.2021 choinka.zip) Directory: 26.11.2021 choinka/26.11.2021 choinka/
-(MOD - BEB.jar) Class: mmbmods.beb.package-info
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/choinka.html
-(MOD - HelloWorld 0.5.jar) File: .project
-(MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.HWBlock
-(MOD - HelloWorld 0.5.jar) Processing META-INF/MANIFEST.MF
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/choinka.html
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/gwiazda.png
-(MOD - HelloWorld 0.5.jar) File: META-INF/MANIFEST.MF
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/gwiazda.png
-(MOD - mmb-DE.jar) Class: mmbmods.lang.de.package-info
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/jquery.js
-((MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
-MOD - HelloWorld 0.5.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/jquery.js
+(MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (MOD - HelloWorld 0.5.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - BEB.jar) Class: mmbmods.beb.BEBMod
+(MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) Processing bin/resources/textures/hw/notepad.png
+(MOD - HelloWorld 0.5.jar) File: bin/resources/textures/hw/notepad.png
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) Processing src/resources/textures/hw/notepad.png
+(MOD - HelloWorld 0.5.jar) File: src/resources/textures/hw/notepad.png
+(MOD - HelloWorld 0.5.jar) Processing META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5.jar) File: META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/prezent3.png
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/prezent3.png
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/prezent1.png
-(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/prezent1.png
-(BLOCKS) Adding beb.BEB with title Block Entity Bomb and description:
- null
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWBlock
-(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
-(ITEMS) Adding beb.BEB with title Block Entity Bomb and description:
- null
-(MOD - 26.11.2021 choinka.zip) Processing 26.11.2021 choinka/26.11.2021 choinka/styl.css
-(MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.DataLayerHW
-(MOD - HelloWorld 0.5.jar(MOD - 26.11.2021 choinka.zip) File: 26.11.2021 choinka/26.11.2021 choinka/styl.css
-) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - mmb-DE.jar) (MOD - BEB.jar) entry: mmbmods/beb/package-info.class(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWMachine.class
+
+entry: mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) Class: mmbmods.lang.de.package-info
+(MOD - BEB.jar) Class: mmbmods.beb.package-info
+(MOD - HelloWorld 0.5.jar) Class: bin.mmbmods.monniasza.helloworld.HWMachine
+(MOD - HelloWorld 0.5.jar) Missing dependencies in bin/mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) java.lang.NoClassDefFoundError: mmbmods/monniasza/helloworld/HWMachine (wrong name: bin/mmbmods/monniasza/helloworld/HWMachine)
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:878)
+	at io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)(MOD - BEB.jar
+) 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)entry: mmbmods/beb/BEBMod.class
+
+	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)(
+MOD - BEB.jar	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:213)) 
+Class: mmbmods.beb.BEBMod	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:87)
+
+	at java.base/java.lang.Thread.run(Thread.java:829)
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.DataLayerHW
-(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.package-info
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.package-info
-(MOD - HelloWorld BROKEN.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWMachine
-(MOD - HelloWorld BROKEN.jar) Class: mmbmods.monniasza.helloworld.HWMachine
-(MOD - HelloWorld 0.5.jar) Invalid class file: mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - HelloWorld 0.5.jar) java.lang.ClassFormatError: Invalid code attribute name index 5888 in class file mmbmods/monniasza/helloworld/HWMachine
-	at java.lang.ClassLoader.defineClass1(Native Method)
-	at java.lang.ClassLoader.defineClass(Unknown Source)
-	at java.lang.ClassLoader.defineClass(Unknown Source)
-	at io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)
-	at java.lang.ClassLoader.loadClass(Unknown Source)
-	at java.lang.ClassLoader.loadClass(Unknown Source)
-	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
-	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:207)
-	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:86)
-	at java.lang.Thread.run(Unknown Source)
-(MOD - HelloWorld BROKEN.jar) Invalid class file: mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - HelloWorld BROKEN.jar) java.lang.ClassFormatError: Invalid code attribute name index 5888 in class file mmbmods/monniasza/helloworld/HWMachine
-	at java.lang.ClassLoader.defineClass1(Native Method)
-	at java.lang.ClassLoader.defineClass(Unknown Source)
-(	at java.lang.ClassLoader.defineClass(Unknown Source)HW
-) 	at io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)Hello, world!
+(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) Class: bin.mmbmods.monniasza.helloworld.HelloWorld
+(MOD - HelloWorld 0.5.jar) Missing dependencies in bin/mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) java.lang.NoClassDefFoundError: mmbmods/monniasza/helloworld/HelloWorld (wrong name: bin/mmbmods/monniasza/helloworld/HelloWorld)
+(	at java.base/java.lang.ClassLoader.defineClass1(Native Method)BLOCKS
+) 	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)Adding beb.BEB with title Block Entity Bomb and description:
+ null
 
-	at java.lang.ClassLoader.loadClass(Unknown Source)
-	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:878)
+(	at io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)ITEMS
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
 	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
-	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:207)
-	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:86)
-	at java.lang.Thread.run(Unknown Source)
+	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:213)
+	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:87)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+) Adding beb.BEB with title Block Entity Bomb and description:
+ null
+(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) Class: bin.mmbmods.monniasza.helloworld.HWBlock
+(MOD - HelloWorld 0.5.jar) Missing dependencies in bin/mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) java.lang.NoClassDefFoundError: mmbmods/monniasza/helloworld/HWBlock (wrong name: bin/mmbmods/monniasza/helloworld/HWBlock)
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:878)
+	at io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
+	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:213)
+	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:87)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWBlock
+(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) Class: bin.mmbmods.monniasza.helloworld.package-info
+(MOD - HelloWorld 0.5.jar) Missing dependencies in bin/mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) java.lang.NoClassDefFoundError: mmbmods/monniasza/helloworld/package-info (wrong name: bin/mmbmods/monniasza/helloworld/package-info)
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:878)
+	at io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
+	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:213)
+	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:87)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.package-info
+(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - HelloWorld 0.5.jar) Class: bin.mmbmods.monniasza.helloworld.DataLayerHW
+(MOD - HelloWorld 0.5.jar) Missing dependencies in bin/mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - HelloWorld 0.5.jar) java.lang.NoClassDefFoundError: mmbmods/monniasza/helloworld/DataLayerHW (wrong name: bin/mmbmods/monniasza/helloworld/DataLayerHW)
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:878)
+	at io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
+	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:213)
+	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:87)
+	at java.base/java.lang.Thread.run(Thread.java:829)
 (HW) Hello, world!
-(MOD - ) Opening a modfile: https://tomaszjakubowski.edu.pl/
-(MOD - ) Loading a modfile: https://tomaszjakubowski.edu.pl/
-(MOD - ) Couldn't open zip or jar file https://tomaszjakubowski.edu.pl/
-(MOD - ) java.util.zip.ZipException: Unexpected record signature: 0X4F44213C
-	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.getNextZipEntry(ZipArchiveInputStream.java:296)
-	at org.apache.commons.compress.archivers.jar.JarArchiveInputStream.getNextJarEntry(JarArchiveInputStream.java:56)
-	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:140)
-	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:86)
-	at java.lang.Thread.run(Unknown Source)
+(MOD-LOADER) Start 1st stage for BlockEntity Bomb
 (MOD-LOADER) Start 1st stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) End 1st stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) Start 1st stage for BlockEntity Bomb
-(MOD-LOADER(MOD-LOADER) 26.11.2021 choinka.zip is not a mod and will not be run
-) End 1st stage for BlockEntity Bomb
-(MOD-LOADER) Start 2nd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) End 2nd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) End 1st stage for BlockEntity Bomb
 (MOD-LOADER) Start 2nd stage for BlockEntity Bomb
+(MOD-LOADER) Start 2nd stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) End 2nd stage for BlockEntity Bomb
+(MOD-LOADER) End 2nd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) Start 3rd stage for BlockEntity Bomb
+(MOD-LOADER) End 3rd stage for BlockEntity Bomb
 (MOD-LOADER) Start 3rd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) (End 3rd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) ================MOD INFORMATION FOR steam://rungameid/255710================
-(MOD-LOADER) LOCATED AT steam://rungameid/255710
-(MOD-LOADER) Missing files
-(MOD-LOADER) ================MOD INFORMATION FOR HelloWorld 0.5 BROKEN 2.jar================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5 BROKEN 2.jar
-(MOD-LOADER) Corrupt
+(MOD-LOADER) ================MOD INFORMATION FOR BlockEntity Bomb================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
+(MOD-LOADER) End 3rd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) Operative
+(MOD-LOADER) RELEASED Thu May 19 14:19:58 CEST 2022
+(MOD-LOADER) MADE BY 
+(MOD-LOADER) DESCRIPTION: A block that lags out entire game.
+(MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD-LOADER) Crashed
+(MOD-LOADER) RELEASED Thu May 19 14:19:58 CEST 2022
+(MOD-LOADER) MADE BY Monniasza
+(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) ================MOD INFORMATION FOR MultiMachineBuilder German/Deutsch================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
 (MOD-LOADER) Operative
-MOD-LOADER) Start 3rd stage for BlockEntity Bomb
-(MOD-LOADER) End 3rd stage for BlockEntity Bomb
 (MOD-LOADER) RELEASED Tue Jul 12 00:00:00 CEST 3921
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: This mod contains German translation of the game
 Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
-(MOD-LOADER) ================MOD INFORMATION FOR BlockEntity Bomb================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
-(MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Sun Apr 17 17:36:23 CEST 2022
-(MOD-LOADER) MADE BY 
-(MOD-LOADER) DESCRIPTION: A block that lags out entire game.
-(MOD-LOADER) ================MOD INFORMATION FOR 26.11.2021 choinka.zip================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\Downloads\26.11.2021 choinka.zip
-(MOD-LOADER) Media package
-(MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
-(MOD-LOADER) Crashed
-(MOD-LOADER) RELEASED Sun Apr 17 17:36:23 CEST 2022
-(MOD-LOADER) MADE BY Monniasza
-(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
-(MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld BROKEN.jar
-(MOD-LOADER) Crashed
-(MOD-LOADER) RELEASED Sun Apr 17 17:36:23 CEST 2022
-(MOD-LOADER) MADE BY Monniasza
-(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
-(MOD-LOADER) ================MOD INFORMATION FOR https://tomaszjakubowski.edu.pl/================
-(MOD-LOADER) LOCATED AT https://tomaszjakubowski.edu.pl/
-(MOD-LOADER) Corrupt
 (MOD-LOADER) HOORAY, IT'S OVER!
 (Main menu) MainMenu created
 (SELECT A SAVE) Found save: 1MiB.mworld
@@ -4177,625 +4186,4 @@ Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
 (SELECT A SAVE) Found save: Test tube.mworld
 (SELECT A SAVE) Found save: Test.mworld
 (SELECT A SAVE) Found save: The longest player pipe ever.mworld
-(SELECT A SAVE) Found save: Tiled.mworld
-(SELECT A SAVE) Found 20 saves
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@191a26
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(COMPLEX RECIPE RPOCESSOR) IUW data:null
-(COMPLEX RECIPE RPOCESSOR) IUW data:null
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyPressed(WorldFrame.java:267)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyPressed(WorldFrame.java:267)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyReleased(WorldFrame.java:298)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyReleased(WorldFrame.java:298)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyPressed(WorldFrame.java:267)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyReleased(WorldFrame.java:298)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyPressed(WorldFrame.java:267)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyReleased(WorldFrame.java:298)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyPressed(WorldFrame.java:267)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyReleased(WorldFrame.java:298)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyPressed(WorldFrame.java:267)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyReleased(WorldFrame.java:298)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyPressed(WorldFrame.java:240)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyReleased(WorldFrame.java:298)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyPressed(WorldFrame.java:267)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.WORLD.gui.window.WorldFrame$Listener.keyReleased(WorldFrame.java:298)
-	at java.awt.Component.processKeyEvent(Unknown Source)
-	at javax.swing.JComponent.processKeyEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
-	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$500(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(MAP anonymous) Block entity at [-6,-2] took exceptionally long to run
-(MAP anonymous) Block entity at [-10,-3] took exceptionally long to run
-(TOOL-STANDARD) Running BlockActivateListener for: [-13,-7]
-(TOOL-STANDARD) Running BlockActivateListener for: [-13,-7]
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(SETTINGS) Saved settings file
+(SELECT A SAVE) Found 19 saves

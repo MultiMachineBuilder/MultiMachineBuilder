@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.ListCellRenderer;
 
 import mmb.WORLD.crafting.RecipeOutput;
-import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup.SimpleProcessingRecipe;
+import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup.ElectroSimpleProcessingRecipe;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
 
@@ -59,7 +59,7 @@ public class SimpleRecipeView extends JPanel {
 		outList.setCellRenderer(new CellRenderer());
 		add(outList, "cell 1 3,growx,aligny center");
 	}
-	public void set(SimpleProcessingRecipe recipe, ItemStack[] vector) {
+	public void set(ElectroSimpleProcessingRecipe recipe, ItemStack[] vector) {
 		lblVolt.setText("Voltage tier: "+recipe.voltage.name);
 		lblEnergy.setText("Energy: "+recipe.energy);
 		ItemEntry item = recipe.input;
@@ -92,7 +92,7 @@ public class SimpleRecipeView extends JPanel {
 			}
 			setOpaque(true);
 			setIcon(itemType.item.icon());
-			setText(itemType.id().title() + " × " + itemType.amount);
+			setText(itemType.id().title() + " ï¿½ " + itemType.amount);
 			
 			if (isSelected) {
 			    setBackground(list.getSelectionBackground());

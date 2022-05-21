@@ -12,7 +12,7 @@ import org.ainslec.picocog.PicoWriter;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMaps;
-import mmb.WORLD.block.Drop;
+import mmb.WORLD.chance.Chance;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.worlds.world.World;
@@ -22,7 +22,7 @@ import mmb.WORLD.worlds.world.World;
  * Represents a recipe output.
  * All implementations of this interface must be immutable, and may have builders.
  */
-public interface RecipeOutput extends Drop {
+public interface RecipeOutput extends Chance {
 	@Override
 	default boolean drop(@Nullable InventoryWriter inv, World map, int x, int y) {
 		@Nonnull InventoryWriter dropper = map.createDropper(x, y);

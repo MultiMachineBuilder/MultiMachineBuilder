@@ -137,14 +137,14 @@ public class PanelSaves extends JPanel {
 				Universe world = new Universe();
 				@SuppressWarnings("null")
 				JsonNode node = JsonTool.parse(loadedData);
-				if(node == null) {
+				if(node == null || node.isMissingNode()) {
 					debug.printl("Failed to parse JSON data");
-					EventQueue.invokeLater(() -> ww.dispose()); //Control given back to EDT to close unnecessary window
+					EventQueue.invokeLater(ww::dispose); //Control given back to EDT to close unnecessary window
 				}
 				debug.printl("Parsed file");
 				world.load(node);
 				debug.printl("Loaded");
-				ww.setWorld(s, world);
+				ww.setWorld(s, world); //fail here
 				fail = false;
 				return;
 			}catch(Exception e) {
@@ -152,7 +152,7 @@ public class PanelSaves extends JPanel {
 			}catch(OutOfMemoryError e) {
 				debug.pstm(e, "Ran out of memory while loading");
 			}catch(Throwable e) {
-				debug.printerrl("Fatal error while world loading:");
+				debug.printerrl("Fatal error while world loading");
 				Main.crash(e);
 			}finally {
 				if(fail) {

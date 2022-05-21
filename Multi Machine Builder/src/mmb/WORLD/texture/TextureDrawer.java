@@ -30,8 +30,8 @@ public class TextureDrawer implements BlockDrawer {
 		icon = new ImageIcon(img);
 	}
 	@Override
-	public void draw(BlockEntry ent, int x, int y, Graphics g, int side) {
-		g.drawImage(img, x, y, side, side, null);
+	public void draw(BlockEntry ent, int x, int y, Graphics g, int w, int h) {
+		g.drawImage(img, x, y, w, h, null);
 	}
 	@Override
 	public Icon toIcon() {

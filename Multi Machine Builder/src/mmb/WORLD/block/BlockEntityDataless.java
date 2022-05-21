@@ -3,8 +3,6 @@
  */
 package mmb.WORLD.block;
 
-import java.util.ArrayList;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -13,7 +11,7 @@ import com.fasterxml.jackson.databind.node.TextNode;
 
 /**
  * @author oskar
- * A dataless skeletal block entity.
+ * A definition for a block that does not hold any data.
  */
 public abstract class BlockEntityDataless extends BlockEntity implements Cloneable{
 	@Override

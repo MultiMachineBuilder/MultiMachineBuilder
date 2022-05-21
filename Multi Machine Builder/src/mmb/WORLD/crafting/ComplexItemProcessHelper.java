@@ -15,6 +15,7 @@ import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup.ComplexProcessingRecipe;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.VoltageTier;
+import mmb.WORLD.electromachine.CycleResult;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.items.ItemEntry;
@@ -83,7 +84,7 @@ public class ComplexItemProcessHelper {
 		if(remainNode != null) progress = remainNode.asDouble();
 	}
 	
-	public void cycle() {
+	public CycleResult cycle() {
 		if(progress < 0 || !Double.isFinite(currRequired)) {
 			//Invalid progress, it is negative, infinite or NaN
 			progress = 0;
@@ -96,14 +97,14 @@ public class ComplexItemProcessHelper {
 				debug.printl("Finding a recipe(reuse)");
 				useRecipe(lastKnown);
 				extractItems(lastKnown.input);
-				return;
+				return CycleResult.WITHDRAW;
 			}
 			//There aren't enough items to use LKRecipe, or it is not set, find a new one
 			//Reset LKRecipe
 			lastKnown = null;
 			
 			//Check ingredient count before searching recipes
-			if(input.size() < recipes.minIngredients) return;
+			if(input.size() < recipes.minIngredients) return CycleResult.PARTIAL;
 			
 			//Find a new recipe(slow) and extract if found
 			for(ComplexProcessingRecipe recipe: recipes.recipes) {
@@ -115,7 +116,7 @@ public class ComplexItemProcessHelper {
 					//Voltage satisfied, use it
 					useRecipe(recipe);
 					extractItems(recipe.input);
-					return;
+					return CycleResult.WITHDRAW;
 				}
 			}
 		}else{
@@ -131,9 +132,11 @@ public class ComplexItemProcessHelper {
 				rout.produceResults(output.createWriter());
 				if(refreshable != null) refreshable.refreshOutputs();
 				rout = null;
+				return CycleResult.OUTPUT;
 			}// else continue smelting
 		}
-		if(refreshable != null) refreshable.refreshProgress(progress, rout, currRequired);
+		if(refreshable != null) refreshable.refreshProgress(progress, lastKnown);
+		return CycleResult.RUN;
 	}
 	@Nonnull private static final Debugger debug = new Debugger("COMPLEX RECIPE RPOCESSOR");
 	private void useRecipe(ComplexProcessingRecipe recipe) {
@@ -149,23 +152,6 @@ public class ComplexItemProcessHelper {
 		if(refreshable != null) refreshable.refreshInputs();
 	}
 	
-	/**
-	 * @author oskar
-	 * An object which is refreshed during processing
-	 */
-	public static interface Refreshable{
-		/** Refreshes the input list */
-		public void refreshInputs();
-		/** Refreshes the output list */
-		public void refreshOutputs();
-		/** Refreshes the progress bar 
-		 * @param progress processing progress in ticks
-		 * @param output item which is currently smelted
-		 * @param max energy required to complete the recipe
-		 */
-		public void refreshProgress(double progress, @Nullable RecipeOutput output, double max);
-	}
-
 	/**
 	 * @param helper the data source
 	 */

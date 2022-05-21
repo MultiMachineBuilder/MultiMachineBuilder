@@ -6,8 +6,8 @@ package mmb.WORLD.gui.craft;
 import javax.swing.JScrollPane;
 import javax.swing.ListCellRenderer;
 
-import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup;
-import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup.SimpleProcessingRecipe;
+import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup;
+import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup.ElectroSimpleProcessingRecipe;
 import mmb.WORLD.inventory.ItemStack;
 
 import java.awt.Component;
@@ -25,11 +25,11 @@ import javax.swing.JList;
 public class SimpleProcessingRecipeList extends JScrollPane {
 	private static final long serialVersionUID = 828762086772542204L;
 	
-	public SimpleProcessingRecipeList(SimpleProcessingRecipeGroup group) {
+	public SimpleProcessingRecipeList(ElectroSimpleProcessingRecipeGroup group) {
 		JList<RecipeEntry> list = new JList<>();
 			RecipeEntry[] data = new RecipeEntry[group.recipes.size()];
 			int i = 0;
-			for(SimpleProcessingRecipe recipe: group.recipes) {
+			for(ElectroSimpleProcessingRecipe recipe: group.recipes) {
 				data[i] = new RecipeEntry(recipe);
 				i++;
 			}
@@ -38,9 +38,9 @@ public class SimpleProcessingRecipeList extends JScrollPane {
 		setViewportView(list);
 	}
 	static class RecipeEntry{
-		@Nonnull public final SimpleProcessingRecipe recipe;
+		@Nonnull public final ElectroSimpleProcessingRecipe recipe;
 		@Nonnull public final ItemStack[] stack;
-		public RecipeEntry(SimpleProcessingRecipe recipe) {
+		public RecipeEntry(ElectroSimpleProcessingRecipe recipe) {
 			this.recipe = recipe;
 			stack = SimpleRecipeView.list2arr(recipe.output);
 		}

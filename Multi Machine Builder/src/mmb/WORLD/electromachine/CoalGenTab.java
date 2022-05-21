@@ -22,7 +22,7 @@ import javax.swing.JButton;
  */
 public class CoalGenTab extends GUITab {
 	private static final long serialVersionUID = 1680582237436697644L;
-	@Nonnull private final CoalGen gen;
+	@Nonnull private final transient CoalGen gen;
 	private JProgressBar progressEnergy;
 	private JProgressBar progressFuel;
 	public CoalGenTab(WorldWindow window, CoalGen generator) {
@@ -63,8 +63,7 @@ public class CoalGenTab extends GUITab {
 
 	@Override
 	public void createTab(WorldWindow window) {
-		// TODO Auto-generated method stub
-
+		// unused
 	}
 
 	@Override

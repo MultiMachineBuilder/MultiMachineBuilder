@@ -411,8 +411,10 @@ public class WorldFrame extends JComponent {
 			}
 		}
 		
-		int div2 = blockScale/2;
-		int div4 = blockScale/4;
+		int div2x = blockScale/2;
+		int div4x = blockScale/4;
+		int div2y = blockScale/2;
+		int div4y = blockScale/4;
 		Point pt = new Point();
 		
 		//Render dropped items
@@ -426,7 +428,7 @@ public class WorldFrame extends JComponent {
 			if(y > d) continue;
 			blockPositionOnScreen(x, y, pt);
 			if(entry.getValue() != null)
-				entry.getValue().render(g, pt.x+div4, pt.y+div4, div2);
+				entry.getValue().render(g, pt.x+div4x, pt.y+div4y, div2x, div2y);
 		}
 		
 		//Draw machines
@@ -647,6 +649,18 @@ public class WorldFrame extends JComponent {
 	 */
 	public Point blockAt(Point p, Point tgt) {
 		return blockAt(p.x, p.y, tgt);
+	}
+	
+	/**
+	 * @param x on-frame X coordinate
+	 * @param y on-frame Y coordinate
+	 * @param tgt where to write data?
+	 * @return target point with written position
+	 */
+	public Vector2d worldAt(double x, double y, Vector2d tgt) {
+		tgt.x = (x / blockScale)-pos.x;
+		tgt.y = (y / blockScale)-pos.y;
+		return tgt;
 	}
 	
 	/**

@@ -3,7 +3,6 @@
  */
 package mmb.WORLD.worlds.world;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -42,7 +41,6 @@ import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import mmb.Bitwise;
 import mmb.Vector2iconst;
 import mmb.BEANS.BlockActivateListener;
-import mmb.DATA.contents.texture.Textures;
 import mmb.DATA.json.JsonTool;
 import mmb.RUNTIME.TaskLoop;
 import mmb.WORLD.block.BlockEntity;
@@ -56,18 +54,11 @@ import mmb.WORLD.block.BlockLoader;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.rotate.Side;
-import mmb.WORLD.visuals.EvilLine;
-import mmb.WORLD.visuals.VisCircle;
-import mmb.WORLD.visuals.VisImgRect;
-import mmb.WORLD.visuals.VisLine;
-import mmb.WORLD.visuals.VisPoint;
-import mmb.WORLD.visuals.VisRect;
 import mmb.WORLD.visuals.Visual;
 import mmb.WORLD.worlds.DataLayers;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.universe.Universe;
 import mmb.debug.Debugger;
-import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
@@ -253,27 +244,7 @@ public class World implements Identifiable<String>{
 				block.postLoad(world, 0, 0);
 			}
 		}
-		
-		//Test visuals
-		world.addVisuals(
-				new VisLine(-1, 0, 1, 2, Color.RED),
-				new VisPoint(0, 0, Color.MAGENTA),
-				new VisRect(2, 3, 3, 4, null, Color.BLACK),
-				new VisRect(2, 4.1, 3, 5.1, Color.YELLOW, null),
-				new VisRect(2, 5.2, 3, 6.2, Color.LIGHT_GRAY, Color.DARK_GRAY),
-				new VisImgRect(2, 6.3, 4, 7.3, Textures.get("UAvsRU.png")),
-				new VisCircle(5, 3, 0.5, null, Color.BLACK),
-				new VisCircle(5, 4.1, 0.5, Color.YELLOW, null),
-				new VisCircle(5, 5.2, 0.5, Color.LIGHT_GRAY, Color.DARK_GRAY));
-		
-		//Performance test visuals
-		for(int i = 0; i < 1000_000; i++) {
-			double x = Math.random();
-			double y = Math.random() + 100;
-			double w = Math.random();
-			double h = Math.random();
-			world.addVisual(new VisRect(x, y, x+w, y+h, null, Color.BLACK));
-		}
+
 		return world;
 	}
 	/**
@@ -323,7 +294,7 @@ public class World implements Identifiable<String>{
 			
 			//Machines
 			ArrayNode machineArrayNode = JsonTool.newArrayNode();
-			for(Machine m: world._machines) {
+			for(Machine m: world.machines0) {
 				ArrayNode array = JsonTool.newArrayNode();
 				//format: [id, x, y, data]
 				array.add(m.id());
@@ -349,8 +320,8 @@ public class World implements Identifiable<String>{
 		}
 	
 	//Activity
-	private final static long PERIOD = 20_000_000; //nanoseconds
-	private TaskLoop timer = new TaskLoop(() -> update(), PERIOD);
+	private static final long PERIOD = 20_000_000; //nanoseconds
+	private TaskLoop timer = new TaskLoop(World.this::update, PERIOD);
 	/** The Ticks Per Second counter */
 	public final FPSCounter tps = new FPSCounter();
 	private volatile boolean underTick = false;
@@ -363,7 +334,7 @@ public class World implements Identifiable<String>{
 		//Set up the proxy
 		try(MapProxy proxy = createProxy()){
 			//Run every machine
-			for(Machine m: _machines) {
+			for(Machine m: machines0) {
 				try {
 					m.onUpdate(proxy);
 				}catch(Exception e) {
@@ -474,7 +445,7 @@ public class World implements Identifiable<String>{
 	/**
 	 * The player object for this world
 	 */
-	public final Player player = new Player();
+	@Nonnull public final Player player = new Player();
 	
 	//Map proxy
 	/**
@@ -651,7 +622,7 @@ public class World implements Identifiable<String>{
 				machinesPoints.remove(pt);
 			}
 		}
-		_machines.remove(machine);
+		machines0.remove(machine);
 		return true;
 	}
 	/**
@@ -715,7 +686,7 @@ public class World implements Identifiable<String>{
 			return null; //null indicates that machine was not placed
 		}
 		debug.printl("Placed machine");
-		_machines.add(machine);
+		machines0.add(machine);
 		return machine;
 	}
 	/**
@@ -753,9 +724,9 @@ public class World implements Identifiable<String>{
 		return placeMachine(machine, true);
 	}
 	
-	Set<Machine> _machines = new HashSet<>();
+	Set<Machine> machines0 = new HashSet<>();
 	/** The immutable set of all machines */
-	public final Set<Machine> machines = Collections.unmodifiableSet(_machines);
+	public final Set<Machine> machines = Collections.unmodifiableSet(machines0);
 	Map<Point, Machine> machinesPoints = new HashMap<>();
 	
 	//Dropped items

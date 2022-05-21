@@ -16,6 +16,7 @@ import javax.annotation.Nullable;
 import javax.swing.JComponent;
 
 import io.vavr.Tuple2;
+import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeGroup;
@@ -103,8 +104,7 @@ public class ComplexCatalyzedProcessingRecipeGroup implements RecipeGroup{
 		}
 		@Override
 		public ItemEntry catalyst() {
-			// TODO Auto-generated method stub
-			return null;
+			return catalyst;
 		}
 		@Override
 		public RecipeGroup group() {
@@ -122,10 +122,24 @@ public class ComplexCatalyzedProcessingRecipeGroup implements RecipeGroup{
 			component.set(this, out, in);
 			return component;
 		}
+		@Override
+		public double energy() {
+			return energy;
+		}
+		@Override
+		public VoltageTier voltTier() {
+			return voltage;
+		}
 	}
 	
 	private final SelfSet<Tuple2<Set<ItemEntry>, @Nullable ItemEntry>, ComplexCatalyzedProcessingRecipe> _recipes = new HashSelfSet<>();
 	public final SelfSet<Tuple2<Set<ItemEntry>, @Nullable ItemEntry>, ComplexCatalyzedProcessingRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
+	@Override
+	public Set<? extends ItemEntry> supportedItems() {
+		return supported0;
+	}
+	private final Set<ItemEntry> supported = new HashSet<>();
+	private final Set<ItemEntry> supported0 = Collections.unmodifiableSet(supported);
 	@Nonnull private final Map<ItemEntry, VoltageTier> _minVolt4item = new HashMap<>();
 	@Nonnull public final Map<ItemEntry, VoltageTier> minVolt4item = Collections.unmodifiableMap(_minVolt4item);
 	private void updateMinVolt(VoltageTier volt, ItemEntry item) {
@@ -149,6 +163,7 @@ public class ComplexCatalyzedProcessingRecipeGroup implements RecipeGroup{
 		if(in.getContents().size() == 0) throw new IllegalArgumentException("The recipe must have at least 1 input");
 		ComplexCatalyzedProcessingRecipe recipe = new ComplexCatalyzedProcessingRecipe(energy, voltage, in, out, catalyst);
 		_recipes.add(recipe);
+		supported.addAll(in.getContents().keySet());
 		GlobalRecipeRegistrar.addRecipe(recipe);
 		return recipe;
 	}
@@ -169,4 +184,6 @@ public class ComplexCatalyzedProcessingRecipeGroup implements RecipeGroup{
 	public SelfSet<Tuple2<Set<ItemEntry>, @Nullable ItemEntry>, ComplexCatalyzedProcessingRecipe> recipes() {
 		return recipes;
 	}
+
+	
 }

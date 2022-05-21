@@ -32,7 +32,7 @@ import monniasza.collects.selfset.SelfSet;
  */
 public class Universe implements GameObject, Saver<JsonNode>{
 	private Debugger debug = new Debugger("WORLD - ");
-	//[start] data
+	//Data
 	/**
 	 * This hashtable contains additional worlds. When playing the toolbar will say for example:
 	 * [hell] Let's play
@@ -59,8 +59,8 @@ public class Universe implements GameObject, Saver<JsonNode>{
 	public void setMain(World main) {
 		this.main = main;
 	}
-	//[end]	
-	//[start] Identification
+
+	//Identification
 	/** The world name. */
 	private String name;	
 	/** @return the name */
@@ -82,12 +82,11 @@ public class Universe implements GameObject, Saver<JsonNode>{
 		if(name == null) return main;
 		return maps.get(name);
 	}
-	//[end]
-	//[start] serialization
-	//New Jackson methods
+
+	//Serialization
 	@SuppressWarnings("null")
 	@Override
-	public void load(JsonNode data) {
+	public void load(@Nullable JsonNode data) {
 		if(data instanceof ObjectNode) {
 			ObjectNode on = (ObjectNode)data;
 			if(on.has("main")) {//Load as a world	
@@ -128,7 +127,6 @@ public class Universe implements GameObject, Saver<JsonNode>{
 			}else{//Load as a map
 				World map = World.load(on);
 				map.setName(name);
-				//map.saveLoad.load(on);
 				main = map;
 			}
 		}else debug.printl("Not an ObjectNode");
@@ -137,7 +135,9 @@ public class Universe implements GameObject, Saver<JsonNode>{
 	@Nonnull public JsonNode save() {
 		//Save the main map
 		debug.printl("Saving main BlockMap");
-		JsonNode mainNode = World.save(main);
+		World main0 = main;
+		if(main0 == null) throw new IllegalArgumentException("The main map is null");
+		JsonNode mainNode = World.save(main0);
 		//Save extra maps
 		ObjectNode mapsNode = JsonTool.newObjectNode();
 		for(World map: maps) {
@@ -158,11 +158,14 @@ public class Universe implements GameObject, Saver<JsonNode>{
 		master.set("maps", mapsNode); //main map
 		return master;
 	}
-	//[end]
+	
 	//[start] activity
+	/**
+	 * Starts up the universe
+	 */
 	public void start() {
-		main.startTimer();
-		maps.values().forEach(map -> map.startTimer());
+		main.startTimer(); //this fails
+		maps.values().forEach(World::startTimer);
 	}
 	/**
 	 * Destroy all associated resources.
@@ -176,23 +179,18 @@ public class Universe implements GameObject, Saver<JsonNode>{
 		main.destroy();
 		maps.values().forEach(map -> map.destroy());
 	}
-	//[end]
-	//[start] GameObject
+
+	//GameObject
 	@Override
 	public String id() {
-		// TODO Auto-generated method stub
-		return null;
+		return name;
 	}
 	@Override
 	public String getUTID() {
-		// TODO Auto-generated method stub
-		return null;
+		return "universe:"+name;
 	}
 	@Override
 	public GameObject getOwner() {
 		return null; //TBD in 0.7
 	}
-	//[end]
-	
-
 }

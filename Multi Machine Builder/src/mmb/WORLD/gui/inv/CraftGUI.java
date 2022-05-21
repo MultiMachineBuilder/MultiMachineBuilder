@@ -48,11 +48,11 @@ public class CraftGUI extends GUITab {
 	/**
 	 * The crafting grid object
 	 */
-	public final CraftingGrid craftingGrid;
+	@Nonnull public final CraftingGrid craftingGrid;
 	/**
 	 * Invenotry controller for the crafting
 	 */
-	public final InventoryController inventoryController;
+	@Nonnull public final InventoryController inventoryController;
 	/**
 	 * Creates a crafting GUI with given size and inventory
 	 * @param size size of each grid side in squares

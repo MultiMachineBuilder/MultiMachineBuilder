@@ -3,6 +3,7 @@
  */
 package mmb.WORLD.tool;
 
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -117,6 +118,12 @@ Titled{
 		//to be implemented by its user
 	}
 
+	/**
+	 * @return the GUI of the block tool
+	 */
+	public Component GUI() {
+		return null;
+	}
 	protected WorldWindow window;
 	protected WorldFrame frame;
 	public void setWindow(WorldWindow window) {

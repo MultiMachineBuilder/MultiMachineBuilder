@@ -8,6 +8,10 @@ import java.awt.Component;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.fasterxml.jackson.databind.ser.std.StdKeySerializers.Default;
+
+import mmb.WORLD.chance.Chance;
+import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.items.ItemEntry;
 
@@ -68,6 +72,17 @@ public interface Recipe<T extends Recipe<T>>{
 	 * @throws UnsupportedOperationException if the implementation is a stencil, or something similar (optional operation)
 	 */
 	@Nonnull public RecipeGroup group();
+	@Nonnull public default Chance luck() {
+		return Chance.NONE;
+	}
+	/**
+	 * @return amount of electricity required for the recipe
+	 */
+	public double energy();
+	/**
+	 * @return voltage required for the recipe
+	 */
+	@Nonnull public VoltageTier voltTier();
 	/**
 	 * @return this object
 	 * @apiNote Used to enforce type safety in recipes

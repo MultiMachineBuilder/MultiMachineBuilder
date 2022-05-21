@@ -72,7 +72,6 @@ public class Splicer extends CommonMachine implements BlockActivateListener{
 		node.put("pass", pass);
 		node.put("autoex", autoExtract);
 	}
-
 	@Override
 	protected void load1(ObjectNode node) {
 		helper.load(node);
@@ -88,31 +87,15 @@ public class Splicer extends CommonMachine implements BlockActivateListener{
 		if(autoNode != null) autoExtract = autoNode.asBoolean();
 	}
 
-	
-	SplicerTab tab;
 	//GUI
 	@Override
 	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(tab != null) return;
-		tab = new SplicerTab(this, window);
+		tab = new MachineTab(this, window);
 		window.openAndShowWindow(tab, group.title+' '+type.volt.name);
 		helper.refreshable = tab;
 		tab.refreshProgress(0, null);
-	}
-
-	@Override
-	public void onTick(MapProxy map) {
-		CycleResult tick = helper.cycle();
-		if(pass && tick == CycleResult.UNSUPPORTED) {
-			//Pass on items
-			Inventories.transfer(in, out0);
-			if(tab != null) {
-				tab.refreshInputs();
-				tab.refreshOutputs();
-			}
-		}
-		Electricity.equatePPs(this, map, elec, 0.9);
 	}
 	
 	@Override
@@ -130,5 +113,9 @@ public class Splicer extends CommonMachine implements BlockActivateListener{
 	@Override
 	public String machineName() {
 		return group.title;
+	}
+
+	@Override protected void onTick0(MapProxy map) {
+		helper.cycle();
 	}
 }

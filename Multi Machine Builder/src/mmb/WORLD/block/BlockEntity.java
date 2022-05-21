@@ -104,9 +104,8 @@ public abstract class BlockEntity implements BlockEntry, Positioned{
 		return owner().getAtSide(s, x, y);
 	}
 	
-	
 	/**
-	 * Invoken on every tick
+	 * Invoked on every tick
 	 * @param map map proxy
 	 */
 	public void onTick(MapProxy map) {

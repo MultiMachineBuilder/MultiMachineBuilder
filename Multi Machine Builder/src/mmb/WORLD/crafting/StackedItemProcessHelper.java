@@ -11,8 +11,8 @@ import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.util.concurrent.Runnables;
 
-import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup;
-import mmb.WORLD.crafting.recipes.SimpleProcessingRecipeGroup.SimpleProcessingRecipe;
+import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup;
+import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup.ElectroSimpleProcessingRecipe;
 import mmb.WORLD.crafting.recipes.StackedProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.StackedProcessingRecipeGroup.StackedProcessingRecipe;
 import mmb.WORLD.electric.Battery;
@@ -145,21 +145,6 @@ public class StackedItemProcessHelper{
 		}
 		if(refreshable != null) refreshable.refreshProgress(progress/underway.energy, underway);
 		return CycleResult.RUN;
-	}
-	/**
-	 * @author oskar
-	 * An object which is refreshed during processing
-	 */
-	public static interface Refreshable{
-		/** Refreshes the input list */
-		public void refreshInputs();
-		/** Refreshes the output list */
-		public void refreshOutputs();
-		/** Refreshes the progress bar 
-		 * @param progress processing progress in ticks
-		 * @param underway item which is currently smelted
-		 */
-		public void refreshProgress(double progress, @Nullable StackedProcessingRecipe underway);
 	}
 	/**
 	 * @param helper

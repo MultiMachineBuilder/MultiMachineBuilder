@@ -8,7 +8,7 @@ import javax.swing.Icon;
 
 import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.crafting.Craftings;
-import mmb.WORLD.electric.Conduit;
+import mmb.WORLD.electric.BlockConduit;
 import mmb.WORLD.electric.ElecRenderer;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.item.Items;
@@ -72,7 +72,7 @@ public class WireGroup implements Identifiable<String> {
 			}
 		};
 		return b.title(title)
-				.factory(() -> new Conduit(b, pwr, volt))
+				.factory(() -> new BlockConduit(b, pwr, volt))
 				.texture(texture)
 				.finish(id);
 	}

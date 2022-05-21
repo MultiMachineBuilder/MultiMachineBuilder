@@ -28,13 +28,13 @@ class TestBlocks {
 		BlockDrawer fake = new BlockDrawer() {
 
 			@Override
-			public void draw(BlockEntry ent, int x, int y, Graphics g, int side) {
-				// TODO Auto-generated method stub
+			public void draw(BlockEntry ent, int x, int y, Graphics g, int w, int h) {
+				//dummy
 			}
 
 			@Override
 			public Icon toIcon() {
-				// TODO Auto-generated method stub
+				//dummy
 				return null;
 			}
 		};

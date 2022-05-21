@@ -34,7 +34,7 @@ public class InventoryController extends JPanel {
 	private static final long serialVersionUID = -3804277344383315579L;
 	
 	private final JList<ItemRecord> invlist;
-	private DefaultListModel<ItemRecord> model0 = new DefaultListModel<>();
+	@Nonnull private DefaultListModel<ItemRecord> model0 = new DefaultListModel<>();
 	
 	
 	private Inventory inv;
@@ -213,7 +213,7 @@ public class InventoryController extends JPanel {
 			}
 			setOpaque(true);
 			setIcon(itemType.item().icon());
-			setText(itemType.id().title() + " × " + itemType.amount());
+			setText(itemType.id().title() + " ï¿½ " + itemType.amount());
 			
 			if (isSelected) {
 			    setBackground(list.getSelectionBackground());
@@ -237,7 +237,7 @@ public class InventoryController extends JPanel {
 	/**
 	 * @return the model
 	 */
-	public DefaultListModel<ItemRecord> getModel() {
+	@Nonnull public DefaultListModel<ItemRecord> getModel() {
 		return model0;
 	}
 	/**
@@ -258,7 +258,7 @@ public class InventoryController extends JPanel {
 	 * @return current selection model
 	 * @see javax.swing.JList#getSelectionModel()
 	 */
-	public ListSelectionModel getSelectionModel() {
+	@Nonnull public ListSelectionModel getSelectionModel() {
 		return invlist.getSelectionModel();
 	}
 	/**

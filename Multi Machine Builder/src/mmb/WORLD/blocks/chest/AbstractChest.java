@@ -20,7 +20,7 @@ import mmb.WORLD.rotate.Side;
  * @author oskar
  *
  */
-public abstract class AbstractChest extends BlockEntityData{
+public abstract class AbstractChest extends BlockEntityData implements ArbitraryChest{
 	@Nonnull protected SimpleInventory inv = new SimpleInventory();
 	@Override
 	public final void load(@Nullable JsonNode data) {
@@ -50,6 +50,10 @@ public abstract class AbstractChest extends BlockEntityData{
 	}
 	@Override
 	public Inventory getInventory(Side s) {
+		return inv;
+	}
+	@Override
+	public Inventory inv() {
 		return inv;
 	}
 }

@@ -18,17 +18,38 @@ import monniasza.collects.Identifiable;
  *
  */
 public interface ItemType extends Titled, Identifiable<String>{
+	/**
+	 * @return the volume which item takes up
+	 */
 	public double volume();
+	/**
+	 * Sets the item's volume
+	 * @param volume new volume
+	 */
 	public void setVolume(double volume);
 	
+	/**
+	 * Sets the item's description
+	 * @param description new description
+	 */
 	public void setDescription(String description);
+	/**
+	 * A description contains extra information about the item, which can be used by their users.
+	 * @return item's description
+	 */
 	public String description();
 	
 	public void setID(String id);
-	//id()
+	@Override
+	public String id();
 	
 	public void setTitle(String title);
-	//title()
+	/**
+	 * A title is name which is displayed in toolbars. If title is null, it will be set to the ID.
+	 * @return this item's title
+	 */
+	@Override
+	public String title();
 	
 	public void setTexture(BlockDrawer texture);
 	public BlockDrawer getTexture();
@@ -46,7 +67,7 @@ public interface ItemType extends Titled, Identifiable<String>{
 		return item;
 	}
 	
-	default public boolean exists() {
+	public default boolean exists() {
 		return true;
 	}
 

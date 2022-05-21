@@ -44,26 +44,25 @@ public CheckBoxList()
       setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
    }
 
-   protected class CellRenderer implements ListCellRenderer
+   protected class CellRenderer implements ListCellRenderer<JCheckBox>
    {
       @Override
 	public Component getListCellRendererComponent(
-                    JList list, Object value, int index,
+                    JList list, JCheckBox value, int index,
                     boolean isSelected, boolean cellHasFocus)
       {
-         JCheckBox checkbox = (JCheckBox) value;
-         checkbox.setBackground(isSelected ?
+         value.setBackground(isSelected ?
                  getSelectionBackground() : getBackground());
-         checkbox.setForeground(isSelected ?
+         value.setForeground(isSelected ?
                  getSelectionForeground() : getForeground());
-         checkbox.setEnabled(isEnabled());
-         checkbox.setFont(getFont());
-         checkbox.setFocusPainted(false);
-         checkbox.setBorderPainted(true);
-         checkbox.setBorder(isSelected ?
+         value.setEnabled(isEnabled());
+         value.setFont(getFont());
+         value.setFocusPainted(false);
+         value.setBorderPainted(true);
+         value.setBorder(isSelected ?
           UIManager.getBorder(
            "List.focusCellHighlightBorder") : noFocusBorder);
-         return checkbox;
+         return value;
       }
    }
 }

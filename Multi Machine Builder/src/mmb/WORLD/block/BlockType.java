@@ -7,6 +7,7 @@ import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
 import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.chance.Chance;
 import mmb.WORLD.gui.Placer;
 import mmb.WORLD.item.ItemType;
 
@@ -54,8 +55,8 @@ public interface BlockType extends Placer, ItemType {
 		return getTexture().toIcon();
 	}
 	
-	public Drop getDrop();
-	public void setDrop(Drop drop);
+	public Chance getDrop();
+	public void setDrop(Chance drop);
 	
 	/**
 	 * @return required pickaxe level

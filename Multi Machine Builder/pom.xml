@@ -557,5 +557,10 @@
 			<version>RELEASE</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+    		<groupId>io.github.parubok</groupId>
+    		<artifactId>multiline-label</artifactId>
+    		<version>1.18</version>
+		</dependency>
 	</dependencies>
 </project>

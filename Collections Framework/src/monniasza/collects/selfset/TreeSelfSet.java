@@ -282,11 +282,11 @@ public class TreeSelfSet<K, V extends Identifiable<K>> implements SortedSelfSet<
 
 			@Override
 			public boolean addAll(@SuppressWarnings("null")Collection<? extends V> c) {
-				Bool changed = new Bool();
+				boolean changed = false;
 				for(V value: c) {
-					if(that.add(value)) changed.val = true;
+					if(that.add(value)) changed = true;
 				}
-				return changed.val;
+				return changed;
 			}
 
 			@Override

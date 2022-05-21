@@ -25,6 +25,7 @@ import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.SimpleItemList;
+import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.item.ItemEntity;
 import mmb.WORLD.items.ContentsItems;
@@ -175,7 +176,6 @@ public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>, Re
 	@Override
 	public int maxCraftable(Inventory src, int amount) {
 		RecipeOutput ins = inputs();
-		//debug.printl(ins+" in "+src);
 		return Math.min(amount, Inventory.howManyTimesThisContainsThat(src, ins));
 	}
 	@Override
@@ -208,7 +208,6 @@ public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>, Re
 
 	@Override
 	public ItemEntry catalyst() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -224,8 +223,17 @@ public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>, Re
 
 	@Override
 	public Component createComponent() {
-		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public double energy() {
+		return 0;
+	}
+
+	@Override
+	public VoltageTier voltTier() {
+		return VoltageTier.V1;
 	}
 	
 }

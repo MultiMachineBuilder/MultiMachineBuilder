@@ -221,11 +221,22 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 		if(!canInsert()) return 0;
 		return capacity() - volume();
 	}
+	/**
+	 * 
+	 * @param amount
+	 * @param ivolume
+	 * @return
+	 */
 	public default int insertibleRemain(int amount, double ivolume) {
 		double tvolume = ivolume * amount;
 		tvolume = Math.min(iremainVolume(), tvolume) / ivolume;
 		return (int) Math.floor(tvolume);
 	}
+	/**
+	 * @param amount mount of items
+	 * @param item item to check
+	 * @return number of items that may be inserted. May vary by inventory
+	 */
 	public default int insertibleRemain(int amount, ItemEntry item) {
 		return insertibleRemain(amount, item.volume());
 	}

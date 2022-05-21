@@ -29,7 +29,7 @@ public class DataLayers {
 	public static UniverseDataLayer createUniverseData(String name) {
 		Class<? extends UniverseDataLayer> c = udatas.get(name);
 		try {
-			return c.newInstance();
+			return c.getConstructor().newInstance();
 		} catch (Exception e) {
 			debug.pstm(e, "Failed to create "+c .getCanonicalName());
 			return null;
@@ -43,7 +43,7 @@ public class DataLayers {
 		SelfSet<String,UniverseDataLayer> result = new HashSelfSet<>();
 		udatas.forEach((s, c) -> {
 			try {
-				result.add(c.newInstance());
+				result.add(c.getConstructor().newInstance());
 			} catch (Exception e) {
 				debug.pstm(e, "Failed to create "+c .getCanonicalName());
 			}
@@ -71,7 +71,7 @@ public class DataLayers {
 	public static WorldDataLayer createMapData(String name) {
 		Class<? extends WorldDataLayer> c = mdatas.get(name);
 		try {
-			return c.newInstance();
+			return c.getConstructor().newInstance();
 		} catch (Exception e) {
 			debug.pstm(e, "Failed to create "+c .getCanonicalName());
 			return null;
@@ -91,7 +91,7 @@ public class DataLayers {
 		SelfSet<String,WorldDataLayer> result = new HashSelfSet<>();
 		mdatas.forEach((s, c) -> {
 			try {
-				result.add(c.newInstance());
+				result.add(c.getConstructor().newInstance());
 			} catch (Exception e) {
 				debug.pstm(e, "Failed to create "+c .getCanonicalName());
 			}

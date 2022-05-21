@@ -5,11 +5,12 @@ package mmb.WORLD.gui;
 
 import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
-
 import javax.swing.JColorChooser;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Component;
+import java.util.function.Consumer;
+
 import net.miginfocom.swing.MigLayout;
 
 /**
@@ -29,17 +30,17 @@ public class ColorGUI extends GUITab {
 	 * @param win world window
 	 */
 	@SuppressWarnings("null")
-	public ColorGUI(Variable<Color> c, WorldWindow win) {
+	public ColorGUI(Color initial, Consumer<Color> action, WorldWindow win) {
 		setLayout(new MigLayout("", "[fill]", "[450px][21px][21px]"));
 		
 		colorChooser = new JColorChooser();
 		add(colorChooser, "cell 0 0,grow,aligny center");
-		colorChooser.setColor(c.get());
+		colorChooser.setColor(initial);
 		
 		btnNewButton = new JButton("OK");
 		btnNewButton.setBackground(Color.GREEN);
 		btnNewButton.addActionListener(e -> {
-			c.set(colorChooser.getColor());
+			action.accept(colorChooser.getColor());
 			win.closeWindow(this);
 		});
 		btnNewButton.setAlignmentX(Component.CENTER_ALIGNMENT);

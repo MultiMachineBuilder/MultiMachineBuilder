@@ -32,6 +32,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
+import io.github.parubok.text.multiline.MultilineLabel;
+
 import java.io.OutputStream;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -159,7 +161,7 @@ public class WorldWindow extends MMBFrame{
 					worldPane.setDividerLocation(320);
 					//[start] The world frame panel
 						JPanel worldFramePanel = new JPanel();
-						worldFramePanel.setLayout(new MigLayout("", "[101px,grow,center]", "[80px,grow][]"));
+						worldFramePanel.setLayout(new MigLayout("", "[101px,grow,center]", "[80px,grow][][]"));
 						worldPane.setRightComponent(worldFramePanel);
 						
 						worldFrame = new WorldFrame(this);
@@ -205,6 +207,12 @@ public class WorldWindow extends MMBFrame{
 					//[end]
 					worldFrame.setActive(true);
 					worldFrame.setPlacer(scrollablePlacementList);
+					
+					lblTool = new MultilineLabel("Tool description goes here");
+					worldFramePanel.add(lblTool, "cell 0 2,grow");
+					lblTool.setForeground(Color.WHITE);
+					lblTool.setBackground(Color.BLUE);
+					lblTool.setOpaque(true);
 					pane.add("World", worldPane);
 				//[end]
 				//[start] Inventory pane
@@ -233,7 +241,7 @@ public class WorldWindow extends MMBFrame{
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 			//Menu
-				JMenu mnNewMenu = new JMenu("New menu");
+				JMenu mnNewMenu = new JMenu("Game");
 				menuBar.add(mnNewMenu);
 				//Full screen
 					BoundCheckBoxMenuItem mntmFullScreen = new BoundCheckBoxMenuItem();
@@ -277,12 +285,6 @@ public class WorldWindow extends MMBFrame{
 					checkBindCameraPlayer = new JCheckBoxMenuItem("Camera is bound to the player");
 					menuBar.add(checkBindCameraPlayer);
 					
-					lblTool = new JLabel("Tool description goes here");
-					lblTool.setForeground(Color.WHITE);
-					lblTool.setBackground(Color.BLUE);
-					lblTool.setOpaque(true);
-					menuBar.add(lblTool);
-					
 		//Framerate
 		fpsCounter.scheduleAtFixedRate(new TimerTask() {
 			@Override
@@ -323,11 +325,7 @@ public class WorldWindow extends MMBFrame{
 		String tool = toolModel.getTool().description();
 		if(oldDescription.equals(tool)) return;
 		
-		//Process the text
-		String processed = tool.replace("<", "&lt;")
-				.replace(">", "&gt;")
-				.replace("\n", "<br>");
-		lblTool.setText("<html>"+processed+"</html>");
+		lblTool.setText(tool);
 	}
 	private static Debugger debug = new Debugger("WORLD TEST");
 	
@@ -376,7 +374,7 @@ public class WorldWindow extends MMBFrame{
 	//tool list
 	private WorldToolList toolList;
 	
-	private JSplitPane toolEditorSplitPane;
+	public final JSplitPane toolEditorSplitPane;
 	private TabInventory panelPlayerInv;
 	private JScrollPane scrollistPane;
 	/**
@@ -393,7 +391,7 @@ public class WorldWindow extends MMBFrame{
 	 */
 	public void setWorld(Save s, Universe deserialized) {
 		file = s;
-		worldFrame.enterWorld(deserialized);
+		worldFrame.enterWorld(deserialized); //this fails
 		panelPlayerInv.setPlayer(worldFrame.getMap().player);
 		scrollablePlacementList.setInv(worldFrame.getMap().player.inv);
 	}
@@ -455,7 +453,7 @@ public class WorldWindow extends MMBFrame{
 	
 	/** The tool selection. Changes to the model are reflected in the window and vice versa */
 	@Nonnull public final ToolSelectionModel toolModel = new ToolSelectionModel(this);
-	private JLabel lblTool;
+	private MultilineLabel lblTool;
 	private JCheckBoxMenuItem checkBindCameraPlayer;
 	private JLabel lblStatus;
 	
@@ -472,7 +470,7 @@ public class WorldWindow extends MMBFrame{
 	}
 	
 	//Events
-	public static final Event<WorldWindow> wwindowOpen = new CatchingEvent(debug, "Failed to run world window opened event");
-	public        final Event<World> worldLoaded = new CatchingEvent(debug, "Failed to run world world loaded event");
-	public        final Event<World> worldLeft = new CatchingEvent(debug, "Failed to run world world left event");
+	public static final Event<WorldWindow> wwindowOpen = new CatchingEvent<>(debug, "Failed to run world window opened event");
+	public        final Event<World> worldLoaded = new CatchingEvent<>(debug, "Failed to run world world loaded event");
+	public        final Event<World> worldLeft = new CatchingEvent<>(debug, "Failed to run world world left event");
 }

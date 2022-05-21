@@ -237,8 +237,4 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 			volume += vol;
 		}
 	}
-	
-	//Methods for ListenableInventory
-	protected void _inventoryItemAdded(ItemRecord record, ItemEntry item, int amount) {}
-	protected void _inventoryItemRemoved(ItemRecord record, ItemEntry item, int amount) {}
 }

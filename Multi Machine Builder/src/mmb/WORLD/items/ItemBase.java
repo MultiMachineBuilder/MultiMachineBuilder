@@ -43,12 +43,7 @@ public abstract class ItemBase implements ItemType {
 	}
 
 	
-	/** 
-	 * A description contains extra information about the item, which can be used by their users.
-	 * @deprecated Deprecated in favor of encapsulation. {@link #setDescription(String)} and {@link #description()} instead
-	 */
-	@Deprecated
-	public String description;
+	private String description;
 
 	@Override
 	public String description() {
@@ -84,46 +79,28 @@ public abstract class ItemBase implements ItemType {
 		return drawer;
 	}
 
-	/**
-	 * The identifier is an unique name used in code. If identifier is null, a {@link NullPointerException} is thrown.
-	 * @deprecated Deprecated in favor of encapsulation. {@link #setID(String)} and {@link #id()} instead
-	 */
-	@Deprecated
-	public String id;
-
+	private String id;
 	@Override
 	public void setID(String id) {
 		this.id = id;
 	}
-
 	@Override
 	public String id() {
 		return id;
 	}
 
-	/**
-	 * A title is name which is displayed in toolbars. If title is null, it will be set to the ID.
-	 * @deprecated Deprecated in favor of encapsulation. {@link #setTitle(String)} and {@link #title()} instead
-	 */
-	@Deprecated
-	public String title;
-
+	private String title;
 	@Override
 	public String title() {
 		return title;
 	}
-
 	@Override
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
-	/**
-	 * The volume which item takes up
-	 * @deprecated Deprecated in favor of encapsulation. Use {@link #setVolume(double)} and {@link #volume()} instead
-	 */
-	@Deprecated
-	public double volume = 0.02;
+	
+	private double volume = 0.02;
 	@Override
 	public double volume() {
 		return volume;

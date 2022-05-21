@@ -26,10 +26,10 @@ public class ColorDrawer implements BlockDrawer {
 	}
 
 	@Override
-	public void draw(BlockEntry ent, int x, int y, Graphics g, int side) {
+	public void draw(BlockEntry ent, int x, int y, Graphics g, int w, int h) {
 		Color old = g.getColor();
 		g.setColor(c);
-		g.fillRect(x, y, side, side);
+		g.fillRect(x, y, w, h);
 		g.setColor(old);
 	}
 

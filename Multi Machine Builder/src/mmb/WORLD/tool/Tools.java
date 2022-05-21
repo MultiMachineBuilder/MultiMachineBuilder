@@ -27,17 +27,19 @@ public class Tools {
 	 * A standard tool
 	 */
 	public static final WindowToolModel TOOL_STANDARD =
-			new WindowToolModel(ToolStandard.ICON_NORMAL, () -> new ToolStandard(), "standard");
+			new WindowToolModel(ToolStandard.ICON_NORMAL, ToolStandard::new, "standard");
 	public static final WindowToolModel TOOL_PAINT =
-			new WindowToolModel(ToolPaint.icon, () -> new ToolPaint(), "paint");
+			new WindowToolModel(ToolPaint.icon, ToolPaint::new, "paint");
 	public static final WindowToolModel TOOL_COPY =
-			new WindowToolModel(Copy.icon, () -> new Copy(), "copy");
+			new WindowToolModel(Copy.icon, Copy::new, "copy");
 	public static final WindowToolModel TOOL_PICKERS =
-			new WindowToolModel(ConfigureDroppedItemExtractors.icon, () -> new ConfigureDroppedItemExtractors(), "droppedItems");
+			new WindowToolModel(ConfigureDroppedItemExtractors.icon, ConfigureDroppedItemExtractors::new, "droppedItems");
 	public static final WindowToolModel TOOL_DUMP =
-			new WindowToolModel(DumpItems.icon, () -> new DumpItems(), "dumpItems");
+			new WindowToolModel(DumpItems.icon, DumpItems::new, "dumpItems");
 	public static final WindowToolModel TOOL_PICKAXE =
-			new WindowToolModel(ToolPickaxe.icon, () -> new ToolPickaxe(), "pickaxe");
+			new WindowToolModel(ToolPickaxe.icon, ToolPickaxe::new, "pickaxe");
+	public static final WindowToolModel TOOL_VISUALS =
+			new WindowToolModel(ToolVisuals.ICON, ToolVisuals::new, "visuals");
 
 	private static boolean initialized = false;
 	/**
@@ -51,6 +53,7 @@ public class Tools {
 		toollist.add(TOOL_PICKERS);
 		toollist.add(TOOL_DUMP);
 		toollist.add(TOOL_PICKAXE);
+		toollist.add(TOOL_VISUALS);
 		debug.printl("Tools initialized");
 		initialized = true;
 		
