@@ -144,7 +144,7 @@ public class PanelSaves extends JPanel {
 				debug.printl("Parsed file");
 				world.load(node);
 				debug.printl("Loaded");
-				ww.setWorld(s, world); //fail here
+				ww.setWorld(s, world);
 				fail = false;
 				return;
 			}catch(Exception e) {

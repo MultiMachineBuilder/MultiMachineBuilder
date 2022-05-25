@@ -10,12 +10,12 @@ import org.apache.commons.collections4.bag.HashBag;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
 
+import mmb.DATA.variables.Variable;
 import mmb.LAMBDAS.Consumers;
 import mmb.WORLD.blocks.machine.manual.Crafting;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.recipes.CraftingRecipeGroup.CraftingRecipe;
-import mmb.WORLD.gui.Variable;
 import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
@@ -32,6 +32,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+
+import static mmb.GlobalSettings.$res;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -122,7 +124,7 @@ public class CraftGUI extends GUITab {
 			}
 		}
 		
-		btnCraft = new JButton("<< Craft to inventory");
+		btnCraft = new JButton($res("wguic-craft"));
 		btnCraft.setForeground(new Color(0, 0, 0));
 		btnCraft.setToolTipText(
 				"<html>\r\n"
@@ -143,7 +145,7 @@ public class CraftGUI extends GUITab {
 		verticalBox.add(btnCraft);
 		
 		if(window != null) {
-			btnExit = new JButton("Close this GUI");
+			btnExit = new JButton($res("wguic-exit"));
 			btnExit.setForeground(new Color(0, 0, 0));
 			btnExit.setToolTipText("Closes this crafting GUI, discarding any selections.");
 			btnExit.addActionListener(e -> {
@@ -152,7 +154,7 @@ public class CraftGUI extends GUITab {
 			btnExit.setBackground(Color.RED);
 			verticalBox.add(btnExit);
 		}
-		btnLoad = new JButton("Stencil \u2192 Grid");
+		btnLoad = new JButton($res("wguic-s2g"));
 		btnLoad.setToolTipText("Sets contents of this grid using a stencil."
 				+ "\r\nIf given stencil is larger than the grid, the upper left part is used."
 				+ "\r\nIf given item is not a stencil, nothing happens");
@@ -173,15 +175,15 @@ public class CraftGUI extends GUITab {
 			}//else it is not a stencil
 		});
 		
-		btnNewButton = new JButton("Clear");
-		btnNewButton.addActionListener(e -> {
-			craftingGrid.items.fill(0, 0, size, size, null);
-		});
-		btnNewButton.setBackground(new Color(255, 69, 0));
-		verticalBox.add(btnNewButton);
+		btnClear = new JButton($res("wguic-clear"));
+		btnClear.addActionListener(e -> 
+			craftingGrid.items.fill(0, 0, size, size, null)
+		);
+		btnClear.setBackground(new Color(255, 69, 0));
+		verticalBox.add(btnClear);
 		verticalBox.add(btnLoad);
 		
-		btnSave = new JButton("Stencil \u2190 Grid");
+		btnSave = new JButton($res("wguic-g2s"));
 		btnSave.setToolTipText("Replaces given stencil with one with contents of the grid"
 				+ "\r\nIf given item is not a stencil, nothing happens");
 		btnSave.setForeground(new Color(192, 192, 192));
@@ -210,7 +212,7 @@ public class CraftGUI extends GUITab {
 	private JButton btnExit;	
 	@Nonnull private JButton btnLoad;
 	@Nonnull private JButton btnSave;
-	@Nonnull private JButton btnNewButton;
+	@Nonnull private JButton btnClear;
 	@Override
 	public void createTab(WorldWindow window) {
 		// TODO Auto-generated method stub

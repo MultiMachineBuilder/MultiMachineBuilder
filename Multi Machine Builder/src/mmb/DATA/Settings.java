@@ -14,12 +14,20 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
+import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.IntConsumer;
+import java.util.function.IntSupplier;
 import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
+import mmb.DATA.variables.BooleanVariable;
+import mmb.DATA.variables.ListenableValue;
+import mmb.DATA.variables.Variable;
 import mmb.debug.Debugger;
 
 /**
@@ -27,29 +35,15 @@ import mmb.debug.Debugger;
  *
  */
 public class Settings {
+	//Internals
 	private Settings() {}
 	private static final Debugger debug = new Debugger("SETTINGS");
 	/**
 	 * The settings file
 	 */
 	private static final Properties props = new Properties();
-	/**
-	 * @param key key
-	 * @return the value in this property list with the specified key value
-	 * @see java.util.Properties#getProperty(java.lang.String)
-	 */
-	public static String get(String key) {
-		return props.getProperty(key);
-	}
-	/**
-	 * @param key key
-	 * @param value value
-	 * @return the previous value of the specified key in this property list, or {@code null} if it did not have one.
-	 * @see java.util.Properties#setProperty(java.lang.String, java.lang.String)
-	 */
-	public static Object set(String key, String value) {
-		return props.setProperty(key, value);
-	}
+	
+	//Initialization
 	private static boolean hasCreated = false;
 	public static void loadSettings() {
 		boolean doTryLoad = true;
@@ -64,19 +58,13 @@ public class Settings {
 			debug.pstm(e, "Failed to create settings file");
 			doTryLoad = false;
 		}
-		createDefaultSettings();
 		if(doTryLoad) try(InputStream in = new FileInputStream(settings)){
 			props.load(in);
 		} catch (Exception e) {
 			debug.pstm(e, "Failed to read settings file");
 		}
 		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-			try(OutputStream out = new FileOutputStream(settings)){
-				props.store(out, "MMB settings file");
-				debug.printl("Saved settings file");
-			} catch (Exception e) {
-				debug.pstm(e, "Failed to save settings");
-			}
+			saveSettings(settings);
 		}));
 		for(Entry<String, Setting> ent: settingModules.entrySet()) {
 			String key = ent.getKey();
@@ -90,9 +78,26 @@ public class Settings {
 		}
 		hasCreated = true;
 	}
-	private static void createDefaultSettings() {
-		props.setProperty("fullscreen", "false");
+	private static void saveSettings(File settings) {
+		try(OutputStream out = new FileOutputStream(settings)){
+			for(Entry<String, Setting> ent: settingModules.entrySet()) {
+				String key = ent.getKey();
+				String result = ent.getValue().save.get();
+				debug.printl("Resetting a setting "+key+" with value "+result);
+				props.setProperty(key, result);
+			}
+			for(Entry<Object, Object> ent: props.entrySet()) {
+				debug.printl("Saving a setting "+ent.getKey()+" with value "+ent.getValue());
+			}
+			props.store(out, "MMB settings file");
+			out.flush();
+			debug.printl("Saved settings file");
+		} catch (Exception e) {
+			debug.pstm(e, "Failed to save settings");
+		}
 	}
+	
+	//Get/set
 	/**
 	 * @param key key
 	 * @param def default value for boolean
@@ -119,6 +124,23 @@ public class Settings {
 		if(result == null) return null;
 		return Boolean.valueOf(result);
 	}
+	/**
+	 * @param key key
+	 * @return the value in this property list with the specified key value
+	 * @see java.util.Properties#getProperty(java.lang.String)
+	 */
+	public static String get(String key) {
+		return props.getProperty(key);
+	}
+	/**
+	 * @param key key
+	 * @param value value
+	 * @return the previous value of the specified key in this property list, or {@code null} if it did not have one.
+	 * @see java.util.Properties#setProperty(java.lang.String, java.lang.String)
+	 */
+	public static Object set(String key, String value) {
+		return props.setProperty(key, value);
+	}
 	
 	//Setting modules
 	private static final Map<String, Setting> settingModules0 = new HashMap<>();
@@ -135,8 +157,10 @@ public class Settings {
 		}
 	}
 	
+	//Setting modules
 	/**
-	 * @param name
+	 * Adds a string setting
+	 * @param name the name of a setting
 	 * @param defalt the default value of the property
 	 * @param onload method which handles setting loading. The method
 	 * @param save method which provides strings for saving
@@ -152,4 +176,66 @@ public class Settings {
 			else onload.accept(val);
 		}
 	}
+	/**
+	 * @param string
+	 * @param string2
+	 * @param lang
+	 */
+	public static void addSettingString(String name, String defalt, ListenableValue<String> variable) {
+		addSettingString(name, defalt, variable::set, variable::get);
+	}
+	/**
+	 * Adds a boolean setting
+	 * @param name the name of a setting
+	 * @param defalt the default value of the property
+	 * @param onload method which handles setting loading. The method
+	 * @param save method which provides strings for saving
+	 */
+	public static void addSettingBool(String name, boolean defalt, BooleanConsumer onload, BooleanSupplier save) {
+		addSettingString(name, Boolean.toString(defalt), s -> onload.accept(Boolean.parseBoolean(s)), () -> Boolean.toString(save.getAsBoolean()));
+	}
+	/**
+	 * Adds a boolean setting
+	 * @param name the name of a setting
+	 * @param defalt the default value of the property
+	 * @param variable a boolean variable
+	 */
+	public static void addSettingBool(String name, boolean defalt, BooleanVariable variable) {
+		addSettingBool(name, defalt, variable::setValue, variable::getValue);
+	}
+	/**
+	 * Adds a boolean setting
+	 * @param name the name of a setting
+	 * @param defalt the default value of the property
+	 * @param onload method which handles setting loading. The method
+	 * @param save method which provides strings for saving
+	 */
+	public static void addSettingInt(String name, boolean defalt, IntConsumer onload, IntSupplier save) {
+		addSettingString(name, Boolean.toString(defalt), s -> onload.accept(Integer.parseInt(s)), () -> Integer.toString(save.getAsInt()));
+	}
+	/**
+	 * @param <T> type of value 
+	 * @param name the name of a setting
+	 * @param defalt the default value of the property
+	 * @param onload method which handles setting loading. The method
+	 * @param save method which provides strings for saving
+	 * @param deser the function, which converts a string into a corresponding object
+	 */
+	public static <T> void addSettingExt(String name, T defalt, Consumer<T> onload, Supplier<T> save, Function<String, T> deser) {
+		addSettingString(name, defalt.toString(), s -> onload.accept(deser.apply(s)), () -> save.get().toString());
+	}
+	/**
+	 * @param <T> type of value 
+	 * @param name the name of a setting
+	 * @param defalt the default value of the property
+	 * @param onload method which handles setting loading. The method
+	 * @param save method which provides strings for saving
+	 * @param deser the function, which converts a string into a corresponding object
+	 */
+	public static <T> void addSettingExt(String name, T defalt, Variable<T> variable, Function<String, T> deser) {
+		addSettingExt(name, defalt, variable::set, variable::get, deser);
+	}
+	
+	//Shared settings
+	
 }

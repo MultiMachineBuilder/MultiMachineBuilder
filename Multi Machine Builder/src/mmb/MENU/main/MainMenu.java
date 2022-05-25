@@ -16,13 +16,11 @@ import java.util.TimerTask;
 import java.awt.Desktop;
 import java.awt.BorderLayout;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
+
 import mmb.MENU.FullScreen;
 import mmb.MENU.MMBFrame;
 import mmb.MENU.TestCollision;
 import mmb.MENU.components.BoundCheckBoxMenuItem;
-import mmb.MENU.settings.PanelSettings;
 
 /**
  * @author oskar
@@ -75,7 +73,7 @@ public class MainMenu extends MMBFrame {
 	 * Launch the application.
 	 */
 	public static void create() {
-		FullScreen.isFullScreen.setValue(Settings.getBool("fullscreen", false));
+		Settings.addSettingBool("fullscreen", false, FullScreen.isFullScreen);		
 		FullScreen.setWindow(INSTANCE);
 	}
 
@@ -85,7 +83,7 @@ public class MainMenu extends MMBFrame {
 	private MainMenu() {
 		debug.printl("MainMenu created");
 		setTitle("MultiMachineBuilder - "+GameContents.addons.size()+" mods");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		
 		mainMenuBar = new JMenuBar();
@@ -183,8 +181,9 @@ public class MainMenu extends MMBFrame {
 		
 		tabbedPane.addTab("Saves", null, PanelSaves.INSTANCE, null);
 		tabbedPane.addTab("Mods", null, new PanelMods(), null);
-		tabbedPane.addTab("Settings", null, new PanelSettings(), null);
-		tabbedPane.addTab("Shop", new PanelShop());
+		tabbedPane.addTab("Settings", null, new PanelSettings(), null); ///this is stuck
+		debug.printl("settings panel isnt stuck");
+		tabbedPane.addTab("Shop", new PanelShop()); //not stuck
 	}
 	
 	private void refreshTime() {

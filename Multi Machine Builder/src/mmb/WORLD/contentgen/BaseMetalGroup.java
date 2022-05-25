@@ -26,18 +26,17 @@ public class BaseMetalGroup extends MetalGroup{
 	/**
 	 * @param c display color
 	 * @param id material ID
-	 * @param title display title
 	 * @param volt minimum voltage tier for recipes
 	 * @param baseEnergy base cost of smelting in joules
 	 * @param orePerSmelt amount of material obtained by smelting an ore
 	 */
-	public BaseMetalGroup(Color c, String id, String title, VoltageTier volt, double baseEnergy, int orePerSmelt) {
-		super(c, id, title, volt, baseEnergy);
+	public BaseMetalGroup(Color c, String id, VoltageTier volt, double baseEnergy, int orePerSmelt) {
+		super(c, id, volt, baseEnergy);
 		ore = new Block()
 		.texture(TexGen.genOre(c))
-		.title(title+" ore")
+		.title(t_nominative+" ore")
 		.finish("ore."+id);
-		crop = ContentsBlocks.crop(1500, ore, title+" crop", TexGen.genCrop(c), "crop."+id);
+		crop = ContentsBlocks.crop(1500, ore, t_nominative+" crop", TexGen.genCrop(c), "crop."+id);
 		
 		//Recipes
 		Craftings.smelting.add(ore, base, orePerSmelt, volt, baseEnergy);

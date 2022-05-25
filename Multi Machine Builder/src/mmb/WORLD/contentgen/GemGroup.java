@@ -22,18 +22,17 @@ public class GemGroup extends MetalGroup {
 	/**
 	 * @param c display color
 	 * @param id material ID
-	 * @param title display title
 	 * @param volt minimum voltage tier for recipes
 	 * @param baseCost base cost of smelting in joules
 	 */
-	public GemGroup(Color c, String id, String title, VoltageTier volt, double baseCost) {
-		super(c, id, title, volt, baseCost);
+	public GemGroup(Color c, String id, VoltageTier volt, double baseCost) {
+		super(c, id, volt, baseCost);
 	}
 
 	@Override
-	public Item createBase(Color c, String id, String title) {
+	public Item createBase(Color c, String id) {
 		return new Item()
-				.title(title)
+				.title(t_basic)
 				.texture(gem(c))
 				.volumed(0.00125)
 				.finish("gem."+id);

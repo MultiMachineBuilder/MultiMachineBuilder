@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.WORLD.gui;
+package mmb.DATA.variables;
 
 import java.lang.reflect.Field;
 import java.util.List;

@@ -11,9 +11,9 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.DATA.json.JsonTool;
+import mmb.DATA.variables.Variable;
 import mmb.WORLD.block.BlockEntityChirotable;
 import mmb.WORLD.block.BlockType;
-import mmb.WORLD.gui.Variable;
 import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.items.ItemEntry;

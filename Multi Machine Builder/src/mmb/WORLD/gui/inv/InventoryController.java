@@ -21,6 +21,9 @@ import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JButton;
+
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
@@ -61,7 +64,7 @@ public class InventoryController extends JPanel {
 		
 		setLayout(new MigLayout("ins 0", "[grow]", "[20.00][grow]"));
 		
-		label = new JLabel("   Inventory   ");
+		label = new JLabel($res("wgui-inv"));
 		label.setHorizontalAlignment(SwingConstants.LEFT);
 		add(label, "flowx,cell 0 0,alignx center");
 		
@@ -73,13 +76,13 @@ public class InventoryController extends JPanel {
 		invlist.setModel(model0);
 		invlist.setCellRenderer(new CellRenderer());
 		
-		btnRefresh = new JButton("Refresh");
+		btnRefresh = new JButton($res("wgui-refresh"));
 		btnRefresh.addActionListener(e -> refresh());
 		btnRefresh.setEnabled(false);
 		btnRefresh.setBackground(Color.YELLOW);
 		add(btnRefresh, "cell 0 0,growx");
 		
-		btnUnsel = new JButton("Unselect");
+		btnUnsel = new JButton($res("wgui-unsel"));
 		btnUnsel.addActionListener(e -> {
 			invlist.setSelectedValue(null, true);
 			invlist.setSelectedIndex(-1);

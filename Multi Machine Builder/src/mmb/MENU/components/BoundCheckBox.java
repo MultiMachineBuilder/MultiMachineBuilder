@@ -9,7 +9,7 @@ import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JCheckBox;
 
-import mmb.BooleanConsumer;
+import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
 import mmb.DATA.variables.ListenerBooleanVariable;
 
 /**

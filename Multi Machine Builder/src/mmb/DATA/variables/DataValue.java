@@ -1,9 +1,7 @@
 /**
  * 
  */
-package mmb.DATA;
-
-import mmb.WORLD.gui.Variable;
+package mmb.DATA.variables;
 
 /**
  * @author oskar

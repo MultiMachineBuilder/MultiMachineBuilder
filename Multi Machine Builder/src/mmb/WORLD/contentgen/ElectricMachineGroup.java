@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import javax.annotation.Nonnull;
 
+import mmb.GlobalSettings;
 import mmb.GRAPHICS.texgen.TexGen;
 import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockEntityType;
@@ -29,21 +30,20 @@ public class ElectricMachineGroup {
 	/**
 	 * @param image machine's texture
 	 * @param ctor
-	 * @param title
 	 * @param id
 	 */
 	@SuppressWarnings("null")
-	public ElectricMachineGroup(BufferedImage image, Function<ElectroMachineType, BlockEntity> ctor, String title, String id, double powermul) {
+	public ElectricMachineGroup(BufferedImage image, Function<ElectroMachineType, BlockEntity> ctor, String id, double powermul) {
 		images = TexGen.generateMachineTextures(image);
 		textures = images.stream()
-				.map(img -> RotatedImageGroup.create(img))
+				.map(RotatedImageGroup::create)
 				.collect(Collectors.toList());
 		IntStream stream = IntStream.range(0, 9);
 		blocks = stream.mapToObj(num -> {
 			RotatedImageGroup texture = textures.get(num);
 			VoltageTier volt = volts[num];
 			ElectroMachineType type = new ElectroMachineType(volt, texture, powermul);
-			type.title(title+' '+volt.name);
+			type.title(GlobalSettings.$res1("machine-"+id)+' '+volt.name);
 			type.factory(() -> ctor.apply(type));
 			type.finish("industry."+id+num);
 			return type;
@@ -54,8 +54,8 @@ public class ElectricMachineGroup {
 			Items.tagItem("voltage-"+block.volt.name, block);
 		}
 	}
-	public ElectricMachineGroup(BufferedImage image, Function<ElectroMachineType, BlockEntity> ctor, String title, String id) {
-		this(image, ctor, title, id, 1);
+	public ElectricMachineGroup(BufferedImage image, Function<ElectroMachineType, BlockEntity> ctor, String id) {
+		this(image, ctor, id, 1);
 	}
 	/**
 	 * @author oskar

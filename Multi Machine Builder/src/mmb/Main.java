@@ -3,6 +3,8 @@
  */
 package mmb;
 
+import java.awt.EventQueue;
+
 import mmb.ERRORS.ExceptionHandler;
 import mmb.debug.Debugger;
 
@@ -29,7 +31,7 @@ public class Main {
 			//UI initialized here
 			loader = new Loading();
 			loader.setVisible(true);
-			loader.continueLoading();
+			EventQueue.invokeLater(loader::continueLoading);
 		// deepcode ignore DontCatch: log the game crash
 		} catch (Throwable e) {
 			Main.crash(e);
@@ -55,7 +57,7 @@ public class Main {
 	
 	private static boolean running;
 	/**
-	 * Checks if the game is run as executable. Used to suppress debugger initialization when designing GUIss
+	 * Checks if the game is run as executable. Used to suppress debugger initialization when designing GUIs
 	 * @return is the game executed?
 	 */
 	public static boolean isRunning() {

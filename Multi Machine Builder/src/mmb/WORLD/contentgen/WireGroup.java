@@ -17,6 +17,7 @@ import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
+import static mmb.GlobalSettings.*;
 
 /**
  * @author oskar
@@ -41,12 +42,12 @@ public class WireGroup implements Identifiable<String> {
 		ElecRenderer small0 =  ElecRenderer.repaint(volt.c, ElecRenderer.small);
 		ElecRenderer medium0 = ElecRenderer.repaint(volt.c, ElecRenderer.medium);
 		ElecRenderer large0 =  ElecRenderer.repaint(volt.c, ElecRenderer.large);
-		this.title = group.title;
+		this.title = group.t_adjective;
 		this.id = group.id;
-		tiny   = conduit(title+" tiny power cable",   mul   ,   tiny0,   "elecwire.tiny."+id, volt);
-		small  = conduit(title+" small power cable",  mul* 3,  small0,  "elecwire.small."+id, volt);
-		medium = conduit(title+" medium power cable", mul*10, medium0, "elecwire.medium."+id, volt);
-		large  = conduit(title+" large power cable",  mul*30,  large0,  "elecwire.large."+id, volt);
+		tiny   = conduit(title+matnames[0], mul   ,   tiny0,   "elecwire.tiny."+id, volt);
+		small  = conduit(title+matnames[1], mul* 3,  small0,  "elecwire.small."+id, volt);
+		medium = conduit(title+matnames[2], mul*10, medium0, "elecwire.medium."+id, volt);
+		large  = conduit(title+matnames[3], mul*30,  large0,  "elecwire.large."+id, volt);
 		_index.add(this);
 		
 		//Crafting recipes
@@ -76,6 +77,9 @@ public class WireGroup implements Identifiable<String> {
 				.texture(texture)
 				.finish(id);
 	}
+	
+	//Localization
+	private static final String[] matnames = {$res("mattype-wire1"), $res("mattype-wire2"), $res("mattype-wire3"), $res("mattype-wire4")};
 	
 	//Indexing
 	@Override

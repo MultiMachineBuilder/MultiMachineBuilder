@@ -30,6 +30,7 @@ import mmb.WORLD.item.ItemType;
 import mmb.WORLD.item.Items;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.worlds.world.Player;
+import static mmb.GlobalSettings.*;
 
 import java.awt.Color;
 import mmb.MENU.components.BoundCheckBox;
@@ -53,6 +54,7 @@ import javax.swing.DefaultListModel;
 
 import javax.swing.JCheckBox;
 import javax.swing.JList;
+import java.util.ResourceBundle;
 
 /**
  * @author oskar
@@ -165,59 +167,61 @@ public class TabInventory extends JPanel {
 		add(creativePanel, "cell 0 0,grow");
 		creativePanel.setLayout(new MigLayout("", "[grow][grow]", "[][grow][grow]"));
 		
-		lblSort = new JLabel("Sort ordering:");
+		
+		lblSort = new JLabel($res("wgui-sort"));
 		creativePanel.add(lblSort, "cell 0 0");
 		
 		panel = new JPanel();
 		creativePanel.add(panel, "cell 1 0,growx");
 		panel.setLayout(new MigLayout("", "[][]", "[][][][][]"));
 		
-		lblNewLabel = new JLabel("Creative items");
-		panel.add(lblNewLabel, "cell 0 0");
+		lblCreativeItems = new JLabel($res("wgui-creati"));
+		panel.add(lblCreativeItems, "cell 0 0");
 		
 		checkSurvival = new BoundCheckBox();
+		checkSurvival.setText($res("wgui-creamode"));
 		panel.add(checkSurvival, "cell 1 0");
-		checkSurvival.setText("Creative");
 		
-		lblNewLabel_1 = new JLabel("Items to remove/add");
-		panel.add(lblNewLabel_1, "cell 0 1");
+		
+		lbAddRemoveCount = new JLabel($res("wgui-icount"));
+		panel.add(lbAddRemoveCount, "cell 0 1");
 		
 		itemAmt = new JSpinner();
 		panel.add(itemAmt, "cell 1 1,growx");
 		
-		btnAdd = new JButton("Add one");
+		JButton btnAdd = new JButton($res("wgui-a1"));
 		panel.add(btnAdd, "cell 0 2,growx");
 		btnAdd.addActionListener(e -> addItems(1));
 		btnAdd.setBackground(new Color(0, 170, 0));
 		
-		btnNewButton_1 = new JButton("Add #");
-		panel.add(btnNewButton_1, "cell 1 2,growx");
-		btnNewButton_1.addActionListener(e -> {
+		JButton btnAddN = new JButton($res("wgui-an"));
+		panel.add(btnAddN, "cell 1 2,growx");
+		btnAddN.addActionListener(e -> {
 			@SuppressWarnings("boxing")
 			int amt = (Integer)(itemAmt.getValue());
 			addItems(amt);
 		});
-		btnNewButton_1.setBackground(new Color(0, 204, 0));
+		btnAddN.setBackground(new Color(0, 204, 0));
 		
-		btnRemove = new JButton("Remove one");
+		JButton btnRemove = new JButton($res("wgui-r1"));
 		panel.add(btnRemove, "cell 0 3,growx");
 		btnRemove.addActionListener(e -> removeItems(1));
 		
 		btnRemove.setBackground(new Color(170, 0, 0));
 		
-		btnNewButton = new JButton("Remove #");
-		btnNewButton.addActionListener(e -> {
+		JButton btnRemoveN = new JButton($res("wgui-rn"));
+		btnRemoveN.addActionListener(e -> {
 			@SuppressWarnings("boxing")
 			int amt = (Integer)(itemAmt.getValue());
 			removeItems(amt);
 		});
-		btnNewButton.setBackground(new Color(204, 0, 0));
-		panel.add(btnNewButton, "cell 1 3");
+		btnRemoveN.setBackground(new Color(204, 0, 0));
+		panel.add(btnRemoveN, "cell 1 3");
 		
-		btnNewButton_2 = new JButton("Empty this slot");
-		btnNewButton_2.addActionListener(e -> removeItems(Integer.MAX_VALUE));
-		btnNewButton_2.setBackground(new Color(255, 0, 0));
-		panel.add(btnNewButton_2, "cell 0 4 2 1,growx");
+		JButton btnREmoveAll = new JButton($res("wgui-ra"));
+		btnREmoveAll.addActionListener(e -> removeItems(Integer.MAX_VALUE));
+		btnREmoveAll.setBackground(new Color(255, 0, 0));
+		panel.add(btnREmoveAll, "cell 0 4 2 1,growx");
 		
 		selectSortItemTypes = new SelectSortItemTypes(() -> tags);
 		creativePanel.add(selectSortItemTypes, "cell 0 1,grow");
@@ -262,10 +266,10 @@ public class TabInventory extends JPanel {
 		craftingsPanel.setLayout(new BoxLayout(craftingsPanel, BoxLayout.Y_AXIS));
 		
 		//Find recipes
-		lblRecipes = new JLabel("Find recipes which:");
+		JLabel lblRecipes = new JLabel($res("wguicf-head"));
 		craftingsPanel.add(lblRecipes);
 		
-		btnCraftTo = new JButton("PRODUCE given item");
+		JButton btnCraftTo = new JButton($res("wguicf-prod"));
 		btnCraftTo.addActionListener(e -> {
 			ItemEntry item = findSourceItem();
 			if(item != null) {
@@ -277,9 +281,9 @@ public class TabInventory extends JPanel {
 		btnCraftTo.setBackground(Color.GREEN);
 		craftingsPanel.add(btnCraftTo);
 		
-		btnGambleTo = new JButton("HAS CHANCE to make given item");
-		btnGambleTo.setBackground(new Color(204, 255, 0));
-		btnGambleTo.addActionListener(e -> {
+		JButton btnCraftRandom = new JButton($res("wguicf-chan"));
+		btnCraftRandom.setBackground(new Color(204, 255, 0));
+		btnCraftRandom.addActionListener(e -> {
 			ItemEntry item = findSourceItem();
 			if(item != null) {
 				queryRecipes(gambling(item));
@@ -287,9 +291,9 @@ public class TabInventory extends JPanel {
 				queryRecipes(all());
 			}
 		});
-		craftingsPanel.add(btnGambleTo);
+		craftingsPanel.add(btnCraftRandom);
 		
-		btnCraftFrom = new JButton("CONSUME given item");
+		JButton btnCraftFrom = new JButton($res("wguicf-cons"));
 		btnCraftFrom.setBackground(Color.RED);
 		btnCraftFrom.addActionListener(e -> {
 			ItemEntry item = findSourceItem();
@@ -301,12 +305,12 @@ public class TabInventory extends JPanel {
 		});
 		craftingsPanel.add(btnCraftFrom);
 		
-		btnCraftBy = new JButton("use given MACHINE(s)");
+		JButton btnCraftBy = new JButton($res("wguicf-mac"));
 		btnCraftBy.setEnabled(false);
 		btnCraftBy.setBackground(Color.BLUE);
 		craftingsPanel.add(btnCraftBy);
 		
-		btnCraftWith = new JButton("use given CATALYST");
+		JButton btnCraftWith = new JButton($res("wguicf-cat"));
 		btnCraftWith.setBackground(new Color(255, 255, 0));
 		btnCraftWith.addActionListener(e -> {
 			ItemEntry item = findSourceItem();
@@ -318,7 +322,7 @@ public class TabInventory extends JPanel {
 		});
 		craftingsPanel.add(btnCraftWith);
 		
-		btnCraftAll = new JButton("ALL recipes");
+		JButton btnCraftAll = new JButton("ALL recipes");
 		btnCraftAll.setBackground(Color.GRAY);
 		btnCraftAll.addActionListener(e -> queryRecipes(all()));
 		craftingsPanel.add(btnCraftAll);
@@ -376,31 +380,19 @@ public class TabInventory extends JPanel {
 	}
 	
 	private final Timer timer;
-	private JLabel lblNewLabel;
-	private JButton btnAdd;
-	private JButton btnRemove;
+	private JLabel lblCreativeItems;
 	private BoundCheckBox checkSurvival;
-	private JLabel lblNewLabel_1;
+	private JLabel lbAddRemoveCount;
 	private JPanel panel;
-	private JButton btnNewButton;
 	private JSpinner itemAmt;
-	private JButton btnNewButton_1;
-	private JButton btnNewButton_2;
 	public final CraftGUI craftGUI;
 	private SelectSortItemTypes selectSortItemTypes;
 	private JLabel lblSort;
 	private JPanel creativePanel;
 	private JPanel craftingsPanel;
-	private JLabel lblRecipes;
-	private JButton btnCraftTo;
-	private JButton btnCraftFrom;
-	private JButton btnCraftBy;
-	private JButton btnCraftWith;
-	private JButton btnCraftAll;
 	private JCheckBox checkUseCIL;
 	private JList<Tagsel> tags;
 	private JScrollPane scrollPane;
-	private JButton btnGambleTo;
 
 	/**
 	 * @author oskar

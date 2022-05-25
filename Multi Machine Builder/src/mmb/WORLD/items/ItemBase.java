@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 
 import javax.annotation.Nonnull;
 
+import mmb.GlobalSettings;
 import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.item.Items;
@@ -44,15 +45,13 @@ public abstract class ItemBase implements ItemType {
 
 	
 	private String description;
-
 	@Override
 	public String description() {
 		return description;
 	}
-
 	@Override
 	public void setDescription(String description) {
-		this.description = description;
+		this.description = GlobalSettings.$str1(description);
 	}
 
 	/**
@@ -96,7 +95,7 @@ public abstract class ItemBase implements ItemType {
 	}
 	@Override
 	public void setTitle(String title) {
-		this.title = title;
+		this.title = GlobalSettings.$str1(title);
 	}
 
 	

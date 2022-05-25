@@ -5,9 +5,9 @@ package mmb.WORLD.blocks.ipipe;
 
 import javax.annotation.Nonnull;
 
+import mmb.DATA.variables.Variable;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
-import mmb.WORLD.gui.Variable;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.rotate.ChirotatedImageGroup;
 import mmb.WORLD.rotate.Side;

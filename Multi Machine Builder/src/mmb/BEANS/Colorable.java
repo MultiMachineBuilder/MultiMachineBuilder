@@ -7,7 +7,7 @@ import java.awt.Color;
 
 import javax.annotation.Nonnull;
 
-import mmb.WORLD.gui.Variable;
+import mmb.DATA.variables.Variable;
 
 /**
  * @author oskar

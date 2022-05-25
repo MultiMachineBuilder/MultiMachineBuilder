@@ -5,9 +5,9 @@ package mmb.WORLD.blocks.ipipe;
 
 import javax.annotation.Nonnull;
 
+import mmb.DATA.variables.Variable;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
-import mmb.WORLD.gui.Variable;
 import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.items.ItemEntry;

@@ -15,7 +15,7 @@ import javax.swing.border.Border;
 import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
-import mmb.WORLD.gui.Variable;
+import mmb.DATA.variables.Variable;
 import mmb.WORLD.items.ItemEntry;
 import mmb.debug.Debugger;
 import monniasza.collects.grid.Grid;

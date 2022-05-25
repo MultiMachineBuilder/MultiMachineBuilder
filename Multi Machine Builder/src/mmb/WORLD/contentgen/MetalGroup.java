@@ -23,6 +23,7 @@ import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.item.Items;
 import mmb.WORLD.items.ItemEntry;
+import static mmb.GlobalSettings.*;
 
 /**
  * @author oskar
@@ -48,52 +49,90 @@ public class MetalGroup{
 	@Nonnull public final Color c;
 	
 	@Nonnull public final String id;
-	@Nonnull public final String title;
+	@Nonnull public final String t_nominative;
+	@Nonnull public final String t_basic;
+	@Nonnull public final String t_adjective;
 	@Nonnull public final VoltageTier volt;
 	         public final double power;
 	
 	/**
 	 * @param c display color
 	 * @param id material ID
-	 * @param title display title
 	 * @param volt minimum voltage tier for recipes
 	 * @param baseCost base cost of smelting in joules
 	 */
-	public MetalGroup(Color c, String id, String title, VoltageTier volt, double baseCost) {
+	public MetalGroup(Color c, String id, VoltageTier volt, double baseCost) {
 		this.power = baseCost;
 		this.volt = volt;
 		this.c = c;
-		block = createBlock(c, id, title);
-		cluster = new Item()
-				.title(title+" cluster")
-				.texture(cluster(c))
-				.volumed(0.005)
-				.finish("fcluster."+id);
-		base = createBase(c, id, title);
-		frag = new Item()
-				.title(title+" fragment")
-				.texture(fragment(c))
-				.volumed(0.0005)
-				.finish("frag."+id);
-		nugget = createNugget(c, id, title);
-				
-		wire = createWire(c, id, title);
-		megadust = new Item()
-				.title(title+" large dust")
-				.texture(ldust(c))
-				.volumed(0.0005)
-				.finish("ldust."+id);
-		dust = createDust(c, id, title);
-		smalldust = new Item()
-				.title(title+" small dust")
-				.texture(mdust(c))
-				.volumed(0.005)
-				.finish("mdust."+id);
-		tinydust = createMinidust(c, id, title);
+		this.id = id;
+		this.t_nominative = $res("matname-"+id);
+		this.t_basic = $res("matname1-"+id);
+		this.t_adjective = $res("matname2-"+id);
 		
-		panel = createPanel(c, id, title);
-		foil = createFoil(c, id, title);
-		gear = createGear(c, id, title);
+		block = new Block()
+		.texture(block(c))
+		.title(materialConcatenate("mattype-block"))
+		.volumed(0.0125)
+		.finish("block."+id);
+		cluster = new Item()
+		.title(materialConcatenate("mattype-cluster"))
+		.texture(cluster(c))
+		.volumed(0.005)
+		.finish("fcluster."+id);
+		base = createBase(c, id);
+		frag = new Item()
+		.title(materialConcatenate("mattype-frag"))
+		.texture(fragment(c))
+		.volumed(0.0005)
+		.finish("frag."+id);
+		nugget = new Item()
+		.title(materialConcatenate("mattype-nugget"))
+		.texture(TexGen.nugget(c))
+		.volumed(0.000125)
+		.finish("nugget."+id);
+				
+		wire = new Item()
+		.title(materialConcatenate("mattype-wire"))
+		.texture(TexGen.wire(c))
+		.volumed(0.00125)
+		.finish("wirespool."+id);
+		megadust = new Item()
+		.title(materialConcatenate("mattype-megadust"))
+		.texture(ldust(c))
+		.volumed(0.0005)
+		.finish("ldust."+id);
+		dust = new Item()
+		.title(materialConcatenate("mattype-dust"))
+		.texture(dust(c))
+		.volumed(0.00125)
+		.finish("dust."+id);
+		smalldust = new Item()
+		.title(materialConcatenate("mattype-smalldust"))
+		.texture(mdust(c))
+		.volumed(0.005)
+		.finish("mdust."+id);
+		tinydust = new Item()
+		.title(materialConcatenate("mattype-tinydust"))
+		.texture(minidust(c))
+		.volumed(0.000125)
+		.finish("minidust."+id);
+		
+		panel = new Item()
+		.title(materialConcatenate("mattype-panel"))
+		.texture(panel(c))
+		.volumed(0.00125)
+		.finish("panel."+id);
+		foil = new Item()
+		.title(materialConcatenate("mattype-foil"))
+		.texture(foil(c))
+		.volumed(0.000125)
+		.finish("foil."+id);
+		gear = new Item()
+		.title(materialConcatenate("mattype-gear"))
+		.texture(gear(c))
+		.volumed(0.00125)
+		.finish("gear."+id);
 		
 		//Recipes
 		Craftings.crusher.add(base, dust, volt, baseCost/2);
@@ -184,8 +223,7 @@ public class MetalGroup{
 		Items.tagItem("shape-foil", foil);
 		Items.tagItem("shape-gear", gear);
 		
-		this.id = id;
-		this.title = title;
+		
 		
 		//Index
 		byID0.put(id, this);
@@ -195,121 +233,16 @@ public class MetalGroup{
 	/**
 	 * @param c color
 	 * @param id material ID
-	 * @param title material title
-	 * @return the created nugget
-	 */
-	@Nonnull public Item createMinidust(Color c, String id, String title) {
-		return new Item()
-		.title(title+" tiny dust")
-		.texture(minidust(c))
-		.volumed(0.000125)
-		.finish("minidust."+id);
-	}
-	/**
-	 * @param c color
-	 * @param id material ID
-	 * @param title material title
-	 * @return the created gear
-	 */
-	@Nonnull public Item createGear(Color c, String id, String title) {
-		return new Item()
-		.title(title+" gear")
-		.texture(gear(c))
-		.volumed(0.00125)
-		.finish("gear."+id);
-	}
-	/**
-	 * @param c color
-	 * @param id material ID
-	 * @param title material title
-	 * @return the created foil
-	 */
-	@Nonnull public Item createFoil(Color c, String id, String title) {
-		return new Item()
-		.title(title+" foil")
-		.texture(foil(c))
-		.volumed(0.000125)
-		.finish("foil."+id);
-	}
-	/**
-	 * @param c color
-	 * @param id material ID
-	 * @param title material title
-	 * @return the created panel
-	 */
-	@Nonnull public Item createPanel(Color c, String id, String title) {
-		return new Item()
-		.title(title+" plate")
-		.texture(panel(c))
-		.volumed(0.00125)
-		.finish("panel."+id);
-	}
-	/**
-	 * @param c color
-	 * @param id material ID
-	 * @param title material title
-	 * @return the created dust
-	 */
-	@Nonnull public Item createDust(Color c, String id, String title) {
-		return new Item()
-		.title(title+" dust")
-		.texture(dust(c))
-		.volumed(0.00125)
-		.finish("dust."+id);
-	}
-	/**
-	 * @param c color
-	 * @param id material ID
-	 * @param title material title
-	 * @return the created wire spool
-	 */
-	@Nonnull public Item createWire(Color c, String id, String title) {
-		return new Item()
-		.title(title+" wire spool")
-		.texture(TexGen.wire(c))
-		.volumed(0.00125)
-		.finish("wirespool."+id);
-	}
-	/**
-	 * @param c color
-	 * @param id material ID
-	 * @param title material title
-	 * @return the created nugget
-	 */
-	@Nonnull public Item createNugget(Color c, String id, String title) {
-		return new Item()
-		.title(title+" nugget")
-		.texture(TexGen.nugget(c))
-		.volumed(0.000125)
-		.finish("nugget."+id);
-	}
-	/**
-	 * @param c color
-	 * @param id material ID
-	 * @param title material title
+	 * @param t_nominative material title
 	 * @return the created base item
 	 */
-	@Nonnull public Item createBase(Color c, String id, String title) {
+	@Nonnull public Item createBase(Color c, String id) {
 		return new Item()
-		.title(title+" ingot")
+		.title(materialConcatenate("mattype-ingot"))
 		.texture(TexGen.ingot(c))
 		.volumed(0.00125)
 		.finish("ingot."+id);
 	}
-	/**
-	 * @param c color
-	 * @param id material ID
-	 * @param title material title
-	 * @return the created block
-	 */
-	@Nonnull public Block createBlock(Color c, String id, String title) {
-		return new Block()
-		.texture(block(c))
-		.title(title+" block")
-		.volumed(0.0125)
-		.finish("block."+id);
-	}
-
 	@Nonnull private static final BufferedImage BLOCK = Textures.get("block/block.png");
 	@Nonnull private static final BufferedImage DUST = Textures.get("item/dust.png");
 	@Nonnull private static final BufferedImage MINIDUST = Textures.get("item/minidust.png");
@@ -370,4 +303,11 @@ public class MetalGroup{
 	public static final NavigableMap<String, MetalGroup> byIDsort = Collections.unmodifiableNavigableMap(byID0sort);
 	private static final Map<VoltageTier, MetalGroup> byVoltage0 = new EnumMap<>(VoltageTier.class);
 	public static final Map<VoltageTier, MetalGroup> byVoltage = Collections.unmodifiableMap(byVoltage0);
+	
+	public static final boolean order = Boolean.parseBoolean($res("material-grammar"));
+	@Nonnull public String materialConcatenate(String matname) {
+		String mattype = $res(matname);
+		if(order) return mattype+" "+t_nominative;
+		return t_nominative+" "+mattype;
+	}
 }

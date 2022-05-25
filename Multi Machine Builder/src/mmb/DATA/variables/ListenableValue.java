@@ -5,22 +5,27 @@ package mmb.DATA.variables;
 
 import java.util.HashSet;
 import java.util.Set;
-
-import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
+import java.util.function.Consumer;
 
 /**
  * @author oskar
  *
  */
-public class ListenerBooleanVariable extends BooleanVariable{
-	private Set<BooleanConsumer> listeners = new HashSet<>();
+public class ListenableValue<T> extends DataValue<T> {
+	/**
+	 * @param data
+	 */
+	public ListenableValue(T data) {
+		super(data);
+	}
+	private Set<Consumer<T>> listeners = new HashSet<>();
 	
 	/**
 	 * @param arg0
 	 * @return was new consume added?
 	 * @see java.util.Set#add(java.lang.Object)
 	 */
-	public boolean add(BooleanConsumer arg0) {
+	public boolean add(Consumer<T> arg0) {
 		return listeners.add(arg0);
 	}
 	/**
@@ -28,7 +33,7 @@ public class ListenerBooleanVariable extends BooleanVariable{
 	 * @return is consumer registered?
 	 * @see java.util.Set#contains(java.lang.Object)
 	 */
-	public boolean contains(BooleanConsumer arg0) {
+	public boolean contains(Consumer<T> arg0) {
 		return listeners.contains(arg0);
 	}
 	/**
@@ -36,13 +41,12 @@ public class ListenerBooleanVariable extends BooleanVariable{
 	 * @return was consumer removed?
 	 * @see java.util.Set#remove(java.lang.Object)
 	 */
-	public boolean remove(BooleanConsumer arg0) {
+	public boolean remove(Consumer<T> arg0) {
 		return listeners.remove(arg0);
 	}
 	@Override
-	public void setValue(boolean value) {
-		if(this.value == value) return;
-		this.value = value;
-		for(BooleanConsumer c: listeners) c.accept(value);
-	}
+	public void set(T newValue) {
+		for(Consumer<T> c: listeners) c.accept(newValue);
+		super.set(newValue);
+	}	
 }

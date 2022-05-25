@@ -75,7 +75,7 @@ public class ContentsBlocks {
 		Block result = new Block();
 		result.texture(Color.CYAN)
 		.leaveBehind(result)
-		.title("Air")
+		.title("#air")
 		.finish("mmb.air");
 		result.setSurface(true);
 		return result;
@@ -85,7 +85,7 @@ public class ContentsBlocks {
 		Block grass = new Block();
 		grass.texture("grass.png")
 		.leaveBehind(air)
-		.title("Grass")
+		.title("#grass")
 		.describe("A default block in the world")
 		.finish("mmb.grass");
 		grass.setSurface(true);
@@ -133,15 +133,15 @@ public class ContentsBlocks {
 	/** A block of wood planks */
 	@Nonnull public static final Block plank = new Block()
 			.texture("plank.png")
-			.title("Wooden planks")
+			.title("#planks")
 			.finish("mmb.planks");
 	@Nonnull public static final Block stone = new Block()
 			.texture("stone.png")
-			.title("Stone")
+			.title("#stone")
 			.finish("mmb.stone");
 	@Nonnull public static final Block leaves = new Block()
 			.texture("block/leaves.png")
-			.title("Leaves")
+			.title("#leaves")
 			.finish("mmb.leaves");
 
 	@Nonnull public static final Block coal_ore = new Block()
@@ -159,15 +159,15 @@ public class ContentsBlocks {
 			.finish("mmb.craft");
 	@Nonnull public static final Block logs = new Block()
 			.texture("log.png")
-			.title("Log")
+			.title("#logs")
 			.finish("mmb.tree");
 	@Nonnull public static final Block sand = new Block()
 			.texture("block/sand.png")
-			.title("Sand")
+			.title("#sand")
 			.finish("mmb.sand");
 	@Nonnull public static final Block gravel = new Block()
 			.texture("block/gravel.png")
-			.title("Gravel")
+			.title("#gravel")
 			.finish("mmb.gravel");
 	/** A block, which upon loading crashes the game*/
 	@Nonnull public static final Block COL = new COLBlock()
@@ -223,7 +223,7 @@ public class ContentsBlocks {
 	@Nonnull public static final BlockEntityType COALGEN3 = coalgen(VoltageTier.V3, CoalGen.img2, "Furnace Generator III", "elec.coalgen3");
 	/** A series of 9 infinite power generators. They are used for testing.*/
 	@Nonnull public static final ElectricMachineGroup infinigens =
-			new ElectricMachineGroup(Textures.get("machine/power/infinity.png"), type -> new InfiniteGenerator(type.volt, type), "Infinite generator", "infinigen");
+			new ElectricMachineGroup(Textures.get("machine/power/infinity.png"), type -> new InfiniteGenerator(type.volt, type), "infinigen");
 	
 	//Electrical equipment
 	@Nonnull public static final BlockEntityType PMETER = new BlockEntityType()
@@ -367,14 +367,14 @@ public class ContentsBlocks {
 			.finish("industry.autocraft1");
 	
 	//Electrical processing machines
-	@Nonnull public static final ElectricMachineGroup efurnace = machinesSimple("machine/electrosmelter.png", Craftings.smelting, "Electric furnace", "electrofurnace");
-	@Nonnull public static final ElectricMachineGroup bcrusher = machinesSimple("machine/pulverizer.png", Craftings.crusher, "Crusher", "crusher");
-	@Nonnull public static final ElectricMachineGroup bcmill = machinesSimple("machine/cluster mill.png", Craftings.clusterMill, "Cluster mill", "clustermill");
-	@Nonnull public static final ElectricMachineGroup bwiremill = machinesSimple("machine/wiremill.png", Craftings.wiremill, "Wiremill", "wiremill");
-	@Nonnull public static final ElectricMachineGroup balloyer = machinesComplex("machine/alloyer.png", Craftings.alloyer, "Alloy smelter", "alloyer");
-	@Nonnull public static final ElectricMachineGroup bassembly = machinesAssembly("machine/machinemaker.png", Craftings.assembler, "Machine Assembler", "assembler");
-	@Nonnull public static final ElectricMachineGroup bsplitter = machinesSimple("machine/splitter.png", Craftings.splitter, "Material Splitter", "spllitter", 0.1);
-	@Nonnull public static final ElectricMachineGroup bsplicer = machinesStacked("machine/splicer.png", Craftings.combiner, "Material Combiner", "splicer", 0.1);
+	@Nonnull public static final ElectricMachineGroup efurnace = machinesSimple("machine/electrosmelter.png", Craftings.smelting, "electrofurnace");
+	@Nonnull public static final ElectricMachineGroup bcrusher = machinesSimple("machine/pulverizer.png", Craftings.crusher, "crusher");
+	@Nonnull public static final ElectricMachineGroup bcmill = machinesSimple("machine/cluster mill.png", Craftings.clusterMill, "clustermill");
+	@Nonnull public static final ElectricMachineGroup bwiremill = machinesSimple("machine/wiremill.png", Craftings.wiremill, "wiremill");
+	@Nonnull public static final ElectricMachineGroup balloyer = machinesComplex("machine/alloyer.png", Craftings.alloyer, "alloyer");
+	@Nonnull public static final ElectricMachineGroup bassembly = machinesAssembly("machine/machinemaker.png", Craftings.assembler, "assembler");
+	@Nonnull public static final ElectricMachineGroup bsplitter = machinesSimple("machine/splitter.png", Craftings.splitter, "spllitter", 0.1);
+	@Nonnull public static final ElectricMachineGroup bsplicer = machinesStacked("machine/splicer.png", Craftings.combiner, "splicer", 0.1);
 	@Nonnull public static final ElectricMachineGroup bquarry = createQuarry();
 	
 	//Player pipes
@@ -393,19 +393,19 @@ public class ContentsBlocks {
 	//Liquids
 	@Nonnull public static final Block water = new Block()
 	.texture("liquid/water.png")
-	.title("Water")
+	.title("#water")
 	.finish("liquid.water");
 	@Nonnull public static final Block lava = new Block()
 	.texture("liquid/lava.png")
-	.title("Lava")
+	.title("#lava")
 	.finish("liquid.lava");
 	@Nonnull public static final Block steam = new Block()
 	.texture("liquid/steam.png")
-	.title("Steam")
+	.title("#steam")
 	.finish("liquid.steam");
 	@Nonnull public static final Block clay = new Block()
 	.texture("block/clay.png")
-	.title("Clay")
+	.title("#clay")
 	.finish("mmb.clay");
 	/** Initializes blocks */
 	public static void init() {
@@ -455,29 +455,29 @@ public class ContentsBlocks {
 				.texture(texture)
 				.finish(id);
 	}
-	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, ElectroSimpleProcessingRecipeGroup group, String title, String id) {
-		return machinesSimple(texture, group, title, id, 1);
+	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, ElectroSimpleProcessingRecipeGroup group, String id) {
+		return machinesSimple(texture, group, id, 1);
 	}
-	@Nonnull private static ElectricMachineGroup machinesComplex(String texture, ComplexProcessingRecipeGroup group, String title, String id) {
-		return new ElectricMachineGroup(Textures.get(texture), type -> new AlloySmelter(type, group), title, id);
+	@Nonnull private static ElectricMachineGroup machinesComplex(String texture, ComplexProcessingRecipeGroup group, String id) {
+		return new ElectricMachineGroup(Textures.get(texture), type -> new AlloySmelter(type, group), id);
 	}
-	@Nonnull private static ElectricMachineGroup machinesAssembly(String texture, ComplexCatalyzedProcessingRecipeGroup group, String title, String id) {
-		return new ElectricMachineGroup(Textures.get(texture), type -> new MachineAssembler(type, group), title, id);
+	@Nonnull private static ElectricMachineGroup machinesAssembly(String texture, ComplexCatalyzedProcessingRecipeGroup group, String id) {
+		return new ElectricMachineGroup(Textures.get(texture), type -> new MachineAssembler(type, group), id);
 	}
-	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, ElectroSimpleProcessingRecipeGroup group, String title, String id, double d) {
-		return new ElectricMachineGroup(Textures.get(texture), type -> new ElectroFurnace(type, group), title, id, d);
+	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, ElectroSimpleProcessingRecipeGroup group, String id, double d) {
+		return new ElectricMachineGroup(Textures.get(texture), type -> new ElectroFurnace(type, group), id, d);
 	}
-	@Nonnull private static ElectricMachineGroup machinesStacked(String texture, StackedProcessingRecipeGroup group, String title, String id) {
-		return new ElectricMachineGroup(Textures.get(texture), type -> new Splicer(type, group), title, id);
+	@Nonnull private static ElectricMachineGroup machinesStacked(String texture, StackedProcessingRecipeGroup group, String id) {
+		return new ElectricMachineGroup(Textures.get(texture), type -> new Splicer(type, group), id);
 	}
-	@Nonnull private static ElectricMachineGroup machinesStacked(String texture, StackedProcessingRecipeGroup group, String title, String id, double power) {
-		return new ElectricMachineGroup(Textures.get(texture), type -> new Splicer(type, group), title, id, power);
+	@Nonnull private static ElectricMachineGroup machinesStacked(String texture, StackedProcessingRecipeGroup group, String id, double power) {
+		return new ElectricMachineGroup(Textures.get(texture), type -> new Splicer(type, group), id, power);
 	}
 	/**
 	 * @return
 	 */
 	private static ElectricMachineGroup createQuarry() {
-		return new ElectricMachineGroup(Textures.get("machine/quarry.png"), type -> new ElectroQuarry(type, Craftings.quarry), "Electrical quarry", "quarry");
+		return new ElectricMachineGroup(Textures.get("machine/quarry.png"), type -> new ElectroQuarry(type, Craftings.quarry), "quarry");
 	}
 	static {
 		Items.tagItems("wireworld", ww_wire, ww_head, ww_tail, ww_chatter,
