@@ -1,5 +1,5 @@
 (MAIN) RAM avaliable: 4259315712
-(MAIN) Java version is: 11.0.14.1
+(MAIN) Java version is: 11.0.15
 (MAIN) Changing scale because Java is >= 9
 (SETTINGS LIST) Language: pl
 (TEXTURES) Loading texture: arrow.png
@@ -4091,28 +4091,28 @@
 (MOD - BEB.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
 (MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD - mmb-DE.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
-(MOD - BEB.jar) Loading a modfile: BEB.jar
-(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
 (MOD - mmb-DE.jar) Loading a modfile: mmb-DE.jar
+(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
+(MOD - BEB.jar) Loading a modfile: BEB.jar
 (MOD - HelloWorld 0.5.jar) entry: META-INF/MANIFEST.MF
 (MOD - mmb-DE.jar) entry: META-INF/MANIFEST.MF
 (MOD - BEB.jar) entry: META-INF/MANIFEST.MF
-(MOD - BEB.jar) entry: mmbmods/beb/package-info.class
-(MOD - mmb-DE.jar) entry: .project
-(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
-(MOD - mmb-DE.jar) entry: .classpath
 (MOD - HelloWorld 0.5.jar) entry: .project
-(MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
-(MOD - BEB.jar) entry: .classpath
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/DataLayerHW.class
-(MOD - BEB.jar) entry: .project
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - mmb-DE.jar) entry: .project
+(MOD - BEB.jar) entry: mmbmods/beb/package-info.class
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld 0.5.jar) entry: bin/resources/textures/hw/notepad.png
+(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
+(MOD - mmb-DE.jar) entry: .classpath
+(MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
+(MOD - BEB.jar) entry: .classpath
 (MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - BEB.jar) entry: .project
+(MOD - HelloWorld 0.5.jar) entry: bin/resources/textures/hw/notepad.png
 (MOD - HelloWorld 0.5.jar) entry: pom.xml
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
@@ -4122,15 +4122,43 @@
 (MOD - HelloWorld 0.5.jar) entry: src/resources/textures/hw/notepad.png
 (MOD - HelloWorld 0.5.jar) entry: .classpath
 (MOD - HelloWorld 0.5.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - mmb-DE.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+(MOD - mmb-DE.jar) Processing .classpath
+(MOD - mmb-DE.jar) File: .classpath
+(MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
+(MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
+(MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) Processing .project
+(MOD - mmb-DE.jar) File: .project
+(MOD - mmb-DE.jar) Processing META-INF/MANIFEST.MF
+(MOD - mmb-DE.jar) File: META-INF/MANIFEST.MF
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
+(MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
+(MOD - BEB.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
+(MOD - BEB.jar) Processing mmbmods/beb/BlockBEB.class
+(MOD - BEB.jar) File: mmbmods/beb/BlockBEB.class
 (MOD - HelloWorld 0.5.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD - BEB.jar) Processing .classpath
+(MOD - BEB.jar) File: .classpath
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - BEB.jar) Processing mmbmods/beb/package-info.class
+(MOD - BEB.jar) File: mmbmods/beb/package-info.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - BEB.jar) Processing mmbmods/beb/BEBMod.class
+(MOD - BEB.jar) File: mmbmods/beb/BEBMod.class
 (MOD - HelloWorld 0.5.jar) Processing .classpath
+(MOD - BEB.jar) Processing .project
+(MOD - BEB.jar) File: .project
 (MOD - HelloWorld 0.5.jar) File: .classpath
+(MOD - BEB.jar) Processing META-INF/MANIFEST.MF
+(MOD - BEB.jar) File: META-INF/MANIFEST.MF
 (MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/DataLayerHW.class
+(MOD - BEB.jar) Class: mmbmods.beb.BlockBEB
 (MOD - HelloWorld 0.5.jar) Processing .project
 (MOD - HelloWorld 0.5.jar) File: .project
 (MOD - HelloWorld 0.5.jar) Processing pom.xml
@@ -4141,56 +4169,28 @@
 (MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld 0.5.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (MOD - HelloWorld 0.5.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - mmb-DE.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
-(MOD - BEB.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
-(MOD - mmb-DE.jar) Processing .classpath
 (MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - mmb-DE.jar) File: .classpath
-(MOD - BEB.jar) Processing mmbmods/beb/BlockBEB.class
-(MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
 (MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
-(MOD - BEB.jar) File: mmbmods/beb/BlockBEB.class
-(MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
 (MOD - HelloWorld 0.5.jar) Processing bin/resources/textures/hw/notepad.png
-(MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
-(MOD - BEB.jar) Processing .classpath
-(MOD - mmb-DE.jar) Processing .project
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
 (MOD - HelloWorld 0.5.jar) File: bin/resources/textures/hw/notepad.png
-((MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - mmb-DE.jar) Class: mmbmods.lang.de.package-info
+(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - BEB.jar) File: .classpath
 (MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/package-info.class
-MOD - mmb-DE.jar) File: .project
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/package-info.class
-(MOD - BEB.jar) Processing mmbmods/beb/package-info.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/package-info.class
-(MOD - mmb-DE.jar) Processing META-INF/MANIFEST.MF
 (MOD - HelloWorld 0.5.jar) Processing src/resources/textures/hw/notepad.png
-(MOD - BEB.jar) File: mmbmods/beb/package-info.class
 (MOD - HelloWorld 0.5.jar) File: src/resources/textures/hw/notepad.png
-(MOD - mmb-DE.jar) File: META-INF/MANIFEST.MF
-((MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
-((MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
-MOD - HelloWorld 0.5.jar) Processing META-INF/MANIFEST.MF
-MOD - BEB.jar) Processing mmbmods/beb/BEBMod.class
+(MOD - BEB.jar) entry: mmbmods/beb/package-info.class
+(MOD - HelloWorld 0.5.jar) Processing META-INF/MANIFEST.MF
+(MOD - BEB.jar) Class: mmbmods.beb.package-info
 (MOD - HelloWorld 0.5.jar) File: META-INF/MANIFEST.MF
-(MOD - BEB.jar) File: mmbmods/beb/BEBMod.class
 (MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
-(MOD - BEB.jar) Processing .project
-(MOD - BEB.jar) File: .project
-(MOD - BEB.jar) Processing META-INF/MANIFEST.MF
-(MOD - BEB.jar) File: META-INF/MANIFEST.MF
-(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
-(MOD - BEB.jar) Class: mmbmods.beb.BlockBEB
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
-(MOD - mmb-DE.jar) Class: mmbmods.lang.de.package-info
-(MOD - BEB.jar) entry: mmbmods/beb/package-info.class
-(MOD - BEB.jar) Class: mmbmods.beb.package-info
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) Class: bin.mmbmods.monniasza.helloworld.HWMachine
 (MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
@@ -4201,12 +4201,8 @@ MOD - BEB.jar) Processing mmbmods/beb/BEBMod.class
 	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
 	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:878)
 	at io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)
-(	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)BLOCKS
-) 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)Adding beb.BEB with title Block Entity Bomb and description:
- null
-(ITEMS) Adding beb.BEB with title Block Entity Bomb and description:
- null
-
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
 	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
 	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:214)
 	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:87)
@@ -4223,14 +4219,18 @@ MOD - BEB.jar) Processing mmbmods/beb/BEBMod.class
 	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
 	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:878)
 	at io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)(
+BLOCKS	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)) 
 	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
 	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:214)
 	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:87)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) Class: bin.mmbmods.monniasza.helloworld.HWBlock
+Adding beb.BEB with title Block Entity Bomb and description:
+ null
+(ITEMS) Adding beb.BEB with title Block Entity Bomb and description:
+ null
 (MOD - HelloWorld 0.5.jar) Missing dependencies in bin/mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) java.lang.NoClassDefFoundError: mmbmods/monniasza/helloworld/HWBlock (wrong name: bin/mmbmods/monniasza/helloworld/HWBlock)
 	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
@@ -4276,35 +4276,35 @@ MOD - BEB.jar) Processing mmbmods/beb/BEBMod.class
 	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:87)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 (HW) Hello, world!
-(MOD-LOADER) Start 1st stage for BlockEntity Bomb
-(MOD-LOADER) End 1st stage for BlockEntity Bomb
 (MOD-LOADER) Start 1st stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) End 1st stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) Start 2nd stage for BlockEntity Bomb
-(MOD-LOADER) End 2nd stage for BlockEntity Bomb
+(MOD-LOADER) Start 1st stage for BlockEntity Bomb
+(MOD-LOADER) End 1st stage for BlockEntity Bomb
 (MOD-LOADER) Start 2nd stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) End 2nd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) Start 3rd stage for BlockEntity Bomb
-(MOD-LOADER) End 3rd stage for BlockEntity Bomb
 (MOD-LOADER) Start 3rd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) Start 2nd stage for BlockEntity Bomb
 (MOD-LOADER) End 3rd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) ================MOD INFORMATION FOR BlockEntity Bomb================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
-(MOD-LOADER) Aktywny
-(MOD-LOADER) RELEASED Wed Jun 01 17:56:48 CEST 2022
-(MOD-LOADER) MADE BY 
-(MOD-LOADER) DESCRIPTION: A block that lags out entire game.
+(MOD-LOADER) End 2nd stage for BlockEntity Bomb
 (MOD-LOADER) ================MOD INFORMATION FOR MultiMachineBuilder German/Deutsch================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
 (MOD-LOADER) Aktywny
+(MOD-LOADER) Start 3rd stage for BlockEntity Bomb
+(MOD-LOADER) End 3rd stage for BlockEntity Bomb
 (MOD-LOADER) RELEASED Tue Jul 12 00:00:00 CEST 3921
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: This mod contains German translation of the game
 Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
+(MOD-LOADER) ================MOD INFORMATION FOR BlockEntity Bomb================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
+(MOD-LOADER) Aktywny
+(MOD-LOADER) RELEASED Wed Jun 01 19:55:31 CEST 2022
+(MOD-LOADER) MADE BY 
+(MOD-LOADER) DESCRIPTION: A block that lags out entire game.
 (MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD-LOADER) Zawieszony
-(MOD-LOADER) RELEASED Wed Jun 01 17:56:48 CEST 2022
+(MOD-LOADER) RELEASED Wed Jun 01 19:55:31 CEST 2022
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) HOORAY, IT'S OVER!
@@ -4331,48 +4331,6 @@ Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
 (SELECT A SAVE) Found save: Test.mworld
 (SELECT A SAVE) Found save: The longest player pipe ever.mworld
 (SELECT A SAVE) Found 20 saves
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@2a7aa716
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Failed to load the world
-(SELECT A SAVE) com.fasterxml.jackson.core.JsonParseException: Unrecognized token 'e': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
- at [Source: (StringReader); line: 1, column: 2]
-	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2391)
-	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:745)
-	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._reportInvalidToken(ReaderBasedJsonParser.java:2961)
-	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddValue(ReaderBasedJsonParser.java:2002)
-	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:802)
-	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4703)
-	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:3076)
-	at mmb.DATA.json.JsonTool.parse(JsonTool.java:62)
-	at mmb.MENU.main.PanelSaves.lambda$6(PanelSaves.java:139)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-(WORLD TEST) Exiting the world
-(WORLD - IDLE) Exiting
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@1e10f2af
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(SELECT A SAVE) Fatal error while world loading
-(MAIN) GAME HAS CRASHED
-(MAIN) java.lang.InternalError: Crash it!
-	at mmb.WORLD.blocks.COLBlock.createBlock(COLBlock.java:18)
-	at mmb.WORLD.block.BlockLoader.doLoadBasic(BlockLoader.java:60)
-	at mmb.WORLD.block.BlockLoader.load(BlockLoader.java:50)
-	at mmb.WORLD.worlds.world.World.load(World.java:182)
-	at mmb.WORLD.worlds.universe.Universe.load(Universe.java:124)
-	at mmb.MENU.main.PanelSaves.lambda$6(PanelSaves.java:145)
-	at java.base/java.lang.Thread.run(Thread.java:829)
 (SETTINGS) Resetting a setting country with value PL
 (SETTINGS) Resetting a setting fullscreen with value false
 (SETTINGS) Resetting a setting logExcessiveBlockTime with value false

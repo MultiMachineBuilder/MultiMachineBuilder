@@ -30,8 +30,6 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/Collections Framework"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Timer"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
 		<attributes>
 			<attribute name="annotationpath" value="/Multi Machine Builder/lib/eclipse-null-eea-augments-2.4.0"/>
