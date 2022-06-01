@@ -87,4 +87,7 @@ public class SimpleEvent<T> implements Event<T> {
         listeners.forEach(listener -> listener.accept(t));
     }
 
+    public void clear() {
+    	listeners.clear();
+    }
 }

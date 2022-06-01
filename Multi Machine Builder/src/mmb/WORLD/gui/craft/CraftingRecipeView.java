@@ -32,12 +32,12 @@ public class CraftingRecipeView extends JPanel{
 	public CraftingRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[][grow]"));
 		
-		JLabel lblI = new JLabel("Input:");
+		JLabel lblI = new JLabel(CRConstants.IN);
 		lblI.setBackground(Color.ORANGE);
 		lblI.setOpaque(true);
 		add(lblI, "cell 0 0 2 1,growx");
 		
-		JLabel lblO = new JLabel("Output:");
+		JLabel lblO = new JLabel(CRConstants.OUT);
 		lblO.setBackground(Color.BLUE);
 		lblO.setOpaque(true);
 		add(lblO, "cell 2 0,growx");

@@ -4,7 +4,6 @@
 package mmb.WORLD.crafting;
 
 import static mmb.WORLD.blocks.ContentsBlocks.*;
-import static mmb.WORLD.blocks.ipipe.Pipes.*;
 import static mmb.WORLD.contentgen.Materials.*;
 import static mmb.WORLD.items.ContentsItems.*;
 
@@ -18,6 +17,7 @@ import org.joml.Vector3d;
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
+import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.blocks.machine.manual.Crafting;
 import mmb.WORLD.chance.ListChance;
 import mmb.WORLD.chance.RandomChance;
@@ -100,16 +100,16 @@ public class Craftings {
 	@Nonnull public static final Object2DoubleMap<ItemEntry> furnaceFuels = new Object2DoubleOpenHashMap<>();
 	/** The list of all nuclear reactor fuels */
 	@Nonnull public static final Object2DoubleMap<ItemEntry> nukeFuels = new Object2DoubleOpenHashMap<>();
-	@Nonnull public static final ElectroSimpleProcessingRecipeGroup smelting = new ElectroSimpleProcessingRecipeGroup("Furnace");
-	@Nonnull public static final ElectroSimpleProcessingRecipeGroup clusterMill = new ElectroSimpleProcessingRecipeGroup("Cluster mill");
-	@Nonnull public static final ElectroSimpleProcessingRecipeGroup crusher = new ElectroSimpleProcessingRecipeGroup("Crusher");
-	@Nonnull public static final ElectroSimpleProcessingRecipeGroup wiremill = new ElectroSimpleProcessingRecipeGroup("Wiremill");
-	@Nonnull public static final ElectroSimpleProcessingRecipeGroup splitter = new ElectroSimpleProcessingRecipeGroup("Material Splitter");
-	@Nonnull public static final StackedProcessingRecipeGroup combiner = new StackedProcessingRecipeGroup("Material Combiner");
-	@Nonnull public static final ComplexProcessingRecipeGroup alloyer = new ComplexProcessingRecipeGroup("Alloyer", 2);
-	@Nonnull public static final ComplexCatalyzedProcessingRecipeGroup assembler = new ComplexCatalyzedProcessingRecipeGroup("Machine Assembler", 2);
-	@Nonnull public static final CraftingRecipeGroup crafting = new CraftingRecipeGroup("Crafting table");
-	@Nonnull public static final ElectroLuckySimpleProcessingRecipeGroup quarry = new ElectroLuckySimpleProcessingRecipeGroup("Quarry");
+	@Nonnull public static final ElectroSimpleProcessingRecipeGroup smelting = new ElectroSimpleProcessingRecipeGroup("electrofurnace");
+	@Nonnull public static final ElectroSimpleProcessingRecipeGroup clusterMill = new ElectroSimpleProcessingRecipeGroup("clustermill");
+	@Nonnull public static final ElectroSimpleProcessingRecipeGroup crusher = new ElectroSimpleProcessingRecipeGroup("crusher");
+	@Nonnull public static final ElectroSimpleProcessingRecipeGroup wiremill = new ElectroSimpleProcessingRecipeGroup("wiremill");
+	@Nonnull public static final ElectroSimpleProcessingRecipeGroup splitter = new ElectroSimpleProcessingRecipeGroup("spllitter");
+	@Nonnull public static final StackedProcessingRecipeGroup combiner = new StackedProcessingRecipeGroup("splicer");
+	@Nonnull public static final ComplexProcessingRecipeGroup alloyer = new ComplexProcessingRecipeGroup("alloyer", 2);
+	@Nonnull public static final ComplexCatalyzedProcessingRecipeGroup assembler = new ComplexCatalyzedProcessingRecipeGroup("assembler", 2);
+	@Nonnull public static final CraftingRecipeGroup crafting = new CraftingRecipeGroup("crafter");
+	@Nonnull public static final ElectroLuckySimpleProcessingRecipeGroup quarry = new ElectroLuckySimpleProcessingRecipeGroup("quarry");
 	/**
 	 * Crafts items according to a recipe
 	 * @param input items to be consumed
@@ -171,21 +171,21 @@ public class Craftings {
 		crafting.addRecipe(new FixedGrid<>(3,
 		Materials.iron.base,  null, Materials.iron.base,
 		Materials.iron.base,  null, Materials.iron.base,
-		Materials.iron.base,  null, Materials.iron.base), STRAIGHT, 24);
+		Materials.iron.base,  null, Materials.iron.base), ContentsBlocks.ipipe_STRAIGHT, 24);
 		crafting.addRecipe(new FixedGrid<>(3,
 		Materials.iron.base, Materials.iron.base,  Materials.iron.base,
 		Materials.iron.base,  null, null,
-		Materials.iron.base,  null, Materials.iron.base), ELBOW, 24);
+		Materials.iron.base,  null, Materials.iron.base), ContentsBlocks.ipipe_ELBOW, 24);
 		crafting.addRecipe(new FixedGrid<>(3,
-		ELBOW, null,       null,
+		ContentsBlocks.ipipe_ELBOW, null,       null,
 		null,  Materials.iron.nugget, null,
-		null,  null,       ELBOW), DUALTURN, 1);
+		null,  null,       ContentsBlocks.ipipe_ELBOW), ContentsBlocks.ipipe_DUALTURN, 1);
 		crafting.addRecipe(new FixedGrid<>(3,
-		STRAIGHT, null,       null,
+		ContentsBlocks.ipipe_STRAIGHT, null,       null,
 		null,  Materials.iron.nugget, null,
-		null,  null,       STRAIGHT), CROSS, 1);
-		crafting.addRecipeGrid(new ItemEntry[]{ELBOW, Materials.iron.nugget, STRAIGHT}, 3, 1, TOLEFT, 1);
-		crafting.addRecipeGrid(new ItemEntry[]{STRAIGHT, Materials.iron.nugget, ELBOW}, 3, 1, TORIGHT, 1);
+		null,  null,       ContentsBlocks.ipipe_STRAIGHT), ContentsBlocks.ipipe_CROSS, 1);
+		crafting.addRecipeGrid(new ItemEntry[]{ContentsBlocks.ipipe_ELBOW, Materials.iron.nugget, ContentsBlocks.ipipe_STRAIGHT}, 3, 1, ContentsBlocks.ipipe_TOLEFT, 1);
+		crafting.addRecipeGrid(new ItemEntry[]{ContentsBlocks.ipipe_STRAIGHT, Materials.iron.nugget, ContentsBlocks.ipipe_ELBOW}, 3, 1, ContentsBlocks.ipipe_TORIGHT, 1);
 		
 		//Actuator blocks
 		//No recipe for Creative Block Placer
@@ -274,13 +274,13 @@ public class Craftings {
 				), circuit0, null, VoltageTier.V1,  10000);
 		assembler.add(new SimpleItemList(
 				substrate1.stack(4),
-				resistor.stack(64),
-				capacitor.stack(64),
-				inductor.stack(64),
-				diode.stack(64),
-				transistor.stack(64),
-				IC.stack(64),
-				circuit0.stack(8),
+				resistor.stack(8),
+				capacitor.stack(8),
+				inductor.stack(8),
+				diode.stack(4),
+				transistor.stack(2),
+				IC.stack(1),
+				circuit0.stack(4),
 				copper.foil.stack(8),
 				tin.wire.stack(3)
 				), circuit1, null, VoltageTier.V1, 100000);
@@ -288,7 +288,14 @@ public class Craftings {
 				resistor.stack(16),
 				nickel.wire.stack(8)
 				), resistors, null, VoltageTier.V1, 100000);
-		
+		assembler.add(new SimpleItemList(
+				steel.stack(2),
+				copper.wire.stack(32)
+				), motor2, null, VoltageTier.V1, 50000);
+		assembler.add(new SimpleItemList(
+				rudimentary.base.stack(1),
+				rudimentary.wire.stack(16)
+				), motor1, null, VoltageTier.V1, 100000);
 		
 		//Electric furnaces
 		crafting.addRecipeGrid(new ItemEntry[]{
@@ -370,6 +377,13 @@ public class Craftings {
 		motor1,    wireRudimentary.medium, motor1,
 		}, 3, 3, splicer); 
 		
+		//Quarry ULV
+		crafting.addRecipeGrid(new ItemEntry[]{
+		motor1,    iron.gear, motor1,
+		iron.wire, stone, iron.wire,
+		motor1,    iron.gear, motor1,
+		}, 3, 3, bquarry.get(0)); 
+		
 		crafting.addRecipeGrid(new ItemEntry[]{
 		splitter, rudimentary.panel,   splicer,
 		rudimentary.wire, coal.nugget, rudimentary.wire,
@@ -414,20 +428,27 @@ public class Craftings {
 		motor2,    circuit1,   motor2,
 		iron.gear, iron.panel, iron.gear,
 		motor2,    circuit1,   motor2,
-		}, 3, 3, bcmill.get(1));//Cluster Mill LV
+		}, 3, 3, bcmill.get(1));//Cluster Mill VLV
 		
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor2,      circuit1,   bearing1,
 		iron.gear,   iron.panel, iron.gear,
 		bearing1, circuit1,   motor2,
-		}, 3, 3, bcmill.get(1));//WireMill LV
+		}, 3, 3, bwiremill.get(1));//WireMill VLV
+		
+		//Quarry ULV
+		crafting.addRecipeGrid(new ItemEntry[]{
+		motor2,    steel.gear, motor2,
+		steel.wire, stone, steel.wire,
+		motor2,    steel.gear, motor2,
+		}, 3, 3, bquarry.get(1)); 
 	}
 
 	private static void quarry() {
 		//Tier 1: rudimentary, coal, copper, iron, silicon, nickel, tin, zinc, aluminum, lead, redstone
 		quarry.add(stone, RecipeOutput.NONE, VoltageTier.V1, 20000, new ListChance(
 				new RandomChance(0.2, rudimentary.ore),
-				new RandomChance(0.2, coal_ore),
+				new RandomChance(0.2, coal.ore),
 				new RandomChance(0.04, copper.ore),
 				new RandomChance(0.05, iron.ore),
 				new RandomChance(0.05, silicon.ore),
@@ -448,5 +469,8 @@ public class Craftings {
 				new RandomChance(0.08, ender.base),
 				new RandomChance(0.1, glowstone.base)
 				));
+		alloyer.add(new SimpleItemList(redstone.base.stack(2), rudimentary.base.stack(2)), resrc1, 2, VoltageTier.V2, 180000);
+		//simple stone regeneration recipe
+		alloyer.add(new SimpleItemList(stone, rudimentary.nugget), stone, 8, VoltageTier.V1, 80000);
 	}
 }

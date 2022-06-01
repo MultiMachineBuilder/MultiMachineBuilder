@@ -13,6 +13,9 @@ import mmb.WORLD.gui.window.WorldWindow;
 import javax.annotation.Nonnull;
 import javax.swing.JButton;
 import java.awt.Component;
+
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Color;
 import net.miginfocom.swing.MigLayout;
 
@@ -44,7 +47,7 @@ public class NewTextEditor extends JPanel {
 		textPane.setText(sv.getMessage());
 		add(textPane, "cell 0 0,grow");
 		
-		btnOk = new JButton("OK");
+		btnOk = new JButton($res("ok"));
 		btnOk.addActionListener(e -> {
 			sv.setMessage(textPane.getText());
 			remove();
@@ -53,7 +56,7 @@ public class NewTextEditor extends JPanel {
 		btnOk.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(btnOk, "cell 0 1,growx,aligny center");
 		
-		btnCancel = new JButton("Cancel");
+		btnCancel = new JButton($res("cancel"));
 		btnCancel.addActionListener(e -> remove());
 		btnCancel.setBackground(Color.RED);
 		btnCancel.setAlignmentX(Component.CENTER_ALIGNMENT);

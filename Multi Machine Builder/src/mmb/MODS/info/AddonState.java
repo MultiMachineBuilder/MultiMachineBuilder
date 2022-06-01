@@ -3,33 +3,35 @@
  */
 package mmb.MODS.info;
 
+import static mmb.GlobalSettings.$res;
+
 /**
  * @author oskar
  *
  */
 public enum AddonState {
 	/** Indicates a non-existent mod file */
-	NOEXIST("Missing files"),
+	NOEXIST($res("cguims-none")),
 	/** Indicates a corrupt mod file */
-	BROKEN("Corrupt"),
+	BROKEN($res("cguims-bad")),
 	/** Indicates a disabled mod, which won't run*/
-	DISABLE("Disabled"),
+	DISABLE($res("cguims-dis")),
 	/** Indicates an active mod*/
-	ENABLE("Operative"),
+	ENABLE($res("cguims-ena")),
 	/** Indicates a mod which failed to load*/
-	DEAD("Crashed"),
+	DEAD($res("cguims-dead")),
 	/** Indicates an API package without any mods*/
-	API("API"),
+	API($res("cguims-api")),
 	/** Indicates a media package without any code*/
-	MEDIA("Media package"),
+	MEDIA($res("cguims-media")),
 	/** Indicates an empty file*/
-	EMPTY("Empty"),
+	EMPTY($res("cguims-empty")),
 	/** Indicates a directory */
-	DIRECTORY("Directory"),
+	DIRECTORY($res("cguims-dir")),
 	/** Indicates a mod which must be downloaded, but no network is avaliable */
-	CONNECTLOST("No network connection"),
+	CONNECTLOST($res("cguims-nonet")),
 	/** Indicates that the file is too big to load */
-	BLOATED("Too big");
+	BLOATED($res("cguims-bloat"));
 	
 	public final String title;
 	AddonState(String title){

@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import it.unimi.dsi.fastutil.ints.IntList;
+import mmb.GlobalSettings;
 import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.crafting.Craftings;
@@ -17,11 +18,6 @@ import mmb.WORLD.gui.inv.CraftGUI;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.worlds.world.World;
-
-import static mmb.WORLD.blocks.ContentsBlocks.*;
-import static mmb.WORLD.blocks.ipipe.Pipes.*;
-import static mmb.WORLD.items.ContentsItems.*;
-import static mmb.WORLD.contentgen.Materials.*;
 
 /**
  * @author oskar
@@ -67,7 +63,7 @@ public class Crafting extends Block implements BlockActivateListener {
 		int increased = tier + 1;
 		String textureName = "machine/assembly "+increased+".png";
 		String idName = "crafting."+increased;
-		String title = "Crafter Mk"+increased;
+		String title = GlobalSettings.$res("machine-crafter")+" "+increased;
 		
 		Block type = new Crafting(tier);
 		type.title(title);

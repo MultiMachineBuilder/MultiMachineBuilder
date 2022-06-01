@@ -14,6 +14,9 @@ import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
+
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Rectangle;
 import java.util.Random;
 
@@ -22,6 +25,7 @@ import java.util.Random;
  *
  */
 public class GeneratorMultiBiome implements Generator {
+	private final String name = $res("ngui-biomes");
 	private final Debugger debug = new Debugger("WORLD GEN MULTIBIOME");
 	private static final Rectangle rect = new Rectangle(-1, -1, 2, 2);
 	private Rectangle chunk = new Rectangle();
@@ -114,9 +118,9 @@ public class GeneratorMultiBiome implements Generator {
 				case 47:
 				case 48:
 				case 49:
-					return ContentsBlocks.coal_ore;
+					return Materials.coal.ore;
 				case 50:
-					return ContentsBlocks.diamond_ore;
+					return Materials.diamond.ore;
 				case 51:
 				case 52:
 					return Materials.platinum.ore;
@@ -230,7 +234,7 @@ public class GeneratorMultiBiome implements Generator {
 	}
 	@Override
 	public String title() {
-		return "Multi-Biome";
+		return name;
 	}
 
 }

@@ -31,7 +31,7 @@ public class Main {
 			//UI initialized here
 			loader = new Loading();
 			loader.setVisible(true);
-			EventQueue.invokeLater(loader::continueLoading);
+			if(loader.shouldWork) EventQueue.invokeLater(loader::continueLoading);
 		// deepcode ignore DontCatch: log the game crash
 		} catch (Throwable e) {
 			Main.crash(e);

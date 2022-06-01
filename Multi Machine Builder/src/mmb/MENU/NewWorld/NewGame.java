@@ -3,6 +3,8 @@
  */
 package mmb.MENU.NewWorld;
 
+import static mmb.GlobalSettings.$res;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.FlowLayout;
@@ -96,14 +98,14 @@ public class NewGame extends MMBFrame {
 				dispose();
 			}
 		});
-		setTitle("Create a new world");
+		setTitle($res("ngui-title"));
 		setBounds(100, 100, 610, 432);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(new MigLayout("", "[][grow]", "[][][][][][grow]"));
 		
-			JLabel lblHeight = new JLabel("Height");
+			JLabel lblHeight = new JLabel($res("ngui-h"));
 			contentPanel.add(lblHeight, "cell 0 0,alignx trailing");
 		
 			txtHeight = new JTextField();
@@ -111,7 +113,7 @@ public class NewGame extends MMBFrame {
 			contentPanel.add(txtHeight, "cell 1 0,growx");
 			txtHeight.setColumns(10);
 		
-			JLabel lblWidth = new JLabel("Width");
+			JLabel lblWidth = new JLabel($res("ngui-w"));
 			contentPanel.add(lblWidth, "cell 0 1,alignx trailing");
 		
 			txtWidth = new JTextField();
@@ -119,7 +121,7 @@ public class NewGame extends MMBFrame {
 			contentPanel.add(txtWidth, "cell 1 1,growx");
 			txtWidth.setColumns(10);
 		
-			JLabel lblName = new JLabel("Name");
+			JLabel lblName = new JLabel($res("ngui-n"));
 			contentPanel.add(lblName, "cell 0 2,alignx trailing");
 		
 			txtName = new JTextField();
@@ -127,15 +129,15 @@ public class NewGame extends MMBFrame {
 			contentPanel.add(txtName, "cell 1 2,growx");
 			txtName.setColumns(10);
 			
-			JLabel lblNewLabel_1 = new JLabel("Chunk size");
-			contentPanel.add(lblNewLabel_1, "cell 0 3,alignx trailing");
+			JLabel lblChunkSize = new JLabel($res("ngui-c"));
+			contentPanel.add(lblChunkSize, "cell 0 3,alignx trailing");
 			
 			txtcsize = new JTextField();
 			txtcsize.setText("32");
 			contentPanel.add(txtcsize, "cell 1 3,growx");
 			txtcsize.setColumns(10);
 			
-			JLabel lblSeed = new JLabel("Seed");
+			JLabel lblSeed = new JLabel($res("ngui-s"));
 			contentPanel.add(lblSeed, "cell 0 4,alignx trailing");
 			
 			txtSeed = new JTextField();
@@ -143,8 +145,8 @@ public class NewGame extends MMBFrame {
 			txtSeed.setColumns(10);
 			txtSeed.setText(Long.toString(r.nextLong()));
 			
-			JLabel lblNewLabel = new JLabel("World generator");
-			contentPanel.add(lblNewLabel, "cell 0 5");
+			JLabel lblWgen = new JLabel($res("ngui-g"));
+			contentPanel.add(lblWgen, "cell 0 5");
 			
 			JScrollPane scrollPane = new JScrollPane();
 			contentPanel.add(scrollPane, "cell 1 5,grow");
@@ -158,13 +160,13 @@ public class NewGame extends MMBFrame {
 		buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		getContentPane().add(buttonPane, BorderLayout.SOUTH);
 		
-			JButton okButton = new JButton("OK");
+			JButton okButton = new JButton($res("ok"));
 			okButton.addActionListener(e -> save());
 			okButton.setActionCommand("OK");
 			buttonPane.add(okButton);
 			getRootPane().setDefaultButton(okButton);
 		
-			JButton cancelButton = new JButton("Cancel");
+			JButton cancelButton = new JButton($res("cancel"));
 			cancelButton.addActionListener(arg0 -> dispose());
 			cancelButton.setActionCommand("Cancel");
 			buttonPane.add(cancelButton);

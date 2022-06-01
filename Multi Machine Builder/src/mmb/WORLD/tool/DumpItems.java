@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.tool;
 
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
@@ -26,9 +28,10 @@ public class DumpItems extends WindowTool {
 		super("dumpItems");
 	}
 
+	private final String title = $res("dump");
 	@Override
 	public String title() {
-		return "Dump items";
+		return title;
 	}
 
 	public static final Icon icon = new ImageIcon(Textures.get("dropItems.png"));

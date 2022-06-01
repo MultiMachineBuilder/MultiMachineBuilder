@@ -9,6 +9,9 @@ import net.miginfocom.swing.MigLayout;
 import mmb.WORLD.gui.inv.InventoryController;
 import mmb.WORLD.gui.inv.MoveItems;
 import javax.swing.JButton;
+
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Color;
 
 /**
@@ -24,6 +27,7 @@ public class CollectorGUI extends GUITab {
 		setLayout(new MigLayout("", "[][][]", "[grow][]"));
 		
 		InventoryController playerInv = new InventoryController();
+		playerInv.setTitle($res("player"));
 		playerInv.setInv(window.getPlayer().inv);
 		add(playerInv, "cell 0 0,grow");
 		
@@ -34,15 +38,10 @@ public class CollectorGUI extends GUITab {
 		MoveItems moveItems = new MoveItems(playerInv, collectorInv, MoveItems.LEFT);
 		add(moveItems, "cell 1 0,grow");
 		
-		JButton btnNewButton = new JButton("Exit");
-		btnNewButton.addActionListener(e -> {
-			
-			window.closeWindow(this);
-		});
+		JButton btnNewButton = new JButton($res("exit"));
+		btnNewButton.addActionListener(e ->window.closeWindow(this));
 		btnNewButton.setBackground(Color.RED);
 		add(btnNewButton, "cell 0 1 3 1,growx");
-		
-		
 	}
 
 	@Override

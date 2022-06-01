@@ -21,6 +21,7 @@ import mmb.MENU.FullScreen;
 import mmb.MENU.MMBFrame;
 import mmb.MENU.TestCollision;
 import mmb.MENU.components.BoundCheckBoxMenuItem;
+import static mmb.GlobalSettings.*;
 
 /**
  * @author oskar
@@ -89,14 +90,14 @@ public class MainMenu extends MMBFrame {
 		mainMenuBar = new JMenuBar();
 		setJMenuBar(mainMenuBar);
 		
-		JMenu mnNewMenu = new JMenu("Window");
+		JMenu mnNewMenu = new JMenu($res("cgui-win"));
 		mainMenuBar.add(mnNewMenu);
 		
 		stngFullScreen = new BoundCheckBoxMenuItem("FullScreen");
 		stngFullScreen.setVariable(FullScreen.isFullScreen);
 		mnNewMenu.add(stngFullScreen);
 		
-		btnUkraine = new JButton("HELP UKRAINIAN REFUGEES");
+		btnUkraine = new JButton($res("cgui-refugeedonate"));
 		mainMenuBar.add(btnUkraine);
 		Icon ua0 = new ImageIcon(Textures.get("ukraine.png"));
 		btnUkraine.setIcon(ua0);
@@ -109,7 +110,7 @@ public class MainMenu extends MMBFrame {
 		});
 		
 		//This button is for English speakers. It leads to a site for refugees.
-		btnRefugee = new JButton("For Ukrainian refugees (EN)");
+		btnRefugee = new JButton($res("cgui-refugeehelp"));
 		Icon ua1 = new ImageIcon(Textures.get("ukraine1.png"));
 		btnRefugee.setIcon(ua1);
 		mainMenuBar.add(btnRefugee);
@@ -144,7 +145,7 @@ public class MainMenu extends MMBFrame {
 		BoxLayout layout = new BoxLayout(aside, BoxLayout.Y_AXIS);
 		aside.setLayout(layout);
 		
-		JButton btnWebsite = new JButton("Website");
+		JButton btnWebsite = new JButton($res("cgui-website"));
 		btnWebsite.setToolTipText("Open this game's website");
 		aside.add(btnWebsite);
 		btnWebsite.addActionListener(e ->{
@@ -154,7 +155,7 @@ public class MainMenu extends MMBFrame {
 				debug.pstm(ex, "Unable to open GitHub");
 			}
 		});
-		btnExit = new JButton("Exit");
+		btnExit = new JButton($res("cgui-exit"));
 		btnExit.setBackground(Color.RED);
 		btnExit.setToolTipText("Exit the game");
 		btnExit.addActionListener(e -> System.exit(0));
@@ -178,12 +179,10 @@ public class MainMenu extends MMBFrame {
 
 		tabbedPane = new JTabbedPane(SwingConstants.TOP);
 		contentPane.add(tabbedPane, BorderLayout.CENTER);
-		
-		tabbedPane.addTab("Saves", null, PanelSaves.INSTANCE, null);
-		tabbedPane.addTab("Mods", null, new PanelMods(), null);
-		tabbedPane.addTab("Settings", null, new PanelSettings(), null); ///this is stuck
-		debug.printl("settings panel isnt stuck");
-		tabbedPane.addTab("Shop", new PanelShop()); //not stuck
+		tabbedPane.addTab($res("cgui-saves"), null, PanelSaves.INSTANCE, null);
+		tabbedPane.addTab($res("cgui-mods"), null, new PanelMods(), null);
+		tabbedPane.addTab($res("cgui-settings"), null, new PanelSettings(), null);
+		tabbedPane.addTab($res("cgui-shop"), new PanelShop());
 	}
 	
 	private void refreshTime() {

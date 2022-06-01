@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 
 import mmb.DATA.Settings;
 import mmb.DATA.variables.ListenableValue;
+import mmb.DATA.variables.ListenerBooleanVariable;
 import mmb.debug.Debugger;
 
 /**
@@ -21,6 +22,7 @@ public class GlobalSettings {
 	
 	@Nonnull public static final ListenableValue<String> country = new ListenableValue<>("US");
 	@Nonnull public static final ListenableValue<String> lang = new ListenableValue<>("en");
+	@Nonnull public static final ListenerBooleanVariable logExcessiveTime = new ListenerBooleanVariable();
 	@Nonnull private static final Debugger debug = new Debugger("SETTINGS LIST");
 	
 	public static Locale locale() {
@@ -60,6 +62,7 @@ public class GlobalSettings {
 		if(hasInited) return;
 		Settings.addSettingString("lang", "en", lang);
 		Settings.addSettingString("country", "US", country);
+		Settings.addSettingBool("logExcessiveBlockTime", false, logExcessiveTime);
 		debug.printl("Language: "+lang.get());
 		bundle = ResourceBundle.getBundle("mmb/bundle", locale());
 		hasInited = true;

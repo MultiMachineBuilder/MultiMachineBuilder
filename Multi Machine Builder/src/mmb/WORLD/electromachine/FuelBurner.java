@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.WORLD.blocks;
+package mmb.WORLD.electromachine;
 
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import mmb.WORLD.electric.Battery;

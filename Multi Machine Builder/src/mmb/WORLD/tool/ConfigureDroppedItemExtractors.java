@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.tool;
 
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
@@ -25,9 +27,10 @@ public class ConfigureDroppedItemExtractors extends WindowTool {
 		super("droppedItems");
 	}
 
+	private final String title = $res("cdie");
 	@Override
 	public String title() {
-		return "Configure dropped item extrators";
+		return title;
 	}
 
 	public static final Icon icon = new ImageIcon(Textures.get("hoover.png"));
@@ -39,9 +42,7 @@ public class ConfigureDroppedItemExtractors extends WindowTool {
 	@SuppressWarnings("null")
 	@Override
 	public void preview(int startX, int startY, int scale, Graphics g) {
-		if(collector == null) {
-			//frame.renderBlockRange(mouse.x, mouse.y, mouse.x, mouse.y, Color.RED, g);
-		}else {
+		if(collector != null) {
 			int rangeX = Collector.clamp(4, mouse.x-collector.posX(), 16);
 			int rangeY = Collector.clamp(4, mouse.y-collector.posY(), 16);
 			frame.renderBlockRange(collector.posX(), collector.posY(), collector.posX()+collector.getRangeX()-1, collector.posY()+collector.getRangeY()-1, Color.BLUE, g);
@@ -83,12 +84,13 @@ public class ConfigureDroppedItemExtractors extends WindowTool {
 		frame.blockAt(e.getX(), e.getY(), mouse);
 	}
 
+	private static final String descr = $res("cdie-descr");
+	private static final String select = $res("cdie-select");
 	@Override
 	public String description() {
-		if(collector == null) {
-			return "Select collector with LMB";
-		}
-		return "Select DR corner of collection area with LMB, or click RMB to cancel. The orange frame shows collection area";
+		if(collector == null) 
+			return descr;
+		return select;
 	}
 
 }

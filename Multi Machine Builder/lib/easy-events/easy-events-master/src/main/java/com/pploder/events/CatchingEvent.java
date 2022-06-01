@@ -20,7 +20,7 @@ import mmb.debug.Debugger;
  * @version 1.0.0
  * @since 1.1.0
  */
-@SuppressWarnings({"unused", "null"})
+@SuppressWarnings({"null"})
 public class CatchingEvent<T> implements Event<T> {
 	private Debugger debug;
 	private String msg;
@@ -99,5 +99,9 @@ public class CatchingEvent<T> implements Event<T> {
         		debug.pstm(e, msg);
         	}
         });
+    }
+    
+    public void clear() {
+    	listeners.clear();
     }
 }

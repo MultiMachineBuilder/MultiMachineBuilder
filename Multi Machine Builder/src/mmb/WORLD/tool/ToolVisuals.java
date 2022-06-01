@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.tool;
 
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -38,9 +40,10 @@ public class ToolVisuals extends WindowTool{
 	}
 	private static final Debugger debug = new Debugger("TOOL VISUALS");
 
+	private final String title = $res("visuals");
 	@Override
 	public String title() {
-		return "Paint visuals";
+		return title;
 	}
 
 	@Nonnull public static final Icon ICON = new ImageIcon(Textures.get("visuals.png"));
@@ -58,7 +61,9 @@ public class ToolVisuals extends WindowTool{
 	Color border; //Border color
 	Color fill; //Fill color
 	Visual previewer; //Preview object
-	int geomType; //0 - point, 1-image, 2-circle, 3-rectangle, 4-image
+	/**0 - point, 1-image, 2-circle, 3-rectangle, 4-image */
+	int geomType;
+	/**0-none 1-first, 2-second*/
 	int posMode;
 	boolean autorefresh;
 	
@@ -105,22 +110,22 @@ public class ToolVisuals extends WindowTool{
 			if(previewer != null) frame.getMap().addVisual(previewer);
 			break;
 		case KeyEvent.VK_Z:
-			geomType = 0;
+			geomType = 0; //point
 			break;
 		case KeyEvent.VK_X:
-			geomType = 1;
+			geomType = 1; //line
 			break;
 		case KeyEvent.VK_C:
-			geomType = 2;
+			geomType = 2; //circle
 			break;
 		case KeyEvent.VK_V:
-			geomType = 3;
+			geomType = 3; //rect
 			break;
 		case KeyEvent.VK_B:
-			geomType = 4;
+			geomType = 4; //image
 			break;
 		case KeyEvent.VK_N:
-			border = null;
+			fill = null;
 			break;
 		case KeyEvent.VK_M:
 			border = null;
@@ -175,6 +180,19 @@ public class ToolVisuals extends WindowTool{
 	@Override
 	public Component GUI() {
 		return GUI;
+	}
+
+	private static final String descr1 = $res("visuals-1");
+	private static final String descr2 = $res("visuals-2");
+	private static final String descr3 = $res("visuals-3");
+	private static final String descr4 = $res("visuals-4");
+	private static final String descr5 = $res("visuals-5");
+	private static final String descrS = $res("visuals-selecting");
+	private static final String descr = descr1+'\n'+descr2+'\n'+descr3+'\n'+descr4+'\n'+descr5;
+	@Override
+	public String description() {
+		if(posMode == 0) return descr;
+		return descrS;
 	}
 
 }

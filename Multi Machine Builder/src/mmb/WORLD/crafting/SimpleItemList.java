@@ -13,10 +13,12 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import mmb.WORLD.block.Block;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.inventory.io.InventoryWriter;
+import mmb.WORLD.item.Item;
 import mmb.WORLD.items.ItemEntry;
 
 /**
@@ -104,6 +106,15 @@ public class SimpleItemList implements RecipeOutput {
 		}
 	}
 	
+	/**
+	 * Creates an item list with items
+	 */
+	public SimpleItemList(ItemEntry... items) {
+		for(ItemEntry item: items) {
+			data.put(item, 1);
+		}
+	}
+
 	@SuppressWarnings("null")
 	@Override
 	public Object2IntMap<ItemEntry> getContents() {
@@ -129,7 +140,7 @@ public class SimpleItemList implements RecipeOutput {
 	 * Creates an inventory writer which adds items into this item list
 	 * @return an inventory writer
 	 */
-	@Nonnull public InventoryWriter createWriter() {
+	@Nonnull InventoryWriter createWriter() {
 		return (ent, amt) -> {
 			data.put(ent, get(ent));
 			return amt;

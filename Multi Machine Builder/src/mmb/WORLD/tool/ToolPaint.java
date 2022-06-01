@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.tool;
 
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -75,9 +77,10 @@ public class ToolPaint extends WindowTool {
 		super("paint");
 	}
 
+	private final String title = $res("paint");
 	@Override
 	public String title() {
-		return "Paintbrush";
+		return title;
 	}
 
 	@Override
@@ -91,9 +94,10 @@ public class ToolPaint extends WindowTool {
 		
 	}
 
+	private final String descr = $res("paint-descr");
 	@Override
 	public String description() {
-		return "Press C to change color or X to set back to white";
+		return descr;
 	}
 	
 	/**

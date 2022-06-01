@@ -17,6 +17,9 @@ import mmb.MODS.info.AddonState;
 import mmb.MODS.loader.AddonInfo;
 import mmb.debug.Debugger;
 import net.miginfocom.swing.MigLayout;
+
+import static mmb.GlobalSettings.$res;
+
 import java.awt.BorderLayout;
 import java.awt.Desktop;
 
@@ -30,7 +33,7 @@ import java.io.IOException;
  */
 public class PanelMods extends JPanel {
 	private static final long serialVersionUID = -971992923441938268L;
-	private Debugger debug = new Debugger("MODLIST");
+	private static Debugger debug = new Debugger("MODLIST");
 	/**
 	 * Create the panel.
 	 */
@@ -44,8 +47,8 @@ public class PanelMods extends JPanel {
 		JLabel lblModCounter = new JLabel(GameContents.addons.size()+" mods");
 		subPanelMods.add(lblModCounter, "cell 0 0");
 		
-		btnNewButton = new JButton("Open mods directory");
-		btnNewButton.addActionListener((e) -> {
+		btnNewButton = new JButton($res("cguim-dir"));
+		btnNewButton.addActionListener(e -> {
 			try {Desktop.getDesktop().open(new File("mods/"));}
 			catch (IOException e1) {
 				debug.pstm(e1, "Couldn't find mods/ directory");
@@ -53,12 +56,12 @@ public class PanelMods extends JPanel {
 		});
 		subPanelMods.add(btnNewButton, "cell 1 0");
 		
-		tablemodel.addColumn("Name");
-		tablemodel.addColumn("Description");
-		tablemodel.addColumn("State");
-		tablemodel.addColumn("Last update");
-		tablemodel.addColumn("Version");
-		tablemodel.addColumn("Author");
+		tablemodel.addColumn($res("cguim-name"));
+		tablemodel.addColumn($res("cguim-descr"));
+		tablemodel.addColumn($res("cguim-state"));
+		tablemodel.addColumn($res("cguim-update"));
+		tablemodel.addColumn($res("cguim-version"));
+		tablemodel.addColumn($res("cguim-author"));
 		GameContents.addons.forEach(this::addMod);
 		
 		table = new JTable(tablemodel);
@@ -71,7 +74,7 @@ public class PanelMods extends JPanel {
 	private final DefaultTableModel tablemodel = new DefaultTableModel();
 	private JTable table;
 	private JButton btnNewButton;
-	private static final String UNKNOWN = "Unknown";
+	private static final String UNKNOWN = $res("cguim-un");
 	private void addMod(AddonInfo mod) {
 		String release = UNKNOWN;
 		String descr = "This file is corrupt.";

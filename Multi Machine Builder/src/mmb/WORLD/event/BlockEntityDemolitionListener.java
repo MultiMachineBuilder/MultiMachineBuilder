@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.WORLD.block;
+package mmb.WORLD.event;
 
 import java.util.EventListener;
 

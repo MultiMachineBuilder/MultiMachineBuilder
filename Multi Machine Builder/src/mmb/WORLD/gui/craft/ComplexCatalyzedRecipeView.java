@@ -3,13 +3,10 @@
  */
 package mmb.WORLD.gui.craft;
 
-import java.awt.Dimension;
-import java.util.Vector;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 
 import mmb.WORLD.crafting.recipes.ComplexCatalyzedProcessingRecipeGroup.ComplexCatalyzedProcessingRecipe;
-import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup.ComplexProcessingRecipe;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
 import mmb.debug.Debugger;
@@ -37,22 +34,22 @@ public class ComplexCatalyzedRecipeView extends JPanel {
 	public ComplexCatalyzedRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][fill]"));
 		
-		lblMachine = new JLabel("New label");
+		lblMachine = new JLabel(CRConstants.MACHINE);
 		add(lblMachine, "cell 0 0,growx");
 		
-		lblVolt = new JLabel("Voltage tier: ");
+		lblVolt = new JLabel(CRConstants.VOLT);
 		add(lblVolt, "cell 0 1");
 		
-		lblEnergy = new JLabel("Energy: ");
+		lblEnergy = new JLabel(CRConstants.ENERGY);
 		add(lblEnergy, "cell 1 1,growx");
 		
-		lblIncoming = new JLabel("Incoming:");
+		lblIncoming = new JLabel(CRConstants.IN);
 		add(lblIncoming, "cell 0 2,growx");
 		
-		lblCatalyst = new JLabel("Catalyst:");
+		lblCatalyst = new JLabel(CRConstants.CAT);
 		add(lblCatalyst, "cell 1 2,growx");
 		
-		lblOutgoing = new JLabel("Outgoing:");
+		lblOutgoing = new JLabel(CRConstants.OUT);
 		add(lblOutgoing, "cell 2 2,growx");
 		
 		catalyst = new JLabel();
@@ -68,11 +65,11 @@ public class ComplexCatalyzedRecipeView extends JPanel {
 		inList.setMaximumSize(null); 
 	}
 	public void set(ComplexCatalyzedProcessingRecipe recipe, ItemStack[] vectorO, ItemStack[] vectorI) {
-		lblVolt.setText("Voltage tier: "+recipe.voltage.name);
-		lblEnergy.setText("Energy: "+recipe.energy);
+		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
+		lblEnergy.setText(CRConstants.ENERGY+recipe.energy);
+		lblMachine.setText(CRConstants.MACHINE+recipe.group.title);
 		inList.setListData(vectorI);
 		outList.setListData(vectorO);
-		lblMachine.setText("Processing machine: "+recipe.group.title);
 		ItemEntry catalyst0 = recipe.catalyst;
 		if(catalyst0 == null) {
 			catalyst.setText("none");

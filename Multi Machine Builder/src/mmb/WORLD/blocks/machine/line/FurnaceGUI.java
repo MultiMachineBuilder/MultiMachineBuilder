@@ -17,6 +17,9 @@ import mmb.WORLD.gui.window.WorldWindow;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JButton;
+
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Color;
 import javax.swing.JProgressBar;
 
@@ -71,29 +74,26 @@ public class FurnaceGUI extends GUITab implements Refreshable{
 		
 		
 		invPlayer = new InventoryController(window.getPlayer().inv);
-		invPlayer.setTitle("  Player inventory");
+		invPlayer.setTitle($res("player"));
 		add(invPlayer, "flowx,cell 0 0 1 5,grow");
 		
 		invInput = new InventoryController(furnace.incoming);
-		invInput.setTitle("  Incoming items and fuel");
+		invInput.setTitle($res("wguim-infuel"));
 		add(invInput, "cell 2 1,grow");
 		
 		moveItemsInput = new MoveItems(invPlayer, invInput);
 		add(moveItemsInput, "flowy,cell 1 0 1 2,grow");
 		
-		exit = new JButton("Exit");
-		exit.addActionListener(e -> {
-			window.closeWindow(this);
-			
-		});
+		exit = new JButton($res("exit"));
+		exit.addActionListener(e -> window.closeWindow(this));
 		exit.setBackground(Color.RED);
 		add(exit, "cell 1 2 1 2,grow");
 		
-		lblSmelt = new JLabel("Currently smelted:");
+		lblSmelt = new JLabel($res("wguim-progress"));
 		add(lblSmelt, "flowx,cell 2 3");
 		
 		invOutput = new InventoryController(furnace.output);
-		invOutput.setTitle("  Output ");
+		invOutput.setTitle($res("wguim-out"));
 		add(invOutput, "cell 2 4,grow");
 		
 		moveItemsOutput = new MoveItems(invPlayer, invOutput, MoveItems.LEFT);
@@ -107,7 +107,7 @@ public class FurnaceGUI extends GUITab implements Refreshable{
 		smelt.setStringPainted(true);
 		add(smelt, "cell 2 3,grow");
 		
-		lblFuel = new JLabel("Fuel level:");
+		lblFuel = new JLabel($res("wguim-fuel"));
 		add(lblFuel, "flowx,cell 2 2,alignx left");
 		
 		fuel = new JProgressBar();

@@ -47,21 +47,25 @@ public class MetalGroup{
 	@Nonnull public final Item gear;
 	
 	@Nonnull public final Color c;
-	
 	@Nonnull public final String id;
+			 public final boolean isGem;
+	
 	@Nonnull public final String t_nominative;
+	@Nonnull public final String t_nominative_short;
 	@Nonnull public final String t_basic;
 	@Nonnull public final String t_adjective;
 	@Nonnull public final VoltageTier volt;
 	         public final double power;
+			@Nonnull static final BufferedImage GEM = Textures.get("item/gem.png");
 	
 	/**
 	 * @param c display color
 	 * @param id material ID
 	 * @param volt minimum voltage tier for recipes
 	 * @param baseCost base cost of smelting in joules
+	 * @param isGem is a given material a gem?
 	 */
-	public MetalGroup(Color c, String id, VoltageTier volt, double baseCost) {
+	public MetalGroup(Color c, String id, VoltageTier volt, double baseCost, boolean isGem) {
 		this.power = baseCost;
 		this.volt = volt;
 		this.c = c;
@@ -69,6 +73,14 @@ public class MetalGroup{
 		this.t_nominative = $res("matname-"+id);
 		this.t_basic = $res("matname1-"+id);
 		this.t_adjective = $res("matname2-"+id);
+		this.isGem = isGem;
+		int index = t_nominative.indexOf(' ')+1;
+		if(index == 3 || index == 2) {
+			t_nominative_short=t_nominative.substring(index);
+		}else {
+			t_nominative_short=t_nominative;
+		}
+		
 		
 		block = new Block()
 		.texture(block(c))
@@ -237,6 +249,13 @@ public class MetalGroup{
 	 * @return the created base item
 	 */
 	@Nonnull public Item createBase(Color c, String id) {
+		if(isGem) {
+			return new Item()
+				.title(t_basic)
+				.texture(gem(c))
+				.volumed(0.00125)
+				.finish("gem."+id);
+		}
 		return new Item()
 		.title(materialConcatenate("mattype-ingot"))
 		.texture(TexGen.ingot(c))
@@ -309,5 +328,13 @@ public class MetalGroup{
 		String mattype = $res(matname);
 		if(order) return mattype+" "+t_nominative;
 		return t_nominative+" "+mattype;
+	}
+	public String materialConcatenateShort(String matname) {
+		String mattype = $res(matname);
+		if(order) return mattype+" "+t_nominative_short;
+		return t_nominative_short+" "+mattype;
+	}
+	@Nonnull protected static BufferedImage gem(Color c) {
+		return TexGen.genTexture(c, GEM, null);
 	}
 }

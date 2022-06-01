@@ -28,19 +28,19 @@ public class ComplexRecipeView extends JPanel {
 	public ComplexRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow]", "[][][][fill]"));
 		
-		lblMachine = new JLabel("New label");
+		lblMachine = new JLabel(CRConstants.MACHINE);
 		add(lblMachine, "cell 0 0");
 		
-		lblVolt = new JLabel("Voltage tier: ");
+		lblVolt = new JLabel(CRConstants.VOLT);
 		add(lblVolt, "cell 0 1");
 		
-		lblEnergy = new JLabel("Energy: ");
+		lblEnergy = new JLabel(CRConstants.ENERGY);
 		add(lblEnergy, "cell 1 1,growx");
 		
-		lblIncoming = new JLabel("Incoming:");
+		lblIncoming = new JLabel(CRConstants.IN);
 		add(lblIncoming, "cell 0 2,growx");
 		
-		lblOutgoing = new JLabel("Outgoing:");
+		lblOutgoing = new JLabel(CRConstants.OUT);
 		add(lblOutgoing, "cell 1 2,growx");
 		
 		outList = new JList<>();
@@ -52,10 +52,11 @@ public class ComplexRecipeView extends JPanel {
 		add(inList, "cell 0 3,growx,aligny center");
 	}
 	public void set(ComplexProcessingRecipe recipe, ItemStack[] vectorO, ItemStack[] vectorI) {
-		lblVolt.setText("Voltage tier: "+recipe.voltage.name);
-		lblEnergy.setText("Energy: "+recipe.energy);
+		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
+		lblEnergy.setText(CRConstants.ENERGY+recipe.energy);
+		lblMachine.setText(CRConstants.MACHINE+recipe.group.title);
 		inList.setListData(vectorI);
 		outList.setListData(vectorO);
-		lblMachine.setText("Processing machine: "+recipe.group.title);
+		
 	}
 }

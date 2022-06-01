@@ -1,11 +1,12 @@
 /**
  * 
  */
-package mmb.WORLD.blocks;
+package mmb.WORLD.blocks.wireworld;
 
-import mmb.WORLD.block.BlockType;
-import mmb.WORLD.rotate.Side;
 import mmb.WORLD.block.BlockEntityDataless;
+import mmb.WORLD.block.BlockType;
+import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 
 /**

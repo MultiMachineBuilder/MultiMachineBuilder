@@ -7,8 +7,6 @@ import java.awt.Component;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Supplier;
-
 import javax.annotation.Nonnull;
 import javax.swing.JComponent;
 
@@ -21,7 +19,6 @@ import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.gui.craft.SimpleRecipeView;
 import mmb.WORLD.gui.craft.StackedProcessingRecipeList;
 import mmb.WORLD.gui.craft.StackedRecipeView;
-import mmb.WORLD.gui.window.TabRecipes;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
@@ -34,14 +31,13 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class StackedProcessingRecipeGroup implements RecipeGroup{
-	public final String title;
-	public StackedProcessingRecipeGroup(String title) {
-		super();
-		this.title = title;
-		Supplier<Tuple2<String, JComponent>> sup = () -> new Tuple2<String, JComponent>(title, new StackedProcessingRecipeList(this));
-		TabRecipes.add(sup);
-		GlobalRecipeRegistrar.addRecipeGroup(this);
+public class StackedProcessingRecipeGroup extends AbstractRecipeGroup{
+	public StackedProcessingRecipeGroup(String id) {
+		super(id);
+	}
+	@Override
+	protected Tuple2<String, JComponent> createTab() {
+		return new Tuple2<String, JComponent>(title, new StackedProcessingRecipeList(this));
 	}
 	/**
 	 * @author oskar

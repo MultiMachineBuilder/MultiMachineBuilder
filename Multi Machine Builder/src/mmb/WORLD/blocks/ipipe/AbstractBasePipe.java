@@ -110,7 +110,7 @@ public abstract class AbstractBasePipe extends BlockEntityChirotable {
 		this.type = type;
 		this.items = new ItemEntry[numItems];
 		this.texture = texture;
-		addBlockEntityDemolitionListener(event -> {
+		eventDemolition.addListener(event -> {
 			for(ItemEntry item: items) {
 				if(item != null)
 					event.world.dropItem(item, posX(), posY());

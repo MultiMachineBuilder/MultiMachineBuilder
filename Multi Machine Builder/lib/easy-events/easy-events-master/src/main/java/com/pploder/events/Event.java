@@ -77,5 +77,10 @@ public interface Event<T> {
     default void trigger() {
         trigger(null);
     }
+    
+    /**
+     * Removes all listeners
+     */
+    void clear();
 
 }

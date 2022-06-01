@@ -10,12 +10,18 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.pploder.events.CatchingEvent;
+import com.pploder.events.Event;
+
 import mmb.GameObject;
 import mmb.BEANS.Positioned;
+import mmb.WORLD.event.BlockEntityDemolitionEvent;
+import mmb.WORLD.event.BlockEntityDemolitionListener;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
+import mmb.debug.Debugger;
 
 /**
  * @author oskar
@@ -28,6 +34,8 @@ import mmb.WORLD.worlds.world.World;
  * </ul>
  */
 public abstract class BlockEntity implements BlockEntry, Positioned{
+	
+	private static final Debugger bedebug = new Debugger("BLOCK ENTITIES");
 	
 	@Override
 	public void setX(int x) {
@@ -112,40 +120,45 @@ public abstract class BlockEntity implements BlockEntry, Positioned{
 		//Optional
 	}
 	
-	protected void clearListeners() {
-		demoListeners = new ArrayList<>();
-	}
 	//Block demolition event
+	
+	/**
+	 * Clears listeners
+	 */
+	protected void clearListeners() {
+		eventDemolition.clear();
+	}
 	private boolean underDemolition;
-	List<BlockEntityDemolitionListener> demoListeners = new ArrayList<>();
-	/**
-	 * Adds a block entity demolition listener
-	 * @param listener
-	 */
-	public void addBlockEntityDemolitionListener(BlockEntityDemolitionListener listener) {
+	@Override public final void onBreak(World blockMap, @Nullable GameObject obj, int x, int y) {
 		if(underDemolition) return;
-		demoListeners.add(listener);
-	}
-	/**
-	 * Removes a block entity demolition listener
-	 * @param listener listener to remove
-	 */
-	public void removeBlockEntityDemolitionListener(BlockEntityDemolitionListener listener) {
-		if(underDemolition) return;
-		demoListeners.remove(listener);
-	}
-	@Override
-	public final void onBreak(World blockMap, @Nullable GameObject obj, int x, int y) {
-		if(underDemolition) return;
+		underDemolition = true;
 		BlockEntityDemolitionEvent event = new BlockEntityDemolitionEvent(x, y, this, blockMap, obj);
-		for(BlockEntityDemolitionListener listener: demoListeners) {
-			listener.blockDemolished(event);
-		}
+		eventDemolition.trigger(event);
+		eventRemoval.trigger(blockMap);
+		underDemolition = false;
 	}
-	/**
-	 * Breaks this block entity
-	 */
+	
+	private boolean underShutdown;
+	@Override public final void onShutdown(World map) {		
+		if(underShutdown) return;
+		underShutdown = true;
+		eventRemoval.trigger(map);
+		eventShutdown.trigger(map);
+		underShutdown = false;
+	}
+	
+	
+	/** Breaks this block entity */
 	public void blow() {
 		owner().set(type().leaveBehind().createBlock(), posX(), posY());
 	}
+
+	//Events
+	public final CatchingEvent<BlockEntityDemolitionEvent> eventDemolition = new CatchingEvent<>(bedebug, "Failed to run a block entity demolition event");
+	public final CatchingEvent<World> eventShutdown = new CatchingEvent<>(bedebug, "Failed to run a block entity world shutdown event");
+	public final CatchingEvent<World> eventRemoval = new CatchingEvent<>(bedebug, "Failed to run a block entity removal event");
+
+	
+
+	
 }

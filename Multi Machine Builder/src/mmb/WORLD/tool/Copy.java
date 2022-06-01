@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.tool;
 
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
@@ -33,18 +35,21 @@ public class Copy extends WindowTool {
 		super("Copy");
 	}
 
+	private static final String descr0 = $res("tcopy-0");
+	private static final String descr1= $res("tcopy-1");
+	private static final String descr2 = $res("tcopy-2");
 	@Override
 	public String description() {
 		switch(state) {
+		case 0:
+			return descr0;
+		case 1:
+			return descr1;
+		case 2:
+			return descr2;
 		default:
 			state = 0;
-			//$FALL-THROUGH$
-		case 0:
-			return "Pick first corner with LMB";
-		case 1:
-			return "Pick second corner, press LMB to copy, press MMB to cut, or press RMB to cancel";
-		case 2:
-			return "Pick location to paste with LMB, or press RMB to delete selection";
+			return descr0;
 		}
 	}
 	
@@ -59,9 +64,10 @@ public class Copy extends WindowTool {
 	}
 	
 	public static final Icon icon = new ImageIcon(Textures.get("copy.png"));
+	private final String title = $res("tcopy");
 	@Override
 	public String title() {
-		return "Copy";
+		return title;
 	}
 
 	@Override

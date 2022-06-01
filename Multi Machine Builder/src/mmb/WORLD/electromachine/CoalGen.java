@@ -17,7 +17,6 @@ import mmb.GRAPHICS.awt.ColorMapper;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
-import mmb.WORLD.blocks.FuelBurner;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.Electricity;

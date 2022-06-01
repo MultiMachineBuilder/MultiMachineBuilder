@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.gui.window;
 
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Adjustable;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -213,17 +215,17 @@ public class WorldWindow extends MMBFrame{
 					lblTool.setForeground(Color.WHITE);
 					lblTool.setBackground(Color.BLUE);
 					lblTool.setOpaque(true);
-					pane.add("World", worldPane);
+					pane.add($res("wgui-world"), worldPane);
 				//[end]
 				//[start] Inventory pane
 					panelPlayerInv = new TabInventory(this);
 					panelPlayerInv.craftGUI.inventoryController.setModel(invModel);
 					panelPlayerInv.craftGUI.inventoryController.setSelectionModel(selModel);
-					pane.addTab("Inventory", panelPlayerInv);
+					pane.addTab($res("wgui-inv"), panelPlayerInv);
 				//[end]
 				//[start] Recipe pane
 					TabRecipes recipePane = new TabRecipes();
-					pane.addTab("Recipes", null, recipePane, null);
+					pane.addTab($res("wgui-recipes"), null, recipePane, null);
 				//[end]
 			rootPane.setLeftComponent(pane);
 
@@ -241,21 +243,21 @@ public class WorldWindow extends MMBFrame{
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 			//Menu
-				JMenu mnNewMenu = new JMenu("Game");
+				JMenu mnNewMenu = new JMenu($res("wgui-game"));
 				menuBar.add(mnNewMenu);
 				//Full screen
 					BoundCheckBoxMenuItem mntmFullScreen = new BoundCheckBoxMenuItem();
-					mntmFullScreen.setText("FullScreen");
+					mntmFullScreen.setText($res("wgui-fulls"));
 					mntmFullScreen.setBackground(Color.YELLOW);
 					mntmFullScreen.setVariable(FullScreen.isFullScreen);
 					mnNewMenu.add(mntmFullScreen);
 				//To main menu
-					JMenuItem mntmMMenu = new JMenuItem("To main menu");
+					JMenuItem mntmMMenu = new JMenuItem($res("wgui-main"));
 					mntmMMenu.setBackground(Color.ORANGE);
 					mntmMMenu.addActionListener(e -> dispose());
 					mnNewMenu.add(mntmMMenu);
 				//To desktop
-					JMenuItem mntmExitDesktop = new JMenuItem("To desktop");
+					JMenuItem mntmExitDesktop = new JMenuItem($res("wgui-dtp"));
 					mntmExitDesktop.setBackground(Color.RED);
 					mntmExitDesktop.addActionListener(e -> {
 						dispose();
@@ -264,11 +266,13 @@ public class WorldWindow extends MMBFrame{
 					mnNewMenu.add(mntmExitDesktop);
 				//Debug display
 					BoundCheckBoxMenuItem bchckbxmntmDebugDisplay = new BoundCheckBoxMenuItem();
-					bchckbxmntmDebugDisplay.setText("Debug display");
+					bchckbxmntmDebugDisplay.setText($res("wgui-debug"));
 					bchckbxmntmDebugDisplay.setVariable(WorldFrame.DEBUG_DISPLAY);
 					mnNewMenu.add(bchckbxmntmDebugDisplay);
 					
-					JLabel lblBlockScale = new JLabel("vv Block scale vv 32");
+					String scale = $res("wgui-scale");
+					
+					JLabel lblBlockScale = new JLabel(scale+" 32");
 					mnNewMenu.add(lblBlockScale);
 					
 					JScrollBar slideBlockScale = new JScrollBar();
@@ -277,7 +281,7 @@ public class WorldWindow extends MMBFrame{
 					slideBlockScale.setMaximum(64);
 					slideBlockScale.addAdjustmentListener(e -> {
 						worldFrame.setBlockScale(e.getValue());
-						lblBlockScale.setText("vv Block scale vv "+e.getValue());
+						lblBlockScale.setText(scale+" "+e.getValue());
 					});
 					slideBlockScale.setOrientation(Adjustable.HORIZONTAL);
 					mnNewMenu.add(slideBlockScale);

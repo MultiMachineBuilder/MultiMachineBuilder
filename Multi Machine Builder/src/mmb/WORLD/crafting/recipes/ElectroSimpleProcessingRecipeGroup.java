@@ -13,6 +13,7 @@ import javax.annotation.Nonnull;
 import javax.swing.JComponent;
 
 import io.vavr.Tuple2;
+import mmb.GlobalSettings;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeGroup;
@@ -33,15 +34,15 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class ElectroSimpleProcessingRecipeGroup implements RecipeGroup{
-	public final String title;
-	public ElectroSimpleProcessingRecipeGroup(String title) {
-		super();
-		this.title = title;
-		Supplier<Tuple2<String, JComponent>> sup = () -> new Tuple2<String, JComponent>(title, new SimpleProcessingRecipeList(this));
-		TabRecipes.add(sup);
-		GlobalRecipeRegistrar.addRecipeGroup(this);
+public class ElectroSimpleProcessingRecipeGroup extends AbstractRecipeGroup{
+	public ElectroSimpleProcessingRecipeGroup(String id) {
+		super(id);
 	}
+	@Override
+	protected Tuple2<String, JComponent> createTab() {
+		return new Tuple2<>(title, new SimpleProcessingRecipeList(this));
+	}
+	
 	/**
 	 * @author oskar
 	 * A recipe with one input item and output
@@ -144,5 +145,4 @@ public class ElectroSimpleProcessingRecipeGroup implements RecipeGroup{
 	public SelfSet<ItemEntry, ElectroSimpleProcessingRecipe> recipes() {
 		return recipes;
 	}
-
 }

@@ -39,6 +39,7 @@ import io.vavr.Tuple2;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import mmb.Bitwise;
+import mmb.GlobalSettings;
 import mmb.Vector2iconst;
 import mmb.BEANS.BlockActivateListener;
 import mmb.DATA.json.JsonTool;
@@ -348,7 +349,7 @@ public class World implements Identifiable<String>{
 					ent.onTick(proxy);
 					long finish = System.nanoTime();
 					long duration = finish - start;
-					if(duration >= 1_000_000) {
+					if(GlobalSettings.logExcessiveTime.getValue() && duration >= 1_000_000) {
 						debug.printl("Block entity at ["+ent.posX()+","+ent.posY()+
 							"] took exceptionally long to run");
 					}
@@ -388,39 +389,43 @@ public class World implements Identifiable<String>{
 	public boolean hasShutDown() {
 		return timer.getState() == 2;
 	}
-	private final Object shutdownLock = new Object();
 	/** Shut down the map, but keep the resources */
 	public void shutdown() {
-		synchronized(shutdownLock) {
-			debug.printl("Shutdown");
-			if(hasShutDown()) return;
-			//Stop the game loop
-			preventRuns();
-			//Shut down block entities
-			for(BlockEntity ent: _blockents) {
-				try {
-					ent.onShutdown(this);
-				} catch (Exception e) {
-					debug.pstm(e, "Failed to shut down block "+ent.type().id()+" at ["+ent.posX()+","+ent.posY()+"]");
-				}
+		//This sometimes is stuck
+		debug.printl("Shutdown");
+		if(hasShutDown()) return;
+		//Stop the game loop
+		preventRuns();
+		//Shut down block entities
+		for(BlockEntity ent: _blockents) {
+			try {
+				ent.onShutdown(this);
+			} catch (Exception e) {
+				debug.pstm(e, "Failed to shut down block "+ent.type().id()+" at ["+ent.posX()+","+ent.posY()+"]");
 			}
-			//Shut down machines
-			for(Machine m: machines) {
-				try {
-					m.onShutdown();
-				}catch(Exception e) {
-					debug.pstm(e, "Failed to shut down machine "+m.id()+" at ["+m.posX()+","+m.posY()+"]");
-				}
-			}
-			if(timer.getState() == 1) timer.destroy();
 		}
+		//Shut down machines
+		for(Machine m: machines) {
+			try {
+				m.onShutdown();
+			}catch(Exception e) {
+				debug.pstm(e, "Failed to shut down machine "+m.id()+" at ["+m.posX()+","+m.posY()+"]");
+			}
+		}
+		if(timer.getState() == 1) timer.destroy();
 	}
 	
 	//Lock out the world
 	private void preventRuns() {
 		if(timer.getState() == 0) return;
 		stopping = true;
-		while(!underTick) {Thread.yield();}
+		try {
+			timer.join();
+		} catch (InterruptedException e) {
+			debug.pstm(e, "Interrupted!");
+			Thread.currentThread().interrupt();
+		}
+		//while(!underTick) {Thread.yield();}
 	}
 	
 	//Data layers

@@ -77,6 +77,7 @@ public class TabInventory extends JPanel {
 	}
 	
 	private static class AllTagsel implements Tagsel{
+		private static final String title = "1 "+$res("wguit-all");
 		@Override
 		public DefaultListModel<ItemType> eligible() {
 			return CreativeItemList.model;
@@ -84,12 +85,12 @@ public class TabInventory extends JPanel {
 
 		@Override
 		public String title() {
-			return "1 All tags";
+			return title;
 		}
 
 		@Override
 		public String toString() {
-			return "1 All tags";
+			return title;
 		}
 	}
 	
@@ -235,12 +236,12 @@ public class TabInventory extends JPanel {
 		//Tags
 		DefaultListModel<Tagsel> model = new DefaultListModel<>();
 		model.addElement(new AllTagsel());
-		model.addElement(new FilterTagsel("Blocks", i -> i instanceof BlockType));
-		model.addElement(new FilterTagsel("Items", i -> !(i instanceof BlockType)));
-		model.addElement(new FilterTagsel("Block entities", i -> i instanceof BlockEntityType));
-		model.addElement(new FilterTagsel("Item entities", i -> i instanceof ItemEntityType));
-		model.addElement(new FilterTagsel("Simple blocks", i -> i instanceof Block));
-		model.addElement(new FilterTagsel("Simple items", i -> i instanceof Item && !(i instanceof BlockType)));
+		model.addElement(new FilterTagsel($res("wguit-block"), i -> i instanceof BlockType));
+		model.addElement(new FilterTagsel($res("wguit-items"), i -> !(i instanceof BlockType)));
+		model.addElement(new FilterTagsel($res("wguit-bents"), i -> i instanceof BlockEntityType));
+		model.addElement(new FilterTagsel($res("wguit-ients"), i -> i instanceof ItemEntityType));
+		model.addElement(new FilterTagsel($res("wguit-sblk"),  i -> i instanceof Block));
+		model.addElement(new FilterTagsel($res("wguit-sitem"), i -> i instanceof Item && !(i instanceof BlockType)));
 		for(Entry<String, Collection<ItemType>> data : Items.tags.asMap().entrySet()) {
 			String s = data.getKey();
 			Set<ItemType> set = (Set<ItemType>) data.getValue();

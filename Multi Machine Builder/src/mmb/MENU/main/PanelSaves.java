@@ -30,8 +30,8 @@ import net.miginfocom.swing.MigLayout;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
+import static mmb.GlobalSettings.*;
 
 /**
  * @author oskar
@@ -62,7 +62,7 @@ public class PanelSaves extends JPanel {
 		add(subPanelSaves, BorderLayout.SOUTH);
 		subPanelSaves.setLayout(new MigLayout("", "[][][][][]", "[]"));
 		
-		JButton btnPlay = new JButton("Play");
+		JButton btnPlay = new JButton($res("cguiw-play"));
 		btnPlay.setToolTipText("Play the selected world");
 		btnPlay.addActionListener(e -> play());
 		btnPlay.setBackground(Color.GREEN);
@@ -72,18 +72,18 @@ public class PanelSaves extends JPanel {
 		 * Create a new world.
 		 * In 0.5 this menu will significantly be enhanced
 		 */
-		JButton btnNewWorld = new JButton("New world");
+		JButton btnNewWorld = new JButton($res("cguiw-new"));
 		btnNewWorld.setToolTipText("Create a new world");
 		btnNewWorld.addActionListener(arg -> FullScreen.setWindow(new NewGame()));
 		subPanelSaves.add(btnNewWorld, "cell 1 0");
 		
 		
-		JButton btnReloadWorlds = new JButton("Refresh");
+		JButton btnReloadWorlds = new JButton($res("cguiw-refresh"));
 		btnReloadWorlds.setToolTipText("Refresh save list");
 		btnReloadWorlds.addActionListener(arg -> refresh());
 		subPanelSaves.add(btnReloadWorlds, "cell 2 0");
 		
-		JButton btnMapsDir = new JButton("Open maps directory");
+		JButton btnMapsDir = new JButton($res("cguiw-dir"));
 		btnMapsDir.setToolTipText("Open 'maps' directory in the file manager");
 		btnMapsDir.addActionListener(arg -> {
 				try {
@@ -94,7 +94,7 @@ public class PanelSaves extends JPanel {
 		});
 		subPanelSaves.add(btnMapsDir, "cell 3 0");
 		
-		JButton btnOpenExternal = new JButton("External");
+		JButton btnOpenExternal = new JButton($res("cguiw-ext"));
 		btnOpenExternal.setBackground(Color.ORANGE);
 		btnOpenExternal.addActionListener(e -> playExternal());
 		subPanelSaves.add(btnOpenExternal, "cell 4 0");

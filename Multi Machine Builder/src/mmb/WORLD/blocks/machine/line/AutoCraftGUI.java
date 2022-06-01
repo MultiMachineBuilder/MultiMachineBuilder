@@ -15,6 +15,9 @@ import mmb.WORLD.gui.inv.CraftGUI;
 import javax.annotation.Nonnull;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Color;
 import mmb.WORLD.gui.inv.MoveItems;
 import mmb.WORLD.gui.inv.InventoryController;
@@ -30,21 +33,22 @@ class AutoCraftGUI extends GUITab {
 		this.crafter = crafter;
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[][grow][][][grow]"));
 		
-		JLabel lbl0 = new JLabel("A crafting GUI to help create recipes:");
+		JLabel lbl0 = new JLabel($res("wguim-craftaid"));
 		lbl0.setBackground(new Color(0, 139, 139));
 		lbl0.setOpaque(true);
 		add(lbl0, "flowx,cell 0 0,growx");
 		
-		JLabel lbl1 = new JLabel("Incoming items:");
+		JLabel lbl1 = new JLabel($res("wguim-in"));
 		lbl1.setBackground(Color.ORANGE);
 		add(lbl1, "cell 1 0 2 1,growx");
 		lbl1.setOpaque(true);
 		
 		InventoryController ctrl = new InventoryController(window.getPlayer().inv);
 		CraftGUI craftGUI = new CraftGUI(3, null, window, ctrl);
+		craftGUI.inventoryController.setTitle($res("player"));
 		add(craftGUI, "cell 0 1 1 4,grow");
 		
-		JButton button = new JButton("Exit");
+		JButton button = new JButton($res("exit"));
 		button.setBackground(Color.RED);
 		button.addActionListener(e -> window.closeWindow(this));
 		craftGUI.verticalBox.add(button);
@@ -56,14 +60,14 @@ class AutoCraftGUI extends GUITab {
 		MoveItems moveIn = new MoveItems(ctrl, invIn);
 		add(moveIn, "flowy,cell 1 1,grow");
 		
-		JLabel lbl2 = new JLabel("Progress:");
+		JLabel lbl2 = new JLabel($res("wguim-progress"));
 		add(lbl2, "flowx,cell 1 2,growx");
 		
 		progressBar = new JProgressBar();
 		progressBar.setMaximum(50);
-		add(progressBar, "cell 2 2");
+		add(progressBar, "cell 2 2,growx");
 		
-		JLabel lbl3 = new JLabel("Outgoing items:");
+		JLabel lbl3 = new JLabel($res("wguim-out"));
 		lbl3.setForeground(new Color(255, 255, 0));
 		lbl3.setBackground(Color.BLUE);
 		add(lbl3, "cell 1 3 2 1,growx");
@@ -77,7 +81,7 @@ class AutoCraftGUI extends GUITab {
 		add(moveOut, "cell 1 4,grow");
 		
 		//Manipulate the internal stencil
-		JButton setStencil = new JButton("Move this stencil to the crafter →");
+		JButton setStencil = new JButton($res("wguim-insstencil"));
 		setStencil.setBackground(new Color(255, 215, 0));
 		setStencil.addActionListener(e -> {
 			if(crafter.getStencil() != null) return;
@@ -99,7 +103,7 @@ class AutoCraftGUI extends GUITab {
 		});
 		craftGUI.verticalBox.add(setStencil);
 		
-		JButton getStencil = new JButton("← Remove stencil from the crafter");
+		JButton getStencil = new JButton($res("wguim-exstencil"));
 		getStencil.setBackground(new Color(50, 205, 50));
 		getStencil.addActionListener(e -> {
 			Stencil stencil = crafter.getStencil();

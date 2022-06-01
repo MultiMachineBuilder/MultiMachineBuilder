@@ -4,7 +4,6 @@
 package mmb.WORLD.electromachine;
 
 import mmb.WORLD.crafting.Recipe;
-import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.Refreshable;
 import mmb.WORLD.electric.Electricity;
 import mmb.WORLD.gui.window.GUITab;
@@ -26,7 +25,7 @@ import javax.swing.JProgressBar;
 import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
-import javax.swing.Box;
+import static mmb.GlobalSettings.*;
 
 /**
  * @author oskar
@@ -41,44 +40,47 @@ public class MachineTab extends GUITab implements Refreshable{
 	@Nonnull private JProgressBar progressSmelt;
 	@Nonnull private JProgressBar progressEnergy;
 	private MultilineLabel lblChance;
-
+	
+	@Nonnull private static final String SMELT = ($res("wguim-smelt"));
+	@Nonnull private static final String NOSMELT = ($res("wguim-nosmelt"));
+	@Nonnull private static final String CHANCE = ($res("wguim-chance"));
 	/**
 	 * Create the panel.
 	 */
-	public MachineTab(CommonMachine alloySmelter, WorldWindow window) {
-		this.furnace = alloySmelter;
+	public MachineTab(CommonMachine machine, WorldWindow window) {
+		this.furnace = machine;
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][][][][grow]"));
 		
 		InventoryController invPlayer = new InventoryController(window.getPlayer().inv);
 		add(invPlayer, "cell 0 0 1 6,grow");
 		
-		MachineInfoTab machineInfoTab = new MachineInfoTab(alloySmelter);
+		MachineInfoTab machineInfoTab = new MachineInfoTab(machine);
 		add(machineInfoTab, "cell 2 0,grow");
 		
-		invInput = new InventoryController(alloySmelter.in);
-		invInput.setTitle("  Input  ");
+		invInput = new InventoryController(machine.in);
+		invInput.setTitle($res("wguim-in"));
 		add(invInput, "cell 2 1,grow");
 		
 		MoveItems moveItemsInput = new MoveItems(invPlayer, invInput);
 		add(moveItemsInput, "cell 1 0 1 2,grow");
 		
-		JButton exit = new JButton("Exit");
+		JButton exit = new JButton($res("wguic-exit"));
 		exit.addActionListener(e -> window.closeWindow(this));
 		exit.setBackground(Color.RED);
 		add(exit, "cell 1 2,grow");
 		
-		JLabel lblEnergy = new JLabel("Energy:");
+		JLabel lblEnergy = new JLabel(SMELT);
 		lblEnergy.setBackground(Color.GREEN);
 		add(lblEnergy, "flowx,cell 2 2");
 		SingleItemInventory cats = furnace.catalyst();
 		
-		lblSmelt = new MultilineLabel("Currently smelting:");
+		lblSmelt = new MultilineLabel($res("wguim-energy"));
 		lblSmelt.setPreferredViewportLineCount(5);
 		add(lblSmelt, "flowx,cell 2 3");
 		
-		lblChance = new MultilineLabel("CHANCE TO GET");
+		lblChance = new MultilineLabel($res("wguim-chance"));
 		lblChance.setPreferredViewportLineCount(5);
-		add(lblChance, "cell 2 4");
+		add(lblChance, "cell 2 4,growx");
 		
 		if(cats != null){
 			JButton removeCatalyst = new JButton("< CAT");
@@ -93,16 +95,16 @@ public class MachineTab extends GUITab implements Refreshable{
 			JButton addCatalyst = new JButton("CAT >");
 			addCatalyst.setBackground(new Color(102, 204, 102));
 			addCatalyst.addActionListener(e -> {
-				ItemRecord record = invPlayer.getSelectedValue();
-				if(record == null) return;
-				Inventories.transfer(record, cats);
+				ItemRecord irecord = invPlayer.getSelectedValue();
+				if(irecord == null) return;
+				Inventories.transfer(irecord, cats);
 				invPlayer.refresh();
 			});
 			add(addCatalyst, "cell 1 4,growx");
 		}
 		
-		invOutput = new InventoryController(alloySmelter.out);
-		invOutput.setTitle("  Output  ");
+		invOutput = new InventoryController(machine.out);
+		invOutput.setTitle($res("wguim-out"));
 		add(invOutput, "cell 2 5,grow");
 		
 		MoveItems moveItemsOutput = new MoveItems(invPlayer, invOutput, MoveItems.LEFT);
@@ -142,15 +144,15 @@ public class MachineTab extends GUITab implements Refreshable{
 	@Override
 	public void refreshProgress(double progress, @Nullable Recipe underway) {
 		if(underway == null) {
-			lblSmelt.setText("Not smelting");
+			lblSmelt.setText(NOSMELT);
 		}else {
 			progressSmelt.setValue((int)(progress*100));
 			PicoWriter writerA = new PicoWriter();
 			underway.output().represent(writerA);
-			lblSmelt.setText("Currently smelted: "+writerA.toString());
+			lblSmelt.setText(SMELT+" "+writerA.toString());
 			PicoWriter writerB = new PicoWriter();
 			underway.luck().represent(writerB);
-			lblChance.setText("CHANCE TO GET: "+writerB.toString());
+			lblChance.setText(CHANCE+" "+writerB.toString());
 		}
 		double volts = furnace.elec.voltage.volts;
 		double max = volts * furnace.elec.capacity;

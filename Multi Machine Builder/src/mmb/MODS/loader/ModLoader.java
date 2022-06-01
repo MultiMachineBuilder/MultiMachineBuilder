@@ -6,6 +6,7 @@ package mmb.MODS.loader;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.function.BiConsumer;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 import mmb.debug.Debugger;
 import mmb.Main;
 import mmb.DATA.contents.GameContents;
+import mmb.DATA.contents.sound.Sounds;
 import mmb.DATA.contents.texture.Textures;
 import mmb.ERRORS.UndeclarableThrower;
 import mmb.FILES.FileUtil;
@@ -23,7 +25,6 @@ import mmb.MENU.FullScreen;
 import mmb.MODS.info.AddonState;
 import mmb.SOUND.MP3Loader;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.blocks.ipipe.Pipes;
 import mmb.WORLD.blocks.machine.Nuker;
 import mmb.WORLD.blocks.machine.line.Furnace;
 import mmb.WORLD.blocks.machine.manual.Crafting;
@@ -81,7 +82,19 @@ public final class ModLoader {
 	@SuppressWarnings("null")
 	public static void modloading(){
 		Main.state1("Loading textures");
+		//Load textures
 		walkTextures(new File("textures/"));
+		
+		//Load sounds
+		walkDirectory(new File("sound/"), (s, f) -> {
+			debug.printl("Loading a sound "+s);
+			try(InputStream i = new FileInputStream(f)) {
+				Sounds.load(i, s);
+			} catch (Exception e) {
+				debug.pstm(e, "Failed to load a sound "+s);
+			}
+		});
+		debug.printl("Sounds: "+Sounds.sounds.keySet());
 		
 		Materials.init();
 		//Check voltage tiers
@@ -92,7 +105,6 @@ public final class ModLoader {
 		
 		Main.state1("Loading blocks");
 		ContentsBlocks.init();
-		Pipes.init();
 		
 		Main.state1("Loading items");
 		ContentsItems.init();
@@ -282,19 +294,40 @@ public final class ModLoader {
 	
 	/**
 	 * Walk the directory by invoking the action
-	 * @param folder root
+	 * @param f root
 	 * @param action action to run in form of (file name, file)
 	 */
-	public static void walkDirectory(File folder, BiConsumer<String,File> action) {
-		List<File> files = new ArrayList<>();
+	public static void walkDirectory(File f, BiConsumer<String,File> action) {
+		/*List<File> files = new ArrayList<>();
 		walkDirectory(folder, files);
 		files.forEach(file -> {
 			String root = folder.getAbsolutePath();
 			String sub = file.getAbsolutePath();
 			sub = sub.substring(root.length());
 			action.accept(sub, file);
-		});
+		});*/
+		walkDirectory(f.getAbsolutePath().length(), f, action);
 	}
+	private static void walkDirectory(int baseSuffixLength, File f, BiConsumer<String,File> action) {
+		try {
+			if(f.isFile()) {
+				debug.printl("File: " + f.getCanonicalPath());
+				String absPath = f.getAbsolutePath();
+				String tname = absPath.substring(baseSuffixLength+1);
+				action.accept(tname, f);
+			}
+			if(f.isDirectory()) {
+				debug.printl("Directory: " + f.getCanonicalPath());
+				File[] walk = f.listFiles();
+				for(int i = 0; i < walk.length; i++) {
+					walkDirectory(baseSuffixLength, walk[i], action);
+				}
+			}
+		} catch (IOException e) {
+			debug.pstm(e, "THIS MESSAGE INDICATES MALFUNCTION OF FILE PATH SYSTEM OR JAVA. Couldn't get path of the file");
+		}
+	}
+	
 	/**
 	 * Walk the directory by adding all files to the list
 	 * @param folder root

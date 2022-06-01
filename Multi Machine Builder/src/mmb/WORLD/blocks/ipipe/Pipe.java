@@ -20,7 +20,7 @@ import mmb.WORLD.worlds.MapProxy;
 public class Pipe extends AbstractBasePipe {
 	@Nonnull protected final Pusher invwA, invwB;
 	@Nonnull final Side sideA, sideB;
-	protected Pipe(Side sideA, Side sideB, BlockType type, ChirotatedImageGroup rig) {
+	public Pipe(Side sideA, Side sideB, BlockType type, ChirotatedImageGroup rig) {
 		super(type, 2, rig);
 		this.sideA = sideA;
 		this.sideB = sideB;

@@ -13,26 +13,19 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.Locale;
-import java.util.Objects;
-
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
 
 import io.github.parubok.text.multiline.MultilineLabel;
 import mmb.GlobalSettings;
-import mmb.DATA.Settings;
 import mmb.MENU.components.BoundCombo;
 import mmb.debug.Debugger;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.JList;
-import javax.swing.JComboBox;
 import java.awt.Color;
 
 import javax.swing.DefaultComboBoxModel;
+import static mmb.GlobalSettings.*;
 
 /**
  * @author oskar
@@ -43,8 +36,8 @@ public class PanelSettings extends JPanel {
 	
 	private JTabbedPane tabbedPane;
 	private JPanel mods;
-	private MultilineLabel lblNewLabel;
-	private JTextPane txtpnLoading;
+	private MultilineLabel lblModInfo;
+	private JTextPane textpane;
 	private transient Debugger debug = new Debugger("EXTERNAL MODS");
 	
 	/**
@@ -57,73 +50,65 @@ public class PanelSettings extends JPanel {
 		add(tabbedPane, BorderLayout.CENTER);
 		
 		mods = new JPanel();
-		tabbedPane.addTab("Mods", null, mods, null);
+		tabbedPane.addTab($res("cgui-mods"), null, mods, null);
 		mods.setLayout(new MigLayout("", "[grow]", "[][][]"));
 		
-		lblNewLabel = new MultilineLabel("External Mods\nAdd only mods from trusted sources.\nAny mods here must be either local file or downloadable file.\nWebpages and websites won't work.");
-		lblNewLabel.setPreferredViewportLineCount(5);
-		lblNewLabel.setPreferredWidthLimit(1000);
-		mods.add(lblNewLabel, "cell 0 0,growx");
+		lblModInfo = new MultilineLabel($res("cguis-modhelp"));
+		lblModInfo.setPreferredViewportLineCount(5);
+		lblModInfo.setPreferredWidthLimit(1000);
+		mods.add(lblModInfo, "cell 0 0,growx");
 		
-		txtpnLoading = new JTextPane();
-		txtpnLoading.setText("Loading...");
-		txtpnLoading.setEnabled(false);
-		mods.add(txtpnLoading, "cell 0 1,grow");
+		textpane = new JTextPane();
+		textpane.setText($res("cguis-load"));
+		textpane.setEnabled(false);
+		mods.add(textpane, "cell 0 1,grow");
 		
 		locale = new JPanel();
-		tabbedPane.addTab("Language", null, locale, null);
-		locale.setLayout(new MigLayout("", "[][][grow]", "[][][][][][]"));
+		tabbedPane.addTab($res("cguis-lang"), null, locale, null);
+		locale.setLayout(new MigLayout("", "[][][grow]", "[][][][]"));
 		//issue with Locale class
 		Locale[] locales = Locale.getAvailableLocales(); //this is making GUIs stuck
 		Arrays.sort(locales, 
 				(a, b) -> a.toString().compareTo(b.toString()));
 		
-		lbl6 = new JLabel("For language changes to apply, the game MUST be restarted");
-		lbl6.setOpaque(true);
-		lbl6.setBackground(Color.ORANGE);
-		locale.add(lbl6, "cell 0 0 3 1,growx");
+		lblMustRestart = new JLabel($res("cguis-restart"));
+		lblMustRestart.setOpaque(true);
+		lblMustRestart.setBackground(Color.ORANGE);
+		locale.add(lblMustRestart, "cell 0 0 3 1,growx");
 		
-		lbl2 = new JLabel("Language:");
-		locale.add(lbl2, "cell 0 1");
+		lblLang = new JLabel($res("cguis-lang")+':');
+		locale.add(lblLang, "cell 0 1");
 		
 		comboLang = new BoundCombo<>();
 		comboLang.setModel(new DefaultComboBoxModel<>(Locale.getISOLanguages()));
 		comboLang.setVariable(GlobalSettings.lang);
 		locale.add(comboLang, "cell 2 1,growx");
 		
-		lbl3 = new JLabel("Country:");
-		locale.add(lbl3, "cell 0 2");
+		lblCont = new JLabel($res("cguis-cont")+':');
+		locale.add(lblCont, "cell 0 2");
 		
 		comboCountry = new BoundCombo<>();
 		comboCountry.setModel(new DefaultComboBoxModel<>(Locale.getISOCountries()));
 		comboCountry.setVariable(GlobalSettings.country);
 		locale.add(comboCountry, "cell 2 2,growx");
 		
-		lbl4 = new JLabel("If there is no SELECTED language-country combination, the country will be set to default for given language");
-		lbl4.setBackground(Color.YELLOW);
-		lbl4.setOpaque(true);
-		locale.add(lbl4, "cell 0 3 3 1,growx");
-		
-		lbl5 = new JLabel("Date/time format");
-		locale.add(lbl5, "cell 0 4");
-		
-		comboDTF = new JComboBox<>();
-		locale.add(comboDTF, "cell 2 4,growx");
+		lblNoSuchSelDefaultCont = new JLabel($res("cguis-nosuch"));
+		lblNoSuchSelDefaultCont.setBackground(Color.YELLOW);
+		lblNoSuchSelDefaultCont.setOpaque(true);
+		locale.add(lblNoSuchSelDefaultCont, "cell 0 3 3 1,growx");
 		EventQueue.invokeLater(this::load);
 		Runtime.getRuntime().addShutdownHook(new Thread(this::save));
 
 	}
 	private final File cfg = new File("ext.txt");
 	private JPanel locale;
-	private JLabel lbl2;
-	private JLabel lbl3;
-	private JLabel lbl5;
-	private JLabel lbl4;
-	private JLabel lbl6;
+	private JLabel lblLang;
+	private JLabel lblCont;
+	private JLabel lblNoSuchSelDefaultCont;
+	private JLabel lblMustRestart;
 	private BoundCombo<String> comboLang;
 	
 	private BoundCombo<String>comboCountry;
-	private JComboBox<String> comboDTF;
 	
 	private void load() {
 		
@@ -132,7 +117,7 @@ public class PanelSettings extends JPanel {
 			if(!cfg.exists()) 
 				avaliable = cfg.createNewFile();
 			if(avaliable) {
-				txtpnLoading.setText(new String(Files.readAllBytes(cfg.toPath())));
+				textpane.setText(new String(Files.readAllBytes(cfg.toPath())));
 			}else {
 				debug.printl("Failed to create external mods file, external mods WILL not be avaliable");
 			}
@@ -141,11 +126,11 @@ public class PanelSettings extends JPanel {
 			debug.pstm(e, "THIS EXCEPTION INDICATES PROBLEM WITH FILE SYSTEM OR JAVA");
 		}
 		
-		txtpnLoading.setEnabled(true);
+		textpane.setEnabled(true);
 	}
 	private void save() {
 		try(PrintWriter pw = new PrintWriter("ext.txt")) {
-			pw.print(txtpnLoading.getText());
+			pw.print(textpane.getText());
 		} catch (IOException e) {
 			debug.pstm(e, "THIS EXCEPTION INDICATES PROBLEM WITH FILE SYSTEM OR JAVA");
 		}

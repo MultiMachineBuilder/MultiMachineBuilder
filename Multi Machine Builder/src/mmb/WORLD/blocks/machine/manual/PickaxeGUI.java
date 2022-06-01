@@ -20,6 +20,9 @@ import mmb.WORLD.gui.inv.InventoryController;
 import mmb.WORLD.gui.inv.ItemSelectionSlot;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -50,14 +53,12 @@ public class PickaxeGUI extends GUITab {
 		slot.setMinimumSize(dim);
 		slot.setMaximumSize(dim);
 		slot.setPreferredSize(dim);
-		slot.stateChanged.addListener(ent -> {
-			crafted = PickaxeWorkbench.recipes.get(ent);
-		});
+		slot.stateChanged.addListener(ent -> crafted = PickaxeWorkbench.recipes.get(ent));
 		
 		JLabel lblNewLabel = new JLabel("crafted: ");
 		add(lblNewLabel, "cell 1 1");
 		
-		JButton btnCraft = new JButton("< Craft");
+		JButton btnCraft = new JButton($res("wguim-craft"));
 		btnCraft.addActionListener(e -> {
 			if(crafted != null) {
 				ItemEntry result = crafted.create();
@@ -70,10 +71,8 @@ public class PickaxeGUI extends GUITab {
 		btnCraft.setBackground(new Color(50, 205, 50));
 		add(btnCraft, "cell 1 2,growx");
 		
-		JButton btnExit = new JButton("Exit");
-		btnExit.addActionListener(e -> {
-			window.closeWindow(this);
-		});
+		JButton btnExit = new JButton($res("exit"));
+		btnExit.addActionListener(e -> window.closeWindow(this));
 		btnExit.setBackground(Color.RED);
 		add(btnExit, "cell 1 3,growx");
 		

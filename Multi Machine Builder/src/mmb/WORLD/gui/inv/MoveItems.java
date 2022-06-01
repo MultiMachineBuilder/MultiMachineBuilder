@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import mmb.WORLD.inventory.Inventories;
 import mmb.WORLD.inventory.ItemRecord;
+import static mmb.GlobalSettings.*;
 
 /**
  * @author oskar
@@ -37,6 +38,11 @@ public class MoveItems extends JPanel {
 	 * Indicates that button will point to both sides
 	 */
 	public static final byte BOTH = 3;
+	
+	private static final String ALL = $res("wguim-all");
+	private static final String SEL = $res("wguim-sel");
+	private static final String OSEL = $res("wguim-opsel");
+	private static final String ONE = $res("wguim-one");
 	
 	/**
 	 * Creates a item movement panel with allowed movement directions allowed
@@ -70,7 +76,7 @@ public class MoveItems extends JPanel {
 		constraints.weightx = 1;
 		setLayout(layout);
 		if((i & LEFT) != 0) {
-			JButton btnAllL = new JButton("<< All");
+			JButton btnAllL = new JButton("<< "+ALL);
 			btnAllL.addActionListener(e -> {
 				Inventories.transfer(right.getInv(), left.getInv());
 				left.refresh();
@@ -79,7 +85,7 @@ public class MoveItems extends JPanel {
 			layout.setConstraints(btnAllL, constraints);
 			add(btnAllL);
 			
-			JButton btnSelL = new JButton("<< Selection");
+			JButton btnSelL = new JButton("<< "+SEL);
 			btnSelL.addActionListener(e -> {
 				for(ItemRecord selRecord: right.getSelectedValuesList()) {
 					Inventories.transfer(selRecord, left.getInv());
@@ -90,7 +96,7 @@ public class MoveItems extends JPanel {
 			layout.setConstraints(btnSelL, constraints);
 			add(btnSelL);
 			
-			JButton btnOPSelL = new JButton("<< Once per selection");
+			JButton btnOPSelL = new JButton("<< "+OSEL);
 			btnOPSelL.addActionListener(e -> {
 				for(ItemRecord selRecord: right.getSelectedValuesList()) {
 					Inventories.transfer(selRecord, left.getInv(), 1);
@@ -101,7 +107,7 @@ public class MoveItems extends JPanel {
 			layout.setConstraints(btnOPSelL, constraints);
 			add(btnOPSelL);
 			
-			JButton btnOneL = new JButton("<< One");
+			JButton btnOneL = new JButton("<< "+ONE);
 			btnOneL.addActionListener(e -> {
 				Inventories.transfer(right.getSelectedValue(), left.getInv(), 1);
 				left.refresh();
@@ -111,7 +117,7 @@ public class MoveItems extends JPanel {
 			add(btnOneL);
 		}
 		if((i & RIGHT) != 0) {
-			JButton btnOneR = new JButton("One >>");
+			JButton btnOneR = new JButton(ONE+" >>");
 			btnOneR.addActionListener(e -> {
 				Inventories.transfer(left.getSelectedValue(), right.getInv(), 1);
 				left.refresh();
@@ -120,7 +126,7 @@ public class MoveItems extends JPanel {
 			layout.setConstraints(btnOneR, constraints);
 			add(btnOneR);
 			
-			JButton btnOPSelR = new JButton("Once per selection >>");
+			JButton btnOPSelR = new JButton(OSEL+" >>");
 			btnOPSelR.addActionListener(e -> {
 				for(ItemRecord selRecord: left.getSelectedValuesList()) {
 					Inventories.transfer(selRecord, right.getInv(), 1);
@@ -131,7 +137,7 @@ public class MoveItems extends JPanel {
 			layout.setConstraints(btnOPSelR, constraints);
 			add(btnOPSelR);
 			
-			JButton btnSelR = new JButton("Selection >>");
+			JButton btnSelR = new JButton(SEL+" >>");
 			btnSelR.addActionListener(e -> {
 				for(ItemRecord selRecord: left.getSelectedValuesList()) {
 					Inventories.transfer(selRecord, right.getInv());
@@ -142,7 +148,7 @@ public class MoveItems extends JPanel {
 			layout.setConstraints(btnSelR, constraints);
 			add(btnSelR);
 					
-			JButton btnAllR = new JButton("All >>");
+			JButton btnAllR = new JButton(ALL+" >>");
 			btnAllR.addActionListener(e -> {
 				Inventories.transfer(left.getInv(), right.getInv());
 				left.refresh();

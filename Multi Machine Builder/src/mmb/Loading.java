@@ -11,6 +11,9 @@ import mmb.MODS.loader.ModLoader;
 import mmb.debug.Debugger;
 
 import javax.swing.JLabel;
+
+import java.awt.Color;
+import java.awt.Font;
 import java.io.File;
 import java.util.Locale;
 
@@ -27,11 +30,14 @@ public class Loading extends JFrame {
 	private final JPanel contentPane;
 	JLabel st1 = new JLabel("State 1");
 	JLabel st2 = new JLabel("State 2");
+	final boolean shouldWork;
 
 	/**
 	 * Create the frame.
 	 */
 	public Loading() {
+		String jversion = System.getProperty("java.version");
+		shouldWork = !jversion.startsWith("1.");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -39,6 +45,15 @@ public class Loading extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[32px]", "[13px][13px][13px][13px]"));
 		contentPane.add(st1, "cell 0 0,alignx center,aligny center");
+		if(!shouldWork) {
+			Font font = new Font("Tahoma", Font.PLAIN, 20);
+			st1.setFont(font);
+			st1.setForeground(Color.RED);
+			setDefaultCloseOperation(EXIT_ON_CLOSE);
+			String a = "The Java version you have is "+jversion.charAt(2)+". The game won't work.";
+			st1.setText(a);
+			return;
+		}
 		contentPane.add(st2, "cell 0 1,alignx center,aligny center");		
 	}
 	

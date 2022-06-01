@@ -1,11 +1,12 @@
 /**
  * 
  */
-package mmb.WORLD.block;
+package mmb.WORLD.event;
 
 import javax.annotation.Nullable;
 
 import mmb.GameObject;
+import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.worlds.world.World;
 
 /**

@@ -185,6 +185,7 @@ public class AddonLoader {
 					debug.pst(e);
 				}
 			}else if(name.startsWith(PREFIX_SOUND)) {
+				//A sound file
 				debug.printl("Sound file");
 				String shorter = name.substring(PREFIX_SOUND.length());
 				try(InputStream stream = ByteListInputStream.of(a.files0.get(meta))){

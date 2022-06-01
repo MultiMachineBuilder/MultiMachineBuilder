@@ -13,6 +13,9 @@ import mmb.WORLD.worlds.world.Player;
 
 import javax.swing.JButton;
 import javax.annotation.Nonnull;
+
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Color;
 import mmb.WORLD.gui.inv.MoveItems;
 
@@ -38,16 +41,16 @@ public class ChestGui extends GUITab{
 		chestCtrl = new InventoryController();
 		chestCtrl.setInv(hopper.inv());
 		chestCtrl.setOrchestrator(inventoryOrchestrator);
-		chestCtrl.setTitle(" Chest ");
+		chestCtrl.setTitle($res("chest"));
 		add(chestCtrl, "cell 2 0,grow");
 		
 		playerCtrl = new InventoryController();
-		playerCtrl.setTitle(" Player ");
+		playerCtrl.setTitle($res("player"));
 		playerCtrl.setInv(p.inv);
 		playerCtrl.setOrchestrator(inventoryOrchestrator);
 		add(playerCtrl, "cell 0 0,grow");
 		
-		close = new JButton("Close this GUI");
+		close = new JButton($res("exit"));
 		close.addActionListener(e -> window.closeWindow(this));
 		close.setBackground(Color.RED);
 		

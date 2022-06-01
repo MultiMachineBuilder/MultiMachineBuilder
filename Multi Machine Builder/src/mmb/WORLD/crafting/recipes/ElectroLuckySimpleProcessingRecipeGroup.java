@@ -38,14 +38,13 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class ElectroLuckySimpleProcessingRecipeGroup implements RecipeGroup{
-	public final String title;
-	public ElectroLuckySimpleProcessingRecipeGroup(String title) {
-		super();
-		this.title = title;
-		Supplier<Tuple2<String, JComponent>> sup = () -> new Tuple2<String, JComponent>(title, new LuckySimpleProcessingRecipeList(this));
-		TabRecipes.add(sup);
-		GlobalRecipeRegistrar.addRecipeGroup(this);
+public class ElectroLuckySimpleProcessingRecipeGroup extends AbstractRecipeGroup{
+	public ElectroLuckySimpleProcessingRecipeGroup(String id) {
+		super(id);
+	}
+	@Override
+	protected Tuple2<String, JComponent> createTab() {
+		return new Tuple2<String, JComponent>(title, new LuckySimpleProcessingRecipeList(this));
 	}
 	/**
 	 * @author oskar

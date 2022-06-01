@@ -5,6 +5,9 @@ package mmb.WORLD.tool;
 
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
+
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Color;
 import java.awt.Point;
 
@@ -35,9 +38,10 @@ public class ToolPickaxe extends WindowTool {
 		this(null);
 	}
 
+	private final String title = $res("pickaxe");
 	@Override
 	public String title() {
-		return "Pickaxe";
+		return title;
 	}
 
 	public static final Icon icon = new ImageIcon(Textures.get("base/pickaxe.png"));

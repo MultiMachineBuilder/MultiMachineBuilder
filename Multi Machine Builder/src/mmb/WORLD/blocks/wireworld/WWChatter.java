@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.WORLD.blocks;
+package mmb.WORLD.blocks.wireworld;
 
 import javax.annotation.Nullable;
 
@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.BEANS.BlockActivateListener;
 import mmb.BEANS.TextMessageProvider;
 import mmb.WORLD.block.BlockType;
+import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.gui.NewTextEditor;

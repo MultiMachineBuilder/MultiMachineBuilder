@@ -44,10 +44,10 @@ public class WireGroup implements Identifiable<String> {
 		ElecRenderer large0 =  ElecRenderer.repaint(volt.c, ElecRenderer.large);
 		this.title = group.t_adjective;
 		this.id = group.id;
-		tiny   = conduit(title+matnames[0], mul   ,   tiny0,   "elecwire.tiny."+id, volt);
-		small  = conduit(title+matnames[1], mul* 3,  small0,  "elecwire.small."+id, volt);
-		medium = conduit(title+matnames[2], mul*10, medium0, "elecwire.medium."+id, volt);
-		large  = conduit(title+matnames[3], mul*30,  large0,  "elecwire.large."+id, volt);
+		tiny   = conduit(title+" "+matnames[0], mul   ,   tiny0,   "elecwire.tiny."+id, volt);
+		small  = conduit(title+" "+matnames[1], mul* 3,  small0,  "elecwire.small."+id, volt);
+		medium = conduit(title+" "+matnames[2], mul*10, medium0, "elecwire.medium."+id, volt);
+		large  = conduit(title+" "+matnames[3], mul*30,  large0,  "elecwire.large."+id, volt);
 		_index.add(this);
 		
 		//Crafting recipes

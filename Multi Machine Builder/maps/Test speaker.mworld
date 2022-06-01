@@ -1,0 +1,27 @@
+{
+  "main" : {
+    "sizeX" : 7,
+    "sizeY" : 7,
+    "startX" : -3,
+    "startY" : -3,
+    "world" : [ "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+      "blocktype" : "multi.speaker",
+      "sound" : "minecxraft.wav",
+      "mode" : "ONCE_WHEN_POWERED",
+      "state" : false,
+      "signal" : false,
+      "phase" : 0
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.button", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass" ],
+    "drops" : [ ],
+    "machines" : [ ],
+    "data" : { },
+    "player" : {
+      "inventory" : [ 128.0, [ "multi.speaker", 1 ], [ "wireworld.button", 1 ], [ "wireworld.off", "wireworld.off", 1 ] ],
+      "creative" : true,
+      "x" : -0.30000000000000004,
+      "y" : -0.30000000000000004
+    }
+  },
+  "data" : { },
+  "maps" : { }
+}

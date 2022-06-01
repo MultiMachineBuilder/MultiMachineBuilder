@@ -15,13 +15,13 @@ import mmb.DATA.contents.texture.Textures;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.blocks.FuelBurner;
 import mmb.WORLD.blocks.machine.SkeletalBlockLinear;
 import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.ElectroItemProcessHelper;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.VoltageTier;
+import mmb.WORLD.electromachine.FuelBurner;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.rotate.RotatedImageGroup;
 import mmb.WORLD.worlds.world.World;
@@ -47,7 +47,6 @@ public class Furnace extends SkeletalBlockLinear implements BlockActivateListene
 	public static void init() {
 		if(inited) return;
 		Craftings.smelting.add(ContentsBlocks.logs, Materials.coal.base, 1, VoltageTier.V1, 50_000);
-		Craftings.smelting.add(ContentsBlocks.coal_ore, Materials.coal.base, 3, VoltageTier.V1, 50_000);
 		inited = true;
 	}
 

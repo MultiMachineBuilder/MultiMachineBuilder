@@ -13,6 +13,7 @@ import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.electric.VoltageTier;
+import mmb.WORLD.item.Items;
 
 /**
  * @author oskar
@@ -29,18 +30,23 @@ public class BaseMetalGroup extends MetalGroup{
 	 * @param volt minimum voltage tier for recipes
 	 * @param baseEnergy base cost of smelting in joules
 	 * @param orePerSmelt amount of material obtained by smelting an ore
+	 * @param isGem is given material a gem?
 	 */
-	public BaseMetalGroup(Color c, String id, VoltageTier volt, double baseEnergy, int orePerSmelt) {
-		super(c, id, volt, baseEnergy);
+	public BaseMetalGroup(Color c, String id, VoltageTier volt, double baseEnergy, int orePerSmelt, boolean isGem) {
+		super(c, id, volt, baseEnergy, isGem);
 		ore = new Block()
 		.texture(TexGen.genOre(c))
-		.title(t_nominative+" ore")
+		.title(materialConcatenateShort("mattype-ore"))
 		.finish("ore."+id);
-		crop = ContentsBlocks.crop(1500, ore, t_nominative+" crop", TexGen.genCrop(c), "crop."+id);
+		crop = ContentsBlocks.crop(1500, ore, materialConcatenateShort("mattype-crop"), TexGen.genCrop(c), "crop."+id);
 		
 		//Recipes
 		Craftings.smelting.add(ore, base, orePerSmelt, volt, baseEnergy);
 		Craftings.crusher.add(ore, dust, 2*orePerSmelt, volt, baseEnergy/2);
+		
+		//Tags
+		Items.tagItems("material-"+id, ore, crop);
+		Items.tagItem("shape-ore", ore);
+		Items.tagItem("shape-crop", crop);
 	}
-	
 }

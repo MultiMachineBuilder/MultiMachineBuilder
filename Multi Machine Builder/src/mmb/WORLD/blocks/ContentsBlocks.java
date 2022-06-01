@@ -8,8 +8,8 @@ import java.awt.image.BufferedImage;
 
 import javax.annotation.Nonnull;
 
+import mmb.GlobalSettings;
 import mmb.DATA.contents.texture.Textures;
-import mmb.GRAPHICS.texgen.TexGen;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.blocks.actuators.ActuatorClick;
@@ -24,7 +24,11 @@ import mmb.WORLD.blocks.gates.BiGate.BiGateType;
 import mmb.WORLD.blocks.gates.Randomizer;
 import mmb.WORLD.blocks.gates.UniformRandom;
 import mmb.WORLD.blocks.gates.AbstractStateGate.StateGateType;
+import mmb.WORLD.blocks.ipipe.DualPipe;
+import mmb.WORLD.blocks.ipipe.IntersectingPipeExtractor;
 import mmb.WORLD.blocks.ipipe.ItemTransporter;
+import mmb.WORLD.blocks.ipipe.Pipe;
+import mmb.WORLD.blocks.ipipe.PipeBinder;
 import mmb.WORLD.blocks.machine.Collector;
 import mmb.WORLD.blocks.machine.CycleAssembler;
 import mmb.WORLD.blocks.machine.FurnacePlus;
@@ -34,13 +38,21 @@ import mmb.WORLD.blocks.machine.line.AutoCrafter;
 import mmb.WORLD.blocks.machine.line.Furnace;
 import mmb.WORLD.blocks.machine.manual.Crafting;
 import mmb.WORLD.blocks.machine.manual.PickaxeWorkbench;
+import mmb.WORLD.blocks.media.Speaker;
 import mmb.WORLD.blocks.ppipe.JoiningPlayerPipe;
 import mmb.WORLD.blocks.ppipe.PlayerPipe;
 import mmb.WORLD.blocks.ppipe.PlayerPipeEntry;
 import mmb.WORLD.blocks.ppipe.TwinPlayerPipe;
+import mmb.WORLD.blocks.wireworld.BlockButton;
+import mmb.WORLD.blocks.wireworld.Lamp;
+import mmb.WORLD.blocks.wireworld.OffToggle;
+import mmb.WORLD.blocks.wireworld.OnToggle;
+import mmb.WORLD.blocks.wireworld.WWChatter;
+import mmb.WORLD.blocks.wireworld.WWHead;
+import mmb.WORLD.blocks.wireworld.WWTail;
+import mmb.WORLD.blocks.wireworld.WWWire;
 import mmb.WORLD.chance.Chance;
 import mmb.WORLD.contentgen.ElectricMachineGroup;
-import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.recipes.ComplexCatalyzedProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup;
@@ -66,9 +78,10 @@ import mmb.debug.Debugger;
  * This class contains blocks in the new world system
  */
 public class ContentsBlocks {
+	private ContentsBlocks() {}
 	private static final Debugger debug = new Debugger("BLOCKS");
 	
-	//Simple blocks
+	//Primitive blocks
 	@Nonnull public static final Block air = createAir();
 	@Nonnull private static Block createAir() {
 		debug.printl("Creating blocks");
@@ -92,43 +105,6 @@ public class ContentsBlocks {
 		return grass;
 	}
 	
-	//WireWorld wires
-	/**
-	 * A WireWorld cell.
-	 * This block turns into head if it is provided with 1 or 2 signals in 8 block neighborhood.
-	 */
-	@SuppressWarnings("null")
-	@Nonnull public static final BlockEntityType ww_wire = new BlockEntityType()
-		.texture(Color.ORANGE)
-		.title("WireWorld cell")
-		.factory(WWWire::new)
-		.finish("wireworld.wire");
-	/** This block emits a signal, and it turns into a tail */
-	@SuppressWarnings("null")
-	@Nonnull public static final BlockEntityType ww_head = new BlockEntityType()
-		.texture(Color.WHITE)
-		.title("WireWorld head")
-		.factory(WWHead::new)
-		.leaveBehind(ww_wire)
-		.finish("wireworld.head");
-	/** This block is left by a head and it turns into wire. This block does not emit any signal. */
-	@SuppressWarnings("null")
-	@Nonnull public static final BlockEntityType ww_tail = new BlockEntityType()
-		.texture(Color.BLUE)
-		.title("WireWorld head")
-		.factory(WWTail::new)
-		.leaveBehind(ww_wire)
-		.finish("wireworld.tail");
-	
-	//WireWorld output devices
-	/** This block logs specified message if it is activated by a gate, wire or other signal source */
-	@Nonnull public static final BlockEntityType ww_chatter = new BlockEntityType()
-		.texture("printer.png")
-		.title("Chatbox")
-		.factory(WWChatter::new)
-		.describe("A block which prints out its text, when activated by a signal")
-		.finish("wireworld.chatter");
-	
 	//Simple blocks
 	/** A block of wood planks */
 	@Nonnull public static final Block plank = new Block()
@@ -143,24 +119,15 @@ public class ContentsBlocks {
 			.texture("block/leaves.png")
 			.title("#leaves")
 			.finish("mmb.leaves");
-
-	@Nonnull public static final Block coal_ore = new Block()
-			.texture(TexGen.genOre(Color.BLACK))
-			.title("Coal ore")
-			.finish("ore.coal");
-	@Nonnull public static final Block diamond_ore = new Block()
-			.texture(TexGen.genOre(Color.CYAN))
-			.title("Diamond ore")
-			.finish("ore.diamond");
-	
 	@Nonnull public static final Block crafting = new Block()
 			.texture("crafting.png")
-			.title("Assembly Table")
+			.title("#asmtb")
 			.finish("mmb.craft");
 	@Nonnull public static final Block logs = new Block()
 			.texture("log.png")
 			.title("#logs")
 			.finish("mmb.tree");
+	
 	@Nonnull public static final Block sand = new Block()
 			.texture("block/sand.png")
 			.title("#sand")
@@ -172,25 +139,85 @@ public class ContentsBlocks {
 	/** A block, which upon loading crashes the game*/
 	@Nonnull public static final Block COL = new COLBlock()
 			.texture("block/gravel.png")
-			.title("Crash on load")
+			.title("#CoL")
 			.finish("REMOVE THIS");
+	//WireWorld wires
+	/**
+	 * A WireWorld cell.
+	 * This block turns into head if it is provided with 1 or 2 signals in 8 block neighborhood.
+	 */
+	@SuppressWarnings("null")
+	@Nonnull public static final BlockEntityType ww_wire = new BlockEntityType()
+		.texture(Color.ORANGE)
+		.title("#ww-c")
+		.factory(WWWire::new)
+		.finish("wireworld.wire");
+	/** This block emits a signal, and it turns into a tail */
+	@SuppressWarnings("null")
+	@Nonnull public static final BlockEntityType ww_head = new BlockEntityType()
+		.texture(Color.WHITE)
+		.title("#ww-h")
+		.factory(WWHead::new)
+		.leaveBehind(ww_wire)
+		.finish("wireworld.head");
+	/** This block is left by a head and it turns into wire. This block does not emit any signal. */
+	@SuppressWarnings("null")
+	@Nonnull public static final BlockEntityType ww_tail = new BlockEntityType()
+		.texture(Color.BLUE)
+		.title("#ww-t")
+		.factory(WWTail::new)
+		.leaveBehind(ww_wire)
+		.finish("wireworld.tail");
+	
+	//Emitters
+	/** Generates a single random signal for every neighbor */
+	@Nonnull public static final BlockEntityType URANDOM = new BlockEntityType()
+			.title("#ww-ur")
+			.factory(UniformRandom::new)
+			.texture("logic/urandom.png")
+			.finish("wireworld.urandom");
+	/** Always provides 'true' signal */
+ 	@Nonnull public static final Block TRUE = new AlwaysTrue()
+			.title("#ww-true")
+			.texture("logic/true.png")
+			.finish("wireworld.true");
+	/** Generates a separate random signal for every neighbor */
+	@Nonnull public static final Block RANDOM = new Randomizer()
+			.texture("logic/random.png")
+			.title("#ww-rnd")
+			.finish("wireworld.random");
+	
+	//WireWorld output devices
+	/** This block logs specified message if it is activated by a gate, wire or other signal source */
+	@Nonnull public static final BlockEntityType ww_chatter = new BlockEntityType()
+		.texture("printer.png")
+		.title("#ww-chat")
+		.factory(WWChatter::new)
+		.describe("A block which prints out its text, when activated by a signal")
+		.finish("wireworld.chatter");
+	/** This block displays the logic inputs to itself*/
+	@Nonnull public static final BlockEntityType LAMP = new BlockEntityType()
+			.title("#ww-lamp")
+			.factory(Lamp::new)
+			.texture("logic/off lamp.png")
+			.finish("wireworld.lamp");
 	
 	//Logic gates
 	/** This block receives signals from DR and DR corners and outputs a signal if both inputs are active */
 	@Nonnull public static final BlockEntityType AND = new BiGateType("logic/AND.png", (a, b) -> a && b)
-		.title("AND")
+		.title("#ww-A")
 		.finish("wireworld.and");
 	/** This block receives signals from DR and DR corners and outputs a signal if any input is active */
 	@Nonnull public static final BlockEntityType OR = new BiGateType("logic/OR.png", (a, b) -> a || b)
-		.title("OR")
+		.title("#ww-O")
 		.finish("wireworld.or");
 	/** This block receives signals from DR and DR corners and outputs a signal if only one input are active */
 	@Nonnull public static final BlockEntityType XOR = new BiGateType("logic/XOR.png", (a, b) -> a ^ b)
-		.title("XOR")
+		.title("#ww-X")
 		.finish("wireworld.xor");
 	/** This block emits a pulse when pressed by a player or Block Clicking Claw */
 	@Nonnull public static final BlockEntityType BUTTON = new BlockEntityType()
-			.title("Button")
+			.title("#ww-btn")
 			.factory(BlockButton::new)
 			.texture("logic/button.png")
 			.finish("wireworld.button");
@@ -198,109 +225,90 @@ public class ContentsBlocks {
 	@Nonnull public static final BlockEntityType TOGGLE = new StateGateType("logic/toggle on.png","logic/toggle off.png","logic/toggle inert.png",(a,s) -> {
 		boolean s2 = s ^ a;
 		return (byte) (s2?3:0);
-	}).title("Toggle Latch")
-			.title("Toggle Latch")
-			.finish("wireworld.toggle");
+	})
+		.title("#ww-tgl")
+		.finish("wireworld.toggle");
 	/** Recreates the provided signal*/
 	@Nonnull public static final BlockEntityType YES = new MonoGateType("logic/YES.png", a -> a)
-			.title("YES")
+			.title("#ww-Y")
 			.finish("wireworld.yes");
 	/** Negates provided signal */
 	@Nonnull public static final BlockEntityType NOT = new MonoGateType("logic/NOT.png", a -> !a)
-			.title("NOT")
+			.title("#ww-N")
 			.finish("wireworld.not");
 	/**
 	 * Sends a random signal if powered
 	 * Else does not send signal
 	 */
 	@Nonnull public static final BlockEntityType RANDOMCTRL= new MonoGateType("logic/randomctrl.png", a -> a && Math.random() < 0.5)
-			.title("Random if")
+			.title("#ww-rctr")
 			.finish("wireworld.randomctrl");
 	
+	//Switches
+	/** Enabled switch */
+	@Nonnull public static final Block ON = new OnToggle()
+			.texture("logic/on.png")
+			.title("#ww-on")
+			.finish("wireworld.on");
+	/** Disabled switch */
+	@Nonnull public static final Block OFF = new OffToggle()
+			.texture("logic/off.png")
+			.title("#ww-off")
+			.finish("wireworld.off");
+	@Nonnull public static final BlockEntityType PLACER = new BlockEntityType()
+			.title("#ww-placer")
+			.factory(ActuatorPlaceBlock::new)
+			.texture("machine/placer.png")
+			.finish("machines.placer");
+	@Nonnull public static final BlockEntityType CLICKER = new BlockEntityType()
+			.title("#ww-click")
+			.factory(ActuatorClick::new)
+			.texture("machine/claw.png")
+			.finish("machines.clicker");
+	@Nonnull public static final BlockEntityType ROTATOR = new BlockEntityType()
+			.title("#ww-rot")
+			.factory(ActuatorRotations::new)
+			.texture("machine/CW.png")
+			.finish("machines.rotator");
+
 	//Power generators
-	@Nonnull public static final BlockEntityType COALGEN1 = coalgen(VoltageTier.V1, CoalGen.img, "Furnace Generator I", "elec.coalgen1");
-	@Nonnull public static final BlockEntityType COALGEN2 = coalgen(VoltageTier.V2, CoalGen.img1, "Furnace Generator II", "elec.coalgen2");
-	@Nonnull public static final BlockEntityType COALGEN3 = coalgen(VoltageTier.V3, CoalGen.img2, "Furnace Generator III", "elec.coalgen3");
+	@Nonnull public static final BlockEntityType COALGEN1 = coalgen(VoltageTier.V1, CoalGen.img, 1);
+	@Nonnull public static final BlockEntityType COALGEN2 = coalgen(VoltageTier.V2, CoalGen.img1, 2);
+	@Nonnull public static final BlockEntityType COALGEN3 = coalgen(VoltageTier.V3, CoalGen.img2, 3);
 	/** A series of 9 infinite power generators. They are used for testing.*/
 	@Nonnull public static final ElectricMachineGroup infinigens =
 			new ElectricMachineGroup(Textures.get("machine/power/infinity.png"), type -> new InfiniteGenerator(type.volt, type), "infinigen");
 	
 	//Electrical equipment
 	@Nonnull public static final BlockEntityType PMETER = new BlockEntityType()
-			.title("Power meter")
+			.title("#elec-meter")
 			.factory(PowerMeter::new)
 			.texture("machine/power/pmeter.png")
 			.finish("elec.meter");
 	@Nonnull public static final BlockEntityType LOAD = new BlockEntityType()
-			.title("Electrical load")
+			.title("#elec-load")
 			.factory(PowerLoad::new)
 			.texture("machine/power/load.png")
 			.finish("elec.load");
 	
 	//Modular machines
 	@Nonnull public static final BlockEntityType EFURNACE = new BlockEntityType()
-			.title("Electrical furnace")
+			.title("#depr-furnace")
 			.factory(FurnacePlus::new)
 			.texture("machine/esmelter.png")
 			.finish("elec.furnace");
 	@Nonnull public static final BlockEntityType NUKEGEN = new BlockEntityType()
-			.title("Nuclear reactor")
+			.title("#depr-nuker")
 			.factory(Nuker::new)
 			.texture("machine/power/nuke reactor.png")
 			.finish("nuke.generator");
 	
-	/** Always provides 'true' signal */
- 	@Nonnull public static final Block TRUE = new AlwaysTrue()
-			.title("Always True")
-			.texture("logic/true.png")
-			.finish("wireworld.true");
-	/** Generates a random signal for every neighbor */
-	@Nonnull public static final Block RANDOM = new Randomizer()
-			.texture("logic/random.png")
-			.title("Random")
-			.finish("wireworld.random");
-	
-	
-	/** Enabled switch */
-	@Nonnull public static final Block ON = new OnToggle()
-			.texture("logic/on.png")
-			.title("Active Switch")
-			.finish("wireworld.on");
-	/** Disabled switch */
-	@Nonnull public static final Block OFF = new OffToggle()
-			.texture("logic/off.png")
-			.title("Inactive Switch")
-			.finish("wireworld.off");
-	@Nonnull public static final BlockEntityType URANDOM = new BlockEntityType()
-			.title("Uniform Random")
-			.factory(UniformRandom::new)
-			.texture("logic/urandom.png")
-			.finish("wireworld.urandom");
-	@Nonnull public static final BlockEntityType LAMP = new BlockEntityType()
-			.title("Lamp")
-			.factory(Lamp::new)
-			.texture("logic/off lamp.png")
-			.finish("wireworld.lamp");
-	@Nonnull public static final BlockEntityType PLACER = new BlockEntityType()
-			.title("Creative Block Placer")
-			.factory(ActuatorPlaceBlock::new)
-			.texture("machine/placer.png")
-			.finish("machines.placer");
-	@Nonnull public static final BlockEntityType CLICKER = new BlockEntityType()
-			.title("Block Clicking Claw")
-			.factory(ActuatorClick::new)
-			.texture("machine/claw.png")
-			.finish("machines.clicker");
-	@Nonnull public static final BlockEntityType ROTATOR = new BlockEntityType()
-			.title("Block Rotator")
-			.factory(ActuatorRotations::new)
-			.texture("machine/CW.png")
-			.finish("machines.rotator");
+	//Chests
 	/**
 	 * A chest stores items of mutiple types
 	 */
 	@Nonnull public static final BlockEntityType CHEST = new BlockEntityType()
-			.title("Chest")
+			.title("#chest")
 			.factory(Chest::new)
 			.texture("machine/chest1.png")
 			.finish("chest.beginning");
@@ -308,60 +316,132 @@ public class ContentsBlocks {
 	 * A chest that auto-inserts items
 	 */
 	@Nonnull public static final BlockEntityType HOPPER = new BlockEntityType()
-			.title("Hopper Chest")
+			.title("#chest-hopper")
 			.factory(() -> new Hopper((byte) 1))
 			.texture("machine/hopper.png")
 			.finish("chest.hopper1");
 	@Nonnull public static final BlockEntityType HOPPER_suck = new BlockEntityType()
-			.title("Sucker Chest")
+			.title("#chest-sucker")
 			.factory(() -> new Hopper((byte) 2))
 			.texture("machine/sucker.png")
 			.finish("chest.hopper2");
 	@Nonnull public static final BlockEntityType HOPPER_both = new BlockEntityType()
-			.title("Hopper Sucker Chest")
+			.title("#chest-both")
 			.factory(() -> new Hopper((byte) 3))
 			.texture("machine/transferrer.png")
 			.finish("chest.hopper3");
+	
 	@Nonnull public static final BlockEntityType IMOVER = new BlockEntityType()
-			.title("Item Mover")
+			.title("#ipipe-extractor")
 			.factory(ItemTransporter::new)
 			.texture(ItemTransporter.TEXTURE)
 			.finish("itemsystem.mover");
 	
 	@Nonnull public static final BlockEntityType PLACEITEMS = new BlockEntityType()
-			.title("Item & Block Placing Machine")
+			.title("#placeitems")
 			.factory(PlaceIncomingItems::new)
 			.texture("machine/block place interface.png")
 			.finish("industry.placeitems");
 	@Nonnull public static final BlockEntityType COLLECTOR = new BlockEntityType()
-			.title("Dropped item collector")
+			.title("#collector")
 			.factory(Collector::new)
 			.texture("machine/vacuum.png")
 			.finish("industry.collector");
 	
-	//Crops
-	@Nonnull public static final BlockEntityType AGRO_COAL =
-			crop(1500, coal_ore, "Coal crop", TexGen.genCrop(Materials.colorCoal), "crop.coal");
-	@Nonnull public static final BlockEntityType AGRO_TREE =
-			crop(1500, logs, "Tree", Textures.get("block/tree.png"), "crop.tree");
+	//Item pipes
+	/** Represets a straight pipe */
+	@Nonnull public static final BlockEntityType ipipe_STRAIGHT;
+	/** Represents an elbow pipe */
+	@Nonnull public static final BlockEntityType ipipe_ELBOW;
+	/** An Intersecting Pipe Extractor has a perpendicular straight pipe */
+	@Nonnull public static final BlockEntityType ipipe_IPE;
+	/** An item pipe which connects from the left*/
+	@Nonnull public static final BlockEntityType ipipe_TOLEFT;
+	/** An item pipe which connects from the right*/
+	@Nonnull public static final BlockEntityType ipipe_TORIGHT;
+	/** A pair of intersecting item pipes*/
+	@Nonnull public static final BlockEntityType ipipe_CROSS;
+	/** A pair of non-intersection bend pipes*/
+	@Nonnull public static final BlockEntityType ipipe_DUALTURN;
+	//Init all item pipes
+	static {
+		ChirotatedImageGroup textureStraight = ChirotatedImageGroup.create("machine/pipe straight.png");
+		ipipe_STRAIGHT = new BlockEntityType()
+		.texture("machine/pipe straight.png")
+		.describe("A pipe which is straight.")
+		.title("#ipipe-straight")
+		.factory(() -> new Pipe(Side.R, Side.L, ContentsBlocks.ipipe_STRAIGHT, textureStraight))
+		.finish("pipe.I");
+		
+		ChirotatedImageGroup textureElbow = ChirotatedImageGroup.create("machine/pipe elbow.png");
+		ipipe_ELBOW = new BlockEntityType()
+		.texture("machine/pipe elbow.png")
+		.describe("A pipe which is bent.")
+		.title("#ipipe-turn")
+		.factory(() -> new Pipe(Side.R, Side.D, ContentsBlocks.ipipe_ELBOW, textureElbow))
+		.finish("pipe.L");
+		
+		ChirotatedImageGroup textureIPE = ChirotatedImageGroup.create("machine/imover intersected.png");
+		ipipe_IPE = new BlockEntityType()
+		.texture("machine/imover intersected.png")
+		.describe("A hybrid of Item Mover and straight pipe")
+		.title("#ipipe-ipe")
+		.factory(() -> new IntersectingPipeExtractor(Side.R, Side.L, ContentsBlocks.ipipe_IPE, textureIPE))
+		.finish("pipe.IPE");
+		
+		ChirotatedImageGroup textureToLeft = ChirotatedImageGroup.create("machine/pipe merge left.png");
+		ipipe_TOLEFT = new BlockEntityType()
+		.texture("machine/pipe merge left.png")
+		.describe("A pipe which directs its side input to the left.")
+		.title("#ipipe-left")
+		.factory(() -> new PipeBinder(ContentsBlocks.ipipe_TOLEFT, Side.L, textureToLeft))
+		.finish("pipe.toleft");
+		
+		ChirotatedImageGroup textureToRight = ChirotatedImageGroup.create("machine/pipe merge right.png");
+		ipipe_TORIGHT = new BlockEntityType()
+		.texture("machine/pipe merge right.png")
+		.describe("A pipe which directs its side input to the right.")
+		.title("#ipipe-right")
+		.factory(() -> new PipeBinder(ContentsBlocks.ipipe_TORIGHT, Side.R, textureToRight))
+		.finish("pipe.toright");
+		
+		ChirotatedImageGroup textureCross = ChirotatedImageGroup.create("machine/pipe bridged.png");
+		ipipe_CROSS = new BlockEntityType()
+		.texture("machine/pipe bridged.png")
+		.describe("A pair of disconnected perpendicular pipes.")
+		.title("#ipipe-cross")
+		.factory(() -> new DualPipe(Side.D, Side.R, ContentsBlocks.ipipe_CROSS, textureCross))
+		.finish("pipe.X");
+		
+		ChirotatedImageGroup textureDualTurn = ChirotatedImageGroup.create("machine/pipe biturn.png");
+		ipipe_DUALTURN = new BlockEntityType()
+		.texture("machine/pipe biturn.png")
+		.describe("A pair of curved pipes.")
+		.title("#ipipe-dual")
+		.factory(() -> new DualPipe(Side.R, Side.D, ContentsBlocks.ipipe_DUALTURN, textureDualTurn))
+		.finish("pipe.D");
+	}
 	
-	//Automatic processing machines
+	//Crops
+	@Nonnull public static final BlockEntityType AGRO_TREE =
+			crop(1500, logs, "#machine-tree", Textures.get("block/tree.png"), "crop.tree");
+	//Non-electic processing machines
 	@Nonnull public static final BlockEntityType FURNACE = new BlockEntityType()
-			.title("Furnace")
+			.title("#furnace")
 			.factory(Furnace::new)
 			.texture(Furnace.TEXTURE_INERT)
 			.finish("industry.furnace");
 	@Nonnull public static final BlockEntityType CYCLEASSEMBLY = new BlockEntityType()
-			.title("Cyclic Assembler")
+			.title("#cycleassembly")
 			.factory(CycleAssembler::new)
 			.texture("machine/cyclic assembler.png")
 			.finish("industry.cycle0");
 	@Nonnull public static final Block PICKBUILDER = new PickaxeWorkbench()
 			.texture("machine/pickaxe workbench.png")
-			.title("Pickaxe workbench")
+			.title("#pickbuilder")
 			.finish("machines.pickbuilder");
 	@Nonnull public static final BlockEntityType AUTOCRAFTER = new BlockEntityType()
-			.title("AutoCrafter 3X3")
+			.title("#autocraft1")
 			.factory(AutoCrafter::new)
 			.texture("machine/AutoCrafter 1.png")
 			.finish("industry.autocraft1");
@@ -378,17 +458,17 @@ public class ContentsBlocks {
 	@Nonnull public static final ElectricMachineGroup bquarry = createQuarry();
 	
 	//Player pipes
-	@Nonnull public static final BlockEntityType PPIPE_lin = ppipe(1, Side.U, Side.D, "machine/ppipe straight.png", "Player Pipe - straight", "playerpipe.straight");
-	@Nonnull public static final BlockEntityType PPIPE_bend = ppipe(0.8, Side.R, Side.D, "machine/ppipe turn.png", "Player Pipe - turn", "playerpipe.bend");
-	@Nonnull public static final BlockEntityType PPIPE_lin2 = ppipe2(1, Side.U, Side.D, Side.L, Side.R, "machine/ppipe cross.png", "Player Pipe - crossover", "playerpipe.straight2");
-	@Nonnull public static final BlockEntityType PPIPE_bend2 = ppipe2(0.8, Side.R, Side.D, Side.L, Side.U, "machine/ppipe biturn.png", "Player Pipe - two bends", "playerpipe.bend2");
+	@Nonnull public static final BlockEntityType PPIPE_lin = ppipe(1, Side.U, Side.D, "machine/ppipe straight.png", "#ppipe-s", "playerpipe.straight");
+	@Nonnull public static final BlockEntityType PPIPE_bend = ppipe(0.8, Side.R, Side.D, "machine/ppipe turn.png", "#ppipe-b", "playerpipe.bend");
+	@Nonnull public static final BlockEntityType PPIPE_lin2 = ppipe2(1, Side.U, Side.D, Side.L, Side.R, "machine/ppipe cross.png", "#ppipe-x", "playerpipe.straight2");
+	@Nonnull public static final BlockEntityType PPIPE_bend2 = ppipe2(0.8, Side.R, Side.D, Side.L, Side.U, "machine/ppipe biturn.png", "#ppipe-z", "playerpipe.bend2");
 	@Nonnull public static final BlockEntityType PPIPE_cap = new BlockEntityType()
-			.title("Player Pipe - end")
+			.title("#ppipe-t")
 			.factory(PlayerPipeEntry::new)
 			.texture("machine/pipe exit.png")
 			.finish("playerpipe.end");
-	@Nonnull public static final BlockEntityType PPIPE_join = ppipea(1, Side.U, "machine/ppipe adjoin.png","Player Pipe - adjoin" ,"playerpipe.adj");
-	@Nonnull public static final BlockEntityType PPIPE_join2 = ppipea(0.8, Side.L, "machine/ppipe adjoin2.png","Player Pipe - wye" ,"playerpipe.adj2");
+	@Nonnull public static final BlockEntityType PPIPE_join = ppipea(1, Side.U, "machine/ppipe adjoin.png","#ppipe-l" ,"playerpipe.adj");
+	@Nonnull public static final BlockEntityType PPIPE_join2 = ppipea(0.8, Side.L, "machine/ppipe adjoin2.png","#ppipe-y" ,"playerpipe.adj2");
 	
 	//Liquids
 	@Nonnull public static final Block water = new Block()
@@ -412,8 +492,13 @@ public class ContentsBlocks {
 		//initialization method
 	}
 
+	//Multimedia devices
+	@Nonnull public static final BlockEntityType SPEAKER = new BlockEntityType()
+			.title("#multi-speaker")
+			.factory(Speaker::new)
+			.texture("machine/speaker 2.png")
+			.finish("multi.speaker");
 	
-
 	//Reusable block methods
 	@Nonnull
 	public static BlockEntityType crop(int duration, Chance cropDrop, String title, BufferedImage texture, String id) {
@@ -447,13 +532,13 @@ public class ContentsBlocks {
 		.texture(texture)
 		.finish(id);
 	}
-	@Nonnull private static BlockEntityType coalgen(VoltageTier volt, BufferedImage texture,String title, String id) {
+	@Nonnull private static BlockEntityType coalgen(VoltageTier volt, BufferedImage texture, int n) {
 		BlockEntityType type = new BlockEntityType();
 		return type
-				.title(title)
+				.title(GlobalSettings.$res("machine-coalgen")+" "+n)
 				.factory(() -> new CoalGen(volt, type))
 				.texture(texture)
-				.finish(id);
+				.finish("elec.coalgen"+n);
 	}
 	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, ElectroSimpleProcessingRecipeGroup group, String id) {
 		return machinesSimple(texture, group, id, 1);
@@ -473,12 +558,11 @@ public class ContentsBlocks {
 	@Nonnull private static ElectricMachineGroup machinesStacked(String texture, StackedProcessingRecipeGroup group, String id, double power) {
 		return new ElectricMachineGroup(Textures.get(texture), type -> new Splicer(type, group), id, power);
 	}
-	/**
-	 * @return
-	 */
 	private static ElectricMachineGroup createQuarry() {
 		return new ElectricMachineGroup(Textures.get("machine/quarry.png"), type -> new ElectroQuarry(type, Craftings.quarry), "quarry");
 	}
+	
+	//Item tags
 	static {
 		Items.tagItems("wireworld", ww_wire, ww_head, ww_tail, ww_chatter,
 				AND, OR, XOR, BUTTON, TOGGLE, YES, NOT, RANDOMCTRL, TRUE, RANDOM, ON, OFF, URANDOM, LAMP);
@@ -489,5 +573,7 @@ public class ContentsBlocks {
 		Items.tagItems("special", COL, air, grass);
 		Items.tagItems("basic", air, grass, plank, stone, leaves, logs, sand, gravel, clay, water);
 		Items.tagItems("chest", CHEST, HOPPER, HOPPER_suck, HOPPER_both);
+		Items.tagItems("shape-crop", AGRO_TREE);
+		Items.tagItems("pipe",ipipe_STRAIGHT, ipipe_ELBOW, ipipe_IPE, ipipe_TOLEFT, ipipe_TORIGHT, ipipe_CROSS, ipipe_DUALTURN);
 	}
 }

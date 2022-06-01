@@ -272,6 +272,9 @@
 (TEXTURES) Loading texture: machine/smelter active.png
 (TEXTURES) Loading texture: machine/smelter inert 2.png
 (TEXTURES) Loading texture: machine/smelter inert.png
+(TEXTURES) Loading texture: machine/speaker 1.png
+(TEXTURES) Loading texture: machine/speaker 2.png
+(TEXTURES) Loading texture: machine/speaker 3.png
 (TEXTURES) Loading texture: machine/splicer.png
 (TEXTURES) Loading texture: machine/splitter.png
 (TEXTURES) Loading texture: machine/sucker.png
@@ -341,6 +344,16 @@
 (TEXTURES) Loading texture: ukraine.png
 (TEXTURES) Loading texture: ukraine1.png
 (TEXTURES) Loading texture: visuals.png
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\sound
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\sound\error.mp3
+(MOD-LOADER) Loading a sound error.mp3
+(MP3) untilLoad
+(SOUNDS) Loading a sound: error.mp3
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\sound\minecxraft.wav
+(MOD-LOADER) Loading a sound minecxraft.wav
+(SOUNDS) Loading a sound: minecxraft.wav
+(SOUNDS) Loading a sound: minecxraft.wav
+(MOD-LOADER) Sounds: [minecxraft.wav, error.mp3]
 (BLOCKS) Creating blocks
 (BLOCKS) Adding mmb.air with title Powietrze and description:
  null
@@ -350,22 +363,6 @@
  A default block in the world
 (ITEMS) Adding mmb.grass with title Trawa and description:
  A default block in the world
-(BLOCKS) Adding wireworld.wire with title WireWorld cell and description:
- null
-(ITEMS) Adding wireworld.wire with title WireWorld cell and description:
- null
-(BLOCKS) Adding wireworld.head with title WireWorld head and description:
- null
-(ITEMS) Adding wireworld.head with title WireWorld head and description:
- null
-(BLOCKS) Adding wireworld.tail with title WireWorld head and description:
- null
-(ITEMS) Adding wireworld.tail with title WireWorld head and description:
- null
-(BLOCKS) Adding wireworld.chatter with title Chatbox and description:
- A block which prints out its text, when activated by a signal
-(ITEMS) Adding wireworld.chatter with title Chatbox and description:
- A block which prints out its text, when activated by a signal
 (BLOCKS) Adding mmb.planks with title Deski and description:
  null
 (ITEMS) Adding mmb.planks with title Deski and description:
@@ -378,17 +375,9 @@
  null
 (ITEMS) Adding mmb.leaves with title Liście and description:
  null
-(BLOCKS) Adding ore.coal with title Coal ore and description:
+(BLOCKS) Adding mmb.craft with title Stół montażowy and description:
  null
-(ITEMS) Adding ore.coal with title Coal ore and description:
- null
-(BLOCKS) Adding ore.diamond with title Diamond ore and description:
- null
-(ITEMS) Adding ore.diamond with title Diamond ore and description:
- null
-(BLOCKS) Adding mmb.craft with title Assembly Table and description:
- null
-(ITEMS) Adding mmb.craft with title Assembly Table and description:
+(ITEMS) Adding mmb.craft with title Stół montażowy and description:
  null
 (BLOCKS) Adding mmb.tree with title Kłoda and description:
  null
@@ -402,53 +391,105 @@
  null
 (ITEMS) Adding mmb.gravel with title Żwir and description:
  null
-(BLOCKS) Adding REMOVE THIS with title Crash on load and description:
+(BLOCKS) Adding REMOVE THIS with title Zawieś grę and description:
  null
-(ITEMS) Adding REMOVE THIS with title Crash on load and description:
+(ITEMS) Adding REMOVE THIS with title Zawieś grę and description:
  null
-(BLOCKS) Adding wireworld.and with title AND and description:
+(BLOCKS) Adding wireworld.wire with title Kabel WireWorld and description:
  null
-(ITEMS) Adding wireworld.and with title AND and description:
+(ITEMS) Adding wireworld.wire with title Kabel WireWorld and description:
  null
-(BLOCKS) Adding wireworld.or with title OR and description:
+(BLOCKS) Adding wireworld.head with title Sygnał WireWorld and description:
  null
-(ITEMS) Adding wireworld.or with title OR and description:
+(ITEMS) Adding wireworld.head with title Sygnał WireWorld and description:
  null
-(BLOCKS) Adding wireworld.xor with title XOR and description:
+(BLOCKS) Adding wireworld.tail with title Ogon WireWorld and description:
  null
-(ITEMS) Adding wireworld.xor with title XOR and description:
+(ITEMS) Adding wireworld.tail with title Ogon WireWorld and description:
  null
-(BLOCKS) Adding wireworld.button with title Button and description:
+(BLOCKS) Adding wireworld.urandom with title Losownica jednorodna and description:
  null
-(ITEMS) Adding wireworld.button with title Button and description:
+(ITEMS) Adding wireworld.urandom with title Losownica jednorodna and description:
  null
-(BLOCKS) Adding wireworld.toggle with title Toggle Latch and description:
+(BLOCKS) Adding wireworld.true with title Prawda and description:
  null
-(ITEMS) Adding wireworld.toggle with title Toggle Latch and description:
+(ITEMS) Adding wireworld.true with title Prawda and description:
  null
-(BLOCKS) Adding wireworld.yes with title YES and description:
+(BLOCKS) Adding wireworld.random with title Losownica and description:
  null
-(ITEMS) Adding wireworld.yes with title YES and description:
+(ITEMS) Adding wireworld.random with title Losownica and description:
  null
-(BLOCKS) Adding wireworld.not with title NOT and description:
+(BLOCKS) Adding wireworld.chatter with title Czater and description:
+ A block which prints out its text, when activated by a signal
+(ITEMS) Adding wireworld.chatter with title Czater and description:
+ A block which prints out its text, when activated by a signal
+(BLOCKS) Adding wireworld.lamp with title Lampa and description:
  null
-(ITEMS) Adding wireworld.not with title NOT and description:
+(ITEMS) Adding wireworld.lamp with title Lampa and description:
  null
-(BLOCKS) Adding wireworld.randomctrl with title Random if and description:
+(BLOCKS) Adding wireworld.and with title Bramka I and description:
  null
-(ITEMS) Adding wireworld.randomctrl with title Random if and description:
+(ITEMS) Adding wireworld.and with title Bramka I and description:
  null
-(BLOCKS) Adding elec.coalgen1 with title Furnace Generator I and description:
+(BLOCKS) Adding wireworld.or with title Bramka LUB and description:
  null
-(ITEMS) Adding elec.coalgen1 with title Furnace Generator I and description:
+(ITEMS) Adding wireworld.or with title Bramka LUB and description:
  null
-(BLOCKS) Adding elec.coalgen2 with title Furnace Generator II and description:
+(BLOCKS) Adding wireworld.xor with title Bramka WYKLUB and description:
  null
-(ITEMS) Adding elec.coalgen2 with title Furnace Generator II and description:
+(ITEMS) Adding wireworld.xor with title Bramka WYKLUB and description:
  null
-(BLOCKS) Adding elec.coalgen3 with title Furnace Generator III and description:
+(BLOCKS) Adding wireworld.button with title Przycisk and description:
  null
-(ITEMS) Adding elec.coalgen3 with title Furnace Generator III and description:
+(ITEMS) Adding wireworld.button with title Przycisk and description:
+ null
+(BLOCKS) Adding wireworld.toggle with title Przerzutnik and description:
+ null
+(ITEMS) Adding wireworld.toggle with title Przerzutnik and description:
+ null
+(BLOCKS) Adding wireworld.yes with title Bramka TAK and description:
+ null
+(ITEMS) Adding wireworld.yes with title Bramka TAK and description:
+ null
+(BLOCKS) Adding wireworld.not with title Bramka NIE and description:
+ null
+(ITEMS) Adding wireworld.not with title Bramka NIE and description:
+ null
+(BLOCKS) Adding wireworld.randomctrl with title Losuj jeżeli and description:
+ null
+(ITEMS) Adding wireworld.randomctrl with title Losuj jeżeli and description:
+ null
+(BLOCKS) Adding wireworld.on with title Włącznik and description:
+ null
+(ITEMS) Adding wireworld.on with title Włącznik and description:
+ null
+(BLOCKS) Adding wireworld.off with title Wyłącznik and description:
+ null
+(ITEMS) Adding wireworld.off with title Wyłącznik and description:
+ null
+(BLOCKS) Adding machines.placer with title Nieskończony postawiacz bloków and description:
+ null
+(ITEMS) Adding machines.placer with title Nieskończony postawiacz bloków and description:
+ null
+(BLOCKS) Adding machines.clicker with title Klikacz and description:
+ null
+(ITEMS) Adding machines.clicker with title Klikacz and description:
+ null
+(BLOCKS) Adding machines.rotator with title Obracacz and description:
+ null
+(ITEMS) Adding machines.rotator with title Obracacz and description:
+ null
+(BLOCKS) Adding elec.coalgen1 with title Prądnica piecowa 1 and description:
+ null
+(ITEMS) Adding elec.coalgen1 with title Prądnica piecowa 1 and description:
+ null
+(BLOCKS) Adding elec.coalgen2 with title Prądnica piecowa 2 and description:
+ null
+(ITEMS) Adding elec.coalgen2 with title Prądnica piecowa 2 and description:
+ null
+(BLOCKS) Adding elec.coalgen3 with title Prądnica piecowa 3 and description:
+ null
+(ITEMS) Adding elec.coalgen3 with title Prądnica piecowa 3 and description:
  null
 (BLOCKS) Adding industry.infinigen0 with title Wieczna prądnica ULV and description:
  null
@@ -504,376 +545,364 @@
 (ITEMS) Tagging Item Wieczna prądnica IV(industry.infinigen6) with voltage-IV
 (ITEMS) Tagging Item Wieczna prądnica LuV(industry.infinigen7) with voltage-LuV
 (ITEMS) Tagging Item Wieczna prądnica MAX(industry.infinigen8) with voltage-MAX
-(BLOCKS) Adding elec.meter with title Power meter and description:
+(BLOCKS) Adding elec.meter with title Miernik prądu and description:
  null
-(ITEMS) Adding elec.meter with title Power meter and description:
+(ITEMS) Adding elec.meter with title Miernik prądu and description:
  null
-(BLOCKS) Adding elec.load with title Electrical load and description:
+(BLOCKS) Adding elec.load with title Obciążenie elektryczne and description:
  null
-(ITEMS) Adding elec.load with title Electrical load and description:
+(ITEMS) Adding elec.load with title Obciążenie elektryczne and description:
  null
-(BLOCKS) Adding elec.furnace with title Electrical furnace and description:
+(BLOCKS) Adding elec.furnace with title zzz NIEAKTUALNE Piec elektryczny (zamień to na Piec ULV) and description:
  null
-(ITEMS) Adding elec.furnace with title Electrical furnace and description:
+(ITEMS) Adding elec.furnace with title zzz NIEAKTUALNE Piec elektryczny (zamień to na Piec ULV) and description:
  null
-(BLOCKS) Adding nuke.generator with title Nuclear reactor and description:
+(BLOCKS) Adding nuke.generator with title zzz NIEAKTUALNE Reaktor jądrowy (zamień to na Prądnicę jądrową 1) and description:
  null
-(ITEMS) Adding nuke.generator with title Nuclear reactor and description:
+(ITEMS) Adding nuke.generator with title zzz NIEAKTUALNE Reaktor jądrowy (zamień to na Prądnicę jądrową 1) and description:
  null
-(BLOCKS) Adding wireworld.true with title Always True and description:
+(BLOCKS) Adding chest.beginning with title Skrzynia and description:
  null
-(ITEMS) Adding wireworld.true with title Always True and description:
+(ITEMS) Adding chest.beginning with title Skrzynia and description:
  null
-(BLOCKS) Adding wireworld.random with title Random and description:
+(BLOCKS) Adding chest.hopper1 with title Wrzutnia and description:
  null
-(ITEMS) Adding wireworld.random with title Random and description:
+(ITEMS) Adding chest.hopper1 with title Wrzutnia and description:
  null
-(BLOCKS) Adding wireworld.on with title Active Switch and description:
+(BLOCKS) Adding chest.hopper2 with title Ssak and description:
  null
-(ITEMS) Adding wireworld.on with title Active Switch and description:
+(ITEMS) Adding chest.hopper2 with title Ssak and description:
  null
-(BLOCKS) Adding wireworld.off with title Inactive Switch and description:
+(BLOCKS) Adding chest.hopper3 with title Wrzutniossak and description:
  null
-(ITEMS) Adding wireworld.off with title Inactive Switch and description:
+(ITEMS) Adding chest.hopper3 with title Wrzutniossak and description:
  null
-(BLOCKS) Adding wireworld.urandom with title Uniform Random and description:
+(BLOCKS) Adding itemsystem.mover with title UNTRANSLATABLE ipipe-extractor and description:
  null
-(ITEMS) Adding wireworld.urandom with title Uniform Random and description:
+(ITEMS) Adding itemsystem.mover with title UNTRANSLATABLE ipipe-extractor and description:
  null
-(BLOCKS) Adding wireworld.lamp with title Lamp and description:
+(BLOCKS) Adding industry.placeitems with title Stawiacz bloków i przedmiotów and description:
  null
-(ITEMS) Adding wireworld.lamp with title Lamp and description:
+(ITEMS) Adding industry.placeitems with title Stawiacz bloków i przedmiotów and description:
  null
-(BLOCKS) Adding machines.placer with title Creative Block Placer and description:
+(BLOCKS) Adding industry.collector with title Zbieracz porzuconych przedmiotów and description:
  null
-(ITEMS) Adding machines.placer with title Creative Block Placer and description:
+(ITEMS) Adding industry.collector with title Zbieracz porzuconych przedmiotów and description:
  null
-(BLOCKS) Adding machines.clicker with title Block Clicking Claw and description:
+(BLOCKS) Adding pipe.I with title Rura - prosta and description:
+ A pipe which is straight.
+(ITEMS) Adding pipe.I with title Rura - prosta and description:
+ A pipe which is straight.
+(BLOCKS) Adding pipe.L with title Rura - zakręt and description:
+ A pipe which is bent.
+(ITEMS) Adding pipe.L with title Rura - zakręt and description:
+ A pipe which is bent.
+(BLOCKS) Adding pipe.IPE with title Skrzyżowany wyciągacz and description:
+ A hybrid of Item Mover and straight pipe
+(ITEMS) Adding pipe.IPE with title Skrzyżowany wyciągacz and description:
+ A hybrid of Item Mover and straight pipe
+(BLOCKS) Adding pipe.toleft with title Rura - złącz z lewej and description:
+ A pipe which directs its side input to the left.
+(ITEMS) Adding pipe.toleft with title Rura - złącz z lewej and description:
+ A pipe which directs its side input to the left.
+(BLOCKS) Adding pipe.toright with title Rura - złącz z prawej and description:
+ A pipe which directs its side input to the right.
+(ITEMS) Adding pipe.toright with title Rura - złącz z prawej and description:
+ A pipe which directs its side input to the right.
+(BLOCKS) Adding pipe.X with title Rura - kryż and description:
+ A pair of disconnected perpendicular pipes.
+(ITEMS) Adding pipe.X with title Rura - kryż and description:
+ A pair of disconnected perpendicular pipes.
+(BLOCKS) Adding pipe.D with title Rura - 2zakr and description:
+ A pair of curved pipes.
+(ITEMS) Adding pipe.D with title Rura - 2zakr and description:
+ A pair of curved pipes.
+(BLOCKS) Adding crop.tree with title Drzewo and description:
  null
-(ITEMS) Adding machines.clicker with title Block Clicking Claw and description:
+(ITEMS) Adding crop.tree with title Drzewo and description:
  null
-(BLOCKS) Adding machines.rotator with title Block Rotator and description:
+(BLOCKS) Adding industry.furnace with title Piec and description:
  null
-(ITEMS) Adding machines.rotator with title Block Rotator and description:
+(ITEMS) Adding industry.furnace with title Piec and description:
  null
-(BLOCKS) Adding chest.beginning with title Chest and description:
+(BLOCKS) Adding industry.cycle0 with title Konstruktor cykliczny and description:
  null
-(ITEMS) Adding chest.beginning with title Chest and description:
+(ITEMS) Adding industry.cycle0 with title Konstruktor cykliczny and description:
  null
-(BLOCKS) Adding chest.hopper1 with title Hopper Chest and description:
+(ITEMS) Adding pickHead.wood with title Drewniana głowica do kilofu and description:
  null
-(ITEMS) Adding chest.hopper1 with title Hopper Chest and description:
+(ITEMS) Adding pickHead.rudimentary with title Rudymentow głowica do kilofu and description:
  null
-(BLOCKS) Adding chest.hopper2 with title Sucker Chest and description:
+(ITEMS) Adding plant.leaf with title Liść and description:
  null
-(ITEMS) Adding chest.hopper2 with title Sucker Chest and description:
+(ITEMS) Adding pick.weak with title Kilof na start and description:
  null
-(BLOCKS) Adding chest.hopper3 with title Hopper Sucker Chest and description:
+(ITEMS) Adding pick.wood with title Drewniany kilof and description:
  null
-(ITEMS) Adding chest.hopper3 with title Hopper Sucker Chest and description:
+(ITEMS) Adding pick.rudimentary with title Rudymentowy kilof and description:
  null
-(BLOCKS) Adding itemsystem.mover with title Item Mover and description:
+(ITEMS) Adding mmb.bucket with title Wiadro na przedmioty and description:
  null
-(ITEMS) Adding itemsystem.mover with title Item Mover and description:
+(ITEMS) Adding mmb.cdie with title Skonfiguruj zbieracze porzuconych przedmiotów and description:
  null
-(BLOCKS) Adding industry.placeitems with title Item & Block Placing Machine and description:
+(ITEMS) Adding crafting.cstencil with title Szablon rzemieślniczy and description:
  null
-(ITEMS) Adding industry.placeitems with title Item & Block Placing Machine and description:
+(ITEMS) Adding crafting.BOMItems with title Lista materiałów and description:
  null
-(BLOCKS) Adding industry.collector with title Dropped item collector and description:
+(ITEMS) Adding mmb.paper with title Papier and description:
  null
-(ITEMS) Adding industry.collector with title Dropped item collector and description:
+(ITEMS) Adding mmb.ccode0 with title Kod kolorystyczny 000 and description:
  null
-(BLOCKS) Adding crop.coal with title Coal crop and description:
+(ITEMS) Adding mmb.ccode1 with title Kod kolorystyczny 001 and description:
  null
-(ITEMS) Adding crop.coal with title Coal crop and description:
+(ITEMS) Adding mmb.ccode2 with title Kod kolorystyczny 002 and description:
  null
-(BLOCKS) Adding crop.tree with title Tree and description:
+(ITEMS) Adding mmb.ccode3 with title Kod kolorystyczny 003 and description:
  null
-(ITEMS) Adding crop.tree with title Tree and description:
+(ITEMS) Adding mmb.ccode4 with title Kod kolorystyczny 010 and description:
  null
-(BLOCKS) Adding industry.furnace with title Furnace and description:
+(ITEMS) Adding mmb.ccode5 with title Kod kolorystyczny 011 and description:
  null
-(ITEMS) Adding industry.furnace with title Furnace and description:
+(ITEMS) Adding mmb.ccode6 with title Kod kolorystyczny 012 and description:
  null
-(BLOCKS) Adding industry.cycle0 with title Cyclic Assembler and description:
+(ITEMS) Adding mmb.ccode7 with title Kod kolorystyczny 013 and description:
  null
-(ITEMS) Adding industry.cycle0 with title Cyclic Assembler and description:
+(ITEMS) Adding mmb.ccode8 with title Kod kolorystyczny 020 and description:
  null
-(ITEMS) Adding pickHead.wood with title Wooden pickaxe head and description:
+(ITEMS) Adding mmb.ccode9 with title Kod kolorystyczny 021 and description:
  null
-(ITEMS) Adding pickHead.rudimentary with title Rudimentary pickaxe head and description:
+(ITEMS) Adding mmb.ccode10 with title Kod kolorystyczny 022 and description:
  null
-(ITEMS) Adding plant.leaf with title Leaf and description:
+(ITEMS) Adding mmb.ccode11 with title Kod kolorystyczny 023 and description:
  null
-(ITEMS) Adding pick.weak with title Very weak pickaxe and description:
+(ITEMS) Adding mmb.ccode12 with title Kod kolorystyczny 030 and description:
  null
-(ITEMS) Adding pick.wood with title Wooden pickaxe and description:
+(ITEMS) Adding mmb.ccode13 with title Kod kolorystyczny 031 and description:
  null
-(ITEMS) Adding pick.rudimentary with title Rudimentary pickaxe and description:
+(ITEMS) Adding mmb.ccode14 with title Kod kolorystyczny 032 and description:
  null
-(ITEMS) Adding mmb.bucket with title Item Bucket and description:
+(ITEMS) Adding mmb.ccode15 with title Kod kolorystyczny 033 and description:
  null
-(ITEMS) Adding mmb.cdie with title Configure dropped item extractors and description:
+(ITEMS) Adding mmb.ccode16 with title Kod kolorystyczny 100 and description:
  null
-(ITEMS) Adding crafting.cstencil with title Crafting stencil and description:
+(ITEMS) Adding mmb.ccode17 with title Kod kolorystyczny 101 and description:
  null
-(ITEMS) Adding crafting.BOMItems with title Bill Of Materials and description:
+(ITEMS) Adding mmb.ccode18 with title Kod kolorystyczny 102 and description:
  null
-(ITEMS) Adding mmb.paper with title Paper and description:
+(ITEMS) Adding mmb.ccode19 with title Kod kolorystyczny 103 and description:
  null
-(ITEMS) Adding mmb.ccode0 with title Color Code 000 and description:
+(ITEMS) Adding mmb.ccode20 with title Kod kolorystyczny 110 and description:
  null
-(ITEMS) Adding mmb.ccode1 with title Color Code 001 and description:
+(ITEMS) Adding mmb.ccode21 with title Kod kolorystyczny 111 and description:
  null
-(ITEMS) Adding mmb.ccode2 with title Color Code 002 and description:
+(ITEMS) Adding mmb.ccode22 with title Kod kolorystyczny 112 and description:
  null
-(ITEMS) Adding mmb.ccode3 with title Color Code 003 and description:
+(ITEMS) Adding mmb.ccode23 with title Kod kolorystyczny 113 and description:
  null
-(ITEMS) Adding mmb.ccode4 with title Color Code 010 and description:
+(ITEMS) Adding mmb.ccode24 with title Kod kolorystyczny 120 and description:
  null
-(ITEMS) Adding mmb.ccode5 with title Color Code 011 and description:
+(ITEMS) Adding mmb.ccode25 with title Kod kolorystyczny 121 and description:
  null
-(ITEMS) Adding mmb.ccode6 with title Color Code 012 and description:
+(ITEMS) Adding mmb.ccode26 with title Kod kolorystyczny 122 and description:
  null
-(ITEMS) Adding mmb.ccode7 with title Color Code 013 and description:
+(ITEMS) Adding mmb.ccode27 with title Kod kolorystyczny 123 and description:
  null
-(ITEMS) Adding mmb.ccode8 with title Color Code 020 and description:
+(ITEMS) Adding mmb.ccode28 with title Kod kolorystyczny 130 and description:
  null
-(ITEMS) Adding mmb.ccode9 with title Color Code 021 and description:
+(ITEMS) Adding mmb.ccode29 with title Kod kolorystyczny 131 and description:
  null
-(ITEMS) Adding mmb.ccode10 with title Color Code 022 and description:
+(ITEMS) Adding mmb.ccode30 with title Kod kolorystyczny 132 and description:
  null
-(ITEMS) Adding mmb.ccode11 with title Color Code 023 and description:
+(ITEMS) Adding mmb.ccode31 with title Kod kolorystyczny 133 and description:
  null
-(ITEMS) Adding mmb.ccode12 with title Color Code 030 and description:
+(ITEMS) Adding mmb.ccode32 with title Kod kolorystyczny 200 and description:
  null
-(ITEMS) Adding mmb.ccode13 with title Color Code 031 and description:
+(ITEMS) Adding mmb.ccode33 with title Kod kolorystyczny 201 and description:
  null
-(ITEMS) Adding mmb.ccode14 with title Color Code 032 and description:
+(ITEMS) Adding mmb.ccode34 with title Kod kolorystyczny 202 and description:
  null
-(ITEMS) Adding mmb.ccode15 with title Color Code 033 and description:
+(ITEMS) Adding mmb.ccode35 with title Kod kolorystyczny 203 and description:
  null
-(ITEMS) Adding mmb.ccode16 with title Color Code 100 and description:
+(ITEMS) Adding mmb.ccode36 with title Kod kolorystyczny 210 and description:
  null
-(ITEMS) Adding mmb.ccode17 with title Color Code 101 and description:
+(ITEMS) Adding mmb.ccode37 with title Kod kolorystyczny 211 and description:
  null
-(ITEMS) Adding mmb.ccode18 with title Color Code 102 and description:
+(ITEMS) Adding mmb.ccode38 with title Kod kolorystyczny 212 and description:
  null
-(ITEMS) Adding mmb.ccode19 with title Color Code 103 and description:
+(ITEMS) Adding mmb.ccode39 with title Kod kolorystyczny 213 and description:
  null
-(ITEMS) Adding mmb.ccode20 with title Color Code 110 and description:
+(ITEMS) Adding mmb.ccode40 with title Kod kolorystyczny 220 and description:
  null
-(ITEMS) Adding mmb.ccode21 with title Color Code 111 and description:
+(ITEMS) Adding mmb.ccode41 with title Kod kolorystyczny 221 and description:
  null
-(ITEMS) Adding mmb.ccode22 with title Color Code 112 and description:
+(ITEMS) Adding mmb.ccode42 with title Kod kolorystyczny 222 and description:
  null
-(ITEMS) Adding mmb.ccode23 with title Color Code 113 and description:
+(ITEMS) Adding mmb.ccode43 with title Kod kolorystyczny 223 and description:
  null
-(ITEMS) Adding mmb.ccode24 with title Color Code 120 and description:
+(ITEMS) Adding mmb.ccode44 with title Kod kolorystyczny 230 and description:
  null
-(ITEMS) Adding mmb.ccode25 with title Color Code 121 and description:
+(ITEMS) Adding mmb.ccode45 with title Kod kolorystyczny 231 and description:
  null
-(ITEMS) Adding mmb.ccode26 with title Color Code 122 and description:
+(ITEMS) Adding mmb.ccode46 with title Kod kolorystyczny 232 and description:
  null
-(ITEMS) Adding mmb.ccode27 with title Color Code 123 and description:
+(ITEMS) Adding mmb.ccode47 with title Kod kolorystyczny 233 and description:
  null
-(ITEMS) Adding mmb.ccode28 with title Color Code 130 and description:
+(ITEMS) Adding mmb.ccode48 with title Kod kolorystyczny 300 and description:
  null
-(ITEMS) Adding mmb.ccode29 with title Color Code 131 and description:
+(ITEMS) Adding mmb.ccode49 with title Kod kolorystyczny 301 and description:
  null
-(ITEMS) Adding mmb.ccode30 with title Color Code 132 and description:
+(ITEMS) Adding mmb.ccode50 with title Kod kolorystyczny 302 and description:
  null
-(ITEMS) Adding mmb.ccode31 with title Color Code 133 and description:
+(ITEMS) Adding mmb.ccode51 with title Kod kolorystyczny 303 and description:
  null
-(ITEMS) Adding mmb.ccode32 with title Color Code 200 and description:
+(ITEMS) Adding mmb.ccode52 with title Kod kolorystyczny 310 and description:
  null
-(ITEMS) Adding mmb.ccode33 with title Color Code 201 and description:
+(ITEMS) Adding mmb.ccode53 with title Kod kolorystyczny 311 and description:
  null
-(ITEMS) Adding mmb.ccode34 with title Color Code 202 and description:
+(ITEMS) Adding mmb.ccode54 with title Kod kolorystyczny 312 and description:
  null
-(ITEMS) Adding mmb.ccode35 with title Color Code 203 and description:
+(ITEMS) Adding mmb.ccode55 with title Kod kolorystyczny 313 and description:
  null
-(ITEMS) Adding mmb.ccode36 with title Color Code 210 and description:
+(ITEMS) Adding mmb.ccode56 with title Kod kolorystyczny 320 and description:
  null
-(ITEMS) Adding mmb.ccode37 with title Color Code 211 and description:
+(ITEMS) Adding mmb.ccode57 with title Kod kolorystyczny 321 and description:
  null
-(ITEMS) Adding mmb.ccode38 with title Color Code 212 and description:
+(ITEMS) Adding mmb.ccode58 with title Kod kolorystyczny 322 and description:
  null
-(ITEMS) Adding mmb.ccode39 with title Color Code 213 and description:
+(ITEMS) Adding mmb.ccode59 with title Kod kolorystyczny 323 and description:
  null
-(ITEMS) Adding mmb.ccode40 with title Color Code 220 and description:
+(ITEMS) Adding mmb.ccode60 with title Kod kolorystyczny 330 and description:
  null
-(ITEMS) Adding mmb.ccode41 with title Color Code 221 and description:
+(ITEMS) Adding mmb.ccode61 with title Kod kolorystyczny 331 and description:
  null
-(ITEMS) Adding mmb.ccode42 with title Color Code 222 and description:
+(ITEMS) Adding mmb.ccode62 with title Kod kolorystyczny 332 and description:
  null
-(ITEMS) Adding mmb.ccode43 with title Color Code 223 and description:
+(ITEMS) Adding mmb.ccode63 with title Kod kolorystyczny 333 and description:
  null
-(ITEMS) Adding mmb.ccode44 with title Color Code 230 and description:
+(ITEMS) Adding industry.frame1 with title Prymitywna klatka do maszyn and description:
  null
-(ITEMS) Adding mmb.ccode45 with title Color Code 231 and description:
+(ITEMS) Adding industry.rod1 with title Prymitywny pręt and description:
  null
-(ITEMS) Adding mmb.ccode46 with title Color Code 232 and description:
+(ITEMS) Adding industry.bearing1 with title Prymitywne łożysko and description:
  null
-(ITEMS) Adding mmb.ccode47 with title Color Code 233 and description:
+(ITEMS) Adding industry.motor1 with title Prymitywny silnik and description:
  null
-(ITEMS) Adding mmb.ccode48 with title Color Code 300 and description:
+(ITEMS) Adding industry.motor2 with title Podstawowy silnik and description:
  null
-(ITEMS) Adding mmb.ccode49 with title Color Code 301 and description:
+(ITEMS) Adding industry.resistor1 with title Podstawowy rezystor and description:
  null
-(ITEMS) Adding mmb.ccode50 with title Color Code 302 and description:
+(ITEMS) Adding industry.resistors1 with title Podstawowa sieć rezystorów and description:
  null
-(ITEMS) Adding mmb.ccode51 with title Color Code 303 and description:
+(ITEMS) Adding industry.capacitor1 with title Podstawowy kondensator and description:
  null
-(ITEMS) Adding mmb.ccode52 with title Color Code 310 and description:
+(ITEMS) Adding industry.inductor1 with title Podstawowa cewka and description:
  null
-(ITEMS) Adding mmb.ccode53 with title Color Code 311 and description:
+(ITEMS) Adding industry.diode1 with title Podstawowa dioda and description:
  null
-(ITEMS) Adding mmb.ccode54 with title Color Code 312 and description:
+(ITEMS) Adding industry.transistor1 with title Podstawowy tranzystor and description:
  null
-(ITEMS) Adding mmb.ccode55 with title Color Code 313 and description:
+(ITEMS) Adding industry.IC1 with title Podstawowy układ and description:
  null
-(ITEMS) Adding mmb.ccode56 with title Color Code 320 and description:
+(ITEMS) Adding industry.processor0 with title Prymitywny obwód and description:
  null
-(ITEMS) Adding mmb.ccode57 with title Color Code 321 and description:
+(ITEMS) Adding industry.substrate0 with title Prymitywny podkład and description:
  null
-(ITEMS) Adding mmb.ccode58 with title Color Code 322 and description:
+(ITEMS) Adding industry.processor1 with title Podstawowy obwód and description:
  null
-(ITEMS) Adding mmb.ccode59 with title Color Code 323 and description:
+(ITEMS) Adding industry.substrate1 with title Podstawowy podkład and description:
  null
-(ITEMS) Adding mmb.ccode60 with title Color Code 330 and description:
+(ITEMS) Adding industry.resrc1 with title Podstawowe złoże and description:
  null
-(ITEMS) Adding mmb.ccode61 with title Color Code 331 and description:
+(ITEMS) Adding boxed.packItem with title Postawowy pakiet przedmiotów and description:
  null
-(ITEMS) Adding mmb.ccode62 with title Color Code 332 and description:
+(ITEMS) Tagging Item Drewniana głowica do kilofu(pickHead.wood) with shape-pickhead
+(ITEMS) Tagging Item Rudymentow głowica do kilofu(pickHead.rudimentary) with shape-pickhead
+(ITEMS) Tagging Item Kilof na start(pick.weak) with tool
+(ITEMS) Tagging Item Drewniany kilof(pick.wood) with tool
+(ITEMS) Tagging Item Rudymentowy kilof(pick.rudimentary) with tool
+(ITEMS) Tagging Item Wiadro na przedmioty(mmb.bucket) with tool
+(ITEMS) Tagging Item Skonfiguruj zbieracze porzuconych przedmiotów(mmb.cdie) with tool
+(ITEMS) Tagging Item Kod kolorystyczny 000(mmb.ccode0) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 001(mmb.ccode1) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 002(mmb.ccode2) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 003(mmb.ccode3) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 010(mmb.ccode4) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 011(mmb.ccode5) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 012(mmb.ccode6) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 013(mmb.ccode7) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 020(mmb.ccode8) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 021(mmb.ccode9) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 022(mmb.ccode10) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 023(mmb.ccode11) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 030(mmb.ccode12) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 031(mmb.ccode13) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 032(mmb.ccode14) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 033(mmb.ccode15) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 100(mmb.ccode16) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 101(mmb.ccode17) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 102(mmb.ccode18) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 103(mmb.ccode19) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 110(mmb.ccode20) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 111(mmb.ccode21) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 112(mmb.ccode22) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 113(mmb.ccode23) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 120(mmb.ccode24) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 121(mmb.ccode25) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 122(mmb.ccode26) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 123(mmb.ccode27) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 130(mmb.ccode28) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 131(mmb.ccode29) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 132(mmb.ccode30) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 133(mmb.ccode31) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 200(mmb.ccode32) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 201(mmb.ccode33) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 202(mmb.ccode34) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 203(mmb.ccode35) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 210(mmb.ccode36) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 211(mmb.ccode37) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 212(mmb.ccode38) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 213(mmb.ccode39) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 220(mmb.ccode40) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 221(mmb.ccode41) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 222(mmb.ccode42) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 223(mmb.ccode43) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 230(mmb.ccode44) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 231(mmb.ccode45) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 232(mmb.ccode46) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 233(mmb.ccode47) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 300(mmb.ccode48) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 301(mmb.ccode49) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 302(mmb.ccode50) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 303(mmb.ccode51) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 310(mmb.ccode52) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 311(mmb.ccode53) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 312(mmb.ccode54) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 313(mmb.ccode55) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 320(mmb.ccode56) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 321(mmb.ccode57) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 322(mmb.ccode58) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 323(mmb.ccode59) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 330(mmb.ccode60) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 331(mmb.ccode61) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 332(mmb.ccode62) with craftcode
+(ITEMS) Tagging Item Kod kolorystyczny 333(mmb.ccode63) with craftcode
+(ITEMS) Tagging Item Podstawowy rezystor(industry.resistor1) with parts-electronic
+(ITEMS) Tagging Item Podstawowy kondensator(industry.capacitor1) with parts-electronic
+(ITEMS) Tagging Item Podstawowa cewka(industry.inductor1) with parts-electronic
+(ITEMS) Tagging Item Podstawowa dioda(industry.diode1) with parts-electronic
+(ITEMS) Tagging Item Podstawowy tranzystor(industry.transistor1) with parts-electronic
+(ITEMS) Tagging Item Podstawowy układ(industry.IC1) with parts-electronic
+(ITEMS) Tagging Item Prymitywny obwód(industry.processor0) with parts-electronic
+(ITEMS) Tagging Item Prymitywny podkład(industry.substrate0) with parts-electronic
+(ITEMS) Tagging Item Podstawowy obwód(industry.processor1) with parts-electronic
+(ITEMS) Tagging Item Podstawowy podkład(industry.substrate1) with parts-electronic
+(BLOCKS) Adding machines.pickbuilder with title Warsztat kilofów and description:
  null
-(ITEMS) Adding mmb.ccode63 with title Color Code 333 and description:
+(ITEMS) Adding machines.pickbuilder with title Warsztat kilofów and description:
  null
-(ITEMS) Adding industry.frame1 with title Primitive Machine Frame and description:
+(BLOCKS) Adding industry.autocraft1 with title Auto-konstruktor 3X3 and description:
  null
-(ITEMS) Adding industry.rod1 with title Primitive Machine Rod and description:
- null
-(ITEMS) Adding industry.bearing1 with title Primitive Machine Bearing and description:
- null
-(ITEMS) Adding industry.motor1 with title Primitive Machine Motor and description:
- null
-(ITEMS) Adding industry.motor2 with title Basic Machine Motor and description:
- null
-(ITEMS) Adding industry.resistor1 with title Basic Resistor and description:
- null
-(ITEMS) Adding industry.resistors1 with title Basic Resistor Array and description:
- null
-(ITEMS) Adding industry.capacitor1 with title Basic Capacitor and description:
- null
-(ITEMS) Adding industry.inductor1 with title Basic Inductor and description:
- null
-(ITEMS) Adding industry.diode1 with title Basic Diode and description:
- null
-(ITEMS) Adding industry.transistor1 with title Basic Transistor and description:
- null
-(ITEMS) Adding industry.IC1 with title Basic IC and description:
- null
-(ITEMS) Adding industry.processor0 with title Primitive Circuit and description:
- null
-(ITEMS) Adding industry.substrate0 with title Primitive Substrate and description:
- null
-(ITEMS) Adding industry.processor1 with title Basic Circuit and description:
- null
-(ITEMS) Adding industry.substrate1 with title Basic Substrate and description:
- null
-(ITEMS) Adding industry.resrc1 with title Basic Resource Bed and description:
- null
-(ITEMS) Adding boxed.packItem with title Simple Item Package and description:
- null
-(ITEMS) Tagging Item Wooden pickaxe head(pickHead.wood) with shape-pickhead
-(ITEMS) Tagging Item Rudimentary pickaxe head(pickHead.rudimentary) with shape-pickhead
-(ITEMS) Tagging Item Very weak pickaxe(pick.weak) with tool
-(ITEMS) Tagging Item Wooden pickaxe(pick.wood) with tool
-(ITEMS) Tagging Item Rudimentary pickaxe(pick.rudimentary) with tool
-(ITEMS) Tagging Item Item Bucket(mmb.bucket) with tool
-(ITEMS) Tagging Item Configure dropped item extractors(mmb.cdie) with tool
-(ITEMS) Tagging Item Color Code 000(mmb.ccode0) with craftcode
-(ITEMS) Tagging Item Color Code 001(mmb.ccode1) with craftcode
-(ITEMS) Tagging Item Color Code 002(mmb.ccode2) with craftcode
-(ITEMS) Tagging Item Color Code 003(mmb.ccode3) with craftcode
-(ITEMS) Tagging Item Color Code 010(mmb.ccode4) with craftcode
-(ITEMS) Tagging Item Color Code 011(mmb.ccode5) with craftcode
-(ITEMS) Tagging Item Color Code 012(mmb.ccode6) with craftcode
-(ITEMS) Tagging Item Color Code 013(mmb.ccode7) with craftcode
-(ITEMS) Tagging Item Color Code 020(mmb.ccode8) with craftcode
-(ITEMS) Tagging Item Color Code 021(mmb.ccode9) with craftcode
-(ITEMS) Tagging Item Color Code 022(mmb.ccode10) with craftcode
-(ITEMS) Tagging Item Color Code 023(mmb.ccode11) with craftcode
-(ITEMS) Tagging Item Color Code 030(mmb.ccode12) with craftcode
-(ITEMS) Tagging Item Color Code 031(mmb.ccode13) with craftcode
-(ITEMS) Tagging Item Color Code 032(mmb.ccode14) with craftcode
-(ITEMS) Tagging Item Color Code 033(mmb.ccode15) with craftcode
-(ITEMS) Tagging Item Color Code 100(mmb.ccode16) with craftcode
-(ITEMS) Tagging Item Color Code 101(mmb.ccode17) with craftcode
-(ITEMS) Tagging Item Color Code 102(mmb.ccode18) with craftcode
-(ITEMS) Tagging Item Color Code 103(mmb.ccode19) with craftcode
-(ITEMS) Tagging Item Color Code 110(mmb.ccode20) with craftcode
-(ITEMS) Tagging Item Color Code 111(mmb.ccode21) with craftcode
-(ITEMS) Tagging Item Color Code 112(mmb.ccode22) with craftcode
-(ITEMS) Tagging Item Color Code 113(mmb.ccode23) with craftcode
-(ITEMS) Tagging Item Color Code 120(mmb.ccode24) with craftcode
-(ITEMS) Tagging Item Color Code 121(mmb.ccode25) with craftcode
-(ITEMS) Tagging Item Color Code 122(mmb.ccode26) with craftcode
-(ITEMS) Tagging Item Color Code 123(mmb.ccode27) with craftcode
-(ITEMS) Tagging Item Color Code 130(mmb.ccode28) with craftcode
-(ITEMS) Tagging Item Color Code 131(mmb.ccode29) with craftcode
-(ITEMS) Tagging Item Color Code 132(mmb.ccode30) with craftcode
-(ITEMS) Tagging Item Color Code 133(mmb.ccode31) with craftcode
-(ITEMS) Tagging Item Color Code 200(mmb.ccode32) with craftcode
-(ITEMS) Tagging Item Color Code 201(mmb.ccode33) with craftcode
-(ITEMS) Tagging Item Color Code 202(mmb.ccode34) with craftcode
-(ITEMS) Tagging Item Color Code 203(mmb.ccode35) with craftcode
-(ITEMS) Tagging Item Color Code 210(mmb.ccode36) with craftcode
-(ITEMS) Tagging Item Color Code 211(mmb.ccode37) with craftcode
-(ITEMS) Tagging Item Color Code 212(mmb.ccode38) with craftcode
-(ITEMS) Tagging Item Color Code 213(mmb.ccode39) with craftcode
-(ITEMS) Tagging Item Color Code 220(mmb.ccode40) with craftcode
-(ITEMS) Tagging Item Color Code 221(mmb.ccode41) with craftcode
-(ITEMS) Tagging Item Color Code 222(mmb.ccode42) with craftcode
-(ITEMS) Tagging Item Color Code 223(mmb.ccode43) with craftcode
-(ITEMS) Tagging Item Color Code 230(mmb.ccode44) with craftcode
-(ITEMS) Tagging Item Color Code 231(mmb.ccode45) with craftcode
-(ITEMS) Tagging Item Color Code 232(mmb.ccode46) with craftcode
-(ITEMS) Tagging Item Color Code 233(mmb.ccode47) with craftcode
-(ITEMS) Tagging Item Color Code 300(mmb.ccode48) with craftcode
-(ITEMS) Tagging Item Color Code 301(mmb.ccode49) with craftcode
-(ITEMS) Tagging Item Color Code 302(mmb.ccode50) with craftcode
-(ITEMS) Tagging Item Color Code 303(mmb.ccode51) with craftcode
-(ITEMS) Tagging Item Color Code 310(mmb.ccode52) with craftcode
-(ITEMS) Tagging Item Color Code 311(mmb.ccode53) with craftcode
-(ITEMS) Tagging Item Color Code 312(mmb.ccode54) with craftcode
-(ITEMS) Tagging Item Color Code 313(mmb.ccode55) with craftcode
-(ITEMS) Tagging Item Color Code 320(mmb.ccode56) with craftcode
-(ITEMS) Tagging Item Color Code 321(mmb.ccode57) with craftcode
-(ITEMS) Tagging Item Color Code 322(mmb.ccode58) with craftcode
-(ITEMS) Tagging Item Color Code 323(mmb.ccode59) with craftcode
-(ITEMS) Tagging Item Color Code 330(mmb.ccode60) with craftcode
-(ITEMS) Tagging Item Color Code 331(mmb.ccode61) with craftcode
-(ITEMS) Tagging Item Color Code 332(mmb.ccode62) with craftcode
-(ITEMS) Tagging Item Color Code 333(mmb.ccode63) with craftcode
-(ITEMS) Tagging Item Basic Resistor(industry.resistor1) with parts-electronic
-(ITEMS) Tagging Item Basic Capacitor(industry.capacitor1) with parts-electronic
-(ITEMS) Tagging Item Basic Inductor(industry.inductor1) with parts-electronic
-(ITEMS) Tagging Item Basic Diode(industry.diode1) with parts-electronic
-(ITEMS) Tagging Item Basic Transistor(industry.transistor1) with parts-electronic
-(ITEMS) Tagging Item Basic IC(industry.IC1) with parts-electronic
-(ITEMS) Tagging Item Primitive Circuit(industry.processor0) with parts-electronic
-(ITEMS) Tagging Item Primitive Substrate(industry.substrate0) with parts-electronic
-(ITEMS) Tagging Item Basic Circuit(industry.processor1) with parts-electronic
-(ITEMS) Tagging Item Basic Substrate(industry.substrate1) with parts-electronic
-(BLOCKS) Adding machines.pickbuilder with title Pickaxe workbench and description:
- null
-(ITEMS) Adding machines.pickbuilder with title Pickaxe workbench and description:
- null
-(BLOCKS) Adding industry.autocraft1 with title AutoCrafter 3X3 and description:
- null
-(ITEMS) Adding industry.autocraft1 with title AutoCrafter 3X3 and description:
+(ITEMS) Adding industry.autocraft1 with title Auto-konstruktor 3X3 and description:
  null
 (BLOCKS) Adding industry.electrofurnace0 with title Piec ULV and description:
  null
@@ -1361,33 +1390,33 @@
 (ITEMS) Tagging Item Kamieniołom IV(industry.quarry6) with voltage-IV
 (ITEMS) Tagging Item Kamieniołom LuV(industry.quarry7) with voltage-LuV
 (ITEMS) Tagging Item Kamieniołom MAX(industry.quarry8) with voltage-MAX
-(BLOCKS) Adding playerpipe.straight with title Player Pipe - straight and description:
+(BLOCKS) Adding playerpipe.straight with title Rura dla graczy - prosta and description:
  null
-(ITEMS) Adding playerpipe.straight with title Player Pipe - straight and description:
+(ITEMS) Adding playerpipe.straight with title Rura dla graczy - prosta and description:
  null
-(BLOCKS) Adding playerpipe.bend with title Player Pipe - turn and description:
+(BLOCKS) Adding playerpipe.bend with title Rura dla graczy - zakręt and description:
  null
-(ITEMS) Adding playerpipe.bend with title Player Pipe - turn and description:
+(ITEMS) Adding playerpipe.bend with title Rura dla graczy - zakręt and description:
  null
-(BLOCKS) Adding playerpipe.straight2 with title Player Pipe - crossover and description:
+(BLOCKS) Adding playerpipe.straight2 with title Rura dla graczy - krzyż and description:
  null
-(ITEMS) Adding playerpipe.straight2 with title Player Pipe - crossover and description:
+(ITEMS) Adding playerpipe.straight2 with title Rura dla graczy - krzyż and description:
  null
-(BLOCKS) Adding playerpipe.bend2 with title Player Pipe - two bends and description:
+(BLOCKS) Adding playerpipe.bend2 with title Rura dla graczy - 2zakr and description:
  null
-(ITEMS) Adding playerpipe.bend2 with title Player Pipe - two bends and description:
+(ITEMS) Adding playerpipe.bend2 with title Rura dla graczy - 2zakr and description:
  null
-(BLOCKS) Adding playerpipe.end with title Player Pipe - end and description:
+(BLOCKS) Adding playerpipe.end with title Rura dla graczy - wjazd and description:
  null
-(ITEMS) Adding playerpipe.end with title Player Pipe - end and description:
+(ITEMS) Adding playerpipe.end with title Rura dla graczy - wjazd and description:
  null
-(BLOCKS) Adding playerpipe.adj with title Player Pipe - adjoin and description:
+(BLOCKS) Adding playerpipe.adj with title Rura dla graczy - złącz and description:
  null
-(ITEMS) Adding playerpipe.adj with title Player Pipe - adjoin and description:
+(ITEMS) Adding playerpipe.adj with title Rura dla graczy - złącz and description:
  null
-(BLOCKS) Adding playerpipe.adj2 with title Player Pipe - wye and description:
+(BLOCKS) Adding playerpipe.adj2 with title Rura dla graczy - zjazd and description:
  null
-(ITEMS) Adding playerpipe.adj2 with title Player Pipe - wye and description:
+(ITEMS) Adding playerpipe.adj2 with title Rura dla graczy - zjazd and description:
  null
 (BLOCKS) Adding liquid.water with title Woda and description:
  null
@@ -1405,66 +1434,70 @@
  null
 (ITEMS) Adding mmb.clay with title Glina and description:
  null
-(ITEMS) Tagging Item WireWorld cell(wireworld.wire) with wireworld
-(ITEMS) Tagging Item WireWorld head(wireworld.head) with wireworld
-(ITEMS) Tagging Item WireWorld head(wireworld.tail) with wireworld
-(ITEMS) Tagging Item Chatbox(wireworld.chatter) with wireworld
-(ITEMS) Tagging Item AND(wireworld.and) with wireworld
-(ITEMS) Tagging Item OR(wireworld.or) with wireworld
-(ITEMS) Tagging Item XOR(wireworld.xor) with wireworld
-(ITEMS) Tagging Item Button(wireworld.button) with wireworld
-(ITEMS) Tagging Item Toggle Latch(wireworld.toggle) with wireworld
-(ITEMS) Tagging Item YES(wireworld.yes) with wireworld
-(ITEMS) Tagging Item NOT(wireworld.not) with wireworld
-(ITEMS) Tagging Item Random if(wireworld.randomctrl) with wireworld
-(ITEMS) Tagging Block Always True(wireworld.true) with wireworld
-(ITEMS) Tagging Block Random(wireworld.random) with wireworld
-(ITEMS) Tagging Block Active Switch(wireworld.on) with wireworld
-(ITEMS) Tagging Block Inactive Switch(wireworld.off) with wireworld
-(ITEMS) Tagging Item Uniform Random(wireworld.urandom) with wireworld
-(ITEMS) Tagging Item Lamp(wireworld.lamp) with wireworld
-(ITEMS) Tagging Item Player Pipe - straight(playerpipe.straight) with player-pipe
-(ITEMS) Tagging Item Player Pipe - turn(playerpipe.bend) with player-pipe
-(ITEMS) Tagging Item Player Pipe - crossover(playerpipe.straight2) with player-pipe
-(ITEMS) Tagging Item Player Pipe - two bends(playerpipe.bend2) with player-pipe
-(ITEMS) Tagging Item Player Pipe - adjoin(playerpipe.adj) with player-pipe
-(ITEMS) Tagging Item Player Pipe - wye(playerpipe.adj2) with player-pipe
-(ITEMS) Tagging Item Player Pipe - end(playerpipe.end) with player-pipe
-(ITEMS) Tagging Block Pickaxe workbench(machines.pickbuilder) with workbench
-(BLOCKS) Adding crafting.1 with title Crafter Mk1 and description:
+(BLOCKS) Adding multi.speaker with title Głośnik and description:
  null
-(ITEMS) Adding crafting.1 with title Crafter Mk1 and description:
+(ITEMS) Adding multi.speaker with title Głośnik and description:
  null
-(BLOCKS) Adding crafting.2 with title Crafter Mk2 and description:
+(ITEMS) Tagging Item Kabel WireWorld(wireworld.wire) with wireworld
+(ITEMS) Tagging Item Sygnał WireWorld(wireworld.head) with wireworld
+(ITEMS) Tagging Item Ogon WireWorld(wireworld.tail) with wireworld
+(ITEMS) Tagging Item Czater(wireworld.chatter) with wireworld
+(ITEMS) Tagging Item Bramka I(wireworld.and) with wireworld
+(ITEMS) Tagging Item Bramka LUB(wireworld.or) with wireworld
+(ITEMS) Tagging Item Bramka WYKLUB(wireworld.xor) with wireworld
+(ITEMS) Tagging Item Przycisk(wireworld.button) with wireworld
+(ITEMS) Tagging Item Przerzutnik(wireworld.toggle) with wireworld
+(ITEMS) Tagging Item Bramka TAK(wireworld.yes) with wireworld
+(ITEMS) Tagging Item Bramka NIE(wireworld.not) with wireworld
+(ITEMS) Tagging Item Losuj jeżeli(wireworld.randomctrl) with wireworld
+(ITEMS) Tagging Block Prawda(wireworld.true) with wireworld
+(ITEMS) Tagging Block Losownica(wireworld.random) with wireworld
+(ITEMS) Tagging Block Włącznik(wireworld.on) with wireworld
+(ITEMS) Tagging Block Wyłącznik(wireworld.off) with wireworld
+(ITEMS) Tagging Item Losownica jednorodna(wireworld.urandom) with wireworld
+(ITEMS) Tagging Item Lampa(wireworld.lamp) with wireworld
+(ITEMS) Tagging Item Rura dla graczy - prosta(playerpipe.straight) with player-pipe
+(ITEMS) Tagging Item Rura dla graczy - zakręt(playerpipe.bend) with player-pipe
+(ITEMS) Tagging Item Rura dla graczy - krzyż(playerpipe.straight2) with player-pipe
+(ITEMS) Tagging Item Rura dla graczy - 2zakr(playerpipe.bend2) with player-pipe
+(ITEMS) Tagging Item Rura dla graczy - złącz(playerpipe.adj) with player-pipe
+(ITEMS) Tagging Item Rura dla graczy - zjazd(playerpipe.adj2) with player-pipe
+(ITEMS) Tagging Item Rura dla graczy - wjazd(playerpipe.end) with player-pipe
+(ITEMS) Tagging Block Warsztat kilofów(machines.pickbuilder) with workbench
+(BLOCKS) Adding crafting.1 with title Stół rzemieślniczy 1 and description:
  null
-(ITEMS) Adding crafting.2 with title Crafter Mk2 and description:
+(ITEMS) Adding crafting.1 with title Stół rzemieślniczy 1 and description:
  null
-(BLOCKS) Adding crafting.3 with title Crafter Mk3 and description:
+(BLOCKS) Adding crafting.2 with title Stół rzemieślniczy 2 and description:
  null
-(ITEMS) Adding crafting.3 with title Crafter Mk3 and description:
+(ITEMS) Adding crafting.2 with title Stół rzemieślniczy 2 and description:
  null
-(BLOCKS) Adding crafting.4 with title Crafter Mk4 and description:
+(BLOCKS) Adding crafting.3 with title Stół rzemieślniczy 3 and description:
  null
-(ITEMS) Adding crafting.4 with title Crafter Mk4 and description:
+(ITEMS) Adding crafting.3 with title Stół rzemieślniczy 3 and description:
  null
-(BLOCKS) Adding crafting.5 with title Crafter Mk5 and description:
+(BLOCKS) Adding crafting.4 with title Stół rzemieślniczy 4 and description:
  null
-(ITEMS) Adding crafting.5 with title Crafter Mk5 and description:
+(ITEMS) Adding crafting.4 with title Stół rzemieślniczy 4 and description:
  null
-(BLOCKS) Adding crafting.6 with title Crafter Mk6 and description:
+(BLOCKS) Adding crafting.5 with title Stół rzemieślniczy 5 and description:
  null
-(ITEMS) Adding crafting.6 with title Crafter Mk6 and description:
+(ITEMS) Adding crafting.5 with title Stół rzemieślniczy 5 and description:
  null
-(ITEMS) Tagging Block Crafter Mk1(crafting.1) with workbench
-(ITEMS) Tagging Block Crafter Mk2(crafting.2) with workbench
-(ITEMS) Tagging Block Crafter Mk3(crafting.3) with workbench
-(ITEMS) Tagging Block Crafter Mk4(crafting.4) with workbench
-(ITEMS) Tagging Block Crafter Mk5(crafting.5) with workbench
-(ITEMS) Tagging Block Crafter Mk6(crafting.6) with workbench
+(BLOCKS) Adding crafting.6 with title Stół rzemieślniczy 6 and description:
+ null
+(ITEMS) Adding crafting.6 with title Stół rzemieślniczy 6 and description:
+ null
+(ITEMS) Tagging Block Stół rzemieślniczy 1(crafting.1) with workbench
+(ITEMS) Tagging Block Stół rzemieślniczy 2(crafting.2) with workbench
+(ITEMS) Tagging Block Stół rzemieślniczy 3(crafting.3) with workbench
+(ITEMS) Tagging Block Stół rzemieślniczy 4(crafting.4) with workbench
+(ITEMS) Tagging Block Stół rzemieślniczy 5(crafting.5) with workbench
+(ITEMS) Tagging Block Stół rzemieślniczy 6(crafting.6) with workbench
 (ITEMS) Tagging Block Woda(liquid.water) with fluid
 (ITEMS) Tagging Block Lawa(liquid.lava) with fluid
 (ITEMS) Tagging Block Para wodna(liquid.steam) with fluid
-(ITEMS) Tagging Block Crash on load(REMOVE THIS) with special
+(ITEMS) Tagging Block Zawieś grę(REMOVE THIS) with special
 (ITEMS) Tagging Block Powietrze(mmb.air) with special
 (ITEMS) Tagging Block Trawa(mmb.grass) with special
 (ITEMS) Tagging Block Powietrze(mmb.air) with basic
@@ -1477,10 +1510,18 @@
 (ITEMS) Tagging Block Żwir(mmb.gravel) with basic
 (ITEMS) Tagging Block Glina(mmb.clay) with basic
 (ITEMS) Tagging Block Woda(liquid.water) with basic
-(ITEMS) Tagging Item Chest(chest.beginning) with chest
-(ITEMS) Tagging Item Hopper Chest(chest.hopper1) with chest
-(ITEMS) Tagging Item Sucker Chest(chest.hopper2) with chest
-(ITEMS) Tagging Item Hopper Sucker Chest(chest.hopper3) with chest
+(ITEMS) Tagging Item Skrzynia(chest.beginning) with chest
+(ITEMS) Tagging Item Wrzutnia(chest.hopper1) with chest
+(ITEMS) Tagging Item Ssak(chest.hopper2) with chest
+(ITEMS) Tagging Item Wrzutniossak(chest.hopper3) with chest
+(ITEMS) Tagging Item Drzewo(crop.tree) with shape-crop
+(ITEMS) Tagging Item Rura - prosta(pipe.I) with pipe
+(ITEMS) Tagging Item Rura - zakręt(pipe.L) with pipe
+(ITEMS) Tagging Item Skrzyżowany wyciągacz(pipe.IPE) with pipe
+(ITEMS) Tagging Item Rura - złącz z lewej(pipe.toleft) with pipe
+(ITEMS) Tagging Item Rura - złącz z prawej(pipe.toright) with pipe
+(ITEMS) Tagging Item Rura - kryż(pipe.X) with pipe
+(ITEMS) Tagging Item Rura - 2zakr(pipe.D) with pipe
 (BLOCKS) Adding block.rudimentary with title Blok z rudymentu and description:
  null
 (ITEMS) Adding block.rudimentary with title Blok z rudymentu and description:
@@ -1535,14 +1576,18 @@
 (ITEMS) Tagging Item Płytka z rudymentu(panel.rudimentary) with shape-panel
 (ITEMS) Tagging Item Folia z rudymentu(foil.rudimentary) with shape-foil
 (ITEMS) Tagging Item Zębatka z rudymentu(gear.rudimentary) with shape-gear
-(BLOCKS) Adding ore.rudimentary with title Rudimentary ore and description:
+(BLOCKS) Adding ore.rudimentary with title Ruda rudymentu and description:
  null
-(ITEMS) Adding ore.rudimentary with title Rudimentary ore and description:
+(ITEMS) Adding ore.rudimentary with title Ruda rudymentu and description:
  null
-(BLOCKS) Adding crop.rudimentary with title Rudimentary crop and description:
+(BLOCKS) Adding crop.rudimentary with title Uprawa rudymentu and description:
  null
-(ITEMS) Adding crop.rudimentary with title Rudimentary crop and description:
+(ITEMS) Adding crop.rudimentary with title Uprawa rudymentu and description:
  null
+(ITEMS) Tagging Block Ruda rudymentu(ore.rudimentary) with material-rudimentary
+(ITEMS) Tagging Item Uprawa rudymentu(crop.rudimentary) with material-rudimentary
+(ITEMS) Tagging Block Ruda rudymentu(ore.rudimentary) with shape-ore
+(ITEMS) Tagging Item Uprawa rudymentu(crop.rudimentary) with shape-crop
 (BLOCKS) Adding block.coal with title Blok z węgla and description:
  null
 (ITEMS) Adding block.coal with title Blok z węgla and description:
@@ -1597,6 +1642,18 @@
 (ITEMS) Tagging Item Płytka z węgla(panel.coal) with shape-panel
 (ITEMS) Tagging Item Folia z węgla(foil.coal) with shape-foil
 (ITEMS) Tagging Item Zębatka z węgla(gear.coal) with shape-gear
+(BLOCKS) Adding ore.coal with title Ruda węgla and description:
+ null
+(ITEMS) Adding ore.coal with title Ruda węgla and description:
+ null
+(BLOCKS) Adding crop.coal with title Uprawa węgla and description:
+ null
+(ITEMS) Adding crop.coal with title Uprawa węgla and description:
+ null
+(ITEMS) Tagging Block Ruda węgla(ore.coal) with material-coal
+(ITEMS) Tagging Item Uprawa węgla(crop.coal) with material-coal
+(ITEMS) Tagging Block Ruda węgla(ore.coal) with shape-ore
+(ITEMS) Tagging Item Uprawa węgla(crop.coal) with shape-crop
 (BLOCKS) Adding block.copper with title Blok z miedzi and description:
  null
 (ITEMS) Adding block.copper with title Blok z miedzi and description:
@@ -1651,14 +1708,18 @@
 (ITEMS) Tagging Item Płytka z miedzi(panel.copper) with shape-panel
 (ITEMS) Tagging Item Folia z miedzi(foil.copper) with shape-foil
 (ITEMS) Tagging Item Zębatka z miedzi(gear.copper) with shape-gear
-(BLOCKS) Adding ore.copper with title Copper ore and description:
+(BLOCKS) Adding ore.copper with title Ruda miedzi and description:
  null
-(ITEMS) Adding ore.copper with title Copper ore and description:
+(ITEMS) Adding ore.copper with title Ruda miedzi and description:
  null
-(BLOCKS) Adding crop.copper with title Copper crop and description:
+(BLOCKS) Adding crop.copper with title Uprawa miedzi and description:
  null
-(ITEMS) Adding crop.copper with title Copper crop and description:
+(ITEMS) Adding crop.copper with title Uprawa miedzi and description:
  null
+(ITEMS) Tagging Block Ruda miedzi(ore.copper) with material-copper
+(ITEMS) Tagging Item Uprawa miedzi(crop.copper) with material-copper
+(ITEMS) Tagging Block Ruda miedzi(ore.copper) with shape-ore
+(ITEMS) Tagging Item Uprawa miedzi(crop.copper) with shape-crop
 (BLOCKS) Adding block.iron with title Blok ze żelaza and description:
  null
 (ITEMS) Adding block.iron with title Blok ze żelaza and description:
@@ -1713,14 +1774,18 @@
 (ITEMS) Tagging Item Płytka ze żelaza(panel.iron) with shape-panel
 (ITEMS) Tagging Item Folia ze żelaza(foil.iron) with shape-foil
 (ITEMS) Tagging Item Zębatka ze żelaza(gear.iron) with shape-gear
-(BLOCKS) Adding ore.iron with title Iron ore and description:
+(BLOCKS) Adding ore.iron with title Ruda żelaza and description:
  null
-(ITEMS) Adding ore.iron with title Iron ore and description:
+(ITEMS) Adding ore.iron with title Ruda żelaza and description:
  null
-(BLOCKS) Adding crop.iron with title Iron crop and description:
+(BLOCKS) Adding crop.iron with title Uprawa żelaza and description:
  null
-(ITEMS) Adding crop.iron with title Iron crop and description:
+(ITEMS) Adding crop.iron with title Uprawa żelaza and description:
  null
+(ITEMS) Tagging Block Ruda żelaza(ore.iron) with material-iron
+(ITEMS) Tagging Item Uprawa żelaza(crop.iron) with material-iron
+(ITEMS) Tagging Block Ruda żelaza(ore.iron) with shape-ore
+(ITEMS) Tagging Item Uprawa żelaza(crop.iron) with shape-crop
 (BLOCKS) Adding block.silicon with title Blok z krzemu and description:
  null
 (ITEMS) Adding block.silicon with title Blok z krzemu and description:
@@ -1775,14 +1840,18 @@
 (ITEMS) Tagging Item Płytka z krzemu(panel.silicon) with shape-panel
 (ITEMS) Tagging Item Folia z krzemu(foil.silicon) with shape-foil
 (ITEMS) Tagging Item Zębatka z krzemu(gear.silicon) with shape-gear
-(BLOCKS) Adding ore.silicon with title Silicon ore and description:
+(BLOCKS) Adding ore.silicon with title Ruda krzemu and description:
  null
-(ITEMS) Adding ore.silicon with title Silicon ore and description:
+(ITEMS) Adding ore.silicon with title Ruda krzemu and description:
  null
-(BLOCKS) Adding crop.silicon with title Silicon crop and description:
+(BLOCKS) Adding crop.silicon with title Uprawa krzemu and description:
  null
-(ITEMS) Adding crop.silicon with title Silicon crop and description:
+(ITEMS) Adding crop.silicon with title Uprawa krzemu and description:
  null
+(ITEMS) Tagging Block Ruda krzemu(ore.silicon) with material-silicon
+(ITEMS) Tagging Item Uprawa krzemu(crop.silicon) with material-silicon
+(ITEMS) Tagging Block Ruda krzemu(ore.silicon) with shape-ore
+(ITEMS) Tagging Item Uprawa krzemu(crop.silicon) with shape-crop
 (BLOCKS) Adding block.tin with title Blok z cyny and description:
  null
 (ITEMS) Adding block.tin with title Blok z cyny and description:
@@ -1837,14 +1906,18 @@
 (ITEMS) Tagging Item Płytka z cyny(panel.tin) with shape-panel
 (ITEMS) Tagging Item Folia z cyny(foil.tin) with shape-foil
 (ITEMS) Tagging Item Zębatka z cyny(gear.tin) with shape-gear
-(BLOCKS) Adding ore.tin with title Tin ore and description:
+(BLOCKS) Adding ore.tin with title Ruda cyny and description:
  null
-(ITEMS) Adding ore.tin with title Tin ore and description:
+(ITEMS) Adding ore.tin with title Ruda cyny and description:
  null
-(BLOCKS) Adding crop.tin with title Tin crop and description:
+(BLOCKS) Adding crop.tin with title Uprawa cyny and description:
  null
-(ITEMS) Adding crop.tin with title Tin crop and description:
+(ITEMS) Adding crop.tin with title Uprawa cyny and description:
  null
+(ITEMS) Tagging Block Ruda cyny(ore.tin) with material-tin
+(ITEMS) Tagging Item Uprawa cyny(crop.tin) with material-tin
+(ITEMS) Tagging Block Ruda cyny(ore.tin) with shape-ore
+(ITEMS) Tagging Item Uprawa cyny(crop.tin) with shape-crop
 (BLOCKS) Adding block.zinc with title Blok z cynku and description:
  null
 (ITEMS) Adding block.zinc with title Blok z cynku and description:
@@ -1899,14 +1972,18 @@
 (ITEMS) Tagging Item Płytka z cynku(panel.zinc) with shape-panel
 (ITEMS) Tagging Item Folia z cynku(foil.zinc) with shape-foil
 (ITEMS) Tagging Item Zębatka z cynku(gear.zinc) with shape-gear
-(BLOCKS) Adding ore.zinc with title Zinc ore and description:
+(BLOCKS) Adding ore.zinc with title Ruda cynku and description:
  null
-(ITEMS) Adding ore.zinc with title Zinc ore and description:
+(ITEMS) Adding ore.zinc with title Ruda cynku and description:
  null
-(BLOCKS) Adding crop.zinc with title Zinc crop and description:
+(BLOCKS) Adding crop.zinc with title Uprawa cynku and description:
  null
-(ITEMS) Adding crop.zinc with title Zinc crop and description:
+(ITEMS) Adding crop.zinc with title Uprawa cynku and description:
  null
+(ITEMS) Tagging Block Ruda cynku(ore.zinc) with material-zinc
+(ITEMS) Tagging Item Uprawa cynku(crop.zinc) with material-zinc
+(ITEMS) Tagging Block Ruda cynku(ore.zinc) with shape-ore
+(ITEMS) Tagging Item Uprawa cynku(crop.zinc) with shape-crop
 (BLOCKS) Adding block.alu with title Blok z aluminium and description:
  null
 (ITEMS) Adding block.alu with title Blok z aluminium and description:
@@ -1961,14 +2038,18 @@
 (ITEMS) Tagging Item Płytka z aluminium(panel.alu) with shape-panel
 (ITEMS) Tagging Item Folia z aluminium(foil.alu) with shape-foil
 (ITEMS) Tagging Item Zębatka z aluminium(gear.alu) with shape-gear
-(BLOCKS) Adding ore.alu with title Aluminum ore and description:
+(BLOCKS) Adding ore.alu with title Ruda aluminium and description:
  null
-(ITEMS) Adding ore.alu with title Aluminum ore and description:
+(ITEMS) Adding ore.alu with title Ruda aluminium and description:
  null
-(BLOCKS) Adding crop.alu with title Aluminum crop and description:
+(BLOCKS) Adding crop.alu with title Uprawa aluminium and description:
  null
-(ITEMS) Adding crop.alu with title Aluminum crop and description:
+(ITEMS) Adding crop.alu with title Uprawa aluminium and description:
  null
+(ITEMS) Tagging Block Ruda aluminium(ore.alu) with material-alu
+(ITEMS) Tagging Item Uprawa aluminium(crop.alu) with material-alu
+(ITEMS) Tagging Block Ruda aluminium(ore.alu) with shape-ore
+(ITEMS) Tagging Item Uprawa aluminium(crop.alu) with shape-crop
 (BLOCKS) Adding block.lead with title Blok z ołowiu and description:
  null
 (ITEMS) Adding block.lead with title Blok z ołowiu and description:
@@ -2023,14 +2104,18 @@
 (ITEMS) Tagging Item Płytka z ołowiu(panel.lead) with shape-panel
 (ITEMS) Tagging Item Folia z ołowiu(foil.lead) with shape-foil
 (ITEMS) Tagging Item Zębatka z ołowiu(gear.lead) with shape-gear
-(BLOCKS) Adding ore.lead with title Lead ore and description:
+(BLOCKS) Adding ore.lead with title Ruda ołowiu and description:
  null
-(ITEMS) Adding ore.lead with title Lead ore and description:
+(ITEMS) Adding ore.lead with title Ruda ołowiu and description:
  null
-(BLOCKS) Adding crop.lead with title Lead crop and description:
+(BLOCKS) Adding crop.lead with title Uprawa ołowiu and description:
  null
-(ITEMS) Adding crop.lead with title Lead crop and description:
+(ITEMS) Adding crop.lead with title Uprawa ołowiu and description:
  null
+(ITEMS) Tagging Block Ruda ołowiu(ore.lead) with material-lead
+(ITEMS) Tagging Item Uprawa ołowiu(crop.lead) with material-lead
+(ITEMS) Tagging Block Ruda ołowiu(ore.lead) with shape-ore
+(ITEMS) Tagging Item Uprawa ołowiu(crop.lead) with shape-crop
 (BLOCKS) Adding block.nickel with title Blok z niklu and description:
  null
 (ITEMS) Adding block.nickel with title Blok z niklu and description:
@@ -2085,14 +2170,18 @@
 (ITEMS) Tagging Item Płytka z niklu(panel.nickel) with shape-panel
 (ITEMS) Tagging Item Folia z niklu(foil.nickel) with shape-foil
 (ITEMS) Tagging Item Zębatka z niklu(gear.nickel) with shape-gear
-(BLOCKS) Adding ore.nickel with title Nickel ore and description:
+(BLOCKS) Adding ore.nickel with title Ruda niklu and description:
  null
-(ITEMS) Adding ore.nickel with title Nickel ore and description:
+(ITEMS) Adding ore.nickel with title Ruda niklu and description:
  null
-(BLOCKS) Adding crop.nickel with title Nickel crop and description:
+(BLOCKS) Adding crop.nickel with title Uprawa niklu and description:
  null
-(ITEMS) Adding crop.nickel with title Nickel crop and description:
+(ITEMS) Adding crop.nickel with title Uprawa niklu and description:
  null
+(ITEMS) Tagging Block Ruda niklu(ore.nickel) with material-nickel
+(ITEMS) Tagging Item Uprawa niklu(crop.nickel) with material-nickel
+(ITEMS) Tagging Block Ruda niklu(ore.nickel) with shape-ore
+(ITEMS) Tagging Item Uprawa niklu(crop.nickel) with shape-crop
 (BLOCKS) Adding block.redstone with title Blok z czerwonego proszku and description:
  null
 (ITEMS) Adding block.redstone with title Blok z czerwonego proszku and description:
@@ -2147,6 +2236,18 @@
 (ITEMS) Tagging Item Płytka z czerwonego proszku(panel.redstone) with shape-panel
 (ITEMS) Tagging Item Folia z czerwonego proszku(foil.redstone) with shape-foil
 (ITEMS) Tagging Item Zębatka z czerwonego proszku(gear.redstone) with shape-gear
+(BLOCKS) Adding ore.redstone with title Ruda czerwonego proszku and description:
+ null
+(ITEMS) Adding ore.redstone with title Ruda czerwonego proszku and description:
+ null
+(BLOCKS) Adding crop.redstone with title Uprawa czerwonego proszku and description:
+ null
+(ITEMS) Adding crop.redstone with title Uprawa czerwonego proszku and description:
+ null
+(ITEMS) Tagging Block Ruda czerwonego proszku(ore.redstone) with material-redstone
+(ITEMS) Tagging Item Uprawa czerwonego proszku(crop.redstone) with material-redstone
+(ITEMS) Tagging Block Ruda czerwonego proszku(ore.redstone) with shape-ore
+(ITEMS) Tagging Item Uprawa czerwonego proszku(crop.redstone) with shape-crop
 (BLOCKS) Adding block.silver with title Blok ze srebra and description:
  null
 (ITEMS) Adding block.silver with title Blok ze srebra and description:
@@ -2201,14 +2302,18 @@
 (ITEMS) Tagging Item Płytka ze srebra(panel.silver) with shape-panel
 (ITEMS) Tagging Item Folia ze srebra(foil.silver) with shape-foil
 (ITEMS) Tagging Item Zębatka ze srebra(gear.silver) with shape-gear
-(BLOCKS) Adding ore.silver with title Silver ore and description:
+(BLOCKS) Adding ore.silver with title Ruda srebra and description:
  null
-(ITEMS) Adding ore.silver with title Silver ore and description:
+(ITEMS) Adding ore.silver with title Ruda srebra and description:
  null
-(BLOCKS) Adding crop.silver with title Silver crop and description:
+(BLOCKS) Adding crop.silver with title Uprawa srebra and description:
  null
-(ITEMS) Adding crop.silver with title Silver crop and description:
+(ITEMS) Adding crop.silver with title Uprawa srebra and description:
  null
+(ITEMS) Tagging Block Ruda srebra(ore.silver) with material-silver
+(ITEMS) Tagging Item Uprawa srebra(crop.silver) with material-silver
+(ITEMS) Tagging Block Ruda srebra(ore.silver) with shape-ore
+(ITEMS) Tagging Item Uprawa srebra(crop.silver) with shape-crop
 (BLOCKS) Adding block.uranium with title Blok z uranu and description:
  null
 (ITEMS) Adding block.uranium with title Blok z uranu and description:
@@ -2263,14 +2368,18 @@
 (ITEMS) Tagging Item Płytka z uranu(panel.uranium) with shape-panel
 (ITEMS) Tagging Item Folia z uranu(foil.uranium) with shape-foil
 (ITEMS) Tagging Item Zębatka z uranu(gear.uranium) with shape-gear
-(BLOCKS) Adding ore.uranium with title Uranium ore and description:
+(BLOCKS) Adding ore.uranium with title Ruda uranu and description:
  null
-(ITEMS) Adding ore.uranium with title Uranium ore and description:
+(ITEMS) Adding ore.uranium with title Ruda uranu and description:
  null
-(BLOCKS) Adding crop.uranium with title Uranium crop and description:
+(BLOCKS) Adding crop.uranium with title Uprawa uranu and description:
  null
-(ITEMS) Adding crop.uranium with title Uranium crop and description:
+(ITEMS) Adding crop.uranium with title Uprawa uranu and description:
  null
+(ITEMS) Tagging Block Ruda uranu(ore.uranium) with material-uranium
+(ITEMS) Tagging Item Uprawa uranu(crop.uranium) with material-uranium
+(ITEMS) Tagging Block Ruda uranu(ore.uranium) with shape-ore
+(ITEMS) Tagging Item Uprawa uranu(crop.uranium) with shape-crop
 (BLOCKS) Adding block.steel with title Blok ze stali and description:
  null
 (ITEMS) Adding block.steel with title Blok ze stali and description:
@@ -2487,14 +2596,18 @@
 (ITEMS) Tagging Item Płytka z chromu(panel.chrome) with shape-panel
 (ITEMS) Tagging Item Folia z chromu(foil.chrome) with shape-foil
 (ITEMS) Tagging Item Zębatka z chromu(gear.chrome) with shape-gear
-(BLOCKS) Adding ore.chrome with title Chrome ore and description:
+(BLOCKS) Adding ore.chrome with title Ruda chromu and description:
  null
-(ITEMS) Adding ore.chrome with title Chrome ore and description:
+(ITEMS) Adding ore.chrome with title Ruda chromu and description:
  null
-(BLOCKS) Adding crop.chrome with title Chrome crop and description:
+(BLOCKS) Adding crop.chrome with title Uprawa chromu and description:
  null
-(ITEMS) Adding crop.chrome with title Chrome crop and description:
+(ITEMS) Adding crop.chrome with title Uprawa chromu and description:
  null
+(ITEMS) Tagging Block Ruda chromu(ore.chrome) with material-chrome
+(ITEMS) Tagging Item Uprawa chromu(crop.chrome) with material-chrome
+(ITEMS) Tagging Block Ruda chromu(ore.chrome) with shape-ore
+(ITEMS) Tagging Item Uprawa chromu(crop.chrome) with shape-crop
 (BLOCKS) Adding block.nichrome with title Blok z niklochromu and description:
  null
 (ITEMS) Adding block.nichrome with title Blok z niklochromu and description:
@@ -2549,114 +2662,126 @@
 (ITEMS) Tagging Item Płytka z niklochromu(panel.nichrome) with shape-panel
 (ITEMS) Tagging Item Folia z niklochromu(foil.nichrome) with shape-foil
 (ITEMS) Tagging Item Zębatka z niklochromu(gear.nichrome) with shape-gear
-(BLOCKS) Adding block.quartz with title Blok z kwarcy and description:
+(BLOCKS) Adding block.quartz with title Blok z kwarcu and description:
  null
-(ITEMS) Adding block.quartz with title Blok z kwarcy and description:
+(ITEMS) Adding block.quartz with title Blok z kwarcu and description:
  null
-(ITEMS) Adding fcluster.quartz with title Klaster z kwarcy and description:
+(ITEMS) Adding fcluster.quartz with title Klaster z kwarcu and description:
  null
 (ITEMS) Adding gem.quartz with title Kwarc and description:
  null
-(ITEMS) Adding frag.quartz with title Fragment z kwarcy and description:
+(ITEMS) Adding frag.quartz with title Fragment z kwarcu and description:
  null
-(ITEMS) Adding nugget.quartz with title Samorodek z kwarcy and description:
+(ITEMS) Adding nugget.quartz with title Samorodek z kwarcu and description:
  null
-(ITEMS) Adding wirespool.quartz with title Drut z kwarcy and description:
+(ITEMS) Adding wirespool.quartz with title Drut z kwarcu and description:
  null
-(ITEMS) Adding ldust.quartz with title Duży pył z kwarcy and description:
+(ITEMS) Adding ldust.quartz with title Duży pył z kwarcu and description:
  null
-(ITEMS) Adding dust.quartz with title Pył z kwarcy and description:
+(ITEMS) Adding dust.quartz with title Pył z kwarcu and description:
  null
-(ITEMS) Adding mdust.quartz with title Mały pył z kwarcy and description:
+(ITEMS) Adding mdust.quartz with title Mały pył z kwarcu and description:
  null
-(ITEMS) Adding minidust.quartz with title Mikropył z kwarcy and description:
+(ITEMS) Adding minidust.quartz with title Mikropył z kwarcu and description:
  null
-(ITEMS) Adding panel.quartz with title Płytka z kwarcy and description:
+(ITEMS) Adding panel.quartz with title Płytka z kwarcu and description:
  null
-(ITEMS) Adding foil.quartz with title Folia z kwarcy and description:
+(ITEMS) Adding foil.quartz with title Folia z kwarcu and description:
  null
-(ITEMS) Adding gear.quartz with title Zębatka z kwarcy and description:
+(ITEMS) Adding gear.quartz with title Zębatka z kwarcu and description:
  null
-(ITEMS) Tagging Block Blok z kwarcy(block.quartz) with material-quartz
-(ITEMS) Tagging Item Klaster z kwarcy(fcluster.quartz) with material-quartz
+(ITEMS) Tagging Block Blok z kwarcu(block.quartz) with material-quartz
+(ITEMS) Tagging Item Klaster z kwarcu(fcluster.quartz) with material-quartz
 (ITEMS) Tagging Item Kwarc(gem.quartz) with material-quartz
-(ITEMS) Tagging Item Fragment z kwarcy(frag.quartz) with material-quartz
-(ITEMS) Tagging Item Samorodek z kwarcy(nugget.quartz) with material-quartz
-(ITEMS) Tagging Item Drut z kwarcy(wirespool.quartz) with material-quartz
-(ITEMS) Tagging Item Duży pył z kwarcy(ldust.quartz) with material-quartz
-(ITEMS) Tagging Item Pył z kwarcy(dust.quartz) with material-quartz
-(ITEMS) Tagging Item Mały pył z kwarcy(mdust.quartz) with material-quartz
-(ITEMS) Tagging Item Mikropył z kwarcy(minidust.quartz) with material-quartz
-(ITEMS) Tagging Item Płytka z kwarcy(panel.quartz) with material-quartz
-(ITEMS) Tagging Item Folia z kwarcy(foil.quartz) with material-quartz
-(ITEMS) Tagging Item Zębatka z kwarcy(gear.quartz) with material-quartz
-(ITEMS) Tagging Block Blok z kwarcy(block.quartz) with shape-block
-(ITEMS) Tagging Item Klaster z kwarcy(fcluster.quartz) with shape-cluster
+(ITEMS) Tagging Item Fragment z kwarcu(frag.quartz) with material-quartz
+(ITEMS) Tagging Item Samorodek z kwarcu(nugget.quartz) with material-quartz
+(ITEMS) Tagging Item Drut z kwarcu(wirespool.quartz) with material-quartz
+(ITEMS) Tagging Item Duży pył z kwarcu(ldust.quartz) with material-quartz
+(ITEMS) Tagging Item Pył z kwarcu(dust.quartz) with material-quartz
+(ITEMS) Tagging Item Mały pył z kwarcu(mdust.quartz) with material-quartz
+(ITEMS) Tagging Item Mikropył z kwarcu(minidust.quartz) with material-quartz
+(ITEMS) Tagging Item Płytka z kwarcu(panel.quartz) with material-quartz
+(ITEMS) Tagging Item Folia z kwarcu(foil.quartz) with material-quartz
+(ITEMS) Tagging Item Zębatka z kwarcu(gear.quartz) with material-quartz
+(ITEMS) Tagging Block Blok z kwarcu(block.quartz) with shape-block
+(ITEMS) Tagging Item Klaster z kwarcu(fcluster.quartz) with shape-cluster
 (ITEMS) Tagging Item Kwarc(gem.quartz) with shape-base
-(ITEMS) Tagging Item Fragment z kwarcy(frag.quartz) with shape-frag
-(ITEMS) Tagging Item Samorodek z kwarcy(nugget.quartz) with shape-nugget
-(ITEMS) Tagging Item Drut z kwarcy(wirespool.quartz) with shape-wire
-(ITEMS) Tagging Item Duży pył z kwarcy(ldust.quartz) with shape-megadust
-(ITEMS) Tagging Item Pył z kwarcy(dust.quartz) with shape-dust
-(ITEMS) Tagging Item Mały pył z kwarcy(mdust.quartz) with shape-smalldust
-(ITEMS) Tagging Item Mikropył z kwarcy(minidust.quartz) with shape-tinydust
-(ITEMS) Tagging Item Płytka z kwarcy(panel.quartz) with shape-panel
-(ITEMS) Tagging Item Folia z kwarcy(foil.quartz) with shape-foil
-(ITEMS) Tagging Item Zębatka z kwarcy(gear.quartz) with shape-gear
-(BLOCKS) Adding block.ender with title Blok z ender and description:
+(ITEMS) Tagging Item Fragment z kwarcu(frag.quartz) with shape-frag
+(ITEMS) Tagging Item Samorodek z kwarcu(nugget.quartz) with shape-nugget
+(ITEMS) Tagging Item Drut z kwarcu(wirespool.quartz) with shape-wire
+(ITEMS) Tagging Item Duży pył z kwarcu(ldust.quartz) with shape-megadust
+(ITEMS) Tagging Item Pył z kwarcu(dust.quartz) with shape-dust
+(ITEMS) Tagging Item Mały pył z kwarcu(mdust.quartz) with shape-smalldust
+(ITEMS) Tagging Item Mikropył z kwarcu(minidust.quartz) with shape-tinydust
+(ITEMS) Tagging Item Płytka z kwarcu(panel.quartz) with shape-panel
+(ITEMS) Tagging Item Folia z kwarcu(foil.quartz) with shape-foil
+(ITEMS) Tagging Item Zębatka z kwarcu(gear.quartz) with shape-gear
+(BLOCKS) Adding block.ender with title Blok z enderu and description:
  null
-(ITEMS) Adding block.ender with title Blok z ender and description:
+(ITEMS) Adding block.ender with title Blok z enderu and description:
  null
-(ITEMS) Adding fcluster.ender with title Klaster z ender and description:
+(ITEMS) Adding fcluster.ender with title Klaster z enderu and description:
  null
 (ITEMS) Adding gem.ender with title Ender and description:
  null
-(ITEMS) Adding frag.ender with title Fragment z ender and description:
+(ITEMS) Adding frag.ender with title Fragment z enderu and description:
  null
-(ITEMS) Adding nugget.ender with title Samorodek z ender and description:
+(ITEMS) Adding nugget.ender with title Samorodek z enderu and description:
  null
-(ITEMS) Adding wirespool.ender with title Drut z ender and description:
+(ITEMS) Adding wirespool.ender with title Drut z enderu and description:
  null
-(ITEMS) Adding ldust.ender with title Duży pył z ender and description:
+(ITEMS) Adding ldust.ender with title Duży pył z enderu and description:
  null
-(ITEMS) Adding dust.ender with title Pył z ender and description:
+(ITEMS) Adding dust.ender with title Pył z enderu and description:
  null
-(ITEMS) Adding mdust.ender with title Mały pył z ender and description:
+(ITEMS) Adding mdust.ender with title Mały pył z enderu and description:
  null
-(ITEMS) Adding minidust.ender with title Mikropył z ender and description:
+(ITEMS) Adding minidust.ender with title Mikropył z enderu and description:
  null
-(ITEMS) Adding panel.ender with title Płytka z ender and description:
+(ITEMS) Adding panel.ender with title Płytka z enderu and description:
  null
-(ITEMS) Adding foil.ender with title Folia z ender and description:
+(ITEMS) Adding foil.ender with title Folia z enderu and description:
  null
-(ITEMS) Adding gear.ender with title Zębatka z ender and description:
+(ITEMS) Adding gear.ender with title Zębatka z enderu and description:
  null
-(ITEMS) Tagging Block Blok z ender(block.ender) with material-ender
-(ITEMS) Tagging Item Klaster z ender(fcluster.ender) with material-ender
+(ITEMS) Tagging Block Blok z enderu(block.ender) with material-ender
+(ITEMS) Tagging Item Klaster z enderu(fcluster.ender) with material-ender
 (ITEMS) Tagging Item Ender(gem.ender) with material-ender
-(ITEMS) Tagging Item Fragment z ender(frag.ender) with material-ender
-(ITEMS) Tagging Item Samorodek z ender(nugget.ender) with material-ender
-(ITEMS) Tagging Item Drut z ender(wirespool.ender) with material-ender
-(ITEMS) Tagging Item Duży pył z ender(ldust.ender) with material-ender
-(ITEMS) Tagging Item Pył z ender(dust.ender) with material-ender
-(ITEMS) Tagging Item Mały pył z ender(mdust.ender) with material-ender
-(ITEMS) Tagging Item Mikropył z ender(minidust.ender) with material-ender
-(ITEMS) Tagging Item Płytka z ender(panel.ender) with material-ender
-(ITEMS) Tagging Item Folia z ender(foil.ender) with material-ender
-(ITEMS) Tagging Item Zębatka z ender(gear.ender) with material-ender
-(ITEMS) Tagging Block Blok z ender(block.ender) with shape-block
-(ITEMS) Tagging Item Klaster z ender(fcluster.ender) with shape-cluster
+(ITEMS) Tagging Item Fragment z enderu(frag.ender) with material-ender
+(ITEMS) Tagging Item Samorodek z enderu(nugget.ender) with material-ender
+(ITEMS) Tagging Item Drut z enderu(wirespool.ender) with material-ender
+(ITEMS) Tagging Item Duży pył z enderu(ldust.ender) with material-ender
+(ITEMS) Tagging Item Pył z enderu(dust.ender) with material-ender
+(ITEMS) Tagging Item Mały pył z enderu(mdust.ender) with material-ender
+(ITEMS) Tagging Item Mikropył z enderu(minidust.ender) with material-ender
+(ITEMS) Tagging Item Płytka z enderu(panel.ender) with material-ender
+(ITEMS) Tagging Item Folia z enderu(foil.ender) with material-ender
+(ITEMS) Tagging Item Zębatka z enderu(gear.ender) with material-ender
+(ITEMS) Tagging Block Blok z enderu(block.ender) with shape-block
+(ITEMS) Tagging Item Klaster z enderu(fcluster.ender) with shape-cluster
 (ITEMS) Tagging Item Ender(gem.ender) with shape-base
-(ITEMS) Tagging Item Fragment z ender(frag.ender) with shape-frag
-(ITEMS) Tagging Item Samorodek z ender(nugget.ender) with shape-nugget
-(ITEMS) Tagging Item Drut z ender(wirespool.ender) with shape-wire
-(ITEMS) Tagging Item Duży pył z ender(ldust.ender) with shape-megadust
-(ITEMS) Tagging Item Pył z ender(dust.ender) with shape-dust
-(ITEMS) Tagging Item Mały pył z ender(mdust.ender) with shape-smalldust
-(ITEMS) Tagging Item Mikropył z ender(minidust.ender) with shape-tinydust
-(ITEMS) Tagging Item Płytka z ender(panel.ender) with shape-panel
-(ITEMS) Tagging Item Folia z ender(foil.ender) with shape-foil
-(ITEMS) Tagging Item Zębatka z ender(gear.ender) with shape-gear
+(ITEMS) Tagging Item Fragment z enderu(frag.ender) with shape-frag
+(ITEMS) Tagging Item Samorodek z enderu(nugget.ender) with shape-nugget
+(ITEMS) Tagging Item Drut z enderu(wirespool.ender) with shape-wire
+(ITEMS) Tagging Item Duży pył z enderu(ldust.ender) with shape-megadust
+(ITEMS) Tagging Item Pył z enderu(dust.ender) with shape-dust
+(ITEMS) Tagging Item Mały pył z enderu(mdust.ender) with shape-smalldust
+(ITEMS) Tagging Item Mikropył z enderu(minidust.ender) with shape-tinydust
+(ITEMS) Tagging Item Płytka z enderu(panel.ender) with shape-panel
+(ITEMS) Tagging Item Folia z enderu(foil.ender) with shape-foil
+(ITEMS) Tagging Item Zębatka z enderu(gear.ender) with shape-gear
+(BLOCKS) Adding ore.ender with title Ruda enderu and description:
+ null
+(ITEMS) Adding ore.ender with title Ruda enderu and description:
+ null
+(BLOCKS) Adding crop.ender with title Uprawa enderu and description:
+ null
+(ITEMS) Adding crop.ender with title Uprawa enderu and description:
+ null
+(ITEMS) Tagging Block Ruda enderu(ore.ender) with material-ender
+(ITEMS) Tagging Item Uprawa enderu(crop.ender) with material-ender
+(ITEMS) Tagging Block Ruda enderu(ore.ender) with shape-ore
+(ITEMS) Tagging Item Uprawa enderu(crop.ender) with shape-crop
 (BLOCKS) Adding block.glowstone with title Blok z jasnogłazu and description:
  null
 (ITEMS) Adding block.glowstone with title Blok z jasnogłazu and description:
@@ -2711,6 +2836,18 @@
 (ITEMS) Tagging Item Płytka z jasnogłazu(panel.glowstone) with shape-panel
 (ITEMS) Tagging Item Folia z jasnogłazu(foil.glowstone) with shape-foil
 (ITEMS) Tagging Item Zębatka z jasnogłazu(gear.glowstone) with shape-gear
+(BLOCKS) Adding ore.glowstone with title Ruda jasnogłazu and description:
+ null
+(ITEMS) Adding ore.glowstone with title Ruda jasnogłazu and description:
+ null
+(BLOCKS) Adding crop.glowstone with title Uprawa jasnogłazu and description:
+ null
+(ITEMS) Adding crop.glowstone with title Uprawa jasnogłazu and description:
+ null
+(ITEMS) Tagging Block Ruda jasnogłazu(ore.glowstone) with material-glowstone
+(ITEMS) Tagging Item Uprawa jasnogłazu(crop.glowstone) with material-glowstone
+(ITEMS) Tagging Block Ruda jasnogłazu(ore.glowstone) with shape-ore
+(ITEMS) Tagging Item Uprawa jasnogłazu(crop.glowstone) with shape-crop
 (BLOCKS) Adding block.cobalt with title Blok z kobaltu and description:
  null
 (ITEMS) Adding block.cobalt with title Blok z kobaltu and description:
@@ -2765,14 +2902,18 @@
 (ITEMS) Tagging Item Płytka z kobaltu(panel.cobalt) with shape-panel
 (ITEMS) Tagging Item Folia z kobaltu(foil.cobalt) with shape-foil
 (ITEMS) Tagging Item Zębatka z kobaltu(gear.cobalt) with shape-gear
-(BLOCKS) Adding ore.cobalt with title Cobalt ore and description:
+(BLOCKS) Adding ore.cobalt with title Ruda kobaltu and description:
  null
-(ITEMS) Adding ore.cobalt with title Cobalt ore and description:
+(ITEMS) Adding ore.cobalt with title Ruda kobaltu and description:
  null
-(BLOCKS) Adding crop.cobalt with title Cobalt crop and description:
+(BLOCKS) Adding crop.cobalt with title Uprawa kobaltu and description:
  null
-(ITEMS) Adding crop.cobalt with title Cobalt crop and description:
+(ITEMS) Adding crop.cobalt with title Uprawa kobaltu and description:
  null
+(ITEMS) Tagging Block Ruda kobaltu(ore.cobalt) with material-cobalt
+(ITEMS) Tagging Item Uprawa kobaltu(crop.cobalt) with material-cobalt
+(ITEMS) Tagging Block Ruda kobaltu(ore.cobalt) with shape-ore
+(ITEMS) Tagging Item Uprawa kobaltu(crop.cobalt) with shape-crop
 (BLOCKS) Adding block.gold with title Blok ze złota and description:
  null
 (ITEMS) Adding block.gold with title Blok ze złota and description:
@@ -2827,14 +2968,18 @@
 (ITEMS) Tagging Item Płytka ze złota(panel.gold) with shape-panel
 (ITEMS) Tagging Item Folia ze złota(foil.gold) with shape-foil
 (ITEMS) Tagging Item Zębatka ze złota(gear.gold) with shape-gear
-(BLOCKS) Adding ore.gold with title Gold ore and description:
+(BLOCKS) Adding ore.gold with title Ruda złota and description:
  null
-(ITEMS) Adding ore.gold with title Gold ore and description:
+(ITEMS) Adding ore.gold with title Ruda złota and description:
  null
-(BLOCKS) Adding crop.gold with title Gold crop and description:
+(BLOCKS) Adding crop.gold with title Uprawa złota and description:
  null
-(ITEMS) Adding crop.gold with title Gold crop and description:
+(ITEMS) Adding crop.gold with title Uprawa złota and description:
  null
+(ITEMS) Tagging Block Ruda złota(ore.gold) with material-gold
+(ITEMS) Tagging Item Uprawa złota(crop.gold) with material-gold
+(ITEMS) Tagging Block Ruda złota(ore.gold) with shape-ore
+(ITEMS) Tagging Item Uprawa złota(crop.gold) with shape-crop
 (BLOCKS) Adding block.stainless with title Blok ze stali nierdzewnej and description:
  null
 (ITEMS) Adding block.stainless with title Blok ze stali nierdzewnej and description:
@@ -2943,6 +3088,18 @@
 (ITEMS) Tagging Item Płytka z diamentu(panel.diamond) with shape-panel
 (ITEMS) Tagging Item Folia z diamentu(foil.diamond) with shape-foil
 (ITEMS) Tagging Item Zębatka z diamentu(gear.diamond) with shape-gear
+(BLOCKS) Adding ore.diamond with title Ruda diamentu and description:
+ null
+(ITEMS) Adding ore.diamond with title Ruda diamentu and description:
+ null
+(BLOCKS) Adding crop.diamond with title Uprawa diamentu and description:
+ null
+(ITEMS) Adding crop.diamond with title Uprawa diamentu and description:
+ null
+(ITEMS) Tagging Block Ruda diamentu(ore.diamond) with material-diamond
+(ITEMS) Tagging Item Uprawa diamentu(crop.diamond) with material-diamond
+(ITEMS) Tagging Block Ruda diamentu(ore.diamond) with shape-ore
+(ITEMS) Tagging Item Uprawa diamentu(crop.diamond) with shape-crop
 (BLOCKS) Adding block.HSS with title Blok ze stali szybkotnącej and description:
  null
 (ITEMS) Adding block.HSS with title Blok ze stali szybkotnącej and description:
@@ -3051,14 +3208,18 @@
 (ITEMS) Tagging Item Płytka z platyny(panel.platinum) with shape-panel
 (ITEMS) Tagging Item Folia z platyny(foil.platinum) with shape-foil
 (ITEMS) Tagging Item Zębatka z platyny(gear.platinum) with shape-gear
-(BLOCKS) Adding ore.platinum with title Platinum ore and description:
+(BLOCKS) Adding ore.platinum with title Ruda platyny and description:
  null
-(ITEMS) Adding ore.platinum with title Platinum ore and description:
+(ITEMS) Adding ore.platinum with title Ruda platyny and description:
  null
-(BLOCKS) Adding crop.platinum with title Platinum crop and description:
+(BLOCKS) Adding crop.platinum with title Uprawa platyny and description:
  null
-(ITEMS) Adding crop.platinum with title Platinum crop and description:
+(ITEMS) Adding crop.platinum with title Uprawa platyny and description:
  null
+(ITEMS) Tagging Block Ruda platyny(ore.platinum) with material-platinum
+(ITEMS) Tagging Item Uprawa platyny(crop.platinum) with material-platinum
+(ITEMS) Tagging Block Ruda platyny(ore.platinum) with shape-ore
+(ITEMS) Tagging Item Uprawa platyny(crop.platinum) with shape-crop
 (BLOCKS) Adding block.lumium with title Blok z lumium and description:
  null
 (ITEMS) Adding block.lumium with title Blok z lumium and description:
@@ -3167,14 +3328,18 @@
 (ITEMS) Tagging Item Płytka z wolframu(panel.tungsten) with shape-panel
 (ITEMS) Tagging Item Folia z wolframu(foil.tungsten) with shape-foil
 (ITEMS) Tagging Item Zębatka z wolframu(gear.tungsten) with shape-gear
-(BLOCKS) Adding ore.tungsten with title Tungsten ore and description:
+(BLOCKS) Adding ore.tungsten with title Ruda wolframu and description:
  null
-(ITEMS) Adding ore.tungsten with title Tungsten ore and description:
+(ITEMS) Adding ore.tungsten with title Ruda wolframu and description:
  null
-(BLOCKS) Adding crop.tungsten with title Tungsten crop and description:
+(BLOCKS) Adding crop.tungsten with title Uprawa wolframu and description:
  null
-(ITEMS) Adding crop.tungsten with title Tungsten crop and description:
+(ITEMS) Adding crop.tungsten with title Uprawa wolframu and description:
  null
+(ITEMS) Tagging Block Ruda wolframu(ore.tungsten) with material-tungsten
+(ITEMS) Tagging Item Uprawa wolframu(crop.tungsten) with material-tungsten
+(ITEMS) Tagging Block Ruda wolframu(ore.tungsten) with shape-ore
+(ITEMS) Tagging Item Uprawa wolframu(crop.tungsten) with shape-crop
 (BLOCKS) Adding block.signalum with title Blok ze signalum and description:
  null
 (ITEMS) Adding block.signalum with title Blok ze signalum and description:
@@ -3283,14 +3448,18 @@
 (ITEMS) Tagging Item Płytka z irydu(panel.iridium) with shape-panel
 (ITEMS) Tagging Item Folia z irydu(foil.iridium) with shape-foil
 (ITEMS) Tagging Item Zębatka z irydu(gear.iridium) with shape-gear
-(BLOCKS) Adding ore.iridium with title Iridium ore and description:
+(BLOCKS) Adding ore.iridium with title Ruda irydu and description:
  null
-(ITEMS) Adding ore.iridium with title Iridium ore and description:
+(ITEMS) Adding ore.iridium with title Ruda irydu and description:
  null
-(BLOCKS) Adding crop.iridium with title Iridium crop and description:
+(BLOCKS) Adding crop.iridium with title Uprawa irydu and description:
  null
-(ITEMS) Adding crop.iridium with title Iridium crop and description:
+(ITEMS) Adding crop.iridium with title Uprawa irydu and description:
  null
+(ITEMS) Tagging Block Ruda irydu(ore.iridium) with material-iridium
+(ITEMS) Tagging Item Uprawa irydu(crop.iridium) with material-iridium
+(ITEMS) Tagging Block Ruda irydu(ore.iridium) with shape-ore
+(ITEMS) Tagging Item Uprawa irydu(crop.iridium) with shape-crop
 (BLOCKS) Adding block.tungstenC with title Blok z węglika wolframu and description:
  null
 (ITEMS) Adding block.tungstenC with title Blok z węglika wolframu and description:
@@ -3453,60 +3622,60 @@
 (ITEMS) Tagging Item Płytka z enderium(panel.enderium) with shape-panel
 (ITEMS) Tagging Item Folia z enderium(foil.enderium) with shape-foil
 (ITEMS) Tagging Item Zębatka z enderium(gear.enderium) with shape-gear
-(BLOCKS) Adding block.stellar with title Blok z Stellarine and description:
+(BLOCKS) Adding block.stellar with title Blok ze Stellarine and description:
  null
-(ITEMS) Adding block.stellar with title Blok z Stellarine and description:
+(ITEMS) Adding block.stellar with title Blok ze Stellarine and description:
  null
-(ITEMS) Adding fcluster.stellar with title Klaster z Stellarine and description:
+(ITEMS) Adding fcluster.stellar with title Klaster ze Stellarine and description:
  null
-(ITEMS) Adding ingot.stellar with title Sztabka z Stellarine and description:
+(ITEMS) Adding ingot.stellar with title Sztabka ze Stellarine and description:
  null
-(ITEMS) Adding frag.stellar with title Fragment z Stellarine and description:
+(ITEMS) Adding frag.stellar with title Fragment ze Stellarine and description:
  null
-(ITEMS) Adding nugget.stellar with title Samorodek z Stellarine and description:
+(ITEMS) Adding nugget.stellar with title Samorodek ze Stellarine and description:
  null
-(ITEMS) Adding wirespool.stellar with title Drut z Stellarine and description:
+(ITEMS) Adding wirespool.stellar with title Drut ze Stellarine and description:
  null
-(ITEMS) Adding ldust.stellar with title Duży pył z Stellarine and description:
+(ITEMS) Adding ldust.stellar with title Duży pył ze Stellarine and description:
  null
-(ITEMS) Adding dust.stellar with title Pył z Stellarine and description:
+(ITEMS) Adding dust.stellar with title Pył ze Stellarine and description:
  null
-(ITEMS) Adding mdust.stellar with title Mały pył z Stellarine and description:
+(ITEMS) Adding mdust.stellar with title Mały pył ze Stellarine and description:
  null
-(ITEMS) Adding minidust.stellar with title Mikropył z Stellarine and description:
+(ITEMS) Adding minidust.stellar with title Mikropył ze Stellarine and description:
  null
-(ITEMS) Adding panel.stellar with title Płytka z Stellarine and description:
+(ITEMS) Adding panel.stellar with title Płytka ze Stellarine and description:
  null
-(ITEMS) Adding foil.stellar with title Folia z Stellarine and description:
+(ITEMS) Adding foil.stellar with title Folia ze Stellarine and description:
  null
-(ITEMS) Adding gear.stellar with title Zębatka z Stellarine and description:
+(ITEMS) Adding gear.stellar with title Zębatka ze Stellarine and description:
  null
-(ITEMS) Tagging Block Blok z Stellarine(block.stellar) with material-stellar
-(ITEMS) Tagging Item Klaster z Stellarine(fcluster.stellar) with material-stellar
-(ITEMS) Tagging Item Sztabka z Stellarine(ingot.stellar) with material-stellar
-(ITEMS) Tagging Item Fragment z Stellarine(frag.stellar) with material-stellar
-(ITEMS) Tagging Item Samorodek z Stellarine(nugget.stellar) with material-stellar
-(ITEMS) Tagging Item Drut z Stellarine(wirespool.stellar) with material-stellar
-(ITEMS) Tagging Item Duży pył z Stellarine(ldust.stellar) with material-stellar
-(ITEMS) Tagging Item Pył z Stellarine(dust.stellar) with material-stellar
-(ITEMS) Tagging Item Mały pył z Stellarine(mdust.stellar) with material-stellar
-(ITEMS) Tagging Item Mikropył z Stellarine(minidust.stellar) with material-stellar
-(ITEMS) Tagging Item Płytka z Stellarine(panel.stellar) with material-stellar
-(ITEMS) Tagging Item Folia z Stellarine(foil.stellar) with material-stellar
-(ITEMS) Tagging Item Zębatka z Stellarine(gear.stellar) with material-stellar
-(ITEMS) Tagging Block Blok z Stellarine(block.stellar) with shape-block
-(ITEMS) Tagging Item Klaster z Stellarine(fcluster.stellar) with shape-cluster
-(ITEMS) Tagging Item Sztabka z Stellarine(ingot.stellar) with shape-base
-(ITEMS) Tagging Item Fragment z Stellarine(frag.stellar) with shape-frag
-(ITEMS) Tagging Item Samorodek z Stellarine(nugget.stellar) with shape-nugget
-(ITEMS) Tagging Item Drut z Stellarine(wirespool.stellar) with shape-wire
-(ITEMS) Tagging Item Duży pył z Stellarine(ldust.stellar) with shape-megadust
-(ITEMS) Tagging Item Pył z Stellarine(dust.stellar) with shape-dust
-(ITEMS) Tagging Item Mały pył z Stellarine(mdust.stellar) with shape-smalldust
-(ITEMS) Tagging Item Mikropył z Stellarine(minidust.stellar) with shape-tinydust
-(ITEMS) Tagging Item Płytka z Stellarine(panel.stellar) with shape-panel
-(ITEMS) Tagging Item Folia z Stellarine(foil.stellar) with shape-foil
-(ITEMS) Tagging Item Zębatka z Stellarine(gear.stellar) with shape-gear
+(ITEMS) Tagging Block Blok ze Stellarine(block.stellar) with material-stellar
+(ITEMS) Tagging Item Klaster ze Stellarine(fcluster.stellar) with material-stellar
+(ITEMS) Tagging Item Sztabka ze Stellarine(ingot.stellar) with material-stellar
+(ITEMS) Tagging Item Fragment ze Stellarine(frag.stellar) with material-stellar
+(ITEMS) Tagging Item Samorodek ze Stellarine(nugget.stellar) with material-stellar
+(ITEMS) Tagging Item Drut ze Stellarine(wirespool.stellar) with material-stellar
+(ITEMS) Tagging Item Duży pył ze Stellarine(ldust.stellar) with material-stellar
+(ITEMS) Tagging Item Pył ze Stellarine(dust.stellar) with material-stellar
+(ITEMS) Tagging Item Mały pył ze Stellarine(mdust.stellar) with material-stellar
+(ITEMS) Tagging Item Mikropył ze Stellarine(minidust.stellar) with material-stellar
+(ITEMS) Tagging Item Płytka ze Stellarine(panel.stellar) with material-stellar
+(ITEMS) Tagging Item Folia ze Stellarine(foil.stellar) with material-stellar
+(ITEMS) Tagging Item Zębatka ze Stellarine(gear.stellar) with material-stellar
+(ITEMS) Tagging Block Blok ze Stellarine(block.stellar) with shape-block
+(ITEMS) Tagging Item Klaster ze Stellarine(fcluster.stellar) with shape-cluster
+(ITEMS) Tagging Item Sztabka ze Stellarine(ingot.stellar) with shape-base
+(ITEMS) Tagging Item Fragment ze Stellarine(frag.stellar) with shape-frag
+(ITEMS) Tagging Item Samorodek ze Stellarine(nugget.stellar) with shape-nugget
+(ITEMS) Tagging Item Drut ze Stellarine(wirespool.stellar) with shape-wire
+(ITEMS) Tagging Item Duży pył ze Stellarine(ldust.stellar) with shape-megadust
+(ITEMS) Tagging Item Pył ze Stellarine(dust.stellar) with shape-dust
+(ITEMS) Tagging Item Mały pył ze Stellarine(mdust.stellar) with shape-smalldust
+(ITEMS) Tagging Item Mikropył ze Stellarine(minidust.stellar) with shape-tinydust
+(ITEMS) Tagging Item Płytka ze Stellarine(panel.stellar) with shape-panel
+(ITEMS) Tagging Item Folia ze Stellarine(foil.stellar) with shape-foil
+(ITEMS) Tagging Item Zębatka ze Stellarine(gear.stellar) with shape-gear
 (BLOCKS) Adding block.duranium with title Blok z duranium and description:
  null
 (ITEMS) Adding block.duranium with title Blok z duranium and description:
@@ -3615,222 +3784,222 @@
 (ITEMS) Tagging Item Płytka z unobtainium(panel.unobtainium) with shape-panel
 (ITEMS) Tagging Item Folia z unobtainium(foil.unobtainium) with shape-foil
 (ITEMS) Tagging Item Zębatka z unobtainium(gear.unobtainium) with shape-gear
-(BLOCKS) Adding elecwire.tiny.rudimentary with title z rudymentu tiny power cable and description:
+(BLOCKS) Adding elecwire.tiny.rudimentary with title Rudymentowy b-cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.tiny.rudimentary with title z rudymentu tiny power cable and description:
+(ITEMS) Adding elecwire.tiny.rudimentary with title Rudymentowy b-cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.small.rudimentary with title z rudymentu small power cable and description:
+(BLOCKS) Adding elecwire.small.rudimentary with title Rudymentowy cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.small.rudimentary with title z rudymentu small power cable and description:
+(ITEMS) Adding elecwire.small.rudimentary with title Rudymentowy cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.medium.rudimentary with title z rudymentu medium power cable and description:
+(BLOCKS) Adding elecwire.medium.rudimentary with title Rudymentowy średni kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.medium.rudimentary with title z rudymentu medium power cable and description:
+(ITEMS) Adding elecwire.medium.rudimentary with title Rudymentowy średni kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.large.rudimentary with title z rudymentu large power cable and description:
+(BLOCKS) Adding elecwire.large.rudimentary with title Rudymentowy gruby kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.large.rudimentary with title z rudymentu large power cable and description:
+(ITEMS) Adding elecwire.large.rudimentary with title Rudymentowy gruby kabel elektryczny and description:
  null
-(ITEMS) Tagging Item z rudymentu tiny power cable(elecwire.tiny.rudimentary) with voltage-ULV
-(ITEMS) Tagging Item z rudymentu small power cable(elecwire.small.rudimentary) with voltage-ULV
-(ITEMS) Tagging Item z rudymentu medium power cable(elecwire.medium.rudimentary) with voltage-ULV
-(ITEMS) Tagging Item z rudymentu large power cable(elecwire.large.rudimentary) with voltage-ULV
-(ITEMS) Tagging Item z rudymentu tiny power cable(elecwire.tiny.rudimentary) with machine-wire
-(ITEMS) Tagging Item z rudymentu small power cable(elecwire.small.rudimentary) with machine-wire
-(ITEMS) Tagging Item z rudymentu medium power cable(elecwire.medium.rudimentary) with machine-wire
-(ITEMS) Tagging Item z rudymentu large power cable(elecwire.large.rudimentary) with machine-wire
-(BLOCKS) Adding elecwire.tiny.copper with title z miedzi tiny power cable and description:
+(ITEMS) Tagging Item Rudymentowy b-cienki kabel elektryczny(elecwire.tiny.rudimentary) with voltage-ULV
+(ITEMS) Tagging Item Rudymentowy cienki kabel elektryczny(elecwire.small.rudimentary) with voltage-ULV
+(ITEMS) Tagging Item Rudymentowy średni kabel elektryczny(elecwire.medium.rudimentary) with voltage-ULV
+(ITEMS) Tagging Item Rudymentowy gruby kabel elektryczny(elecwire.large.rudimentary) with voltage-ULV
+(ITEMS) Tagging Item Rudymentowy b-cienki kabel elektryczny(elecwire.tiny.rudimentary) with machine-wire
+(ITEMS) Tagging Item Rudymentowy cienki kabel elektryczny(elecwire.small.rudimentary) with machine-wire
+(ITEMS) Tagging Item Rudymentowy średni kabel elektryczny(elecwire.medium.rudimentary) with machine-wire
+(ITEMS) Tagging Item Rudymentowy gruby kabel elektryczny(elecwire.large.rudimentary) with machine-wire
+(BLOCKS) Adding elecwire.tiny.copper with title Miedziany b-cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.tiny.copper with title z miedzi tiny power cable and description:
+(ITEMS) Adding elecwire.tiny.copper with title Miedziany b-cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.small.copper with title z miedzi small power cable and description:
+(BLOCKS) Adding elecwire.small.copper with title Miedziany cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.small.copper with title z miedzi small power cable and description:
+(ITEMS) Adding elecwire.small.copper with title Miedziany cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.medium.copper with title z miedzi medium power cable and description:
+(BLOCKS) Adding elecwire.medium.copper with title Miedziany średni kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.medium.copper with title z miedzi medium power cable and description:
+(ITEMS) Adding elecwire.medium.copper with title Miedziany średni kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.large.copper with title z miedzi large power cable and description:
+(BLOCKS) Adding elecwire.large.copper with title Miedziany gruby kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.large.copper with title z miedzi large power cable and description:
+(ITEMS) Adding elecwire.large.copper with title Miedziany gruby kabel elektryczny and description:
  null
-(ITEMS) Tagging Item z miedzi tiny power cable(elecwire.tiny.copper) with voltage-VLV
-(ITEMS) Tagging Item z miedzi small power cable(elecwire.small.copper) with voltage-VLV
-(ITEMS) Tagging Item z miedzi medium power cable(elecwire.medium.copper) with voltage-VLV
-(ITEMS) Tagging Item z miedzi large power cable(elecwire.large.copper) with voltage-VLV
-(ITEMS) Tagging Item z miedzi tiny power cable(elecwire.tiny.copper) with machine-wire
-(ITEMS) Tagging Item z miedzi small power cable(elecwire.small.copper) with machine-wire
-(ITEMS) Tagging Item z miedzi medium power cable(elecwire.medium.copper) with machine-wire
-(ITEMS) Tagging Item z miedzi large power cable(elecwire.large.copper) with machine-wire
-(BLOCKS) Adding elecwire.tiny.silver with title ze srebra tiny power cable and description:
+(ITEMS) Tagging Item Miedziany b-cienki kabel elektryczny(elecwire.tiny.copper) with voltage-VLV
+(ITEMS) Tagging Item Miedziany cienki kabel elektryczny(elecwire.small.copper) with voltage-VLV
+(ITEMS) Tagging Item Miedziany średni kabel elektryczny(elecwire.medium.copper) with voltage-VLV
+(ITEMS) Tagging Item Miedziany gruby kabel elektryczny(elecwire.large.copper) with voltage-VLV
+(ITEMS) Tagging Item Miedziany b-cienki kabel elektryczny(elecwire.tiny.copper) with machine-wire
+(ITEMS) Tagging Item Miedziany cienki kabel elektryczny(elecwire.small.copper) with machine-wire
+(ITEMS) Tagging Item Miedziany średni kabel elektryczny(elecwire.medium.copper) with machine-wire
+(ITEMS) Tagging Item Miedziany gruby kabel elektryczny(elecwire.large.copper) with machine-wire
+(BLOCKS) Adding elecwire.tiny.silver with title Srebrny b-cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.tiny.silver with title ze srebra tiny power cable and description:
+(ITEMS) Adding elecwire.tiny.silver with title Srebrny b-cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.small.silver with title ze srebra small power cable and description:
+(BLOCKS) Adding elecwire.small.silver with title Srebrny cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.small.silver with title ze srebra small power cable and description:
+(ITEMS) Adding elecwire.small.silver with title Srebrny cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.medium.silver with title ze srebra medium power cable and description:
+(BLOCKS) Adding elecwire.medium.silver with title Srebrny średni kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.medium.silver with title ze srebra medium power cable and description:
+(ITEMS) Adding elecwire.medium.silver with title Srebrny średni kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.large.silver with title ze srebra large power cable and description:
+(BLOCKS) Adding elecwire.large.silver with title Srebrny gruby kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.large.silver with title ze srebra large power cable and description:
+(ITEMS) Adding elecwire.large.silver with title Srebrny gruby kabel elektryczny and description:
  null
-(ITEMS) Tagging Item ze srebra tiny power cable(elecwire.tiny.silver) with voltage-LV
-(ITEMS) Tagging Item ze srebra small power cable(elecwire.small.silver) with voltage-LV
-(ITEMS) Tagging Item ze srebra medium power cable(elecwire.medium.silver) with voltage-LV
-(ITEMS) Tagging Item ze srebra large power cable(elecwire.large.silver) with voltage-LV
-(ITEMS) Tagging Item ze srebra tiny power cable(elecwire.tiny.silver) with machine-wire
-(ITEMS) Tagging Item ze srebra small power cable(elecwire.small.silver) with machine-wire
-(ITEMS) Tagging Item ze srebra medium power cable(elecwire.medium.silver) with machine-wire
-(ITEMS) Tagging Item ze srebra large power cable(elecwire.large.silver) with machine-wire
-(BLOCKS) Adding elecwire.tiny.gold with title ze złota tiny power cable and description:
+(ITEMS) Tagging Item Srebrny b-cienki kabel elektryczny(elecwire.tiny.silver) with voltage-LV
+(ITEMS) Tagging Item Srebrny cienki kabel elektryczny(elecwire.small.silver) with voltage-LV
+(ITEMS) Tagging Item Srebrny średni kabel elektryczny(elecwire.medium.silver) with voltage-LV
+(ITEMS) Tagging Item Srebrny gruby kabel elektryczny(elecwire.large.silver) with voltage-LV
+(ITEMS) Tagging Item Srebrny b-cienki kabel elektryczny(elecwire.tiny.silver) with machine-wire
+(ITEMS) Tagging Item Srebrny cienki kabel elektryczny(elecwire.small.silver) with machine-wire
+(ITEMS) Tagging Item Srebrny średni kabel elektryczny(elecwire.medium.silver) with machine-wire
+(ITEMS) Tagging Item Srebrny gruby kabel elektryczny(elecwire.large.silver) with machine-wire
+(BLOCKS) Adding elecwire.tiny.gold with title Złoty b-cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.tiny.gold with title ze złota tiny power cable and description:
+(ITEMS) Adding elecwire.tiny.gold with title Złoty b-cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.small.gold with title ze złota small power cable and description:
+(BLOCKS) Adding elecwire.small.gold with title Złoty cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.small.gold with title ze złota small power cable and description:
+(ITEMS) Adding elecwire.small.gold with title Złoty cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.medium.gold with title ze złota medium power cable and description:
+(BLOCKS) Adding elecwire.medium.gold with title Złoty średni kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.medium.gold with title ze złota medium power cable and description:
+(ITEMS) Adding elecwire.medium.gold with title Złoty średni kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.large.gold with title ze złota large power cable and description:
+(BLOCKS) Adding elecwire.large.gold with title Złoty gruby kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.large.gold with title ze złota large power cable and description:
+(ITEMS) Adding elecwire.large.gold with title Złoty gruby kabel elektryczny and description:
  null
-(ITEMS) Tagging Item ze złota tiny power cable(elecwire.tiny.gold) with voltage-MV
-(ITEMS) Tagging Item ze złota small power cable(elecwire.small.gold) with voltage-MV
-(ITEMS) Tagging Item ze złota medium power cable(elecwire.medium.gold) with voltage-MV
-(ITEMS) Tagging Item ze złota large power cable(elecwire.large.gold) with voltage-MV
-(ITEMS) Tagging Item ze złota tiny power cable(elecwire.tiny.gold) with machine-wire
-(ITEMS) Tagging Item ze złota small power cable(elecwire.small.gold) with machine-wire
-(ITEMS) Tagging Item ze złota medium power cable(elecwire.medium.gold) with machine-wire
-(ITEMS) Tagging Item ze złota large power cable(elecwire.large.gold) with machine-wire
-(BLOCKS) Adding elecwire.tiny.platinum with title z platyny tiny power cable and description:
+(ITEMS) Tagging Item Złoty b-cienki kabel elektryczny(elecwire.tiny.gold) with voltage-MV
+(ITEMS) Tagging Item Złoty cienki kabel elektryczny(elecwire.small.gold) with voltage-MV
+(ITEMS) Tagging Item Złoty średni kabel elektryczny(elecwire.medium.gold) with voltage-MV
+(ITEMS) Tagging Item Złoty gruby kabel elektryczny(elecwire.large.gold) with voltage-MV
+(ITEMS) Tagging Item Złoty b-cienki kabel elektryczny(elecwire.tiny.gold) with machine-wire
+(ITEMS) Tagging Item Złoty cienki kabel elektryczny(elecwire.small.gold) with machine-wire
+(ITEMS) Tagging Item Złoty średni kabel elektryczny(elecwire.medium.gold) with machine-wire
+(ITEMS) Tagging Item Złoty gruby kabel elektryczny(elecwire.large.gold) with machine-wire
+(BLOCKS) Adding elecwire.tiny.platinum with title Platynowy b-cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.tiny.platinum with title z platyny tiny power cable and description:
+(ITEMS) Adding elecwire.tiny.platinum with title Platynowy b-cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.small.platinum with title z platyny small power cable and description:
+(BLOCKS) Adding elecwire.small.platinum with title Platynowy cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.small.platinum with title z platyny small power cable and description:
+(ITEMS) Adding elecwire.small.platinum with title Platynowy cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.medium.platinum with title z platyny medium power cable and description:
+(BLOCKS) Adding elecwire.medium.platinum with title Platynowy średni kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.medium.platinum with title z platyny medium power cable and description:
+(ITEMS) Adding elecwire.medium.platinum with title Platynowy średni kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.large.platinum with title z platyny large power cable and description:
+(BLOCKS) Adding elecwire.large.platinum with title Platynowy gruby kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.large.platinum with title z platyny large power cable and description:
+(ITEMS) Adding elecwire.large.platinum with title Platynowy gruby kabel elektryczny and description:
  null
-(ITEMS) Tagging Item z platyny tiny power cable(elecwire.tiny.platinum) with voltage-HV
-(ITEMS) Tagging Item z platyny small power cable(elecwire.small.platinum) with voltage-HV
-(ITEMS) Tagging Item z platyny medium power cable(elecwire.medium.platinum) with voltage-HV
-(ITEMS) Tagging Item z platyny large power cable(elecwire.large.platinum) with voltage-HV
-(ITEMS) Tagging Item z platyny tiny power cable(elecwire.tiny.platinum) with machine-wire
-(ITEMS) Tagging Item z platyny small power cable(elecwire.small.platinum) with machine-wire
-(ITEMS) Tagging Item z platyny medium power cable(elecwire.medium.platinum) with machine-wire
-(ITEMS) Tagging Item z platyny large power cable(elecwire.large.platinum) with machine-wire
-(BLOCKS) Adding elecwire.tiny.iridium with title z irydu tiny power cable and description:
+(ITEMS) Tagging Item Platynowy b-cienki kabel elektryczny(elecwire.tiny.platinum) with voltage-HV
+(ITEMS) Tagging Item Platynowy cienki kabel elektryczny(elecwire.small.platinum) with voltage-HV
+(ITEMS) Tagging Item Platynowy średni kabel elektryczny(elecwire.medium.platinum) with voltage-HV
+(ITEMS) Tagging Item Platynowy gruby kabel elektryczny(elecwire.large.platinum) with voltage-HV
+(ITEMS) Tagging Item Platynowy b-cienki kabel elektryczny(elecwire.tiny.platinum) with machine-wire
+(ITEMS) Tagging Item Platynowy cienki kabel elektryczny(elecwire.small.platinum) with machine-wire
+(ITEMS) Tagging Item Platynowy średni kabel elektryczny(elecwire.medium.platinum) with machine-wire
+(ITEMS) Tagging Item Platynowy gruby kabel elektryczny(elecwire.large.platinum) with machine-wire
+(BLOCKS) Adding elecwire.tiny.iridium with title Irydowy b-cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.tiny.iridium with title z irydu tiny power cable and description:
+(ITEMS) Adding elecwire.tiny.iridium with title Irydowy b-cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.small.iridium with title z irydu small power cable and description:
+(BLOCKS) Adding elecwire.small.iridium with title Irydowy cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.small.iridium with title z irydu small power cable and description:
+(ITEMS) Adding elecwire.small.iridium with title Irydowy cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.medium.iridium with title z irydu medium power cable and description:
+(BLOCKS) Adding elecwire.medium.iridium with title Irydowy średni kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.medium.iridium with title z irydu medium power cable and description:
+(ITEMS) Adding elecwire.medium.iridium with title Irydowy średni kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.large.iridium with title z irydu large power cable and description:
+(BLOCKS) Adding elecwire.large.iridium with title Irydowy gruby kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.large.iridium with title z irydu large power cable and description:
+(ITEMS) Adding elecwire.large.iridium with title Irydowy gruby kabel elektryczny and description:
  null
-(ITEMS) Tagging Item z irydu tiny power cable(elecwire.tiny.iridium) with voltage-EV
-(ITEMS) Tagging Item z irydu small power cable(elecwire.small.iridium) with voltage-EV
-(ITEMS) Tagging Item z irydu medium power cable(elecwire.medium.iridium) with voltage-EV
-(ITEMS) Tagging Item z irydu large power cable(elecwire.large.iridium) with voltage-EV
-(ITEMS) Tagging Item z irydu tiny power cable(elecwire.tiny.iridium) with machine-wire
-(ITEMS) Tagging Item z irydu small power cable(elecwire.small.iridium) with machine-wire
-(ITEMS) Tagging Item z irydu medium power cable(elecwire.medium.iridium) with machine-wire
-(ITEMS) Tagging Item z irydu large power cable(elecwire.large.iridium) with machine-wire
-(BLOCKS) Adding elecwire.tiny.crystal with title z krystalitu tiny power cable and description:
+(ITEMS) Tagging Item Irydowy b-cienki kabel elektryczny(elecwire.tiny.iridium) with voltage-EV
+(ITEMS) Tagging Item Irydowy cienki kabel elektryczny(elecwire.small.iridium) with voltage-EV
+(ITEMS) Tagging Item Irydowy średni kabel elektryczny(elecwire.medium.iridium) with voltage-EV
+(ITEMS) Tagging Item Irydowy gruby kabel elektryczny(elecwire.large.iridium) with voltage-EV
+(ITEMS) Tagging Item Irydowy b-cienki kabel elektryczny(elecwire.tiny.iridium) with machine-wire
+(ITEMS) Tagging Item Irydowy cienki kabel elektryczny(elecwire.small.iridium) with machine-wire
+(ITEMS) Tagging Item Irydowy średni kabel elektryczny(elecwire.medium.iridium) with machine-wire
+(ITEMS) Tagging Item Irydowy gruby kabel elektryczny(elecwire.large.iridium) with machine-wire
+(BLOCKS) Adding elecwire.tiny.crystal with title Krystalitowy b-cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.tiny.crystal with title z krystalitu tiny power cable and description:
+(ITEMS) Adding elecwire.tiny.crystal with title Krystalitowy b-cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.small.crystal with title z krystalitu small power cable and description:
+(BLOCKS) Adding elecwire.small.crystal with title Krystalitowy cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.small.crystal with title z krystalitu small power cable and description:
+(ITEMS) Adding elecwire.small.crystal with title Krystalitowy cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.medium.crystal with title z krystalitu medium power cable and description:
+(BLOCKS) Adding elecwire.medium.crystal with title Krystalitowy średni kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.medium.crystal with title z krystalitu medium power cable and description:
+(ITEMS) Adding elecwire.medium.crystal with title Krystalitowy średni kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.large.crystal with title z krystalitu large power cable and description:
+(BLOCKS) Adding elecwire.large.crystal with title Krystalitowy gruby kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.large.crystal with title z krystalitu large power cable and description:
+(ITEMS) Adding elecwire.large.crystal with title Krystalitowy gruby kabel elektryczny and description:
  null
-(ITEMS) Tagging Item z krystalitu tiny power cable(elecwire.tiny.crystal) with voltage-IV
-(ITEMS) Tagging Item z krystalitu small power cable(elecwire.small.crystal) with voltage-IV
-(ITEMS) Tagging Item z krystalitu medium power cable(elecwire.medium.crystal) with voltage-IV
-(ITEMS) Tagging Item z krystalitu large power cable(elecwire.large.crystal) with voltage-IV
-(ITEMS) Tagging Item z krystalitu tiny power cable(elecwire.tiny.crystal) with machine-wire
-(ITEMS) Tagging Item z krystalitu small power cable(elecwire.small.crystal) with machine-wire
-(ITEMS) Tagging Item z krystalitu medium power cable(elecwire.medium.crystal) with machine-wire
-(ITEMS) Tagging Item z krystalitu large power cable(elecwire.large.crystal) with machine-wire
-(BLOCKS) Adding elecwire.tiny.stellar with title z Stellarine tiny power cable and description:
+(ITEMS) Tagging Item Krystalitowy b-cienki kabel elektryczny(elecwire.tiny.crystal) with voltage-IV
+(ITEMS) Tagging Item Krystalitowy cienki kabel elektryczny(elecwire.small.crystal) with voltage-IV
+(ITEMS) Tagging Item Krystalitowy średni kabel elektryczny(elecwire.medium.crystal) with voltage-IV
+(ITEMS) Tagging Item Krystalitowy gruby kabel elektryczny(elecwire.large.crystal) with voltage-IV
+(ITEMS) Tagging Item Krystalitowy b-cienki kabel elektryczny(elecwire.tiny.crystal) with machine-wire
+(ITEMS) Tagging Item Krystalitowy cienki kabel elektryczny(elecwire.small.crystal) with machine-wire
+(ITEMS) Tagging Item Krystalitowy średni kabel elektryczny(elecwire.medium.crystal) with machine-wire
+(ITEMS) Tagging Item Krystalitowy gruby kabel elektryczny(elecwire.large.crystal) with machine-wire
+(BLOCKS) Adding elecwire.tiny.stellar with title Stellarinowy b-cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.tiny.stellar with title z Stellarine tiny power cable and description:
+(ITEMS) Adding elecwire.tiny.stellar with title Stellarinowy b-cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.small.stellar with title z Stellarine small power cable and description:
+(BLOCKS) Adding elecwire.small.stellar with title Stellarinowy cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.small.stellar with title z Stellarine small power cable and description:
+(ITEMS) Adding elecwire.small.stellar with title Stellarinowy cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.medium.stellar with title z Stellarine medium power cable and description:
+(BLOCKS) Adding elecwire.medium.stellar with title Stellarinowy średni kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.medium.stellar with title z Stellarine medium power cable and description:
+(ITEMS) Adding elecwire.medium.stellar with title Stellarinowy średni kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.large.stellar with title z Stellarine large power cable and description:
+(BLOCKS) Adding elecwire.large.stellar with title Stellarinowy gruby kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.large.stellar with title z Stellarine large power cable and description:
+(ITEMS) Adding elecwire.large.stellar with title Stellarinowy gruby kabel elektryczny and description:
  null
-(ITEMS) Tagging Item z Stellarine tiny power cable(elecwire.tiny.stellar) with voltage-LuV
-(ITEMS) Tagging Item z Stellarine small power cable(elecwire.small.stellar) with voltage-LuV
-(ITEMS) Tagging Item z Stellarine medium power cable(elecwire.medium.stellar) with voltage-LuV
-(ITEMS) Tagging Item z Stellarine large power cable(elecwire.large.stellar) with voltage-LuV
-(ITEMS) Tagging Item z Stellarine tiny power cable(elecwire.tiny.stellar) with machine-wire
-(ITEMS) Tagging Item z Stellarine small power cable(elecwire.small.stellar) with machine-wire
-(ITEMS) Tagging Item z Stellarine medium power cable(elecwire.medium.stellar) with machine-wire
-(ITEMS) Tagging Item z Stellarine large power cable(elecwire.large.stellar) with machine-wire
-(BLOCKS) Adding elecwire.tiny.unobtainium with title z unobtainium tiny power cable and description:
+(ITEMS) Tagging Item Stellarinowy b-cienki kabel elektryczny(elecwire.tiny.stellar) with voltage-LuV
+(ITEMS) Tagging Item Stellarinowy cienki kabel elektryczny(elecwire.small.stellar) with voltage-LuV
+(ITEMS) Tagging Item Stellarinowy średni kabel elektryczny(elecwire.medium.stellar) with voltage-LuV
+(ITEMS) Tagging Item Stellarinowy gruby kabel elektryczny(elecwire.large.stellar) with voltage-LuV
+(ITEMS) Tagging Item Stellarinowy b-cienki kabel elektryczny(elecwire.tiny.stellar) with machine-wire
+(ITEMS) Tagging Item Stellarinowy cienki kabel elektryczny(elecwire.small.stellar) with machine-wire
+(ITEMS) Tagging Item Stellarinowy średni kabel elektryczny(elecwire.medium.stellar) with machine-wire
+(ITEMS) Tagging Item Stellarinowy gruby kabel elektryczny(elecwire.large.stellar) with machine-wire
+(BLOCKS) Adding elecwire.tiny.unobtainium with title Unobtainiowy b-cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.tiny.unobtainium with title z unobtainium tiny power cable and description:
+(ITEMS) Adding elecwire.tiny.unobtainium with title Unobtainiowy b-cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.small.unobtainium with title z unobtainium small power cable and description:
+(BLOCKS) Adding elecwire.small.unobtainium with title Unobtainiowy cienki kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.small.unobtainium with title z unobtainium small power cable and description:
+(ITEMS) Adding elecwire.small.unobtainium with title Unobtainiowy cienki kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.medium.unobtainium with title z unobtainium medium power cable and description:
+(BLOCKS) Adding elecwire.medium.unobtainium with title Unobtainiowy średni kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.medium.unobtainium with title z unobtainium medium power cable and description:
+(ITEMS) Adding elecwire.medium.unobtainium with title Unobtainiowy średni kabel elektryczny and description:
  null
-(BLOCKS) Adding elecwire.large.unobtainium with title z unobtainium large power cable and description:
+(BLOCKS) Adding elecwire.large.unobtainium with title Unobtainiowy gruby kabel elektryczny and description:
  null
-(ITEMS) Adding elecwire.large.unobtainium with title z unobtainium large power cable and description:
+(ITEMS) Adding elecwire.large.unobtainium with title Unobtainiowy gruby kabel elektryczny and description:
  null
-(ITEMS) Tagging Item z unobtainium tiny power cable(elecwire.tiny.unobtainium) with voltage-MAX
-(ITEMS) Tagging Item z unobtainium small power cable(elecwire.small.unobtainium) with voltage-MAX
-(ITEMS) Tagging Item z unobtainium medium power cable(elecwire.medium.unobtainium) with voltage-MAX
-(ITEMS) Tagging Item z unobtainium large power cable(elecwire.large.unobtainium) with voltage-MAX
-(ITEMS) Tagging Item z unobtainium tiny power cable(elecwire.tiny.unobtainium) with machine-wire
-(ITEMS) Tagging Item z unobtainium small power cable(elecwire.small.unobtainium) with machine-wire
-(ITEMS) Tagging Item z unobtainium medium power cable(elecwire.medium.unobtainium) with machine-wire
-(ITEMS) Tagging Item z unobtainium large power cable(elecwire.large.unobtainium) with machine-wire
+(ITEMS) Tagging Item Unobtainiowy b-cienki kabel elektryczny(elecwire.tiny.unobtainium) with voltage-MAX
+(ITEMS) Tagging Item Unobtainiowy cienki kabel elektryczny(elecwire.small.unobtainium) with voltage-MAX
+(ITEMS) Tagging Item Unobtainiowy średni kabel elektryczny(elecwire.medium.unobtainium) with voltage-MAX
+(ITEMS) Tagging Item Unobtainiowy gruby kabel elektryczny(elecwire.large.unobtainium) with voltage-MAX
+(ITEMS) Tagging Item Unobtainiowy b-cienki kabel elektryczny(elecwire.tiny.unobtainium) with machine-wire
+(ITEMS) Tagging Item Unobtainiowy cienki kabel elektryczny(elecwire.small.unobtainium) with machine-wire
+(ITEMS) Tagging Item Unobtainiowy średni kabel elektryczny(elecwire.medium.unobtainium) with machine-wire
+(ITEMS) Tagging Item Unobtainiowy gruby kabel elektryczny(elecwire.large.unobtainium) with machine-wire
 (BLOCKS) Deprecating ore.iron as mmb.iore
 (BLOCKS) Deprecating ore.copper as mmb.cpore
 (BLOCKS) Deprecating ore.silicon as mmb.silicon_ore
@@ -3843,45 +4012,6 @@
 (BLOCKS) Deprecating elecwire.large.rudimentary as elec.largewire
 (BLOCKS) Deprecating industry.infinigen0 as elec.infinite
 (BLOCKS) Deprecating industry.infinigen0 as elec.infinite1
-(MATERIALS) Material list =============
-matname-steel=ze stali
-matname-unobtainium=z unobtainium
-matname-crystal=z krystalitu
-matname-ender=z ender
-matname-cobalt=z kobaltu
-matname-glowstone=z jasnogłazu
-matname-gold=ze złota
-matname-iridium=z irydu
-matname-platinum=z platyny
-matname-lumium=z lumium
-matname-duranium=z duranium
-matname-tungsten=z wolframu
-matname-signalum=ze signalum
-matname-enderium=z enderium
-matname-tin=z cyny
-matname-tungstenC=z węglika wolframu
-matname-copper=z miedzi
-matname-zinc=z cynku
-matname-nickel=z niklu
-matname-chrome=z chromu
-matname-rudimentary=z rudymentu
-matname-quartz=z kwarcy
-matname-HSS=ze stali szybkotnącej
-matname-alu=z aluminium
-matname-brass=z mosiądzu
-matname-lead=z ołowiu
-matname-stainless=ze stali nierdzewnej
-matname-bronze=z brązu
-matname-diamond=z diamentu
-matname-silicon=z krzemu
-matname-stellar=z Stellarine
-matname-coal=z węgla
-matname-iron=ze żelaza
-matname-silver=ze srebra
-matname-uranium=z uranu
-matname-nichrome=z niklochromu
-matname-redstone=z czerwonego proszku
-
 (MATERIALS) Color of the coal: java.awt.Color[r=0,g=0,b=0]
 (MOD-LOADER) ULV, structural: null, electrical: null
 (MOD-LOADER) VLV, structural: null, electrical: null
@@ -3892,34 +4022,6 @@ matname-redstone=z czerwonego proszku
 (MOD-LOADER) IV, structural: null, electrical: null
 (MOD-LOADER) LuV, structural: null, electrical: null
 (MOD-LOADER) MAX, structural: null, electrical: null
-(BLOCKS) Adding pipe.I with title Straight pipe and description:
- A pipe which is straight.
-(ITEMS) Adding pipe.I with title Straight pipe and description:
- A pipe which is straight.
-(BLOCKS) Adding pipe.L with title Elbow pipe and description:
- A pipe which is bent.
-(ITEMS) Adding pipe.L with title Elbow pipe and description:
- A pipe which is bent.
-(BLOCKS) Adding pipe.IPE with title Intersecting Pipe Mover and description:
- A hybrid of Item Mover and straight pipe
-(ITEMS) Adding pipe.IPE with title Intersecting Pipe Mover and description:
- A hybrid of Item Mover and straight pipe
-(BLOCKS) Adding pipe.toleft with title Left Binding Pipe and description:
- A pipe which directs its side input to the left.
-(ITEMS) Adding pipe.toleft with title Left Binding Pipe and description:
- A pipe which directs its side input to the left.
-(BLOCKS) Adding pipe.toright with title Right Binding Pipe and description:
- A pipe which directs its side input to the right.
-(ITEMS) Adding pipe.toright with title Right Binding Pipe and description:
- A pipe which directs its side input to the right.
-(BLOCKS) Adding pipe.X with title Bridging pipe and description:
- A pair of disconnected perpendicular pipes.
-(ITEMS) Adding pipe.X with title Bridging pipe and description:
- A pair of disconnected perpendicular pipes.
-(BLOCKS) Adding pipe.D with title Dual pipe and description:
- A pair of curved pipes.
-(ITEMS) Adding pipe.D with title Dual pipe and description:
- A pair of curved pipes.
 (BLOCKS) Adding industry.transformer0 with title Transformer VLV/ULV and description:
  null
 (ITEMS) Adding industry.transformer0 with title Transformer VLV/ULV and description:
@@ -3986,31 +4088,31 @@ matname-redstone=z czerwonego proszku
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
 (MOD-LOADER) Found 3 mod files
+(MOD - BEB.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
 (MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD - mmb-DE.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+(MOD - BEB.jar) Loading a modfile: BEB.jar
 (MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
 (MOD - mmb-DE.jar) Loading a modfile: mmb-DE.jar
-(MOD - BEB.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
-(MOD - BEB.jar) Loading a modfile: BEB.jar
+(MOD - HelloWorld 0.5.jar) entry: META-INF/MANIFEST.MF
 (MOD - mmb-DE.jar) entry: META-INF/MANIFEST.MF
 (MOD - BEB.jar) entry: META-INF/MANIFEST.MF
-(MOD - HelloWorld 0.5.jar) entry: META-INF/MANIFEST.MF
-(MOD - mmb-DE.jar) entry: .project
 (MOD - BEB.jar) entry: mmbmods/beb/package-info.class
-(MOD - HelloWorld 0.5.jar) entry: .project
-(MOD - mmb-DE.jar) entry: .classpath
+(MOD - mmb-DE.jar) entry: .project
 (MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
-(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/DataLayerHW.class
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
+(MOD - mmb-DE.jar) entry: .classpath
+(MOD - HelloWorld 0.5.jar) entry: .project
 (MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
-(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
 (MOD - BEB.jar) entry: .classpath
+(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - BEB.jar) entry: .project
+(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) entry: bin/resources/textures/hw/notepad.png
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
 (MOD - HelloWorld 0.5.jar) entry: pom.xml
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
@@ -4020,39 +4122,11 @@ matname-redstone=z czerwonego proszku
 (MOD - HelloWorld 0.5.jar) entry: src/resources/textures/hw/notepad.png
 (MOD - HelloWorld 0.5.jar) entry: .classpath
 (MOD - HelloWorld 0.5.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - mmb-DE.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
-(MOD - mmb-DE.jar) Processing .classpath
-(MOD - mmb-DE.jar) File: .classpath
-(MOD - BEB.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
-(MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
 (MOD - HelloWorld 0.5.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
-(MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
-(MOD - BEB.jar) Processing mmbmods/beb/BlockBEB.class
-(MOD - BEB.jar) File: mmbmods/beb/BlockBEB.class
-(MOD - BEB.jar) Processing .classpath
-(MOD - BEB.jar) File: .classpath
-(MOD - BEB.jar) Processing mmbmods/beb/package-info.class
-(MOD - BEB.jar) File: mmbmods/beb/package-info.class
-(MOD - BEB.jar) Processing mmbmods/beb/BEBMod.class
-(MOD - BEB.jar) File: mmbmods/beb/BEBMod.class
-(MOD - BEB.jar) Processing .project
-(MOD - BEB.jar) File: .project
-(MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
-(MOD - BEB.jar) Processing META-INF/MANIFEST.MF
-(MOD - mmb-DE.jar) Processing .project
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - mmb-DE.jar) File: .project
-(MOD - BEB.jar) File: META-INF/MANIFEST.MF
-(MOD - mmb-DE.jar) Processing META-INF/MANIFEST.MF
-(MOD - mmb-DE.jar) File: META-INF/MANIFEST.MF
 (MOD - HelloWorld 0.5.jar) Processing .classpath
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
-(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
-(MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
 (MOD - HelloWorld 0.5.jar) File: .classpath
-(MOD - BEB.jar) Class: mmbmods.beb.BlockBEB
 (MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/DataLayerHW.class
@@ -4067,46 +4141,78 @@ matname-redstone=z czerwonego proszku
 (MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld 0.5.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (MOD - HelloWorld 0.5.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - mmb-DE.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+(MOD - BEB.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
+(MOD - mmb-DE.jar) Processing .classpath
 (MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - mmb-DE.jar) File: .classpath
+(MOD - BEB.jar) Processing mmbmods/beb/BlockBEB.class
+(MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
 (MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
+(MOD - BEB.jar) File: mmbmods/beb/BlockBEB.class
+(MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
 (MOD - HelloWorld 0.5.jar) Processing bin/resources/textures/hw/notepad.png
+(MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
+(MOD - BEB.jar) Processing .classpath
+(MOD - mmb-DE.jar) Processing .project
 (MOD - HelloWorld 0.5.jar) File: bin/resources/textures/hw/notepad.png
-(MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
+((MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - BEB.jar) File: .classpath
 (MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/package-info.class
+MOD - mmb-DE.jar) File: .project
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/package-info.class
+(MOD - BEB.jar) Processing mmbmods/beb/package-info.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/package-info.class
+(MOD - mmb-DE.jar) Processing META-INF/MANIFEST.MF
 (MOD - HelloWorld 0.5.jar) Processing src/resources/textures/hw/notepad.png
+(MOD - BEB.jar) File: mmbmods/beb/package-info.class
 (MOD - HelloWorld 0.5.jar) File: src/resources/textures/hw/notepad.png
-(MOD - HelloWorld 0.5.jar) Processing META-INF/MANIFEST.MF
+(MOD - mmb-DE.jar) File: META-INF/MANIFEST.MF
+((MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
+((MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
+MOD - HelloWorld 0.5.jar) Processing META-INF/MANIFEST.MF
+MOD - BEB.jar) Processing mmbmods/beb/BEBMod.class
 (MOD - HelloWorld 0.5.jar) File: META-INF/MANIFEST.MF
+(MOD - BEB.jar) File: mmbmods/beb/BEBMod.class
 (MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
+(MOD - BEB.jar) Processing .project
+(MOD - BEB.jar) File: .project
+(MOD - BEB.jar) Processing META-INF/MANIFEST.MF
+(MOD - BEB.jar) File: META-INF/MANIFEST.MF
+(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
+(MOD - BEB.jar) Class: mmbmods.beb.BlockBEB
 (MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
 (MOD - mmb-DE.jar) Class: mmbmods.lang.de.package-info
-(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - HelloWorld 0.5.jar) Class: bin.mmbmods.monniasza.helloworld.HWMachine
 (MOD - BEB.jar) entry: mmbmods/beb/package-info.class
 (MOD - BEB.jar) Class: mmbmods.beb.package-info
+(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) Class: bin.mmbmods.monniasza.helloworld.HWMachine
+(MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
+(MOD - BEB.jar) Class: mmbmods.beb.BEBMod
 (MOD - HelloWorld 0.5.jar) Missing dependencies in bin/mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) java.lang.NoClassDefFoundError: mmbmods/monniasza/helloworld/HWMachine (wrong name: bin/mmbmods/monniasza/helloworld/HWMachine)
 	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
 	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:878)
 	at io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+(	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)BLOCKS
+) 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)Adding beb.BEB with title Block Entity Bomb and description:
+ null
+(ITEMS) Adding beb.BEB with title Block Entity Bomb and description:
+ null
+
 	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
-	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:213)
+	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:214)
 	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:87)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.DataLayerHW
-(MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
-(MOD - BEB.jar) Class: mmbmods.beb.BEBMod
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWMachine
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HelloWorld.class
@@ -4120,15 +4226,11 @@ matname-redstone=z czerwonego proszku
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
 	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
-	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:213)
+	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:214)
 	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:87)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) Class: bin.mmbmods.monniasza.helloworld.HWBlock
-(BLOCKS) Adding beb.BEB with title Block Entity Bomb and description:
- null
-(ITEMS) Adding beb.BEB with title Block Entity Bomb and description:
- null
 (MOD - HelloWorld 0.5.jar) Missing dependencies in bin/mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) java.lang.NoClassDefFoundError: mmbmods/monniasza/helloworld/HWBlock (wrong name: bin/mmbmods/monniasza/helloworld/HWBlock)
 	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
@@ -4138,7 +4240,7 @@ matname-redstone=z czerwonego proszku
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
 	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
-	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:213)
+	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:214)
 	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:87)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
@@ -4154,7 +4256,7 @@ matname-redstone=z czerwonego proszku
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
 	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
-	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:213)
+	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:214)
 	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:87)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
@@ -4170,45 +4272,44 @@ matname-redstone=z czerwonego proszku
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
 	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
-	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:213)
+	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:214)
 	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:87)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 (HW) Hello, world!
 (MOD-LOADER) Start 1st stage for BlockEntity Bomb
+(MOD-LOADER) End 1st stage for BlockEntity Bomb
 (MOD-LOADER) Start 1st stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) End 1st stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) End 1st stage for BlockEntity Bomb
 (MOD-LOADER) Start 2nd stage for BlockEntity Bomb
+(MOD-LOADER) End 2nd stage for BlockEntity Bomb
 (MOD-LOADER) Start 2nd stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) End 2nd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) End 2nd stage for BlockEntity Bomb
 (MOD-LOADER) Start 3rd stage for BlockEntity Bomb
+(MOD-LOADER) End 3rd stage for BlockEntity Bomb
 (MOD-LOADER) Start 3rd stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) End 3rd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) End 3rd stage for BlockEntity Bomb
 (MOD-LOADER) ================MOD INFORMATION FOR BlockEntity Bomb================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
-(MOD-LOADER) Operative
-(MOD-LOADER) RELEASED Wed May 25 17:12:38 CEST 2022
+(MOD-LOADER) Aktywny
+(MOD-LOADER) RELEASED Wed Jun 01 17:56:48 CEST 2022
 (MOD-LOADER) MADE BY 
 (MOD-LOADER) DESCRIPTION: A block that lags out entire game.
-(MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
-(MOD-LOADER) Crashed
-(MOD-LOADER) RELEASED Wed May 25 17:12:38 CEST 2022
-(MOD-LOADER) MADE BY Monniasza
-(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) ================MOD INFORMATION FOR MultiMachineBuilder German/Deutsch================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
-(MOD-LOADER) Operative
+(MOD-LOADER) Aktywny
 (MOD-LOADER) RELEASED Tue Jul 12 00:00:00 CEST 3921
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: This mod contains German translation of the game
 Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
+(MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD-LOADER) Zawieszony
+(MOD-LOADER) RELEASED Wed Jun 01 17:56:48 CEST 2022
+(MOD-LOADER) MADE BY Monniasza
+(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) HOORAY, IT'S OVER!
 (LOADING FRAME) Cześć!
 (Main menu) MainMenu created
-(Main menu) settings panel isnt stuck
 (SELECT A SAVE) Found save: 1MiB.mworld
 (SELECT A SAVE) Found save: Agriculture test.mworld
 (SELECT A SAVE) Found save: BEB test 2.mworld
@@ -4225,80 +4326,59 @@ Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
 (SELECT A SAVE) Found save: Test electricity.mworld
 (SELECT A SAVE) Found save: Test pipes.mworld
 (SELECT A SAVE) Found save: Test player.mworld
+(SELECT A SAVE) Found save: Test speaker.mworld
 (SELECT A SAVE) Found save: Test tube.mworld
 (SELECT A SAVE) Found save: Test.mworld
 (SELECT A SAVE) Found save: The longest player pipe ever.mworld
-(SELECT A SAVE) Found 19 saves
+(SELECT A SAVE) Found 20 saves
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@2f1049cb
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@2a7aa716
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Failed to load the world
+(SELECT A SAVE) com.fasterxml.jackson.core.JsonParseException: Unrecognized token 'e': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (StringReader); line: 1, column: 2]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2391)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:745)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._reportInvalidToken(ReaderBasedJsonParser.java:2961)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddValue(ReaderBasedJsonParser.java:2002)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:802)
+	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4703)
+	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:3076)
+	at mmb.DATA.json.JsonTool.parse(JsonTool.java:62)
+	at mmb.MENU.main.PanelSaves.lambda$6(PanelSaves.java:139)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+(WORLD TEST) Exiting the world
+(WORLD - IDLE) Exiting
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@1e10f2af
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
 (SELECT A SAVE) Opened a file
 (SELECT A SAVE) Loaded a file
 (SELECT A SAVE) Parsed file
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
-	at java.desktop/javax.swing.plaf.basic.BasicListUI.updateLayoutState(BasicListUI.java:1446)
-	at java.desktop/javax.swing.plaf.basic.BasicListUI.maybeUpdateLayoutState(BasicListUI.java:1389)
-	at java.desktop/javax.swing.plaf.basic.BasicListUI.getPreferredSize(BasicListUI.java:648)
-	at java.desktop/javax.swing.JComponent.getPreferredSize(JComponent.java:1680)
-	at java.desktop/javax.swing.ScrollPaneLayout.layoutContainer(ScrollPaneLayout.java:795)
-	at java.desktop/java.awt.Container.layout(Container.java:1537)
-	at java.desktop/java.awt.Container.doLayout(Container.java:1526)
-	at java.desktop/java.awt.Container.validateTree(Container.java:1722)
-	at java.desktop/java.awt.Container.validate(Container.java:1657)
-	at java.desktop/javax.swing.RepaintManager$3.run(RepaintManager.java:745)
-	at java.desktop/javax.swing.RepaintManager$3.run(RepaintManager.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/javax.swing.RepaintManager.validateInvalidComponents(RepaintManager.java:742)
-	at java.desktop/javax.swing.RepaintManager$ProcessingRunnable.run(RepaintManager.java:1889)
-	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(MAP anonymous) Block entity at [-12,-7] took exceptionally long to run
-(MAP anonymous) Block entity at [-11,1] took exceptionally long to run
-(MAP anonymous) Block entity at [-13,-6] took exceptionally long to run
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
+(SELECT A SAVE) Fatal error while world loading
+(MAIN) GAME HAS CRASHED
+(MAIN) java.lang.InternalError: Crash it!
+	at mmb.WORLD.blocks.COLBlock.createBlock(COLBlock.java:18)
+	at mmb.WORLD.block.BlockLoader.doLoadBasic(BlockLoader.java:60)
+	at mmb.WORLD.block.BlockLoader.load(BlockLoader.java:50)
+	at mmb.WORLD.worlds.world.World.load(World.java:182)
+	at mmb.WORLD.worlds.universe.Universe.load(Universe.java:124)
+	at mmb.MENU.main.PanelSaves.lambda$6(PanelSaves.java:145)
+	at java.base/java.lang.Thread.run(Thread.java:829)
 (SETTINGS) Resetting a setting country with value PL
 (SETTINGS) Resetting a setting fullscreen with value false
+(SETTINGS) Resetting a setting logExcessiveBlockTime with value false
 (SETTINGS) Resetting a setting lang with value pl
 (SETTINGS) Saving a setting country with value PL
 (SETTINGS) Saving a setting fullscreen with value false
+(SETTINGS) Saving a setting logExcessiveBlockTime with value false
 (SETTINGS) Saving a setting lang with value pl
 (SETTINGS) Saved settings file

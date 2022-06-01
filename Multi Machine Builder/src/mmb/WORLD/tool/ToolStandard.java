@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.tool;
 
+import static mmb.GlobalSettings.$res;
+
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
@@ -144,9 +146,10 @@ public class ToolStandard extends WindowTool{
 	public Icon getIcon() {
 		return ICON_NORMAL;
 	}
+	private final String title = $res("toolstd");
 	@Override
 	public String title() {
-		return "Standard Tool";
+		return title;
 	}
 	@Override
 	public void preview(int x, int y, int scale, Graphics g) {
@@ -155,12 +158,14 @@ public class ToolStandard extends WindowTool{
 		ItemEntry placer0 = record.item();
 		if(placer0 instanceof Placer) ((Placer) placer0).preview(g, new Point(x, y), frame.getMap(), frame.getMouseoverBlock(), scale);
 	}
+	private static final String descr1 = $res("toolstd-1");
+	private static final String descr2 = $res("toolstd-2");
+	private static final String descr3 = $res("toolstd-3");
+	private static final String descr4 = $res("toolstd-4");
+	private static final String descr = descr1+'\n'+descr2+'\n'+descr3+'\n'+descr4;
 	@Override
 	public String description() {
-		return "Press LMB to place, RMB to open menu"
-				+ "\nCtrl+LMB to turn CCW, Ctrl+RMB to turn CW, Shift+LMB to reverse chirality"
-				+ "\nShift+LMB to place, Shift+MMB to go to the mouse pointer, Shift+RB to mine"
-				+ "\nI to flip on |, J to flip \\, K to flip ― and L to flip /";
+		return descr;
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {

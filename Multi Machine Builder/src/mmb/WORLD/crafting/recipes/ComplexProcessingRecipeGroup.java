@@ -23,6 +23,7 @@ import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.gui.craft.ComplexProcessingRecipeList;
 import mmb.WORLD.gui.craft.ComplexRecipeView;
 import mmb.WORLD.gui.craft.SimpleRecipeView;
+import mmb.WORLD.gui.craft.StackedProcessingRecipeList;
 import mmb.WORLD.gui.window.TabRecipes;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemStack;
@@ -36,8 +37,7 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class ComplexProcessingRecipeGroup implements RecipeGroup{
-	public final String title;
+public class ComplexProcessingRecipeGroup extends AbstractRecipeGroup{
 	/**
 	 * The minimum amount of ingredients
 	 */
@@ -46,14 +46,14 @@ public class ComplexProcessingRecipeGroup implements RecipeGroup{
 	 * @param title the title of this recipe group
 	 * @param minIngredients minimum amount of ingredients, must be >= 1
 	 */
-	public ComplexProcessingRecipeGroup(String title, int minIngredients) {
-		super();
-		this.title = title;
+	public ComplexProcessingRecipeGroup(String id, int minIngredients) {
+		super(id);
 		if(minIngredients < 1) throw new IllegalArgumentException("The minimum ingredient count must be >=1, got "+minIngredients);
 		this.minIngredients = minIngredients;
-		Supplier<Tuple2<String, JComponent>> sup = () -> new Tuple2<String, JComponent>(title, new ComplexProcessingRecipeList(this));
-		TabRecipes.add(sup);
-		GlobalRecipeRegistrar.addRecipeGroup(this);
+	}
+	@Override
+	protected Tuple2<String, JComponent> createTab() {
+		return new Tuple2<String, JComponent>(title, new ComplexProcessingRecipeList(this));
 	}
 	
 	/**

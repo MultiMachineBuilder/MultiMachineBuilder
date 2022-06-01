@@ -69,4 +69,12 @@ public class TaskLoop {
 		thread.interrupt();
 		state = 2;
 	}
+	/**
+	 * Waits until the thread stops
+	 * @throws InterruptedException if any thread has interrupted the current thread.
+	 * The interrupted status of the current thread is cleared when this exception is thrown.
+	 */
+	public void join() throws InterruptedException {
+		thread.join();
+	}
 }

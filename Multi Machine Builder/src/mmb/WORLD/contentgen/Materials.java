@@ -76,59 +76,59 @@ public class Materials {
 	@Nonnull public static final Color colorLumium = new Color(255, 255, 200);
 	
 	//Tier 1 materials
-	@Nonnull public static final BaseMetalGroup rudimentary = new BaseMetalGroup(colorRudimentary, "rudimentary", VoltageTier.V1, 50_000, 3);
-	@Nonnull public static final GemGroup coal = new GemGroup(colorCoal, "coal", VoltageTier.V1, 50_000);
+	@Nonnull public static final BaseMetalGroup rudimentary = new BaseMetalGroup(colorRudimentary, "rudimentary", VoltageTier.V1, 50_000, 3, false);
+	@Nonnull public static final BaseMetalGroup coal = new BaseMetalGroup(colorCoal, "coal", VoltageTier.V1, 50_000, 3, true);
 	
 	//Tier 2 materials
-	@Nonnull public static final BaseMetalGroup copper =  new BaseMetalGroup(colorCopper, "copper", VoltageTier.V1, 100_000, 1);
-	@Nonnull public static final BaseMetalGroup iron =    new BaseMetalGroup(colorIron, "iron", VoltageTier.V1, 120_000, 1);
-	@Nonnull public static final BaseMetalGroup silicon = new BaseMetalGroup(colorSilicon, "silicon", VoltageTier.V1, 115_000, 1);
-	@Nonnull public static final BaseMetalGroup tin =     new BaseMetalGroup(colorTin, "tin", VoltageTier.V1, 20_000, 1);
-	@Nonnull public static final BaseMetalGroup zinc =    new BaseMetalGroup(colorZinc, "zinc", VoltageTier.V1, 30_000, 1);
-	@Nonnull public static final BaseMetalGroup alu =     new BaseMetalGroup(colorAlu, "alu", VoltageTier.V1, 40_000, 1);
-	@Nonnull public static final BaseMetalGroup lead =    new BaseMetalGroup(colorLead, "lead", VoltageTier.V1, 25_000, 1);
-	@Nonnull public static final BaseMetalGroup nickel =  new BaseMetalGroup(colorNickel, "nickel", VoltageTier.V1, 120_000, 1);
-	@Nonnull public static final GemGroup redstone =      new GemGroup(colorRedstone, "redstone", VoltageTier.V1, 80_000);
+	@Nonnull public static final BaseMetalGroup copper =   new BaseMetalGroup(colorCopper, "copper", VoltageTier.V1, 100_000, 1, false);
+	@Nonnull public static final BaseMetalGroup iron =     new BaseMetalGroup(colorIron, "iron", VoltageTier.V1, 120_000, 1, false);
+	@Nonnull public static final BaseMetalGroup silicon =  new BaseMetalGroup(colorSilicon, "silicon", VoltageTier.V1, 115_000, 1, false);
+	@Nonnull public static final BaseMetalGroup tin =      new BaseMetalGroup(colorTin, "tin", VoltageTier.V1, 20_000, 1, false);
+	@Nonnull public static final BaseMetalGroup zinc =     new BaseMetalGroup(colorZinc, "zinc", VoltageTier.V1, 30_000, 1, false);
+	@Nonnull public static final BaseMetalGroup alu =      new BaseMetalGroup(colorAlu, "alu", VoltageTier.V1, 40_000, 1, false);
+	@Nonnull public static final BaseMetalGroup lead =     new BaseMetalGroup(colorLead, "lead", VoltageTier.V1, 25_000, 1, false);
+	@Nonnull public static final BaseMetalGroup nickel =   new BaseMetalGroup(colorNickel, "nickel", VoltageTier.V1, 120_000, 1, false);
+	@Nonnull public static final BaseMetalGroup redstone = new BaseMetalGroup(colorRedstone, "redstone", VoltageTier.V1, 80_000, 15, true);
 	
 	//Tier 3 materials
-	@Nonnull public static final BaseMetalGroup silver =  new BaseMetalGroup(colorSilver, "silver", VoltageTier.V1, 100_000, 1);
-	@Nonnull public static final BaseMetalGroup uranium = new BaseMetalGroup(colorUranium, "uranium", VoltageTier.V1, 200_000, 1);
-	@Nonnull public static final MetalGroup steel =       new MetalGroup(colorSteel, "steel", VoltageTier.V2, 150_000);
-	@Nonnull public static final MetalGroup bronze =      new MetalGroup(colorBronze, "bronze", VoltageTier.V1, 100_000);
-	@Nonnull public static final MetalGroup brass =       new MetalGroup(colorBrass, "brass", VoltageTier.V1, 110_000);
-	@Nonnull public static final BaseMetalGroup chrome =  new BaseMetalGroup(colorChrome, "chrome", VoltageTier.V2, 120_000, 1);
-	@Nonnull public static final MetalGroup nichrome =    new MetalGroup(colorNichrome, "nichrome", VoltageTier.V2, 150_000);
-	@Nonnull public static final GemGroup quartz =        new GemGroup(colorQuartz, "quartz", VoltageTier.V2, 150_000);
-	@Nonnull public static final GemGroup ender =         new GemGroup(colorEnder, "ender", VoltageTier.V2, 150_000);
-	@Nonnull public static final GemGroup glowstone =     new GemGroup(colorGlowstone, "glowstone", VoltageTier.V2, 130_000);
+	@Nonnull public static final BaseMetalGroup silver =   new BaseMetalGroup(colorSilver, "silver", VoltageTier.V1, 100_000, 1, false);
+	@Nonnull public static final BaseMetalGroup uranium =  new BaseMetalGroup(colorUranium, "uranium", VoltageTier.V1, 200_000, 1, false);
+	@Nonnull public static final MetalGroup steel =        new MetalGroup(colorSteel, "steel", VoltageTier.V2, 150_000, false);
+	@Nonnull public static final MetalGroup bronze =       new MetalGroup(colorBronze, "bronze", VoltageTier.V1, 100_000, false);
+	@Nonnull public static final MetalGroup brass =        new MetalGroup(colorBrass, "brass", VoltageTier.V1, 110_000, false);
+	@Nonnull public static final BaseMetalGroup chrome =   new BaseMetalGroup(colorChrome, "chrome", VoltageTier.V2, 120_000, 1, false);
+	@Nonnull public static final MetalGroup nichrome =     new MetalGroup(colorNichrome, "nichrome", VoltageTier.V2, 150_000, false);
+	@Nonnull public static final MetalGroup quartz =       new MetalGroup(colorQuartz, "quartz", VoltageTier.V2, 150_000, true);
+	@Nonnull public static final BaseMetalGroup ender =    new BaseMetalGroup(colorEnder, "ender", VoltageTier.V2, 150_000, 5, true);
+	@Nonnull public static final BaseMetalGroup glowstone = new BaseMetalGroup(colorGlowstone, "glowstone", VoltageTier.V2, 130_000, 5, true);
 	
 	//Tier 4 materials
-	@Nonnull public static final BaseMetalGroup cobalt = new BaseMetalGroup(colorCobalt, "cobalt", VoltageTier.V2, 200_000, 1);
-	@Nonnull public static final BaseMetalGroup gold =   new BaseMetalGroup(colorGold, "gold", VoltageTier.V1, 120_000, 1);
-	@Nonnull public static final MetalGroup stainless =  new MetalGroup(colorStainless, "stainless", VoltageTier.V2, 180_000);
-	@Nonnull public static final GemGroup diamond =      new GemGroup(colorDiamond, "diamond", VoltageTier.V2, 250_000);
+	@Nonnull public static final BaseMetalGroup cobalt =  new BaseMetalGroup(colorCobalt, "cobalt", VoltageTier.V2, 200_000, 1, false);
+	@Nonnull public static final BaseMetalGroup gold =    new BaseMetalGroup(colorGold, "gold", VoltageTier.V1, 120_000, 1, false);
+	@Nonnull public static final MetalGroup stainless =   new MetalGroup(colorStainless, "stainless", VoltageTier.V2, 180_000, false);
+	@Nonnull public static final BaseMetalGroup diamond = new BaseMetalGroup(colorDiamond, "diamond", VoltageTier.V2, 250_000, 1, true);
 	
 	//Tier 5 materials
-	@Nonnull public static final MetalGroup HSS =     new MetalGroup(colorHSS, "HSS", VoltageTier.V3, 250_000);
-	@Nonnull public static final BaseMetalGroup platinum =    new BaseMetalGroup(colorPlatinum, "platinum", VoltageTier.V2, 170_000, 1);
-	@Nonnull public static final MetalGroup lumium = new MetalGroup(colorLumium, "lumium", VoltageTier.V3, 400_000);
+	@Nonnull public static final MetalGroup HSS =     new MetalGroup(colorHSS, "HSS", VoltageTier.V3, 250_000, false);
+	@Nonnull public static final BaseMetalGroup platinum =    new BaseMetalGroup(colorPlatinum, "platinum", VoltageTier.V2, 170_000, 1, false);
+	@Nonnull public static final MetalGroup lumium = new MetalGroup(colorLumium, "lumium", VoltageTier.V3, 400_000, false);
 	
 	//Tier 6 materials
-	@Nonnull public static final BaseMetalGroup tungsten = new BaseMetalGroup(colorTungsten, "tungsten", VoltageTier.V4, 500_000, 1);
-	@Nonnull public static final MetalGroup signalum = new MetalGroup(colorSignalum, "signalum", VoltageTier.V4, 600_000);
-	@Nonnull public static final BaseMetalGroup iridium =    new BaseMetalGroup(colorIridium, "iridium", VoltageTier.V4, 220_000, 1);
+	@Nonnull public static final BaseMetalGroup tungsten = new BaseMetalGroup(colorTungsten, "tungsten", VoltageTier.V4, 500_000, 1, false);
+	@Nonnull public static final MetalGroup signalum = new MetalGroup(colorSignalum, "signalum", VoltageTier.V4, 600_000, false);
+	@Nonnull public static final BaseMetalGroup iridium =    new BaseMetalGroup(colorIridium, "iridium", VoltageTier.V4, 220_000, 1, false);
 	
 	//Tier 7 materials
-	@Nonnull public static final MetalGroup tungstenC =     new MetalGroup(colorTungstenC, "tungstenC", VoltageTier.V5, 1000_000);
-	@Nonnull public static final MetalGroup crystal =     new MetalGroup(colorCrystal, "crystal", VoltageTier.V5, 4000_000);
-	@Nonnull public static final MetalGroup enderium = new MetalGroup(colorEnderium, "enderium", VoltageTier.V5, 5000_000);
+	@Nonnull public static final MetalGroup tungstenC =     new MetalGroup(colorTungstenC, "tungstenC", VoltageTier.V5, 1000_000, false);
+	@Nonnull public static final MetalGroup crystal =     new MetalGroup(colorCrystal, "crystal", VoltageTier.V5, 4000_000, false);
+	@Nonnull public static final MetalGroup enderium = new MetalGroup(colorEnderium, "enderium", VoltageTier.V5, 5000_000, false);
 	
 	//Tier 8 materials
-	@Nonnull public static final MetalGroup stellar =     new MetalGroup(colorStellar, "stellar", VoltageTier.V6, 8000_000);
-	@Nonnull public static final MetalGroup duranium =     new MetalGroup(colorDuranium, "duranium", VoltageTier.V6, 16_000_000);
+	@Nonnull public static final MetalGroup stellar =     new MetalGroup(colorStellar, "stellar", VoltageTier.V6, 8000_000, false);
+	@Nonnull public static final MetalGroup duranium =     new MetalGroup(colorDuranium, "duranium", VoltageTier.V6, 16_000_000, false);
 	
 	//Tier 9 materials
-	@Nonnull public static final MetalGroup unobtainium =     new MetalGroup(colorUnobtainium, "unobtainium", VoltageTier.V7, 64_000_000);
+	@Nonnull public static final MetalGroup unobtainium =     new MetalGroup(colorUnobtainium, "unobtainium", VoltageTier.V7, 64_000_000, false);
 	
 	@Nonnull public static final WireGroup wireRudimentary = new WireGroup(50_000,    rudimentary, VoltageTier.V1);
 	@Nonnull public static final WireGroup wireCopper      = new WireGroup(100_000,        copper, VoltageTier.V2);

@@ -1,8 +1,13 @@
 package mmb.SOUND;
 
 import java.io.*;
-import javax.sound.sampled.*;
 
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
+import mmb.DATA.contents.sound.Sound;
 import mmb.debug.Debugger;
 
 /**
@@ -11,26 +16,30 @@ import mmb.debug.Debugger;
 
 public class MP3Loader {
 	private static final Debugger debug = new Debugger("MP3");
-    private Clip clip;
+    private Sound clip;
     private InputStream bitstream;
-    private final String name;
-
     /**
      * This thread decodes MP3 data into PCM and creates clip
      */
     private final Thread decodeThread = new Thread(this::fullRun);
 
-    public MP3Loader(InputStream stream, String name) {
+    /**
+     * Creates a MP3 loader from an input stream
+     * @param stream input stream
+     */
+    public MP3Loader(InputStream stream) {
         bitstream = stream;
-        this.name = name;
     }
 
-    public MP3Loader(byte[] bytes, String name) {
+    /**
+     * Creates a MP3 loader from a byte array
+     * @param bytes byte array
+     */
+    public MP3Loader(byte[] bytes) {
         bitstream = new ByteArrayInputStream(bytes);
-        this.name = name;
     }
 
-    public Clip getClip() {
+    public Sound getClip() {
         return clip;
     }
 
@@ -56,12 +65,11 @@ public class MP3Loader {
      */
     public void untilLoad() throws InterruptedException {
         decodeThread.join();
-        System.out.println("untilLoad");
+        debug.printl("untilLoad");
     }
 
     private void fullRun() {
     	try {
-            clip = AudioSystem.getClip();
             // http://www.javazoom.net/mp3spi/documents.html
             AudioInputStream in = AudioSystem.getAudioInputStream(bitstream);
             AudioFormat baseFormat = in.getFormat();
@@ -73,8 +81,8 @@ public class MP3Loader {
                     baseFormat.getSampleRate(),
                     false);
             AudioInputStream din = AudioSystem.getAudioInputStream(decodedFormat, in);
-            clip.open(din);
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            clip = Sound.load(din);
+        } catch (UnsupportedAudioFileException | IOException e) {
             debug.pstm(e, "Failed to load");
         }
     }

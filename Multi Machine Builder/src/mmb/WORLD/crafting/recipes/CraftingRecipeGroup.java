@@ -7,7 +7,6 @@ import java.awt.Component;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 import javax.swing.JComponent;
@@ -24,7 +23,6 @@ import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.gui.craft.CraftingRecipeList;
 import mmb.WORLD.gui.craft.CraftingRecipeView;
 import mmb.WORLD.gui.craft.SimpleRecipeView;
-import mmb.WORLD.gui.window.TabRecipes;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
@@ -39,13 +37,14 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class CraftingRecipeGroup implements RecipeGroup {
-	public CraftingRecipeGroup(String title) {
-		this.title = title;
-		Supplier<Tuple2<String, JComponent>> sup = () -> new Tuple2<String, JComponent>(title, new CraftingRecipeList(this));
-		TabRecipes.add(sup);
+public class CraftingRecipeGroup extends AbstractRecipeGroup {
+	public CraftingRecipeGroup(String id) {
+		super(id);
 	}
-	public final String title;
+	@Override
+	protected Tuple2<String, JComponent> createTab() {
+		return new Tuple2<>(title, new CraftingRecipeList(this));
+	}
 	/**
 	 * Gets the recipe for given item grid
 	 * @param grid the item grid

@@ -48,6 +48,21 @@
 	</properties>
 	<dependencies>
 		<dependency>
+			<groupId>javazoom</groupId>
+			<artifactId>jlayer</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>       
+           <groupId>fr.delthas</groupId>
+           <artifactId>javamp3</artifactId>
+           <version>1.0.1</version>
+    	</dependency>
+		<dependency>
+		  <groupId>com.rainerhahnekamp</groupId>
+		  <artifactId>sneakythrow</artifactId>
+		  <version>1.2.0</version>
+		</dependency>
+		<dependency>
   			<groupId>com.google.guava</groupId>
   			<artifactId>guava</artifactId>
   			<version>31.1-jre</version>

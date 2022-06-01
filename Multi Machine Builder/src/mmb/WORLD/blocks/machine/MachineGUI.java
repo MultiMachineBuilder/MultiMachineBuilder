@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.blocks.machine;
 
+import static mmb.GlobalSettings.$res;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -23,6 +25,7 @@ import net.miginfocom.swing.MigLayout;
 import mmb.WORLD.blocks.machine.SkeletalBlockMachine.Update;
 import mmb.WORLD.gui.inv.InventoryController;
 import mmb.WORLD.gui.inv.MoveItems;
+import io.github.parubok.text.multiline.MultilineLabel;
 
 class MachineGUI extends GUITab{
 	private static final long serialVersionUID = -4029353853474275301L;
@@ -64,19 +67,22 @@ class MachineGUI extends GUITab{
 		if((machine.flags & SkeletalBlockMachine.SETTING_FLAG_ITEM_OUTPUT) != 0) {
 			soi = createCtrlInv(machine.cfgOutItems, box, "Item outputs", machine.outItems, true);
 		}else soi = null;
-		setLayout(new MigLayout("", "[300.00px][]", "[277.00px,grow]"));
+		setLayout(new MigLayout("", "[300.00px][][]", "[277.00px,grow]"));
 		
 		
 		
 		JButton exit = new JButton();
 		exit.setBackground(Color.red);
-		exit.setText("Exit");
+		exit.setText($res("exit"));
 		exit.addActionListener(e -> window.closeWindow(this));
 		
 		
 		add(playerController, "cell 0 0,grow");
 		box.add(exit);
 		add(box, "cell 1 0,alignx left,aligny top");
+		
+		MultilineLabel multilineLabel = new MultilineLabel($res("depr-notranslate"));
+		add(multilineLabel, "cell 2 0");
 		if(main != null) add(main, BorderLayout.CENTER);
 		
 		Component inner = machine.createGUI();

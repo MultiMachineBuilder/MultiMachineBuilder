@@ -1,13 +1,14 @@
 /**
  * 
  */
-package mmb.WORLD.blocks;
+package mmb.WORLD.blocks.wireworld;
 
 import javax.annotation.Nullable;
 
 import mmb.BEANS.BlockActivateListener;
-import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.BlockEntityDataless;
+import mmb.WORLD.block.BlockType;
+import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;

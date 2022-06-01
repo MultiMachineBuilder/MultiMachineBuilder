@@ -26,6 +26,7 @@ import mmb.WORLD.gui.craft.ComplexCatalyzedProcessingRecipeList;
 import mmb.WORLD.gui.craft.ComplexCatalyzedRecipeView;
 import mmb.WORLD.gui.craft.ComplexProcessingRecipeList;
 import mmb.WORLD.gui.craft.ComplexRecipeView;
+import mmb.WORLD.gui.craft.SimpleProcessingRecipeList;
 import mmb.WORLD.gui.craft.SimpleRecipeView;
 import mmb.WORLD.gui.window.TabRecipes;
 import mmb.WORLD.inventory.Inventory;
@@ -40,8 +41,7 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class ComplexCatalyzedProcessingRecipeGroup implements RecipeGroup{
-	public final String title;
+public class ComplexCatalyzedProcessingRecipeGroup extends AbstractRecipeGroup{
 	/**
 	 * The minimum amount of ingredients
 	 */
@@ -50,14 +50,14 @@ public class ComplexCatalyzedProcessingRecipeGroup implements RecipeGroup{
 	 * @param title the title of this recipe group
 	 * @param minIngredients minimum amount of ingredients, must be >= 1
 	 */
-	public ComplexCatalyzedProcessingRecipeGroup(String title, int minIngredients) {
-		super();
-		this.title = title;
+	public ComplexCatalyzedProcessingRecipeGroup(String id, int minIngredients) {
+		super(id);
 		if(minIngredients < 1) throw new IllegalArgumentException("The minimum ingredient count must be >=1, got "+minIngredients);
 		this.minIngredients = minIngredients;
-		Supplier<Tuple2<String, JComponent>> sup = () -> new Tuple2<String, JComponent>(title, new ComplexCatalyzedProcessingRecipeList(this));
-		TabRecipes.add(sup);
-		GlobalRecipeRegistrar.addRecipeGroup(this);
+	}
+	@Override
+	protected Tuple2<String, JComponent> createTab() {
+		return new Tuple2<String, JComponent>(title, new ComplexCatalyzedProcessingRecipeList(this));
 	}
 	
 	/**
