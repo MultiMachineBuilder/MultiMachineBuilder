@@ -2,354 +2,2152 @@
 (MAIN) Java version is: 11.0.15
 (MAIN) Changing scale because Java is >= 9
 (SETTINGS LIST) Language: pl
+(MAIN) State: Loading textures
+(MOD-LOADER) walkDirectory C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\arrow.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\arrow.png
+(MOD-LOADER) tname arrow.png
+(MOD-LOADER) Loading a texture arrow.png
 (TEXTURES) Loading texture: arrow.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\axe.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\axe.png
+(MOD-LOADER) tname base\axe.png
+(MOD-LOADER) Loading a texture base\axe.png
 (TEXTURES) Loading texture: base/axe.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\block base.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\block base.png
+(MOD-LOADER) tname base\block base.png
+(MOD-LOADER) Loading a texture base\block base.png
 (TEXTURES) Loading texture: base/block base.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\dust.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\dust.png
+(MOD-LOADER) tname base\dust.png
+(MOD-LOADER) Loading a texture base\dust.png
 (TEXTURES) Loading texture: base/dust.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\gear.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\gear.png
+(MOD-LOADER) tname base\gear.png
+(MOD-LOADER) Loading a texture base\gear.png
 (TEXTURES) Loading texture: base/gear.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\ingot.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\ingot.png
+(MOD-LOADER) tname base\ingot.png
+(MOD-LOADER) Loading a texture base\ingot.png
 (TEXTURES) Loading texture: base/ingot.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\ore base.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\ore base.png
+(MOD-LOADER) tname base\ore base.png
+(MOD-LOADER) Loading a texture base\ore base.png
 (TEXTURES) Loading texture: base/ore base.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\pickaxe.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\pickaxe.png
+(MOD-LOADER) tname base\pickaxe.png
+(MOD-LOADER) Loading a texture base\pickaxe.png
 (TEXTURES) Loading texture: base/pickaxe.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\rod.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\rod.png
+(MOD-LOADER) tname base\rod.png
+(MOD-LOADER) Loading a texture base\rod.png
 (TEXTURES) Loading texture: base/rod.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\Texture Generator.ods
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\base\Texture Generator.ods
+(MOD-LOADER) tname base\Texture Generator.ods
+(MOD-LOADER) Loading a texture base\Texture Generator.ods
 (TEXTURES) Failed to load base\Texture Generator.ods
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\block.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\block.png
+(MOD-LOADER) tname block\block.png
+(MOD-LOADER) Loading a texture block\block.png
 (TEXTURES) Loading texture: block/block.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\clay.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\clay.png
+(MOD-LOADER) tname block\clay.png
+(MOD-LOADER) Loading a texture block\clay.png
 (TEXTURES) Loading texture: block/clay.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\clear transformer.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\clear transformer.png
+(MOD-LOADER) tname block\clear transformer.png
+(MOD-LOADER) Loading a texture block\clear transformer.png
 (TEXTURES) Loading texture: block/clear transformer.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\coal crop.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\coal crop.png
+(MOD-LOADER) tname block\coal crop.png
+(MOD-LOADER) Loading a texture block\coal crop.png
 (TEXTURES) Loading texture: block/coal crop.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\coal ore.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\coal ore.png
+(MOD-LOADER) tname block\coal ore.png
+(MOD-LOADER) Loading a texture block\coal ore.png
 (TEXTURES) Loading texture: block/coal ore.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\frame.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\frame.png
+(MOD-LOADER) tname block\frame.png
+(MOD-LOADER) Loading a texture block\frame.png
 (TEXTURES) Loading texture: block/frame.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\framesolid.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\framesolid.png
+(MOD-LOADER) tname block\framesolid.png
+(MOD-LOADER) Loading a texture block\framesolid.png
 (TEXTURES) Loading texture: block/framesolid.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\gravel.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\gravel.png
+(MOD-LOADER) tname block\gravel.png
+(MOD-LOADER) Loading a texture block\gravel.png
 (TEXTURES) Loading texture: block/gravel.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\leaves.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\leaves.png
+(MOD-LOADER) tname block\leaves.png
+(MOD-LOADER) Loading a texture block\leaves.png
 (TEXTURES) Loading texture: block/leaves.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\message.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\message.png
+(MOD-LOADER) tname block\message.png
+(MOD-LOADER) Loading a texture block\message.png
 (TEXTURES) Loading texture: block/message.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\metal.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\metal.png
+(MOD-LOADER) tname block\metal.png
+(MOD-LOADER) Loading a texture block\metal.png
 (TEXTURES) Loading texture: block/metal.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\opaque transformer.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\opaque transformer.png
+(MOD-LOADER) tname block\opaque transformer.png
+(MOD-LOADER) Loading a texture block\opaque transformer.png
 (TEXTURES) Loading texture: block/opaque transformer.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\ore overlay.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\ore overlay.png
+(MOD-LOADER) tname block\ore overlay.png
+(MOD-LOADER) Loading a texture block\ore overlay.png
 (TEXTURES) Loading texture: block/ore overlay.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\sand.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\sand.png
+(MOD-LOADER) tname block\sand.png
+(MOD-LOADER) Loading a texture block\sand.png
 (TEXTURES) Loading texture: block/sand.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\tree.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\block\tree.png
+(MOD-LOADER) tname block\tree.png
+(MOD-LOADER) Loading a texture block\tree.png
 (TEXTURES) Loading texture: block/tree.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Blocks.tsx
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Blocks.tsx
+(MOD-LOADER) tname Blocks.tsx
+(MOD-LOADER) Loading a texture Blocks.tsx
 (TEXTURES) Failed to load Blocks.tsx
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\brush.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\brush.png
+(MOD-LOADER) tname brush.png
+(MOD-LOADER) Loading a texture brush.png
 (TEXTURES) Loading texture: brush.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\chuckBlock.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\chuckBlock.png
+(MOD-LOADER) tname chuckBlock.png
+(MOD-LOADER) Loading a texture chuckBlock.png
 (TEXTURES) Loading texture: chuckBlock.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\colorable.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\colorable.png
+(MOD-LOADER) tname colorable.png
+(MOD-LOADER) Loading a texture colorable.png
 (TEXTURES) Loading texture: colorable.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\container.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\container.png
+(MOD-LOADER) tname container.png
+(MOD-LOADER) Loading a texture container.png
 (TEXTURES) Loading texture: container.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\copy.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\copy.png
+(MOD-LOADER) tname copy.png
+(MOD-LOADER) Loading a texture copy.png
 (TEXTURES) Loading texture: copy.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\crafting.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\crafting.png
+(MOD-LOADER) tname crafting.png
+(MOD-LOADER) Loading a texture crafting.png
 (TEXTURES) Loading texture: crafting.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\dropItems.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\dropItems.png
+(MOD-LOADER) tname dropItems.png
+(MOD-LOADER) Loading a texture dropItems.png
 (TEXTURES) Loading texture: dropItems.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\example rotation.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\example rotation.png
+(MOD-LOADER) tname example rotation.png
+(MOD-LOADER) Loading a texture example rotation.png
 (TEXTURES) Loading texture: example rotation.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\example rotations.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\example rotations.png
+(MOD-LOADER) tname example rotations.png
+(MOD-LOADER) Loading a texture example rotations.png
 (TEXTURES) Loading texture: example rotations.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\grass.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\grass.png
+(MOD-LOADER) tname grass.png
+(MOD-LOADER) Loading a texture grass.png
 (TEXTURES) Loading texture: grass.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Hello World
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Hello World
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Hello World\mini rainbow.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Hello World\mini rainbow.png
+(MOD-LOADER) tname Hello World\mini rainbow.png
+(MOD-LOADER) Loading a texture Hello World\mini rainbow.png
 (TEXTURES) Loading texture: Hello World/mini rainbow.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Hello World\rainbow.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Hello World\rainbow.png
+(MOD-LOADER) tname Hello World\rainbow.png
+(MOD-LOADER) Loading a texture Hello World\rainbow.png
 (TEXTURES) Loading texture: Hello World/rainbow.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\exit.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\exit.png
+(MOD-LOADER) tname highway\exit.png
+(MOD-LOADER) Loading a texture highway\exit.png
 (TEXTURES) Loading texture: highway/exit.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\hway sig.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\hway sig.png
+(MOD-LOADER) tname highway\hway sig.png
+(MOD-LOADER) Loading a texture highway\hway sig.png
 (TEXTURES) Loading texture: highway/hway sig.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\hway sign.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\hway sign.png
+(MOD-LOADER) tname highway\hway sign.png
+(MOD-LOADER) Loading a texture highway\hway sign.png
 (TEXTURES) Loading texture: highway/hway sign.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\merge.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\merge.png
+(MOD-LOADER) tname highway\merge.png
+(MOD-LOADER) Loading a texture highway\merge.png
 (TEXTURES) Loading texture: highway/merge.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\reduce.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\reduce.png
+(MOD-LOADER) tname highway\reduce.png
+(MOD-LOADER) Loading a texture highway\reduce.png
 (TEXTURES) Loading texture: highway/reduce.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\symexit.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\symexit.png
+(MOD-LOADER) tname highway\symexit.png
+(MOD-LOADER) Loading a texture highway\symexit.png
 (TEXTURES) Loading texture: highway/symexit.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\symmerge.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\symmerge.png
+(MOD-LOADER) tname highway\symmerge.png
+(MOD-LOADER) Loading a texture highway\symmerge.png
 (TEXTURES) Loading texture: highway/symmerge.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\widen.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highway\widen.png
+(MOD-LOADER) tname highway\widen.png
+(MOD-LOADER) Loading a texture highway\widen.png
 (TEXTURES) Loading texture: highway/widen.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highways.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\highways.png
+(MOD-LOADER) tname highways.png
+(MOD-LOADER) Loading a texture highways.png
 (TEXTURES) Loading texture: highways.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\hoover.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\hoover.png
+(MOD-LOADER) tname hoover.png
+(MOD-LOADER) Loading a texture hoover.png
 (TEXTURES) Loading texture: hoover.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\inventory
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\inventory
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\inventory\infinity.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\inventory\infinity.png
+(MOD-LOADER) tname inventory\infinity.png
+(MOD-LOADER) Loading a texture inventory\infinity.png
 (TEXTURES) Loading texture: inventory/infinity.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\capacitor.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\capacitor.png
+(MOD-LOADER) tname item\capacitor.png
+(MOD-LOADER) Loading a texture item\capacitor.png
 (TEXTURES) Loading texture: item/capacitor.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 0.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 0.png
+(MOD-LOADER) tname item\circuit 0.png
+(MOD-LOADER) Loading a texture item\circuit 0.png
 (TEXTURES) Loading texture: item/circuit 0.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 1.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 1.png
+(MOD-LOADER) tname item\circuit 1.png
+(MOD-LOADER) Loading a texture item\circuit 1.png
 (TEXTURES) Loading texture: item/circuit 1.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 2.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 2.png
+(MOD-LOADER) tname item\circuit 2.png
+(MOD-LOADER) Loading a texture item\circuit 2.png
 (TEXTURES) Loading texture: item/circuit 2.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 3.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 3.png
+(MOD-LOADER) tname item\circuit 3.png
+(MOD-LOADER) Loading a texture item\circuit 3.png
 (TEXTURES) Loading texture: item/circuit 3.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 4.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 4.png
+(MOD-LOADER) tname item\circuit 4.png
+(MOD-LOADER) Loading a texture item\circuit 4.png
 (TEXTURES) Loading texture: item/circuit 4.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 5.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 5.png
+(MOD-LOADER) tname item\circuit 5.png
+(MOD-LOADER) Loading a texture item\circuit 5.png
 (TEXTURES) Loading texture: item/circuit 5.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 6.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 6.png
+(MOD-LOADER) tname item\circuit 6.png
+(MOD-LOADER) Loading a texture item\circuit 6.png
 (TEXTURES) Loading texture: item/circuit 6.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 7.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 7.png
+(MOD-LOADER) tname item\circuit 7.png
+(MOD-LOADER) Loading a texture item\circuit 7.png
 (TEXTURES) Loading texture: item/circuit 7.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 8.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 8.png
+(MOD-LOADER) tname item\circuit 8.png
+(MOD-LOADER) Loading a texture item\circuit 8.png
 (TEXTURES) Loading texture: item/circuit 8.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 9.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\circuit 9.png
+(MOD-LOADER) tname item\circuit 9.png
+(MOD-LOADER) Loading a texture item\circuit 9.png
 (TEXTURES) Loading texture: item/circuit 9.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\cluster.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\cluster.png
+(MOD-LOADER) tname item\cluster.png
+(MOD-LOADER) Loading a texture item\cluster.png
 (TEXTURES) Loading texture: item/cluster.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\component code.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\component code.png
+(MOD-LOADER) tname item\component code.png
+(MOD-LOADER) Loading a texture item\component code.png
 (TEXTURES) Loading texture: item/component code.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\control rod.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\control rod.png
+(MOD-LOADER) tname item\control rod.png
+(MOD-LOADER) Loading a texture item\control rod.png
 (TEXTURES) Loading texture: item/control rod.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\coolant rod.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\coolant rod.png
+(MOD-LOADER) tname item\coolant rod.png
+(MOD-LOADER) Loading a texture item\coolant rod.png
 (TEXTURES) Loading texture: item/coolant rod.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\copper pick head.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\copper pick head.png
+(MOD-LOADER) tname item\copper pick head.png
+(MOD-LOADER) Loading a texture item\copper pick head.png
 (TEXTURES) Loading texture: item/copper pick head.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\copper pick.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\copper pick.png
+(MOD-LOADER) tname item\copper pick.png
+(MOD-LOADER) Loading a texture item\copper pick.png
 (TEXTURES) Loading texture: item/copper pick.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\depleted rod.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\depleted rod.png
+(MOD-LOADER) tname item\depleted rod.png
+(MOD-LOADER) Loading a texture item\depleted rod.png
 (TEXTURES) Loading texture: item/depleted rod.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\depleted uranium ingot.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\depleted uranium ingot.png
+(MOD-LOADER) tname item\depleted uranium ingot.png
+(MOD-LOADER) Loading a texture item\depleted uranium ingot.png
 (TEXTURES) Loading texture: item/depleted uranium ingot.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\diamond.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\diamond.png
+(MOD-LOADER) tname item\diamond.png
+(MOD-LOADER) Loading a texture item\diamond.png
 (TEXTURES) Loading texture: item/diamond.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\diode.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\diode.png
+(MOD-LOADER) tname item\diode.png
+(MOD-LOADER) Loading a texture item\diode.png
 (TEXTURES) Loading texture: item/diode.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\dust.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\dust.png
+(MOD-LOADER) tname item\dust.png
+(MOD-LOADER) Loading a texture item\dust.png
 (TEXTURES) Loading texture: item/dust.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\foil.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\foil.png
+(MOD-LOADER) tname item\foil.png
+(MOD-LOADER) Loading a texture item\foil.png
 (TEXTURES) Loading texture: item/foil.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\fragment.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\fragment.png
+(MOD-LOADER) tname item\fragment.png
+(MOD-LOADER) Loading a texture item\fragment.png
 (TEXTURES) Loading texture: item/fragment.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\frame 1.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\frame 1.png
+(MOD-LOADER) tname item\frame 1.png
+(MOD-LOADER) Loading a texture item\frame 1.png
 (TEXTURES) Loading texture: item/frame 1.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\gear.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\gear.png
+(MOD-LOADER) tname item\gear.png
+(MOD-LOADER) Loading a texture item\gear.png
 (TEXTURES) Loading texture: item/gear.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\gem.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\gem.png
+(MOD-LOADER) tname item\gem.png
+(MOD-LOADER) Loading a texture item\gem.png
 (TEXTURES) Loading texture: item/gem.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\heat rod.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\heat rod.png
+(MOD-LOADER) tname item\heat rod.png
+(MOD-LOADER) Loading a texture item\heat rod.png
 (TEXTURES) Loading texture: item/heat rod.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\IC.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\IC.png
+(MOD-LOADER) tname item\IC.png
+(MOD-LOADER) Loading a texture item\IC.png
 (TEXTURES) Loading texture: item/IC.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\inductor.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\inductor.png
+(MOD-LOADER) tname item\inductor.png
+(MOD-LOADER) Loading a texture item\inductor.png
 (TEXTURES) Loading texture: item/inductor.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\ingot.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\ingot.png
+(MOD-LOADER) tname item\ingot.png
+(MOD-LOADER) Loading a texture item\ingot.png
 (TEXTURES) Loading texture: item/ingot.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\ldust.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\ldust.png
+(MOD-LOADER) tname item\ldust.png
+(MOD-LOADER) Loading a texture item\ldust.png
 (TEXTURES) Loading texture: item/ldust.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\lisc.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\lisc.png
+(MOD-LOADER) tname item\lisc.png
+(MOD-LOADER) Loading a texture item\lisc.png
 (TEXTURES) Loading texture: item/lisc.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\list.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\list.png
+(MOD-LOADER) tname item\list.png
+(MOD-LOADER) Loading a texture item\list.png
 (TEXTURES) Loading texture: item/list.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\minidust.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\minidust.png
+(MOD-LOADER) tname item\minidust.png
+(MOD-LOADER) Loading a texture item\minidust.png
 (TEXTURES) Loading texture: item/minidust.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\motor 1.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\motor 1.png
+(MOD-LOADER) tname item\motor 1.png
+(MOD-LOADER) Loading a texture item\motor 1.png
 (TEXTURES) Loading texture: item/motor 1.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\motor 2.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\motor 2.png
+(MOD-LOADER) tname item\motor 2.png
+(MOD-LOADER) Loading a texture item\motor 2.png
 (TEXTURES) Loading texture: item/motor 2.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\nugget.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\nugget.png
+(MOD-LOADER) tname item\nugget.png
+(MOD-LOADER) Loading a texture item\nugget.png
 (TEXTURES) Loading texture: item/nugget.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\package code.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\package code.png
+(MOD-LOADER) tname item\package code.png
+(MOD-LOADER) Loading a texture item\package code.png
 (TEXTURES) Loading texture: item/package code.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\package.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\package.png
+(MOD-LOADER) tname item\package.png
+(MOD-LOADER) Loading a texture item\package.png
 (TEXTURES) Loading texture: item/package.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\panel.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\panel.png
+(MOD-LOADER) tname item\panel.png
+(MOD-LOADER) Loading a texture item\panel.png
 (TEXTURES) Loading texture: item/panel.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\paper.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\paper.png
+(MOD-LOADER) tname item\paper.png
+(MOD-LOADER) Loading a texture item\paper.png
 (TEXTURES) Loading texture: item/paper.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\quantum pick.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\quantum pick.png
+(MOD-LOADER) tname item\quantum pick.png
+(MOD-LOADER) Loading a texture item\quantum pick.png
 (TEXTURES) Loading texture: item/quantum pick.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\resistor array.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\resistor array.png
+(MOD-LOADER) tname item\resistor array.png
+(MOD-LOADER) Loading a texture item\resistor array.png
 (TEXTURES) Loading texture: item/resistor array.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\resistor.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\resistor.png
+(MOD-LOADER) tname item\resistor.png
+(MOD-LOADER) Loading a texture item\resistor.png
 (TEXTURES) Loading texture: item/resistor.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\resrcbed.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\resrcbed.png
+(MOD-LOADER) tname item\resrcbed.png
+(MOD-LOADER) Loading a texture item\resrcbed.png
 (TEXTURES) Loading texture: item/resrcbed.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\ring 1.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\ring 1.png
+(MOD-LOADER) tname item\ring 1.png
+(MOD-LOADER) Loading a texture item\ring 1.png
 (TEXTURES) Loading texture: item/ring 1.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\rudimentary pick head.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\rudimentary pick head.png
+(MOD-LOADER) tname item\rudimentary pick head.png
+(MOD-LOADER) Loading a texture item\rudimentary pick head.png
 (TEXTURES) Loading texture: item/rudimentary pick head.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\rudimentary pick.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\rudimentary pick.png
+(MOD-LOADER) tname item\rudimentary pick.png
+(MOD-LOADER) Loading a texture item\rudimentary pick.png
 (TEXTURES) Loading texture: item/rudimentary pick.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\silicon ingot.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\silicon ingot.png
+(MOD-LOADER) tname item\silicon ingot.png
+(MOD-LOADER) Loading a texture item\silicon ingot.png
 (TEXTURES) Loading texture: item/silicon ingot.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\silicon nugget.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\silicon nugget.png
+(MOD-LOADER) tname item\silicon nugget.png
+(MOD-LOADER) Loading a texture item\silicon nugget.png
 (TEXTURES) Loading texture: item/silicon nugget.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\smalldust.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\smalldust.png
+(MOD-LOADER) tname item\smalldust.png
+(MOD-LOADER) Loading a texture item\smalldust.png
 (TEXTURES) Loading texture: item/smalldust.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\stainless pick head.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\stainless pick head.png
+(MOD-LOADER) tname item\stainless pick head.png
+(MOD-LOADER) Loading a texture item\stainless pick head.png
 (TEXTURES) Loading texture: item/stainless pick head.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\stainless pick.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\stainless pick.png
+(MOD-LOADER) tname item\stainless pick.png
+(MOD-LOADER) Loading a texture item\stainless pick.png
 (TEXTURES) Loading texture: item/stainless pick.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\stainless wire.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\stainless wire.png
+(MOD-LOADER) tname item\stainless wire.png
+(MOD-LOADER) Loading a texture item\stainless wire.png
 (TEXTURES) Loading texture: item/stainless wire.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\steel pick head.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\steel pick head.png
+(MOD-LOADER) tname item\steel pick head.png
+(MOD-LOADER) Loading a texture item\steel pick head.png
 (TEXTURES) Loading texture: item/steel pick head.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\steel rod.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\steel rod.png
+(MOD-LOADER) tname item\steel rod.png
+(MOD-LOADER) Loading a texture item\steel rod.png
 (TEXTURES) Loading texture: item/steel rod.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\stencil.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\stencil.png
+(MOD-LOADER) tname item\stencil.png
+(MOD-LOADER) Loading a texture item\stencil.png
 (TEXTURES) Loading texture: item/stencil.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\stone pick head.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\stone pick head.png
+(MOD-LOADER) tname item\stone pick head.png
+(MOD-LOADER) Loading a texture item\stone pick head.png
 (TEXTURES) Loading texture: item/stone pick head.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 0.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 0.png
+(MOD-LOADER) tname item\substrate 0.png
+(MOD-LOADER) Loading a texture item\substrate 0.png
 (TEXTURES) Loading texture: item/substrate 0.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 1.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 1.png
+(MOD-LOADER) tname item\substrate 1.png
+(MOD-LOADER) Loading a texture item\substrate 1.png
 (TEXTURES) Loading texture: item/substrate 1.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 2.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 2.png
+(MOD-LOADER) tname item\substrate 2.png
+(MOD-LOADER) Loading a texture item\substrate 2.png
 (TEXTURES) Loading texture: item/substrate 2.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 3.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 3.png
+(MOD-LOADER) tname item\substrate 3.png
+(MOD-LOADER) Loading a texture item\substrate 3.png
 (TEXTURES) Loading texture: item/substrate 3.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 4.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 4.png
+(MOD-LOADER) tname item\substrate 4.png
+(MOD-LOADER) Loading a texture item\substrate 4.png
 (TEXTURES) Loading texture: item/substrate 4.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 5.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 5.png
+(MOD-LOADER) tname item\substrate 5.png
+(MOD-LOADER) Loading a texture item\substrate 5.png
 (TEXTURES) Loading texture: item/substrate 5.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 6.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 6.png
+(MOD-LOADER) tname item\substrate 6.png
+(MOD-LOADER) Loading a texture item\substrate 6.png
 (TEXTURES) Loading texture: item/substrate 6.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 7.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 7.png
+(MOD-LOADER) tname item\substrate 7.png
+(MOD-LOADER) Loading a texture item\substrate 7.png
 (TEXTURES) Loading texture: item/substrate 7.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 8.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 8.png
+(MOD-LOADER) tname item\substrate 8.png
+(MOD-LOADER) Loading a texture item\substrate 8.png
 (TEXTURES) Loading texture: item/substrate 8.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 9.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\substrate 9.png
+(MOD-LOADER) tname item\substrate 9.png
+(MOD-LOADER) Loading a texture item\substrate 9.png
 (TEXTURES) Loading texture: item/substrate 9.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\transistor.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\transistor.png
+(MOD-LOADER) tname item\transistor.png
+(MOD-LOADER) Loading a texture item\transistor.png
 (TEXTURES) Loading texture: item/transistor.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\uranium rod.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\uranium rod.png
+(MOD-LOADER) tname item\uranium rod.png
+(MOD-LOADER) Loading a texture item\uranium rod.png
 (TEXTURES) Loading texture: item/uranium rod.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\wire overlay.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\wire overlay.png
+(MOD-LOADER) tname item\wire overlay.png
+(MOD-LOADER) Loading a texture item\wire overlay.png
 (TEXTURES) Loading texture: item/wire overlay.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\wire spool.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\wire spool.png
+(MOD-LOADER) tname item\wire spool.png
+(MOD-LOADER) Loading a texture item\wire spool.png
 (TEXTURES) Loading texture: item/wire spool.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\wood pick head.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\wood pick head.png
+(MOD-LOADER) tname item\wood pick head.png
+(MOD-LOADER) Loading a texture item\wood pick head.png
 (TEXTURES) Loading texture: item/wood pick head.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\wood pick.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\item\wood pick.png
+(MOD-LOADER) tname item\wood pick.png
+(MOD-LOADER) Loading a texture item\wood pick.png
 (TEXTURES) Loading texture: item/wood pick.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\brown.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\brown.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Ancient\brown.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Ancient\brown.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/brown.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\brown_inlay.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\brown_inlay.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Ancient\brown_inlay.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Ancient\brown_inlay.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/brown_inlay.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\brown_pressed.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\brown_pressed.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Ancient\brown_pressed.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Ancient\brown_pressed.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/brown_pressed.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\grey.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\grey.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Ancient\grey.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Ancient\grey.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/grey.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\grey_inlay.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\grey_inlay.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Ancient\grey_inlay.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Ancient\grey_inlay.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/grey_inlay.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\grey_pressed.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\grey_pressed.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Ancient\grey_pressed.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Ancient\grey_pressed.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/grey_pressed.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\tan.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\tan.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Ancient\tan.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Ancient\tan.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/tan.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\tan_inlay.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\tan_inlay.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Ancient\tan_inlay.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Ancient\tan_inlay.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/tan_inlay.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\tan_pressed.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\tan_pressed.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Ancient\tan_pressed.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Ancient\tan_pressed.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/tan_pressed.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\white.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\white.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Ancient\white.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Ancient\white.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/white.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\white_inlay.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\white_inlay.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Ancient\white_inlay.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Ancient\white_inlay.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/white_inlay.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\white_pressed.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Ancient\white_pressed.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Ancient\white_pressed.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Ancient\white_pressed.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Ancient/white_pressed.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\blue.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\blue.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Colored\blue.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Colored\blue.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/blue.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\blue_pressed.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\blue_pressed.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Colored\blue_pressed.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Colored\blue_pressed.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/blue_pressed.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\green.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\green.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Colored\green.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Colored\green.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/green.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\green_pressed.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\green_pressed.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Colored\green_pressed.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Colored\green_pressed.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/green_pressed.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\grey.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\grey.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Colored\grey.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Colored\grey.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/grey.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\grey_pressed.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\grey_pressed.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Colored\grey_pressed.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Colored\grey_pressed.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/grey_pressed.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\red.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\red.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Colored\red.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Colored\red.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/red.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\red_pressed.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\red_pressed.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Colored\red_pressed.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Colored\red_pressed.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/red_pressed.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\yellow.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\yellow.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Colored\yellow.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Colored\yellow.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/yellow.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\yellow_pressed.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Colored\yellow_pressed.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Colored\yellow_pressed.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Colored\yellow_pressed.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Colored/yellow_pressed.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\list.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\list.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\list.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\list.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/list.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\blue.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\blue.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Outline\blue.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Outline\blue.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/blue.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\blue_pressed.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\blue_pressed.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Outline\blue_pressed.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Outline\blue_pressed.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/blue_pressed.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\green.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\green.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Outline\green.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Outline\green.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/green.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\green_pressed.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\green_pressed.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Outline\green_pressed.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Outline\green_pressed.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/green_pressed.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\red.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\red.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Outline\red.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Outline\red.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/red.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\red_pressed.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\red_pressed.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Outline\red_pressed.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Outline\red_pressed.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/red_pressed.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\yellow.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\yellow.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Outline\yellow.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Outline\yellow.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/yellow.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\yellow_pressed.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\Outline\yellow_pressed.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\Outline\yellow_pressed.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\Outline\yellow_pressed.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/Outline/yellow_pressed.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\space.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\space.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\space.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\space.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/space.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\space_inlay.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Kenney Pixel Art UI\9-Slice\space_inlay.png
+(MOD-LOADER) tname Kenney Pixel Art UI\9-Slice\space_inlay.png
+(MOD-LOADER) Loading a texture Kenney Pixel Art UI\9-Slice\space_inlay.png
 (TEXTURES) Loading texture: Kenney Pixel Art UI/9-Slice/space_inlay.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\lane changes.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\lane changes.png
+(MOD-LOADER) tname lane changes.png
+(MOD-LOADER) Loading a texture lane changes.png
 (TEXTURES) Loading texture: lane changes.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid\fuel.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid\fuel.png
+(MOD-LOADER) tname liquid\fuel.png
+(MOD-LOADER) Loading a texture liquid\fuel.png
 (TEXTURES) Loading texture: liquid/fuel.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid\lava.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid\lava.png
+(MOD-LOADER) tname liquid\lava.png
+(MOD-LOADER) Loading a texture liquid\lava.png
 (TEXTURES) Loading texture: liquid/lava.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid\oxygen.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid\oxygen.png
+(MOD-LOADER) tname liquid\oxygen.png
+(MOD-LOADER) Loading a texture liquid\oxygen.png
 (TEXTURES) Loading texture: liquid/oxygen.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid\plasma.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid\plasma.png
+(MOD-LOADER) tname liquid\plasma.png
+(MOD-LOADER) Loading a texture liquid\plasma.png
 (TEXTURES) Loading texture: liquid/plasma.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid\smoke.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid\smoke.png
+(MOD-LOADER) tname liquid\smoke.png
+(MOD-LOADER) Loading a texture liquid\smoke.png
 (TEXTURES) Loading texture: liquid/smoke.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid\steam.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid\steam.png
+(MOD-LOADER) tname liquid\steam.png
+(MOD-LOADER) Loading a texture liquid\steam.png
 (TEXTURES) Loading texture: liquid/steam.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid\water.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\liquid\water.png
+(MOD-LOADER) tname liquid\water.png
+(MOD-LOADER) Loading a texture liquid\water.png
 (TEXTURES) Loading texture: liquid/water.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\log.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\log.png
+(MOD-LOADER) tname log.png
+(MOD-LOADER) Loading a texture log.png
 (TEXTURES) Loading texture: log.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\8-bit wires.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\8-bit wires.png
+(MOD-LOADER) tname logic\8-bit wires.png
+(MOD-LOADER) Loading a texture logic\8-bit wires.png
 (TEXTURES) Loading texture: logic/8-bit wires.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\AND.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\AND.png
+(MOD-LOADER) tname logic\AND.png
+(MOD-LOADER) Loading a texture logic\AND.png
 (TEXTURES) Loading texture: logic/AND.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\button.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\button.png
+(MOD-LOADER) tname logic\button.png
+(MOD-LOADER) Loading a texture logic\button.png
 (TEXTURES) Loading texture: logic/button.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\drandom.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\drandom.png
+(MOD-LOADER) tname logic\drandom.png
+(MOD-LOADER) Loading a texture logic\drandom.png
 (TEXTURES) Loading texture: logic/drandom.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\LNetwork attachment.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\LNetwork attachment.png
+(MOD-LOADER) tname logic\LNetwork attachment.png
+(MOD-LOADER) Loading a texture logic\LNetwork attachment.png
 (TEXTURES) Loading texture: logic/LNetwork attachment.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\logic gates.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\logic gates.png
+(MOD-LOADER) tname logic\logic gates.png
+(MOD-LOADER) Loading a texture logic\logic gates.png
 (TEXTURES) Loading texture: logic/logic gates.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\NOT.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\NOT.png
+(MOD-LOADER) tname logic\NOT.png
+(MOD-LOADER) Loading a texture logic\NOT.png
 (TEXTURES) Loading texture: logic/NOT.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\off lamp.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\off lamp.png
+(MOD-LOADER) tname logic\off lamp.png
+(MOD-LOADER) Loading a texture logic\off lamp.png
 (TEXTURES) Loading texture: logic/off lamp.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\off.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\off.png
+(MOD-LOADER) tname logic\off.png
+(MOD-LOADER) Loading a texture logic\off.png
 (TEXTURES) Loading texture: logic/off.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\on lamp.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\on lamp.png
+(MOD-LOADER) tname logic\on lamp.png
+(MOD-LOADER) Loading a texture logic\on lamp.png
 (TEXTURES) Loading texture: logic/on lamp.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\on.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\on.png
+(MOD-LOADER) tname logic\on.png
+(MOD-LOADER) Loading a texture logic\on.png
 (TEXTURES) Loading texture: logic/on.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\OR.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\OR.png
+(MOD-LOADER) tname logic\OR.png
+(MOD-LOADER) Loading a texture logic\OR.png
 (TEXTURES) Loading texture: logic/OR.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\random.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\random.png
+(MOD-LOADER) tname logic\random.png
+(MOD-LOADER) Loading a texture logic\random.png
 (TEXTURES) Loading texture: logic/random.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\randomctrl.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\randomctrl.png
+(MOD-LOADER) tname logic\randomctrl.png
+(MOD-LOADER) Loading a texture logic\randomctrl.png
 (TEXTURES) Loading texture: logic/randomctrl.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\toggle inert.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\toggle inert.png
+(MOD-LOADER) tname logic\toggle inert.png
+(MOD-LOADER) Loading a texture logic\toggle inert.png
 (TEXTURES) Loading texture: logic/toggle inert.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\toggle off.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\toggle off.png
+(MOD-LOADER) tname logic\toggle off.png
+(MOD-LOADER) Loading a texture logic\toggle off.png
 (TEXTURES) Loading texture: logic/toggle off.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\toggle on.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\toggle on.png
+(MOD-LOADER) tname logic\toggle on.png
+(MOD-LOADER) Loading a texture logic\toggle on.png
 (TEXTURES) Loading texture: logic/toggle on.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\true.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\true.png
+(MOD-LOADER) tname logic\true.png
+(MOD-LOADER) Loading a texture logic\true.png
 (TEXTURES) Loading texture: logic/true.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\urandom.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\urandom.png
+(MOD-LOADER) tname logic\urandom.png
+(MOD-LOADER) Loading a texture logic\urandom.png
 (TEXTURES) Loading texture: logic/urandom.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\XOR.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\XOR.png
+(MOD-LOADER) tname logic\XOR.png
+(MOD-LOADER) Loading a texture logic\XOR.png
 (TEXTURES) Loading texture: logic/XOR.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\YES.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\logic\YES.png
+(MOD-LOADER) tname logic\YES.png
+(MOD-LOADER) Loading a texture logic\YES.png
 (TEXTURES) Loading texture: logic/YES.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\3-way merger.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\3-way merger.png
+(MOD-LOADER) tname machine\3-way merger.png
+(MOD-LOADER) Loading a texture machine\3-way merger.png
 (TEXTURES) Loading texture: machine/3-way merger.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\3-way shuffler.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\3-way shuffler.png
+(MOD-LOADER) tname machine\3-way shuffler.png
+(MOD-LOADER) Loading a texture machine\3-way shuffler.png
 (TEXTURES) Loading texture: machine/3-way shuffler.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\alloyer.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\alloyer.png
+(MOD-LOADER) tname machine\alloyer.png
+(MOD-LOADER) Loading a texture machine\alloyer.png
 (TEXTURES) Loading texture: machine/alloyer.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\assembly 1.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\assembly 1.png
+(MOD-LOADER) tname machine\assembly 1.png
+(MOD-LOADER) Loading a texture machine\assembly 1.png
 (TEXTURES) Loading texture: machine/assembly 1.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\assembly 2.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\assembly 2.png
+(MOD-LOADER) tname machine\assembly 2.png
+(MOD-LOADER) Loading a texture machine\assembly 2.png
 (TEXTURES) Loading texture: machine/assembly 2.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\assembly 3.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\assembly 3.png
+(MOD-LOADER) tname machine\assembly 3.png
+(MOD-LOADER) Loading a texture machine\assembly 3.png
 (TEXTURES) Loading texture: machine/assembly 3.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\assembly 4.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\assembly 4.png
+(MOD-LOADER) tname machine\assembly 4.png
+(MOD-LOADER) Loading a texture machine\assembly 4.png
 (TEXTURES) Loading texture: machine/assembly 4.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\assembly 5.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\assembly 5.png
+(MOD-LOADER) tname machine\assembly 5.png
+(MOD-LOADER) Loading a texture machine\assembly 5.png
 (TEXTURES) Loading texture: machine/assembly 5.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\assembly 6.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\assembly 6.png
+(MOD-LOADER) tname machine\assembly 6.png
+(MOD-LOADER) Loading a texture machine\assembly 6.png
 (TEXTURES) Loading texture: machine/assembly 6.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\autoassembly 1.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\autoassembly 1.png
+(MOD-LOADER) tname machine\autoassembly 1.png
+(MOD-LOADER) Loading a texture machine\autoassembly 1.png
 (TEXTURES) Loading texture: machine/autoassembly 1.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\autoassembly 2.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\autoassembly 2.png
+(MOD-LOADER) tname machine\autoassembly 2.png
+(MOD-LOADER) Loading a texture machine\autoassembly 2.png
 (TEXTURES) Loading texture: machine/autoassembly 2.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\autoassembly 3.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\autoassembly 3.png
+(MOD-LOADER) tname machine\autoassembly 3.png
+(MOD-LOADER) Loading a texture machine\autoassembly 3.png
 (TEXTURES) Loading texture: machine/autoassembly 3.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\autoassembly 4.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\autoassembly 4.png
+(MOD-LOADER) tname machine\autoassembly 4.png
+(MOD-LOADER) Loading a texture machine\autoassembly 4.png
 (TEXTURES) Loading texture: machine/autoassembly 4.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\autoassembly 5.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\autoassembly 5.png
+(MOD-LOADER) tname machine\autoassembly 5.png
+(MOD-LOADER) Loading a texture machine\autoassembly 5.png
 (TEXTURES) Loading texture: machine/autoassembly 5.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\autoassembly 6.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\autoassembly 6.png
+(MOD-LOADER) tname machine\autoassembly 6.png
+(MOD-LOADER) Loading a texture machine\autoassembly 6.png
 (TEXTURES) Loading texture: machine/autoassembly 6.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\AutoCrafter 1.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\AutoCrafter 1.png
+(MOD-LOADER) tname machine\AutoCrafter 1.png
+(MOD-LOADER) Loading a texture machine\AutoCrafter 1.png
 (TEXTURES) Loading texture: machine/AutoCrafter 1.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\block BP interface.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\block BP interface.png
+(MOD-LOADER) tname machine\block BP interface.png
+(MOD-LOADER) Loading a texture machine\block BP interface.png
 (TEXTURES) Loading texture: machine/block BP interface.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\block break interface.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\block break interface.png
+(MOD-LOADER) tname machine\block break interface.png
+(MOD-LOADER) Loading a texture machine\block break interface.png
 (TEXTURES) Loading texture: machine/block break interface.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\block place interface.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\block place interface.png
+(MOD-LOADER) tname machine\block place interface.png
+(MOD-LOADER) Loading a texture machine\block place interface.png
 (TEXTURES) Loading texture: machine/block place interface.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\CCW.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\CCW.png
+(MOD-LOADER) tname machine\CCW.png
+(MOD-LOADER) Loading a texture machine\CCW.png
 (TEXTURES) Loading texture: machine/CCW.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\chest1.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\chest1.png
+(MOD-LOADER) tname machine\chest1.png
+(MOD-LOADER) Loading a texture machine\chest1.png
 (TEXTURES) Loading texture: machine/chest1.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\chest2.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\chest2.png
+(MOD-LOADER) tname machine\chest2.png
+(MOD-LOADER) Loading a texture machine\chest2.png
 (TEXTURES) Loading texture: machine/chest2.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\chest3.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\chest3.png
+(MOD-LOADER) tname machine\chest3.png
+(MOD-LOADER) Loading a texture machine\chest3.png
 (TEXTURES) Loading texture: machine/chest3.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\chest4.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\chest4.png
+(MOD-LOADER) tname machine\chest4.png
+(MOD-LOADER) Loading a texture machine\chest4.png
 (TEXTURES) Loading texture: machine/chest4.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\chest5.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\chest5.png
+(MOD-LOADER) tname machine\chest5.png
+(MOD-LOADER) Loading a texture machine\chest5.png
 (TEXTURES) Loading texture: machine/chest5.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\chest6.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\chest6.png
+(MOD-LOADER) tname machine\chest6.png
+(MOD-LOADER) Loading a texture machine\chest6.png
 (TEXTURES) Loading texture: machine/chest6.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\claw.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\claw.png
+(MOD-LOADER) tname machine\claw.png
+(MOD-LOADER) Loading a texture machine\claw.png
 (TEXTURES) Loading texture: machine/claw.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\cluster mill.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\cluster mill.png
+(MOD-LOADER) tname machine\cluster mill.png
+(MOD-LOADER) Loading a texture machine\cluster mill.png
 (TEXTURES) Loading texture: machine/cluster mill.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\coalgen.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\coalgen.png
+(MOD-LOADER) tname machine\coalgen.png
+(MOD-LOADER) Loading a texture machine\coalgen.png
 (TEXTURES) Loading texture: machine/coalgen.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\CW.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\CW.png
+(MOD-LOADER) tname machine\CW.png
+(MOD-LOADER) Loading a texture machine\CW.png
 (TEXTURES) Loading texture: machine/CW.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\cyclic assembler.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\cyclic assembler.png
+(MOD-LOADER) tname machine\cyclic assembler.png
+(MOD-LOADER) Loading a texture machine\cyclic assembler.png
 (TEXTURES) Loading texture: machine/cyclic assembler.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\dropped item interface.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\dropped item interface.png
+(MOD-LOADER) tname machine\dropped item interface.png
+(MOD-LOADER) Loading a texture machine\dropped item interface.png
 (TEXTURES) Loading texture: machine/dropped item interface.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\electrosmelter.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\electrosmelter.png
+(MOD-LOADER) tname machine\electrosmelter.png
+(MOD-LOADER) Loading a texture machine\electrosmelter.png
 (TEXTURES) Loading texture: machine/electrosmelter.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\esmelter.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\esmelter.png
+(MOD-LOADER) tname machine\esmelter.png
+(MOD-LOADER) Loading a texture machine\esmelter.png
 (TEXTURES) Loading texture: machine/esmelter.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\hopper.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\hopper.png
+(MOD-LOADER) tname machine\hopper.png
+(MOD-LOADER) Loading a texture machine\hopper.png
 (TEXTURES) Loading texture: machine/hopper.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\imover intersected.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\imover intersected.png
+(MOD-LOADER) tname machine\imover intersected.png
+(MOD-LOADER) Loading a texture machine\imover intersected.png
 (TEXTURES) Loading texture: machine/imover intersected.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\imover.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\imover.png
+(MOD-LOADER) tname machine\imover.png
+(MOD-LOADER) Loading a texture machine\imover.png
 (TEXTURES) Loading texture: machine/imover.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\imoverL.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\imoverL.png
+(MOD-LOADER) tname machine\imoverL.png
+(MOD-LOADER) Loading a texture machine\imoverL.png
 (TEXTURES) Loading texture: machine/imoverL.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\imoverR.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\imoverR.png
+(MOD-LOADER) tname machine\imoverR.png
+(MOD-LOADER) Loading a texture machine\imoverR.png
 (TEXTURES) Loading texture: machine/imoverR.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\item package.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\item package.png
+(MOD-LOADER) tname machine\item package.png
+(MOD-LOADER) Loading a texture machine\item package.png
 (TEXTURES) Loading texture: machine/item package.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\ivacuum.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\ivacuum.png
+(MOD-LOADER) tname machine\ivacuum.png
+(MOD-LOADER) Loading a texture machine\ivacuum.png
 (TEXTURES) Loading texture: machine/ivacuum.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\machinemaker.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\machinemaker.png
+(MOD-LOADER) tname machine\machinemaker.png
+(MOD-LOADER) Loading a texture machine\machinemaker.png
 (TEXTURES) Loading texture: machine/machinemaker.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pickaxe workbench.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pickaxe workbench.png
+(MOD-LOADER) tname machine\pickaxe workbench.png
+(MOD-LOADER) Loading a texture machine\pickaxe workbench.png
 (TEXTURES) Loading texture: machine/pickaxe workbench.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe 3-section.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe 3-section.png
+(MOD-LOADER) tname machine\pipe 3-section.png
+(MOD-LOADER) Loading a texture machine\pipe 3-section.png
 (TEXTURES) Loading texture: machine/pipe 3-section.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe 4-section.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe 4-section.png
+(MOD-LOADER) tname machine\pipe 4-section.png
+(MOD-LOADER) Loading a texture machine\pipe 4-section.png
 (TEXTURES) Loading texture: machine/pipe 4-section.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe biturn.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe biturn.png
+(MOD-LOADER) tname machine\pipe biturn.png
+(MOD-LOADER) Loading a texture machine\pipe biturn.png
 (TEXTURES) Loading texture: machine/pipe biturn.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe bridged.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe bridged.png
+(MOD-LOADER) tname machine\pipe bridged.png
+(MOD-LOADER) Loading a texture machine\pipe bridged.png
 (TEXTURES) Loading texture: machine/pipe bridged.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe elbow.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe elbow.png
+(MOD-LOADER) tname machine\pipe elbow.png
+(MOD-LOADER) Loading a texture machine\pipe elbow.png
 (TEXTURES) Loading texture: machine/pipe elbow.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe exit.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe exit.png
+(MOD-LOADER) tname machine\pipe exit.png
+(MOD-LOADER) Loading a texture machine\pipe exit.png
 (TEXTURES) Loading texture: machine/pipe exit.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe merge left.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe merge left.png
+(MOD-LOADER) tname machine\pipe merge left.png
+(MOD-LOADER) Loading a texture machine\pipe merge left.png
 (TEXTURES) Loading texture: machine/pipe merge left.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe merge right.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe merge right.png
+(MOD-LOADER) tname machine\pipe merge right.png
+(MOD-LOADER) Loading a texture machine\pipe merge right.png
 (TEXTURES) Loading texture: machine/pipe merge right.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe oneway.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe oneway.png
+(MOD-LOADER) tname machine\pipe oneway.png
+(MOD-LOADER) Loading a texture machine\pipe oneway.png
 (TEXTURES) Loading texture: machine/pipe oneway.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe straight.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipe straight.png
+(MOD-LOADER) tname machine\pipe straight.png
+(MOD-LOADER) Loading a texture machine\pipe straight.png
 (TEXTURES) Loading texture: machine/pipe straight.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipes.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pipes.png
+(MOD-LOADER) tname machine\pipes.png
+(MOD-LOADER) Loading a texture machine\pipes.png
 (TEXTURES) Loading texture: machine/pipes.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\placer.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\placer.png
+(MOD-LOADER) tname machine\placer.png
+(MOD-LOADER) Loading a texture machine\placer.png
 (TEXTURES) Loading texture: machine/placer.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\cables.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\cables.png
+(MOD-LOADER) tname machine\power\cables.png
+(MOD-LOADER) Loading a texture machine\power\cables.png
 (TEXTURES) Loading texture: machine/power/cables.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\infinity.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\infinity.png
+(MOD-LOADER) tname machine\power\infinity.png
+(MOD-LOADER) Loading a texture machine\power\infinity.png
 (TEXTURES) Loading texture: machine/power/infinity.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\large center.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\large center.png
+(MOD-LOADER) tname machine\power\large center.png
+(MOD-LOADER) Loading a texture machine\power\large center.png
 (TEXTURES) Loading texture: machine/power/large center.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\large connector.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\large connector.png
+(MOD-LOADER) tname machine\power\large connector.png
+(MOD-LOADER) Loading a texture machine\power\large connector.png
 (TEXTURES) Loading texture: machine/power/large connector.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\large wire.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\large wire.png
+(MOD-LOADER) tname machine\power\large wire.png
+(MOD-LOADER) Loading a texture machine\power\large wire.png
 (TEXTURES) Loading texture: machine/power/large wire.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\load.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\load.png
+(MOD-LOADER) tname machine\power\load.png
+(MOD-LOADER) Loading a texture machine\power\load.png
 (TEXTURES) Loading texture: machine/power/load.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\medium center.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\medium center.png
+(MOD-LOADER) tname machine\power\medium center.png
+(MOD-LOADER) Loading a texture machine\power\medium center.png
 (TEXTURES) Loading texture: machine/power/medium center.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\medium connector.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\medium connector.png
+(MOD-LOADER) tname machine\power\medium connector.png
+(MOD-LOADER) Loading a texture machine\power\medium connector.png
 (TEXTURES) Loading texture: machine/power/medium connector.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\medium wire.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\medium wire.png
+(MOD-LOADER) tname machine\power\medium wire.png
+(MOD-LOADER) Loading a texture machine\power\medium wire.png
 (TEXTURES) Loading texture: machine/power/medium wire.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\nuke reactor.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\nuke reactor.png
+(MOD-LOADER) tname machine\power\nuke reactor.png
+(MOD-LOADER) Loading a texture machine\power\nuke reactor.png
 (TEXTURES) Loading texture: machine/power/nuke reactor.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\pmeter.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\pmeter.png
+(MOD-LOADER) tname machine\power\pmeter.png
+(MOD-LOADER) Loading a texture machine\power\pmeter.png
 (TEXTURES) Loading texture: machine/power/pmeter.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\small center.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\small center.png
+(MOD-LOADER) tname machine\power\small center.png
+(MOD-LOADER) Loading a texture machine\power\small center.png
 (TEXTURES) Loading texture: machine/power/small center.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\small connector.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\small connector.png
+(MOD-LOADER) tname machine\power\small connector.png
+(MOD-LOADER) Loading a texture machine\power\small connector.png
 (TEXTURES) Loading texture: machine/power/small connector.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\small wire.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\small wire.png
+(MOD-LOADER) tname machine\power\small wire.png
+(MOD-LOADER) Loading a texture machine\power\small wire.png
 (TEXTURES) Loading texture: machine/power/small wire.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\tiny center.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\tiny center.png
+(MOD-LOADER) tname machine\power\tiny center.png
+(MOD-LOADER) Loading a texture machine\power\tiny center.png
 (TEXTURES) Loading texture: machine/power/tiny center.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\tiny connector.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\tiny connector.png
+(MOD-LOADER) tname machine\power\tiny connector.png
+(MOD-LOADER) Loading a texture machine\power\tiny connector.png
 (TEXTURES) Loading texture: machine/power/tiny connector.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\tiny wire.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\power\tiny wire.png
+(MOD-LOADER) tname machine\power\tiny wire.png
+(MOD-LOADER) Loading a texture machine\power\tiny wire.png
 (TEXTURES) Loading texture: machine/power/tiny wire.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\ppipe adjoin.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\ppipe adjoin.png
+(MOD-LOADER) tname machine\ppipe adjoin.png
+(MOD-LOADER) Loading a texture machine\ppipe adjoin.png
 (TEXTURES) Loading texture: machine/ppipe adjoin.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\ppipe adjoin2.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\ppipe adjoin2.png
+(MOD-LOADER) tname machine\ppipe adjoin2.png
+(MOD-LOADER) Loading a texture machine\ppipe adjoin2.png
 (TEXTURES) Loading texture: machine/ppipe adjoin2.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\ppipe biturn.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\ppipe biturn.png
+(MOD-LOADER) tname machine\ppipe biturn.png
+(MOD-LOADER) Loading a texture machine\ppipe biturn.png
 (TEXTURES) Loading texture: machine/ppipe biturn.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\ppipe cross.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\ppipe cross.png
+(MOD-LOADER) tname machine\ppipe cross.png
+(MOD-LOADER) Loading a texture machine\ppipe cross.png
 (TEXTURES) Loading texture: machine/ppipe cross.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\ppipe straight.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\ppipe straight.png
+(MOD-LOADER) tname machine\ppipe straight.png
+(MOD-LOADER) Loading a texture machine\ppipe straight.png
 (TEXTURES) Loading texture: machine/ppipe straight.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\ppipe turn.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\ppipe turn.png
+(MOD-LOADER) tname machine\ppipe turn.png
+(MOD-LOADER) Loading a texture machine\ppipe turn.png
 (TEXTURES) Loading texture: machine/ppipe turn.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pulverizer.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\pulverizer.png
+(MOD-LOADER) tname machine\pulverizer.png
+(MOD-LOADER) Loading a texture machine\pulverizer.png
 (TEXTURES) Loading texture: machine/pulverizer.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\quarry.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\quarry.png
+(MOD-LOADER) tname machine\quarry.png
+(MOD-LOADER) Loading a texture machine\quarry.png
 (TEXTURES) Loading texture: machine/quarry.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\smelter active.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\smelter active.png
+(MOD-LOADER) tname machine\smelter active.png
+(MOD-LOADER) Loading a texture machine\smelter active.png
 (TEXTURES) Loading texture: machine/smelter active.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\smelter inert 2.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\smelter inert 2.png
+(MOD-LOADER) tname machine\smelter inert 2.png
+(MOD-LOADER) Loading a texture machine\smelter inert 2.png
 (TEXTURES) Loading texture: machine/smelter inert 2.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\smelter inert.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\smelter inert.png
+(MOD-LOADER) tname machine\smelter inert.png
+(MOD-LOADER) Loading a texture machine\smelter inert.png
 (TEXTURES) Loading texture: machine/smelter inert.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\speaker 1.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\speaker 1.png
+(MOD-LOADER) tname machine\speaker 1.png
+(MOD-LOADER) Loading a texture machine\speaker 1.png
 (TEXTURES) Loading texture: machine/speaker 1.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\speaker 2.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\speaker 2.png
+(MOD-LOADER) tname machine\speaker 2.png
+(MOD-LOADER) Loading a texture machine\speaker 2.png
 (TEXTURES) Loading texture: machine/speaker 2.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\speaker 3.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\speaker 3.png
+(MOD-LOADER) tname machine\speaker 3.png
+(MOD-LOADER) Loading a texture machine\speaker 3.png
 (TEXTURES) Loading texture: machine/speaker 3.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\splicer.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\splicer.png
+(MOD-LOADER) tname machine\splicer.png
+(MOD-LOADER) Loading a texture machine\splicer.png
 (TEXTURES) Loading texture: machine/splicer.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\splitter.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\splitter.png
+(MOD-LOADER) tname machine\splitter.png
+(MOD-LOADER) Loading a texture machine\splitter.png
 (TEXTURES) Loading texture: machine/splitter.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\sucker.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\sucker.png
+(MOD-LOADER) tname machine\sucker.png
+(MOD-LOADER) Loading a texture machine\sucker.png
 (TEXTURES) Loading texture: machine/sucker.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\switch straight.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\switch straight.png
+(MOD-LOADER) tname machine\switch straight.png
+(MOD-LOADER) Loading a texture machine\switch straight.png
 (TEXTURES) Loading texture: machine/switch straight.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\switch turn.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\switch turn.png
+(MOD-LOADER) tname machine\switch turn.png
+(MOD-LOADER) Loading a texture machine\switch turn.png
 (TEXTURES) Loading texture: machine/switch turn.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\transferrer.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\transferrer.png
+(MOD-LOADER) tname machine\transferrer.png
+(MOD-LOADER) Loading a texture machine\transferrer.png
 (TEXTURES) Loading texture: machine/transferrer.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\transformer.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\transformer.png
+(MOD-LOADER) tname machine\transformer.png
+(MOD-LOADER) Loading a texture machine\transformer.png
 (TEXTURES) Loading texture: machine/transformer.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\vacuum.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\vacuum.png
+(MOD-LOADER) tname machine\vacuum.png
+(MOD-LOADER) Loading a texture machine\vacuum.png
 (TEXTURES) Loading texture: machine/vacuum.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\wiremill.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\machine\wiremill.png
+(MOD-LOADER) tname machine\wiremill.png
+(MOD-LOADER) Loading a texture machine\wiremill.png
 (TEXTURES) Loading texture: machine/wiremill.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Machines.tsx
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Machines.tsx
+(MOD-LOADER) tname Machines.tsx
+(MOD-LOADER) Loading a texture Machines.tsx
 (TEXTURES) Failed to load Machines.tsx
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\mine.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\mine.png
+(MOD-LOADER) tname mine.png
+(MOD-LOADER) Loading a texture mine.png
 (TEXTURES) Loading texture: mine.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\minecxraft.bmp
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\minecxraft.bmp
+(MOD-LOADER) tname minecxraft.bmp
+(MOD-LOADER) Loading a texture minecxraft.bmp
 (TEXTURES) Loading texture: minecxraft.bmp
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Nowy folder
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\Nowy folder
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\nuclear reactor.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\nuclear reactor.png
+(MOD-LOADER) tname nuclear reactor.png
+(MOD-LOADER) Loading a texture nuclear reactor.png
 (TEXTURES) Loading texture: nuclear reactor.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\old
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\old
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\old\extract.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\old\extract.png
+(MOD-LOADER) tname old\extract.png
+(MOD-LOADER) Loading a texture old\extract.png
 (TEXTURES) Loading texture: old/extract.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\old\imover 2.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\old\imover 2.png
+(MOD-LOADER) tname old\imover 2.png
+(MOD-LOADER) Loading a texture old\imover 2.png
 (TEXTURES) Loading texture: old/imover 2.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\old\pipe elbow 2.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\old\pipe elbow 2.png
+(MOD-LOADER) tname old\pipe elbow 2.png
+(MOD-LOADER) Loading a texture old\pipe elbow 2.png
 (TEXTURES) Loading texture: old/pipe elbow 2.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\old\pipe straight 2.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\old\pipe straight 2.png
+(MOD-LOADER) tname old\pipe straight 2.png
+(MOD-LOADER) Loading a texture old\pipe straight 2.png
 (TEXTURES) Loading texture: old/pipe straight 2.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\place.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\place.png
+(MOD-LOADER) tname place.png
+(MOD-LOADER) Loading a texture place.png
 (TEXTURES) Loading texture: place.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\plank.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\plank.png
+(MOD-LOADER) tname plank.png
+(MOD-LOADER) Loading a texture plank.png
 (TEXTURES) Loading texture: plank.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\printer.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\printer.png
+(MOD-LOADER) tname printer.png
+(MOD-LOADER) Loading a texture printer.png
 (TEXTURES) Loading texture: printer.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\processor
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\processor
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\processor\wiremill.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\processor\wiremill.png
+(MOD-LOADER) tname processor\wiremill.png
+(MOD-LOADER) Loading a texture processor\wiremill.png
 (TEXTURES) Loading texture: processor/wiremill.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\road
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\road
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\road\road center.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\road\road center.png
+(MOD-LOADER) tname road\road center.png
+(MOD-LOADER) Loading a texture road\road center.png
 (TEXTURES) Loading texture: road/road center.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\road\road connector.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\road\road connector.png
+(MOD-LOADER) tname road\road connector.png
+(MOD-LOADER) Loading a texture road\road connector.png
 (TEXTURES) Loading texture: road/road connector.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\adjoin inner.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\adjoin inner.png
+(MOD-LOADER) tname routes\adjoin inner.png
+(MOD-LOADER) Loading a texture routes\adjoin inner.png
 (TEXTURES) Loading texture: routes/adjoin inner.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\adjoin side.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\adjoin side.png
+(MOD-LOADER) tname routes\adjoin side.png
+(MOD-LOADER) Loading a texture routes\adjoin side.png
 (TEXTURES) Loading texture: routes/adjoin side.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\adjoin small.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\adjoin small.png
+(MOD-LOADER) tname routes\adjoin small.png
+(MOD-LOADER) Loading a texture routes\adjoin small.png
 (TEXTURES) Loading texture: routes/adjoin small.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\end hway sign.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\end hway sign.png
+(MOD-LOADER) tname routes\end hway sign.png
+(MOD-LOADER) Loading a texture routes\end hway sign.png
 (TEXTURES) Loading texture: routes/end hway sign.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\half medium offset single.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\half medium offset single.png
+(MOD-LOADER) tname routes\half medium offset single.png
+(MOD-LOADER) Loading a texture routes\half medium offset single.png
 (TEXTURES) Loading texture: routes/half medium offset single.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\half short hway offset single.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\half short hway offset single.png
+(MOD-LOADER) tname routes\half short hway offset single.png
+(MOD-LOADER) Loading a texture routes\half short hway offset single.png
 (TEXTURES) Loading texture: routes/half short hway offset single.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\half vshort highway offset single.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\half vshort highway offset single.png
+(MOD-LOADER) tname routes\half vshort highway offset single.png
+(MOD-LOADER) Loading a texture routes\half vshort highway offset single.png
 (TEXTURES) Loading texture: routes/half vshort highway offset single.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\highways corrupt.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\highways corrupt.png
+(MOD-LOADER) tname routes\highways corrupt.png
+(MOD-LOADER) Loading a texture routes\highways corrupt.png
 (TEXTURES) Failed to load routes\highways corrupt.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\highways.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\highways.png
+(MOD-LOADER) tname routes\highways.png
+(MOD-LOADER) Loading a texture routes\highways.png
 (TEXTURES) Loading texture: routes/highways.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\highways.tsx
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\highways.tsx
+(MOD-LOADER) tname routes\highways.tsx
+(MOD-LOADER) Loading a texture routes\highways.tsx
 (TEXTURES) Failed to load routes\highways.tsx
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\hway sign.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\hway sign.png
+(MOD-LOADER) tname routes\hway sign.png
+(MOD-LOADER) Loading a texture routes\hway sign.png
 (TEXTURES) Loading texture: routes/hway sign.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\1-way simple.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\1-way simple.png
+(MOD-LOADER) tname routes\item routes\1-way simple.png
+(MOD-LOADER) Loading a texture routes\item routes\1-way simple.png
 (TEXTURES) Loading texture: routes/item routes/1-way simple.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\2 carriage misc.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\2 carriage misc.png
+(MOD-LOADER) tname routes\item routes\2 carriage misc.png
+(MOD-LOADER) Loading a texture routes\item routes\2 carriage misc.png
 (TEXTURES) Loading texture: routes/item routes/2 carriage misc.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\2 lane.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\2 lane.png
+(MOD-LOADER) tname routes\item routes\2 lane.png
+(MOD-LOADER) Loading a texture routes\item routes\2 lane.png
 (TEXTURES) Loading texture: routes/item routes/2 lane.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\2-carriage interchanges.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\2-carriage interchanges.png
+(MOD-LOADER) tname routes\item routes\2-carriage interchanges.png
+(MOD-LOADER) Loading a texture routes\item routes\2-carriage interchanges.png
 (TEXTURES) Loading texture: routes/item routes/2-carriage interchanges.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\2-carriage interconnectors.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\2-carriage interconnectors.png
+(MOD-LOADER) tname routes\item routes\2-carriage interconnectors.png
+(MOD-LOADER) Loading a texture routes\item routes\2-carriage interconnectors.png
 (TEXTURES) Loading texture: routes/item routes/2-carriage interconnectors.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\2-way simple.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\2-way simple.png
+(MOD-LOADER) tname routes\item routes\2-way simple.png
+(MOD-LOADER) Loading a texture routes\item routes\2-way simple.png
 (TEXTURES) Loading texture: routes/item routes/2-way simple.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\net machines.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\net machines.png
+(MOD-LOADER) tname routes\item routes\net machines.png
+(MOD-LOADER) Loading a texture routes\item routes\net machines.png
 (TEXTURES) Loading texture: routes/item routes/net machines.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\route control.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes\route control.png
+(MOD-LOADER) tname routes\item routes\route control.png
+(MOD-LOADER) Loading a texture routes\item routes\route control.png
 (TEXTURES) Loading texture: routes/item routes/route control.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\item routes.png
+(MOD-LOADER) tname routes\item routes.png
+(MOD-LOADER) Loading a texture routes\item routes.png
 (TEXTURES) Loading texture: routes/item routes.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\long hway offset single.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\long hway offset single.png
+(MOD-LOADER) tname routes\long hway offset single.png
+(MOD-LOADER) Loading a texture routes\long hway offset single.png
 (TEXTURES) Loading texture: routes/long hway offset single.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\long hway ramp.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\long hway ramp.png
+(MOD-LOADER) tname routes\long hway ramp.png
+(MOD-LOADER) Loading a texture routes\long hway ramp.png
 (TEXTURES) Loading texture: routes/long hway ramp.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\medium hway offset single.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\medium hway offset single.png
+(MOD-LOADER) tname routes\medium hway offset single.png
+(MOD-LOADER) Loading a texture routes\medium hway offset single.png
 (TEXTURES) Loading texture: routes/medium hway offset single.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\medium hway ramp.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\medium hway ramp.png
+(MOD-LOADER) tname routes\medium hway ramp.png
+(MOD-LOADER) Loading a texture routes\medium hway ramp.png
 (TEXTURES) Loading texture: routes/medium hway ramp.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\roads.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\roads.png
+(MOD-LOADER) tname routes\roads.png
+(MOD-LOADER) Loading a texture routes\roads.png
 (TEXTURES) Loading texture: routes/roads.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\short hway offset single.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\short hway offset single.png
+(MOD-LOADER) tname routes\short hway offset single.png
+(MOD-LOADER) Loading a texture routes\short hway offset single.png
 (TEXTURES) Loading texture: routes/short hway offset single.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\short hway ramp.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\short hway ramp.png
+(MOD-LOADER) tname routes\short hway ramp.png
+(MOD-LOADER) Loading a texture routes\short hway ramp.png
 (TEXTURES) Loading texture: routes/short hway ramp.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\turn transition.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\routes\turn transition.png
+(MOD-LOADER) tname routes\turn transition.png
+(MOD-LOADER) Loading a texture routes\turn transition.png
 (TEXTURES) Loading texture: routes/turn transition.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\space tiling.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\space tiling.png
+(MOD-LOADER) tname space tiling.png
+(MOD-LOADER) Loading a texture space tiling.png
 (TEXTURES) Loading texture: space tiling.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\special
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\special
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\special\invalid.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\special\invalid.png
+(MOD-LOADER) tname special\invalid.png
+(MOD-LOADER) Loading a texture special\invalid.png
 (TEXTURES) Loading texture: special/invalid.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\spider.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\spider.png
+(MOD-LOADER) tname spider.png
+(MOD-LOADER) Loading a texture spider.png
 (TEXTURES) Loading texture: spider.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\stone.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\stone.png
+(MOD-LOADER) tname stone.png
+(MOD-LOADER) Loading a texture stone.png
 (TEXTURES) Loading texture: stone.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\textedit.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\textedit.png
+(MOD-LOADER) tname textedit.png
+(MOD-LOADER) Loading a texture textedit.png
 (TEXTURES) Loading texture: textedit.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\tool
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\tool
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\tool\normal.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\tool\normal.png
+(MOD-LOADER) tname tool\normal.png
+(MOD-LOADER) Loading a texture tool\normal.png
 (TEXTURES) Loading texture: tool/normal.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\tool\paint.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\tool\paint.png
+(MOD-LOADER) tname tool\paint.png
+(MOD-LOADER) Loading a texture tool\paint.png
 (TEXTURES) Loading texture: tool/paint.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\tool\wrench.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\tool\wrench.png
+(MOD-LOADER) tname tool\wrench.png
+(MOD-LOADER) Loading a texture tool\wrench.png
 (TEXTURES) Loading texture: tool/wrench.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\tools.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\tools.png
+(MOD-LOADER) tname tools.png
+(MOD-LOADER) Loading a texture tools.png
 (TEXTURES) Loading texture: tools.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\UAvsRU.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\UAvsRU.png
+(MOD-LOADER) tname UAvsRU.png
+(MOD-LOADER) Loading a texture UAvsRU.png
 (TEXTURES) Loading texture: UAvsRU.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\UIs
+(MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\UIs
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\UIs\blue signpost.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\UIs\blue signpost.png
+(MOD-LOADER) tname UIs\blue signpost.png
+(MOD-LOADER) Loading a texture UIs\blue signpost.png
 (TEXTURES) Loading texture: UIs/blue signpost.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\UIs\green signpost.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\UIs\green signpost.png
+(MOD-LOADER) tname UIs\green signpost.png
+(MOD-LOADER) Loading a texture UIs\green signpost.png
 (TEXTURES) Loading texture: UIs/green signpost.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\UIs\orange signpost.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\UIs\orange signpost.png
+(MOD-LOADER) tname UIs\orange signpost.png
+(MOD-LOADER) Loading a texture UIs\orange signpost.png
 (TEXTURES) Loading texture: UIs/orange signpost.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\UIs\red signpost.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\UIs\red signpost.png
+(MOD-LOADER) tname UIs\red signpost.png
+(MOD-LOADER) Loading a texture UIs\red signpost.png
 (TEXTURES) Loading texture: UIs/red signpost.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\UIs\yellow signpost.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\UIs\yellow signpost.png
+(MOD-LOADER) tname UIs\yellow signpost.png
+(MOD-LOADER) Loading a texture UIs\yellow signpost.png
 (TEXTURES) Loading texture: UIs/yellow signpost.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\ukraine.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\ukraine.png
+(MOD-LOADER) tname ukraine.png
+(MOD-LOADER) Loading a texture ukraine.png
 (TEXTURES) Loading texture: ukraine.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\ukraine1.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\ukraine1.png
+(MOD-LOADER) tname ukraine1.png
+(MOD-LOADER) Loading a texture ukraine1.png
 (TEXTURES) Loading texture: ukraine1.png
+(MOD-LOADER) absLen 64
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\visuals.png
+(MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\textures\visuals.png
+(MOD-LOADER) tname visuals.png
+(MOD-LOADER) Loading a texture visuals.png
 (TEXTURES) Loading texture: visuals.png
+(MOD-LOADER) Textures: [item/substrate 9.png, arrow.png, place.png, machine/vacuum.png, item/silicon ingot.png, item/circuit 7.png, Kenney Pixel Art UI/9-Slice/Ancient/grey_inlay.png, Kenney Pixel Art UI/9-Slice/Outline/green.png, machine/chest6.png, tool/normal.png, logic/OR.png, example rotations.png, container.png, item/diamond.png, logic/button.png, Kenney Pixel Art UI/9-Slice/Ancient/white_inlay.png, colorable.png, machine/ppipe cross.png, Kenney Pixel Art UI/9-Slice/Colored/red_pressed.png, logic/logic gates.png, logic/true.png, routes/long hway ramp.png, Kenney Pixel Art UI/9-Slice/Colored/blue_pressed.png, item/ring 1.png, item/list.png, item/rudimentary pick.png, logic/8-bit wires.png, machine/pipe elbow.png, highway/symexit.png, item/substrate 2.png, item/wire spool.png, UAvsRU.png, item/steel pick head.png, Kenney Pixel Art UI/9-Slice/Outline/green_pressed.png, machine/imoverR.png, item/uranium rod.png, machine/ivacuum.png, item/paper.png, liquid/plasma.png, logic/on lamp.png, machine/pipe bridged.png, log.png, machine/power/tiny connector.png, UIs/orange signpost.png, block/leaves.png, Kenney Pixel Art UI/9-Slice/space.png, machine/item package.png, old/pipe elbow 2.png, routes/item routes/2-carriage interchanges.png, item/depleted uranium ingot.png, item/circuit 3.png, item/IC.png, old/extract.png, grass.png, item/wood pick.png, machine/assembly 6.png, Kenney Pixel Art UI/9-Slice/Colored/grey_pressed.png, item/stainless wire.png, machine/power/pmeter.png, Kenney Pixel Art UI/9-Slice/Ancient/grey.png, UIs/red signpost.png, item/capacitor.png, machine/pipe biturn.png, machine/chest2.png, machine/pipe merge left.png, liquid/steam.png, machine/autoassembly 3.png, item/wire overlay.png, item/rudimentary pick head.png, item/dust.png, item/gear.png, item/inductor.png, machine/pipes.png, machine/block BP interface.png, item/transistor.png, Kenney Pixel Art UI/9-Slice/Colored/grey.png, logic/YES.png, logic/AND.png, Kenney Pixel Art UI/9-Slice/Colored/green_pressed.png, machine/pipe straight.png, item/motor 1.png, item/wood pick head.png, machine/quarry.png, Kenney Pixel Art UI/9-Slice/list.png, machine/3-way shuffler.png, machine/power/tiny center.png, item/substrate 6.png, machine/assembly 2.png, item/frame 1.png, machine/machinemaker.png, machine/power/large wire.png, ukraine1.png, machine/power/load.png, routes/adjoin inner.png, logic/randomctrl.png, item/control rod.png, logic/XOR.png, special/invalid.png, nuclear reactor.png, item/substrate 8.png, logic/LNetwork attachment.png, machine/speaker 3.png, liquid/water.png, logic/toggle off.png, routes/item routes.png, routes/long hway offset single.png, machine/dropped item interface.png, UIs/yellow signpost.png, base/pickaxe.png, Kenney Pixel Art UI/9-Slice/Colored/yellow.png, item/copper pick.png, Kenney Pixel Art UI/9-Slice/Outline/blue_pressed.png, machine/autoassembly 6.png, machine/cyclic assembler.png, Kenney Pixel Art UI/9-Slice/Colored/yellow_pressed.png, machine/alloyer.png, mine.png, Kenney Pixel Art UI/9-Slice/Ancient/white_pressed.png, logic/toggle inert.png, routes/half medium offset single.png, machine/pipe exit.png, machine/claw.png, item/steel rod.png, Kenney Pixel Art UI/9-Slice/space_inlay.png, dropItems.png, logic/off.png, base/axe.png, routes/medium hway offset single.png, block/ore overlay.png, machine/pipe 4-section.png, item/circuit 4.png, block/frame.png, Kenney Pixel Art UI/9-Slice/Outline/blue.png, machine/power/infinity.png, Kenney Pixel Art UI/9-Slice/Ancient/grey_pressed.png, machine/ppipe adjoin2.png, Kenney Pixel Art UI/9-Slice/Outline/yellow_pressed.png, machine/power/small wire.png, base/rod.png, machine/splitter.png, routes/end hway sign.png, machine/smelter active.png, block/coal ore.png, routes/adjoin side.png, base/dust.png, brush.png, logic/on.png, machine/pickaxe workbench.png, visuals.png, printer.png, block/clear transformer.png, machine/power/small center.png, machine/ppipe adjoin.png, tool/paint.png, item/substrate 3.png, machine/esmelter.png, machine/assembly 5.png, routes/item routes/2 lane.png, stone.png, item/stainless pick head.png, machine/smelter inert.png, Kenney Pixel Art UI/9-Slice/Ancient/tan.png, Kenney Pixel Art UI/9-Slice/Colored/green.png, routes/half short hway offset single.png, routes/highways.png, road/road connector.png, old/imover 2.png, machine/wiremill.png, machine/imover.png, highway/hway sig.png, item/circuit 0.png, item/substrate 7.png, hoover.png, machine/cluster mill.png, machine/CW.png, routes/turn transition.png, Kenney Pixel Art UI/9-Slice/Outline/red_pressed.png, machine/chest3.png, machine/coalgen.png, item/motor 2.png, UIs/green signpost.png, block/message.png, item/resistor.png, machine/autoassembly 2.png, machine/ppipe biturn.png, machine/pulverizer.png, routes/roads.png, item/minidust.png, item/substrate 0.png, machine/pipe oneway.png, routes/adjoin small.png, inventory/infinity.png, item/gem.png, machine/speaker 2.png, highway/reduce.png, item/circuit 9.png, item/resrcbed.png, machine/assembly 1.png, item/copper pick head.png, routes/item routes/net machines.png, machine/power/medium connector.png, Kenney Pixel Art UI/9-Slice/Colored/red.png, logic/toggle on.png, machine/power/small connector.png, highway/merge.png, minecxraft.bmp, space tiling.png, Kenney Pixel Art UI/9-Slice/Ancient/brown_inlay.png, machine/power/nuke reactor.png, machine/smelter inert 2.png, old/pipe straight 2.png, item/circuit 5.png, logic/drandom.png, base/ingot.png, machine/autoassembly 5.png, road/road center.png, routes/half vshort highway offset single.png, liquid/lava.png, machine/power/medium center.png, item/cluster.png, Kenney Pixel Art UI/9-Slice/Ancient/white.png, Kenney Pixel Art UI/9-Slice/Ancient/tan_inlay.png, item/diode.png, Kenney Pixel Art UI/9-Slice/Colored/blue.png, machine/power/large center.png, block/clay.png, item/nugget.png, Kenney Pixel Art UI/9-Slice/Outline/red.png, item/lisc.png, item/substrate 4.png, machine/pipe merge right.png, plank.png, logic/urandom.png, machine/imoverL.png, Kenney Pixel Art UI/9-Slice/Outline/yellow.png, routes/hway sign.png, spider.png, item/ldust.png, block/block.png, machine/sucker.png, logic/NOT.png, block/coal crop.png, highway/hway sign.png, Kenney Pixel Art UI/9-Slice/Ancient/brown_pressed.png, highways.png, machine/block break interface.png, machine/autoassembly 1.png, base/block base.png, machine/assembly 4.png, routes/item routes/2 carriage misc.png, item/circuit 1.png, item/silicon nugget.png, machine/switch turn.png, machine/chest4.png, block/tree.png, crafting.png, item/foil.png, routes/short hway offset single.png, item/heat rod.png, Hello World/mini rainbow.png, highway/symmerge.png, routes/item routes/2-way simple.png, routes/item routes/route control.png, lane changes.png, UIs/blue signpost.png, item/resistor array.png, block/opaque transformer.png, item/circuit 8.png, processor/wiremill.png, item/stone pick head.png, liquid/fuel.png, item/coolant rod.png, item/component code.png, block/sand.png, item/panel.png, item/circuit 6.png, item/package code.png, machine/3-way merger.png, machine/CCW.png, item/smalldust.png, logic/off lamp.png, machine/ppipe straight.png, machine/chest5.png, machine/placer.png, item/depleted rod.png, chuckBlock.png, machine/power/large connector.png, machine/switch straight.png, item/ingot.png, machine/electrosmelter.png, routes/item routes/2-carriage interconnectors.png, highway/widen.png, base/ore base.png, item/fragment.png, item/substrate 1.png, machine/pipe 3-section.png, tools.png, highway/exit.png, example rotation.png, liquid/smoke.png, Hello World/rainbow.png, block/metal.png, liquid/oxygen.png, item/package.png, machine/chest1.png, Kenney Pixel Art UI/9-Slice/Ancient/tan_pressed.png, machine/power/cables.png, tool/wrench.png, item/stencil.png, machine/ppipe turn.png, item/stainless pick.png, block/gravel.png, item/circuit 2.png, base/gear.png, machine/power/tiny wire.png, machine/autoassembly 4.png, machine/splicer.png, machine/hopper.png, machine/block place interface.png, logic/random.png, textedit.png, routes/item routes/1-way simple.png, machine/AutoCrafter 1.png, machine/transformer.png, machine/assembly 3.png, machine/power/medium wire.png, routes/medium hway ramp.png, machine/imover intersected.png, block/framesolid.png, item/substrate 5.png, copy.png, item/quantum pick.png, machine/speaker 1.png, routes/short hway ramp.png, ukraine.png, machine/transferrer.png, Kenney Pixel Art UI/9-Slice/Ancient/brown.png]
+(MAIN) State: Loading sounds
+(MOD-LOADER) walkDirectory C:\Users\oskar\eclipse-workspace\Multi Machine Builder\sound
+(MOD-LOADER) absLen 61
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\sound
 (MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\sound
+(MOD-LOADER) absLen 61
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\sound\error.mp3
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\sound\error.mp3
+(MOD-LOADER) tname error.mp3
 (MOD-LOADER) Loading a sound error.mp3
 (MP3) untilLoad
 (SOUNDS) Loading a sound: error.mp3
+(MOD-LOADER) absLen 61
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\sound\minecxraft.wav
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\sound\minecxraft.wav
+(MOD-LOADER) tname minecxraft.wav
 (MOD-LOADER) Loading a sound minecxraft.wav
 (SOUNDS) Loading a sound: minecxraft.wav
 (SOUNDS) Loading a sound: minecxraft.wav
@@ -4022,6 +5820,9 @@
 (MOD-LOADER) IV, structural: null, electrical: null
 (MOD-LOADER) LuV, structural: null, electrical: null
 (MOD-LOADER) MAX, structural: null, electrical: null
+(MAIN) State: Loading blocks
+(MAIN) State: Loading items
+(MAIN) State: Loading machines
 (BLOCKS) Adding industry.transformer0 with title Transformer VLV/ULV and description:
  null
 (ITEMS) Adding industry.transformer0 with title Transformer VLV/ULV and description:
@@ -4080,38 +5881,52 @@
 (ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with machine-transformer
 (TOOLS) Tools initialized
 (FullScreen) Setting up FullScreen
+(MAIN) State: Looking for mods
 (MOD-LOADER) Loading mods
 (MOD-LOADER) Finding all files to load
 (MOD-LOADER) Added missing mods directory
+(MOD-LOADER) walkDirectory C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods
+(MOD-LOADER) absLen 60
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods
 (MOD-LOADER) Directory: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods
+(MOD-LOADER) absLen 60
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
+(MOD-LOADER) tname BEB.jar
+(MOD-LOADER) absLen 60
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
+(MOD-LOADER) tname HelloWorld 0.5.jar
+(MOD-LOADER) absLen 60
+(MOD-LOADER) walkDirectory2 C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
 (MOD-LOADER) File: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+(MOD-LOADER) tname mmb-DE.jar
+(MAIN) State: Found 3 mod files
 (MOD-LOADER) Found 3 mod files
 (MOD - BEB.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
-(MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD - mmb-DE.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
+(MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD - mmb-DE.jar) Loading a modfile: mmb-DE.jar
-(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
 (MOD - BEB.jar) Loading a modfile: BEB.jar
-(MOD - HelloWorld 0.5.jar) entry: META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5.jar) Loading a modfile: HelloWorld 0.5.jar
 (MOD - mmb-DE.jar) entry: META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5.jar) entry: META-INF/MANIFEST.MF
 (MOD - BEB.jar) entry: META-INF/MANIFEST.MF
+(MOD - BEB.jar) entry: mmbmods/beb/package-info.class
+(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
+(MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
+(MOD - mmb-DE.jar) entry: .project
+(MOD - mmb-DE.jar) entry: .classpath
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
 (MOD - HelloWorld 0.5.jar) entry: .project
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - mmb-DE.jar) entry: .project
-(MOD - BEB.jar) entry: mmbmods/beb/package-info.class
-(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/package-info.class
-(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
-(MOD - mmb-DE.jar) entry: .classpath
-(MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
 (MOD - BEB.jar) entry: .classpath
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - BEB.jar) entry: .project
+(MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) entry: bin/resources/textures/hw/notepad.png
 (MOD - HelloWorld 0.5.jar) entry: pom.xml
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
@@ -4122,75 +5937,60 @@
 (MOD - HelloWorld 0.5.jar) entry: src/resources/textures/hw/notepad.png
 (MOD - HelloWorld 0.5.jar) entry: .classpath
 (MOD - HelloWorld 0.5.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - mmb-DE.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
-(MOD - mmb-DE.jar) Processing .classpath
-(MOD - mmb-DE.jar) File: .classpath
-(MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
-(MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
-(MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
-(MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
-(MOD - mmb-DE.jar) Processing .project
-(MOD - mmb-DE.jar) File: .project
-(MOD - mmb-DE.jar) Processing META-INF/MANIFEST.MF
-(MOD - mmb-DE.jar) File: META-INF/MANIFEST.MF
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
-(MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
 (MOD - BEB.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
-(MOD - BEB.jar) Processing mmbmods/beb/BlockBEB.class
-(MOD - BEB.jar) File: mmbmods/beb/BlockBEB.class
 (MOD - HelloWorld 0.5.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
-(MOD - BEB.jar) Processing .classpath
-(MOD - BEB.jar) File: .classpath
+(MOD - BEB.jar) Processing mmbmods/beb/BlockBEB.class
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - BEB.jar) Processing mmbmods/beb/package-info.class
-(MOD - BEB.jar) File: mmbmods/beb/package-info.class
+(MOD - BEB.jar) File: mmbmods/beb/BlockBEB.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - BEB.jar) Processing mmbmods/beb/BEBMod.class
-(MOD - BEB.jar) File: mmbmods/beb/BEBMod.class
 (MOD - HelloWorld 0.5.jar) Processing .classpath
-(MOD - BEB.jar) Processing .project
-(MOD - BEB.jar) File: .project
 (MOD - HelloWorld 0.5.jar) File: .classpath
-(MOD - BEB.jar) Processing META-INF/MANIFEST.MF
-(MOD - BEB.jar) File: META-INF/MANIFEST.MF
 (MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/DataLayerHW.class
-(MOD - BEB.jar) Class: mmbmods.beb.BlockBEB
 (MOD - HelloWorld 0.5.jar) Processing .project
 (MOD - HelloWorld 0.5.jar) File: .project
 (MOD - HelloWorld 0.5.jar) Processing pom.xml
 (MOD - HelloWorld 0.5.jar) File: pom.xml
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - BEB.jar) Processing .classpath
 (MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - BEB.jar) File: .classpath
 (MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - BEB.jar) Processing mmbmods/beb/package-info.class
 (MOD - HelloWorld 0.5.jar) Processing SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
 (MOD - HelloWorld 0.5.jar) File: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - BEB.jar) File: mmbmods/beb/package-info.class
 (MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - BEB.jar) Processing mmbmods/beb/BEBMod.class
 (MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - BEB.jar) File: mmbmods/beb/BEBMod.class
 (MOD - HelloWorld 0.5.jar) Processing bin/resources/textures/hw/notepad.png
-(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - BEB.jar) Processing .project
 (MOD - HelloWorld 0.5.jar) File: bin/resources/textures/hw/notepad.png
-(MOD - mmb-DE.jar) Class: mmbmods.lang.de.package-info
+(MOD - BEB.jar) File: .project
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - BEB.jar) Processing META-INF/MANIFEST.MF
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - BEB.jar) File: META-INF/MANIFEST.MF
 (MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/package-info.class
+(MOD - BEB.jar) entry: mmbmods/beb/BlockBEB.class
 (MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/package-info.class
+(MOD - BEB.jar) Class: mmbmods.beb.BlockBEB
 (MOD - HelloWorld 0.5.jar) Processing mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) File: mmbmods/monniasza/helloworld/package-info.class
 (MOD - HelloWorld 0.5.jar) Processing src/resources/textures/hw/notepad.png
 (MOD - HelloWorld 0.5.jar) File: src/resources/textures/hw/notepad.png
-(MOD - BEB.jar) entry: mmbmods/beb/package-info.class
 (MOD - HelloWorld 0.5.jar) Processing META-INF/MANIFEST.MF
-(MOD - BEB.jar) Class: mmbmods.beb.package-info
 (MOD - HelloWorld 0.5.jar) File: META-INF/MANIFEST.MF
 (MOD - HelloWorld 0.5.jar) Processing bin/mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld 0.5.jar) File: bin/mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HelloWorld
+(MOD - BEB.jar) entry: mmbmods/beb/package-info.class
+(MOD - BEB.jar) Class: mmbmods.beb.package-info
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWMachine.class
 (MOD - HelloWorld 0.5.jar) Class: bin.mmbmods.monniasza.helloworld.HWMachine
 (MOD - BEB.jar) entry: mmbmods/beb/BEBMod.class
@@ -4209,28 +6009,43 @@
 	at java.base/java.lang.Thread.run(Thread.java:829)
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/DataLayerHW.class
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.DataLayerHW
+(BLOCKS) Adding beb.BEB with title Block Entity Bomb and description:
+ null
+(MOD - mmb-DE.jar) Injecting C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
 (MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - mmb-DE.jar) Processing .classpath
+((MOD - mmb-DE.jar) File: .classpath
 (MOD - HelloWorld 0.5.jar) Class: mmbmods.monniasza.helloworld.HWMachine
+(MOD - mmb-DE.jar) Processing mmbmods/lang/de/German.class
+ITEMS) Adding beb.BEB with title Block Entity Bomb and description:
+ null
+(MOD - mmb-DE.jar) File: mmbmods/lang/de/German.class
+(MOD - mmb-DE.jar) Processing mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) File: mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) Processing .project
+(MOD - mmb-DE.jar) File: .project
+(MOD - mmb-DE.jar) Processing META-INF/MANIFEST.MF
+(MOD - mmb-DE.jar) File: META-INF/MANIFEST.MF
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/German.class
+(MOD - mmb-DE.jar) Class: mmbmods.lang.de.German
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld 0.5.jar) Class: bin.mmbmods.monniasza.helloworld.HelloWorld
+(MOD - mmb-DE.jar) entry: mmbmods/lang/de/package-info.class
+(MOD - mmb-DE.jar) Class: mmbmods.lang.de.package-info
 (MOD - HelloWorld 0.5.jar) Missing dependencies in bin/mmbmods/monniasza/helloworld/HelloWorld.class
 (MOD - HelloWorld 0.5.jar) java.lang.NoClassDefFoundError: mmbmods/monniasza/helloworld/HelloWorld (wrong name: bin/mmbmods/monniasza/helloworld/HelloWorld)
 	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
 	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
 	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:878)
 	at io.github.micwan88.helperclass4j.ByteClassLoader.findClass(ByteClassLoader.java:43)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)(
-BLOCKS	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)) 
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:589)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
 	at io.github.micwan88.helperclass4j.ByteClassLoader.loadClass(ByteClassLoader.java:53)
 	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:214)
 	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:87)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 (MOD - HelloWorld 0.5.jar) entry: bin/mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) Class: bin.mmbmods.monniasza.helloworld.HWBlock
-Adding beb.BEB with title Block Entity Bomb and description:
- null
-(ITEMS) Adding beb.BEB with title Block Entity Bomb and description:
- null
 (MOD - HelloWorld 0.5.jar) Missing dependencies in bin/mmbmods/monniasza/helloworld/HWBlock.class
 (MOD - HelloWorld 0.5.jar) java.lang.NoClassDefFoundError: mmbmods/monniasza/helloworld/HWBlock (wrong name: bin/mmbmods/monniasza/helloworld/HWBlock)
 	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
@@ -4276,35 +6091,38 @@ Adding beb.BEB with title Block Entity Bomb and description:
 	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:87)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 (HW) Hello, world!
+(MAIN) State: Mods - Phase 1
+(MOD-LOADER) Start 1st stage for BlockEntity Bomb
 (MOD-LOADER) Start 1st stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) End 1st stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) Start 1st stage for BlockEntity Bomb
 (MOD-LOADER) End 1st stage for BlockEntity Bomb
-(MOD-LOADER) Start 2nd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) End 2nd stage for MultiMachineBuilder German/Deutsch
-(MOD-LOADER) Start 3rd stage for MultiMachineBuilder German/Deutsch
+(MAIN) State: Mods - Phase 2
 (MOD-LOADER) Start 2nd stage for BlockEntity Bomb
-(MOD-LOADER) End 3rd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) Start 2nd stage for MultiMachineBuilder German/Deutsch
 (MOD-LOADER) End 2nd stage for BlockEntity Bomb
+(MOD-LOADER) End 2nd stage for MultiMachineBuilder German/Deutsch
+(MAIN) State: Mods - Phase 3
+(MOD-LOADER) Start 3rd stage for BlockEntity Bomb
+(MOD-LOADER) Start 3rd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) End 3rd stage for BlockEntity Bomb
+(MOD-LOADER(MOD-LOADER) ================MOD INFORMATION FOR BlockEntity Bomb================
+) End 3rd stage for MultiMachineBuilder German/Deutsch
+(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
+(MOD-LOADER) Aktywny
+(MOD-LOADER) RELEASED Fri Jun 03 22:12:33 CEST 2022
+(MOD-LOADER) MADE BY 
+(MOD-LOADER) DESCRIPTION: A block that lags out entire game.
 (MOD-LOADER) ================MOD INFORMATION FOR MultiMachineBuilder German/Deutsch================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\mmb-DE.jar
 (MOD-LOADER) Aktywny
-(MOD-LOADER) Start 3rd stage for BlockEntity Bomb
-(MOD-LOADER) End 3rd stage for BlockEntity Bomb
 (MOD-LOADER) RELEASED Tue Jul 12 00:00:00 CEST 3921
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: This mod contains German translation of the game
 Diese Modifikation enhaltet Deutschsprachigen Übersetzung des Spiel
-(MOD-LOADER) ================MOD INFORMATION FOR BlockEntity Bomb================
-(MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\BEB.jar
-(MOD-LOADER) Aktywny
-(MOD-LOADER) RELEASED Wed Jun 01 19:55:31 CEST 2022
-(MOD-LOADER) MADE BY 
-(MOD-LOADER) DESCRIPTION: A block that lags out entire game.
 (MOD-LOADER) ================MOD INFORMATION FOR Hello, world!================
 (MOD-LOADER) LOCATED AT C:\Users\oskar\eclipse-workspace\Multi Machine Builder\mods\HelloWorld 0.5.jar
 (MOD-LOADER) Zawieszony
-(MOD-LOADER) RELEASED Wed Jun 01 19:55:31 CEST 2022
+(MOD-LOADER) RELEASED Fri Jun 03 22:12:33 CEST 2022
 (MOD-LOADER) MADE BY Monniasza
 (MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) HOORAY, IT'S OVER!

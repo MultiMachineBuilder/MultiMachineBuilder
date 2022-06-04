@@ -12,6 +12,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import mmb.debug.Debugger;
 import mmb.Main;
@@ -51,26 +52,6 @@ public final class ModLoader {
 	public static int modCount() {
 		return modCount;
 	}
-	@SuppressWarnings("null")
-	private static void walkTextures(File f) {
-		if(f.isFile()) {
-			String absPath = f.getAbsolutePath();
-			String tname = absPath.substring(Textures.texturesPath.length()+1);
-			try(InputStream is = new FileInputStream(f)) {
-				Textures.load(tname, is);
-			} catch (Exception e) {
-				debug.pstm(e, "THIS MESSAGE INDICATES MALFUNCTION OF JAVA OR FILE SYSTEM"); //this should not happen
-				debug.pstm(e, "Could not find texture "+tname+", despite its presence being indicated");
-				UndeclarableThrower.shoot(e);
-			}
-		}
-		if(f.isDirectory()) {
-			File[] walk = f.listFiles();
-			for(int i = 0; i < walk.length; i++) {
-				walkTextures(walk[i]);
-			}
-		}
-	}
 	/**
 	 * Used by the main class to load mods
 	 */	
@@ -81,11 +62,20 @@ public final class ModLoader {
 	 */
 	@SuppressWarnings("null")
 	public static void modloading(){
-		Main.state1("Loading textures");
 		//Load textures
-		walkTextures(new File("textures/"));
+		Main.state1("Loading textures");
+		walkDirectory(new File("textures/"), (s, f) -> {
+			debug.printl("Loading a texture "+s);
+			try(InputStream i = new FileInputStream(f)) {
+				Textures.load(s, i);
+			} catch (Exception e) {
+				debug.pstm(e, "Failed to load a texture "+s);
+			}
+		});
+		debug.printl("Textures: "+Textures.textures.keySet()); //texture and sound loading skipped in release
 		
 		//Load sounds
+		Main.state1("Loading sounds");
 		walkDirectory(new File("sound/"), (s, f) -> {
 			debug.printl("Loading a sound "+s);
 			try(InputStream i = new FileInputStream(f)) {
@@ -118,6 +108,7 @@ public final class ModLoader {
 		FullScreen.initialize();
 		TransformerData.init();
 		
+		Main.state1("Looking for mods");
 		//Get external mods to load
 		Set<String> external = new HashSet<>();
 		try {
@@ -129,7 +120,6 @@ public final class ModLoader {
 		}
 		
 		//Notify user
-		Main.state1("Initial load");
 		debug.printl("Loading mods");
 		debug.printl("Finding all files to load");
 		
@@ -185,6 +175,7 @@ public final class ModLoader {
 			}
 		}
 		
+		Main.state1("Mods - Phase 1");
 		//First runs. Similar process for all three stages
 		List<Thread> firstRuns = new ArrayList<>();
 		CountDownLatch latch = new CountDownLatch(GameContents.addons.size()-1);
@@ -222,6 +213,7 @@ public final class ModLoader {
 		}
 		
 		//Content runs
+		Main.state1("Mods - Phase 2");
 		CountDownLatch latch1 = new CountDownLatch(GameContents.addons.size()-1);
 		List<Thread> contents = new ArrayList<>();
 		GameContents.addons.forEach(ai1 -> {
@@ -253,6 +245,7 @@ public final class ModLoader {
 		}
 		
 		//Integration runs
+		Main.state1("Mods - Phase 3");
 		CountDownLatch latch2 = new CountDownLatch(GameContents.addons.size()-1);
 		List<Thread> integrators = new ArrayList<>();
 		GameContents.addons.forEach(ai2 -> {
@@ -298,31 +291,29 @@ public final class ModLoader {
 	 * @param action action to run in form of (file name, file)
 	 */
 	public static void walkDirectory(File f, BiConsumer<String,File> action) {
-		/*List<File> files = new ArrayList<>();
-		walkDirectory(folder, files);
-		files.forEach(file -> {
-			String root = folder.getAbsolutePath();
-			String sub = file.getAbsolutePath();
-			sub = sub.substring(root.length());
-			action.accept(sub, file);
-		});*/
-		walkDirectory(f.getAbsolutePath().length(), f, action);
+		debug.printl("walkDirectory "+f.getAbsolutePath());		
+		String abs = f.getAbsolutePath();
+		int len = abs.length()+1;
+		if(abs.endsWith("/") || abs.endsWith("\\")) len++;
+		walkDirectory(false, len, f, action);
 	}
-	private static void walkDirectory(int baseSuffixLength, File f, BiConsumer<String,File> action) {
+	private static void walkDirectory(boolean isFurther, int absLen, File f, BiConsumer<String,File> action) {
 		try {
-			if(f.isFile()) {
+			debug.printl("absLen "+absLen);
+			debug.printl("walkDirectory2 "+f.getAbsolutePath());
+			File[] walk = f.listFiles();
+			if(walk == null) {
 				debug.printl("File: " + f.getCanonicalPath());
-				String absPath = f.getAbsolutePath();
-				String tname = absPath.substring(baseSuffixLength+1);
+				String tname = f.getAbsolutePath().substring(absLen);
+				debug.printl("tname "+tname);
 				action.accept(tname, f);
-			}
-			if(f.isDirectory()) {
+			}else {
 				debug.printl("Directory: " + f.getCanonicalPath());
-				File[] walk = f.listFiles();
 				for(int i = 0; i < walk.length; i++) {
-					walkDirectory(baseSuffixLength, walk[i], action);
+					walkDirectory(true, absLen, walk[i], action);
 				}
 			}
+			
 		} catch (IOException e) {
 			debug.pstm(e, "THIS MESSAGE INDICATES MALFUNCTION OF FILE PATH SYSTEM OR JAVA. Couldn't get path of the file");
 		}

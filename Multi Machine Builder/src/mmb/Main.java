@@ -50,6 +50,7 @@ public class Main {
 	static Loading loader;
 	public static void state1(String str) {
 		loader.st1.setText(str);
+		debug.printl("State: "+str);
 	}
 	public static void state2(String str) {
 		loader.st2.setText(str);

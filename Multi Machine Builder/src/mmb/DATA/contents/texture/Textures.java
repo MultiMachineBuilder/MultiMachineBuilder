@@ -4,9 +4,9 @@
 package mmb.DATA.contents.texture;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,9 +23,7 @@ import mmb.debug.Debugger;
 public class Textures {
 	private static final Debugger debug = new Debugger("TEXTURES");
 	private static final Map<String, BufferedImage> loadedTextures = new HashMap<>();
-	public static final String prefix = "textures/";
-	public static final File texturesDir = new File(prefix);
-	public static final String texturesPath = texturesDir.getAbsolutePath();
+	public static final Map<String, BufferedImage> textures = Collections.unmodifiableMap(loadedTextures);
 	/**
 	 * 
 	 * @param name texture name, without 'textures/' and with forward slashes only
@@ -57,8 +55,7 @@ public class Textures {
 	}
 	
 	@Nullable public static BufferedImage nget(String name) {
-		String name2 = name.replace('\\', '/'); //replace slashes so users can use both '/' and '\'
-		return loadedTextures.get(name2);
+		return loadedTextures.get(name);
 	}
 
 }
