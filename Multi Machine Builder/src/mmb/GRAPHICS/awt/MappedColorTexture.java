@@ -25,6 +25,7 @@ public class MappedColorTexture implements BlockDrawer {
 
 	private BufferedImage result;
 	private final ColorMapper mapper;
+	private int LOD = 0;
 	/**
 	 * @param c
 	 * @see mmb.GRAPHICS.awt.ColorMapperRGBA#setFrom(java.awt.Color)
@@ -49,6 +50,7 @@ public class MappedColorTexture implements BlockDrawer {
 	public void setTo(Color c) {
 		synchronized(drawLock) {
 			mapper.setTo(c);
+			LOD = c.getRGB();
 			resetColors();
 		}
 	}
@@ -87,5 +89,9 @@ public class MappedColorTexture implements BlockDrawer {
 	 */
 	public BufferedImage getResult() {
 		return result;
+	}
+	@Override
+	public int LOD() {
+		return LOD;
 	}	
 }

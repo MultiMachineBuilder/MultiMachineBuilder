@@ -11,9 +11,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.contentgen.ElectricMachineGroup.ElectroMachineType;
-import mmb.WORLD.crafting.ElectroItemProcessHelper;
-import mmb.WORLD.crafting.ElectroLuckyItemProcessHelper;
 import mmb.WORLD.crafting.RecipeGroup;
+import mmb.WORLD.crafting.helper.ElectroItemProcessHelper;
+import mmb.WORLD.crafting.helper.ElectroLuckyItemProcessHelper;
 import mmb.WORLD.crafting.recipes.ElectroLuckySimpleProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup;
 import mmb.WORLD.electric.Electricity;

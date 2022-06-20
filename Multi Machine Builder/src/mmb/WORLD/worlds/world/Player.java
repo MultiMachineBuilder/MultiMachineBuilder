@@ -83,6 +83,11 @@ public class Player implements GameObject, Saver<JsonNode> {
 		JsonNode posY = on.get("y");
 		if(posY != null) pos.y = posY.asDouble();
 		
+		JsonNode alc1 = on.get("alcohol1");
+		if(alc1 != null) digestibleAlcohol = alc1.asDouble();
+		JsonNode alc2 = on.get("alcohol2");
+		if(alc2 != null) BAC = alc2.asDouble();
+		
 		onPlayerLoaded.trigger(new Tuple2<>(this, on));
 	}
 
@@ -94,6 +99,8 @@ public class Player implements GameObject, Saver<JsonNode> {
 		result.put("creative", creative.getValue());
 		result.put("x", pos.x);
 		result.put("y", pos.y);
+		result.put("alcohol1", digestibleAlcohol);
+		result.put("alcohol2", BAC);
 		return result;
 	}
 	
@@ -107,33 +114,128 @@ public class Player implements GameObject, Saver<JsonNode> {
 	@Nonnull public final Vector2d speed = new Vector2d();
 	@Nonnull public PlayerPhysics physics = new PlayerPhysicsNormal();
 	void onTick(World world) {
+		alcohol();
+		blink();
 		if(!(Double.isFinite(pos.x) && Double.isFinite(pos.y))){
 			physics = new PlayerPhysicsNormal();
 			pos.set(0, 0);
 		}
 		Vector2d posOld = new Vector2d(pos);
 		speedTrue0.set(pos);
-		physics.onTick(world, this, ctrlR, ctrlD);
+		double ctrlX=controls.x+jitter.x;
+		double ctrlY=controls.y+jitter.y;
+		physics.onTick(world, this, ctrlX, ctrlY);
 		speedTrue0.sub(pos).mul(-50);
 		if(Double.isFinite(pos.x) && Double.isFinite(pos.y)) return;
 		physics = new PlayerPhysicsNormal();
 		pos.set(posOld);
 	}
 	
-	int ctrlD, ctrlR;
+	public final Vector2d controls = new Vector2d();
+	public final Vector2d jitter = new Vector2d();
 
 	/**
+	 * Sets the control inputs
 	 * @param u
 	 * @param d
 	 * @param l
 	 * @param r
 	 */
 	public void setControls(boolean u, boolean d, boolean l, boolean r) {
-		ctrlD = 0;
-		if(u) ctrlD--;
-		if(d) ctrlD++;
-		ctrlR = 0;
-		if(l) ctrlR--;
-		if(r) ctrlR++;
+		controls.set(0);
+		if(u) controls.y--;
+		if(d) controls.y++;
+		if(l) controls.x--;
+		if(r) controls.x++;
 	}
+
+	//Everything about alcohol
+	private double digestibleAlcohol;
+	/** @return the digestibleAlcohol amount of digestible alcohol remaining */
+	public double getDigestibleAlcohol() {
+		return digestibleAlcohol;
+	}
+	/** @param digestibleAlcohol set amount of alcohol that can be digested */
+	public void setDigestibleAlcohol(double digestibleAlcohol) {
+		this.digestibleAlcohol = digestibleAlcohol;
+	}
+	private double BAC;
+	/**  @return the BAC */
+	public double getBAC() {
+		return BAC;
+	}
+	/** @param BAC the BAC to set */
+	public void setBAC(double BAC) {
+		this.BAC = BAC;
+	}
+	private void alcohol() {
+		//Absorb the alcohol (0.1u/s)
+		if(digestibleAlcohol < 0.002) {
+			BAC += digestibleAlcohol;
+			digestibleAlcohol = 0;
+		}else {
+			BAC += 0.002;
+			digestibleAlcohol -= 0.002;
+		}
+		
+		//Apply effects of alcohol
+		//jitter
+		double jitterscale = BAC*BAC / 10;
+		double angle = 2*Math.PI*Math.random();
+		double magnitude = jitterscale*Math.random();
+		jitter.set(magnitude*Math.sin(angle), magnitude*Math.cos(angle));
+		
+		//blink speed
+		if(BAC < 0) {
+			BAC = 0;
+			blinkspeed = 1;
+		}else if(BAC < 4) {
+			double ex = BAC-2;
+			blinkspeed = 3-0.5*ex*ex;
+		}else if(BAC < 4.5) {
+			blinkspeed = 9-BAC*2;
+		}else {
+			blinkspeed = 0;
+		}
+		
+		//Metabolize alcohol (0.02u/s)
+		if(BAC < 0.0004) {
+			BAC = 0;
+		}else {
+			BAC -= 0.0004;
+		}
+	}
+	
+	//Blinking
+	private double blinkspeed = 0;
+	private double blinkcycle = 0;
+	private int blink = 0;
+	private void blink() {
+		//Blink cycle
+		if(blink == 6) blink = 0;
+		if(blink >= 1) 
+			blink++;
+		
+		//Blink speed
+		blinkcycle += blinkspeed/50;
+		if(blinkcycle >= 1) {
+			blinkcycle -= 1;
+			blink = 1;
+		}
+	}
+
+	/** @return current blink speed */
+	public double getBlinkspeed() {
+		return blinkspeed;
+	}
+	/** @return position of the blink cycle */
+	public double getBlinkcycle() {
+		return blinkcycle;
+	}
+	/** @return position of blink animation */
+	public int getBlink() {
+		return blink;
+	}
+
+	
 }

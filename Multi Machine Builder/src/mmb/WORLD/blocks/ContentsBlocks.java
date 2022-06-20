@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 import javax.annotation.Nonnull;
 
 import mmb.GlobalSettings;
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.blocks.actuators.ActuatorClick;
@@ -483,6 +483,10 @@ public class ContentsBlocks {
 	.texture("liquid/steam.png")
 	.title("#steam")
 	.finish("liquid.steam");
+	@Nonnull public static final Block alcohol = new Block()
+	.texture("liquid/alcohol.png")
+	.title("#alcohol")
+	.finish("liquid.alcohol");
 	@Nonnull public static final Block clay = new Block()
 	.texture("block/clay.png")
 	.title("#clay")

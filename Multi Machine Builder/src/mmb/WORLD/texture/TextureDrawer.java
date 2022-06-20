@@ -21,6 +21,7 @@ public class TextureDrawer implements BlockDrawer {
 	 * The image which is drawn
 	 */
 	public final BufferedImage img;
+	private int LOD = -1;
 	@Nonnull private final Icon icon;
 	/**
 	 * @param img the image to be drawn
@@ -36,5 +37,11 @@ public class TextureDrawer implements BlockDrawer {
 	@Override
 	public Icon toIcon() {
 		return icon;
+	}
+	@Override
+	public int LOD() {
+		if(LOD < 0) 
+			LOD = LODs.calcLOD(img);
+		return LOD;
 	}
 }

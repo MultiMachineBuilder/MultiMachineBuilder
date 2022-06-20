@@ -276,12 +276,14 @@ public class WorldWindow extends MMBFrame{
 					mnNewMenu.add(lblBlockScale);
 					
 					JScrollBar slideBlockScale = new JScrollBar();
-					slideBlockScale.setValue(32);
-					slideBlockScale.setMinimum(16);
-					slideBlockScale.setMaximum(64);
+					slideBlockScale.setValue(27);
+					slideBlockScale.setMaximum(WorldFrame.zoomlevels.size()+9); //strangely, the value goes up to only 37
+					debug.printl("Number of zoom levels: "+WorldFrame.zoomlevels.size()); //48
+					debug.printl("Scrollbar max: "+slideBlockScale.getMaximum()); //48
 					slideBlockScale.addAdjustmentListener(e -> {
-						worldFrame.setBlockScale(e.getValue());
-						lblBlockScale.setText(scale+" "+e.getValue());
+						worldFrame.setZoom(e.getValue());
+						lblBlockScale.setText(scale+" "+worldFrame.getBlockScale());
+						debug.printl("Scale: "+e.getValue());
 					});
 					slideBlockScale.setOrientation(Adjustable.HORIZONTAL);
 					mnNewMenu.add(slideBlockScale);

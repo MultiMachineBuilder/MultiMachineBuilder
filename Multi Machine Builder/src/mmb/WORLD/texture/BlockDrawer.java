@@ -76,6 +76,10 @@ public interface BlockDrawer {
 	 * @return an {@link Icon}, which represents a preview of this drawer
 	 */
 	@Nonnull public Icon toIcon();
+	/**
+	 * @return a low level of detail color in sRGB
+	 */
+	public int LOD();
 	
 	/**
 	 * Creates an {@link Icon} representation of this {@code BlockDrawer}.

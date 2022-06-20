@@ -17,7 +17,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import mmb.BEANS.Colorable;
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.GRAPHICS.awt.MappedColorTexture;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.gui.ColorGUI;
@@ -89,9 +89,8 @@ public class ToolPaint extends WindowTool {
 	}
 
 	@Override
-	public void preview(int startX, int startY, int scale, Graphics g) {
-		// TODO Auto-generated method stub
-		
+	public void preview(int startX, int startY, double scale, Graphics g) {
+		// unused
 	}
 
 	private final String descr = $res("paint-descr");

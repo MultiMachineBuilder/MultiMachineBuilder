@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.texture.BlockDrawer;
 

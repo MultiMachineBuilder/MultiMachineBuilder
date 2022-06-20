@@ -13,7 +13,6 @@ import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.visuals.Visual;
-import mmb.WORLD.worlds.BlockChangeRequest;
 import mmb.WORLD.worlds.MapProxy;
 
 /**
@@ -30,7 +29,7 @@ public class WorldProxy implements MapProxy{
 	@Override
 	public void close() {
 		for(BlockChangeRequest ent: requests) {
-			ent.apply(that);
+			ent.apply0(that);
 		}
 		for(Runnable r: actions) {
 			try {

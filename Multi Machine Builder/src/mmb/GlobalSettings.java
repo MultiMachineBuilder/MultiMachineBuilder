@@ -3,10 +3,16 @@
  */
 package mmb;
 
+import java.lang.reflect.Field;
+import java.util.Enumeration;
 import java.util.Locale;
+import java.util.Map;
+import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 import javax.annotation.Nonnull;
+
+import com.rainerhahnekamp.sneakythrow.Sneaky;
 
 import mmb.DATA.Settings;
 import mmb.DATA.variables.ListenableValue;
@@ -18,7 +24,7 @@ import mmb.debug.Debugger;
  *
  */
 public class GlobalSettings {
-	private GlobalSettings() {};
+	private GlobalSettings() {}
 	
 	@Nonnull public static final ListenableValue<String> country = new ListenableValue<>("US");
 	@Nonnull public static final ListenableValue<String> lang = new ListenableValue<>("en");
@@ -66,6 +72,28 @@ public class GlobalSettings {
 		debug.printl("Language: "+lang.get());
 		bundle = ResourceBundle.getBundle("mmb/bundle", locale());
 		hasInited = true;
+	}
+	
+	//hacking the ResourceBundle
+	private static final Field lookupField;
+	static {
+		Field field0 = Sneaky.sneak(() -> PropertyResourceBundle.class.getDeclaredField("lookup"));
+		field0.setAccessible(true);
+		lookupField = field0;
+	}
+	private static Map<String, Object> getMap4RB(ResourceBundle bundle) {
+		return Sneaky.sneak(() -> (Map<String, Object>) lookupField.get(bundle));
+	}
+	private static void inject2resourceBundle(ResourceBundle tgt, ResourceBundle src) {
+		Map<String, Object> map = getMap4RB(tgt);
+		Enumeration<String> iter = src.getKeys();
+		while(iter.hasMoreElements()) {
+			String key = iter.nextElement();
+			map.put(key, src.getObject(key));
+		}
+	}
+	public static void injectResources(ResourceBundle src) {
+		inject2resourceBundle(bundle(), src);
 	}
 	
 }

@@ -4,26 +4,26 @@
 package mmb.MODS.loader;
 
 import java.io.*;
+import java.lang.instrument.Instrumentation;
 import java.net.MalformedURLException;
 import java.nio.file.*;
-import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
-import java.util.concurrent.CountDownLatch;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import mmb.debug.Debugger;
 import mmb.Main;
-import mmb.DATA.contents.GameContents;
-import mmb.DATA.contents.sound.Sounds;
-import mmb.DATA.contents.texture.Textures;
-import mmb.ERRORS.UndeclarableThrower;
+import mmb.DATA.contents.Sounds;
+import mmb.DATA.contents.Textures;
 import mmb.FILES.FileUtil;
 import mmb.LAMBDAS.Lambdas;
 import mmb.MENU.FullScreen;
-import mmb.MODS.info.AddonState;
+import mmb.MODS.info.AddonCentral;
+import mmb.MODS.info.ModInfo;
+import mmb.MODS.info.ModMetadata;
+import mmb.MODS.info.ModState;
+import mmb.MODS.info.Modfile;
+import mmb.MODS.info.Mods;
 import mmb.SOUND.MP3Loader;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.blocks.machine.Nuker;
@@ -57,6 +57,8 @@ public final class ModLoader {
 	 */	
 	public static final File modsDir = new File("mods/");
 	
+	
+	
 	/**
 	 * Loads entire game
 	 */
@@ -72,7 +74,6 @@ public final class ModLoader {
 				debug.pstm(e, "Failed to load a texture "+s);
 			}
 		});
-		debug.printl("Textures: "+Textures.textures.keySet()); //texture and sound loading skipped in release
 		
 		//Load sounds
 		Main.state1("Loading sounds");
@@ -86,19 +87,20 @@ public final class ModLoader {
 		});
 		debug.printl("Sounds: "+Sounds.sounds.keySet());
 		
+		//Load base materials
 		Materials.init();
-		//Check voltage tiers
 		VoltageTier[] volts = VoltageTier.values();
 		for(VoltageTier volt: volts) {
 			debug.printl(volt.name+", structural: "+volt.construction+", electrical: "+volt.electrical);
 		}
 		
+		//Load blocks
 		Main.state1("Loading blocks");
 		ContentsBlocks.init();
-		
+		//Load items
 		Main.state1("Loading items");
 		ContentsItems.init();
-		
+		//Load machines
 		Main.state1("Loading machines");
 		Crafting.init();
 		Nuker.init();
@@ -108,8 +110,8 @@ public final class ModLoader {
 		FullScreen.initialize();
 		TransformerData.init();
 		
-		Main.state1("Looking for mods");
 		//Get external mods to load
+		Main.state1("Looking for mods");
 		Set<String> external = new HashSet<>();
 		try {
 			String data = new String(Files.readAllBytes(Paths.get("ext.txt")));
@@ -118,10 +120,6 @@ public final class ModLoader {
 		} catch (IOException e1) {
 			debug.pstm(e1, "Unable to load list of external mods");
 		}
-		
-		//Notify user
-		debug.printl("Loading mods");
-		debug.printl("Finding all files to load");
 		
 		//Add missing 'mods' directory
 		if (!modsDir.mkdirs() || !modsDir.isDirectory()) debug.printl("Added missing mods directory");
@@ -140,22 +138,16 @@ public final class ModLoader {
 		
 		//Add mod files for loading
 		Main.state1("Found "+ modCount + " mod files");
-		debug.printl("Found "+ modCount + " mod files");
 		for(String p: toLoad) {
 			Main.state2("Loading file: " + p);
 			try {
 				AddonLoader.load(FileUtil.getFile(p));
 			} catch (MalformedURLException e) {
 				debug.pstm(e, "The external mod has incorrect URL: "+p);
-				AddonInfo info = new AddonInfo();
-				info.name = p;
-				info.path = p;
-				info.state = AddonState.NOEXIST;
-				GameContents.addons.add(info);
 			}
 		}
 		
-		//Wait until all files load
+		//Wait until all mods load
 		for(AddonLoader t: loaders) {
 			try {
 				t.untilLoad();
@@ -174,112 +166,84 @@ public final class ModLoader {
 				Main.crash(e);
 			}
 		}
+				
+		//Find potential mod classes
+		Main.state1("Mods - Preparation 0");
+		Set<Class<? extends AddonCentral>> classes = new HashSet<>();
+		ClassLoader cl = AddonLoader.bcl;
+		for(String classname: Mods.classnames) {
+			try {
+				debug.printl("Mod class: "+classname);
+				Class<?> cls = cl.loadClass(classname);
+				if (AddonCentral.class.isAssignableFrom(cls)) {
+					classes.add((Class<? extends AddonCentral>) cls);
+				} 
+			} catch (Exception e) {
+				Main.crash(e);
+			}
+		}
 		
-		Main.state1("Mods - Phase 1");
+		Main.state1("Mods - Instantiation 0a");
+		for(Class<? extends AddonCentral> modcls: classes) {
+			try {
+				AddonCentral mod = modcls.getConstructor().newInstance(); //textures not yet loaded
+				ModMetadata data = mod.info();
+				ModInfo info = new ModInfo(mod, data);
+				Mods.mods.add(info);
+			} catch (Exception e) {
+				debug.pstm(e, "Failed to load a mod class "+modcls.getTypeName());
+			}
+		}
+		
 		//First runs. Similar process for all three stages
-		List<Thread> firstRuns = new ArrayList<>();
-		CountDownLatch latch = new CountDownLatch(GameContents.addons.size()-1);
-		for(AddonInfo ai: GameContents.addons){
-			if(ai.state == AddonState.ENABLE) {
-				Thread thr = new Thread(() -> {
-					try{
-						if(ai.central == null) {
-							debug.printl(ai.name + " is not a mod and will not be run");
-							ai.state = ai.hasClasses?AddonState.API:AddonState.MEDIA;
-						}else{
-							debug.printl("Start 1st stage for " + ai.name);
-							ai.central.firstOpen();
-							debug.printl("End 1st stage for " + ai.name);
-						}
-					}catch(VirtualMachineError e){
-						Main.crash(e);
-					// deepcode ignore DontCatch: guarantee that game fully loads
-					}catch(Throwable e){
-						debug.pstm(e, "Failed to run a mod "+ ai.name);
-						ai.state = AddonState.DEAD;
-					}finally{
-						latch.countDown();	
-					}	
-				});
-				firstRuns.add(thr);
-				thr.start();
-			}else latch.countDown();	
-		}
-		try {
-			latch.await();
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			Main.crash(e);
-		}
+		Main.state1("Mods - Phase 1");
+		runAll(Mods.mods, ai -> {
+			try{
+				debug.printl("Start 1st stage for " + ai.meta.name);
+				ai.instance.firstOpen();
+				debug.printl("End 1st stage for " + ai.meta.name);
+			}catch(VirtualMachineError e){
+				Main.crash(e);
+			// deepcode ignore DontCatch: guarantee that game fully loads
+			}catch(Throwable e){
+				debug.pstm(e, "Failed to run a mod "+ ai.meta.name);
+				ai.state = ModState.DEAD;
+			}
+		}, Main::crash);
 		
 		//Content runs
 		Main.state1("Mods - Phase 2");
-		CountDownLatch latch1 = new CountDownLatch(GameContents.addons.size()-1);
-		List<Thread> contents = new ArrayList<>();
-		GameContents.addons.forEach(ai1 -> {
-			if(ai1.state == AddonState.ENABLE) {
-				Thread thr = new Thread(() -> {
-					try{
-						debug.printl("Start 2nd stage for " + ai1.name);
-						ai1.central.makeContent();
-						debug.printl("End 2nd stage for " + ai1.name);
-					}catch(VirtualMachineError e){
-						Main.crash(e);
-					// deepcode ignore DontCatch: guarantee that game fully loads, VM errors used to crash the game earlier
-					}catch(Throwable e){
-						debug.pstm(e, "Failed to run a mod "+ ai1.name);
-						ai1.state = AddonState.DEAD;
-					}finally{
-						latch1.countDown();
-					}
-				});
-				contents.add(thr);
-				thr.start();
-			} else latch1.countDown();
-		});
-		try {
-			latch1.await();
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			Main.crash(e);
-		}
+		runAll(Mods.mods, mod -> {
+			try{
+				debug.printl("Start 2nd stage for " + mod.meta.name);
+				mod.instance.makeContent();
+				debug.printl("End 2nd stage for " + mod.meta.name);
+			}catch(VirtualMachineError e){
+				Main.crash(e);
+			// deepcode ignore DontCatch: guarantee that game fully loads, VM errors used to crash the game earlier
+			}catch(Throwable e){
+				debug.pstm(e, "Failed to run a mod "+ mod.meta.name);
+				mod.state = ModState.DEAD;
+			}
+		}, Main::crash);
 		
 		//Integration runs
 		Main.state1("Mods - Phase 3");
-		CountDownLatch latch2 = new CountDownLatch(GameContents.addons.size()-1);
-		List<Thread> integrators = new ArrayList<>();
-		GameContents.addons.forEach(ai2 -> {
-			if(ai2.state == AddonState.ENABLE) {
-				Thread thr = new Thread(() -> {
-					try{
-						debug.printl("Start 3rd stage for " + ai2.name);
-						ai2.central.makeContent();
-						debug.printl("End 3rd stage for " + ai2.name);
-					}catch(VirtualMachineError e){
-						Main.crash(e);
-					}catch(Throwable e){
-						debug.pstm(e, "Failed to run a mod "+ ai2.name);
-						ai2.state = AddonState.DEAD;
-					}finally{
-						latch2.countDown();
-					}
-				});
-				integrators.add(thr);
-				thr.start();
-			}else latch2.countDown();
-		});
-		try {
-			latch2.await();
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			Main.crash(e);
-		}
+		runAll(Mods.mods, mod -> {
+			try{
+			debug.printl("Start 3rd stage for " + mod.meta.name);
+			mod.instance.makeContent();
+			debug.printl("End 3rd stage for " + mod.meta.name);
+			}catch(VirtualMachineError e){
+				Main.crash(e);
+			}catch(Throwable e){
+				debug.pstm(e, "Failed to run a mod "+ mod.meta.name);
+				mod.state = ModState.DEAD;
+			}
+		}, Main::crash);
 		
 		//clean up
 		loaders.clear();
-		firstRuns.clear();
-		contents.clear();
-		integrators.clear();
 		mp3s.clear();
 		summarizeMods();
 		debug.printl("HOORAY, IT'S OVER!");
@@ -291,7 +255,6 @@ public final class ModLoader {
 	 * @param action action to run in form of (file name, file)
 	 */
 	public static void walkDirectory(File f, BiConsumer<String,File> action) {
-		debug.printl("walkDirectory "+f.getAbsolutePath());		
 		String abs = f.getAbsolutePath();
 		int len = abs.length()+1;
 		if(abs.endsWith("/") || abs.endsWith("\\")) len++;
@@ -299,13 +262,10 @@ public final class ModLoader {
 	}
 	private static void walkDirectory(boolean isFurther, int absLen, File f, BiConsumer<String,File> action) {
 		try {
-			debug.printl("absLen "+absLen);
-			debug.printl("walkDirectory2 "+f.getAbsolutePath());
 			File[] walk = f.listFiles();
 			if(walk == null) {
 				debug.printl("File: " + f.getCanonicalPath());
 				String tname = f.getAbsolutePath().substring(absLen);
-				debug.printl("tname "+tname);
 				action.accept(tname, f);
 			}else {
 				debug.printl("Directory: " + f.getCanonicalPath());
@@ -368,41 +328,38 @@ public final class ModLoader {
 	}
 
 	static void summarizeMods() {
-		for(AddonInfo ai: GameContents.addons) {
-			debug.printl("================MOD INFORMATION FOR " + ai.name + "================");
-			debug.printl("LOCATED AT " + ai.path);
-
+		for(ModInfo ai: Mods.mods) {
+			debug.printl("================MOD INFORMATION FOR " + ai.meta.name + "================");
 			debug.printl(ai.state.title);
 			try {
 				switch(ai.state) {
 				case DEAD:
 				case DISABLE:
 				case ENABLE:
-					if(ai.mmbmod == null) {
-						debug.printl("Unknown information");
+					if(ai.meta.release == null) {
+						debug.printl("RELEASED AT UNKNOWN DATE");
 					}else {
-						if(ai.mmbmod.release == null) {
-							debug.printl("RELEASED AT UNKNOWN DATE");
-						}else {
-							debug.printl("RELEASED " + ai.mmbmod.release.toString());
-						}
-
-						debug.printl("MADE BY " + ai.mmbmod.author);
-						debug.printl("DESCRIPTION: " + ai.mmbmod.description);
+						debug.printl("RELEASED " + ai.meta.release.toString());
 					}
+
+					debug.printl("MADE BY " + ai.meta.author);
+					debug.printl("DESCRIPTION: " + ai.meta.description);
 					break;
 				default:
 					break;
 				}
 			} catch (Exception e) {
-				debug.pstm(e, "Unable to get metadata for " + ai.name);
+				debug.pstm(e, "Unable to get metadata for " + ai.meta.name);
 			}
 		}
 	}
 	
-	public static <T> void runAll(Collection<T> collect, Consumer<T> cons, Consumer<InterruptedException> onInterrupt){
+	public static <T> void runAll(Iterable<T> collect, Consumer<T> cons, Consumer<InterruptedException> onInterrupt){
 		@SuppressWarnings("null")
-		List<Thread> threads = collect.parallelStream().map(val -> new Thread(Lambdas.loadValue(cons, val))).collect(Collectors.toList());
+		List<Thread> threads = new ArrayList();
+		for(T item: collect) {
+			threads.add(new Thread(Lambdas.loadValue(cons, item)));
+		}
 		for(Thread t: threads) {
 			t.start();
 		}

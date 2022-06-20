@@ -15,10 +15,10 @@ public interface PlayerPhysics {
 	 * Update the player's speed and position
 	 * @param w
 	 * @param p
-	 * @param ctrlX
-	 * @param ctrlY
+	 * @param ctrlR
+	 * @param ctrlD
 	 */
-	public void onTick(World w, Player p, int ctrlX, int ctrlY);
+	public void onTick(World w, Player p, double ctrlR, double ctrlD);
 	/**
 	 * @return the description of the current physics state
 	 */

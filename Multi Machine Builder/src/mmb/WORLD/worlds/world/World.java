@@ -6,6 +6,7 @@ package mmb.WORLD.worlds.world;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -131,6 +132,7 @@ public class World implements Identifiable<String>{
 		sizeY = entries[0].length;
 		endX = startX + sizeX;
 		endY = startY + sizeY;
+		LODs = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
 	}
 	/**
 	 * Create an empty world with given bounds
@@ -148,6 +150,7 @@ public class World implements Identifiable<String>{
 		this.sizeY = sizeY;
 		endX = startX + sizeX;
 		endY = startY + sizeY;
+		LODs = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
 	}
 	
 	//Serialization
@@ -185,8 +188,6 @@ public class World implements Identifiable<String>{
 				world.set(block, x, y);
 			}
 		}
-		
-		
 		
 		//Dropped items
 		ArrayNode drops = JsonTool.requestArray("drops", (ObjectNode) json);
@@ -325,12 +326,10 @@ public class World implements Identifiable<String>{
 	private TaskLoop timer = new TaskLoop(World.this::update, PERIOD);
 	/** The Ticks Per Second counter */
 	public final FPSCounter tps = new FPSCounter();
-	private volatile boolean underTick = false;
 	private volatile boolean stopping = false;
 	@SuppressWarnings("null")
 	private void update() {//Run the map
 		if(entries == null) return;
-		underTick = true;
 		tps.count();
 		//Set up the proxy
 		try(MapProxy proxy = createProxy()){
@@ -363,7 +362,6 @@ public class World implements Identifiable<String>{
 		}
 		//Run the player
 		player.onTick(this);
-		underTick = false;
 		if(stopping) {
 			Thread.currentThread().interrupt();
 			return;
@@ -469,6 +467,7 @@ public class World implements Identifiable<String>{
 	public final Set<BlockEntity> blockents = Collections.unmodifiableSet(_blockents);
 	
 	//Block array
+	private final Object blockLock = new Object();
 	Grid<@Nonnull BlockEntry> entries;
 	/**
 	 * Gets block at given location
@@ -490,7 +489,7 @@ public class World implements Identifiable<String>{
 		return get(x+s.blockOffsetX, y+s.blockOffsetY);
 	}
 	
-	private BlockEntry set0(BlockEntry b, int x, int y) {
+	BlockEntry set0(BlockEntry b, int x, int y) {
 		BlockEntry old = get(x, y);
 		//Remove old block entity
 		if(old.isBlockEntity()) {
@@ -520,6 +519,7 @@ public class World implements Identifiable<String>{
 		old.resetMap(null, 0, 0);
 		b.resetMap(this, x, y);
 		entries.set(x-startX, y-startY, b);
+		LODs.setRGB(x-startX, y-startY, b.type().getTexture().LOD());
 		return b;
 	}
 	/**
@@ -530,9 +530,9 @@ public class World implements Identifiable<String>{
 	 * @return a new block entry, or null if placement failed
 	 */
 	public BlockEntry set(BlockEntry b, int x, int y) {
-		AtomicReference<BlockEntry> result = new AtomicReference<>();
-		reserveAndDo(x, y, unused -> result.set(set0(b, x, y)));
-		return result.get();
+		synchronized(blockLock) {
+			return set0(b, x, y);
+		}
 	}
 	
 	/**
@@ -543,14 +543,32 @@ public class World implements Identifiable<String>{
 	 * @return a new block entry, or null if placement failed
 	 */
 	public BlockEntry place(BlockType type, int x, int y) {
-		BlockEntry blockent = type.createBlock();
-		return set(blockent, x, y);
+		try {
+			BlockEntry blockent = type.createBlock();
+			return set(blockent, x, y);
+		}catch(Exception e) {
+			debug.pstm(e, "Failed to place a block at "+x+","+y);
+			return null;
+		}
+		
+	}
+	BlockEntry place0(BlockType type, int x, int y) {
+		try {
+			BlockEntry blockent = type.createBlock();
+			return set0(blockent, x, y);
+		}catch(Exception e) {
+			debug.pstm(e, "Failed to place a block at "+x+","+y);
+			return null;
+		}
 	}
 	/** @return is given map usable? */
 	public boolean isValid() {
 		return entries != null;
 	}
-		
+	
+	//LOD buffer
+	public final BufferedImage LODs;
+	
 	//Bounds
 	/** Leftmost X coordinate, inclusive */ public final int startX;
 	/** @return leftmost X coordinate, inclusive */ public int startX() {return startX;}
@@ -860,152 +878,4 @@ public class World implements Identifiable<String>{
 	public RTree<Visual, Geometry> visuals(){
 		return visuals.get();
 	}
-	
-	//Slot reservation
-	private Long2ObjectMap<ReentrantLock> locks = new Long2ObjectOpenHashMap<>();
-	private Slot returnSlot(Lock lck, int x, int y) {
-		return new Slot() {
-			private boolean close = false;
-			@Override
-			public void close() {
-				close = true;
-				lck.unlock();
-			}
-
-			@Override
-			public BlockEntry get() {
-				return World.this.get(x, y);
-			}
-
-			@Override
-			public BlockEntry set(BlockEntry block) {
-				if(close) throw new IllegalStateException("This slot was closed");
-				return set0(block, x, y);
-			}
-
-			@Override
-			public World getMap() {
-				return World.this;
-			}	
-		};
-	}
-	/**
-	 * Reserves a slot on the map
-	 * @param x X coordinate of the slot
-	 * @param y Y coordinate of the slot
-	 * @return the block slot
-	 * @throws IllegalMonitorStateException if the same lock is taken more than once by a one thread without releasing it first.
-	 */
-	public Slot reserve(int x, int y) {
-		long id = Bitwise.combine2I2L(x, y);
-		ReentrantLock lock;
-		synchronized(locks) {
-			lock = locks.get(id);
-			if(lock != null) {
-				//A lock is already taken
-				if(lock.isHeldByCurrentThread()) 
-					//This thread holds the lock, fail
-					throw new IllegalMonitorStateException("The lock is already held");
-				//A lock is not held, obtain it
-				lock.lock();
-				return returnSlot(lock, x, y);
-			}
-			//A lock does not exist
-			lock = new ReentrantLock();
-			locks.put(id, lock);
-			lock.lock();
-			return returnSlot(lock, x, y);
-		}
-	}
-	/**
-	 * Optionally reserves a slot on the map
-	 * @param x X coordinate of the slot
-	 * @param y Y coordinate of the slot
-	 * @return the slot, or null if not avaliable
-	 */
-	public Slot tryReserve(int x, int y) {
-		long id = Bitwise.combine2I2L(x, y);
-		ReentrantLock lock;
-		synchronized(locks) {
-			lock = locks.get(id);
-			if(lock != null) {
-				//A lock is already taken
-				if(lock.isHeldByCurrentThread()) 
-					//This thread holds the lock, fail
-					return null;
-				//A lock is not held, obtain it
-				boolean attempt = lock.tryLock();
-				if(!attempt) return null;
-				return returnSlot(lock, x, y);
-			}
-			//A lock does not exist
-			lock = new ReentrantLock();
-			locks.put(id, lock);
-			boolean attempt = lock.tryLock();
-			if(!attempt) return null;
-			return returnSlot(lock, x, y);
-		}
-	}
-	
-	private Slot returnSlot(int x, int y) {
-		return new Slot() {
-			private boolean close = false;
-			@Override
-			public void close() {
-				close = true;
-			}
-
-			@Override
-			public BlockEntry get() {
-				return World.this.get(x, y);
-			}
-
-			@Override
-			public BlockEntry set(BlockEntry block) {
-				if(close) throw new IllegalStateException("This slot was closed");
-				return set0(block, x, y);
-			}
-
-			@Override
-			public World getMap() {
-				return World.this;
-			}	
-		};
-	}
-	/**
-	 * Reserves a slot and does given action
-	 * @param x X coordinate of a block
-	 * @param y Y coordinate of a block
-	 * @param action
-	 */
-	public void reserveAndDo(int x, int y, Consumer<Slot> action) {
-		long id = Bitwise.combine2I2L(x, y);
-		ReentrantLock lock;
-		synchronized(locks) {
-			lock = locks.get(id);
-			if(lock != null) {
-				//A lock is already taken
-				if(lock.isHeldByCurrentThread()) 
-					//This thread holds the lock, fail
-					throw new IllegalMonitorStateException("The lock is already held");
-				//A lock is not held, obtain it
-				lock.lock();
-				try(Slot slot = returnSlot(x, y)) {
-					action.accept(slot);
-				}finally {
-					lock.unlock();
-				}
-			}
-			//A lock does not exist
-			lock = new ReentrantLock();
-			locks.put(id, lock);
-			lock.lock();
-			try(Slot slot = returnSlot(x, y)) {
-				action.accept(slot);
-			}finally {
-				lock.unlock();
-			}
-		}
-	}
-	
 }

@@ -13,7 +13,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.gui.window.WorldFrame;
 import mmb.WORLD.worlds.world.World;
@@ -151,25 +151,26 @@ public class Copy extends WindowTool {
 	}
 
 	@Override
-	public void preview(int x, int y, int scale, Graphics g) {
+	public void preview(int x, int y, double scale, Graphics g) {
 		if(a == null) {
-			WorldFrame.thickframe(x, y, scale-1, scale-1, Color.RED, g);
+			int framesize = (int)Math.ceil(scale-1);
+			WorldFrame.thickframe(x, y, framesize, framesize, Color.RED, g);
 		}else {
 			if(b == null) {
 				Point onmouse = frame.blockAt(mouse);
 				frame.renderBlockRange(onmouse.x, onmouse.y, a.x, a.y, Color.ORANGE, g);
 			}else {//Draw previewed blocks
 				//Calculate positions
-				int sizex = (grid.width())*scale;
-				int sizey = (grid.height())*scale;
-				int sizeX = sizex-scale;
-				int sizeY = sizey-scale;
+				int sizex = (int)Math.ceil((grid.width())*scale);
+				int sizey = (int)Math.ceil((grid.height())*scale);
+				int sizeX = (int)Math.ceil(sizex-scale);
+				int sizeY = (int)Math.ceil(sizey-scale);
 				int startX = x-sizeX;
 				int startY = y-sizeY;
 				for(int px = startX, i = 0; i < grid.width(); px += scale, i++) {
 					for(int py = startY, j = 0; j < grid.height(); py += scale, j++) {
 						BlockEntry todraw = grid.get(i, j);
-						todraw.render(px, py, g, scale);
+						todraw.render(px, py, g, (int)Math.ceil(scale));
 					}
 				}
 				

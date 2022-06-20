@@ -13,7 +13,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 
 import mmb.GlobalSettings;
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.GRAPHICS.awt.ColorMapper;
 import mmb.WORLD.blocks.machine.pack.Pack;
 import mmb.WORLD.item.Item;
@@ -21,6 +21,7 @@ import mmb.WORLD.item.ItemEntityType;
 import mmb.WORLD.item.Items;
 import mmb.WORLD.items.data.ItemBOM;
 import mmb.WORLD.items.data.Stencil;
+import mmb.WORLD.items.filter.EntryFilter;
 import mmb.WORLD.items.pickaxe.Pickaxe;
 import mmb.WORLD.items.pickaxe.Pickaxe.PickaxeType;
 
@@ -45,12 +46,19 @@ public class ContentsItems {
 			.texture("item/rudimentary pick head.png")
 			.volumed(0.00125)
 			.finish("pickHead.rudimentary");
-	//Minerals
+	
+	//Misc
 	@Nonnull public static final Item leaf = new Item()
-			.title("#leaf")
-			.texture("item/lisc.png")
-			.volumed(0.000125)
-			.finish("plant.leaf");
+		.title("#leaf")
+		.texture("item/lisc.png")
+		.volumed(0.000125)
+		.finish("plant.leaf");
+	@Nonnull public static final Item alcopod = new AlcoPod()
+		.title("AlcoPod")
+		.texture("item/alcopod.png")
+		.volumed(0.000125)
+		.finish("drugs.alcopod");
+	
 	//Tools
 	@Nonnull public static final PickaxeType pickVW = Pickaxe.create(120, 15, "item/wood pick.png", "#pick-b", "pick.weak");
 	@Nonnull public static final PickaxeType pickWood = Pickaxe.create(100, 100, "item/wood pick.png", "#pick-wood", "pick.wood");
@@ -133,7 +141,7 @@ public class ContentsItems {
 		.volumed(0.00125)
 		.finish("industry.motor2");
 	
-	//TODO Electronic parts TRANSLATE FROM HERE
+	//Electronic parts
 	@Nonnull public static final Item resistor = new Item()
 			.title("#ind-res1")
 			.texture("item/resistor.png")
@@ -199,12 +207,19 @@ public class ContentsItems {
 
 	//Packaged items
 	@Nonnull public static final ItemEntityType pack = new ItemEntityType()
-			.title("#ipack1")
-			.texture("item/package.png")
-			.volumed(0.001)
-			.factory(Pack::createEmpty)
-			.finish("boxed.packItem");
+		.title("#ipack1")
+		.texture("item/package.png")
+		.volumed(0.001)
+		.factory(Pack::createEmpty)
+		.finish("boxed.packItem");
 	
+	//Item filters
+	@Nonnull public static final ItemEntityType ifilterEntries =new ItemEntityType()
+		.title("#filt-ient")
+		.texture("item/filter entry.png")
+		.volumed(0.001)
+		.factory(EntryFilter::new)
+		.finish("filter.ientries");
 	static {
 		Items.tagItems("shape-pickhead", pickHeadWood, pickHeadRudimentary);
 		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, bucket, configExtractors);

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
 import mmb.BEANS.BlockSetting;
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.Blocks;

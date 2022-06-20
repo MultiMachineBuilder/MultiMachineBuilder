@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.inventory.io;
 
+import java.util.function.Predicate;
+
 import javax.annotation.Nonnull;
 
 import mmb.WORLD.inventory.ItemStack;
@@ -41,6 +43,58 @@ public interface InventoryWriter {
 	@Nonnull public static final InventoryWriter NONE = (ent, amt) -> 0;
 	
 	/**
+	 * Writes items to the first writer, only if items match the filter.
+	 * Otherwise it writes them to the second writer.
+	 * @author oskar
+	 */
+	public static class Shunting implements InventoryWriter{
+		private final InventoryWriter ifTrue;
+		private final InventoryWriter ifFalse;
+		private final Predicate<ItemEntry> filter;
+		/**
+		 * Creates a shunting writer
+		 * @param ifTrue items go here if filter accepts them
+		 * @param ifFalse items go here if filter rejects them
+		 * @param filter item filter
+		 */
+		public Shunting(InventoryWriter ifTrue, InventoryWriter ifFalse, Predicate<ItemEntry> filter) {
+			this.ifTrue = ifTrue;
+			this.ifFalse = ifFalse;
+			this.filter = filter;
+		}
+		@Override
+		public int write(ItemEntry ent, int amount) {
+			if(filter.test(ent)) 
+				return ifTrue.write(ent, amount);
+			return ifFalse.write(ent, amount);
+		}
+		
+	}
+	/**
+	 * Writes items to inventory, only if items match the filter.
+	 * Otherwise it rejects them.
+	 * @author oskar
+	 */
+	public static class Filtering implements InventoryWriter{
+		private final InventoryWriter writer;
+		private final Predicate<ItemEntry> filter;
+		/**
+		 * Creates a filtering writer
+		 * @param writer backing inventory writer
+		 * @param filter item filter
+		 */
+		public Filtering(InventoryWriter writer, Predicate<ItemEntry> filter) {
+			this.writer = writer;
+			this.filter = filter;
+		}
+		@Override
+		public int write(ItemEntry ent, int amount) {
+			if(filter.test(ent)) 
+				return writer.write(ent, amount);
+			return 0;
+		}
+	}
+	/**
 	 * @author oskar
 	 * Writes items to inventory,
 	 * preferring the first inventory.
@@ -48,7 +102,8 @@ public interface InventoryWriter {
 	 * If both fail, rejects some or all items
 	 */
 	public static class Priority implements InventoryWriter{
-		private final InventoryWriter first, other;
+		private final InventoryWriter first;
+		private final InventoryWriter other;
 		/**
 		 * Creates a priority writer
 		 * @param here preferred inventory

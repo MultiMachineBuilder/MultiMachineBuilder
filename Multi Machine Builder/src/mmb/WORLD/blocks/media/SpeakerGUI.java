@@ -4,7 +4,7 @@
 package mmb.WORLD.blocks.media;
 
 import mmb.GlobalSettings;
-import mmb.DATA.contents.sound.Sounds;
+import mmb.DATA.contents.Sounds;
 import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.debug.Debugger;

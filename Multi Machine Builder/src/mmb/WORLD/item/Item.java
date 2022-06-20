@@ -65,10 +65,10 @@ public class Item extends ItemBase implements ItemEntry {
 	public boolean exists() {
 		return true;
 	}
-	@SuppressWarnings("deprecation")
 	@Override
 	public Icon getIcon() {
-		return drawer.toIcon();
+		if(getTexture() == null) return null;
+		return getTexture().toIcon();
 	}
 	@Override
 	public void load(@Nullable JsonNode node) {

@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.*;
 import mmb.DATA.Save;
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.GRAPHICS.awt.MappedColorTexture;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;

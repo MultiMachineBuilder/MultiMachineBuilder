@@ -37,6 +37,12 @@ class TestBlocks {
 				//dummy
 				return null;
 			}
+
+			@Override
+			public int LOD() {
+				// dummy
+				return 0;
+			}
 		};
 		assertThrows(NullPointerException.class, () -> Blocks.register(null), "Null blocks should not be registerable");
 		BlockEntityType nullID = new BlockEntityType();

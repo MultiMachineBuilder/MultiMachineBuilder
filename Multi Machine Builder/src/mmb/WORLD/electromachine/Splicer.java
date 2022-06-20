@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.contentgen.ElectricMachineGroup.ElectroMachineType;
-import mmb.WORLD.crafting.StackedItemProcessHelper;
+import mmb.WORLD.crafting.helper.StackedItemProcessHelper;
 import mmb.WORLD.crafting.recipes.StackedProcessingRecipeGroup;
 import mmb.WORLD.electric.Electricity;
 import mmb.WORLD.gui.window.WorldWindow;

@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;

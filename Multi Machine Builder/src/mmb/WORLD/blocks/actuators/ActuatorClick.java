@@ -5,7 +5,7 @@ package mmb.WORLD.blocks.actuators;
 
 import java.awt.Point;
 
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;

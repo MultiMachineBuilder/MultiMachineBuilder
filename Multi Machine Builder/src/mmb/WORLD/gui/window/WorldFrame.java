@@ -4,8 +4,10 @@
 package mmb.WORLD.gui.window;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -25,6 +27,7 @@ import com.pploder.events.Event;
 
 import it.unimi.dsi.fastutil.doubles.DoubleList;
 import mmb.Vector2iconst;
+import mmb.DATA.contents.Textures;
 import mmb.DATA.variables.ListenerBooleanVariable;
 import mmb.MENU.StringRenderer;
 import mmb.WORLD.block.BlockEntry;
@@ -43,8 +46,6 @@ import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 import rx.Observable;
 import rx.Subscriber;
-import rx.Subscription;
-
 import java.awt.Color;
 
 /**
@@ -336,7 +337,7 @@ public class WorldFrame extends JComponent {
 	
 	//Graphics
 	public final Event<StringBuilder> informators =
-			new CatchingEvent<StringBuilder>(debug, "Failed to process render task");
+			new CatchingEvent<>(debug, "Failed to process render task");
 	@Override
 	public void paint(@Nullable Graphics g) {
 		resetMouseoverBlock();
@@ -402,19 +403,28 @@ public class WorldFrame extends JComponent {
 		int bpf = 0;
 
 		//Render tiles
-		int rstartX = (int) ((l+pos.x)*blockScale);
-		int rstartY = (int) ((u+pos.y)*blockScale);
-		for(int i = l, x = rstartX; i <= r; i++, x += blockScale) {
-			for(int j = u, y = rstartY; j <= d; j++, y += blockScale) {
-				renderTile(x, y, g, map.get(i, j));
-				bpf++;
+		if(blockScale < 4) {
+			//Render LOD
+			Point c1 = blockPositionOnScreen(map.startX, map.startY);
+			Point c2 = blockPositionOnScreen(map.endX+1, map.endY+1);
+			g.drawImage(map.LODs, c1.x, c1.y, c2.x-c1.x, c2.y-c1.y, null);
+		}else {
+			//Render in full
+			int rstartX = (int)Math.ceil((l+pos.x)*blockScale);
+			int rstartY = (int)Math.ceil((u+pos.y)*blockScale);
+			for(int i = l, x = rstartX; i <= r; i++, x += blockScale) {
+				for(int j = u, y = rstartY; j <= d; j++, y += blockScale) {
+					renderTile(x, y, g, map.get(i, j));
+					bpf++;
+				}
 			}
 		}
 		
-		int div2x = blockScale/2;
-		int div4x = blockScale/4;
-		int div2y = blockScale/2;
-		int div4y = blockScale/4;
+		
+		int div2x = (int)Math.ceil(blockScale/2);
+		int div4x = (int)Math.ceil(blockScale/4);
+		int div2y = (int)Math.ceil(blockScale/2);
+		int div4y = (int)Math.ceil(blockScale/4);
 		Point pt = new Point();
 		
 		//Render dropped items
@@ -438,7 +448,7 @@ public class WorldFrame extends JComponent {
 			int w = mc.sizeX();
 			int h = mc.sizeY();
 			@SuppressWarnings("null")
-			@Nonnull Graphics g2 = g.create(x, y, w*blockScale, h*blockScale);
+			@Nonnull Graphics g2 = g.create(x, y, (int)Math.ceil(w*blockScale), (int)Math.ceil(h*blockScale));
 			mc.render(g2);
 		}
 		
@@ -468,15 +478,32 @@ public class WorldFrame extends JComponent {
 		//Render player
 		Point pul = worldPositionOnScreen(map.player.pos.x - 0.3, map.player.pos.y - 0.3);
 		Point pdr = worldPositionOnScreen(map.player.pos.x + 0.3, map.player.pos.y + 0.3);
-		g.setColor(Color.RED);
-		g.fillRect(pul.x, pul.y, pdr.x-pul.x, pdr.y-pul.y);
+		Image img = playerface0;
+		switch(map.player.getBlink()) {
+		case 1:
+		case 2:
+		case 5:
+		case 6:
+			img = playerface1;
+			break;
+		case 3:
+		case 4:
+			img = playerface2;
+			break;
+		case 0:
+			break;
+		default:
+			throw new IllegalStateException("Invalid player animation state: "+map.player.getBlink());
+		}
+		g.drawImage(img, pul.x, pul.y, pdr.x-pul.x, pdr.y-pul.y, null);
 		
 		//Draw pointer
 		int x = (int)((mouseover.x+pos.x)*blockScale);
 		int y = (int)((mouseover.y+pos.y)*blockScale);
 		
 		//Pointer
-		thickframe(x, y, blockScale-1, blockScale-1, Color.RED, g);
+		int framesize = (int)Math.ceil(blockScale)-1;
+		thickframe(x, y, framesize, framesize, Color.RED, g);
 		
 		//Preview
 		WindowTool tool = window.toolModel.getTool();
@@ -514,6 +541,8 @@ public class WorldFrame extends JComponent {
 			sb.append("Visuals on map: ").append(map.visuals().size()).append("\r\n");
 			sb.append("Visuals visible: ").append(nvisuals.get()).append("\r\n");
 			sb.append("Visuals succeeded: ").append(success.get()).append("\r\n");
+			sb.append("Alcohol to be digested: ").append(getPlayer().getDigestibleAlcohol()).append("\r\n");
+			sb.append("Alcohol content: ").append(getPlayer().getBAC()).append("\r\n");
 			//Information for mouseover block
 			BlockEntry ent = getMouseoverBlockEntry();
 			if(ent != null) ent.debug(sb);
@@ -530,7 +559,7 @@ public class WorldFrame extends JComponent {
 	private void renderTile(int x, int y, Graphics g, @Nullable BlockEntry blockEntry) {
 		if(blockEntry == null) return;
 		try {
-			blockEntry.render(x, y, g, blockScale);
+			blockEntry.render(x, y, g, (int) Math.ceil(blockScale));
 		} catch (Exception e) {
 			debug.pstm(e, "Failed to render a "+blockEntry.type().title());
 		}
@@ -700,17 +729,17 @@ public class WorldFrame extends JComponent {
 	}
 	
 	//Block scaling
-	private int blockScale = 32;
+	private double blockScale = 32;
 	/**
 	 * @return the blockScale
 	 */
-	public int getBlockScale() {
+	public double getBlockScale() {
 		return blockScale;
 	}
 	/**
 	 * @param blockScale the blockScale to set
 	 */
-	public void setBlockScale(int blockScale) {
+	public void setBlockScale(double blockScale) {
 		this.blockScale = blockScale;
 	}
 
@@ -744,20 +773,26 @@ public class WorldFrame extends JComponent {
 	 * @param zoomsel new zoom level index
 	 */
 	public void setZoom(int zoomsel) {
+		this.zoomsel = zoomsel;
 		if(zoomsel < 0 ) this.zoomsel = 0;
 		if(zoomsel >= zoomlevels.size()) this.zoomsel = zoomlevels.size() - 1;
-		this.zoomsel = zoomsel;
+		blockScale = zoomlevels.getDouble(this.zoomsel);
 	}
 
 	/**
 	 * Zoom levels selectable with scroll wheel
 	 */
-	public final DoubleList zoomlevels =
-			DoubleList.of(   0.012, 0.016,  0.024,  0.032,  0.048,  0.064,  0.080,
-					         0.120, 0.160,  0.240,  0.320,  0.480,  0.640,  0.800,
-					         1.200, 1.600,  2.400,  3.200,  4.800,  6.400,  8.000,
-					        12,     16,     24,     32,     48,     64,     80,
-					       120,    160,    240,    320,    480,    640,    800,
-					      1200,   1600,   2400,   3200,   4800,   6400,   8000);
-	private int zoomsel = 23;
+	public static final DoubleList zoomlevels =
+		DoubleList.of(   0.012, 0.016,  0.024,  0.032,  0.048,  0.064,  0.080, 0.096,
+				         0.120, 0.160,  0.240,  0.320,  0.480,  0.640,  0.800, 0.96,
+				         1.200, 1.600,  2.400,  3.200,  4.800,  6.400,  8.000, 9.6,
+				        12,     16,     24,     32,     48,     64,     80,    96,
+				       120,    160,    240,    320,    480,    640,    800,   960, //ends at 480
+				      1200,   1600,   2400,   3200,   4800,   6400,   8000,  9600);
+	private int zoomsel = 27;
+	
+	//Player icon
+	@Nonnull private static final BufferedImage playerface0 = Textures.get("player/pchar.png");
+	@Nonnull private static final BufferedImage playerface1 = Textures.get("player/pchar1.png");
+	@Nonnull private static final BufferedImage playerface2 = Textures.get("player/pchar2.png");
 }

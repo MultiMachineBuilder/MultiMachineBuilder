@@ -7,7 +7,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-import mmb.DATA.contents.sound.Sound;
+import mmb.DATA.contents.Sound;
 import mmb.debug.Debugger;
 
 /**

@@ -140,8 +140,8 @@ Titled{
 	/**
 	 * @param startX left X coordinate
 	 * @param startY upper Y coordinate
-	 * @param scale display scale
+	 * @param blockScale display scale
 	 * @param g graphics context
 	 */
-	public abstract void preview(int startX, int startY, int scale, Graphics g);
+	public abstract void preview(int startX, int startY, double blockScale, Graphics g);
 }

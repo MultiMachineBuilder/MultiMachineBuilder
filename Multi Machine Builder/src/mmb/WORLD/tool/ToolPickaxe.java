@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.chance.Chance;
 import mmb.WORLD.inventory.ItemRecord;
@@ -53,13 +53,13 @@ public class ToolPickaxe extends WindowTool {
 	private static final long toMine = 2_000_000_000L;
 
 	@Override
-	public void preview(int startX, int startY, int scale, Graphics g) {
+	public void preview(int startX, int startY, double scale, Graphics g) {
 		frame.blockAt(startX+1, startY+1, block);
 		if(!frame.getMap().inBounds(block)) return;
 		BlockEntry block1 = frame.getMap().get(block);
 		if(block1.isSurface()) return;
 		if(pressed) {
-			int mid = scale/2;
+			int mid = (int)Math.ceil(scale/2);
 			int midX = mid+startX;
 			int midY = mid+startY;
 			long now = System.nanoTime();
@@ -102,10 +102,8 @@ public class ToolPickaxe extends WindowTool {
 		}
 		//Mine the block
 		Chance drop = block1.type().getDrop();
-		frame.getMap().reserveAndDo(block.x, block.y, slot -> {
-			BlockEntry changed = slot.set(block1.type().leaveBehind().createBlock());
-		});
-		boolean hasDrops = drop.drop(window.getPlayer().inv.createWriter(), frame.getMap(), block.x, block.y);
+		frame.getMap().place(block1.type().leaveBehind(), block.x, block.y);
+		drop.drop(window.getPlayer().inv.createWriter(), frame.getMap(), block.x, block.y);
 		
 		if(record != null && pick != null && pick.getUses() > pick.durability) {
 			//Break the pickaxe

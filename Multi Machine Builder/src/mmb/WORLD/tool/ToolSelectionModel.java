@@ -101,9 +101,8 @@ public class ToolSelectionModel {
 		}
 
 		@Override
-		public void preview(int startX, int startY, int scale, Graphics g) {
-			// TODO Auto-generated method stub
-			
+		public void preview(int startX, int startY, double scale, Graphics g) {
+			// unused
 		}
 		
 	}

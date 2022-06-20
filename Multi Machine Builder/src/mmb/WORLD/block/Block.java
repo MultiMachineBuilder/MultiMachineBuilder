@@ -21,7 +21,8 @@ import mmb.WORLD.worlds.world.World;
 
 /**
  * @author oskar
- *
+ * This class represents a building block.
+ * This class may also be used to represent a fluid.
  */
 public class Block extends BlockBase implements BlockEntry{
 	@Override

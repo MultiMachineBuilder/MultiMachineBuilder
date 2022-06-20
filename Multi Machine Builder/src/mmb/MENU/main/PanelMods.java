@@ -12,15 +12,15 @@ import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
-import mmb.DATA.contents.GameContents;
-import mmb.MODS.info.AddonState;
-import mmb.MODS.loader.AddonInfo;
+import mmb.MODS.info.ModInfo;
+import mmb.MODS.info.ModState;
+import mmb.MODS.info.Modfile;
+import mmb.MODS.info.Mods;
 import mmb.debug.Debugger;
 import net.miginfocom.swing.MigLayout;
 
 import static mmb.GlobalSettings.$res;
 
-import java.awt.BorderLayout;
 import java.awt.Desktop;
 
 import javax.swing.JButton;
@@ -38,13 +38,29 @@ public class PanelMods extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelMods() {
-		setLayout(new BorderLayout(0, 0));
+		setLayout(new MigLayout("", "[450px,grow 300][grow]", "[][265px,grow][35px]"));
+		
+		JLabel lblMods = new JLabel($res("cgui-mods"));
+		add(lblMods, "cell 0 0,growx");
+		
+		JLabel lblModfs = new JLabel($res("cgui-modfs"));
+		add(lblModfs, "cell 1 0,growx");
+		
+		JScrollPane scrollPaneModfs = new JScrollPane();
+		add(scrollPaneModfs, "cell 1 1,grow");
+		
+		tablemodelModfs.addColumn($res("cguim-name"));
+		tablemodelModfs.addColumn($res("cguim-state"));
+		Mods.files.forEach(this::addModf);
+		tableModfs = new JTable(tablemodelModfs);
+		tableModfs.setFillsViewportHeight(true);
+		scrollPaneModfs.setViewportView(tableModfs);
 		
 		JPanel subPanelMods = new JPanel();
-		add(subPanelMods, BorderLayout.SOUTH);
+		add(subPanelMods, "cell 0 2 2 1,growx,aligny top");
 		subPanelMods.setLayout(new MigLayout("", "[][]", "[]"));
 		
-		JLabel lblModCounter = new JLabel(GameContents.addons.size()+" mods");
+		JLabel lblModCounter = new JLabel(Mods.mods.size()+" mods");
 		subPanelMods.add(lblModCounter, "cell 0 0");
 		
 		btnNewButton = new JButton($res("cguim-dir"));
@@ -56,41 +72,49 @@ public class PanelMods extends JPanel {
 		});
 		subPanelMods.add(btnNewButton, "cell 1 0");
 		
-		tablemodel.addColumn($res("cguim-name"));
-		tablemodel.addColumn($res("cguim-descr"));
-		tablemodel.addColumn($res("cguim-state"));
-		tablemodel.addColumn($res("cguim-update"));
-		tablemodel.addColumn($res("cguim-version"));
-		tablemodel.addColumn($res("cguim-author"));
-		GameContents.addons.forEach(this::addMod);
 		
-		table = new JTable(tablemodel);
-		table.setFillsViewportHeight(true);
-		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setViewportBorder(UIManager.getBorder("Button.border"));
-		add(scrollPane);
+		tablemodelMods.addColumn($res("cguim-name"));
+		tablemodelMods.addColumn($res("cguim-descr"));
+		tablemodelMods.addColumn($res("cguim-state"));
+		tablemodelMods.addColumn($res("cguim-update"));
+		tablemodelMods.addColumn($res("cguim-version"));
+		tablemodelMods.addColumn($res("cguim-author"));
+		Mods.mods.forEach(this::addMod);
+		tableMods = new JTable(tablemodelMods);
+		tableMods.setFillsViewportHeight(true);
+		JScrollPane scrollPaneMods = new JScrollPane(tableMods);
+		scrollPaneMods.setViewportBorder(UIManager.getBorder("Button.border"));
+		add(scrollPaneMods, "cell 0 1,grow");
 	}
 	
-	private final DefaultTableModel tablemodel = new DefaultTableModel();
-	private JTable table;
+	private final DefaultTableModel tablemodelMods = new DefaultTableModel();
+	private final DefaultTableModel tablemodelModfs = new DefaultTableModel();
+	private JTable tableMods;
 	private JButton btnNewButton;
 	private static final String UNKNOWN = $res("cguim-un");
-	private void addMod(AddonInfo mod) {
+	private JTable tableModfs;
+	private void addMod(ModInfo mod) {
 		String release = UNKNOWN;
 		String descr = "This file is corrupt.";
 		String author = UNKNOWN;
-		if(mod.mmbmod == null) {
+		if(mod.meta == null) {
 			release = new Date().toString();
 			descr = "No description";
-		}else if(mod.state == AddonState.ENABLE) {
-			release = mod.mmbmod.release.toString();
-			descr = mod.mmbmod.description;
-			author = mod.mmbmod.author;
+		}else if(mod.state == ModState.ENABLE) {
+			release = mod.meta.release.toString();
+			descr = mod.meta.description;
+			author = mod.meta.author;
 		}
 		String state = mod.state.title;
 		String ver = "";
-		String name = mod.name;
-		tablemodel.addRow(new Object[] {name, descr, state, release, ver, author});
+		String name = mod.meta.name;
+		tablemodelMods.addRow(new Object[] {name, descr, state, release, ver, author});
+	}
+	
+	private void addModf(Modfile file) {
+		String state = file.state.title;
+		String name = file.path;
+		tablemodelModfs.addRow(new Object[] {name, state});
 	}
 
 }

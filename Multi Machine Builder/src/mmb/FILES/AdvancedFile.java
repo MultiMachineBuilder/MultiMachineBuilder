@@ -52,18 +52,14 @@ public interface AdvancedFile {
 	 * @return URL
 	 * @throws MalformedURLException if path is incorrect
 	 */
-	default URL url() throws MalformedURLException {
-		return new URL(name());
-	}
+	URL url() throws MalformedURLException;
 	
 	/**
 	 * Gets URI of the file
 	 * @return URI
 	 * @throws URISyntaxException if path is incorrect
 	 */
-	default URI uri() throws URISyntaxException {
-		return new URI(name());
-	}
+	URI uri() throws URISyntaxException;
 	
 	/**
 	 * Gets parent path of the file

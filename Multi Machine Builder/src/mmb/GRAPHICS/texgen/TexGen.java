@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.GRAPHICS.awt.ColorMapper;
 import mmb.GRAPHICS.awt.ColorMul;
 import mmb.WORLD.electric.VoltageTier;

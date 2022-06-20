@@ -13,7 +13,7 @@ import mmb.WORLD.worlds.world.World;
  */
 public class PlayerPhysicsNormal implements PlayerPhysics {
 	@Override
-	public void onTick(World w, Player p, int ctrlX, int ctrlY) {
+	public void onTick(World w, Player p, double ctrlX, double ctrlY) {
 		//Collision check - ensure in boundaries
 		double minX = w.startX + 0.4;
 		if (p.pos.x < minX) {

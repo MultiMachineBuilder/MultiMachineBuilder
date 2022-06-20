@@ -267,10 +267,10 @@ public class Craftings {
 		assembler.add(new SimpleItemList(paper.stack(1),                              copper.foil.stack(2)), substrate1, null,    VoltageTier.V1,  10000);
 		assembler.add(new SimpleItemList(
 				substrate0.stack(3),
-				resistor.stack(8),
-				capacitor.stack(8),
-				inductor.stack(8),
-				rudimentary.foil.stack(2)
+				resistor.stack(2),
+				capacitor.stack(2),
+				inductor.stack(2),
+				rudimentary.foil.stack(1)
 				), circuit0, null, VoltageTier.V1,  10000);
 		assembler.add(new SimpleItemList(
 				substrate1.stack(4),
@@ -396,7 +396,7 @@ public class Craftings {
 		iron.cluster, circuit1, iron.cluster,
 		FURNACE,      FURNACE,  FURNACE,
 		iron.cluster, circuit1, iron.cluster,
-		}, 3, 3, COALGEN1);
+		}, 3, 3, COALGEN2);
 		
 		//Transformer VLV/ULV
 		crafting.addRecipeGrid(new ItemEntry[]{

@@ -14,7 +14,7 @@ import javax.annotation.Nonnull;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.blocks.machine.Collector;
 
@@ -41,7 +41,7 @@ public class ConfigureDroppedItemExtractors extends WindowTool {
 
 	@SuppressWarnings("null")
 	@Override
-	public void preview(int startX, int startY, int scale, Graphics g) {
+	public void preview(int startX, int startY, double scale, Graphics g) {
 		if(collector != null) {
 			int rangeX = Collector.clamp(4, mouse.x-collector.posX(), 16);
 			int rangeY = Collector.clamp(4, mouse.y-collector.posY(), 16);

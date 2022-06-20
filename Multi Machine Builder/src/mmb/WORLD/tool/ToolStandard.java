@@ -13,7 +13,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import mmb.BEANS.BlockActivateListener;
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.gui.Placer;
 import mmb.WORLD.gui.window.WorldFrame;
@@ -71,14 +71,14 @@ public class ToolStandard extends WindowTool{
 	 */
 	public static void placeBlock(int x, int y, World map, WorldWindow window) {
 		//Place the block
-		ItemRecord record = window.getPlacer().getSelectedValue();
-		if(record == null) return;
-		ItemEntry item = record.item();
+		ItemRecord irecord = window.getPlacer().getSelectedValue();
+		if(irecord == null) return;
+		ItemEntry item = irecord.item();
 		if(item instanceof Placer) {
 			//If in survival, consume items
 			if(window.getPlayer().isSurvival()) {
 				//In survival
-				int extracted = record.extract(1);
+				int extracted = irecord.extract(1);
 				if(extracted == 0) return;
 			}
 			 ((Placer)item).place(x, y, map);
@@ -152,11 +152,11 @@ public class ToolStandard extends WindowTool{
 		return title;
 	}
 	@Override
-	public void preview(int x, int y, int scale, Graphics g) {
-		ItemRecord record = frame.getPlacer().getSelectedValue();
-		if(record == null) return;
-		ItemEntry placer0 = record.item();
-		if(placer0 instanceof Placer) ((Placer) placer0).preview(g, new Point(x, y), frame.getMap(), frame.getMouseoverBlock(), scale);
+	public void preview(int x, int y, double scale, Graphics g) {
+		ItemRecord irecord = frame.getPlacer().getSelectedValue();
+		if(irecord == null) return;
+		ItemEntry placer0 = irecord.item();
+		if(placer0 instanceof Placer) ((Placer) placer0).preview(g, new Point(x, y), frame.getMap(), frame.getMouseoverBlock(), (int)Math.ceil(scale));
 	}
 	private static final String descr1 = $res("toolstd-1");
 	private static final String descr2 = $res("toolstd-2");

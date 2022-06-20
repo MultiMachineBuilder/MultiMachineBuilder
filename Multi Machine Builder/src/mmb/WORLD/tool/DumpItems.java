@@ -14,7 +14,7 @@ import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.ItemEntry;
 
@@ -41,9 +41,8 @@ public class DumpItems extends WindowTool {
 	}
 
 	@Override
-	public void preview(int startX, int startY, int scale, Graphics g) {
-		// TODO Auto-generated method stub
-
+	public void preview(int startX, int startY, double scale, Graphics g) {
+		// unused
 	}
 
 	@Override

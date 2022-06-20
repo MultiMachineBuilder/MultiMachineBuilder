@@ -4,6 +4,10 @@
 package mmb.FILES;
 
 import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Path;
 
 /**
@@ -90,6 +94,18 @@ public class LocalFile implements AdvancedFile {
 	@Override
 	public boolean isDirectory() {
 		return file.isDirectory();
+	}
+	@Override
+	public URL url() throws MalformedURLException {
+		return new URL("file://"+file.getAbsolutePath());
+	}
+	@Override
+	public URI uri() throws URISyntaxException {
+		try {
+			return url().toURI();
+		} catch (MalformedURLException | URISyntaxException e) {
+			throw (URISyntaxException)(new URISyntaxException(file.getAbsolutePath(), "MalformedURLException").initCause(e));
+		}
 	}
 
 }

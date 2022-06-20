@@ -11,14 +11,14 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.blocks.machine.SkeletalBlockLinear;
 import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.crafting.Craftings;
-import mmb.WORLD.crafting.ElectroItemProcessHelper;
+import mmb.WORLD.crafting.helper.ElectroItemProcessHelper;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.electromachine.FuelBurner;

@@ -14,7 +14,7 @@ import java.util.TreeMap;
 
 import javax.annotation.Nonnull;
 
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.GRAPHICS.texgen.TexGen;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.blocks.machine.manual.Crafting;

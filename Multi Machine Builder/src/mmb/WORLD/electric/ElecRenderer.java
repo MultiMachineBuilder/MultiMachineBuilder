@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.GRAPHICS.awt.ColorMapper;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.rotate.RotatedImageGroup;
@@ -90,5 +90,23 @@ public class ElecRenderer implements BlockDrawer {
 		BufferedImage base1 = opB.createCompatibleDestImage(base0, null);
 		opC.filter(base0, base1);
 		return new ElecRenderer(RotatedImageGroup.create(conn1), new ImageIcon(icon1), base1);
+	}
+	
+	private int lod = -1;
+	@Override
+	public int LOD() {
+		if(lod < 0) {
+			int rgb1 = mmb.WORLD.texture.LODs.calcLOD(base);
+			int r = (rgb1 & 0x00ff0000) >> 16;
+			int g = (rgb1 & 0x0000ff00) >> 8;
+			int b = (rgb1 & 0x000000ff);
+			int rgb2 = rig.U.LOD();
+			r += (rgb2 & 0x00ff0000) >> 16;
+			g += (rgb2 & 0x0000ff00) >> 8;
+			b += (rgb2 & 0x000000ff);
+			r/=2; g/=2; b/=2;
+			lod = r*65536 + g*256 + b;
+		}
+		return lod;
 	}
 }

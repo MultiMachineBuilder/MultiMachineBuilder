@@ -19,7 +19,7 @@ import javax.vecmath.Point2d;
 
 import org.joml.Vector2d;
 
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.visuals.VisCircle;
@@ -68,7 +68,7 @@ public class ToolVisuals extends WindowTool{
 	boolean autorefresh;
 	
 	@Override
-	public void preview(int startX, int startY, int scale, Graphics g) {
+	public void preview(int startX, int startY, double scale, Graphics g) {
 		recalc();
 		autorefresh = GUI.autoRefresh.isSelected();
 		debug.printl("autorefresh "+autorefresh);

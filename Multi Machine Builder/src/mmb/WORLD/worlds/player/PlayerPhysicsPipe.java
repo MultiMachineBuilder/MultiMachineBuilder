@@ -23,7 +23,7 @@ public class PlayerPhysicsPipe implements PlayerPhysics {
 
 	//When player reaches end of the pipe, then it returns to beginning
 	@Override
-	public void onTick(World w, Player p, int ctrlX, int ctrlY) {		
+	public void onTick(World w, Player p, double ctrlX, double ctrlY) {		
 		//Transfer to next or previous
 		boolean check = true;
 		while(check) {

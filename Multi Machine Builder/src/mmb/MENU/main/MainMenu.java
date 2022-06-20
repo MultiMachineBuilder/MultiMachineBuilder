@@ -6,8 +6,7 @@ import javax.annotation.Nonnull;
 import javax.swing.*;
 
 import mmb.DATA.Settings;
-import mmb.DATA.contents.GameContents;
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.debug.Debugger;
 import java.net.URI;
 import java.util.Calendar;
@@ -21,6 +20,8 @@ import mmb.MENU.FullScreen;
 import mmb.MENU.MMBFrame;
 import mmb.MENU.TestCollision;
 import mmb.MENU.components.BoundCheckBoxMenuItem;
+import mmb.MODS.info.Mods;
+
 import static mmb.GlobalSettings.*;
 
 /**
@@ -83,7 +84,7 @@ public class MainMenu extends MMBFrame {
 	 */
 	private MainMenu() {
 		debug.printl("MainMenu created");
-		setTitle("MultiMachineBuilder - "+GameContents.addons.size()+" mods");
+		setTitle("MultiMachineBuilder - "+Mods.mods.size()+" mods");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		

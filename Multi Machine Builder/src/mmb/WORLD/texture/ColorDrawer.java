@@ -37,4 +37,9 @@ public class ColorDrawer implements BlockDrawer {
 	public Icon toIcon() {
 		return icon;
 	}
+
+	@Override
+	public int LOD() {
+		return c.getRGB();
+	}
 }

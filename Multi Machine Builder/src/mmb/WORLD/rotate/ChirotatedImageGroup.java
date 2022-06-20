@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 
 import javax.annotation.Nonnull;
 
-import mmb.DATA.contents.texture.Textures;
+import mmb.DATA.contents.Textures;
 import mmb.WORLD.texture.BlockDrawer;
 
 /**

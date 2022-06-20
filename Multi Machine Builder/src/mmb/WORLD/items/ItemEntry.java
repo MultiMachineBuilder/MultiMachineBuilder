@@ -90,6 +90,11 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput{
 			public Icon toIcon() {
 				return item.icon();
 			}
+
+			@Override
+			public int LOD() {
+				return 0;
+			}
 			
 		};
 	}
