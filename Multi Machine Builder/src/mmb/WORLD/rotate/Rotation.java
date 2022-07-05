@@ -8,6 +8,9 @@ import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
 
+import mmb.DATA.contents.Textures.Texture;
+import mmb.GL.RenderCtx;
+
 /**
  * @author oskar
  *
@@ -39,7 +42,6 @@ public enum Rotation {
 		@Override public Rotation flipV() {return S;}
 		@Override public Rotation flipNW() {return E;}
 		@Override public Rotation flipNE() {return W;}
-		
 	},
 	E{
 		@Override public Side U() {return Side.R;}
@@ -64,6 +66,7 @@ public enum Rotation {
 		@Override public Rotation flipV() {return E;}
 		@Override public Rotation flipNW() {return N;}
 		@Override public Rotation flipNE() {return S;}
+		
 	},
 	S{
 		@Override public Side U() {return Side.D;}
@@ -153,6 +156,12 @@ public enum Rotation {
 	@Nonnull public abstract Rotation flipNW();
 	/**@return Mirrored on \ plane*/
 	@Nonnull public abstract Rotation flipNE();
+	public void renderGL(Texture tex, float x, float y, float w, float h, float r, float g, float b, float a, RenderCtx graphics) {
+		ChiralRotation.of(this, Chirality.R).renderGL(tex, x, y, w, h, r, g, b, a, graphics);
+	}
+	public void renderGL(Texture tex, float x, float y, float w, float h, RenderCtx graphics) {
+		renderGL(tex, x, y, w, h, 1, 1, 1, 1, graphics);
+	}
 	
 	/**
 	 * @param chirality chirality of returned orientation

@@ -6,6 +6,8 @@ package mmb.WORLD.blocks.chest;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImageOp;
+import java.awt.image.LookupOp;
 
 import javax.annotation.Nullable;
 
@@ -15,6 +17,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.BEANS.*;
 import mmb.DATA.Save;
 import mmb.DATA.contents.Textures;
+import mmb.GRAPHICS.awt.ColorMapper;
 import mmb.GRAPHICS.awt.MappedColorTexture;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
@@ -37,11 +40,25 @@ public class Chest extends AbstractChest implements BlockActivateListener, Color
 	@Override
 	public void setColor(Color c) {
 		this.c = c;
-		texture.setTo(c);
+		mctexture.setTo(c);
 	}
 
-	public Chest() {
-		inv.setCapacity(6);
+	private final BlockType type;
+	private final double capacity;
+	private final BufferedImage texture;
+	@SuppressWarnings("null")
+	private final MappedColorTexture mctexture;
+	/**
+	 * Creates a chest
+	 * @param capacity capacity in cubic meters
+	 * @param type block type
+	 */
+	public Chest(double capacity, BlockType type, BufferedImage texture) {
+		this.capacity = capacity;
+		this.type = type;
+		this.texture = texture;
+		this.mctexture = new MappedColorTexture(Color.WHITE, Color.WHITE, texture);
+		inv.setCapacity(capacity);
 	}
 
 	@Override
@@ -52,7 +69,7 @@ public class Chest extends AbstractChest implements BlockActivateListener, Color
 	@SuppressWarnings("null")
 	@Override
 	protected void load1(ObjectNode node) {
-		inv.setCapacity(6);
+		inv.setCapacity(capacity);
 		ObjectNode on = node;
 		JsonNode cnode = on.get("color");
 		if(!(cnode == null || cnode.isMissingNode() || cnode.isNull()))
@@ -68,11 +85,10 @@ public class Chest extends AbstractChest implements BlockActivateListener, Color
 		on.set("color", Save.saveColor(c));
 	}
 
-	@SuppressWarnings("null")
-	private final MappedColorTexture texture = new MappedColorTexture(Color.WHITE, Color.WHITE, origTexture);
+	
 	@Override
 	public void render(int x, int y, Graphics g, int side) {
-		texture.draw(this, x, y, g, side);
+		mctexture.draw(this, x, y, g, side);
 	}
 
 	@Override
@@ -82,7 +98,7 @@ public class Chest extends AbstractChest implements BlockActivateListener, Color
 	}
 	@Override
 	public BlockEntry blockCopy() {
-		Chest copy = new Chest();
+		Chest copy = new Chest(capacity, type, texture);
 		copy.c = c;
 		copy.inv.set(inv);
 		return copy;

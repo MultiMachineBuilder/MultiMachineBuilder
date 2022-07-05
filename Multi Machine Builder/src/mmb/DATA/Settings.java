@@ -16,6 +16,8 @@ import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
+import java.util.function.DoubleConsumer;
+import java.util.function.DoubleSupplier;
 import java.util.function.Function;
 import java.util.function.IntConsumer;
 import java.util.function.IntSupplier;
@@ -26,6 +28,8 @@ import javax.annotation.Nullable;
 
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
 import mmb.DATA.variables.BooleanVariable;
+import mmb.DATA.variables.DataValueDouble;
+import mmb.DATA.variables.DataValueInt;
 import mmb.DATA.variables.ListenableValue;
 import mmb.DATA.variables.Variable;
 import mmb.debug.Debugger;
@@ -176,11 +180,7 @@ public class Settings {
 			else onload.accept(val);
 		}
 	}
-	/**
-	 * @param string
-	 * @param string2
-	 * @param lang
-	 */
+	
 	public static void addSettingString(String name, String defalt, ListenableValue<String> variable) {
 		addSettingString(name, defalt, variable::set, variable::get);
 	}
@@ -212,6 +212,45 @@ public class Settings {
 	 */
 	public static void addSettingInt(String name, boolean defalt, IntConsumer onload, IntSupplier save) {
 		addSettingString(name, Boolean.toString(defalt), s -> onload.accept(Integer.parseInt(s)), () -> Integer.toString(save.getAsInt()));
+	}
+	/**
+	 * Adds a boolean setting
+	 * @param name the name of a setting
+	 * @param defalt the default value of the property
+	 * @param onload method which handles setting loading. The method
+	 * @param save method which provides strings for saving
+	 */
+	public static void addSettingDbl(String name, double defalt, DoubleConsumer onload, DoubleSupplier save) {
+		addSettingString(name, Double.toString(defalt), s -> onload.accept(Double.parseDouble(s)), () -> Double.toString(save.getAsDouble()));
+	}
+	/**
+	 * Adds a boolean setting
+	 * @param name the name of a setting
+	 * @param i the default value of the property
+	 * @param onload method which handles setting loading. The method
+	 * @param save method which provides strings for saving
+	 */
+	public static void addSettingDbl(String name, double i, DataValueDouble variable) {
+		addSettingDbl(name, i, variable::set, variable::getDouble);
+	}
+	/**
+	 * Adds a boolean setting
+	 * @param name the name of a setting
+	 * @param defalt the default value of the property
+	 * @param onload method which handles setting loading. The method
+	 * @param save method which provides strings for saving
+	 */
+	public static void addSettingInt(String name, int defalt, IntConsumer onload, IntSupplier save) {
+		addSettingString(name, Integer.toString(defalt), s -> onload.accept(Integer.parseInt(s)), () -> Integer.toString(save.getAsInt()));
+	}
+	/**
+	 * Adds an ineteger setting
+	 * @param name the name of a setting
+	 * @param i the default value of the property
+	 * @param variable variable
+	 */
+	public static void addSettingInt(String name, int i, DataValueInt variable) {
+		addSettingInt(name, i, variable::set, variable::getInt);
 	}
 	/**
 	 * @param <T> type of value 

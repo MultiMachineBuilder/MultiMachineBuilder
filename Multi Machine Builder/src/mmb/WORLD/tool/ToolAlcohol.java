@@ -16,6 +16,7 @@ import mmb.BEANS.BlockActivateListener;
 import mmb.BEANS.Intoxicating;
 import mmb.DATA.contents.Textures;
 import mmb.WORLD.block.BlockEntry;
+import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.gui.Placer;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
@@ -64,8 +65,10 @@ public class ToolAlcohol extends WindowTool {
 				//In survival
 				int extracted = irecord.extract(1);
 				if(extracted == 0) return;
+				RecipeOutput drop = ((Intoxicating) item).postdrink();
+				drop.produceResults(frame.getPlayer().inv.createWriter());
 			}
-			double dose = ((Intoxicating) item).alcoholicity();
+			double dose = ((Intoxicating) item).alcoholicity();	
 			debug.printl("Drink! "+dose);
 			frame.getPlayer().setDigestibleAlcohol(frame.getPlayer().getDigestibleAlcohol() + dose);
 		}

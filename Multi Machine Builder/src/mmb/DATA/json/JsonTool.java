@@ -111,4 +111,16 @@ public class JsonTool {
 		}
 		return result;
 	}
+	/**
+	 * Retrieves an integer from a JsonNode by name
+	 * @param node the JSON node
+	 * @param string name of key
+	 * @param i default value
+	 * @return value located in given JSON key, or default value if absent or invalid
+	 */
+	public static int getInt(JsonNode node, String string, int i) {
+		JsonNode node0 = node.get(string);
+		if(node0 == null) return i;
+		return node0.asInt(i);
+	}
 }

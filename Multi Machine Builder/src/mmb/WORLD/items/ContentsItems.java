@@ -16,6 +16,7 @@ import mmb.GlobalSettings;
 import mmb.DATA.contents.Textures;
 import mmb.GRAPHICS.awt.ColorMapper;
 import mmb.WORLD.blocks.machine.pack.Pack;
+import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.item.ItemEntityType;
 import mmb.WORLD.item.Items;
@@ -53,11 +54,46 @@ public class ContentsItems {
 		.texture("item/lisc.png")
 		.volumed(0.000125)
 		.finish("plant.leaf");
-	@Nonnull public static final Item alcopod = new AlcoPod()
+	@Nonnull public static final AlcoPod alcopod = (AlcoPod) new AlcoPod(1, RecipeOutput.NONE)
 		.title("AlcoPod")
 		.texture("item/alcopod.png")
 		.volumed(0.000125)
 		.finish("drugs.alcopod");
+	@Nonnull public static final Item beerEmpty = new Item()
+		.title("#beerb")
+		.texture("item/beer empty.png")
+		.volumed(0.004)
+		.finish("drugs.beer0");
+	@Nonnull public static final AlcoPod beer = (AlcoPod) new AlcoPod(1.5, beerEmpty)
+		.title("#beer")
+		.texture("item/beer.png")
+		.volumed(0.004)
+		.finish("drugs.beer");
+	@Nonnull public static final Item glass = new Item()
+		.title("#glass")
+		.texture("item/glass.png")
+		.volumed(0.004)
+		.finish("item.glass");
+	@Nonnull public static final Item glassp = new Item()
+		.title("#glassp")
+		.texture("item/glass panel.png")
+		.volumed(0.004)
+		.finish("item.glassp");
+	@Nonnull public static final Item yeast = new Item()
+			.title("#yeast")
+			.texture("item/yeast.png")
+			.volumed(0.001)
+			.finish("item.yeast");
+		@Nonnull public static final Item hops = new Item()
+			.title("#hops")
+			.texture("item/hops.png")
+			.volumed(0.001)
+			.finish("item.hops");
+	@Nonnull public static final Item seeds = new Item()
+		.title("#seeds")
+		.texture("item/seeds.png")
+		.volumed(0.002)
+		.finish("item.seeds");
 	
 	//Tools
 	@Nonnull public static final PickaxeType pickVW = Pickaxe.create(120, 15, "item/wood pick.png", "#pick-b", "pick.weak");
@@ -225,5 +261,8 @@ public class ContentsItems {
 		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, bucket, configExtractors);
 		Items.tagItems("craftcode", craftcodes);
 		Items.tagItems("parts-electronic", resistor, capacitor, inductor, diode, transistor, IC, circuit0, substrate0, circuit1, substrate1);
+		Items.tagItems("agro", yeast, hops, seeds);
+		Items.tagItems("material-glass", glass, glassp, beerEmpty);
+		Items.tagItems("alcohol", alcopod, beer);
 	}
 }

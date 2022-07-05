@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
+import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -56,30 +57,33 @@ public class Sounds {
 		String ext = AdvancedFile.baseExtension(name)[1];
 		Sound loaded = null;
 		try {
+			AudioInputStream ais = AudioSystem.getAudioInputStream(new BufferedInputStream(soundData));
 			switch(ext) {
 			case "wav":
 				//Wave
-				AudioInputStream ais = AudioSystem.getAudioInputStream(new BufferedInputStream(soundData));
 				loaded = Sound.load(ais);
-				
 				load(loaded, name);
 				break;
 			case "mp1":
 			case "mp2":
 			case "mp3":
-				MP3Loader mp3l = new MP3Loader(soundData);
-				mp3l.run();
-				loaded = mp3l.getClip();
-			break;
+			case "ogg":
+				//MP1/MP2/MP3
+				//Ogg Vorbis
+		        AudioFormat baseFormat = ais.getFormat();
+		        AudioFormat targetFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, baseFormat.getSampleRate(),
+		        16, baseFormat.getChannels(), baseFormat.getChannels() * 2, baseFormat.getSampleRate(), false);
+		        AudioInputStream ais2 = AudioSystem.getAudioInputStream(targetFormat, ais);
+		        loaded = Sound.load(ais2);
+				load(loaded, name);
+				break;
 			default:
 				debug.printl("Unsupported format: "+ext);
 			}
 		}catch (IOException e) {
 			debug.pstm(e, "Failed to load "+ ext.toUpperCase() +" file "+name);
 			throw e;
-		}catch(InterruptedException e) {
-			Thread.currentThread().interrupt();
-		} catch (UnsupportedAudioFileException e) {
+		}catch (UnsupportedAudioFileException e) {
 			throw new IOException(e);
 		}
 		if(loaded != null) load(loaded, name);

@@ -25,6 +25,8 @@ public class Debugger {
 				boolean create = file.createNewFile();
 				if(!create) {
 					PrintWriter writer = new PrintWriter(file, "UTF-8");
+					System.err.println("Failed to create a log file");
+					System.exit(-1);
 					writer.close();
 				}
 				OutputStream stream = new FileOutputStream(file, false);

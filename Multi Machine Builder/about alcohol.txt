@@ -1,0 +1,11 @@
+NOTICE ABOUT DEPICTIONS OF ALCOHOL
+
+The alcohol is depicted as realistically as possible using avaliable implementations.
+Ingame effects:
+0 drinks - sober
+1..2 drinks - faster blinking, small jitter
+2..5 drinks - moderate jitter, slower blinking
+5..10 drinks - heavy jitter
+10..13 drinks - loss of control, very heavy jitter
+13..15 drinks - quick loss of health and death
+⩾15 drinks - instant death

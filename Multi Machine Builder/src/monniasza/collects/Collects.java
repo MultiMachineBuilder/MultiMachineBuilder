@@ -6,6 +6,7 @@ package monniasza.collects;
 import java.util.AbstractList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -170,7 +171,15 @@ public class Collects {
 	@Nonnull public static <T> Iterable<T> iter(Iterator<T> iter){
 		return () -> iter;
 	}
-
+	/**
+	 * Converts an {@link Enumeration} to an {@link Iterable}
+	 * @param <T> type of enumeration
+	 * @param iter enumeration to be converted
+	 * @return wrapped enumeration object
+	 */
+	public static <T> Iterable<T> iter(Enumeration<T> iter) {
+		return iter::asIterator;
+	}
 	/**
 	 * Wraps the {@link ListModel} in a {@link List}, to allow Java Collections Framework operations to be used
 	 * @param <T>
@@ -237,4 +246,6 @@ public class Collects {
 			
 		};
 	}
+
+	
 }

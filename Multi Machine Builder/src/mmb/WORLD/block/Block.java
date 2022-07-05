@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.node.TextNode;
 import mmb.WORLD.chance.Chance;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.texture.BlockDrawer;
+import mmb.WORLD.worlds.world.Player;
 import mmb.WORLD.worlds.world.World;
 
 /**
@@ -37,12 +38,12 @@ public class Block extends BlockBase implements BlockEntry{
 	public BlockType type() {
 		return this;
 	}
+	
 	@Override
 	public BlockEntry place(int x, int y, World map) {
 		BlockEntry placed = map.place(this, x, y);
 		return placed;
 	}
-
 	@Override
 	public BlockEntry createBlock() {
 		return this;
@@ -199,6 +200,26 @@ public class Block extends BlockBase implements BlockEntry{
 	 */
 	public void setSurface(boolean sf) {
 		surface = sf;
+		setCollidable(!sf);
+	}
+	
+	//Collidability
+	private boolean collidable = true;
+	/**
+	 * @return is block collidable?
+	 */
+	public boolean isCollidable() {
+		return collidable;
+	}
+	/**
+	 * @param collidable the collidable to set
+	 */
+	public void setCollidable(boolean collidable) {
+		this.collidable = collidable;
+	}
+	@Override
+	public void onPlayerCollide(int blockX, int blockY, World world, Player player) {
+		if(collidable) BlockEntry.super.onPlayerCollide(blockX, blockY, world, player);
 	}
 	
 	@Override
@@ -209,5 +230,7 @@ public class Block extends BlockBase implements BlockEntry{
 	public void resetMap(@Nullable World map, int x, int y) {
 		//does nothing
 	}
+	
+	
 
 }

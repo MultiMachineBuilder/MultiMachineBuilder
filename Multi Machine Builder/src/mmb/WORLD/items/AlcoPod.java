@@ -4,6 +4,7 @@
 package mmb.WORLD.items;
 
 import mmb.BEANS.Intoxicating;
+import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.tool.ToolAlcohol;
 import mmb.WORLD.tool.WindowTool;
@@ -23,9 +24,23 @@ import mmb.WORLD.tool.WindowTool;
  *  ║SPRZEDAŻ ALKOHOLU OSOBOM DO LAT 18 JEST PRZESTĘPSTWEM║
  *  ║NAWET TAKA ILOŚĆ SZKODZI ZDROWIU KOBIET W CIĄŻY      ║
  *  ║I JEST NIEBEZPIECZNA DLA KIEROWCÓW                   ║
+ *  ╠═════════════════════════════════════════════════════╣
+ *  ║REALITATIERI ALKONSUM EST IPROTETZIERA               ║
+ *  ║½ LITRI PIVA CKONTENTS 25g ETANOL                    ║
+ *  ║FROMOTUNG ALKOHOLI HUMANITERI DB y18 EST KRIMUNG     ║
+ *  ║SONAT TIS WOLUMEN DD FD FEMININ HARTIS               ║
+ *  ║I EST IPROTETZIERA DIA CARMASTERI                    ║
  *  ╚═════════════════════════════════════════════════════╝
  */
 public class AlcoPod extends Item implements Intoxicating {
+	
+	private final double dose;
+	private final RecipeOutput drop;
+	public AlcoPod(double dose, RecipeOutput drop) {
+		super();
+		this.dose = dose;
+		this.drop = drop;
+	}
 	private static final WindowTool TOOL = new ToolAlcohol();
 	@Override
 	public WindowTool getTool() {
@@ -33,7 +48,11 @@ public class AlcoPod extends Item implements Intoxicating {
 	}
 	@Override
 	public double alcoholicity() {
-		return 1;
+		return dose;
+	}
+	@Override
+	public RecipeOutput postdrink() {
+		return drop;
 	}
 	
 }

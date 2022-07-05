@@ -77,7 +77,6 @@ public class AddonLoader {
 		if(!modfile.isOnline()) name0 = AdvancedFile.dirName(file.name())[1];
 		name = name0;
 		runningOn = new Thread(() -> {init(); Mods.files.add(modfile); handler.accept(modfile);});
-		ModLoader.loaders.add(this);
 		runningOn.start();
 	}
 	
@@ -121,6 +120,15 @@ public class AddonLoader {
 			modfile.state = ModfileState.BLOATED;
 		}
 		
+		//Part 1a: check for empty byte arrays
+		if(data == null) {
+			return;
+		}
+		if(data.length == 0) {
+			modfile.state = ModfileState.EMPTY;
+			return;
+		}
+		
 		//Part 2: classpath load the file
 		try{
 			bcl.loadJarDataInBytes(data);
@@ -156,6 +164,7 @@ public class AddonLoader {
 			debug.printl("Couldn't open zip or jar file " + file.name());
 			debug.pst(e);
 			modfile.state = ModfileState.BROKEN;
+			return;
 		}
 		
 		//Part 3A: mark empty mods

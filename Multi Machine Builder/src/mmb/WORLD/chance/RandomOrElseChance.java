@@ -21,7 +21,7 @@ public class RandomOrElseChance implements Chance {
 
 	/**
 	 * Creates a random chance object
-	 * @param chance the chance
+	 * @param chance the chance of selecting the first item
 	 * @param wrap the item which may be rewarded
 	 * @param other the result when first chance is not selected
 	 */

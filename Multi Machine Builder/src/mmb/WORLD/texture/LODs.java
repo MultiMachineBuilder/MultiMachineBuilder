@@ -6,6 +6,7 @@ package mmb.WORLD.texture;
 import java.awt.image.BufferedImage;
 
 import org.joml.Vector3i;
+import org.joml.Vector4f;
 import org.joml.Vector4i;
 
 /**
@@ -56,6 +57,46 @@ public class LODs {
 		int g1 = g/w;
 		int b1 = b/w;
 		return r1*65536 + g1*256 + b1;
+	}
+	
+	public static Vector4f calcLOD(BufferedImage img, Vector4f vec) {
+		int r=0;
+		int g=0;
+		int b=0;
+		int w=0;
+		if(img.isAlphaPremultiplied()) {
+			//with alpha
+			for(int i = 0; i < img.getWidth(); i++) {
+				for(int j=0; j < img.getHeight(); j++) {
+					int data = img.getRGB(i, j);
+					int aa = (data & 0xff000000) >> 24;
+					int rr = (data & 0x00ff0000) >> 16;
+					int gg = (data & 0x0000ff00) >> 8;
+					int bb = (data & 0x000000ff);
+					r += aa*rr;
+					g += aa*gg;
+					b += aa*bb;
+					w += aa;
+				}
+			}
+		}else {
+			//without alpha
+			for(int i = 0; i < img.getWidth(); i++) {
+				for(int j=0; j < img.getHeight(); j++) {
+					int data = img.getRGB(i, j);
+					r += (data & 0x00ff0000) >> 16;
+					g += (data & 0x0000ff00) >> 8;
+					b += (data & 0x000000ff);
+				}
+			}
+			w=img.getWidth()*img.getHeight();
+		}
+		if(w == 0) {
+			vec.set(0, 0, 0, 0);
+		}else {
+			vec.set((float)r/w, (float)g/w, (float)b/w, (float)w/(img.getWidth()*img.getHeight()));
+		}
+		return vec;
 	}
 	
 	/**

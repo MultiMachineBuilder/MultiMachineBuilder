@@ -1,0 +1,11 @@
+#version 330 core
+
+in vec2 passPos;
+in vec4 passColor;
+in vec2 passUV;
+
+uniform sampler2d atlas;
+
+void main(){
+	gl_FragColor = atlas(passUV) * passColor;
+}

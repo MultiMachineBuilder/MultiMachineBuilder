@@ -55,6 +55,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.JCheckBoxMenuItem;
 import net.miginfocom.swing.MigLayout;
+import javax.swing.JProgressBar;
 
 /**
  * @author oskar
@@ -163,7 +164,7 @@ public class WorldWindow extends MMBFrame{
 					worldPane.setDividerLocation(320);
 					//[start] The world frame panel
 						JPanel worldFramePanel = new JPanel();
-						worldFramePanel.setLayout(new MigLayout("", "[101px,grow,center]", "[80px,grow][][]"));
+						worldFramePanel.setLayout(new MigLayout("", "[101px,grow,center]", "[80px,grow][][][]"));
 						worldPane.setRightComponent(worldFramePanel);
 						
 						worldFrame = new WorldFrame(this);
@@ -171,10 +172,13 @@ public class WorldWindow extends MMBFrame{
 						worldFrame.titleChange.addListener(this::updateTitle);
 						worldFramePanel.add(worldFrame, "cell 0 0,grow");
 						
+						progressHP = new JProgressBar();
+						worldFramePanel.add(progressHP, "cell 0 1,growx");
+						
 						lblStatus = new JLabel("STATUSBAR");
 						lblStatus.setOpaque(true);
 						lblStatus.setBackground(new Color(65, 105, 225));
-						worldFramePanel.add(lblStatus, "cell 0 1,growx");
+						worldFramePanel.add(lblStatus, "cell 0 2,growx");
 					//[end]
 					//[start] Scrollable Placement List Pane
 						JSplitPane scrollistBipane = new JSplitPane();
@@ -211,7 +215,7 @@ public class WorldWindow extends MMBFrame{
 					worldFrame.setPlacer(scrollablePlacementList);
 					
 					lblTool = new MultilineLabel("Tool description goes here");
-					worldFramePanel.add(lblTool, "cell 0 2,grow");
+					worldFramePanel.add(lblTool, "cell 0 3,grow");
 					lblTool.setForeground(Color.WHITE);
 					lblTool.setBackground(Color.BLUE);
 					lblTool.setOpaque(true);
@@ -399,6 +403,7 @@ public class WorldWindow extends MMBFrame{
 		file = s;
 		worldFrame.enterWorld(deserialized); //this fails
 		panelPlayerInv.setPlayer(worldFrame.getMap().player);
+		progressHP.setModel(worldFrame.getMap().player.playerHP);
 		scrollablePlacementList.setInv(worldFrame.getMap().player.inv);
 	}
 	/** @return a world which is currently played */
@@ -479,4 +484,5 @@ public class WorldWindow extends MMBFrame{
 	public static final Event<WorldWindow> wwindowOpen = new CatchingEvent<>(debug, "Failed to run world window opened event");
 	public        final Event<World> worldLoaded = new CatchingEvent<>(debug, "Failed to run world world loaded event");
 	public        final Event<World> worldLeft = new CatchingEvent<>(debug, "Failed to run world world left event");
+	private JProgressBar progressHP;
 }

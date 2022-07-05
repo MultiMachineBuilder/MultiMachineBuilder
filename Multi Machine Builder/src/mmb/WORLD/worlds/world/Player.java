@@ -5,6 +5,11 @@ package mmb.WORLD.worlds.world;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.BoundedRangeModel;
+import javax.swing.DefaultBoundedRangeModel;
+import javax.swing.event.ChangeEvent;
 
 import org.joml.Vector2d;
 import org.joml.Vector2dc;
@@ -13,13 +18,18 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
+import com.rainerhahnekamp.sneakythrow.Sneaky;
 
 import io.vavr.Tuple2;
 import mmb.GameObject;
 import mmb.BEANS.Saver;
+import mmb.DATA.contents.Sound;
+import mmb.DATA.contents.Sounds;
 import mmb.DATA.json.JsonTool;
 import mmb.DATA.variables.ListenerBooleanVariable;
+import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.inventory.storage.SimpleInventory;
+import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.worlds.player.PlayerPhysics;
 import mmb.WORLD.worlds.player.PlayerPhysicsNormal;
 import mmb.debug.Debugger;
@@ -35,24 +45,35 @@ public class Player implements GameObject, Saver<JsonNode> {
 	public String id() {
 		return "Player";
 	}
-
 	@Override
 	public String getUTID() {
 		return "Player";
 	}
-
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
+		// unused
 	}
-
 	@Override
 	public GameObject getOwner() {
 		return null;
 	}
 	
+	/**
+	 * Creates a new player object
+	 */
+	public Player(World w) {
+		playerHP.addChangeListener(this::changeHP);
+		smack.addListener(this::smack);
+		Sound sound = Sounds.getSound("377157__pfranzen__smashing-head-on-wall.ogg");
+		Sneaky.sneaked(sound::open).accept(clip);
+		Sound death = Sounds.getSound("220203__gameaudio__casual-death-loose.wav");
+		Sneaky.sneaked(death::open).accept(deathClip);
+		world = w;
+	}
+	
 	@Nonnull public final SimpleInventory inv = new SimpleInventory();
 	@Nonnull public final ListenerBooleanVariable creative = new ListenerBooleanVariable();
+	@Nonnull public final World world;
 	public boolean isCreative() {
 		return creative.getValue();
 	}
@@ -67,6 +88,7 @@ public class Player implements GameObject, Saver<JsonNode> {
 	= new CatchingEvent<>(debug, "Failed to save mod player data");
 	public static final Event<Tuple2<Player, ObjectNode>> onPlayerLoaded
 	= new CatchingEvent<>(debug, "Failed to load mod player data");
+	
 	@Override
 	public void load(@Nullable JsonNode data) {
 		if(data == null) return;
@@ -90,7 +112,6 @@ public class Player implements GameObject, Saver<JsonNode> {
 		
 		onPlayerLoaded.trigger(new Tuple2<>(this, on));
 	}
-
 	@Override
 	public JsonNode save() {
 		ObjectNode result = JsonTool.newObjectNode();
@@ -104,6 +125,8 @@ public class Player implements GameObject, Saver<JsonNode> {
 		return result;
 	}
 	
+	private Clip clip = Sneaky.sneak(AudioSystem::getClip);
+	private Clip deathClip = Sneaky.sneak(AudioSystem::getClip);
 	//Player physics
 	/**
 	 * The center position of the player
@@ -122,10 +145,26 @@ public class Player implements GameObject, Saver<JsonNode> {
 		}
 		Vector2d posOld = new Vector2d(pos);
 		speedTrue0.set(pos);
+		
+		//Input controls
 		double ctrlX=controls.x+jitter.x;
 		double ctrlY=controls.y+jitter.y;
+		
+		//Handle the physics model
+		Vector2d oldSpeed = new Vector2d(speed);
 		physics.onTick(world, this, ctrlX, ctrlY);
-		speedTrue0.sub(pos).mul(-50);
+		double speedDiff = oldSpeed.distance(speed);
+		
+		//Play head smacked sound when deccelrating more than 36 km/h in one tick
+		if(speedDiff > 10) {
+			clip.setFramePosition(0);
+			clip.start();
+			smack.trigger(speedDiff);
+		}
+		
+		speedTrue0.sub(pos).mul(-50); //calculate true speed
+		
+		//reject infinite positions
 		if(Double.isFinite(pos.x) && Double.isFinite(pos.y)) return;
 		physics = new PlayerPhysicsNormal();
 		pos.set(posOld);
@@ -198,6 +237,17 @@ public class Player implements GameObject, Saver<JsonNode> {
 			blinkspeed = 0;
 		}
 		
+		//loss of control
+		if(BAC > 10)
+			controls.set(0);
+		
+		//damage by poisoning
+		if(BAC > 13) 
+			hurt((int)((BAC-13)*5000));
+		
+		//death by overdose
+		if(BAC > 15) playerHP.setValue(-1);
+		
 		//Metabolize alcohol (0.02u/s)
 		if(BAC < 0.0004) {
 			BAC = 0;
@@ -237,5 +287,53 @@ public class Player implements GameObject, Saver<JsonNode> {
 		return blink;
 	}
 
-	
+	//HP and death
+	/**
+	 * The range model for HP
+	 */
+	public final BoundedRangeModel playerHP = new DefaultBoundedRangeModel(10000000, 0, 0, 10000000);
+	/**
+	 * Subtracts given amount from the HP
+	 * @param amount amount of damage
+	 */
+	public void hurt(int amount) {
+		playerHP.setValue(playerHP.getValue() - amount);
+	}
+	/**
+	 * Triggered when player "smacks" into something
+	 */
+	public final Event<Double> smack = new CatchingEvent<>(debug, "Failed to process smack event");
+	private void changeHP(ChangeEvent e) {
+		if(playerHP.getValue() <= 0) death();
+	}
+	private void death() {
+		//drop all items
+		int x = (int)pos.x;
+		int y = (int)pos.y;
+		for(ItemRecord irecord: inv) {
+			ItemEntry item = irecord.item();
+			int extract = irecord.extract(Integer.MAX_VALUE);
+			for(int i=0; i < extract; i++) {
+				world.dropItem(item, x, y);
+			}
+		}
+		
+		//reset certain values
+		pos.set(0);
+		speed.set(0);
+		BAC = 0;
+		digestibleAlcohol = 0;
+		playerHP.setValue(10000000);
+		
+		//play death sound
+		deathClip.setFramePosition(0);
+		deathClip.start();
+		
+		//log it
+		debug.printl("DEATH");
+	}
+	private void smack(Double speed) {
+		double speed0 = speed.doubleValue();
+		hurt((int)(speed0*speed0*5000));
+	}
 }

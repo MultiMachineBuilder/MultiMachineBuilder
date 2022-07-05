@@ -4,12 +4,13 @@
 package mmb.MODS.loader;
 
 import java.io.*;
-import java.lang.instrument.Instrumentation;
 import java.net.MalformedURLException;
 import java.nio.file.*;
 import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import mmb.debug.Debugger;
 import mmb.Main;
@@ -22,7 +23,6 @@ import mmb.MODS.info.AddonCentral;
 import mmb.MODS.info.ModInfo;
 import mmb.MODS.info.ModMetadata;
 import mmb.MODS.info.ModState;
-import mmb.MODS.info.Modfile;
 import mmb.MODS.info.Mods;
 import mmb.SOUND.MP3Loader;
 import mmb.WORLD.blocks.ContentsBlocks;
@@ -42,28 +42,16 @@ import mmb.WORLD.tool.Tools;
  */
 public final class ModLoader {
 	private ModLoader() {}
-
 	private static final Debugger debug = new Debugger("MOD-LOADER");
 
-	static List<AddonLoader> loaders = new ArrayList<>();
-	static List<MP3Loader> mp3s = new ArrayList<>();
-	private static int modCount;
-	/** @return number of mods*/
-	public static int modCount() {
-		return modCount;
-	}
-	/**
-	 * Used by the main class to load mods
-	 */	
-	public static final File modsDir = new File("mods/");
-	
-	
-	
-	/**
-	 * Loads entire game
-	 */
+	/** Loads entire game */
 	@SuppressWarnings("null")
 	public static void modloading(){
+		//Variables
+		final File modsDir = new File("mods/");
+		final List<AddonLoader> loaders = new ArrayList<>();
+		final List<MP3Loader> mp3s = new ArrayList<>();
+		
 		//Load textures
 		Main.state1("Loading textures");
 		walkDirectory(new File("textures/"), (s, f) -> {
@@ -72,6 +60,18 @@ public final class ModLoader {
 				Textures.load(s, i);
 			} catch (Exception e) {
 				debug.pstm(e, "Failed to load a texture "+s);
+			}
+		});
+		walkDirectory(new File("texpacks/"), (s, f)->{
+			debug.printl("Loading a texture pack "+s);
+			try(ZipInputStream stream = new ZipInputStream(new FileInputStream(f))){
+				ZipEntry entry;
+				while((entry = stream.getNextEntry()) != null) {
+					debug.printl("Loading a texture "+entry.getName());
+					Textures.load(entry.getName(), stream);
+				}
+			} catch (Exception e) {
+				debug.pstm(e, "Failed to load a texture pack "+s);
 			}
 		});
 		
@@ -134,14 +134,14 @@ public final class ModLoader {
 			}
 		});
 		toLoad.addAll(external); //Add any external mods
-		modCount = toLoad.size();
 		
 		//Add mod files for loading
-		Main.state1("Found "+ modCount + " mod files");
+		Main.state1("Found "+ toLoad.size() + " mod files");
 		for(String p: toLoad) {
 			Main.state2("Loading file: " + p);
 			try {
-				AddonLoader.load(FileUtil.getFile(p));
+				AddonLoader loader = AddonLoader.load(FileUtil.getFile(p));
+				loaders.add(loader);
 			} catch (MalformedURLException e) {
 				debug.pstm(e, "The external mod has incorrect URL: "+p);
 			}
@@ -176,7 +176,9 @@ public final class ModLoader {
 				debug.printl("Mod class: "+classname);
 				Class<?> cls = cl.loadClass(classname);
 				if (AddonCentral.class.isAssignableFrom(cls)) {
-					classes.add((Class<? extends AddonCentral>) cls);
+					@SuppressWarnings("unchecked")
+					Class<? extends AddonCentral> cls0 = (Class<? extends AddonCentral>)cls;
+					classes.add(cls0);
 				} 
 			} catch (Exception e) {
 				Main.crash(e);
@@ -245,7 +247,35 @@ public final class ModLoader {
 		//clean up
 		loaders.clear();
 		mp3s.clear();
-		summarizeMods();
+		
+		//Summarize mods
+		for(ModInfo ai1: Mods.mods) {
+			debug.printl("===MOD INFORMATION FOR " + ai1.meta.name + "===");
+			debug.printl(ai1.state.title);
+			try {
+				switch(ai1.state) {
+				case DEAD:
+				case DISABLE:
+				case ENABLE:
+					if(ai1.meta.release == null) {
+						debug.printl("RELEASED AT UNKNOWN DATE");
+					}else {
+						debug.printl("RELEASED " + ai1.meta.release.toString());
+					}
+					debug.printl("MADE BY " + ai1.meta.author);
+					debug.printl("DESCRIPTION: " + ai1.meta.description);
+					break;
+				default:
+					break;
+				}
+			} catch (Exception e) {
+				debug.pstm(e, "Unable to get metadata for " + ai1.meta.name);
+			}
+		}
+		
+		Textures.displayAtlas();
+		
+		//everything done
 		debug.printl("HOORAY, IT'S OVER!");
 	}
 	
@@ -258,9 +288,9 @@ public final class ModLoader {
 		String abs = f.getAbsolutePath();
 		int len = abs.length()+1;
 		if(abs.endsWith("/") || abs.endsWith("\\")) len++;
-		walkDirectory(false, len, f, action);
+		walkDirectory(len, f, action);
 	}
-	private static void walkDirectory(boolean isFurther, int absLen, File f, BiConsumer<String,File> action) {
+	private static void walkDirectory(int absLen, File f, BiConsumer<String,File> action) {
 		try {
 			File[] walk = f.listFiles();
 			if(walk == null) {
@@ -270,7 +300,9 @@ public final class ModLoader {
 			}else {
 				debug.printl("Directory: " + f.getCanonicalPath());
 				for(int i = 0; i < walk.length; i++) {
-					walkDirectory(true, absLen, walk[i], action);
+					File file2 = walk[i];
+					if(file2 == null) throw new InternalError("Fatal error in File.listFiles()");
+					walkDirectory(absLen, file2, action);
 				}
 			}
 			
@@ -286,77 +318,12 @@ public final class ModLoader {
 	 */
 	@SuppressWarnings("null")
 	public static void walkDirectory(File folder, List<File> results) {
-		try {
-			if(folder.isDirectory()) {
-				debug.printl("Directory: " + folder.getCanonicalPath());
-				for(File modfile: FileUtil.findFiles(folder)) {
-					debug.printl("File: " + modfile.getCanonicalPath());
-					results.add(modfile);
-				}
-				for(File modfile: FileUtil.findDirectories(folder)) {
-					walkDirectory(modfile, results);
-				}
-			}else {
-				debug.printl("File: " + folder.getCanonicalPath());
-				results.add(folder);
-			}
-		} catch (IOException e) {
-			debug.pstm(e, "THIS MESSAGE INDICATES MALFUNCTION OF FILE PATH SYSTEM OR JAVA. Couldn't get path of the file");
-		}
+		walkDirectory(folder, (s, f) -> results.add(f));
 	}
-	/**
-	 * Walk the directory by adding all files and directories to the list
-	 * @param folder root
-	 * @param results output
-	 */
+
 	@SuppressWarnings("null")
-	public static void walkFilesDirectory(File folder, List<File> results) {
-		try {
-			if(folder.isDirectory()) {
-				debug.printl("Directory: " + folder.getCanonicalPath());
-				File[] modpacks = FileUtil.findDirectories(folder);
-				for(int i = 0; i < modpacks.length; i++) {
-					walkFilesDirectory(modpacks[i], results);
-				}
-			}else {
-				debug.printl("File: " + folder.getCanonicalPath());
-			}
-			results.add(folder);
-		}catch(Exception e) {
-			debug.pstm(e, "THIS MESSAGE INDICATES MALFUNCTION OF FILE PATH SYSTEM OR JAVA. Couldn't get path of the file");
-		}
-	}
-
-	static void summarizeMods() {
-		for(ModInfo ai: Mods.mods) {
-			debug.printl("================MOD INFORMATION FOR " + ai.meta.name + "================");
-			debug.printl(ai.state.title);
-			try {
-				switch(ai.state) {
-				case DEAD:
-				case DISABLE:
-				case ENABLE:
-					if(ai.meta.release == null) {
-						debug.printl("RELEASED AT UNKNOWN DATE");
-					}else {
-						debug.printl("RELEASED " + ai.meta.release.toString());
-					}
-
-					debug.printl("MADE BY " + ai.meta.author);
-					debug.printl("DESCRIPTION: " + ai.meta.description);
-					break;
-				default:
-					break;
-				}
-			} catch (Exception e) {
-				debug.pstm(e, "Unable to get metadata for " + ai.meta.name);
-			}
-		}
-	}
-	
 	public static <T> void runAll(Iterable<T> collect, Consumer<T> cons, Consumer<InterruptedException> onInterrupt){
-		@SuppressWarnings("null")
-		List<Thread> threads = new ArrayList();
+		List<Thread> threads = new ArrayList<>();
 		for(T item: collect) {
 			threads.add(new Thread(Lambdas.loadValue(cons, item)));
 		}

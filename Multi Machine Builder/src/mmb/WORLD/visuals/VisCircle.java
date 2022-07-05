@@ -57,7 +57,6 @@ public final class VisCircle implements Visual {
 		this.fill = fill;
 		this.border = border;
 	}
-
 	
 	@Override
 	public int hashCode() {

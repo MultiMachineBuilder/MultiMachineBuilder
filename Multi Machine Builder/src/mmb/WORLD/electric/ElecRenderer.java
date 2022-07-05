@@ -13,7 +13,13 @@ import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import org.joml.Vector4f;
+import org.joml.Vector4fc;
+
 import mmb.DATA.contents.Textures;
+import mmb.DATA.contents.Textures.Texture;
+import mmb.GL.GLHelper;
+import mmb.GL.RenderCtx;
 import mmb.GRAPHICS.awt.ColorMapper;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.rotate.RotatedImageGroup;
@@ -37,18 +43,29 @@ public class ElecRenderer implements BlockDrawer {
 		String basePath = "machine/power/"+title+" center.png";
 		RotatedImageGroup rig = RotatedImageGroup.create(rigPath);
 		ImageIcon icon = new ImageIcon(Textures.get(iconPath));
-		BufferedImage base = Textures.get(basePath);
-		return new ElecRenderer(rig, icon, base);
+		Texture base = Textures.get1(basePath);
+		return new ElecRenderer(rig, icon, base.img, base, Color.WHITE);
 	}
 	
 	//Instance stuff
 	@Nonnull public final RotatedImageGroup rig;
 	@Nonnull public final ImageIcon icon;
 	@Nonnull public final BufferedImage base;
-	public ElecRenderer(RotatedImageGroup rig, ImageIcon icon, BufferedImage base) {
+	@Nonnull public final Texture baseTex;
+	@Nonnull public final Vector4fc color;
+	public ElecRenderer(RotatedImageGroup rig, ImageIcon icon, BufferedImage base, Texture baseTex, Vector4fc color) {
 		this.rig = rig;
 		this.icon = icon;
 		this.base = base;
+		this.baseTex = baseTex;
+		this.color = new Vector4f(color);
+	}
+	public ElecRenderer(RotatedImageGroup rig, ImageIcon icon, BufferedImage base, Texture baseTex, Color color) {
+		this.rig = rig;
+		this.icon = icon;
+		this.base = base;
+		this.baseTex = baseTex;
+		this.color = GLHelper.color2vec(color, new Vector4f());
 	}
 	@Override
 	public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int w, int h) {
@@ -76,7 +93,7 @@ public class ElecRenderer implements BlockDrawer {
 		renderer.rig.U.draw(null, 0, 0, g, 32);
 		g.dispose();
 		BufferedImage icon0 = (BufferedImage) renderer.icon.getImage();
-		BufferedImage base0 = renderer.base;
+		BufferedImage base0 = renderer.baseTex.img;
 		ColorMapper mapperC = ColorMapper.ofType(conn0.getType(), Color.RED, c);
 		ColorMapper mapperI = ColorMapper.ofType(icon0.getType(), Color.RED, c);
 		ColorMapper mapperB = ColorMapper.ofType(base0.getType(), Color.RED, c);
@@ -89,7 +106,7 @@ public class ElecRenderer implements BlockDrawer {
 		opC.filter(icon0, icon1);
 		BufferedImage base1 = opB.createCompatibleDestImage(base0, null);
 		opC.filter(base0, base1);
-		return new ElecRenderer(RotatedImageGroup.create(conn1), new ImageIcon(icon1), base1);
+		return new ElecRenderer(RotatedImageGroup.create(conn1), new ImageIcon(icon1), base1, renderer.baseTex, c);
 	}
 	
 	private int lod = -1;

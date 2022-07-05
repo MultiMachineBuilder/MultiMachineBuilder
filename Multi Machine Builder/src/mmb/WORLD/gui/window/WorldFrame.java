@@ -206,7 +206,7 @@ public class WorldFrame extends JComponent {
 			Objects.requireNonNull(e, "event is null");
 			window.scrollScrollist(e.getWheelRotation()*32);
 			WindowTool tool = window.toolModel.getTool();
-			setZoom(zoomsel + e.getWheelRotation());
+			setZoom(zoomsel - e.getWheelRotation());
 			if(tool != null) tool.mouseWheelMoved(e);
 		}
 		@Override public void mouseDragged(@Nullable MouseEvent e) {
@@ -463,7 +463,7 @@ public class WorldFrame extends JComponent {
 			}
 
 			@Override
-			public void onError(Throwable e) {
+			public void onError(@SuppressWarnings("null") Throwable e) {
 				debug.pstm(e, "Failed to retrieve or render a visual");
 			}
 
@@ -643,6 +643,8 @@ public class WorldFrame extends JComponent {
 		blockAt(mousePosition, mouseover);
 	}
 	
+	//Block positioning
+	
 	//Block position mapper
 	/**
 	 * Get the block at given screen position
@@ -660,8 +662,8 @@ public class WorldFrame extends JComponent {
 	 * @return target point with written position
 	 */
 	public Point blockAt(int x, int y, Point tgt) {
-		tgt.x = (int)Math.floor(((double)x / blockScale)-pos.x);
-		tgt.y = (int)Math.floor(((double)y / blockScale)-pos.y);
+		tgt.x = (int)Math.floor((x / blockScale)-pos.x);
+		tgt.y = (int)Math.floor((y / blockScale)-pos.y);
 		return tgt;
 	}
 	/**

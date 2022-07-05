@@ -1,0 +1,17 @@
+#version 330 core
+
+in vec2 inPos;
+in vec4 inColor;
+in vec2 inUV;
+
+out vec4 passColor;
+out vec2 passUV;
+
+uniform vec2 offset;
+uniform mat2 matrix;
+
+void main(){
+	passColor = inColor;
+	passUV = inUV;
+	gl_Position = vec4((inPos*matrix)+offset 0.0, 1.0)
+}

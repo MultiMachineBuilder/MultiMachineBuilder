@@ -51,7 +51,7 @@ public class MoveItems extends JPanel {
 	 * @throws NullPointerException when any inventory controller is {@code null}
 	 * @wbp.parser.constructor
 	 */
-	public MoveItems(InventoryController left, InventoryController right) {
+	public MoveItems(AbstractInventoryController left, AbstractInventoryController right) {
 		this(left, right, BOTH);
 	}
 	public final GridBagLayout layout;
@@ -63,7 +63,7 @@ public class MoveItems extends JPanel {
 	 * @param i byte tag of sides. Use {@link #NONE}, {@link #LEFT}, {@link #RIGHT} or {@link #BOTH}
 	 * @throws NullPointerException when any inventory controller is {@code null}
 	 */
-	public MoveItems(InventoryController left, InventoryController right, int i) {
+	public MoveItems(AbstractInventoryController left, AbstractInventoryController right, int i) {
 		Objects.requireNonNull(left, "left is null");
 		Objects.requireNonNull(right, "right is null");
 		layout = new GridBagLayout();
@@ -76,6 +76,7 @@ public class MoveItems extends JPanel {
 		constraints.weightx = 1;
 		setLayout(layout);
 		if((i & LEFT) != 0) {
+			int itype = left.getInvType().ordinal();
 			JButton btnAllL = new JButton("<< "+ALL);
 			btnAllL.addActionListener(e -> {
 				Inventories.transfer(right.getInv(), left.getInv());

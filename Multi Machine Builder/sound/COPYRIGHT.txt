@@ -1,0 +1,7 @@
+The sounds with name in form:
+xxxxxx_yyyyyy_zzzzzzzz.aaa
+come from Freesound.
+X - author ID
+Y - username
+Z - filename base
+A - file extension

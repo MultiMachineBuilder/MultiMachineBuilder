@@ -15,6 +15,8 @@ import javax.annotation.Nonnull;
 import com.rainerhahnekamp.sneakythrow.Sneaky;
 
 import mmb.DATA.Settings;
+import mmb.DATA.variables.ListenableDouble;
+import mmb.DATA.variables.ListenableInt;
 import mmb.DATA.variables.ListenableValue;
 import mmb.DATA.variables.ListenerBooleanVariable;
 import mmb.debug.Debugger;
@@ -29,6 +31,8 @@ public class GlobalSettings {
 	@Nonnull public static final ListenableValue<String> country = new ListenableValue<>("US");
 	@Nonnull public static final ListenableValue<String> lang = new ListenableValue<>("en");
 	@Nonnull public static final ListenerBooleanVariable logExcessiveTime = new ListenerBooleanVariable();
+	@Nonnull public static final ListenableInt circleAccuracy = new ListenableInt(32);
+	@Nonnull public static final ListenableDouble uiScale = new ListenableDouble(1);
 	@Nonnull private static final Debugger debug = new Debugger("SETTINGS LIST");
 	
 	public static Locale locale() {
@@ -36,8 +40,8 @@ public class GlobalSettings {
 	}
 	
 	//localization
-	private static ResourceBundle bundle;
-	public static ResourceBundle bundle() {
+	private static MutableResourceBundle bundle;
+	public static MutableResourceBundle bundle() {
 		if(bundle == null) throw new IllegalArgumentException("No bundle loaded!");
 		return bundle;
 	}
@@ -61,7 +65,7 @@ public class GlobalSettings {
 	}
 	
 	/**
-	 * Initializes global properties. Needed only by the {@link Loading} class, has no effect when used elsewhere
+	 * Initializes global properties. Needed only by the {@link Main} class, has no effect when used elsewhere
 	 */
 	private static boolean hasInited = false;
 	public static void init() {
@@ -69,31 +73,16 @@ public class GlobalSettings {
 		Settings.addSettingString("lang", "en", lang);
 		Settings.addSettingString("country", "US", country);
 		Settings.addSettingBool("logExcessiveBlockTime", false, logExcessiveTime);
+		Settings.addSettingDbl("scale", 1, uiScale);
+		Settings.addSettingInt("circleAccuracy", 32, circleAccuracy);
 		debug.printl("Language: "+lang.get());
-		bundle = ResourceBundle.getBundle("mmb/bundle", locale());
+		bundle = new MutableResourceBundle(ResourceBundle.getBundle("mmb/bundle", locale()));
 		hasInited = true;
 	}
 	
-	//hacking the ResourceBundle
-	private static final Field lookupField;
-	static {
-		Field field0 = Sneaky.sneak(() -> PropertyResourceBundle.class.getDeclaredField("lookup"));
-		field0.setAccessible(true);
-		lookupField = field0;
-	}
-	private static Map<String, Object> getMap4RB(ResourceBundle bundle) {
-		return Sneaky.sneak(() -> (Map<String, Object>) lookupField.get(bundle));
-	}
-	private static void inject2resourceBundle(ResourceBundle tgt, ResourceBundle src) {
-		Map<String, Object> map = getMap4RB(tgt);
-		Enumeration<String> iter = src.getKeys();
-		while(iter.hasMoreElements()) {
-			String key = iter.nextElement();
-			map.put(key, src.getObject(key));
-		}
-	}
+	//hacking the ResourceBundle 
 	public static void injectResources(ResourceBundle src) {
-		inject2resourceBundle(bundle(), src);
+		bundle().add(src);
 	}
 	
 }

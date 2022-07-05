@@ -12,6 +12,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.Icon;
 
+import org.joml.Vector4f;
+import org.joml.Vector4fc;
+
+import mmb.DATA.contents.Textures.Texture;
+import mmb.GL.RenderCtx;
 import mmb.WORLD.block.BlockEntry;
 
 /**
@@ -24,7 +29,6 @@ public interface BlockDrawer {
 	 * @param x left X coordinate on the frame
 	 * @param y upper Y coordinate on the frame
 	 * @param g graphics context
-	 * @param sideSize how big is each side
 	 */
 	public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int w, int h);
 	/**
@@ -56,7 +60,6 @@ public interface BlockDrawer {
 		draw(ent, p.x, p.y, g, sideSize, sideSize);
 	}
 	/**
-	 * 
 	 * @param img new BlockDrawer's desired image
 	 * @return a BlockDrawer for given BufferedImage
 	 */
@@ -105,5 +108,4 @@ public interface BlockDrawer {
 			}
 		};
 	}
-
 }

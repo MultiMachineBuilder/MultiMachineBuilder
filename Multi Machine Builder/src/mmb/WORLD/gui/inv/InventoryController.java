@@ -33,12 +33,11 @@ import javax.swing.event.ListSelectionListener;
  * @author oskar
  *
  */
-public class InventoryController extends JPanel {
+public class InventoryController extends JPanel implements AbstractInventoryController {
 	private static final long serialVersionUID = -3804277344383315579L;
 	
 	private final JList<ItemRecord> invlist;
 	@Nonnull private DefaultListModel<ItemRecord> model0 = new DefaultListModel<>();
-	
 	
 	private Inventory inv;
 	private JLabel label;
@@ -161,6 +160,7 @@ public class InventoryController extends JPanel {
 	/**
 	 * @return the inv
 	 */
+	@Override
 	public Inventory getInv() {
 		return inv;
 	}
@@ -173,7 +173,10 @@ public class InventoryController extends JPanel {
 		configureButtons();
 		refresh();
 	}
-		
+	public InvType getInvType() {
+		return InvType.SIMPLE;
+	}
+	
 	/**
 	 * @return the current inventory orchestrator
 	 */

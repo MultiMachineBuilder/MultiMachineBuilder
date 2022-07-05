@@ -448,7 +448,7 @@ public class World implements Identifiable<String>{
 	/**
 	 * The player object for this world
 	 */
-	@Nonnull public final Player player = new Player();
+	@Nonnull public final Player player = new Player(this);
 	
 	//Map proxy
 	/**

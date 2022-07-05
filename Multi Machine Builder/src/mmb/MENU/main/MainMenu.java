@@ -7,6 +7,7 @@ import javax.swing.*;
 
 import mmb.DATA.Settings;
 import mmb.DATA.contents.Textures;
+import mmb.GL.HalfVecTest;
 import mmb.debug.Debugger;
 import java.net.URI;
 import java.util.Calendar;
@@ -18,7 +19,6 @@ import javax.swing.border.EmptyBorder;
 
 import mmb.MENU.FullScreen;
 import mmb.MENU.MMBFrame;
-import mmb.MENU.TestCollision;
 import mmb.MENU.components.BoundCheckBoxMenuItem;
 import mmb.MODS.info.Mods;
 
@@ -163,7 +163,7 @@ public class MainMenu extends MMBFrame {
 		aside.add(btnExit);
 		
 		TEST = new JButton("TEST");
-		TEST.addActionListener(e -> new TestCollision().setVisible(true));
+		TEST.addActionListener(e -> HalfVecTest.run());
 		aside.add(TEST);
 		
 		timerLBL = new JLabel("Current time goes here");

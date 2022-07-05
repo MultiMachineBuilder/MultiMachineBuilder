@@ -21,7 +21,9 @@ import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.blocks.machine.manual.Crafting;
 import mmb.WORLD.chance.ListChance;
 import mmb.WORLD.chance.RandomChance;
+import mmb.WORLD.chance.RandomOrElseChance;
 import mmb.WORLD.contentgen.Materials;
+import mmb.WORLD.crafting.recipes.AgroRecipeGroup;
 import mmb.WORLD.crafting.recipes.ComplexCatalyzedProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.CraftingRecipeGroup;
@@ -108,8 +110,10 @@ public class Craftings {
 	@Nonnull public static final StackedProcessingRecipeGroup combiner = new StackedProcessingRecipeGroup("splicer");
 	@Nonnull public static final ComplexProcessingRecipeGroup alloyer = new ComplexProcessingRecipeGroup("alloyer", 2);
 	@Nonnull public static final ComplexCatalyzedProcessingRecipeGroup assembler = new ComplexCatalyzedProcessingRecipeGroup("assembler", 2);
+	@Nonnull public static final ComplexProcessingRecipeGroup brewery = new ComplexProcessingRecipeGroup("brewery", 2);
 	@Nonnull public static final CraftingRecipeGroup crafting = new CraftingRecipeGroup("crafter");
 	@Nonnull public static final ElectroLuckySimpleProcessingRecipeGroup quarry = new ElectroLuckySimpleProcessingRecipeGroup("quarry");
+	@Nonnull public static final AgroRecipeGroup agro = new AgroRecipeGroup("agrorecipes");
 	/**
 	 * Crafts items according to a recipe
 	 * @param input items to be consumed
@@ -148,12 +152,12 @@ public class Craftings {
 		crafting.addRecipe(logs, plank, 16); // wood → planks
 		splitter.add(logs, plank, 16, VoltageTier.V1, 1000);
 		crafting.addRecipeGrid(plank, 2, 2, Crafting.types.get(0), 1); //4*wood plank → crafting table 1
-		crafting.addRecipeGrid(new ItemEntry[]{
-		plank, plank, plank,
-		plank, null,  plank,
-		plank, plank, plank
-		}, 3, 3, CHEST);
+		_chest();
 		clusterMill.add(plank, paper, 16, VoltageTier.V1, 1000);
+		smelting.add(sand, glass, VoltageTier.V1, 70_000);
+		clusterMill.add(glass, glassp, VoltageTier.V1, 70_000);
+		crusher.add(stone, gravel, VoltageTier.V1, 15_000);
+		crusher.add(gravel, sand, VoltageTier.V1, 15_000);
 		
 		//Pickaxes
 		crafting.addRecipeGrid(new ItemEntry[]{plank, plank, logs, logs}, 2, 2, PICKBUILDER);
@@ -222,12 +226,12 @@ public class Craftings {
 		null,  null,  steel,
 		null,  steel, null,
 		steel, null,  null
-		}, 3, 3, RANDOM, 4);
+		}, 3, 3, RANDOM, 4); //Random
 		crafting.addRecipeGrid(new ItemEntry[]{
 		Materials.silicon.base, Materials.silicon.base, Materials.silicon.base,
 		Materials.silicon.base, ww_wire, Materials.silicon.base,
 		Materials.silicon.base, Materials.silicon.base, Materials.silicon.base
-		}, 3, 3, URANDOM, 4);
+		}, 3, 3, URANDOM, 4); //Uniform random
 		
 		//Machine parts
 		crafting.addRecipeGrid(new ItemEntry[]{
@@ -266,38 +270,38 @@ public class Craftings {
 		assembler.add(new SimpleItemList(paper.stack(1),                         rudimentary.foil.stack(2)), substrate0, null, 8, VoltageTier.V1,  10000);
 		assembler.add(new SimpleItemList(paper.stack(1),                              copper.foil.stack(2)), substrate1, null,    VoltageTier.V1,  10000);
 		assembler.add(new SimpleItemList(
-				substrate0.stack(3),
-				resistor.stack(2),
-				capacitor.stack(2),
-				inductor.stack(2),
-				rudimentary.foil.stack(1)
-				), circuit0, null, VoltageTier.V1,  10000);
+			substrate0.stack(3),
+			resistor.stack(2),
+			capacitor.stack(2),
+			inductor.stack(2),
+			rudimentary.foil.stack(1)
+			), circuit0, null, VoltageTier.V1,  10000);
 		assembler.add(new SimpleItemList(
-				substrate1.stack(4),
-				resistor.stack(8),
-				capacitor.stack(8),
-				inductor.stack(8),
-				diode.stack(4),
-				transistor.stack(2),
-				IC.stack(1),
-				circuit0.stack(4),
-				copper.foil.stack(8),
-				tin.wire.stack(3)
-				), circuit1, null, VoltageTier.V1, 100000);
+			substrate1.stack(4),
+			resistor.stack(8),
+			capacitor.stack(8),
+			inductor.stack(8),
+			diode.stack(4),
+			transistor.stack(2),
+			IC.stack(1),
+			circuit0.stack(4),
+			copper.foil.stack(8),
+			tin.wire.stack(3)
+			), circuit1, null, VoltageTier.V1, 100000);
 		assembler.add(new SimpleItemList(
-				resistor.stack(16),
-				nickel.wire.stack(8)
-				), resistors, null, VoltageTier.V1, 100000);
+			resistor.stack(16),
+			nickel.wire.stack(8)
+			), resistors, null, VoltageTier.V1, 100000);
 		assembler.add(new SimpleItemList(
-				steel.stack(2),
-				copper.wire.stack(32)
-				), motor2, null, VoltageTier.V1, 50000);
+			steel.stack(2),
+			copper.wire.stack(32)
+			), motor2, null, VoltageTier.V1, 50000);
 		assembler.add(new SimpleItemList(
-				rudimentary.base.stack(1),
-				rudimentary.wire.stack(16)
-				), motor1, null, VoltageTier.V1, 100000);
+			rudimentary.base.stack(1),
+			rudimentary.wire.stack(16)
+			), motor1, null, VoltageTier.V1, 100000);
 		
-		//Electric furnaces
+		//Furnace
 		crafting.addRecipeGrid(new ItemEntry[]{
 		stone, stone, stone,
 		stone, null,  stone,
@@ -316,6 +320,53 @@ public class Craftings {
 		plank,  plank,  plank,
 		logs,   logs,   logs
 		}, 3, 3, AGRO_TREE); //Tree
+		crafting.addRecipeGrid(new ItemEntry[]{
+		leaves, leaves, leaves,
+		paper,  paper,  paper,
+		logs,   logs,   logs
+		}, 3, 3, AGRO_SEEDS); //Crop field
+		crafting.addRecipeGrid(new ItemEntry[]{
+		leaves, logs, leaves,
+		paper,  paper,  paper,
+		logs,   paper,   logs
+		}, 3, 3, AGRO_HOPS); //Hops
+		crafting.addRecipeGrid(new ItemEntry[]{
+		iron.base, null,
+		ipipe_ELBOW, ipipe_ELBOW,
+		ipipe_STRAIGHT, null
+		}, 2, 3, AGRO_WATER); //Water well
+		
+		//Alcohol
+		crafting.addRecipeGrid(new ItemEntry[]{
+		glassp, glassp, glassp,
+		glassp,  paper, glassp,
+		glassp, glassp, glassp
+		}, 3, 3, beerEmpty, 16); //Beer bottle
+		
+		//Brewery recipe for beer
+		brewery.add(new SimpleItemList(
+		beerEmpty.stack(16),
+		seeds.stack(8),
+		water.stack(1),
+		hops.stack(1),
+		yeast.stack(3)
+		), new SimpleItemList(beer.stack(16), yeast.stack(4)), VoltageTier.V1, 1000000);
+	}
+	/**
+	 * 
+	 */
+	private static void _chest() {
+		//Chests
+		crafting.addRecipeGrid(new ItemEntry[]{
+		plank, plank, plank,
+		plank, null,  plank,
+		plank, plank, plank
+		}, 3, 3, CHEST);
+		crafting.addRecipeGrid(new ItemEntry[]{
+		iron.base,  steel.base, iron.base,
+		steel.base, null,       steel.base,
+		iron.base,  steel.base, iron.base
+		}, 3, 3, CHEST1);
 	}
 	private static void _craftrsULV() {
 		//Coal Generator ULV
@@ -385,10 +436,16 @@ public class Craftings {
 		}, 3, 3, bquarry.get(0)); 
 		
 		crafting.addRecipeGrid(new ItemEntry[]{
-		splitter, rudimentary.panel,   splicer,
-		rudimentary.wire, coal.nugget, rudimentary.wire,
-		splicer,  rudimentary.panel,   splitter,
+		splitter,         rudimentary.panel,   splicer,
+		rudimentary.wire, coal.nugget,         rudimentary.wire,
+		splicer,          rudimentary.panel,   splitter,
 		}, 3, 3, bassembly.get(0)); //Machine Assembler ULV
+		
+		crafting.addRecipeGrid(new ItemEntry[]{
+		iron.panel, glassp,     iron.panel,
+		iron.panel, iron.panel, iron.panel,
+		coal.base,  seeds,      wireRudimentary.medium,
+		}, 3, 3, bbrewery.get(0)); //Brewery ULV
 	}
 	private static void _craftrsVLV() {
 		//Coal Generator VLV
@@ -472,5 +529,8 @@ public class Craftings {
 		alloyer.add(new SimpleItemList(redstone.base.stack(2), rudimentary.base.stack(2)), resrc1, 2, VoltageTier.V2, 180000);
 		//simple stone regeneration recipe
 		alloyer.add(new SimpleItemList(stone, rudimentary.nugget), stone, 8, VoltageTier.V1, 80000);
+		
+		//sifting seeds sometimes gives yeast
+		quarry.add(seeds, RecipeOutput.NONE, VoltageTier.V1, 40000, new RandomOrElseChance(0.05, yeast, seeds));
 	}
 }

@@ -1,0 +1,2 @@
+https://stackoverflow.com/questions/8197797/generic-enumeration-to-iterable-converter
+https://scratch.mit.edu/

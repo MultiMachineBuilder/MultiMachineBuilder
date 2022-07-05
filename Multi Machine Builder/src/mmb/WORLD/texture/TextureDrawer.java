@@ -10,6 +10,11 @@ import javax.annotation.Nonnull;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import org.joml.Vector4f;
+import org.joml.Vector4fc;
+
+import mmb.DATA.contents.Textures.Texture;
+import mmb.GL.RenderCtx;
 import mmb.WORLD.block.BlockEntry;
 
 /**
@@ -26,8 +31,8 @@ public class TextureDrawer implements BlockDrawer {
 	/**
 	 * @param img the image to be drawn
 	 */
-	public TextureDrawer(BufferedImage img) {
-		this.img = img;
+	public TextureDrawer(BufferedImage img2) {
+		this.img = img2;
 		icon = new ImageIcon(img);
 	}
 	@Override

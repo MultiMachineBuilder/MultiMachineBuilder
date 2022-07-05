@@ -11,6 +11,8 @@ import javax.annotation.Nullable;
 import javax.swing.Icon;
 
 import org.ainslec.picocog.PicoWriter;
+import org.joml.Vector4f;
+import org.joml.Vector4fc;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -21,6 +23,7 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import mmb.BEANS.Saver;
 import mmb.DATA.json.JsonTool;
+import mmb.GL.RenderCtx;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.chance.Chance;
 import mmb.WORLD.crafting.RecipeOutput;
@@ -75,6 +78,7 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput{
 	public default void render(Graphics g, int x, int y, int w, int h) {
 		type().getTexture().draw(null, x, y, g, w, h);
 	}
+
 	public default WindowTool getTool() {
 		return null;
 	}
@@ -94,8 +98,7 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput{
 			@Override
 			public int LOD() {
 				return 0;
-			}
-			
+			}			
 		};
 	}
 	/** @return an icon for this item entry */

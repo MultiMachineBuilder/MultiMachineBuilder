@@ -5,6 +5,7 @@ package mmb.WORLD.blocks;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 
@@ -29,6 +30,7 @@ import mmb.WORLD.blocks.ipipe.IntersectingPipeExtractor;
 import mmb.WORLD.blocks.ipipe.ItemTransporter;
 import mmb.WORLD.blocks.ipipe.Pipe;
 import mmb.WORLD.blocks.ipipe.PipeBinder;
+import mmb.WORLD.blocks.ipipe.PipeFilter;
 import mmb.WORLD.blocks.machine.Collector;
 import mmb.WORLD.blocks.machine.CycleAssembler;
 import mmb.WORLD.blocks.machine.FurnacePlus;
@@ -54,6 +56,7 @@ import mmb.WORLD.blocks.wireworld.WWWire;
 import mmb.WORLD.chance.Chance;
 import mmb.WORLD.contentgen.ElectricMachineGroup;
 import mmb.WORLD.crafting.Craftings;
+import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.recipes.ComplexCatalyzedProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup;
@@ -69,6 +72,7 @@ import mmb.WORLD.electromachine.ElectroQuarry;
 import mmb.WORLD.electromachine.MachineAssembler;
 import mmb.WORLD.electromachine.Splicer;
 import mmb.WORLD.item.Items;
+import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.rotate.ChirotatedImageGroup;
 import mmb.WORLD.rotate.Side;
 import mmb.debug.Debugger;
@@ -307,11 +311,12 @@ public class ContentsBlocks {
 	/**
 	 * A chest stores items of mutiple types
 	 */
-	@Nonnull public static final BlockEntityType CHEST = new BlockEntityType()
-			.title("#chest")
-			.factory(Chest::new)
-			.texture("machine/chest1.png")
-			.finish("chest.beginning");
+	@Nonnull public static final BlockEntityType CHEST = chest(6, "machine/chest1.png", "chest.beginning", 1);
+	@Nonnull public static final BlockEntityType CHEST1 = chest(16, "machine/chest2.png", "chest.simple", 2);
+	@Nonnull public static final BlockEntityType CHEST2 = chest(32, "machine/chest3.png", "chest.intermediate", 3);
+	@Nonnull public static final BlockEntityType CHEST3 = chest(64, "machine/chest4.png", "chest.advanced", 4);
+	@Nonnull public static final BlockEntityType CHEST4 = chest(128, "machine/chest5.png", "chest.extreme", 5);
+	@Nonnull public static final BlockEntityType CHEST5 = chest(256, "machine/chest6.png", "chest.ultimate", 6);
 	/**
 	 * A chest that auto-inserts items
 	 */
@@ -363,6 +368,8 @@ public class ContentsBlocks {
 	@Nonnull public static final BlockEntityType ipipe_CROSS;
 	/** A pair of non-intersection bend pipes*/
 	@Nonnull public static final BlockEntityType ipipe_DUALTURN;
+	/** A pair of non-intersection bend pipes*/
+	@Nonnull public static final BlockEntityType ipipe_FILTER;
 	//Init all item pipes
 	static {
 		ChirotatedImageGroup textureStraight = ChirotatedImageGroup.create("machine/pipe straight.png");
@@ -420,11 +427,48 @@ public class ContentsBlocks {
 		.title("#ipipe-dual")
 		.factory(() -> new DualPipe(Side.R, Side.D, ContentsBlocks.ipipe_DUALTURN, textureDualTurn))
 		.finish("pipe.D");
+		
+		ChirotatedImageGroup textureFilter = ChirotatedImageGroup.create("machine/filter pipe.png");
+		ipipe_FILTER = new BlockEntityType()
+		.texture("machine/filter pipe.png")
+		.describe("A filtering pipe")
+		.title("#ipipe-filter")
+		.factory(() -> new PipeFilter(ContentsBlocks.ipipe_FILTER, textureFilter))
+		.finish("pipe.F");
 	}
+	
+	//Liquids
+	@Nonnull public static final Block water = new Block()
+	.texture("liquid/water.png")
+	.title("#water")
+	.finish("liquid.water");
+	@Nonnull public static final Block lava = new Block()
+	.texture("liquid/lava.png")
+	.title("#lava")
+	.finish("liquid.lava");
+	@Nonnull public static final Block steam = new Block()
+	.texture("liquid/steam.png")
+	.title("#steam")
+	.finish("liquid.steam");
+	@Nonnull public static final Block alcohol = new Block()
+	.texture("liquid/alcohol.png")
+	.title("#alcohol")
+	.finish("liquid.alcohol");
+	@Nonnull public static final Block clay = new Block()
+	.texture("block/clay.png")
+	.title("#clay")
+	.finish("mmb.clay");
 	
 	//Crops
 	@Nonnull public static final BlockEntityType AGRO_TREE =
 			crop(1500, logs, "#machine-tree", Textures.get("block/tree.png"), "crop.tree");
+	@Nonnull public static final BlockEntityType AGRO_WATER =
+			crop(1000, water, "#machine-water", Textures.get("machine/water well.png"), "crop.water");
+	@Nonnull public static final BlockEntityType AGRO_SEEDS =
+			crop(1000, ContentsItems.seeds, "#machine-seeds", Textures.get("block/cropfield.png"), "crop.seeds");
+	@Nonnull public static final BlockEntityType AGRO_HOPS =
+			crop(1000, ContentsItems.hops, "#machine-hops", Textures.get("machine/hops.png"), "crop.hops");
+	
 	//Non-electic processing machines
 	@Nonnull public static final BlockEntityType FURNACE = new BlockEntityType()
 			.title("#furnace")
@@ -455,6 +499,7 @@ public class ContentsBlocks {
 	@Nonnull public static final ElectricMachineGroup bassembly = machinesAssembly("machine/machinemaker.png", Craftings.assembler, "assembler");
 	@Nonnull public static final ElectricMachineGroup bsplitter = machinesSimple("machine/splitter.png", Craftings.splitter, "spllitter", 0.1);
 	@Nonnull public static final ElectricMachineGroup bsplicer = machinesStacked("machine/splicer.png", Craftings.combiner, "splicer", 0.1);
+	@Nonnull public static final ElectricMachineGroup bbrewery = machinesComplex("machine/brewery.png", Craftings.brewery, "brewery");
 	@Nonnull public static final ElectricMachineGroup bquarry = createQuarry();
 	
 	//Player pipes
@@ -470,27 +515,6 @@ public class ContentsBlocks {
 	@Nonnull public static final BlockEntityType PPIPE_join = ppipea(1, Side.U, "machine/ppipe adjoin.png","#ppipe-l" ,"playerpipe.adj");
 	@Nonnull public static final BlockEntityType PPIPE_join2 = ppipea(0.8, Side.L, "machine/ppipe adjoin2.png","#ppipe-y" ,"playerpipe.adj2");
 	
-	//Liquids
-	@Nonnull public static final Block water = new Block()
-	.texture("liquid/water.png")
-	.title("#water")
-	.finish("liquid.water");
-	@Nonnull public static final Block lava = new Block()
-	.texture("liquid/lava.png")
-	.title("#lava")
-	.finish("liquid.lava");
-	@Nonnull public static final Block steam = new Block()
-	.texture("liquid/steam.png")
-	.title("#steam")
-	.finish("liquid.steam");
-	@Nonnull public static final Block alcohol = new Block()
-	.texture("liquid/alcohol.png")
-	.title("#alcohol")
-	.finish("liquid.alcohol");
-	@Nonnull public static final Block clay = new Block()
-	.texture("block/clay.png")
-	.title("#clay")
-	.finish("mmb.clay");
 	/** Initializes blocks */
 	public static void init() {
 		//initialization method
@@ -505,9 +529,10 @@ public class ContentsBlocks {
 	
 	//Reusable block methods
 	@Nonnull
-	public static BlockEntityType crop(int duration, Chance cropDrop, String title, BufferedImage texture, String id) {
-		BlockEntityType result = new BlockEntityType();
-		return result.title(title).factory(() -> new Crop(result, duration, cropDrop)).texture(texture).finish(id);
+	public static BlockEntityType crop(int duration, RecipeOutput cropDrop, String title, BufferedImage texture, String id) {
+		BlockEntityType result = new BlockEntityType().title(title).texture(texture).finish(id);
+		Craftings.agro.add(result, cropDrop, duration);
+		return result.factory(() -> new Crop(result, duration, cropDrop));
 	}
 	@Nonnull private static BlockEntityType ppipe(double length, Side a, Side b, String texture, String title, String id) {
 		BlockEntityType type = new BlockEntityType();
@@ -544,6 +569,15 @@ public class ContentsBlocks {
 				.texture(texture)
 				.finish("elec.coalgen"+n);
 	}
+	@Nonnull private static BlockEntityType chest(double capacity, String texture, String id, int n) {
+		BlockEntityType type = new BlockEntityType();
+		BufferedImage image = Textures.get(texture);
+		return type
+				.title(GlobalSettings.$res("chest")+" #"+n)
+				.factory(() -> new Chest(capacity, type, image))
+				.texture(image)
+				.finish(id);
+	}
 	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, ElectroSimpleProcessingRecipeGroup group, String id) {
 		return machinesSimple(texture, group, id, 1);
 	}
@@ -576,8 +610,8 @@ public class ContentsBlocks {
 		Items.tagItems("fluid", water, lava, steam);
 		Items.tagItems("special", COL, air, grass);
 		Items.tagItems("basic", air, grass, plank, stone, leaves, logs, sand, gravel, clay, water);
-		Items.tagItems("chest", CHEST, HOPPER, HOPPER_suck, HOPPER_both);
-		Items.tagItems("shape-crop", AGRO_TREE);
-		Items.tagItems("pipe",ipipe_STRAIGHT, ipipe_ELBOW, ipipe_IPE, ipipe_TOLEFT, ipipe_TORIGHT, ipipe_CROSS, ipipe_DUALTURN);
+		Items.tagItems("chest", CHEST, CHEST1, CHEST2, CHEST3, CHEST4, CHEST5, HOPPER, HOPPER_suck, HOPPER_both);
+		Items.tagItems("shape-crop", AGRO_TREE, AGRO_WATER, AGRO_SEEDS, AGRO_HOPS);
+		Items.tagItems("pipe",ipipe_STRAIGHT, ipipe_ELBOW, ipipe_IPE, ipipe_TOLEFT, ipipe_TORIGHT, ipipe_CROSS, ipipe_DUALTURN, ipipe_FILTER, IMOVER);
 	}
 }
