@@ -3,27 +3,17 @@
  */
 package mmb.WORLD.crafting.recipes;
 
-import java.awt.Component;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Supplier;
-
 import javax.annotation.Nonnull;
-import javax.swing.JComponent;
-
-import io.vavr.Tuple2;
-import mmb.GlobalSettings;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.SimpleProcessingRecipeList;
 import mmb.WORLD.gui.craft.SimpleRecipeView;
-import mmb.WORLD.gui.window.TabRecipes;
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
@@ -34,13 +24,9 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class ElectroSimpleProcessingRecipeGroup extends AbstractRecipeGroup{
+public class ElectroSimpleProcessingRecipeGroup extends AbstractRecipeGroup<ElectroSimpleProcessingRecipeGroup.ElectroSimpleProcessingRecipe>{
 	public ElectroSimpleProcessingRecipeGroup(String id) {
 		super(id);
-	}
-	@Override
-	protected Tuple2<String, JComponent> createTab() {
-		return new Tuple2<>(title, new SimpleProcessingRecipeList(this));
 	}
 	
 	/**
@@ -94,13 +80,6 @@ public class ElectroSimpleProcessingRecipeGroup extends AbstractRecipeGroup{
 			return this;
 		}
 		@Override
-		public Component createComponent() {
-			SimpleRecipeView component = new SimpleRecipeView();
-			ItemStack[] out = SimpleRecipeView.list2arr(output);
-			component.set(this, out);
-			return component;
-		}
-		@Override
 		public double energy() {
 			return energy;
 		}
@@ -144,5 +123,9 @@ public class ElectroSimpleProcessingRecipeGroup extends AbstractRecipeGroup{
 	@Override
 	public SelfSet<ItemEntry, ElectroSimpleProcessingRecipe> recipes() {
 		return recipes;
+	}
+	@Override
+	public SimpleRecipeView createView() {
+		return new SimpleRecipeView();
 	}
 }

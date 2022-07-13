@@ -29,7 +29,10 @@ public class Battery implements SettablePressure, Saver<JsonNode>{
 	public double amt;
 	public double pressure = 0;
 	public double pressureWt = 1;
-	private final BlockEntity blow;
+	@Nullable private final BlockEntity blow;
+	/**
+	 * The voltage tier of this battery
+	 */
 	@Nonnull public VoltageTier voltage;
 
 	/**
@@ -37,8 +40,9 @@ public class Battery implements SettablePressure, Saver<JsonNode>{
 	 * @param maxPower max powr in coulombs per tick
 	 * @param capacity power capacity in coulombs
 	 * @param blow block which owns this battery. Used to blow up the block if the battery is overvoltaged
+	 * @param voltage voltage tier
 	 */
-	public Battery(double maxPower, double capacity, BlockEntity blow, VoltageTier voltage) {
+	public Battery(double maxPower, double capacity, @Nullable BlockEntity blow, VoltageTier voltage) {
 		super();
 		this.maxPower = maxPower;
 		this.capacity = capacity;
@@ -116,7 +120,7 @@ public class Battery implements SettablePressure, Saver<JsonNode>{
 	public JsonNode save() {
 		return JsonTool.newArrayNode().add(maxPower).add(capacity).add(amt).add(pressure).add(pressureWt);
 	}
-
+	
 	@Override
 	public VoltageTier voltage() {
 		return voltage;
@@ -143,7 +147,7 @@ public class Battery implements SettablePressure, Saver<JsonNode>{
 	 * @param elec
 	 */
 	public void extractTo(Electricity elec) {
-		double insert = elec.insert(amt, voltage);
+		double insert = elec.insert(Math.min(amt, maxPower), voltage);
 		amt -= insert;
 	}
 	
@@ -151,12 +155,13 @@ public class Battery implements SettablePressure, Saver<JsonNode>{
 	 * @param elec
 	 */
 	public void takeFrom(Electricity elec) {
-		double insert = elec.extract(Math.min(remain(), amt), voltage, () -> blow.blow());
-		amt -= insert;
+		double insert = elec.extract(Math.min(remain(), Math.min(amt, maxPower)), voltage, blow::blow);
+		amt += insert;
 	}
 
 	/**
-	 * @param bat
+	 * Sets all properties of this battery to those of other battery
+	 * @param bat battery with new settings
 	 */
 	public void set(Battery bat) {
 		maxPower = bat.maxPower;
@@ -169,6 +174,13 @@ public class Battery implements SettablePressure, Saver<JsonNode>{
 	@Override
 	public void setPressure(double pressure) {
 		this.pressure = pressure;
+	}
+
+	/**
+	 * @return stored enery in joules
+	 */
+	public double energy() {
+		return amt*voltage.volts;
 	}
 
 }

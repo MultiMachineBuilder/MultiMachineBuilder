@@ -1,0 +1,82 @@
+/**
+ * 
+ */
+package mmb.WORLD.gui.craft;
+
+import java.util.Vector;
+import java.util.stream.Collectors;
+
+import javax.annotation.Nonnull;
+import net.miginfocom.swing.MigLayout;
+import javax.swing.JLabel;
+import mmb.WORLD.crafting.RecipeOutput;
+import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup.ElectroSimpleProcessingRecipe;
+import mmb.WORLD.crafting.recipes.PickaxeGroup.PickaxeInfo;
+import mmb.WORLD.inventory.ItemStack;
+import mmb.WORLD.items.ItemEntry;
+
+import javax.swing.JList;
+
+/**
+ * @author oskar
+ *
+ */
+public class PickaxeView extends RecipeView<PickaxeInfo>{
+	private static final long serialVersionUID = -2864705123116802475L;
+	private JLabel lblVolt;
+	private JLabel lblEnergy;
+	private JLabel lblIncoming;
+	private JLabel lblOutgoing;
+	private JLabel lblIn;
+	
+	public PickaxeView() {
+		setLayout(new MigLayout("", "[grow][grow]", "[][][][]"));
+		
+		lblMachine = new JLabel(CRConstants.MACHINE);
+		add(lblMachine, "cell 0 0 2 1,growx");
+		
+		lblVolt = new JLabel(CRConstants.VOLT);
+		add(lblVolt, "cell 0 1");
+		
+		lblEnergy = new JLabel(CRConstants.ENERGY);
+		add(lblEnergy, "cell 1 1,growx");
+		
+		lblIncoming = new JLabel(CRConstants.IN);
+		add(lblIncoming, "cell 0 2,growx");
+		
+		lblOutgoing = new JLabel(CRConstants.OUT);
+		add(lblOutgoing, "cell 1 2,growx");
+		
+		lblIn = new JLabel();
+		add(lblIn, "cell 0 3,grow");
+		
+		lblOut = new JLabel();
+		add(lblOut, "cell 1 3");
+	}
+	public void set(PickaxeInfo recipe) {
+		lblMachine.setText(CRConstants.MACHINE+recipe.group.title());
+		lblIn.setIcon(recipe.input.icon());
+		lblIn.setText(recipe.input.title());
+		lblOut.setIcon(recipe.output.getIcon());
+		lblOut.setText(recipe.output.title());
+	}
+	
+	private JLabel lblMachine;
+	private JLabel lblOut;
+	@Nonnull public static Vector<ItemStack> list2vector(RecipeOutput output){
+		return output
+				.getContents()
+				.object2IntEntrySet()
+				.stream()
+				.map(ent -> new ItemStack(ent.getKey(), ent.getIntValue()))
+				.collect(Collectors.toCollection(() -> new Vector<ItemStack>()));
+	}
+	@Nonnull public static ItemStack[] list2arr(RecipeOutput output){
+		return output
+				.getContents()
+				.object2IntEntrySet()
+				.stream()
+				.map(entry -> new ItemStack(entry.getKey(), entry.getIntValue()))
+				.toArray(n -> new ItemStack[n]);
+	}
+}

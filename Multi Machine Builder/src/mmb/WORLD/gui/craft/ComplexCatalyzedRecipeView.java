@@ -9,16 +9,13 @@ import javax.swing.JLabel;
 import mmb.WORLD.crafting.recipes.ComplexCatalyzedProcessingRecipeGroup.ComplexCatalyzedProcessingRecipe;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
-import mmb.debug.Debugger;
-
 import javax.swing.JList;
-import javax.swing.JPanel;
 
 /**
  * @author oskar
  *
  */
-public class ComplexCatalyzedRecipeView extends JPanel {
+public class ComplexCatalyzedRecipeView extends RecipeView<ComplexCatalyzedProcessingRecipe> {
 	private static final long serialVersionUID = -2864705123116802475L;
 	private JLabel lblVolt;
 	private JLabel lblEnergy;
@@ -29,8 +26,6 @@ public class ComplexCatalyzedRecipeView extends JPanel {
 	private JLabel lblMachine;
 	private JLabel lblCatalyst;
 	private JLabel catalyst;
-	private static final Debugger debug = new Debugger("TEST LAYOUT");
-	
 	public ComplexCatalyzedRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][fill]"));
 		
@@ -56,20 +51,20 @@ public class ComplexCatalyzedRecipeView extends JPanel {
 		add(catalyst, "cell 1 3, grow");
 		
 		outList = new JList<>();
-		outList.setCellRenderer(SimpleRecipeView.renderer);
+		outList.setCellRenderer(ItemStackCellRenderer.instance);
 		add(outList, "cell 2 3,grow");
 		
 		inList = new JList<>();
-		inList.setCellRenderer(SimpleRecipeView.renderer);
+		inList.setCellRenderer(ItemStackCellRenderer.instance);
 		add(inList, "cell 0 3,grow");
 		inList.setMaximumSize(null); 
 	}
-	public void set(ComplexCatalyzedProcessingRecipe recipe, ItemStack[] vectorO, ItemStack[] vectorI) {
+	@Override public void set(ComplexCatalyzedProcessingRecipe recipe) {
 		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
 		lblEnergy.setText(CRConstants.ENERGY+recipe.energy);
-		lblMachine.setText(CRConstants.MACHINE+recipe.group.title);
-		inList.setListData(vectorI);
-		outList.setListData(vectorO);
+		lblMachine.setText(CRConstants.MACHINE+recipe.group.title());
+		inList.setListData(VectorUtils.list2arr(recipe.input));
+		outList.setListData(VectorUtils.list2arr(recipe.output));
 		ItemEntry catalyst0 = recipe.catalyst;
 		if(catalyst0 == null) {
 			catalyst.setText("none");

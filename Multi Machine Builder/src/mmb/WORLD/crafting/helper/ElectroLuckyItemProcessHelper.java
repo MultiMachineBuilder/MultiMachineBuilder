@@ -13,8 +13,8 @@ import com.google.common.util.concurrent.Runnables;
 
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.Refreshable;
-import mmb.WORLD.crafting.recipes.ElectroLuckySimpleProcessingRecipeGroup;
-import mmb.WORLD.crafting.recipes.ElectroLuckySimpleProcessingRecipeGroup.ElectroLuckySimpleProcessingRecipe;
+import mmb.WORLD.crafting.recipes.LuckySimpleProcessingRecipeGroup;
+import mmb.WORLD.crafting.recipes.LuckySimpleProcessingRecipeGroup.ElectroLuckySimpleProcessingRecipe;
 import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup.ElectroSimpleProcessingRecipe;
 import mmb.WORLD.electric.Battery;
@@ -29,7 +29,7 @@ import mmb.WORLD.items.ItemEntry;
  * A class to help make simple item processors
  */
 public class ElectroLuckyItemProcessHelper{
-	@Nonnull private final ElectroLuckySimpleProcessingRecipeGroup recipes;
+	@Nonnull private final LuckySimpleProcessingRecipeGroup recipes;
 	@Nonnull private final Inventory input;
 	@Nonnull private final Inventory output;
 	private final double speed;
@@ -55,7 +55,7 @@ public class ElectroLuckyItemProcessHelper{
 	 * @param elec the power source
 	 * @param volt voltage tier
 	 */
-	public ElectroLuckyItemProcessHelper(ElectroLuckySimpleProcessingRecipeGroup recipes, Inventory input, Inventory output,
+	public ElectroLuckyItemProcessHelper(LuckySimpleProcessingRecipeGroup recipes, Inventory input, Inventory output,
 			double speed, Battery elec, VoltageTier volt) {
 		super();
 		this.recipes = recipes;

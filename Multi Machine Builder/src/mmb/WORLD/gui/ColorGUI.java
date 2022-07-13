@@ -19,10 +19,6 @@ import net.miginfocom.swing.MigLayout;
  */
 public class ColorGUI extends GUITab {
 	private static final long serialVersionUID = 5195216057761670896L;
-	
-	private JColorChooser colorChooser;
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
 
 	/**
 	 * Create the panel.
@@ -33,11 +29,11 @@ public class ColorGUI extends GUITab {
 	public ColorGUI(Color initial, Consumer<Color> action, WorldWindow win) {
 		setLayout(new MigLayout("", "[fill]", "[450px][21px][21px]"));
 		
-		colorChooser = new JColorChooser();
+		JColorChooser colorChooser = new JColorChooser();
 		add(colorChooser, "cell 0 0,grow,aligny center");
 		colorChooser.setColor(initial);
 		
-		btnNewButton = new JButton("OK");
+		JButton btnNewButton = new JButton("OK");
 		btnNewButton.setBackground(Color.GREEN);
 		btnNewButton.addActionListener(e -> {
 			action.accept(colorChooser.getColor());
@@ -46,7 +42,7 @@ public class ColorGUI extends GUITab {
 		btnNewButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(btnNewButton, "cell 0 1,growx,aligny center");
 		
-		btnNewButton_1 = new JButton("Cancel");
+		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.setBackground(Color.RED);
 		btnNewButton_1.addActionListener(e -> win.closeWindow(this));
 		btnNewButton_1.setAlignmentX(Component.CENTER_ALIGNMENT);

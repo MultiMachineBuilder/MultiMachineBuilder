@@ -3,14 +3,11 @@
  */
 package mmb.WORLD.gui.craft;
 
-import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.util.Vector;
-
 import javax.swing.JComponent;
 import mmb.WORLD.crafting.recipes.CraftingRecipeGroup.CraftingRecipe;
 import mmb.WORLD.inventory.ItemStack;
@@ -23,7 +20,7 @@ import java.awt.Color;
  * @author oskar
  *
  */
-public class CraftingRecipeView extends JPanel{
+public class CraftingRecipeView extends RecipeView<CraftingRecipe>{
 	private static final long serialVersionUID = 5070877744489415798L;
 	private ItemGrid grid;
 	private JList<ItemStack> out;
@@ -46,17 +43,18 @@ public class CraftingRecipeView extends JPanel{
 		add(grid, "cell 0 1,growx");
 		
 		in = new JList<>();
-		in.setCellRenderer(SimpleRecipeView.renderer);
+		in.setCellRenderer(ItemStackCellRenderer.instance);
 		add(in, "cell 1 1,grow");
 		
 		out = new JList<>();
-		out.setCellRenderer(SimpleRecipeView.renderer);
+		out.setCellRenderer(ItemStackCellRenderer.instance);
 		add(out, "cell 2 1,grow");
 	}
-	public void set(CraftingRecipe recipe, ItemStack[] stackO, ItemStack[] stackI) {
+	@Override
+	public void set(CraftingRecipe recipe) {
 		grid.setGrid(recipe.grid);
-		out.setListData(stackO);
-		in.setListData(stackI);
+		out.setListData(VectorUtils.list2arr(recipe.out));
+		in.setListData(VectorUtils.list2arr(recipe.in));
 	}
 	/**
 	 * @author oskar
@@ -88,6 +86,7 @@ public class CraftingRecipeView extends JPanel{
 				}
 			}
 		}
+		@Override
 		public Dimension getPreferredSize() {
 			return new Dimension(grid.width() * 32, grid.height() * 32);
 		}

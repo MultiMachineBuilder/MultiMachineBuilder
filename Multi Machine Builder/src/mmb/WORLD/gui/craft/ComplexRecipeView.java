@@ -3,7 +3,6 @@
  */
 package mmb.WORLD.gui.craft;
 
-import java.util.Vector;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup.ComplexProcessingRecipe;
@@ -15,7 +14,7 @@ import javax.swing.JPanel;
  * @author oskar
  *
  */
-public class ComplexRecipeView extends JPanel {
+public class ComplexRecipeView extends RecipeView<ComplexProcessingRecipe> {
 	private static final long serialVersionUID = -2864705123116802475L;
 	private JLabel lblVolt;
 	private JLabel lblEnergy;
@@ -44,19 +43,20 @@ public class ComplexRecipeView extends JPanel {
 		add(lblOutgoing, "cell 1 2,growx");
 		
 		outList = new JList<>();
-		outList.setCellRenderer(SimpleRecipeView.renderer);
+		outList.setCellRenderer(ItemStackCellRenderer.instance);
 		add(outList, "cell 1 3,growx,aligny center");
 		
 		inList = new JList<>();
-		inList.setCellRenderer(SimpleRecipeView.renderer);
+		inList.setCellRenderer(ItemStackCellRenderer.instance);
 		add(inList, "cell 0 3,growx,aligny center");
 	}
-	public void set(ComplexProcessingRecipe recipe, ItemStack[] vectorO, ItemStack[] vectorI) {
+	@Override
+	public void set(ComplexProcessingRecipe recipe) {
 		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
 		lblEnergy.setText(CRConstants.ENERGY+recipe.energy);
-		lblMachine.setText(CRConstants.MACHINE+recipe.group.title);
-		inList.setListData(vectorI);
-		outList.setListData(vectorO);
+		lblMachine.setText(CRConstants.MACHINE+recipe.group.title());
+		inList.setListData(VectorUtils.list2arr(recipe.input));
+		outList.setListData(VectorUtils.list2arr(recipe.output));
 		
 	}
 }

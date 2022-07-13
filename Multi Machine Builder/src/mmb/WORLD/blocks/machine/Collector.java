@@ -13,12 +13,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
+import mmb.BEANS.Resizable;
+import mmb.BEANS.ToItemUnifiedCollector;
 import mmb.DATA.json.JsonTool;
 import mmb.WORLD.block.BlockEntity;
 import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.storage.SimpleInventory;
@@ -31,13 +34,14 @@ import mmb.WORLD.worlds.world.World;
  * @author oskar
  *
  */
-public class Collector extends BlockEntityData implements BlockActivateListener {
+public class Collector extends BlockEntityData implements BlockActivateListener, ToItemUnifiedCollector {
 	/**
 	 * The inventory, in which collected items go
 	 */
 	@Nonnull private SimpleInventory inv0 = new SimpleInventory();
 	@Nonnull private Inventory inv = inv0.lockInsertions();
-	public Inventory getInventory() {
+	@Override
+	public Inventory inv() {
 		return inv;
 	}
 	
@@ -136,7 +140,6 @@ public class Collector extends BlockEntityData implements BlockActivateListener 
 		return value;
 	}
 
-	
 	CollectorGUI gui;
 	@Override
 	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
@@ -159,4 +162,17 @@ public class Collector extends BlockEntityData implements BlockActivateListener 
 		copy.rangeY = rangeY;
 		return copy;
 	}
+
+	@Override
+	public int maxSize() {
+		return 16;
+	}
+
+	@Override
+	public void destroyTab(GUITab filterGUI) {
+		if(filterGUI != gui) throw new IllegalStateException("Wrong GUI");
+		gui = null;
+	}
+
+	
 }

@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.item;
 
+import javax.annotation.Nonnull;
+
 import mmb.WORLD.items.ItemEntry;
 
 /**
@@ -10,7 +12,7 @@ import mmb.WORLD.items.ItemEntry;
  *
  */
 public abstract class ItemEntity implements ItemEntry{
-	private final ItemEntityType type;
+	@Nonnull private final ItemEntityType type;
 	
 	protected ItemEntity(ItemEntityType type) {
 		this.type = type;
@@ -22,7 +24,7 @@ public abstract class ItemEntity implements ItemEntry{
 	}
 
 	@Override
-	public ItemType type() {
+	public ItemEntityType type() {
 		return type;
 	}
 }

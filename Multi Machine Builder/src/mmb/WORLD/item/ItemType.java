@@ -80,4 +80,8 @@ public interface ItemType extends Titled, Identifiable<String>{
 	 */
 	public boolean isUnstackable();
 	
+	/** Invoked when item is registered */
+	default void onregister() {
+		//unused
+	}
 }

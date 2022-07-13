@@ -163,7 +163,10 @@ public class MainMenu extends MMBFrame {
 		aside.add(btnExit);
 		
 		TEST = new JButton("TEST");
-		TEST.addActionListener(e -> HalfVecTest.run());
+		TEST.addActionListener(e -> {
+			Thread thread = new Thread(HalfVecTest::run);
+			thread.start();
+		});
 		aside.add(TEST);
 		
 		timerLBL = new JLabel("Current time goes here");

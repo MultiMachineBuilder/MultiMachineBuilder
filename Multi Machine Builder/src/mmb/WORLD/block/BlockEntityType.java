@@ -136,7 +136,6 @@ public class BlockEntityType extends BlockBase{
 		return this;
 	}
 
-
 	/**
 	 * Sets texture. This is a convenience chainable method
 	 * @param texture path to texture, starting from `/textures`

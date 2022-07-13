@@ -49,6 +49,7 @@ public class Items {
 		debug.printl("Adding "+type.id()+" with title "+type.title()+" and description:\n "+type.description());
 		_items.add(type);
 		_keys.add(type.id());
+		type.onregister();
 	}
 	
 	/**

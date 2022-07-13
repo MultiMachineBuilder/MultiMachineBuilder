@@ -3,24 +3,17 @@
  */
 package mmb.WORLD.crafting.recipes;
 
-import java.awt.Component;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nonnull;
-import javax.swing.JComponent;
-
-import io.vavr.Tuple2;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.SimpleRecipeView;
-import mmb.WORLD.gui.craft.StackedProcessingRecipeList;
 import mmb.WORLD.gui.craft.StackedRecipeView;
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
@@ -31,13 +24,9 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class StackedProcessingRecipeGroup extends AbstractRecipeGroup{
+public class StackedProcessingRecipeGroup extends AbstractRecipeGroup<StackedProcessingRecipeGroup.StackedProcessingRecipe>{
 	public StackedProcessingRecipeGroup(String id) {
 		super(id);
-	}
-	@Override
-	protected Tuple2<String, JComponent> createTab() {
-		return new Tuple2<String, JComponent>(title, new StackedProcessingRecipeList(this));
 	}
 	/**
 	 * @author oskar
@@ -90,13 +79,6 @@ public class StackedProcessingRecipeGroup extends AbstractRecipeGroup{
 		@Override
 		public StackedProcessingRecipe that() {
 			return this;
-		}
-		@Override
-		public Component createComponent() {
-			StackedRecipeView component = new StackedRecipeView();
-			ItemStack[] out = SimpleRecipeView.list2arr(output);
-			component.set(this, out);
-			return component;
 		}
 		@Override
 		public double energy() {
@@ -168,6 +150,10 @@ public class StackedProcessingRecipeGroup extends AbstractRecipeGroup{
 	@Override
 	public SelfSet<ItemEntry, StackedProcessingRecipe> recipes() {
 		return recipes;
+	}
+	@Override
+	public StackedRecipeView createView() {
+		return new StackedRecipeView();
 	}
 
 }

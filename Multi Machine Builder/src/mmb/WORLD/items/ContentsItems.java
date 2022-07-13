@@ -17,11 +17,14 @@ import mmb.DATA.contents.Textures;
 import mmb.GRAPHICS.awt.ColorMapper;
 import mmb.WORLD.blocks.machine.pack.Pack;
 import mmb.WORLD.crafting.RecipeOutput;
+import mmb.WORLD.electric.Battery;
+import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.item.ItemEntityType;
 import mmb.WORLD.item.Items;
 import mmb.WORLD.items.data.ItemBOM;
 import mmb.WORLD.items.data.Stencil;
+import mmb.WORLD.items.electric.ItemBattery;
 import mmb.WORLD.items.filter.EntryFilter;
 import mmb.WORLD.items.pickaxe.Pickaxe;
 import mmb.WORLD.items.pickaxe.Pickaxe.PickaxeType;
@@ -84,7 +87,7 @@ public class ContentsItems {
 			.texture("item/yeast.png")
 			.volumed(0.001)
 			.finish("item.yeast");
-		@Nonnull public static final Item hops = new Item()
+	@Nonnull public static final Item hops = new Item()
 			.title("#hops")
 			.texture("item/hops.png")
 			.volumed(0.001)
@@ -234,6 +237,16 @@ public class ContentsItems {
 			.volumed(0.00125)
 			.finish("industry.substrate1");
 	
+	//Batteries
+	private static final String BATTERY = GlobalSettings.$res("battery");
+	@Nonnull public static final ItemEntityType bat1 = battery(VoltageTier.V1);
+	@Nonnull public static final ItemEntityType bat2 = battery(VoltageTier.V2);
+	@Nonnull public static final ItemEntityType bat3 = battery(VoltageTier.V3);
+	@Nonnull public static final ItemEntityType bat4 = battery(VoltageTier.V4);
+	@Nonnull public static final ItemEntityType bat5 = battery(VoltageTier.V5);
+	@Nonnull public static final ItemEntityType bat6 = battery(VoltageTier.V6);
+	@Nonnull public static final ItemEntityType bat7 = battery(VoltageTier.V7);
+	
 	//Resource beds
 	@Nonnull public static final Item resrc1 = new Item()
 			.title("#ind-qua1")
@@ -264,5 +277,24 @@ public class ContentsItems {
 		Items.tagItems("agro", yeast, hops, seeds);
 		Items.tagItems("material-glass", glass, glassp, beerEmpty);
 		Items.tagItems("alcohol", alcopod, beer);
+		Items.tagItems("machine-battery", bat1, bat2, bat3, bat4, bat5, bat6, bat7);
+		Items.tagItem("voltage-ULV", bat1);
+		Items.tagItem("voltage-VLV", bat2);
+		Items.tagItem("voltage-LV", bat3);
+		Items.tagItem("voltage-MV", bat4);
+		Items.tagItem("voltage-HV", bat5);
+		Items.tagItem("voltage-EV", bat6);
+		Items.tagItem("voltage-IV", bat7);
+	}
+	
+	//Helper methods
+	@Nonnull private static ItemEntityType battery(VoltageTier voltage) {
+		ItemEntityType type = new ItemEntityType();
+		return type
+				.title(BATTERY+" "+voltage.name)
+				.texture("item/battery "+(voltage.ordinal()+1)+".png")
+				.volumed(0.1)
+				.factory(() -> new ItemBattery(type, voltage))
+				.finish("industry.bat"+(voltage.ordinal()+1));
 	}
 }

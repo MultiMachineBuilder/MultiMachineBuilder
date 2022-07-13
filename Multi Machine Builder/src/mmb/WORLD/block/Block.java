@@ -23,7 +23,7 @@ import mmb.WORLD.worlds.world.World;
 /**
  * @author oskar
  * This class represents a building block.
- * This class may also be used to represent a fluid.
+ * This class may also be used to represent a fluid, but use of {@link Fluid} is recommended
  */
 public class Block extends BlockBase implements BlockEntry{
 	@Override
@@ -230,7 +230,4 @@ public class Block extends BlockBase implements BlockEntry{
 	public void resetMap(@Nullable World map, int x, int y) {
 		//does nothing
 	}
-	
-	
-
 }

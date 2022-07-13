@@ -3,30 +3,18 @@
  */
 package mmb.WORLD.crafting.recipes;
 
-import java.awt.Component;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.Supplier;
-
 import javax.annotation.Nonnull;
-import javax.swing.JComponent;
-
-import io.vavr.Tuple2;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.Recipe;
-import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.ComplexProcessingRecipeList;
 import mmb.WORLD.gui.craft.ComplexRecipeView;
-import mmb.WORLD.gui.craft.SimpleRecipeView;
-import mmb.WORLD.gui.craft.StackedProcessingRecipeList;
-import mmb.WORLD.gui.window.TabRecipes;
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
@@ -37,23 +25,19 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class ComplexProcessingRecipeGroup extends AbstractRecipeGroup{
+public class ComplexProcessingRecipeGroup extends AbstractRecipeGroup<ComplexProcessingRecipeGroup.ComplexProcessingRecipe>{
 	/**
 	 * The minimum amount of ingredients
 	 */
 	public final int minIngredients;
 	/**
-	 * @param title the title of this recipe group
+	 * @param id the title of this recipe group
 	 * @param minIngredients minimum amount of ingredients, must be >= 1
 	 */
 	public ComplexProcessingRecipeGroup(String id, int minIngredients) {
 		super(id);
 		if(minIngredients < 1) throw new IllegalArgumentException("The minimum ingredient count must be >=1, got "+minIngredients);
 		this.minIngredients = minIngredients;
-	}
-	@Override
-	protected Tuple2<String, JComponent> createTab() {
-		return new Tuple2<String, JComponent>(title, new ComplexProcessingRecipeList(this));
 	}
 	
 	/**
@@ -101,20 +85,12 @@ public class ComplexProcessingRecipeGroup extends AbstractRecipeGroup{
 			return null;
 		}
 		@Override
-		public RecipeGroup group() {
+		public ComplexProcessingRecipeGroup group() {
 			return group;
 		}
 		@Override
 		public ComplexProcessingRecipe that() {
 			return this;
-		}
-		@Override
-		public Component createComponent() {
-			ComplexRecipeView component = new ComplexRecipeView();
-			ItemStack[] in = SimpleRecipeView.list2arr(input);
-			ItemStack[] out = SimpleRecipeView.list2arr(output);
-			component.set(this, out, in);
-			return component;
 		}
 		@Override
 		public double energy() {
@@ -173,5 +149,10 @@ public class ComplexProcessingRecipeGroup extends AbstractRecipeGroup{
 	@Override
 	public SelfSet<Set<ItemEntry>, ComplexProcessingRecipe> recipes() {
 		return recipes;
+	}
+
+	@Override
+	public ComplexRecipeView createView() {
+		return new ComplexRecipeView();
 	}
 }

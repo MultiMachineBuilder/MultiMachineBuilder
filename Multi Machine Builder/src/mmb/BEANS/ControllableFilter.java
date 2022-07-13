@@ -12,7 +12,7 @@ import mmb.WORLD.inventory.storage.SingleItemInventory;
  * @author oskar
  *
  */
-public interface ControllableFilter {
+public interface ControllableFilter extends DestroyTab{
 	/**
 	 * 
 	 * @return
@@ -26,9 +26,5 @@ public interface ControllableFilter {
 	 * @return
 	 */
 	@Nullable public String[] getTitles();
-	/**
-	 * @param filterGUI used for verification
-	 * @throws IllegalStateException when the given GUi is wrong
-	 */
-	public void destroyTab(FilterGUI filterGUI);
+	
 }

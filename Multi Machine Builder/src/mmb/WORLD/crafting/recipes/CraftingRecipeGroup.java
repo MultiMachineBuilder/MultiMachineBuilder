@@ -3,26 +3,19 @@
  */
 package mmb.WORLD.crafting.recipes;
 
-import java.awt.Component;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.annotation.Nonnull;
-import javax.swing.JComponent;
-
-import io.vavr.Tuple2;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.Recipe;
-import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.SimpleItemList;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.CraftingRecipeList;
 import mmb.WORLD.gui.craft.CraftingRecipeView;
-import mmb.WORLD.gui.craft.SimpleRecipeView;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
@@ -37,13 +30,9 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class CraftingRecipeGroup extends AbstractRecipeGroup {
+public class CraftingRecipeGroup extends AbstractRecipeGroup<CraftingRecipeGroup.CraftingRecipe> {
 	public CraftingRecipeGroup(String id) {
 		super(id);
-	}
-	@Override
-	protected Tuple2<String, JComponent> createTab() {
-		return new Tuple2<>(title, new CraftingRecipeList(this));
 	}
 	/**
 	 * Gets the recipe for given item grid
@@ -104,20 +93,12 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup {
 			return null;
 		}
 		@Override
-		public RecipeGroup group() {
+		public CraftingRecipeGroup group() {
 			return group;
 		}
 		@Override
 		public CraftingRecipe that() {
 			return this;
-		}
-		@Override
-		public Component createComponent() {
-			ItemStack[] vectorI = SimpleRecipeView.list2arr(in);
-			ItemStack[] vectorO = SimpleRecipeView.list2arr(out);
-			CraftingRecipeView component = new CraftingRecipeView();
-			component.set(this, vectorO, vectorI);
-			return component;
 		}
 		@Override
 		public double energy() {
@@ -173,5 +154,9 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup {
 	@Override
 	public SelfSet<Grid<ItemEntry>, CraftingRecipe> recipes() {
 		return recipes;
+	}
+	@Override
+	public CraftingRecipeView createView() {
+		return new CraftingRecipeView();
 	}
 }

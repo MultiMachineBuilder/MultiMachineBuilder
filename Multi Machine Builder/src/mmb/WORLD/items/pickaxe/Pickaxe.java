@@ -82,7 +82,8 @@ public class Pickaxe extends ItemEntity {
 			}else{
 				g.setColor(Color.BLACK);
 				g.drawLine(x+min, y+max, x+max, y+max);
-				int red = 0, green = 0;
+				int red = 0; 
+				int green = 0;
 				if(percent > 0.5) {
 					green = 255;
 					red = (int)(511*(1-percent));

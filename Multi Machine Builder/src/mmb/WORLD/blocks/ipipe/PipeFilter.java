@@ -14,6 +14,7 @@ import mmb.DATA.variables.Variable;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.gui.machine.FilterGUI;
+import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
@@ -103,7 +104,7 @@ public class PipeFilter extends AbstractBasePipe implements BlockActivateListene
 		return null; //NOSONAR the method allows null
 	}
 	@Override
-	public void destroyTab(FilterGUI filterGUI) {
+	public void destroyTab(GUITab filterGUI) {
 		if(filterGUI != gui) throw new IllegalStateException("Wrong GUI");
 		gui = null;
 	}

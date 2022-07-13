@@ -33,6 +33,7 @@ import mmb.WORLD.blocks.ipipe.PipeBinder;
 import mmb.WORLD.blocks.ipipe.PipeFilter;
 import mmb.WORLD.blocks.machine.Collector;
 import mmb.WORLD.blocks.machine.CycleAssembler;
+import mmb.WORLD.blocks.machine.Digger;
 import mmb.WORLD.blocks.machine.FurnacePlus;
 import mmb.WORLD.blocks.machine.Nuker;
 import mmb.WORLD.blocks.machine.PlaceIncomingItems;
@@ -500,6 +501,7 @@ public class ContentsBlocks {
 	@Nonnull public static final ElectricMachineGroup bsplitter = machinesSimple("machine/splitter.png", Craftings.splitter, "spllitter", 0.1);
 	@Nonnull public static final ElectricMachineGroup bsplicer = machinesStacked("machine/splicer.png", Craftings.combiner, "splicer", 0.1);
 	@Nonnull public static final ElectricMachineGroup bbrewery = machinesComplex("machine/brewery.png", Craftings.brewery, "brewery");
+	@Nonnull public static final ElectricMachineGroup bdig = createDigger();
 	@Nonnull public static final ElectricMachineGroup bquarry = createQuarry();
 	
 	//Player pipes
@@ -598,6 +600,9 @@ public class ContentsBlocks {
 	}
 	private static ElectricMachineGroup createQuarry() {
 		return new ElectricMachineGroup(Textures.get("machine/quarry.png"), type -> new ElectroQuarry(type, Craftings.quarry), "quarry");
+	}
+	private static ElectricMachineGroup createDigger() {
+		return new ElectricMachineGroup(Textures.get("machine/digger.png"), Digger::new, "digger");
 	}
 	
 	//Item tags

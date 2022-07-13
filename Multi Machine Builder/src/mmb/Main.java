@@ -129,13 +129,6 @@ public class Main extends JFrame {
 					
 					ModLoader.modloading(); //the main loading method
 					
-					//shunt for GL experiments
-					final boolean testingShunt = true;
-					if(testingShunt) {
-						HalfVecTest.run();
-						return;
-					}
-					
 					//localized welcome
 					Locale locale = GlobalSettings.locale();
 					debug.printl(GlobalSettings.$res("hello"));

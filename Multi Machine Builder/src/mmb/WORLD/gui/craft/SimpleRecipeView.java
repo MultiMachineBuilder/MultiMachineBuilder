@@ -3,29 +3,24 @@
  */
 package mmb.WORLD.gui.craft;
 
-import java.awt.Component;
-import java.awt.Dimension;
 import java.util.Vector;
 import java.util.stream.Collectors;
 
 import javax.annotation.Nonnull;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
-import javax.swing.ListCellRenderer;
-
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup.ElectroSimpleProcessingRecipe;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
 
 import javax.swing.JList;
-import javax.swing.JPanel;
 
 /**
  * @author oskar
  *
  */
-public class SimpleRecipeView extends JPanel {
+public class SimpleRecipeView extends RecipeView<ElectroSimpleProcessingRecipe>{
 	private static final long serialVersionUID = -2864705123116802475L;
 	private JLabel lblVolt;
 	private JLabel lblEnergy;
@@ -56,54 +51,20 @@ public class SimpleRecipeView extends JPanel {
 		add(lblIn, "cell 0 3,grow");
 		
 		outList = new JList<>();
-		outList.setCellRenderer(new CellRenderer());
+		outList.setCellRenderer(ItemStackCellRenderer.instance);
 		add(outList, "cell 1 3,growx,aligny center");
 	}
-	public void set(ElectroSimpleProcessingRecipe recipe, ItemStack[] vector) {
+	public void set(ElectroSimpleProcessingRecipe recipe) {
 		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
 		lblEnergy.setText(CRConstants.ENERGY+recipe.energy);
-		lblMachine.setText(CRConstants.MACHINE+recipe.group.title);
+		lblMachine.setText(CRConstants.MACHINE+recipe.group.title());
 		ItemEntry item = recipe.input;
 		lblIn.setIcon(item.icon());
 		lblIn.setText(item.title());
-		outList.setListData(vector);
+		outList.setListData(VectorUtils.list2arr(recipe.output));
 	}
 	
-	static final CellRenderer renderer = new CellRenderer();
 	private JLabel lblMachine;
-	static class CellRenderer extends JLabel implements ListCellRenderer<ItemStack>{
-		private static final long serialVersionUID = -3535344904857285958L;
-		private final Dimension PRESENT = new Dimension(275, 32);
-		private final Dimension ABSENT = new Dimension();
-		@Override
-		public Component getListCellRendererComponent(
-			@SuppressWarnings("null") JList<? extends ItemStack> list,
-			@SuppressWarnings("null") ItemStack itemType,
-			int index,
-			boolean isSelected,
-			boolean cellHasFocus
-		){
-			if(itemType.amount == 0) {
-				setPreferredSize(ABSENT);
-				setMinimumSize(ABSENT);
-			}else {
-				setPreferredSize(PRESENT);
-				setMinimumSize(PRESENT);
-			}
-			setOpaque(true);
-			setIcon(itemType.item.icon());
-			setText(itemType.id().title() + " � " + itemType.amount);
-			
-			if (isSelected) {
-			    setBackground(list.getSelectionBackground());
-			    setForeground(list.getSelectionForeground());
-			} else {
-			    setBackground(list.getBackground());
-			    setForeground(list.getForeground());
-			}
-			return this;
-		}
-	}
 	@Nonnull public static Vector<ItemStack> list2vector(RecipeOutput output){
 		return output
 				.getContents()

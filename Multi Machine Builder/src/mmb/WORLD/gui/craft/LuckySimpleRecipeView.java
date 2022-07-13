@@ -3,33 +3,22 @@
  */
 package mmb.WORLD.gui.craft;
 
-import java.awt.Component;
-import java.awt.Dimension;
-import java.util.Vector;
-import java.util.stream.Collectors;
-
-import javax.annotation.Nonnull;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
-import javax.swing.ListCellRenderer;
-
 import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
-import mmb.WORLD.crafting.RecipeOutput;
-import mmb.WORLD.crafting.recipes.ElectroLuckySimpleProcessingRecipeGroup.ElectroLuckySimpleProcessingRecipe;
-import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup.ElectroSimpleProcessingRecipe;
+import mmb.WORLD.crafting.recipes.LuckySimpleProcessingRecipeGroup.ElectroLuckySimpleProcessingRecipe;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
 
 import javax.swing.JList;
-import javax.swing.JPanel;
 
 /**
  * @author oskar
  *
  */
-public class LuckySimpleRecipeView extends JPanel {
+public class LuckySimpleRecipeView extends RecipeView<ElectroLuckySimpleProcessingRecipe> {
 	private static final long serialVersionUID = -2864705123116802475L;
 	private JLabel lblVolt;
 	private JLabel lblEnergy;
@@ -64,73 +53,24 @@ public class LuckySimpleRecipeView extends JPanel {
 		add(lblIn, "cell 0 3,grow");
 		
 		outList = new JList<>();
-		outList.setCellRenderer(new CellRenderer());
+		outList.setCellRenderer(ItemStackCellRenderer.instance);
 		add(outList, "cell 1 3,growx,aligny center");
 	}
-	public void set(ElectroLuckySimpleProcessingRecipe recipe, ItemStack[] vector) {
+	@Override
+	public void set(ElectroLuckySimpleProcessingRecipe recipe) {
 		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
 		lblEnergy.setText(CRConstants.ENERGY+recipe.energy);
-		lblMachine.setText(CRConstants.MACHINE+recipe.group.title);
+		lblMachine.setText(CRConstants.MACHINE+recipe.group.title());
 		ItemEntry item = recipe.input;
 		lblIn.setIcon(item.icon());
 		lblIn.setText(item.title());
-		outList.setListData(vector);
+		outList.setListData(VectorUtils.list2arr(recipe.output));
 		PicoWriter writer = new PicoWriter();
 		writer.writeln(CRConstants.CHANCE);
 		recipe.luck().represent(writer);
 		lblMaybe.setText(writer.toString());
 	}
 	
-	static final CellRenderer renderer = new CellRenderer();
 	private JLabel lblMachine;
 	private MultilineLabel lblMaybe;
-	static class CellRenderer extends JLabel implements ListCellRenderer<ItemStack>{
-		private static final long serialVersionUID = -3535344904857285958L;
-		private final Dimension PRESENT = new Dimension(275, 32);
-		private final Dimension ABSENT = new Dimension();
-		@Override
-		public Component getListCellRendererComponent(
-			@SuppressWarnings("null") JList<? extends ItemStack> list,
-			@SuppressWarnings("null") ItemStack itemType,
-			int index,
-			boolean isSelected,
-			boolean cellHasFocus
-		){
-			if(itemType.amount == 0) {
-				setPreferredSize(ABSENT);
-				setMinimumSize(ABSENT);
-			}else {
-				setPreferredSize(PRESENT);
-				setMinimumSize(PRESENT);
-			}
-			setOpaque(true);
-			setIcon(itemType.item.icon());
-			setText(itemType.id().title() + " � " + itemType.amount);
-			
-			if (isSelected) {
-			    setBackground(list.getSelectionBackground());
-			    setForeground(list.getSelectionForeground());
-			} else {
-			    setBackground(list.getBackground());
-			    setForeground(list.getForeground());
-			}
-			return this;
-		}
-	}
-	@Nonnull public static Vector<ItemStack> list2vector(RecipeOutput output){
-		return output
-				.getContents()
-				.object2IntEntrySet()
-				.stream()
-				.map(ent -> new ItemStack(ent.getKey(), ent.getIntValue()))
-				.collect(Collectors.toCollection(() -> new Vector<ItemStack>()));
-	}
-	@Nonnull public static ItemStack[] list2arr(RecipeOutput output){
-		return output
-				.getContents()
-				.object2IntEntrySet()
-				.stream()
-				.map(entry -> new ItemStack(entry.getKey(), entry.getIntValue()))
-				.toArray(n -> new ItemStack[n]);
-	}
 }

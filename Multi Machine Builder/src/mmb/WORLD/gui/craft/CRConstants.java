@@ -22,4 +22,5 @@ public class CRConstants {
 	public static final String PASS = $res("wguim-pass");
 	public static final String EVERYTIME = $res("everytime")+" ";
 	public static final String SECONDS = " "+$res("seconds");
+	public static final String DOSE = " "+$res("alcodose")+" ";
 }

@@ -81,6 +81,8 @@ public class CoalGen extends SkeletalBlockEntityRotary implements BlockActivateL
 	public CoalGen(VoltageTier volt, BlockType type) {
 		this.volt = volt;
 		this.type = type;
+		fuel.maxPower = Double.POSITIVE_INFINITY;
+		buffer.maxPower = volt.speedMul*10_000/volt.volts;
 		this.burner = new FuelBurner(1.5+volt.ordinal(), inv, fuel, Craftings.furnaceFuels);
 		resetBuffer();
 	}
@@ -127,7 +129,6 @@ public class CoalGen extends SkeletalBlockEntityRotary implements BlockActivateL
 		window.openAndShowWindow(tab, type.title());
 	}
 
-	
 	@Override
 	protected void save1(ObjectNode node) {
 		node.set("in", inv.save());

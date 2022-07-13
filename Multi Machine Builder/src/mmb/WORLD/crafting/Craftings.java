@@ -24,10 +24,12 @@ import mmb.WORLD.chance.RandomChance;
 import mmb.WORLD.chance.RandomOrElseChance;
 import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.crafting.recipes.AgroRecipeGroup;
+import mmb.WORLD.crafting.recipes.AlcoholInfoGroup;
 import mmb.WORLD.crafting.recipes.ComplexCatalyzedProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.CraftingRecipeGroup;
-import mmb.WORLD.crafting.recipes.ElectroLuckySimpleProcessingRecipeGroup;
+import mmb.WORLD.crafting.recipes.LuckySimpleProcessingRecipeGroup;
+import mmb.WORLD.crafting.recipes.PickaxeGroup;
 import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.StackedProcessingRecipeGroup;
 import mmb.WORLD.electric.VoltageTier;
@@ -112,8 +114,10 @@ public class Craftings {
 	@Nonnull public static final ComplexCatalyzedProcessingRecipeGroup assembler = new ComplexCatalyzedProcessingRecipeGroup("assembler", 2);
 	@Nonnull public static final ComplexProcessingRecipeGroup brewery = new ComplexProcessingRecipeGroup("brewery", 2);
 	@Nonnull public static final CraftingRecipeGroup crafting = new CraftingRecipeGroup("crafter");
-	@Nonnull public static final ElectroLuckySimpleProcessingRecipeGroup quarry = new ElectroLuckySimpleProcessingRecipeGroup("quarry");
+	@Nonnull public static final LuckySimpleProcessingRecipeGroup quarry = new LuckySimpleProcessingRecipeGroup("quarry");
 	@Nonnull public static final AgroRecipeGroup agro = new AgroRecipeGroup("agrorecipes");
+	@Nonnull public static final AlcoholInfoGroup alcohol = new AlcoholInfoGroup("alcohol");
+	@Nonnull public static final PickaxeGroup pickaxes = new PickaxeGroup("pickaxe");
 	/**
 	 * Crafts items according to a recipe
 	 * @param input items to be consumed
@@ -161,6 +165,8 @@ public class Craftings {
 		
 		//Pickaxes
 		crafting.addRecipeGrid(new ItemEntry[]{plank, plank, logs, logs}, 2, 2, PICKBUILDER);
+		pickaxes.add(pickHeadWood, pickWood);
+		pickaxes.add(pickHeadRudimentary, pickRudimentary);
 		
 		crafting.addRecipe(new FixedGrid<>(3,
 		plank, logs,  plank,
@@ -446,6 +452,12 @@ public class Craftings {
 		iron.panel, iron.panel, iron.panel,
 		coal.base,  seeds,      wireRudimentary.medium,
 		}, 3, 3, bbrewery.get(0)); //Brewery ULV
+		
+		crafting.addRecipeGrid(new ItemEntry[]{
+		null,       motor1,     iron.base,
+		iron.panel, iron.panel, iron.panel,
+		iron.panel, iron.panel, iron.panel,
+		}, 3, 3, bdig.get(0));//Digger ULV
 	}
 	private static void _craftrsVLV() {
 		//Coal Generator VLV
@@ -498,7 +510,13 @@ public class Craftings {
 		motor2,    steel.gear, motor2,
 		steel.wire, stone, steel.wire,
 		motor2,    steel.gear, motor2,
-		}, 3, 3, bquarry.get(1)); 
+		}, 3, 3, bquarry.get(1)); //Quarry VLV
+		
+		crafting.addRecipeGrid(new ItemEntry[]{
+		null,        motor2,     steel.base,
+		steel.panel, circuit1,    steel.panel,
+		steel.panel, steel.panel, steel.panel,
+		}, 3, 3, bdig.get(1));//Digger VLV
 	}
 
 	private static void quarry() {

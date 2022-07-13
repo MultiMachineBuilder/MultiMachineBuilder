@@ -53,7 +53,7 @@ public class PickaxeGUI extends GUITab {
 		slot.setMinimumSize(dim);
 		slot.setMaximumSize(dim);
 		slot.setPreferredSize(dim);
-		slot.stateChanged.addListener(ent -> crafted = PickaxeWorkbench.recipes.get(ent));
+		slot.stateChanged.addListener(ent -> crafted = Craftings.pickaxes.recipes.get(ent).output);
 		
 		JLabel lblNewLabel = new JLabel("crafted: ");
 		add(lblNewLabel, "cell 1 1");

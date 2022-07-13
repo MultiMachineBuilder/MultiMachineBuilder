@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ser.std.StdKeySerializers.Default;
 
 import mmb.WORLD.chance.Chance;
 import mmb.WORLD.electric.VoltageTier;
+import mmb.WORLD.gui.craft.RecipeView;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.items.ItemEntry;
 
@@ -71,7 +72,7 @@ public interface Recipe<T extends Recipe<T>>{
 	 * @return the parent recipe group
 	 * @throws UnsupportedOperationException if the implementation is a stencil, or something similar (optional operation)
 	 */
-	@Nonnull public RecipeGroup group();
+	@Nonnull public RecipeGroup<T> group();
 	@Nonnull public default Chance luck() {
 		return Chance.NONE;
 	}
@@ -89,5 +90,9 @@ public interface Recipe<T extends Recipe<T>>{
 	 */
 	@Nonnull public T that();
 	/** @return the AWT or Swing component for this recipe */
-	@Nonnull public Component createComponent();
+	@Nonnull public default Component createComponent() {
+		RecipeView<T> rv = group().createView();
+		rv.set((T) this);
+		return rv;
+	}
 }

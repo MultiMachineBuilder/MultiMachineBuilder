@@ -14,7 +14,7 @@ import mmb.WORLD.contentgen.ElectricMachineGroup.ElectroMachineType;
 import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.helper.ElectroItemProcessHelper;
 import mmb.WORLD.crafting.helper.ElectroLuckyItemProcessHelper;
-import mmb.WORLD.crafting.recipes.ElectroLuckySimpleProcessingRecipeGroup;
+import mmb.WORLD.crafting.recipes.LuckySimpleProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup;
 import mmb.WORLD.electric.Electricity;
 import mmb.WORLD.gui.window.WorldWindow;
@@ -56,7 +56,7 @@ public class ElectroQuarry extends CommonMachine implements BlockActivateListene
 	@Nonnull private final ElectroLuckyItemProcessHelper helper;
 	
 	//Constructor
-	public ElectroQuarry(ElectroMachineType type, ElectroLuckySimpleProcessingRecipeGroup group) {
+	public ElectroQuarry(ElectroMachineType type, LuckySimpleProcessingRecipeGroup group) {
 		super(type);
 		this.recipes = group;
 		helper = new ElectroLuckyItemProcessHelper(group, in, out0, 1000, elec, type.volt);
@@ -104,14 +104,14 @@ public class ElectroQuarry extends CommonMachine implements BlockActivateListene
 		if(autoNode != null) autoExtract = autoNode.asBoolean();
 	}
 
-	public final ElectroLuckySimpleProcessingRecipeGroup recipes;
+	public final LuckySimpleProcessingRecipeGroup recipes;
 	//GUI
 	@Override
 	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(tab != null) return;
 		tab = new MachineTab(this, window);
-		window.openAndShowWindow(tab, recipes.title+' '+type.volt.name);
+		window.openAndShowWindow(tab, recipes.title()+' '+type.volt.name);
 		helper.refreshable = tab;
 		tab.refreshProgress(0, null);
 	}

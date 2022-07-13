@@ -14,6 +14,7 @@ import javax.annotation.Nonnull;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import mmb.BEANS.Resizable;
 import mmb.DATA.contents.Textures;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.blocks.machine.Collector;
@@ -43,14 +44,15 @@ public class ConfigureDroppedItemExtractors extends WindowTool {
 	@Override
 	public void preview(int startX, int startY, double scale, Graphics g) {
 		if(collector != null) {
-			int rangeX = Collector.clamp(4, mouse.x-collector.posX(), 16);
-			int rangeY = Collector.clamp(4, mouse.y-collector.posY(), 16);
+			int size = collector.maxSize();
+			int rangeX = Collector.clamp(1, mouse.x-collector.posX(), size);
+			int rangeY = Collector.clamp(1, mouse.y-collector.posY(), size);
 			frame.renderBlockRange(collector.posX(), collector.posY(), collector.posX()+collector.getRangeX()-1, collector.posY()+collector.getRangeY()-1, Color.BLUE, g);
 			frame.renderBlockRange(collector.posX(), collector.posY(), collector.posX()+rangeX-1, collector.posY()+rangeY-1, Color.ORANGE, g);
 		}
 	}
 	@Nonnull private Point mouse = new Point();
-	private Collector collector;
+	private Resizable collector;
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		frame.blockAt(e.getX(), e.getY(), mouse);
@@ -59,13 +61,14 @@ public class ConfigureDroppedItemExtractors extends WindowTool {
 			if(collector == null) {
 				//select a  collector
 				BlockEntry block = frame.getMap().get(mouse);
-				if(block instanceof Collector) {
-					collector = (Collector)block;
+				if(block instanceof Resizable) {
+					collector = (Resizable)block;
 				}
 			}else {
 				//Select range
-				int rangeX = Collector.clamp(4, mouse.x-collector.posX(), 16);
-				int rangeY = Collector.clamp(4, mouse.y-collector.posY(), 16);
+				int size = collector.maxSize();
+				int rangeX = Collector.clamp(1, mouse.x-collector.posX(), size);
+				int rangeY = Collector.clamp(1, mouse.y-collector.posY(), size);
 				collector.setRangeX(rangeX);
 				collector.setRangeY(rangeY);
 				collector = null;

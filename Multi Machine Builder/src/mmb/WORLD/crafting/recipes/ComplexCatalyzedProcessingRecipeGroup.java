@@ -9,28 +9,17 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.Supplier;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.JComponent;
-
 import io.vavr.Tuple2;
-import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.ComplexCatalyzedProcessingRecipeList;
 import mmb.WORLD.gui.craft.ComplexCatalyzedRecipeView;
-import mmb.WORLD.gui.craft.ComplexProcessingRecipeList;
-import mmb.WORLD.gui.craft.ComplexRecipeView;
-import mmb.WORLD.gui.craft.SimpleProcessingRecipeList;
-import mmb.WORLD.gui.craft.SimpleRecipeView;
-import mmb.WORLD.gui.window.TabRecipes;
+import mmb.WORLD.gui.craft.RecipeView;
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
@@ -41,23 +30,20 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class ComplexCatalyzedProcessingRecipeGroup extends AbstractRecipeGroup{
+public class ComplexCatalyzedProcessingRecipeGroup extends
+AbstractRecipeGroup<ComplexCatalyzedProcessingRecipeGroup.ComplexCatalyzedProcessingRecipe>{
 	/**
 	 * The minimum amount of ingredients
 	 */
 	public final int minIngredients;
 	/**
-	 * @param title the title of this recipe group
+	 * @param id the title of this recipe group
 	 * @param minIngredients minimum amount of ingredients, must be >= 1
 	 */
 	public ComplexCatalyzedProcessingRecipeGroup(String id, int minIngredients) {
 		super(id);
 		if(minIngredients < 1) throw new IllegalArgumentException("The minimum ingredient count must be >=1, got "+minIngredients);
 		this.minIngredients = minIngredients;
-	}
-	@Override
-	protected Tuple2<String, JComponent> createTab() {
-		return new Tuple2<String, JComponent>(title, new ComplexCatalyzedProcessingRecipeList(this));
 	}
 	
 	/**
@@ -107,7 +93,7 @@ public class ComplexCatalyzedProcessingRecipeGroup extends AbstractRecipeGroup{
 			return catalyst;
 		}
 		@Override
-		public RecipeGroup group() {
+		public RecipeGroup<ComplexCatalyzedProcessingRecipe> group() {
 			return group;
 		}
 		@Override
@@ -117,9 +103,7 @@ public class ComplexCatalyzedProcessingRecipeGroup extends AbstractRecipeGroup{
 		@Override
 		public Component createComponent() {
 			ComplexCatalyzedRecipeView component = new ComplexCatalyzedRecipeView();
-			ItemStack[] in = SimpleRecipeView.list2arr(input);
-			ItemStack[] out = SimpleRecipeView.list2arr(output);
-			component.set(this, out, in);
+			component.set(this);
 			return component;
 		}
 		@Override
@@ -184,6 +168,9 @@ public class ComplexCatalyzedProcessingRecipeGroup extends AbstractRecipeGroup{
 	public SelfSet<Tuple2<Set<ItemEntry>, @Nullable ItemEntry>, ComplexCatalyzedProcessingRecipe> recipes() {
 		return recipes;
 	}
-
 	
+	@Override
+	public RecipeView<ComplexCatalyzedProcessingRecipe> createView() {
+		return new ComplexCatalyzedRecipeView();
+	}
 }

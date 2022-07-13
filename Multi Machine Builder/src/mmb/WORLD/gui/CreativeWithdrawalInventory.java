@@ -27,7 +27,7 @@ public class CreativeWithdrawalInventory implements Inventory {
 	@SuppressWarnings("null")
 	@Override
 	public Iterator<ItemRecord> iterator() {
-		return new MapIterator<ItemType, ItemRecord>(
+		return new MapIterator<>(
 				CreativeWithdrawalItemRecord::new, //create new copies of the item
 				Items.items.iterator() //list item types
 				);

@@ -54,7 +54,7 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput{
 	 * @return a copy of given ItemEntry
 	 */
 	public ItemEntry itemClone();
-	public ItemType type();
+	@Nonnull public ItemType type();
 	public default String title() {
 		return type().title();
 	}

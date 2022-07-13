@@ -1,0 +1,38 @@
+/**
+ * 
+ */
+package mmb.WORLD.gui.craft;
+
+import java.util.Vector;
+import java.util.stream.Collectors;
+
+import javax.annotation.Nonnull;
+
+import mmb.WORLD.crafting.RecipeOutput;
+import mmb.WORLD.inventory.ItemStack;
+
+/**
+ * @author oskar
+ *
+ */
+public class VectorUtils {
+	private VectorUtils() {}
+	@Nonnull public static Vector<ItemStack> list2vector(RecipeOutput output){
+		return output
+				.getContents()
+				.object2IntEntrySet()
+				.stream()
+				.map(ent -> new ItemStack(ent.getKey(), ent.getIntValue()))
+				.collect(Collectors.toCollection(() -> new Vector<ItemStack>()));
+	}
+
+	@Nonnull public static ItemStack[] list2arr(RecipeOutput output){
+		return output
+				.getContents()
+				.object2IntEntrySet()
+				.stream()
+				.map(entry -> new ItemStack(entry.getKey(), entry.getIntValue()))
+				.toArray(n -> new ItemStack[n]);
+	}
+
+}

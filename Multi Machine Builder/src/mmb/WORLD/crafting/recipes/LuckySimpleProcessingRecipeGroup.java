@@ -3,31 +3,18 @@
  */
 package mmb.WORLD.crafting.recipes;
 
-import java.awt.Component;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Supplier;
-
 import javax.annotation.Nonnull;
-import javax.swing.JComponent;
-
-import io.vavr.Tuple2;
 import mmb.WORLD.chance.Chance;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.RecipeOutput;
-import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup.ElectroSimpleProcessingRecipe;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.ComplexRecipeView;
-import mmb.WORLD.gui.craft.LuckySimpleProcessingRecipeList;
 import mmb.WORLD.gui.craft.LuckySimpleRecipeView;
-import mmb.WORLD.gui.craft.SimpleProcessingRecipeList;
-import mmb.WORLD.gui.craft.SimpleRecipeView;
-import mmb.WORLD.gui.window.TabRecipes;
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
@@ -38,13 +25,9 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class ElectroLuckySimpleProcessingRecipeGroup extends AbstractRecipeGroup{
-	public ElectroLuckySimpleProcessingRecipeGroup(String id) {
+public class LuckySimpleProcessingRecipeGroup extends AbstractRecipeGroup<LuckySimpleProcessingRecipeGroup.ElectroLuckySimpleProcessingRecipe>{
+	public LuckySimpleProcessingRecipeGroup(String id) {
 		super(id);
-	}
-	@Override
-	protected Tuple2<String, JComponent> createTab() {
-		return new Tuple2<String, JComponent>(title, new LuckySimpleProcessingRecipeList(this));
 	}
 	/**
 	 * @author oskar
@@ -56,7 +39,7 @@ public class ElectroLuckySimpleProcessingRecipeGroup extends AbstractRecipeGroup
 		@Nonnull public final VoltageTier voltage;
 		@Nonnull public final ItemEntry input;
 		@Nonnull public final RecipeOutput output;
-		@Nonnull public final ElectroLuckySimpleProcessingRecipeGroup group;
+		@Nonnull public final LuckySimpleProcessingRecipeGroup group;
 		public ElectroLuckySimpleProcessingRecipe(double energy, VoltageTier voltage, ItemEntry input, RecipeOutput output, Chance luck) {
 			super();
 			this.energy = energy;
@@ -64,7 +47,7 @@ public class ElectroLuckySimpleProcessingRecipeGroup extends AbstractRecipeGroup
 			this.input = input;
 			this.output = output;
 			this.luck = luck;
-			group = ElectroLuckySimpleProcessingRecipeGroup.this;
+			group = LuckySimpleProcessingRecipeGroup.this;
 		}
 		@Override
 		public ItemEntry id() {
@@ -97,13 +80,6 @@ public class ElectroLuckySimpleProcessingRecipeGroup extends AbstractRecipeGroup
 		@Override
 		public ElectroLuckySimpleProcessingRecipe that() {
 			return this;
-		}
-		@Override
-		public Component createComponent() {
-			LuckySimpleRecipeView component = new LuckySimpleRecipeView();
-			ItemStack[] out = SimpleRecipeView.list2arr(output);
-			component.set(this, out);
-			return component;
 		}
 		@Override
 		public double energy() {
@@ -173,6 +149,10 @@ public class ElectroLuckySimpleProcessingRecipeGroup extends AbstractRecipeGroup
 	@Override
 	public SelfSet<ItemEntry, ElectroLuckySimpleProcessingRecipe> recipes() {
 		return recipes;
+	}
+	@Override
+	public LuckySimpleRecipeView createView() {
+		return new LuckySimpleRecipeView();
 	}
 
 }

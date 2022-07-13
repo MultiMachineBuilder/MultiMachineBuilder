@@ -45,7 +45,7 @@ public class GlobalSettings {
 		if(bundle == null) throw new IllegalArgumentException("No bundle loaded!");
 		return bundle;
 	}
-	public static String $res(String s) {
+	@Nonnull public static String $res(String s) {
 		if(!Main.isRunning()) return s;
 		return bundle().getString(s);
 	}

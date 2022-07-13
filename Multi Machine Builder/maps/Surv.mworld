@@ -12,7 +12,9 @@
       "inventory" : [ 128.0, [ "crop.tree", 5 ], [ "mmb.bucket", 1 ], [ "pick.weak", 0, 1 ], [ "mmb.tree", "mmb.tree", 2 ] ],
       "creative" : false,
       "x" : 0.0,
-      "y" : 0.0
+      "y" : 0.0,
+      "alcohol1" : 0.0,
+      "alcohol2" : 0.0
     }
   },
   "data" : { },

@@ -93,7 +93,7 @@ public class Splicer extends CommonMachine implements BlockActivateListener{
 		if(window == null) return;
 		if(tab != null) return;
 		tab = new MachineTab(this, window);
-		window.openAndShowWindow(tab, group.title+' '+type.volt.name);
+		window.openAndShowWindow(tab, group.title()+' '+type.volt.name);
 		helper.refreshable = tab;
 		tab.refreshProgress(0, null);
 	}
@@ -112,7 +112,7 @@ public class Splicer extends CommonMachine implements BlockActivateListener{
 
 	@Override
 	public String machineName() {
-		return group.title;
+		return group.title();
 	}
 
 	@Override protected void onTick0(MapProxy map) {

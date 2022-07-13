@@ -6,6 +6,7 @@ package mmb.WORLD.blocks.machine;
 import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
 import net.miginfocom.swing.MigLayout;
+import mmb.BEANS.ToItemUnifiedCollector;
 import mmb.WORLD.gui.inv.InventoryController;
 import mmb.WORLD.gui.inv.MoveItems;
 import javax.swing.JButton;
@@ -26,7 +27,7 @@ import javax.swing.event.ChangeEvent;
 public class CollectorGUI extends GUITab {
 	private static final long serialVersionUID = 2506447463267036557L;
 	
-	private final Collector coll;
+	private final ToItemUnifiedCollector coll;
 	public CollectorGUI(Collector collector, WorldWindow window) {
 		coll = collector;
 		setLayout(new MigLayout("", "[][][grow]", "[][grow][]"));
@@ -42,13 +43,14 @@ public class CollectorGUI extends GUITab {
 		});
 		add(spinner, "cell 2 0,growx");
 		
+		
 		InventoryController playerInv = new InventoryController();
 		playerInv.setTitle($res("player"));
 		playerInv.setInv(window.getPlayer().inv);
 		add(playerInv, "cell 0 1,grow");
 		
 		InventoryController collectorInv = new InventoryController();
-		collectorInv.setInv(collector.getInventory());
+		collectorInv.setInv(collector.inv());
 		add(collectorInv, "cell 2 1,grow");
 		
 		MoveItems moveItems = new MoveItems(playerInv, collectorInv, MoveItems.LEFT);
@@ -67,6 +69,6 @@ public class CollectorGUI extends GUITab {
 
 	@Override
 	public void destroyTab(WorldWindow window) {
-		coll.gui = null;
+		coll.destroyTab(this);
 	}
 }

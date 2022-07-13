@@ -72,7 +72,23 @@ public class BlockDrawerGLSimple {
 	 * @param h height in meters
 	 */
 	public void drawGL(@Nullable BlockEntry ent, float x, float y, RenderCtx gr, float w, float h) {
-		rot.renderGL(tex, x, y, w, h, x, y, w, h, gr);
+		rot.renderGL(tex, x, y, w, h, r, g, b, a, gr);
+	}
+	/**
+	 * Renders this block
+	 * @param ent block entry
+	 * @param x X position in world
+	 * @param y Y position in world
+	 * @param gr graphics context
+	 * @param w width in meters
+	 * @param h height in meters
+	 * @param r red color
+	 * @param g green color
+	 * @param b blue color
+	 * @param a alpha color
+	 */
+	public void drawGL(@Nullable BlockEntry ent, float x, float y, RenderCtx gr, float w, float h, float r, float g, float b, float a) {
+		rot.renderGL(tex, x, y, w, h, r, g, b, a, gr);
 	}
 	public Vector4f color(Vector4f vec) {
 		return vec.set(r, g, b, a);

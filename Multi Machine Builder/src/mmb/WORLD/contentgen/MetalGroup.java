@@ -81,7 +81,6 @@ public class MetalGroup{
 			t_nominative_short=t_nominative;
 		}
 		
-		
 		block = new Block()
 		.texture(block(c))
 		.title(materialConcatenate("mattype-block"))
@@ -235,8 +234,6 @@ public class MetalGroup{
 		Items.tagItem("shape-foil", foil);
 		Items.tagItem("shape-gear", gear);
 		
-		
-		
 		//Index
 		byID0.put(id, this);
 		byID0sort.put(id, this);
@@ -245,7 +242,6 @@ public class MetalGroup{
 	/**
 	 * @param c color
 	 * @param id material ID
-	 * @param t_nominative material title
 	 * @return the created base item
 	 */
 	@Nonnull public Item createBase(Color c, String id) {
@@ -329,7 +325,7 @@ public class MetalGroup{
 		if(order) return mattype+" "+t_nominative;
 		return t_nominative+" "+mattype;
 	}
-	public String materialConcatenateShort(String matname) {
+	@Nonnull public String materialConcatenateShort(String matname) {
 		String mattype = $res(matname);
 		if(order) return mattype+" "+t_nominative_short;
 		return t_nominative_short+" "+mattype;

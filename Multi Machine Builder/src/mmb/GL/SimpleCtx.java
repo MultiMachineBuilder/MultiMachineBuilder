@@ -252,8 +252,12 @@ public class SimpleCtx extends RenderCtx {
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texID);
         
-        //Enable bitmask
-        glEnable(GL_STENCIL_TEST);
+        //Enable transparency
+        glEnable(GL_ALPHA_TEST);
+        glAlphaFunc(GL_GREATER, 0.5f);
+
+        //Enable depth test
+        glEnable(GL_DEPTH_TEST);
 	}
 	@Override
 	public void close(){

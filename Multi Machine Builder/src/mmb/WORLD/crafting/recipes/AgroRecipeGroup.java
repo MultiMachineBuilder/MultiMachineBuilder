@@ -3,29 +3,17 @@
  */
 package mmb.WORLD.crafting.recipes;
 
-import java.awt.Component;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Supplier;
-
 import javax.annotation.Nonnull;
-import javax.swing.JComponent;
-
-import io.vavr.Tuple2;
-import mmb.GlobalSettings;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.Recipe;
-import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.AgroProcessingRecipeList;
 import mmb.WORLD.gui.craft.AgroRecipeView;
-import mmb.WORLD.gui.craft.SimpleProcessingRecipeList;
-import mmb.WORLD.gui.craft.SimpleRecipeView;
-import mmb.WORLD.gui.window.TabRecipes;
+import mmb.WORLD.gui.craft.RecipeView;
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
@@ -36,13 +24,9 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class AgroRecipeGroup extends AbstractRecipeGroup{
+public class AgroRecipeGroup extends AbstractRecipeGroup<AgroRecipeGroup.AgroProcessingRecipe>{
 	public AgroRecipeGroup(String id) {
 		super(id);
-	}
-	@Override
-	protected Tuple2<String, JComponent> createTab() {
-		return new Tuple2<>(title, new AgroProcessingRecipeList(this));
 	}
 	
 	/**
@@ -85,19 +69,12 @@ public class AgroRecipeGroup extends AbstractRecipeGroup{
 			return null;
 		}
 		@Override
-		public RecipeGroup group() {
+		public AgroRecipeGroup group() {
 			return group;
 		}
 		@Override
 		public AgroProcessingRecipe that() {
 			return this;
-		}
-		@Override
-		public Component createComponent() {
-			AgroRecipeView component = new AgroRecipeView();
-			ItemStack[] out = SimpleRecipeView.list2arr(output);
-			component.set(this, out);
-			return component;
 		}
 		@Override
 		public double energy() {
@@ -143,5 +120,9 @@ public class AgroRecipeGroup extends AbstractRecipeGroup{
 	@Override
 	public SelfSet<ItemEntry, AgroProcessingRecipe> recipes() {
 		return recipes;
+	}
+	@Override
+	public RecipeView<AgroProcessingRecipe> createView() {
+		return new AgroRecipeView();
 	}
 }

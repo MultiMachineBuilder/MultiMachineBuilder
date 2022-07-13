@@ -3,7 +3,10 @@
  */
 package mmb.WORLD.items;
 
+import javax.annotation.Nonnull;
+
 import mmb.BEANS.Intoxicating;
+import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.tool.ToolAlcohol;
@@ -35,7 +38,7 @@ import mmb.WORLD.tool.WindowTool;
 public class AlcoPod extends Item implements Intoxicating {
 	
 	private final double dose;
-	private final RecipeOutput drop;
+	@Nonnull private final RecipeOutput drop;
 	public AlcoPod(double dose, RecipeOutput drop) {
 		super();
 		this.dose = dose;
@@ -54,5 +57,8 @@ public class AlcoPod extends Item implements Intoxicating {
 	public RecipeOutput postdrink() {
 		return drop;
 	}
-	
+	@Override
+	public void onregister() {
+		Craftings.alcohol.add(this, drop, dose);
+	}
 }
