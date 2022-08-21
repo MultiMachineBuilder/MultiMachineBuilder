@@ -32,7 +32,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
 		<attributes>
-			<attribute name="annotationpath" value="/Multi Machine Builder/lib/eclipse-null-eea-augments-2.4.0"/>
+			<attribute name="annotationpath" value="/Multi Machine Builder/lib/eclipse-null-eea-augments-2.4.0/libraries/java"/>
 			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>

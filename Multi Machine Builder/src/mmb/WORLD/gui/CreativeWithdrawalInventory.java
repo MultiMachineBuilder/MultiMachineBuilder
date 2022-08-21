@@ -7,6 +7,7 @@ import java.util.Iterator;
 
 import javax.annotation.Nonnull;
 
+import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.item.ItemType;
@@ -117,5 +118,10 @@ public class CreativeWithdrawalInventory implements Inventory {
 	@Override
 	public int size() {
 		return Integer.MAX_VALUE;
+	}
+
+	@Override
+	public int bulkInsert(RecipeOutput ent, int amount) {
+		return 0;
 	}
 }

@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 
 import mmb.BEANS.Intoxicating;
 import mmb.DATA.contents.Textures;
+import mmb.WORLD.chance.Chance;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
@@ -61,12 +62,13 @@ public class ToolAlcohol extends WindowTool {
 				//In survival
 				int extracted = irecord.extract(1);
 				if(extracted == 0) return;
-				RecipeOutput drop = ((Intoxicating) item).postdrink();
+				Chance drop = ((Intoxicating) item).postdrink();
 				drop.produceResults(frame.getPlayer().inv.createWriter());
 			}
 			double dose = ((Intoxicating) item).alcoholicity();	
 			debug.printl("Drink! "+dose);
-			frame.getPlayer().setDigestibleAlcohol(frame.getPlayer().getDigestibleAlcohol() + dose);
+			frame.getPlayer().drinkAlcohol(dose);
+			((Intoxicating) item).effects();
 		}
 	}
 

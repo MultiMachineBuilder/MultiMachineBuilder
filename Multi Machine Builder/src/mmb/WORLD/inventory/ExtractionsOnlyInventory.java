@@ -7,6 +7,7 @@ import java.util.Iterator;
 
 import javax.annotation.Nonnull;
 
+import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.MapIterator;
 
@@ -99,5 +100,10 @@ public class ExtractionsOnlyInventory implements Inventory {
 	@Override
 	public int size() {
 		return inv.size();
+	}
+
+	@Override
+	public int bulkInsert(RecipeOutput ent, int amount) {
+		return 0;
 	}
 }

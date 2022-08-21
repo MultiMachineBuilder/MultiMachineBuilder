@@ -6,6 +6,7 @@ package mmb.WORLD.crafting;
 import java.util.Set;
 
 import javax.annotation.Nonnull;
+import javax.swing.ListCellRenderer;
 
 import mmb.BEANS.Titled;
 import mmb.WORLD.gui.craft.RecipeView;
@@ -24,4 +25,9 @@ public interface RecipeGroup<T extends Recipe<?>> extends Identifiable<String>, 
 	public Set<@Nonnull ? extends ItemEntry> supportedItems();
 	
 	public @Nonnull RecipeView<T> createView();
+	
+	/**
+	 * @return a cell renderer for compatible recipes
+	 */
+	public @Nonnull ListCellRenderer<? super T> cellRenderer();
 }

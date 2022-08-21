@@ -7,6 +7,7 @@ import java.util.Iterator;
 
 import javax.annotation.Nonnull;
 
+import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.MapIterator;
 
@@ -29,20 +30,17 @@ public class InsertionsOnlyInventory implements Inventory{
 
 	@Override
 	public int insert(ItemEntry ent, int amount) {
-		// TODO Auto-generated method stub
-		return 0;
+		return inv.insert(ent, amount);
 	}
 
 	@Override
 	public int extract(ItemEntry ent, int amount) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public double capacity() {
-		// TODO Auto-generated method stub
-		return 0;
+		return inv.capacity();
 	}
 
 	@Override
@@ -99,5 +97,10 @@ public class InsertionsOnlyInventory implements Inventory{
 	@Override
 	public int size() {
 		return inv.size();
+	}
+
+	@Override
+	public int bulkInsert(RecipeOutput ent, int amount) {
+		return inv.bulkInsert(ent, amount);
 	}
 }

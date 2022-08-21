@@ -39,6 +39,7 @@ import com.google.common.collect.Multimap;
 import io.vavr.Tuple2;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import mmb.Bitwise;
 import mmb.GlobalSettings;
 import mmb.Vector2iconst;
@@ -55,6 +56,7 @@ import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockLoader;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
+import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.visuals.Visual;
 import mmb.WORLD.worlds.DataLayers;
@@ -364,7 +366,6 @@ public class World implements Identifiable<String>{
 		player.onTick(this);
 		if(stopping) {
 			Thread.currentThread().interrupt();
-			return;
 		}
 	}
 	/** @return is this world running? */
@@ -477,6 +478,7 @@ public class World implements Identifiable<String>{
 	 * @throws IndexOutOfBoundsException if the coordinates are out of bounds
 	 */
 	@Nonnull public BlockEntry get(int x, int y) {
+		if(!inBounds(x, y)) return ContentsBlocks.blockVoid;
 		return entries.get(x-startX, y-startY);
 	}
 	/**
@@ -763,6 +765,37 @@ public class World implements Identifiable<String>{
 		list.add(item);
 	}
 	/**
+	 * @param item item to be dropped
+	 * @param amount amount of the item to be dropped
+	 * @param x X coordinate of the item
+	 * @param y Y coordinate of the item
+	 */
+	public void dropItem(ItemEntry item, int amount, int x, int y) {
+		Collection<ItemEntry> list = getDrops(x, y);
+		for(int i = 0; i < amount; i++) list.add(item);
+	}
+	/**
+	 * @param item item to be dropped
+	 * @param x X coordinate of the item
+	 * @param y Y coordinate of the item
+	 */
+	public void dropItems(RecipeOutput item, int x, int y) {
+		dropItems(item, 1, x, y);
+	}
+	/**
+	 * @param item item to be dropped
+	 * @param amount amount of the item to be dropped
+	 * @param x X coordinate of the item
+	 * @param y Y coordinate of the item
+	 */
+	public void dropItems(RecipeOutput item, int amount, int x, int y) {
+		for(Object2IntMap.Entry<ItemEntry> entry: item.getContents().object2IntEntrySet()) {
+			Collection<ItemEntry> list = getDrops(x, y);
+			int amt2 = amount*entry.getIntValue();
+			for(int i = 0; i < amount; i++) list.add(entry.getKey());
+		}
+	}
+	/**
 	 * The multimap containing all dropped items.
 	 * DO NOT CHANGE ANY VECTORS IN THIS MAP
 	 */
@@ -775,11 +808,22 @@ public class World implements Identifiable<String>{
 	 */
 	@Nonnull public InventoryWriter createDropper(int x, int y) {
 		Collection<ItemEntry> collect = getDrops(x, y);
-		return (ent, amount) -> {
-			for(int i = 0; i < amount; i++) {
-				collect.add(ent);
+		return new InventoryWriter() {
+			@Override
+			public int write(ItemEntry ent, int amount) {
+				for(int i = 0; i < amount; i++) {
+					collect.add(ent);
+				}
+				return amount;
 			}
-			return amount;
+
+			@Override
+			public int bulkInsert(RecipeOutput block, int amount) {
+				for(Object2IntMap.Entry<ItemEntry> ent: block.getContents().object2IntEntrySet()) {
+					write(ent.getKey(), amount*ent.getIntValue());
+				}
+				return amount;
+			}
 		};
 	}
 	/**

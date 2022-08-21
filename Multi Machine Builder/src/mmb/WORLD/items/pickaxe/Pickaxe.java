@@ -23,6 +23,9 @@ import mmb.WORLD.tool.WindowTool;
  *
  */
 public class Pickaxe extends ItemEntity {
+	/**
+	 * Maximum number of uses before pickaxe breaks
+	 */
 	public final int durability;
 	private int uses;
 	/**
@@ -144,7 +147,9 @@ public class Pickaxe extends ItemEntity {
 		}
 
 		/**
+		 * Sets the mining time
 		 * @param time the time to set
+		 * @return this
 		 */
 		@Nonnull public PickaxeType setTime(int time) {
 			this.time = time;
@@ -179,6 +184,16 @@ public class Pickaxe extends ItemEntity {
 	@Override
 	public PickaxeType type() {
 		return (PickaxeType) super.type();
+	}
+
+	@Override
+	protected int hash0() {
+		return Integer.hashCode(uses);
+	}
+
+	@Override
+	protected boolean equal0(ItemEntity other) {
+		return ((Pickaxe) other).uses == uses;
 	}
 
 }

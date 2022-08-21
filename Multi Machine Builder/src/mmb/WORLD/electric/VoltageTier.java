@@ -4,6 +4,7 @@
 package mmb.WORLD.electric;
 
 import java.awt.Color;
+import java.util.List;
 
 import javax.annotation.Nonnull;
 
@@ -38,7 +39,14 @@ public enum VoltageTier {
 	@Nonnull public final MetalGroup construction;
 	@Nonnull public final MetalGroup electrical;
 	public final int speedMul;
+	/** Color of machines and conduits for this voltage */
 	@Nonnull public final Color c;
+	/** List of all voltages */
+	@Nonnull public static final List<@Nonnull VoltageTier> VOLTS = List.of(VoltageTier.values());
+	/** @return maximum voltage now supported. Subject to change. */
+	public static VoltageTier maxVoltage() { 
+		return V9;
+	}
 	
 	/**
 	 * @param current current or charge

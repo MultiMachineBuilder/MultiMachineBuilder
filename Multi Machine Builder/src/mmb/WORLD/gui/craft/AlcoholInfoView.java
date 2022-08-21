@@ -12,8 +12,8 @@ import mmb.WORLD.items.ItemEntry;
 import javax.swing.JList;
 
 /**
+ * Represents a recipe view for alcoholic beverages
  * @author oskar
- *
  */
 public class AlcoholInfoView extends RecipeView<AlcoholInfo> {
 	private static final long serialVersionUID = -2864705123116802475L;
@@ -21,7 +21,10 @@ public class AlcoholInfoView extends RecipeView<AlcoholInfo> {
 	private JLabel lblOutgoing;
 	private JLabel lblIn;
 	private JList<ItemStack> outList;
+	private JLabel lblMachine;
+	private JLabel lblIntoxication;
 	
+	/** Creates recipe view for alcoholic beverages */
 	public AlcoholInfoView() {
 		setLayout(new MigLayout("", "[grow][grow]", "[][][]"));
 		
@@ -54,6 +57,5 @@ public class AlcoholInfoView extends RecipeView<AlcoholInfo> {
 	}
 	
 	static final ItemStackCellRenderer renderer = new ItemStackCellRenderer();
-	private JLabel lblMachine;
-	private JLabel lblIntoxication;
+	
 }

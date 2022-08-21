@@ -15,8 +15,8 @@ import mmb.WORLD.items.ItemEntry;
 import javax.swing.JList;
 
 /**
+ * Represents a recipe view for single-item recipes with chanced output(s)
  * @author oskar
- *
  */
 public class LuckySimpleRecipeView extends RecipeView<ElectroLuckySimpleProcessingRecipe> {
 	private static final long serialVersionUID = -2864705123116802475L;
@@ -26,7 +26,7 @@ public class LuckySimpleRecipeView extends RecipeView<ElectroLuckySimpleProcessi
 	private JLabel lblOutgoing;
 	private JLabel lblIn;
 	private JList<ItemStack> outList;
-	
+	/** Creates recipe view for single-item recipes with chanced output(s) */
 	public LuckySimpleRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow]", "[][][][]"));
 		

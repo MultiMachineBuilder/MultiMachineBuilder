@@ -32,14 +32,12 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return item's hash code.
 	 * @see java.lang.String#hashCode()
 	 */
-	@SuppressWarnings("deprecation")
 	@Override
-	public int hashCode() {
+	public final int hashCode() {
 		return id().hashCode();
 	}
-	@SuppressWarnings("deprecation")
 	@Override
-	public boolean equals(@Nullable Object other) {
+	public final boolean equals(@Nullable Object other) {
 		if(this == other) return true;
 		if(other == null) return false;
 		if(!(other instanceof Identifiable)) return false;
@@ -158,5 +156,9 @@ public class Item extends ItemBase implements ItemEntry {
 	@Nonnull public Item volumed(double volume) {
 		setVolume(volume);
 		return this;
+	}
+	
+	public int compare0(ItemEntry o) {
+		return 0;
 	}
 }

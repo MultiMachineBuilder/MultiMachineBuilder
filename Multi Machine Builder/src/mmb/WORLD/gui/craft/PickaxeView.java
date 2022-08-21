@@ -3,23 +3,13 @@
  */
 package mmb.WORLD.gui.craft;
 
-import java.util.Vector;
-import java.util.stream.Collectors;
-
-import javax.annotation.Nonnull;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
-import mmb.WORLD.crafting.RecipeOutput;
-import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup.ElectroSimpleProcessingRecipe;
 import mmb.WORLD.crafting.recipes.PickaxeGroup.PickaxeInfo;
-import mmb.WORLD.inventory.ItemStack;
-import mmb.WORLD.items.ItemEntry;
-
-import javax.swing.JList;
 
 /**
+ * Represents a quasi-recipe view for pickaxes
  * @author oskar
- *
  */
 public class PickaxeView extends RecipeView<PickaxeInfo>{
 	private static final long serialVersionUID = -2864705123116802475L;
@@ -28,7 +18,10 @@ public class PickaxeView extends RecipeView<PickaxeInfo>{
 	private JLabel lblIncoming;
 	private JLabel lblOutgoing;
 	private JLabel lblIn;
+	private JLabel lblMachine;
+	private JLabel lblOut;
 	
+	/** Creates a quasi-recipe view for pickaxes*/
 	public PickaxeView() {
 		setLayout(new MigLayout("", "[grow][grow]", "[][][][]"));
 		
@@ -53,30 +46,11 @@ public class PickaxeView extends RecipeView<PickaxeInfo>{
 		lblOut = new JLabel();
 		add(lblOut, "cell 1 3");
 	}
-	public void set(PickaxeInfo recipe) {
+	@Override public void set(PickaxeInfo recipe) {
 		lblMachine.setText(CRConstants.MACHINE+recipe.group.title());
 		lblIn.setIcon(recipe.input.icon());
 		lblIn.setText(recipe.input.title());
 		lblOut.setIcon(recipe.output.getIcon());
 		lblOut.setText(recipe.output.title());
-	}
-	
-	private JLabel lblMachine;
-	private JLabel lblOut;
-	@Nonnull public static Vector<ItemStack> list2vector(RecipeOutput output){
-		return output
-				.getContents()
-				.object2IntEntrySet()
-				.stream()
-				.map(ent -> new ItemStack(ent.getKey(), ent.getIntValue()))
-				.collect(Collectors.toCollection(() -> new Vector<ItemStack>()));
-	}
-	@Nonnull public static ItemStack[] list2arr(RecipeOutput output){
-		return output
-				.getContents()
-				.object2IntEntrySet()
-				.stream()
-				.map(entry -> new ItemStack(entry.getKey(), entry.getIntValue()))
-				.toArray(n -> new ItemStack[n]);
 	}
 }

@@ -25,6 +25,7 @@ import mmb.WORLD.chance.RandomOrElseChance;
 import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.crafting.recipes.AgroRecipeGroup;
 import mmb.WORLD.crafting.recipes.AlcoholInfoGroup;
+import mmb.WORLD.crafting.recipes.CatalyzedSimpleProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.ComplexCatalyzedProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.CraftingRecipeGroup;
@@ -115,6 +116,7 @@ public class Craftings {
 	@Nonnull public static final ComplexProcessingRecipeGroup brewery = new ComplexProcessingRecipeGroup("brewery", 2);
 	@Nonnull public static final CraftingRecipeGroup crafting = new CraftingRecipeGroup("crafter");
 	@Nonnull public static final LuckySimpleProcessingRecipeGroup quarry = new LuckySimpleProcessingRecipeGroup("quarry");
+	@Nonnull public static final CatalyzedSimpleProcessingRecipeGroup extruder = new CatalyzedSimpleProcessingRecipeGroup("extruder");
 	@Nonnull public static final AgroRecipeGroup agro = new AgroRecipeGroup("agrorecipes");
 	@Nonnull public static final AlcoholInfoGroup alcohol = new AlcoholInfoGroup("alcohol");
 	@Nonnull public static final PickaxeGroup pickaxes = new PickaxeGroup("pickaxe");
@@ -318,6 +320,8 @@ public class Craftings {
 		
 		_craftrsULV(); //Electric machines - ULV
 		_craftrsVLV();
+		_craftrsLV();
+		_craftrsMV();
 		quarry();
 		
 		//Agriculture
@@ -505,7 +509,6 @@ public class Craftings {
 		bearing1, circuit1,   motor2,
 		}, 3, 3, bwiremill.get(1));//WireMill VLV
 		
-		//Quarry ULV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor2,    steel.gear, motor2,
 		steel.wire, stone, steel.wire,
@@ -517,33 +520,94 @@ public class Craftings {
 		steel.panel, circuit1,    steel.panel,
 		steel.panel, steel.panel, steel.panel,
 		}, 3, 3, bdig.get(1));//Digger VLV
+		
+		crafting.addRecipeGrid(new ItemEntry[]{
+		motor2,     steel.gear, motor2,
+		steel.wire, steel.wire, steel.wire,
+		motor2,     circuit1,   motor2,
+		}, 3, 3, bsplitter.get(1)); //Splitter VLV
+		
+		//Material Combiner ULV
+		crafting.addRecipeGrid(new ItemEntry[]{
+		motor2,    steel.gear,    motor2,
+		steel.wire, steel.nugget, steel.wire,
+		motor2,    circuit2,      motor2,
+		}, 3, 3, bsplicer.get(1)); //Splicer VLV
 	}
-
+	private static void _craftrsLV() {
+		//Coal Generator LV
+		crafting.addRecipeGrid(new ItemEntry[]{
+		steel.cluster, circuit2, steel.cluster,
+		motor2,        FURNACE,  motor2,
+		steel.cluster, circuit2, steel.cluster,
+		}, 3, 3, COALGEN3);
+		
+		//Transformer LV/VLV
+		crafting.addRecipeGrid(new ItemEntry[]{
+		null,              steel.base, wireCopper.medium,
+		wireSilver.medium, steel.base, wireCopper.medium,
+		null,              steel.base, wireCopper.medium,
+		}, 3, 3, TransformerData.LV.type); 
+		
+		ItemEntry efurnace1 = efurnace.get(1);
+		crafting.addRecipeGrid(new ItemEntry[]{
+		nichrome.base, resistors,  steel.base,
+		nickel.wire,  steel.frame, nickel.wire,
+		steel.base,   resistors,   nichrome.base,
+		}, 3, 3, efurnace1); //Electric Furnace LV
+	}
+	private static void _craftrsMV() {
+		//Transformer MV/LV
+		crafting.addRecipeGrid(new ItemEntry[]{
+		null,            stainless.base, electrosteel.base, wireSilver.medium,
+		wireGold.medium, stainless.base, electrosteel.base, wireSilver.medium,
+		wireGold.medium, stainless.base, electrosteel.base, wireSilver.medium,
+		null,            stainless.base, electrosteel.base, wireSilver.medium,
+		}, 4, 4, TransformerData.MV.type);
+	}
+	
 	private static void quarry() {
 		//Tier 1: rudimentary, coal, copper, iron, silicon, nickel, tin, zinc, aluminum, lead, redstone
 		quarry.add(stone, RecipeOutput.NONE, VoltageTier.V1, 20000, new ListChance(
-				new RandomChance(0.2, rudimentary.ore),
-				new RandomChance(0.2, coal.ore),
-				new RandomChance(0.04, copper.ore),
-				new RandomChance(0.05, iron.ore),
-				new RandomChance(0.05, silicon.ore),
-				new RandomChance(0.05, nickel.ore),
-				new RandomChance(0.05, tin.ore),
-				new RandomChance(0.05, zinc.ore),
-				new RandomChance(0.05, alu.ore),
-				new RandomChance(0.05, lead.ore),
-				new RandomChance(0.05, redstone.cluster)
-				));
+			new RandomChance(0.2, rudimentary.ore),
+			new RandomChance(0.2, coal.ore),
+			new RandomChance(0.04, copper.ore),
+			new RandomChance(0.05, iron.ore),
+			new RandomChance(0.05, silicon.ore),
+			new RandomChance(0.05, nickel.ore),
+			new RandomChance(0.05, tin.ore),
+			new RandomChance(0.05, zinc.ore),
+			new RandomChance(0.05, alu.ore),
+			new RandomChance(0.05, lead.ore),
+			new RandomChance(0.05, redstone.cluster)
+		));
 		
 		//Tier 2: +silver, uranium, chrome, quartz, ender, glowstone
 		quarry.add(resrc1, stone, 2, VoltageTier.V2, 80000, new ListChance(
-				new RandomChance(0.1, chrome.ore),
-				new RandomChance(0.1, uranium.ore),
-				new RandomChance(0.06, silver.ore),
-				new RandomChance(0.1, quartz.base),
-				new RandomChance(0.08, ender.base),
-				new RandomChance(0.1, glowstone.base)
-				));
+			new RandomChance(0.1, chrome.ore),
+			new RandomChance(0.1, uranium.ore),
+			new RandomChance(0.06, silver.ore),
+			new RandomChance(0.1, quartz.base),
+			new RandomChance(0.08, ender.base),
+			new RandomChance(0.1, glowstone.base)
+		));
+		
+		//Tier 3: +cobalt, gold, diamond
+		quarry.add(resrc2, resrc1, 2, VoltageTier.V3, 320000, new ListChance(
+			new RandomChance(0.12, cobalt.ore),
+			new RandomChance(0.1, gold.ore),
+			new RandomChance(0.05, diamond.ore)
+		));
+		
+		//Tier 4: +platinum
+		quarry.add(resrc3, resrc2, 2, VoltageTier.V4, 1280000, new RandomChance(0.1, platinum.base));
+		
+		//Tier 5: +tungsten, iridium
+		quarry.add(resrc4, resrc3, 2, VoltageTier.V5, 5120000, new ListChance(
+			new RandomChance(0.1, tungsten.ore),
+			new RandomChance(0.1, iridium.ore)
+		));
+		
 		alloyer.add(new SimpleItemList(redstone.base.stack(2), rudimentary.base.stack(2)), resrc1, 2, VoltageTier.V2, 180000);
 		//simple stone regeneration recipe
 		alloyer.add(new SimpleItemList(stone, rudimentary.nugget), stone, 8, VoltageTier.V1, 80000);

@@ -92,7 +92,7 @@ public interface Recipe<T extends Recipe<T>>{
 	/** @return the AWT or Swing component for this recipe */
 	@Nonnull public default Component createComponent() {
 		RecipeView<T> rv = group().createView();
-		rv.set((T) this);
+		rv.set(that());
 		return rv;
 	}
 }

@@ -14,7 +14,7 @@ import javax.annotation.Nonnull;
  */
 public enum Chirality {
 	/**
-	 * Describes ⥀ chirality, in order of [+X, -Y, -X, +Y]
+	 * Describes anti-clockwise chirality, in order of [+X, -Y, -X, +Y]
 	 */
 	L {
 		@Override
@@ -44,7 +44,7 @@ public enum Chirality {
 
 	},
 	/**
-	 * Describes ⥁ chirality, in order of [+X, +Y, -X, -Y]
+	 * Describes clockwise chirality, in order of [+X, +Y, -X, -Y]
 	 */
 	R {
 		@Override

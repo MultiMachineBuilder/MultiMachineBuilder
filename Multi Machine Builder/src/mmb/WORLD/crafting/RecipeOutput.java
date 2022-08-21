@@ -4,6 +4,7 @@
 package mmb.WORLD.crafting;
 
 import java.util.Map;
+import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -22,9 +23,9 @@ import mmb.WORLD.worlds.world.World;
  * Represents a recipe output.
  * All implementations of this interface must be immutable, and may have builders.
  */
-public interface RecipeOutput extends Chance {
+public interface RecipeOutput extends Chance{
 	@Override
-	default boolean drop(@Nullable InventoryWriter inv, World map, int x, int y) {
+	default boolean drop(@Nullable InventoryWriter inv, @Nullable World map, int x, int y) {
 		@Nonnull InventoryWriter dropper = map.createDropper(x, y);
 		InventoryWriter priority = (inv == null)? dropper :new InventoryWriter.Priority(inv, dropper);
 		produceResults(priority, 1);
@@ -35,11 +36,13 @@ public interface RecipeOutput extends Chance {
 	 * @param tgt inventory to move items to
 	 * @param amount number of items
 	 */
+	@Override
 	public void produceResults(InventoryWriter tgt, int amount);
 	/**
 	 * Produces one unit of recipe output
 	 * @param tgt
 	 */
+	@Override
 	public default void produceResults(InventoryWriter tgt) {
 		produceResults(tgt, 1);
 	}
@@ -47,6 +50,7 @@ public interface RecipeOutput extends Chance {
 	 * Represents this recipe output as text
 	 * @param out
 	 */
+	@Override
 	public void represent(PicoWriter out);
 	/**
 	 * Re-calculate the maximum volume of this recipe output.
@@ -66,7 +70,8 @@ public interface RecipeOutput extends Chance {
 	 * @param entry item to check
 	 * @return does this item list contain selected item?
 	 */
-	public boolean contains(ItemEntry entry);
+	@Override
+	public boolean contains(@Nullable ItemEntry entry);
 	
 	/**
 	 * @param entry item to get amount
@@ -133,7 +138,7 @@ public interface RecipeOutput extends Chance {
 		}
 
 		@Override
-		public boolean contains(ItemEntry entry) {
+		public boolean contains(@Nullable ItemEntry entry) {
 			return false;
 		}
 
@@ -160,4 +165,12 @@ public interface RecipeOutput extends Chance {
 			return 0;
 		}
 	};
+
+	/**
+	 * @return unique items in this recipe output
+	 */
+	@Override
+	public default Set<@Nonnull ItemEntry> items(){
+		return getContents().keySet();
+	}
 }

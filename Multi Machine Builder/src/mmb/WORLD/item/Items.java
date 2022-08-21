@@ -89,9 +89,17 @@ public class Items {
 	public static void tagItems(String tag, ItemType... items) {
 		tagItems(tag, Arrays.asList(items));
 	}
+	public static void tagsItems(String[] tag, ItemType... items) {
+		tagsItems(tag, Arrays.asList(items));
+	}
 	public static void tagItems(String tag, Iterable<? extends ItemType> items) {
 		for(ItemType item: items) {
 			tagItem(tag, item);
+		}
+	}
+	public static void tagsItems(String[] tag, Iterable<? extends ItemType> items) {
+		for(ItemType item: items) {
+			tagsItem(item, tag);
 		}
 	}
 }

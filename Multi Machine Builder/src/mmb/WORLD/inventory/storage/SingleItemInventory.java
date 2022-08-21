@@ -12,7 +12,9 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.Iterators;
 
+import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.Bitwise;
+import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
@@ -89,14 +91,13 @@ public class SingleItemInventory implements Inventory {
 	@Override
 	public ItemRecord get(ItemEntry entry) {
 		Objects.requireNonNull(entry, "Selection is null");
-		if(Objects.equals(entry, contents)) return new Record(contents);
 		return new Record(entry);
-		//throw new IllegalStateException("Item not found");
 	}
-
 	@Override
 	public ItemRecord nget(ItemEntry entry) {
-		return get(entry);
+		Objects.requireNonNull(entry, "Selection is null");
+		if(Objects.equals(entry, contents)) return new Record(entry);
+		return null;
 	}
 	/**
 	 * @return item record of this inventory
@@ -155,6 +156,20 @@ public class SingleItemInventory implements Inventory {
 	@Override
 	public int size() {
 		return Bitwise.bool2int(!isEmpty());
+	}
+	@Override
+	public int bulkInsert(RecipeOutput block, int amount) {
+		if(block.items().size() > 1) return 0;
+		if(block.items().isEmpty()) return amount;
+		for(Entry<ItemEntry> entry: block.getContents().object2IntEntrySet()) {
+			if(amount < 1) return 0;
+			if(entry.getIntValue() > 1) return 0;
+			if(entry.getIntValue() == 0) return amount;
+			ItemEntry ent = entry.getKey();
+			if(ent == null) return 0;
+			return insert(ent, 1); //NOSONAR this loop is required to get the required item entry
+		}
+		return 0;
 	}
 
 }

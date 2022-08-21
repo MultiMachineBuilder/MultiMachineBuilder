@@ -65,7 +65,9 @@ public class LocalFile implements AdvancedFile {
 	 */
 	@Override
 	public AdvancedFile parent() {
-		return new LocalFile(file.getParentFile());
+		File f = file.getParentFile();
+		if(f == null) return null;
+		return new LocalFile(f);
 	}
 	/* (non-Javadoc)
 	 * @see mmb.DATA.file.AdvancedFile#children()

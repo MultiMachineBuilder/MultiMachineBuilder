@@ -8,11 +8,10 @@ import javax.swing.JLabel;
 import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup.ComplexProcessingRecipe;
 import mmb.WORLD.inventory.ItemStack;
 import javax.swing.JList;
-import javax.swing.JPanel;
 
 /**
+ * Represents a recipe view for multi-item recipes
  * @author oskar
- *
  */
 public class ComplexRecipeView extends RecipeView<ComplexProcessingRecipe> {
 	private static final long serialVersionUID = -2864705123116802475L;
@@ -24,6 +23,7 @@ public class ComplexRecipeView extends RecipeView<ComplexProcessingRecipe> {
 	private JList<ItemStack> outList;
 	private JLabel lblMachine;
 	
+	/** Creates recipe view for multi-item recipes */
 	public ComplexRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow]", "[][][][fill]"));
 		

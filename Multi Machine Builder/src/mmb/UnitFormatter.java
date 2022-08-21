@@ -61,4 +61,59 @@ public class UnitFormatter {
 		//Yoctojoules
 		return (energy*1e24)+" yJ";
 	}
+	public static String formatPower(double energy) {
+		return formatPowerWatts(energy*50);
+	}
+	public static String formatPowerWatts(double energy) {
+		if(energy >= 10e24)
+			//Yottawatts
+			return (energy/1e24)+" YW";
+		if(energy >= 10e21)
+			//Zettajoules
+			return (energy/1e21)+" ZW";
+		if(energy >= 10e18)
+			//Exajoules
+			return (energy/1e18)+" EW";
+		if(energy >= 10e15)
+			//Petajoules
+			return (energy/1e15)+" PW";
+		if(energy >= 10e12)
+			//Teraajoules
+			return (energy/1e12)+" TW";
+		if(energy >= 10e9)
+			//Gigajoules
+			return (energy/1e9)+" GW";
+		if(energy >= 10e6)
+			//Megajoules
+			return (energy/1e6)+" MW";
+		if(energy >= 10000)
+			//Kilojoules
+			return (energy/1000)+" kW";
+		if(energy > 10)
+			//Joules
+			return energy+" W";
+		if(energy > 0.01)
+			//Milijoules
+			return (energy*1000)+" mW";
+		if(energy > 10e-6)
+			//Microjoules
+			return (energy*1e6)+" μW";
+		if(energy > 10e-9)
+			//Nanojoules
+			return (energy*1e9)+"nW";
+		if(energy > 10e-12)
+			//Picojoules
+			return (energy*1e12)+" pW";
+		if(energy > 10e-15)
+			//Femtojoules
+			return (energy*1e15)+" fW";
+		if(energy > 10e-18)
+			//Attojoules
+			return (energy*1e18)+" aW";
+		if(energy > 10e-21)
+			//Zoctojoules
+			return (energy*1e21)+" zW";
+		//Yoctojoules
+		return (energy*1e24)+" yW";
+	}
 }

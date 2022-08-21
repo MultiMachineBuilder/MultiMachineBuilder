@@ -10,6 +10,7 @@ import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
+import mmb.WORLD.inventory.storage.SingleItemInventory;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.rotate.ChirotatedImageGroup;
 import mmb.WORLD.rotate.Side;
@@ -31,17 +32,17 @@ public class PipeBinder extends AbstractBasePipe{
 	public PipeBinder(BlockType type, Side binding, ChirotatedImageGroup rig) {
 		super(type, 3, rig);
 		this.binding = binding;
-		Variable<ItemEntry> varM = getSlot(0);
-		Variable<ItemEntry> varS = getSlot(1);
-		Variable<ItemEntry> varC = getSlot(2);
+		SingleItemInventory varM = items[0];
+		SingleItemInventory varS = items[1];
+		SingleItemInventory varC = items[2];
 		
 		toCommon = new Pusher(varC, Side.U);
 		toSide = new Pusher(varS, binding);
 		toMain = new Pusher(varM, Side.D);
 		
-		InventoryReader readC = new ExtractForItemVar(varC);
-		InventoryReader readM = new ExtractForItemVar(varM);
-		InventoryReader readS = new ExtractForItemVar(varS);
+		InventoryReader readC = varC.createReader();
+		InventoryReader readM = varM.createReader();
+		InventoryReader readS = varS.createReader();
 		
 		InventoryWriter top = new InventoryWriter.Priority(toMain, toSide);
 		

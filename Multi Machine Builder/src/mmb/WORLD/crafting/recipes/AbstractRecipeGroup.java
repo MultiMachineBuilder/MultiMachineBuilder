@@ -7,9 +7,11 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 import javax.swing.JComponent;
+import javax.swing.ListCellRenderer;
 
 import io.vavr.Tuple2;
 import mmb.GlobalSettings;
+import mmb.WORLD.crafting.PlugAndPlayRecipeCellRenderer;
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.gui.craft.RecipeList;
@@ -21,6 +23,8 @@ import mmb.WORLD.gui.window.TabRecipes;
  * @param <T> type of recipes
  */
 public abstract class AbstractRecipeGroup<T extends Recipe<T>> implements RecipeGroup<T>{
+	@Nonnull private final ListCellRenderer<T> cellRenderer;
+	
 	@Nonnull private final String title;
 	@Nonnull private final String id;
 	/**
@@ -33,7 +37,8 @@ public abstract class AbstractRecipeGroup<T extends Recipe<T>> implements Recipe
 	protected AbstractRecipeGroup(String id) {
 		this.title = GlobalSettings.$res("machine-"+id);
 		this.id=id;
-		Supplier<Tuple2<String, JComponent>> sup = () -> createTab();
+		cellRenderer = new PlugAndPlayRecipeCellRenderer<>(createView());
+		Supplier<Tuple2<String, JComponent>> sup = this::createTab;
 		TabRecipes.add(sup);
 		GlobalRecipeRegistrar.addRecipeGroup(this);
 	}
@@ -44,5 +49,9 @@ public abstract class AbstractRecipeGroup<T extends Recipe<T>> implements Recipe
 	@Override
 	public String id() {
 		return id;
+	}
+	@Override
+	public ListCellRenderer<? super T> cellRenderer() {
+		return cellRenderer;
 	}
 }

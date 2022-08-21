@@ -8,6 +8,7 @@ import javax.annotation.Nonnull;
 import mmb.DATA.variables.Variable;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
+import mmb.WORLD.inventory.storage.SingleItemInventory;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.rotate.ChirotatedImageGroup;
 import mmb.WORLD.rotate.Side;
@@ -24,14 +25,14 @@ public class Pipe extends AbstractBasePipe {
 		super(type, 2, rig);
 		this.sideA = sideA;
 		this.sideB = sideB;
-		Variable<ItemEntry> varA = getSlot(0);
-		Variable<ItemEntry> varB = getSlot(1);
+		SingleItemInventory varA = items[0];
+		SingleItemInventory varB = items[1];
 		invwA = new Pusher(varA, sideB);
 		invwB = new Pusher(varB, sideA);
 		setIn(invwA, sideA);
 		setIn(invwB, sideB);
-		setOut(new ExtractForItemVar(varA), sideA);
-		setOut(new ExtractForItemVar(varB), sideB);
+		setOut(varA.createReader(), sideA);
+		setOut(varB.createReader(), sideB);
 	}
 
 	@Override

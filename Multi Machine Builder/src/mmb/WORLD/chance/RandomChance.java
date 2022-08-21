@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.chance;
 
+import java.util.Set;
+
 import org.ainslec.picocog.PicoWriter;
 
 import mmb.WORLD.inventory.io.InventoryWriter;
@@ -50,6 +52,11 @@ public class RandomChance implements Chance {
 	@Override
 	public boolean contains(ItemEntry item) {
 		return wrap.contains(item);
+	}
+
+	@Override
+	public Set<ItemEntry> items() {
+		return wrap.items();
 	}
 
 }

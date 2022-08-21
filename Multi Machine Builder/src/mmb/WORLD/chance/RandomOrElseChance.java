@@ -3,6 +3,10 @@
  */
 package mmb.WORLD.chance;
 
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.ainslec.picocog.PicoWriter;
 
 import mmb.WORLD.inventory.io.InventoryWriter;
@@ -57,6 +61,18 @@ public class RandomOrElseChance implements Chance {
 	@Override
 	public boolean contains(ItemEntry item) {
 		return wrap.contains(item) || other.contains(item);
+	}
+
+	private Set<ItemEntry> items;
+	@Override
+	public Set<ItemEntry> items() {
+		if(items == null) {
+			Set<ItemEntry> items0 = new HashSet<>();
+			items0.addAll(wrap.items());
+			items0.addAll(other.items());
+			items = Collections.unmodifiableSet(items0);
+		}
+		return items;
 	}
 
 }

@@ -3,6 +3,7 @@
  */
 package mmb.BEANS;
 
+import mmb.WORLD.chance.Chance;
 import mmb.WORLD.crafting.RecipeOutput;
 
 /**
@@ -19,5 +20,10 @@ public interface Intoxicating {
 	/**
 	 * @return the items to inject into inventory after drinking
 	 */
-	public RecipeOutput postdrink();
+	public Chance postdrink();
+	
+	/** Called after alcohol consumption */
+	public default void effects() {
+		//unused
+	}
 }

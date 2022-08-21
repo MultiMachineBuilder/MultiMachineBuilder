@@ -8,6 +8,7 @@ import javax.annotation.Nonnull;
 import mmb.DATA.variables.Variable;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
+import mmb.WORLD.inventory.storage.SingleItemInventory;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.rotate.ChirotatedImageGroup;
 import mmb.WORLD.rotate.Side;
@@ -35,10 +36,10 @@ public class DualPipe extends AbstractBasePipe {
 		super(type, 4, rig);
 		this.sideA = sideA;
 		this.sideB = sideB;
-		Variable<ItemEntry> varA = getSlot(0);
-		Variable<ItemEntry> varU = getSlot(1);
-		Variable<ItemEntry> varB = getSlot(2);
-		Variable<ItemEntry> varL = getSlot(3);
+		SingleItemInventory varA = items[0];
+		SingleItemInventory varU = items[1];
+		SingleItemInventory varB = items[2];
+		SingleItemInventory varL = items[3];
 		invwA = new Pusher(varA, Side.U);
 		invwB = new Pusher(varU, sideA);
 		invwC = new Pusher(varB, Side.L);
@@ -47,11 +48,13 @@ public class DualPipe extends AbstractBasePipe {
 		setIn(invwB, Side.U);
 		setIn(invwC, sideB);
 		setIn(invwD, Side.L);
-		setOut(new ExtractForItemVar(varA), sideA);
-		setOut(new ExtractForItemVar(varU), Side.U);
-		setOut(new ExtractForItemVar(varB), sideB);
-		setOut(new ExtractForItemVar(varL), Side.L);
+		setOut(varA.createReader(), sideA);
+		setOut(varU.createReader(), Side.U);
+		setOut(varB.createReader(), sideB);
+		setOut(varL.createReader(), Side.L);
 	}
+
+	
 
 	@Override
 	public void onTick(MapProxy map) {

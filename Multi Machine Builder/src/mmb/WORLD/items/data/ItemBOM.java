@@ -45,4 +45,16 @@ public final class ItemBOM extends ItemEntity {
 		JsonNode contents = data.get("items");
 	}
 
+	@Override
+	protected int hash0() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	protected boolean equal0(ItemEntity other) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

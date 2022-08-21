@@ -19,8 +19,9 @@ import mmb.debug.Debugger;
  */
 public class TransferHelper{
 	public int maxIters = 500;
-	public final double delta = 1e-8;
+	public static final double delta = 1e-8;
 	private final BlockEntity blockent;
+	/** Power limit in joules per tick*/
 	public double power;
 	public double pressure = 0;
 	public double pressureWt = 1;
@@ -59,7 +60,7 @@ public class TransferHelper{
 			}
 			
 			double sgn = Math.signum(amount);
-			double max = sgn*Math.min(sgn*amount, cond.condCapacity()); //The power limited by conduit
+			double max = sgn*Math.min(sgn*amount, cond.condCapacity()/volt.volts); //The power limited by conduit
 			double pressure0 = cond.getTransfer().pressure;
 			
 			double pdiffU = 0, pdiffD = 0, pdiffL = 0, pdiffR = 0;

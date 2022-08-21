@@ -17,15 +17,19 @@ import javax.annotation.Nullable;
 import javax.swing.JList;
 
 /**
+ * Represents a recipe list for almost anything (but not pickaxes)
  * @author oskar
  * @param <T> type of the recipe
- * @param <Tg> type of the recipe group
- *
+ * @param <G> type of the recipe group
  */
-public class RecipeList<T extends Recipe<T>, Tg extends RecipeGroup<T>> extends JScrollPane {
+public class RecipeList<T extends Recipe<T>, G extends RecipeGroup<T>> extends JScrollPane {
 	private static final long serialVersionUID = 828762086772542204L;
 	private final RecipeView<T> rv;
-	public RecipeList(Tg group) {
+	/**
+	 * Creates a recipe list for almost anything (but not pickaxes)
+	 * @param group recipe group used for this list
+	 * */
+	public RecipeList(G group) {
 		rv = group.createView();
 		JList<RecipeEntry<T>> list = new JList<>();
 		
@@ -45,7 +49,7 @@ public class RecipeList<T extends Recipe<T>, Tg extends RecipeGroup<T>> extends 
 		@Nonnull public final ItemStack[] stack;
 		public RecipeEntry(T recipe2) {
 			this.recipe = recipe2;
-			stack = SimpleRecipeView.list2arr(recipe2.output());
+			stack = VectorUtils.list2arr(recipe2.output());
 		}
 	}
 	class CellRenderer implements ListCellRenderer<RecipeEntry<T>>{

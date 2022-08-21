@@ -22,6 +22,7 @@ import io.vavr.Tuple2;
  *
  */
 public class TabRecipes extends JPanel {
+	private static final long serialVersionUID = -2195639936444264957L;
 	
 	private static final List<Supplier<Tuple2<String, JComponent>>> tabs = new ArrayList<>();
 	/**

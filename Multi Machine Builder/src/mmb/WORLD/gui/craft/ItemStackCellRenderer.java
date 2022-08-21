@@ -15,8 +15,8 @@ import mmb.WORLD.inventory.ItemStack;
 class ItemStackCellRenderer extends JLabel implements ListCellRenderer<ItemStack>{
 	public static final ItemStackCellRenderer instance = new ItemStackCellRenderer();
 	private static final long serialVersionUID = -3535344904857285958L;
-	private final Dimension PRESENT = new Dimension(275, 32);
-	private final Dimension ABSENT = new Dimension();
+	private static final Dimension PRESENT = new Dimension(275, 32);
+	private static final Dimension ABSENT = new Dimension();
 	@Override
 	public Component getListCellRendererComponent(
 		@SuppressWarnings("null") JList<? extends ItemStack> list,

@@ -16,13 +16,14 @@ import javax.swing.JList;
 
 /**
  * @author oskar
- * @param <T> type of the recipe
- * @param <Tg> type of the recipe group
- *
  */
 public class PickaxeList extends JScrollPane {
 	private static final long serialVersionUID = 828762086772542204L;
 	private final PickaxeView rv;
+	/**
+	 * Creates a list of pickaxe recipes
+	 * @param group recipe group for this list
+	 * */
 	public PickaxeList(PickaxeGroup group) {
 		rv = new PickaxeView();
 		JList<RecipeEntry> list = new JList<>();

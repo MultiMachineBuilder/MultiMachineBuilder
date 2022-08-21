@@ -17,8 +17,8 @@ import mmb.WORLD.items.ItemEntry;
 import javax.swing.JList;
 
 /**
+ * Represents a recipe view for single-item recipes
  * @author oskar
- *
  */
 public class SimpleRecipeView extends RecipeView<ElectroSimpleProcessingRecipe>{
 	private static final long serialVersionUID = -2864705123116802475L;
@@ -28,7 +28,11 @@ public class SimpleRecipeView extends RecipeView<ElectroSimpleProcessingRecipe>{
 	private JLabel lblOutgoing;
 	private JLabel lblIn;
 	private JList<ItemStack> outList;
+	private JLabel lblMachine;
 	
+	/**
+	 * Creates a recipe view for single-item recipes
+	 */
 	public SimpleRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow]", "[][][][]"));
 		
@@ -54,7 +58,7 @@ public class SimpleRecipeView extends RecipeView<ElectroSimpleProcessingRecipe>{
 		outList.setCellRenderer(ItemStackCellRenderer.instance);
 		add(outList, "cell 1 3,growx,aligny center");
 	}
-	public void set(ElectroSimpleProcessingRecipe recipe) {
+	@Override public void set(ElectroSimpleProcessingRecipe recipe) {
 		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
 		lblEnergy.setText(CRConstants.ENERGY+recipe.energy);
 		lblMachine.setText(CRConstants.MACHINE+recipe.group.title());
@@ -62,23 +66,5 @@ public class SimpleRecipeView extends RecipeView<ElectroSimpleProcessingRecipe>{
 		lblIn.setIcon(item.icon());
 		lblIn.setText(item.title());
 		outList.setListData(VectorUtils.list2arr(recipe.output));
-	}
-	
-	private JLabel lblMachine;
-	@Nonnull public static Vector<ItemStack> list2vector(RecipeOutput output){
-		return output
-				.getContents()
-				.object2IntEntrySet()
-				.stream()
-				.map(ent -> new ItemStack(ent.getKey(), ent.getIntValue()))
-				.collect(Collectors.toCollection(() -> new Vector<ItemStack>()));
-	}
-	@Nonnull public static ItemStack[] list2arr(RecipeOutput output){
-		return output
-				.getContents()
-				.object2IntEntrySet()
-				.stream()
-				.map(entry -> new ItemStack(entry.getKey(), entry.getIntValue()))
-				.toArray(n -> new ItemStack[n]);
 	}
 }

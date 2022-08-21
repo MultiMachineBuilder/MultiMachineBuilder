@@ -17,8 +17,8 @@ import mmb.WORLD.items.ItemEntry;
 import javax.swing.JList;
 
 /**
+ * Represents a recipe view for stacked-item recipes 
  * @author oskar
- *
  */
 public class StackedRecipeView extends RecipeView<StackedProcessingRecipe> {
 	private static final long serialVersionUID = -2864705123116802475L;
@@ -29,6 +29,7 @@ public class StackedRecipeView extends RecipeView<StackedProcessingRecipe> {
 	private JLabel lblIn;
 	private JList<ItemStack> outList;
 	
+	/** Creates a recipe view for stacked-item recipes */
 	public StackedRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow]", "[][][][]"));
 		
@@ -54,7 +55,7 @@ public class StackedRecipeView extends RecipeView<StackedProcessingRecipe> {
 		outList.setCellRenderer(ItemStackCellRenderer.instance);
 		add(outList, "cell 1 3,growx,aligny center");
 	}
-	public void set(StackedProcessingRecipe recipe) {
+	@Override public void set(StackedProcessingRecipe recipe) {
 		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
 		lblEnergy.setText(CRConstants.ENERGY+recipe.energy);
 		lblMachine.setText(CRConstants.MACHINE+recipe.group.title());

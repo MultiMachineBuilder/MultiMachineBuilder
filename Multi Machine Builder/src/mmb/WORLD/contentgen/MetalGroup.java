@@ -22,8 +22,10 @@ import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.item.Items;
+import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.ItemEntry;
 import static mmb.GlobalSettings.*;
+import static mmb.WORLD.items.ContentsItems.frame1;
 
 /**
  * @author oskar
@@ -45,6 +47,10 @@ public class MetalGroup{
 	@Nonnull public final Item panel;
 	@Nonnull public final Item foil;
 	@Nonnull public final Item gear;
+	@Nonnull public final Item rod;
+	@Nonnull public final Item ring;
+	@Nonnull public final Item sheet;
+	@Nonnull public final Item frame;
 	
 	@Nonnull public final Color c;
 	@Nonnull public final String id;
@@ -56,7 +62,7 @@ public class MetalGroup{
 	@Nonnull public final String t_adjective;
 	@Nonnull public final VoltageTier volt;
 	         public final double power;
-			@Nonnull static final BufferedImage GEM = Textures.get("item/gem.png");
+	@Nonnull static final BufferedImage GEM = Textures.get("item/gem.png");
 	
 	/**
 	 * @param c display color
@@ -111,7 +117,7 @@ public class MetalGroup{
 		megadust = new Item()
 		.title(materialConcatenate("mattype-megadust"))
 		.texture(ldust(c))
-		.volumed(0.0005)
+		.volumed(0.005)
 		.finish("ldust."+id);
 		dust = new Item()
 		.title(materialConcatenate("mattype-dust"))
@@ -121,7 +127,7 @@ public class MetalGroup{
 		smalldust = new Item()
 		.title(materialConcatenate("mattype-smalldust"))
 		.texture(mdust(c))
-		.volumed(0.005)
+		.volumed(0.0005)
 		.finish("mdust."+id);
 		tinydust = new Item()
 		.title(materialConcatenate("mattype-tinydust"))
@@ -144,6 +150,26 @@ public class MetalGroup{
 		.texture(gear(c))
 		.volumed(0.00125)
 		.finish("gear."+id);
+		rod = new Item()
+		.title(materialConcatenate("mattype-rod"))
+		.texture(rod(c))
+		.volumed(0.00125)
+		.finish("rod."+id);
+		ring = new Item()
+		.title(materialConcatenate("mattype-ring"))
+		.texture(ring(c))
+		.volumed(0.00125)
+		.finish("ring."+id);
+		sheet = new Item()
+		.title(materialConcatenate("mattype-sheet"))
+		.texture(sheet(c))
+		.volumed(0.0005)
+		.finish("sheet."+id);
+		frame = new Item()
+		.title(materialConcatenate("mattype-frame"))
+		.texture(frame(c))
+		.volumed(0.02)
+		.finish("frame."+id);
 		
 		//Recipes
 		Craftings.crusher.add(base, dust, volt, baseCost/2);
@@ -153,6 +179,10 @@ public class MetalGroup{
 		Craftings.crusher.add(foil, tinydust, volt, baseCost/32);
 		Craftings.crusher.add(frag, smalldust, volt, baseCost/8);
 		Craftings.crusher.add(cluster, megadust, volt, baseCost/2);
+		Craftings.crusher.add(sheet, smalldust, volt, baseCost/8);
+		Craftings.crusher.add(rod, smalldust, volt, baseCost/8);
+		Craftings.crusher.add(ring, smalldust, volt, baseCost/8);
+		Craftings.crusher.add(frame, megadust, 2, volt, baseCost);
 		
 		Craftings.smelting.add(dust, base, volt, baseCost/2);
 		Craftings.smelting.add(tinydust, nugget, volt, baseCost/32);
@@ -218,8 +248,21 @@ public class MetalGroup{
 		Crafting.ingotNugget(block, base);
 		Crafting.ingotNugget(dust, tinydust);
 		
+		//Rod
+		Craftings.extruder.add(frag, rod, ContentsItems.bearing1, volt, baseCost/8);
+		//Ring
+		Craftings.extruder.add(frag, ring, ContentsItems.rod1, volt, baseCost/8);
+		//Sheet
+		Craftings.clusterMill.add(frag, sheet, volt, baseCost/8);
+		//Frame
+		Craftings.crafting.addRecipeGrid(new ItemEntry[]{
+		base, panel, base,
+		panel,  null, panel,
+		base, panel, base
+		}, 3, 3, frame);
+		
 		//Tagging
-		Items.tagItems("material-"+id, block, cluster, base, frag, nugget, wire, megadust, dust, smalldust, tinydust, panel, foil, gear);
+		Items.tagItems("material-"+id, block, cluster, base, frag, nugget, wire, megadust, dust, smalldust, tinydust, panel, foil, gear, rod, ring, sheet, frame);
 		Items.tagItem("shape-block", block);
 		Items.tagItem("shape-cluster", cluster);
 		Items.tagItem("shape-base", base);
@@ -233,6 +276,10 @@ public class MetalGroup{
 		Items.tagItem("shape-panel", panel);
 		Items.tagItem("shape-foil", foil);
 		Items.tagItem("shape-gear", gear);
+		Items.tagItem("shape-rod", rod);
+		Items.tagItem("shape-ring", ring);
+		Items.tagItem("shape-sheet", sheet);
+		Items.tagItem("shape-frame", frame);
 		
 		//Index
 		byID0.put(id, this);
@@ -268,6 +315,10 @@ public class MetalGroup{
 	@Nonnull private static final BufferedImage CLUSTER = Textures.get("item/cluster.png");
 	@Nonnull private static final BufferedImage MDUST = Textures.get("item/smalldust.png");
 	@Nonnull private static final BufferedImage LDUST = Textures.get("item/ldust.png");
+	@Nonnull private static final BufferedImage ROD = Textures.get("item/rod.png");
+	@Nonnull private static final BufferedImage RING = Textures.get("item/ring 1.png");
+	@Nonnull private static final BufferedImage SHEET = Textures.get("item/sheet.png");
+	@Nonnull private static final BufferedImage FRAME = Textures.get("item/frame 1.png");
 	@Nonnull protected static BufferedImage mdust(Color c) {
 		return TexGen.genTexture(c, MDUST, null);
 	}
@@ -298,6 +349,18 @@ public class MetalGroup{
 	@Nonnull protected static BufferedImage gear(Color c) {
 		return TexGen.genTexture(c, GEAR, null);
 	}
+	@Nonnull protected static BufferedImage rod(Color c) {
+		return TexGen.genTexture(c, ROD, null);
+	}
+	@Nonnull protected static BufferedImage ring(Color c) {
+		return TexGen.genTexture(c, RING, null);
+	}
+	@Nonnull protected static BufferedImage sheet(Color c) {
+		return TexGen.genTexture(c, SHEET, null);
+	}
+	@Nonnull protected static BufferedImage frame(Color c) {
+		return TexGen.genTexture(c, FRAME, null);
+	}
 
 	public static class MaterialStack{
 		@Nonnull public final MetalGroup material;
@@ -319,6 +382,9 @@ public class MetalGroup{
 	private static final Map<VoltageTier, MetalGroup> byVoltage0 = new EnumMap<>(VoltageTier.class);
 	public static final Map<VoltageTier, MetalGroup> byVoltage = Collections.unmodifiableMap(byVoltage0);
 	
+	/**
+	 * The orderting of the elements
+	 */
 	public static final boolean order = Boolean.parseBoolean($res("material-grammar"));
 	@Nonnull public String materialConcatenate(String matname) {
 		String mattype = $res(matname);

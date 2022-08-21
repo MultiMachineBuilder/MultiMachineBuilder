@@ -17,7 +17,7 @@ import mmb.WORLD.electric.Electricity.SettablePressure;
  * @author oskar
  *
  */
-public class Battery implements SettablePressure, Saver<JsonNode>{
+public class Battery implements SettablePressure, Saver<JsonNode>, Comparable<@Nonnull Battery>{
 	public double maxPower;
 	/**
 	 * The energy capacity in coulombs
@@ -106,7 +106,7 @@ public class Battery implements SettablePressure, Saver<JsonNode>{
 
 	@Override
 	public void load(@Nullable JsonNode data) {
-		if(data == null) return;
+		if(data == null || data.isEmpty()) return;
 		maxPower = data.get(0).asDouble();
 		capacity = data.get(1).asDouble();
 		amt = data.get(2).asDouble();
@@ -183,4 +183,67 @@ public class Battery implements SettablePressure, Saver<JsonNode>{
 		return amt*voltage.volts;
 	}
 
+	
+	//Value
+	@Override
+	public int compareTo(Battery o) {
+		int cmp = voltage.compareTo(o.voltage);
+		if(cmp != 0) return cmp;
+		cmp = Double.compare(amt, o.amt);
+		if(cmp != 0) return cmp;
+		cmp = Double.compare(capacity, o.capacity);
+		if(cmp != 0) return cmp;
+		cmp = Double.compare(maxPower, o.maxPower);
+		if(cmp != 0) return cmp;
+		cmp = Double.compare(pressure, o.pressure);
+		if(cmp != 0) return cmp;
+		return Double.compare(pressureWt, o.pressureWt);
+	}
+	@Override
+	public String toString() {
+		return "Battery [maxPower=" + maxPower + ", capacity=" + capacity + ", amt=" + amt + ", pressure=" + pressure
+				+ ", pressureWt=" + pressureWt + ", voltage=" + voltage + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(amt);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(capacity);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(maxPower);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(pressure);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(pressureWt);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + voltage.hashCode();
+		return result;
+	}
+	@Override
+	public boolean equals(@Nullable Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Battery other = (Battery) obj;
+		if (Double.doubleToLongBits(amt) != Double.doubleToLongBits(other.amt))
+			return false;
+		if (Double.doubleToLongBits(capacity) != Double.doubleToLongBits(other.capacity))
+			return false;
+		if (Double.doubleToLongBits(maxPower) != Double.doubleToLongBits(other.maxPower))
+			return false;
+		if (Double.doubleToLongBits(pressure) != Double.doubleToLongBits(other.pressure))
+			return false;
+		if (Double.doubleToLongBits(pressureWt) != Double.doubleToLongBits(other.pressureWt))
+			return false;
+		if (voltage != other.voltage)
+			return false;
+		return true;
+	}
 }

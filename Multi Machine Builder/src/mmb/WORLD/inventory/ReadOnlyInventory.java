@@ -9,6 +9,7 @@ import javax.annotation.Nonnull;
 
 import com.google.common.collect.Iterators;
 
+import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.MapIterator;
 
@@ -112,6 +113,11 @@ public class ReadOnlyInventory implements Inventory {
 	@Override
 	public String toString() {
 		return "Read only "+inv;
+	}
+
+	@Override
+	public int bulkInsert(RecipeOutput ent, int amount) {
+		return 0;
 	}
 
 }

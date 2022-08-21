@@ -8,7 +8,9 @@ import java.util.Iterator;
 
 import com.google.common.collect.Iterators;
 
+import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.Bitwise;
+import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
@@ -143,5 +145,25 @@ public class SingleStackedInventory implements Inventory{
 	@Override
 	public int size() {
 		return Bitwise.bool2int(!isEmpty());
+	}
+
+	@Override
+	public int bulkInsert(RecipeOutput block, int amount) {
+		if(block.items().size() > 1) return 0;
+		if(block.items().isEmpty()) return amount;
+		for(Entry<ItemEntry> entry: block.getContents().object2IntEntrySet()) {
+			if(amount < 1) return 0;
+			if(entry.getIntValue() == 0) return amount;
+			ItemEntry ent = entry.getKey();
+			if(ent == null) return 0;
+			int max = amount;
+			double unitVolume = ent.outVolume();
+			double roughVolumeLimit = remainVolume()/unitVolume;
+			int exactUnits = (int) roughVolumeLimit;
+			if(exactUnits == 0) return 0;
+			if(max > exactUnits) max = exactUnits;
+			return insert(ent, entry.getIntValue()*max); //NOSONAR this loop is required to get the required item entry
+		}
+		return 0;
 	}
 }

@@ -38,7 +38,7 @@ public class Debugger {
 	}
 	public void pst(Throwable t) {
 		printName();
-		t.printStackTrace();
+		t.printStackTrace(System.err);
 	}
 	public void print(@Nullable String s) {
 		printName();

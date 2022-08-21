@@ -17,7 +17,7 @@
       "side" : "N",
       "smelt" : null,
       "remain" : 4000.0,
-      "energy" : [ 20000.0, 40000.0, 40000.0, 2.326016675328182E7, 1.0 ],
+      "energy" : [ 200.0, 400.0, 400.0, 116.29772900823168, 1.0 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : true,
@@ -27,7 +27,7 @@
       "side" : "N",
       "smelt" : null,
       "remain" : 4000.0,
-      "energy" : [ 20000.0, 40000.0, 40000.0, 2.2830069146497216E7, 1.0 ],
+      "energy" : [ 200.0, 400.0, 400.0, 114.14726448579718, 1.0 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : true,
@@ -74,8 +74,7 @@
     }, "mmb.grass", {
       "blocktype" : "pipe.F",
       "side" : "N",
-      "dir" : false,
-      "items" : [ null, null, null ]
+      "dir" : false
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "industry.infinigen1", {
       "blocktype" : "elecwire.medium.copper"
     }, {
@@ -92,7 +91,7 @@
       "rangeX" : 4,
       "rangeY" : 4,
       "period" : 10,
-      "timer" : 5
+      "timer" : 3
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "liquid.alcohol", "liquid.alcohol", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "liquid.alcohol", "liquid.alcohol", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "playerpipe.end",
       "side" : "N",
@@ -109,7 +108,7 @@
       "side" : "N",
       "smelt" : null,
       "remain" : 4000.0,
-      "energy" : [ 20000.0, 40000.0, 40000.0, 8.909999028081813E7, 1.0 ],
+      "energy" : [ 200.0, 400.0, 400.0, 449.9775030007729, 1.0 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0, [ "ingot.rudimentary", 105 ], [ "gem.coal", 12 ], [ "ingot.alu", 23 ] ],
       "pass" : false,
@@ -131,10 +130,10 @@
     "machines" : [ ],
     "data" : { },
     "player" : {
-      "inventory" : [ 128.0, [ "drugs.beer", 1 ], [ "pipe.I", 1 ], [ "itemsystem.mover", 1 ], [ "pipe.L", 1 ], [ "industry.bat1", [ 200.0, 20000.0, 0.0, 0.0, 1.0 ], 1 ], [ "pipe.F", 1 ] ],
+      "inventory" : [ 128.0, [ "drugs.beer", 1 ], [ "industry.clustermill8", 1 ], [ "pipe.I", 1 ], [ "itemsystem.mover", 1 ], [ "industry.substrate0", 1 ], [ "pipe.L", 1 ], [ "industry.processor0", 1 ], [ "industry.processor1", 1 ], [ "industry.substrate1", 1 ], [ "industry.clustermill0", 1 ], [ "pipe.F", 1 ], [ "industry.bat1", [ 200.0, 20000.0, 0.0, 0.0, 1.0 ], 1 ] ],
       "creative" : true,
-      "x" : 3.6999999999999993,
-      "y" : -5.3,
+      "x" : 4.3,
+      "y" : -4.7,
       "alcohol1" : 0.0,
       "alcohol2" : 0.0
     }

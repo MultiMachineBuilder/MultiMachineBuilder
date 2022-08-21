@@ -17,15 +17,15 @@ import javax.swing.JList;
 import java.awt.Color;
 
 /**
+ * Represents a recipe view for crafting recipes
  * @author oskar
- *
  */
 public class CraftingRecipeView extends RecipeView<CraftingRecipe>{
 	private static final long serialVersionUID = 5070877744489415798L;
 	private ItemGrid grid;
 	private JList<ItemStack> out;
 	private JList<ItemStack> in;
-	
+	/** Creates recipe view for crafting recipes */
 	public CraftingRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[][grow]"));
 		
@@ -62,7 +62,7 @@ public class CraftingRecipeView extends RecipeView<CraftingRecipe>{
 	 */
 	public static class ItemGrid extends JComponent{
 		private static final long serialVersionUID = 952344490217533557L;
-		private Grid<ItemEntry> grid;
+		private transient Grid<ItemEntry> grid;
 		/**
 		 * @return the grid
 		 */
@@ -75,9 +75,8 @@ public class CraftingRecipeView extends RecipeView<CraftingRecipe>{
 		public void setGrid(Grid<ItemEntry> grid) {
 			this.grid = grid;
 		}
-		
 		@Override
-		public void paint(Graphics g) {
+		public void paint(@SuppressWarnings("null") Graphics g) {
 			if(grid == null) return;
 			for(int x = 0; x < grid.width(); x++) {
 				for(int y = 0; y < grid.height(); y++) {

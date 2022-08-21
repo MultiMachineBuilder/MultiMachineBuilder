@@ -15,25 +15,13 @@ import mmb.WORLD.tool.WindowTool;
 /**
  * @author oskar
  * This item represents an AlcoPod, a fictional alcoholic beverage available in pods
- *  ╔═════════════════════════════════════════════════════╗
- *  ║REAL-LIFE ALCOHOL CONSUMPTION IS HARMFUL             ║
- *  ║½ LITER OF BEER CONTAINS 25g OF ETHYL ALCOHOL        ║
- *  ║SALE OF LIQUOR TO PEOPLE BELOW 18y IS A CRIME        ║
- *  ║EVEN THAT AMOUNT HARMS HEALTH OF PREGNANT WOMEN      ║
- *  ║AND IS DANGEROUS TO DRIVERS                          ║
- *  ╠═════════════════════════════════════════════════════╣
- *  ║SPOŻYCIE ALKOHOLU W RZECZYWISTOŚCI JEST SZKODLIWE    ║
- *  ║½ LITRA PIWA ZAWIERA 25g ALKOHOLU ETYLOWEGO          ║
- *  ║SPRZEDAŻ ALKOHOLU OSOBOM DO LAT 18 JEST PRZESTĘPSTWEM║
- *  ║NAWET TAKA ILOŚĆ SZKODZI ZDROWIU KOBIET W CIĄŻY      ║
- *  ║I JEST NIEBEZPIECZNA DLA KIEROWCÓW                   ║
- *  ╠═════════════════════════════════════════════════════╣
- *  ║REALITATIERI ALKONSUM EST IPROTETZIERA               ║
- *  ║½ LITRI PIVA CKONTENTS 25g ETANOL                    ║
- *  ║FROMOTUNG ALKOHOLI HUMANITERI DB y18 EST KRIMUNG     ║
- *  ║SONAT TIS WOLUMEN DD FD FEMININ HARTIS               ║
- *  ║I EST IPROTETZIERA DIA CARMASTERI                    ║
- *  ╚═════════════════════════════════════════════════════╝
+ *  +-----------------------------------------------------+
+ *  |REAL-LIFE ALCOHOL CONSUMPTION IS HARMFUL             |
+ *  |½ LITER OF BEER CONTAINS 25g OF ETHYL ALCOHOL        |
+ *  |SALE OF LIQUOR TO PEOPLE BELOW 18y IS A CRIME        |
+ *  |EVEN THAT AMOUNT HARMS HEALTH OF PREGNANT WOMEN      |
+ *  |AND IS DANGEROUS TO DRIVERS                          |
+ *  +-----------------------------------------------------+
  */
 public class AlcoPod extends Item implements Intoxicating {
 	

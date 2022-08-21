@@ -107,23 +107,18 @@ public class Pack extends ItemEntity {
 	}
 
 	@Override
-	public int hashCode() {
+	public int hash0() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((contents == null) ? 0 : contents.hashCode());
+		result = prime * result + contents.hashCode();
 		return result;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
+	public boolean equal0(ItemEntity obj) {
 		if (getClass() != obj.getClass())
 			return false;
 		Pack other = (Pack) obj;
 		return Objects.equals(contents, other.contents);
 	}
-
 }

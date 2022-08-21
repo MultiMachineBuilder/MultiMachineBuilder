@@ -3,6 +3,10 @@
  */
 package mmb.WORLD.chance;
 
+import java.util.Arrays;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import org.ainslec.picocog.PicoWriter;
 
 import mmb.WORLD.inventory.io.InventoryWriter;
@@ -55,6 +59,13 @@ public class ListChance implements Chance {
 			if(chance.contains(item)) return true;
 		}
 		return false;
+	}
+
+	private Set<ItemEntry> items;
+	@Override
+	public Set<ItemEntry> items() {
+		if(items == null) items = Arrays.stream(chances).flatMap(chance -> chance.items().stream()).collect(Collectors.toSet());
+		return items;
 	}
 
 }

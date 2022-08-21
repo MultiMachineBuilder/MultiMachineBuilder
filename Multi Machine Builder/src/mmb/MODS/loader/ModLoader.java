@@ -34,6 +34,7 @@ import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.electromachine.Transformer.TransformerData;
 import mmb.WORLD.generator.Generators;
 import mmb.WORLD.items.ContentsItems;
+import mmb.WORLD.items.electronics.Electronics;
 import mmb.WORLD.tool.Tools;
 
 /**
@@ -100,6 +101,7 @@ public final class ModLoader {
 		//Load items
 		Main.state1("Loading items");
 		ContentsItems.init();
+		Electronics.init();
 		//Load machines
 		Main.state1("Loading machines");
 		Crafting.init();

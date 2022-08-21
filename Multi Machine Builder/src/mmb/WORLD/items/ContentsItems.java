@@ -16,6 +16,7 @@ import mmb.GlobalSettings;
 import mmb.DATA.contents.Textures;
 import mmb.GRAPHICS.awt.ColorMapper;
 import mmb.WORLD.blocks.machine.pack.Pack;
+import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.VoltageTier;
@@ -28,6 +29,7 @@ import mmb.WORLD.items.electric.ItemBattery;
 import mmb.WORLD.items.filter.EntryFilter;
 import mmb.WORLD.items.pickaxe.Pickaxe;
 import mmb.WORLD.items.pickaxe.Pickaxe.PickaxeType;
+import static mmb.GlobalSettings.*;
 
 /**
  * @author oskar
@@ -52,6 +54,15 @@ public class ContentsItems {
 			.finish("pickHead.rudimentary");
 	
 	//Misc
+	/*
+	 * +-----------------------------------------------------+
+	 * |REAL-LIFE ALCOHOL CONSUMPTION IS HARMFUL             |
+	 * |½ LITER OF BEER CONTAINS 25g OF ETHYL ALCOHOL        |
+	 * |SALE OF LIQUOR TO PEOPLE BELOW 18y IS A CRIME        |
+	 * |EVEN THAT AMOUNT HARMS HEALTH OF PREGNANT WOMEN      |
+	 * |AND IS DANGEROUS TO DRIVERS                          |
+	 * +-----------------------------------------------------+
+	 */
 	@Nonnull public static final Item leaf = new Item()
 		.title("#leaf")
 		.texture("item/lisc.png")
@@ -216,26 +227,29 @@ public class ContentsItems {
 			.texture("item/IC.png")
 			.volumed(0.00125)
 			.finish("industry.IC1");
-	@Nonnull public static final Item circuit0 = new Item()
-			.title("#ind-circ0")
-			.texture("item/circuit 0.png")
-			.volumed(0.00625)
-			.finish("industry.processor0");
-	@Nonnull public static final Item substrate0 = new Item()
-			.title("#ind-sub0")
-			.texture("item/substrate 0.png")
-			.volumed(0.00125)
-			.finish("industry.substrate0");
-	@Nonnull public static final Item circuit1 = new Item()
-			.title("#ind-circ1")
-			.texture("item/circuit 1.png")
-			.volumed(0.00625)
-			.finish("industry.processor1");
-	@Nonnull public static final Item substrate1 = new Item()
-			.title("#ind-sub1")
-			.texture("item/substrate 1.png")
-			.volumed(0.00125)
-			.finish("industry.substrate1");
+	
+	
+	
+	@Nonnull public static final Item circuit0 = circuit(0);
+	@Nonnull public static final Item substrate0 = substrate(0);
+	@Nonnull public static final Item circuit1 = circuit(1);
+	@Nonnull public static final Item substrate1 = substrate(1);
+	@Nonnull public static final Item circuit2 = circuit(2);
+	@Nonnull public static final Item substrate2 = substrate(2);
+	@Nonnull public static final Item circuit3 = circuit(3);
+	@Nonnull public static final Item substrate3 = substrate(3);
+	@Nonnull public static final Item circuit4 = circuit(4);
+	@Nonnull public static final Item substrate4 = substrate(4);
+	@Nonnull public static final Item circuit5 = circuit(5);
+	@Nonnull public static final Item substrate5 = substrate(5);
+	@Nonnull public static final Item circuit6 = circuit(6);
+	@Nonnull public static final Item substrate6 = substrate(6);
+	@Nonnull public static final Item circuit7 = circuit(7);
+	@Nonnull public static final Item substrate7 = substrate(7);
+	@Nonnull public static final Item circuit8 = circuit(8);
+	@Nonnull public static final Item substrate8 = substrate(8);
+	@Nonnull public static final Item circuit9 = circuit(9);
+	@Nonnull public static final Item substrate9 = substrate(9);
 	
 	//Batteries
 	private static final String BATTERY = GlobalSettings.$res("battery");
@@ -248,11 +262,10 @@ public class ContentsItems {
 	@Nonnull public static final ItemEntityType bat7 = battery(VoltageTier.V7);
 	
 	//Resource beds
-	@Nonnull public static final Item resrc1 = new Item()
-			.title("#ind-qua1")
-			.texture("item/resrcbed.png")
-			.volumed(0.00125)
-			.finish("industry.resrc1");
+	@Nonnull public static final Item resrc1 = resrcbed(1, Color.RED);
+	@Nonnull public static final Item resrc2 = resrcbed(2, Color.ORANGE);
+	@Nonnull public static final Item resrc3 = resrcbed(3, Color.YELLOW);
+	@Nonnull public static final Item resrc4 = resrcbed(4, Color.GREEN);
 
 	//Packaged items
 	@Nonnull public static final ItemEntityType pack = new ItemEntityType()
@@ -273,7 +286,7 @@ public class ContentsItems {
 		Items.tagItems("shape-pickhead", pickHeadWood, pickHeadRudimentary);
 		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, bucket, configExtractors);
 		Items.tagItems("craftcode", craftcodes);
-		Items.tagItems("parts-electronic", resistor, capacitor, inductor, diode, transistor, IC, circuit0, substrate0, circuit1, substrate1);
+		Items.tagItems("parts-electronic", resistor, capacitor, inductor, diode, transistor, IC);
 		Items.tagItems("agro", yeast, hops, seeds);
 		Items.tagItems("material-glass", glass, glassp, beerEmpty);
 		Items.tagItems("alcohol", alcopod, beer);
@@ -296,5 +309,36 @@ public class ContentsItems {
 				.volumed(0.1)
 				.factory(() -> new ItemBattery(type, voltage))
 				.finish("industry.bat"+(voltage.ordinal()+1));
+	}
+	@Nonnull private static Item circuit(int n) {
+		Item item = new Item()
+		.title("#ind-circ"+n)
+		.texture("item/circuit "+n+".png")
+		.volumed(0.00125)
+		.finish("industry.processor"+n);
+		Items.tagItem("parts-electronic", item);
+		return item;
+	}
+	@Nonnull private static Item substrate(int n) {
+		Item item = new Item()
+		.title("#ind-sub"+n)
+		.texture("item/substrate "+n+".png")
+		.volumed(0.00125)
+		.finish("industry.substrate"+n);
+		Items.tagItem("parts-electronic", item);
+		return item;
+	}
+	@Nonnull private static Item resrcbed(int n, Color c) {
+		BufferedImage textureResrcbed = Textures.get("item/resrcbed.png");
+		ColorMapper mapper = ColorMapper.ofType(
+				textureResrcbed.getType(), Color.RED, c);
+		LookupOp op = new LookupOp(mapper, null);
+		BufferedImage img = op.createCompatibleDestImage(textureResrcbed, null);
+		op.filter(textureResrcbed, img);
+		return new Item()
+				.title("#ind-qua"+n)
+				.texture(img)
+				.volumed(0.00125)
+				.finish("industry.resrc"+n);
 	}
 }

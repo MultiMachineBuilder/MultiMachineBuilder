@@ -37,49 +37,75 @@ public class Materials {
 		debug.printl("Color of the coal: "+colorCoal);
 	}
 	private Materials() {}
-	@Nonnull public static final Color colorCopper = new Color(255, 120, 0);
-	@Nonnull public static final Color colorIron = new Color(115, 115, 115);
-	@Nonnull public static final Color colorSilicon = new Color(200, 120, 120);
-	@Nonnull public static final Color colorGold = new Color(255, 255, 0);
-	@Nonnull public static final Color colorBrass = new Color(128, 128, 0);
-	@Nonnull public static final Color colorUranium = new Color(0, 255, 0);
-	@Nonnull public static final Color colorSilver = new Color(150, 150, 150);
-	@Nonnull public static final Color colorStainless = new Color(156, 199, 199);
-	@Nonnull public static final Color colorSteel = new Color(100, 100, 100);
-	@Nonnull public static final Color colorCobalt = new Color(73, 52, 255);
-	@Nonnull public static final Color colorBronze = new Color(128, 60, 0);
-	@Nonnull public static final Color colorAlu = new Color(128, 140, 150);
-	@Nonnull public static final Color colorRudimentary = new Color(255, 0, 0);
-	@Nonnull public static final Color colorZinc = new Color(128, 140, 128);
-	@Nonnull public static final Color colorTin = new Color(128, 128, 150);
-	@Nonnull public static final Color colorCoal = new Color(0, 0, 0);	
-	@Nonnull public static final Color colorTungsten = new Color(60, 60, 60);
-	@Nonnull public static final Color colorTungstenC = new Color(30, 0, 60);
-	@Nonnull public static final Color colorPlatinum = new Color(200, 200, 216);
-	@Nonnull public static final Color colorIridium = new Color(200, 200, 255);
-	@Nonnull public static final Color colorHSS = new Color(150, 150, 120);
+	
+	//Fictious materials
 	@Nonnull public static final Color colorUnobtainium = new Color(150, 255, 255);
 	@Nonnull public static final Color colorCrystal = new Color(100, 255, 255);
 	@Nonnull public static final Color colorStellar = new Color(120, 255, 255);
 	@Nonnull public static final Color colorDuranium = new Color(20, 200, 255);
+	@Nonnull public static final Color colorRudimentary = new Color(255, 0, 0);
+	
+	//Fictious alloys
+	@Nonnull public static final Color colorRudimentium = new Color(255, 60, 0);
+
+	//Realistic alloys
+	@Nonnull public static final Color colorStainless = new Color(156, 199, 199);
+	@Nonnull public static final Color colorSteel = new Color(100, 100, 100);
+	@Nonnull public static final Color colorHSS = new Color(150, 150, 120);
+	@Nonnull public static final Color colorNichrome = new Color(255, 200, 220);
+	@Nonnull public static final Color colorBrass = new Color(128, 128, 0);
+	@Nonnull public static final Color colorBronze = new Color(128, 60, 0);
+	@Nonnull public static final Color colorTungstenC = new Color(30, 0, 60);
+	
+	//Realistic metals
+	@Nonnull public static final Color colorGold = new Color(255, 255, 0);
+	@Nonnull public static final Color colorAlu = new Color(128, 140, 150);
+	@Nonnull public static final Color colorZinc = new Color(128, 140, 128);
+	@Nonnull public static final Color colorTin = new Color(128, 128, 150);
+	@Nonnull public static final Color colorCopper = new Color(255, 120, 0);
+	@Nonnull public static final Color colorIron = new Color(115, 115, 115);
+	@Nonnull public static final Color colorSilicon = new Color(200, 120, 120);
+	@Nonnull public static final Color colorUranium = new Color(0, 255, 0);
+	@Nonnull public static final Color colorSilver = new Color(150, 150, 150);
+	@Nonnull public static final Color colorCobalt = new Color(73, 52, 255);
 	@Nonnull public static final Color colorLead = new Color(40, 0, 80);
+	@Nonnull public static final Color colorNickel = new Color(128, 128, 255);
+	@Nonnull public static final Color colorChrome = new Color(255, 160, 200);
+	@Nonnull public static final Color colorTungsten = new Color(60, 60, 60);
+	@Nonnull public static final Color colorPlatinum = new Color(200, 200, 216);
+	@Nonnull public static final Color colorIridium = new Color(200, 200, 255);
+	
+	//Realistic gems
 	@Nonnull public static final Color colorDiamond = new Color(0, 255, 255);
 	@Nonnull public static final Color colorQuartz = new Color(180, 200, 255);
-	@Nonnull public static final Color colorNickel = new Color(128, 128, 255);
-	@Nonnull public static final Color colorSignalum = new Color(180, 60, 0);
-	@Nonnull public static final Color colorEnderium = new Color(20, 80, 80);
-	@Nonnull public static final Color colorChrome = new Color(255, 160, 200);
-	@Nonnull public static final Color colorNichrome = new Color(255, 200, 220);
+	@Nonnull public static final Color colorCoal = new Color(0, 0, 0);	
+	
+	//Minecraft materials
 	@Nonnull public static final Color colorEnder = new Color(20, 120, 120);
 	@Nonnull public static final Color colorGlowstone = new Color(180, 180, 10);
 	@Nonnull public static final Color colorRedstone = new Color(180, 10, 10);
+	
+	//Thermal Series alloys
 	@Nonnull public static final Color colorLumium = new Color(255, 255, 200);
+	@Nonnull public static final Color colorSignalum = new Color(180, 60, 0);
+	@Nonnull public static final Color colorEnderium = new Color(20, 80, 80);
+	
+	//EnderIO alloys
+	@Nonnull public static final Color colorEnergetic = new Color(255, 180, 0);
+	@Nonnull public static final Color colorVibrant = new Color(180, 255, 0);
+	@Nonnull public static final Color colorElectrosteel = new Color(130, 120, 130);
+	
+	//Plastics
+	@Nonnull public static final Color colorPE = new Color(128, 128, 128);
+	@Nonnull public static final Color colorPVC = new Color(150, 150, 128);
+	@Nonnull public static final Color colorPTFE = new Color(150, 128, 150);
 	
 	//Tier 1 materials
 	@Nonnull public static final BaseMetalGroup rudimentary = new BaseMetalGroup(colorRudimentary, "rudimentary", VoltageTier.V1, 50_000, 3, false);
 	@Nonnull public static final BaseMetalGroup coal = new BaseMetalGroup(colorCoal, "coal", VoltageTier.V1, 50_000, 3, true);
 	
 	//Tier 2 materials
+	@Nonnull public static final MetalGroup rudimentium =  new MetalGroup(colorRudimentium, "rudimentium", VoltageTier.V1, 100_000, false);
 	@Nonnull public static final BaseMetalGroup copper =   new BaseMetalGroup(colorCopper, "copper", VoltageTier.V1, 100_000, 1, false);
 	@Nonnull public static final BaseMetalGroup iron =     new BaseMetalGroup(colorIron, "iron", VoltageTier.V1, 120_000, 1, false);
 	@Nonnull public static final BaseMetalGroup silicon =  new BaseMetalGroup(colorSilicon, "silicon", VoltageTier.V1, 115_000, 1, false);
@@ -91,27 +117,33 @@ public class Materials {
 	@Nonnull public static final BaseMetalGroup redstone = new BaseMetalGroup(colorRedstone, "redstone", VoltageTier.V1, 80_000, 15, true);
 	
 	//Tier 3 materials
-	@Nonnull public static final BaseMetalGroup silver =   new BaseMetalGroup(colorSilver, "silver", VoltageTier.V1, 100_000, 1, false);
-	@Nonnull public static final BaseMetalGroup uranium =  new BaseMetalGroup(colorUranium, "uranium", VoltageTier.V1, 200_000, 1, false);
-	@Nonnull public static final MetalGroup steel =        new MetalGroup(colorSteel, "steel", VoltageTier.V2, 150_000, false);
-	@Nonnull public static final MetalGroup bronze =       new MetalGroup(colorBronze, "bronze", VoltageTier.V1, 100_000, false);
-	@Nonnull public static final MetalGroup brass =        new MetalGroup(colorBrass, "brass", VoltageTier.V1, 110_000, false);
-	@Nonnull public static final BaseMetalGroup chrome =   new BaseMetalGroup(colorChrome, "chrome", VoltageTier.V2, 120_000, 1, false);
-	@Nonnull public static final MetalGroup nichrome =     new MetalGroup(colorNichrome, "nichrome", VoltageTier.V2, 150_000, false);
-	@Nonnull public static final MetalGroup quartz =       new MetalGroup(colorQuartz, "quartz", VoltageTier.V2, 150_000, true);
-	@Nonnull public static final BaseMetalGroup ender =    new BaseMetalGroup(colorEnder, "ender", VoltageTier.V2, 150_000, 5, true);
+	@Nonnull public static final BaseMetalGroup silver =    new BaseMetalGroup(colorSilver, "silver", VoltageTier.V1, 100_000, 1, false);
+	@Nonnull public static final BaseMetalGroup uranium =   new BaseMetalGroup(colorUranium, "uranium", VoltageTier.V1, 200_000, 1, false);
+	@Nonnull public static final MetalGroup steel =         new MetalGroup(colorSteel, "steel", VoltageTier.V2, 150_000, false);
+	@Nonnull public static final MetalGroup bronze =        new MetalGroup(colorBronze, "bronze", VoltageTier.V1, 100_000, false);
+	@Nonnull public static final MetalGroup brass =         new MetalGroup(colorBrass, "brass", VoltageTier.V1, 110_000, false);
+	@Nonnull public static final BaseMetalGroup chrome =    new BaseMetalGroup(colorChrome, "chrome", VoltageTier.V2, 120_000, 1, false);
+	@Nonnull public static final MetalGroup nichrome =      new MetalGroup(colorNichrome, "nichrome", VoltageTier.V2, 150_000, false);
+	@Nonnull public static final MetalGroup quartz =        new MetalGroup(colorQuartz, "quartz", VoltageTier.V2, 150_000, true);
+	@Nonnull public static final MetalGroup PE =            new MetalGroup(colorPE, "PE", VoltageTier.V2, 50_000, false);
+	@Nonnull public static final MetalGroup electrosteel =  new MetalGroup(colorElectrosteel, "electrosteel", VoltageTier.V2, 100_000, false);
+	@Nonnull public static final BaseMetalGroup ender =     new BaseMetalGroup(colorEnder, "ender", VoltageTier.V2, 150_000, 5, true);
 	@Nonnull public static final BaseMetalGroup glowstone = new BaseMetalGroup(colorGlowstone, "glowstone", VoltageTier.V2, 130_000, 5, true);
 	
 	//Tier 4 materials
 	@Nonnull public static final BaseMetalGroup cobalt =  new BaseMetalGroup(colorCobalt, "cobalt", VoltageTier.V2, 200_000, 1, false);
 	@Nonnull public static final BaseMetalGroup gold =    new BaseMetalGroup(colorGold, "gold", VoltageTier.V1, 120_000, 1, false);
 	@Nonnull public static final MetalGroup stainless =   new MetalGroup(colorStainless, "stainless", VoltageTier.V2, 180_000, false);
+	@Nonnull public static final MetalGroup energetic =   new MetalGroup(colorEnergetic, "energetic", VoltageTier.V2, 280_000, false);
 	@Nonnull public static final BaseMetalGroup diamond = new BaseMetalGroup(colorDiamond, "diamond", VoltageTier.V2, 250_000, 1, true);
+	@Nonnull public static final MetalGroup PVC =         new MetalGroup(colorPVC, "PVC", VoltageTier.V2, 75_000, false);
 	
 	//Tier 5 materials
 	@Nonnull public static final MetalGroup HSS =     new MetalGroup(colorHSS, "HSS", VoltageTier.V3, 250_000, false);
 	@Nonnull public static final BaseMetalGroup platinum =    new BaseMetalGroup(colorPlatinum, "platinum", VoltageTier.V2, 170_000, 1, false);
 	@Nonnull public static final MetalGroup lumium = new MetalGroup(colorLumium, "lumium", VoltageTier.V3, 400_000, false);
+	@Nonnull public static final MetalGroup vibrant = new MetalGroup(colorVibrant, "vibrant", VoltageTier.V3, 480_000, false);
+	@Nonnull public static final MetalGroup PTFE =        new MetalGroup(colorPTFE, "PTFE", VoltageTier.V3, 100_000, false);
 	
 	//Tier 6 materials
 	@Nonnull public static final BaseMetalGroup tungsten = new BaseMetalGroup(colorTungsten, "tungsten", VoltageTier.V4, 500_000, 1, false);
@@ -130,15 +162,22 @@ public class Materials {
 	//Tier 9 materials
 	@Nonnull public static final MetalGroup unobtainium =     new MetalGroup(colorUnobtainium, "unobtainium", VoltageTier.V7, 64_000_000, false);
 	
-	@Nonnull public static final WireGroup wireRudimentary = new WireGroup(50_000,    rudimentary, VoltageTier.V1);
-	@Nonnull public static final WireGroup wireCopper      = new WireGroup(100_000,        copper, VoltageTier.V2);
-	@Nonnull public static final WireGroup wireSilver      = new WireGroup(200_000,        silver, VoltageTier.V3);
-	@Nonnull public static final WireGroup wireGold        = new WireGroup(500_000,          gold, VoltageTier.V4);
-	@Nonnull public static final WireGroup wirePlatinum    = new WireGroup(1000_000,     platinum, VoltageTier.V5);
-	@Nonnull public static final WireGroup wireIridium     = new WireGroup(2000_000,      iridium, VoltageTier.V6);
-	@Nonnull public static final WireGroup wireCrystal     = new WireGroup(5000_000,      crystal, VoltageTier.V7);
-	@Nonnull public static final WireGroup wireStellar     = new WireGroup(10000_000,     stellar, VoltageTier.V8);
-	@Nonnull public static final WireGroup wireUnobtainium = new WireGroup(20000_000, unobtainium, VoltageTier.V9);
+	//Simple wires
+	@Nonnull public static final WireGroup wireRudimentary = new WireGroup(   1_000, rudimentary, VoltageTier.V1);
+	@Nonnull public static final WireGroup wireCopper      = new WireGroup(   2_000,      copper, VoltageTier.V2);
+	@Nonnull public static final WireGroup wireSilver      = new WireGroup(   4_000,      silver, VoltageTier.V3);
+	@Nonnull public static final WireGroup wireGold        = new WireGroup(  10_000,        gold, VoltageTier.V4);
+	@Nonnull public static final WireGroup wirePlatinum    = new WireGroup( 200_000,    platinum, VoltageTier.V5);
+	@Nonnull public static final WireGroup wireIridium     = new WireGroup( 400_000,     iridium, VoltageTier.V6);
+	@Nonnull public static final WireGroup wireCrystal     = new WireGroup(1000_000,     crystal, VoltageTier.V7);
+	@Nonnull public static final WireGroup wireStellar     = new WireGroup(2000_000,     stellar, VoltageTier.V8);
+	@Nonnull public static final WireGroup wireUnobtainium = new WireGroup(4000_000, unobtainium, VoltageTier.V9);
+	
+	//Alloyed wires
+	@Nonnull public static final WireGroup wireEnergetic = new WireGroup( 40_000, energetic, VoltageTier.V4);
+	@Nonnull public static final WireGroup wireVibrant   = new WireGroup(100_000,   vibrant, VoltageTier.V5);
+	@Nonnull public static final WireGroup wireSignalum  = new WireGroup(100_000,  signalum, VoltageTier.V5);
+	@Nonnull public static final WireGroup wireEnderium  = new WireGroup(200_000,  enderium, VoltageTier.V6);
 
 	static {
 		//Deprecation
@@ -159,9 +198,24 @@ public class Materials {
 		alloying(copper, 4, zinc, 1, brass, 5, VoltageTier.V2, 80_000);
 		alloying(copper, 3, tin, 1, bronze, 4, VoltageTier.V2, 75_000);
 		alloying(nickel, 1, chrome, 1, nichrome, 2, VoltageTier.V2, 95_000);
-		alloying(signalum, 4, VoltageTier.V4,  800_000, copper.stack(3), silver.stack(1),   redstone.stack(1));
-		alloying(enderium, 2, VoltageTier.V5, 5000_000, tin.stack(3),    platinum.stack(1), ender.stack(1));
-		alloying(lumium, 3, VoltageTier.V5,   400_000, tin.stack(3),     silver.stack(1),   glowstone.stack(1));
+		alloying(signalum, 4, VoltageTier.V4,  800_000,
+				copper.stack(3),
+				silver.stack(1),
+				redstone.stack(1));
+		alloying(enderium, 2, VoltageTier.V5, 5000_000,
+				tin.stack(3),
+				platinum.stack(1),
+				ender.stack(1));
+		alloying(lumium, 3, VoltageTier.V5,   400_000,
+				tin.stack(3),
+				silver.stack(1),
+				glowstone.stack(1));
+		alloying(energetic, 1, VoltageTier.V4, 500_000,
+				redstone.stack(1),
+				gold.stack(1),
+				glowstone.stack(1));
+		alloying(ender, 1, energetic, 1, vibrant, 1, VoltageTier.V5, 1000_000);
+		alloying(copper, 1, rudimentary, 1, rudimentium, 2, VoltageTier.V1, 30_000);
 		
 		//Furnace fuels
 		Craftings.furnaceFuels.put(Materials.coal.base, 10_000_000);

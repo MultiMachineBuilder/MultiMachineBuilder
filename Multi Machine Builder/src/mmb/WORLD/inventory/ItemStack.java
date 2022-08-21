@@ -22,7 +22,7 @@ import monniasza.collects.Identifiable;
 public final class ItemStack implements Identifiable<ItemEntry>, RecipeOutput{
 	@Override
 	public String toString() {
-		return "ItemStack " + item + " × " + amount;
+		return "ItemStack " + item + " ï¿½ " + amount;
 	}
 
 	/**
@@ -95,7 +95,7 @@ public final class ItemStack implements Identifiable<ItemEntry>, RecipeOutput{
 
 	@Override
 	public void represent(PicoWriter out) {
-		out.write(amount +"× "+item.title());
+		out.write(amount +"ï¿½ "+item.title());
 	}
 
 	@Override

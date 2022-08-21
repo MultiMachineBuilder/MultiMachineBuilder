@@ -109,6 +109,11 @@ public class ContentsBlocks {
 		grass.setSurface(true);
 		return grass;
 	}
+	@Nonnull public static final Block blockVoid = 
+		new Block()
+		.texture(Color.DARK_GRAY)
+		.title("#void")
+		.finish("mmb.void");
 	
 	//Simple blocks
 	/** A block of wood planks */
@@ -141,11 +146,7 @@ public class ContentsBlocks {
 			.texture("block/gravel.png")
 			.title("#gravel")
 			.finish("mmb.gravel");
-	/** A block, which upon loading crashes the game*/
-	@Nonnull public static final Block COL = new COLBlock()
-			.texture("block/gravel.png")
-			.title("#CoL")
-			.finish("REMOVE THIS");
+
 	//WireWorld wires
 	/**
 	 * A WireWorld cell.
@@ -613,7 +614,7 @@ public class ContentsBlocks {
 		Items.tagItem("workbench", PICKBUILDER);
 		Items.tagItems("workbench", Crafting.types);
 		Items.tagItems("fluid", water, lava, steam);
-		Items.tagItems("special", COL, air, grass);
+		Items.tagItems("special", air, grass);
 		Items.tagItems("basic", air, grass, plank, stone, leaves, logs, sand, gravel, clay, water);
 		Items.tagItems("chest", CHEST, CHEST1, CHEST2, CHEST3, CHEST4, CHEST5, HOPPER, HOPPER_suck, HOPPER_both);
 		Items.tagItems("shape-crop", AGRO_TREE, AGRO_WATER, AGRO_SEEDS, AGRO_HOPS);

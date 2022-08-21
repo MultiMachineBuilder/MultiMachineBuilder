@@ -32,10 +32,11 @@ import mmb.WORLD.texture.BlockDrawer;
  */
 public class ElecRenderer implements BlockDrawer {
 	//Static stuff
-	@Nonnull public static final ElecRenderer tiny= gen("tiny");
-	@Nonnull public static final ElecRenderer small = gen("small");
+	@Nonnull public static final ElecRenderer tiny =   gen("tiny");
+	@Nonnull public static final ElecRenderer small =  gen("small");
 	@Nonnull public static final ElecRenderer medium = gen("medium");
-	@Nonnull public static final ElecRenderer large = gen("large");
+	@Nonnull public static final ElecRenderer large =  gen("large");
+	@Nonnull public static final ElecRenderer huge  =  gen("huge");
 	
 	@Nonnull private static ElecRenderer gen(String title) {
 		String rigPath = "machine/power/"+title+" connector.png";

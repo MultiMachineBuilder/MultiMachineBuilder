@@ -77,4 +77,15 @@ public class ItemBattery extends ItemEntity {
 			g.drawLine(x+min, y+max, (int)(x+min+offset), y+max);
 		}
 	}
+
+	@Override
+	protected int hash0() {
+		return battery.hashCode();
+	}
+
+	@Override
+	protected boolean equal0(ItemEntity other) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

@@ -45,7 +45,7 @@ public abstract class CommonMachine extends SkeletalBlockEntityRotary implements
 	 */
 	protected CommonMachine(ElectroMachineType type) {
 		super();
-		elec = new Battery(20_000, 40_000, this, type.volt);
+		elec = new Battery(200, 400, this, type.volt);
 		this.type = type;
 	}
 
@@ -134,6 +134,8 @@ public abstract class CommonMachine extends SkeletalBlockEntityRotary implements
 
 	@Override
 	public final void onTick(MapProxy proxy) {
+		elec.capacity = 400;
+		elec.maxPower = 200;
 		if(autoExtract) {
 			InventoryWriter writer = getAtSide(getRotation().R()).getInput(getRotation().L());
 			Inventories.transfer(out, writer);

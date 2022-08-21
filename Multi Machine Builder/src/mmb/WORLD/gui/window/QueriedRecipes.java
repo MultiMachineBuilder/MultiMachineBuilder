@@ -10,11 +10,16 @@ import java.util.Vector;
 import javax.annotation.Nullable;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
+import javax.swing.ListModel;
 
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.recipes.GlobalRecipeRegistrar;
+import mmb.WORLD.gui.CellRendererGettingCellRenderer;
 import mmb.WORLD.gui.craft.SimpleRecipeView;
 import mmb.WORLD.gui.window.TabInventory.RecipeQuery;
+import monniasza.collects.Collects;
+import monniasza.collects.ListModelCollector;
+
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -45,33 +50,31 @@ public class QueriedRecipes extends GUITab {
 		JScrollPane scrollPane = new JScrollPane();
 		add(scrollPane, BorderLayout.CENTER);
 		
-		JList<Component> list = new JList<>();
+		JList<Recipe<?>> list = new JList<>();
 		scrollPane.setViewportView(list);
 		
 		//Populate the list
-		Vector<Component> vector = new Vector<>();
-		for(Recipe<?> recipe: GlobalRecipeRegistrar.recipes) {
-			if(query.filter(recipe)) {
-				vector.add(recipe.createComponent());
-			}
-		}
+		ListModel<Recipe<?>> model = Collects.newListModel(query.eligible());
 
-		JLabel lblNewLabel = new JLabel("["+vector.size()+"]Filter: "+query.name());
+		JLabel lblNewLabel = new JLabel("["+model.getSize()+"]Filter: "+query.name());
 		add(lblNewLabel, BorderLayout.NORTH);
-		list.setCellRenderer(new CellRenderer());
-		list.setListData(vector);
+		list.setCellRenderer(new CellRendererGettingCellRenderer<>(QueriedRecipes::getcellrend));
+		list.setModel(model);
+	}
+	
+	@SuppressWarnings("unchecked")
+	private static ListCellRenderer<Recipe<?>> getcellrend(Recipe<?> recipe) {
+		return (ListCellRenderer<Recipe<?>>) recipe.group().cellRenderer();
 	}
 
 	@Override
 	public void createTab(WorldWindow window) {
-		// TODO Auto-generated method stub
-		
+		// unused
 	}
 
 	@Override
 	public void destroyTab(WorldWindow window) {
-		// TODO Auto-generated method stub
-		
+		// unused
 	}
 	
 	class CellRenderer extends SimpleRecipeView implements ListCellRenderer<Component>{

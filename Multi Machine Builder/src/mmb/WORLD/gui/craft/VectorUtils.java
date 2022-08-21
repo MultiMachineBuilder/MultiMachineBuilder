@@ -17,6 +17,11 @@ import mmb.WORLD.inventory.ItemStack;
  */
 public class VectorUtils {
 	private VectorUtils() {}
+	/**
+	 * Converts an item list into an array
+	 * @param output
+	 * @return
+	 */
 	@Nonnull public static Vector<ItemStack> list2vector(RecipeOutput output){
 		return output
 				.getContents()

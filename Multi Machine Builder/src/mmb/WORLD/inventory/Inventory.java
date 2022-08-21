@@ -117,6 +117,7 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	@Nullable public ItemRecord nget(ItemEntry entry);
 	public int insert(ItemEntry ent, int amount);
 	public int extract(ItemEntry ent, int amount);
+	public int bulkInsert(RecipeOutput ent, int amount);
 	/**
 	 * @return capacity of given inventory
 	 */
@@ -128,23 +129,23 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	/**
 	 * @return does given inventory exist?
 	 */
-	default public boolean exists() {
+	public default boolean exists() {
 		return true;
 	}
-	default public boolean canExtract() {
+	public default boolean canExtract() {
 		return true;
 	}
-	default public boolean canInsert() {
+	public default boolean canInsert() {
 		return true;
 	}
 
-	@Nonnull default public Inventory lockInsertions() {
+	@Nonnull public default Inventory lockInsertions() {
 		return ExtractionsOnlyInventory.decorate(this);
 	}
-	@Nonnull default public Inventory lockExtractions() {
+	@Nonnull public default Inventory lockExtractions() {
 		return InsertionsOnlyInventory.decorate(this);
 	}
-	@Nonnull default public Inventory readOnly() {
+	@Nonnull public default Inventory readOnly() {
 		return ReadOnlyInventory.decorate(this);
 	}
 
@@ -209,6 +210,11 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 			@Override
 			public int write(ItemEntry ent, int amount) {
 				return insert(ent, amount);
+			}
+
+			@Override
+			public int bulkInsert(RecipeOutput block, int amount) {
+				return Inventory.this.bulkInsert(block, amount);
 			}
 		};
 	}

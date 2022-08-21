@@ -4,6 +4,7 @@
 package mmb.WORLD.item;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import mmb.WORLD.items.ItemEntry;
 
@@ -26,5 +27,21 @@ public abstract class ItemEntity implements ItemEntry{
 	@Override
 	public ItemEntityType type() {
 		return type;
+	}
+	
+	protected abstract int hash0();
+	protected abstract boolean equal0(ItemEntity other);
+
+	@Override
+	public final int hashCode() {
+		return 31*super.hashCode() + hash0();
+	}
+
+	@Override
+	public final boolean equals(@Nullable Object obj) {
+		if(this == obj) return true;
+		if(obj == null) return false;
+		if(getClass() != obj.getClass()) return false;
+		return super.equals(obj);
 	}
 }

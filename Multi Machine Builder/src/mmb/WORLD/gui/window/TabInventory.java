@@ -21,6 +21,8 @@ import mmb.WORLD.block.Block;
 import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.crafting.Recipe;
+import mmb.WORLD.crafting.recipes.GlobalRecipeRegistrar;
+import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.gui.CreativeItemList;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
@@ -40,6 +42,8 @@ import mmb.WORLD.gui.inv.InventoryController;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Objects;
@@ -54,7 +58,9 @@ import javax.swing.DefaultListModel;
 
 import javax.swing.JCheckBox;
 import javax.swing.JList;
-import java.util.ResourceBundle;
+import io.github.parubok.text.multiline.MultilineLabel;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
 
 /**
  * @author oskar
@@ -72,8 +78,8 @@ public class TabInventory extends JPanel {
 	public final WorldWindow window;
 	
 	public static interface Tagsel{
-		public DefaultListModel<ItemType> eligible();
-		public String title();
+		@Nonnull public DefaultListModel<ItemType> eligible();
+		@Nonnull public String title();
 	}
 	
 	private static class AllTagsel implements Tagsel{
@@ -166,7 +172,7 @@ public class TabInventory extends JPanel {
 		
 		creativePanel = new JPanel();
 		add(creativePanel, "cell 0 0,grow");
-		creativePanel.setLayout(new MigLayout("", "[grow][grow]", "[][grow][grow]"));
+		creativePanel.setLayout(new MigLayout("", "[grow][grow]", "[][grow][grow][]"));
 		
 		
 		lblSort = new JLabel($res("wgui-sort"));
@@ -231,6 +237,10 @@ public class TabInventory extends JPanel {
 		creativeScrollPane = new JScrollPane();
 		creativePanel.add(creativeScrollPane, "cell 1 1 1 2,growy");
 		creativeItemList = new CreativeItemList();
+		creativeItemList.addListSelectionListener(e -> {
+			String s = creativeItemList.getSelectedValue().description();
+			multilineLabel.setText(s == null?"":s);
+		});
 		creativeScrollPane.setViewportView(creativeItemList);
 		
 		//Tags
@@ -249,13 +259,20 @@ public class TabInventory extends JPanel {
 		}
 		
 		scrollPane = new JScrollPane();
-		creativePanel.add(scrollPane, "cell 0 2,grow");
+		creativePanel.add(scrollPane, "cell 0 2 1 2,grow");
 		tags = new JList<>();
 		scrollPane.setViewportView(tags);
 		tags.setModel(model);
+		
+		multilineLabel = new MultilineLabel();
+		multilineLabel.setBackground(new Color(0, 191, 255));
+		multilineLabel.setOpaque(true);
+		creativePanel.add(multilineLabel, "cell 1 3,grow");
 		tags.addListSelectionListener(e -> {
 			Tagsel sel = tags.getSelectedValue();
-			creativeItemList.resort(selectSortItemTypes.getSelectedValue(), sel.eligible());
+			Comparator<ItemType> cmp = selectSortItemTypes.getSelectedValue();
+			if(cmp == null) return;
+			CreativeItemList.resort(cmp, sel.eligible());
 			creativeItemList.setModel(sel.eligible());
 		});
 		//Sort the tags
@@ -394,6 +411,7 @@ public class TabInventory extends JPanel {
 	private JCheckBox checkUseCIL;
 	private JList<Tagsel> tags;
 	private JScrollPane scrollPane;
+	private MultilineLabel multilineLabel;
 
 	/**
 	 * @author oskar
@@ -401,14 +419,35 @@ public class TabInventory extends JPanel {
 	 */
 	public static interface RecipeQuery{
 		/**
+		 * Returns a large set of eligible items
+		 * The recipes which pass both phases 1 and 2 must be exactly the same as all recipes which pass this query's filter
+		 * @return potentially eligible items
+		 */
+		@Nonnull public Set<Recipe<?>> phase1();
+		/**
+		 * Narrows down the list of items to produce an exact list
+		 * The recipes which pass both phases 1 and 2 must be exactly the same as all recipes which pass this query's filter
+		 * @param recipe the recipe to test
+		 * @return does recipe match?
+		 */
+		public boolean phase2(Recipe<?> recipe);
+		
+		@Nonnull public default Set<Recipe<?>> eligible(){
+			Set<Recipe<?>> recipes = phase1();
+			Set<Recipe<?>> model = new HashSet<>();
+			for(Recipe<?> item: recipes) {
+				if(phase2(item)) model.add(item);
+			}
+			return model;
+		}
+		/**
 		 * @return the displayed query string
 		 */
 		public String name();
 		/**
 		 * @param recipe the recipe to test
 		 * @return does recipe match?
-		 */
-		public boolean filter(Recipe<?> recipe);
+		 */public boolean filter(Recipe<?> recipe);
 	}
 	private void queryRecipes(RecipeQuery query) {
 		debug.printl("Querying recipes");
@@ -416,6 +455,9 @@ public class TabInventory extends JPanel {
 		debug.printl("Query finished");
 	}
 	
+	/**
+	 * @return a recipe query, which accepts all recipes
+	 */
 	@Nonnull public static RecipeQuery all() {
 		return new RecipeQuery() {
 			@Override
@@ -427,8 +469,21 @@ public class TabInventory extends JPanel {
 			public boolean filter(Recipe<?> recipe) {
 				return true;
 			}
+			@Override
+			public Set<Recipe<?>> phase1() {
+				return GlobalRecipeRegistrar.recipes;
+			}
+
+			@Override
+			public boolean phase2(Recipe<?> recipe) {
+				return true;
+			}
 		};
 	}
+	/**
+	 * @param item
+	 * @return a recipe query, which accepts recipes
+	 */
 	@Nonnull public static RecipeQuery consuming(ItemEntry item) {
 		return new RecipeQuery() {
 			@Override
@@ -439,6 +494,16 @@ public class TabInventory extends JPanel {
 			@Override
 			public boolean filter(Recipe<?> recipe) {
 				return recipe.inputs().contains(item);
+			}
+
+			@Override
+			public Set<Recipe<?>> phase1() {
+				return GlobalRecipeRegistrar.byInputs.get(item);
+			}
+
+			@Override
+			public boolean phase2(Recipe<?> recipe) {
+				return true;
 			}
 		};
 	}
@@ -453,18 +518,38 @@ public class TabInventory extends JPanel {
 			public boolean filter(Recipe<?> recipe) {
 				return recipe.output().contains(item);
 			}
+			
+			@Override
+			public Set<Recipe<?>> phase1() {
+				return GlobalRecipeRegistrar.byOutputs.get(item);
+			}
+
+			@Override
+			public boolean phase2(Recipe<?> recipe) {
+				return true;
+			}
 		};
 	}
 	@Nonnull public static RecipeQuery gambling(ItemEntry item) {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
-				return "Recipes which produce: "+item.title();
+				return "Recipes which may produce: "+item.title();
 			}
 
 			@Override
 			public boolean filter(Recipe<?> recipe) {
 				return recipe.luck().contains(item);
+			}
+			
+			@Override
+			public Set<Recipe<?>> phase1() {
+				return GlobalRecipeRegistrar.byChance.get(item);
+			}
+
+			@Override
+			public boolean phase2(Recipe<?> recipe) {
+				return true;
 			}
 		};
 	}
@@ -472,19 +557,72 @@ public class TabInventory extends JPanel {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
-				return "Recipes which produce: "+item.title();
+				return "Recipes which catalyze: "+item.title();
 			}
 
 			@Override
 			public boolean filter(Recipe<?> recipe) {
 				return Objects.equals(item, recipe.catalyst());
 			}
+			@Override
+			public Set<Recipe<?>> phase1() {
+				return GlobalRecipeRegistrar.byCatalyst.get(item);
+			}
+
+			@Override
+			public boolean phase2(Recipe<?> recipe) {
+				return true;
+			}
+		};
+	}
+	@Nonnull public static RecipeQuery uptoVolt(VoltageTier item) {
+		return new RecipeQuery() {
+			@Override
+			public String name() {
+				return "Recipes up to: "+item.name;
+			}
+
+			@Override
+			public boolean filter(Recipe<?> recipe) {
+				return recipe.voltTier().compareTo(item) <= 0;
+			}
+			@Override
+			public Set<Recipe<?>> phase1() {
+				return GlobalRecipeRegistrar.uptoVoltage.get(item);
+			}
+
+			@Override
+			public boolean phase2(Recipe<?> recipe) {
+				return true;
+			}
+		};
+	}
+	@Nonnull public static RecipeQuery byVolt(VoltageTier item) {
+		return new RecipeQuery() {
+			@Override
+			public String name() {
+				return "Recipes at: "+item.name;
+			}
+
+			@Override
+			public boolean filter(Recipe<?> recipe) {
+				return recipe.voltTier() == item;
+			}
+			@Override
+			public Set<Recipe<?>> phase1() {
+				return GlobalRecipeRegistrar.byVoltage.get(item);
+			}
+
+			@Override
+			public boolean phase2(Recipe<?> recipe) {
+				return true;
+			}
 		};
 	}
 	
 	private ItemEntry findSourceItem() {
-		ItemRecord record = craftGUI.inventoryController.getSelectedValue();
-		if(record != null) return record.item();
+		ItemRecord irecord = craftGUI.inventoryController.getSelectedValue();
+		if(irecord != null) return irecord.item();
 		ItemType type = creativeItemList.getSelectedValue();
 		if(type == null) return null;
 		return type.create();

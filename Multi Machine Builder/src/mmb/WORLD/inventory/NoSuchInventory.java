@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import javax.annotation.Nonnull;
 
+import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.items.ItemEntry;
 
 /**
@@ -64,6 +65,10 @@ public class NoSuchInventory implements Inventory{
 	}
 	@Override
 	public int size() {
+		return 0;
+	}
+	@Override
+	public int bulkInsert(RecipeOutput ent, int amount) {
 		return 0;
 	}
 }

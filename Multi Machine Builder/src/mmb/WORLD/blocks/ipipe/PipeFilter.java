@@ -46,17 +46,17 @@ public class PipeFilter extends AbstractBasePipe implements BlockActivateListene
 	 */
 	public PipeFilter(BlockType type, ChirotatedImageGroup rig) {
 		super(type, 3, rig);
-		Variable<ItemEntry> varM = getSlot(0);
-		Variable<ItemEntry> varS = getSlot(1);
-		Variable<ItemEntry> varC = getSlot(2);
+		SingleItemInventory varM = items[0];
+		SingleItemInventory varS = items[1];
+		SingleItemInventory varC = items[2];
 		
 		toCommon = new Pusher(varC, Side.U);
 		toSide = new Pusher(varS, Side.R);
 		toMain = new Pusher(varM, Side.D);
 		
-		InventoryReader readC = new ExtractForItemVar(varC);
-		InventoryReader readM = new ExtractForItemVar(varM);
-		InventoryReader readS = new ExtractForItemVar(varS);
+		InventoryReader readC = varC.createReader();
+		InventoryReader readM = varM.createReader();
+		InventoryReader readS = varS.createReader();
 		
 		InventoryWriter bottom = new InventoryWriter.Priority(new InventoryWriter.Filtering(toSide, this::test), toMain);
 		

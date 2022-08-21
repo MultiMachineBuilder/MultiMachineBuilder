@@ -28,6 +28,7 @@ import mmb.DATA.contents.Sounds;
 import mmb.DATA.json.JsonTool;
 import mmb.DATA.variables.ListenerBooleanVariable;
 import mmb.WORLD.inventory.ItemRecord;
+import mmb.WORLD.inventory.storage.ListenableSimpleInventory;
 import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.worlds.player.PlayerPhysics;
@@ -39,8 +40,9 @@ import mmb.debug.Debugger;
  * A {@code Player} is an object, which represents player data
  */
 public class Player implements GameObject, Saver<JsonNode> {
-	private static final Debugger debug = new Debugger("PLAYERS");
-
+	@Nonnull private Debugger debug = new Debugger("PLAYERS");
+	@Nonnull private static final Debugger sdebug = new Debugger("PLAYERS");
+	
 	@Override
 	public String id() {
 		return "Player";
@@ -63,6 +65,7 @@ public class Player implements GameObject, Saver<JsonNode> {
 	 */
 	public Player(World w) {
 		playerHP.addChangeListener(this::changeHP);
+		smack = new CatchingEvent<>(debug, "Failed to process smack event");
 		smack.addListener(this::smack);
 		Sound sound = Sounds.getSound("377157__pfranzen__smashing-head-on-wall.ogg");
 		Sneaky.sneaked(sound::open).accept(clip);
@@ -71,7 +74,7 @@ public class Player implements GameObject, Saver<JsonNode> {
 		world = w;
 	}
 	
-	@Nonnull public final SimpleInventory inv = new SimpleInventory();
+	@Nonnull public final ListenableSimpleInventory inv = new ListenableSimpleInventory(debug);
 	@Nonnull public final ListenerBooleanVariable creative = new ListenerBooleanVariable();
 	@Nonnull public final World world;
 	public boolean isCreative() {
@@ -85,9 +88,9 @@ public class Player implements GameObject, Saver<JsonNode> {
 	}
 
 	public static final Event<Tuple2<Player, ObjectNode>> onPlayerSaved
-	= new CatchingEvent<>(debug, "Failed to save mod player data");
+	= new CatchingEvent<>(sdebug, "Failed to save mod player data");
 	public static final Event<Tuple2<Player, ObjectNode>> onPlayerLoaded
-	= new CatchingEvent<>(debug, "Failed to load mod player data");
+	= new CatchingEvent<>(sdebug, "Failed to load mod player data");
 	
 	@Override
 	public void load(@Nullable JsonNode data) {
@@ -107,10 +110,19 @@ public class Player implements GameObject, Saver<JsonNode> {
 		
 		JsonNode alc1 = on.get("alcohol1");
 		if(alc1 != null) digestibleAlcohol = alc1.asDouble();
+		if(digestibleAlcohol < 0) {
+			debug.printl("Inavlid digestible alcohol, expected >=0, got "+digestibleAlcohol);
+			digestibleAlcohol = 0;
+		}
 		JsonNode alc2 = on.get("alcohol2");
 		if(alc2 != null) BAC = alc2.asDouble();
+		if(BAC < 0) {
+			debug.printl("Inavlid BAC, expected >=0, got "+BAC);
+			BAC = 0;
+		}
 		
 		onPlayerLoaded.trigger(new Tuple2<>(this, on));
+		debug = new Debugger("PLAYERS/"+world.getName());
 	}
 	@Override
 	public JsonNode save() {
@@ -198,6 +210,13 @@ public class Player implements GameObject, Saver<JsonNode> {
 	public void setDigestibleAlcohol(double digestibleAlcohol) {
 		this.digestibleAlcohol = digestibleAlcohol;
 	}
+	/**
+	 * Adds alcohol to the player
+	 * @param alcohol amount of alcohol
+	 */
+	public void drinkAlcohol(double alcohol) {
+		digestibleAlcohol += alcohol;
+	}
 	private double BAC;
 	/**  @return the BAC */
 	public double getBAC() {
@@ -208,13 +227,14 @@ public class Player implements GameObject, Saver<JsonNode> {
 		this.BAC = BAC;
 	}
 	private void alcohol() {
+		double rate = 0.002 + (digestibleAlcohol * 0.0002);
 		//Absorb the alcohol (0.1u/s)
-		if(digestibleAlcohol < 0.002) {
+		if(digestibleAlcohol < rate) {
 			BAC += digestibleAlcohol;
 			digestibleAlcohol = 0;
 		}else {
-			BAC += 0.002;
-			digestibleAlcohol -= 0.002;
+			BAC += rate;
+			digestibleAlcohol -= rate;
 		}
 		
 		//Apply effects of alcohol
@@ -302,7 +322,7 @@ public class Player implements GameObject, Saver<JsonNode> {
 	/**
 	 * Triggered when player "smacks" into something
 	 */
-	public final Event<Double> smack = new CatchingEvent<>(debug, "Failed to process smack event");
+	public final Event<Double> smack;
 	private void changeHP(ChangeEvent e) {
 		if(playerHP.getValue() <= 0) death();
 	}

@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.util.Arrays;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -30,11 +31,14 @@ import mmb.Vector2iconst;
 import mmb.DATA.contents.Textures;
 import mmb.DATA.variables.ListenerBooleanVariable;
 import mmb.MENU.StringRenderer;
+import mmb.WORLD.CopyWindow;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.blocks.ppipe.Direction;
 import mmb.WORLD.blocks.ppipe.PipeTunnelEntry;
 import mmb.WORLD.gui.FPSCounter;
 import mmb.WORLD.gui.window.WorldWindow.ScrollablePlacementList;
+import mmb.WORLD.item.ItemType;
+import mmb.WORLD.item.Items;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.mbmachine.Machine;
 import mmb.WORLD.rotate.Side;
@@ -49,8 +53,8 @@ import rx.Subscriber;
 import java.awt.Color;
 
 /**
- * @author oskar
  * The WorldFrame represents interface, which user can interact with.
+ * @author oskar
  */
 public class WorldFrame extends JComponent {
 	//Serialization
@@ -70,6 +74,20 @@ public class WorldFrame extends JComponent {
 	 * @param window the window, which contains the frame
 	 */
 	public WorldFrame(WorldWindow window) {
+		//Dump everything for testing
+		StringBuilder list = new StringBuilder();
+		boolean i = false;
+		list.append('[');
+		for(ItemType item: Items.items) {
+			if(i) list.append("\n,");
+			i = true;
+			list.append('"');
+			list.append(item.id().replace("\\", "\\\\").replace("\"", "\\\""));
+			list.append('"');
+		}
+		list.append(']');
+		new CopyWindow(list.toString()).setVisible(true);
+		
 		this.window = window;
 		Listener listener = new Listener();
 		addMouseListener(listener);
@@ -394,10 +412,10 @@ public class WorldFrame extends JComponent {
 		Point dr = blockAt(getWidth(), getHeight());
 		
 		//The four coordinates of targeted rendered blocks
-		int l = Math.max(ul.x, map.startX);
-		int r = Math.min(dr.x, map.endX-1);
-		int u = Math.max(ul.y, map.startY);
-		int d = Math.min(dr.y, map.endY-1);
+		int l = Math.min(Math.max(ul.x, map.startX), map.endX-1);
+		int r = Math.min(Math.max(dr.x, map.startX), map.endX-1);
+		int u = Math.min(Math.max(ul.y, map.startY), map.endY-1);
+		int d = Math.min(Math.max(dr.y, map.startY), map.endY-1);
 		
 		//Count Blocks Per Frame
 		int bpf = 0;
@@ -419,7 +437,6 @@ public class WorldFrame extends JComponent {
 				}
 			}
 		}
-		
 		
 		int div2x = (int)Math.ceil(blockScale/2);
 		int div4x = (int)Math.ceil(blockScale/4);
@@ -520,13 +537,13 @@ public class WorldFrame extends JComponent {
 			if(map.inBounds(mouseover)) {
 				BlockEntry block = map.get(mouseover);
 				sb.append("Selected block: ").append(block.type()).append(" ,is surface: ").append(block.isSurface()).append("\r\n");
-				sb.append("Pipe connections: ↑");
+				sb.append("Pipe connections: ^");
 				printPipeTunnel(sb, block.getPipeTunnel(Side.U));
-				sb.append(" ↓");
+				sb.append(" v");
 				printPipeTunnel(sb, block.getPipeTunnel(Side.D));
-				sb.append(" ←");
+				sb.append(" <");
 				printPipeTunnel(sb, block.getPipeTunnel(Side.L));
-				sb.append(" →");
+				sb.append(" >");
 				printPipeTunnel(sb, block.getPipeTunnel(Side.R));
 				sb.append("\r\n");
 				sb.append("Chirotation: ").append(block.getChirotation()).append("\r\n");
@@ -552,7 +569,7 @@ public class WorldFrame extends JComponent {
 		}
 	}
 	private static void printPipeTunnel(StringBuilder sb, @Nullable PipeTunnelEntry ent) {
-		if(ent == null) sb.append('✗');
+		if(ent == null) sb.append('X');
 		else if(ent.dir == Direction.BWD) sb.append('B');
 		else sb.append('F');
 	}

@@ -11,10 +11,14 @@ import org.ainslec.picocog.PicoWriter;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+
+import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.BEANS.Saver;
+import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemLoader;
 import mmb.WORLD.inventory.ItemRecord;
+import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.inventory.ItemLoader.ItemTarget;
 import mmb.WORLD.items.ItemEntry;
 import mmb.debug.Debugger;
@@ -54,6 +58,9 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 			volume += type.volume(result);
 			amount += result;
 			
+			if(amount == result) OV_add(type);
+			OV_insert(new ItemStack(type, result));
+			OV_update(new ItemStack(type, amount));
 			return result;
 		}
 		@Override
@@ -66,6 +73,9 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 			volume -= type.volume(result);
 			amount -= result;
 			
+			if(amount == 0) OV_remove(type);
+			OV_extract(new ItemStack(type, result));
+			OV_update(new ItemStack(type, amount));
 			return result;
 		}
 		@Override
@@ -83,8 +93,8 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 	 */
 	public SimpleInventory(Inventory inv) {
 		capacity = inv.capacity();
-		for(ItemRecord record: inv) {
-			insert(record.item(), record.amount());
+		for(ItemRecord irecord: inv) {
+			insert(irecord.item(), irecord.amount());
 		}
 	}
 
@@ -92,7 +102,7 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 	 * Creates an empty inventory
 	 */
 	public SimpleInventory() {
-		// TODO Auto-generated constructor stub
+		// no initialization here
 	}
 
 	@Override
@@ -236,5 +246,56 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 			contents.add(new Node(irecord.amount(), irecord.item()));
 			volume += vol;
 		}
+	}
+	
+	//Auxiliary methods for ListenableInventory and other programmable inventories
+	/**
+	 * An overridable method for use in listenable inventories
+	 * @param stk type and amount of items inserted
+	 */
+	protected void OV_insert(ItemStack stk) {
+		//to be overridden
+	} 
+	/**
+	 * An overridable method for use in listenable inventories
+	 * @param stk type and amount of items iremoved
+	 */
+	protected void OV_extract(ItemStack stk) {
+		//to be overridden
+	}
+	/**
+	 * An overridable method for use in listenable inventories
+	 * @param stk type and new amount of items for the specified type
+	 */
+	protected void OV_update(ItemStack stk) {
+		//to be overridden
+	}
+	/**
+	 * An overridable method for use in listenable inventories
+	 * @param item an item removed completely
+	 */
+	protected void OV_remove(ItemEntry item) {
+		//to be overridden
+	}
+	/**
+	 * An overridable method for use in listenable inventories
+	 * @param item a new item added to the inventory
+	 */
+	protected void OV_add(ItemEntry item) {
+		//to be overridden
+	}
+
+	@Override
+	public int bulkInsert(RecipeOutput ent, int amount) {
+		int max = amount;
+		double unitVolume = ent.outVolume();
+		double roughVolumeLimit = remainVolume()/unitVolume;
+		int exactUnits = (int) roughVolumeLimit;
+		if(exactUnits == 0) return 0;
+		if(max > exactUnits) max = exactUnits;
+		for(Entry<ItemEntry> entry: ent.getContents().object2IntEntrySet()) {
+			insert(entry.getKey(), entry.getIntValue()*max);
+		}
+		return max;
 	}
 }

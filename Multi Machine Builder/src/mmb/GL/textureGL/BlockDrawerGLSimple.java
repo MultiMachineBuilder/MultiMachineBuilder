@@ -61,7 +61,6 @@ public class BlockDrawerGLSimple {
 		this.rot = rot;
 	}
 	
-	
 	/**
 	 * Renders this block
 	 * @param ent block entry

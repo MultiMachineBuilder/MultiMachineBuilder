@@ -26,17 +26,17 @@ public interface MapProxy extends AutoCloseable{
 	/** Place the block immediately using survival rules, draining block's or player's inventory*/
 	public void placeImmediately(BlockType block, int x, int y);
 	/** Place the block immediately using survival rules, draining block's or player's inventory*/
-	default public void placeImmediately(BlockType block, Point p) {placeImmediately(block, p.x, p.y);}
+	public default void placeImmediately(BlockType block, Point p) {placeImmediately(block, p.x, p.y);}
 	
 	/** Place the block immediately using creative rules*/
 	public void placeImmediatelyCreative(BlockType block, int x, int y);
 	/** Place the block immediately using creative rules*/
-	default public void placeImmediatelyCreative(BlockType block, Point p) {placeImmediatelyCreative(block, p.x, p.y);}
+	public default void placeImmediatelyCreative(BlockType block, Point p) {placeImmediatelyCreative(block, p.x, p.y);}
 	
 	/** Place the block immediately using survival rules, draining specific inventory*/
 	public void placeImmediately(BlockType block, int x, int y, Inventory inv);
 	/** Place the block immediately using survival rules, draining specific inventory*/
-	default public void placeImmediately(BlockType block, Point p, Inventory inv) {placeImmediately(block, p.x, p.y, inv);}
+	public default void placeImmediately(BlockType block, Point p, Inventory inv) {placeImmediately(block, p.x, p.y, inv);}
 	
 	//Intermediate setters
 	/** Place the block when map updates using survival rules, draining block's or player's inventory*/
@@ -52,7 +52,7 @@ public interface MapProxy extends AutoCloseable{
 	/** Place the block when map updates using survival rules, draining specific inventory*/
 	public void place(BlockType block, int x, int y, Inventory inv);
 	/** Place the block when map updates using survival rules, draining specific inventory*/
-	default public void place(BlockType block, Point p, Inventory inv) {place(block, p.x, p.y, inv);}
+	public default void place(BlockType block, Point p, Inventory inv) {place(block, p.x, p.y, inv);}
 	
 	//Getters
 	/** Get a block in specific location.
@@ -62,18 +62,18 @@ public interface MapProxy extends AutoCloseable{
 	/** Get a block in specific location.
 	 * @throws ArrayIndexOutOfBoundsException if given location is out of bounds
 	 */
-	default public BlockEntry get(Point p) {return get(p.x, p.y);}
-	default public BlockEntry getAtSide(int x, int y, Side s) {
+	public default BlockEntry get(Point p) {return get(p.x, p.y);}
+	public default BlockEntry getAtSide(int x, int y, Side s) {
 		return get(s.offset(x, y));
 	}
 	
 	/** Checks if given location is in bounds */
 	public boolean inBounds(int x, int y);
 	/** Checks if given location is in bounds */
-	default public boolean inBounds(Point p) {return inBounds(p.x, p.y);}
+	public default boolean inBounds(Point p) {return inBounds(p.x, p.y);}
 	
 	/** @return Bounds of this map in form of a new {@link Rectangle} */
-	default public Rectangle getBounds() {
+	public default Rectangle getBounds() {
 		return new Rectangle(new Point(), getSize());
 	}
 	/** @return Width */

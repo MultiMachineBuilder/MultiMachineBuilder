@@ -13,8 +13,8 @@ import mmb.WORLD.items.ItemEntry;
 import javax.swing.JList;
 
 /**
+ * Represent a recipe view for crop outputs
  * @author oskar
- *
  */
 public class AgroRecipeView extends RecipeView<AgroProcessingRecipe>{
 	private static final long serialVersionUID = -2864705123116802475L;
@@ -22,7 +22,10 @@ public class AgroRecipeView extends RecipeView<AgroProcessingRecipe>{
 	private JLabel lblOutgoing;
 	private JLabel lblIn;
 	private JList<ItemStack> outList;
+	private JLabel lblMachine;
+	private JLabel lblEvery;
 	
+	/** Creates a recipe view for crop outputs */
 	public AgroRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow]", "[][][]"));
 		
@@ -54,6 +57,5 @@ public class AgroRecipeView extends RecipeView<AgroProcessingRecipe>{
 		outList.setListData(VectorUtils.list2arr(recipe.output));
 	}
 	
-	private JLabel lblMachine;
-	private JLabel lblEvery;
+	
 }

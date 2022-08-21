@@ -3,6 +3,9 @@
  */
 package mmb.WORLD.chance;
 
+import java.util.Collections;
+import java.util.Set;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -33,19 +36,19 @@ public interface Chance {
 	 * @param tgt inventory to move items to
 	 * @param amount number of items
 	 */
-	public void produceResults(InventoryWriter tgt, int amount);
+	public void produceResults(@Nonnull InventoryWriter tgt, int amount);
 	/**
 	 * Produces one unit of chance
 	 * @param tgt
 	 */
-	public default void produceResults(InventoryWriter tgt) {
+	public default void produceResults(@Nonnull InventoryWriter tgt) {
 		produceResults(tgt, 1);
 	}
 	/**
 	 * Represents this recipe output as text
 	 * @param out
 	 */
-	public void represent(PicoWriter out);
+	public void represent(@Nonnull PicoWriter out);
 	
 	/**
 	 * @param item
@@ -84,6 +87,15 @@ public interface Chance {
 		public boolean contains(ItemEntry item) {
 			return false;
 		}
-		
+
+		@Override
+		public Set<ItemEntry> items() {
+			return Collections.emptySet();
+		}
 	};
+	
+	/**
+	 * @return unique items in this random chance
+	 */
+	@Nonnull public Set<@Nonnull ItemEntry> items();
 }

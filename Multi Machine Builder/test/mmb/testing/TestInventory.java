@@ -11,7 +11,6 @@ import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.inventory.storage.SingleItemInventory;
 import mmb.WORLD.item.Item;
-import mmb.WORLD.items.NoSuchItemEntry;
 import mmb.debug.Debugger;
 
 /**
@@ -38,12 +37,7 @@ public class TestInventory {
 		
 		int inserted;
 		Inventory inv;
-		
-		//Do not accept NoSuchItemEntry
-		inv = invcls.get();
-		inserted = inv.insert(NoSuchItemEntry.INSTANCE, 1);
-		if(inserted == 1) throw new Error("Accepts NoSuchItemEntry");
-		
+				
 		inv = invcls.get();
 		//Insert
 		final int amount = 3;

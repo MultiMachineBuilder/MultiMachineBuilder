@@ -4,6 +4,7 @@
 package mmb.WORLD.inventory.io;
 
 import mmb.BEANS.Positioned;
+import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.worlds.world.World;
 
@@ -20,9 +21,7 @@ public class Dropper implements InventoryWriter, Positioned {
 
 	@Override
 	public int write(ItemEntry ent, int amount) {
-		for(int i = 0; i < amount; i++) {
-			map.dropItem(ent, x, y);
-		}
+		map.dropItem(ent, amount, x, y);
 		return amount; //always accepts
 	}
 
@@ -44,6 +43,12 @@ public class Dropper implements InventoryWriter, Positioned {
 	@Override
 	public void setY(int y) {
 		this.y = y;
+	}
+
+	@Override
+	public int bulkInsert(RecipeOutput block, int amount) {
+		map.dropItems(block, amount, x, y);
+		return amount; //always accepts
 	}
 
 }

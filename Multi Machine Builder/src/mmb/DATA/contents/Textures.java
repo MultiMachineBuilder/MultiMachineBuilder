@@ -18,21 +18,12 @@ import org.joml.Vector2i;
 import org.joml.Vector4f;
 
 import mmb.GL.TextureAtlas;
-import mmb.MENU.ShowTextureAtlas;
 import mmb.MODS.loader.AddonLoader;
 import mmb.WORLD.texture.LODs;
 import mmb.debug.Debugger;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
-
-import static org.lwjgl.opengl.GL11.GL_RGBA;
-import static org.lwjgl.opengl.GL11.GL_RGBA8;
-import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
-import static org.lwjgl.opengl.GL11.GL_UNSIGNED_BYTE;
-import static org.lwjgl.opengl.GL11.glEnable;
-import static org.lwjgl.opengl.GL11.glTexImage2D;
-import static org.lwjgl.opengl.GL30.*;
 
 /**
  * @author oskar
@@ -79,9 +70,10 @@ public class Textures {
 		Texture result = loadedTextures0.get(name);
 		if(result == null) {
 			//Cache miss, load classpath
-			try(@SuppressWarnings("null") @Nonnull InputStream in = AddonLoader.bcl.getResourceAsStream("textures/"+name)) {
+			try(InputStream in = AddonLoader.bcl.getResourceAsStream("textures/"+name)) {
+				if(in == null) throw new NotFoundException("Could not find texture "+name);
 				result = load(name, in);
-				if(result == null) throw new NotFoundException("Could not find texture "+name);
+				if(result == null) throw new NotFoundException("Could not load texture "+name);
 			} catch (IOException e) {
 				throw new NotFoundException("Failed to load texture "+name, e);
 			}	

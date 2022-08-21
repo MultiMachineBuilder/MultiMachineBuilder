@@ -141,9 +141,20 @@ public class SimpleItemList implements RecipeOutput {
 	 * @return an inventory writer
 	 */
 	@Nonnull InventoryWriter createWriter() {
-		return (ent, amt) -> {
-			data.put(ent, get(ent));
-			return amt;
+		return new InventoryWriter() {
+			@Override
+			public int write(ItemEntry ent, int amount) {
+				data.put(ent, get(ent));
+				return amount;
+			}
+
+			@Override
+			public int bulkInsert(RecipeOutput block, int amount) {
+				for(Entry<ItemEntry> ent: block.getContents().object2IntEntrySet()) {
+					write(ent.getKey(), amount*ent.getIntValue());
+				}
+				return amount;
+			}
 		};
 	}
 

@@ -54,12 +54,13 @@ public class Transformer extends SkeletalBlockEntityRotary {
 	@Nonnull private static final BufferedImage src0 = Textures.get("machine/transformer.png");
 	@Nonnull private static final ColorMapper mapper = ColorMapper.ofType(src0.getType(), Color.RED, Color.red);
 	@Nonnull private static final LookupOp op = new LookupOp(mapper, null);
+	@Nonnull private static final ColorMapper mapper2 = ColorMapper.ofType(src0.getType(), Color.MAGENTA, Color.red);
+	@Nonnull private static final LookupOp op2 = new LookupOp(mapper2, null);
 	/**
 	 * @author oskar
 	 * This class contains information about transformer tiers
 	 */
 	public enum TransformerData{
-		
 		VLV(VoltageTier.V2, VoltageTier.V1),
 		 LV(VoltageTier.V3, VoltageTier.V2),
 		 MV(VoltageTier.V4, VoltageTier.V3),
@@ -81,7 +82,10 @@ public class Transformer extends SkeletalBlockEntityRotary {
 			this.high = high;
 			this.low = low;
 			mapper.setTo(high.c);
-			this.image = RotatedImageGroup.create(op.filter(src0, null));
+			mapper2.setTo(low.c);
+			BufferedImage img = op.filter(src0, null);
+			op2.filter(img, img);
+			this.image = RotatedImageGroup.create(img);
 			this.type = new BlockEntityType()
 					.title("Transformer "+high.name+"/"+low.name)
 					.factory(() -> new Transformer(this))

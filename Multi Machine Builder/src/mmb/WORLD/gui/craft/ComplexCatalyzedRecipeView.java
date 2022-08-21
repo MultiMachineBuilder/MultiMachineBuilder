@@ -13,7 +13,7 @@ import javax.swing.JList;
 
 /**
  * @author oskar
- *
+ * Represents a recipe view for multi-item recipes with catalyst
  */
 public class ComplexCatalyzedRecipeView extends RecipeView<ComplexCatalyzedProcessingRecipe> {
 	private static final long serialVersionUID = -2864705123116802475L;
@@ -26,6 +26,7 @@ public class ComplexCatalyzedRecipeView extends RecipeView<ComplexCatalyzedProce
 	private JLabel lblMachine;
 	private JLabel lblCatalyst;
 	private JLabel catalyst;
+	/** Creates recipe view for multi-item recipes with catalyst*/
 	public ComplexCatalyzedRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][fill]"));
 		

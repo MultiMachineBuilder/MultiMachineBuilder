@@ -12,6 +12,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TooManyListenersException;
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -246,6 +252,22 @@ public class Collects {
 			
 		};
 	}
-
-	
+	@Nonnull public static <T> DefaultListModel<T> newListModel(Collection<? extends T> list){
+		DefaultListModel<T> model = new DefaultListModel<>();
+		model.addAll(list);
+		return model;
+	}
+	@Nonnull public static <T> List<T> inplaceAddLists(List<T> list, Collection<T> collect){
+		list.addAll(collect);
+		return list;
+	}
+	@Nonnull public static <T> List<T> ooplaceAddLists(Collection<T> a, Collection<T> b, Supplier<List<T>> supplier){
+		List<T> list0 = supplier.get();
+		list0.addAll(a);
+		list0.addAll(b);
+		return list0;
+	}
+	@Nonnull public static <T> BiFunction<Collection<T>, Collection<T>, List<T>> ooplaceListAdder(Supplier<List<T>> supplier){
+		return (a, b) -> ooplaceAddLists(a, b, supplier);
+	}
 }

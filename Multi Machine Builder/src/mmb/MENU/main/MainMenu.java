@@ -5,6 +5,7 @@ import java.awt.*;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 
+import mmb.GlobalSettings;
 import mmb.DATA.Settings;
 import mmb.DATA.contents.Textures;
 import mmb.GL.HalfVecTest;
@@ -124,13 +125,13 @@ public class MainMenu extends MMBFrame {
 		});
 		
 		//This button is for Ukrainian speakers. It means the same thing as the English one
-		btnRefugee1 = new JButton("Для українських біженців (UA)");
+		btnRefugee1 = new JButton(GlobalSettings.$res("ua-refugees"));
 		btnRefugee1.setIcon(ua1);
 		btnRefugee1.addActionListener(e -> {
 			try {
 				Desktop.getDesktop().browse(new URI(refugeesUA)); //An Ukrainian-language site for Ukrainian refugees
 			} catch (Exception ex) {
-				debug.pstm(ex, "Не в змозі отримати допомогу як біженець/Unable to get help as a refugee");
+				debug.pstm(ex, GlobalSettings.$res("ua-refugee-error"));
 			}
 		});
 		mainMenuBar.add(btnRefugee1);

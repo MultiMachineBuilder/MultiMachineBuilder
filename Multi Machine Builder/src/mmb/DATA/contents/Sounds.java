@@ -37,9 +37,10 @@ public class Sounds {
 		Sound s = sounds0.get(name);
 		if(s == null) {
 			//Cache miss, load classpath
-			try(@SuppressWarnings("null") @Nonnull InputStream in = AddonLoader.bcl.getResourceAsStream("sound/"+name)) {
+			try(InputStream in = AddonLoader.bcl.getResourceAsStream("sound/"+name)) {
+				if(in == null) throw new NotFoundException("Could not find sound "+name);
 				s = load(in, name);
-				if(s == null) throw new NotFoundException("Could not find sound "+name);
+				if(s == null) throw new NotFoundException("Could not load sound "+name);
 			} catch (IOException e) {
 				throw new NotFoundException("Failed to load sound "+name, e);
 			}	

@@ -18,6 +18,7 @@ import mmb.MENU.MMBFrame;
 import mmb.WORLD.gui.WorldToolList;
 import mmb.WORLD.gui.inv.InventoryController;
 import mmb.WORLD.inventory.ItemRecord;
+import mmb.WORLD.item.Items;
 import mmb.WORLD.tool.ToolSelectionModel;
 import mmb.WORLD.tool.ToolStandard;
 import mmb.WORLD.tool.WindowTool;
@@ -119,6 +120,7 @@ public class WorldWindow extends MMBFrame{
 	 * Creates a new world window
 	 */
 	public WorldWindow() {
+		debug.printl(Items.items.size()+" items");
 		setTitle("Test");
 		setBounds(100, 100, 824, 445);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -149,7 +151,6 @@ public class WorldWindow extends MMBFrame{
 				boolean running = !iconified && open;
 				worldFrame.setActive(running);
 			}
-			
 		});
 		
 		//root split pane

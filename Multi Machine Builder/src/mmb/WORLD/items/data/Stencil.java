@@ -149,14 +149,14 @@ public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>, Re
 	}
 
 	@Override
-	public int hashCode() {
+	public int hash0() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + Objects.hashCode(grid);
 		return result;
 	}
 	@Override
-	public boolean equals(@Nullable Object obj) {
+	public boolean equal0(@Nullable ItemEntity obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
