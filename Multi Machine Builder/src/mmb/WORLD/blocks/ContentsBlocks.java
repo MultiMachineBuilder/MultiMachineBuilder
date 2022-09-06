@@ -67,6 +67,7 @@ import mmb.WORLD.electric.PowerLoad;
 import mmb.WORLD.electric.PowerMeter;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.electromachine.AlloySmelter;
+import mmb.WORLD.electromachine.BlockBattery;
 import mmb.WORLD.electromachine.CoalGen;
 import mmb.WORLD.electromachine.ElectroFurnace;
 import mmb.WORLD.electromachine.ElectroQuarry;
@@ -319,6 +320,9 @@ public class ContentsBlocks {
 	@Nonnull public static final BlockEntityType CHEST3 = chest(64, "machine/chest4.png", "chest.advanced", 4);
 	@Nonnull public static final BlockEntityType CHEST4 = chest(128, "machine/chest5.png", "chest.extreme", 5);
 	@Nonnull public static final BlockEntityType CHEST5 = chest(256, "machine/chest6.png", "chest.ultimate", 6);
+	@Nonnull public static final BlockEntityType CHEST6 = chest(1024, "machine/chest7.png", "chest.penultimate", 7);
+	@Nonnull public static final BlockEntityType CHEST7 = chest(4096, "machine/chest8.png", "chest.penultimate2", 8);
+	@Nonnull public static final BlockEntityType CHEST8 = chest(16384, "machine/chest9.png", "chest.penultimate3", 9);
 	/**
 	 * A chest that auto-inserts items
 	 */
@@ -504,6 +508,7 @@ public class ContentsBlocks {
 	@Nonnull public static final ElectricMachineGroup bbrewery = machinesComplex("machine/brewery.png", Craftings.brewery, "brewery");
 	@Nonnull public static final ElectricMachineGroup bdig = createDigger();
 	@Nonnull public static final ElectricMachineGroup bquarry = createQuarry();
+	@Nonnull public static final ElectricMachineGroup bbattery = createBattery();
 	
 	//Player pipes
 	@Nonnull public static final BlockEntityType PPIPE_lin = ppipe(1, Side.U, Side.D, "machine/ppipe straight.png", "#ppipe-s", "playerpipe.straight");
@@ -523,6 +528,7 @@ public class ContentsBlocks {
 		//initialization method
 	}
 
+	
 	//Multimedia devices
 	@Nonnull public static final BlockEntityType SPEAKER = new BlockEntityType()
 			.title("#multi-speaker")
@@ -573,13 +579,13 @@ public class ContentsBlocks {
 				.finish("elec.coalgen"+n);
 	}
 	@Nonnull private static BlockEntityType chest(double capacity, String texture, String id, int n) {
-		BlockEntityType type = new BlockEntityType();
+		BlockEntityType type = new BlockEntityType().finish(id);
+		Items.tagItem("chest", type);
 		BufferedImage image = Textures.get(texture);
 		return type
 				.title(GlobalSettings.$res("chest")+" #"+n)
 				.factory(() -> new Chest(capacity, type, image))
-				.texture(image)
-				.finish(id);
+				.texture(image);
 	}
 	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, ElectroSimpleProcessingRecipeGroup group, String id) {
 		return machinesSimple(texture, group, id, 1);
@@ -605,7 +611,9 @@ public class ContentsBlocks {
 	private static ElectricMachineGroup createDigger() {
 		return new ElectricMachineGroup(Textures.get("machine/digger.png"), Digger::new, "digger");
 	}
-	
+	private static ElectricMachineGroup createBattery() {
+		return new ElectricMachineGroup(Textures.get("machine/battery.png"), BlockBattery::new, "battery");
+	}
 	//Item tags
 	static {
 		Items.tagItems("wireworld", ww_wire, ww_head, ww_tail, ww_chatter,
@@ -616,7 +624,7 @@ public class ContentsBlocks {
 		Items.tagItems("fluid", water, lava, steam);
 		Items.tagItems("special", air, grass);
 		Items.tagItems("basic", air, grass, plank, stone, leaves, logs, sand, gravel, clay, water);
-		Items.tagItems("chest", CHEST, CHEST1, CHEST2, CHEST3, CHEST4, CHEST5, HOPPER, HOPPER_suck, HOPPER_both);
+		Items.tagItems("chest", HOPPER, HOPPER_suck, HOPPER_both);
 		Items.tagItems("shape-crop", AGRO_TREE, AGRO_WATER, AGRO_SEEDS, AGRO_HOPS);
 		Items.tagItems("pipe",ipipe_STRAIGHT, ipipe_ELBOW, ipipe_IPE, ipipe_TOLEFT, ipipe_TORIGHT, ipipe_CROSS, ipipe_DUALTURN, ipipe_FILTER, IMOVER);
 	}

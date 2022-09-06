@@ -48,6 +48,11 @@
 	</properties>
 	<dependencies>
 		<dependency>
+		  	<groupId>com.google.code.findbugs</groupId>
+	  		<artifactId>annotations</artifactId>
+	  		<version>3.0.1u2</version>
+		</dependency>
+		<dependency>
 		  <groupId>org.lwjglx</groupId>
 		  <artifactId>lwjgl3-awt</artifactId>
 		  <version>0.1.8</version>

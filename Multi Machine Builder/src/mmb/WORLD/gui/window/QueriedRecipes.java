@@ -5,21 +5,15 @@ package mmb.WORLD.gui.window;
 
 import java.awt.Component;
 import java.awt.Dimension;
-import java.util.Vector;
-
 import javax.annotation.Nullable;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListModel;
 
 import mmb.WORLD.crafting.Recipe;
-import mmb.WORLD.crafting.recipes.GlobalRecipeRegistrar;
 import mmb.WORLD.gui.CellRendererGettingCellRenderer;
-import mmb.WORLD.gui.craft.SimpleRecipeView;
 import mmb.WORLD.gui.window.TabInventory.RecipeQuery;
 import monniasza.collects.Collects;
-import monniasza.collects.ListModelCollector;
-
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -77,8 +71,7 @@ public class QueriedRecipes extends GUITab {
 		// unused
 	}
 	
-	class CellRenderer extends SimpleRecipeView implements ListCellRenderer<Component>{
-		private static final long serialVersionUID = 319982452315075438L;
+	class CellRenderer implements ListCellRenderer<Component>{
 		public CellRenderer() {
 			setPreferredSize(new Dimension(600, 200));
 		}

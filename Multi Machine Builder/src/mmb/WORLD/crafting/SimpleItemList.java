@@ -13,12 +13,10 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import mmb.WORLD.block.Block;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.inventory.io.InventoryWriter;
-import mmb.WORLD.item.Item;
 import mmb.WORLD.items.ItemEntry;
 
 /**

@@ -12,11 +12,9 @@ import javax.annotation.Nullable;
 import io.vavr.Tuple2;
 import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.Recipe;
-import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.gui.craft.CatalyzedSimpleRecipeView;
-import mmb.WORLD.gui.craft.SimpleRecipeView;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Collects;
@@ -80,7 +78,7 @@ public class CatalyzedSimpleProcessingRecipeGroup extends AbstractRecipeGroup<Ca
 			return catalyst;
 		}
 		@Override
-		public RecipeGroup group() {
+		public CatalyzedSimpleProcessingRecipeGroup group() {
 			return group;
 		}
 		@Override

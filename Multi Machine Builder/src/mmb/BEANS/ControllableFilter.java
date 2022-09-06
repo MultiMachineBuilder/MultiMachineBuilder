@@ -10,7 +10,7 @@ import mmb.WORLD.inventory.storage.SingleItemInventory;
 
 /**
  * @author oskar
- *
+ * Provides filtering settings for pipes and other machines
  */
 public interface ControllableFilter extends DestroyTab{
 	/**

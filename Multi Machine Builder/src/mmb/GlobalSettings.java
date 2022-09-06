@@ -3,16 +3,10 @@
  */
 package mmb;
 
-import java.lang.reflect.Field;
-import java.util.Enumeration;
 import java.util.Locale;
-import java.util.Map;
-import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 import javax.annotation.Nonnull;
-
-import com.rainerhahnekamp.sneakythrow.Sneaky;
 
 import mmb.DATA.Settings;
 import mmb.DATA.variables.ListenableDouble;
@@ -27,24 +21,38 @@ import mmb.debug.Debugger;
  */
 public class GlobalSettings {
 	private GlobalSettings() {}
-	
+	/** The country used for translation */
 	@Nonnull public static final ListenableValue<String> country = new ListenableValue<>("US");
+	/** The game's UI language */
 	@Nonnull public static final ListenableValue<String> lang = new ListenableValue<>("en");
+	/** Should blocks be logged for execution time? */
 	@Nonnull public static final ListenerBooleanVariable logExcessiveTime = new ListenerBooleanVariable();
+	/** The accuracy of circles rendered using OpenGL*/
 	@Nonnull public static final ListenableInt circleAccuracy = new ListenableInt(32);
+	/** The UI scale mutiplier*/
 	@Nonnull public static final ListenableDouble uiScale = new ListenableDouble(1);
 	@Nonnull private static final Debugger debug = new Debugger("SETTINGS LIST");
 	
+	/** @return the locale object for current language and country */
 	public static Locale locale() {
 		return new Locale(lang.get(), country.get());
 	}
 	
 	//localization
 	private static MutableResourceBundle bundle;
+	/**
+	 * @throws IllegalStateException if the bundle is not loaded
+	 * @return the resource bundle used for translations
+	 */
 	public static MutableResourceBundle bundle() {
 		if(bundle == null) throw new IllegalArgumentException("No bundle loaded!");
 		return bundle;
 	}
+	/**
+	 * Gets the translated string
+	 * @param s dictionary key
+	 * @return
+	 */
 	@Nonnull public static String $res(String s) {
 		if(!Main.isRunning()) return s;
 		return bundle().getString(s);
@@ -64,10 +72,9 @@ public class GlobalSettings {
 		return s;
 	}
 	
-	/**
-	 * Initializes global properties. Needed only by the {@link Main} class, has no effect when used elsewhere
-	 */
+	
 	private static boolean hasInited = false;
+	/** Initializes global properties and translations. Needed only by the {@link Main} class, has no effect when used elsewhere */
 	public static void init() {
 		if(hasInited) return;
 		Settings.addSettingString("lang", "en", lang);
@@ -81,6 +88,10 @@ public class GlobalSettings {
 	}
 	
 	//hacking the ResourceBundle 
+	/**
+	 * Injects a resource bundle
+	 * @param src resource bundle
+	 */
 	public static void injectResources(ResourceBundle src) {
 		bundle().add(src);
 	}

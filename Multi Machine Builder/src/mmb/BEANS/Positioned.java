@@ -7,7 +7,7 @@ import java.awt.Point;
 
 /**
  * @author oskar
- *
+ * An object which has a position
  */
 public interface Positioned {
 	/** @return X coordinate */

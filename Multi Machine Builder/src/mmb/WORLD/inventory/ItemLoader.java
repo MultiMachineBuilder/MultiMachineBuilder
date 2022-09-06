@@ -101,13 +101,8 @@ public class ItemLoader {
 						debug.printl("Invalid array size: "+size);
 						continue loop;
 				}
-				
 				if(amt < 0) { //invalid amount
 					debug.printl("Invalid amount: "+ amt);
-					continue loop;
-				}
-				if(ent == null) { //failed to load
-					debug.printl("Failed to load the item");
 					continue loop;
 				}
 				//Success
@@ -127,7 +122,7 @@ public class ItemLoader {
 		Queue<JsonNode> nodes = new ArrayDeque<>(); //prepare the queue
 		nodes.add(new DoubleNode(capacity)); // write the volume
 		for(ItemRecord n: iter) { //write items
-			if(n.amount() == 0) continue;
+			if(n.amount() == 0) continue; //empty entry, skip
 			JsonNode data = n.item().save();
 			ArrayNode ent = JsonTool.newArrayNode(); //prepare the item node
 			ent.add(n.item().type().id()); //write the type

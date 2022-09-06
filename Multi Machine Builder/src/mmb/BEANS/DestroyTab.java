@@ -8,7 +8,7 @@ import mmb.WORLD.gui.window.GUITab;
 
 /**
  * @author oskar
- *
+ * Allows shared GUI tabs to reset a block for next use
  */
 public interface DestroyTab {
 	/**

@@ -36,7 +36,7 @@ public class TabRecipes extends JPanel {
 	 * Create the panel.
 	 */
 	public TabRecipes() {
-		setLayout(new MigLayout("", "[grow][]", "[][grow]"));
+		setLayout(new MigLayout("", "[grow]", "[][grow]"));
 		
 		JLabel lblNewLabel = new JLabel("Select a recipe group, or search using inventory");
 		add(lblNewLabel, "flowx,cell 0 0,growx");

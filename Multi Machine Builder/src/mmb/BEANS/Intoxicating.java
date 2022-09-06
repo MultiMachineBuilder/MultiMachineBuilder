@@ -4,7 +4,6 @@
 package mmb.BEANS;
 
 import mmb.WORLD.chance.Chance;
-import mmb.WORLD.crafting.RecipeOutput;
 
 /**
  * @author oskar

@@ -71,20 +71,33 @@ public class Pickaxe extends ItemEntity {
 	@Override
 	public void render(Graphics g, int x, int y, int w, int h) {
 		super.render(g, x, y, w, h);
+		renderDurability(1.0-((double)uses/durability), g, x, y, w, h);
+	}
+	
+	/**
+	 * Renders durability for a block. Used most by items, but still useful for blocks
+	 * @param percent
+	 * @param g graphics context
+	 * @param x left X coordinate
+	 * @param y upper Y coordinate
+	 * @param w width
+	 * @param h height
+	 */
+	public static void renderDurability(double percent, Graphics g, int x, int y, int w, int h) {
 		//render durability
-		if(uses > 0) {
-			double percent = 1.0-((double)uses/durability);
+		if(percent > 0) {
 			int min = w/10;
 			int max = (w*9)/10;
+			int yoff = (h*9)/10;
 			if(percent < 0) {
 				g.setColor(Color.RED);
-				g.drawLine(x+min, y+max, x+max, y+max);
+				g.drawLine(x+min, y+yoff, x+max, y+yoff);
 			}else if(percent > 1) {
 				g.setColor(Color.CYAN);
-				g.drawLine(x+min, y+max, x+max, y+max);
+				g.drawLine(x+min, y+yoff, x+max, y+yoff);
 			}else{
 				g.setColor(Color.BLACK);
-				g.drawLine(x+min, y+max, x+max, y+max);
+				g.drawLine(x+min, y+yoff, x+max, y+yoff);
 				int red = 0; 
 				int green = 0;
 				if(percent > 0.5) {
@@ -98,9 +111,8 @@ public class Pickaxe extends ItemEntity {
 				int scale = (w*8)/10;
 				double offset = min+(scale*percent);
 				g.setColor(c);
-				g.drawLine(x+min, y+max, (int)(x+min+offset), y+max);
+				g.drawLine(x+min, y+yoff, (int)(x+min+offset), y+yoff);
 			}
-			
 		}
 	}
 	

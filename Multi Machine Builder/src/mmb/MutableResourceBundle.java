@@ -18,12 +18,22 @@ import monniasza.collects.Collects;
  */
 public class MutableResourceBundle extends ResourceBundle {
 	
+	/** Creates an empty mutable resource bundle*/
 	public MutableResourceBundle() {}
 	
+	/** 
+	 * Creates a mutable resource bundle with contents of the input bundle
+	 * @param rb source bundle
+	 */
 	public MutableResourceBundle(ResourceBundle rb) {add(rb);}
 
+	/** The data array used by this bundle */
 	public final Map<String, Object> map = new HashMap<>();
 	
+	/**
+	 * Adds contents of the resource bundle to this bundle
+	 * @param rb source bundle
+	 */
 	public void add(ResourceBundle rb) {
 		for(String key: Collects.iter(rb.getKeys())) {
 			map.put(key, rb.getObject(key));
