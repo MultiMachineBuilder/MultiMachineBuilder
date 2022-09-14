@@ -184,7 +184,7 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, SingleItem{
 	 * @apiNote This method is used for compatibility with {@link SingleItem}
 	 * @return this item
 	 */
-	default ItemEntry item() { //NOSONAR false positive
+	default ItemEntry item() {
 		return this;
 	}
 	/**
