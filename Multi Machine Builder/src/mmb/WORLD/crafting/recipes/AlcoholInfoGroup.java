@@ -125,4 +125,8 @@ public class AlcoholInfoGroup extends AbstractRecipeGroup<AlcoholInfoGroup.Alcoh
 	public RecipeView<AlcoholInfo> createView() {
 		return new AlcoholInfoView();
 	}
+	@Override
+	public boolean isCatalyzed() {
+		return false;
+	}
 }

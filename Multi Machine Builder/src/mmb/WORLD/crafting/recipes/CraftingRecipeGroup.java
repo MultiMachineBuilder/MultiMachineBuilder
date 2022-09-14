@@ -159,4 +159,8 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup<CraftingRecipeGroup
 	public CraftingRecipeView createView() {
 		return new CraftingRecipeView();
 	}
+	@Override
+	public boolean isCatalyzed() {
+		return true;
+	}
 }

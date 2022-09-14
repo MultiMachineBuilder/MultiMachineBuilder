@@ -3,8 +3,10 @@
  */
 package mmb.WORLD.electromachine;
 
+import mmb.BEANS.Electric;
 import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.electric.Battery;
+import mmb.WORLD.electric.Electricity;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.inventory.Inventory;
 
@@ -12,7 +14,7 @@ import mmb.WORLD.inventory.Inventory;
  * @author oskar
  * Provides an interface to a single recipe at once machine
  */
-public interface ElectroMachine {
+public interface ElectroMachine extends Electric{
 	/**
 	 * @return the voltage tier
 	 */
@@ -36,7 +38,11 @@ public interface ElectroMachine {
 	/**
 	 * @return the recipe group
 	 */
-	public RecipeGroup recipes();
+	public RecipeGroup<?> recipes();
+	@Override
+	public default Electricity getElectricity() {
+		return Electricity.optional(energy());
+	}
 	
 	/**
 	 * @return does machine auto-extract items?

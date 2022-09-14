@@ -4,8 +4,6 @@
 package mmb.WORLD.crafting.helper;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -13,8 +11,6 @@ import com.google.common.util.concurrent.Runnables;
 
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.Refreshable;
-import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup;
-import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup.ElectroSimpleProcessingRecipe;
 import mmb.WORLD.crafting.recipes.StackedProcessingRecipeGroup;
 import mmb.WORLD.crafting.recipes.StackedProcessingRecipeGroup.StackedProcessingRecipe;
 import mmb.WORLD.electric.Battery;

@@ -190,9 +190,9 @@ public class CraftGUI extends GUITab {
 		btnSave.setBackground(new Color(25, 25, 112));
 		btnSave.addActionListener(e -> {
 			//Get the stencil
-			ItemRecord record = inventoryController.getSelectedValue();
-			if(record == null) return;
-			ItemEntry item = record.item();
+			ItemRecord irecord = inventoryController.getSelectedValue();
+			if(irecord == null) return;
+			ItemEntry item = irecord.item();
 			if(item instanceof Stencil) {
 				Stencil newStencil = new Stencil(craftingGrid.items);
 				Inventory inv0 = inventoryController.getInv();

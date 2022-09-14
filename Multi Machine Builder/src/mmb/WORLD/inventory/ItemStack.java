@@ -6,12 +6,7 @@ package mmb.WORLD.inventory;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.ainslec.picocog.PicoWriter;
-
-import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import it.unimi.dsi.fastutil.objects.Object2IntMaps;
-import mmb.WORLD.crafting.RecipeOutput;
-import mmb.WORLD.inventory.io.InventoryWriter;
+import mmb.WORLD.crafting.SingleItem;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Identifiable;
 
@@ -19,7 +14,7 @@ import monniasza.collects.Identifiable;
  * @author oskar
  * An item entry is intended for use in inventories.
  */
-public final class ItemStack implements Identifiable<ItemEntry>, RecipeOutput{
+public final class ItemStack implements Identifiable<ItemEntry>, SingleItem{
 	@Override
 	public String toString() {
 		return "ItemStack " + item + " � " + amount;
@@ -42,13 +37,6 @@ public final class ItemStack implements Identifiable<ItemEntry>, RecipeOutput{
 		super();
 		this.item = item;
 		this.amount = amount;
-	}
-
-	/**
-	 * @return the volume of item entry
-	 */
-	public double volume() {
-		return item.volume() * amount;
 	}
 
 	@Override
@@ -74,8 +62,8 @@ public final class ItemStack implements Identifiable<ItemEntry>, RecipeOutput{
 		return true;
 	}
 	
-	public boolean equalsType(ItemStack other) {
-		return equalsType(other.item);
+	public boolean equalsType(SingleItem other) {
+		return equalsType(other.item());
 	}
 
 	public boolean equalsType(ItemEntry item) {
@@ -89,38 +77,12 @@ public final class ItemStack implements Identifiable<ItemEntry>, RecipeOutput{
 	}
 
 	@Override
-	public void produceResults(InventoryWriter tgt, int amount) {
-		tgt.write(item, amount*this.amount);
+	public ItemEntry item() {
+		return item;
 	}
 
 	@Override
-	public void represent(PicoWriter out) {
-		out.write(amount +"� "+item.title());
-	}
-
-	@Override
-	public double outVolume() {
-		return volume();
-	}
-		
-	@Override
-	public Object2IntMap<ItemEntry> getContents() {
-		return Object2IntMaps.singleton(item, amount);
-	}
-
-	@Override
-	public boolean contains(ItemEntry entry) {
-		return item.equals(entry);
-	}
-
-	@Override
-	public int get(ItemEntry entry) {
-		return getOrDefault(entry, 0);
-	}
-
-	@Override
-	public int getOrDefault(ItemEntry entry, int value) {
-		if(contains(entry)) return amount;
-		return value;
+	public int amount() {
+		return amount;
 	}
 }

@@ -173,4 +173,9 @@ AbstractRecipeGroup<ComplexCatalyzedProcessingRecipeGroup.ComplexCatalyzedProces
 	public RecipeView<ComplexCatalyzedProcessingRecipe> createView() {
 		return new ComplexCatalyzedRecipeView();
 	}
+
+	@Override
+	public boolean isCatalyzed() {
+		return true;
+	}
 }

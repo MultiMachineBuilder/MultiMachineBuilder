@@ -15,7 +15,6 @@ import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
-import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.items.ItemEntry;
 
@@ -63,17 +62,17 @@ public class SimpleItemList implements RecipeOutput {
 	 * Creates an item list with items from the stack
 	 * @param stack item stack
 	 */
-	public SimpleItemList(ItemStack stack) {
-		data.put(stack.item, stack.amount);
+	public SimpleItemList(SingleItem stack) {
+		data.put(stack.item(), stack.amount());
 	}
 	
 	/**
 	 * Creates an item list with items from the stack
 	 * @param stacks item stacks
 	 */
-	public SimpleItemList(ItemStack... stacks) {
-		for(ItemStack stack: stacks) {
-			data.put(stack.item, stack.amount);
+	public SimpleItemList(SingleItem... stacks) {
+		for(SingleItem stack: stacks) {
+			data.put(stack.item(), stack.amount());
 		}
 	}
 	

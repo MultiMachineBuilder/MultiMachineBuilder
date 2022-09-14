@@ -73,6 +73,9 @@ public interface Recipe<T extends Recipe<T>>{
 	 * @throws UnsupportedOperationException if the implementation is a stencil, or something similar (optional operation)
 	 */
 	@Nonnull public RecipeGroup<T> group();
+	/**
+	 * @return randomly chanced items
+	 */
 	@Nonnull public default Chance luck() {
 		return Chance.NONE;
 	}

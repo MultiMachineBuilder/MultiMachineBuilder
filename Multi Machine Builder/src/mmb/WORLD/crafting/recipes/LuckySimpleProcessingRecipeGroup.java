@@ -154,5 +154,9 @@ public class LuckySimpleProcessingRecipeGroup extends AbstractRecipeGroup<LuckyS
 	public LuckySimpleRecipeView createView() {
 		return new LuckySimpleRecipeView();
 	}
+	@Override
+	public boolean isCatalyzed() {
+		return false;
+	}
 
 }

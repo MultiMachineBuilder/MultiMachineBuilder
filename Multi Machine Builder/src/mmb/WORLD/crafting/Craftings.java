@@ -36,7 +36,6 @@ import mmb.WORLD.crafting.recipes.StackedProcessingRecipeGroup;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.electromachine.Transformer.TransformerData;
 import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.items.electronics.Electronics;
@@ -83,8 +82,8 @@ public class Craftings {
 	public static void transact(ItemEntry in, RecipeOutput out, Inventory from, Inventory to) {
 		transact(in, 1, out, from, to);
 	}
-	public static void transact(ItemStack in, RecipeOutput out, Inventory from, Inventory to) {
-		transact(in.item, in.amount, out, from, to);
+	public static void transact(SingleItem in, RecipeOutput out, Inventory from, Inventory to) {
+		transact(in.item(), in.amount(), out, from, to);
 	}
 	public static void transact(ItemEntry entry, int inAmount, RecipeOutput out, Inventory from, Inventory to) {
 		Objects.requireNonNull(from, "from is null");

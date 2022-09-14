@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.electric;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.swing.JProgressBar;
 
 import mmb.UnitFormatter;
@@ -48,7 +50,7 @@ public interface Electricity {
 	/**
 	 * @return the maximum voltage
 	 */
-	public VoltageTier voltage();
+	@Nonnull public VoltageTier voltage();
 	/**
 	 * @return the power pressure in joules
 	 */
@@ -70,9 +72,9 @@ public interface Electricity {
 	}
 
 	/**
-	 * Does nothing. Used to just make wires look good.
+	 * Does nothing. Used to make wires look good and in {@link #optional(Electricity)};
 	 */
-	public static final Electricity NONE = new Electricity() {
+	@Nonnull public static final Electricity NONE = new Electricity() {
 		@Override
 		public double insert(double amt, VoltageTier volt) {
 			return 0;
@@ -179,7 +181,7 @@ public interface Electricity {
 	}
 	
 	/**
-	 * Balancer power pressure of given block
+	 * Balances power pressure of given block
 	 * @param block block, which owns the battery
 	 * @param proxy the map proxy to schedule calculations
 	 * @param bat battery to balance
@@ -216,7 +218,7 @@ public interface Electricity {
 		});
 	}
 	/**
-	 * Balancer power pressure of given block
+	 * Balances power pressure of given block
 	 * @param block block, which owns the battery
 	 * @param proxy the map proxy to schedule calculations
 	 * @param bat battery to balance
@@ -250,5 +252,13 @@ public interface Electricity {
 			bat.pressure = newPressure;
 			if(Double.isNaN(newPressure)) bat.pressure = 0;
 		});
+	}
+	/**
+	 * Makes sure that electricity is non-null
+	 * @param energy input electrical connection
+	 * @return the Electricity.NONE if null or else input value
+	 */
+	@Nonnull public static Electricity optional(@Nullable Electricity energy) {
+		return energy==null?NONE:energy;
 	}
 }

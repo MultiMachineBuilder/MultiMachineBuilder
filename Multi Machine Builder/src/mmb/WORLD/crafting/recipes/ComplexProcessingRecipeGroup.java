@@ -155,4 +155,9 @@ public class ComplexProcessingRecipeGroup extends AbstractRecipeGroup<ComplexPro
 	public ComplexRecipeView createView() {
 		return new ComplexRecipeView();
 	}
+
+	@Override
+	public boolean isCatalyzed() {
+		return false;
+	}
 }

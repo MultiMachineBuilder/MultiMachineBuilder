@@ -24,7 +24,7 @@ import mmb.WORLD.worlds.MapProxy;
  * @author oskar
  * A class with many common utilities for machines
  */
-public abstract class CommonMachine extends SkeletalBlockEntityRotary implements ElectroMachine{
+public abstract class CommonMachine extends SkeletalBlockEntityRotary implements ElectroMachine, Electric{
 
 	/** The input inventory */
 	@Nonnull public final SimpleInventory in = new SimpleInventory();
@@ -131,6 +131,7 @@ public abstract class CommonMachine extends SkeletalBlockEntityRotary implements
 	public Battery energy() {
 		return elec;
 	}
+	
 
 	@Override
 	public final void onTick(MapProxy proxy) {

@@ -125,4 +125,8 @@ public class AgroRecipeGroup extends AbstractRecipeGroup<AgroRecipeGroup.AgroPro
 	public RecipeView<AgroProcessingRecipe> createView() {
 		return new AgroRecipeView();
 	}
+	@Override
+	public boolean isCatalyzed() {
+		return false;
+	}
 }

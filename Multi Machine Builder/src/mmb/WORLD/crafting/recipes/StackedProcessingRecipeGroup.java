@@ -155,5 +155,9 @@ public class StackedProcessingRecipeGroup extends AbstractRecipeGroup<StackedPro
 	public StackedRecipeView createView() {
 		return new StackedRecipeView();
 	}
+	@Override
+	public boolean isCatalyzed() {
+		return false;
+	}
 
 }

@@ -138,4 +138,8 @@ public class CatalyzedSimpleProcessingRecipeGroup extends AbstractRecipeGroup<Ca
 	public CatalyzedSimpleRecipeView createView() {
 		return new CatalyzedSimpleRecipeView();
 	}
+	@Override
+	public boolean isCatalyzed() {
+		return false;
+	}
 }

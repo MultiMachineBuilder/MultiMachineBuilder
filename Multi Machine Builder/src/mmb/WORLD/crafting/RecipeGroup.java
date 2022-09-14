@@ -15,7 +15,8 @@ import monniasza.collects.Identifiable;
 
 /**
  * @author oskar
- *
+ * @param <T> type of recipes
+ * Stores recipes.
  */
 public interface RecipeGroup<T extends Recipe<?>> extends Identifiable<String>, Titled{
 	/**@return a set with recipes*/
@@ -30,4 +31,9 @@ public interface RecipeGroup<T extends Recipe<?>> extends Identifiable<String>, 
 	 * @return a cell renderer for compatible recipes
 	 */
 	public @Nonnull ListCellRenderer<? super T> cellRenderer();
+	
+	/**
+	 * @return does the recipe group support catalysts?
+	 */
+	public boolean isCatalyzed();
 }

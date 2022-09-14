@@ -29,7 +29,7 @@ import mmb.WORLD.worlds.world.World;
  * @author oskar
  *
  */
-public final class BlockBattery extends SkeletalBlockEntityRotary implements BlockActivateListener {
+public final class BlockBattery extends SkeletalBlockEntityRotary implements BlockActivateListener, Electric {
 
 	@Nonnull private final ElectroMachineType type;
 	@Nonnull public final Battery battery;
@@ -103,6 +103,10 @@ public final class BlockBattery extends SkeletalBlockEntityRotary implements Blo
 	@Override
 	public Electricity getElectricalConnection(Side s) {
 		return Electricity.insertOnly(battery);
+	}
+	@Override
+	public Electricity getElectricity() {
+		return battery;
 	}
 
 	@Override

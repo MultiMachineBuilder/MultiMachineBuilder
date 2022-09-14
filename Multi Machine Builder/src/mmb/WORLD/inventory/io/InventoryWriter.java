@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 import javax.annotation.Nonnull;
 
 import mmb.WORLD.crafting.RecipeOutput;
-import mmb.WORLD.inventory.ItemStack;
+import mmb.WORLD.crafting.SingleItem;
 import mmb.WORLD.items.ItemEntry;
 
 /**
@@ -27,8 +27,8 @@ public interface InventoryWriter {
 	 * @param stack item stack to insert
 	 * @return number of items inserted into inventory
 	 */
-	public default int write(ItemStack stack) {
-		return write(stack.item, stack.amount);
+	public default int write(SingleItem stack) {
+		return write(stack.item(), stack.amount());
 	}
 	/**
 	 * @param ent item to insert

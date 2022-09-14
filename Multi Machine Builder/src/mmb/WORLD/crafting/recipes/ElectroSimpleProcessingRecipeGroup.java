@@ -128,4 +128,8 @@ public class ElectroSimpleProcessingRecipeGroup extends AbstractRecipeGroup<Elec
 	public SimpleRecipeView createView() {
 		return new SimpleRecipeView();
 	}
+	@Override
+	public boolean isCatalyzed() {
+		return false;
+	}
 }

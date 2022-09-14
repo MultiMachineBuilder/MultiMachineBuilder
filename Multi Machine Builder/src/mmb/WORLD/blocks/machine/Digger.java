@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
+import mmb.BEANS.Electric;
 import mmb.BEANS.ToItemUnifiedCollector;
 import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.block.BlockEntry;
@@ -31,7 +32,7 @@ import mmb.WORLD.worlds.world.World;
  * @author oskar
  *
  */
-public class Digger extends BlockEntityData implements ToItemUnifiedCollector, BlockActivateListener {
+public class Digger extends BlockEntityData implements ToItemUnifiedCollector, BlockActivateListener, Electric {
 
 	@Override
 	public BlockType type() {
@@ -81,7 +82,6 @@ public class Digger extends BlockEntityData implements ToItemUnifiedCollector, B
 		node.set("energy", battery.save());
 	}
 
-	
 	private int rangeX = 4;
 	private int rangeY = 4;
 	private int scanX;
@@ -212,6 +212,8 @@ public class Digger extends BlockEntityData implements ToItemUnifiedCollector, B
 		return battery;
 	}
 
-	
-
+	@Override
+	public Electricity getElectricity() {
+		return battery;
+	}
 }

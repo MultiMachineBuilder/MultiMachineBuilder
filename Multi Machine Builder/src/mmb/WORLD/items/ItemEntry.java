@@ -11,22 +11,16 @@ import javax.annotation.Nullable;
 import javax.swing.Icon;
 
 import org.ainslec.picocog.PicoWriter;
-import org.joml.Vector4f;
-import org.joml.Vector4fc;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.NullNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
-import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import mmb.BEANS.Saver;
 import mmb.DATA.json.JsonTool;
-import mmb.GL.RenderCtx;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.chance.Chance;
-import mmb.WORLD.crafting.RecipeOutput;
+import mmb.WORLD.crafting.SingleItem;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.inventory.io.InventoryWriter;
@@ -40,7 +34,7 @@ import mmb.WORLD.worlds.world.World;
  * @author oskar
  * An item entry representing a single unit of item
  */
-public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput{	
+public interface ItemEntry extends Saver<@Nullable JsonNode>, SingleItem{	
 	
 	/**
 	 * @return the volume of single given {@code ItemEntry}
@@ -137,40 +131,17 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput{
 		return Chance.tryDrop(this, inv, map, x, y);
 	}
 	@Override
-	default void produceResults(InventoryWriter tgt, int amount) {
-		tgt.write(this, amount);
-	}
-	@Override
 	default void represent(PicoWriter out) {
 		out.write(title());
-	}
-	@Override
-	default double outVolume() {
-		return volume();
-	}
-	@SuppressWarnings("null")
-	@Override
-	default Object2IntMap<ItemEntry> getContents() {
-		return Object2IntMaps.singleton(this, 1);
-	}
-	@Override
-	default boolean contains(ItemEntry entry) {
-		return equals(entry);
-	}
-	@Override
-	default int get(ItemEntry entry) {
-		return getOrDefault(entry, 0);
-	}
-	@Override
-	default int getOrDefault(ItemEntry entry, int value) {
-		return equals(entry)?1:value;
 	}
 	
 	//Inventory management
 	/**
 	 * @param inv
 	 */
-	default void resetInventory(Inventory inv) {}
+	default void resetInventory(Inventory inv) {
+		//unused
+	}
 	
 	//Serialization
 	/**
@@ -206,5 +177,23 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, RecipeOutput{
 			return Items.items.get(data.asText()).create();
 		}
 		return null;
+	}
+	@Deprecated(forRemoval = false) @Override
+	/**
+	 * @deprecated This method returns the same item, because it pertains to a single item
+	 * @apiNote This method is used for compatibility with {@link SingleItem}
+	 * @return this item
+	 */
+	default ItemEntry item() { //NOSONAR false positive
+		return this;
+	}
+	/**
+	 * @deprecated This method returns a constant 1, because it pertains to a single item
+	 * @apiNote This method is used for compatibility with {@link SingleItem}
+	 * @return the integer number 1. This is a single item
+	 */
+	@Deprecated(forRemoval = false) @Override
+	default int amount() {
+		return 1;
 	}
 }
