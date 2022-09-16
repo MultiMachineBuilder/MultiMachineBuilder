@@ -31,7 +31,7 @@ import mmb.WORLD.blocks.machine.line.Furnace;
 import mmb.WORLD.blocks.machine.manual.Crafting;
 import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.electromachine.Transformer.TransformerData;
+import mmb.WORLD.electromachine.BlockTransformer.TransformerData;
 import mmb.WORLD.generator.Generators;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.electronics.Electronics;
@@ -107,7 +107,6 @@ public final class ModLoader {
 		Crafting.init();
 		Nuker.init();
 		Generators.init();
-		Furnace.init();
 		Tools.init();
 		FullScreen.initialize();
 		TransformerData.init();

@@ -57,16 +57,16 @@ public class GlobalSettings {
 		if(!Main.isRunning()) return s;
 		return bundle().getString(s);
 	}
-	public static String $res1(String s) {
+	@Nonnull public static String $res1(String s) {
 		if(bundle == null || !bundle.containsKey(s)) return "UNTRANSLATABLE "+s;
 		return bundle.getString(s);
 	}
-	public static String $str(String s) {
+	@Nonnull public static String $str(String s) {
 		if(s.charAt(0) == '#')
 			return bundle().getString(s.substring(1));
 		return s;
 	}
-	public static String $str1(String s) {
+	@Nonnull public static String $str1(String s) {
 		if(s.charAt(0) == '#')
 			return $res1(s.substring(1));
 		return s;

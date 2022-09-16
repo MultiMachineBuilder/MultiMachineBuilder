@@ -32,7 +32,7 @@ public class SimpleItemList implements RecipeOutput {
 	 * Creates an empty item list
 	 */
 	public SimpleItemList() {}
-		
+			
 	/**
 	 * Creates an item list from a map
 	 * @param items item map to copy

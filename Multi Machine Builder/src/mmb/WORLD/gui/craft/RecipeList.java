@@ -19,7 +19,7 @@ import javax.swing.JList;
 /**
  * Represents a recipe list for almost anything (but not pickaxes)
  * @author oskar
- * @param <T> type of the recipe
+ * @param <T> type of the recipes
  * @param <G> type of the recipe group
  */
 public class RecipeList<T extends Recipe<T>, G extends RecipeGroup<T>> extends JScrollPane {

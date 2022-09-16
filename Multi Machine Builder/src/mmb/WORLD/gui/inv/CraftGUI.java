@@ -7,15 +7,16 @@ import org.ainslec.picocog.PicoWriter;
 import org.apache.commons.collections4.Bag;
 import org.apache.commons.collections4.bag.HashBag;
 
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
 
 import mmb.DATA.variables.Variable;
 import mmb.LAMBDAS.Consumers;
 import mmb.WORLD.blocks.machine.manual.Crafting;
-import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.RecipeOutput;
-import mmb.WORLD.crafting.recipes.CraftingRecipeGroup.CraftingRecipe;
+import mmb.WORLD.crafting.SimpleItemList;
 import mmb.WORLD.gui.window.GUITab;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
@@ -23,6 +24,8 @@ import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.items.data.Stencil;
+import mmb.WORLD.recipes.Craftings;
+import mmb.WORLD.recipes.CraftingRecipeGroup.CraftingRecipe;
 import mmb.debug.Debugger;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
@@ -74,7 +77,7 @@ public class CraftGUI extends GUITab {
 	 * @param ctrl inventory controller, which will be used as a selector
 	 */
 	public CraftGUI(int size, @Nullable Crafting crafter, @Nullable WorldWindow window, InventoryController ctrl) {
-		Bag<ItemEntry> ins = new HashBag<>();
+		Object2IntMap<ItemEntry> ins = new Object2IntOpenHashMap<>();
 		AtomicReference<RecipeOutput> outs = new AtomicReference<>();
 		
 		setLayout(new MigLayout("", "[263px][]", "[155px,grow]"));
@@ -104,7 +107,7 @@ public class CraftGUI extends GUITab {
 			else {
 				for(ItemEntry item: contents) {
 						if(item != null) {
-							ins.add(item);
+							ins.mergeInt(item, 0, Integer::sum);
 						}
 				}
 				PicoWriter out = new PicoWriter();
@@ -139,7 +142,7 @@ public class CraftGUI extends GUITab {
 			if(rout == null) return;
 			Inventory inv0 = inventoryController.getInv();
 			if(inv0 == null) return;
-			Craftings.transact(ins, rout, inv0, inv0);
+			Craftings.transact(new SimpleItemList(ins), rout, inv0, inv0);
 			inventoryController.refresh();
 		});
 		verticalBox.add(btnCraft);

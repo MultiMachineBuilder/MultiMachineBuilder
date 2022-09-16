@@ -15,13 +15,13 @@ import mmb.WORLD.items.ItemEntry;
  * @author oskar
  *
  */
-public abstract class ItemFilter extends ItemEntity implements Predicate<ItemEntry> {
+public abstract class ItemFilter extends ItemEntity implements Predicate<@Nonnull ItemEntry> {
 
 	/**
 	 * Constructs an item filter
 	 * @param type
 	 */
-	protected ItemFilter(@Nonnull ItemEntityType type) {
+	protected ItemFilter(ItemEntityType type) {
 		super(type);
 	}
 	

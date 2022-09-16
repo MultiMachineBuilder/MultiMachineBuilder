@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.ainslec.picocog.PicoWriter;
@@ -20,7 +21,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.DATA.Save;
-import mmb.WORLD.crafting.Craftings;
+import mmb.WORLD.chance.Chance;
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeGroup;
 import mmb.WORLD.crafting.RecipeOutput;
@@ -30,6 +31,8 @@ import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.item.ItemEntity;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.recipes.CraftingRecipeGroup.CraftingRecipe;
+import mmb.WORLD.recipes.Craftings;
 import mmb.debug.Debugger;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
@@ -38,7 +41,7 @@ import monniasza.collects.grid.Grid;
  * @author oskar
  * Represents a crafting grid recipe
  */
-public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>, Recipe<Stencil> {
+public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>{
 	
 	//Others
 	private static final Debugger debug = new Debugger("STENCIL");
@@ -85,11 +88,11 @@ public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>, Re
 		return grid.spliterator();
 	}
 	@Override
-	public void forEach(@SuppressWarnings("null") Consumer<? super ItemEntry> c) {
+	public void forEach(Consumer<? super ItemEntry> c) {
 		grid.forEach(c);
 	}
 
-	private Grid<ItemEntry> grid = new FixedGrid<>(0);
+	@Nonnull private Grid<ItemEntry> grid = new FixedGrid<>(0);
 	
 	//Item methods
 	private String title = "Crafting stencil - none";
@@ -135,17 +138,20 @@ public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>, Re
 	private void doReplaceTable(Grid<ItemEntry> items) {
 		Grid<ItemEntry> trim = items.trim();
 		grid = trim;
-		results = Craftings.crafting.findRecipe(items).out;
 		if(trim.size() == 0) {
 			title = "Crafting stencil - none";
-		}else if(results == null) {
-			title = "Crafting stencil - invalid";
-		}else {
-			PicoWriter writer = new PicoWriter();
-			writer.write("Crafting stencil - ");
-			results.represent(writer);
-			title = writer.toString();
+			return;
 		}
+		CraftingRecipe recipe = recipe();
+		if(recipe == null) {
+			title = "Crafting stencil - invalid";
+			return;
+		}
+		RecipeOutput results = recipe.out;
+		PicoWriter writer = new PicoWriter();
+		writer.write("Crafting stencil - ");
+		results.represent(writer);
+		title = writer.toString();
 	}
 
 	@Override
@@ -173,67 +179,14 @@ public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>, Re
 	}
 
 	//Crafting methods
-	@Override
-	public int maxCraftable(Inventory src, int amount) {
-		RecipeOutput ins = inputs();
-		return Math.min(amount, Inventory.howManyTimesThisContainsThat(src, ins));
-	}
-	@Override
-	public int craft(Inventory src, Inventory tgt, int amount) {
-		return Craftings.transact(inputs(), output(), tgt, src, amount);
-	}
-	
-	private RecipeOutput results;
-	@SuppressWarnings("null")
-	@Override
-	public RecipeOutput output() {
-		if(results == null) return RecipeOutput.NONE;
-		return results;
-	}
-	
-	private RecipeOutput ins;
-	@SuppressWarnings("null")
-	@Override
-	public RecipeOutput inputs() { //FIXME the inventory contains null records
-		if(ins == null) {
-			Object2IntMap<ItemEntry> map = new Object2IntOpenHashMap<>();
-			for(ItemEntry entry: grid) {
-				if(entry != null) map.compute(entry, (item, amt) -> amt+1);
-			}
-			ins = new SimpleItemList(map);
-			debug.printl("Ingredients: "+ins);
-		}
-		return ins;
-	}
-
-	@Override
-	public ItemEntry catalyst() {
-		return null;
-	}
-
-	@Override
-	public RecipeGroup group() {
-		return Craftings.crafting;
-	}
-
-	@Override
-	public Stencil that() {
-		return this;
-	}
-
-	@Override
-	public Component createComponent() {
-		return null;
-	}
-
-	@Override
-	public double energy() {
-		return 0;
-	}
-
-	@Override
-	public VoltageTier voltTier() {
-		return VoltageTier.V1;
+	private CraftingRecipe recipe0;
+	/**
+	 * @return recipe for this stencil
+	 */
+	@Nullable public CraftingRecipe recipe() {
+		if(recipe0 == null) 
+			recipe0 = Craftings.crafting.findRecipe(grid);
+		return recipe0;
 	}
 	
 }

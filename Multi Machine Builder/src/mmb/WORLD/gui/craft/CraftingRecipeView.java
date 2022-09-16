@@ -9,9 +9,10 @@ import javax.swing.JLabel;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.swing.JComponent;
-import mmb.WORLD.crafting.recipes.CraftingRecipeGroup.CraftingRecipe;
+
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.recipes.CraftingRecipeGroup.CraftingRecipe;
 import monniasza.collects.grid.Grid;
 import javax.swing.JList;
 import java.awt.Color;

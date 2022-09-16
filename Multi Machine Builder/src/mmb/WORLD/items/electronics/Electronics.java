@@ -19,6 +19,9 @@ import monniasza.collects.selfset.SelfSet;
  */
 public class Electronics {
 	private Electronics() {}
+	/**
+	 * Initializes electronic components
+	 */
 	public static void init() {}
 	
 	//Component index
@@ -67,6 +70,7 @@ public class Electronics {
 	//Components themselves
 	//Enhanced
 	@Nonnull public static final ElectronicsComponent ic0 = enhanced.generate(IC);
+	
 	//Advanced
 	@Nonnull public static final ElectronicsComponent resistor1 = advanced.generate(resistor);
 	@Nonnull public static final ElectronicsComponent capacitor1 = advanced.generate(capacitor);
@@ -75,6 +79,7 @@ public class Electronics {
 	@Nonnull public static final ElectronicsComponent transistor1 = advanced.generate(transistor);
 	@Nonnull public static final ElectronicsComponent ic1 = advanced.generate(IC);
 	@Nonnull public static final ElectronicsComponent die1 = advanced.generate(die);
+	
 	//Extreme
 	@Nonnull public static final ElectronicsComponent resistor2 = extreme.generate(resistor);
 	@Nonnull public static final ElectronicsComponent capacitor2 = extreme.generate(capacitor);
@@ -88,6 +93,7 @@ public class Electronics {
 	@Nonnull public static final ElectronicsComponent ram2 = extreme.generate(ram);
 	@Nonnull public static final ElectronicsComponent cpu2 = extreme.generate(cpu);
 	@Nonnull public static final ElectronicsComponent gpu2 = extreme.generate(gpu);
+	
 	//Insane
 	@Nonnull public static final ElectronicsComponent resistor3 = insane.generate(resistor);
 	@Nonnull public static final ElectronicsComponent capacitor3 = insane.generate(capacitor);
@@ -104,6 +110,7 @@ public class Electronics {
 	@Nonnull public static final ElectronicsComponent ai3 = insane.generate(ai);
 	@Nonnull public static final ElectronicsComponent rtx3 = insane.generate(rtx);
 	@Nonnull public static final ElectronicsComponent neuron3 = insane.generate(neuron);
+	
 	//Ludicrous
 	@Nonnull public static final ElectronicsComponent resistor4 = ludicrous.generate(resistor);
 	@Nonnull public static final ElectronicsComponent capacitor4 = ludicrous.generate(capacitor);
@@ -123,6 +130,7 @@ public class Electronics {
 	@Nonnull public static final ElectronicsComponent bhole4 = ludicrous.generate(bhole);
 	@Nonnull public static final ElectronicsComponent brain4 = ludicrous.generate(brain);
 	@Nonnull public static final ElectronicsComponent bbreak4 = ludicrous.generate(bbreak);
+	
 	//Ultimate
 	@Nonnull public static final ElectronicsComponent resistor5 = ultimate.generate(resistor);
 	@Nonnull public static final ElectronicsComponent capacitor5 = ultimate.generate(capacitor);

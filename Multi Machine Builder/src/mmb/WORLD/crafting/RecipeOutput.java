@@ -111,7 +111,6 @@ public interface RecipeOutput extends Chance{
 	@Override
 	int hashCode();
 
-	
 	/** Represents a recipe output that does nothing */
 	@Nonnull public static final RecipeOutput NONE = new RecipeOutput() {
 

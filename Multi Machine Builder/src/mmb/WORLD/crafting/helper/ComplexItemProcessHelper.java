@@ -14,14 +14,14 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.Refreshable;
 import mmb.WORLD.crafting.SimpleItemList;
-import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup;
-import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup.ComplexProcessingRecipe;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.electromachine.CycleResult;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.recipes.ComplexRecipeGroup;
+import mmb.WORLD.recipes.ComplexRecipeGroup.ComplexRecipe;
 import mmb.debug.Debugger;
 
 /**
@@ -29,7 +29,7 @@ import mmb.debug.Debugger;
  *
  */
 public class ComplexItemProcessHelper {
-	@Nonnull private final ComplexProcessingRecipeGroup recipes;
+	@Nonnull private final ComplexRecipeGroup recipes;
 	@Nonnull private final Inventory input;
 	@Nonnull private final Inventory output;
 	         private final double speed;
@@ -38,7 +38,7 @@ public class ComplexItemProcessHelper {
 	/** The object which is currently refreshed. It may be null */
 	public Refreshable refreshable;
 	/** Last known recipe. Redone immediately if required items still exist */
-	public ComplexProcessingRecipe lastKnown;
+	public ComplexRecipe lastKnown;
 	/** Energy put into item to smelt it */
 	public double progress;
 	/** Energy required to finish this recipe */
@@ -46,7 +46,7 @@ public class ComplexItemProcessHelper {
 	/** The item produced by a recipe*/
 	public RecipeOutput rout;
 	
-	public ComplexItemProcessHelper(ComplexProcessingRecipeGroup recipes, Inventory input, Inventory output,
+	public ComplexItemProcessHelper(ComplexRecipeGroup recipes, Inventory input, Inventory output,
 			double speed, Battery elec, VoltageTier volt) {
 		super();
 		this.recipes = recipes;
@@ -110,7 +110,7 @@ public class ComplexItemProcessHelper {
 			if(input.size() < recipes.minIngredients) return CycleResult.PARTIAL;
 			
 			//Find a new recipe(slow) and extract if found
-			for(ComplexProcessingRecipe recipe: recipes.recipes) {
+			for(ComplexRecipe recipe: recipes.recipes) {
 				if(Inventory.howManyTimesThisContainsThat(input, recipe.input) <= 0)
 					//The required ingredients were not found
 					continue;
@@ -142,7 +142,7 @@ public class ComplexItemProcessHelper {
 		return CycleResult.RUN;
 	}
 	@Nonnull private static final Debugger debug = new Debugger("COMPLEX RECIPE RPOCESSOR");
-	private void useRecipe(ComplexProcessingRecipe recipe) {
+	private void useRecipe(ComplexRecipe recipe) {
 		lastKnown = recipe;
 		rout = recipe.output;
 		currRequired = recipe.energy;

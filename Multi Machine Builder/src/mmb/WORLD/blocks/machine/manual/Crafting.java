@@ -13,10 +13,10 @@ import it.unimi.dsi.fastutil.ints.IntList;
 import mmb.GlobalSettings;
 import mmb.BEANS.BlockActivateListener;
 import mmb.WORLD.block.Block;
-import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.gui.inv.CraftGUI;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.item.Item;
+import mmb.WORLD.recipes.Craftings;
 import mmb.WORLD.worlds.world.World;
 
 /**

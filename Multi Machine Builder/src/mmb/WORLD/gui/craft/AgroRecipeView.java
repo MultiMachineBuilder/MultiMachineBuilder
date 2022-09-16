@@ -6,9 +6,9 @@ package mmb.WORLD.gui.craft;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 
-import mmb.WORLD.crafting.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 
 import javax.swing.JList;
 
@@ -49,7 +49,7 @@ public class AgroRecipeView extends RecipeView<AgroProcessingRecipe>{
 		add(outList, "cell 1 2,growx,aligny center");
 	}
 	@Override public void set(AgroProcessingRecipe recipe) {
-		lblMachine.setText(CRConstants.MACHINE+recipe.group.title());
+		lblMachine.setText(CRConstants.MACHINE+recipe.group().title());
 		lblEvery.setText(CRConstants.EVERYTIME+(recipe.duration/50.0)+CRConstants.SECONDS);
 		ItemEntry item = recipe.input;
 		lblIn.setIcon(item.icon());

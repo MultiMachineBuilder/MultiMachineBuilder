@@ -31,7 +31,7 @@ public interface SelfSet<K, V extends Identifiable<K>> extends Set<V>{
 	 * @param key key
 	 * @return value under the key, or null if absent
 	 */
-	public V get(@Nullable K key);
+	@Nullable public V get(@Nullable K key);
 	/**
 	 * Get the value under a given key
 	 * @param key key
@@ -49,7 +49,7 @@ public interface SelfSet<K, V extends Identifiable<K>> extends Set<V>{
 	
 	public boolean containsKey(@Nullable Object key);
 
-	@SuppressWarnings({"unchecked", "sexy"})
+	@SuppressWarnings({"unchecked"})
 	@Override
 	/**
 	 * Checks if given self-set contains given key

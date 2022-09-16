@@ -5,7 +5,8 @@ package mmb.WORLD.gui.craft;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
-import mmb.WORLD.crafting.recipes.PickaxeGroup.PickaxeInfo;
+
+import mmb.WORLD.recipes.PickaxeGroup.PickaxeInfo;
 
 /**
  * Represents a quasi-recipe view for pickaxes

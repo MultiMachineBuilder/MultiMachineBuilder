@@ -6,8 +6,9 @@ package mmb.WORLD.gui.craft;
 import javax.swing.JScrollPane;
 import javax.swing.ListCellRenderer;
 
-import mmb.WORLD.crafting.recipes.PickaxeGroup;
-import mmb.WORLD.crafting.recipes.PickaxeGroup.PickaxeInfo;
+import mmb.WORLD.recipes.PickaxeGroup;
+import mmb.WORLD.recipes.PickaxeGroup.PickaxeInfo;
+
 import java.awt.Component;
 import java.awt.Dimension;
 import javax.annotation.Nonnull;

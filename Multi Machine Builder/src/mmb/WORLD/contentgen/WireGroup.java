@@ -8,13 +8,13 @@ import javax.swing.Icon;
 
 import mmb.UnitFormatter;
 import mmb.WORLD.block.BlockEntityType;
-import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.electric.BlockConduit;
 import mmb.WORLD.electric.ElecRenderer;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.item.Items;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.recipes.Craftings;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;
@@ -86,8 +86,8 @@ public class WireGroup implements Identifiable<String> {
 	private void gridCombo(Item smaller, Item larger, double scale) {
 		Craftings.crafting.addRecipeGrid(smaller, 1, 2, larger);
 		Craftings.crafting.addRecipe(larger, smaller, 2);
-		Craftings.splitter.add(larger,    smaller, 2, group.volt, scale*group.power);
-		Craftings.combiner.add(smaller, 2, larger,    group.volt, scale*group.power);
+		Craftings.splitter.add(larger,          smaller, 2, group.volt, scale*group.power);
+		Craftings.combiner.add(smaller.stack(2), larger,    group.volt, scale*group.power);
 	}
 	
 	//Localization

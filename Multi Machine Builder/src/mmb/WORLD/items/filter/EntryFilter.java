@@ -8,8 +8,6 @@ import java.util.Objects;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.github.davidmoten.rtree.internal.Comparators;
-
 import mmb.WORLD.item.ItemEntity;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.ItemEntry;

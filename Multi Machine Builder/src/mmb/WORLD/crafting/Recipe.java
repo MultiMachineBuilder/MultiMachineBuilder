@@ -8,8 +8,6 @@ import java.awt.Component;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.fasterxml.jackson.databind.ser.std.StdKeySerializers.Default;
-
 import mmb.WORLD.chance.Chance;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.gui.craft.RecipeView;
@@ -76,9 +74,7 @@ public interface Recipe<T extends Recipe<T>>{
 	/**
 	 * @return randomly chanced items
 	 */
-	@Nonnull public default Chance luck() {
-		return Chance.NONE;
-	}
+	@Nonnull public Chance luck();
 	/**
 	 * @return amount of electricity required for the recipe
 	 */

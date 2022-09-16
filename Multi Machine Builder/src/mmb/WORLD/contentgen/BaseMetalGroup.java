@@ -11,9 +11,9 @@ import mmb.GRAPHICS.texgen.TexGen;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.item.Items;
+import mmb.WORLD.recipes.Craftings;
 
 /**
  * @author oskar

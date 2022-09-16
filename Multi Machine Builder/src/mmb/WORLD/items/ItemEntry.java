@@ -127,7 +127,7 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, SingleItem{
 	
 	//Recipe output & drop methods
 	@Override
-	default boolean drop(@Nullable InventoryWriter inv, World map, int x, int y) {
+	default boolean drop(@Nullable InventoryWriter inv, @Nullable World map, int x, int y) {
 		return Chance.tryDrop(this, inv, map, x, y);
 	}
 	@Override
@@ -184,7 +184,7 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, SingleItem{
 	 * @apiNote This method is used for compatibility with {@link SingleItem}
 	 * @return this item
 	 */
-	default ItemEntry item() {
+	default ItemEntry item() { //NOSONAR false positive
 		return this;
 	}
 	/**

@@ -53,10 +53,10 @@ public class AutoCrafter extends SkeletalBlockLinear implements BlockActivateLis
 			for(ItemRecord ir: incoming) {
 				if(ir.amount() == 0) continue;
 				//Item exists
-				if(stencil != null && stencil.containsRequiredIngredients(incoming)) {
-					RecipeOutput ins = stencil.inputs();
-					for(Entry<ItemEntry> record: ins.getContents().object2IntEntrySet()) {
-						incoming.extract(record.getKey(), record.getIntValue());
+				if(stencil != null && stencil.recipe().containsRequiredIngredients(incoming)) {
+					RecipeOutput ins = stencil.recipe().inputs();
+					for(Entry<ItemEntry> irecord: ins.getContents().object2IntEntrySet()) {
+						incoming.extract(irecord.getKey(), irecord.getIntValue());
 					}
 					//Extracted
 					remaining = 50;
@@ -72,7 +72,7 @@ public class AutoCrafter extends SkeletalBlockLinear implements BlockActivateLis
 			remaining--;
 			if(remaining == 0) {
 				//Time to eject an item
-				RecipeOutput result = stencil.output();
+				RecipeOutput result = stencil.recipe().output();
 				if(result == RecipeOutput.NONE) {
 					//Unsmeltable, return original
 					if(toCraft != null) 

@@ -6,16 +6,17 @@ package mmb.WORLD.gui.craft;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 
-import mmb.WORLD.crafting.recipes.ComplexCatalyzedProcessingRecipeGroup.ComplexCatalyzedProcessingRecipe;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.recipes.ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe;
+
 import javax.swing.JList;
 
 /**
  * @author oskar
  * Represents a recipe view for multi-item recipes with catalyst
  */
-public class ComplexCatalyzedRecipeView extends RecipeView<ComplexCatalyzedProcessingRecipe> {
+public class ComplexCatalyzedRecipeView extends RecipeView<ComplexCatalyzedRecipe> {
 	private static final long serialVersionUID = -2864705123116802475L;
 	private JLabel lblVolt;
 	private JLabel lblEnergy;
@@ -60,10 +61,10 @@ public class ComplexCatalyzedRecipeView extends RecipeView<ComplexCatalyzedProce
 		add(inList, "cell 0 3,grow");
 		inList.setMaximumSize(null); 
 	}
-	@Override public void set(ComplexCatalyzedProcessingRecipe recipe) {
+	@Override public void set(ComplexCatalyzedRecipe recipe) {
 		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
 		lblEnergy.setText(CRConstants.ENERGY+recipe.energy);
-		lblMachine.setText(CRConstants.MACHINE+recipe.group.title());
+		lblMachine.setText(CRConstants.MACHINE+recipe.group().title());
 		inList.setListData(VectorUtils.list2arr(recipe.input));
 		outList.setListData(VectorUtils.list2arr(recipe.output));
 		ItemEntry catalyst0 = recipe.catalyst;

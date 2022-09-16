@@ -14,9 +14,10 @@ import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Identifiable;
 
 /**
+ * Stores recipes.
  * @author oskar
  * @param <T> type of recipes
- * Stores recipes.
+ * 
  */
 public interface RecipeGroup<T extends Recipe<?>> extends Identifiable<String>, Titled{
 	/**@return a set with recipes*/

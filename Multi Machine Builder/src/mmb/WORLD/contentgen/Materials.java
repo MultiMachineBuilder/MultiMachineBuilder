@@ -15,13 +15,13 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.WORLD.block.Blocks;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.contentgen.MetalGroup.MaterialStack;
-import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.SimpleItemList;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.recipes.Craftings;
 import mmb.debug.Debugger;
 
 /**

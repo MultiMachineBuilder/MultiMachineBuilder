@@ -50,7 +50,7 @@ public abstract class ItemBase implements ItemType {
 	 */
 	private BlockDrawer drawer;
 	private String id;
-	private String title;
+	@Nonnull private String title = "000 Unnamed Item";
 	@Override
 	public void setUnstackable(boolean value) {
 		stacks = value;

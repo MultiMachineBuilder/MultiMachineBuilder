@@ -28,12 +28,14 @@ public class ElectricMachineGroup {
 	@Nonnull public final List<@Nonnull RotatedImageGroup> textures;
 	private static final VoltageTier[] volts = VoltageTier.values();
 	/**
+	 * Creates an electric machine group
 	 * @param image machine's texture
 	 * @param ctor
 	 * @param id
+	 * @param powermul 
 	 */
 	@SuppressWarnings("null")
-	public ElectricMachineGroup(BufferedImage image, Function<ElectroMachineType, BlockEntity> ctor, String id, double powermul) {
+	public ElectricMachineGroup(BufferedImage image, Function<@Nonnull ElectroMachineType, @Nonnull BlockEntity> ctor, String id, double powermul) {
 		images = TexGen.generateMachineTextures(image);
 		textures = images.stream()
 				.map(RotatedImageGroup::create)
@@ -54,7 +56,7 @@ public class ElectricMachineGroup {
 			Items.tagItem("voltage-"+block.volt.name, block);
 		}
 	}
-	public ElectricMachineGroup(BufferedImage image, Function<ElectroMachineType, BlockEntity> ctor, String id) {
+	public ElectricMachineGroup(BufferedImage image, Function<@Nonnull ElectroMachineType, @Nonnull BlockEntity> ctor, String id) {
 		this(image, ctor, id, 1);
 	}
 	/**

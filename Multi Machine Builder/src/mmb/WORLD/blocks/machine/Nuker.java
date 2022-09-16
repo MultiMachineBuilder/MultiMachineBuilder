@@ -14,13 +14,13 @@ import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.contentgen.Materials;
-import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.electromachine.FuelBurner;
 import mmb.WORLD.inventory.Inventories;
 import mmb.WORLD.inventory.storage.SingleItemInventory;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.recipes.Craftings;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.debug.Debugger;
 

@@ -5,8 +5,6 @@ package mmb.WORLD.blocks;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.util.function.Supplier;
-
 import javax.annotation.Nonnull;
 
 import mmb.GlobalSettings;
@@ -54,27 +52,25 @@ import mmb.WORLD.blocks.wireworld.WWChatter;
 import mmb.WORLD.blocks.wireworld.WWHead;
 import mmb.WORLD.blocks.wireworld.WWTail;
 import mmb.WORLD.blocks.wireworld.WWWire;
-import mmb.WORLD.chance.Chance;
 import mmb.WORLD.contentgen.ElectricMachineGroup;
-import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.RecipeOutput;
-import mmb.WORLD.crafting.recipes.ComplexCatalyzedProcessingRecipeGroup;
-import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup;
-import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup;
-import mmb.WORLD.crafting.recipes.StackedProcessingRecipeGroup;
+import mmb.WORLD.crafting.singles.SimpleRecipeGroup;
 import mmb.WORLD.electric.InfiniteGenerator;
 import mmb.WORLD.electric.PowerLoad;
 import mmb.WORLD.electric.PowerMeter;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.electromachine.AlloySmelter;
+import mmb.WORLD.electromachine.BlockProcessorComplex;
 import mmb.WORLD.electromachine.BlockBattery;
-import mmb.WORLD.electromachine.CoalGen;
-import mmb.WORLD.electromachine.ElectroFurnace;
-import mmb.WORLD.electromachine.ElectroQuarry;
-import mmb.WORLD.electromachine.MachineAssembler;
-import mmb.WORLD.electromachine.Splicer;
+import mmb.WORLD.electromachine.BlockPowerTower;
+import mmb.WORLD.electromachine.BlockGeneratorSolid;
+import mmb.WORLD.electromachine.BlockPowerReceiver;
+import mmb.WORLD.electromachine.BlockProcessorSimple;
+import mmb.WORLD.electromachine.BlockProcessorComplexCatalyzed;
 import mmb.WORLD.item.Items;
 import mmb.WORLD.items.ContentsItems;
+import mmb.WORLD.recipes.ComplexCatalyzedRecipeGroup;
+import mmb.WORLD.recipes.ComplexRecipeGroup;
+import mmb.WORLD.recipes.Craftings;
 import mmb.WORLD.rotate.ChirotatedImageGroup;
 import mmb.WORLD.rotate.Side;
 import mmb.debug.Debugger;
@@ -279,9 +275,9 @@ public class ContentsBlocks {
 			.finish("machines.rotator");
 
 	//Power generators
-	@Nonnull public static final BlockEntityType COALGEN1 = coalgen(VoltageTier.V1, CoalGen.img, 1);
-	@Nonnull public static final BlockEntityType COALGEN2 = coalgen(VoltageTier.V2, CoalGen.img1, 2);
-	@Nonnull public static final BlockEntityType COALGEN3 = coalgen(VoltageTier.V3, CoalGen.img2, 3);
+	@Nonnull public static final BlockEntityType COALGEN1 = coalgen(VoltageTier.V1, BlockGeneratorSolid.img, 1);
+	@Nonnull public static final BlockEntityType COALGEN2 = coalgen(VoltageTier.V2, BlockGeneratorSolid.img1, 2);
+	@Nonnull public static final BlockEntityType COALGEN3 = coalgen(VoltageTier.V3, BlockGeneratorSolid.img2, 3);
 	/** A series of 9 infinite power generators. They are used for testing.*/
 	@Nonnull public static final ElectricMachineGroup infinigens =
 			new ElectricMachineGroup(Textures.get("machine/power/infinity.png"), type -> new InfiniteGenerator(type.volt, type), "infinigen");
@@ -504,10 +500,12 @@ public class ContentsBlocks {
 	@Nonnull public static final ElectricMachineGroup balloyer = machinesComplex("machine/alloyer.png", Craftings.alloyer, "alloyer");
 	@Nonnull public static final ElectricMachineGroup bassembly = machinesAssembly("machine/machinemaker.png", Craftings.assembler, "assembler");
 	@Nonnull public static final ElectricMachineGroup bsplitter = machinesSimple("machine/splitter.png", Craftings.splitter, "spllitter", 0.1);
-	@Nonnull public static final ElectricMachineGroup bsplicer = machinesStacked("machine/splicer.png", Craftings.combiner, "splicer", 0.1);
+	@Nonnull public static final ElectricMachineGroup bsplicer = machinesSimple("machine/splicer.png", Craftings.combiner, "splicer", 0.1);
 	@Nonnull public static final ElectricMachineGroup bbrewery = machinesComplex("machine/brewery.png", Craftings.brewery, "brewery");
 	@Nonnull public static final ElectricMachineGroup bdig = createDigger();
-	@Nonnull public static final ElectricMachineGroup bquarry = createQuarry();
+	@Nonnull public static final ElectricMachineGroup ptower = createTower();
+	@Nonnull public static final ElectricMachineGroup prec = createReceiver();
+	@Nonnull public static final ElectricMachineGroup bquarry = machinesSimple("machine/quarry.png", Craftings.quarry, "quarry");
 	@Nonnull public static final ElectricMachineGroup bbattery = createBattery();
 	
 	//Player pipes
@@ -530,6 +528,7 @@ public class ContentsBlocks {
 
 	
 	//Multimedia devices
+	/** A block which plays a specific sound */
 	@Nonnull public static final BlockEntityType SPEAKER = new BlockEntityType()
 			.title("#multi-speaker")
 			.factory(Speaker::new)
@@ -574,7 +573,7 @@ public class ContentsBlocks {
 		BlockEntityType type = new BlockEntityType();
 		return type
 				.title(GlobalSettings.$res("machine-coalgen")+" "+n)
-				.factory(() -> new CoalGen(volt, type))
+				.factory(() -> new BlockGeneratorSolid(volt, type))
 				.texture(texture)
 				.finish("elec.coalgen"+n);
 	}
@@ -587,32 +586,29 @@ public class ContentsBlocks {
 				.factory(() -> new Chest(capacity, type, image))
 				.texture(image);
 	}
-	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, ElectroSimpleProcessingRecipeGroup group, String id) {
+	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, SimpleRecipeGroup<?> group, String id) {
 		return machinesSimple(texture, group, id, 1);
 	}
-	@Nonnull private static ElectricMachineGroup machinesComplex(String texture, ComplexProcessingRecipeGroup group, String id) {
-		return new ElectricMachineGroup(Textures.get(texture), type -> new AlloySmelter(type, group), id);
+	@Nonnull private static ElectricMachineGroup machinesComplex(String texture, ComplexRecipeGroup group, String id) {
+		return new ElectricMachineGroup(Textures.get(texture), type -> new BlockProcessorComplex(type, group), id);
 	}
-	@Nonnull private static ElectricMachineGroup machinesAssembly(String texture, ComplexCatalyzedProcessingRecipeGroup group, String id) {
-		return new ElectricMachineGroup(Textures.get(texture), type -> new MachineAssembler(type, group), id);
+	@Nonnull private static ElectricMachineGroup machinesAssembly(String texture, ComplexCatalyzedRecipeGroup group, String id) {
+		return new ElectricMachineGroup(Textures.get(texture), type -> new BlockProcessorComplexCatalyzed(type, group), id);
 	}
-	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, ElectroSimpleProcessingRecipeGroup group, String id, double d) {
-		return new ElectricMachineGroup(Textures.get(texture), type -> new ElectroFurnace(type, group), id, d);
+	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, SimpleRecipeGroup<?> group, String id, double d) {
+		return new ElectricMachineGroup(Textures.get(texture), type -> new BlockProcessorSimple(type, group), id, d);
 	}
-	@Nonnull private static ElectricMachineGroup machinesStacked(String texture, StackedProcessingRecipeGroup group, String id) {
-		return new ElectricMachineGroup(Textures.get(texture), type -> new Splicer(type, group), id);
-	}
-	@Nonnull private static ElectricMachineGroup machinesStacked(String texture, StackedProcessingRecipeGroup group, String id, double power) {
-		return new ElectricMachineGroup(Textures.get(texture), type -> new Splicer(type, group), id, power);
-	}
-	private static ElectricMachineGroup createQuarry() {
-		return new ElectricMachineGroup(Textures.get("machine/quarry.png"), type -> new ElectroQuarry(type, Craftings.quarry), "quarry");
-	}
-	private static ElectricMachineGroup createDigger() {
+	@Nonnull private static ElectricMachineGroup createDigger() {
 		return new ElectricMachineGroup(Textures.get("machine/digger.png"), Digger::new, "digger");
 	}
-	private static ElectricMachineGroup createBattery() {
+	@Nonnull private static ElectricMachineGroup createBattery() {
 		return new ElectricMachineGroup(Textures.get("machine/battery.png"), BlockBattery::new, "battery");
+	}
+	@Nonnull private static ElectricMachineGroup createTower() {
+		return new ElectricMachineGroup(Textures.get("machine/ptower.png"), BlockPowerTower::new, "ptower");
+	}
+	@Nonnull private static ElectricMachineGroup createReceiver() {
+		return new ElectricMachineGroup(Textures.get("machine/preceiver.png"), BlockPowerReceiver::new, "preceiver");
 	}
 	//Item tags
 	static {

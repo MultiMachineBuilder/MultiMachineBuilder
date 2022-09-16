@@ -16,9 +16,7 @@ import mmb.GlobalSettings;
 import mmb.DATA.contents.Textures;
 import mmb.GRAPHICS.awt.ColorMapper;
 import mmb.WORLD.blocks.machine.pack.Pack;
-import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.crafting.RecipeOutput;
-import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.item.ItemEntityType;
@@ -29,7 +27,9 @@ import mmb.WORLD.items.electric.ItemBattery;
 import mmb.WORLD.items.filter.EntryFilter;
 import mmb.WORLD.items.pickaxe.Pickaxe;
 import mmb.WORLD.items.pickaxe.Pickaxe.PickaxeType;
-import static mmb.GlobalSettings.*;
+import mmb.WORLD.tool.ConfigureDroppedItemExtractors;
+import mmb.WORLD.tool.DumpItems;
+import mmb.WORLD.tool.ToolAim;
 
 /**
  * @author oskar
@@ -113,14 +113,18 @@ public class ContentsItems {
 	@Nonnull public static final PickaxeType pickVW = Pickaxe.create(120, 15, "item/wood pick.png", "#pick-b", "pick.weak");
 	@Nonnull public static final PickaxeType pickWood = Pickaxe.create(100, 100, "item/wood pick.png", "#pick-wood", "pick.wood");
 	@Nonnull public static final PickaxeType pickRudimentary = Pickaxe.create(50, 400, "item/rudimentary pick.png", "#pick-rud", "pick.rudimentary");
-	@Nonnull public static final Item bucket = new Bucket()
+	@Nonnull public static final Item bucket = new TooledItem(new DumpItems())
 			.title("#bucket")
 			.texture("dropItems.png")
 			.finish("mmb.bucket");
-	@Nonnull public static final Item configExtractors= new ConfigExtractors()
+	@Nonnull public static final Item configExtractors= new TooledItem(new ConfigureDroppedItemExtractors())
 			.title("#cdie")
 			.texture("hoover.png")
 			.finish("mmb.cdie");
+	@Nonnull public static final Item aim = new TooledItem(new ToolAim())
+			.title("#aim")
+			.texture("aim.png")
+			.finish("mmb.aim");
 	
 	//Crafting aids
 	@Nonnull public static final ItemEntityType stencil = new ItemEntityType()
@@ -227,8 +231,6 @@ public class ContentsItems {
 			.texture("item/IC.png")
 			.volumed(0.00125)
 			.finish("industry.IC1");
-	
-	
 	
 	@Nonnull public static final Item circuit0 = circuit(0);
 	@Nonnull public static final Item substrate0 = substrate(0);

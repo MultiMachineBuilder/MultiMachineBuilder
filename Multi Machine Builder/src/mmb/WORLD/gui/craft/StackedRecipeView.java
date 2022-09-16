@@ -10,9 +10,9 @@ import javax.annotation.Nonnull;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import mmb.WORLD.crafting.RecipeOutput;
-import mmb.WORLD.crafting.recipes.StackedProcessingRecipeGroup.StackedProcessingRecipe;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.recipes.StackedRecipeGroup.StackedRecipe;
 
 import javax.swing.JList;
 
@@ -20,7 +20,7 @@ import javax.swing.JList;
  * Represents a recipe view for stacked-item recipes 
  * @author oskar
  */
-public class StackedRecipeView extends RecipeView<StackedProcessingRecipe> {
+public class StackedRecipeView extends RecipeView<StackedRecipe> {
 	private static final long serialVersionUID = -2864705123116802475L;
 	private JLabel lblVolt;
 	private JLabel lblEnergy;
@@ -55,13 +55,13 @@ public class StackedRecipeView extends RecipeView<StackedProcessingRecipe> {
 		outList.setCellRenderer(ItemStackCellRenderer.instance);
 		add(outList, "cell 1 3,growx,aligny center");
 	}
-	@Override public void set(StackedProcessingRecipe recipe) {
+	@Override public void set(StackedRecipe recipe) {
 		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
 		lblEnergy.setText(CRConstants.ENERGY+recipe.energy);
-		lblMachine.setText(CRConstants.MACHINE+recipe.group.title());
-		ItemEntry item = recipe.input;
+		lblMachine.setText(CRConstants.MACHINE+recipe.group().title());
+		ItemEntry item = recipe.item();
 		lblIn.setIcon(item.icon());
-		lblIn.setText(item.title() +" x "+recipe.amount);
+		lblIn.setText(item.title() +" x "+recipe.amount());
 		outList.setListData(VectorUtils.list2arr(recipe.output));
 	}
 	

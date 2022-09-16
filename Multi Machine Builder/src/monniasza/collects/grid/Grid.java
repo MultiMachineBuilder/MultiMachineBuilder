@@ -6,6 +6,8 @@ package monniasza.collects.grid;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import javax.annotation.Nonnull;
+
 /**
  * @author oskar
  *
@@ -18,7 +20,7 @@ public interface Grid<T> extends Iterable<T>{
 	default public int size() {
 		return width() * height();
 	}
-	default public FixedGrid<T> copy(int x, int y, int w, int h){
+	@Nonnull default public FixedGrid<T> copy(int x, int y, int w, int h){
 		FixedGrid<T> grid = new FixedGrid<>(w, h);
 		for(int i = 0, X = x; i < w; i++, X++) {
 			for(int j = 0, Y = y; j < h; j++, Y++) {
@@ -27,7 +29,7 @@ public interface Grid<T> extends Iterable<T>{
 		}
 		return grid;
 	}
-	default public FixedGrid<T> trim(){
+	@Nonnull default public FixedGrid<T> trim(){
 		int left = width();
 		int right = -1;
 		int down = -1;

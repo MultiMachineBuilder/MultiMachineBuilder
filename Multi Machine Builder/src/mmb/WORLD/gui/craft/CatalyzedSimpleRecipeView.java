@@ -3,17 +3,12 @@
  */
 package mmb.WORLD.gui.craft;
 
-import java.util.Vector;
-import java.util.stream.Collectors;
-
-import javax.annotation.Nonnull;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
-import mmb.WORLD.crafting.RecipeOutput;
-import mmb.WORLD.crafting.recipes.CatalyzedSimpleProcessingRecipeGroup.CatalyzedSimpleProcessingRecipe;
-import mmb.WORLD.crafting.recipes.ElectroSimpleProcessingRecipeGroup.ElectroSimpleProcessingRecipe;
+
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.recipes.CatalyzedSingleRecipeGroup.CatalyzedSimpleRecipe;
 
 import javax.swing.JList;
 
@@ -21,7 +16,7 @@ import javax.swing.JList;
  * Represents a recipe view for single-item recipes
  * @author oskar
  */
-public class CatalyzedSimpleRecipeView extends RecipeView<CatalyzedSimpleProcessingRecipe>{
+public class CatalyzedSimpleRecipeView extends RecipeView<CatalyzedSimpleRecipe>{
 	private static final long serialVersionUID = -2864705123116802475L;
 	private JLabel lblVolt;
 	private JLabel lblEnergy;
@@ -67,10 +62,10 @@ public class CatalyzedSimpleRecipeView extends RecipeView<CatalyzedSimpleProcess
 		outList.setCellRenderer(ItemStackCellRenderer.instance);
 		add(outList, "cell 2 3,growx,aligny center");
 	}
-	@Override public void set(CatalyzedSimpleProcessingRecipe recipe) {
+	@Override public void set(CatalyzedSimpleRecipe recipe) {
 		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
 		lblEnergy.setText(CRConstants.ENERGY+recipe.energy);
-		lblMachine.setText(CRConstants.MACHINE+recipe.group.title());
+		lblMachine.setText(CRConstants.MACHINE+recipe.group().title());
 		ItemEntry item = recipe.input;
 		lblIn.setIcon(item.icon());
 		lblIn.setText(item.title());

@@ -16,13 +16,12 @@ import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.blocks.machine.SkeletalBlockLinear;
-import mmb.WORLD.contentgen.Materials;
-import mmb.WORLD.crafting.Craftings;
-import mmb.WORLD.crafting.helper.ElectroItemProcessHelper;
+import mmb.WORLD.crafting.helper.SimpleProcessHelper;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.electromachine.FuelBurner;
 import mmb.WORLD.gui.window.WorldWindow;
+import mmb.WORLD.recipes.Craftings;
 import mmb.WORLD.rotate.RotatedImageGroup;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
@@ -41,14 +40,8 @@ public class Furnace extends SkeletalBlockLinear implements BlockActivateListene
 
 	private FurnaceGUI openWindow;
 	@Nonnull private Battery elec = new Battery(20_000, 120_000, this, VoltageTier.V1);
-	@Nonnull private ElectroItemProcessHelper processor = new ElectroItemProcessHelper(Craftings.smelting, incoming, output, 500, elec, VoltageTier.V1);
+	@Nonnull private SimpleProcessHelper processor = new SimpleProcessHelper(Craftings.smelting, incoming, output, 500, elec, null, VoltageTier.V1); //borked here
 	@Nonnull private final FuelBurner burner = new FuelBurner(1, incoming, elec, Craftings.furnaceFuels);
-	private static boolean inited = false;
-	public static void init() {
-		if(inited) return;
-		Craftings.smelting.add(ContentsBlocks.logs, Materials.coal.base, 1, VoltageTier.V1, 50_000);
-		inited = true;
-	}
 
 	@Override
 	protected void save2(ObjectNode node) {

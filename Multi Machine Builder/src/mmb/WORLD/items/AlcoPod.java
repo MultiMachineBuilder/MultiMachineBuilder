@@ -6,9 +6,9 @@ package mmb.WORLD.items;
 import javax.annotation.Nonnull;
 
 import mmb.BEANS.Intoxicating;
-import mmb.WORLD.crafting.Craftings;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.item.Item;
+import mmb.WORLD.recipes.Craftings;
 import mmb.WORLD.tool.ToolAlcohol;
 import mmb.WORLD.tool.WindowTool;
 

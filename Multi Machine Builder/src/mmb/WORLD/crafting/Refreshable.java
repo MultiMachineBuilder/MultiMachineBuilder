@@ -19,5 +19,5 @@ public interface Refreshable{
 	 * @param recipe item which is currently smelted
 	 * @param max energy required to complete the recipe
 	 */
-	public void refreshProgress(double progress, @Nullable Recipe recipe);
+	public void refreshProgress(double progress, @Nullable Recipe<?> recipe);
 }

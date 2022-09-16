@@ -5,9 +5,10 @@ package mmb.WORLD.gui.craft;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
-import mmb.WORLD.crafting.recipes.AlcoholInfoGroup.AlcoholInfo;
+
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
+import mmb.WORLD.recipes.AlcoholInfoGroup.AlcoholInfo;
 
 import javax.swing.JList;
 
@@ -48,7 +49,7 @@ public class AlcoholInfoView extends RecipeView<AlcoholInfo> {
 		add(outList, "cell 1 2,growx,aligny center");
 	}
 	@Override public void set(AlcoholInfo recipe) {
-		lblMachine.setText(CRConstants.MACHINE+recipe.group.title());
+		lblMachine.setText(CRConstants.MACHINE+recipe.group().title());
 		ItemEntry item = recipe.input;
 		lblIntoxication.setText(CRConstants.DOSE+recipe.dose);
 		lblIn.setIcon(item.icon());

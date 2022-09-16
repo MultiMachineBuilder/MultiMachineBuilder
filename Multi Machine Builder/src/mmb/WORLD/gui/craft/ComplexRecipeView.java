@@ -5,15 +5,17 @@ package mmb.WORLD.gui.craft;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
-import mmb.WORLD.crafting.recipes.ComplexProcessingRecipeGroup.ComplexProcessingRecipe;
+
 import mmb.WORLD.inventory.ItemStack;
+import mmb.WORLD.recipes.ComplexRecipeGroup.ComplexRecipe;
+
 import javax.swing.JList;
 
 /**
  * Represents a recipe view for multi-item recipes
  * @author oskar
  */
-public class ComplexRecipeView extends RecipeView<ComplexProcessingRecipe> {
+public class ComplexRecipeView extends RecipeView<ComplexRecipe> {
 	private static final long serialVersionUID = -2864705123116802475L;
 	private JLabel lblVolt;
 	private JLabel lblEnergy;
@@ -51,10 +53,10 @@ public class ComplexRecipeView extends RecipeView<ComplexProcessingRecipe> {
 		add(inList, "cell 0 3,growx,aligny center");
 	}
 	@Override
-	public void set(ComplexProcessingRecipe recipe) {
+	public void set(ComplexRecipe recipe) {
 		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
 		lblEnergy.setText(CRConstants.ENERGY+recipe.energy);
-		lblMachine.setText(CRConstants.MACHINE+recipe.group.title());
+		lblMachine.setText(CRConstants.MACHINE+recipe.group().title());
 		inList.setListData(VectorUtils.list2arr(recipe.input));
 		outList.setListData(VectorUtils.list2arr(recipe.output));
 		

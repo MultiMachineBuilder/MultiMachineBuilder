@@ -136,7 +136,7 @@ public class Universe implements GameObject, Saver<JsonNode>{
 		//Save the main map
 		debug.printl("Saving main BlockMap");
 		World main0 = main;
-		if(main0 == null) throw new IllegalArgumentException("The main map is null");
+		if(main0 == null) throw new IllegalStateException("The main map is null");
 		JsonNode mainNode = World.save(main0);
 		//Save extra maps
 		ObjectNode mapsNode = JsonTool.newObjectNode();
@@ -177,7 +177,7 @@ public class Universe implements GameObject, Saver<JsonNode>{
 		
 		//Shut down all maps
 		main.destroy();
-		maps.values().forEach(map -> map.destroy());
+		maps.values().forEach(World::destroy);
 	}
 
 	//GameObject

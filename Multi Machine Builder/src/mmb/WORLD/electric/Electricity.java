@@ -3,6 +3,8 @@
  */
 package mmb.WORLD.electric;
 
+import java.util.function.Supplier;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JProgressBar;
@@ -103,7 +105,7 @@ public interface Electricity {
 	 * @param elec the electrical connection
 	 * @return electrical connection without ability to extract
 	 */
-	public static Electricity extractOnly(Electricity elec) {
+	@Nonnull public static Electricity extractOnly(Electricity elec) {
 		return new Electricity() {
 
 			@Override
@@ -138,7 +140,7 @@ public interface Electricity {
 	 * @param elec the electrical connection
 	 * @return electrical connection without ability to insert
 	 */
-	public static Electricity insertOnly(Electricity elec) {
+	@Nonnull public static Electricity insertOnly(Electricity elec) {
 		return new Electricity() {
 
 			@Override
@@ -165,6 +167,124 @@ public interface Electricity {
 			public double pressureWeight() {
 				return elec.pressureWeight();
 			}
+		};
+	}
+	/**
+	 * Protects the underlying electrical connection from overvoltage
+	 * @param elec underlying electrical connection
+	 * @param max maximum voltage
+	 * @param blow block to blow, optional
+	 * @return a new electrical connection
+	 */
+	@Nonnull public static Electricity circuitBreaker(Electricity elec, VoltageTier max, @Nullable BlockEntity blow) {
+		return new Electricity() {
+			@Override
+			public double insert(double amt, VoltageTier volt) {
+				if(volt.compareTo(max) > 0) {
+					if(blow != null) blow.blow();
+					return 0;
+				}
+				return elec.insert(amt, volt);
+			}
+
+			@Override
+			public double extract(double amt, VoltageTier volt, Runnable blowr) {
+				if(elec.voltage().compareTo(max) > 0) {
+					if(blow != null) blow.blow();
+					return 0;
+				}
+				return elec.extract(amt, volt, blowr);
+			}
+
+			@Override
+			public VoltageTier voltage() {
+				return max;
+			}
+
+			@Override
+			public double pressure() {
+				return elec.pressure();
+			}
+
+			@Override
+			public double pressureWeight() {
+				return elec.pressureWeight();
+			}
+			
+		};
+	}
+	/**
+	 * Creates a dynamic electric connection
+	 * @param elec supplier of electrical connections (the supplier may return null to indicate lack of connection)
+	 * @return an electrical connection based on given supplier of electrical connections
+	 */
+	@Nonnull public static Electricity dynamicElectricity(Supplier<@Nullable Electricity> elec) {
+		return new Electricity() {
+			private Electricity obtain() {
+				Electricity result = elec.get();
+				if(result == null) return NONE;
+				return result;
+			}
+			@Override
+			public double insert(double amt, VoltageTier volt) {
+				return obtain().insert(amt, volt);
+			}
+
+			@Override
+			public double extract(double amt, VoltageTier volt, Runnable blow) {
+				return obtain().extract(amt, volt, blow);
+			}
+
+			@Override
+			public VoltageTier voltage() {
+				return obtain().voltage();
+			}
+
+			@Override
+			public double pressure() {
+				return obtain().pressure();
+			}
+
+			@Override
+			public double pressureWeight() {
+				return obtain().pressureWeight();
+			}
+		};
+	}
+	/**
+	 * Limits the power output of the electrical connection
+	 * @param elec electrical connection
+	 * @param pwr maximum current
+	 * @return new electrical connection
+	 */
+	@Nonnull public static Electricity limitCurrent(Electricity elec, double pwr) {
+		return new Electricity() {
+
+			@Override
+			public double insert(double amt, VoltageTier volt) {
+				return elec.insert(Math.min(amt, pwr), volt);
+			}
+
+			@Override
+			public double extract(double amt, VoltageTier volt, Runnable blow) {
+				return elec.extract(Math.min(amt, pwr), volt, blow);
+			}
+
+			@Override
+			public VoltageTier voltage() {
+				return elec.voltage();
+			}
+
+			@Override
+			public double pressure() {
+				return elec.pressure();
+			}
+
+			@Override
+			public double pressureWeight() {
+				return elec.pressureWeight();
+			}
+			
 		};
 	}
 	
