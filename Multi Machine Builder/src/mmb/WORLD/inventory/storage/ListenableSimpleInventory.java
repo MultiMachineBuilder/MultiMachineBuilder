@@ -3,9 +3,9 @@
  */
 package mmb.WORLD.inventory.storage;
 
-import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
+import mmb.CatchingEvent;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;

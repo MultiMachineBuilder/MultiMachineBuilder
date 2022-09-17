@@ -569,6 +569,7 @@ public class World implements Identifiable<String>{
 	}
 	
 	//LOD buffer
+	/** The LOD image for this world */
 	public final BufferedImage LODs;
 	
 	//Bounds
@@ -792,7 +793,7 @@ public class World implements Identifiable<String>{
 		for(Object2IntMap.Entry<ItemEntry> entry: item.getContents().object2IntEntrySet()) {
 			Collection<ItemEntry> list = getDrops(x, y);
 			int amt2 = amount*entry.getIntValue();
-			for(int i = 0; i < amount; i++) list.add(entry.getKey());
+			for(int i = 0; i < amt2; i++) list.add(entry.getKey());
 		}
 	}
 	/**
@@ -819,9 +820,7 @@ public class World implements Identifiable<String>{
 
 			@Override
 			public int bulkInsert(RecipeOutput block, int amount) {
-				for(Object2IntMap.Entry<ItemEntry> ent: block.getContents().object2IntEntrySet()) {
-					write(ent.getKey(), amount*ent.getIntValue());
-				}
+				dropItems(block, amount, x, y);
 				return amount;
 			}
 		};
@@ -919,6 +918,7 @@ public class World implements Identifiable<String>{
 				).collect(Collectors.toList());
 	}
 	
+	/** @return current snapshot of visuals */
 	public RTree<Visual, Geometry> visuals(){
 		return visuals.get();
 	}

@@ -26,6 +26,9 @@ public class SingleRecipeView extends RecipeView<SingleRecipe> {
 	private JLabel lblOutgoing;
 	private JLabel lblIn;
 	private JList<ItemStack> outList;
+	private JLabel lblMachine;
+	private MultilineLabel lblMaybe;
+	
 	/** Creates recipe view for single-item recipes with chanced output(s) */
 	public SingleRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow]", "[][][][]"));
@@ -71,6 +74,5 @@ public class SingleRecipeView extends RecipeView<SingleRecipe> {
 		lblMaybe.setText(writer.toString());
 	}
 	
-	private JLabel lblMachine;
-	private MultilineLabel lblMaybe;
+	
 }

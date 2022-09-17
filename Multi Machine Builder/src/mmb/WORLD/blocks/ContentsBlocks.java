@@ -65,6 +65,7 @@ import mmb.WORLD.electromachine.BlockPowerTower;
 import mmb.WORLD.electromachine.BlockGeneratorSolid;
 import mmb.WORLD.electromachine.BlockPowerReceiver;
 import mmb.WORLD.electromachine.BlockProcessorSimple;
+import mmb.WORLD.electromachine.BlockProcessorSimpleCatalyzed;
 import mmb.WORLD.electromachine.BlockProcessorComplexCatalyzed;
 import mmb.WORLD.item.Items;
 import mmb.WORLD.items.ContentsItems;
@@ -502,6 +503,7 @@ public class ContentsBlocks {
 	@Nonnull public static final ElectricMachineGroup bsplitter = machinesSimple("machine/splitter.png", Craftings.splitter, "spllitter", 0.1);
 	@Nonnull public static final ElectricMachineGroup bsplicer = machinesSimple("machine/splicer.png", Craftings.combiner, "splicer", 0.1);
 	@Nonnull public static final ElectricMachineGroup bbrewery = machinesComplex("machine/brewery.png", Craftings.brewery, "brewery");
+	@Nonnull public static final ElectricMachineGroup bextruder = machinesSimpleCat("machine/extruder.png", Craftings.extruder, "extruder");
 	@Nonnull public static final ElectricMachineGroup bdig = createDigger();
 	@Nonnull public static final ElectricMachineGroup ptower = createTower();
 	@Nonnull public static final ElectricMachineGroup prec = createReceiver();
@@ -589,6 +591,12 @@ public class ContentsBlocks {
 	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, SimpleRecipeGroup<?> group, String id) {
 		return machinesSimple(texture, group, id, 1);
 	}
+	@Nonnull private static ElectricMachineGroup machinesSimpleCat(String texture, SimpleRecipeGroup<?> group, String id) {
+		return machinesSimpleCat(texture, group, id, 1);
+	}
+	@Nonnull private static ElectricMachineGroup machinesSimpleCat(String texture, SimpleRecipeGroup<?> group, String id, double d) {
+		return new ElectricMachineGroup(Textures.get(texture), type -> new BlockProcessorSimpleCatalyzed(type, group), id, d);
+	}
 	@Nonnull private static ElectricMachineGroup machinesComplex(String texture, ComplexRecipeGroup group, String id) {
 		return new ElectricMachineGroup(Textures.get(texture), type -> new BlockProcessorComplex(type, group), id);
 	}
@@ -623,5 +631,8 @@ public class ContentsBlocks {
 		Items.tagItems("chest", HOPPER, HOPPER_suck, HOPPER_both);
 		Items.tagItems("shape-crop", AGRO_TREE, AGRO_WATER, AGRO_SEEDS, AGRO_HOPS);
 		Items.tagItems("pipe",ipipe_STRAIGHT, ipipe_ELBOW, ipipe_IPE, ipipe_TOLEFT, ipipe_TORIGHT, ipipe_CROSS, ipipe_DUALTURN, ipipe_FILTER, IMOVER);
+		Items.tagItem("voltage-ULV", COALGEN1);
+		Items.tagItem("voltage-VLV", COALGEN2);
+		Items.tagItem("voltage-LV", COALGEN3);
 	}
 }

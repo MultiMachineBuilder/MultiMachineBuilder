@@ -16,6 +16,10 @@ import mmb.WORLD.recipes.StackedRecipeGroup.StackedRecipe;
 
 import javax.swing.JList;
 
+import org.ainslec.picocog.PicoWriter;
+
+import io.github.parubok.text.multiline.MultilineLabel;
+
 /**
  * Represents a recipe view for stacked-item recipes 
  * @author oskar
@@ -28,13 +32,19 @@ public class StackedRecipeView extends RecipeView<StackedRecipe> {
 	private JLabel lblOutgoing;
 	private JLabel lblIn;
 	private JList<ItemStack> outList;
+	private JLabel lblMachine;
+	private MultilineLabel lblMaybe;
 	
 	/** Creates a recipe view for stacked-item recipes */
 	public StackedRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow]", "[][][][]"));
 		
 		lblMachine = new JLabel(CRConstants.MACHINE);
-		add(lblMachine, "cell 0 0 2 1,growx");
+		add(lblMachine, "cell 0 0,growx");
+		
+		lblMaybe = new MultilineLabel(CRConstants.CHANCE);
+		lblMaybe.setPreferredViewportLineCount(9999);
+		add(lblMaybe, "cell 1 0");
 		
 		lblVolt = new JLabel(CRConstants.VOLT);
 		add(lblVolt, "cell 0 1");
@@ -63,9 +73,13 @@ public class StackedRecipeView extends RecipeView<StackedRecipe> {
 		lblIn.setIcon(item.icon());
 		lblIn.setText(item.title() +" x "+recipe.amount());
 		outList.setListData(VectorUtils.list2arr(recipe.output));
+		PicoWriter writer = new PicoWriter();
+		writer.writeln(CRConstants.CHANCE);
+		recipe.luck().represent(writer);
+		lblMaybe.setText(writer.toString());
 	}
 	
-	private JLabel lblMachine;
+	
 	@Nonnull public static Vector<ItemStack> list2vector(RecipeOutput output){
 		return output
 				.getContents()

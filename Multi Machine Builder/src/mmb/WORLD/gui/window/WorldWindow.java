@@ -11,6 +11,8 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
+import mmb.CatchingEvent;
 import mmb.DATA.json.JsonTool;
 import mmb.FILES.Save;
 import mmb.MENU.FullScreen;
@@ -32,7 +34,6 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
 import io.github.parubok.text.multiline.MultilineLabel;
@@ -270,12 +271,17 @@ public class WorldWindow extends MMBFrame{
 					});
 					mnNewMenu.add(mntmExitDesktop);
 				//Debug display
-					BoundCheckBoxMenuItem bchckbxmntmDebugDisplay = new BoundCheckBoxMenuItem();
-					bchckbxmntmDebugDisplay.setText($res("wgui-debug"));
-					bchckbxmntmDebugDisplay.setVariable(WorldFrame.DEBUG_DISPLAY);
-					mnNewMenu.add(bchckbxmntmDebugDisplay);
+					BoundCheckBoxMenuItem cDebugDisplay = new BoundCheckBoxMenuItem();
+					cDebugDisplay.setText($res("wgui-debug"));
+					cDebugDisplay.setVariable(WorldFrame.DEBUG_DISPLAY);
+					mnNewMenu.add(cDebugDisplay);
 					
 					String scale = $res("wgui-scale");
+					
+					BoundCheckBoxMenuItem cSortItems = new BoundCheckBoxMenuItem();
+					cSortItems.setText($res("wgui-sortis"));
+					cSortItems.setVariable(WorldFrame.DEBUG_DISPLAY);
+					mnNewMenu.add(cSortItems);
 					
 					JLabel lblBlockScale = new JLabel(scale+" 32");
 					mnNewMenu.add(lblBlockScale);

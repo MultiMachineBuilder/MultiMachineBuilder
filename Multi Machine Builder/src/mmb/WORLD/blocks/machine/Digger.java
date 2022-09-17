@@ -175,7 +175,7 @@ public class Digger extends BlockEntityData implements ToItemUnifiedCollector, B
 			if(block.isSurface()) continue;
 			
 			//Extract energy
-			battery.extract(ENERGY_PER_BLOCK/battery.voltage.volts, type.volt, this::blow);
+			battery.amt -= ENERGY_PER_BLOCK/battery.voltage.volts;
 			
 			//Mine the block
 			Chance drop = block.type().getDrop();

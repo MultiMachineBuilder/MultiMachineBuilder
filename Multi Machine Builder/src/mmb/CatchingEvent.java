@@ -1,4 +1,7 @@
-package com.pploder.events;
+/**
+ * 
+ */
+package mmb;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -7,19 +10,26 @@ import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Consumer;
 
-/**
- * A simple implementation of an event.
- * Duplicate occurrences of listeners are supported.
- *
- * @param <T> The argument type to be passed to the listeners. (copied from {@link Event})
- * @author Philipp Ploder
- * @author oskar (nullability)
- * @version 1.0.0
- * @since 1.0.0
- */
-@SuppressWarnings({"unused", "null", "Mario X"})
-public class SimpleEvent<T> implements Event<T> {
+import com.pploder.events.Event;
 
+import mmb.debug.Debugger;
+
+/**
+ * An implementation of an event, which catches and reports exceptions thrown by listeners
+ * @author oskar (catch exceptions, nullability)
+ * @author Philipp Ploder (original implementation)
+ * @param <T> The argument type to be passed to the listeners. (copied from {@link Event})
+ * @version 1.0.0
+ * @since 1.1.0
+ */
+@SuppressWarnings({"null"})
+public class CatchingEvent<T> implements Event<T> {
+	private Debugger debug;
+	private String msg;
+	public CatchingEvent(Debugger debug, String msg) {
+		this.debug = debug;
+		this.msg = msg;
+	}
     private final List<Consumer<T>> listeners = new CopyOnWriteArrayList<>();
 
     
@@ -84,9 +94,15 @@ public class SimpleEvent<T> implements Event<T> {
 
     @Override
     public void trigger(T t) {
-        listeners.forEach(listener -> listener.accept(t));
+        listeners.forEach(listener -> {
+        	try {
+        		listener.accept(t);
+        	}catch(Exception e) {
+        		debug.pstm(e, msg);
+        	}
+        });
     }
-
+    
     public void clear() {
     	listeners.clear();
     }

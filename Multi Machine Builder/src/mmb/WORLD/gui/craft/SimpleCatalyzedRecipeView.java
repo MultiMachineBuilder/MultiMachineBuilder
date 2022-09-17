@@ -16,7 +16,7 @@ import javax.swing.JList;
  * Represents a recipe view for single-item recipes
  * @author oskar
  */
-public class CatalyzedSimpleRecipeView extends RecipeView<CatalyzedSimpleRecipe>{
+public class SimpleCatalyzedRecipeView extends RecipeView<CatalyzedSimpleRecipe>{
 	private static final long serialVersionUID = -2864705123116802475L;
 	private JLabel lblVolt;
 	private JLabel lblEnergy;
@@ -31,7 +31,7 @@ public class CatalyzedSimpleRecipeView extends RecipeView<CatalyzedSimpleRecipe>
 	/**
 	 * Creates a recipe view for single-item recipes
 	 */
-	public CatalyzedSimpleRecipeView() {
+	public SimpleCatalyzedRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][]"));
 		
 		lblMachine = new JLabel(CRConstants.MACHINE);

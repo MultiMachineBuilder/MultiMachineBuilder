@@ -16,7 +16,7 @@ import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.singles.SimpleRecipe;
 import mmb.WORLD.crafting.singles.SimpleRecipeGroup;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.CatalyzedSimpleRecipeView;
+import mmb.WORLD.gui.craft.SimpleCatalyzedRecipeView;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Collects;
@@ -169,8 +169,8 @@ implements SimpleRecipeGroup<CatalyzedSingleRecipeGroup.CatalyzedSimpleRecipe>{
 		return recipes;
 	}
 	@Override
-	public CatalyzedSimpleRecipeView createView() {
-		return new CatalyzedSimpleRecipeView();
+	public SimpleCatalyzedRecipeView createView() {
+		return new SimpleCatalyzedRecipeView();
 	}
 	@Override
 	public boolean isCatalyzed() {

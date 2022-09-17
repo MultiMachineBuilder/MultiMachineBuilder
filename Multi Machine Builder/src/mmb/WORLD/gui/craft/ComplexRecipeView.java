@@ -11,6 +11,10 @@ import mmb.WORLD.recipes.ComplexRecipeGroup.ComplexRecipe;
 
 import javax.swing.JList;
 
+import org.ainslec.picocog.PicoWriter;
+
+import io.github.parubok.text.multiline.MultilineLabel;
+
 /**
  * Represents a recipe view for multi-item recipes
  * @author oskar
@@ -24,6 +28,7 @@ public class ComplexRecipeView extends RecipeView<ComplexRecipe> {
 	private JList<ItemStack> inList;
 	private JList<ItemStack> outList;
 	private JLabel lblMachine;
+	private MultilineLabel lblMaybe;
 	
 	/** Creates recipe view for multi-item recipes */
 	public ComplexRecipeView() {
@@ -31,6 +36,10 @@ public class ComplexRecipeView extends RecipeView<ComplexRecipe> {
 		
 		lblMachine = new JLabel(CRConstants.MACHINE);
 		add(lblMachine, "cell 0 0");
+		
+		lblMaybe = new MultilineLabel(CRConstants.CHANCE);
+		lblMaybe.setPreferredViewportLineCount(9999);
+		add(lblMaybe, "cell 1 0");
 		
 		lblVolt = new JLabel(CRConstants.VOLT);
 		add(lblVolt, "cell 0 1");
@@ -59,6 +68,9 @@ public class ComplexRecipeView extends RecipeView<ComplexRecipe> {
 		lblMachine.setText(CRConstants.MACHINE+recipe.group().title());
 		inList.setListData(VectorUtils.list2arr(recipe.input));
 		outList.setListData(VectorUtils.list2arr(recipe.output));
-		
+		PicoWriter writer = new PicoWriter();
+		writer.writeln(CRConstants.CHANCE);
+		recipe.luck().represent(writer);
+		lblMaybe.setText(writer.toString());
 	}
 }

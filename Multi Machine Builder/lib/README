@@ -7,11 +7,6 @@ Definitions:
 All attributions:
 Format: Owner | Library Name | Entry
 
-Apache                    | Apache Commons Collections              | D commons-collections4-4.4
-Apache                    | Apache Commons Compress                 | D commons-compress-1.21
-Apache                    | Apache Commons CSV                      | D commons-csv-1.8
-Apache                    | Apache Commons IO                       | D commons-io-2.7
-Apache                    | Apache Commons Lang                     | D commons-lang3-3.11
 Last NullPointerException | Eclipse External null Annotations (EEA) | D eclipse-null-eea-auments-2.4.0
 Chris Ainsley (ainslec)   | Picocog                                 | D picocog
 Naohide Sano (umjammer)   | JLayer                                  | JLayer

@@ -7,12 +7,14 @@ import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 
+import mmb.GlobalSettings;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import net.miginfocom.swing.MigLayout;
 
 import java.awt.Component;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nonnull;
@@ -46,12 +48,18 @@ public class InventoryController extends JPanel implements AbstractInventoryCont
 	private JScrollPane scrollPane;
 	private JButton btnUnsel;
 
+	@Override
 	public void refresh() {
 		int[] selection = getSelectedIndices();
 		if(inv == null) return;
+		List<ItemRecord> list = new ArrayList<>(inv);
+		if(GlobalSettings.sortItems.getValue()) {
+			//Items should be sorted
+			list.sort((a, b) -> a.item().title().compareTo(b.item().title()));
+		}
 		model0.clear();
-		for(ItemRecord record: inv) {
-			model0.addElement(record);
+		for(ItemRecord irecord: list) {
+			model0.addElement(irecord);
 		}
 		repaint();
 		setSelectedIndices(selection);
@@ -126,10 +134,12 @@ public class InventoryController extends JPanel implements AbstractInventoryCont
 	 * @return selected value, or null if not selected
 	 * @see javax.swing.JList#getSelectedValue()
 	 */
+	@Override
 	public ItemRecord getSelectedValue() {
 		return invlist.getSelectedValue();
 	}
 
+	@Override
 	@SuppressWarnings("null")
 	@Nonnull public List<ItemRecord> getSelectedValuesList() {
 		return invlist.getSelectedValuesList();
@@ -173,6 +183,7 @@ public class InventoryController extends JPanel implements AbstractInventoryCont
 		configureButtons();
 		refresh();
 	}
+	@Override
 	public InvType getInvType() {
 		return InvType.SIMPLE;
 	}

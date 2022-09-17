@@ -42,6 +42,8 @@ public class Tools {
 			new WindowToolModel(ToolVisuals.ICON, ToolVisuals::new, "visuals");
 	public static final WindowToolModel TOOL_ALCOHOL =
 			new WindowToolModel(ToolAlcohol.ICON, ToolAlcohol::new, "alcohol");
+	public static final WindowToolModel TOOL_AIM =
+			new WindowToolModel(ToolAlcohol.ICON, ToolAim::new, "aim");
 
 	private static boolean initialized = false;
 	/**
@@ -57,6 +59,7 @@ public class Tools {
 		toollist.add(TOOL_PICKAXE);
 		toollist.add(TOOL_VISUALS);
 		toollist.add(TOOL_ALCOHOL);
+		toollist.add(TOOL_AIM);
 		debug.printl("Tools initialized");
 		initialized = true;
 		

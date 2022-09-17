@@ -10,6 +10,7 @@ import java.util.Set;
 
 import com.pploder.events.*;
 
+import mmb.CatchingEvent;
 import mmb.debug.Debugger;
 
 /**

@@ -8,8 +8,6 @@ import java.util.function.Function;
 
 import javax.annotation.Nonnull;
 
-import org.ainslec.picocog.PicoWriter;
-
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.WORLD.block.Blocks;
@@ -45,6 +43,8 @@ public class Materials {
 	@Nonnull public static final Color colorDuranium = new Color(20, 200, 255);
 	@Nonnull public static final Color colorRudimentary = new Color(255, 0, 0);
 	@Nonnull public static final Color colorDraconium = new Color(200, 20, 255);
+	@Nonnull public static final Color colorADraconium = new Color(200, 150, 60);
+	@Nonnull public static final Color colorChaotium = new Color(0, 30, 30);
 	
 	//Fictious alloys
 	@Nonnull public static final Color colorRudimentium = new Color(255, 60, 0);
@@ -97,6 +97,7 @@ public class Materials {
 	@Nonnull public static final Color colorElectrosteel = new Color(130, 120, 130);
 	
 	//Plastics
+	@Nonnull public static final Color colorRubber = new Color(20, 20, 20);
 	@Nonnull public static final Color colorPE = new Color(128, 128, 128);
 	@Nonnull public static final Color colorPVC = new Color(150, 150, 128);
 	@Nonnull public static final Color colorPTFE = new Color(150, 128, 150);
@@ -104,6 +105,7 @@ public class Materials {
 	//Tier 1 materials
 	@Nonnull public static final BaseMetalGroup rudimentary = new BaseMetalGroup(colorRudimentary, "rudimentary", VoltageTier.V1, 50_000, 3, false);
 	@Nonnull public static final BaseMetalGroup coal = new BaseMetalGroup(colorCoal, "coal", VoltageTier.V1, 50_000, 3, true);
+	@Nonnull public static final MetalGroup rubber =  new MetalGroup(colorRubber, "rubber", VoltageTier.V1, 20_000, false);
 	
 	//Tier 2 materials
 	@Nonnull public static final MetalGroup rudimentium =  new MetalGroup(colorRudimentium, "rudimentium", VoltageTier.V1, 100_000, false);
@@ -162,9 +164,11 @@ public class Materials {
 	@Nonnull public static final MetalGroup draconium = new MetalGroup(colorDraconium, "draconium", VoltageTier.V6, 20_000_000, false);
 	
 	//Tier 9 materials
-	@Nonnull public static final MetalGroup unobtainium =     new MetalGroup(colorUnobtainium, "unobtainium", VoltageTier.V7, 64_000_000, false);
+	@Nonnull public static final MetalGroup unobtainium = new MetalGroup(colorUnobtainium, "unobtainium", VoltageTier.V7, 64_000_000, false);
+	@Nonnull public static final MetalGroup adraconium = new MetalGroup(colorADraconium, "adraconium", VoltageTier.V7, 80_000_000, false);
 	
 	//Tier 10 materials
+	@Nonnull public static final MetalGroup chaotium = new MetalGroup(colorChaotium, "chaotium", VoltageTier.V8, 400_000_000, false);
 	
 	//Simple wires
 	@Nonnull public static final WireGroup wireRudimentary = new WireGroup(    1_000, rudimentary, VoltageTier.V1);

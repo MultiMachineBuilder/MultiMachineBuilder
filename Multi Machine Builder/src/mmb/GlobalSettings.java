@@ -27,6 +27,8 @@ public class GlobalSettings {
 	@Nonnull public static final ListenableValue<String> lang = new ListenableValue<>("en");
 	/** Should blocks be logged for execution time? */
 	@Nonnull public static final ListenerBooleanVariable logExcessiveTime = new ListenerBooleanVariable();
+	/** Should items be sorted in inventory lists? */
+	@Nonnull public static final ListenerBooleanVariable sortItems = new ListenerBooleanVariable();
 	/** The accuracy of circles rendered using OpenGL*/
 	@Nonnull public static final ListenableInt circleAccuracy = new ListenableInt(32);
 	/** The UI scale mutiplier*/
@@ -80,6 +82,7 @@ public class GlobalSettings {
 		Settings.addSettingString("lang", "en", lang);
 		Settings.addSettingString("country", "US", country);
 		Settings.addSettingBool("logExcessiveBlockTime", false, logExcessiveTime);
+		Settings.addSettingBool("sortItems", true, sortItems);
 		Settings.addSettingDbl("scale", 1, uiScale);
 		Settings.addSettingInt("circleAccuracy", 32, circleAccuracy);
 		debug.printl("Language: "+lang.get());

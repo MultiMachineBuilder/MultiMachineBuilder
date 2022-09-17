@@ -151,6 +151,7 @@ public class Craftings {
 	private static boolean inited = false;
 	
 	//Everything recipe related
+	/** Creates all crafting recipes */
 	public static void createRecipes() {
 		if(inited) return;
 		inited = true;
@@ -166,18 +167,7 @@ public class Craftings {
 		crusher.add(gravel, sand, VoltageTier.V1, 15_000);
 		
 		//Pickaxes
-		crafting.addRecipeGrid(new ItemEntry[]{plank, plank, logs, logs}, 2, 2, PICKBUILDER);
-		pickaxes.add(pickHeadWood, pickWood);
-		pickaxes.add(pickHeadRudimentary, pickRudimentary);
-		
-		crafting.addRecipe(new FixedGrid<>(3,
-		plank, logs,  plank,
-		null,  plank, null,
-		null,  plank, null), pickHeadWood, 1);
-		crafting.addRecipe(new FixedGrid<>(3,
-		Materials.rudimentary.nugget, Materials.rudimentary.base,   Materials.rudimentary.nugget,
-		null,                         Materials.rudimentary.nugget, null,
-		null,                         Materials.rudimentary.nugget, null), pickHeadRudimentary, 1);
+		_tools();
 		
 		//Pipes
 		crafting.addRecipe(new FixedGrid<>(3,
@@ -196,66 +186,30 @@ public class Craftings {
 		ContentsBlocks.ipipe_STRAIGHT, null,       null,
 		null,  Materials.iron.nugget, null,
 		null,  null,       ContentsBlocks.ipipe_STRAIGHT), ContentsBlocks.ipipe_CROSS, 1);
-		crafting.addRecipeGrid(new ItemEntry[]{ContentsBlocks.ipipe_ELBOW, Materials.iron.nugget, ContentsBlocks.ipipe_STRAIGHT}, 3, 1, ContentsBlocks.ipipe_TOLEFT, 1);
-		crafting.addRecipeGrid(new ItemEntry[]{ContentsBlocks.ipipe_STRAIGHT, Materials.iron.nugget, ContentsBlocks.ipipe_ELBOW}, 3, 1, ContentsBlocks.ipipe_TORIGHT, 1);
-		
-		//Actuator blocks
-		//No recipe for Creative Block Placer
-		crafting.addRecipeGrid(new ItemEntry[]{rod1, bearing1, frame1}, 1, 3, ROTATOR, 1); //Block Rotator
-		
-		//WireWorld blocks
-		crafting.addRecipeGrid(new ItemEntry[]{Materials.silicon.base, Materials.copper.base}, 1, 2, ww_wire, 24); //WireWorld cell
-		
-		//WireWorld gates - 2 inputs
-		crafting.addRecipe(new FixedGrid<ItemEntry>(3, 2,
-		null, YES, null,
-		YES, ww_wire, YES), OR, 4); //OR
-		crafting.addRecipe(new FixedGrid<ItemEntry>(3, 2,
-		null, NOT, null,
-		YES, ww_wire, YES), XOR, 4); //XOR
-		crafting.addRecipe(new FixedGrid<ItemEntry>(3, 2,
-		null, NOT, null,
-		NOT, ww_wire, NOT), AND, 4); //AND
-		
-		//WireWorld gates - 1 input
-		crafting.addRecipeGrid(ww_wire, 1, 2, YES); //YES
-		crafting.addRecipeGrid(new ItemEntry[]{ww_wire, YES}, 1, 2, NOT); //NOT
-		
-		ItemEntry steel = Materials.steel.base;
-		ItemEntry nuggetSteel = Materials.steel.nugget;
-		
-		//WireWorld signallers
 		crafting.addRecipeGrid(new ItemEntry[]{
-		Materials.silicon.base , ww_wire, Materials.silicon.base,
-		ww_wire, ww_wire, ww_wire,
-		Materials.silicon.base, ww_wire, Materials.silicon.base
-		}, 3, 3, TRUE, 4); //Always true
+			ContentsBlocks.ipipe_ELBOW, Materials.iron.nugget, ContentsBlocks.ipipe_STRAIGHT},
+		3, 1, ContentsBlocks.ipipe_TOLEFT, 1);
 		crafting.addRecipeGrid(new ItemEntry[]{
-		null,  null,  steel,
-		null,  steel, null,
-		steel, null,  null
-		}, 3, 3, RANDOM, 4); //Random
-		crafting.addRecipeGrid(new ItemEntry[]{
-		Materials.silicon.base, Materials.silicon.base, Materials.silicon.base,
-		Materials.silicon.base, ww_wire, Materials.silicon.base,
-		Materials.silicon.base, Materials.silicon.base, Materials.silicon.base
-		}, 3, 3, URANDOM, 4); //Uniform random
+			ContentsBlocks.ipipe_STRAIGHT, Materials.iron.nugget, ContentsBlocks.ipipe_ELBOW},
+		3, 1, ContentsBlocks.ipipe_TORIGHT, 1);
+		
+		_wireworld();
 		
 		//Machine parts
 		crafting.addRecipeGrid(new ItemEntry[]{
-		steel, Materials.iron.base, steel,
+		Materials.steel.base, Materials.iron.base, Materials.steel.base,
 		Materials.iron.base,  null, Materials.iron.base,
-		steel, Materials.iron.base, steel
+		Materials.steel.base, Materials.iron.base, Materials.steel.base
 		}, 3, 3, frame1);
 		crafting.addRecipeGrid(new ItemEntry[]{
-		null,  null,  steel,
-		null,  steel, null,
-		steel, null,  null
+		null,  null,  Materials.steel.base,
+		null,  Materials.steel.base, null,
+		Materials.steel.base, null,  null
 		}, 3, 3, rod1);
 		crafting.addRecipeGrid(new ItemEntry[]{
-		nuggetSteel,  nuggetSteel,  nuggetSteel,
-		nuggetSteel,  null,         nuggetSteel,
-		nuggetSteel,  nuggetSteel,  nuggetSteel,
+		Materials.steel.nugget,  Materials.steel.nugget,  Materials.steel.nugget,
+		Materials.steel.nugget,  null,         Materials.steel.nugget,
+		Materials.steel.nugget,  Materials.steel.nugget,  Materials.steel.nugget,
 		}, 3, 3, bearing1);
 		crafting.addRecipeGrid(new ItemEntry[]{
 		wireRudimentary.tiny,  rudimentary.base,  wireRudimentary.tiny,
@@ -270,7 +224,7 @@ public class Craftings {
 		
 		
 		assembler.add(new SimpleItemList(
-			steel.stack(2),
+			Materials.steel.base.stack(2),
 			copper.wire.stack(32)
 			), motor2, null, VoltageTier.V1, 50000);
 		assembler.add(new SimpleItemList(
@@ -293,6 +247,7 @@ public class Craftings {
 		_craftrsVLV();
 		_craftrsLV();
 		_craftrsMV();
+		_craftrsHV();
 		quarry();
 		
 		//Agriculture
@@ -333,49 +288,171 @@ public class Craftings {
 		yeast.stack(3)
 		), new SimpleItemList(beer.stack(16), yeast.stack(4)), VoltageTier.V1, 1000000);
 	}
+
+	private static void _wireworld() {
+		//Actuator blocks
+		//Block Rotator
+		crafting.addRecipeGrid(new ItemEntry[]{rod1, bearing1, frame1}, 1, 3, ROTATOR, 1);
+		
+		//WireWorld cell
+		crafting.addRecipeGrid(new ItemEntry[]{Materials.silicon.base, Materials.copper.base}, 1, 2, ww_wire, 24);
+		
+		//WireWorld gates - 2 inputs
+		crafting.addRecipe(new FixedGrid<ItemEntry>(3, 2,
+		null, YES, null,
+		YES, ww_wire, YES), OR, 4); //OR
+		crafting.addRecipe(new FixedGrid<ItemEntry>(3, 2,
+		null, NOT, null,
+		YES, ww_wire, YES), XOR, 4); //XOR
+		crafting.addRecipe(new FixedGrid<ItemEntry>(3, 2,
+		null, NOT, null,
+		NOT, ww_wire, NOT), AND, 4); //AND
+		
+		//WireWorld gates - 1 input
+		crafting.addRecipeGrid(ww_wire, 1, 2, YES); //YES
+		crafting.addRecipeGrid(new ItemEntry[]{ww_wire, YES}, 1, 2, NOT); //NOT
+		
+		//WireWorld signallers
+		crafting.addRecipeGrid(new ItemEntry[]{
+		Materials.silicon.base , ww_wire, Materials.silicon.base,
+		ww_wire, ww_wire, ww_wire,
+		Materials.silicon.base, ww_wire, Materials.silicon.base
+		}, 3, 3, TRUE, 4); //Always true
+		crafting.addRecipeGrid(new ItemEntry[]{
+		null,  null,  Materials.steel.base,
+		null,  Materials.steel.base, null,
+		Materials.steel.base, null,  null
+		}, 3, 3, RANDOM, 4); //Random
+		crafting.addRecipeGrid(new ItemEntry[]{
+		Materials.silicon.base, Materials.silicon.base, Materials.silicon.base,
+		Materials.silicon.base, ww_wire, Materials.silicon.base,
+		Materials.silicon.base, Materials.silicon.base, Materials.silicon.base
+		}, 3, 3, URANDOM, 4); //Uniform random
+		
+		//Speaker
+		crafting.addRecipeGrid(new ItemEntry[]{
+			inductor, Materials.iron.frag, paper
+		}, 3, 1, SPEAKER);
+	}
+
+	private static void _tools() {
+		crafting.addRecipeGrid(new ItemEntry[]{plank, plank, logs, logs}, 2, 2, PICKBUILDER);
+		pickaxes.add(pickHeadWood, pickWood);
+		pickaxes.add(pickHeadRudimentary, pickRudimentary);
+		
+		crafting.addRecipe(new FixedGrid<>(3,
+		plank, logs,  plank,
+		null,  plank, null,
+		null,  plank, null), pickHeadWood, 1);
+		crafting.addRecipe(new FixedGrid<>(3,
+		Materials.rudimentary.nugget, Materials.rudimentary.base,   Materials.rudimentary.nugget,
+		null,                         Materials.rudimentary.nugget, null,
+		null,                         Materials.rudimentary.nugget, null), pickHeadRudimentary, 1);
+		crafting.addRecipeGrid(new ItemEntry[]{
+		stone, null, stone,
+		stone, null, stone,
+		null,  stone, null
+		}, 3, 3, bucket); //Item bucket
+		crafting.addRecipeGrid(new ItemEntry[]{
+		null,  stone, null,
+		stone, null, stone,
+		null,  stone, null
+		}, 3, 3, aim); //Aimer
+		
+	}
 	private static void _electronics() {
-		//Electronic parts, 
+		//Electronic parts (basic and enhanced IC)
 		assembler.add(new SimpleItemList(
-				coal.smalldust.stack(1), paper.stack(1),     copper.wire.stack(1)),
-				resistor,   null, 8, VoltageTier.V1,  10000);
+			copper.wire,
+			coal.nugget),
+			resistor,   null, 8, VoltageTier.V1,  10000);
 		assembler.add(new SimpleItemList(
-				alu.foil.stack(2),       paper.stack(2),     copper.wire.stack(1)),
-				capacitor,  null, 8, VoltageTier.V1,  10000);
+			copper.wire,
+			paper),
+			capacitor,  null, 8, VoltageTier.V1,  10000);
 		assembler.add(new SimpleItemList(
-				iron.frag.stack(1),                          copper.wire.stack(4)),
-				inductor,   null, 8, VoltageTier.V1,  10000);
+			copper.wire.stack(2),
+			iron.nugget),
+			inductor,   null, 8, VoltageTier.V1,  10000);
 		assembler.add(new SimpleItemList(
-				silicon.frag.stack(1),                       copper.wire.stack(2)),
-				diode,      null, 8, VoltageTier.V1,  20000);
+			copper.wire,
+			rudimentary.nugget,
+			silicon.nugget),
+			diode,      null, 8, VoltageTier.V1,  20000);
 		assembler.add(new SimpleItemList(
-				silicon.frag.stack(1),                       silver.wire.stack(1)),
-				transistor, null, 8, VoltageTier.V1,  40000);
+			copper.wire, copper.nugget, silicon.nugget),
+			transistor, null, 8, VoltageTier.V1,  40000);
 		assembler.add(new SimpleItemList(
-				silicon.frag.stack(1),                         gold.wire.stack(1)),
-				IC,         null, 8, VoltageTier.V1,  80000);
+			copper.wire.stack(4),
+			rudimentium.nugget.stack(2),
+			silicon.foil,
+			silicon.nugget),
+			IC, null, 16, VoltageTier.V1,  80000);
+		assembler.add(new SimpleItemList(
+			resistor.stack(16),
+			nickel.wire.stack(8)
+		), resistors, null, VoltageTier.V1, 100000);
+		
+		//Enhanced
+		assembler.add(new SimpleItemList(
+			silver.wire,
+			silver.nugget,
+			silicon.sheet,
+			silicon.nugget),
+		Electronics.ic0, null, 2, VoltageTier.V2,  80000);
+		
+		//Advanced
+		assembler.add(new SimpleItemList(
+			silver.wire,
+			nickel.wire),
+		Electronics.resistor1, null, 16, VoltageTier.V2,  20000);
+		assembler.add(new SimpleItemList(
+			silver.wire,
+			rubber.foil),
+		Electronics.capacitor1, null, 16, VoltageTier.V2,  40000);
+		assembler.add(new SimpleItemList(
+			silver.wire.stack(2),
+			steel.nugget),
+		Electronics.inductor1, null, 16, VoltageTier.V2,  80000);
+		assembler.add(new SimpleItemList(
+			silver.wire,
+			rudimentary.nugget,
+			silicon.nugget),
+		Electronics.diode1, null, 16, VoltageTier.V2, 160000);
+		assembler.add(new SimpleItemList(
+			silver.wire,
+			copper.nugget,
+			silicon.nugget),
+		Electronics.transistor1, null, 16, VoltageTier.V2, 320000);
+		assembler.add(new SimpleItemList(
+			gold.wire,
+			gold.nugget,
+			silicon.frag,
+			silicon.sheet.stack(2)),
+		Electronics.ic1, null, 2, VoltageTier.V3, 640000);
+		
+		//Substrates
 		assembler.add(new SimpleItemList(
 				paper.stack(1),                         rudimentary.foil.stack(2)),
 				substrate0, null, 8, VoltageTier.V1,  10000);
 		assembler.add(new SimpleItemList(
 				paper.stack(1),                              copper.foil.stack(2)),
 				substrate1, null,    VoltageTier.V1,  10000);
-		assembler.add(new SimpleItemList(
-			resistor.stack(16),
-			nickel.wire.stack(8)
-		), resistors, null, VoltageTier.V1, 100000);
+		
+		
 		
 		//Primitive Circuit
 		crafting.addRecipeGrid(new ItemEntry[]{
 			null,                  coal.base,    null,
 			wireRudimentary.tiny,  paper,        wireRudimentary.tiny,
 			null,                  silicon.frag, null
-		}, 3, 3, beerEmpty, 16);
+		}, 3, 3, circuit0);
 		assembler.add(new SimpleItemList(
 			substrate0.stack(1),
 			resistor.stack(2),
 			capacitor.stack(2),
 			inductor.stack(2)
-		), circuit0, null, VoltageTier.V1,  10000);
+		), circuit0.stack(8), null, VoltageTier.V1,  10000);
 		//Basic Circuit
 		assembler.add(new SimpleItemList(
 			substrate1.stack(1),
@@ -388,7 +465,7 @@ public class Craftings {
 		assembler.add(new SimpleItemList(
 			substrate1.stack(1),
 			IC.stack(1)
-		), circuit1, null, VoltageTier.V2, 100000);
+		), circuit1.stack(8), null, VoltageTier.V2, 100000);
 		//Enhanced Circuit
 		assembler.add(new SimpleItemList(
 			resistor.stack(16),
@@ -405,7 +482,7 @@ public class Craftings {
 			Electronics.resistor1.stack(2),
 			Electronics.ic0.stack(1),
 			substrate2.stack(1)
-		), circuit2, null, VoltageTier.V3, 400000);
+		), circuit2.stack(8), null, VoltageTier.V3, 400000);
 		//Refined Circuit
 		assembler.add(new SimpleItemList(
 			Electronics.capacitor1.stack(8),
@@ -422,7 +499,7 @@ public class Craftings {
 			Electronics.diode1.stack(16),
 			Electronics.ic1.stack(1),
 			substrate3.stack(2)
-		), circuit3, null, VoltageTier.V4, 1600000);
+		), circuit3.stack(8), null, VoltageTier.V4, 1600000);
 	}
 	private static void _chest() {
 		//Chests
@@ -530,9 +607,9 @@ public class Craftings {
 		}, 3, 3, bquarry.get(0)); 
 		
 		crafting.addRecipeGrid(new ItemEntry[]{
-		splitter,         rudimentary.panel,   splicer,
-		rudimentary.wire, coal.nugget,         rudimentary.wire,
-		splicer,          rudimentary.panel,   splitter,
+		splitter,         rudimentary.panel, splicer,
+		rudimentary.wire, circuit0,          rudimentary.wire,
+		splicer,          rudimentary.panel, splitter,
 		}, 3, 3, bassembly.get(0)); //Machine Assembler ULV
 		
 		crafting.addRecipeGrid(new ItemEntry[]{
@@ -553,6 +630,27 @@ public class Craftings {
 		lead.panel,       paper, lead.panel,
 		lead.panel,       paper, lead.panel,
 		}, 3, 3, bbattery.get(0));
+		
+		//Extruder ULV
+		crafting.addRecipeGrid(new ItemEntry[]{
+		motor1,            rudimentary.gear,  rudimentary.panel,
+		rudimentary.panel, rudimentary.panel, rudimentary.panel,
+		rudimentary.panel, rudimentary.panel, rudimentary.panel,
+		}, 3, 3, bextruder.get(0));
+		
+		//Power Receiver ULV
+		crafting.addRecipeGrid(new ItemEntry[]{
+		rudimentary.wire, rudimentary.wire,  rudimentary.wire,
+		rudimentary.wire, rudimentary.base, rudimentary.wire,
+		rudimentary.wire, rudimentary.wire, rudimentary.wire,
+		}, 3, 3, prec.get(0));
+		
+		//Power Tower ULV
+		crafting.addRecipeGrid(new ItemEntry[]{
+		wireRudimentary.medium, wireRudimentary.medium,  wireRudimentary.medium,
+		wireRudimentary.medium, prec.get(0),             wireRudimentary.medium,
+		wireRudimentary.medium, wireRudimentary.medium,  wireRudimentary.medium,
+		}, 3, 3, ptower.get(0));
 	}
 	private static void _craftrsVLV() {
 		//Coal Generator VLV
@@ -607,6 +705,12 @@ public class Craftings {
 		}, 3, 3, bquarry.get(1)); //Quarry VLV
 		
 		crafting.addRecipeGrid(new ItemEntry[]{
+		bsplitter.get(1), circuit1,               bcmill.get(1),
+		steel.ring,       circuit1,               steel.ring,
+		bsplicer.get(1),  wireRudimentium.medium, balloyer.get(1),
+		}, 3, 3, bassembly.get(1)); //Machine Assembler VLV
+		
+		crafting.addRecipeGrid(new ItemEntry[]{
 		null,        motor2,     steel.base,
 		steel.panel, circuit1,    steel.panel,
 		steel.panel, steel.panel, steel.panel,
@@ -631,6 +735,27 @@ public class Craftings {
 		nickel.panel,     paper, nickel.panel,
 		nickel.panel,     paper, nickel.panel,
 		}, 3, 3, bbattery.get(1));
+		
+		//Extruder ULV
+		crafting.addRecipeGrid(new ItemEntry[]{
+		motor2,      steel.gear,  steel.panel,
+		steel.panel, steel.panel, steel.panel,
+		steel.panel, circuit1, steel.panel,
+		}, 3, 3, bextruder.get(1));
+		
+		//Power Receiver VLV
+		crafting.addRecipeGrid(new ItemEntry[]{
+		copper.wire, copper.wire, copper.wire,
+		copper.wire, iron.base,   copper.wire,
+		copper.wire, copper.wire, copper.wire,
+		}, 3, 3, prec.get(1));
+		
+		//Power Tower VLV
+		crafting.addRecipeGrid(new ItemEntry[]{
+		wireCopper.medium, wireCopper.medium, wireCopper.medium,
+		wireCopper.medium, prec.get(1),       wireCopper.medium,
+		wireCopper.medium, wireCopper.medium, wireCopper.medium,
+		}, 3, 3, ptower.get(1));
 	}
 	private static void _craftrsLV() {
 		//Coal Generator LV

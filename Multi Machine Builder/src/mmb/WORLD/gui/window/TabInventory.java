@@ -8,7 +8,6 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JScrollPane;
 import javax.swing.Timer;
 
-import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
 import mmb.debug.Debugger;
@@ -35,6 +34,8 @@ import mmb.WORLD.worlds.world.Player;
 import static mmb.GlobalSettings.*;
 
 import java.awt.Color;
+
+import mmb.CatchingEvent;
 import mmb.MENU.components.BoundCheckBox;
 import javax.swing.JSpinner;
 import mmb.WORLD.gui.inv.CraftGUI;

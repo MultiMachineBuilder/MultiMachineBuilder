@@ -12,6 +12,10 @@ import mmb.WORLD.recipes.ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe;
 
 import javax.swing.JList;
 
+import org.ainslec.picocog.PicoWriter;
+
+import io.github.parubok.text.multiline.MultilineLabel;
+
 /**
  * @author oskar
  * Represents a recipe view for multi-item recipes with catalyst
@@ -27,12 +31,18 @@ public class ComplexCatalyzedRecipeView extends RecipeView<ComplexCatalyzedRecip
 	private JLabel lblMachine;
 	private JLabel lblCatalyst;
 	private JLabel catalyst;
+	private MultilineLabel lblMaybe;
+	
 	/** Creates recipe view for multi-item recipes with catalyst*/
 	public ComplexCatalyzedRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][fill]"));
 		
 		lblMachine = new JLabel(CRConstants.MACHINE);
 		add(lblMachine, "cell 0 0,growx");
+		
+		lblMaybe = new MultilineLabel(CRConstants.CHANCE);
+		lblMaybe.setPreferredViewportLineCount(9999);
+		add(lblMaybe, "cell 1 0");
 		
 		lblVolt = new JLabel(CRConstants.VOLT);
 		add(lblVolt, "cell 0 1");
@@ -75,5 +85,9 @@ public class ComplexCatalyzedRecipeView extends RecipeView<ComplexCatalyzedRecip
 			catalyst.setText(catalyst0.title());
 			catalyst.setIcon(catalyst0.icon());
 		}
+		PicoWriter writer = new PicoWriter();
+		writer.writeln(CRConstants.CHANCE);
+		recipe.luck().represent(writer);
+		lblMaybe.setText(writer.toString());
 	}
 }

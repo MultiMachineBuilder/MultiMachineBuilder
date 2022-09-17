@@ -7,9 +7,10 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Color;
-import com.pploder.events.CatchingEvent;
+
 import com.pploder.events.Event;
 
+import mmb.CatchingEvent;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.debug.Debugger;
 

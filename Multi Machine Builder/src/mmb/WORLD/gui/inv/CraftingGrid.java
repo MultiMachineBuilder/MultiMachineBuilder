@@ -12,9 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 
-import com.pploder.events.CatchingEvent;
 import com.pploder.events.Event;
 
+import mmb.CatchingEvent;
 import mmb.DATA.variables.Variable;
 import mmb.WORLD.items.ItemEntry;
 import mmb.debug.Debugger;
