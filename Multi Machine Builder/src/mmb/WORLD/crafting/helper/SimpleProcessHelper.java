@@ -102,6 +102,11 @@ public class SimpleProcessHelper{
 	}
 	
 	public CycleResult cycle() {
+		CycleResult result = internals();
+		if(refreshable != null) refreshable.refreshProgress(progress/currRequired, underway);
+		return result;
+	}
+	public CycleResult internals() {
 		if(underway == null || progress > underway.energy()) {
 			int hasAttempted = 0;
 			//Time to take a new item
@@ -168,7 +173,6 @@ public class SimpleProcessHelper{
 				return CycleResult.OUTPUT;
 			}// else continue smelting
 		}
-		if(refreshable != null) refreshable.refreshProgress(progress/underway.energy(), underway);
 		return CycleResult.RUN;
 	}
 	/**

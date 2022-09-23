@@ -105,6 +105,7 @@ public class SimpleItemList implements RecipeOutput {
 	
 	/**
 	 * Creates an item list with items
+	 * @param items items to use
 	 */
 	public SimpleItemList(ItemEntry... items) {
 		for(ItemEntry item: items) {

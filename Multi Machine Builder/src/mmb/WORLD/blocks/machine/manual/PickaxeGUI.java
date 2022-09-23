@@ -12,7 +12,7 @@ import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.recipes.Craftings;
+import mmb.WORLD.recipes.CraftingGroups;
 import net.miginfocom.swing.MigLayout;
 import mmb.DATA.variables.Variable;
 import mmb.LAMBDAS.Consumers;
@@ -53,7 +53,7 @@ public class PickaxeGUI extends GUITab {
 		slot.setMinimumSize(dim);
 		slot.setMaximumSize(dim);
 		slot.setPreferredSize(dim);
-		slot.stateChanged.addListener(ent -> crafted = Craftings.pickaxes.recipes.get(ent).output);
+		slot.stateChanged.addListener(ent -> crafted = CraftingGroups.pickaxes.recipes.get(ent).output);
 		
 		JLabel lblNewLabel = new JLabel("crafted: ");
 		add(lblNewLabel, "cell 1 1");
@@ -64,7 +64,7 @@ public class PickaxeGUI extends GUITab {
 				ItemEntry result = crafted.create();
 				ItemEntry sel = slot.getSelection();
 				if(sel == null) return;
-				Craftings.transact(sel, result.single(), inv, inv);
+				CraftingGroups.transact(sel, result.single(), inv, inv);
 				inventoryController.refresh();
 			}
 		});

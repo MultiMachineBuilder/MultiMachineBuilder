@@ -86,8 +86,7 @@ public class BlockConduit extends BlockEntityData {
 
 	@Override
 	public void onTick(MapProxy map) {
-		Electricity.equatePPs(this, map, tf, 0.99);
-		//debug.printl("Power pressure: "+tf.pressure+" at ["+posX()+","+posY()+"]");
+		Electricity.equatePPs(this, map, tf, 0.9);
 	}
 
 	@Override

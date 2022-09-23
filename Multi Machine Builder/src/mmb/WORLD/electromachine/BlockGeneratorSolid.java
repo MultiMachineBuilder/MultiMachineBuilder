@@ -23,7 +23,7 @@ import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.storage.SimpleInventory;
-import mmb.WORLD.recipes.Craftings;
+import mmb.WORLD.recipes.CraftingGroups;
 import mmb.WORLD.rotate.RotatedImageGroup;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
@@ -46,6 +46,13 @@ public class BlockGeneratorSolid extends SkeletalBlockEntityRotary implements Bl
 	@Nonnull private static final RotatedImageGroup tex1;
 	@Nonnull public static final BufferedImage img2;
 	@Nonnull private static final RotatedImageGroup tex2;
+	
+	@Nonnull public static final BufferedImage turboimg;
+	@Nonnull private static final RotatedImageGroup turbotex0;
+	@Nonnull public static final BufferedImage turboimg1;
+	@Nonnull private static final RotatedImageGroup turbotex1;
+	@Nonnull public static final BufferedImage turboimg2;
+	@Nonnull private static final RotatedImageGroup turbotex2;
 	static {
 		img = Textures.get("machine/coalgen.png");
 		tex0 = RotatedImageGroup.create(img);
@@ -56,10 +63,33 @@ public class BlockGeneratorSolid extends SkeletalBlockEntityRotary implements Bl
 		mapper.setTo(VoltageTier.V3.c);
 		img2 = op.filter(img, null);
 		tex2 = RotatedImageGroup.create(img2);
+		
+		BufferedImage tmp = Textures.get("machine/turbogen.png");
+		mapper.setTo(VoltageTier.V2.c);
+		turboimg = op.filter(tmp, null);
+		turbotex0 = RotatedImageGroup.create(img);
+		mapper.setTo(VoltageTier.V3.c);
+		turboimg1 = op.filter(tmp, null);
+		turbotex1 = RotatedImageGroup.create(img1);
+		mapper.setTo(VoltageTier.V4.c);
+		turboimg2 = op.filter(tmp, null);
+		turbotex2 = RotatedImageGroup.create(img2);
 	}
 	
 	@Override
 	public RotatedImageGroup getImage() {
+		if(mul == 2) {
+			switch(volt) {
+			case V2:
+				return turbotex0;
+			case V3:
+				return turbotex1;
+			case V4:
+				return turbotex2;
+			default:
+				throw new IllegalStateException("Voltage "+volt.name+" is not supported by Turbo Generator");
+			}
+		}
 		switch(volt) {
 		case V1:
 			return tex0;
@@ -74,16 +104,20 @@ public class BlockGeneratorSolid extends SkeletalBlockEntityRotary implements Bl
 	
 	@Nonnull public final VoltageTier volt;
 	@Nonnull private final BlockType type;
-	@Nonnull final Battery fuel = new Battery(0, 0, this, VoltageTier.V1);
-	@Nonnull final Battery buffer = new Battery(0, 0, this, VoltageTier.V1);
+	@Nonnull final Battery fuel;
+	@Nonnull final Battery buffer;
 	@Nonnull public final SimpleInventory inv = new SimpleInventory();
 	@Nonnull private final FuelBurner burner;
-	public BlockGeneratorSolid(VoltageTier volt, BlockType type) {
+	public final int mul;
+	public BlockGeneratorSolid(int mul, VoltageTier volt, BlockType type) {
 		this.volt = volt;
 		this.type = type;
+		this.mul = mul;
+		fuel = new Battery(0, 0, this, volt);
+		buffer = new Battery(0, 0, this, volt);
 		fuel.maxPower = Double.POSITIVE_INFINITY;
 		buffer.maxPower = volt.speedMul*10_000/volt.volts;
-		this.burner = new FuelBurner(1.5+volt.ordinal(), inv, fuel, Craftings.furnaceFuels);
+		this.burner = new FuelBurner(1.5+volt.ordinal(), inv, fuel, CraftingGroups.furnaceFuels);
 		resetBuffer();
 	}
 
@@ -92,11 +126,11 @@ public class BlockGeneratorSolid extends SkeletalBlockEntityRotary implements Bl
 	 */
 	private void resetBuffer() {
 		buffer.voltage = volt;
-		buffer.maxPower = 20;
+		buffer.maxPower = 50.0*mul;
 		buffer.capacity = 10_000;
 		buffer.pressureWt = volt.volts;
 		fuel.voltage = volt;
-		fuel.maxPower = 20;
+		fuel.maxPower = 20.0*mul;
 		fuel.capacity = 500_000;
 	}
 
@@ -146,7 +180,7 @@ public class BlockGeneratorSolid extends SkeletalBlockEntityRotary implements Bl
 
 	@Override
 	public BlockEntry blockCopy() {
-		BlockGeneratorSolid copy = new BlockGeneratorSolid(volt, type);
+		BlockGeneratorSolid copy = new BlockGeneratorSolid(mul, volt, type);
 		copy.buffer.set(buffer);
 		copy.fuel.set(fuel);
 		copy.inv.set(inv);

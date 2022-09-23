@@ -74,7 +74,6 @@ public class BlockProcessorComplex extends BlockProcessorAbstract implements Blo
 		node.put("pass", pass);
 		node.put("autoex", autoExtract);
 	}
-
 	@Override
 	protected void load1(ObjectNode node) {
 		helper.load(node);
@@ -90,7 +89,6 @@ public class BlockProcessorComplex extends BlockProcessorAbstract implements Blo
 		if(autoNode != null) autoExtract = autoNode.asBoolean();
 	}
 
-	
 	//GUI
 	@Override
 	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
@@ -101,7 +99,6 @@ public class BlockProcessorComplex extends BlockProcessorAbstract implements Blo
 		helper.refreshable = tab;
 		tab.refreshProgress(0, null);
 	}
-
 	
 	@Override protected void onTick0(MapProxy map) {
 		helper.cycle();

@@ -68,6 +68,11 @@ public class ContentsItems {
 		.texture("item/lisc.png")
 		.volumed(0.000125)
 		.finish("plant.leaf");
+	@Nonnull public static final Item rrubber = new Item()
+		.title("#rrubber")
+		.texture("item/rubber.png")
+		.volumed(0.00125)
+		.finish("plant.rubber");
 	@Nonnull public static final AlcoPod alcopod = (AlcoPod) new AlcoPod(1, RecipeOutput.NONE)
 		.title("AlcoPod")
 		.texture("item/alcopod.png")
@@ -170,6 +175,10 @@ public class ContentsItems {
 	}
 	
 	//Machine parts
+	@Nonnull public static final VoltagedItemGroup motor = new VoltagedItemGroup("parts/motor.png", "motor");
+	@Nonnull public static final VoltagedItemGroup pump = new VoltagedItemGroup("parts/pump.png", "pump");
+	@Nonnull public static final VoltagedItemGroup conveyor = new VoltagedItemGroup("parts/conveyor.png", "conveyor");
+	@Nonnull public static final VoltagedItemGroup robot = new VoltagedItemGroup("parts/robot.png", "robot");
 	@Nonnull public static final Item frame1 = new Item()
 		.title("#ind-frame1")
 		.texture("item/frame 1.png")
@@ -184,17 +193,6 @@ public class ContentsItems {
 		.texture("item/ring 1.png")
 		.volumed(0.00125)
 		.finish("industry.bearing1");
-	@Nonnull public static final Item motor1 = new Item()
-		.title("#ind-mot1")
-		.texture("item/motor 1.png")
-		.volumed(0.00125)
-		.finish("industry.motor1");
-	@Nonnull public static final Item motor2 = new Item()
-		.title("#ind-mot2")
-		.texture("item/motor 2.png")
-		.volumed(0.00125)
-		.finish("industry.motor2");
-	
 	//Electronic parts
 	@Nonnull public static final Item resistor = new Item()
 			.title("#ind-res1")
@@ -286,9 +284,9 @@ public class ContentsItems {
 		.finish("filter.ientries");
 	static {
 		Items.tagItems("shape-pickhead", pickHeadWood, pickHeadRudimentary);
-		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, bucket, configExtractors);
+		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, bucket, configExtractors, aim);
 		Items.tagItems("craftcode", craftcodes);
-		Items.tagItems("parts-electronic", resistor, capacitor, inductor, diode, transistor, IC);
+		Items.tagItems("parts-electronic", resistor, capacitor, inductor, diode, transistor, IC, resistors);
 		Items.tagItems("agro", yeast, hops, seeds);
 		Items.tagItems("material-glass", glass, glassp, beerEmpty);
 		Items.tagItems("alcohol", alcopod, beer);
@@ -300,6 +298,9 @@ public class ContentsItems {
 		Items.tagItem("voltage-HV", bat5);
 		Items.tagItem("voltage-EV", bat6);
 		Items.tagItem("voltage-IV", bat7);
+		Items.tagItems("resrcbed", resrc1, resrc2, resrc3, resrc4);
+		Items.deprecate("industry.motor1", motor.items.get(0));
+		Items.deprecate("industry.motor2", motor.items.get(1));
 	}
 	
 	//Helper methods

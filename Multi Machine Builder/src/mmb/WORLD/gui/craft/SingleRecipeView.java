@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
+import mmb.UnitFormatter;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.recipes.SingleRecipeGroup.SingleRecipe;
@@ -62,7 +63,7 @@ public class SingleRecipeView extends RecipeView<SingleRecipe> {
 	@Override
 	public void set(SingleRecipe recipe) {
 		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
-		lblEnergy.setText(CRConstants.ENERGY+recipe.energy);
+		lblEnergy.setText(CRConstants.ENERGY+UnitFormatter.formatEnergy(recipe.energy));
 		lblMachine.setText(CRConstants.MACHINE+recipe.group().title());
 		ItemEntry item = recipe.input;
 		lblIn.setIcon(item.icon());

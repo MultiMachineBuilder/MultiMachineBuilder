@@ -57,7 +57,7 @@ public class Items {
 	 * @param type item type to be deprecated
 	 * @throws IllegalStateException if item is not already registered before deprecation
 	 */
-	public static void deprecate(String deprecated, BlockType type) {
+	public static void deprecate(String deprecated, ItemType type) {
 		if(!items.contains(type)) throw new IllegalStateException("Item type "+type+" is not registered before deprecation");
 		debug.printl("Deprecating "+type.id()+" as "+deprecated);
 		_deprecator.put(deprecated, type);

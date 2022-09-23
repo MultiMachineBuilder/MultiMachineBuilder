@@ -96,6 +96,12 @@ public class ComplexCatalyzedItemProcessHelper {
 	}
 	
 	public CycleResult cycle() {
+		CycleResult result = internals();
+		if(refreshable != null) refreshable.refreshProgress(progress/currRequired, lastKnown);
+		return result;
+	}
+	public CycleResult internals() {
+		
 		if(progress < 0 || !Double.isFinite(currRequired)) {
 			//Invalid progress, it is negative, infinite or NaN
 			progress = 0;

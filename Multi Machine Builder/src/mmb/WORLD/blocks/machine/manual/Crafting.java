@@ -12,11 +12,12 @@ import javax.annotation.Nullable;
 import it.unimi.dsi.fastutil.ints.IntList;
 import mmb.GlobalSettings;
 import mmb.BEANS.BlockActivateListener;
+import mmb.WORLD.ContentsRecipes;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.gui.inv.CraftGUI;
 import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.item.Item;
-import mmb.WORLD.recipes.Craftings;
+import mmb.WORLD.recipes.CraftingGroups;
 import mmb.WORLD.worlds.world.World;
 
 /**
@@ -51,12 +52,12 @@ public class Crafting extends Block implements BlockActivateListener {
 		inited = true;
 		
 		//Generate recipes
-		Craftings.createRecipes();
+		ContentsRecipes.createRecipes();
 	}
 
 	public static void ingotNugget(Item ingot, Item nugget) {
-		Craftings.crafting.addRecipeGrid(nugget, 4, 4, ingot, 1);
-		Craftings.crafting.addRecipeGrid(ingot, 1, 1, nugget, 16);
+		CraftingGroups.crafting.addRecipeGrid(nugget, 4, 4, ingot, 1);
+		CraftingGroups.crafting.addRecipeGrid(ingot, 1, 1, nugget, 16);
 	}
 	
 	static Block initCraftingType(int tier) {

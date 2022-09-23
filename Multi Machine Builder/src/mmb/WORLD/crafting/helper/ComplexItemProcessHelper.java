@@ -4,8 +4,6 @@
 package mmb.WORLD.crafting.helper;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.util.concurrent.Runnables;
@@ -88,12 +86,16 @@ public class ComplexItemProcessHelper {
 	}
 	
 	public CycleResult cycle() {
+		CycleResult result = internals();
+		if(refreshable != null) refreshable.refreshProgress(progress/currRequired, lastKnown);
+		return result;
+	}
+	private CycleResult internals() {
 		if(progress < 0 || !Double.isFinite(currRequired)) {
 			//Invalid progress, it is negative, infinite or NaN
 			progress = 0;
 		} else if(rout == null || progress > currRequired) {
 			//Time to take a new item
-			//TODO find a recipe
 			if(lastKnown != null && Inventory.howManyTimesThisContainsThat(input, lastKnown.input) > 0) {
 				//There are enough items to use LKRecipe, reuse it
 				//Extract required items
@@ -138,7 +140,6 @@ public class ComplexItemProcessHelper {
 				return CycleResult.OUTPUT;
 			}// else continue smelting
 		}
-		if(refreshable != null) refreshable.refreshProgress(progress, lastKnown);
 		return CycleResult.RUN;
 	}
 	@Nonnull private static final Debugger debug = new Debugger("COMPLEX RECIPE RPOCESSOR");

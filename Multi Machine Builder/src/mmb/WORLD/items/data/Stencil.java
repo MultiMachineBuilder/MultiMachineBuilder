@@ -32,7 +32,7 @@ import mmb.WORLD.item.ItemEntity;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.recipes.CraftingRecipeGroup.CraftingRecipe;
-import mmb.WORLD.recipes.Craftings;
+import mmb.WORLD.recipes.CraftingGroups;
 import mmb.debug.Debugger;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
@@ -185,7 +185,7 @@ public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>{
 	 */
 	@Nullable public CraftingRecipe recipe() {
 		if(recipe0 == null) 
-			recipe0 = Craftings.crafting.findRecipe(grid);
+			recipe0 = CraftingGroups.crafting.findRecipe(grid);
 		return recipe0;
 	}
 	

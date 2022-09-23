@@ -68,6 +68,10 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 			if(n < 0) return -insert(n);
 			if(n == 0) return 0;
 			
+			String title = type.title();
+			//debug.printl("PASS: Requesting extraction on "+title+" in amount "+n);
+			//debug.printl("Remaining amount: "+amount);
+			
 			int result = Math.min(n, amount);
 			
 			volume -= type.volume(result);
@@ -118,7 +122,6 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 
 	@Override
 	public int insert(ItemEntry ent, int amount) {
-		if(!ent.exists()) return 0;
 		Node node = contents.get(ent);
 		if(node == null) {
 			node = new Node(0, ent);
@@ -129,7 +132,7 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 
 	@Override
 	public int extract(ItemEntry ent, int amount) {
-		if(!ent.exists()) return 0;
+		//debug.printl("Requesting extraction on "+ent.title()+" in amount "+amount);
 		Node node = contents.get(ent);
 		if(node == null) return 0;
 		return node.extract(amount);
@@ -287,15 +290,14 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 
 	@Override
 	public int bulkInsert(RecipeOutput ent, int amount) {
-		int max = amount;
-		double unitVolume = ent.outVolume();
-		double roughVolumeLimit = remainVolume()/unitVolume;
-		int exactUnits = (int) roughVolumeLimit;
-		if(exactUnits == 0) return 0;
-		if(max > exactUnits) max = exactUnits;
+		double remain = remainVolume();
+		double task = ent.outVolume();
+		int tasksInVolume = (int)(remain/task);
+		int max = Math.min(amount, tasksInVolume);
 		for(Entry<ItemEntry> entry: ent.getContents().object2IntEntrySet()) {
 			insert(entry.getKey(), entry.getIntValue()*max);
 		}
+		debug.printl("score: "+max);
 		return max;
 	}
 }

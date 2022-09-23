@@ -15,6 +15,8 @@ import mmb.WORLD.gui.craft.*;
  *
  */
 public class MachineInfoTab extends Box {
+	private static final long serialVersionUID = -7855159998857476643L;
+
 	public MachineInfoTab(ElectroMachine machine) {
 		super(BoxLayout.Y_AXIS);
 		

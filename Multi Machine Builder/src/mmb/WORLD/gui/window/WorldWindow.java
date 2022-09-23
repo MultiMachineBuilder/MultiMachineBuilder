@@ -125,6 +125,7 @@ public class WorldWindow extends MMBFrame{
 		setTitle("Test");
 		setBounds(100, 100, 824, 445);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setIconImage(MainMenu.GEAR);
 		addWindowListener(new WindowAdapter() {
 			boolean iconified = false;
 			boolean open = false;

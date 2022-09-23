@@ -45,7 +45,9 @@ public class GUIMachine extends GUITab implements Refreshable{
 	@Nonnull private static final String NOSMELT = ($res("wguim-nosmelt"));
 	@Nonnull private static final String CHANCE = ($res("wguim-chance"));
 	/**
-	 * Create the panel.
+	 * Creates a processing machine panel.
+	 * @param machine machine block
+	 * @param window world window
 	 */
 	public GUIMachine(BlockProcessorAbstract machine, WorldWindow window) {
 		this.furnace = machine;

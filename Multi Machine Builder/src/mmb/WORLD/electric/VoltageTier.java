@@ -28,7 +28,7 @@ public enum VoltageTier {
 	V2(    400, "VLV", Materials.iron,        Materials.copper,          4, new Color(255, 128,   0)), 
 	V3(   1600,  "LV", Materials.steel,       Materials.silver,          8, new Color(255, 255,   0)),
 	V4(   6400,  "MV", Materials.stainless,   Materials.gold,           16, new Color(128, 255,   0)),
-	V5(  25600,  "HV", Materials.HSS,         Materials.platinum,       64, new Color(  0, 255, 128)),
+	V5(  25600,  "HV", Materials.titanium,    Materials.platinum,       64, new Color(  0, 255, 128)),
 	V6( 102400,  "EV", Materials.signalum,    Materials.iridium,       256, new Color(  0, 255, 255)),
 	V7( 409600,  "IV", Materials.enderium,    Materials.crystal,      1024, new Color(  0, 200, 255)),
 	V8(1638400, "LuV", Materials.duranium,    Materials.stellar,      4096, new Color(  0, 128, 255)),

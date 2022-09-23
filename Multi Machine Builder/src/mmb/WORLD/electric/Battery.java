@@ -148,6 +148,7 @@ public class Battery implements SettablePressure, Saver<JsonNode>, Comparable<@N
 	 */
 	public void extractTo(Electricity elec) {
 		double insert = elec.insert(Math.min(amt, maxPower), voltage);
+		if(maxPower > amt) pressure -= amt*voltage.volts;
 		amt -= insert;
 	}
 	
@@ -155,7 +156,9 @@ public class Battery implements SettablePressure, Saver<JsonNode>, Comparable<@N
 	 * @param elec
 	 */
 	public void takeFrom(Electricity elec) {
-		double insert = elec.extract(Math.min(remain(), Math.min(amt, maxPower)), voltage, blow::blow);
+		double remain = remain();
+		double insert = elec.extract(Math.min(remain, maxPower), voltage, blow::blow);
+		if(maxPower > remain) pressure += remain*voltage.volts;
 		amt += insert;
 	}
 

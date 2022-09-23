@@ -60,10 +60,6 @@ public class Item extends ItemBase implements ItemEntry {
 		return this;
 	}
 	@Override
-	public boolean exists() {
-		return true;
-	}
-	@Override
 	public Icon getIcon() {
 		if(getTexture() == null) return null;
 		return getTexture().toIcon();

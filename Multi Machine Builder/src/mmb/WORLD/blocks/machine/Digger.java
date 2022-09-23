@@ -92,10 +92,12 @@ public class Digger extends BlockEntityData implements ToItemUnifiedCollector, B
 	private final int range;
 	@Nonnull private final ElectroMachineType type;
 	@Nonnull public final Battery battery;
+	@Nonnull public final Battery hammer;
 	
 	public Digger(ElectroMachineType type) {
 		this.type = type;
 		battery = new Battery(type.volt.speedMul*2/type.volt.volts, 5000, this, type.volt);
+		hammer = new Battery(Double.POSITIVE_INFINITY, 500, this, type.volt);
 		range = (type.volt.ordinal()+1)*32;
 		inv0 = new SimpleInventory();
 		inv0.setCapacity(range*(double)range);
@@ -150,11 +152,12 @@ public class Digger extends BlockEntityData implements ToItemUnifiedCollector, B
 			scanY = 0;
 			return;
 		}
-		int iters = (int)(battery.energy()/ENERGY_PER_BLOCK);
+		battery.extractTo(hammer);
+		double reqcharge = ENERGY_PER_BLOCK/battery.voltage.volts;
 		InventoryWriter writer0 = inv0.createWriter();
-		for(int i = 0; i < iters; i++) {
+		while(hammer.amt >= reqcharge) {
 			//Check battery
-			if(battery.energy() < ENERGY_PER_BLOCK) return;
+			if(hammer.energy() < ENERGY_PER_BLOCK) return;
 			
 			//Traverse
 			scanX++;
@@ -175,13 +178,14 @@ public class Digger extends BlockEntityData implements ToItemUnifiedCollector, B
 			if(block.isSurface()) continue;
 			
 			//Extract energy
-			battery.amt -= ENERGY_PER_BLOCK/battery.voltage.volts;
+			hammer.amt -= reqcharge;
 			
 			//Mine the block
 			Chance drop = block.type().getDrop();
 			owner().place(block.type().leaveBehind(), ox, oy);
 			drop.drop(writer0, owner(), ox, oy);
 		}
+		Electricity.equatePPs(this, map, battery, 0.9);
 	}
 
 	@Override

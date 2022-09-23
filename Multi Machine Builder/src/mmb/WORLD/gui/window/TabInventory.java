@@ -236,11 +236,12 @@ public class TabInventory extends JPanel {
 		
 		//Creative Item List
 		creativeScrollPane = new JScrollPane();
-		creativePanel.add(creativeScrollPane, "cell 1 1 1 2,growy");
+		creativePanel.add(creativeScrollPane, "cell 1 1 1 2,grow");
 		creativeItemList = new CreativeItemList();
 		creativeItemList.addListSelectionListener(e -> {
-			String s = creativeItemList.getSelectedValue().description();
-			multilineLabel.setText(s == null?"":s);
+			ItemType item = creativeItemList.getSelectedValue();
+			String s = (item==null)?null:item.description();
+			multilineLabel.setText(s==null?"":s);
 		});
 		creativeScrollPane.setViewportView(creativeItemList);
 		
@@ -253,6 +254,16 @@ public class TabInventory extends JPanel {
 		model.addElement(new FilterTagsel($res("wguit-ients"), i -> i instanceof ItemEntityType));
 		model.addElement(new FilterTagsel($res("wguit-sblk"),  i -> i instanceof Block));
 		model.addElement(new FilterTagsel($res("wguit-sitem"), i -> i instanceof Item && !(i instanceof BlockType)));
+		model.addElement(new FilterTagsel($res("wguit-notags"), i -> !Items.tags.containsValue(i)));
+		model.addElement(new FilterTagsel($res("wguit-tags"), i -> Items.tags.containsValue(i)));
+		model.addElement(new FilterTagsel($res("wguit-norecipes"), i -> !GlobalRecipeRegistrar.craftable.contains(i)));
+		model.addElement(new FilterTagsel($res("wguit-recipes"), i -> GlobalRecipeRegistrar.craftable.contains(i)));
+		model.addElement(new FilterTagsel($res("wguit-noway"), i -> !GlobalRecipeRegistrar.obtainable.contains(i)));
+		model.addElement(new FilterTagsel($res("wguit-way"), i -> GlobalRecipeRegistrar.obtainable.contains(i)));
+		model.addElement(new FilterTagsel($res("wguit-noins"), i -> !GlobalRecipeRegistrar.consumable.contains(i)));
+		model.addElement(new FilterTagsel($res("wguit-ins"), i -> GlobalRecipeRegistrar.consumable.contains(i)));
+		model.addElement(new FilterTagsel($res("wguit-nochance"), i -> !GlobalRecipeRegistrar.chanceable.contains(i)));
+		model.addElement(new FilterTagsel($res("wguit-chance"), i -> GlobalRecipeRegistrar.chanceable.contains(i)));
 		for(Entry<String, Collection<ItemType>> data : Items.tags.asMap().entrySet()) {
 			String s = data.getKey();
 			Set<ItemType> set = (Set<ItemType>) data.getValue();

@@ -6,6 +6,7 @@ package mmb.WORLD.gui.craft;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 
+import mmb.UnitFormatter;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.recipes.ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe;
@@ -73,7 +74,7 @@ public class ComplexCatalyzedRecipeView extends RecipeView<ComplexCatalyzedRecip
 	}
 	@Override public void set(ComplexCatalyzedRecipe recipe) {
 		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
-		lblEnergy.setText(CRConstants.ENERGY+recipe.energy);
+		lblEnergy.setText(CRConstants.ENERGY+UnitFormatter.formatEnergy(recipe.energy));
 		lblMachine.setText(CRConstants.MACHINE+recipe.group().title());
 		inList.setListData(VectorUtils.list2arr(recipe.input));
 		outList.setListData(VectorUtils.list2arr(recipe.output));

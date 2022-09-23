@@ -64,7 +64,7 @@ public class AlcoholInfoGroup extends AbstractRecipeGroup<AlcoholInfoGroup.Alcoh
 		}
 		@Override
 		public int craft(Inventory src, Inventory tgt, int amount) {
-			return Craftings.transact(input, output, tgt, src, amount);
+			return CraftingGroups.transact(input, output, tgt, src, amount);
 		}
 		
 		@Override

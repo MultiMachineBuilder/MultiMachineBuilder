@@ -10,6 +10,7 @@ import java.util.Objects;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 
 import mmb.WORLD.inventory.Inventories;
 import mmb.WORLD.inventory.ItemRecord;
@@ -43,6 +44,8 @@ public class MoveItems extends JPanel {
 	private static final String SEL = $res("wguim-sel");
 	private static final String OSEL = $res("wguim-opsel");
 	private static final String ONE = $res("wguim-one");
+	private static final String NSEL = $res("wguim-nsel");
+	private static final String N = $res("wguim-n");
 	
 	/**
 	 * Creates a item movement panel with allowed movement directions allowed
@@ -56,6 +59,7 @@ public class MoveItems extends JPanel {
 	}
 	public final GridBagLayout layout;
 	public final GridBagConstraints constraints;
+	private final JSpinner spinner;
 	/**
 	 * Creates a item movement panel with specificallowed movement directions
 	 * @param left the left inventory controller
@@ -71,10 +75,11 @@ public class MoveItems extends JPanel {
 		constraints.gridx = 0;
 		constraints.gridy = GridBagConstraints.RELATIVE;
 		constraints.anchor = GridBagConstraints.FIRST_LINE_START;
-		constraints.fill = GridBagConstraints.HORIZONTAL;
+		constraints.fill = GridBagConstraints.BOTH;
 		constraints.weighty = 1;
 		constraints.weightx = 1;
 		setLayout(layout);
+		//Moving left
 		if((i & LEFT) != 0) {
 			int itype = left.getInvType().ordinal();
 			JButton btnAllL = new JButton("<< "+ALL);
@@ -116,8 +121,58 @@ public class MoveItems extends JPanel {
 			});
 			layout.setConstraints(btnOneL, constraints);
 			add(btnOneL);
+			
+			JButton btnNSelL = new JButton("<< "+NSEL);
+			btnNSelL.addActionListener(e -> {
+				int n = amount();
+				for(ItemRecord selRecord: right.getSelectedValuesList()) {
+					Inventories.transfer(selRecord, left.getInv(), n);
+				}
+				left.refresh();
+				right.refresh();
+			});
+			layout.setConstraints(btnNSelL, constraints);
+			add(btnNSelL);
+			
+			JButton btnNL = new JButton("<< "+N);
+			btnNL.addActionListener(e -> {
+				int n = amount();
+				Inventories.transfer(right.getSelectedValue(), left.getInv(), n);
+				left.refresh();
+				right.refresh();
+			});
+			layout.setConstraints(btnNL, constraints);
+			add(btnNL);
 		}
+		
+		//count
+		spinner = new JSpinner();
+		layout.setConstraints(spinner, constraints);
+		add(spinner);
+		
+		//moving right
 		if((i & RIGHT) != 0) {
+			JButton btnNR = new JButton(N+" >>");
+			btnNR.addActionListener(e -> {
+				int n = amount();
+				Inventories.transfer(left.getSelectedValue(), right.getInv(), n);
+				left.refresh();
+				right.refresh();
+			});
+			layout.setConstraints(btnNR, constraints);
+			add(btnNR);
+			
+			JButton btnNSelR = new JButton(NSEL+" >>");
+			btnNSelR.addActionListener(e -> {
+				int n = amount();
+				for(ItemRecord selRecord: left.getSelectedValuesList()) {
+					Inventories.transfer(selRecord, right.getInv(), n);
+				}
+				left.refresh();
+				right.refresh();
+			});
+			layout.setConstraints(btnNSelR, constraints);
+			add(btnNSelR);
 			JButton btnOneR = new JButton(ONE+" >>");
 			btnOneR.addActionListener(e -> {
 				Inventories.transfer(left.getSelectedValue(), right.getInv(), 1);
@@ -157,6 +212,12 @@ public class MoveItems extends JPanel {
 			});layout.setConstraints(btnAllR, constraints);
 			add(btnAllR);
 		}
+	}
+	/** @return requested amount of items to move */
+	public int amount() {
+		Integer selection = (Integer) spinner.getValue();
+		if(selection == null) return 0;
+		return selection.intValue();
 	}
 	public void addAdditionalComponent(Component comp) {
 		layout.setConstraints(comp, constraints);

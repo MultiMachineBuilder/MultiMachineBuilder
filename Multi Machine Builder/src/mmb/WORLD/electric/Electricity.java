@@ -70,7 +70,8 @@ public interface Electricity {
 	 */
 	static void formatProgress(JProgressBar bar, double value, double max) {
 		bar.setString(UnitFormatter.formatEnergy(value)+"/"+UnitFormatter.formatEnergy(max));
-		bar.setValue((int) (value * 100 / max));
+		bar.setValue((int) value);
+		bar.setMaximum((int)max);
 	}
 
 	/**

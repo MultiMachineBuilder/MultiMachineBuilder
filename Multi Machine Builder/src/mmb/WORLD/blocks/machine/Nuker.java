@@ -20,7 +20,7 @@ import mmb.WORLD.inventory.Inventories;
 import mmb.WORLD.inventory.storage.SingleItemInventory;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.recipes.Craftings;
+import mmb.WORLD.recipes.CraftingGroups;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.debug.Debugger;
 
@@ -46,9 +46,9 @@ public class Nuker extends SkeletalBlockMachine {
 		ItemEntry cont = nuked.getContents();
 		//Check the cache
 		if(cont != null) {
-			if(Craftings.nukeFuels.containsKey(cont.type()) && fuelRemain < 1200_000_000L) {
+			if(CraftingGroups.nukeFuels.containsKey(cont.type()) && fuelRemain < 1200_000_000L) {
 				//Valid fuel
-				fuelRemain += Craftings.nukeFuels.getDouble(cont.type());
+				fuelRemain += CraftingGroups.nukeFuels.getDouble(cont.type());
 				nuked.setContents(null);
 			}else {
 				//Invalid fuel
@@ -116,11 +116,11 @@ public class Nuker extends SkeletalBlockMachine {
 	private static boolean inited;
 	public static void init() {
 		if(inited) throw new IllegalStateException("Already initialized");
-		Craftings.nukeFuels.put(Materials.uranium.base, 1000_000_000.0); //uranium - 1 GJ
+		CraftingGroups.nukeFuels.put(Materials.uranium.base, 1000_000_000.0); //uranium - 1 GJ
 		inited = true;
 	}
 	
-	private final FuelBurner burner = new FuelBurner(fuelRemain, nuked, outElec, Craftings.nukeFuels);
+	private final FuelBurner burner = new FuelBurner(fuelRemain, nuked, outElec, CraftingGroups.nukeFuels);
 	@Override
 	public BlockEntry blockCopy() {
 		Nuker copy = new Nuker();

@@ -71,7 +71,7 @@ import mmb.WORLD.item.Items;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.recipes.ComplexCatalyzedRecipeGroup;
 import mmb.WORLD.recipes.ComplexRecipeGroup;
-import mmb.WORLD.recipes.Craftings;
+import mmb.WORLD.recipes.CraftingGroups;
 import mmb.WORLD.rotate.ChirotatedImageGroup;
 import mmb.WORLD.rotate.Side;
 import mmb.debug.Debugger;
@@ -127,7 +127,7 @@ public class ContentsBlocks {
 			.texture("block/leaves.png")
 			.title("#leaves")
 			.finish("mmb.leaves");
-	@Nonnull public static final Block crafting = new Block()
+	@Nonnull public static final Block asmtb = new Block()
 			.texture("crafting.png")
 			.title("#asmtb")
 			.finish("mmb.craft");
@@ -190,6 +190,10 @@ public class ContentsBlocks {
 			.texture("logic/random.png")
 			.title("#ww-rnd")
 			.finish("wireworld.random");
+	@Nonnull public static final Block ONLOAD = new Randomizer()
+			.texture("logic/loadsensor.png")
+			.title("#ww-load")
+			.finish("wireworld.onload");
 	
 	//WireWorld output devices
 	/** This block logs specified message if it is activated by a gate, wire or other signal source */
@@ -276,9 +280,12 @@ public class ContentsBlocks {
 			.finish("machines.rotator");
 
 	//Power generators
-	@Nonnull public static final BlockEntityType COALGEN1 = coalgen(VoltageTier.V1, BlockGeneratorSolid.img, 1);
-	@Nonnull public static final BlockEntityType COALGEN2 = coalgen(VoltageTier.V2, BlockGeneratorSolid.img1, 2);
-	@Nonnull public static final BlockEntityType COALGEN3 = coalgen(VoltageTier.V3, BlockGeneratorSolid.img2, 3);
+	@Nonnull public static final BlockEntityType COALGEN1 = coalgen(1, VoltageTier.V1, BlockGeneratorSolid.img, 1);
+	@Nonnull public static final BlockEntityType COALGEN2 = coalgen(1, VoltageTier.V2, BlockGeneratorSolid.img1, 2);
+	@Nonnull public static final BlockEntityType COALGEN3 = coalgen(1, VoltageTier.V3, BlockGeneratorSolid.img2, 3);
+	@Nonnull public static final BlockEntityType TURBOGEN1 = coalgen(2, VoltageTier.V2, BlockGeneratorSolid.turboimg, 1);
+	@Nonnull public static final BlockEntityType TURBOGEN2 = coalgen(2, VoltageTier.V3, BlockGeneratorSolid.turboimg1, 2);
+	@Nonnull public static final BlockEntityType TURBOGEN3 = coalgen(2, VoltageTier.V4, BlockGeneratorSolid.turboimg2, 3);
 	/** A series of 9 infinite power generators. They are used for testing.*/
 	@Nonnull public static final ElectricMachineGroup infinigens =
 			new ElectricMachineGroup(Textures.get("machine/power/infinity.png"), type -> new InfiniteGenerator(type.volt, type), "infinigen");
@@ -308,17 +315,23 @@ public class ContentsBlocks {
 			.finish("nuke.generator");
 	
 	//Chests
-	/**
-	 * A chest stores items of mutiple types
-	 */
+	/** Stores 6 m³ of items*/
 	@Nonnull public static final BlockEntityType CHEST = chest(6, "machine/chest1.png", "chest.beginning", 1);
+	/** Stores 16 m³ of items*/
 	@Nonnull public static final BlockEntityType CHEST1 = chest(16, "machine/chest2.png", "chest.simple", 2);
+	/** Stores 32 m³ of items*/
 	@Nonnull public static final BlockEntityType CHEST2 = chest(32, "machine/chest3.png", "chest.intermediate", 3);
+	/** Stores 64 m³ of items*/
 	@Nonnull public static final BlockEntityType CHEST3 = chest(64, "machine/chest4.png", "chest.advanced", 4);
+	/** Stores 128 m³ of items*/
 	@Nonnull public static final BlockEntityType CHEST4 = chest(128, "machine/chest5.png", "chest.extreme", 5);
+	/** Stores 256 m³ of items*/
 	@Nonnull public static final BlockEntityType CHEST5 = chest(256, "machine/chest6.png", "chest.ultimate", 6);
+	/** Stores 1024 m³ of items*/
 	@Nonnull public static final BlockEntityType CHEST6 = chest(1024, "machine/chest7.png", "chest.penultimate", 7);
+	/** Stores 4096 m³ of items*/
 	@Nonnull public static final BlockEntityType CHEST7 = chest(4096, "machine/chest8.png", "chest.penultimate2", 8);
+	/** Stores 16384 m³ of items*/
 	@Nonnull public static final BlockEntityType CHEST8 = chest(16384, "machine/chest9.png", "chest.penultimate3", 9);
 	/**
 	 * A chest that auto-inserts items
@@ -494,20 +507,22 @@ public class ContentsBlocks {
 			.finish("industry.autocraft1");
 	
 	//Electrical processing machines
-	@Nonnull public static final ElectricMachineGroup efurnace = machinesSimple("machine/electrosmelter.png", Craftings.smelting, "electrofurnace");
-	@Nonnull public static final ElectricMachineGroup bcrusher = machinesSimple("machine/pulverizer.png", Craftings.crusher, "crusher");
-	@Nonnull public static final ElectricMachineGroup bcmill = machinesSimple("machine/cluster mill.png", Craftings.clusterMill, "clustermill");
-	@Nonnull public static final ElectricMachineGroup bwiremill = machinesSimple("machine/wiremill.png", Craftings.wiremill, "wiremill");
-	@Nonnull public static final ElectricMachineGroup balloyer = machinesComplex("machine/alloyer.png", Craftings.alloyer, "alloyer");
-	@Nonnull public static final ElectricMachineGroup bassembly = machinesAssembly("machine/machinemaker.png", Craftings.assembler, "assembler");
-	@Nonnull public static final ElectricMachineGroup bsplitter = machinesSimple("machine/splitter.png", Craftings.splitter, "spllitter", 0.1);
-	@Nonnull public static final ElectricMachineGroup bsplicer = machinesSimple("machine/splicer.png", Craftings.combiner, "splicer", 0.1);
-	@Nonnull public static final ElectricMachineGroup bbrewery = machinesComplex("machine/brewery.png", Craftings.brewery, "brewery");
-	@Nonnull public static final ElectricMachineGroup bextruder = machinesSimpleCat("machine/extruder.png", Craftings.extruder, "extruder");
+	@Nonnull public static final ElectricMachineGroup efurnace = machinesSimple("machine/electrosmelter.png", CraftingGroups.smelting, "electrofurnace");
+	@Nonnull public static final ElectricMachineGroup bcrusher = machinesSimple("machine/pulverizer.png", CraftingGroups.crusher, "crusher");
+	@Nonnull public static final ElectricMachineGroup bcmill = machinesSimple("machine/cluster mill.png", CraftingGroups.clusterMill, "clustermill");
+	@Nonnull public static final ElectricMachineGroup bwiremill = machinesSimple("machine/wiremill.png", CraftingGroups.wiremill, "wiremill");
+	@Nonnull public static final ElectricMachineGroup balloyer = machinesComplex("machine/alloyer.png", CraftingGroups.alloyer, "alloyer");
+	@Nonnull public static final ElectricMachineGroup bassembly = machinesAssembly("machine/machinemaker.png", CraftingGroups.assembler, "assembler");
+	@Nonnull public static final ElectricMachineGroup bsplitter = machinesSimple("machine/splitter.png", CraftingGroups.splitter, "spllitter", 0.1);
+	@Nonnull public static final ElectricMachineGroup bsplicer = machinesSimple("machine/splicer.png", CraftingGroups.combiner, "splicer", 0.1);
+	@Nonnull public static final ElectricMachineGroup bbrewery = machinesComplex("machine/brewery.png", CraftingGroups.brewery, "brewery");
+	@Nonnull public static final ElectricMachineGroup bextruder = machinesSimpleCat("machine/extruder.png", CraftingGroups.extruder, "extruder");
+	@Nonnull public static final ElectricMachineGroup binscriber = machinesSimpleCat("machine/inscriber.png", CraftingGroups.inscriber, "inscriber");
+	@Nonnull public static final ElectricMachineGroup bsinterer = machinesComplex("machine/sinterer.png", CraftingGroups.sinterer, "sinterer");
 	@Nonnull public static final ElectricMachineGroup bdig = createDigger();
 	@Nonnull public static final ElectricMachineGroup ptower = createTower();
 	@Nonnull public static final ElectricMachineGroup prec = createReceiver();
-	@Nonnull public static final ElectricMachineGroup bquarry = machinesSimple("machine/quarry.png", Craftings.quarry, "quarry");
+	@Nonnull public static final ElectricMachineGroup bquarry = machinesSimple("machine/quarry.png", CraftingGroups.quarry, "quarry");
 	@Nonnull public static final ElectricMachineGroup bbattery = createBattery();
 	
 	//Player pipes
@@ -528,7 +543,6 @@ public class ContentsBlocks {
 		//initialization method
 	}
 
-	
 	//Multimedia devices
 	/** A block which plays a specific sound */
 	@Nonnull public static final BlockEntityType SPEAKER = new BlockEntityType()
@@ -541,7 +555,7 @@ public class ContentsBlocks {
 	@Nonnull
 	public static BlockEntityType crop(int duration, RecipeOutput cropDrop, String title, BufferedImage texture, String id) {
 		BlockEntityType result = new BlockEntityType().title(title).texture(texture).finish(id);
-		Craftings.agro.add(result, cropDrop, duration);
+		CraftingGroups.agro.add(result, cropDrop, duration);
 		return result.factory(() -> new Crop(result, duration, cropDrop));
 	}
 	@Nonnull private static BlockEntityType ppipe(double length, Side a, Side b, String texture, String title, String id) {
@@ -571,20 +585,23 @@ public class ContentsBlocks {
 		.texture(texture)
 		.finish(id);
 	}
-	@Nonnull private static BlockEntityType coalgen(VoltageTier volt, BufferedImage texture, int n) {
+	@Nonnull private static BlockEntityType coalgen(int mul, VoltageTier volt, BufferedImage texture, int n) {
 		BlockEntityType type = new BlockEntityType();
 		return type
-				.title(GlobalSettings.$res("machine-coalgen")+" "+n)
-				.factory(() -> new BlockGeneratorSolid(volt, type))
+				.title((mul==2?GlobalSettings.$res("machine-turbogen"):GlobalSettings.$res("machine-coalgen"))+" "+n)
+				.factory(() -> new BlockGeneratorSolid(mul, volt, type))
 				.texture(texture)
-				.finish("elec.coalgen"+n);
+				.finish((mul==2?"elec.turbogen":"elec.coalgen")+n);
 	}
 	@Nonnull private static BlockEntityType chest(double capacity, String texture, String id, int n) {
+		final String descr1 = GlobalSettings.$res("descr-chest1");
+		final String descr2 = GlobalSettings.$res("descr-chest2");
 		BlockEntityType type = new BlockEntityType().finish(id);
 		Items.tagItem("chest", type);
 		BufferedImage image = Textures.get(texture);
 		return type
 				.title(GlobalSettings.$res("chest")+" #"+n)
+				.describe(descr1+" "+capacity+" "+descr2)
 				.factory(() -> new Chest(capacity, type, image))
 				.texture(image);
 	}
@@ -621,7 +638,7 @@ public class ContentsBlocks {
 	//Item tags
 	static {
 		Items.tagItems("wireworld", ww_wire, ww_head, ww_tail, ww_chatter,
-				AND, OR, XOR, BUTTON, TOGGLE, YES, NOT, RANDOMCTRL, TRUE, RANDOM, ON, OFF, URANDOM, LAMP);
+				AND, OR, XOR, BUTTON, TOGGLE, YES, NOT, RANDOMCTRL, TRUE, RANDOM, ON, OFF, URANDOM, LAMP, SPEAKER, CLICKER, PLACER, ROTATOR);
 		Items.tagItems("player-pipe", PPIPE_lin, PPIPE_bend, PPIPE_lin2, PPIPE_bend2, PPIPE_join, PPIPE_join2, PPIPE_cap);
 		Items.tagItem("workbench", PICKBUILDER);
 		Items.tagItems("workbench", Crafting.types);
@@ -632,7 +649,11 @@ public class ContentsBlocks {
 		Items.tagItems("shape-crop", AGRO_TREE, AGRO_WATER, AGRO_SEEDS, AGRO_HOPS);
 		Items.tagItems("pipe",ipipe_STRAIGHT, ipipe_ELBOW, ipipe_IPE, ipipe_TOLEFT, ipipe_TORIGHT, ipipe_CROSS, ipipe_DUALTURN, ipipe_FILTER, IMOVER);
 		Items.tagItem("voltage-ULV", COALGEN1);
-		Items.tagItem("voltage-VLV", COALGEN2);
-		Items.tagItem("voltage-LV", COALGEN3);
+		Items.tagItems("voltage-VLV", COALGEN2, TURBOGEN1);
+		Items.tagItems("voltage-LV", COALGEN3, TURBOGEN2);
+		Items.tagItem("voltage-MV", TURBOGEN3);
+		Items.tagItems("machine-coalgen", COALGEN1, COALGEN2, COALGEN3);
+		Items.tagItems("machine-turbogen", TURBOGEN1, TURBOGEN2, TURBOGEN3);
+		Items.tagItems("imachine", PLACEITEMS, COLLECTOR, IMOVER);
 	}
 }

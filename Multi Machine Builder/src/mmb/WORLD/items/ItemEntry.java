@@ -55,9 +55,6 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, SingleItem{
 	public default String description() {
 		return type().description();
 	}
-	public default boolean exists() {
-		return true;
-	}
 	/**
 	 * Saves the item data.
 	 * 

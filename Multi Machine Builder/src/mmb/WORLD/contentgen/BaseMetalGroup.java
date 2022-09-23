@@ -13,7 +13,7 @@ import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.item.Items;
-import mmb.WORLD.recipes.Craftings;
+import mmb.WORLD.recipes.CraftingGroups;
 
 /**
  * @author oskar
@@ -41,8 +41,8 @@ public class BaseMetalGroup extends MetalGroup{
 		crop = ContentsBlocks.crop(1500, ore, materialConcatenateShort("mattype-crop"), TexGen.genCrop(c), "crop."+id);
 		
 		//Recipes
-		Craftings.smelting.add(ore, base, orePerSmelt, volt, baseEnergy);
-		Craftings.crusher.add(ore, dust, 2*orePerSmelt, volt, baseEnergy/2);
+		CraftingGroups.smelting.add(ore, base, orePerSmelt, volt, baseEnergy);
+		CraftingGroups.crusher.add(ore, dust, 2*orePerSmelt, volt, baseEnergy/2);
 		
 		//Tags
 		Items.tagItems("material-"+id, ore, crop);

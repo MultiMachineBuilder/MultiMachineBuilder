@@ -15,6 +15,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TimerTask;
 import java.awt.Desktop;
+import java.awt.image.BufferedImage;
 import java.awt.BorderLayout;
 import javax.swing.border.EmptyBorder;
 
@@ -66,6 +67,10 @@ public class MainMenu extends MMBFrame {
 	private static final String refugeesEN = "https://www.gov.pl/web/mswia-en/information-for-refugees-from-ukraine";
 	private static final String refugeesUA = "http://www.ua.gov.pl/";
 	
+	//Logos
+	public static final BufferedImage GEAR = Textures.get("gearlogo.png");
+	public static final BufferedImage DOLLAR = Textures.get("dollar.png");
+	
 	private JButton btnExit;
 	private JLabel timerLBL;
 	private JButton TEST;
@@ -80,14 +85,12 @@ public class MainMenu extends MMBFrame {
 		FullScreen.setWindow(INSTANCE);
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	private MainMenu() {
 		debug.printl("MainMenu created");
 		setTitle("MultiMachineBuilder - "+Mods.mods.size()+" mods");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
+		setIconImage(GEAR);
 		
 		mainMenuBar = new JMenuBar();
 		setJMenuBar(mainMenuBar);

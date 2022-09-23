@@ -10,6 +10,9 @@ package mmb;
 public class UnitFormatter {
 	private UnitFormatter() {}
 	public static String formatEnergy(double energy) {
+		if(Double.isNaN(energy)) return "?";
+		if(energy == 0) return "0";
+		if(energy == Double.POSITIVE_INFINITY) return "∞";
 		if(energy >= 10e24)
 			//Yottajoules
 			return (energy/1e24)+" YJ";
@@ -65,6 +68,9 @@ public class UnitFormatter {
 		return formatPowerWatts(energy*50);
 	}
 	public static String formatPowerWatts(double energy) {
+		if(Double.isNaN(energy)) return "?";
+		if(energy == 0) return "0";
+		if(energy == Double.POSITIVE_INFINITY) return "∞";
 		if(energy >= 10e24)
 			//Yottawatts
 			return (energy/1e24)+" YW";

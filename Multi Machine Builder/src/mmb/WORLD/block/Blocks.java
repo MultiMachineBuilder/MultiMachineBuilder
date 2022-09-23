@@ -56,6 +56,7 @@ public class Blocks {
 		if(!blocks.contains(type)) throw new IllegalStateException("Block type "+type+" is not registered before deprecation");
 		debug.printl("Deprecating "+type.id()+" as "+deprecated);
 		_deprecator.put(deprecated, type);
+		Items.deprecate(deprecated, type);
 	}
 	/**
 	 * Get a block with following ID, or null if block with given ID is not found

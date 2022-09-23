@@ -63,7 +63,7 @@ public interface RecipeOutput extends Chance{
 	/**
 	 * @return contents of the item list as map.
 	 */
-	@Nonnull public Object2IntMap<ItemEntry> getContents();
+	@Nonnull public Object2IntMap<@Nonnull ItemEntry> getContents();
 	
 	/**
 	 * Checks if the item list contains the selected item

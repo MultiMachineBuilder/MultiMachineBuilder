@@ -52,7 +52,7 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup<CraftingRecipeGroup
 	 * This class defines a crafting recipe
 	 */
 	public class CraftingRecipe implements Identifiable<Grid<ItemEntry>>, Recipe<CraftingRecipe>{
-		/** The recipe group. Usually it is {@link mmb.WORLD.recipes.Craftings#crafting} */
+		/** The recipe group. Usually it is {@link mmb.WORLD.recipes.CraftingGroups#crafting} */
 		@Nonnull public final CraftingRecipeGroup group;
 		/** The item grid of the recipe */
 		@Nonnull public final Grid<ItemEntry> grid;
@@ -81,7 +81,7 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup<CraftingRecipeGroup
 		}
 		@Override
 		public int craft(Inventory src, Inventory tgt, int amount) {
-			return Craftings.transact(in, out, tgt, src, amount);
+			return CraftingGroups.transact(in, out, tgt, src, amount);
 		}
 		@Override
 		public RecipeOutput output() {

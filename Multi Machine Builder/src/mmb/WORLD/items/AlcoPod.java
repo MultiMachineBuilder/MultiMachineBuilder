@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import mmb.BEANS.Intoxicating;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.item.Item;
-import mmb.WORLD.recipes.Craftings;
+import mmb.WORLD.recipes.CraftingGroups;
 import mmb.WORLD.tool.ToolAlcohol;
 import mmb.WORLD.tool.WindowTool;
 
@@ -47,6 +47,6 @@ public class AlcoPod extends Item implements Intoxicating {
 	}
 	@Override
 	public void onregister() {
-		Craftings.alcohol.add(this, drop, dose);
+		CraftingGroups.alcohol.add(this, drop, dose);
 	}
 }

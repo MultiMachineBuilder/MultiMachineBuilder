@@ -24,7 +24,7 @@ import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.items.data.Stencil;
-import mmb.WORLD.recipes.Craftings;
+import mmb.WORLD.recipes.CraftingGroups;
 import mmb.WORLD.recipes.CraftingRecipeGroup.CraftingRecipe;
 import mmb.debug.Debugger;
 import monniasza.collects.grid.FixedGrid;
@@ -97,7 +97,7 @@ public class CraftGUI extends GUITab {
 		craftingGrid.gridStateChanged.addListener(e -> {
 			debug.printl("Recipe state changed: "+e);
 			contents.set(e.x, e.y, e.newEntry);
-			CraftingRecipe recipe = Craftings.crafting.findRecipe(contents);
+			CraftingRecipe recipe = CraftingGroups.crafting.findRecipe(contents);
 			outs.set(recipe == null ? null: recipe.out);  //Find new item to be crafted
 			RecipeOutput rout = outs.get();
 			debug.printl("Recipe output: "+rout);
@@ -105,9 +105,10 @@ public class CraftGUI extends GUITab {
 			if(rout == null)
 				lblRecipeOutputs.setText("Recipe output: none");
 			else {
+				//fails to add
 				for(ItemEntry item: contents) {
 						if(item != null) {
-							ins.mergeInt(item, 0, Integer::sum);
+							ins.mergeInt(item, 1, Integer::sum);
 						}
 				}
 				PicoWriter out = new PicoWriter();
@@ -142,7 +143,7 @@ public class CraftGUI extends GUITab {
 			if(rout == null) return;
 			Inventory inv0 = inventoryController.getInv();
 			if(inv0 == null) return;
-			Craftings.transact(new SimpleItemList(ins), rout, inv0, inv0);
+			CraftingGroups.transact(new SimpleItemList(ins), rout, inv0, inv0);
 			inventoryController.refresh();
 		});
 		verticalBox.add(btnCraft);
@@ -200,7 +201,7 @@ public class CraftGUI extends GUITab {
 				Stencil newStencil = new Stencil(craftingGrid.items);
 				Inventory inv0 = inventoryController.getInv();
 				if(inv0 == null) return;
-				Craftings.transact(item, new ItemStack(newStencil, 1), inv0, inv0);
+				CraftingGroups.transact(item, new ItemStack(newStencil, 1), inv0, inv0);
 			}//else it is not a stencil
 		});
 		verticalBox.add(btnSave);

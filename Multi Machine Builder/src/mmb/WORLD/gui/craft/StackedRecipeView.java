@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
+
+import mmb.UnitFormatter;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;
@@ -67,7 +69,7 @@ public class StackedRecipeView extends RecipeView<StackedRecipe> {
 	}
 	@Override public void set(StackedRecipe recipe) {
 		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
-		lblEnergy.setText(CRConstants.ENERGY+recipe.energy);
+		lblEnergy.setText(CRConstants.ENERGY+UnitFormatter.formatEnergy(recipe.energy));
 		lblMachine.setText(CRConstants.MACHINE+recipe.group().title());
 		ItemEntry item = recipe.item();
 		lblIn.setIcon(item.icon());

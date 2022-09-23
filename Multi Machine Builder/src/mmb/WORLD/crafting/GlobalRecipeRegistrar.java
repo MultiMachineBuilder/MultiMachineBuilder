@@ -22,9 +22,22 @@ import mmb.WORLD.items.ItemEntry;
  */
 public class GlobalRecipeRegistrar {
 	private GlobalRecipeRegistrar() {}
-	/** A full set of recipes */
+	
 	private static final Set<Recipe<?>> recipes0 = new HashSet<>();
+	/** A full set of recipes */
 	public static final Set<Recipe<?>> recipes = Collections.unmodifiableSet(recipes0);
+	
+	@Nonnull private static final Set<ItemEntry> chanceable0 = new HashSet<>();
+	@Nonnull public static final Set<ItemEntry> chanceable = Collections.unmodifiableSet(chanceable0);
+	
+	@Nonnull private static final Set<ItemEntry> craftable0 = new HashSet<>();
+	@Nonnull public static final Set<ItemEntry> craftable = Collections.unmodifiableSet(craftable0);
+	
+	@Nonnull private static final Set<ItemEntry> obtainable0 = new HashSet<>();
+	@Nonnull public static final Set<ItemEntry> obtainable = Collections.unmodifiableSet(obtainable0);
+	
+	@Nonnull private static final Set<ItemEntry> consumable0 = new HashSet<>();
+	@Nonnull public static final Set<ItemEntry> consumable = Collections.unmodifiableSet(consumable0);
 	
 	/** A full set of recipe groups */
 	private static final Set<RecipeGroup<?>> rgroups0 = new HashSet<>();
@@ -48,7 +61,11 @@ public class GlobalRecipeRegistrar {
 			VoltageTier higher = VoltageTier.VOLTS.get(8 - i);
 			uptoVoltage0.put(higher, recipe);
 		}
-		
+		chanceable0.addAll(recipe.luck().items());
+		obtainable0.addAll(recipe.luck().items());
+		craftable0.addAll(recipe.output().items());
+		obtainable0.addAll(recipe.output().items());
+		consumable0.addAll(recipe.inputs().items());
 	}
 	/**
 	 * Adds a recipe group. Should be used by recipe groups
@@ -65,6 +82,7 @@ public class GlobalRecipeRegistrar {
 	@Nonnull private static final SetMultimap<          ItemEntry, Recipe<?>> byChance0    = HashMultimap.create();
 	@Nonnull private static final SetMultimap<        VoltageTier, Recipe<?>> byVoltage0   = HashMultimap.create();
 	@Nonnull private static final SetMultimap<        VoltageTier, Recipe<?>> uptoVoltage0 = HashMultimap.create();
+	
 	
 	/** Recipes grouped by input items */
 	@Nonnull public static final SetMultimap<          ItemEntry, Recipe<?>> byInputs    = Multimaps.unmodifiableSetMultimap(byInputs0);

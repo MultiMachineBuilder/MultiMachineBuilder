@@ -23,7 +23,7 @@ import mmb.WORLD.item.Item;
 import mmb.WORLD.item.Items;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.recipes.Craftings;
+import mmb.WORLD.recipes.CraftingGroups;
 
 import static mmb.GlobalSettings.*;
 import static mmb.WORLD.items.ContentsItems.frame1;
@@ -173,90 +173,90 @@ public class MetalGroup{
 		.finish("frame."+id);
 		
 		//Recipes
-		Craftings.crusher.add(base, dust, volt, baseCost/2);
-		Craftings.crusher.add(panel, dust, volt, baseCost/2);
-		Craftings.crusher.add(gear, dust, volt, baseCost/2);
-		Craftings.crusher.add(nugget, tinydust, volt, baseCost/32);
-		Craftings.crusher.add(foil, tinydust, volt, baseCost/32);
-		Craftings.crusher.add(frag, smalldust, volt, baseCost/8);
-		Craftings.crusher.add(cluster, megadust, volt, baseCost/2);
-		Craftings.crusher.add(sheet, smalldust, volt, baseCost/8);
-		Craftings.crusher.add(rod, smalldust, volt, baseCost/8);
-		Craftings.crusher.add(ring, smalldust, volt, baseCost/8);
-		Craftings.crusher.add(frame, megadust, 2, volt, baseCost);
+		CraftingGroups.crusher.add(base, dust, volt, baseCost/2);
+		CraftingGroups.crusher.add(panel, dust, volt, baseCost/2);
+		CraftingGroups.crusher.add(gear, dust, volt, baseCost/2);
+		CraftingGroups.crusher.add(nugget, tinydust, volt, baseCost/32);
+		CraftingGroups.crusher.add(foil, tinydust, volt, baseCost/32);
+		CraftingGroups.crusher.add(frag, smalldust, volt, baseCost/8);
+		CraftingGroups.crusher.add(cluster, megadust, volt, baseCost/2);
+		CraftingGroups.crusher.add(sheet, smalldust, volt, baseCost/8);
+		CraftingGroups.crusher.add(rod, smalldust, volt, baseCost/8);
+		CraftingGroups.crusher.add(ring, smalldust, volt, baseCost/8);
+		CraftingGroups.crusher.add(frame, megadust, 2, volt, baseCost);
 		
-		Craftings.smelting.add(dust, base, volt, baseCost/2);
-		Craftings.smelting.add(tinydust, nugget, volt, baseCost/32);
-		Craftings.smelting.add(megadust, cluster, volt, baseCost*2);
-		Craftings.smelting.add(smalldust, frag, volt, baseCost/8);
+		CraftingGroups.smelting.add(dust, base, volt, baseCost/2);
+		CraftingGroups.smelting.add(tinydust, nugget, volt, baseCost/32);
+		CraftingGroups.smelting.add(megadust, cluster, volt, baseCost*2);
+		CraftingGroups.smelting.add(smalldust, frag, volt, baseCost/8);
 		
-		Craftings.clusterMill.add(base, panel, volt, baseCost/2);
-		Craftings.clusterMill.add(nugget, foil, volt, baseCost/32);
-		Craftings.clusterMill.add(panel, foil, 16, volt, baseCost/2);
+		CraftingGroups.clusterMill.add(base, panel, volt, baseCost/2);
+		CraftingGroups.clusterMill.add(nugget, foil, volt, baseCost/32);
+		CraftingGroups.clusterMill.add(panel, foil, 16, volt, baseCost/2);
 		
-		Craftings.crafting.addRecipeGrid(new ItemEntry[] {
+		CraftingGroups.crafting.addRecipeGrid(new ItemEntry[] {
 				null, frag, null,
 				frag, null, frag,
 				null, frag, null
 		}, 3, 3, gear);
 		
 		//Nugget <-> frag
-		Craftings.crafting.addRecipeGrid(nugget, 2, 2, frag);
-		Craftings.crafting.addRecipe(frag, nugget, 4);
-		Craftings.splitter.add(frag,            nugget, 4, volt, baseCost/64);
-		Craftings.combiner.add(nugget.stack(4), frag,      volt, baseCost/64);
+		CraftingGroups.crafting.addRecipeGrid(nugget, 2, 2, frag);
+		CraftingGroups.crafting.addRecipe(frag, nugget, 4);
+		CraftingGroups.splitter.add(frag,            nugget, 4, volt, baseCost/64);
+		CraftingGroups.combiner.add(nugget.stack(4), frag,      volt, baseCost/64);
 		
 		//Frag <-> base
-		Craftings.crafting.addRecipeGrid(frag, 2, 2, base);
+		CraftingGroups.crafting.addRecipeGrid(frag, 2, 2, base);
 		//No crafting base -> fragment
-		Craftings.splitter.add(base,          frag, 4, volt, baseCost/16);
-		Craftings.combiner.add(frag.stack(4), base,    volt, baseCost/16);
+		CraftingGroups.splitter.add(base,          frag, 4, volt, baseCost/16);
+		CraftingGroups.combiner.add(frag.stack(4), base,    volt, baseCost/16);
 		
 		//Base <-> cluster
-		Craftings.crafting.addRecipeGrid(base, 2, 2, cluster);
-		Craftings.crafting.addRecipe(cluster, base, 4);
-		Craftings.splitter.add(cluster,       base, 4, volt, baseCost/4);
-		Craftings.combiner.add(base.stack(4), cluster, volt, baseCost/4);
+		CraftingGroups.crafting.addRecipeGrid(base, 2, 2, cluster);
+		CraftingGroups.crafting.addRecipe(cluster, base, 4);
+		CraftingGroups.splitter.add(cluster,       base, 4, volt, baseCost/4);
+		CraftingGroups.combiner.add(base.stack(4), cluster, volt, baseCost/4);
 		
 		//Block <-> cluster
-		Craftings.crafting.addRecipeGrid(cluster, 2, 2, block);
+		CraftingGroups.crafting.addRecipeGrid(cluster, 2, 2, block);
 		//No crafting block -> cluster
-		Craftings.splitter.add(block,            cluster, 4, volt, baseCost);
-		Craftings.combiner.add(cluster.stack(4), block,      volt, baseCost);
+		CraftingGroups.splitter.add(block,            cluster, 4, volt, baseCost);
+		CraftingGroups.combiner.add(cluster.stack(4), block,      volt, baseCost);
 		
 		//SmallDust <-> TinyDust
-		Craftings.crafting.addRecipeGrid(tinydust, 2, 2, smalldust);
-		Craftings.crafting.addRecipe(smalldust, tinydust, 4);
-		Craftings.splitter.add(smalldust,         tinydust, 4, volt, baseCost/256);
-		Craftings.combiner.add(tinydust.stack(4), smalldust,   volt, baseCost/256);
+		CraftingGroups.crafting.addRecipeGrid(tinydust, 2, 2, smalldust);
+		CraftingGroups.crafting.addRecipe(smalldust, tinydust, 4);
+		CraftingGroups.splitter.add(smalldust,         tinydust, 4, volt, baseCost/256);
+		CraftingGroups.combiner.add(tinydust.stack(4), smalldust,   volt, baseCost/256);
 		
 		//Dust <-> SmallDust
-		Craftings.crafting.addRecipeGrid(smalldust, 2, 2, dust);
+		CraftingGroups.crafting.addRecipeGrid(smalldust, 2, 2, dust);
 		//No crafting recipe Dust -> SmallDust
-		Craftings.splitter.add(dust,               smalldust, 4, volt, baseCost/64);
-		Craftings.combiner.add(smalldust.stack(4), dust,         volt, baseCost/64);
+		CraftingGroups.splitter.add(dust,               smalldust, 4, volt, baseCost/64);
+		CraftingGroups.combiner.add(smalldust.stack(4), dust,         volt, baseCost/64);
 		
 		//MegaDust <-> Dust
-		Craftings.crafting.addRecipeGrid(dust, 2, 2, megadust);
-		Craftings.crafting.addRecipe(megadust, dust, 4);
-		Craftings.splitter.add(megadust,      dust, 4,  volt, baseCost/16);
-		Craftings.combiner.add(dust.stack(4), megadust, volt, baseCost/16);
+		CraftingGroups.crafting.addRecipeGrid(dust, 2, 2, megadust);
+		CraftingGroups.crafting.addRecipe(megadust, dust, 4);
+		CraftingGroups.splitter.add(megadust,      dust, 4,  volt, baseCost/16);
+		CraftingGroups.combiner.add(dust.stack(4), megadust, volt, baseCost/16);
 		
 		//WireMill
-		Craftings.wiremill.add(nugget, wire, volt, baseCost/32);
+		CraftingGroups.wiremill.add(nugget, wire, volt, baseCost/32);
 				
 		Crafting.ingotNugget(base, nugget);
 		Crafting.ingotNugget(block, base);
 		Crafting.ingotNugget(dust, tinydust);
 		
 		//Rod
-		Craftings.extruder.add(frag, rod, ContentsItems.bearing1, volt, baseCost/8);
+		CraftingGroups.extruder.add(frag, rod, ContentsItems.bearing1, volt, baseCost/8);
 		//Ring
-		Craftings.extruder.add(frag, ring, ContentsItems.rod1, volt, baseCost/8);
+		CraftingGroups.extruder.add(frag, ring, ContentsItems.rod1, volt, baseCost/8);
 		//Sheet
-		Craftings.clusterMill.add(frag, sheet, volt, baseCost/8);
+		CraftingGroups.clusterMill.add(frag, sheet, volt, baseCost/8);
 		//Frame
-		Craftings.crafting.addRecipeGrid(new ItemEntry[]{
+		CraftingGroups.crafting.addRecipeGrid(new ItemEntry[]{
 		base, panel, base,
 		panel,  null, panel,
 		base, panel, base

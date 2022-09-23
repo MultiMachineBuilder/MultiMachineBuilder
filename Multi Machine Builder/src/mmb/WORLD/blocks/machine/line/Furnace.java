@@ -21,7 +21,7 @@ import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.electromachine.FuelBurner;
 import mmb.WORLD.gui.window.WorldWindow;
-import mmb.WORLD.recipes.Craftings;
+import mmb.WORLD.recipes.CraftingGroups;
 import mmb.WORLD.rotate.RotatedImageGroup;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
@@ -40,8 +40,8 @@ public class Furnace extends SkeletalBlockLinear implements BlockActivateListene
 
 	private FurnaceGUI openWindow;
 	@Nonnull private Battery elec = new Battery(20_000, 120_000, this, VoltageTier.V1);
-	@Nonnull private SimpleProcessHelper processor = new SimpleProcessHelper(Craftings.smelting, incoming, output, 500, elec, null, VoltageTier.V1); //borked here
-	@Nonnull private final FuelBurner burner = new FuelBurner(1, incoming, elec, Craftings.furnaceFuels);
+	@Nonnull private SimpleProcessHelper processor = new SimpleProcessHelper(CraftingGroups.smelting, incoming, output, 500, elec, null, VoltageTier.V1); //borked here
+	@Nonnull private final FuelBurner burner = new FuelBurner(1, incoming, elec, CraftingGroups.furnaceFuels);
 
 	@Override
 	protected void save2(ObjectNode node) {

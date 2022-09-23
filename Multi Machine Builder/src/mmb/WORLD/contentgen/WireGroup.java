@@ -14,7 +14,7 @@ import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.item.Items;
 import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.recipes.Craftings;
+import mmb.WORLD.recipes.CraftingGroups;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;
@@ -58,10 +58,10 @@ public class WireGroup implements Identifiable<String> {
 		_index.add(this);
 		
 		//Crafting recipes
-		Craftings.wiremill.add(group.base, medium, group.volt, group.power/2);
-		Craftings.wiremill.add(tiny, group.wire, 4, group.volt, group.power/8);
-		Craftings.wiremill.add(small, group.wire, 8, group.volt, group.power/4);
-		Craftings.wiremill.add(medium, group.wire, 16, group.volt, group.power/2);
+		CraftingGroups.wiremill.add(group.base, medium, group.volt, group.power/2);
+		CraftingGroups.wiremill.add(tiny, group.wire, 4, group.volt, group.power/8);
+		CraftingGroups.wiremill.add(small, group.wire, 8, group.volt, group.power/4);
+		CraftingGroups.wiremill.add(medium, group.wire, 16, group.volt, group.power/2);
 		
 		gridCombo(tiny, small,   0.0625);
 		gridCombo(small, medium, 0.125);
@@ -84,10 +84,10 @@ public class WireGroup implements Identifiable<String> {
 				.finish(id);
 	}
 	private void gridCombo(Item smaller, Item larger, double scale) {
-		Craftings.crafting.addRecipeGrid(smaller, 1, 2, larger);
-		Craftings.crafting.addRecipe(larger, smaller, 2);
-		Craftings.splitter.add(larger,          smaller, 2, group.volt, scale*group.power);
-		Craftings.combiner.add(smaller.stack(2), larger,    group.volt, scale*group.power);
+		CraftingGroups.crafting.addRecipeGrid(smaller, 1, 2, larger);
+		CraftingGroups.crafting.addRecipe(larger, smaller, 2);
+		CraftingGroups.splitter.add(larger,          smaller, 2, group.volt, scale*group.power);
+		CraftingGroups.combiner.add(smaller.stack(2), larger,    group.volt, scale*group.power);
 	}
 	
 	//Localization

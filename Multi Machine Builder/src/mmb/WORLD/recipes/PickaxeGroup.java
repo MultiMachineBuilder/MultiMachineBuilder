@@ -67,7 +67,7 @@ public class PickaxeGroup implements Identifiable<String>, Titled{
 			return Inventory.howManyTimesThisContainsThat(src, input);
 		}
 		public int craft(Inventory src, Inventory tgt, int amount) {
-			return Craftings.transact(input, output.create(), tgt, src, amount);
+			return CraftingGroups.transact(input, output.create(), tgt, src, amount);
 		}
 		public ItemType output() {
 			return output;
