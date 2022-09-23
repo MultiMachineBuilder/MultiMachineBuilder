@@ -16,6 +16,8 @@ import mmb.GlobalSettings;
 import mmb.DATA.contents.Textures;
 import mmb.GRAPHICS.awt.ColorMapper;
 import mmb.WORLD.blocks.machine.pack.Pack;
+import mmb.WORLD.contentgen.Materials;
+import mmb.WORLD.contentgen.MetalGroup;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.item.Item;
@@ -93,6 +95,9 @@ public class ContentsItems {
 		.texture("item/glass.png")
 		.volumed(0.004)
 		.finish("item.glass");
+	@Nonnull public static final Item sdraconium = shard("#shard-draconic", Materials.colorDraconium, "item.draconic");
+	@Nonnull public static final Item sadraconium = shard("#shard-adraconic", Materials.colorADraconium, "item.adraconic");
+	@Nonnull public static final Item schaotium = shard("#shard-chaotic", Materials.colorChaotium, "item.chaotic");
 	@Nonnull public static final Item glassp = new Item()
 		.title("#glassp")
 		.texture("item/glass panel.png")
@@ -266,6 +271,9 @@ public class ContentsItems {
 	@Nonnull public static final Item resrc2 = resrcbed(2, Color.ORANGE);
 	@Nonnull public static final Item resrc3 = resrcbed(3, Color.YELLOW);
 	@Nonnull public static final Item resrc4 = resrcbed(4, Color.GREEN);
+	@Nonnull public static final Item resrc5 = resrcbed(5, Color.CYAN);
+	@Nonnull public static final Item resrc6 = resrcbed(6, Color.BLUE);
+	@Nonnull public static final Item resrc7 = resrcbed(7, Color.MAGENTA);
 
 	//Packaged items
 	@Nonnull public static final ItemEntityType pack = new ItemEntityType()
@@ -343,5 +351,17 @@ public class ContentsItems {
 				.texture(img)
 				.volumed(0.00125)
 				.finish("industry.resrc"+n);
+	}
+	@Nonnull private static Item shard(String title, Color c, String id) {
+		BufferedImage textureResrcbed = Textures.get("item/shard.png");
+		ColorMapper mapper = ColorMapper.ofType(
+				textureResrcbed.getType(), Color.RED, c);
+		LookupOp op = new LookupOp(mapper, null);
+		BufferedImage img = op.createCompatibleDestImage(textureResrcbed, null);
+		return new Item()
+		.title(title)
+		.texture(img)
+		.volumed(0.004)
+		.finish(id);
 	}
 }

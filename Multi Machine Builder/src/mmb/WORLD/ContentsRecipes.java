@@ -28,6 +28,8 @@ import monniasza.collects.grid.FixedGrid;
  *
  */
 public class ContentsRecipes {
+	private ContentsRecipes() {}
+	
 	//Recipe creation
 		private static boolean inited = false;
 		/** Creates all crafting recipes */
@@ -897,9 +899,9 @@ public class ContentsRecipes {
 			
 			//Inscriber VLV
 			crafting.addRecipeGrid(new ItemEntry[]{
-			motor.items.get(1),            steel.gear,  rudimentary.panel,
-			rudimentary.panel, null,              null,
-			motor.items.get(1),            steel.gear,  rudimentary.panel,
+			motor.items.get(1), steel.gear,  steel.panel,
+			steel.panel,        null,              null,
+			motor.items.get(1), steel.gear,  steel.panel,
 			}, 3, 3, binscriber.get(1));
 			
 			//Brewery VLV
@@ -910,6 +912,13 @@ public class ContentsRecipes {
 			}, 3, 3, bbrewery.get(1));
 		}
 		private static void _craftrsLV() {
+			//Turbo Generator LV
+			crafting.addRecipeGrid(new ItemEntry[]{
+			TURBOGEN1,       stainless.panel, TURBOGEN1,
+			stainless.panel, stainless.frame, stainless.panel,
+			circuit2,        stainless.panel, circuit2,
+			}, 3, 3, TURBOGEN2);
+			
 			//Coal Generator LV
 			crafting.addRecipeGrid(new ItemEntry[]{
 			steel.cluster, circuit2, steel.cluster,
@@ -973,12 +982,12 @@ public class ContentsRecipes {
 			motor.items.get(2),    steel.gear, motor.items.get(2),
 			}, 3, 3, bquarry.get(2));
 			
-			//Splicer LV
+			//Splitter LV
 			crafting.addRecipeGrid(new ItemEntry[]{
 			motor.items.get(2),    stainless.gear,    motor.items.get(2),
 			stainless.wire, stainless.wire, stainless.wire,
 			motor.items.get(2),    circuit2,      motor.items.get(2),
-			}, 3, 3, bsplicer.get(2));
+			}, 3, 3, bsplitter.get(2));
 			
 			//Splicer LV
 			crafting.addRecipeGrid(new ItemEntry[]{
@@ -994,6 +1003,55 @@ public class ContentsRecipes {
 			stainless.frame, stainless.panel, stainless.panel, stainless.frame,
 			bsplicer.get(2),  balloyer.get(2), binscriber.get(2), bquarry.get(2)
 			}, 4, 4, bassembly.get(2));
+			
+			//Digger LV
+			crafting.addRecipeGrid(new ItemEntry[]{
+			null,            motor.items.get(2), stainless.base,
+			stainless.panel, circuit2,           stainless.panel,
+			stainless.panel, stainless.panel,    stainless.panel,
+			}, 3, 3, bdig.get(2));
+			
+			//Power Receiver VLV
+			crafting.addRecipeGrid(new ItemEntry[]{
+			silver.wire, silver.wire, silver.wire,
+			silver.wire, steel.base,  silver.wire,
+			silver.wire, silver.wire, silver.wire,
+			}, 3, 3, prec.get(2));
+			
+			//Power Tower VLV
+			crafting.addRecipeGrid(new ItemEntry[]{
+			wireSilver.medium, wireSilver.medium, wireSilver.medium,
+			wireSilver.medium, prec.get(2),       wireSilver.medium,
+			wireSilver.medium, wireSilver.medium, wireSilver.medium,
+			}, 3, 3, ptower.get(2));
+			
+			//Inscriber VLV
+			crafting.addRecipeGrid(new ItemEntry[]{
+			motor.items.get(2),  stainless.gear,  stainless.panel,
+			stainless.panel,     null,            null,
+			motor.items.get(2),  stainless.gear,  stainless.panel,
+			}, 3, 3, binscriber.get(2));
+			
+			//Brewery VLV
+			crafting.addRecipeGrid(new ItemEntry[]{
+			stainless.panel, glassp,          stainless.panel,
+			stainless.panel, stainless.panel, stainless.panel,
+			nichrome.base,   seeds,           wireSilver.medium,
+			}, 3, 3, bbrewery.get(2));
+			
+			//Extruder VLV
+			crafting.addRecipeGrid(new ItemEntry[]{
+			motor.items.get(2), stainless.gear,  stainless.panel,
+			stainless.panel,    stainless.panel, stainless.panel,
+			stainless.panel,    circuit2,        stainless.panel,
+			}, 3, 3, bextruder.get(2));
+			
+			//Sinterer VLV
+			crafting.addRecipeGrid(new ItemEntry[]{
+			motor.items.get(2), stainless.panel, stainless.panel,
+			silver.ring,        coal.wire,       stainless.panel,
+			motor.items.get(2), circuit2,        stainless.panel,
+			}, 3, 3, bsinterer.get(2));
 		}
 		private static void _craftrsMV() {
 			//Transformer MV/LV
@@ -1053,6 +1111,23 @@ public class ContentsRecipes {
 				new RandomChance(0.1, tungsten.ore),
 				new RandomChance(0.1, iridium.ore)
 			));
+			
+			//TODO Tier 6: +draconic shards, crystalline shards
+			quarry.add(resrc5, resrc4, 2, VoltageTier.V6, 20480000, new ListChance(
+				new RandomChance(0.1, sdraconium)
+			));
+			
+			//TODO Tier 7: +awakened draconic shards, stellar shards
+			quarry.add(resrc6, resrc5, 2, VoltageTier.V7, 81920000, new ListChance(
+				new RandomChance(0.1, sadraconium)
+			));
+			
+			//TODO Tier 8: +chaotic shards, unobtainium shards
+			quarry.add(resrc7, resrc6, 2, VoltageTier.V8, 327680000, new ListChance(
+				new RandomChance(0.1, schaotium)
+			));
+			
+			//TODO Tier 9: +ultimate shards, singularities
 			
 			alloyer.add(new SimpleItemList(redstone.base.stack(2), rudimentary.base.stack(2)), resrc1, 2, VoltageTier.V2, 180000);
 			//simple stone regeneration recipe
