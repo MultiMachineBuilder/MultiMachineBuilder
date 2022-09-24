@@ -19,9 +19,6 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import javax.annotation.Nonnull;
@@ -35,12 +32,12 @@ import com.github.davidmoten.rtree.RTree;
 import com.github.davidmoten.rtree.geometry.Geometry;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import com.pploder.events.Event;
 
 import io.vavr.Tuple2;
-import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
-import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import mmb.Bitwise;
+import mmb.CatchingEvent;
+import mmb.GameEvents;
 import mmb.GlobalSettings;
 import mmb.Vector2iconst;
 import mmb.BEANS.BlockActivateListener;
@@ -59,15 +56,16 @@ import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.visuals.Visual;
-import mmb.WORLD.worlds.DataLayers;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.universe.Universe;
+import mmb.WORLD.worlds.world.WorldEvents.BlockModifyEvent;
 import mmb.debug.Debugger;
 import monniasza.collects.Identifiable;
+import monniasza.collects.alloc.Allocator;
+import monniasza.collects.alloc.Indexable;
+import monniasza.collects.alloc.SimpleAllocator;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
-import monniasza.collects.selfset.HashSelfSet;
-import monniasza.collects.selfset.SelfSet;
 
 /**
  * @author oskar
@@ -78,7 +76,21 @@ import monniasza.collects.selfset.SelfSet;
  * <br> ,its {@code load()} method to load data
  * <br> and at first {@code setName()} to set target name
  */
-public class World implements Identifiable<String>{
+public class World implements Identifiable<String>, Indexable{
+	//Allocator & data layers
+	private static SimpleAllocator<World> allocator0 = new SimpleAllocator<>();
+	/** Allocator for universes */
+	public static final Allocator<World> allocator = allocator0.readonly();
+	private int ordinal; //ordinal, set to -1 to prevent abuse after universe dies
+	@Override
+	public int ordinal() {
+		return ordinal;
+	}
+	@Override
+	public Object index() {
+		return allocator;
+	}
+	
 	//Debugging
 	protected Debugger debug = new Debugger("MAP anonymous");
 	
@@ -135,6 +147,7 @@ public class World implements Identifiable<String>{
 		endX = startX + sizeX;
 		endY = startY + sizeY;
 		LODs = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
+		ordinal = allocator0.allocate(this);
 	}
 	/**
 	 * Create an empty world with given bounds
@@ -153,6 +166,7 @@ public class World implements Identifiable<String>{
 		endX = startX + sizeX;
 		endY = startY + sizeY;
 		LODs = new BufferedImage(sizeX, sizeY, BufferedImage.TYPE_INT_RGB);
+		ordinal = allocator0.allocate(this);
 	}
 	
 	//Serialization
@@ -218,26 +232,11 @@ public class World implements Identifiable<String>{
 			}
 		}
 		
-		//Data layers
-		ObjectNode dataNode = (ObjectNode) json.get("data");
-		world.data.addAll(DataLayers.createAllMapDataLayers());
-		for(WorldDataLayer dl: world.data) {
-			JsonNode datalayerData = dataNode.get(dl.id());
-			try {
-				if(!datalayerData.isMissingNode()) dl.load(datalayerData);
-				dl.afterMapLoaded(world);
-			} catch (Exception e) {
-				world.debug.pstm(e, "Failed to load data layer "+dl.title());
-			}
-		}
-		
-		WorldEvents.load.trigger(new Tuple2<>(world, (ObjectNode) json));
-		
 		//Player data
 		world.player.load(JsonTool.requestObject("player", (ObjectNode) json));
 		
 		//After loading process
-		WorldEvents.afterLoad.trigger(world);
+		GameEvents.onWorldLoad.trigger(new Tuple2<>(world, (ObjectNode) json));
 		
 		//Postload the blocks
 		for(int y = startY; y < endY; y++) {
@@ -308,18 +307,11 @@ public class World implements Identifiable<String>{
 				machineArrayNode.add(array);
 			}
 			master.set("machines", machineArrayNode);
-			
-			//Data layers
-			ObjectNode dataNode = JsonTool.newObjectNode();
-			for(WorldDataLayer mdl: world.data) {
-				dataNode.set(mdl.id(), mdl.save());
-			}
-			master.set("data", dataNode);
-			
+						
 			//Player
 			master.set("player", world.player.save());
 			
-			WorldEvents.save.trigger(new Tuple2<>(world, master));
+			GameEvents.onWorldSave.trigger(new Tuple2<>(world, master));
 			return master;
 		}
 	
@@ -412,6 +404,7 @@ public class World implements Identifiable<String>{
 			}
 		}
 		if(timer.getState() == 1) timer.destroy();
+		GameEvents.onWorldDie.trigger(this);
 	}
 	
 	//Lock out the world
@@ -426,11 +419,7 @@ public class World implements Identifiable<String>{
 		}
 		//while(!underTick) {Thread.yield();}
 	}
-	
-	//Data layers
-	/** The list of data layers */
-	public final SelfSet<String,WorldDataLayer> data = new HashSelfSet<>();
-	
+		
 	//Player actions
 	/**
 	 * Left click the given block
@@ -922,4 +911,6 @@ public class World implements Identifiable<String>{
 	public RTree<Visual, Geometry> visuals(){
 		return visuals.get();
 	}
+	
+	//Events
 }

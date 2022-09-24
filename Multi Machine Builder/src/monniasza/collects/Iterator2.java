@@ -14,7 +14,7 @@ import java.util.NoSuchElementException;
  */
 public class Iterator2<T> implements Iterator<T> {
 	public static <U> Iterator2<U> iterIterCol(Iterator<? extends Collection<? extends U>> ic) {
-		return iterIterIter(new MapIterator<>(c -> c.iterator(), ic));
+		return iterIterIter(new MapIterator<>(Collection::iterator, ic));
 	}
 	public static <U> Iterator2<U> iterIterIter(Iterator<? extends Iterator<? extends U>> ii) {
 		return new Iterator2<>(ii);
@@ -42,7 +42,6 @@ public class Iterator2<T> implements Iterator<T> {
 		}
 		state = false;
 	}
-
 
 	@Override
 	public boolean hasNext() {

@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
  * Defines an event listener for allocation events
  * @param <T> type of objects listened to
  */
-public interface AllocationListener<T extends AllocationListener<T>> extends EventListener {
+public interface AllocationListener<T> extends EventListener {
 	/**
 	 * Invoked when an object is deallocated
 	 * @param index integer identifier of allocation

@@ -512,7 +512,7 @@ public class ContentsBlocks {
 	@Nonnull public static final ElectricMachineGroup bcmill = machinesSimple("machine/cluster mill.png", CraftingGroups.clusterMill, "clustermill");
 	@Nonnull public static final ElectricMachineGroup bwiremill = machinesSimple("machine/wiremill.png", CraftingGroups.wiremill, "wiremill");
 	@Nonnull public static final ElectricMachineGroup balloyer = machinesComplex("machine/alloyer.png", CraftingGroups.alloyer, "alloyer");
-	@Nonnull public static final ElectricMachineGroup bassembly = machinesAssembly("machine/machinemaker.png", CraftingGroups.assembler, "assembler");
+	@Nonnull public static final ElectricMachineGroup bassembly = machinesComplexCat("machine/machinemaker.png", CraftingGroups.assembler, "assembler");
 	@Nonnull public static final ElectricMachineGroup bsplitter = machinesSimple("machine/splitter.png", CraftingGroups.splitter, "spllitter", 0.1);
 	@Nonnull public static final ElectricMachineGroup bsplicer = machinesSimple("machine/splicer.png", CraftingGroups.combiner, "splicer", 0.1);
 	@Nonnull public static final ElectricMachineGroup bbrewery = machinesComplex("machine/brewery.png", CraftingGroups.brewery, "brewery");
@@ -617,7 +617,7 @@ public class ContentsBlocks {
 	@Nonnull private static ElectricMachineGroup machinesComplex(String texture, ComplexRecipeGroup group, String id) {
 		return new ElectricMachineGroup(Textures.get(texture), type -> new BlockProcessorComplex(type, group), id);
 	}
-	@Nonnull private static ElectricMachineGroup machinesAssembly(String texture, ComplexCatalyzedRecipeGroup group, String id) {
+	@Nonnull private static ElectricMachineGroup machinesComplexCat(String texture, ComplexCatalyzedRecipeGroup group, String id) {
 		return new ElectricMachineGroup(Textures.get(texture), type -> new BlockProcessorComplexCatalyzed(type, group), id);
 	}
 	@Nonnull private static ElectricMachineGroup machinesSimple(String texture, SimpleRecipeGroup<?> group, String id, double d) {

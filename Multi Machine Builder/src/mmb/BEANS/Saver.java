@@ -3,15 +3,13 @@
  */
 package mmb.BEANS;
 
-import javax.annotation.Nullable;
-
 /**
  * @author oskar
  * Represents an object which can be saved
  * @param <T> saved data type
  *
  */
-public interface Saver<@Nullable T> {
+public interface Saver<T> {
 	/**
 	 * @return the saved data
 	 */

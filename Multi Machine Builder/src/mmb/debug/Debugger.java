@@ -2,12 +2,11 @@ package mmb.debug;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintWriter;
 import javax.annotation.Nullable;
 
 import mmb.Main;
+import mmb.ERRORS.UndeclarableThrower;
 
 /**
  * 
@@ -15,18 +14,19 @@ import mmb.Main;
  */
 @SuppressWarnings({ "resource", "null" })
 public class Debugger {
-	private static boolean initialized = false;
-	//Static code
-	static {
+	private static boolean initialized = false;	
+	public static void init() {
+		if(initialized) return;
 		if(Main.isRunning()){ //suppress init if the game is not run
-			System.out.println("Creating log file");
 			try {
 				File file = new File("log.txt");
+				boolean success = file.createNewFile();
+				System.out.println("Creating log file: "+success);			
 				OutputStream stream = new FileOutputStream(file, false);
 				System.setOut(new TeePrintStream(stream, System.out));
 				System.setErr(new TeePrintStream(stream, System.err));
-			} catch (IOException e1) {
-				Main.crash(e1);
+			} catch (Exception e1) {
+				UndeclarableThrower.shoot(e1);
 			}
 			initialized = true;
 		}

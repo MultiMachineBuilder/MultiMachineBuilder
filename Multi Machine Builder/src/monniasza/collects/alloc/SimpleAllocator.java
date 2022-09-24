@@ -4,23 +4,17 @@
 package monniasza.collects.alloc;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.function.Consumer;
 
-import javax.annotation.Nullable;
+import com.google.common.collect.Iterators;
 
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMaps;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntIterator;
-import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
-import it.unimi.dsi.fastutil.ints.IntSet;
-import it.unimi.dsi.fastutil.ints.IntSets;
-import it.unimi.dsi.fastutil.objects.ObjectCollection;
-import it.unimi.dsi.fastutil.objects.ObjectSet;
-import monniasza.collects.Allocator;
+import it.unimi.dsi.fastutil.ints.IntList;
 
 /**
  * @author oskar
@@ -29,18 +23,20 @@ import monniasza.collects.Allocator;
  * Exceptions thrown by listeners are forwarded to the {@code exceptionHandler} object in this allocator
  * The {@code exceptionHandler} by default forwards exceptions to the thread's current UncaughtExceptionHandler, where thread is the thread used to run listeners
  */
-public class SimpleAllocator<T extends AllocationListener<T>> implements Allocator<T> {
+public class SimpleAllocator<T> implements Allocator<T> {
 	
 	private Consumer<Exception> exceptionHandler = (ex -> Thread.currentThread().getUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), ex));
 
-	private Int2ObjectMap<Node> data = new Int2ObjectOpenHashMap<>();
-	private IntSet free = new IntOpenHashSet();
+	private ArrayList<Node> data = new ArrayList<>();
+	private IntList free = new IntArrayList();
 	
 	private class Node{
 		Node(T value) {
 			super();
 			this.value = value;
-			listeners.add(value);
+		}
+		T value() {
+			return value;
 		}
 		final T value;
 		List<AllocationListener<T>> listeners = new ArrayList<>();
@@ -52,6 +48,7 @@ public class SimpleAllocator<T extends AllocationListener<T>> implements Allocat
 		if(free.isEmpty()) {
 			//Generate new values
 			next = data.size();
+			data.add(new Node(obj));
 		}else {
 			//Reuse the value
 			IntIterator iterator = free.intIterator();
@@ -59,7 +56,7 @@ public class SimpleAllocator<T extends AllocationListener<T>> implements Allocat
 			iterator.remove();
 		}
 		Node node = new Node(obj);
-		data.put(next, node);
+		data.add(node);
 		for(AllocationListener<T> listener: listeners) {
 			try {
 				listener.allocated(next, obj);
@@ -91,6 +88,7 @@ public class SimpleAllocator<T extends AllocationListener<T>> implements Allocat
 				exceptionHandler.accept(e);
 			}
 		}
+		data.set(id, null);
 	}
 
 	private List<AllocationListener<T>> listeners = new ArrayList<>();
@@ -132,7 +130,8 @@ public class SimpleAllocator<T extends AllocationListener<T>> implements Allocat
 
 	@Override
 	public boolean isAllocated(int id) {
-		return data.containsKey(id);
+		if(id >= data.size()) return false;
+		return data.get(id) != null;
 	}
 
 	@Override
@@ -140,6 +139,17 @@ public class SimpleAllocator<T extends AllocationListener<T>> implements Allocat
 		Node result = data.get(id);
 		if(result == null) return null;
 		return result.value;
+	}
+
+	@Override
+	public int size() {
+		return data.size();
+	}
+
+	@SuppressWarnings("null")
+	@Override
+	public Iterator<T> iterator() {
+		return Iterators.transform(Iterators.filter(data.iterator(), Objects::nonNull), Node::value);
 	}
 
 }

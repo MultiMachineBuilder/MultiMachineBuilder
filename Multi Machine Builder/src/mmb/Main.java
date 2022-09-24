@@ -95,6 +95,10 @@ public class Main extends JFrame {
 	public static void main(String[] args) {
 		if(running) throw new IllegalStateException("The game is already running");
 		running = true;
+		
+		//init debugger
+		Debugger.init();
+		
 		//count RAM
 		debug.printl("RAM avaliable: "+Runtime.getRuntime().maxMemory());
 		Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler.INSTANCE);
@@ -108,15 +112,14 @@ public class Main extends JFrame {
 			
 			//Scaling
 			double scale = GlobalSettings.uiScale.getDouble();
-			debug.printl("Scale: "+scale);
-			if(scale > 0) {
-				String scale0 = Double.toString(scale);
-				SwingDPI.setScaleFactor((float) scale);
-				System.setProperty("sun.java2d.uiScale", scale0);
-				System.setProperty("sun.java2d.uiScale.enabled", "true");
-			}else {
-				SwingDPI.disableJava9NativeScaling();
+			if(scale < 0.01) {
+				GlobalSettings.uiScale.set(1);
+				scale = 1;
 			}
+			debug.printl("Scale: "+scale);
+			boolean isSDPI = GlobalSettings.sysscale.getValue();
+			if(isSDPI) SwingDPI.disableJava9NativeScaling();
+			SwingDPI.setScaleFactor((float) scale);
 			
 			//UI initialized here
 			loader = new Main();

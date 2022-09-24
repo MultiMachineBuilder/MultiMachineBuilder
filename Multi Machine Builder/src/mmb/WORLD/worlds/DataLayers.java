@@ -3,111 +3,78 @@
  */
 package mmb.WORLD.worlds;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
 import com.fasterxml.jackson.databind.JsonNode;
-
-import mmb.WORLD.worlds.universe.UniverseDataLayer;
-import mmb.WORLD.worlds.world.WorldDataLayer;
+import mmb.GameEvents;
+import mmb.WORLD.worlds.universe.Universe;
+import mmb.WORLD.worlds.world.DataLayer;
+import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
-import monniasza.collects.selfset.HashSelfSet;
-import monniasza.collects.selfset.SelfSet;
+import monniasza.collects.datalayer.IndexedDatalayerMap;
 
 /**
  * @author oskar
  *
  */
 public class DataLayers {
+	private DataLayers() {}
 	private static final Debugger debug = new Debugger("DATA LAYERS");
-	//Universe data layers
-	private static Map<String, Class<? extends UniverseDataLayer>> udatas = new HashMap<>();
-	public static void registerUniverseData(String name, Class<? extends UniverseDataLayer> cls) {
-		udatas.put(name, cls);
-	}
-	public static UniverseDataLayer createUniverseData(String name) {
-		Class<? extends UniverseDataLayer> c = udatas.get(name);
-		try {
-			return c.getConstructor().newInstance();
-		} catch (Exception e) {
-			debug.pstm(e, "Failed to create "+c .getCanonicalName());
-			return null;
-		}
-	}
-	/**
-	 * Create a full set of uninitialized world data layers
-	 * @return all world data layers
-	 */
-	public static SelfSet<String, UniverseDataLayer> createAllWorldDataLayers(){
-		SelfSet<String,UniverseDataLayer> result = new HashSelfSet<>();
-		udatas.forEach((s, c) -> {
-			try {
-				result.add(c.getConstructor().newInstance());
-			} catch (Exception e) {
-				debug.pstm(e, "Failed to create "+c .getCanonicalName());
-			}
-		});
-		return result;
-	}
-	/**
-	 * Load and deserialize given JSON data into a data layer
-	 * @param name data layer name
-	 * @param je deserializer data
-	 * @return loaded data layer
-	 */
-	public static UniverseDataLayer deserializeUniverseDataLayer(String name, JsonNode je) {
-		UniverseDataLayer prop = createUniverseData(name);
-		if(prop == null) return null;
-		prop.load(je);
-		return prop;
+	
+	//Init
+	private static boolean inited = false;
+	/** Initializes data layer */
+	public static void init() {
+		if(inited) return;
+		inited = true;
+		
+		//init logic
+		
 	}
 	
+	//Universe data layers
+	
 	//Map data layers
-	private static Map<String, Class<? extends WorldDataLayer>> mdatas = new HashMap<>();
-	public static void registerMapData(String name, Class<? extends WorldDataLayer> cls) {
-		mdatas.put(name, cls);
-	}
-	public static WorldDataLayer createMapData(String name) {
-		Class<? extends WorldDataLayer> c = mdatas.get(name);
-		try {
-			return c.getConstructor().newInstance();
-		} catch (Exception e) {
-			debug.pstm(e, "Failed to create "+c .getCanonicalName());
-			return null;
-		}
-	}
+	
+	//Map helper
 	/**
-	 * @return the immutable map of data layers
+	 * Sets up a world data layer for given JSON node
+	 * @param <T> type of the data layer
+	 * @param nodeName name of JSON node used
+	 * @param databinder the indexed data layer map
 	 */
-	public static Map<String, Class<? extends UniverseDataLayer>> getWorldDataLayers(){
-		return Collections.unmodifiableMap(udatas);
-	}
-	/**
-	 * Create a full set of uninitialized map data layers
-	 * @return all map data layers
-	 */
-	public static SelfSet<String, WorldDataLayer> createAllMapDataLayers(){
-		SelfSet<String,WorldDataLayer> result = new HashSelfSet<>();
-		mdatas.forEach((s, c) -> {
-			try {
-				result.add(c.getConstructor().newInstance());
-			} catch (Exception e) {
-				debug.pstm(e, "Failed to create "+c .getCanonicalName());
-			}
+	public static <T extends DataLayer<World>> void registerWorldDataLayerUsingNode
+	(String nodeName, IndexedDatalayerMap<World, T> databinder){
+		debug.printl("New world data layer: "+nodeName);
+		GameEvents.onWorldLoad.addListener(tuple -> {
+			JsonNode node = tuple._2.get(nodeName);
+			T datalayer = databinder.get(tuple._1);
+			if(node != null) datalayer.load(node);
 		});
-		return result;
+		GameEvents.onWorldSave.addListener(tuple -> {
+			T datalayer = databinder.get(tuple._1);
+			JsonNode save = datalayer.save();
+			tuple._2.set(nodeName, save);
+		});
 	}
+	
+	//Universe helper
 	/**
-	 * Load and deserialize given JSON data into a data layer
-	 * @param name data layer name
-	 * @param je deserializer data
-	 * @return loaded data layer
+	 * Sets up a world data layer for given JSON node
+	 * @param <T> type of the data layer
+	 * @param nodeName name of JSON node used
+	 * @param databinder the indexed data layer map
 	 */
-	public static WorldDataLayer deserializeMapDataLayer(String name, JsonNode je) {
-		WorldDataLayer prop = createMapData(name);
-		if(prop == null) return null;
-		prop.load(je);
-		return prop;
+	public static <T extends DataLayer<Universe>> void registerUniverseDataLayerUsingNode
+	(String nodeName, IndexedDatalayerMap<Universe, T> databinder){
+		debug.printl("New universe data layer: "+nodeName);
+		GameEvents.onUniverseLoad.addListener(tuple -> {
+			JsonNode node = tuple._2.get(nodeName);
+			T datalayer = databinder.get(tuple._1);
+			if(node != null) datalayer.load(node);
+		});
+		GameEvents.onUniverseSave.addListener(tuple -> {
+			T datalayer = databinder.get(tuple._1);
+			JsonNode save = datalayer.save();
+			tuple._2.set(nodeName, save);
+		});
 	}
 }

@@ -13,8 +13,11 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 
 import io.github.parubok.text.multiline.MultilineLabel;
@@ -25,7 +28,11 @@ import mmb.debug.Debugger;
 import java.awt.Color;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
+
 import static mmb.GlobalSettings.*;
+import mmb.MENU.components.BoundCheckBoxMenuItem;
+import javax.swing.JTextField;
 
 /**
  * @author oskar
@@ -96,6 +103,42 @@ public class PanelSettings extends JPanel {
 		lblNoSuchSelDefaultCont.setBackground(Color.YELLOW);
 		lblNoSuchSelDefaultCont.setOpaque(true);
 		locale.add(lblNoSuchSelDefaultCont, "cell 0 3 3 1,growx");
+		
+		ui = new JPanel();
+		tabbedPane.addTab($res("cguis-ui"), null, ui, null);
+		ui.setLayout(new MigLayout("", "[31px,grow]", "[15px][]"));
+		
+		BoundCheckBoxMenuItem checkScale = new BoundCheckBoxMenuItem();
+		checkScale.setVariable(sysscale);
+		checkScale.setText($res("cguis-scalemethod"));
+		ui.add(checkScale, "cell 0 0,growx,aligny top");
+		
+		lblNewLabel = new JLabel($res("cguis-scale"));
+		ui.add(lblNewLabel, "flowx,cell 0 1");
+		
+		fieldScale = new JTextField();
+		fieldScale.setText(Double.toString(GlobalSettings.uiScale.getDouble()));
+		ui.add(fieldScale, "cell 0 1,growx");
+		fieldScale.setColumns(10);
+		AtomicBoolean recovery = new AtomicBoolean();
+		fieldScale.addActionListener(e -> {
+			if(recovery.get()) return;
+			String s = fieldScale.getText();
+			try {
+				double newScale = Double.parseDouble(s);
+				if(Double.isNaN(newScale)) throw new IllegalArgumentException("NaN");
+				if(newScale <= 0) throw new IllegalArgumentException("⩽0");
+				if(Double.isInfinite(newScale)) throw new IllegalArgumentException("∞");
+			}catch(Exception ex) {
+				debug.pstm(ex, "Invalid scaling factor");
+				JOptionPane.showMessageDialog(new JFrame(), $res("cguis-scalerr")+s+" : "+ex.getClass()+": "+ex.getMessage(), $res("cguis-scale"),
+				        JOptionPane.ERROR_MESSAGE);
+				recovery.set(true);
+				fieldScale.setText(s);
+				recovery.set(false);
+			}
+		});
+		
 		EventQueue.invokeLater(this::load);
 		Runtime.getRuntime().addShutdownHook(new Thread(this::save));
 
@@ -109,6 +152,10 @@ public class PanelSettings extends JPanel {
 	private BoundCombo<String> comboLang;
 	
 	private BoundCombo<String>comboCountry;
+	private JPanel ui;
+	private BoundCheckBoxMenuItem boundCheckBoxMenuItem;
+	private JTextField fieldScale;
+	private JLabel lblNewLabel;
 	
 	private void load() {
 		
@@ -135,5 +182,4 @@ public class PanelSettings extends JPanel {
 			debug.pstm(e, "THIS EXCEPTION INDICATES PROBLEM WITH FILE SYSTEM OR JAVA");
 		}
 	}
-
 }

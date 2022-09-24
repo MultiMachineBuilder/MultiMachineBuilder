@@ -409,7 +409,7 @@ public class WorldWindow extends MMBFrame{
 	 */
 	public void setWorld(Save s, Universe deserialized) {
 		file = s;
-		worldFrame.enterWorld(deserialized); //this fails
+		worldFrame.enterWorld(deserialized);
 		panelPlayerInv.setPlayer(worldFrame.getMap().player);
 		progressHP.setModel(worldFrame.getMap().player.playerHP);
 		scrollablePlacementList.setInv(worldFrame.getMap().player.inv);

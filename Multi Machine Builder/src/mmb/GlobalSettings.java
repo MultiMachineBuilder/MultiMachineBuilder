@@ -20,6 +20,8 @@ import mmb.debug.Debugger;
  *
  */
 public class GlobalSettings {
+	public static final ListenerBooleanVariable fullScreen = new ListenerBooleanVariable();
+
 	private GlobalSettings() {}
 	/** The country used for translation */
 	@Nonnull public static final ListenableValue<String> country = new ListenableValue<>("US");
@@ -27,6 +29,8 @@ public class GlobalSettings {
 	@Nonnull public static final ListenableValue<String> lang = new ListenableValue<>("en");
 	/** Should blocks be logged for execution time? */
 	@Nonnull public static final ListenerBooleanVariable logExcessiveTime = new ListenerBooleanVariable();
+	/** Should the game use native scaling */
+	@Nonnull public static final ListenerBooleanVariable sysscale = new ListenerBooleanVariable();
 	/** Should items be sorted in inventory lists? */
 	@Nonnull public static final ListenerBooleanVariable sortItems = new ListenerBooleanVariable();
 	/** The accuracy of circles rendered using OpenGL*/
@@ -82,6 +86,7 @@ public class GlobalSettings {
 		Settings.addSettingString("lang", "en", lang);
 		Settings.addSettingString("country", "US", country);
 		Settings.addSettingBool("logExcessiveBlockTime", false, logExcessiveTime);
+		Settings.addSettingBool("swingDPI", false, sysscale);
 		Settings.addSettingBool("sortItems", true, sortItems);
 		Settings.addSettingDbl("scale", 1, uiScale);
 		Settings.addSettingInt("circleAccuracy", 32, circleAccuracy);

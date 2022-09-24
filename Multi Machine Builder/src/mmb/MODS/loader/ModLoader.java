@@ -36,6 +36,7 @@ import mmb.WORLD.generator.Generators;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.electronics.Electronics;
 import mmb.WORLD.tool.Tools;
+import mmb.WORLD.worlds.DataLayers;
 
 /**
  * @author oskar
@@ -102,6 +103,8 @@ public final class ModLoader {
 		Main.state1("Loading items");
 		ContentsItems.init();
 		Electronics.init();
+		//Load datalayers
+		DataLayers.init();
 		//Load machines
 		Main.state1("Loading machines");
 		Crafting.init();
