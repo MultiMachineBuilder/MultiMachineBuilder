@@ -45,6 +45,8 @@
   	<properties>
 		<lwjgl.version>3.2.3</lwjgl.version>
 		<lwjgl.natives>natives-windows</lwjgl.natives>
+		<sonar.organization>multimachinebuilder</sonar.organization>
+  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 	<dependencies>
 		<dependency>
