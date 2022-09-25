@@ -7,7 +7,7 @@ package mmb.BEANS;
  * @author oskar
  *
  */
-public interface ExternalLoader<T, U> {
+public interface ExternalSaver<T, U> {
 	/**
 	 * Loads the following data object.
 	 * @param data

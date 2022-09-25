@@ -43,7 +43,8 @@ public abstract class ItemBase implements ItemType {
 
 	
 	private boolean stacks;
-	private String description;
+	@Nonnull private static final String description0 = GlobalSettings.$res("nodescr");
+	@Nonnull private String description = description0;
 	/**
 	 * The texture determines the block's or items's looks.
 	 * <br> If texture is null, the block or item won't be drawn.

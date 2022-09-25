@@ -14,15 +14,18 @@ import mmb.DATA.variables.ListenableInt;
 import mmb.DATA.variables.ListenableValue;
 import mmb.DATA.variables.ListenerBooleanVariable;
 import mmb.debug.Debugger;
+import monniasza.collects.Collects;
 
 /**
  * @author oskar
  *
  */
 public class GlobalSettings {
-	public static final ListenerBooleanVariable fullScreen = new ListenerBooleanVariable();
-
 	private GlobalSettings() {}
+	@Nonnull private static final Debugger debug = new Debugger("SETTINGS LIST");
+	
+	/** Is the game full screen? */
+	public static final ListenerBooleanVariable fullScreen = new ListenerBooleanVariable();
 	/** The country used for translation */
 	@Nonnull public static final ListenableValue<String> country = new ListenableValue<>("US");
 	/** The game's UI language */
@@ -37,7 +40,9 @@ public class GlobalSettings {
 	@Nonnull public static final ListenableInt circleAccuracy = new ListenableInt(32);
 	/** The UI scale mutiplier*/
 	@Nonnull public static final ListenableDouble uiScale = new ListenableDouble(1);
-	@Nonnull private static final Debugger debug = new Debugger("SETTINGS LIST");
+	/** Should all modded resource bundles be dumped? */
+	@Nonnull public static final ListenerBooleanVariable dumpBundles = new ListenerBooleanVariable();
+	
 	
 	/** @return the locale object for current language and country */
 	public static Locale locale() {
@@ -64,7 +69,10 @@ public class GlobalSettings {
 		return bundle().getString(s);
 	}
 	@Nonnull public static String $res1(String s) {
-		if(bundle == null || !bundle.containsKey(s)) return "UNTRANSLATABLE "+s;
+		if(bundle == null || !bundle.containsKey(s)) {
+			debug.printl("Missed translation: "+s);
+			return "UNTRANSLATABLE "+s;
+		}
 		return bundle.getString(s);
 	}
 	@Nonnull public static String $str(String s) {
@@ -88,6 +96,7 @@ public class GlobalSettings {
 		Settings.addSettingBool("logExcessiveBlockTime", false, logExcessiveTime);
 		Settings.addSettingBool("swingDPI", false, sysscale);
 		Settings.addSettingBool("sortItems", true, sortItems);
+		Settings.addSettingBool("dumpBundles", false, dumpBundles);
 		Settings.addSettingDbl("scale", 1, uiScale);
 		Settings.addSettingInt("circleAccuracy", 32, circleAccuracy);
 		debug.printl("Language: "+lang.get());
@@ -101,7 +110,15 @@ public class GlobalSettings {
 	 * @param src resource bundle
 	 */
 	public static void injectResources(ResourceBundle src) {
+		if(dumpBundles.getValue()) dumpBundle(src);
 		bundle().add(src);
 	}
-	
+	public static void dumpBundle(ResourceBundle src) {
+		debug.printl("vvvv Resource bundle start "+src.getBaseBundleName()+" vvv");
+		for(String key: Collects.iter(src.getKeys())) {
+			Object value = src.getObject(key);
+			debug.printl(key+"="+value);
+		}
+		debug.printl("^^^^ Resource bundle end ^^^");
+	}
 }

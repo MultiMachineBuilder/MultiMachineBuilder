@@ -240,6 +240,12 @@ public class Materials {
 				redstone.stack(1),
 				gold.stack(1),
 				glowstone.stack(1));
+		alloying(alnico, 100, VoltageTier.V3, 30_000_000,
+				alu.stack(12),
+				nickel.stack(20),
+				cobalt.stack(10),
+				copper.stack(3),
+				iron.stack(65));
 		alloying(ender, 1, energetic, 1, vibrant, 1, VoltageTier.V4, 1000_000);
 		alloying(copper, 1, rudimentary, 1, rudimentium, 2, VoltageTier.V1, 30_000);
 		alloying(steel, 9, neodymium, 1, neosteel, 10, VoltageTier.V4, 1000_000);

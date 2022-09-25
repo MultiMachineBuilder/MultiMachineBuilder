@@ -32,11 +32,8 @@ import com.github.davidmoten.rtree.RTree;
 import com.github.davidmoten.rtree.geometry.Geometry;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import com.pploder.events.Event;
-
 import io.vavr.Tuple2;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import mmb.CatchingEvent;
 import mmb.GameEvents;
 import mmb.GlobalSettings;
 import mmb.Vector2iconst;
@@ -58,7 +55,6 @@ import mmb.WORLD.rotate.Side;
 import mmb.WORLD.visuals.Visual;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.universe.Universe;
-import mmb.WORLD.worlds.world.WorldEvents.BlockModifyEvent;
 import mmb.debug.Debugger;
 import monniasza.collects.Identifiable;
 import monniasza.collects.alloc.Allocator;
@@ -911,6 +907,4 @@ public class World implements Identifiable<String>, Indexable{
 	public RTree<Visual, Geometry> visuals(){
 		return visuals.get();
 	}
-	
-	//Events
 }

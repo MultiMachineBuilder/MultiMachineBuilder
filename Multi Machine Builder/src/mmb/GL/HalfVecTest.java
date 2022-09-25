@@ -61,7 +61,7 @@ public class HalfVecTest{
 		Texture texChiral = Textures.get1("example rotation.png");
 		Texture frame = Textures.get1("item/frame 1.png");
 		Texture beer = Textures.get1("item/beer.png");
-		Texture plank = Textures.get1("plank.png");
+		Texture pipeline = Textures.get1("pipeline.png");
 		ctx.setup();
 		
 		//OpenGL stuff for loading in converted data
@@ -141,6 +141,22 @@ public class HalfVecTest{
 			//variable size plank blocks
 			//performance test - 40000 plank blocks @ 60fps, 1080p - 2 400 000draws per second (cold)
 			//performance test - 40000 plank blocks @ 30fps, 1080p - 1 200 000draws per second (hot)
+			
+			//test line rendering
+			float x1 = 3.5f;
+			float y1 = -2.5f;
+			float x2 = x1 + org.joml.Math.sin(seconds);
+			float y2 = y1 + org.joml.Math.cos(seconds);
+			
+			ctx.zindex(0.5f);
+			ctx.fillCircle(x1, y1, 0.1f, 1, 1, 0, 1);
+			ctx.fillCircle(x2, y2, 0.1f, 0, 1, 0, 1);
+			ctx.zindex(0.4f);
+			ctx.renderLineQuadTex(
+					x1, y1, x2, y2,
+					-0.1f, 0.1f, pipeline,
+					0, 0, 1, 1,
+					1, 0, 1, 1);
 			
 			//render a block grid
 			ctx.render();

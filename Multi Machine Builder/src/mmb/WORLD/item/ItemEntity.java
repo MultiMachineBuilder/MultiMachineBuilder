@@ -6,6 +6,8 @@ package mmb.WORLD.item;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 import mmb.WORLD.items.ItemEntry;
 
 /**
@@ -31,6 +33,9 @@ public abstract class ItemEntity implements ItemEntry{
 	
 	protected abstract int hash0();
 	protected abstract boolean equal0(ItemEntity other);
+	
+	@Override
+	public abstract @Nullable JsonNode save(); //NOSONAR undefaulted to force item entities to do their save logic
 
 	@Override
 	public final int hashCode() {

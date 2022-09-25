@@ -3,11 +3,14 @@
  */
 package mmb.WORLD.items.data;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
+import mmb.WORLD.crafting.ItemLists;
 import mmb.WORLD.crafting.RecipeOutput;
+import mmb.WORLD.crafting.SimpleItemList;
 import mmb.WORLD.item.ItemEntity;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.ItemEntry;
@@ -25,36 +28,56 @@ public final class ItemBOM extends ItemEntity {
 		super(ContentsItems.BOM);
 	}
 	
+	public ItemBOM(SimpleItemList items) {
+		super(ContentsItems.BOM);
+		this.items = items;
+	}
+	public ItemBOM(RecipeOutput items) {
+		super(ContentsItems.BOM);
+		if(items instanceof SimpleItemList) 
+			this.items = (SimpleItemList) items;
+		else
+			this.items = new SimpleItemList(items);
+	}
+	
 	@Override
 	public ItemEntry itemClone() {
 		return this;
 	}
 
-	private RecipeOutput items;
+	@Nonnull private SimpleItemList items = SimpleItemList.EMPTY;
 	
 	/**
 	 * @return the item list for this Bill Of Materials. The returned item list is immutable
 	 */
-	public RecipeOutput contents() {
+	@Nonnull public RecipeOutput contents() {
 		return items;
 	}
 	
 	@Override
 	public void load(@Nullable JsonNode data) {
 		if(data == null) return;
-		JsonNode contents = data.get("items");
+		SimpleItemList list0 = ItemLists.read(data);
+		if(list0 == null) list0 = SimpleItemList.EMPTY;
+		items = list0;	
+	}
+	@Override
+	public JsonNode save() {
+		return ItemLists.save(items);
 	}
 
 	@Override
 	protected int hash0() {
-		// TODO Auto-generated method stub
-		return 0;
+		return items.hashCode();
 	}
 
 	@Override
 	protected boolean equal0(ItemEntity other) {
-		// TODO Auto-generated method stub
+		if(other instanceof ItemBOM)
+			return ((ItemBOM) other).contents().equals(items);
 		return false;
 	}
+
+	
 
 }

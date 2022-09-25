@@ -38,7 +38,7 @@ public interface ItemType extends Titled, Identifiable<String>{
 	 * A description contains extra information about the item, which can be used by their users.
 	 * @return item's description
 	 */
-	public String description();
+	@Nonnull public String description();
 	
 	public void setID(String id);
 	@Override
@@ -53,7 +53,7 @@ public interface ItemType extends Titled, Identifiable<String>{
 	public String title();
 	
 	public void setTexture(BlockDrawer texture);
-	public BlockDrawer getTexture();
+	@Nonnull public BlockDrawer getTexture();
 	public default Icon getIcon() {
 		return getTexture().toIcon();
 	}

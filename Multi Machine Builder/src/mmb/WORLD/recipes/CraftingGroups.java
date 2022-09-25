@@ -13,6 +13,7 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.SingleItem;
 import mmb.WORLD.inventory.Inventory;
+import mmb.WORLD.item.ItemRaw;
 import mmb.WORLD.items.ItemEntry;
 import mmb.debug.Debugger;
 
@@ -99,6 +100,19 @@ public class CraftingGroups {
 		rout.produceResults(tgt.createWriter(), craftable);
 		return craftable;
 	}
+	/**
+	 * Activates an item
+	 * (replaces the selected raw item with a new item entity,
+	 * whose type is the same as base type for the raw item)
+	 * @param item item to activate
+	 * @param from source inventory
+	 * @param to target inventory
+	 * @return was the item activated?
+	 */
+	public static boolean activateItem(ItemRaw item, Inventory from, Inventory to) {
+		ItemEntry ient = item.iet.create();
+		return transact(item, ient, from, to);
+	}
 	
 	//Recipes
 	/** The list of all furnace fuels */
@@ -133,9 +147,6 @@ public class CraftingGroups {
 	@Nonnull public static final AgroRecipeGroup agro = new AgroRecipeGroup("agrorecipes");
 	/** Alcoholic beverages */
 	@Nonnull public static final AlcoholInfoGroup alcohol = new AlcoholInfoGroup("alcohol");
-	//TODO replace with raw items
-	/** Pickaxe recipes */
-	@Nonnull public static final PickaxeGroup pickaxes = new PickaxeGroup("pickaxe");
 	/** Sintered Carbides Factory recipes */
 	@Nonnull public static final ComplexRecipeGroup sinterer = new ComplexRecipeGroup("sinterer", 2);
 	/** Inscriber recipes */

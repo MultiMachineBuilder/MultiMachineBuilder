@@ -22,6 +22,7 @@ import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.item.ItemEntityType;
+import mmb.WORLD.item.ItemRaw;
 import mmb.WORLD.item.Items;
 import mmb.WORLD.items.data.ItemBOM;
 import mmb.WORLD.items.data.Stencil;
@@ -42,18 +43,6 @@ public class ContentsItems {
 	private ContentsItems() {}
 	/** Initializes items */
 	public static void init() {/* just for initialization */}
-		
-	//Pickaxe heads
-	@Nonnull public static final Item pickHeadWood = new Item()
-			.title("#pickh-wood")
-			.texture("item/wood pick head.png")
-			.volumed(0.00125)
-			.finish("pickHead.wood");
-	@Nonnull public static final Item pickHeadRudimentary = new Item()
-			.title("#pickh-rud")
-			.texture("item/rudimentary pick head.png")
-			.volumed(0.00125)
-			.finish("pickHead.rudimentary");
 	
 	//Misc
 	/*
@@ -198,6 +187,7 @@ public class ContentsItems {
 		.texture("item/ring 1.png")
 		.volumed(0.00125)
 		.finish("industry.bearing1");
+	
 	//Electronic parts
 	@Nonnull public static final Item resistor = new Item()
 			.title("#ind-res1")
@@ -274,7 +264,7 @@ public class ContentsItems {
 	@Nonnull public static final Item resrc5 = resrcbed(5, Color.CYAN);
 	@Nonnull public static final Item resrc6 = resrcbed(6, Color.BLUE);
 	@Nonnull public static final Item resrc7 = resrcbed(7, Color.MAGENTA);
-
+	
 	//Packaged items
 	@Nonnull public static final ItemEntityType pack = new ItemEntityType()
 		.title("#ipack1")
@@ -291,7 +281,6 @@ public class ContentsItems {
 		.factory(EntryFilter::new)
 		.finish("filter.ientries");
 	static {
-		Items.tagItems("shape-pickhead", pickHeadWood, pickHeadRudimentary);
 		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, bucket, configExtractors, aim);
 		Items.tagItems("craftcode", craftcodes);
 		Items.tagItems("parts-electronic", resistor, capacitor, inductor, diode, transistor, IC, resistors);
@@ -309,6 +298,8 @@ public class ContentsItems {
 		Items.tagItems("resrcbed", resrc1, resrc2, resrc3, resrc4);
 		Items.deprecate("industry.motor1", motor.items.get(0));
 		Items.deprecate("industry.motor2", motor.items.get(1));
+		Items.deprecate("pickHead.wood", ItemRaw.make(pickWood));
+		Items.deprecate("pickHead.rudimentary", ItemRaw.make(pickRudimentary));
 	}
 	
 	//Helper methods

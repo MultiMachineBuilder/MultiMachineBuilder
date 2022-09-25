@@ -175,7 +175,6 @@ public class TabInventory extends JPanel {
 		add(creativePanel, "cell 0 0,grow");
 		creativePanel.setLayout(new MigLayout("", "[grow][grow]", "[][grow][grow][]"));
 		
-		
 		lblSort = new JLabel($res("wgui-sort"));
 		creativePanel.add(lblSort, "cell 0 0");
 		
@@ -189,7 +188,6 @@ public class TabInventory extends JPanel {
 		checkSurvival = new BoundCheckBox();
 		checkSurvival.setText($res("wgui-creamode"));
 		panel.add(checkSurvival, "cell 1 0");
-		
 		
 		lbAddRemoveCount = new JLabel($res("wgui-icount"));
 		panel.add(lbAddRemoveCount, "cell 0 1");

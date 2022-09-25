@@ -5,6 +5,7 @@ package mmb.WORLD.electric;
 
 import java.awt.Color;
 import java.util.List;
+import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 
@@ -24,20 +25,20 @@ import mmb.WORLD.contentgen.MetalGroup;
  * V9: graphene
  */
 public enum VoltageTier {
-	V1(    100, "ULV", Materials.rudimentary, Materials.rudimentary,     2, new Color(255,   0,   0)),
-	V2(    400, "VLV", Materials.iron,        Materials.copper,          4, new Color(255, 128,   0)), 
-	V3(   1600,  "LV", Materials.steel,       Materials.silver,          8, new Color(255, 255,   0)),
-	V4(   6400,  "MV", Materials.stainless,   Materials.gold,           16, new Color(128, 255,   0)),
-	V5(  25600,  "HV", Materials.titanium,    Materials.platinum,       64, new Color(  0, 255, 128)),
-	V6( 102400,  "EV", Materials.signalum,    Materials.iridium,       256, new Color(  0, 255, 255)),
-	V7( 409600,  "IV", Materials.enderium,    Materials.crystal,      1024, new Color(  0, 200, 255)),
-	V8(1638400, "LuV", Materials.duranium,    Materials.stellar,      4096, new Color(  0, 128, 255)),
-	V9(6553600, "MAX", Materials.unobtainium, Materials.unobtainium, 16384, new Color(  0,   0, 255));
+	V1(    100, "ULV", () -> Materials.rudimentary, () -> Materials.rudimentary,     2, new Color(255,   0,   0)),
+	V2(    400, "VLV", () -> Materials.iron,        () -> Materials.copper,          4, new Color(255, 128,   0)), 
+	V3(   1600,  "LV", () -> Materials.steel,       () -> Materials.silver,          8, new Color(255, 255,   0)),
+	V4(   6400,  "MV", () -> Materials.stainless,   () -> Materials.gold,           16, new Color(128, 255,   0)),
+	V5(  25600,  "HV", () -> Materials.titanium,    () -> Materials.platinum,       64, new Color(  0, 255, 128)),
+	V6( 102400,  "EV", () -> Materials.signalum,    () -> Materials.iridium,       256, new Color(  0, 255, 255)),
+	V7( 409600,  "IV", () -> Materials.enderium,    () -> Materials.crystal,      1024, new Color(  0, 200, 255)),
+	V8(1638400, "LuV", () -> Materials.duranium,    () -> Materials.stellar,      4096, new Color(  0, 128, 255)),
+	V9(6553600, "MAX", () -> Materials.unobtainium, () -> Materials.unobtainium, 16384, new Color(  0,   0, 255));
 	
 	public final double volts;
 	@Nonnull public final String name;
-	@Nonnull public final MetalGroup construction;
-	@Nonnull public final MetalGroup electrical;
+	@Nonnull public final Supplier<MetalGroup> construction;
+	@Nonnull public final Supplier<MetalGroup> electrical;
 	public final int speedMul;
 	/** Color of machines and conduits for this voltage */
 	@Nonnull public final Color c;
@@ -56,7 +57,7 @@ public enum VoltageTier {
 		return volts*current;
 	}
 	
-	VoltageTier(double volts, String name, MetalGroup construction, MetalGroup electrical, int speedMul, Color c) {
+	VoltageTier(double volts, String name, Supplier<MetalGroup> construction, Supplier<MetalGroup> electrical, int speedMul, Color c) {
 		this.volts = volts;
 		this.name = name;
 		this.construction = construction;

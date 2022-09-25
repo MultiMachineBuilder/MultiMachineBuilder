@@ -13,6 +13,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import mmb.debug.Debugger;
+import mmbmods.stn.STN;
+import mmb.GlobalSettings;
 import mmb.Main;
 import mmb.DATA.contents.Sounds;
 import mmb.DATA.contents.Textures;
@@ -27,10 +29,8 @@ import mmb.MODS.info.Mods;
 import mmb.SOUND.MP3Loader;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.blocks.machine.Nuker;
-import mmb.WORLD.blocks.machine.line.Furnace;
 import mmb.WORLD.blocks.machine.manual.Crafting;
 import mmb.WORLD.contentgen.Materials;
-import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.electromachine.BlockTransformer.TransformerData;
 import mmb.WORLD.generator.Generators;
 import mmb.WORLD.items.ContentsItems;
@@ -42,10 +42,44 @@ import mmb.WORLD.worlds.DataLayers;
  * @author oskar
  *
  */
-public final class ModLoader {
+public final class ModLoader {	
 	private ModLoader() {}
 	private static final Debugger debug = new Debugger("MOD-LOADER");
 
+	//Loading stages
+	private static int stage = 0;
+	private static final Object stageLock = new Object();
+	private static List<Runnable> firstRuns = new ArrayList<>();
+	public static void onFirstRun(Runnable run) {
+		synchronized(stageLock) {
+			if(stage < 1) {
+				firstRuns.add(run);
+			}else {
+				run.run();
+			}
+		}
+	}
+	private static List<Runnable> contents = new ArrayList<>();
+	public static void onContentRun(Runnable run) {
+		synchronized(stageLock) {
+			if(stage < 2) {
+				contents.add(run);
+			}else {
+				run.run();
+			}
+		}
+	}
+	private static List<Runnable> integRuns = new ArrayList<>();
+	public static void onIntegRun(Runnable run) {
+		synchronized(stageLock) {
+			if(stage < 3) {
+				integRuns.add(run);
+			}else {
+				run.run();
+			}
+		}
+	}
+	
 	/** Loads entire game */
 	@SuppressWarnings("null")
 	public static void modloading(){
@@ -89,24 +123,21 @@ public final class ModLoader {
 		});
 		debug.printl("Sounds: "+Sounds.sounds.keySet());
 		
-		//Load base materials
-		Materials.init();
-		VoltageTier[] volts = VoltageTier.values();
-		for(VoltageTier volt: volts) {
-			debug.printl(volt.name+", structural: "+volt.construction+", electrical: "+volt.electrical);
-		}
 		
 		//Load blocks
 		Main.state1("Loading blocks");
 		ContentsBlocks.init();
-		//Load items
+		//Load base materials
+		Materials.init();
 		Main.state1("Loading items");
+		//Load items
 		ContentsItems.init();
 		Electronics.init();
 		//Load datalayers
 		DataLayers.init();
 		//Load machines
 		Main.state1("Loading machines");
+		STN.init();
 		Crafting.init();
 		Nuker.init();
 		Generators.init();
@@ -201,52 +232,67 @@ public final class ModLoader {
 			}
 		}
 		
-		//First runs. Similar process for all three stages
-		Main.state1("Mods - Phase 1");
-		runAll(Mods.mods, ai -> {
-			try{
-				debug.printl("Start 1st stage for " + ai.meta.name);
-				ai.instance.firstOpen();
-				debug.printl("End 1st stage for " + ai.meta.name);
-			}catch(VirtualMachineError e){
-				Main.crash(e);
-			// deepcode ignore DontCatch: guarantee that game fully loads
-			}catch(Throwable e){
-				debug.pstm(e, "Failed to run a mod "+ ai.meta.name);
-				ai.state = ModState.DEAD;
-			}
-		}, Main::crash);
+		synchronized (stageLock) {
+			stage = 1;
+			firstRuns.forEach(Runnable::run);
+			firstRuns = null;
+			//First runs. Similar process for all three stages
+			Main.state1("Mods - Phase 1");
+			runAll(Mods.mods, ai -> {
+				try {
+					debug.printl("Start 1st stage for " + ai.meta.name);
+					ai.instance.firstOpen();
+					debug.printl("End 1st stage for " + ai.meta.name);
+				} catch (VirtualMachineError e) {
+					Main.crash(e);
+					// deepcode ignore DontCatch: guarantee that game fully loads
+				} catch (Throwable e) {
+					debug.pstm(e, "Failed to run a mod " + ai.meta.name);
+					ai.state = ModState.DEAD;
+				}
+			}, Main::crash);
+		}
 		
-		//Content runs
-		Main.state1("Mods - Phase 2");
-		runAll(Mods.mods, mod -> {
-			try{
-				debug.printl("Start 2nd stage for " + mod.meta.name);
+		synchronized (stageLock) {
+			stage = 2;
+			contents.forEach(Runnable::run);
+			contents = null;
+			//Content runs
+			Main.state1("Mods - Phase 2");
+			runAll(Mods.mods, mod -> {
+				try{
+					debug.printl("Start 2nd stage for " + mod.meta.name);
+					mod.instance.makeContent();
+					debug.printl("End 2nd stage for " + mod.meta.name);
+				}catch(VirtualMachineError e){
+					Main.crash(e);
+				// deepcode ignore DontCatch: guarantee that game fully loads, VM errors used to crash the game earlier
+				}catch(Throwable e){
+					debug.pstm(e, "Failed to run a mod "+ mod.meta.name);
+					mod.state = ModState.DEAD;
+				}
+			}, Main::crash);
+		}
+		
+		synchronized (stageLock) {
+			stage = 3;
+			integRuns.forEach(Runnable::run);
+			integRuns = null;
+			//Integration runs
+			Main.state1("Mods - Phase 3");
+			runAll(Mods.mods, mod -> {
+				try{
+				debug.printl("Start 3rd stage for " + mod.meta.name);
 				mod.instance.makeContent();
-				debug.printl("End 2nd stage for " + mod.meta.name);
-			}catch(VirtualMachineError e){
-				Main.crash(e);
-			// deepcode ignore DontCatch: guarantee that game fully loads, VM errors used to crash the game earlier
-			}catch(Throwable e){
-				debug.pstm(e, "Failed to run a mod "+ mod.meta.name);
-				mod.state = ModState.DEAD;
-			}
-		}, Main::crash);
-		
-		//Integration runs
-		Main.state1("Mods - Phase 3");
-		runAll(Mods.mods, mod -> {
-			try{
-			debug.printl("Start 3rd stage for " + mod.meta.name);
-			mod.instance.makeContent();
-			debug.printl("End 3rd stage for " + mod.meta.name);
-			}catch(VirtualMachineError e){
-				Main.crash(e);
-			}catch(Throwable e){
-				debug.pstm(e, "Failed to run a mod "+ mod.meta.name);
-				mod.state = ModState.DEAD;
-			}
-		}, Main::crash);
+				debug.printl("End 3rd stage for " + mod.meta.name);
+				}catch(VirtualMachineError e){
+					Main.crash(e);
+				}catch(Throwable e){
+					debug.pstm(e, "Failed to run a mod "+ mod.meta.name);
+					mod.state = ModState.DEAD;
+				}
+			}, Main::crash);
+		}
 		
 		//clean up
 		loaders.clear();
@@ -276,6 +322,8 @@ public final class ModLoader {
 				debug.pstm(e, "Unable to get metadata for " + ai1.meta.name);
 			}
 		}
+		
+		//if(GlobalSettings.dumpBundles.getValue()) GlobalSettings.dumpBundle(GlobalSettings.bundle());
 		
 		Textures.displayAtlas();
 		

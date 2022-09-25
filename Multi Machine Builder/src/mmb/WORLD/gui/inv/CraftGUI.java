@@ -22,6 +22,7 @@ import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.inventory.ItemStack;
+import mmb.WORLD.item.ItemRaw;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.items.data.Stencil;
 import mmb.WORLD.recipes.CraftingGroups;
@@ -84,7 +85,7 @@ public class CraftGUI extends GUITab {
 		Grid<@Nullable ItemEntry> contents = new FixedGrid<>(size, size);
 		
 		verticalBox = new Box(BoxLayout.Y_AXIS);
-		add(verticalBox, "flowx,cell 1 0,growy");
+		add(verticalBox, "flowy,cell 1 0,growy");
 		
 		inventoryController = ctrl;	
 		add(inventoryController, "cell 0 0,alignx left,growy");
@@ -127,6 +128,19 @@ public class CraftGUI extends GUITab {
 				}, Consumers.doNothing()));
 			}
 		}
+		
+		JButton btnActivateItems = new JButton($res("wguim-activate"));
+		btnActivateItems.addActionListener(e -> {
+			ItemEntry item = inventoryController.getSelectedValue().item();
+			Inventory inv = inventoryController.getInv();
+			if(inv == null) return;
+			if(item instanceof ItemRaw) {
+				ItemRaw raw = (ItemRaw) item;
+				CraftingGroups.activateItem(raw, inv, inv);
+				inventoryController.refresh();
+			}
+		});
+		verticalBox.add(btnActivateItems);
 		
 		btnCraft = new JButton($res("wguic-craft"));
 		btnCraft.setForeground(new Color(0, 0, 0));

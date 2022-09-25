@@ -22,7 +22,9 @@ import mmb.WORLD.items.ItemEntry;
  * @author oskar
  * A mutable implementation of item list
  */
-public class SimpleItemList implements RecipeOutput {
+public final class SimpleItemList implements RecipeOutput {
+	@Nonnull public static final SimpleItemList EMPTY = new SimpleItemList();
+	
 	/**
 	 * The data array
 	 */
@@ -31,7 +33,7 @@ public class SimpleItemList implements RecipeOutput {
 	/**
 	 * Creates an empty item list
 	 */
-	public SimpleItemList() {}
+	private SimpleItemList() {}
 			
 	/**
 	 * Creates an item list from a map

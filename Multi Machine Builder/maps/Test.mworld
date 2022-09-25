@@ -26,13 +26,16 @@
     "drops" : [ ],
     "machines" : [ ],
     "player" : {
-      "inventory" : [ 128.0, [ "industry.preceiver0", 1 ], [ "machineparts.motor1", 1 ], [ "machineparts.motor0", 1 ], [ "block.copper", "block.copper", 1 ], [ "ingot.alu", 1 ], [ "industry.ptower0", 1 ], [ "industry.splicer0", 1 ], [ "industry.infinigen0", 1 ], [ "frag.PE", 11 ] ],
+      "inventory" : [ 128.0, [ "industry.preceiver0", 1 ], [ "machineparts.motor1", 1 ], [ "machineparts.motor0", 1 ], [ "block.copper", "block.copper", 1 ], [ "ingot.alu", 1 ], [ "industry.ptower0", 1 ], [ "industry.splicer0", 1 ], [ "industry.infinigen0", 1 ], [ "frag.PE", 11 ], [ "stn.cabler", {
+        "amt" : 0.0
+      }, 1 ] ],
       "creative" : true,
       "x" : 0.0,
       "y" : 0.0,
       "alcohol1" : 0.0,
       "alcohol2" : 0.0
-    }
+    },
+    "STN" : null
   },
   "maps" : { }
 }

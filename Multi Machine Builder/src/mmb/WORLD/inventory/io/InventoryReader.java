@@ -69,7 +69,7 @@ public interface InventoryReader {
 	 */
 	public int currentAmount();
 	/**
-	 * Call before extraction
+	 * @implNote Call before extraction to check items
 	 * @return the currently active 
 	 */
 	public ItemEntry currentItem();

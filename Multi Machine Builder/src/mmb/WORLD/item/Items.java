@@ -4,7 +4,6 @@
 package mmb.WORLD.item;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,7 +18,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.SetMultimap;
 
-import mmb.WORLD.block.BlockType;
+import mmb.MODS.loader.ModLoader;
 import mmb.debug.Debugger;
 import monniasza.collects.Collects;
 import monniasza.collects.selfset.HashSelfSet;
@@ -41,7 +40,12 @@ public class Items {
 	@SuppressWarnings("null") @Nonnull public  static final Set<String>                     keys =       Collections.unmodifiableSet(_keys);
 	
 	@SuppressWarnings("null") @Nonnull private static final HashMultimap<String, ItemType> _tags = HashMultimap.create();
+	/** Tag to items lookup */
 	@SuppressWarnings("null") @Nonnull public  static final SetMultimap<String, ItemType>  tags = Multimaps.unmodifiableSetMultimap(_tags);
+	
+	@SuppressWarnings("null") @Nonnull private static final HashMultimap<ItemType, String> _btags = HashMultimap.create();
+	/** Item to tags lookup */
+	@SuppressWarnings("null") @Nonnull public  static final SetMultimap<ItemType, String>  btags = Multimaps.unmodifiableSetMultimap(_btags);
 	
 	public static void register(ItemType type) {
 		Objects.requireNonNull(type, "The block must not be null");
@@ -49,6 +53,8 @@ public class Items {
 		debug.printl("Adding "+type.id()+" with title "+type.title()+" and description:\n "+type.description());
 		_items.add(type);
 		_keys.add(type.id());
+		if(type instanceof ItemEntityType) 
+			ModLoader.onIntegRun(() -> ItemRaw.make((ItemEntityType) type)); //ignore the result, all the magic is in the ItemRaw
 		type.onregister();
 	}
 	
@@ -77,11 +83,12 @@ public class Items {
 	public static void tagItem(String tag, ItemType item) {
 		debug.printl("Tagging "+item+" with "+tag);
 		_tags.put(tag, item);
+		_btags.put(item, tag);
 	}
 	public static void tagsItem(ItemType item, String... tags) {
 		tagsItem(item, Arrays.asList(tags));
 	}
-	public static void tagsItem(ItemType item, Iterable<String> tags) {
+	public static void tagsItem(ItemType item, Iterable<@Nonnull String> tags) {
 		for(String tag: tags) {
 			tagItem(tag, item);
 		}
@@ -92,14 +99,15 @@ public class Items {
 	public static void tagsItems(String[] tag, ItemType... items) {
 		tagsItems(tag, Arrays.asList(items));
 	}
-	public static void tagItems(String tag, Iterable<? extends ItemType> items) {
+	public static void tagItems(String tag, Iterable<@Nonnull ? extends ItemType> items) {
 		for(ItemType item: items) {
 			tagItem(tag, item);
 		}
 	}
-	public static void tagsItems(String[] tag, Iterable<? extends ItemType> items) {
+	public static void tagsItems(String[] tag, Iterable<@Nonnull ? extends ItemType> items) {
 		for(ItemType item: items) {
 			tagsItem(item, tag);
 		}
 	}
+
 }

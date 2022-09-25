@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.BEANS.ExternalLoader;
+import mmb.BEANS.ExternalSaver;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
@@ -18,7 +18,7 @@ import mmb.debug.Debugger;
  * @author oskar
  *
  */
-public class BlockLoader implements ExternalLoader<JsonNode, BlockEntry> {
+public class BlockLoader implements ExternalSaver<JsonNode, BlockEntry> {
 	public int x, y;
 	@Nonnull public final World map;
 	/**

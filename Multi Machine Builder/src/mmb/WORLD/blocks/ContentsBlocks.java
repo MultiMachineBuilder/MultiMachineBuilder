@@ -38,7 +38,6 @@ import mmb.WORLD.blocks.machine.PlaceIncomingItems;
 import mmb.WORLD.blocks.machine.line.AutoCrafter;
 import mmb.WORLD.blocks.machine.line.Furnace;
 import mmb.WORLD.blocks.machine.manual.Crafting;
-import mmb.WORLD.blocks.machine.manual.PickaxeWorkbench;
 import mmb.WORLD.blocks.media.Speaker;
 import mmb.WORLD.blocks.ppipe.JoiningPlayerPipe;
 import mmb.WORLD.blocks.ppipe.PlayerPipe;
@@ -496,7 +495,7 @@ public class ContentsBlocks {
 			.factory(CycleAssembler::new)
 			.texture("machine/cyclic assembler.png")
 			.finish("industry.cycle0");
-	@Nonnull public static final Block PICKBUILDER = new PickaxeWorkbench()
+	@Nonnull public static final Block PICKBUILDER = new Block()
 			.texture("machine/pickaxe workbench.png")
 			.title("#pickbuilder")
 			.finish("machines.pickbuilder");

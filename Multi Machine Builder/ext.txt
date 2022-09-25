@@ -1,3 +1,2 @@
-https://stackoverflow.com/questions/8197797/generic-enumeration-to-iterable-converter
 https://scratch.mit.edu/
 OpenGL is over 20 times faster than AWT.jar

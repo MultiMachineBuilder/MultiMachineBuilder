@@ -138,6 +138,12 @@ public class Main extends JFrame {
 					JComponent.setDefaultLocale(locale);
 					Locale.setDefault(locale);
 					
+					final boolean testingShunt = false;
+					if(testingShunt) {
+						HalfVecTest.run();
+						return;
+					}
+					
 					//create main menu
 					MainMenu.create();
 					loader.setVisible(false); //you can't see me!

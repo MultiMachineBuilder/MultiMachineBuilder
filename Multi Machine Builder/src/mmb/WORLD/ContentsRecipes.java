@@ -19,6 +19,7 @@ import mmb.WORLD.crafting.SimpleItemList;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.electromachine.BlockTransformer.TransformerData;
 import mmb.WORLD.item.Item;
+import mmb.WORLD.item.ItemRaw;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.items.electronics.Electronics;
 import monniasza.collects.grid.FixedGrid;
@@ -44,6 +45,10 @@ public class ContentsRecipes {
 			smelting.add(rudimentary.base, wireRudimentary.medium, VoltageTier.V1, 80_000);
 			smelting.add(logs, Materials.coal.base, VoltageTier.V1, 50_000);
 			smelting.add(rrubber, Materials.rubber.base, VoltageTier.V1, 20_000);
+			
+			alloyer.add(new SimpleItemList(sdraconium, iridium.base, neodymium.base, enderium.base), draconium.base, VoltageTier.V6, 80_000_000);
+			alloyer.add(new SimpleItemList(sadraconium, crystal.base, draconium.base), adraconium.base, VoltageTier.V6, 80_000_000);
+			alloyer.add(new SimpleItemList(schaotium, stellar.base, adraconium.base), chaotium.base, VoltageTier.V6, 80_000_000);
 			
 			//Rocks
 			clusterMill.add(plank, paper, 16, VoltageTier.V1, 1000);
@@ -379,18 +384,19 @@ public class ContentsRecipes {
 			}, 3, 1, SPEAKER);
 		}
 		private static void _tools() {
-			crafting.addRecipeGrid(new ItemEntry[]{plank, plank, logs, logs}, 2, 2, PICKBUILDER);
-			pickaxes.add(pickHeadWood, pickWood);
-			pickaxes.add(pickHeadRudimentary, pickRudimentary);
+			crafting.addRecipeGrid(PICKBUILDER, 1, 1, new SimpleItemList(
+				plank.stack(2),
+				logs.stack(2)
+			));//pickaxe builder is deprecated - ingredient recovery recipe
 			
 			crafting.addRecipe(new FixedGrid<>(3,
 			plank, logs,  plank,
 			null,  plank, null,
-			null,  plank, null), pickHeadWood, 1);
+			null,  plank, null), ItemRaw.make(pickWood), 1);
 			crafting.addRecipe(new FixedGrid<>(3,
 			Materials.rudimentary.nugget, Materials.rudimentary.base,   Materials.rudimentary.nugget,
 			null,                         Materials.rudimentary.nugget, null,
-			null,                         Materials.rudimentary.nugget, null), pickHeadRudimentary, 1);
+			null,                         Materials.rudimentary.nugget, null), ItemRaw.make(pickRudimentary), 1);
 			crafting.addRecipeGrid(new ItemEntry[]{
 			stone, null, stone,
 			stone, null, stone,

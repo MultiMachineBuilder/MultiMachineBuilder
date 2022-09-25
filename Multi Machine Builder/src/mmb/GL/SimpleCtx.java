@@ -208,6 +208,8 @@ public class SimpleCtx extends RenderCtx {
 		quads.clear();
 		trisPlain.clear();
 		quadsPlain.clear();
+		circles.clear();
+		circlesFill.clear();
 	}
 	private void vertexPlain(FloatIterator iter, float zindex) {
 		glColor4f(iter.nextFloat(), iter.nextFloat(), iter.nextFloat(), iter.nextFloat());

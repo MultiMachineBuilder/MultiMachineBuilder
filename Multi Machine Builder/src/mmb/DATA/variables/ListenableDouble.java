@@ -22,25 +22,25 @@ public class ListenableDouble extends DataValueDouble {
 	private Set<DoubleConsumer> listeners = new HashSet<>();
 	
 	/**
-	 * @param arg0
+	 * Adds a listener
+	 * @param arg0 listener
 	 * @return was new consume added?
-	 * @see java.util.Set#add(java.lang.Object)
 	 */
 	public boolean add(DoubleConsumer arg0) {
 		return listeners.add(arg0);
 	}
 	/**
-	 * @param arg0
+	 * Tests for a listener
+	 * @param arg0 listener
 	 * @return is consumer registered?
-	 * @see java.util.Set#contains(java.lang.Object)
 	 */
 	public boolean contains(DoubleConsumer arg0) {
 		return listeners.contains(arg0);
 	}
 	/**
-	 * @param arg0
+	 * Removes a listener
+	 * @param arg0 listener
 	 * @return was consumer removed?
-	 * @see java.util.Set#remove(java.lang.Object)
 	 */
 	public boolean remove(DoubleConsumer arg0) {
 		return listeners.remove(arg0);

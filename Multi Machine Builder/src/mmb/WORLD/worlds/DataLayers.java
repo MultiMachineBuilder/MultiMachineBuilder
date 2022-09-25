@@ -3,6 +3,10 @@
  */
 package mmb.WORLD.worlds;
 
+import java.util.function.Function;
+
+import javax.annotation.Nonnull;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import mmb.GameEvents;
 import mmb.WORLD.worlds.universe.Universe;
@@ -45,15 +49,30 @@ public class DataLayers {
 	(String nodeName, IndexedDatalayerMap<World, T> databinder){
 		debug.printl("New world data layer: "+nodeName);
 		GameEvents.onWorldLoad.addListener(tuple -> {
+			debug.printl("Loading world data layer: "+nodeName);
 			JsonNode node = tuple._2.get(nodeName);
 			T datalayer = databinder.get(tuple._1);
 			if(node != null) datalayer.load(node);
 		});
 		GameEvents.onWorldSave.addListener(tuple -> {
+			debug.printl("Saving world data layer: "+nodeName);
 			T datalayer = databinder.get(tuple._1);
 			JsonNode save = datalayer.save();
 			tuple._2.set(nodeName, save);
 		});
+	}
+	/**
+	 * Creates a world data layer for given JSON node
+	 * @param <T> type of the data layer
+	 * @param nodeName name of JSON node used
+	 * @param populator populator for data layer
+	 * @return a new data layer
+	 */
+	@Nonnull public static <T extends DataLayer<World>> IndexedDatalayerMap<World, T> createWorldDataLayerUsingNode
+	(String nodeName, Function<World, T> populator){
+		IndexedDatalayerMap<World, T> datalayer = new IndexedDatalayerMap<>(World.allocator, populator);
+		registerWorldDataLayerUsingNode(nodeName, datalayer);
+		return datalayer;
 	}
 	
 	//Universe helper

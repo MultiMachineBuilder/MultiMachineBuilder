@@ -36,7 +36,11 @@ public class EntryFilter extends ItemFilter {
 	@Override
 	public void load(@Nullable JsonNode data) {
 		// TODO Auto-generated method stub
-
+	}
+	@Override
+	public JsonNode save() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -54,5 +58,7 @@ public class EntryFilter extends ItemFilter {
 	protected boolean equal0(ItemEntity other) {
 		return Objects.equals(((EntryFilter) other).item, item);
 	}
+
+	
 
 }

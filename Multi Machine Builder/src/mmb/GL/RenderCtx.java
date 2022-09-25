@@ -324,9 +324,54 @@ public abstract class RenderCtx implements AutoCloseable{
 				r, g, b, a, x+w, y+h,
 				r, g, b, a, x+w, y);
 	}
+	/*public void renderLineQuad(float x1, float y1, float x2, float y2, float leftEdge, float rightEdge, float r, float g, float b, float a) {
+		
+	}*/
+	public void renderLineQuadTex(float x1, float y1, float x2, float y2,
+			float leftEdge, float rightEdge, Texture tex,
+			float r, float g, float b, float a) {
+		renderLineQuadTex(x1, y1, x2, y2, leftEdge, rightEdge, tex, r, g, b, a, r, g, b, a);
+	}
+	/**
+	 * 
+	 * @param x1 beginning X coordinate
+	 * @param y1 beginning Y coordinate
+	 * @param x2 end X coordinate
+	 * @param y2 end X coordinate
+	 * @param leftEdge offset towards the right on the left edge
+	 * @param rightEdge offset towards the right on the right edge
+	 * @param tex texture
+	 * @param r1 beginning red
+	 * @param g1 beginning green
+	 * @param b1 beginning blue
+	 * @param a1 beginning alpha
+	 * @param r2 end red
+	 * @param g2 end green
+	 * @param b2 end blue
+	 * @param a2 end alpha
+	 */
+	public void renderLineQuadTex(float x1, float y1, float x2, float y2,
+			float leftEdge, float rightEdge, Texture tex,
+			float r1, float g1, float b1, float a1,
+			float r2, float g2, float b2, float a2) {
+		float diffX = x2-x1;
+		float diffY = y2-y1;
+		float len = Vector2f.length(diffX, diffY);
+		float rx = diffY/len;
+		float ry = -diffX/len;
+		float loffX = rx*leftEdge;
+		float loffY = ry*leftEdge;
+		float roffX = rx*rightEdge;
+		float roffY = ry*rightEdge;
+		renderColoredTexQuad(tex,
+				r1, g1, b1, a1, 0, 1, x1+loffX, y1+loffY,
+				r1, g1, b1, a1, 1, 1, x1+roffX, y1+roffY,
+				r2, g2, b2, a2, 1, 0, x2+roffX, y2+roffY,
+				r2, g2, b2, a2, 0, 0, x2+loffX, y2+loffY);
+	}
 	
 	//Transformation
-	public void scale(float scale) {
+ 	public void scale(float scale) {
 		transform(new Matrix2f().scaling(scale));
 	}
 	public void scale(float x, float y) {
