@@ -1,11 +1,13 @@
 # MultiMachineBuilder
 Multi Machine Builder is a computer game written in Java that lets you build machines.
+
 ## Repository and contribution tips
 * Suggest new features in the issues
 * Report bugs in the issues
 * Submit bugfixes and new code in pull requests
 * Submit your creations and feedback in discussions
-##Game development setup
+
+## Game development setup
 This project uses [Eclipse](https://www.eclipse.org/ide/) for development.
 Plugins:
 * WindowBuilder
@@ -13,6 +15,7 @@ Plugins:
 * ResourceBundle editor
 Connect SonarLint to SonarCloud [here](https://sonarcloud.io/project/configuration?id=MultiMachineBuilder_MultiMachineBuilder) for rules to be correct
 SonarCloud organization: multimachinebuilder
+
 ## Modding
 1. Make a project in your IDE
 2. Add the game directory into a project
@@ -25,11 +28,13 @@ SonarCloud organization: multimachinebuilder
 9. Test your mod
 10. Export your mod
 11. Publish your mod and post it in the discussions
+
 ## How to use
 * Create a world by pressing 'New world' button
 * Specify the chunk size, world size, name and type
 * Open the world. You may enable creative mode
 * Check out various blocks. More information coming soon
+
 ### There are several major categories of blocks and items:
 * Construction blocks (overlaps with materials)
 * WireWorld gates and wires
@@ -40,13 +45,16 @@ SonarCloud organization: multimachinebuilder
 * Crafting tables
 * (MOD) Hello World
 * And may others
+
 ### How to use mods
 1. Link a mod from [Settings/External mods]
 or copy it to mods directory [Mods/Open mods directory]
 2. Read the instructions on the mod's homepage
+
 ### Creative tips
 * Use the copy tool to quickly build repeating sections
 * Make anything you like in Creative Mode. Good for testing potential survival machines
+
 ### Survival tips
 1. Mine wood logs first
 2. Make a crafting table and a pickaxe workbench
