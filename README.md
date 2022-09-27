@@ -1,4 +1,4 @@
-# MultiMachineBuilder
+# MultiMachineBuilder [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MultiMachineBuilder_MultiMachineBuilder&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=MultiMachineBuilder_MultiMachineBuilder)
 Multi Machine Builder is a computer game written in Java that lets you build machines.
 
 ## Repository and contribution tips
