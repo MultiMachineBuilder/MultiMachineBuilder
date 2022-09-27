@@ -1,4 +1,4 @@
-# MultiMachineBuilder [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MultiMachineBuilder_MultiMachineBuilder&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=MultiMachineBuilder_MultiMachineBuilder)
+# MultiMachineBuilder
 Multi Machine Builder is a computer game written in Java that lets you build machines.
 
 ## Repository and contribution tips
@@ -13,8 +13,22 @@ Plugins:
 * WindowBuilder
 * SonarLint
 * ResourceBundle editor
+
 Connect SonarLint to SonarCloud [here](https://sonarcloud.io/project/configuration?id=MultiMachineBuilder_MultiMachineBuilder) for rules to be correct
-SonarCloud organization: multimachinebuilder
+<br> SonarCloud organization: multimachinebuilder
+
+## SonarCloud badges
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MultiMachineBuilder_MultiMachineBuilder&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=MultiMachineBuilder_MultiMachineBuilder)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=MultiMachineBuilder_MultiMachineBuilder&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=MultiMachineBuilder_MultiMachineBuilder)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=MultiMachineBuilder_MultiMachineBuilder&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=MultiMachineBuilder_MultiMachineBuilder) 
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=MultiMachineBuilder_MultiMachineBuilder&metric=coverage)](https://sonarcloud.io/summary/new_code?id=MultiMachineBuilder_MultiMachineBuilder)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=MultiMachineBuilder_MultiMachineBuilder&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=MultiMachineBuilder_MultiMachineBuilder)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=MultiMachineBuilder_MultiMachineBuilder&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=MultiMachineBuilder_MultiMachineBuilder)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=MultiMachineBuilder_MultiMachineBuilder&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=MultiMachineBuilder_MultiMachineBuilder)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=MultiMachineBuilder_MultiMachineBuilder&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=MultiMachineBuilder_MultiMachineBuilder)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=MultiMachineBuilder_MultiMachineBuilder&metric=bugs)](https://sonarcloud.io/summary/new_code?id=MultiMachineBuilder_MultiMachineBuilder)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=MultiMachineBuilder_MultiMachineBuilder&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=MultiMachineBuilder_MultiMachineBuilder)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=MultiMachineBuilder_MultiMachineBuilder&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=MultiMachineBuilder_MultiMachineBuilder)
 
 ## Modding
 1. Make a project in your IDE
