@@ -222,7 +222,7 @@
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-lz4</artifactId>
-			<version>3.2.3</version>
+			<version>3.3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
