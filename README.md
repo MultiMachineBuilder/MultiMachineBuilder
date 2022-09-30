@@ -1,4 +1,4 @@
-# MultiMachineBuilder [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+# MultiMachineBuilder [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 Multi Machine Builder is a computer game written in Java that lets you build machines.
 
 ## Repository and contribution tips
