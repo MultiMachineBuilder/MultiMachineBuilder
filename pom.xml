@@ -412,7 +412,7 @@
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-meow</artifactId>
 			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
+			<version>3.3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
