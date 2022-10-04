@@ -58,7 +58,10 @@ public class STN {
 	@Nonnull public static final ItemEntityType STN_cabler;
 	
 	//The data layer
-	@Nonnull public static final IndexedDatalayerMap<World, DataLayerSTN> STN_datalayer
+	/**
+	 * The main data layer for STN
+	 */
+	@Nonnull public static final IndexedDatalayerMap<World, DataLayerSTN> STN_datalayer //NOSONAR this is a data layer
 	= DataLayers.createWorldDataLayerUsingNode("STN", DataLayerSTN::new);
 	
 	private static boolean inited = false;

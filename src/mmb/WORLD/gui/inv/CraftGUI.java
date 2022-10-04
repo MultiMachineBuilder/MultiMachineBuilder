@@ -4,9 +4,6 @@
 package mmb.WORLD.gui.inv;
 
 import org.ainslec.picocog.PicoWriter;
-import org.apache.commons.collections4.Bag;
-import org.apache.commons.collections4.bag.HashBag;
-
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.miginfocom.swing.MigLayout;

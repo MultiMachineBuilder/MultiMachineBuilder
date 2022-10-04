@@ -14,7 +14,6 @@ import java.util.zip.ZipInputStream;
 
 import mmb.debug.Debugger;
 import mmbmods.stn.STN;
-import mmb.GlobalSettings;
 import mmb.Main;
 import mmb.DATA.contents.Sounds;
 import mmb.DATA.contents.Textures;
@@ -26,7 +25,6 @@ import mmb.MODS.info.ModInfo;
 import mmb.MODS.info.ModMetadata;
 import mmb.MODS.info.ModState;
 import mmb.MODS.info.Mods;
-import mmb.SOUND.MP3Loader;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.blocks.machine.Nuker;
 import mmb.WORLD.blocks.machine.manual.Crafting;
@@ -86,7 +84,6 @@ public final class ModLoader {
 		//Variables
 		final File modsDir = new File("mods/");
 		final List<AddonLoader> loaders = new ArrayList<>();
-		final List<MP3Loader> mp3s = new ArrayList<>();
 		
 		//Load textures
 		Main.state1("Loading textures");
@@ -191,16 +188,6 @@ public final class ModLoader {
 				Main.crash(e);
 			}
 		}
-		
-		//Wait until MP3s load
-		for(MP3Loader mp3: mp3s) {
-			try {
-				mp3.untilLoad();
-			} catch (InterruptedException e) {
-				Thread.currentThread().interrupt();
-				Main.crash(e);
-			}
-		}
 				
 		//Find potential mod classes
 		Main.state1("Mods - Preparation 0");
@@ -296,7 +283,6 @@ public final class ModLoader {
 		
 		//clean up
 		loaders.clear();
-		mp3s.clear();
 		
 		//Summarize mods
 		for(ModInfo ai1: Mods.mods) {
@@ -323,8 +309,6 @@ public final class ModLoader {
 			}
 		}
 		
-		//if(GlobalSettings.dumpBundles.getValue()) GlobalSettings.dumpBundle(GlobalSettings.bundle());
-		
 		Textures.displayAtlas();
 		
 		//everything done
@@ -337,6 +321,7 @@ public final class ModLoader {
 	 * @param action action to run in form of (file name, file)
 	 */
 	public static void walkDirectory(File f, BiConsumer<String,File> action) {
+		debug.printl("Walking: "+f.getAbsolutePath());
 		String abs = f.getAbsolutePath();
 		int len = abs.length()+1;
 		if(abs.endsWith("/") || abs.endsWith("\\")) len++;
@@ -347,6 +332,10 @@ public final class ModLoader {
 			File[] walk = f.listFiles();
 			if(walk == null) {
 				debug.printl("File: " + f.getCanonicalPath());
+				if(absLen > f.getAbsolutePath().length()) {//path length check fail
+					debug.printl("Path length check fail: " +absLen+" out of "+f.getAbsolutePath().length());
+					return; 
+				}
 				String tname = f.getAbsolutePath().substring(absLen);
 				action.accept(tname, f);
 			}else {

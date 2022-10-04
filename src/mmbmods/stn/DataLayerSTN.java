@@ -15,8 +15,6 @@ import mmb.WORLD.worlds.world.World;
  * @author oskar
  */
 public class DataLayerSTN extends DataLayer<World> {
-	
-	
 
 	/**
 	 * Creates a Simple Transportation Network

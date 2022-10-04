@@ -11,14 +11,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.TooManyListenersException;
-import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
 import java.util.function.Supplier;
-import java.util.stream.Collector;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.DefaultListModel;
