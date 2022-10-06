@@ -15,12 +15,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
+import mmb.MENU.world.window.GUITab;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.gui.window.GUITab;
-import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;

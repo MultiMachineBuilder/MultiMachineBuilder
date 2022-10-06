@@ -13,12 +13,12 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
 import mmb.BEANS.Titled;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.blocks.machine.SideConfig.SideBoolean;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.Electricity;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.io.InventoryReader;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.inventory.storage.SimpleInventory;

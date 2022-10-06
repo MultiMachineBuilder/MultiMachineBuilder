@@ -19,10 +19,10 @@ import mmb.DATA.Save;
 import mmb.DATA.contents.Textures;
 import mmb.GRAPHICS.awt.ColorMapper;
 import mmb.GRAPHICS.awt.MappedColorTexture;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.world.World;
 
 /**

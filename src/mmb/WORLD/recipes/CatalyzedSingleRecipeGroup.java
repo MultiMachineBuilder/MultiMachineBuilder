@@ -10,13 +10,13 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import io.vavr.Tuple2;
+import mmb.MENU.world.craft.SimpleCatalyzedRecipeView;
 import mmb.WORLD.chance.Chance;
 import mmb.WORLD.crafting.GlobalRecipeRegistrar;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.singles.SimpleRecipe;
 import mmb.WORLD.crafting.singles.SimpleRecipeGroup;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.SimpleCatalyzedRecipeView;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Collects;

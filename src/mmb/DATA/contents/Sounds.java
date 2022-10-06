@@ -24,8 +24,11 @@ import mmb.debug.Debugger;
  *
  */
 public class Sounds {
+	private Sounds() {}
 	private static Debugger debug = new Debugger("SOUNDS");
+	
 	private static Map<String, Sound> sounds0 = new HashMap<>();
+	/** The list of all sounds */
 	public static Map<String, Sound> sounds = Collections.unmodifiableMap(sounds0);
 	/**
 	 * @param name

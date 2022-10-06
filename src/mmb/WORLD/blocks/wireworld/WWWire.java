@@ -7,7 +7,7 @@ import mmb.WORLD.block.BlockEntityDataless;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.SignalUtils;
+import mmb.WORLD.worlds.world.WorldUtils;
 
 /**
  * @author oskar
@@ -22,7 +22,7 @@ public class WWWire extends BlockEntityDataless {
 
 	@Override
 	public void onTick(MapProxy map) {
-		int count = SignalUtils.allIncomingSignals(posX(), posY(), owner());
+		int count = WorldUtils.allIncomingSignals(posX(), posY(), owner());
 		if(count == 1 || count == 2) {
 			map.place(ContentsBlocks.ww_head, posX(), posY());
 		}

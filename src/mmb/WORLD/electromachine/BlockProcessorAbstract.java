@@ -6,7 +6,7 @@ package mmb.WORLD.electromachine;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.BEANS.Electric;
+import mmb.MENU.world.machine.GUIMachine;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.contentgen.ElectricMachineGroup.ElectroMachineType;
@@ -18,7 +18,6 @@ import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.inventory.storage.SingleItemInventory;
-import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.worlds.MapProxy;
 
 /**
@@ -34,12 +33,17 @@ public abstract class BlockProcessorAbstract extends SkeletalBlockEntityRotary i
 	/** The output inventory */
 	@Nonnull public final Inventory out = out0.lockInsertions();
 	/** The electrical buffer */
-	@Nonnull protected final Battery elec;
+	@Nonnull public final Battery elec;
 	/** The block type */
 	@Nonnull protected final ElectroMachineType type;
 			 protected boolean pass;
 			 protected boolean autoExtract;
 			 protected GUIMachine tab;
+	
+	@SuppressWarnings("javadoc") //internal use only
+	public void close(GUIMachine tbb) {
+		if(tab == tbb) tab = null;
+	}
 
 	/**
 	 * Constructs base components of a machine
@@ -132,7 +136,6 @@ public abstract class BlockProcessorAbstract extends SkeletalBlockEntityRotary i
 	public Battery energy() {
 		return elec;
 	}
-	
 
 	@Override
 	public final void onTick(MapProxy proxy) {

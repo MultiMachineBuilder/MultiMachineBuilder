@@ -3,12 +3,13 @@
  */
 package mmb.WORLD.blocks.machine;
 
-import mmb.WORLD.gui.window.GUITab;
-import mmb.WORLD.gui.window.WorldWindow;
 import net.miginfocom.swing.MigLayout;
 import mmb.BEANS.ToItemUnifiedCollector;
-import mmb.WORLD.gui.inv.InventoryController;
-import mmb.WORLD.gui.inv.MoveItems;
+import mmb.MENU.world.inv.InventoryController;
+import mmb.MENU.world.inv.MoveItems;
+import mmb.MENU.world.window.GUITab;
+import mmb.MENU.world.window.WorldWindow;
+
 import javax.swing.JButton;
 
 import static mmb.GlobalSettings.$res;

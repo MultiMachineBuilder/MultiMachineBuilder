@@ -11,12 +11,12 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.BEANS.BlockActivateListener;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.blocks.machine.SkeletalBlockLinear;
 import mmb.WORLD.crafting.RecipeOutput;
-import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.items.data.Stencil;

@@ -18,13 +18,13 @@ import org.joml.Vector4fc;
 
 import mmb.DATA.contents.Textures;
 import mmb.DATA.contents.Textures.Texture;
-import mmb.GL.GLHelper;
-import mmb.GL.RenderCtx;
 import mmb.GRAPHICS.awt.ColorMapper;
+import mmb.GRAPHICS.gl.GLHelper;
+import mmb.GRAPHICS.gl.RenderCtx;
+import mmb.GRAPHICS.texture.BlockDrawer;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.rotate.RotatedImageGroup;
 import mmb.WORLD.rotate.Side;
-import mmb.WORLD.texture.BlockDrawer;
 
 /**
  * @author oskar
@@ -114,7 +114,7 @@ public class ElecRenderer implements BlockDrawer {
 	@Override
 	public int LOD() {
 		if(lod < 0) {
-			int rgb1 = mmb.WORLD.texture.LODs.calcLOD(base);
+			int rgb1 = mmb.GRAPHICS.texture.LODs.calcLOD(base);
 			int r = (rgb1 & 0x00ff0000) >> 16;
 			int g = (rgb1 & 0x0000ff00) >> 8;
 			int b = (rgb1 & 0x000000ff);

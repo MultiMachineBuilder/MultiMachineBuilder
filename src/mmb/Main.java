@@ -6,8 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import mmb.DATA.Settings;
-import mmb.ERRORS.ExceptionHandler;
-import mmb.GL.HalfVecTest;
+import mmb.GRAPHICS.gl.HalfVecTest;
 import mmb.MENU.main.MainMenu;
 import mmb.MODS.loader.ModLoader;
 import mmb.debug.Debugger;
@@ -101,7 +100,7 @@ public class Main extends JFrame {
 		
 		//count RAM
 		debug.printl("RAM avaliable: "+Runtime.getRuntime().maxMemory());
-		Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler.INSTANCE);
+		Thread.setDefaultUncaughtExceptionHandler(Main::uncaughtException);
 		try {
 			String jversion = System.getProperty("java.version");
 			debug.printl("Java version is: "+jversion);
@@ -156,5 +155,11 @@ public class Main extends JFrame {
 		} catch (Throwable e) { //NOSONAR log the game crash
 			Main.crash(e);
 		}
+	}
+	
+	public static void uncaughtException(@SuppressWarnings("null") Thread thread, @SuppressWarnings("null") Throwable ex) {
+		@SuppressWarnings("null")
+		Debugger debug = new Debugger(thread.getName());
+		debug.pstm(ex, "A thread has thrown an exception");
 	}
 }

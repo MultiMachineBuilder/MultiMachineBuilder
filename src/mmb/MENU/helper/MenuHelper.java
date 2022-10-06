@@ -11,8 +11,8 @@ import javax.swing.JButton;
 
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
 import mmb.GlobalSettings;
-import mmb.WORLD.gui.window.GUITab;
-import mmb.WORLD.gui.window.WorldWindow;
+import mmb.MENU.world.window.GUITab;
+import mmb.MENU.world.window.WorldWindow;
 
 /**
  * @author oskar

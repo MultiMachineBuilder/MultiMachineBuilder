@@ -10,9 +10,9 @@ import javax.annotation.Nonnull;
 
 import mmb.GlobalSettings;
 import mmb.DATA.contents.Textures;
+import mmb.GRAPHICS.texture.BlockDrawer;
 import mmb.WORLD.item.ItemType;
 import mmb.WORLD.item.Items;
-import mmb.WORLD.texture.BlockDrawer;
 
 /**
  * @author oskar

@@ -12,11 +12,11 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.IntNode;
 
+import mmb.MENU.wtool.ToolPickaxe;
+import mmb.MENU.wtool.WindowTool;
 import mmb.WORLD.item.ItemEntity;
 import mmb.WORLD.item.ItemEntityType;
 import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.tool.ToolPickaxe;
-import mmb.WORLD.tool.WindowTool;
 
 /**
  * @author oskar

@@ -10,7 +10,7 @@ import mmb.WORLD.block.BlockType;
 import mmb.WORLD.rotate.ChirotatedImageGroup;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.SignalUtils;
+import mmb.WORLD.worlds.world.WorldUtils;
 
 /**
  * @author oskar
@@ -111,7 +111,7 @@ public class PlayerPipeShunt extends AbstractPlayerPipe {
 	@Override
 	public void onTick(MapProxy map) {
 		boolean oldState = state;
-		state = SignalUtils.hasIncomingSignal(this);
+		state = WorldUtils.hasIncomingSignal(this);
 		if(state != oldState) initConnections(posX(), posY());
 	}
 

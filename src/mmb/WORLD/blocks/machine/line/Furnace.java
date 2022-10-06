@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
 import mmb.DATA.contents.Textures;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
@@ -20,7 +21,6 @@ import mmb.WORLD.crafting.helper.SimpleProcessHelper;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.VoltageTier;
 import mmb.WORLD.electromachine.FuelBurner;
-import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.recipes.CraftingGroups;
 import mmb.WORLD.rotate.RotatedImageGroup;
 import mmb.WORLD.worlds.world.World;

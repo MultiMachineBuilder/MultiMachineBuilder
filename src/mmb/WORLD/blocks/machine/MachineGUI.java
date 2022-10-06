@@ -16,15 +16,16 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import mmb.WORLD.gui.machine.SideConfigCtrl;
-import mmb.WORLD.gui.window.GUITab;
-import mmb.WORLD.gui.window.WorldWindow;
+
 import mmb.WORLD.inventory.Inventory;
 import mmb.debug.Debugger;
 import net.miginfocom.swing.MigLayout;
+import mmb.MENU.world.inv.InventoryController;
+import mmb.MENU.world.inv.MoveItems;
+import mmb.MENU.world.machine.SideConfigCtrl;
+import mmb.MENU.world.window.GUITab;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.blocks.machine.SkeletalBlockMachine.Update;
-import mmb.WORLD.gui.inv.InventoryController;
-import mmb.WORLD.gui.inv.MoveItems;
 import io.github.parubok.text.multiline.MultilineLabel;
 
 class MachineGUI extends GUITab{

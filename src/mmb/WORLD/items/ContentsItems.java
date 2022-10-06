@@ -15,6 +15,9 @@ import javax.annotation.Nonnull;
 import mmb.GlobalSettings;
 import mmb.DATA.contents.Textures;
 import mmb.GRAPHICS.awt.ColorMapper;
+import mmb.MENU.wtool.ConfigureDroppedItemExtractors;
+import mmb.MENU.wtool.DumpItems;
+import mmb.MENU.wtool.ToolAim;
 import mmb.WORLD.blocks.machine.pack.Pack;
 import mmb.WORLD.contentgen.Materials;
 import mmb.WORLD.contentgen.MetalGroup;
@@ -30,9 +33,6 @@ import mmb.WORLD.items.electric.ItemBattery;
 import mmb.WORLD.items.filter.EntryFilter;
 import mmb.WORLD.items.pickaxe.Pickaxe;
 import mmb.WORLD.items.pickaxe.Pickaxe.PickaxeType;
-import mmb.WORLD.tool.ConfigureDroppedItemExtractors;
-import mmb.WORLD.tool.DumpItems;
-import mmb.WORLD.tool.ToolAim;
 
 /**
  * @author oskar

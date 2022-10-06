@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import mmb.MENU.world.craft.StackedRecipeView;
 import mmb.WORLD.chance.Chance;
 import mmb.WORLD.crafting.GlobalRecipeRegistrar;
 import mmb.WORLD.crafting.RecipeOutput;
@@ -14,7 +15,6 @@ import mmb.WORLD.crafting.SingleItem;
 import mmb.WORLD.crafting.singles.SimpleRecipe;
 import mmb.WORLD.crafting.singles.SimpleRecipeGroup;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.StackedRecipeView;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Collects;

@@ -5,7 +5,6 @@ package mmb.WORLD.generator;
 
 import javax.annotation.Nonnull;
 
-import mmb.RANDOM.GeometricRandom;
 import mmb.WORLD.block.Block;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.blocks.ContentsBlocks;

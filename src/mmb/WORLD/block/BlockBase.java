@@ -11,11 +11,11 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
+import mmb.GRAPHICS.texture.BlockDrawer;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.chance.Chance;
-import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.item.Item;
-import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.worlds.world.World;
 
 /**

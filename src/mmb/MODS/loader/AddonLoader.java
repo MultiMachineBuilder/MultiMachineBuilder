@@ -14,8 +14,8 @@ import org.apache.commons.compress.archivers.jar.JarArchiveInputStream;
 import org.apache.commons.io.IOUtils;
 
 import io.github.micwan88.helperclass4j.ByteClassLoader;
+import mmb.Lambdas;
 import mmb.FILES.AdvancedFile;
-import mmb.LAMBDAS.Consumers;
 import mmb.MODS.info.*;
 import mmb.debug.*;
 
@@ -61,11 +61,12 @@ public class AddonLoader {
 	}
 
 	/**
+	 * Creates a mod-loader
 	 * @param a
 	 * @param originalPath
 	 */
 	protected AddonLoader(AdvancedFile source) {
-		this(source, Consumers.doNothing());
+		this(source, Lambdas.doNothing());
 	}
 	
 	protected AddonLoader(AdvancedFile source, Consumer<Modfile> handler) {

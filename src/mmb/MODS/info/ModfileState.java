@@ -14,7 +14,7 @@ public enum ModfileState {
 	NOEXIST($res("cguims-none")),
 	/** Indicates a corrupt mod file */
 	BROKEN($res("cguims-bad")),
-	/** Indicates an API package without any mods*/
+	/** Indicates an API package with/without mods*/
 	API($res("cguims-api")),
 	/** Indicates a media package without any code*/
 	MEDIA($res("cguims-media")),

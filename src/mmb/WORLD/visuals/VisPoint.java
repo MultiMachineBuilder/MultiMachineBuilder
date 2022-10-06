@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 import com.github.davidmoten.rtree.geometry.Geometries;
 import com.github.davidmoten.rtree.geometry.Point;
 
-import mmb.WORLD.gui.window.WorldFrame;
+import mmb.MENU.world.window.WorldFrame;
 
 /**
  * @author oskar

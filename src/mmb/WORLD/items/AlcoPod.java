@@ -6,11 +6,11 @@ package mmb.WORLD.items;
 import javax.annotation.Nonnull;
 
 import mmb.BEANS.Intoxicating;
+import mmb.MENU.wtool.ToolAlcohol;
+import mmb.MENU.wtool.WindowTool;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.recipes.CraftingGroups;
-import mmb.WORLD.tool.ToolAlcohol;
-import mmb.WORLD.tool.WindowTool;
 
 /**
  * @author oskar

@@ -17,9 +17,9 @@ import org.joml.Vector2fc;
 import org.joml.Vector2i;
 import org.joml.Vector4f;
 
-import mmb.GL.TextureAtlas;
+import mmb.GRAPHICS.gl.TextureAtlas;
+import mmb.GRAPHICS.texture.LODs;
 import mmb.MODS.loader.AddonLoader;
-import mmb.WORLD.texture.LODs;
 import mmb.debug.Debugger;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;

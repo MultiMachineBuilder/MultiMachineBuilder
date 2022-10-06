@@ -6,7 +6,7 @@ package mmb.WORLD.rotate;
 import javax.annotation.Nonnull;
 
 import mmb.DATA.contents.Textures.Texture;
-import mmb.GL.RenderCtx;
+import mmb.GRAPHICS.gl.RenderCtx;
 
 /**
  * @author oskar

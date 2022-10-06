@@ -12,11 +12,12 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
 import mmb.BEANS.Electric;
+import mmb.MENU.world.machine.BatteryTab;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.contentgen.ElectricMachineGroup.ElectroMachineType;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.Electricity;
-import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.storage.SingleItemInventory;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.items.pickaxe.Pickaxe;
@@ -36,6 +37,10 @@ public final class BlockBattery extends SkeletalBlockEntityRotary implements Blo
 	@Nonnull public final SingleItemInventory charger = new SingleItemInventory();
 	@Nonnull public final SingleItemInventory discharger = new SingleItemInventory();
 	BatteryTab tab;
+	@SuppressWarnings("javadoc") //internal use only
+	public void close(BatteryTab tbb) {
+		if(tab == tbb) tab = null;
+	}
 	
 	public BlockBattery(ElectroMachineType type) {
 		this.type = type;
@@ -117,5 +122,6 @@ public final class BlockBattery extends SkeletalBlockEntityRotary implements Blo
 		window.openAndShowWindow(tab, type().title());
 		tab.refresh();
 	}
+
 
 }

@@ -6,12 +6,12 @@ package mmb.WORLD.blocks.machine;
 import javax.annotation.Nonnull;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
+import mmb.MENU.world.Placer;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.crafting.RecipeOutput;
-import mmb.WORLD.gui.Placer;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.rotate.RotatedImageGroup;

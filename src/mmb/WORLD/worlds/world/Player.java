@@ -21,7 +21,6 @@ import com.rainerhahnekamp.sneakythrow.Sneaky;
 
 import io.vavr.Tuple2;
 import mmb.CatchingEvent;
-import mmb.GameObject;
 import mmb.BEANS.Saver;
 import mmb.DATA.contents.Sound;
 import mmb.DATA.contents.Sounds;
@@ -31,34 +30,15 @@ import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.inventory.storage.ListenableSimpleInventory;
 import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.worlds.player.PlayerPhysics;
-import mmb.WORLD.worlds.player.PlayerPhysicsNormal;
 import mmb.debug.Debugger;
 
 /**
  * @author oskar
  * A {@code Player} is an object, which represents player data
  */
-public class Player implements GameObject, Saver<JsonNode> {
+public class Player implements Saver<JsonNode> {
 	@Nonnull private Debugger debug = new Debugger("PLAYERS");
 	@Nonnull private static final Debugger sdebug = new Debugger("PLAYERS");
-	
-	@Override
-	public String id() {
-		return "Player";
-	}
-	@Override
-	public String getUTID() {
-		return "Player";
-	}
-	@Override
-	public void destroy() {
-		// unused
-	}
-	@Override
-	public GameObject getOwner() {
-		return null;
-	}
 	
 	/**
 	 * Creates a new player object

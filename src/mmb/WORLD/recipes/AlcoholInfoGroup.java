@@ -8,13 +8,13 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nonnull;
 
+import mmb.MENU.world.craft.AlcoholInfoView;
+import mmb.MENU.world.craft.RecipeView;
 import mmb.WORLD.chance.Chance;
 import mmb.WORLD.crafting.GlobalRecipeRegistrar;
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.AlcoholInfoView;
-import mmb.WORLD.gui.craft.RecipeView;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Collects;

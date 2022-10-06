@@ -14,8 +14,8 @@ import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import mmb.GRAPHICS.texture.BlockDrawer;
 import mmb.WORLD.block.BlockEntry;
-import mmb.WORLD.texture.BlockDrawer;
 
 /**
  * @author oskar

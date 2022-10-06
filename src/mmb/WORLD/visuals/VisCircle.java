@@ -11,7 +11,8 @@ import javax.annotation.Nullable;
 
 import com.github.davidmoten.rtree.geometry.Circle;
 import com.github.davidmoten.rtree.geometry.Geometries;
-import mmb.WORLD.gui.window.WorldFrame;
+
+import mmb.MENU.world.window.WorldFrame;
 
 /**
  * @author oskar

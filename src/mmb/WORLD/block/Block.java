@@ -14,9 +14,9 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
+import mmb.GRAPHICS.texture.BlockDrawer;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.chance.Chance;
-import mmb.WORLD.gui.window.WorldWindow;
-import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.worlds.world.Player;
 import mmb.WORLD.worlds.world.World;
 

@@ -4,9 +4,7 @@
 package mmb.WORLD.blocks.ppipe;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
-import mmb.GameObject;
 import mmb.WORLD.block.BlockEntityChirotable;
 import mmb.WORLD.rotate.Side;
 import mmb.WORLD.rotate.Sided;
@@ -61,7 +59,7 @@ public abstract class AbstractPlayerPipe extends BlockEntityChirotable {
 		initConnections(x, y);
 	}
 	@Override
-	public void onPlace(World map, @Nullable GameObject obj, int x, int y) {
+	public void onPlace(World map, int x, int y) {
 		initConnections(x, y);
 	}
 	@Override

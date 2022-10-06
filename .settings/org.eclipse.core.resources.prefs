@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
 encoding//TO\ REWORK/mmb/world2/quantities/UnitDisplay.java=UTF-8
+encoding//src/mmb/MENU/world/window/WorldFrame.java=UTF-8
+encoding//src/mmb/MENU/wtool/ToolStandard.java=UTF-8
 encoding//src/mmb/UnitFormatter.java=UTF-8
 encoding//src/mmb/WORLD/block/BlockEntry.java=UTF-8
 encoding//src/mmb/WORLD/blocks/machine/line/AutoCraftGUI.java=UTF-8
@@ -8,8 +10,6 @@ encoding//src/mmb/WORLD/blocks/ppipe/AbstractPlayerPipe.java=UTF-8
 encoding//src/mmb/WORLD/blocks/ppipe/JoiningPlayerPipe.java=UTF-8
 encoding//src/mmb/WORLD/blocks/ppipe/PlayerPipeShunt.java=UTF-8
 encoding//src/mmb/WORLD/electric/PowerMeter.java=UTF-8
-encoding//src/mmb/WORLD/gui/window/WorldFrame.java=UTF-8
 encoding//src/mmb/WORLD/rotate/ChiralRotation.java=UTF-8
 encoding//src/mmb/WORLD/rotate/Chirality.java=UTF-8
 encoding//src/mmb/WORLD/rotate/Rotation.java=UTF-8
-encoding//src/mmb/WORLD/tool/ToolStandard.java=UTF-8

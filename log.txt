@@ -1264,11 +1264,11 @@
 (MOD-LOADER) Loading a sound COPYRIGHT.txt
 (MOD-LOADER) Failed to load a sound COPYRIGHT.txt
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
-	at mmb.DATA.contents.Sounds.load(Sounds.java:86)
+	at mmb.DATA.contents.Sounds.load(Sounds.java:89)
 	at mmb.MODS.loader.ModLoader.lambda$2(ModLoader.java:116)
-	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:340)
-	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:346)
-	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:328)
+	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:343)
+	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:349)
+	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:331)
 	at mmb.MODS.loader.ModLoader.modloading(ModLoader.java:113)
 	at mmb.Main.lambda$0(Main.java:133)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
@@ -1286,17 +1286,17 @@
 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
 Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at java.desktop/javax.sound.sampled.AudioSystem.getAudioInputStream(AudioSystem.java:1014)
-	at mmb.DATA.contents.Sounds.load(Sounds.java:59)
+	at mmb.DATA.contents.Sounds.load(Sounds.java:62)
 	... 19 more
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\error.mp3
 (MOD-LOADER) Loading a sound error.mp3
 (MOD-LOADER) Failed to load a sound error.mp3
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
-	at mmb.DATA.contents.Sounds.load(Sounds.java:86)
+	at mmb.DATA.contents.Sounds.load(Sounds.java:89)
 	at mmb.MODS.loader.ModLoader.lambda$2(ModLoader.java:116)
-	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:340)
-	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:346)
-	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:328)
+	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:343)
+	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:349)
+	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:331)
 	at mmb.MODS.loader.ModLoader.modloading(ModLoader.java:113)
 	at mmb.Main.lambda$0(Main.java:133)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
@@ -1314,7 +1314,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
 Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at java.desktop/javax.sound.sampled.AudioSystem.getAudioInputStream(AudioSystem.java:1014)
-	at mmb.DATA.contents.Sounds.load(Sounds.java:59)
+	at mmb.DATA.contents.Sounds.load(Sounds.java:62)
 	... 19 more
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\minecxraft.wav
 (MOD-LOADER) Loading a sound minecxraft.wav
@@ -9308,6 +9308,270 @@ Strony nie zadziałają.
 (SELECT A SAVE) Found save: The longest player pipe ever.mworld
 (SELECT A SAVE) Found save: The smallest all in one quarry system.mworld
 (SELECT A SAVE) Found 29 saves
+(SELECT A SAVE) File does not exist
+(SELECT A SAVE) Found save: Agriculture test.mworld
+(SELECT A SAVE) Found save: Block Clicking Claw.mworld
+(SELECT A SAVE) Found save: Distrib2.mworld
+(SELECT A SAVE) Found save: Distributor.mworld
+(SELECT A SAVE) Found save: fuzz seed.mworld
+(SELECT A SAVE) Found save: main.mworld
+(SELECT A SAVE) Found save: Semi Auto Brewery.mworld
+(SELECT A SAVE) Found save: Sound ON Startup.mworld
+(SELECT A SAVE) Found save: Surv.mworld
+(SELECT A SAVE) Found save: Surv2.mworld
+(SELECT A SAVE) Found save: test binder.mworld
+(SELECT A SAVE) Found save: Test BPI.mworld
+(SELECT A SAVE) Found save: Test digger.mworld
+(SELECT A SAVE) Found save: Test electricity.mworld
+(SELECT A SAVE) Found save: Test pipes.mworld
+(SELECT A SAVE) Found save: Test player.mworld
+(SELECT A SAVE) Found save: Test speaker.mworld
+(SELECT A SAVE) Found save: Test tube.mworld
+(SELECT A SAVE) Found save: Test.mworld
+(SELECT A SAVE) Found save: The longest player pipe ever.mworld
+(SELECT A SAVE) Found save: The smallest all in one quarry system.mworld
+(SELECT A SAVE) Found 21 saves
+(WORLD TEST) 1645 items
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.WORLD.tool.ToolStandard@6c2a6522
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(WORLD TEST) Number of zoom levels: 48
+(WORLD TEST) Scrollbar max: 57
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Parsed file
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(DATA LAYERS) Loading world data layer: STN
+(MAP anonymous) Became anonymous
+(SELECT A SAVE) Loaded
+(WORLD - IDLE) Exiting
+(WORLDS) Opening a new world
+(TOOL-STANDARD) Running BlockActivateListener for: [-20,-5]
+(WORLD TEST) Exiting the world
+(WORLD - ) Saving main BlockMap
+(BLOCKS) Failed to write JSON data
+(BLOCKS) java.lang.NullPointerException
+	at mmb.WORLD.blocks.ipipe.AbstractBasePipe.lambda$0(AbstractBasePipe.java:88)
+	at mmb.DATA.json.JsonTool.saveArray(JsonTool.java:110)
+	at mmb.DATA.json.JsonTool.saveArray(JsonTool.java:105)
+	at mmb.WORLD.blocks.ipipe.AbstractBasePipe.save1(AbstractBasePipe.java:88)
+	at mmb.WORLD.block.BlockEntityChirotable.save0(BlockEntityChirotable.java:123)
+	at mmb.WORLD.block.BlockEntityData.save(BlockEntityData.java:23)
+	at mmb.WORLD.block.BlockEntityData.save(BlockEntityData.java:1)
+	at mmb.WORLD.worlds.world.World.save(World.java:275)
+	at mmb.WORLD.worlds.universe.Universe.save(Universe.java:136)
+	at mmb.MENU.world.window.WorldWindow.save(WorldWindow.java:102)
+	at mmb.MENU.world.window.WorldWindow.destroy(WorldWindow.java:85)
+	at mmb.MENU.MMBFrame.dispose(MMBFrame.java:29)
+	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:306)
+	at java.desktop/java.awt.Window.processEvent(Window.java:2037)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+(BLOCKS) Failed to write JSON data
+(BLOCKS) java.lang.NullPointerException
+	at mmb.WORLD.blocks.ipipe.AbstractBasePipe.lambda$0(AbstractBasePipe.java:88)
+	at mmb.DATA.json.JsonTool.saveArray(JsonTool.java:110)
+	at mmb.DATA.json.JsonTool.saveArray(JsonTool.java:105)
+	at mmb.WORLD.blocks.ipipe.AbstractBasePipe.save1(AbstractBasePipe.java:88)
+	at mmb.WORLD.block.BlockEntityChirotable.save0(BlockEntityChirotable.java:123)
+	at mmb.WORLD.block.BlockEntityData.save(BlockEntityData.java:23)
+	at mmb.WORLD.block.BlockEntityData.save(BlockEntityData.java:1)
+	at mmb.WORLD.worlds.world.World.save(World.java:275)
+	at mmb.WORLD.worlds.universe.Universe.save(Universe.java:136)
+	at mmb.MENU.world.window.WorldWindow.save(WorldWindow.java:102)
+	at mmb.MENU.world.window.WorldWindow.destroy(WorldWindow.java:85)
+	at mmb.MENU.MMBFrame.dispose(MMBFrame.java:29)
+	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:306)
+	at java.desktop/java.awt.Window.processEvent(Window.java:2037)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+(BLOCKS) Failed to write JSON data
+(BLOCKS) java.lang.NullPointerException
+	at mmb.WORLD.blocks.ipipe.AbstractBasePipe.lambda$0(AbstractBasePipe.java:88)
+	at mmb.DATA.json.JsonTool.saveArray(JsonTool.java:110)
+	at mmb.DATA.json.JsonTool.saveArray(JsonTool.java:105)
+	at mmb.WORLD.blocks.ipipe.AbstractBasePipe.save1(AbstractBasePipe.java:88)
+	at mmb.WORLD.block.BlockEntityChirotable.save0(BlockEntityChirotable.java:123)
+	at mmb.WORLD.block.BlockEntityData.save(BlockEntityData.java:23)
+	at mmb.WORLD.block.BlockEntityData.save(BlockEntityData.java:1)
+	at mmb.WORLD.worlds.world.World.save(World.java:275)
+	at mmb.WORLD.worlds.universe.Universe.save(Universe.java:136)
+	at mmb.MENU.world.window.WorldWindow.save(WorldWindow.java:102)
+	at mmb.MENU.world.window.WorldWindow.destroy(WorldWindow.java:85)
+	at mmb.MENU.MMBFrame.dispose(MMBFrame.java:29)
+	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:306)
+	at java.desktop/java.awt.Window.processEvent(Window.java:2037)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+(DATA LAYERS) Saving world data layer: STN
+(WORLD TEST) Saving the world
+(WORLD TEST) Saved the world
+(WORLD - main null) Exiting
+(MAP anonymous) Destroying
+(MAP anonymous) Shutdown
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
 (SETTINGS) Resetting a setting country with value US
 (SETTINGS) Resetting a setting sortItems with value true
 (SETTINGS) Resetting a setting dumpBundles with value true

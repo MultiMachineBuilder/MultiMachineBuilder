@@ -3,8 +3,8 @@
  */
 package mmb.BEANS;
 
-import mmb.WORLD.gui.machine.FilterGUI;
-import mmb.WORLD.gui.window.GUITab;
+import mmb.MENU.world.machine.FilterGUI;
+import mmb.MENU.world.window.GUITab;
 
 /**
  * @author oskar

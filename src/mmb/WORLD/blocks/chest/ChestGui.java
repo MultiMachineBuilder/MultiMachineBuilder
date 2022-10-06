@@ -4,11 +4,12 @@
 package mmb.WORLD.blocks.chest;
 
 import net.miginfocom.swing.MigLayout;
-import mmb.WORLD.gui.ColorGUI;
-import mmb.WORLD.gui.inv.InventoryController;
-import mmb.WORLD.gui.inv.InventoryOrchestrator;
-import mmb.WORLD.gui.window.GUITab;
-import mmb.WORLD.gui.window.WorldWindow;
+import mmb.MENU.world.ColorGUI;
+import mmb.MENU.world.inv.InventoryController;
+import mmb.MENU.world.inv.InventoryOrchestrator;
+import mmb.MENU.world.inv.MoveItems;
+import mmb.MENU.world.window.GUITab;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.worlds.world.Player;
 
 import javax.swing.JButton;
@@ -17,7 +18,6 @@ import javax.annotation.Nonnull;
 import static mmb.GlobalSettings.$res;
 
 import java.awt.Color;
-import mmb.WORLD.gui.inv.MoveItems;
 
 /**
  * @author oskar

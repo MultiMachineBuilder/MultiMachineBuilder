@@ -4,15 +4,15 @@
 package mmb.WORLD.blocks.machine.line;
 
 import net.miginfocom.swing.MigLayout;
+import mmb.MENU.world.inv.InventoryController;
+import mmb.MENU.world.inv.InventoryOrchestrator;
+import mmb.MENU.world.inv.MoveItems;
+import mmb.MENU.world.window.GUITab;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.Refreshable;
-import mmb.WORLD.gui.inv.InventoryController;
-import mmb.WORLD.gui.inv.InventoryOrchestrator;
 
 import javax.swing.JLabel;
-import mmb.WORLD.gui.inv.MoveItems;
-import mmb.WORLD.gui.window.GUITab;
-import mmb.WORLD.gui.window.WorldWindow;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JButton;

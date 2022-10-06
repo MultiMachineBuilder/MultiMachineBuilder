@@ -8,7 +8,7 @@ import javax.swing.*;
 import mmb.GlobalSettings;
 import mmb.DATA.Settings;
 import mmb.DATA.contents.Textures;
-import mmb.GL.HalfVecTest;
+import mmb.GRAPHICS.gl.HalfVecTest;
 import mmb.debug.Debugger;
 import java.net.URI;
 import java.util.Calendar;

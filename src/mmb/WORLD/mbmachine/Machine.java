@@ -8,10 +8,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
-import mmb.GameObject;
 import mmb.BEANS.Saver;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
@@ -38,7 +35,7 @@ import mmb.WORLD.worlds.world.World;
  * 	<li>BlockInterface - connect to other machines</li>
  * </ul>
  */
-public interface Machine extends GameObject, Saver<JsonNode>{
+public interface Machine extends Saver<JsonNode>{
 	//[start] positioning
 	public default void setPos(Point p) {
 		setPos(p.x, p.y);
@@ -76,6 +73,7 @@ public interface Machine extends GameObject, Saver<JsonNode>{
 	}
 	public int sizeX();
 	public int sizeY();
+	public String id();
 	/**
 	 * Returns the size of this {@code Machine} in a new {@link Dimension}
 	 * @return size of this {@code Machine}
@@ -156,7 +154,7 @@ public interface Machine extends GameObject, Saver<JsonNode>{
 	 * 		<br>WorldBehavior instance if placed by a WorldBehavior
 	 * 		<br>MapBehavior instance if placed by a MapBehavior
 	 */
-	public void onPlace(@Nullable GameObject obj);
+	public void onPlace();
 	/**
 	 * Handles the machine being mined.
 	 * <ul>
@@ -177,7 +175,7 @@ public interface Machine extends GameObject, Saver<JsonNode>{
 	 * 		<br>MapBehavior instance if mined by a MapBehavior
 	 * 		<br>null if mined by player in LSP
 	 */
-	public void onRemove(@Nullable GameObject obj);
+	public void onRemove();
 	/**    
 	 * Prepares a block for server shutdown.
 	 * <br>Does not run when block is broken.

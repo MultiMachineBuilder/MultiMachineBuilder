@@ -3,8 +3,8 @@
  */
 package mmb.WORLD.items;
 
+import mmb.MENU.wtool.WindowTool;
 import mmb.WORLD.item.Item;
-import mmb.WORLD.tool.WindowTool;
 
 /**
  * An item with assigned tool

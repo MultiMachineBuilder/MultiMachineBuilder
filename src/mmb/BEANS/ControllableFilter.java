@@ -5,7 +5,7 @@ package mmb.BEANS;
 
 import javax.annotation.Nullable;
 
-import mmb.WORLD.gui.machine.FilterGUI;
+import mmb.MENU.world.machine.FilterGUI;
 import mmb.WORLD.inventory.storage.SingleItemInventory;
 
 /**

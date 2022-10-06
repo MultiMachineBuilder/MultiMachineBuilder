@@ -9,8 +9,8 @@ import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.rotate.ChirotatedImageGroup;
 import mmb.WORLD.rotate.Side;
-import mmb.WORLD.worlds.player.PlayerPhysicsPipe;
 import mmb.WORLD.worlds.world.Player;
+import mmb.WORLD.worlds.world.PlayerPhysicsPipe;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 

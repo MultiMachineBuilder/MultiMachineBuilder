@@ -7,7 +7,7 @@ import java.awt.Graphics;
 
 import com.github.davidmoten.rtree.geometry.Geometry;
 
-import mmb.WORLD.gui.window.WorldFrame;
+import mmb.MENU.world.window.WorldFrame;
 
 /**
  * @author oskar

@@ -247,7 +247,6 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 		return insertibleRemain(amount, item.volume());
 	}
 	
-	
 	/**
 	 * Returns how many copies of {@code sub} exist in {@code main}.
 	 * @param main inventory to check

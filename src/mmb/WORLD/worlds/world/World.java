@@ -39,9 +39,8 @@ import mmb.GlobalSettings;
 import mmb.Vector2iconst;
 import mmb.BEANS.BlockActivateListener;
 import mmb.DATA.json.JsonTool;
-import mmb.RUNTIME.TaskLoop;
+import mmb.MENU.world.FPSCounter;
 import mmb.WORLD.block.BlockEntity;
-import mmb.WORLD.gui.FPSCounter;
 import mmb.WORLD.inventory.io.InventoryWriter;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.mbmachine.Machine;
@@ -482,7 +481,7 @@ public class World implements Identifiable<String>, Indexable{
 		if(old.isBlockEntity()) {
 			BlockEntity old0 = old.asBlockEntity();
 			try {
-				old0.onBreak(this, null, x, y);
+				old0.onBreak(this, x, y);
 				_blockents.remove(old0);
 			} catch (Exception e) {
 				debug.pstm(e, "Failed to remove BlockEntity ["+x+","+y+"]");
@@ -493,7 +492,7 @@ public class World implements Identifiable<String>, Indexable{
 		if(b.isBlockEntity()) {
 			BlockEntity new0 = b.asBlockEntity();
 			try {
-				new0.onPlace(this, null, x, y);
+				new0.onPlace(this, x, y);
 				_blockents.add(new0);
 			}catch(Exception e) {
 				debug.pstm(e, "Failed to place BlockEntity ["+x+","+y+"]");
@@ -620,7 +619,7 @@ public class World implements Identifiable<String>, Indexable{
 		int mendX = posX + machine.sizeX();
 		int mendY = posY + machine.sizeY();
 		try {
-			machine.onRemove(null);
+			machine.onRemove();
 		}catch(Exception e) {
 			debug.pstm(e, "Failed to remove "+machine.id()+" at ["+posX+","+posY+"]");
 			return false;
@@ -679,7 +678,7 @@ public class World implements Identifiable<String>, Indexable{
 		int mendX = posX + machine.sizeX();
 		int mendY = posY + machine.sizeY();
 		try {
-			if(!setup) machine.onPlace(null);
+			if(!setup) machine.onPlace();
 			//When successfull, place
 			for(int x = posX; x < mendX; x++) {
 				for(int y = posY; y < mendY; y++) {

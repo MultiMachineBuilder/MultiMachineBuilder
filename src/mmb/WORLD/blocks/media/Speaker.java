@@ -12,19 +12,18 @@ import javax.sound.sampled.Clip;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.rainerhahnekamp.sneakythrow.Sneaky;
-import mmb.GameObject;
 import mmb.BEANS.BlockActivateListener;
 import mmb.DATA.contents.Sound;
 import mmb.DATA.contents.Sounds;
 import mmb.DATA.contents.Textures;
+import mmb.GRAPHICS.texture.BlockDrawer;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.gui.window.WorldWindow;
-import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.SignalUtils;
+import mmb.WORLD.worlds.world.WorldUtils;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 
@@ -148,7 +147,7 @@ public class Speaker extends BlockEntityData implements BlockActivateListener {
 		
 		synchronized(soundLock){
 			//sound playback
-			boolean isSignalled = SignalUtils.hasIncomingSignal(this); //signal reads correctly
+			boolean isSignalled = WorldUtils.hasIncomingSignal(this); //signal reads correctly
 			mode.run(this, isSignalled); //mode is read correctly
 			hasAlreadyGotSignal = isSignalled;
 		}
@@ -163,7 +162,7 @@ public class Speaker extends BlockEntityData implements BlockActivateListener {
 	}
 
 	@Override
-	public void onPlace(World map, @Nullable GameObject obj, int x, int y) {
+	public void onPlace(World map, int x, int y) {
 		onStartup(map, x, y);
 	}
 	

@@ -11,12 +11,12 @@ import javax.swing.ListCellRenderer;
 
 import io.vavr.Tuple2;
 import mmb.GlobalSettings;
+import mmb.MENU.world.craft.RecipeList;
+import mmb.MENU.world.window.TabRecipes;
 import mmb.WORLD.crafting.GlobalRecipeRegistrar;
 import mmb.WORLD.crafting.PlugAndPlayRecipeCellRenderer;
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeGroup;
-import mmb.WORLD.gui.craft.RecipeList;
-import mmb.WORLD.gui.window.TabRecipes;
 
 /**
  * An implementation aid for recipe groups

@@ -3,7 +3,6 @@
  */
 package mmb.WORLD.generator;
 
-import mmb.RANDOM.GeometricRandom;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.worlds.world.World;
 import monniasza.collects.grid.Grid;

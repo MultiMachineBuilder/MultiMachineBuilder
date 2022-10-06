@@ -11,10 +11,10 @@ import javax.swing.Icon;
 
 import org.junit.jupiter.api.Test;
 
+import mmb.GRAPHICS.texture.BlockDrawer;
 import mmb.WORLD.block.BlockEntityType;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.Blocks;
-import mmb.WORLD.texture.BlockDrawer;
 
 /**
  * @author oskar

@@ -8,19 +8,21 @@ import java.awt.image.BufferedImage;
 import java.awt.image.LookupOp;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
 import mmb.DATA.contents.Textures;
 import mmb.GRAPHICS.awt.ColorMapper;
+import mmb.MENU.world.machine.GUIGeneratorSolid;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.electric.Battery;
 import mmb.WORLD.electric.Electricity;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.storage.SimpleInventory;
 import mmb.WORLD.recipes.CraftingGroups;
@@ -104,8 +106,8 @@ public class BlockGeneratorSolid extends SkeletalBlockEntityRotary implements Bl
 	
 	@Nonnull public final VoltageTier volt;
 	@Nonnull private final BlockType type;
-	@Nonnull final Battery fuel;
-	@Nonnull final Battery buffer;
+	@Nonnull public final Battery fuel;
+	@Nonnull public final Battery buffer;
 	@Nonnull public final SimpleInventory inv = new SimpleInventory();
 	@Nonnull private final FuelBurner burner;
 	public final int mul;
@@ -156,11 +158,16 @@ public class BlockGeneratorSolid extends SkeletalBlockEntityRotary implements Bl
 
 	GUIGeneratorSolid tab;
 	@Override
-	public void click(int blockX, int blockY, World map, WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(tab != null) return;
 		tab = new GUIGeneratorSolid(window, this);
 		window.openAndShowWindow(tab, type.title());
+	}
+	
+	@SuppressWarnings("javadoc") //internal use only
+	public void close(GUIGeneratorSolid tbb) {
+		if(tab == tbb) tab = null;
 	}
 
 	@Override

@@ -8,7 +8,7 @@ import java.awt.Component;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
-import mmb.WORLD.gui.craft.RecipeView;
+import mmb.MENU.world.craft.RecipeView;
 
 /**
  * @author oskar

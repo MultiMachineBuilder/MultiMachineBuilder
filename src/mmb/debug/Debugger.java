@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import javax.annotation.Nullable;
 
 import mmb.Main;
-import mmb.ERRORS.UndeclarableThrower;
+import mmb.UndeclarableThrower;
 
 /**
  * 

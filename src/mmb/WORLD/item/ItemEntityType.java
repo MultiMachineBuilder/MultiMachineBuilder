@@ -7,9 +7,10 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 import javax.annotation.Nonnull;
+
+import mmb.GRAPHICS.texture.BlockDrawer;
 import mmb.WORLD.items.ItemBase;
 import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.texture.BlockDrawer;
 
 /**
  * @author oskar

@@ -11,8 +11,8 @@ import org.joml.Vector2d;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.GameObject;
 import mmb.BEANS.Saver;
+import mmb.GRAPHICS.texture.BlockDrawer;
 import mmb.WORLD.blocks.ppipe.PipeTunnelEntry;
 import mmb.WORLD.electric.Electricity;
 import mmb.WORLD.inventory.Inventory;
@@ -25,7 +25,6 @@ import mmb.WORLD.rotate.Chirality;
 import mmb.WORLD.rotate.Rotable;
 import mmb.WORLD.rotate.Rotation;
 import mmb.WORLD.rotate.Side;
-import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.worlds.world.Player;
 import mmb.WORLD.worlds.world.World;
 
@@ -120,7 +119,7 @@ public interface BlockEntry extends Saver<JsonNode>, Rotable, Chiral {
 	 * @param x X coordinate of the block
 	 * @param y	Y cordinate of the block
 	 */
-	public default void onPlace(World map, @Nullable GameObject obj, int x, int y) {
+	public default void onPlace(World map, int x, int y) {
 		//optional
 	}
 	/**
@@ -131,7 +130,7 @@ public interface BlockEntry extends Saver<JsonNode>, Rotable, Chiral {
 	 * @param x X coordinate of the block
 	 * @param y	Y cordinate of the block
 	 */
-	public default void onBreak(World map, @Nullable GameObject obj, int x, int y) {
+	public default void onBreak(World map, int x, int y) {
 		//optional
 	}
 	/**

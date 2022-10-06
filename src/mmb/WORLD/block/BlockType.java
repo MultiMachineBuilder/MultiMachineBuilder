@@ -6,9 +6,9 @@ package mmb.WORLD.block;
 import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
+import mmb.MENU.world.Placer;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.chance.Chance;
-import mmb.WORLD.gui.Placer;
 import mmb.WORLD.item.ItemType;
 
 /**

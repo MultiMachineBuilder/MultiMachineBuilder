@@ -5,7 +5,7 @@ package mmb.BEANS;
 
 import javax.annotation.Nullable;
 
-import mmb.WORLD.gui.window.WorldWindow;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.worlds.world.World;
 
 /**

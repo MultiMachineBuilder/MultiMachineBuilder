@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 
-import mmb.ERRORS.UndeclarableThrower;
+import mmb.UndeclarableThrower;
 
 /**
  * @author oskar

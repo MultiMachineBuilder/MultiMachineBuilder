@@ -13,7 +13,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import io.vavr.Tuple2;
 import mmb.GameEvents;
-import mmb.GameObject;
 import mmb.BEANS.Saver;
 import mmb.DATA.json.JsonTool;
 import mmb.WORLD.worlds.world.World;
@@ -29,7 +28,7 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class Universe implements GameObject, Saver<JsonNode>, Indexable{
+public class Universe implements Saver<JsonNode>, Indexable{
 	//Allocator & data layers
 	private static SimpleAllocator<Universe> allocator0 = new SimpleAllocator<>();
 	/** Allocator for universes */
@@ -154,7 +153,7 @@ public class Universe implements GameObject, Saver<JsonNode>, Indexable{
 		return master;
 	}
 	
-	//[start] activity
+	//Activity
 	/**
 	 * Starts up the universe
 	 */
@@ -165,7 +164,6 @@ public class Universe implements GameObject, Saver<JsonNode>, Indexable{
 	/**
 	 * Destroy all associated resources.
 	 */
-	@Override
 	public void destroy() {		
 		//Shut down all maps
 		main.destroy();
@@ -175,19 +173,5 @@ public class Universe implements GameObject, Saver<JsonNode>, Indexable{
 		GameEvents.onUniverseDie.trigger(this);
 		allocator0.destroy(ordinal); //free up som space
 		ordinal = -1; //stop use in data layers
-	}
-
-	//GameObject
-	@Override
-	public String id() {
-		return name;
-	}
-	@Override
-	public String getUTID() {
-		return "universe:"+name;
-	}
-	@Override
-	public GameObject getOwner() {
-		return null; //TBD in 0.7
 	}
 }

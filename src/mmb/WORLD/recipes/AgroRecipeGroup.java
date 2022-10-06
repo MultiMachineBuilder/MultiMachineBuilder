@@ -6,13 +6,13 @@ package mmb.WORLD.recipes;
 import java.util.Set;
 import javax.annotation.Nonnull;
 
+import mmb.MENU.world.craft.AgroRecipeView;
+import mmb.MENU.world.craft.RecipeView;
 import mmb.WORLD.chance.Chance;
 import mmb.WORLD.crafting.GlobalRecipeRegistrar;
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.AgroRecipeView;
-import mmb.WORLD.gui.craft.RecipeView;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Collects;

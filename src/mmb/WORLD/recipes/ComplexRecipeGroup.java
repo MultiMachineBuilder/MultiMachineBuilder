@@ -11,12 +11,12 @@ import java.util.Set;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import mmb.MENU.world.craft.ComplexRecipeView;
 import mmb.WORLD.chance.Chance;
 import mmb.WORLD.crafting.GlobalRecipeRegistrar;
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.ComplexRecipeView;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Collects;

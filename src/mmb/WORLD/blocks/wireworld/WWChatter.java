@@ -10,14 +10,14 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
 import mmb.BEANS.TextMessageProvider;
+import mmb.MENU.world.NewTextEditor;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.blocks.ContentsBlocks;
 import mmb.WORLD.block.BlockEntityData;
 import mmb.WORLD.block.BlockEntry;
-import mmb.WORLD.gui.NewTextEditor;
-import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.worlds.MapProxy;
-import mmb.WORLD.worlds.SignalUtils;
+import mmb.WORLD.worlds.world.WorldUtils;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
 
@@ -68,7 +68,7 @@ public class WWChatter extends BlockEntityData implements TextMessageProvider, B
 
 	@Override
 	public void onTick(MapProxy map) {
-		if(SignalUtils.hasIncomingSignal(this)) {
+		if(WorldUtils.hasIncomingSignal(this)) {
 			debug.printl(contents);
 		}
 	}

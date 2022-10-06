@@ -3,14 +3,16 @@
  */
 package mmb.WORLD.blocks.machine.line;
 
-import mmb.WORLD.gui.window.GUITab;
-import mmb.WORLD.gui.window.WorldWindow;
+import mmb.MENU.world.inv.CraftGUI;
+import mmb.MENU.world.inv.InventoryController;
+import mmb.MENU.world.inv.MoveItems;
+import mmb.MENU.world.window.GUITab;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemRecord;
 import mmb.WORLD.items.ItemEntry;
 import mmb.WORLD.items.data.Stencil;
 import net.miginfocom.swing.MigLayout;
-import mmb.WORLD.gui.inv.CraftGUI;
 
 import javax.annotation.Nonnull;
 import javax.swing.JButton;
@@ -19,8 +21,7 @@ import javax.swing.JLabel;
 import static mmb.GlobalSettings.$res;
 
 import java.awt.Color;
-import mmb.WORLD.gui.inv.MoveItems;
-import mmb.WORLD.gui.inv.InventoryController;
+
 import javax.swing.JProgressBar;
 
 /**

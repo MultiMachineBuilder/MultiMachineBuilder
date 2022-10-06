@@ -8,11 +8,11 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.BEANS.BlockActivateListener;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.block.BlockEntry;
 import mmb.WORLD.block.BlockType;
 import mmb.WORLD.block.SkeletalBlockEntityRotary;
 import mmb.WORLD.blocks.ContentsBlocks;
-import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.rotate.RotatedImageGroup;
 import mmb.WORLD.worlds.world.World;
 

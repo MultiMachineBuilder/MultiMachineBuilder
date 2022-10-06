@@ -9,13 +9,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.GameObject;
+import mmb.MENU.world.Placer;
+import mmb.MENU.world.window.WorldWindow;
 import mmb.WORLD.block.BlockEntry;
-import mmb.WORLD.gui.Placer;
-import mmb.WORLD.gui.window.WorldWindow;
 import mmb.WORLD.item.Item;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
@@ -41,12 +39,9 @@ public class MachineModel extends Item implements Placer {
 		this.errorMessage = "Failed to create a machine "+name;
 	}
 	public Machine place() {
-		return place(null);
-	}
-	public Machine place(@Nullable GameObject owner) {
 		try {
 			Machine result = machineClass.getConstructor().newInstance(); //create
-			result.onPlace(owner);
+			result.onPlace();
 			return result;
 		} catch (Exception e) {
 			debug.pstm(e, errorMessage);

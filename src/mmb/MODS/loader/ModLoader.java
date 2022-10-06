@@ -14,12 +14,13 @@ import java.util.zip.ZipInputStream;
 
 import mmb.debug.Debugger;
 import mmbmods.stn.STN;
+import mmb.Lambdas;
 import mmb.Main;
 import mmb.DATA.contents.Sounds;
 import mmb.DATA.contents.Textures;
 import mmb.FILES.FileUtil;
-import mmb.LAMBDAS.Lambdas;
 import mmb.MENU.FullScreen;
+import mmb.MENU.wtool.Tools;
 import mmb.MODS.info.AddonCentral;
 import mmb.MODS.info.ModInfo;
 import mmb.MODS.info.ModMetadata;
@@ -33,7 +34,6 @@ import mmb.WORLD.electromachine.BlockTransformer.TransformerData;
 import mmb.WORLD.generator.Generators;
 import mmb.WORLD.items.ContentsItems;
 import mmb.WORLD.items.electronics.Electronics;
-import mmb.WORLD.tool.Tools;
 import mmb.WORLD.worlds.DataLayers;
 
 /**
@@ -313,6 +313,9 @@ public final class ModLoader {
 		
 		//everything done
 		debug.printl("HOORAY, IT'S OVER!");
+	}
+	private static void gameloading() {
+		
 	}
 	
 	/**

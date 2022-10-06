@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import javax.swing.ListCellRenderer;
 
 import mmb.BEANS.Titled;
-import mmb.WORLD.gui.craft.RecipeView;
+import mmb.MENU.world.craft.RecipeView;
 import mmb.WORLD.items.ItemEntry;
 import monniasza.collects.Identifiable;
 

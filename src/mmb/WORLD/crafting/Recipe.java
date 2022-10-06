@@ -8,9 +8,9 @@ import java.awt.Component;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import mmb.MENU.world.craft.RecipeView;
 import mmb.WORLD.chance.Chance;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.RecipeView;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.items.ItemEntry;
 

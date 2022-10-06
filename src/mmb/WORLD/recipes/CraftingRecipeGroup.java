@@ -12,13 +12,13 @@ import javax.annotation.Nullable;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import mmb.MENU.world.craft.CraftingRecipeView;
 import mmb.WORLD.chance.Chance;
 import mmb.WORLD.crafting.GlobalRecipeRegistrar;
 import mmb.WORLD.crafting.Recipe;
 import mmb.WORLD.crafting.RecipeOutput;
 import mmb.WORLD.crafting.SimpleItemList;
 import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.gui.craft.CraftingRecipeView;
 import mmb.WORLD.inventory.Inventory;
 import mmb.WORLD.inventory.ItemStack;
 import mmb.WORLD.items.ItemEntry;

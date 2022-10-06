@@ -4,21 +4,14 @@
 package mmb.WORLD.block;
 
 import java.awt.Point;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.pploder.events.Event;
-
 import mmb.CatchingEvent;
-import mmb.GameObject;
 import mmb.BEANS.Positioned;
+import mmb.GRAPHICS.texture.BlockDrawer;
 import mmb.WORLD.event.BlockEntityDemolitionEvent;
-import mmb.WORLD.event.BlockEntityDemolitionListener;
 import mmb.WORLD.rotate.Side;
-import mmb.WORLD.texture.BlockDrawer;
 import mmb.WORLD.worlds.MapProxy;
 import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
@@ -129,10 +122,10 @@ public abstract class BlockEntity implements BlockEntry, Positioned{
 		eventDemolition.clear();
 	}
 	private boolean underDemolition;
-	@Override public final void onBreak(World blockMap, @Nullable GameObject obj, int x, int y) {
+	@Override public final void onBreak(World blockMap, int x, int y) {
 		if(underDemolition) return;
 		underDemolition = true;
-		BlockEntityDemolitionEvent event = new BlockEntityDemolitionEvent(x, y, this, blockMap, obj);
+		BlockEntityDemolitionEvent event = new BlockEntityDemolitionEvent(x, y, this, blockMap);
 		eventDemolition.trigger(event);
 		eventRemoval.trigger(blockMap);
 		underDemolition = false;
