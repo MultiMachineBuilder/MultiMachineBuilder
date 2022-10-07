@@ -50,6 +50,7 @@
 		<sonar.sources>src,pom.xml</sonar.sources>
 		<sonar.tests>test</sonar.tests>
 		<sonar.java.binaries>target</sonar.java.binaries>
+		<sonar.sourceEncoding>UTF-8></sonar.sourceEncoding>
 	</properties>
 	<dependencies>
 	   <dependency>
