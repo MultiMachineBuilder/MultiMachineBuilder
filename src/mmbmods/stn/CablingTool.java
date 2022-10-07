@@ -11,12 +11,12 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.DATA.json.JsonTool;
-import mmb.DATA.variables.DataValueDouble;
-import mmb.WORLD.inventory.io.InventoryReader;
-import mmb.WORLD.inventory.io.InventoryWriter;
-import mmb.WORLD.item.Item;
-import mmb.WORLD.item.ItemEntityMutable;
+import mmb.data.json.JsonTool;
+import mmb.data.variables.DataValueDouble;
+import mmb.world.inventory.io.InventoryReader;
+import mmb.world.inventory.io.InventoryWriter;
+import mmb.world.item.Item;
+import mmb.world.item.ItemEntityMutable;
 
 /**
  * @author oskar

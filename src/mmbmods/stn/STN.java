@@ -9,17 +9,17 @@ import java.util.ResourceBundle;
 import javax.annotation.Nonnull;
 
 import mmb.GlobalSettings;
-import mmb.WORLD.contentgen.Materials;
-import mmb.WORLD.contentgen.MetalGroup;
-import mmb.WORLD.electric.VoltageTier;
-import mmb.WORLD.item.ItemEntityType;
-import mmb.WORLD.item.ItemRaw;
-import mmb.WORLD.item.Items;
-import mmb.WORLD.items.ItemEntry;
-import mmb.WORLD.recipes.CraftingGroups;
-import mmb.WORLD.worlds.DataLayers;
-import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
+import mmb.world.contentgen.Materials;
+import mmb.world.contentgen.MetalGroup;
+import mmb.world.electric.VoltageTier;
+import mmb.world.item.ItemEntityType;
+import mmb.world.item.ItemRaw;
+import mmb.world.item.Items;
+import mmb.world.items.ItemEntry;
+import mmb.world.recipes.CraftingGroups;
+import mmb.world.worlds.DataLayers;
+import mmb.world.worlds.world.World;
 import monniasza.collects.datalayer.IndexedDatalayerMap;
 
 /**

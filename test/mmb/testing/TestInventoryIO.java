@@ -4,11 +4,12 @@
 package mmb.testing;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
 
-import mmb.WORLD.inventory.io.InventoryWriter;
-import mmb.WORLD.inventory.storage.SingleStackedInventory;
-import mmb.WORLD.item.Item;
+import mmb.world.inventory.io.InventoryWriter;
+import mmb.world.inventory.storage.SingleStackedInventory;
+import mmb.world.item.Item;
+
+import org.junit.jupiter.api.Assertions;
 
 /**
  * @author oskar

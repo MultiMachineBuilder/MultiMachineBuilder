@@ -7,8 +7,8 @@ import javax.annotation.Nonnull;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.WORLD.worlds.world.DataLayer;
-import mmb.WORLD.worlds.world.World;
+import mmb.world.worlds.world.DataLayer;
+import mmb.world.worlds.world.World;
 
 /**
  * The brains of Simple Transportation Network

@@ -9,9 +9,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.pploder.events.Event;
 
 import io.vavr.Tuple2;
-import mmb.WORLD.worlds.universe.Universe;
-import mmb.WORLD.worlds.world.World;
 import mmb.debug.Debugger;
+import mmb.world.worlds.universe.Universe;
+import mmb.world.worlds.world.World;
 
 /**
  * A collection of game-wide events

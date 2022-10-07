@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import mmb.MODS.loader.ModLoader;
+import mmb.mods.loader.ModLoader;
 
 /**
  * @author oskar

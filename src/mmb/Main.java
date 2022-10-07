@@ -5,11 +5,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import mmb.DATA.Settings;
-import mmb.GRAPHICS.gl.HalfVecTest;
-import mmb.MENU.main.MainMenu;
-import mmb.MODS.loader.ModLoader;
+import mmb.data.Settings;
 import mmb.debug.Debugger;
+import mmb.gl.HalfVecTest;
+import mmb.menu.main.MainMenu;
+import mmb.mods.loader.ModLoader;
 
 import javax.swing.JLabel;
 

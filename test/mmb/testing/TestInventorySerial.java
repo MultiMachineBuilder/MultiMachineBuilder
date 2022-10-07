@@ -7,11 +7,11 @@ import javax.annotation.Nonnull;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.DATA.json.JsonTool;
-import mmb.WORLD.inventory.Inventory;
-import mmb.WORLD.inventory.storage.SimpleInventory;
-import mmb.WORLD.item.Item;
+import mmb.data.json.JsonTool;
 import mmb.debug.Debugger;
+import mmb.world.inventory.Inventory;
+import mmb.world.inventory.storage.SimpleInventory;
+import mmb.world.item.Item;
 
 /**
  * @author oskar

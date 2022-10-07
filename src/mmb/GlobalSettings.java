@@ -8,11 +8,11 @@ import java.util.ResourceBundle;
 
 import javax.annotation.Nonnull;
 
-import mmb.DATA.Settings;
-import mmb.DATA.variables.ListenableDouble;
-import mmb.DATA.variables.ListenableInt;
-import mmb.DATA.variables.ListenableValue;
-import mmb.DATA.variables.ListenerBooleanVariable;
+import mmb.data.Settings;
+import mmb.data.variables.ListenableDouble;
+import mmb.data.variables.ListenableInt;
+import mmb.data.variables.ListenableValue;
+import mmb.data.variables.ListenerBooleanVariable;
 import mmb.debug.Debugger;
 import monniasza.collects.Collects;
 
