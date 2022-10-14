@@ -5,7 +5,6 @@ package monniasza.collects.selfset;
 
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.NavigableSet;
 import java.util.Set;
@@ -275,17 +274,12 @@ public class TreeSelfSet<K, V extends Identifiable<K>> implements SortedSelfSet<
 
 			@Override
 			public boolean add(@SuppressWarnings("null") V e) {
-				map.put(e.id(), e);
-				return true;
+				return that.add(e);
 			}
 
 			@Override
 			public boolean addAll(@SuppressWarnings("null")Collection<? extends V> c) {
-				boolean changed = false;
-				for(V value: c) {
-					if(that.add(value)) changed = true;
-				}
-				return changed;
+				return that.addAll(c);
 			}
 
 			@Override
@@ -347,12 +341,12 @@ public class TreeSelfSet<K, V extends Identifiable<K>> implements SortedSelfSet<
 	}
 
 	@Override
-	public V get(@Nullable K key) {
+	public V get(@Nullable Object key) {
 		return map.get(key);
 	}
 
 	@Override
-	public V getOrDefault(@Nullable K key, V defalt) {
+	public V getOrDefault(@Nullable Object key, V defalt) {
 		return map.getOrDefault(key, defalt);
 	}
 

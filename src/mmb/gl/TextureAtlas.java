@@ -6,17 +6,11 @@ package mmb.gl;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Queue;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import io.vavr.Tuple2;
 import mmb.data.contents.Textures.Texture;
 import mmb.debug.Debugger;
 

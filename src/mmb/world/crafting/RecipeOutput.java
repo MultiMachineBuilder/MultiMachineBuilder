@@ -26,9 +26,15 @@ import mmb.world.worlds.world.World;
 public interface RecipeOutput extends Chance{
 	@Override
 	default boolean drop(@Nullable InventoryWriter inv, @Nullable World map, int x, int y) {
-		@Nonnull InventoryWriter dropper = map.createDropper(x, y);
-		InventoryWriter priority = (inv == null)? dropper :new InventoryWriter.Priority(inv, dropper);
-		produceResults(priority, 1);
+		if(map == null) {
+			if(inv == null) return false;
+			produceResults(inv, 1);
+		}else {
+			@Nonnull InventoryWriter dropper = map.createDropper(x, y);
+			InventoryWriter priority = (inv == null)? dropper :new InventoryWriter.Priority(inv, dropper);
+			produceResults(priority, 1);
+		}
+		
 		return true;
 	}
 	/**

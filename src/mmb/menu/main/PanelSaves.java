@@ -23,7 +23,7 @@ import mmb.files.AdvancedFile;
 import mmb.files.LocalFile;
 import mmb.files.Save;
 import mmb.menu.FullScreen;
-import mmb.menu.NewWorld.NewGame;
+import mmb.menu.create.NewGame;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.worlds.universe.Universe;
 import net.miginfocom.swing.MigLayout;

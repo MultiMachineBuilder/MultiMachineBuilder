@@ -3,10 +3,8 @@
  */
 package mmb.world.items.data;
 
-import java.awt.Component;
 import java.util.Iterator;
 import java.util.Objects;
-import java.util.Set;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
@@ -18,17 +16,9 @@ import org.ainslec.picocog.PicoWriter;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
-import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.data.Save;
 import mmb.debug.Debugger;
-import mmb.world.chance.Chance;
-import mmb.world.crafting.Recipe;
-import mmb.world.crafting.RecipeGroup;
 import mmb.world.crafting.RecipeOutput;
-import mmb.world.crafting.SimpleItemList;
-import mmb.world.electric.VoltageTier;
-import mmb.world.inventory.Inventory;
 import mmb.world.item.ItemEntity;
 import mmb.world.items.ContentsItems;
 import mmb.world.items.ItemEntry;

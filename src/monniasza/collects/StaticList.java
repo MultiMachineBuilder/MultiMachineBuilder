@@ -6,16 +6,13 @@ package monniasza.collects;
 import java.util.AbstractList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
 /**
  * @author oskar
  * A list which can't be resized
  * @param <E> type of contents
  */
-public class StaticList<E> extends AbstractList<E> {
+public class StaticList<E> extends AbstractList<E> { //NOSONAR the equals() is implemented by AbstractList
 	private final Object[] array;
 	/**
 	 * Creates a fixed size list by copying an array
@@ -23,10 +20,13 @@ public class StaticList<E> extends AbstractList<E> {
 	 */
 	@SafeVarargs
 	public StaticList(E... array) {
-		this.array = Arrays.copyOf(array, 0);
+		this.array = Arrays.copyOf(array, array.length, Object[].class);
 	}
 	public StaticList(int size) {
 		array = new Object[size];
+	}
+	public StaticList(Collection<? extends E> c) {
+		array = c.toArray();
 	}
 
 	@SuppressWarnings("unchecked")

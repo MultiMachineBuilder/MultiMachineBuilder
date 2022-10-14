@@ -35,10 +35,6 @@ public class CatchingEvent<T> implements Event<T> {
     
 	@Override
     public void addListener(Consumer<T> listener) throws NullPointerException {
-        if (listener == null) {
-            throw new NullPointerException("The listener to add may not be null");
-        }
-
         synchronized (listeners) {
             listeners.add(listener);
         }
@@ -46,19 +42,11 @@ public class CatchingEvent<T> implements Event<T> {
 
     @Override
     public void addAllListeners(Consumer<T>... listeners) throws NullPointerException {
-        if (listeners == null) {
-            throw new NullPointerException("The listeners array is a null-reference");
-        }
-
         addAllListeners(Arrays.asList(listeners));
     }
 
     @Override
     public void addAllListeners(Collection<Consumer<T>> listeners) throws NullPointerException {
-        if (listeners == null) {
-            throw new NullPointerException("The listeners collection is a null-reference");
-        }
-
         if (!listeners.isEmpty()) {
             if (listeners.stream().anyMatch(Objects::isNull)) {
                 throw new NullPointerException("At least one of the given listeners is a null-reference");
@@ -72,10 +60,6 @@ public class CatchingEvent<T> implements Event<T> {
 
     @Override
     public void removeListener(Consumer<T> listener) throws NullPointerException {
-        if (listener == null) {
-            throw new NullPointerException("The listener to remove may not be null");
-        }
-
         synchronized (listeners) {
             listeners.remove(listener);
         }
@@ -83,10 +67,6 @@ public class CatchingEvent<T> implements Event<T> {
 
     @Override
     public void removeAllOccurrences(Consumer<T> listener) throws NullPointerException {
-        if (listener == null) {
-            throw new NullPointerException("The listener to remove may not be null");
-        }
-
         synchronized (listeners) {
             listeners.removeIf(listener::equals);
         }

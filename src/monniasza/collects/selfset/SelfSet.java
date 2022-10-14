@@ -31,14 +31,14 @@ public interface SelfSet<K, V extends Identifiable<K>> extends Set<V>{
 	 * @param key key
 	 * @return value under the key, or null if absent
 	 */
-	@Nullable public V get(@Nullable K key);
+	@Nullable public V get(@Nullable Object key);
 	/**
 	 * Get the value under a given key
 	 * @param key key
 	 * @param defalt default value
 	 * @return value under the key, or default if absent
 	 */
-	public V getOrDefault(@Nullable K key, V defalt);
+	public V getOrDefault(@Nullable Object key, V defalt);
 	
 	/**
 	 * Remove given key from the self-set

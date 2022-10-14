@@ -15,11 +15,8 @@ import javax.swing.JButton;
 import static mmb.GlobalSettings.$res;
 
 import java.awt.Color;
-import javax.swing.JTextField;
 import javax.swing.JSpinner;
 import javax.swing.JLabel;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
 
 /**
  * @author oskar

@@ -94,7 +94,7 @@ public class GUIStacker extends JPanel {
 	private void update() {
 		if(current != null) remove(current);
 		current = stack.element();
-		if(current != null) add(current);
+		add(current);
 	}
 	/**
 	 * @return are components required?

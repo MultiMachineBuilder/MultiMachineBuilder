@@ -59,14 +59,14 @@ public class WorldFrame extends JComponent {
 	private static final long serialVersionUID = 7346245653768692732L;
 	
 	//Debugging
-	private transient Debugger debug = new Debugger("WORLD - anonymous");
-	private static Debugger sdebug = new Debugger("WORLDS");
+	@Nonnull private transient Debugger debug = new Debugger("WORLD - anonymous");
+	@Nonnull private static Debugger sdebug = new Debugger("WORLDS");
 	/** The global boolean variable controlling debug display */
-	public static final ListenerBooleanVariable DEBUG_DISPLAY = new ListenerBooleanVariable();
+	@Nonnull public static final ListenerBooleanVariable DEBUG_DISPLAY = new ListenerBooleanVariable();
 	
 	//Frames Per Second
 	/** This variable holds current framerate */
-	public final FPSCounter fps = new FPSCounter();
+	@Nonnull public final FPSCounter fps = new FPSCounter();
 	
 	/** Create a new WorldFrame 
 	 * @param window the window, which contains the frame
@@ -121,9 +121,9 @@ public class WorldFrame extends JComponent {
 
 	//Events
 	/** Runs when title changes */
-	public final Event<String> titleChange = new CatchingEvent<>(debug, "Failed to run a title listener");
+	@Nonnull public final transient Event<String> titleChange = new CatchingEvent<>(debug, "Failed to run a title listener");
 	/** Runs on each frame */
-	public final Event<Graphics> redraw = new CatchingEvent<>(debug, "Failed to run a renderer");
+	@Nonnull public final transient Event<Graphics> redraw = new CatchingEvent<>(debug, "Failed to run a renderer");
 	
 	//Universe
 	private transient Universe world;
@@ -351,7 +351,7 @@ public class WorldFrame extends JComponent {
 	}
 	
 	//Graphics
-	public final Event<StringBuilder> informators =
+	@Nonnull public final transient Event<StringBuilder> informators =
 			new CatchingEvent<>(debug, "Failed to process render task");
 	@Override
 	public void paint(@Nullable Graphics g) {
@@ -587,7 +587,7 @@ public class WorldFrame extends JComponent {
 	public final Vector2d perspective = new Vector2d();
 	
 	//Activity
-	private transient Timer timer = new Timer(20, e -> {
+	@Nonnull private transient Timer timer = new Timer(20, e -> {
 		repaint();
 		requestFocusInWindow();
 	});
@@ -626,7 +626,7 @@ public class WorldFrame extends JComponent {
 	
 	//Window reference
 	/** The reference to the world window */
-	public final WorldWindow window;
+	@Nonnull public final WorldWindow window;
 	
 	//Mouse position
 	@Nonnull private Point mousePosition = new Point();
@@ -666,7 +666,7 @@ public class WorldFrame extends JComponent {
 	 * @param y on-frame Y coordinate
 	 * @return the new point with block coordinates
 	 */
-	public Point blockAt(int x, int y) {
+	@Nonnull public Point blockAt(int x, int y) {
 		return blockAt(x, y, new Point());
 	}
 	/**
@@ -675,7 +675,7 @@ public class WorldFrame extends JComponent {
 	 * @param tgt where to write data?
 	 * @return target point with written position
 	 */
-	public Point blockAt(int x, int y, Point tgt) {
+	@Nonnull public Point blockAt(int x, int y, Point tgt) {
 		tgt.x = (int)Math.floor((x / blockScale)-pos.x);
 		tgt.y = (int)Math.floor((y / blockScale)-pos.y);
 		return tgt;
@@ -684,7 +684,7 @@ public class WorldFrame extends JComponent {
 	 * @param p on-frame position
 	 * @return the new point with block coordinates
 	 */
-	public Point blockAt(Point p) {
+	@Nonnull public Point blockAt(Point p) {
 		return blockAt(p.x, p.y);
 	}
 	/**
@@ -692,7 +692,7 @@ public class WorldFrame extends JComponent {
 	 * @param tgt where to write data?
 	 * @return target point with written position
 	 */
-	public Point blockAt(Point p, Point tgt) {
+	@Nonnull public Point blockAt(Point p, Point tgt) {
 		return blockAt(p.x, p.y, tgt);
 	}
 	
@@ -702,7 +702,7 @@ public class WorldFrame extends JComponent {
 	 * @param tgt where to write data?
 	 * @return target point with written position
 	 */
-	public Vector2d worldAt(double x, double y, Vector2d tgt) {
+	@Nonnull public Vector2d worldAt(double x, double y, Vector2d tgt) {
 		tgt.x = (x / blockScale)-pos.x;
 		tgt.y = (y / blockScale)-pos.y;
 		return tgt;
@@ -713,21 +713,21 @@ public class WorldFrame extends JComponent {
 	 * @param y Y coordinate of the screen
 	 * @return point with on-screen block position of UL corner
 	 */
-	public Point blockPositionOnScreen(int x, int y) {
+	@Nonnull public Point blockPositionOnScreen(int x, int y) {
 		int X = (int) ((x+pos.x)*blockScale);
 		int Y = (int) ((y+pos.y)*blockScale);
 		return new Point(X, Y);
 		
 	}
 	
-	public Point blockPositionOnScreen(int x, int y, Point tgt) {
+	@Nonnull public Point blockPositionOnScreen(int x, int y, Point tgt) {
 		tgt.x = (int) ((x+pos.x)*blockScale);
 		tgt.y = (int) ((y+pos.y)*blockScale);
 		return tgt;
 		
 	}
 	
-	public Point worldPositionOnScreen(double x, double y) {
+	@Nonnull public Point worldPositionOnScreen(double x, double y) {
 		int X = (int) ((x+pos.x)*blockScale);
 		int Y = (int) ((y+pos.y)*blockScale);
 		return new Point(X, Y);
@@ -768,8 +768,8 @@ public class WorldFrame extends JComponent {
 	}
 	
 	public void renderBlockRange(int x1, int y1, int x2, int y2, Color c, Graphics g) {
-		if(x1 > x2) renderBlockRange(x2, y1, x1, y2, c, g);
-		else if(y1 > y2) renderBlockRange(x1, y2, x2, y1, c, g);
+		if(x1 > x2) renderBlockRange(x2, y1, x1, y2, c, g); //NOSONAR swapping x1 and x2
+		else if(y1 > y2) renderBlockRange(x1, y2, x2, y1, c, g); //NOSONAR swapping y1 and y2
 		else {
 			Point c1 = blockPositionOnScreen(x1, y1);
 			Point c2 = blockPositionOnScreen(x2+1, y2+1);
@@ -798,12 +798,12 @@ public class WorldFrame extends JComponent {
 	/**
 	 * Zoom levels selectable with scroll wheel
 	 */
-	public static final DoubleList zoomlevels =
+	@Nonnull public static final DoubleList zoomlevels =
 		DoubleList.of(   0.012, 0.016,  0.024,  0.032,  0.048,  0.064,  0.080, 0.096,
 				         0.120, 0.160,  0.240,  0.320,  0.480,  0.640,  0.800, 0.96,
 				         1.200, 1.600,  2.400,  3.200,  4.800,  6.400,  8.000, 9.6,
 				        12,     16,     24,     32,     48,     64,     80,    96,
-				       120,    160,    240,    320,    480,    640,    800,   960, //ends at 480
+				       120,    160,    240,    320,    480,    640,    800,   960,
 				      1200,   1600,   2400,   3200,   4800,   6400,   8000,  9600);
 	private int zoomsel = 27;
 	

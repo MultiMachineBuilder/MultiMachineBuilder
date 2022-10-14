@@ -3,7 +3,6 @@
  */
 package mmb.world.items.electric;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.annotation.Nonnull;

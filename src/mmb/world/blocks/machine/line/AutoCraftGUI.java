@@ -52,7 +52,7 @@ class AutoCraftGUI extends GUITab {
 		JButton button = new JButton($res("exit"));
 		button.setBackground(Color.RED);
 		button.addActionListener(e -> window.closeWindow(this));
-		craftGUI.verticalBox.add(button);
+		craftGUI.buttonbar.add(button);
 		
 		invIn = new InventoryController();
 		invIn.setInv(crafter.incoming);
@@ -102,7 +102,7 @@ class AutoCraftGUI extends GUITab {
 			}
 			ctrl.refresh();
 		});
-		craftGUI.verticalBox.add(setStencil);
+		craftGUI.buttonbar.add(setStencil);
 		
 		JButton getStencil = new JButton($res("wguim-exstencil"));
 		getStencil.setBackground(new Color(50, 205, 50));
@@ -114,7 +114,7 @@ class AutoCraftGUI extends GUITab {
 			if(insert == 1) crafter.setStencil(null);
 			ctrl.refresh();
 		});
-		craftGUI.verticalBox.add(getStencil);
+		craftGUI.buttonbar.add(getStencil);
 		
 	}
 	private static final long serialVersionUID = 6896680900244482487L;

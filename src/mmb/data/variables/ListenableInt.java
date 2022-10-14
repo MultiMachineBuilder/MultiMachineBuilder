@@ -5,8 +5,6 @@ package mmb.data.variables;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Consumer;
-import java.util.function.DoubleConsumer;
 import java.util.function.IntConsumer;
 
 /**

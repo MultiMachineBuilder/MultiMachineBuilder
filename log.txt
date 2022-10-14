@@ -118,9 +118,6 @@
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\gearlogo.png
 (MOD-LOADER) Loading a texture gearlogo.png
 (TEXTURES) Loading texture: gearlogo.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\gearlogo.xcf
-(MOD-LOADER) Loading a texture gearlogo.xcf
-(TEXTURES) Failed to load gearlogo.xcf
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\grass.png
 (MOD-LOADER) Loading a texture grass.png
 (TEXTURES) Loading texture: grass.png
@@ -1225,6 +1222,9 @@
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\UIs\blue signpost.png
 (MOD-LOADER) Loading a texture UIs\blue signpost.png
 (TEXTURES) Loading texture: UIs/blue signpost.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\UIs\dropoff.png
+(MOD-LOADER) Loading a texture UIs\dropoff.png
+(TEXTURES) Loading texture: UIs/dropoff.png
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\UIs\green signpost.png
 (MOD-LOADER) Loading a texture UIs\green signpost.png
 (TEXTURES) Loading texture: UIs/green signpost.png
@@ -1264,12 +1264,12 @@
 (MOD-LOADER) Loading a sound COPYRIGHT.txt
 (MOD-LOADER) Failed to load a sound COPYRIGHT.txt
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
-	at mmb.DATA.contents.Sounds.load(Sounds.java:89)
-	at mmb.MODS.loader.ModLoader.lambda$2(ModLoader.java:116)
-	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:343)
-	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:349)
-	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:331)
-	at mmb.MODS.loader.ModLoader.modloading(ModLoader.java:113)
+	at mmb.data.contents.Sounds.load(Sounds.java:89)
+	at mmb.mods.loader.ModLoader.lambda$2(ModLoader.java:116)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:343)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:349)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:331)
+	at mmb.mods.loader.ModLoader.modloading(ModLoader.java:113)
 	at mmb.Main.lambda$1(Main.java:132)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
@@ -1286,18 +1286,18 @@
 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
 Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at java.desktop/javax.sound.sampled.AudioSystem.getAudioInputStream(AudioSystem.java:1014)
-	at mmb.DATA.contents.Sounds.load(Sounds.java:62)
+	at mmb.data.contents.Sounds.load(Sounds.java:62)
 	... 19 more
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\error.mp3
 (MOD-LOADER) Loading a sound error.mp3
 (MOD-LOADER) Failed to load a sound error.mp3
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
-	at mmb.DATA.contents.Sounds.load(Sounds.java:89)
-	at mmb.MODS.loader.ModLoader.lambda$2(ModLoader.java:116)
-	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:343)
-	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:349)
-	at mmb.MODS.loader.ModLoader.walkDirectory(ModLoader.java:331)
-	at mmb.MODS.loader.ModLoader.modloading(ModLoader.java:113)
+	at mmb.data.contents.Sounds.load(Sounds.java:89)
+	at mmb.mods.loader.ModLoader.lambda$2(ModLoader.java:116)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:343)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:349)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:331)
+	at mmb.mods.loader.ModLoader.modloading(ModLoader.java:113)
 	at mmb.Main.lambda$1(Main.java:132)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
@@ -1314,7 +1314,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
 Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at java.desktop/javax.sound.sampled.AudioSystem.getAudioInputStream(AudioSystem.java:1014)
-	at mmb.DATA.contents.Sounds.load(Sounds.java:62)
+	at mmb.data.contents.Sounds.load(Sounds.java:62)
 	... 19 more
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\minecxraft.wav
 (MOD-LOADER) Loading a sound minecxraft.wav
@@ -9207,17 +9207,17 @@ Strony nie zadziałają.
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
-	at mmb.FILES.LocalFile.getInputStream(LocalFile.java:37)
-	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:101)
-	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:80)
+	at mmb.files.LocalFile.getInputStream(LocalFile.java:35)
+	at mmb.mods.loader.AddonLoader.init(AddonLoader.java:99)
+	at mmb.mods.loader.AddonLoader.lambda$0(AddonLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 (MOD - ) Opening a modfile: https://scratch.mit.edu/
 (MOD - ) Couldn't open zip or jar file https://scratch.mit.edu/
 (MOD - ) java.util.zip.ZipException: Unexpected record signature: 0X4F44213C
 	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.getNextZipEntry(ZipArchiveInputStream.java:296)
 	at org.apache.commons.compress.archivers.jar.JarArchiveInputStream.getNextJarEntry(JarArchiveInputStream.java:56)
-	at mmb.MODS.loader.AddonLoader.init(AddonLoader.java:156)
-	at mmb.MODS.loader.AddonLoader.lambda$0(AddonLoader.java:80)
+	at mmb.mods.loader.AddonLoader.init(AddonLoader.java:154)
+	at mmb.mods.loader.AddonLoader.lambda$0(AddonLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 (MAIN) State: Mods - Preparation 0
 (MAIN) State: Mods - Instantiation 0a
@@ -9299,6 +9299,51 @@ Strony nie zadziałają.
 (SELECT A SAVE) Found save: The longest player pipe ever.mworld
 (SELECT A SAVE) Found save: The smallest all in one quarry system.mworld
 (SELECT A SAVE) Found 20 saves
+(WORLD TEST) 1645 items
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@1fc42416
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(WORLD TEST) Number of zoom levels: 48
+(WORLD TEST) Scrollbar max: 57
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Parsed file
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(DATA LAYERS) Loading world data layer: STN
+(MAP anonymous) Became anonymous
+(SELECT A SAVE) Loaded
+(WORLD - IDLE) Exiting
+(WORLDS) Opening a new world
+(TOOL-STANDARD) Running BlockActivateListener for: [-3,0]
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(WORLD TEST) Exiting the world
+(WORLD - ) Saving main BlockMap
+(DATA LAYERS) Saving world data layer: STN
+(WORLD TEST) Saving the world
+(WORLD TEST) Saved the world
+(WORLD - main null) Exiting
+(MAP anonymous) Destroying
+(MAP anonymous) Shutdown
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
 (SETTINGS) Resetting a setting country with value US
 (SETTINGS) Resetting a setting sortItems with value true
 (SETTINGS) Resetting a setting dumpBundles with value true

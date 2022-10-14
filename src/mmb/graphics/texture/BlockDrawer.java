@@ -12,11 +12,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.Icon;
 
-import org.joml.Vector4f;
-import org.joml.Vector4fc;
-
-import mmb.data.contents.Textures.Texture;
-import mmb.gl.RenderCtx;
 import mmb.world.block.BlockEntry;
 
 /**

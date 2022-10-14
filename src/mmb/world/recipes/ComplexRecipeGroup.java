@@ -4,17 +4,12 @@
 package mmb.world.recipes;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import mmb.menu.world.craft.ComplexRecipeView;
 import mmb.world.chance.Chance;
 import mmb.world.crafting.GlobalRecipeRegistrar;
-import mmb.world.crafting.Recipe;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.electric.VoltageTier;
 import mmb.world.inventory.Inventory;

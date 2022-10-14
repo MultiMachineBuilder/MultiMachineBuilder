@@ -12,11 +12,7 @@ import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector2fc;
 import org.joml.Vector2i;
-import org.joml.Vector4f;
 import org.joml.Vector4fc;
-import org.lwjgl.system.MemoryStack;
-import org.lwjgl.system.jemalloc.JEmalloc;
-
 import com.rainerhahnekamp.sneakythrow.Sneaky;
 
 import static org.lwjgl.opengl.GL11.GL_NEAREST;
@@ -33,14 +29,9 @@ import static org.lwjgl.opengl.GL11.glTexImage2D;
 import static org.lwjgl.opengl.GL11.glTexParameteri;
 import static org.lwjgl.opengl.GL30.*;
 
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
-
 import it.unimi.dsi.fastutil.floats.FloatArrayList;
 import it.unimi.dsi.fastutil.floats.FloatIterator;
 import it.unimi.dsi.fastutil.floats.FloatList;
-import it.unimi.dsi.fastutil.ints.IntArrayList;
-import it.unimi.dsi.fastutil.ints.IntList;
 import mmb.GlobalSettings;
 import mmb.data.contents.Textures;
 import mmb.data.contents.Textures.Texture;

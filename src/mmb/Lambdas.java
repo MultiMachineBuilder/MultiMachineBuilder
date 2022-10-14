@@ -15,6 +15,11 @@ import javax.annotation.Nonnull;
 public class Lambdas {
 	private Lambdas() {}
 	@Nonnull private static final Consumer<?> nothing = v -> {};
+	/**
+	 * @param <T> type of the input
+	 * @return a consumer which does nothing.
+	 * @apiNote The returned consumers are the same object
+	 */
 	@SuppressWarnings("unchecked")
 	@Nonnull public static <T> Consumer<T> doNothing(){
 		return (Consumer<T>) nothing;
@@ -31,6 +36,11 @@ public class Lambdas {
 		return () -> action.accept(value);
 	}
 	
+	/**
+	 * @param <T> type of values
+	 * @param sup
+	 * @return a lazily evaluated supplier
+	 */
 	public static <T> Supplier<T> lazy(Supplier<T> sup){
 		return new Supplier<T>() {
 			boolean isValid;

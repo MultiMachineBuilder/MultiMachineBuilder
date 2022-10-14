@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 import javax.annotation.Nonnull;
+import javax.swing.Icon;
 
 import mmb.GlobalSettings;
 import mmb.data.contents.Textures;
@@ -29,7 +30,6 @@ public abstract class ItemBase implements ItemType {
 	public void setVolume(double volume) {
 		this.volume = volume;
 	}
-
 	
 	/**
 	 * Sets volume. This is a convenience chainable method
@@ -50,6 +50,12 @@ public abstract class ItemBase implements ItemType {
 	 * <br> If texture is null, the block or item won't be drawn.
 	 */
 	private BlockDrawer drawer;
+	@Override
+	public Icon getIcon() {
+		if(drawer == null) return null;
+		return getTexture().toIcon();
+	}
+	
 	private String id;
 	@Nonnull private String title = "000 Unnamed Item";
 	@Override
@@ -101,7 +107,9 @@ public abstract class ItemBase implements ItemType {
 	}
 	@Override
 	public BlockDrawer getTexture() {
-		return drawer;
+		BlockDrawer tex = drawer;
+		if(tex == null) throw new IllegalStateException("Texture not set");
+		return tex;
 	}
 	@Override
 	public void setID(String id) {

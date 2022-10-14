@@ -8,17 +8,12 @@ import java.awt.image.BufferedImage;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.Icon;
-
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.debug.Debugger;
 import mmb.graphics.texture.BlockDrawer;
-import mmb.world.chance.Chance;
-import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.items.ItemBase;
 import mmb.world.items.ItemEntry;
-import mmb.world.worlds.world.World;
 import monniasza.collects.Identifiable;
 
 /**
@@ -60,17 +55,8 @@ public class Item extends ItemBase implements ItemEntry {
 		return this;
 	}
 	@Override
-	public Icon getIcon() {
-		if(getTexture() == null) return null;
-		return getTexture().toIcon();
-	}
-	@Override
 	public void load(@Nullable JsonNode node) {
 		debug.printl("Attempting to load a non-data item");
-	}
-	@Override
-	public boolean drop(InventoryWriter inv, World map, int x, int y) {
-		return Chance.tryDrop(this, inv, map, x, y);
 	}
 
 	/**

@@ -56,10 +56,19 @@ public interface Chance {
 	 */
 	public boolean contains(ItemEntry item);
 
-	public static boolean tryDrop(ItemEntry ent, @Nullable InventoryWriter i, World map, int x, int y) {
+	/**
+	 * A simple implementation of item drops
+	 * @param ent item entry
+	 * @param i inventory writer
+	 * @param map block map
+	 * @param x X coordinate
+	 * @param y Y coordinate
+	 * @return
+	 */
+	public static boolean tryDrop(ItemEntry ent, @Nullable InventoryWriter i, @Nullable World map, int x, int y) {
 		int inserted = 0;
 		if(i != null) inserted = i.write(ent);
-		if(inserted == 0) map.dropItem(ent, x, y);
+		if(inserted == 0 && map != null) map.dropItem(ent, x, y);
 		return true;
 	}
 	

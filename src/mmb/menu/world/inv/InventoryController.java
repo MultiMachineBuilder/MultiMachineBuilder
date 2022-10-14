@@ -8,6 +8,7 @@ import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 
 import mmb.GlobalSettings;
+import mmb.menu.Icons;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
 import net.miginfocom.swing.MigLayout;
@@ -30,12 +31,14 @@ import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 
 /**
  * @author oskar
  *
  */
-public class InventoryController extends JPanel implements AbstractInventoryController {
+public class InventoryController extends Box implements AbstractInventoryController {
 	private static final long serialVersionUID = -3804277344383315579L;
 	
 	private final JList<ItemRecord> invlist;
@@ -47,6 +50,7 @@ public class InventoryController extends JPanel implements AbstractInventoryCont
 	private InventoryOrchestrator orchestrator;
 	private JScrollPane scrollPane;
 	private JButton btnUnsel;
+	private Box ubox;
 
 	@Override
 	public void refresh() {
@@ -68,34 +72,37 @@ public class InventoryController extends JPanel implements AbstractInventoryCont
 	 * Create the panel.
 	 */
 	public InventoryController() {
+		super(BoxLayout.Y_AXIS);
 		
-		setLayout(new MigLayout("ins 0", "[grow]", "[20.00][grow]"));
-		
-		label = new JLabel($res("wgui-inv"));
-		label.setHorizontalAlignment(SwingConstants.LEFT);
-		add(label, "flowx,cell 0 0,alignx center");
+		ubox = Box.createHorizontalBox();
+		add(ubox, "cell 0 0,growx");
 		
 		scrollPane = new JScrollPane();
-		add(scrollPane, "cell 0 1,grow");
+		add(scrollPane);
 		
 		invlist = new JList<>();
 		scrollPane.setViewportView(invlist);
 		invlist.setModel(model0);
 		invlist.setCellRenderer(new CellRenderer());
 		
-		btnRefresh = new JButton($res("wgui-refresh"));
+		//Upper box
+		label = new JLabel($res("wgui-inv"));
+		label.setHorizontalAlignment(SwingConstants.LEFT);
+		ubox.add(label);
+		
+		btnRefresh = new JButton(Icons.refresh);
 		btnRefresh.addActionListener(e -> refresh());
 		btnRefresh.setEnabled(false);
 		btnRefresh.setBackground(Color.YELLOW);
-		add(btnRefresh, "cell 0 0,growx");
+		ubox.add(btnRefresh);
 		
-		btnUnsel = new JButton($res("wgui-unsel"));
+		btnUnsel = new JButton(Icons.unsel);
 		btnUnsel.addActionListener(e -> {
 			invlist.setSelectedValue(null, true);
 			invlist.setSelectedIndex(-1);
 		});
 		btnUnsel.setBackground(Color.BLUE);
-		add(btnUnsel, "cell 0 0,growx");
+		ubox.add(btnUnsel);
 	}
 	/**
 	 * @param out
@@ -108,7 +115,6 @@ public class InventoryController extends JPanel implements AbstractInventoryCont
 	 * Creates an InventoryController which mirrors other InventoryController, while also being a different component
 	 * @param other
 	 */
-	@SuppressWarnings("null")
 	public InventoryController(InventoryController other) {
 		this(other.inv);
 		setSelectionModel(other.getSelectionModel());

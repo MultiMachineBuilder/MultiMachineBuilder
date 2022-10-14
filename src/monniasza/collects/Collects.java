@@ -4,10 +4,10 @@
 package monniasza.collects;
 
 import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Enumeration;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -26,56 +26,25 @@ import monniasza.collects.selfset.SelfSet;
  *
  */
 public class Collects {
+	private Collects() {}
+	
+	
+	/**
+	 * Down-casts the iterator
+	 * @param <T> type of the output iterator
+	 * @param iter iterator
+	 * @return downcasted iterator
+	 */
 	@SuppressWarnings("unchecked")
 	@Nonnull public static <T> Iterator<T> downcastIterator(Iterator<? extends T> iter) {
 		return (Iterator<T>) iter;
 	}
-
-	@Nonnull public static <T> HashSet<T> newUnion(Collection<? extends T> a, Collection<? extends T> b){
-		HashSet<T> set = new HashSet<>(a);
-		set.addAll(b);
-		return set;
-	}
-	@Nonnull public static <T> HashSet<T> newIntersection(Collection<? extends T> a, Collection<? extends T> b){
-		HashSet<T> set = new HashSet<>(a);
-		set.retainAll(b);
-		return set;
-	}
-	@Nonnull public static <T> HashSet<T> newSubtrSet(Collection<? extends T> a, Collection<? extends T> b){
-		HashSet<T> set = new HashSet<>(a);
-		set.removeAll(b);
-		return set;
-	}
-	@Nonnull public static <T> HashSet<T> newXORSet(Collection<? extends T> a, Collection<? extends T> b){
-		HashSet<T> set = new HashSet<>(a);
-		set.addAll(b);
-		set.removeAll(newIntersection(a, b));
-		return set;
-	}
-	@SafeVarargs @Nonnull 
-	public static <T> HashSet<T> newMultiUnion(Collection<? extends T> a, Collection<? extends T>... b){
-		HashSet<T> set = new HashSet<>(a);
-		for(Collection<? extends T> c: b) {
-			set.addAll(c);
-		}
-		return set;
-	}
-	@SafeVarargs @Nonnull 
-	public static <T> HashSet<T> newMultiIntersection(Collection<? extends T> a, Collection<? extends T>... b){
-		HashSet<T> set = new HashSet<>(a);
-		for(Collection<? extends T> c: b) {
-			set.retainAll(c);
-		}
-		return set;
-	}
-	@SafeVarargs @Nonnull 
-	public static <T> HashSet<T> newMultiSub(Collection<? extends T> a, Collection<? extends T>... b){
-		HashSet<T> set = new HashSet<>(a);
-		for(Collection<? extends T> c: b) {
-			set.removeAll(c);
-		}
-		return set;
-	}
+	/**
+	 * @param <K> type of keys of the output set
+	 * @param <V> type of values of the output set
+	 * @param set self-set to wrap
+	 * @return an unmodifiable wrapper around the self-set
+	 */
 	@Nonnull public static <K, V extends Identifiable<K>> SelfSet<K, V> unmodifiableSelfSet(SelfSet<? extends K, ? extends V> set){
 		return new SelfSet<K, V>() {
 			@Override
@@ -84,15 +53,17 @@ public class Collects {
 			}
 
 			@Override
-			public boolean addAll(@SuppressWarnings("null") Collection<? extends V> c) {
-				return false;
+			public boolean addAll(Collection<? extends V> c) {
+				throw new UnsupportedOperationException();
 			}
 
 			@Override
-			public void clear() {}
+			public void clear() {
+				throw new UnsupportedOperationException();
+			}
 
 			@Override
-			public boolean containsAll(@SuppressWarnings("null") Collection<?> c) {
+			public boolean containsAll(Collection<?> c) {
 				return set.containsAll(c);
 			}
 
@@ -107,13 +78,13 @@ public class Collects {
 			}
 
 			@Override
-			public boolean removeAll(@SuppressWarnings("null") Collection<?> c) {
-				return false;
+			public boolean removeAll(Collection<?> c) {
+				throw new UnsupportedOperationException();
 			}
 
 			@Override
-			public boolean retainAll(@SuppressWarnings("null") Collection<?> c) {
-				return false;
+			public boolean retainAll(Collection<?> c) {
+				throw new UnsupportedOperationException();
 			}
 
 			@Override
@@ -127,7 +98,7 @@ public class Collects {
 			}
 
 			@Override
-			public <T> T[] toArray(@SuppressWarnings("null") T[] a) {
+			public <T> T[] toArray(T[] a) {
 				return set.toArray(a);
 			}
 
@@ -142,18 +113,19 @@ public class Collects {
 			}
 
 			@Override
-			public V get(@Nullable K key) {
-				return ((SelfSet<K, V>)set).get(key);
+			public V get(@Nullable Object  key) {
+				return set.get(key);
 			}
 
+			@SuppressWarnings("unchecked") //cast is required to accept a supertype, it will never fail
 			@Override
-			public V getOrDefault(@Nullable K key, V defalt) {
+			public V getOrDefault(@Nullable Object key, V defalt) {
 				return ((SelfSet<K, V>)set).getOrDefault(key, defalt);
 			}
 
 			@Override
 			public boolean removeKey(K key) {
-				return false;
+				throw new UnsupportedOperationException();
 			}
 
 			@Override
@@ -196,6 +168,13 @@ public class Collects {
 			}
 		};
 	}
+	/**
+	 * Wraps the list to a list model
+	 * @param <T> type of the list
+	 * @param list list to wrap
+	 * @return a list model
+	 * @apiNote The list model does not support listeners
+	 */
 	@Nonnull public static <T> ListModel<T> toListModel(List<T> list){
 		return new ListModel<T>() {
 			@Override
@@ -216,6 +195,12 @@ public class Collects {
 			}
 		};
 	}
+	/**
+	 * Wraps a list model
+	 * @param <T> type of the list model
+	 * @param list list model
+	 * @return a list wrapper
+	 */
 	@Nonnull public static <T> List<T> toWritableList(DefaultListModel<T> list){
 		return new AbstractList<T>() {
 			@Override
@@ -242,6 +227,75 @@ public class Collects {
 			@Override
 			public T set(int index, @SuppressWarnings("null") T e) {
 				return list.set(index, e);
+			}
+			@Override
+			public boolean isEmpty() {
+				return list.isEmpty();
+			}
+			@Override
+			public boolean contains(@Nullable Object o) {
+				return list.contains(list);
+			}
+			@Override
+			public @Nonnull Iterator<T> iterator() {
+				return list.elements().asIterator();
+			}
+			@Override
+			public Object @Nonnull [] toArray() {
+				return list.toArray();
+			}
+			@Override
+			public <U> U @Nonnull [] toArray(U[] a) {
+				list.copyInto(a);
+				return a;
+			}
+			@Override
+			public boolean remove(Object o) {
+				return list.removeElement(o);
+			}
+			@Override
+			public boolean containsAll(Collection<?> c) {
+				for(Object e: c) {
+					if(!list.contains(e)) return false;
+				}
+				return true;
+			}
+			@Override
+			public boolean addAll(Collection<? extends T> c) {
+				list.addAll(c);
+				return true;
+			}
+			@Override
+			public boolean addAll(int index, Collection<? extends T> c) {
+				list.addAll(index, c);
+				return true;
+			}
+			@Override
+			public boolean removeAll(Collection<?> c) {
+				boolean result = false;
+				for(Object e: c) {
+					result |= list.removeElement(e);
+				}
+				return result;
+			}
+			@Override
+			public boolean retainAll(Collection<?> c) {
+				List<T> copy = new ArrayList<>(this);
+				boolean result = copy.retainAll(c);
+				list.addAll(copy);
+				return result;
+			}
+			@Override
+			public void clear() {
+				list.removeAllElements();
+			}
+			@Override
+			public int indexOf(@Nullable Object o) {
+				return list.indexOf(o);
+			}
+			@Override
+			public int lastIndexOf(@Nullable Object o) {
+				return list.lastIndexOf(o);
 			}
 			
 		};

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.NewWorld;
+package mmb.menu.create;
 
 import static mmb.GlobalSettings.$res;
 

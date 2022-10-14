@@ -6,9 +6,6 @@ package mmb.world.blocks.chest;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.awt.image.BufferedImageOp;
-import java.awt.image.LookupOp;
-
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -16,8 +13,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.beans.*;
 import mmb.data.Save;
-import mmb.data.contents.Textures;
-import mmb.graphics.awt.ColorMapper;
 import mmb.graphics.awt.MappedColorTexture;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.BlockEntry;
@@ -29,10 +24,8 @@ import mmb.world.worlds.world.World;
  * @author oskar
  *
  */
-public class Chest extends AbstractChest implements BlockActivateListener, Colorable {
+public class Chest extends AbstractChest implements BlockActivateListener {
 	private Color c = Color.WHITE;
-	private static final BufferedImage origTexture = Textures.get("machine/chest1.png");
-	
 	@Override
 	public Color getColor() {
 		return c;

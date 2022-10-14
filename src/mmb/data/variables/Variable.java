@@ -3,14 +3,11 @@
  */
 package mmb.data.variables;
 
-import java.lang.reflect.Field;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
-
-import mmb.UndeclarableThrower;
 
 /**
  * @author oskar
@@ -43,32 +40,6 @@ public interface Variable<T> {
 		};
 	}
 	
-	public static @Nonnull <U> Variable<U> delegate(Field field, Object obj){
-		return new Variable<U>(){
-
-			@SuppressWarnings("unchecked")
-			@Override
-			public U get() {
-				try {
-					return (U) field.get(obj);
-				} catch (IllegalArgumentException | IllegalAccessException e) {
-					UndeclarableThrower.shoot(e);
-					return null; //unreachable, but required
-				}
-			}
-
-			@Override
-			public void set(U value) {
-				try {
-					field.set(obj, value);
-				} catch (IllegalArgumentException | IllegalAccessException e) {
-					UndeclarableThrower.shoot(e);
-				}
-			}
-			
-		};
-	}
-
 	public static @Nonnull <U> Variable<U> ofArraySlot(int slot, U[] array){
 		return delegate(() -> array[slot], val -> array[slot] = val);
 	}

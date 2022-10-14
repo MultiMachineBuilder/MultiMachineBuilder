@@ -16,10 +16,8 @@ import mmb.world.block.BlockType;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.contentgen.Materials;
 import mmb.world.electric.VoltageTier;
-import mmb.world.electromachine.FuelBurner;
 import mmb.world.inventory.Inventories;
 import mmb.world.inventory.storage.SingleItemInventory;
-import mmb.world.item.ItemType;
 import mmb.world.items.ItemEntry;
 import mmb.world.recipes.CraftingGroups;
 import mmb.world.worlds.MapProxy;
@@ -46,7 +44,7 @@ public class Nuker extends SkeletalBlockMachine {
 		ItemEntry cont = nuked.getContents();
 		//Check the cache
 		if(cont != null) {
-			if(CraftingGroups.nukeFuels.containsKey(cont.type()) && fuelRemain < 1200_000_000L) {
+			if(CraftingGroups.nukeFuels.containsKey(cont) && fuelRemain < 1200_000_000L) {
 				//Valid fuel
 				fuelRemain += CraftingGroups.nukeFuels.getDouble(cont.type());
 				nuked.setContents(null);
@@ -120,7 +118,6 @@ public class Nuker extends SkeletalBlockMachine {
 		inited = true;
 	}
 	
-	private final FuelBurner burner = new FuelBurner(fuelRemain, nuked, outElec, CraftingGroups.nukeFuels);
 	@Override
 	public BlockEntry blockCopy() {
 		Nuker copy = new Nuker();

@@ -130,6 +130,8 @@ public class ToolVisuals extends WindowTool{
 		case KeyEvent.VK_M:
 			border = null;
 			break;
+		default:
+			break;
 		}
 	}
 

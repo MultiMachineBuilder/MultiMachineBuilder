@@ -108,6 +108,8 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 		}
 		return list.toArray(arr);
 	}
+	
+	
 	/**
 	 * Get the item record under given item type
 	 * @param entry
@@ -117,6 +119,8 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	@Nullable public ItemRecord nget(ItemEntry entry);
 	public int insert(ItemEntry ent, int amount);
 	public int extract(ItemEntry ent, int amount);
+	
+	//Bulk methods
 	public int bulkInsert(RecipeOutput ent, int amount);
 	/**
 	 * @return capacity of given inventory

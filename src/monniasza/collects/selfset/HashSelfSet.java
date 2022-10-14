@@ -264,12 +264,12 @@ public class HashSelfSet<K, V extends Identifiable<K>> implements SelfSet<K, V> 
 	}
 
 	@Override
-	public V get(@Nullable K key) {
+	public V get(@Nullable Object key) {
 		return map.get(key);
 	}
 
 	@Override
-	public V getOrDefault(@Nullable K key, V defalt) {
+	public V getOrDefault(@Nullable Object  key, V defalt) {
 		return map.getOrDefault(key, defalt);
 	}
 

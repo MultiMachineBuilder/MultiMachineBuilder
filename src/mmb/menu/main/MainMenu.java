@@ -75,9 +75,7 @@ public class MainMenu extends MMBFrame {
 	private JButton btnExit;
 	private JLabel timerLBL;
 	private JButton TEST;
-	private JButton btnUkraine;
-	private JButton btnRefugee;
-	private JButton btnRefugee1;
+	private JMenu mnUkraine;
 	/**
 	 * Launch the application.
 	 */
@@ -103,8 +101,13 @@ public class MainMenu extends MMBFrame {
 		stngFullScreen.setVariable(FullScreen.isFullScreen);
 		mnNewMenu.add(stngFullScreen);
 		
-		btnUkraine = new JButton($res("cgui-refugeedonate"));
-		mainMenuBar.add(btnUkraine);
+		mnUkraine = new JMenu();
+		mnUkraine.setBackground(new Color(30, 144, 255));
+		mnUkraine.setIcon(new ImageIcon(Textures.get("ukraine.png")));
+		mainMenuBar.add(mnUkraine);
+		
+		JMenuItem btnUkraine = new JMenuItem($res("cgui-refugeedonate"));
+		mnUkraine.add(btnUkraine);
 		Icon ua0 = new ImageIcon(Textures.get("ukraine.png"));
 		btnUkraine.setIcon(ua0);
 		btnUkraine.addActionListener(e -> {
@@ -116,10 +119,10 @@ public class MainMenu extends MMBFrame {
 		});
 		
 		//This button is for English speakers. It leads to a site for refugees.
-		btnRefugee = new JButton($res("cgui-refugeehelp"));
+		JMenuItem btnRefugee = new JMenuItem($res("cgui-refugeehelp"));
 		Icon ua1 = new ImageIcon(Textures.get("ukraine1.png"));
 		btnRefugee.setIcon(ua1);
-		mainMenuBar.add(btnRefugee);
+		mnUkraine.add(btnRefugee);
 		btnRefugee.addActionListener(e -> {
 			try {
 				Desktop.getDesktop().browse(new URI(refugeesEN)); //An English-language site for Ukrainian refugees
@@ -129,7 +132,7 @@ public class MainMenu extends MMBFrame {
 		});
 		
 		//This button is for Ukrainian speakers. It means the same thing as the English one
-		btnRefugee1 = new JButton(GlobalSettings.$res("ua-refugees"));
+		JMenuItem btnRefugee1 = new JMenuItem(GlobalSettings.$res("ua-refugees"));
 		btnRefugee1.setIcon(ua1);
 		btnRefugee1.addActionListener(e -> {
 			try {
@@ -138,7 +141,7 @@ public class MainMenu extends MMBFrame {
 				debug.pstm(ex, GlobalSettings.$res("ua-refugee-error"));
 			}
 		});
-		mainMenuBar.add(btnRefugee1);
+		mnUkraine.add(btnRefugee1);
 		
 		
 		contentPane = new JPanel();

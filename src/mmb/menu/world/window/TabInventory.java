@@ -442,6 +442,7 @@ public class TabInventory extends JPanel {
 		 */
 		public boolean phase2(Recipe<?> recipe);
 		
+		/** @return all elegible items*/		
 		@Nonnull public default Set<Recipe<?>> eligible(){
 			Set<Recipe<?>> recipes = phase1();
 			Set<Recipe<?>> model = new HashSet<>();

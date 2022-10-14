@@ -4,8 +4,6 @@
 package mmb.mods.loader;
 
 import java.io.*;
-import java.net.URL;
-import java.net.URLClassLoader;
 import java.util.function.*;
 
 import javax.annotation.Nonnull;
