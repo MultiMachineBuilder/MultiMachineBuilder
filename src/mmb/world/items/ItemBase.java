@@ -5,11 +5,13 @@ package mmb.world.items;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.util.Objects;
 
 import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
 import mmb.GlobalSettings;
+import mmb.Verify;
 import mmb.data.contents.Textures;
 import mmb.graphics.texture.BlockDrawer;
 import mmb.world.item.ItemType;
@@ -28,6 +30,7 @@ public abstract class ItemBase implements ItemType {
 	}
 	@Override
 	public void setVolume(double volume) {
+		Verify.requirePositive(volume);
 		this.volume = volume;
 	}
 	
@@ -97,12 +100,14 @@ public abstract class ItemBase implements ItemType {
 	}
 	@Override
 	public void setTexture(@Nonnull BlockDrawer texture) {
+		Objects.requireNonNull(texture, "texture is null");
 		drawer = texture;
 	}
 	public void setTexture(BufferedImage texture) {
 		drawer = BlockDrawer.ofImage(texture);
 	}
 	public void setTexture(String texture) {
+		Objects.requireNonNull(texture, "texture is null");
 		setTexture(Textures.get(texture));
 	}
 	@Override

@@ -43,6 +43,7 @@ public abstract class BlockBase extends Item implements BlockType {
 
 	@Override
 	public void setLeaveBehind(BlockType block) {
+		Objects.requireNonNull(block, "leave behind is null");
 		this.leaveBehind = block;
 	}
 	@Override

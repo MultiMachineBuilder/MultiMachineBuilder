@@ -26,11 +26,11 @@
     "drops" : [ ],
     "machines" : [ ],
     "player" : {
-      "inventory" : [ 128.0, [ "industry.preceiver0", 1 ], [ "machineparts.motor1", 1 ], [ "machineparts.motor0", 1 ], [ "industry.splicer0", 1 ], [ "stn.cabler", {
+      "inventory" : [ 128.0, [ "industry.preceiver0", 1 ], [ "machineparts.motor1", 1 ], [ "machineparts.motor0", 1 ], [ "crafting.6", "crafting.6", 1 ], [ "block.copper", "block.copper", 1 ], [ "stn.cabler", {
         "amt" : 0.0
-      }, 1 ], [ "stn.cabler", {
+      }, 1 ], [ "ingot.alu", 1 ], [ "industry.ptower0", 1 ], [ "industry.splicer0", 1 ], [ "stn.cabler", {
         "amt" : 0.0
-      }, 1 ], [ "crafting.6", "crafting.6", 1 ], [ "block.copper", "block.copper", 1 ], [ "ingot.alu", 1 ], [ "industry.ptower0", 1 ], [ "industry.infinigen0", 1 ], [ "frag.PE", 11 ] ],
+      }, 1 ], [ "industry.infinigen0", 1 ], [ "frag.PE", 11 ] ],
       "creative" : true,
       "x" : 0.0,
       "y" : 0.0,
