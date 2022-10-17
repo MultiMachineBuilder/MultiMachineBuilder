@@ -12,6 +12,7 @@ import mmb.world.items.ItemEntry;
 import mmb.world.recipes.CatalyzedSingleRecipeGroup.CatalyzedSimpleRecipe;
 
 import javax.swing.JList;
+import java.awt.Color;
 
 /**
  * Represents a recipe view for single-item recipes
@@ -57,6 +58,8 @@ public class SimpleCatalyzedRecipeView extends RecipeView<CatalyzedSimpleRecipe>
 		add(lblIn, "cell 0 3,grow");
 		
 		catalyst = new JLabel();
+		catalyst.setBackground(new Color(135, 206, 250));
+		catalyst.setOpaque(true);
 		add(catalyst, "cell 1 3,grow");
 		
 		outList = new JList<>();

@@ -25,6 +25,11 @@ import mmb.world.items.ItemEntry;
 public class ItemLists {
 	private ItemLists() {}
 	private static final Debugger debug = new Debugger("ITEM LISTS");
+	/**
+	 * Loads a recipe output as {@code SimpleItemList}
+	 * @param node saved recipe output
+	 * @return loaded recipe output
+	 */
 	public static SimpleItemList read(@Nullable JsonNode node) {
 		if(node == null) {
 			debug.printl("Item list node is null");
@@ -48,6 +53,11 @@ public class ItemLists {
 			return null;
 		}
 	}
+	/**
+	 * Saves a recipe output
+	 * @param list recipe output to save
+	 * @return saved recipe output
+	 */
 	public static JsonNode save(RecipeOutput list) {
 		Queue<JsonNode> nodes = new ArrayDeque<>(); //prepare the queue
 		for(Entry<ItemEntry> n: list.getContents().object2IntEntrySet()) { //write items
@@ -59,7 +69,7 @@ public class ItemLists {
 				ent.add(data); //...add data to a item node
 			ent.add(n.getIntValue()); //write the amount
 			
-			nodes.add(ent); //write the item node to the list;
+			nodes.add(ent); //write the item node to the list
 		}
 		ArrayNode result = JsonTool.newArrayNode();
 		result.addAll(nodes); //write nodes from the queue to the result

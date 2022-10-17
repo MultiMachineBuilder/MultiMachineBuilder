@@ -8,9 +8,6 @@ package mmb.world.item;
  *
  */
 public abstract class ItemEntityMutable extends ItemEntity{
-	protected ItemEntityMutable(ItemEntityType type) {
-		super(type);
-	}
 	@Override
 	protected int hash0() {
 		return hashModifier;
@@ -20,5 +17,5 @@ public abstract class ItemEntityMutable extends ItemEntity{
 		return false;
 	}
 	private static int hashes = 0;
-	private final int hashModifier = hashes++;
+	private final int hashModifier = hashes++; //NOSONAR this is a counter
 }

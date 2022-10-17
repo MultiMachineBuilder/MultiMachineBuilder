@@ -58,10 +58,10 @@ public class WireGroup implements Identifiable<String> {
 		_index.add(this);
 		
 		//Crafting recipes
-		CraftingGroups.wiremill.add(group.base, medium, group.volt, group.power/2);
-		CraftingGroups.wiremill.add(tiny, group.wire, 4, group.volt, group.power/8);
-		CraftingGroups.wiremill.add(small, group.wire, 8, group.volt, group.power/4);
-		CraftingGroups.wiremill.add(medium, group.wire, 16, group.volt, group.power/2);
+		CraftingGroups.wiremill.add(group.base, medium, group.volt, group.baseCost/2);
+		CraftingGroups.wiremill.add(tiny, group.wire, 4, group.volt, group.baseCost/8);
+		CraftingGroups.wiremill.add(small, group.wire, 8, group.volt, group.baseCost/4);
+		CraftingGroups.wiremill.add(medium, group.wire, 16, group.volt, group.baseCost/2);
 		
 		gridCombo(tiny, small,   0.0625);
 		gridCombo(small, medium, 0.125);
@@ -86,8 +86,8 @@ public class WireGroup implements Identifiable<String> {
 	private void gridCombo(Item smaller, Item larger, double scale) {
 		CraftingGroups.crafting.addRecipeGrid(smaller, 1, 2, larger);
 		CraftingGroups.crafting.addRecipe(larger, smaller, 2);
-		CraftingGroups.splitter.add(larger,          smaller, 2, group.volt, scale*group.power);
-		CraftingGroups.combiner.add(smaller.stack(2), larger,    group.volt, scale*group.power);
+		CraftingGroups.splitter.add(larger,          smaller, 2, group.volt, scale*group.baseCost);
+		CraftingGroups.combiner.add(smaller.stack(2), larger,    group.volt, scale*group.baseCost);
 	}
 	
 	//Localization

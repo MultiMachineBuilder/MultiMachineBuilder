@@ -16,7 +16,7 @@ import mmb.data.json.JsonTool;
 import mmb.world.crafting.ItemLists;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.item.ItemEntity;
-import mmb.world.item.ItemEntityType;
+import mmb.world.item.ItemType;
 import mmb.world.items.ContentsItems;
 import mmb.world.items.ItemEntry;
 
@@ -29,33 +29,21 @@ public class Pack extends ItemEntity {
 	private double volumeInner = 0;
 	private double volumeOuter = 0.001;
 	@Nonnull private RecipeOutput contents = RecipeOutput.NONE;
-	
-	Pack(ItemEntityType type) {
-		super(type);
-	}
-	
-	Pack(ItemEntityType type, RecipeOutput ilist) {
-		this(type);
-		contents = ilist;
-		recalc();
+
+	/**
+	 * Creates an empty item pack
+	 */
+	public Pack() {
+		super();
 	}
 	/**
-	 * Creates an empty non-coded item pack
+	 * Creates an item pack with item(s)
+	 * @param ilist contents
 	 */
-	Pack() {
-		super(ContentsItems.pack);
-	}
-	Pack(RecipeOutput ilist) {
-		this();
+	public Pack(RecipeOutput ilist) {
+		super();
 		contents = ilist;
 		recalc();
-	}
-	
-	public static Pack createEmpty() {
-		return new Pack();
-	}
-	public static Pack create(RecipeOutput ilist) {
-		return new Pack(ilist);
 	}
 
 	@Override
@@ -83,7 +71,6 @@ public class Pack extends ItemEntity {
 		}
 		volumeOuter = 0.001 + volumeInner;
 	}
-
 	
 	@Override
 	public double volume() {
@@ -120,5 +107,9 @@ public class Pack extends ItemEntity {
 			return false;
 		Pack other = (Pack) obj;
 		return Objects.equals(contents, other.contents);
+	}
+	@Override
+	public ItemType type() {
+		return ContentsItems.pack;
 	}
 }

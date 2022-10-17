@@ -23,9 +23,9 @@ import mmb.world.worlds.world.Player;
 public class ToolSelectionModel {
 	private WindowTool toolIL;
 	private WindowTool toolTL;
-	@Nonnull public final WorldWindow window;
+	@Nullable public final WorldWindow window;
 	private static final Debugger debug = new Debugger("TOOL SELECTOR");
-	public ToolSelectionModel(WorldWindow window) {
+	public ToolSelectionModel(@Nullable WorldWindow window) {
 		this.window = window;
 	}
 
@@ -71,7 +71,7 @@ public class ToolSelectionModel {
 		}
 		if(newTool != null) {
 			newTool.selected();
-			newTool.setWindow(window);
+			if(window != null) newTool.setWindow(window);
 			debug.printl("New tool: " + newTool.id());
 		}else {
 			debug.printl("New tool: null");
@@ -105,9 +105,6 @@ public class ToolSelectionModel {
 			// unused
 		}
 		
-	}
-	public static void main(String[] args) {
-		test();
 	}
 	@Test static void test() {
 		//WorldWindow dummyWindow = new WorldWindow();

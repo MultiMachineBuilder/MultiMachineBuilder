@@ -88,7 +88,7 @@ public class StackedRecipeView extends RecipeView<StackedRecipe> {
 				.object2IntEntrySet()
 				.stream()
 				.map(ent -> new ItemStack(ent.getKey(), ent.getIntValue()))
-				.collect(Collectors.toCollection(() -> new Vector<ItemStack>()));
+				.collect(Collectors.toCollection(Vector::new));
 	}
 	@Nonnull public static ItemStack[] list2arr(RecipeOutput output){
 		return output

@@ -9,12 +9,11 @@
       "sound" : "warn .wav",
       "mode" : "ONCE_WHEN_POWERED",
       "state" : false,
-      "signal" : true,
-      "phase" : 2
+      "signal" : false,
+      "phase" : 0
     }, "mmb.grass", "mmb.grass", "mmb.grass" ],
     "drops" : [ ],
     "machines" : [ ],
-    "data" : { },
     "player" : {
       "inventory" : [ 128.0, [ "multi.speaker", 1 ], [ "wireworld.onload", "wireworld.onload", 1 ], [ "wireworld.lamp", 1 ] ],
       "creative" : true,
@@ -24,6 +23,5 @@
       "alcohol2" : 0.0
     }
   },
-  "data" : { },
   "maps" : { }
 }

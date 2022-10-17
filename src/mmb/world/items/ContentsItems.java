@@ -20,7 +20,6 @@ import mmb.menu.wtool.DumpItems;
 import mmb.menu.wtool.ToolAim;
 import mmb.world.blocks.machine.pack.Pack;
 import mmb.world.contentgen.Materials;
-import mmb.world.contentgen.MetalGroup;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.electric.VoltageTier;
 import mmb.world.item.Item;
@@ -28,6 +27,7 @@ import mmb.world.item.ItemEntityType;
 import mmb.world.item.ItemRaw;
 import mmb.world.item.Items;
 import mmb.world.items.data.ItemBOM;
+import mmb.world.items.data.ItemPIngredients;
 import mmb.world.items.data.Stencil;
 import mmb.world.items.electric.ItemBattery;
 import mmb.world.items.filter.EntryFilter;
@@ -87,6 +87,9 @@ public class ContentsItems {
 	@Nonnull public static final Item sdraconium = shard("#shard-draconic", Materials.colorDraconium, "item.draconic");
 	@Nonnull public static final Item sadraconium = shard("#shard-adraconic", Materials.colorADraconium, "item.adraconic");
 	@Nonnull public static final Item schaotium = shard("#shard-chaotic", Materials.colorChaotium, "item.chaotic");
+	@Nonnull public static final Item scrystal = shard("#shard-crystal", Materials.colorCrystal, "item.crystal");
+	@Nonnull public static final Item sstellar = shard("#shard-stellar", Materials.colorADraconium, "item.stellar");
+	@Nonnull public static final Item sunobtainium = shard("#shard-unobtainium", Materials.colorChaotium, "item.unobtainium");
 	@Nonnull public static final Item glassp = new Item()
 		.title("#glassp")
 		.texture("item/glass panel.png")
@@ -138,6 +141,12 @@ public class ContentsItems {
 			.volumed(0.001)
 			.factory(ItemBOM::new)
 			.finish("crafting.BOMItems");
+	@Nonnull public static final ItemEntityType pingredients = new ItemEntityType()
+			.title("#pingredients")
+			.texture("item/slist.png")
+			.volumed(0.001)
+			.factory(ItemPIngredients::new)
+			.finish("crafting.ingredients");
 	@Nonnull public static final Item paper = new Item()
 			.title("#paper")
 			.texture("item/paper.png")
@@ -270,7 +279,7 @@ public class ContentsItems {
 		.title("#ipack1")
 		.texture("item/package.png")
 		.volumed(0.001)
-		.factory(Pack::createEmpty)
+		.factory(Pack::new)
 		.finish("boxed.packItem");
 	
 	//Item filters
@@ -295,7 +304,7 @@ public class ContentsItems {
 		Items.tagItem("voltage-HV", bat5);
 		Items.tagItem("voltage-EV", bat6);
 		Items.tagItem("voltage-IV", bat7);
-		Items.tagItems("resrcbed", resrc1, resrc2, resrc3, resrc4);
+		Items.tagItems("resrcbed", resrc1, resrc2, resrc3, resrc4, resrc5, resrc6, resrc7);
 		Items.deprecate("industry.motor1", motor.items.get(0));
 		Items.deprecate("industry.motor2", motor.items.get(1));
 		Items.deprecate("pickHead.wood", ItemRaw.make(pickWood));
@@ -349,6 +358,7 @@ public class ContentsItems {
 				textureResrcbed.getType(), Color.RED, c);
 		LookupOp op = new LookupOp(mapper, null);
 		BufferedImage img = op.createCompatibleDestImage(textureResrcbed, null);
+		op.filter(textureResrcbed, img);
 		return new Item()
 		.title(title)
 		.texture(img)

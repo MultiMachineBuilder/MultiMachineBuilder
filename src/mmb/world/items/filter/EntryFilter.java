@@ -10,6 +10,7 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.world.item.ItemEntity;
+import mmb.world.item.ItemType;
 import mmb.world.items.ContentsItems;
 import mmb.world.items.ItemEntry;
 
@@ -20,12 +21,10 @@ import mmb.world.items.ItemEntry;
 public class EntryFilter extends ItemFilter {
 	private ItemEntry item;
 	public EntryFilter() {
-		super(ContentsItems.ifilterEntries);
 		this.item = null;
 	}
 	
 	public EntryFilter(ItemEntry item) {
-		super(ContentsItems.ifilterEntries);
 		this.item = item;
 	}
 
@@ -58,6 +57,11 @@ public class EntryFilter extends ItemFilter {
 	@Override
 	protected boolean equal0(ItemEntity other) {
 		return Objects.equals(((EntryFilter) other).item, item);
+	}
+
+	@Override
+	public ItemType type() {
+		return ContentsItems.ifilterEntries;
 	}
 
 	

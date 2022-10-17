@@ -1,12 +1,14 @@
 /**
  * 
  */
-package mmbmods.stn;
+package mmbmods.stn.network;
 
 import javax.annotation.Nonnull;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.data.json.JsonTool;
 import mmb.world.worlds.world.DataLayer;
 import mmb.world.worlds.world.World;
 
@@ -27,8 +29,11 @@ public class DataLayerSTN extends DataLayer<World> {
 
 	@Override
 	public @Nonnull JsonNode save() {
-		// TODO Auto-generated method stub
-		return null;
+		ObjectNode node = JsonTool.newObjectNode();
+		
+		
+		
+		return node;
 	}
 
 	@Override
@@ -36,5 +41,4 @@ public class DataLayerSTN extends DataLayer<World> {
 		// TODO Auto-generated method stub
 		
 	}
-
 }

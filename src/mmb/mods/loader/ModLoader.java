@@ -21,6 +21,7 @@ import mmb.mods.info.ModInfo;
 import mmb.mods.info.ModMetadata;
 import mmb.mods.info.ModState;
 import mmb.mods.info.Mods;
+import mmb.world.Chemistry;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.blocks.machine.Nuker;
 import mmb.world.blocks.machine.manual.Crafting;
@@ -134,12 +135,14 @@ public final class ModLoader {
 		DataLayers.init();
 		//Load machines
 		Main.state1("Loading machines");
+		Chemistry.init();
 		STN.init();
 		Crafting.init();
 		Nuker.init();
 		Generators.init();
 		Tools.init();
 		FullScreen.initialize();
+		
 		TransformerData.init();
 		
 		//Get external mods to load

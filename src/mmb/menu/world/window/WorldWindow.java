@@ -14,6 +14,7 @@ import java.awt.event.WindowEvent;
 
 import mmb.CatchingEvent;
 import mmb.data.json.JsonTool;
+import mmb.data.variables.ListenableValue;
 import mmb.debug.Debugger;
 import mmb.files.Save;
 import mmb.menu.FullScreen;
@@ -25,6 +26,7 @@ import mmb.menu.world.inv.InventoryController;
 import mmb.menu.wtool.ToolSelectionModel;
 import mmb.menu.wtool.ToolStandard;
 import mmb.menu.wtool.WindowTool;
+import mmb.world.crafting.Recipe;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.item.Items;
 import mmb.world.worlds.universe.Universe;
@@ -46,6 +48,7 @@ import java.util.TimerTask;
 
 import javax.swing.JSplitPane;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
@@ -474,6 +477,10 @@ public class WorldWindow extends MMBFrame{
 	private MultilineLabel lblTool;
 	private JCheckBoxMenuItem checkBindCameraPlayer;
 	private JLabel lblStatus;
+	
+	//Recipe selection
+	/** Recipe clipboard */
+	@Nonnull public final ListenableValue<@Nullable Recipe<?>> recipesel = new ListenableValue<>(null);
 	
 	public void redrawUIs() {
 		scrollablePlacementList.repaint();

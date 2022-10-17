@@ -45,6 +45,9 @@ public class Materials {
 	@Nonnull public static final Color colorDraconium = new Color(200, 20, 255);
 	@Nonnull public static final Color colorADraconium = new Color(200, 150, 60);
 	@Nonnull public static final Color colorChaotium = new Color(0, 30, 30);
+	@Nonnull public static final Color colorDiamide = new Color(20, 200, 200);
+	@Nonnull public static final Color colorUnamide = new Color(180, 150, 230);
+	@Nonnull public static final Color colorOmnamide = new Color(230, 150, 230);
 	
 	//Fictious alloys
 	@Nonnull public static final Color colorRudimentium = new Color(255, 60, 0);
@@ -159,16 +162,19 @@ public class Materials {
 	@Nonnull public static final MetalGroup vibrant =       new MetalGroup(colorVibrant, "vibrant", VoltageTier.V3, 480_000, false);
 	@Nonnull public static final MetalGroup PTFE =          new MetalGroup(colorPTFE, "PTFE", VoltageTier.V3, 100_000, false);
 	@Nonnull public static final MetalGroup silicarbide =   new MetalGroup(colorSilicarbide, "silicarbide", VoltageTier.V3, 435_000, false);
+	@Nonnull public static final MetalGroup diamide =      new MetalGroup(colorDiamide, "diamide", VoltageTier.V3, 280_000, false);
 	
 	//Tier 6 materials
 	@Nonnull public static final BaseMetalGroup tungsten = new BaseMetalGroup(colorTungsten, "tungsten", VoltageTier.V4, 500_000, 1, false);
 	@Nonnull public static final MetalGroup signalum = new MetalGroup(colorSignalum, "signalum", VoltageTier.V4, 600_000, false);
 	@Nonnull public static final BaseMetalGroup iridium =    new BaseMetalGroup(colorIridium, "iridium", VoltageTier.V4, 220_000, 1, false);
+	@Nonnull public static final MetalGroup unamide =      new MetalGroup(colorUnamide, "unamide", VoltageTier.V4, 480_000, false);
 	
 	//Tier 7 materials
 	@Nonnull public static final MetalGroup tungstenC =     new MetalGroup(colorTungstenC, "tungstenC", VoltageTier.V5, 1000_000, false);
 	@Nonnull public static final MetalGroup crystal =     new MetalGroup(colorCrystal, "crystal", VoltageTier.V5, 4000_000, false);
 	@Nonnull public static final MetalGroup enderium = new MetalGroup(colorEnderium, "enderium", VoltageTier.V5, 5000_000, false);
+	@Nonnull public static final MetalGroup omnamide =      new MetalGroup(colorOmnamide, "omnamide", VoltageTier.V5, 2000_000, false);
 	
 	//Tier 8 materials
 	@Nonnull public static final MetalGroup stellar =     new MetalGroup(colorStellar, "stellar", VoltageTier.V6, 8000_000, false);
@@ -255,12 +261,16 @@ public class Materials {
 		CraftingGroups.furnaceFuels.put(ContentsBlocks.plank, 500_000);
 	}
 	/**
+	 * Creates a famiily of alloying recipes for the given material
 	 * @param partA the material A
 	 * @param ratioA amount of material A per recipe
+	 * 
 	 * @param partB the material B
 	 * @param ratioB amount of material B per recipe
+	 * 
 	 * @param out the output material
 	 * @param ratioO amount of material 
+	 * 
 	 * @param volt the voltage tier of this recipe
 	 * @param energy energy required to smelt normal sized recipe (ingots/dusts)
 	 */

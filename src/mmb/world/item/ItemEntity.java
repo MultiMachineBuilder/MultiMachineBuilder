@@ -3,7 +3,6 @@
  */
 package mmb.world.item;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -15,22 +14,6 @@ import mmb.world.items.ItemEntry;
  *
  */
 public abstract class ItemEntity implements ItemEntry{
-	@Nonnull private final ItemEntityType type;
-	
-	protected ItemEntity(ItemEntityType type) {
-		this.type = type;
-	}
-
-	@Override
-	public double volume() {
-		return type.volume();
-	}
-
-	@Override
-	public ItemEntityType type() {
-		return type;
-	}
-	
 	protected abstract int hash0();
 	protected abstract boolean equal0(ItemEntity other);
 	
@@ -48,5 +31,10 @@ public abstract class ItemEntity implements ItemEntry{
 		if(obj == null) return false;
 		if(getClass() != obj.getClass()) return false;
 		return super.equals(obj);
+	}
+	
+	@Override
+	public double volume() {
+		return type().volume();
 	}
 }

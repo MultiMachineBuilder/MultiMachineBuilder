@@ -88,6 +88,16 @@
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\brush.png
 (MOD-LOADER) Loading a texture brush.png
 (TEXTURES) Loading texture: brush.png
+(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\chem
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\chem\atom.png
+(MOD-LOADER) Loading a texture chem\atom.png
+(TEXTURES) Loading texture: chem/atom.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\chem\gas.png
+(MOD-LOADER) Loading a texture chem\gas.png
+(TEXTURES) Loading texture: chem/gas.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\chem\vial.png
+(MOD-LOADER) Loading a texture chem\vial.png
+(TEXTURES) Loading texture: chem/vial.png
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\chuckBlock.png
 (MOD-LOADER) Loading a texture chuckBlock.png
 (TEXTURES) Loading texture: chuckBlock.png
@@ -456,12 +466,16 @@
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\silicon nugget.png
 (MOD-LOADER) Loading a texture item\silicon nugget.png
 (TEXTURES) Loading texture: item/silicon nugget.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\slist.png
+(MOD-LOADER) Loading a texture item\slist.png
+(TEXTURES) Loading texture: item/slist.png
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\smalldust.png
 (MOD-LOADER) Loading a texture item\smalldust.png
 (TEXTURES) Loading texture: item/smalldust.png
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\stainless pick head.png
 (MOD-LOADER) Loading a texture item\stainless pick head.png
 (TEXTURES) Loading texture: item/stainless pick head.png
+(TEXTURE ATLAS) Size: 1024*512
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\stainless pick.png
 (MOD-LOADER) Loading a texture item\stainless pick.png
 (TEXTURES) Loading texture: item/stainless pick.png
@@ -474,7 +488,6 @@
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\steel rod.png
 (MOD-LOADER) Loading a texture item\steel rod.png
 (TEXTURES) Loading texture: item/steel rod.png
-(TEXTURE ATLAS) Size: 1024*512
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\stencil.png
 (MOD-LOADER) Loading a texture item\stencil.png
 (TEXTURES) Loading texture: item/stencil.png
@@ -680,6 +693,9 @@
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\drandom.png
 (MOD-LOADER) Loading a texture logic\drandom.png
 (TEXTURES) Loading texture: logic/drandom.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\head.png
+(MOD-LOADER) Loading a texture logic\head.png
+(TEXTURES) Loading texture: logic/head.png
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\LNetwork attachment.png
 (MOD-LOADER) Loading a texture logic\LNetwork attachment.png
 (TEXTURES) Loading texture: logic/LNetwork attachment.png
@@ -714,6 +730,9 @@
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\randomctrl.png
 (MOD-LOADER) Loading a texture logic\randomctrl.png
 (TEXTURES) Loading texture: logic/randomctrl.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\tail.png
+(MOD-LOADER) Loading a texture logic\tail.png
+(TEXTURES) Loading texture: logic/tail.png
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\toggle inert.png
 (MOD-LOADER) Loading a texture logic\toggle inert.png
 (TEXTURES) Loading texture: logic/toggle inert.png
@@ -747,6 +766,9 @@
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\wire diagonal.png
 (MOD-LOADER) Loading a texture logic\wire diagonal.png
 (TEXTURES) Loading texture: logic/wire diagonal.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\wire.png
+(MOD-LOADER) Loading a texture logic\wire.png
+(TEXTURES) Loading texture: logic/wire.png
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\XOR.png
 (MOD-LOADER) Loading a texture logic\XOR.png
 (TEXTURES) Loading texture: logic/XOR.png
@@ -1193,9 +1215,39 @@
 (MOD-LOADER) Loading a texture spider.png
 (TEXTURES) Loading texture: spider.png
 (MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\stn
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\attachment_export.png
+(MOD-LOADER) Loading a texture stn\attachment_export.png
+(TEXTURES) Loading texture: stn/attachment_export.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\attachment_import.png
+(MOD-LOADER) Loading a texture stn\attachment_import.png
+(TEXTURES) Loading texture: stn/attachment_import.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\attachment_processor.png
+(MOD-LOADER) Loading a texture stn\attachment_processor.png
+(TEXTURES) Loading texture: stn/attachment_processor.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\attachment_products.png
+(MOD-LOADER) Loading a texture stn\attachment_products.png
+(TEXTURES) Loading texture: stn/attachment_products.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\attachment_storage.png
+(MOD-LOADER) Loading a texture stn\attachment_storage.png
+(TEXTURES) Loading texture: stn/attachment_storage.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\cable core.png
+(MOD-LOADER) Loading a texture stn\cable core.png
+(TEXTURES) Loading texture: stn/cable core.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\cable leg.png
+(MOD-LOADER) Loading a texture stn\cable leg.png
+(TEXTURES) Loading texture: stn/cable leg.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\cable.png
+(MOD-LOADER) Loading a texture stn\cable.png
+(TEXTURES) Loading texture: stn/cable.png
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\cabler.png
 (MOD-LOADER) Loading a texture stn\cabler.png
 (TEXTURES) Loading texture: stn/cabler.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\capoff.png
+(MOD-LOADER) Loading a texture stn\capoff.png
+(TEXTURES) Loading texture: stn/capoff.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\storage.png
+(MOD-LOADER) Loading a texture stn\storage.png
+(TEXTURES) Loading texture: stn/storage.png
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stone.png
 (MOD-LOADER) Loading a texture stone.png
 (TEXTURES) Loading texture: stone.png
@@ -1265,11 +1317,11 @@
 (MOD-LOADER) Failed to load a sound COPYRIGHT.txt
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at mmb.data.contents.Sounds.load(Sounds.java:89)
-	at mmb.mods.loader.ModLoader.lambda$2(ModLoader.java:116)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:343)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:349)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:331)
-	at mmb.mods.loader.ModLoader.modloading(ModLoader.java:113)
+	at mmb.mods.loader.ModLoader.lambda$2(ModLoader.java:117)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:346)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:352)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:334)
+	at mmb.mods.loader.ModLoader.modloading(ModLoader.java:114)
 	at mmb.Main.lambda$1(Main.java:132)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
@@ -1293,11 +1345,11 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (MOD-LOADER) Failed to load a sound error.mp3
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at mmb.data.contents.Sounds.load(Sounds.java:89)
-	at mmb.mods.loader.ModLoader.lambda$2(ModLoader.java:116)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:343)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:349)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:331)
-	at mmb.mods.loader.ModLoader.modloading(ModLoader.java:113)
+	at mmb.mods.loader.ModLoader.lambda$2(ModLoader.java:117)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:346)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:352)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:334)
+	at mmb.mods.loader.ModLoader.modloading(ModLoader.java:114)
 	at mmb.Main.lambda$1(Main.java:132)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
@@ -1725,30 +1777,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Adding sheet.rudimentary with title Arkusz z rudymentu and description:
  (brak opisu)
 (ITEMS) Adding frame.rudimentary with title Klatka z rudymentu and description:
- (brak opisu)
-(BLOCKS) Adding crafting.1 with title Stół rzemieślniczy 1 and description:
- (brak opisu)
-(ITEMS) Adding crafting.1 with title Stół rzemieślniczy 1 and description:
- (brak opisu)
-(BLOCKS) Adding crafting.2 with title Stół rzemieślniczy 2 and description:
- (brak opisu)
-(ITEMS) Adding crafting.2 with title Stół rzemieślniczy 2 and description:
- (brak opisu)
-(BLOCKS) Adding crafting.3 with title Stół rzemieślniczy 3 and description:
- (brak opisu)
-(ITEMS) Adding crafting.3 with title Stół rzemieślniczy 3 and description:
- (brak opisu)
-(BLOCKS) Adding crafting.4 with title Stół rzemieślniczy 4 and description:
- (brak opisu)
-(ITEMS) Adding crafting.4 with title Stół rzemieślniczy 4 and description:
- (brak opisu)
-(BLOCKS) Adding crafting.5 with title Stół rzemieślniczy 5 and description:
- (brak opisu)
-(ITEMS) Adding crafting.5 with title Stół rzemieślniczy 5 and description:
- (brak opisu)
-(BLOCKS) Adding crafting.6 with title Stół rzemieślniczy 6 and description:
- (brak opisu)
-(ITEMS) Adding crafting.6 with title Stół rzemieślniczy 6 and description:
  (brak opisu)
 (ITEMS) Tagging Block Blok z rudymentu(block.rudimentary) with material-rudimentary
 (ITEMS) Tagging Item Klaster z rudymentu(fcluster.rudimentary) with material-rudimentary
@@ -4918,6 +4946,76 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z węglika krzemu(ring.silicarbide) with shape-ring
 (ITEMS) Tagging Item Arkusz z węglika krzemu(sheet.silicarbide) with shape-sheet
 (ITEMS) Tagging Item Klatka z węglika krzemu(frame.silicarbide) with shape-frame
+(BLOCKS) Adding block.diamide with title Blok z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding block.diamide with title Blok z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding fcluster.diamide with title Klaster z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding ingot.diamide with title Sztabka z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding frag.diamide with title Fragment z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding nugget.diamide with title Samorodek z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding wirespool.diamide with title Drut z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding ldust.diamide with title Duży pył z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding dust.diamide with title Pył z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding mdust.diamide with title Mały pył z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding minidust.diamide with title Mikropył z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding panel.diamide with title Płytka z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding foil.diamide with title Folia z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding gear.diamide with title Zębatka z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding rod.diamide with title Pręt z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding ring.diamide with title Pierścień z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding sheet.diamide with title Arkusz z diamidu and description:
+ (brak opisu)
+(ITEMS) Adding frame.diamide with title Klatka z diamidu and description:
+ (brak opisu)
+(ITEMS) Tagging Block Blok z diamidu(block.diamide) with material-diamide
+(ITEMS) Tagging Item Klaster z diamidu(fcluster.diamide) with material-diamide
+(ITEMS) Tagging Item Sztabka z diamidu(ingot.diamide) with material-diamide
+(ITEMS) Tagging Item Fragment z diamidu(frag.diamide) with material-diamide
+(ITEMS) Tagging Item Samorodek z diamidu(nugget.diamide) with material-diamide
+(ITEMS) Tagging Item Drut z diamidu(wirespool.diamide) with material-diamide
+(ITEMS) Tagging Item Duży pył z diamidu(ldust.diamide) with material-diamide
+(ITEMS) Tagging Item Pył z diamidu(dust.diamide) with material-diamide
+(ITEMS) Tagging Item Mały pył z diamidu(mdust.diamide) with material-diamide
+(ITEMS) Tagging Item Mikropył z diamidu(minidust.diamide) with material-diamide
+(ITEMS) Tagging Item Płytka z diamidu(panel.diamide) with material-diamide
+(ITEMS) Tagging Item Folia z diamidu(foil.diamide) with material-diamide
+(ITEMS) Tagging Item Zębatka z diamidu(gear.diamide) with material-diamide
+(ITEMS) Tagging Item Pręt z diamidu(rod.diamide) with material-diamide
+(ITEMS) Tagging Item Pierścień z diamidu(ring.diamide) with material-diamide
+(ITEMS) Tagging Item Arkusz z diamidu(sheet.diamide) with material-diamide
+(ITEMS) Tagging Item Klatka z diamidu(frame.diamide) with material-diamide
+(ITEMS) Tagging Block Blok z diamidu(block.diamide) with shape-block
+(ITEMS) Tagging Item Klaster z diamidu(fcluster.diamide) with shape-cluster
+(ITEMS) Tagging Item Sztabka z diamidu(ingot.diamide) with shape-base
+(ITEMS) Tagging Item Fragment z diamidu(frag.diamide) with shape-frag
+(ITEMS) Tagging Item Samorodek z diamidu(nugget.diamide) with shape-nugget
+(ITEMS) Tagging Item Drut z diamidu(wirespool.diamide) with shape-wire
+(ITEMS) Tagging Item Duży pył z diamidu(ldust.diamide) with shape-megadust
+(ITEMS) Tagging Item Pył z diamidu(dust.diamide) with shape-dust
+(ITEMS) Tagging Item Mały pył z diamidu(mdust.diamide) with shape-smalldust
+(ITEMS) Tagging Item Mikropył z diamidu(minidust.diamide) with shape-tinydust
+(ITEMS) Tagging Item Płytka z diamidu(panel.diamide) with shape-panel
+(ITEMS) Tagging Item Folia z diamidu(foil.diamide) with shape-foil
+(ITEMS) Tagging Item Zębatka z diamidu(gear.diamide) with shape-gear
+(ITEMS) Tagging Item Pręt z diamidu(rod.diamide) with shape-rod
+(ITEMS) Tagging Item Pierścień z diamidu(ring.diamide) with shape-ring
+(ITEMS) Tagging Item Arkusz z diamidu(sheet.diamide) with shape-sheet
+(ITEMS) Tagging Item Klatka z diamidu(frame.diamide) with shape-frame
 (BLOCKS) Adding block.tungsten with title Blok z wolframu and description:
  (brak opisu)
 (ITEMS) Adding block.tungsten with title Blok z wolframu and description:
@@ -5152,6 +5250,76 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa irydu(crop.iridium) with material-iridium
 (ITEMS) Tagging Block Ruda irydu(ore.iridium) with shape-ore
 (ITEMS) Tagging Item Uprawa irydu(crop.iridium) with shape-crop
+(BLOCKS) Adding block.unamide with title Blok z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding block.unamide with title Blok z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding fcluster.unamide with title Klaster z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding ingot.unamide with title Sztabka z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding frag.unamide with title Fragment z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding nugget.unamide with title Samorodek z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding wirespool.unamide with title Drut z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding ldust.unamide with title Duży pył z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding dust.unamide with title Pył z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding mdust.unamide with title Mały pył z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding minidust.unamide with title Mikropył z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding panel.unamide with title Płytka z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding foil.unamide with title Folia z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding gear.unamide with title Zębatka z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding rod.unamide with title Pręt z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding ring.unamide with title Pierścień z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding sheet.unamide with title Arkusz z unamidu and description:
+ (brak opisu)
+(ITEMS) Adding frame.unamide with title Klatka z unamidu and description:
+ (brak opisu)
+(ITEMS) Tagging Block Blok z unamidu(block.unamide) with material-unamide
+(ITEMS) Tagging Item Klaster z unamidu(fcluster.unamide) with material-unamide
+(ITEMS) Tagging Item Sztabka z unamidu(ingot.unamide) with material-unamide
+(ITEMS) Tagging Item Fragment z unamidu(frag.unamide) with material-unamide
+(ITEMS) Tagging Item Samorodek z unamidu(nugget.unamide) with material-unamide
+(ITEMS) Tagging Item Drut z unamidu(wirespool.unamide) with material-unamide
+(ITEMS) Tagging Item Duży pył z unamidu(ldust.unamide) with material-unamide
+(ITEMS) Tagging Item Pył z unamidu(dust.unamide) with material-unamide
+(ITEMS) Tagging Item Mały pył z unamidu(mdust.unamide) with material-unamide
+(ITEMS) Tagging Item Mikropył z unamidu(minidust.unamide) with material-unamide
+(ITEMS) Tagging Item Płytka z unamidu(panel.unamide) with material-unamide
+(ITEMS) Tagging Item Folia z unamidu(foil.unamide) with material-unamide
+(ITEMS) Tagging Item Zębatka z unamidu(gear.unamide) with material-unamide
+(ITEMS) Tagging Item Pręt z unamidu(rod.unamide) with material-unamide
+(ITEMS) Tagging Item Pierścień z unamidu(ring.unamide) with material-unamide
+(ITEMS) Tagging Item Arkusz z unamidu(sheet.unamide) with material-unamide
+(ITEMS) Tagging Item Klatka z unamidu(frame.unamide) with material-unamide
+(ITEMS) Tagging Block Blok z unamidu(block.unamide) with shape-block
+(ITEMS) Tagging Item Klaster z unamidu(fcluster.unamide) with shape-cluster
+(ITEMS) Tagging Item Sztabka z unamidu(ingot.unamide) with shape-base
+(ITEMS) Tagging Item Fragment z unamidu(frag.unamide) with shape-frag
+(ITEMS) Tagging Item Samorodek z unamidu(nugget.unamide) with shape-nugget
+(ITEMS) Tagging Item Drut z unamidu(wirespool.unamide) with shape-wire
+(ITEMS) Tagging Item Duży pył z unamidu(ldust.unamide) with shape-megadust
+(ITEMS) Tagging Item Pył z unamidu(dust.unamide) with shape-dust
+(ITEMS) Tagging Item Mały pył z unamidu(mdust.unamide) with shape-smalldust
+(ITEMS) Tagging Item Mikropył z unamidu(minidust.unamide) with shape-tinydust
+(ITEMS) Tagging Item Płytka z unamidu(panel.unamide) with shape-panel
+(ITEMS) Tagging Item Folia z unamidu(foil.unamide) with shape-foil
+(ITEMS) Tagging Item Zębatka z unamidu(gear.unamide) with shape-gear
+(ITEMS) Tagging Item Pręt z unamidu(rod.unamide) with shape-rod
+(ITEMS) Tagging Item Pierścień z unamidu(ring.unamide) with shape-ring
+(ITEMS) Tagging Item Arkusz z unamidu(sheet.unamide) with shape-sheet
+(ITEMS) Tagging Item Klatka z unamidu(frame.unamide) with shape-frame
 (BLOCKS) Adding block.tungstenC with title Blok z węglika wolframu and description:
  (brak opisu)
 (ITEMS) Adding block.tungstenC with title Blok z węglika wolframu and description:
@@ -5362,6 +5530,76 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z enderium(ring.enderium) with shape-ring
 (ITEMS) Tagging Item Arkusz z enderium(sheet.enderium) with shape-sheet
 (ITEMS) Tagging Item Klatka z enderium(frame.enderium) with shape-frame
+(BLOCKS) Adding block.omnamide with title Blok z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding block.omnamide with title Blok z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding fcluster.omnamide with title Klaster z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding ingot.omnamide with title Sztabka z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding frag.omnamide with title Fragment z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding nugget.omnamide with title Samorodek z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding wirespool.omnamide with title Drut z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding ldust.omnamide with title Duży pył z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding dust.omnamide with title Pył z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding mdust.omnamide with title Mały pył z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding minidust.omnamide with title Mikropył z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding panel.omnamide with title Płytka z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding foil.omnamide with title Folia z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding gear.omnamide with title Zębatka z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding rod.omnamide with title Pręt z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding ring.omnamide with title Pierścień z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding sheet.omnamide with title Arkusz z omnamidu and description:
+ (brak opisu)
+(ITEMS) Adding frame.omnamide with title Klatka z omnamidu and description:
+ (brak opisu)
+(ITEMS) Tagging Block Blok z omnamidu(block.omnamide) with material-omnamide
+(ITEMS) Tagging Item Klaster z omnamidu(fcluster.omnamide) with material-omnamide
+(ITEMS) Tagging Item Sztabka z omnamidu(ingot.omnamide) with material-omnamide
+(ITEMS) Tagging Item Fragment z omnamidu(frag.omnamide) with material-omnamide
+(ITEMS) Tagging Item Samorodek z omnamidu(nugget.omnamide) with material-omnamide
+(ITEMS) Tagging Item Drut z omnamidu(wirespool.omnamide) with material-omnamide
+(ITEMS) Tagging Item Duży pył z omnamidu(ldust.omnamide) with material-omnamide
+(ITEMS) Tagging Item Pył z omnamidu(dust.omnamide) with material-omnamide
+(ITEMS) Tagging Item Mały pył z omnamidu(mdust.omnamide) with material-omnamide
+(ITEMS) Tagging Item Mikropył z omnamidu(minidust.omnamide) with material-omnamide
+(ITEMS) Tagging Item Płytka z omnamidu(panel.omnamide) with material-omnamide
+(ITEMS) Tagging Item Folia z omnamidu(foil.omnamide) with material-omnamide
+(ITEMS) Tagging Item Zębatka z omnamidu(gear.omnamide) with material-omnamide
+(ITEMS) Tagging Item Pręt z omnamidu(rod.omnamide) with material-omnamide
+(ITEMS) Tagging Item Pierścień z omnamidu(ring.omnamide) with material-omnamide
+(ITEMS) Tagging Item Arkusz z omnamidu(sheet.omnamide) with material-omnamide
+(ITEMS) Tagging Item Klatka z omnamidu(frame.omnamide) with material-omnamide
+(ITEMS) Tagging Block Blok z omnamidu(block.omnamide) with shape-block
+(ITEMS) Tagging Item Klaster z omnamidu(fcluster.omnamide) with shape-cluster
+(ITEMS) Tagging Item Sztabka z omnamidu(ingot.omnamide) with shape-base
+(ITEMS) Tagging Item Fragment z omnamidu(frag.omnamide) with shape-frag
+(ITEMS) Tagging Item Samorodek z omnamidu(nugget.omnamide) with shape-nugget
+(ITEMS) Tagging Item Drut z omnamidu(wirespool.omnamide) with shape-wire
+(ITEMS) Tagging Item Duży pył z omnamidu(ldust.omnamide) with shape-megadust
+(ITEMS) Tagging Item Pył z omnamidu(dust.omnamide) with shape-dust
+(ITEMS) Tagging Item Mały pył z omnamidu(mdust.omnamide) with shape-smalldust
+(ITEMS) Tagging Item Mikropył z omnamidu(minidust.omnamide) with shape-tinydust
+(ITEMS) Tagging Item Płytka z omnamidu(panel.omnamide) with shape-panel
+(ITEMS) Tagging Item Folia z omnamidu(foil.omnamide) with shape-foil
+(ITEMS) Tagging Item Zębatka z omnamidu(gear.omnamide) with shape-gear
+(ITEMS) Tagging Item Pręt z omnamidu(rod.omnamide) with shape-rod
+(ITEMS) Tagging Item Pierścień z omnamidu(ring.omnamide) with shape-ring
+(ITEMS) Tagging Item Arkusz z omnamidu(sheet.omnamide) with shape-sheet
+(ITEMS) Tagging Item Klatka z omnamidu(frame.omnamide) with shape-frame
 (BLOCKS) Adding block.stellar with title Blok ze Stellarine and description:
  (brak opisu)
 (ITEMS) Adding block.stellar with title Blok ze Stellarine and description:
@@ -6322,6 +6560,12 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
  (brak opisu)
 (ITEMS) Adding item.chaotic with title Odłam chaotyczny and description:
  (brak opisu)
+(ITEMS) Adding item.crystal with title Odłam krystalitowy and description:
+ (brak opisu)
+(ITEMS) Adding item.stellar with title Odłam stelarytowy and description:
+ (brak opisu)
+(ITEMS) Adding item.unobtainium with title Odłam unobtainiowy and description:
+ (brak opisu)
 (ITEMS) Adding item.glassp with title Szyba and description:
  (brak opisu)
 (ITEMS) Adding item.yeast with title Drożdże and description:
@@ -6345,6 +6589,8 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Adding crafting.cstencil with title Szablon rzemieślniczy and description:
  (brak opisu)
 (ITEMS) Adding crafting.BOMItems with title Lista materiałów and description:
+ (brak opisu)
+(ITEMS) Adding crafting.ingredients with title Lista przepisowa and description:
  (brak opisu)
 (ITEMS) Adding mmb.paper with title Papier and description:
  (brak opisu)
@@ -6503,15 +6749,15 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Silnik IV(machineparts.motor6) with component-motor
 (ITEMS) Tagging Item Silnik LuV(machineparts.motor7) with component-motor
 (ITEMS) Tagging Item Silnik MAX(machineparts.motor8) with component-motor
-(ITEMS) Tagging Item Silnik ULV(machineparts.motor0) with voltage-V1
-(ITEMS) Tagging Item Silnik VLV(machineparts.motor1) with voltage-V2
-(ITEMS) Tagging Item Silnik LV(machineparts.motor2) with voltage-V3
-(ITEMS) Tagging Item Silnik MV(machineparts.motor3) with voltage-V4
-(ITEMS) Tagging Item Silnik HV(machineparts.motor4) with voltage-V5
-(ITEMS) Tagging Item Silnik EV(machineparts.motor5) with voltage-V6
-(ITEMS) Tagging Item Silnik IV(machineparts.motor6) with voltage-V7
-(ITEMS) Tagging Item Silnik LuV(machineparts.motor7) with voltage-V8
-(ITEMS) Tagging Item Silnik MAX(machineparts.motor8) with voltage-V9
+(ITEMS) Tagging Item Silnik ULV(machineparts.motor0) with voltage-ULV
+(ITEMS) Tagging Item Silnik VLV(machineparts.motor1) with voltage-VLV
+(ITEMS) Tagging Item Silnik LV(machineparts.motor2) with voltage-LV
+(ITEMS) Tagging Item Silnik MV(machineparts.motor3) with voltage-MV
+(ITEMS) Tagging Item Silnik HV(machineparts.motor4) with voltage-HV
+(ITEMS) Tagging Item Silnik EV(machineparts.motor5) with voltage-EV
+(ITEMS) Tagging Item Silnik IV(machineparts.motor6) with voltage-IV
+(ITEMS) Tagging Item Silnik LuV(machineparts.motor7) with voltage-LuV
+(ITEMS) Tagging Item Silnik MAX(machineparts.motor8) with voltage-MAX
 (ITEMS) Adding machineparts.pump0 with title Pompa ULV and description:
  (brak opisu)
 (ITEMS) Adding machineparts.pump1 with title Pompa VLV and description:
@@ -6539,15 +6785,15 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pompa IV(machineparts.pump6) with component-pump
 (ITEMS) Tagging Item Pompa LuV(machineparts.pump7) with component-pump
 (ITEMS) Tagging Item Pompa MAX(machineparts.pump8) with component-pump
-(ITEMS) Tagging Item Pompa ULV(machineparts.pump0) with voltage-V1
-(ITEMS) Tagging Item Pompa VLV(machineparts.pump1) with voltage-V2
-(ITEMS) Tagging Item Pompa LV(machineparts.pump2) with voltage-V3
-(ITEMS) Tagging Item Pompa MV(machineparts.pump3) with voltage-V4
-(ITEMS) Tagging Item Pompa HV(machineparts.pump4) with voltage-V5
-(ITEMS) Tagging Item Pompa EV(machineparts.pump5) with voltage-V6
-(ITEMS) Tagging Item Pompa IV(machineparts.pump6) with voltage-V7
-(ITEMS) Tagging Item Pompa LuV(machineparts.pump7) with voltage-V8
-(ITEMS) Tagging Item Pompa MAX(machineparts.pump8) with voltage-V9
+(ITEMS) Tagging Item Pompa ULV(machineparts.pump0) with voltage-ULV
+(ITEMS) Tagging Item Pompa VLV(machineparts.pump1) with voltage-VLV
+(ITEMS) Tagging Item Pompa LV(machineparts.pump2) with voltage-LV
+(ITEMS) Tagging Item Pompa MV(machineparts.pump3) with voltage-MV
+(ITEMS) Tagging Item Pompa HV(machineparts.pump4) with voltage-HV
+(ITEMS) Tagging Item Pompa EV(machineparts.pump5) with voltage-EV
+(ITEMS) Tagging Item Pompa IV(machineparts.pump6) with voltage-IV
+(ITEMS) Tagging Item Pompa LuV(machineparts.pump7) with voltage-LuV
+(ITEMS) Tagging Item Pompa MAX(machineparts.pump8) with voltage-MAX
 (ITEMS) Adding machineparts.conveyor0 with title Taśmociąg ULV and description:
  (brak opisu)
 (ITEMS) Adding machineparts.conveyor1 with title Taśmociąg VLV and description:
@@ -6575,15 +6821,15 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Taśmociąg IV(machineparts.conveyor6) with component-conveyor
 (ITEMS) Tagging Item Taśmociąg LuV(machineparts.conveyor7) with component-conveyor
 (ITEMS) Tagging Item Taśmociąg MAX(machineparts.conveyor8) with component-conveyor
-(ITEMS) Tagging Item Taśmociąg ULV(machineparts.conveyor0) with voltage-V1
-(ITEMS) Tagging Item Taśmociąg VLV(machineparts.conveyor1) with voltage-V2
-(ITEMS) Tagging Item Taśmociąg LV(machineparts.conveyor2) with voltage-V3
-(ITEMS) Tagging Item Taśmociąg MV(machineparts.conveyor3) with voltage-V4
-(ITEMS) Tagging Item Taśmociąg HV(machineparts.conveyor4) with voltage-V5
-(ITEMS) Tagging Item Taśmociąg EV(machineparts.conveyor5) with voltage-V6
-(ITEMS) Tagging Item Taśmociąg IV(machineparts.conveyor6) with voltage-V7
-(ITEMS) Tagging Item Taśmociąg LuV(machineparts.conveyor7) with voltage-V8
-(ITEMS) Tagging Item Taśmociąg MAX(machineparts.conveyor8) with voltage-V9
+(ITEMS) Tagging Item Taśmociąg ULV(machineparts.conveyor0) with voltage-ULV
+(ITEMS) Tagging Item Taśmociąg VLV(machineparts.conveyor1) with voltage-VLV
+(ITEMS) Tagging Item Taśmociąg LV(machineparts.conveyor2) with voltage-LV
+(ITEMS) Tagging Item Taśmociąg MV(machineparts.conveyor3) with voltage-MV
+(ITEMS) Tagging Item Taśmociąg HV(machineparts.conveyor4) with voltage-HV
+(ITEMS) Tagging Item Taśmociąg EV(machineparts.conveyor5) with voltage-EV
+(ITEMS) Tagging Item Taśmociąg IV(machineparts.conveyor6) with voltage-IV
+(ITEMS) Tagging Item Taśmociąg LuV(machineparts.conveyor7) with voltage-LuV
+(ITEMS) Tagging Item Taśmociąg MAX(machineparts.conveyor8) with voltage-MAX
 (ITEMS) Adding machineparts.robot0 with title Ramię robotyczne ULV and description:
  (brak opisu)
 (ITEMS) Adding machineparts.robot1 with title Ramię robotyczne VLV and description:
@@ -6611,15 +6857,15 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Ramię robotyczne IV(machineparts.robot6) with component-robot
 (ITEMS) Tagging Item Ramię robotyczne LuV(machineparts.robot7) with component-robot
 (ITEMS) Tagging Item Ramię robotyczne MAX(machineparts.robot8) with component-robot
-(ITEMS) Tagging Item Ramię robotyczne ULV(machineparts.robot0) with voltage-V1
-(ITEMS) Tagging Item Ramię robotyczne VLV(machineparts.robot1) with voltage-V2
-(ITEMS) Tagging Item Ramię robotyczne LV(machineparts.robot2) with voltage-V3
-(ITEMS) Tagging Item Ramię robotyczne MV(machineparts.robot3) with voltage-V4
-(ITEMS) Tagging Item Ramię robotyczne HV(machineparts.robot4) with voltage-V5
-(ITEMS) Tagging Item Ramię robotyczne EV(machineparts.robot5) with voltage-V6
-(ITEMS) Tagging Item Ramię robotyczne IV(machineparts.robot6) with voltage-V7
-(ITEMS) Tagging Item Ramię robotyczne LuV(machineparts.robot7) with voltage-V8
-(ITEMS) Tagging Item Ramię robotyczne MAX(machineparts.robot8) with voltage-V9
+(ITEMS) Tagging Item Ramię robotyczne ULV(machineparts.robot0) with voltage-ULV
+(ITEMS) Tagging Item Ramię robotyczne VLV(machineparts.robot1) with voltage-VLV
+(ITEMS) Tagging Item Ramię robotyczne LV(machineparts.robot2) with voltage-LV
+(ITEMS) Tagging Item Ramię robotyczne MV(machineparts.robot3) with voltage-MV
+(ITEMS) Tagging Item Ramię robotyczne HV(machineparts.robot4) with voltage-HV
+(ITEMS) Tagging Item Ramię robotyczne EV(machineparts.robot5) with voltage-EV
+(ITEMS) Tagging Item Ramię robotyczne IV(machineparts.robot6) with voltage-IV
+(ITEMS) Tagging Item Ramię robotyczne LuV(machineparts.robot7) with voltage-LuV
+(ITEMS) Tagging Item Ramię robotyczne MAX(machineparts.robot8) with voltage-MAX
 (ITEMS) Adding industry.frame1 with title Prymitywna klatka do maszyn and description:
  (brak opisu)
 (ITEMS) Adding industry.rod1 with title Prymitywny pręt and description:
@@ -6835,6 +7081,9 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Rozszerzone złoże(industry.resrc2) with resrcbed
 (ITEMS) Tagging Item Rozbudowane złoże(industry.resrc3) with resrcbed
 (ITEMS) Tagging Item Zaawansowane złoże(industry.resrc4) with resrcbed
+(ITEMS) Tagging Item Ekstremalne złoże(industry.resrc5) with resrcbed
+(ITEMS) Tagging Item Niesamowite złoże(industry.resrc6) with resrcbed
+(ITEMS) Tagging Item wyjątkowe złoże(industry.resrc7) with resrcbed
 (ITEMS) Deprecating machineparts.motor0 as industry.motor1
 (ITEMS) Deprecating machineparts.motor1 as industry.motor2
 (ITEMS) Adding rawitem.pick.wood with title Drewniany kilof (surowy) and description:
@@ -7851,6 +8100,30 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Rura dla graczy - zjazd(playerpipe.adj2) with player-pipe
 (ITEMS) Tagging Item Rura dla graczy - wjazd(playerpipe.end) with player-pipe
 (ITEMS) Tagging Block zzz NIEAKTUALNE Warsztat kilofów (scraftuj to samo, aby odzyskać składniki)(machines.pickbuilder) with workbench
+(BLOCKS) Adding crafting.1 with title Stół rzemieślniczy 1 and description:
+ (brak opisu)
+(ITEMS) Adding crafting.1 with title Stół rzemieślniczy 1 and description:
+ (brak opisu)
+(BLOCKS) Adding crafting.2 with title Stół rzemieślniczy 2 and description:
+ (brak opisu)
+(ITEMS) Adding crafting.2 with title Stół rzemieślniczy 2 and description:
+ (brak opisu)
+(BLOCKS) Adding crafting.3 with title Stół rzemieślniczy 3 and description:
+ (brak opisu)
+(ITEMS) Adding crafting.3 with title Stół rzemieślniczy 3 and description:
+ (brak opisu)
+(BLOCKS) Adding crafting.4 with title Stół rzemieślniczy 4 and description:
+ (brak opisu)
+(ITEMS) Adding crafting.4 with title Stół rzemieślniczy 4 and description:
+ (brak opisu)
+(BLOCKS) Adding crafting.5 with title Stół rzemieślniczy 5 and description:
+ (brak opisu)
+(ITEMS) Adding crafting.5 with title Stół rzemieślniczy 5 and description:
+ (brak opisu)
+(BLOCKS) Adding crafting.6 with title Stół rzemieślniczy 6 and description:
+ (brak opisu)
+(ITEMS) Adding crafting.6 with title Stół rzemieślniczy 6 and description:
+ (brak opisu)
 (ITEMS) Tagging Block Stół rzemieślniczy 1(crafting.1) with workbench
 (ITEMS) Tagging Block Stół rzemieślniczy 2(crafting.2) with workbench
 (ITEMS) Tagging Block Stół rzemieślniczy 3(crafting.3) with workbench
@@ -8226,1960 +8499,54 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Zaszczytny podsystem D(industry.subsD-ultim) with parts-electronic
 (ITEMS) Tagging Item Zaszczytny podsystem D(industry.subsD-ultim) with parts-electronicultim
 (MAIN) State: Loading machines
-(STN) Loading resources
-(SETTINGS LIST) vvvv Resource bundle start mmbmods.stn.bundle vvv
-(SETTINGS LIST) matname1-stna=Stop STN a
-(SETTINGS LIST) matname-stnc=ze stopu STN c
-(SETTINGS LIST) matname1-stnd=Stop STN d
-(SETTINGS LIST) matname-stnd=ze stopu STN d
-(SETTINGS LIST) matname1-stnb=Stop STN b
-(SETTINGS LIST) matname1-stnc=Stop STN c
-(SETTINGS LIST) matname-stna=ze stopu STN a
-(SETTINGS LIST) matname-stnb=ze stopu STN b
-(SETTINGS LIST) STN-cabler0=Modyfikuje podwieszane kable STN
-(SETTINGS LIST) matname2-stnd=d-STN-owy
-(SETTINGS LIST) matname2-stnc=c-STN-owy
-(SETTINGS LIST) matname2-stnb=b-STN-owy
-(SETTINGS LIST) matname2-stna=a-STN-owy
-(SETTINGS LIST) STN-cabler=Wieszacz STN-ów
-(SETTINGS LIST) ^^^^ Resource bundle end ^^^
-(STN) Resources loaded
-(SETTINGS LIST) Missed translation: STN-cabler
-(SETTINGS LIST) Missed translation: STN-cabler0
-(ITEMS) Adding stn.cabler with title UNTRANSLATABLE STN-cabler and description:
- UNTRANSLATABLE STN-cabler0
-(SETTINGS LIST) vvvv Resource bundle start null vvv
-(SETTINGS LIST) cancel=Anuluj
-(SETTINGS LIST) matname1-tungstenC=Węglik wolframu
-(SETTINGS LIST) component-rtx=RTX
-(SETTINGS LIST) matname2-nickel=Niklowy
-(SETTINGS LIST) matname2-adraconium=Awakened Draconiowy
-(SETTINGS LIST) wgui-unsel=Odznacz
-(SETTINGS LIST) wguim-opsel=Jeden na wybór
-(SETTINGS LIST) component-ceritor=cerytor
-(SETTINGS LIST) matname2-duranium=Duraniowy
-(SETTINGS LIST) cdie-select=Wybierz DR narożnik obszaru zbierania za pomocą lewego przycisku, lub kliknij prawy przycisk, aby anulować. Pomarańczowa ramka wskazuje obszar oddziaływania
-(SETTINGS LIST) matname1-stainless=Stal nierdzewna
-(SETTINGS LIST) matname2-glowstone=Jasnogłazowy
-(SETTINGS LIST) chest-hopper=Wrzutnia
-(SETTINGS LIST) beer=Piwo
-(SETTINGS LIST) machine-electrofurnace=Piec
-(SETTINGS LIST) machine-wiremill=Druciarka
-(SETTINGS LIST) toolstd-1=Wciśnij LMB, aby użyć przedmiotu, RMB, aby otworzyć menu
-(SETTINGS LIST) mattype-gear=Zębatka
-(SETTINGS LIST) wguim-nosel=Nie wybranow
-(SETTINGS LIST) wguim-craft=< Craft
-(SETTINGS LIST) matname-quartz=z kwarcu
-(SETTINGS LIST) bucket=Wiadro na przedmioty
-(SETTINGS LIST) cguis-lang=Język
-(SETTINGS LIST) matname-iron=ze żelaza
-(SETTINGS LIST) wguim-nosmelt=Brak przetwarzania
-(SETTINGS LIST) wguir-in=Składniki:
-(SETTINGS LIST) matname2-copper=Miedziany
-(SETTINGS LIST) descr-chest2=m³ przedmiotów
-(SETTINGS LIST) matname1-silicon=Krzem
-(SETTINGS LIST) descr-chest1=Przechowuje
-(SETTINGS LIST) ipipe-filter=Rura z filtrem
-(SETTINGS LIST) toolstd-4=I, aby odbić od |, J, aby odbić od \, K abyy odbić od ― i L, aby odbić od /";
-(SETTINGS LIST) toolstd-2=Ctrl+LMB, aby obrócić ⥀, Ctrl+RMB, aby obrócić ⥁, Shift+LMB aby odwrócić chiralność
-(SETTINGS LIST) toolstd-3=Shift+LMB, aby postawić blok, Shift+MMB, aby pójść do wskażnika, Shift+RMB, aby wydobyć
-(SETTINGS LIST) matname-silicarbide=z węglika krzemu
-(SETTINGS LIST) machine-seeds=Pole uprawne
-(SETTINGS LIST) wguicf-cons=ZUŻYWAJĄ przedmiot
-(SETTINGS LIST) matname1-alnico=Alnico
-(SETTINGS LIST) matname-crystal=z krystalitu
-(SETTINGS LIST) paint-descr=Wciśnij X, żeby zmienić kolor, lub wciśnij X, aby przywrócić kolor biały.
-(SETTINGS LIST) matname1-brass=Mosiądz
-(SETTINGS LIST) matname-lumium=z lumium
-(SETTINGS LIST) matname2-PVC=polichlorowy
-(SETTINGS LIST) matname-gold=ze złota
-(SETTINGS LIST) ngui-title=Utwórz nowy świat
-(SETTINGS LIST) machine-crusher=Rozdrabniacz
-(SETTINGS LIST) grass=Trawa
-(SETTINGS LIST) STN-cabler=Wieszacz STN-ów
-(SETTINGS LIST) wguit-nochance=Nielosowalne
-(SETTINGS LIST) ind-cap1=Podstawowy kondensator
-(SETTINGS LIST) ww-btn=Przycisk
-(SETTINGS LIST) colperiod=Czas zbierania w cyklach
-(SETTINGS LIST) matname1-energetic=Stop energetyzujący
-(SETTINGS LIST) wgui-an=Dodaj kilka
-(SETTINGS LIST) matname2-platinum=Platynowy
-(SETTINGS LIST) matname2-diamond=Diamentowy
-(SETTINGS LIST) wgui-world=Świat
-(SETTINGS LIST) ww-lamp=Lampa
-(SETTINGS LIST) matname1-electrosteel=Stal elektryczna
-(SETTINGS LIST) matname2-stellar=Stellarinowy
-(SETTINGS LIST) matname1-coal=Węgiel
-(SETTINGS LIST) cguims-empty=Pusty plik
-(SETTINGS LIST) mattype-sheet=Arkusz
-(SETTINGS LIST) component-diode=dioda
-(SETTINGS LIST) matname1-alu=Aluminium
-(SETTINGS LIST) cgui-modfs=Pliki modyfikacji
-(SETTINGS LIST) ww-c=Kabel WireWorld
-(SETTINGS LIST) ind-sub1=Podstawowy podkład
-(SETTINGS LIST) ind-sub0=Prymitywny podkład
-(SETTINGS LIST) furnace=Piec
-(SETTINGS LIST) ww-rnd=Losownica
-(SETTINGS LIST) cguim-descr=Opis
-(SETTINGS LIST) ww-h=Sygnał WireWorld
-(SETTINGS LIST) wguic-g2s=Szablon < Siatka
-(SETTINGS LIST) matname1-redstone=Czerwony proszek
-(SETTINGS LIST) cgui-shop=Pobierz zawartość
-(SETTINGS LIST) mattype-block=Blok
-(SETTINGS LIST) cguim-update=Ostatnia aktualizacja
-(SETTINGS LIST) ind-ring1=Prymitywne łożysko
-(SETTINGS LIST) matname-neosteel=z neostali
-(SETTINGS LIST) ww-O=Bramka LUB
-(SETTINGS LIST) wguim-exstencil=← Wyjmij szablon
-(SETTINGS LIST) ww-N=Bramka NIE
-(SETTINGS LIST) matname-zinc=z cynku
-(SETTINGS LIST) matname2-cobalt=Kobaltowy
-(SETTINGS LIST) tier-ext=Ekstremalny
-(SETTINGS LIST) ww-Y=Bramka TAK
-(SETTINGS LIST) cguims-ena=Aktywny
-(SETTINGS LIST) ww-X=Bramka WYKLUB
-(SETTINGS LIST) wguir-chance=Może wyprodukować:
-(SETTINGS LIST) ngui-plain=Płaski
-(SETTINGS LIST) ww-true=Prawda
-(SETTINGS LIST) machine-extruder=Wyciskarka
-(SETTINGS LIST) ww-A=Bramka I
-(SETTINGS LIST) matname-rudimentium=z rudimentium
-(SETTINGS LIST) matname1-PTFE=PTFE
-(SETTINGS LIST) pick-b=Kilof na start
-(SETTINGS LIST) wguicf-chan=MOGĄ WYPRODUKOWAĆ przedmiot
-(SETTINGS LIST) matname1-rudimentary=Rudyment
-(SETTINGS LIST) ww-off=Wyłącznik
-(SETTINGS LIST) sand=Piasek
-(SETTINGS LIST) cguis-modhelp=Modyfikacje z zewnątrz
-Dodawaj tylko modyfikacje ze zaufanych źródełs.
-Modyfikacje tutaj muszą być plikem do pobrania bądź lokalnym.
-Strony nie zadziałają.
-(SETTINGS LIST) aim-descr=Wybierz namierzalny block za pomocą elwego przycisku
-(SETTINGS LIST) cgui-refugeehelpURL=refugeesEN
-(SETTINGS LIST) matname1-quartz=Kwarc
-(SETTINGS LIST) matname1-chaotium=Chaotium
-(SETTINGS LIST) ind-sub7=Wyjątkowy podkład
-(SETTINGS LIST) wguim-all=Wszystkie
-(SETTINGS LIST) ind-sub6=Niesamowity podkład
-(SETTINGS LIST) ind-sub9=Maksymalny podkład
-(SETTINGS LIST) ind-sub8=Zaszczytny podkład
-(SETTINGS LIST) cgui-win=Okno
-(SETTINGS LIST) cdie-descr=Wybierz zbieracz za pomocą lewego przycisku
-(SETTINGS LIST) ind-sub3=Rozbudowany podkład
-(SETTINGS LIST) multi-nosoundsel=(nie wybrano dźwięku)
-(SETTINGS LIST) ind-sub2=Rozszerzony podkład
-(SETTINGS LIST) cguim-dir=Otwórz folder z modyfikacjami
-(SETTINGS LIST) ind-sub5=Ekstremalny podkład
-(SETTINGS LIST) ind-sub4=Zaawansowany podkład
-(SETTINGS LIST) wgui-game=Gra
-(SETTINGS LIST) cguiw-play=Graj
-(SETTINGS LIST) component-ai=AI
-(SETTINGS LIST) matname1-copper=Miedź
-(SETTINGS LIST) wguit-noway=Nieotrzymywalne
-(SETTINGS LIST) matname2-alnico=Alnico
-(SETTINGS LIST) collector=Zbieracz porzuconych przedmiotów
-(SETTINGS LIST) remove=Usuń
-(SETTINGS LIST) ind-ic1=Podstawowy układ
-(SETTINGS LIST) shard-chaotic=Odłam chaotyczny
-(SETTINGS LIST) wgui-debug=Debugowanie
-(SETTINGS LIST) matname1-vibrant=Stop vibrujący
-(SETTINGS LIST) matname2-steel=Stalowy
-(SETTINGS LIST) ww-rot=Obracacz
-(SETTINGS LIST) autocraft1=Auto-konstruktor 3X3
-(SETTINGS LIST) matname1-crystal=Krystalit
-(SETTINGS LIST) wguicf-prod=PRODUKUJĄCE przedmiot
-(SETTINGS LIST) ipipe-extractor=Wyciągacz przedmiotów
-(SETTINGS LIST) matname-uranium=z uranu
-(SETTINGS LIST) nodescr=(brak opisu)
-(SETTINGS LIST) matname1-steel=Stal
-(SETTINGS LIST) ww-placer=Nieskończony postawiacz bloków
-(SETTINGS LIST) wguim-craftaid=Panel rzemieślniczy do tworzenia przepisów:
-(SETTINGS LIST) depr-nuker=zzz NIEAKTUALNE Reaktor jądrowy (zamień to na Prądnicę jądrową 1)
-(SETTINGS LIST) ww-t=Ogon WireWorld
-(SETTINGS LIST) multi-play=▶ Odtwarzaj
-(SETTINGS LIST) multi-autosoundsel=(dźwięk wybrany spoza listy
-(SETTINGS LIST) matname-tungsten=z wolframu
-(SETTINGS LIST) matname2-PTFE=polifluorowy
-(SETTINGS LIST) cguim-version=Wersja
-(SETTINGS LIST) component-brainbreaker=rozwalacz mózgu
-(SETTINGS LIST) mattype-ore=Ruda
-(SETTINGS LIST) machine-turbogen=Turboprądnica
-(SETTINGS LIST) ipipe-right=Rura - złącz z prawej
-(SETTINGS LIST) matname-alnico=z alniko
-(SETTINGS LIST) wgui-icount=Przedmioty do dod/usuń
-(SETTINGS LIST) wguim-insstencil=Włóż szablon →
-(SETTINGS LIST) cguis-debug=Debugowanie
-(SETTINGS LIST) component-subsD=podsystem D
-(SETTINGS LIST) matname2-unobtainium=Unobtainiowy
-(SETTINGS LIST) matname2-alu=Aluminowy
-(SETTINGS LIST) component-subsC=podsystem C
-(SETTINGS LIST) matname2-ender=Ender
-(SETTINGS LIST) wgui-idasc=Kody rosnąco
-(SETTINGS LIST) toolalc=Wciśnij LMB, aby wypić alkohol
-(SETTINGS LIST) cgui-settings=Ustawienia
-(SETTINGS LIST) pick-rud=Rudymentowy kilof
-(SETTINGS LIST) matname-redstone=z czerwonego proszku
-(SETTINGS LIST) matname-alu=z aluminium
-(SETTINGS LIST) cgui-saves=Pliki gry
-(SETTINGS LIST) matname1-gold=złoto
-(SETTINGS LIST) matname2-vibrant=Wibrujący
-(SETTINGS LIST) cdie=Skonfiguruj zbieracze porzuconych przedmiotów
-(SETTINGS LIST) matname2-nichrome=Niklochromowy
-(SETTINGS LIST) matname1-silicopper=Krzemiedż
-(SETTINGS LIST) ngui-w=Szerokość
-(SETTINGS LIST) ind-resa1=Podstawowa sieć rezystorów
-(SETTINGS LIST) cguis-scale=Współczynnik skalowania
-(SETTINGS LIST) matname-glowstone=z jasnogłazu
-(SETTINGS LIST) wguit-block=Bloki
-(SETTINGS LIST) ngui-s=Ziarno
-(SETTINGS LIST) matname-stnc=ze stopu STN c
-(SETTINGS LIST) matname-stnd=ze stopu STN d
-(SETTINGS LIST) machine-preceiver=Odbiornik prądu
-(SETTINGS LIST) matname2-rubber=Gumowy
-(SETTINGS LIST) matname2-neosteel=Neosteel
-(SETTINGS LIST) matname2-lead=Ołowiany
-(SETTINGS LIST) matname-stna=ze stopu STN a
-(SETTINGS LIST) matname-stnb=ze stopu STN b
-(SETTINGS LIST) yeast=Drożdże
-(SETTINGS LIST) ww-on=Włącznik
-(SETTINGS LIST) gravel=Żwir
-(SETTINGS LIST) ngui-g=Generator świata
-(SETTINGS LIST) exit=Wyjdź
-(SETTINGS LIST) ngui-c=Rozmiar fragmentów
-(SETTINGS LIST) component-subsB=podsystem B
-(SETTINGS LIST) filter-ient=Item entry filter
-(SETTINGS LIST) ngui-n=Nazwa
-(SETTINGS LIST) component-subsA=podsystem A
-(SETTINGS LIST) cguis-restart=Żeby zmiany języka zadziałały, należy zrestartować grę
-(SETTINGS LIST) hello=Cześć!
-(SETTINGS LIST) wgui-creamode=Tryb kreatywny
-(SETTINGS LIST) matname2-enderium=Enderiowy
-(SETTINGS LIST) ngui-h=Wyskokość
-(SETTINGS LIST) CoL=Zawieś grę
-(SETTINGS LIST) aim=Namierzanie
-(SETTINGS LIST) cgui-mods=Modyfikacje
-(SETTINGS LIST) ipipe-cross=Rura - kryż
-(SETTINGS LIST) mattype-ring=Pierścień
-(SETTINGS LIST) matname2-silicon=Krzemowy
-(SETTINGS LIST) cguiw-new=Nowy świat
-(SETTINGS LIST) air=Powietrze
-(SETTINGS LIST) wguir-machine=Maszyna:
-(SETTINGS LIST) ppipe-s=Rura dla graczy - prosta
-(SETTINGS LIST) ppipe-t=Rura dla graczy - wjazd
-(SETTINGS LIST) material-grammar=true
-(SETTINGS LIST) ipipe-left=Rura - złącz z lewej
-(SETTINGS LIST) machine-alloyer=Stapiacz
-(SETTINGS LIST) tier-enh=Rozszerzony
-(SETTINGS LIST) mattype-crop=Uprawa
-(SETTINGS LIST) ppipe-x=Rura dla graczy - krzyż
-(SETTINGS LIST) ppipe-y=Rura dla graczy - zjazd
-(SETTINGS LIST) ppipe-z=Rura dla graczy - 2zakr
-(SETTINGS LIST) tier-adv=Zaawansowany
-(SETTINGS LIST) depr-furnace=zzz NIEAKTUALNE Piec elektryczny (zamień to na Piec ULV)
-(SETTINGS LIST) wgui-iddesc=Kody malejąco
-(SETTINGS LIST) wguim-pass=Przepuszczaj nieobsługiwane przedmioty
-(SETTINGS LIST) machine-clustermill=Walec
-(SETTINGS LIST) component-wafer=talerz krzemowy
-(SETTINGS LIST) matname-bronze=z brązu
-(SETTINGS LIST) wgui-recipes=Przepisy
-(SETTINGS LIST) everytime=Co
-(SETTINGS LIST) ccode=Kod kolorystyczny
-(SETTINGS LIST) matname1-HSS=Stal szybkotnąca
-(SETTINGS LIST) wguit-way=Otrzymywalne
-(SETTINGS LIST) matname1-duranium=Duranium
-(SETTINGS LIST) wguicf-cat=korzystają KATALIZATORA
-(SETTINGS LIST) hops=Chmiel
-(SETTINGS LIST) component-cpu=CPU
-(SETTINGS LIST) toolstd=Podstawowe narzędzie
-(SETTINGS LIST) ind-dio1=Podstawowa dioda
-(SETTINGS LIST) mattype-frag=Fragment
-(SETTINGS LIST) matname-energetic=ze stopu energetyzującego
-(SETTINGS LIST) wgui-a1=Dodaj jednego
-(SETTINGS LIST) visuals-1=O-krawędź, P-wypełnienie, N-usuń wypełnienie, M-usuń krawędź
-(SETTINGS LIST) glassp=Szyba
-(SETTINGS LIST) matname-rubber=z gumy
-(SETTINGS LIST) matname1-cobalt=Kobalt
-(SETTINGS LIST) visuals-5=Punkty i linie korzystają tylko z koloru krawędzi. Kołą i prostokąty wykorzystują oba kolory. Obrazy nie wykorzystują kolorów
-(SETTINGS LIST) visuals-4=Punkty wykorzystują tylko pierwszą pozycję
-(SETTINGS LIST) visuals-3=Z-punkt, X-linia, C-koło, V-prostokąt, B-obraz
-(SETTINGS LIST) visuals-2=J-pierwsza pozycja, K-druga pozycja
-(SETTINGS LIST) logs=Kłoda
-(SETTINGS LIST) wguim-progress=Postęp:
-(SETTINGS LIST) ind-circ5=Ekstremalny obwód
-(SETTINGS LIST) ind-circ6=Niesamowity obwód
-(SETTINGS LIST) BOM=Lista materiałów
-(SETTINGS LIST) ind-circ7=Wyjątkowy obwód
-(SETTINGS LIST) void=Próżnia
-(SETTINGS LIST) ind-circ8=Zaszczytny obwód
-(SETTINGS LIST) ind-circ9=Maksymalny obwód
-(SETTINGS LIST) matname2-redstone=Redstonowy
-(SETTINGS LIST) ppipe-b=Rura dla graczy - zakręt
-(SETTINGS LIST) matname2-silicarbide=węglikokrzemowy
-(SETTINGS LIST) ppipe-l=Rura dla graczy - złącz
-(SETTINGS LIST) matname-electrosteel=ze stali elektrycznej
-(SETTINGS LIST) multi-begin=⏮ Na początek
-(SETTINGS LIST) matname-signalum=ze signalum
-(SETTINGS LIST) matname-platinum=z platyny
-(SETTINGS LIST) machine-infinigen=Wieczna prądnica
-(SETTINGS LIST) matname1-iron=Żelazo
-(SETTINGS LIST) cguis-scalerr=Nieprawidłowy współczynnik skalowania
-(SETTINGS LIST) ind-circ0=Prymitywny obwód
-(SETTINGS LIST) ind-circ1=Podstawowy obwód
-(SETTINGS LIST) matname2-titanium=Titanium
-(SETTINGS LIST) ind-circ2=Rozszerzony obwód
-(SETTINGS LIST) ind-circ3=Rozbudowany obwód
-(SETTINGS LIST) ind-circ4=Zaawansowany obwód
-(SETTINGS LIST) mattype-rod=Pręt
-(SETTINGS LIST) multi-speaker=Głośnik
-(SETTINGS LIST) matname-iridium=z irydu
-(SETTINGS LIST) matname2-rudimentium=Rudimentiowy
-(SETTINGS LIST) wguit-ients=Złożone przedmioty
-(SETTINGS LIST) matname-draconium=z Draconium
-(SETTINGS LIST) cguiw-ext=Świat z zewnątrz
-(SETTINGS LIST) wguim-activate=Aktywuj przedmiot
-(SETTINGS LIST) ind-qua7=wyjątkowe złoże
-(SETTINGS LIST) tier-ultim=Zaszczytny
-(SETTINGS LIST) component-ic=układ scalony
-(SETTINGS LIST) matname1-zinc=Cynk
-(SETTINGS LIST) wguit-norecipes=Niesporządzalne
-(SETTINGS LIST) ind-qua3=Rozbudowane złoże
-(SETTINGS LIST) ind-qua4=Zaawansowane złoże
-(SETTINGS LIST) matname1-platinum=Platyna
-(SETTINGS LIST) ipipe-dual=Rura - 2zakr
-(SETTINGS LIST) cguims-api=Pakiet API
-(SETTINGS LIST) ind-qua5=Ekstremalne złoże
-(SETTINGS LIST) dump=Wyrzuć przedmioty
-(SETTINGS LIST) ind-qua6=Niesamowite złoże
-(SETTINGS LIST) machine-hops=Uprawa chmielu
-(SETTINGS LIST) ipipe-turn=Rura - zakręt
-(SETTINGS LIST) ok=OK
-(SETTINGS LIST) pickbuilder=zzz NIEAKTUALNE Warsztat kilofów (scraftuj to samo, aby odzyskać składniki)
-(SETTINGS LIST) ind-qua1=Podstawowe złoże
-(SETTINGS LIST) ind-qua2=Rozszerzone złoże
-(SETTINGS LIST) machine-coalgen=Prądnica piecowa
-(SETTINGS LIST) rawitem=(surowy)
-(SETTINGS LIST) wguim-sel=Wybór
-(SETTINGS LIST) component-motor=Silnik
-(SETTINGS LIST) matname1-signalum=Signalum
-(SETTINGS LIST) machine-battery=Bateria
-(SETTINGS LIST) machine-digger=Koparka
-(SETTINGS LIST) wgui-titleasc=Tytułu rosnąco
-(SETTINGS LIST) matname1-bronze=Brąz
-(SETTINGS LIST) matname2-HSS=Szybkotnącostalowy
-(SETTINGS LIST) matname2-PE=polietylenowy
-(SETTINGS LIST) component-conveyor=Taśmociąg
-(SETTINGS LIST) component-capacitor=kondensator
-(SETTINGS LIST) matname2-crystal=Krystalitowy
-(SETTINGS LIST) wguim-in=Składniki
-(SETTINGS LIST) matname2-chrome=Chromowy
-(SETTINGS LIST) multi-resume=▷ Wznów
-(SETTINGS LIST) paint=Pędzel malarski
-(SETTINGS LIST) machine-brewery=Browar
-(SETTINGS LIST) machine-agrorecipes=Plony
-(SETTINGS LIST) matname1-neosteel=Neosteel
-(SETTINGS LIST) component-die=Chip Die
-(SETTINGS LIST) matname1-lead=Ołów
-(SETTINGS LIST) wgui-sort=Sortowanie:
-(SETTINGS LIST) machine-splicer=Zespalacz
-(SETTINGS LIST) wguim-hammer=Młot:
-(SETTINGS LIST) matname-HSS=ze stali szybkotnącej
-(SETTINGS LIST) alcohol=Alkohol
-(SETTINGS LIST) cguis-dumpbundles=Zrzucaj związki zasobów
-(SETTINGS LIST) matname-diamond=z diamentu
-(SETTINGS LIST) wgui-dtp=Wyłącz grę
-(SETTINGS LIST) matname2-tungsten=Wolframowy
-(SETTINGS LIST) matname2-tungstenC=Węglowolframowy
-(SETTINGS LIST) cguiw-dir=Folder z mapami
-(SETTINGS LIST) wgui-rn=Odejmij kilka
-(SETTINGS LIST) matname-neodymium=z neodymu
-(SETTINGS LIST) matname2-gold=Złoty
-(SETTINGS LIST) matname-stellar=ze Stellarine
-(SETTINGS LIST) multi-unsel=Odznacz dźwięk
-(SETTINGS LIST) cguim-author=Autor
-(SETTINGS LIST) mattype-foil=Folia
-(SETTINGS LIST) wguim-n=# pierwszego
-(SETTINGS LIST) machine-sinterer=Fabryka węglików spiekanych
-(SETTINGS LIST) wguim-nsel=# na wybór
-(SETTINGS LIST) matname-duranium=z duranium
-(SETTINGS LIST) battery=Bateria
-(SETTINGS LIST) component-neuristor=neurystor
-(SETTINGS LIST) clay=Glina
-(SETTINGS LIST) visuals-selecting=Confirm the position with [L]
-(SETTINGS LIST) wgui-ra=Opróżnij
-(SETTINGS LIST) mattype-smalldust=Mały pył
-(SETTINGS LIST) wgui-sortis=Sortuj przedmioty
-(SETTINGS LIST) matname1-enderium=Enderium
-(SETTINGS LIST) matname1-iridium=Iryd
-(SETTINGS LIST) machine-quarry=Kamieniołom
-(SETTINGS LIST) matname2-lumium=Lumiowy
-(SETTINGS LIST) elec-load=Obciążenie elektryczne
-(SETTINGS LIST) ww-tgl=Przerzutnik
-(SETTINGS LIST) wgui-r1=Odejmij jednego
-(SETTINGS LIST) wguim-energy=Magazyn energii:
-(SETTINGS LIST) ind-frame1=Prymitywna klatka do maszyn
-(SETTINGS LIST) ww-ur=Losownica jednorodna
-(SETTINGS LIST) cguims-media=Pakiet mediów
-(SETTINGS LIST) cguiw-refresh=Odśwież
-(SETTINGS LIST) matname-tin=z cyny
-(SETTINGS LIST) matname2-signalum=Signaliowy
-(SETTINGS LIST) matname2-stainless=Stalowy nierdzewny
-(SETTINGS LIST) wguit-ins=Wykorzystywalne
-(SETTINGS LIST) wguim-cat=KATALIZATOR
-(SETTINGS LIST) matname1-rubber=Guma
-(SETTINGS LIST) component-gpu=GPU
-(SETTINGS LIST) matname-silver=ze srebra
-(SETTINGS LIST) matname-rudimentary=z rudymentu
-(SETTINGS LIST) matname2-quartz=Kwarcowy
-(SETTINGS LIST) matname1-uranium=Uran
-(SETTINGS LIST) cguis-ui=UI
-(SETTINGS LIST) wguit-chance=Losowalne
-(SETTINGS LIST) component-inductor=cewka
-(SETTINGS LIST) matname1-tin=Cyna
-(SETTINGS LIST) matname2-brass=Mosiężny
-(SETTINGS LIST) wguit-sblk=Bloki budowlane
-(SETTINGS LIST) wguit-tags=Oznaczone
-(SETTINGS LIST) wguim-chance=MOŻNA UZYSKAĆ
-(SETTINGS LIST) leaves=Liście
-(SETTINGS LIST) ww-chat=Czater
-(SETTINGS LIST) stencil=Szablon rzemieślniczy
-(SETTINGS LIST) matname-brass=z mosiądzu
-(SETTINGS LIST) matname1-stna=Stop STN a
-(SETTINGS LIST) chest=Skrzynia
-(SETTINGS LIST) glass=Szkło
-(SETTINGS LIST) wguir-out=Produkty:
-(SETTINGS LIST) matname1-stnd=Stop STN d
-(SETTINGS LIST) matname1-ender=Ender
-(SETTINGS LIST) matname1-PE=Polietylen
-(SETTINGS LIST) seeds=Ziarna
-(SETTINGS LIST) matname1-stnb=Stop STN b
-(SETTINGS LIST) matname-lead=z ołowiu
-(SETTINGS LIST) matname1-stnc=Stop STN c
-(SETTINGS LIST) matname1-silicarbide=Węglik krzemu
-(SETTINGS LIST) matname2-chaotium=Chaotiowy
-(SETTINGS LIST) tier-ins=Niesamowity
-(SETTINGS LIST) ipipe-straight=Rura - prosta
-(SETTINGS LIST) machine-inscriber=Wprasowywarka
-(SETTINGS LIST) component-neuron=neuron
-(SETTINGS LIST) wgui-fulls=Tryb pełnoekranowy
-(SETTINGS LIST) mattype-dust=Pył
-(SETTINGS LIST) filt-ient=Filtr przedmiotów (wartości)
-(SETTINGS LIST) tier-lud=Wyjątkowy
-(SETTINGS LIST) cguims-dead=Zawieszony
-(SETTINGS LIST) component-resistor=rezystor
-(SETTINGS LIST) matname2-bronze=Brązowy
-(SETTINGS LIST) mattype-panel=Płytka
-(SETTINGS LIST) pickaxe=Kilof
-(SETTINGS LIST) matname1-rudimentium=Rudimentium
-(SETTINGS LIST) matname1-tungsten=Wolfram
-(SETTINGS LIST) cguis-load=Ładowanie...
-(SETTINGS LIST) matname-PE=z polietylenu
-(SETTINGS LIST) cgui-exit=Wyjdź z gry
-(SETTINGS LIST) matname-cobalt=z kobaltu
-(SETTINGS LIST) wguim-selblock=Wybierz rodzaj bloku
-(SETTINGS LIST) matname-stainless=ze stali nierdzewnej
-(SETTINGS LIST) matname2-neodymium=Neodymium
-(SETTINGS LIST) lava=Lawa
-(SETTINGS LIST) multi-selsound=Wybierz dźwięk:
-(SETTINGS LIST) matname2-stnd=d-STN-owy
-(SETTINGS LIST) ua-refugee-error=Не в змозі отримати допомогу як біженець/Unable to get help as a refugee
-(SETTINGS LIST) matname2-stnc=c-STN-owy
-(SETTINGS LIST) matname2-stnb=b-STN-owy
-(SETTINGS LIST) matname2-stna=a-STN-owy
-(SETTINGS LIST) matname1-adraconium=Awakened Draconium
-(SETTINGS LIST) mattype-cluster=Klaster
-(SETTINGS LIST) alcodose=Zawartość alkoholu:
-(SETTINGS LIST) shard-adraconic=Wzbudzony odłam draconiowy
-(SETTINGS LIST) wguit-items=Przedmioty
-(SETTINGS LIST) chest-both=Wrzutniossak
-(SETTINGS LIST) tcopy-2=Wybierz miejsce do wkejenia za pomocą LMB, lub wciśnij RMB, aby usunąć wybór
-(SETTINGS LIST) tcopy-1=Wybierz drugi narożnik, Wciśnij LMB, aby skopiować, wciśnij MMB, aby wyciąć, lub wciśnij RMB, aby anulować
-(SETTINGS LIST) tcopy-0=Wybierz pierwszy narożnik za pomocą LMB
-(SETTINGS LIST) component-bhole=czarna dziura
-(SETTINGS LIST) cguims-mod=Plik modyfikacji
-(SETTINGS LIST) wguit-bents=Złożone bloki
-(SETTINGS LIST) wguim-infuel=Składniki i paliwo
-(SETTINGS LIST) visuals=Obiekty wizualne
-(SETTINGS LIST) mattype-nugget=Samorodek
-(SETTINGS LIST) component-ram=RAM
-(SETTINGS LIST) wguim-out=Produkty
-(SETTINGS LIST) stone=Skała
-(SETTINGS LIST) STN-cabler0=Modyfikuje podwieszane kable STN
-(SETTINGS LIST) matname2-tin=Cynowy
-(SETTINGS LIST) wgui-scale=vv Skalowanie vv
-(SETTINGS LIST) elec-meter=Miernik prądu
-(SETTINGS LIST) wgui-main=Do menu
-(SETTINGS LIST) ind-ind1=Podstawowa cewka
-(SETTINGS LIST) matname-silicopper=z krzemiedzi
-(SETTINGS LIST) matname1-glowstone=Jasnogłaz
-(SETTINGS LIST) machine-spllitter=Rozcinacz
-(SETTINGS LIST) wgui-filter=Filtr
-(SETTINGS LIST) visuals-autorefresh=Auto-odświeżanie pozycji myszy
-(SETTINGS LIST) cycleassembly=Konstruktor cykliczny
-(SETTINGS LIST) matname1-nickel=Nikiel
-(SETTINGS LIST) matname1-chrome=Chrom
-(SETTINGS LIST) component-subcB=podukład B
-(SETTINGS LIST) component-subcA=podukład A
-(SETTINGS LIST) matname-silicon=z krzemu
-(SETTINGS LIST) multi-pause=⏸ Pauza
-(SETTINGS LIST) matname1-unobtainium=Unobtainium
-(SETTINGS LIST) component-robot=Ramię robotyczne
-(SETTINGS LIST) machine-pickaxe=TO NIE JEST GRUPA PRZEPISÓW Kilofy
-(SETTINGS LIST) rrubber=Kauczuk
-(SETTINGS LIST) mattype-wire=Drut
-(SETTINGS LIST) seconds=sekund
-(SETTINGS LIST) machine-crafter=Stół rzemieślniczy
-(SETTINGS LIST) ind-mot2=Podstawowy silnik
-(SETTINGS LIST) machine-assembler=Monter
-(SETTINGS LIST) cguim-name=Nazwa
-(SETTINGS LIST) multi-soundsel=Wybrany dźwięk:
-(SETTINGS LIST) component-subcD=podukład D
-(SETTINGS LIST) ind-mot1=Prymitywny silnik
-(SETTINGS LIST) component-subcC=podukład C
-(SETTINGS LIST) wguicf-head=Wyszukaj przepisów, które:
-(SETTINGS LIST) wguim-smelt=Przetwarzanie:
-(SETTINGS LIST) matname2-coal=Węglowy
-(SETTINGS LIST) matname1-draconium=Draconium
-(SETTINGS LIST) matname-unobtainium=z unobtainium
-(SETTINGS LIST) shard-draconic=Odłam draconiowy
-(SETTINGS LIST) matname-ender=z enderu
-(SETTINGS LIST) cgui-website=Strona gry
-(SETTINGS LIST) matname1-PVC=PVC
-(SETTINGS LIST) matname2-uranium=Uranowy
-(SETTINGS LIST) ind-res1=Podstawowy rezystor
-(SETTINGS LIST) matname1-diamond=Diament
-(SETTINGS LIST) depr-notranslate=TEN BLOK JEST ZDEZAKTUALIZOWANY! Ten panel nie będzie tłumaczony!
-(SETTINGS LIST) matname-steel=ze stali
-(SETTINGS LIST) wguir-energy=Zużycie prądu:
-(SETTINGS LIST) matname-PTFE=z PTFE
-(SETTINGS LIST) mattype-ingot=Sztabka
-(SETTINGS LIST) matname1-stellar=Stellarine
-(SETTINGS LIST) ipipe-ipe=Skrzyżowany wyciągacz
-(SETTINGS LIST) wguic-exit=Wyjdź
-(SETTINGS LIST) matname2-silver=Srebrny
-(SETTINGS LIST) component-transistor=tranzystor
-(SETTINGS LIST) mattype-frame=Klatka
-(SETTINGS LIST) cguis-scalemethod=Zaznacz, żebu używać skalowania SwingDPI, w przeciwnym razie użyj skalowania systemowego
-(SETTINGS LIST) wguir-cat=Katalizator:
-(SETTINGS LIST) pick-wood=Drewniany kilof
-(SETTINGS LIST) ua-refugees=Для українських біженців (UA)
-(SETTINGS LIST) wguit-recipes=Sporządzalne
-(SETTINGS LIST) matname2-silicopper=krzemiedziany
-(SETTINGS LIST) wguim-curr=Obecnie: 
-(SETTINGS LIST) matname-nichrome=z niklochromu
-(SETTINGS LIST) mattype-wire3=średni kabel elektryczny
-(SETTINGS LIST) mattype-wire2=cienki kabel elektryczny
-(SETTINGS LIST) matname-chrome=z chromu
-(SETTINGS LIST) mattype-wire1=b-cienki kabel elektryczny
-(SETTINGS LIST) matname-copper=z miedzi
-(SETTINGS LIST) mattype-wire5=b-gruby kabel elektryczny
-(SETTINGS LIST) mattype-wire4=gruby kabel elektryczny
-(SETTINGS LIST) cguis-cont=Kraj
-(SETTINGS LIST) matname-coal=z węgla
-(SETTINGS LIST) leaf=Liść
-(SETTINGS LIST) cguims-dis=Nieaktywny
-(SETTINGS LIST) cguims-bloat=Too big
-(SETTINGS LIST) planks=Deski
-(SETTINGS LIST) cguims-dir=Folder plików
-(SETTINGS LIST) ww-load=Wykrywacz ładowania świata
-(SETTINGS LIST) matname-enderium=z enderium
-(SETTINGS LIST) matname-chaotium=z Chaotium
-(SETTINGS LIST) matname-vibrant=ze stopu vibrującego
-(SETTINGS LIST) chest-sucker=Ssak
-(SETTINGS LIST) matname-titanium=z tytanu
-(SETTINGS LIST) matname2-zinc=Cynkowy
-(SETTINGS LIST) tcopy=Kopiarka
-(SETTINGS LIST) matname-tungstenC=z węglika wolframu
-(SETTINGS LIST) matname2-draconium=Draconiowy
-(SETTINGS LIST) ww-click=Klikacz
-(SETTINGS LIST) matname-adraconium=z Awakened Draconium
-(SETTINGS LIST) matname1-neodymium=Neodymium
-(SETTINGS LIST) ind-tra1=Podstawowy tranzystor
-(SETTINGS LIST) matname2-iridium=Irydowy
-(SETTINGS LIST) wguic-clear=Wyczyść
-(SETTINGS LIST) wguic-s2g=Szablon > Siatka
-(SETTINGS LIST) cgui-refugeehelp=Dla uchodźców z Ukrainy
-(SETTINGS LIST) component-brain=mózg
-(SETTINGS LIST) cguims-none=Brak plików
-(SETTINGS LIST) matname2-electrosteel=Elektrostalowy
-(SETTINGS LIST) machine-water=Studnia z wodą
-(SETTINGS LIST) mattype-tinydust=Mikropył
-(SETTINGS LIST) matname1-titanium=Titanium
-(SETTINGS LIST) wguit-all=Wszystkie
-(SETTINGS LIST) asmtb=Stół montażowy
-(SETTINGS LIST) matname-nickel=z niklu
-(SETTINGS LIST) matname2-energetic=Energetyzujący
-(SETTINGS LIST) beerb=Butelka po piwie
-(SETTINGS LIST) cguim-un=Nieznany
-(SETTINGS LIST) wguit-sitem=Proste przedmioty
-(SETTINGS LIST) matname2-rudimentary=Rudymentowy
-(SETTINGS LIST) wguic-craft=<<Zbuduj do ekwipunku
-(SETTINGS LIST) placeitems=Stawiacz bloków i przedmiotów
-(SETTINGS LIST) multi-stop=◼ Zatrzymaj
-(SETTINGS LIST) water=Woda
-(SETTINGS LIST) wgui-titledesc=Tytuły malejąco
-(SETTINGS LIST) ngui-biomes=Wielobiomowy
-(SETTINGS LIST) machine-tree=Drzewo
-(SETTINGS LIST) aim-select=Wybierz cel za pomocą lewego przycisku, lub lub kliknij prawy przycisk, aby anulować. Celownik wskazuje cel.
-(SETTINGS LIST) matname-PVC=z PVC
-(SETTINGS LIST) cguim-state=Stan
-(SETTINGS LIST) matname2-iron=Żelazny
-(SETTINGS LIST) matname1-nichrome=Niklochrom
-(SETTINGS LIST) wguim-one=Pojedynczy
-(SETTINGS LIST) wguit-noins=Niewykorzystywalne
-(SETTINGS LIST) wgui-creati=Przedmioty
-(SETTINGS LIST) component-pump=Pompa
-(SETTINGS LIST) matname1-lumium=Lumium
-(SETTINGS LIST) wguim-fuel=Paliwo:
-(SETTINGS LIST) paper=Papier
-(SETTINGS LIST) mattype-megadust=Duży pył
-(SETTINGS LIST) steam=Para wodna
-(SETTINGS LIST) wgui-inv=Ekwipunek
-(SETTINGS LIST) wguir-volt=Napięcie:
-(SETTINGS LIST) wguim-auto=Automatyczne wyciąganie
-(SETTINGS LIST) player=Gracz
-(SETTINGS LIST) digactive=Uruchom koparkę
-(SETTINGS LIST) machine-alcohol=Napoje i kapsułki alkoholowe
-(SETTINGS LIST) machine-ptower=Wieża energetyczna
-(SETTINGS LIST) cguis-nosuch=Jeżeli wybrana kombinacja języka/kraju NIE ISTNIEJE, kraj będzie ustawiony na domyślny dla danego języka.
-(SETTINGS LIST) ind-rod1=Prymitywny pręt
-(SETTINGS LIST) cguims-bad=Uszkodzony
-(SETTINGS LIST) ipack1=Postawowy pakiet przedmiotów
-(SETTINGS LIST) wguicf-mac=korzystają z MASZYNY
-(SETTINGS LIST) cgui-refugeedonate=WPŁAĆ DAROWIZNĘ NA RZECZ UCHODŹCÓW Z UKRAINY
-(SETTINGS LIST) wgui-refresh=Odśwież
-(SETTINGS LIST) matname1-silver=Srebro
-(SETTINGS LIST) wguit-notags=Bez znaczników
-(SETTINGS LIST) ww-rctr=Losuj jeżeli
-(SETTINGS LIST) cguims-nonet=Brak Internetu
-(SETTINGS LIST) ^^^^ Resource bundle end ^^^
-(BLOCKS) Adding block.stna with title Blok ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding block.stna with title Blok ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding fcluster.stna with title Klaster ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding ingot.stna with title Sztabka ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding frag.stna with title Fragment ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding nugget.stna with title Samorodek ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding wirespool.stna with title Drut ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding ldust.stna with title Duży pył ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding dust.stna with title Pył ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding mdust.stna with title Mały pył ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding minidust.stna with title Mikropył ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding panel.stna with title Płytka ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding foil.stna with title Folia ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding gear.stna with title Zębatka ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding rod.stna with title Pręt ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding ring.stna with title Pierścień ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding sheet.stna with title Arkusz ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Adding frame.stna with title Klatka ze stopu STN a and description:
- (brak opisu)
-(ITEMS) Tagging Block Blok ze stopu STN a(block.stna) with material-stna
-(ITEMS) Tagging Item Klaster ze stopu STN a(fcluster.stna) with material-stna
-(ITEMS) Tagging Item Sztabka ze stopu STN a(ingot.stna) with material-stna
-(ITEMS) Tagging Item Fragment ze stopu STN a(frag.stna) with material-stna
-(ITEMS) Tagging Item Samorodek ze stopu STN a(nugget.stna) with material-stna
-(ITEMS) Tagging Item Drut ze stopu STN a(wirespool.stna) with material-stna
-(ITEMS) Tagging Item Duży pył ze stopu STN a(ldust.stna) with material-stna
-(ITEMS) Tagging Item Pył ze stopu STN a(dust.stna) with material-stna
-(ITEMS) Tagging Item Mały pył ze stopu STN a(mdust.stna) with material-stna
-(ITEMS) Tagging Item Mikropył ze stopu STN a(minidust.stna) with material-stna
-(ITEMS) Tagging Item Płytka ze stopu STN a(panel.stna) with material-stna
-(ITEMS) Tagging Item Folia ze stopu STN a(foil.stna) with material-stna
-(ITEMS) Tagging Item Zębatka ze stopu STN a(gear.stna) with material-stna
-(ITEMS) Tagging Item Pręt ze stopu STN a(rod.stna) with material-stna
-(ITEMS) Tagging Item Pierścień ze stopu STN a(ring.stna) with material-stna
-(ITEMS) Tagging Item Arkusz ze stopu STN a(sheet.stna) with material-stna
-(ITEMS) Tagging Item Klatka ze stopu STN a(frame.stna) with material-stna
-(ITEMS) Tagging Block Blok ze stopu STN a(block.stna) with shape-block
-(ITEMS) Tagging Item Klaster ze stopu STN a(fcluster.stna) with shape-cluster
-(ITEMS) Tagging Item Sztabka ze stopu STN a(ingot.stna) with shape-base
-(ITEMS) Tagging Item Fragment ze stopu STN a(frag.stna) with shape-frag
-(ITEMS) Tagging Item Samorodek ze stopu STN a(nugget.stna) with shape-nugget
-(ITEMS) Tagging Item Drut ze stopu STN a(wirespool.stna) with shape-wire
-(ITEMS) Tagging Item Duży pył ze stopu STN a(ldust.stna) with shape-megadust
-(ITEMS) Tagging Item Pył ze stopu STN a(dust.stna) with shape-dust
-(ITEMS) Tagging Item Mały pył ze stopu STN a(mdust.stna) with shape-smalldust
-(ITEMS) Tagging Item Mikropył ze stopu STN a(minidust.stna) with shape-tinydust
-(ITEMS) Tagging Item Płytka ze stopu STN a(panel.stna) with shape-panel
-(ITEMS) Tagging Item Folia ze stopu STN a(foil.stna) with shape-foil
-(ITEMS) Tagging Item Zębatka ze stopu STN a(gear.stna) with shape-gear
-(ITEMS) Tagging Item Pręt ze stopu STN a(rod.stna) with shape-rod
-(ITEMS) Tagging Item Pierścień ze stopu STN a(ring.stna) with shape-ring
-(ITEMS) Tagging Item Arkusz ze stopu STN a(sheet.stna) with shape-sheet
-(ITEMS) Tagging Item Klatka ze stopu STN a(frame.stna) with shape-frame
-(BLOCKS) Adding block.stnb with title Blok ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding block.stnb with title Blok ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding fcluster.stnb with title Klaster ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding ingot.stnb with title Sztabka ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding frag.stnb with title Fragment ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding nugget.stnb with title Samorodek ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding wirespool.stnb with title Drut ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding ldust.stnb with title Duży pył ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding dust.stnb with title Pył ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding mdust.stnb with title Mały pył ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding minidust.stnb with title Mikropył ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding panel.stnb with title Płytka ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding foil.stnb with title Folia ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding gear.stnb with title Zębatka ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding rod.stnb with title Pręt ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding ring.stnb with title Pierścień ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding sheet.stnb with title Arkusz ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Adding frame.stnb with title Klatka ze stopu STN b and description:
- (brak opisu)
-(ITEMS) Tagging Block Blok ze stopu STN b(block.stnb) with material-stnb
-(ITEMS) Tagging Item Klaster ze stopu STN b(fcluster.stnb) with material-stnb
-(ITEMS) Tagging Item Sztabka ze stopu STN b(ingot.stnb) with material-stnb
-(ITEMS) Tagging Item Fragment ze stopu STN b(frag.stnb) with material-stnb
-(ITEMS) Tagging Item Samorodek ze stopu STN b(nugget.stnb) with material-stnb
-(ITEMS) Tagging Item Drut ze stopu STN b(wirespool.stnb) with material-stnb
-(ITEMS) Tagging Item Duży pył ze stopu STN b(ldust.stnb) with material-stnb
-(ITEMS) Tagging Item Pył ze stopu STN b(dust.stnb) with material-stnb
-(ITEMS) Tagging Item Mały pył ze stopu STN b(mdust.stnb) with material-stnb
-(ITEMS) Tagging Item Mikropył ze stopu STN b(minidust.stnb) with material-stnb
-(ITEMS) Tagging Item Płytka ze stopu STN b(panel.stnb) with material-stnb
-(ITEMS) Tagging Item Folia ze stopu STN b(foil.stnb) with material-stnb
-(ITEMS) Tagging Item Zębatka ze stopu STN b(gear.stnb) with material-stnb
-(ITEMS) Tagging Item Pręt ze stopu STN b(rod.stnb) with material-stnb
-(ITEMS) Tagging Item Pierścień ze stopu STN b(ring.stnb) with material-stnb
-(ITEMS) Tagging Item Arkusz ze stopu STN b(sheet.stnb) with material-stnb
-(ITEMS) Tagging Item Klatka ze stopu STN b(frame.stnb) with material-stnb
-(ITEMS) Tagging Block Blok ze stopu STN b(block.stnb) with shape-block
-(ITEMS) Tagging Item Klaster ze stopu STN b(fcluster.stnb) with shape-cluster
-(ITEMS) Tagging Item Sztabka ze stopu STN b(ingot.stnb) with shape-base
-(ITEMS) Tagging Item Fragment ze stopu STN b(frag.stnb) with shape-frag
-(ITEMS) Tagging Item Samorodek ze stopu STN b(nugget.stnb) with shape-nugget
-(ITEMS) Tagging Item Drut ze stopu STN b(wirespool.stnb) with shape-wire
-(ITEMS) Tagging Item Duży pył ze stopu STN b(ldust.stnb) with shape-megadust
-(ITEMS) Tagging Item Pył ze stopu STN b(dust.stnb) with shape-dust
-(ITEMS) Tagging Item Mały pył ze stopu STN b(mdust.stnb) with shape-smalldust
-(ITEMS) Tagging Item Mikropył ze stopu STN b(minidust.stnb) with shape-tinydust
-(ITEMS) Tagging Item Płytka ze stopu STN b(panel.stnb) with shape-panel
-(ITEMS) Tagging Item Folia ze stopu STN b(foil.stnb) with shape-foil
-(ITEMS) Tagging Item Zębatka ze stopu STN b(gear.stnb) with shape-gear
-(ITEMS) Tagging Item Pręt ze stopu STN b(rod.stnb) with shape-rod
-(ITEMS) Tagging Item Pierścień ze stopu STN b(ring.stnb) with shape-ring
-(ITEMS) Tagging Item Arkusz ze stopu STN b(sheet.stnb) with shape-sheet
-(ITEMS) Tagging Item Klatka ze stopu STN b(frame.stnb) with shape-frame
-(BLOCKS) Adding block.stnc with title Blok ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding block.stnc with title Blok ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding fcluster.stnc with title Klaster ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding ingot.stnc with title Sztabka ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding frag.stnc with title Fragment ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding nugget.stnc with title Samorodek ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding wirespool.stnc with title Drut ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding ldust.stnc with title Duży pył ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding dust.stnc with title Pył ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding mdust.stnc with title Mały pył ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding minidust.stnc with title Mikropył ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding panel.stnc with title Płytka ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding foil.stnc with title Folia ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding gear.stnc with title Zębatka ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding rod.stnc with title Pręt ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding ring.stnc with title Pierścień ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding sheet.stnc with title Arkusz ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Adding frame.stnc with title Klatka ze stopu STN c and description:
- (brak opisu)
-(ITEMS) Tagging Block Blok ze stopu STN c(block.stnc) with material-stnc
-(ITEMS) Tagging Item Klaster ze stopu STN c(fcluster.stnc) with material-stnc
-(ITEMS) Tagging Item Sztabka ze stopu STN c(ingot.stnc) with material-stnc
-(ITEMS) Tagging Item Fragment ze stopu STN c(frag.stnc) with material-stnc
-(ITEMS) Tagging Item Samorodek ze stopu STN c(nugget.stnc) with material-stnc
-(ITEMS) Tagging Item Drut ze stopu STN c(wirespool.stnc) with material-stnc
-(ITEMS) Tagging Item Duży pył ze stopu STN c(ldust.stnc) with material-stnc
-(ITEMS) Tagging Item Pył ze stopu STN c(dust.stnc) with material-stnc
-(ITEMS) Tagging Item Mały pył ze stopu STN c(mdust.stnc) with material-stnc
-(ITEMS) Tagging Item Mikropył ze stopu STN c(minidust.stnc) with material-stnc
-(ITEMS) Tagging Item Płytka ze stopu STN c(panel.stnc) with material-stnc
-(ITEMS) Tagging Item Folia ze stopu STN c(foil.stnc) with material-stnc
-(ITEMS) Tagging Item Zębatka ze stopu STN c(gear.stnc) with material-stnc
-(ITEMS) Tagging Item Pręt ze stopu STN c(rod.stnc) with material-stnc
-(ITEMS) Tagging Item Pierścień ze stopu STN c(ring.stnc) with material-stnc
-(ITEMS) Tagging Item Arkusz ze stopu STN c(sheet.stnc) with material-stnc
-(ITEMS) Tagging Item Klatka ze stopu STN c(frame.stnc) with material-stnc
-(ITEMS) Tagging Block Blok ze stopu STN c(block.stnc) with shape-block
-(ITEMS) Tagging Item Klaster ze stopu STN c(fcluster.stnc) with shape-cluster
-(ITEMS) Tagging Item Sztabka ze stopu STN c(ingot.stnc) with shape-base
-(ITEMS) Tagging Item Fragment ze stopu STN c(frag.stnc) with shape-frag
-(ITEMS) Tagging Item Samorodek ze stopu STN c(nugget.stnc) with shape-nugget
-(ITEMS) Tagging Item Drut ze stopu STN c(wirespool.stnc) with shape-wire
-(ITEMS) Tagging Item Duży pył ze stopu STN c(ldust.stnc) with shape-megadust
-(ITEMS) Tagging Item Pył ze stopu STN c(dust.stnc) with shape-dust
-(ITEMS) Tagging Item Mały pył ze stopu STN c(mdust.stnc) with shape-smalldust
-(ITEMS) Tagging Item Mikropył ze stopu STN c(minidust.stnc) with shape-tinydust
-(ITEMS) Tagging Item Płytka ze stopu STN c(panel.stnc) with shape-panel
-(ITEMS) Tagging Item Folia ze stopu STN c(foil.stnc) with shape-foil
-(ITEMS) Tagging Item Zębatka ze stopu STN c(gear.stnc) with shape-gear
-(ITEMS) Tagging Item Pręt ze stopu STN c(rod.stnc) with shape-rod
-(ITEMS) Tagging Item Pierścień ze stopu STN c(ring.stnc) with shape-ring
-(ITEMS) Tagging Item Arkusz ze stopu STN c(sheet.stnc) with shape-sheet
-(ITEMS) Tagging Item Klatka ze stopu STN c(frame.stnc) with shape-frame
-(BLOCKS) Adding block.stnd with title Blok ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding block.stnd with title Blok ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding fcluster.stnd with title Klaster ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding ingot.stnd with title Sztabka ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding frag.stnd with title Fragment ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding nugget.stnd with title Samorodek ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding wirespool.stnd with title Drut ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding ldust.stnd with title Duży pył ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding dust.stnd with title Pył ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding mdust.stnd with title Mały pył ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding minidust.stnd with title Mikropył ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding panel.stnd with title Płytka ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding foil.stnd with title Folia ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding gear.stnd with title Zębatka ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding rod.stnd with title Pręt ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding ring.stnd with title Pierścień ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding sheet.stnd with title Arkusz ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Adding frame.stnd with title Klatka ze stopu STN d and description:
- (brak opisu)
-(ITEMS) Tagging Block Blok ze stopu STN d(block.stnd) with material-stnd
-(ITEMS) Tagging Item Klaster ze stopu STN d(fcluster.stnd) with material-stnd
-(ITEMS) Tagging Item Sztabka ze stopu STN d(ingot.stnd) with material-stnd
-(ITEMS) Tagging Item Fragment ze stopu STN d(frag.stnd) with material-stnd
-(ITEMS) Tagging Item Samorodek ze stopu STN d(nugget.stnd) with material-stnd
-(ITEMS) Tagging Item Drut ze stopu STN d(wirespool.stnd) with material-stnd
-(ITEMS) Tagging Item Duży pył ze stopu STN d(ldust.stnd) with material-stnd
-(ITEMS) Tagging Item Pył ze stopu STN d(dust.stnd) with material-stnd
-(ITEMS) Tagging Item Mały pył ze stopu STN d(mdust.stnd) with material-stnd
-(ITEMS) Tagging Item Mikropył ze stopu STN d(minidust.stnd) with material-stnd
-(ITEMS) Tagging Item Płytka ze stopu STN d(panel.stnd) with material-stnd
-(ITEMS) Tagging Item Folia ze stopu STN d(foil.stnd) with material-stnd
-(ITEMS) Tagging Item Zębatka ze stopu STN d(gear.stnd) with material-stnd
-(ITEMS) Tagging Item Pręt ze stopu STN d(rod.stnd) with material-stnd
-(ITEMS) Tagging Item Pierścień ze stopu STN d(ring.stnd) with material-stnd
-(ITEMS) Tagging Item Arkusz ze stopu STN d(sheet.stnd) with material-stnd
-(ITEMS) Tagging Item Klatka ze stopu STN d(frame.stnd) with material-stnd
-(ITEMS) Tagging Block Blok ze stopu STN d(block.stnd) with shape-block
-(ITEMS) Tagging Item Klaster ze stopu STN d(fcluster.stnd) with shape-cluster
-(ITEMS) Tagging Item Sztabka ze stopu STN d(ingot.stnd) with shape-base
-(ITEMS) Tagging Item Fragment ze stopu STN d(frag.stnd) with shape-frag
-(ITEMS) Tagging Item Samorodek ze stopu STN d(nugget.stnd) with shape-nugget
-(ITEMS) Tagging Item Drut ze stopu STN d(wirespool.stnd) with shape-wire
-(ITEMS) Tagging Item Duży pył ze stopu STN d(ldust.stnd) with shape-megadust
-(ITEMS) Tagging Item Pył ze stopu STN d(dust.stnd) with shape-dust
-(ITEMS) Tagging Item Mały pył ze stopu STN d(mdust.stnd) with shape-smalldust
-(ITEMS) Tagging Item Mikropył ze stopu STN d(minidust.stnd) with shape-tinydust
-(ITEMS) Tagging Item Płytka ze stopu STN d(panel.stnd) with shape-panel
-(ITEMS) Tagging Item Folia ze stopu STN d(foil.stnd) with shape-foil
-(ITEMS) Tagging Item Zębatka ze stopu STN d(gear.stnd) with shape-gear
-(ITEMS) Tagging Item Pręt ze stopu STN d(rod.stnd) with shape-rod
-(ITEMS) Tagging Item Pierścień ze stopu STN d(ring.stnd) with shape-ring
-(ITEMS) Tagging Item Arkusz ze stopu STN d(sheet.stnd) with shape-sheet
-(ITEMS) Tagging Item Klatka ze stopu STN d(frame.stnd) with shape-frame
-(DATA LAYERS) New world data layer: STN
-(STN) Initing
-(ITEMS) Tagging Item UNTRANSLATABLE STN-cabler(stn.cabler) with STN
-(ITEMS) Adding rawitem.stn.cabler with title UNTRANSLATABLE STN-cabler (surowy) and description:
- UNTRANSLATABLE STN-cabler0
-(ITEMS) Tagging ItemRaw Item UNTRANSLATABLE STN-cabler(stn.cabler) with STN
-(ITEMS) Tagging ItemRaw Item UNTRANSLATABLE STN-cabler(stn.cabler) with raw
-(BLOCKS) Adding industry.transformer0 with title Transformer VLV/ULV and description:
- (brak opisu)
-(ITEMS) Adding industry.transformer0 with title Transformer VLV/ULV and description:
- (brak opisu)
-(ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with voltage-VLV
-(ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with voltage-ULV
-(ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with machine-transformer
-(BLOCKS) Adding industry.transformer1 with title Transformer LV/VLV and description:
- (brak opisu)
-(ITEMS) Adding industry.transformer1 with title Transformer LV/VLV and description:
- (brak opisu)
-(ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with voltage-LV
-(ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with voltage-VLV
-(ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with machine-transformer
-(BLOCKS) Adding industry.transformer2 with title Transformer MV/LV and description:
- (brak opisu)
-(ITEMS) Adding industry.transformer2 with title Transformer MV/LV and description:
- (brak opisu)
-(ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with voltage-MV
-(ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with voltage-LV
-(ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with machine-transformer
-(BLOCKS) Adding industry.transformer3 with title Transformer HV/MV and description:
- (brak opisu)
-(ITEMS) Adding industry.transformer3 with title Transformer HV/MV and description:
- (brak opisu)
-(ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with voltage-HV
-(ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with voltage-MV
-(ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with machine-transformer
-(BLOCKS) Adding industry.transformer4 with title Transformer EV/HV and description:
- (brak opisu)
-(ITEMS) Adding industry.transformer4 with title Transformer EV/HV and description:
- (brak opisu)
-(ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with voltage-EV
-(ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with voltage-HV
-(ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with machine-transformer
-(BLOCKS) Adding industry.transformer5 with title Transformer IV/EV and description:
- (brak opisu)
-(ITEMS) Adding industry.transformer5 with title Transformer IV/EV and description:
- (brak opisu)
-(ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with voltage-IV
-(ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with voltage-EV
-(ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with machine-transformer
-(BLOCKS) Adding industry.transformer6 with title Transformer LuV/IV and description:
- (brak opisu)
-(ITEMS) Adding industry.transformer6 with title Transformer LuV/IV and description:
- (brak opisu)
-(ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with voltage-LuV
-(ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with voltage-IV
-(ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with machine-transformer
-(BLOCKS) Adding industry.transformer7 with title Transformer MAX/LuV and description:
- (brak opisu)
-(ITEMS) Adding industry.transformer7 with title Transformer MAX/LuV and description:
- (brak opisu)
-(ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with voltage-MAX
-(ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with voltage-LuV
-(ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with machine-transformer
-(TOOLS) Tools initialized
-(FullScreen) Setting up FullScreen
-(MAIN) State: Looking for mods
-(MOD-LOADER) Added missing mods directory
-(MOD-LOADER) Walking: C:\Users\oskar\git\MultiMachineBuilder\mods
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\mods
-(MAIN) State: Found 2 mod files
-(MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file C:\Users\oskar\git\MultiMachineBuilder\OpenGL is over 20 times faster than AWT.jar
-(MOD - OpenGL is over 20 times faster than AWT.jar) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie można odnaleźć określonego pliku)
-	at java.base/java.io.FileInputStream.open0(Native Method)
-	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
-	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
-	at mmb.files.LocalFile.getInputStream(LocalFile.java:35)
-	at mmb.mods.loader.AddonLoader.init(AddonLoader.java:99)
-	at mmb.mods.loader.AddonLoader.lambda$0(AddonLoader.java:78)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-(MOD - ) Opening a modfile: https://scratch.mit.edu/
-(MOD - ) Couldn't open zip or jar file https://scratch.mit.edu/
-(MOD - ) java.util.zip.ZipException: Unexpected record signature: 0X4F44213C
-	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.getNextZipEntry(ZipArchiveInputStream.java:296)
-	at org.apache.commons.compress.archivers.jar.JarArchiveInputStream.getNextJarEntry(JarArchiveInputStream.java:56)
-	at mmb.mods.loader.AddonLoader.init(AddonLoader.java:154)
-	at mmb.mods.loader.AddonLoader.lambda$0(AddonLoader.java:78)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-(MAIN) State: Mods - Preparation 0
-(MAIN) State: Mods - Instantiation 0a
-(MAIN) State: Mods - Phase 1
-(MAIN) State: Mods - Phase 2
-(ITEMS) Adding rawitem.pick.weak with title Kilof na start (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Kilof na start(pick.weak) with tool
-(ITEMS) Tagging ItemRaw Item Kilof na start(pick.weak) with raw
-(ITEMS) Adding rawitem.crafting.cstencil with title Szablon rzemieślniczy (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Szablon rzemieślniczy(crafting.cstencil) with raw
-(ITEMS) Adding rawitem.crafting.BOMItems with title Lista materiałów (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Lista materiałów(crafting.BOMItems) with raw
-(ITEMS) Adding rawitem.industry.bat1 with title Bateria ULV (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Bateria ULV(industry.bat1) with machine-battery
-(ITEMS) Tagging ItemRaw Item Bateria ULV(industry.bat1) with voltage-ULV
-(ITEMS) Tagging ItemRaw Item Bateria ULV(industry.bat1) with raw
-(ITEMS) Adding rawitem.industry.bat2 with title Bateria VLV (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Bateria VLV(industry.bat2) with machine-battery
-(ITEMS) Tagging ItemRaw Item Bateria VLV(industry.bat2) with voltage-VLV
-(ITEMS) Tagging ItemRaw Item Bateria VLV(industry.bat2) with raw
-(ITEMS) Adding rawitem.industry.bat3 with title Bateria LV (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Bateria LV(industry.bat3) with machine-battery
-(ITEMS) Tagging ItemRaw Item Bateria LV(industry.bat3) with voltage-LV
-(ITEMS) Tagging ItemRaw Item Bateria LV(industry.bat3) with raw
-(ITEMS) Adding rawitem.industry.bat4 with title Bateria MV (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Bateria MV(industry.bat4) with voltage-MV
-(ITEMS) Tagging ItemRaw Item Bateria MV(industry.bat4) with machine-battery
-(ITEMS) Tagging ItemRaw Item Bateria MV(industry.bat4) with raw
-(ITEMS) Adding rawitem.industry.bat5 with title Bateria HV (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Bateria HV(industry.bat5) with machine-battery
-(ITEMS) Tagging ItemRaw Item Bateria HV(industry.bat5) with voltage-HV
-(ITEMS) Tagging ItemRaw Item Bateria HV(industry.bat5) with raw
-(ITEMS) Adding rawitem.industry.bat6 with title Bateria EV (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Bateria EV(industry.bat6) with voltage-EV
-(ITEMS) Tagging ItemRaw Item Bateria EV(industry.bat6) with machine-battery
-(ITEMS) Tagging ItemRaw Item Bateria EV(industry.bat6) with raw
-(ITEMS) Adding rawitem.industry.bat7 with title Bateria IV (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Bateria IV(industry.bat7) with voltage-IV
-(ITEMS) Tagging ItemRaw Item Bateria IV(industry.bat7) with machine-battery
-(ITEMS) Tagging ItemRaw Item Bateria IV(industry.bat7) with raw
-(ITEMS) Adding rawitem.boxed.packItem with title Postawowy pakiet przedmiotów (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Postawowy pakiet przedmiotów(boxed.packItem) with raw
-(ITEMS) Adding rawitem.filter.ientries with title Filtr przedmiotów (wartości) (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Filtr przedmiotów (wartości)(filter.ientries) with raw
-(MAIN) State: Mods - Phase 3
-(MOD-LOADER) HOORAY, IT'S OVER!
-(MAIN) Cześć!
-(Main menu) MainMenu created
-(SELECT A SAVE) Found save: Agriculture test.mworld
-(SELECT A SAVE) Found save: Block Clicking Claw.mworld
-(SELECT A SAVE) Found save: Distrib2.mworld
-(SELECT A SAVE) Found save: Distributor.mworld
-(SELECT A SAVE) Found save: fuzz seed.mworld
-(SELECT A SAVE) Found save: main.mworld
-(SELECT A SAVE) Found save: Semi Auto Brewery.mworld
-(SELECT A SAVE) Found save: Sound ON Startup.mworld
-(SELECT A SAVE) Found save: Surv2.mworld
-(SELECT A SAVE) Found save: test binder.mworld
-(SELECT A SAVE) Found save: Test BPI.mworld
-(SELECT A SAVE) Found save: Test digger.mworld
-(SELECT A SAVE) Found save: Test electricity.mworld
-(SELECT A SAVE) Found save: Test pipes.mworld
-(SELECT A SAVE) Found save: Test player.mworld
-(SELECT A SAVE) Found save: Test speaker.mworld
-(SELECT A SAVE) Found save: Test tube.mworld
-(SELECT A SAVE) Found save: Test.mworld
-(SELECT A SAVE) Found save: The longest player pipe ever.mworld
-(SELECT A SAVE) Found save: The smallest all in one quarry system.mworld
-(SELECT A SAVE) Found 20 saves
-(WORLD TEST) 1645 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@2b452e6c
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(WORLD TEST) 1645 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@5804ffa0
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(Thread-12) A thread has thrown an exception
-(Thread-12) java.lang.IndexOutOfBoundsException: Index 2 out of bounds for length 1
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
-	at java.base/java.util.Objects.checkIndex(Objects.java:372)
-	at java.base/java.util.ArrayList.set(ArrayList.java:473)
-	at monniasza.collects.datalayer.IndexedDatalayerMap$Listener.allocated(IndexedDatalayerMap.java:53)
-	at monniasza.collects.datalayer.IndexedDatalayerMap$Listener.allocated(IndexedDatalayerMap.java:1)
-	at monniasza.collects.alloc.SimpleAllocator.allocate(SimpleAllocator.java:62)
-	at mmb.world.worlds.world.World.<init>(World.java:164)
-	at mmb.world.worlds.world.World.load(World.java:185)
-	at mmb.world.worlds.universe.Universe.load(Universe.java:118)
-	at mmb.menu.main.PanelSaves.lambda$6(PanelSaves.java:145)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(COMPLEX RECIPE RPOCESSOR) IUW data:null
-(COMPLEX RECIPE RPOCESSOR) IUW data:null
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(EVENTS) Failed to process world loaded event
-(EVENTS) java.lang.IndexOutOfBoundsException: Index 2 out of bounds for length 1
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
-	at java.base/java.util.Objects.checkIndex(Objects.java:372)
-	at java.base/java.util.ArrayList.get(ArrayList.java:459)
-	at monniasza.collects.datalayer.IndexedDatalayerMap.get(IndexedDatalayerMap.java:126)
-	at mmb.world.worlds.DataLayers.lambda$0(DataLayers.java:54)
-	at mmb.CatchingEvent.lambda$2(CatchingEvent.java:79)
-	at java.base/java.util.concurrent.CopyOnWriteArrayList.forEach(CopyOnWriteArrayList.java:807)
-	at mmb.CatchingEvent.trigger(CatchingEvent.java:77)
-	at mmb.world.worlds.world.World.load(World.java:234)
-	at mmb.world.worlds.universe.Universe.load(Universe.java:118)
-	at mmb.menu.main.PanelSaves.lambda$6(PanelSaves.java:145)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(TOOL-STANDARD) Running BlockActivateListener for: [-10,-23]
-(TOOL-STANDARD) Running BlockActivateListener for: [-9,-23]
-(TOOL-STANDARD) Running BlockActivateListener for: [-7,-23]
-(TOOL-STANDARD) Running BlockActivateListener for: [-1,-23]
-(TOOL-STANDARD) Running BlockActivateListener for: [2,-23]
-(TOOL-STANDARD) Running BlockActivateListener for: [1,-23]
-(TOOL-STANDARD) Running BlockActivateListener for: [0,-23]
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(EVENTS) Failed to process world saved event
-(EVENTS) java.lang.IndexOutOfBoundsException: Index 2 out of bounds for length 1
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
-	at java.base/java.util.Objects.checkIndex(Objects.java:372)
-	at java.base/java.util.ArrayList.get(ArrayList.java:459)
-	at monniasza.collects.datalayer.IndexedDatalayerMap.get(IndexedDatalayerMap.java:126)
-	at mmb.world.worlds.DataLayers.lambda$1(DataLayers.java:59)
-	at mmb.CatchingEvent.lambda$2(CatchingEvent.java:79)
-	at java.base/java.util.concurrent.CopyOnWriteArrayList.forEach(CopyOnWriteArrayList.java:807)
-	at mmb.CatchingEvent.trigger(CatchingEvent.java:77)
-	at mmb.world.worlds.world.World.save(World.java:309)
-	at mmb.world.worlds.universe.Universe.save(Universe.java:135)
-	at mmb.menu.world.window.WorldWindow.save(WorldWindow.java:100)
-	at mmb.menu.world.window.WorldWindow.destroy(WorldWindow.java:83)
-	at mmb.menu.MMBFrame.dispose(MMBFrame.java:29)
-	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:306)
-	at java.desktop/java.awt.Window.processEvent(Window.java:2037)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
+(ITEMS) Adding chem.co2 with title Dwutlenek węgla and description:
+ (brak opisu)
+(ITEMS) Tagging Item Dwutlenek węgla(chem.co2) with chem
+(ITEMS) Adding chem.n2 with title Azot and description:
+ (brak opisu)
+(ITEMS) Tagging Item Azot(chem.n2) with chem
+(ITEMS) Adding chem.h2 with title Wodór and description:
+ (brak opisu)
+(ITEMS) Tagging Item Wodór(chem.h2) with chem
+(ITEMS) Adding chem.o2 with title Tlen and description:
+ (brak opisu)
+(ITEMS) Tagging Item Tlen(chem.o2) with chem
+(ITEMS) Adding chem.ch4 with title Metan and description:
+ (brak opisu)
+(ITEMS) Tagging Item Metan(chem.ch4) with chem
+(ITEMS) Adding chem.c2h6 with title Etan and description:
+ (brak opisu)
+(ITEMS) Tagging Item Etan(chem.c2h6) with chem
+(ITEMS) Tagging Block Powietrze(mmb.air) with chem
+(ITEMS) Tagging Block Woda(liquid.water) with chem
+(MAIN) FATAL ERROR WHILE LOADING
+(MAIN) GAME HAS CRASHED
+(MAIN) java.lang.ExceptionInInitializerError
+	at mmb.mods.loader.ModLoader.modloading(ModLoader.java:139)
+	at mmb.Main.lambda$1(Main.java:132)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
 	at java.base/java.security.AccessController.doPrivileged(Native Method)
 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
+Caused by: java.util.MissingResourceException: Can't find resource for bundle mmb.MutableResourceBundle, key matname-stna
+	at java.base/java.util.ResourceBundle.getObject(ResourceBundle.java:564)
+	at java.base/java.util.ResourceBundle.getString(ResourceBundle.java:521)
+	at mmb.GlobalSettings.$res(GlobalSettings.java:69)
+	at mmb.world.contentgen.MetalGroup.<init>(MetalGroup.java:82)
+	at mmbmods.stn.STN.<clinit>(STN.java:38)
+	... 15 more
 (SETTINGS) Resetting a setting country with value US
 (SETTINGS) Resetting a setting sortItems with value true
 (SETTINGS) Resetting a setting dumpBundles with value true
-(SETTINGS) Resetting a setting fullscreen with value false
 (SETTINGS) Resetting a setting logExcessiveBlockTime with value false
 (SETTINGS) Resetting a setting swingDPI with value false
 (SETTINGS) Resetting a setting scale with value 1.0

@@ -44,7 +44,7 @@ public class VoltagedItemGroup {
 		Items.tagItems("component-"+id, items);
 		for(int i = 0; i < 9; i++) {
 			Item block = items.get(i);
-			Items.tagItem("voltage-"+volts[i], block);
+			Items.tagItem("voltage-"+volts[i].name, block);
 		}
 	}
 	/**

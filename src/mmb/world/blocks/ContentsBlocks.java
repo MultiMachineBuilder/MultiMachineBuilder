@@ -76,14 +76,17 @@ import mmb.world.rotate.ChirotatedImageGroup;
 import mmb.world.rotate.Side;
 
 /**
+ * A comprehensive (but not complete) collection of blocks in the MultiMachineBuilder.
+ * 
+ * Some entries are arrays, {@link ElectricMachineGroup}s, and others.
  * @author oskar
- * This class contains blocks in the new world system
  */
 public class ContentsBlocks {
 	private ContentsBlocks() {}
 	private static final Debugger debug = new Debugger("BLOCKS");
 	
 	//Primitive blocks
+	/** The alternative surfce block */
 	@Nonnull public static final Block air = createAir();
 	@Nonnull private static Block createAir() {
 		debug.printl("Creating blocks");
@@ -95,6 +98,7 @@ public class ContentsBlocks {
 		result.setSurface(true);
 		return result;
 	}
+	/** The basic building block of any world */
 	@Nonnull public static final Block grass = createGrass(); //REQUIRES SPECIAL INIT
 	@Nonnull private static Block createGrass() {
 		Block grass = new Block();
@@ -106,6 +110,7 @@ public class ContentsBlocks {
 		grass.setSurface(true);
 		return grass;
 	}
+	/** A placeholder block used when the world access is out of bounds*/
 	@Nonnull public static final Block blockVoid = 
 		new Block()
 		.texture(Color.DARK_GRAY)
@@ -149,24 +154,21 @@ public class ContentsBlocks {
 	 * A WireWorld cell.
 	 * This block turns into head if it is provided with 1 or 2 signals in 8 block neighborhood.
 	 */
-	@SuppressWarnings("null")
 	@Nonnull public static final BlockEntityType ww_wire = new BlockEntityType()
-		.texture(Color.ORANGE)
+		.texture("logic/wire.png")
 		.title("#ww-c")
 		.factory(WWWire::new)
 		.finish("wireworld.wire");
 	/** This block emits a signal, and it turns into a tail */
-	@SuppressWarnings("null")
 	@Nonnull public static final BlockEntityType ww_head = new BlockEntityType()
-		.texture(Color.WHITE)
+		.texture("logic/head.png")
 		.title("#ww-h")
 		.factory(WWHead::new)
 		.leaveBehind(ww_wire)
 		.finish("wireworld.head");
 	/** This block is left by a head and it turns into wire. This block does not emit any signal. */
-	@SuppressWarnings("null")
 	@Nonnull public static final BlockEntityType ww_tail = new BlockEntityType()
-		.texture(Color.BLUE)
+		.texture("logic/tail.png")
 		.title("#ww-t")
 		.factory(WWTail::new)
 		.leaveBehind(ww_wire)
@@ -189,6 +191,7 @@ public class ContentsBlocks {
 			.texture("logic/random.png")
 			.title("#ww-rnd")
 			.finish("wireworld.random");
+	/** Generates a signal when the world is loaded */
 	@Nonnull public static final Block ONLOAD = new Randomizer()
 			.texture("logic/loadsensor.png")
 			.title("#ww-load")
@@ -262,16 +265,19 @@ public class ContentsBlocks {
 			.texture("logic/off.png")
 			.title("#ww-off")
 			.finish("wireworld.off");
+	/** Creative block placement, unobtainable in survival */
 	@Nonnull public static final BlockEntityType PLACER = new BlockEntityType()
 			.title("#ww-placer")
 			.factory(ActuatorPlaceBlock::new)
 			.texture("machine/placer.png")
 			.finish("machines.placer");
+	/** Block Clicking Claw, auto-enables blocks */
 	@Nonnull public static final BlockEntityType CLICKER = new BlockEntityType()
 			.title("#ww-click")
 			.factory(ActuatorClick::new)
 			.texture("machine/claw.png")
 			.finish("machines.clicker");
+	/** Block Rotator, rotates blocks */
 	@Nonnull public static final BlockEntityType ROTATOR = new BlockEntityType()
 			.title("#ww-rot")
 			.factory(ActuatorRotations::new)
@@ -285,24 +291,27 @@ public class ContentsBlocks {
 	@Nonnull public static final BlockEntityType TURBOGEN1 = coalgen(2, VoltageTier.V2, BlockGeneratorSolid.turboimg, 1);
 	@Nonnull public static final BlockEntityType TURBOGEN2 = coalgen(2, VoltageTier.V3, BlockGeneratorSolid.turboimg1, 2);
 	@Nonnull public static final BlockEntityType TURBOGEN3 = coalgen(2, VoltageTier.V4, BlockGeneratorSolid.turboimg2, 3);
-	/** A series of 9 infinite power generators. They are used for testing.*/
+	
+	//Electrical testing equipment
+	/** A series of 9 infinite power generators. Intended for machine testing.*/
 	@Nonnull public static final ElectricMachineGroup infinigens =
 			new ElectricMachineGroup(Textures.get("machine/power/infinity.png"), type -> new InfiniteGenerator(type.volt, type), "infinigen");
-	
-	//Electrical equipment
+	/** Measures power of machines */
 	@Nonnull public static final BlockEntityType PMETER = new BlockEntityType()
 			.title("#elec-meter")
 			.factory(PowerMeter::new)
 			.texture("machine/power/pmeter.png")
 			.finish("elec.meter");
+	/** Consumes specified amount of electricity. Intended for generator testing */
 	@Nonnull public static final BlockEntityType LOAD = new BlockEntityType()
 			.title("#elec-load")
 			.factory(PowerLoad::new)
 			.texture("machine/power/load.png")
 			.finish("elec.load");
 	
-	//Modular machines
-	@Nonnull public static final BlockEntityType EFURNACE = new BlockEntityType()
+	//DEPRECATED old modular machines
+	/** @deprecated An old block for a furnace. Use {@link #efurnace}{@code .}{@link #ElectricMachineGroup.get(int) get}{@code (1)} instead */
+	@Deprecated(since="0.5") @Nonnull public static final BlockEntityType EFURNACE = new BlockEntityType() //NOSONAR
 			.title("#depr-furnace")
 			.factory(FurnacePlus::new)
 			.texture("machine/esmelter.png")
@@ -332,19 +341,19 @@ public class ContentsBlocks {
 	@Nonnull public static final BlockEntityType CHEST7 = chest(4096, "machine/chest8.png", "chest.penultimate2", 8);
 	/** Stores 16384 m³ of items*/
 	@Nonnull public static final BlockEntityType CHEST8 = chest(16384, "machine/chest9.png", "chest.penultimate3", 9);
-	/**
-	 * A chest that auto-inserts items
-	 */
+	/** A chest that auto-inserts items */
 	@Nonnull public static final BlockEntityType HOPPER = new BlockEntityType()
 			.title("#chest-hopper")
 			.factory(() -> new Hopper((byte) 1))
 			.texture("machine/hopper.png")
 			.finish("chest.hopper1");
+	/** A chest thatt auto-extracts items */
 	@Nonnull public static final BlockEntityType HOPPER_suck = new BlockEntityType()
 			.title("#chest-sucker")
 			.factory(() -> new Hopper((byte) 2))
 			.texture("machine/sucker.png")
 			.finish("chest.hopper2");
+	/**  A chest that both auto-inserts and auto-extracts items */
 	@Nonnull public static final BlockEntityType HOPPER_both = new BlockEntityType()
 			.title("#chest-both")
 			.factory(() -> new Hopper((byte) 3))
@@ -506,6 +515,7 @@ public class ContentsBlocks {
 			.finish("industry.autocraft1");
 	
 	//Electrical processing machines
+	/** Electric furnace */
 	@Nonnull public static final ElectricMachineGroup efurnace = machinesSimple("machine/electrosmelter.png", CraftingGroups.smelting, "electrofurnace");
 	@Nonnull public static final ElectricMachineGroup bcrusher = machinesSimple("machine/pulverizer.png", CraftingGroups.crusher, "crusher");
 	@Nonnull public static final ElectricMachineGroup bcmill = machinesSimple("machine/cluster mill.png", CraftingGroups.clusterMill, "clustermill");
@@ -525,6 +535,7 @@ public class ContentsBlocks {
 	@Nonnull public static final ElectricMachineGroup bbattery = createBattery();
 	
 	//Player pipes
+	/** Straight player pipe */
 	@Nonnull public static final BlockEntityType PPIPE_lin = ppipe(1, Side.U, Side.D, "machine/ppipe straight.png", "#ppipe-s", "playerpipe.straight");
 	@Nonnull public static final BlockEntityType PPIPE_bend = ppipe(0.8, Side.R, Side.D, "machine/ppipe turn.png", "#ppipe-b", "playerpipe.bend");
 	@Nonnull public static final BlockEntityType PPIPE_lin2 = ppipe2(1, Side.U, Side.D, Side.L, Side.R, "machine/ppipe cross.png", "#ppipe-x", "playerpipe.straight2");

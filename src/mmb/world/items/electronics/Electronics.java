@@ -69,6 +69,7 @@ public class Electronics {
 	@Nonnull public static final ComponentGenerator subsystemD = new ComponentGenerator("subsD");
 	//Components themselves
 	//Enhanced
+	/** Enhanced IC */
 	@Nonnull public static final ElectronicsComponent ic0 = enhanced.generate(IC);
 	
 	//Advanced

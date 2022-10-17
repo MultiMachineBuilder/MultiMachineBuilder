@@ -20,6 +20,7 @@ import mmb.data.Save;
 import mmb.debug.Debugger;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.item.ItemEntity;
+import mmb.world.item.ItemType;
 import mmb.world.items.ContentsItems;
 import mmb.world.items.ItemEntry;
 import mmb.world.recipes.CraftingGroups;
@@ -95,7 +96,7 @@ public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>{
 	 * Creates an empty stencil.
 	 */
 	public Stencil() {
-		super(ContentsItems.stencil);
+		//empty
 	}
 	/**
 	 * @param items
@@ -177,6 +178,11 @@ public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>{
 		if(recipe0 == null) 
 			recipe0 = CraftingGroups.crafting.findRecipe(grid);
 		return recipe0;
+	}
+
+	@Override
+	public ItemType type() {
+		return ContentsItems.stencil;
 	}
 	
 }

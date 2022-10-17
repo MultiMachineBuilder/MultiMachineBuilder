@@ -28,11 +28,12 @@ public class Pickaxe extends ItemEntity {
 	 */
 	public final int durability;
 	private int uses;
+	
 	/**
 	 * @param type
 	 */
 	protected Pickaxe(PickaxeType type, int durability) {
-		super(type);
+		this.type = type;
 		this.durability = durability;
 		pick = new ToolPickaxe(this);
 	}
@@ -193,9 +194,10 @@ public class Pickaxe extends ItemEntity {
 		return type().title() + " ("+(durability-uses)+"/"+durability+")";
 	}
 
+	@Nonnull private final PickaxeType type;
 	@Override
 	public PickaxeType type() {
-		return (PickaxeType) super.type();
+		return type;
 	}
 
 	@Override

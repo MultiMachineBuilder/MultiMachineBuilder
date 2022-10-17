@@ -17,6 +17,7 @@ import mmb.world.inventory.io.InventoryReader;
 import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.item.Item;
 import mmb.world.item.ItemEntityMutable;
+import mmb.world.item.ItemType;
 
 /**
  * @author oskar
@@ -32,15 +33,13 @@ public final class CablingTool extends ItemEntityMutable {
 	
 	/** Creates an STN cabling tool */
 	public CablingTool() {
-		super(STN.STN_cabler);
+		//empty
 	}
 	/** Copy constructor */
 	protected CablingTool(CablingTool original) {
-		this();
 		amt.set(original.amt.getDouble());
 	}
 
-	
 	@Override
 	public CablingTool itemClone() {
 		return new CablingTool(this);
@@ -92,5 +91,9 @@ public final class CablingTool extends ItemEntityMutable {
 		boolean result = write==1;
 		if(result) amt.set(amt.getDouble()-1);
 		return result;
+	}
+	@Override
+	public ItemType type() {
+		return STN.STN_cabler;
 	}
 }

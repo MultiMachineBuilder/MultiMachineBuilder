@@ -12,6 +12,7 @@ import mmb.world.crafting.ItemLists;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.crafting.SimpleItemList;
 import mmb.world.item.ItemEntity;
+import mmb.world.item.ItemType;
 import mmb.world.items.ContentsItems;
 import mmb.world.items.ItemEntry;
 
@@ -19,21 +20,25 @@ import mmb.world.items.ItemEntry;
  * @author oskar
  * An item for Bill Of Materials, which contains a list of items.
  */
-public final class ItemBOM extends ItemEntity {
-
+public final class ItemBOM extends ItemEntity {	
 	/**
-	 * Creates a Bill of Materials
+	 * Creates an empty Bill of Materials
 	 */
 	public ItemBOM() {
-		super(ContentsItems.BOM);
+		//empty
 	}
-	
+	/**
+	 * Creates a Bill of Materials with items (optimized)
+	 * @param items items to use
+	 */
 	public ItemBOM(SimpleItemList items) {
-		super(ContentsItems.BOM);
 		this.items = items;
 	}
+	/**
+	 * Creates a Bill of Materials with items (generic)
+	 * @param items items to use
+	 */
 	public ItemBOM(RecipeOutput items) {
-		super(ContentsItems.BOM);
 		if(items instanceof SimpleItemList) 
 			this.items = (SimpleItemList) items;
 		else
@@ -76,6 +81,10 @@ public final class ItemBOM extends ItemEntity {
 		if(other instanceof ItemBOM)
 			return ((ItemBOM) other).contents().equals(items);
 		return false;
+	}
+	@Override
+	public ItemType type() {
+		return ContentsItems.BOM;
 	}
 
 	

@@ -47,8 +47,12 @@ public class ContentsRecipes {
 			smelting.add(rrubber, Materials.rubber.base, VoltageTier.V1, 20_000);
 			
 			alloyer.add(new SimpleItemList(sdraconium, iridium.base, neodymium.base, enderium.base), draconium.base, VoltageTier.V6, 80_000_000);
-			alloyer.add(new SimpleItemList(sadraconium, crystal.base, draconium.base), adraconium.base, VoltageTier.V6, 80_000_000);
-			alloyer.add(new SimpleItemList(schaotium, stellar.base, adraconium.base), chaotium.base, VoltageTier.V6, 80_000_000);
+			alloyer.add(new SimpleItemList(sadraconium, crystal.base, draconium.base), adraconium.base, VoltageTier.V7, 320_000_000);
+			alloyer.add(new SimpleItemList(schaotium, stellar.base, adraconium.base), chaotium.base, VoltageTier.V8, 1280_000_000);
+			alloyer.add(new SimpleItemList(scrystal, iridium.base, enderium.base), crystal.base, VoltageTier.V5, 30_000_000);
+			alloyer.add(new SimpleItemList(sstellar, draconium.base), stellar.base, VoltageTier.V6, 120_000_000);
+			alloyer.add(new SimpleItemList(sunobtainium, adraconium.base), unobtainium.base, VoltageTier.V7, 480_000_000);
+			
 			
 			//Rocks
 			clusterMill.add(plank, paper, 16, VoltageTier.V1, 1000);
@@ -491,7 +495,8 @@ public class ContentsRecipes {
 				nichrome.wire),
 			Electronics.resistor2, null, 24, VoltageTier.V3,  80000);
 			assembler.add(new SimpleItemList(
-				gold.wire,PE.foil),
+				gold.wire,
+				PE.foil),
 			Electronics.capacitor2, null, 24, VoltageTier.V3, 160000);
 			assembler.add(new SimpleItemList(
 				gold.wire.stack(2),
@@ -541,8 +546,83 @@ public class ContentsRecipes {
 				Electronics.ic2.stack(6),
 				silver.nugget,
 				silicopper.nugget.stack(4)),
-			Electronics.cpu2, null, 24, VoltageTier.V4, 2560000);
+			Electronics.cpu2, null, 8, VoltageTier.V4, 2560000);
 			
+			//Insane
+			assembler.add(new SimpleItemList(
+				platinum.wire,
+				nichrome.wire),
+			Electronics.resistor3, null, 32, VoltageTier.V4,  320000);
+			assembler.add(new SimpleItemList(
+				platinum.wire,
+				PVC.foil),
+			Electronics.capacitor3, null, 32, VoltageTier.V4, 640000);
+			assembler.add(new SimpleItemList(
+				platinum.wire.stack(2),
+				alnico.nugget),
+			Electronics.inductor3, null, 32, VoltageTier.V4, 1280000);
+			assembler.add(new SimpleItemList(
+				platinum.wire,
+				silver.nugget,
+				silicon.nugget.stack(8)),
+			Electronics.diode3, null, 32, VoltageTier.V4, 2560000);
+			assembler.add(new SimpleItemList(
+				platinum.wire,
+				gold.nugget,
+				silicon.nugget.stack(2)),
+			Electronics.transistor3, null, 24, VoltageTier.V4, 5120000);
+			assembler.add(new SimpleItemList(
+				iridium.wire.stack(4),
+				iridium.nugget.stack(4),
+				silicopper.nugget.stack(16),
+				silicon.sheet.stack(2)),
+			Electronics.ic3, null, 64, VoltageTier.V4, 10240000);
+			assembler.add(new SimpleItemList(
+				iridium.wire.stack(2),
+				iridium.nugget.stack(2),
+				PTFE.sheet.stack(4)),
+			Electronics.die3, null, 48, VoltageTier.V5, 2560000);
+			inscriber.add(silicarbide.panel, Electronics.wafer3, Electronics.ic2, 1, VoltageTier.V5, 2560000);
+			assembler.add(new SimpleItemList(
+				platinum.wire,
+				quartz.nugget.stack(2),
+				iridium.wire),
+			Electronics.ceritor3, null, 48, VoltageTier.V5, 1280000);
+			assembler.add(new SimpleItemList(
+				iridium.wire,
+				Electronics.ic3.stack(6),
+				copper.nugget,
+				silicarbide.nugget.stack(4)),
+			Electronics.ram3, null, 32, VoltageTier.V5, 10240000);
+			assembler.add(new SimpleItemList(
+				iridium.wire,
+				Electronics.ic3.stack(6),
+				gold.nugget,
+				silicarbide.nugget.stack(4)),
+			Electronics.gpu3, null, 4, VoltageTier.V5, 10240000);
+			assembler.add(new SimpleItemList(
+				iridium.wire,
+				Electronics.ic3.stack(6),
+				silver.nugget,
+				silicarbide.nugget.stack(4)),
+			Electronics.cpu3, null, 16, VoltageTier.V5, 10240000);
+			assembler.add(new SimpleItemList(
+					iridium.wire,
+					Electronics.ic3.stack(6),
+					platinum.nugget,
+					silicopper.nugget.stack(4)),
+				Electronics.ai3, null, 8, VoltageTier.V5, 10240000);
+				assembler.add(new SimpleItemList(
+					iridium.wire,
+					Electronics.ic3.stack(6),
+					iridium.nugget,
+					silicopper.nugget.stack(4)),
+				Electronics.rtx3, null, 8, VoltageTier.V5, 10240000);
+				assembler.add(new SimpleItemList(
+					platinum.wire,
+					yeast,
+					seeds),
+				Electronics.neuron3, null, 32, VoltageTier.V5, 10240000);
 			
 			//Substrates
 			assembler.add(new SimpleItemList(
@@ -551,8 +631,6 @@ public class ContentsRecipes {
 			assembler.add(new SimpleItemList(
 					paper.stack(1),                              copper.foil.stack(2)),
 					substrate1, null,    VoltageTier.V1,  10000);
-			
-			
 			
 			//Primitive Circuit
 			crafting.addRecipeGrid(new ItemEntry[]{
@@ -613,6 +691,7 @@ public class ContentsRecipes {
 				Electronics.ic1.stack(1),
 				substrate3.stack(2)
 			), circuit3.stack(8), null, VoltageTier.V4, 1600000);
+			//Advanced Circuit
 		}
 		private static void _chest() {
 			//Chests
@@ -1118,24 +1197,41 @@ public class ContentsRecipes {
 				new RandomChance(0.1, iridium.ore)
 			));
 			
-			//TODO Tier 6: +draconic shards, crystalline shards
+			//Tier 6: +draconic shards, crystalline shards
 			quarry.add(resrc5, resrc4, 2, VoltageTier.V6, 20480000, new ListChance(
-				new RandomChance(0.1, sdraconium)
+				new RandomChance(0.1, sdraconium),
+				new RandomChance(0.1, scrystal)
 			));
 			
-			//TODO Tier 7: +awakened draconic shards, stellar shards
+			//Tier 7: +awakened draconic shards, stellar shards
 			quarry.add(resrc6, resrc5, 2, VoltageTier.V7, 81920000, new ListChance(
-				new RandomChance(0.1, sadraconium)
+				new RandomChance(0.1, sadraconium),
+				new RandomChance(0.1, sstellar)
 			));
 			
-			//TODO Tier 8: +chaotic shards, unobtainium shards
+			//Tier 8: +chaotic shards, unobtainium shards
 			quarry.add(resrc7, resrc6, 2, VoltageTier.V8, 327680000, new ListChance(
-				new RandomChance(0.1, schaotium)
+				new RandomChance(0.1, schaotium),
+				new RandomChance(0.1, sunobtainium)
 			));
 			
 			//TODO Tier 9: +ultimate shards, singularities
 			
+			//Basic Resource Bed
 			alloyer.add(new SimpleItemList(redstone.base.stack(2), rudimentary.base.stack(2)), resrc1, 2, VoltageTier.V2, 180000);
+			//Enhanced Resource Bed
+			alloyer.add(new SimpleItemList(glowstone.base.stack(2), silver.base.stack(2)), resrc2, 4, VoltageTier.V3, 720000);
+			//Refined Resource Bed
+			alloyer.add(new SimpleItemList(ender.base.stack(2), gold.base.stack(2)), resrc3, 4, VoltageTier.V3, 2880000);
+			//Advanced Resource Bed
+			alloyer.add(new SimpleItemList(diamond.base.stack(2), platinum.base.stack(2)), resrc4, 4, VoltageTier.V4, 11520000);
+			//Extreme Resource Bed
+			alloyer.add(new SimpleItemList(diamide.base.stack(2), iridium.base.stack(2)), resrc5, 4, VoltageTier.V5, 46080000);
+			//Insane Resource Bed
+			alloyer.add(new SimpleItemList(unamide.base.stack(2), draconium.base.stack(2)), resrc6, 4, VoltageTier.V6, 184320000);
+			//Ludicrous Resource Bed
+			alloyer.add(new SimpleItemList(omnamide.base.stack(2), adraconium.base.stack(2)), resrc7, 4, VoltageTier.V7, 737280000);
+			
 			//simple stone regeneration recipe
 			alloyer.add(new SimpleItemList(stone, rudimentary.nugget), stone, 8, VoltageTier.V1, 80000);
 			
