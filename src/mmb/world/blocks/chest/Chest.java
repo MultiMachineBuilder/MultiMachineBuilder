@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.beans.*;
+import mmb.cgui.BlockActivateListener;
 import mmb.data.Save;
 import mmb.graphics.awt.MappedColorTexture;
 import mmb.menu.world.window.WorldWindow;

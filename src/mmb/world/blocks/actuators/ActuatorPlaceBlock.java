@@ -9,8 +9,8 @@ import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.beans.BlockActivateListener;
 import mmb.beans.BlockSetting;
+import mmb.cgui.BlockActivateListener;
 import mmb.data.contents.Textures;
 import mmb.debug.Debugger;
 import mmb.menu.world.SelectBlock;

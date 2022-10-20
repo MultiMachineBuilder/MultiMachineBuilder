@@ -50,7 +50,7 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	private InventoryOrchestrator orchestrator;
 	private JScrollPane scrollPane;
 	private JButton btnUnsel;
-	private Box ubox;
+	@Nonnull public final Box ubox;
 
 	@Override
 	public void refresh() {
@@ -116,10 +116,8 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	 * @param other
 	 */
 	public InventoryController(InventoryController other) {
-		this(other.inv);
-		setSelectionModel(other.getSelectionModel());
-		setSelectionMode(other.getSelectionMode());
-		setModel(other.getModel());
+		this();
+		set(other);
 	}
 	/**
 	 * @return selected index, or -1 if not selected
@@ -256,6 +254,16 @@ public class InventoryController extends Box implements AbstractInventoryControl
 		label.setText(title);
 	}
 	
+	/**
+	 * Replaces the model, selection and inventory with those of the other inventory controller
+	 * @param other source of configuration
+	 */
+	public void set(InventoryController other) {
+		setInv(other.getInv());
+		setSelectionModel(other.getSelectionModel());
+		setSelectionMode(other.getSelectionMode());
+		setModel(other.getModel());
+	}
 	
 	/**
 	 * @return the model
@@ -311,5 +319,6 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	 */
 	public void removeListSelectionListener(ListSelectionListener listener) {
 		invlist.removeListSelectionListener(listener);
-	}	
+	}
+		
 }

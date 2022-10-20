@@ -3,6 +3,7 @@
  */
 package mmb.beans;
 
+import mmb.cgui.DestroyTab;
 import mmb.world.inventory.Inventory;
 
 /**

@@ -7,7 +7,7 @@ import java.awt.Point;
 
 import javax.annotation.Nullable;
 
-import mmb.beans.BlockActivateListener;
+import mmb.cgui.BlockActivateListener;
 import mmb.data.contents.Textures;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.BlockEntry;

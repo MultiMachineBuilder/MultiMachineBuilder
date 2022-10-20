@@ -6,6 +6,7 @@ package mmb.world.inventory.storage;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.Objects;
+import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -117,7 +118,7 @@ public class SingleItemInventory implements Inventory {
 	public int insert(ItemEntry ent, int amount) {
 		if(contents != null) return 0;
 		if(amount <= 0) return 0;
-		contents = ent;
+		setContents(ent);
 		return 1;
 	}
 
@@ -126,7 +127,7 @@ public class SingleItemInventory implements Inventory {
 		if(contents == null) return 0;
 		if(amount <= 0) return 0;
 		if(Objects.equals(contents, ent)) {
-			contents = null;
+			setContents(null);
 			return 1;
 		}
 		return 0;
@@ -171,4 +172,23 @@ public class SingleItemInventory implements Inventory {
 		return 0;
 	}
 
+	/**
+	 * A single item inventory with a callback
+	 * @author oskar
+	 */
+	public static class Callback extends SingleItemInventory{
+		@Nonnull private final Consumer<@Nullable ItemEntry> handler;
+		@Override
+		public void setContents(@Nullable ItemEntry contents) {
+			handler.accept(contents);
+			super.setContents(contents);
+		}
+		/**
+		 * Creates a callback single item inventory
+		 * @param handler callback
+		 */
+		public Callback(Consumer<@Nullable ItemEntry> handler) {
+			this.handler = handler;
+		}
+	}
 }

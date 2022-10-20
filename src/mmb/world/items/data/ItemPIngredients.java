@@ -65,7 +65,7 @@ public final class ItemPIngredients extends ItemEntity {
 	}
 	@Override
 	public ItemType type() {
-		return ContentsItems.BOM;
+		return ContentsItems.pingredients;
 	}
 
 	

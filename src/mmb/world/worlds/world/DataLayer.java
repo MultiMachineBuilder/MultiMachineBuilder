@@ -28,4 +28,10 @@ public abstract class DataLayer<T> implements Identifiable<T>, Saver<@Nonnull Js
 	public final T id() {
 		return world;
 	}
+	/** Invoked on start-up */
+	public void startup() {};
+	/** Invoked on shutdown */
+	public void shutdown() {};
+	/** Invoked on every tick */
+	public void cycle() {};
 }

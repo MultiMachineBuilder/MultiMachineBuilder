@@ -146,9 +146,11 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 	/**
 	 * Sets capacity of this inventory
 	 * @param capacity new capacity
+	 * @return this
 	 */
-	public void setCapacity(double capacity) {
+	public @Nonnull SimpleInventory setCapacity(double capacity) {
 		this.capacity = capacity;
+		return this;
 	}
 
 	@Override

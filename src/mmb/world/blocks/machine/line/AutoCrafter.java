@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.node.IntNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
-import mmb.beans.BlockActivateListener;
+import mmb.cgui.BlockActivateListener;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;

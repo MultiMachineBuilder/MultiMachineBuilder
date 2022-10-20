@@ -5,7 +5,7 @@ package mmb.world.blocks.wireworld;
 
 import javax.annotation.Nullable;
 
-import mmb.beans.BlockActivateListener;
+import mmb.cgui.BlockActivateListener;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.BlockEntityDataless;
 import mmb.world.block.BlockType;

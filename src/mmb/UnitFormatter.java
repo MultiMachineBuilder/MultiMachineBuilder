@@ -122,4 +122,13 @@ public class UnitFormatter {
 		//Yoctojoules
 		return (energy*1e24)+" yW";
 	}
+	/**
+	 * Formats a pair of coordinates
+	 * @param x X coordinate
+	 * @param y Y coordinate
+	 * @return string in form of [X,Y]
+	 */
+	public static String formatPoint(int x, int y) {
+		return "["+x+","+y+"]";
+	}
 }

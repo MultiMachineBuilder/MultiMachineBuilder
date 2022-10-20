@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.beans.BlockActivateListener;
+import mmb.cgui.BlockActivateListener;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.BlockEntityData;

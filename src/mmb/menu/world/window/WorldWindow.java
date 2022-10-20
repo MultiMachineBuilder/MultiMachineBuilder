@@ -480,15 +480,22 @@ public class WorldWindow extends MMBFrame{
 	
 	//Recipe selection
 	/** Recipe clipboard */
-	@Nonnull public final ListenableValue<@Nullable Recipe<?>> recipesel = new ListenableValue<>(null);
+	@Nonnull public final transient ListenableValue<@Nullable Recipe<?>> recipesel = new ListenableValue<>(null);
 	
 	public void redrawUIs() {
 		scrollablePlacementList.repaint();
 		toolList.repaint();
 	}
 	
-	public InventoryController playerInventory() {
+	/**
+	 * Creates a new inventory controller boiund to the player
+	 * @return a new inventroy controller
+	 */
+	@Nonnull public InventoryController playerInventory() {
 		return new InventoryController(panelPlayerInv.craftGUI.inventoryController);
+	}
+	public void playerInventory(InventoryController invctrl) {
+		invctrl.set(panelPlayerInv.craftGUI.inventoryController);
 	}
 	protected JCheckBoxMenuItem getCheckBindCameraPlayer() {
 		return checkBindCameraPlayer;

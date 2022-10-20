@@ -265,6 +265,8 @@ public class ContentsBlocks {
 			.texture("logic/off.png")
 			.title("#ww-off")
 			.finish("wireworld.off");
+	
+	//WireWorld machines
 	/** Creative block placement, unobtainable in survival */
 	@Nonnull public static final BlockEntityType PLACER = new BlockEntityType()
 			.title("#ww-placer")

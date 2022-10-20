@@ -8,8 +8,8 @@ import static mmb.GlobalSettings.$res;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.beans.BlockActivateListener;
 import mmb.beans.ControllableFilter;
+import mmb.cgui.BlockActivateListener;
 import mmb.data.variables.Variable;
 import mmb.menu.world.machine.FilterGUI;
 import mmb.menu.world.window.GUITab;

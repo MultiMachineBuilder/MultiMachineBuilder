@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.rainerhahnekamp.sneakythrow.Sneaky;
 
-import mmb.beans.BlockActivateListener;
+import mmb.cgui.BlockActivateListener;
 import mmb.data.contents.Sound;
 import mmb.data.contents.Sounds;
 import mmb.data.contents.Textures;

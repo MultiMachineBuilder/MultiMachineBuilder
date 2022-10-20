@@ -37,7 +37,7 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import mmb.GameEvents;
 import mmb.GlobalSettings;
 import mmb.Vector2iconst;
-import mmb.beans.BlockActivateListener;
+import mmb.cgui.BlockActivateListener;
 import mmb.data.json.JsonTool;
 import mmb.debug.Debugger;
 import mmb.menu.world.FPSCounter;
@@ -53,12 +53,14 @@ import mmb.world.mbmachine.Machine;
 import mmb.world.mbmachine.MachineModel;
 import mmb.world.rotate.Side;
 import mmb.world.visuals.Visual;
+import mmb.world.worlds.DataLayers;
 import mmb.world.worlds.MapProxy;
 import mmb.world.worlds.universe.Universe;
 import monniasza.collects.Identifiable;
 import monniasza.collects.alloc.Allocator;
 import monniasza.collects.alloc.Indexable;
 import monniasza.collects.alloc.SimpleAllocator;
+import monniasza.collects.datalayer.IndexedDatalayerMap;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 
@@ -73,9 +75,9 @@ import monniasza.collects.grid.Grid;
  */
 public class World implements Identifiable<String>, Indexable{
 	//Allocator & data layers
-	private static SimpleAllocator<World> allocator0 = new SimpleAllocator<>();
+	@Nonnull private static SimpleAllocator<World> allocator0 = new SimpleAllocator<>();
 	/** Allocator for universes */
-	public static final Allocator<World> allocator = allocator0.readonly();
+	@Nonnull public static final Allocator<World> allocator = allocator0.readonly();
 	private int ordinal; //ordinal, set to -1 to prevent abuse after universe dies
 	@Override
 	public int ordinal() {
@@ -345,6 +347,11 @@ public class World implements Identifiable<String>, Indexable{
 					debug.pstm(e, "Failed to run block entity at ["
 						+ent.posX()+","+ent.posY()+"]");
 				}
+			}
+			//Run every data layer
+			for(IndexedDatalayerMap<World, ? extends DataLayer<World>> dls: DataLayers.layersWorld) {
+				DataLayer<World> dl = dls.get(this);
+				dl.cycle();
 			}
 		}catch(Exception e) {
 			debug.pstm(e, "Failed to run the map");

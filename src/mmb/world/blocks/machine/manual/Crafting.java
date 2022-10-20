@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 import it.unimi.dsi.fastutil.ints.IntList;
 import mmb.GlobalSettings;
-import mmb.beans.BlockActivateListener;
+import mmb.cgui.BlockActivateListener;
 import mmb.menu.world.inv.CraftGUI;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.ContentsRecipes;

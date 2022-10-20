@@ -11,8 +11,8 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.beans.BlockActivateListener;
 import mmb.beans.Titled;
+import mmb.cgui.BlockActivateListener;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.BlockEntityData;
 import mmb.world.blocks.machine.SideConfig.SideBoolean;

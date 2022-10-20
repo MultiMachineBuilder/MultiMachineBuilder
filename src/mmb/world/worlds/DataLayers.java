@@ -3,6 +3,9 @@
  */
 package mmb.world.worlds;
 
+import java.util.Collections;
+import java.util.IdentityHashMap;
+import java.util.Set;
 import java.util.function.Function;
 
 import javax.annotation.Nonnull;
@@ -31,14 +34,16 @@ public class DataLayers {
 		inited = true;
 		
 		//init logic
-		
 	}
 	
-	//Universe data layers
 	
 	//Map data layers
-	
-	//Map helper
+	@SuppressWarnings("null")
+	@Nonnull private static final Set<IndexedDatalayerMap<World, ? extends DataLayer<World>>> layersWorld0 =
+		Collections.newSetFromMap(new IdentityHashMap<>());
+	/** An unmodifiable set of world data layers */
+	@Nonnull public static final Set<IndexedDatalayerMap<World, ? extends DataLayer<World>>> layersWorld =
+		Collections.unmodifiableSet(layersWorld0);
 	/**
 	 * Sets up a world data layer for given JSON node
 	 * @param <T> type of the data layer
@@ -48,15 +53,19 @@ public class DataLayers {
 	public static <T extends DataLayer<World>> void registerWorldDataLayerUsingNode
 	(String nodeName, IndexedDatalayerMap<World, T> databinder){
 		debug.printl("New world data layer: "+nodeName);
+		boolean add = layersWorld0.add(databinder);
+		if(!add) throw new IllegalStateException("Data layer "+nodeName+" already exists");
 		GameEvents.onWorldLoad.addListener(tuple -> {
 			debug.printl("Loading world data layer: "+nodeName);
 			JsonNode node = tuple._2.get(nodeName);
 			T datalayer = databinder.get(tuple._1);
 			if(node != null) datalayer.load(node);
+			datalayer.startup();
 		});
 		GameEvents.onWorldSave.addListener(tuple -> {
 			debug.printl("Saving world data layer: "+nodeName);
 			T datalayer = databinder.get(tuple._1);
+			datalayer.shutdown();
 			JsonNode save = datalayer.save();
 			tuple._2.set(nodeName, save);
 		});
@@ -75,7 +84,13 @@ public class DataLayers {
 		return datalayer;
 	}
 	
-	//Universe helper
+	//Universe data layers
+	@SuppressWarnings("null")
+	@Nonnull private static final Set<IndexedDatalayerMap<Universe, ? extends DataLayer<Universe>>> layersUniverse0 =
+		Collections.newSetFromMap(new IdentityHashMap<>());
+	/** An unmodifiable set of universe data layers */
+	@Nonnull public static final Set<IndexedDatalayerMap<Universe, ? extends DataLayer<Universe>>> layersUniverse =
+			Collections.unmodifiableSet(layersUniverse0);
 	/**
 	 * Sets up a world data layer for given JSON node
 	 * @param <T> type of the data layer
@@ -84,14 +99,18 @@ public class DataLayers {
 	 */
 	public static <T extends DataLayer<Universe>> void registerUniverseDataLayerUsingNode
 	(String nodeName, IndexedDatalayerMap<Universe, T> databinder){
+		boolean add = layersUniverse0.add(databinder);
+		if(!add) throw new IllegalStateException("Data layer "+nodeName+" already exists");
 		debug.printl("New universe data layer: "+nodeName);
 		GameEvents.onUniverseLoad.addListener(tuple -> {
 			JsonNode node = tuple._2.get(nodeName);
 			T datalayer = databinder.get(tuple._1);
 			if(node != null) datalayer.load(node);
+			datalayer.startup();
 		});
 		GameEvents.onUniverseSave.addListener(tuple -> {
 			T datalayer = databinder.get(tuple._1);
+			datalayer.shutdown();
 			JsonNode save = datalayer.save();
 			tuple._2.set(nodeName, save);
 		});

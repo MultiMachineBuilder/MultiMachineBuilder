@@ -10,8 +10,8 @@ import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.beans.BlockActivateListener;
 import mmb.beans.Electric;
+import mmb.cgui.BlockActivateListener;
 import mmb.menu.world.machine.BatteryTab;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.SkeletalBlockEntityRotary;

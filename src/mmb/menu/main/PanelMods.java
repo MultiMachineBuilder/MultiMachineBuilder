@@ -97,13 +97,13 @@ public class PanelMods extends JPanel {
 		String release = UNKNOWN;
 		String descr = "This file is corrupt.";
 		String author = UNKNOWN;
-		if(mod.meta == null) {
-			release = new Date().toString();
-			descr = "No description";
-		}else if(mod.state == ModState.ENABLE) {
+		if(mod.state == ModState.ENABLE) {
 			release = mod.meta.release.toString();
 			descr = mod.meta.description;
 			author = mod.meta.author;
+		}else {
+			release = new Date().toString();
+			descr = "No description";
 		}
 		String state = mod.state.title;
 		String ver = "";

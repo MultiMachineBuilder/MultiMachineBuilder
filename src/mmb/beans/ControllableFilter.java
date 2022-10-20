@@ -5,6 +5,7 @@ package mmb.beans;
 
 import javax.annotation.Nullable;
 
+import mmb.cgui.DestroyTab;
 import mmb.menu.world.machine.FilterGUI;
 import mmb.world.inventory.storage.SingleItemInventory;
 

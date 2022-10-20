@@ -44,19 +44,19 @@ public class SimpleAllocator<T> implements Allocator<T> {
 	
 	@Override
 	public int allocate(T obj) {
+		Node node = new Node(obj);
 		int next;
 		if(free.isEmpty()) {
 			//Generate new values
 			next = data.size();
-			data.add(new Node(obj));
+			data.add(node);
 		}else {
 			//Reuse the value
 			IntIterator iterator = free.intIterator();
 			next = iterator.nextInt();
 			iterator.remove();
-		}
-		Node node = new Node(obj);
-		data.add(node);
+			data.set(next, node);
+		}		
 		for(AllocationListener<T> listener: listeners) {
 			try {
 				listener.allocated(next, obj);
@@ -88,6 +88,7 @@ public class SimpleAllocator<T> implements Allocator<T> {
 				exceptionHandler.accept(e);
 			}
 		}
+		free.add(id);
 		data.set(id, null);
 	}
 
