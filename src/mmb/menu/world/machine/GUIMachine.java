@@ -100,7 +100,7 @@ public class GUIMachine extends GUITab implements Refreshable{
 			addCatalyst.addActionListener(e -> {
 				ItemRecord irecord = invPlayer.getSelectedValue();
 				if(irecord == null) return;
-				Inventories.transfer(irecord, cats);
+				Inventories.transferRecord(irecord, cats);
 				invPlayer.refresh();
 			});
 			add(addCatalyst, "cell 1 4,growx");

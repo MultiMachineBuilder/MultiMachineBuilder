@@ -1,0 +1,173 @@
+/**
+ * 
+ */
+package monniasza.collects.selfset;
+
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Function;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+import monniasza.collects.Identifiable;
+
+/**
+ * An basic map-based self-set
+ * @author oskar
+ * @param <K> 
+ * @param <V> 
+ * @param <M> the type of map
+ */
+public class BaseMapSelfSet<K, V, M extends Map<K, V>> implements SelfSet<K, V>{
+	@Nonnull private final M map;
+	public final boolean nullable;
+	@Nullable public final Class<V> type;
+	@Nonnull private final Function<V, K> fn;
+
+	/**
+	 * A complex self-set constructor. Usually not used by the user
+	 * @param map 
+	 * @param nullable is the self-set nullable
+	 * @param type
+	 * @param fn
+	 */
+	public BaseMapSelfSet(M map, boolean nullable, Class<V> type, Function<V, K> fn) {
+		this.map = map;
+		this.nullable = nullable;
+		this.type = type;
+		this.fn = fn;
+	}
+
+	@Override
+	public int size() {
+		return map.size();
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return map.isEmpty();
+	}
+
+	@Override
+	public @Nonnull Iterator<V> iterator() {
+		return map.values().iterator();
+	}
+
+	@Override
+	public Object @Nonnull [] toArray() {
+		return map.values().toArray();
+	}
+
+	@Override
+	public <T> T @Nonnull [] toArray(T[] a) {
+		return map.values().toArray(a);
+	}
+
+	@Override
+	public boolean add(@SuppressWarnings("null") V e) {
+		return map.put(id(e), e) == null;
+	}
+
+	@Override
+	public boolean containsAll(Collection<?> c) {
+		for(Object obj: c) {
+			if(!(c instanceof Identifiable)) return false;
+			Object id = ((Identifiable<?>)c).id();
+			if(!map.containsKey(id)) return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean addAll(Collection<? extends V> c) {
+		boolean result = false;
+		for(V obj: c) {
+			result |= add(obj);
+		}
+		return result;
+	}
+
+	@Override
+	public boolean retainAll(Collection<?> c) {
+		AtomicBoolean changed = new AtomicBoolean();
+		map.entrySet().removeIf(e ->{
+			if(!c.contains(e.getValue())) return false;
+			changed.set(true);
+			return true;
+		});
+		return changed.get();
+	}
+
+	@Override
+	public boolean removeAll(Collection<?> c) {
+		boolean removed = false;
+		for(Object obj: c) {
+			removed |= map.remove(obj) != null;
+		}
+		return removed;
+	}
+
+	@Override
+	public void clear() {
+		map.clear();
+	}
+
+	@Override
+	public Set<K> keys() {
+		return map.keySet();
+	}
+
+	@Override
+	public Set<V> values() {
+		return this;
+	}
+
+	@Override
+	public V get(@Nullable Object key) {
+		return map.get(key);
+	}
+
+	@Override
+	public V getOrDefault(@Nullable Object key, V defalt) {
+		return map.getOrDefault(key, defalt);
+	}
+
+	@Override
+	public boolean removeKey(K key) {
+		return map.remove(key) != null;
+	}
+
+	@Override
+	public boolean containsKey(@Nullable Object key) {
+		return map.containsKey(key);
+	}
+
+	@Override
+	public boolean test(@Nullable Object o) {
+		if(o == null) return nullable;
+		if(type == null) return true;
+		return type.isInstance(o);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public K id(Object value) {
+		return fn.apply((V) value);
+	}
+
+	@Override
+	public boolean nullable() {
+		return nullable;
+	}
+
+	@Override
+	public Class<V> type() {
+		return type;
+	}
+	
+	
+}

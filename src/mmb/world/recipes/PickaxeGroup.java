@@ -19,6 +19,7 @@ import mmb.menu.world.window.TabRecipes;
 import mmb.world.inventory.Inventory;
 import mmb.world.item.ItemType;
 import mmb.world.items.ItemEntry;
+import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;
@@ -82,7 +83,7 @@ public class PickaxeGroup implements Identifiable<String>, Titled{
 			return this;
 		}
 	}
-	@Nonnull private final SelfSet<ItemEntry, PickaxeInfo> _recipes = new HashSelfSet<>();
+	@Nonnull private final SelfSet<ItemEntry, PickaxeInfo> _recipes = HashSelfSet.createNonnull(PickaxeInfo.class);
 	@Nonnull public final SelfSet<ItemEntry, PickaxeInfo> recipes = Collects.unmodifiableSelfSet(_recipes);
 	public Set<? extends ItemEntry> supportedItems() {
 		return supported0;

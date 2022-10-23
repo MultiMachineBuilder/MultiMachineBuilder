@@ -12,9 +12,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.UnitFormatter;
 import mmb.data.json.JsonTool;
 import mmb.debug.Debugger;
-import mmb.world.blocks.ContentsBlocks;
 import mmb.world.inventory.Inventory;
-import mmb.world.items.ItemEntry;
 import mmb.world.worlds.world.DataLayer;
 import mmb.world.worlds.world.World;
 import mmbmods.stn.block.STNBaseMachine;
@@ -25,7 +23,7 @@ import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag;
  * @author oskar
  */
 public class DataLayerSTN extends DataLayer<World> {
-	@Nonnull private Debugger debug;
+	@Nonnull private final Debugger debug;
 
 	/**
 	 * Creates a Simple Transportation Network
@@ -43,15 +41,23 @@ public class DataLayerSTN extends DataLayer<World> {
 		//Save the flush queue (if it failed to flush)
 		node.set("queue", inv.storageQueue.save());
 		
+		//Save the processing capabilities
+		node.set("processing", processor.save());
+		
 		return node;
 	}
 
 	@Override
-	public void load(JsonNode data) {
+	public void load(@Nullable JsonNode data) {
+		if(data == null) return;
 		//Load the flush queue
 		JsonNode queueNode = data.get("queue");
 		inv.storageQueue.load(queueNode);
 		inv.storageQueue.setCapacity(128);
+		
+		//Load the processing capabilities
+		JsonNode procNode = data.get("processing");
+		processor.load(procNode);
 	}
 
 	//EMBARK/DISEMBARK

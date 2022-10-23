@@ -59,6 +59,11 @@
 		<sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
 	</properties>
 	<dependencies>
+		<dependency>
+		  <groupId>com.glazedlists</groupId>
+		  <artifactId>glazedlists</artifactId>
+		  <version>1.11.0</version>
+		</dependency>
 	   <dependency>
 	      <groupId>org.ainslec</groupId>
 	      <artifactId>picocog</artifactId>

@@ -44,6 +44,11 @@ public interface InventoryWriter {
 	 * @return inserted number of units
 	 */
 	public int bulkInsert(RecipeOutput block, int amount);
+	/**
+	 * Inserts items, keeping the block whole
+	 * @param block the indivisible insertion unit
+	 * @return inserted number of units
+	 */
 	public default boolean bulkInsert(RecipeOutput block) {
 		return bulkInsert(block, 1) == 1;
 	}
@@ -89,7 +94,6 @@ public interface InventoryWriter {
 		}
 		@Override
 		public int bulkInsert(RecipeOutput block, int amount) {
-			// TODO Auto-generated method stub
 			return 0;
 		}
 		
@@ -217,6 +221,5 @@ public interface InventoryWriter {
 			}
 			return transferred;
 		}
-		
 	}
 }

@@ -26,13 +26,6 @@ public class STNStorageAttachment extends STNBaseMachine {
 		return STN.STN_storage;
 	}
 
-	@Override
-	public BlockEntry blockCopy() {
-		STNStorageAttachment copy = new STNStorageAttachment();
-		copy.setRotation(getRotation());
-		return copy;
-	}
-
 	//Recipes - usupported
 	@Override
 	public STNRGroupTag recipes() {
@@ -64,5 +57,10 @@ public class STNStorageAttachment extends STNBaseMachine {
 		old = storage;
 		storage = getAtSide(getRotation().U()).getInventory(getRotation().D());
 		if(storage != old) network().revalidate(this);
+	}
+
+	@Override
+	protected STNBaseMachine blockCopy0() {
+		return new STNStorageAttachment();
 	}
 }

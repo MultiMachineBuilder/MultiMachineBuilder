@@ -98,6 +98,6 @@ public class WireGroup implements Identifiable<String> {
 	public String id() {
 		return id;
 	}
-	@Nonnull private static final SelfSet<@Nonnull String, @Nonnull WireGroup> _index = new HashSelfSet<>();
+	@Nonnull private static final SelfSet<@Nonnull String, @Nonnull WireGroup> _index = HashSelfSet.createNonnull(WireGroup.class);
 	@Nonnull public static final SelfSet<@Nonnull String, @Nonnull WireGroup> index = Collects.unmodifiableSelfSet(_index);
 }

@@ -17,7 +17,7 @@ import mmb.world.electric.Electricity.SettablePressure;
  * @author oskar
  *
  */
-public class Battery implements SettablePressure, Saver<JsonNode>, Comparable<@Nonnull Battery>{
+public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, Saver{
 	public double maxPower;
 	/**
 	 * The energy capacity in coulombs

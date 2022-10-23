@@ -7,6 +7,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import com.google.common.collect.Iterators;
+
 /**
  * @author oskar
  * An iterator which iterates over all of its collections
@@ -14,7 +16,7 @@ import java.util.NoSuchElementException;
  */
 public class Iterator2<T> implements Iterator<T> {
 	public static <U> Iterator2<U> iterIterCol(Iterator<? extends Collection<? extends U>> ic) {
-		return iterIterIter(new MapIterator<>(Collection::iterator, ic));
+		return iterIterIter(Iterators.transform(ic, Collection::iterator));
 	}
 	public static <U> Iterator2<U> iterIterIter(Iterator<? extends Iterator<? extends U>> ii) {
 		return new Iterator2<>(ii);

@@ -3,10 +3,6 @@
  */
 package mmb.world.worlds.world;
 
-import javax.annotation.Nonnull;
-
-import com.fasterxml.jackson.databind.JsonNode;
-
 import mmb.beans.Saver;
 import monniasza.collects.Identifiable;
 
@@ -15,7 +11,7 @@ import monniasza.collects.Identifiable;
  * @author oskar
  * @param <T> type of enclosing game object
  */
-public abstract class DataLayer<T> implements Identifiable<T>, Saver<@Nonnull JsonNode> {
+public abstract class DataLayer<T> implements Identifiable<T>, Saver {
 	/**
 	 * Creates a world data alyer
 	 * @param world

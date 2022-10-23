@@ -166,4 +166,9 @@ public class SingleStackedInventory implements Inventory{
 		}
 		return 0;
 	}
+
+	@Override
+	public boolean test(ItemEntry e) {
+		return true;
+	}
 }

@@ -36,7 +36,7 @@ import mmb.world.worlds.world.World;
  * 	<li>BlockInterface - connect to other machines</li>
  * </ul>
  */
-public interface Machine extends Saver<JsonNode>{
+public interface Machine extends Saver{
 	//[start] positioning
 	public default void setPos(Point p) {
 		setPos(p.x, p.y);

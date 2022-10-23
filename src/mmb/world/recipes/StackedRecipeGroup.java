@@ -17,6 +17,7 @@ import mmb.world.crafting.singles.SimpleRecipeGroup;
 import mmb.world.electric.VoltageTier;
 import mmb.world.inventory.Inventory;
 import mmb.world.items.ItemEntry;
+import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;
@@ -93,7 +94,7 @@ implements SimpleRecipeGroup<StackedRecipeGroup.StackedRecipe>{
 	}
 	
 	//Recipe listing
-	@Nonnull private final SelfSet<ItemEntry, StackedRecipe> _recipes = new HashSelfSet<>();
+	@Nonnull private final SelfSet<ItemEntry, StackedRecipe> _recipes = HashSelfSet.createNonnull(StackedRecipe.class);
 	@Nonnull public final SelfSet<ItemEntry, StackedRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
 	@Override
 	public Set<? extends ItemEntry> supportedItems() {

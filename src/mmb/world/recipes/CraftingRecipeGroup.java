@@ -22,6 +22,7 @@ import mmb.world.electric.VoltageTier;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemStack;
 import mmb.world.items.ItemEntry;
+import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.grid.FixedGrid;
@@ -124,7 +125,7 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup<CraftingRecipeGroup
 	private final Set<ItemEntry> supported = new HashSet<>();
 	private final Set<ItemEntry> supported0 = Collections.unmodifiableSet(supported);
 	//internal recipe map
-	private final SelfSet<Grid<ItemEntry>, CraftingRecipe> _recipes = new HashSelfSet<>();
+	private final SelfSet<Grid<ItemEntry>, CraftingRecipe> _recipes = HashSelfSet.createNonnull(CraftingRecipe.class);
 	/** A read-only map of all recipes */
 	public final SelfSet<Grid<ItemEntry>, CraftingRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
 	

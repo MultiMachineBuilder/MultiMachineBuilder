@@ -3,14 +3,7 @@
  */
 package mmb.menu.wtool;
 
-import java.awt.Graphics;
-
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.swing.Icon;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
 import mmb.debug.Debugger;
 import mmb.menu.world.window.WorldWindow;
@@ -81,42 +74,5 @@ public class ToolSelectionModel {
 	}
 	public WindowTool getTool() {
 		return tool;
-	}
-
-	//TEST
-	private static class DummyTool extends WindowTool{
-		protected DummyTool(String s) {
-			super(s);
-		}
-
-		@Override
-		public String title() {
-			return "Dummy tool";
-		}
-
-		@Override
-		public Icon getIcon() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public void preview(int startX, int startY, double scale, Graphics g) {
-			// unused
-		}
-		
-	}
-	@Test static void test() {
-		//WorldWindow dummyWindow = new WorldWindow();
-		ToolSelectionModel test = new ToolSelectionModel(null);
-		WindowTool tool1 = new DummyTool("Tool1");
-		WindowTool tool2 = new DummyTool("Tool2");
-		Assertions.assertNull(test.getTool(), "Tool was not yet selected");
-		test.toolSelectedToolList(tool1);
-		Assertions.assertSame(tool1, test.getTool(), "Tool1 not properly selected");
-		test.toolSelectedToolList(tool2);
-		Assertions.assertSame(tool2, test.getTool(), "Tool2 not properly selected");
-		test.toolSelectedToolList(tool1);
-		Assertions.assertSame(tool1, test.getTool(), "Tool1 not properly selected");
 	}
 }

@@ -7,9 +7,10 @@ import java.util.Iterator;
 
 import javax.annotation.Nonnull;
 
+import com.google.common.collect.Iterators;
+
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.items.ItemEntry;
-import monniasza.collects.MapIterator;
 
 /**
  * @author oskar
@@ -63,7 +64,7 @@ public class ExtractionsOnlyInventory implements Inventory {
 
 	@Override
 	public Iterator<ItemRecord> iterator() {
-		return new MapIterator<ItemRecord, ItemRecord>(i -> ExtractionsOnlyItemRecord.decorate(i, this), inv.iterator());
+		return Iterators.transform(inv.iterator(), ItemRecord::lockInsertions);
 	}
 
 	@Override
@@ -105,5 +106,10 @@ public class ExtractionsOnlyInventory implements Inventory {
 	@Override
 	public int bulkInsert(RecipeOutput ent, int amount) {
 		return 0;
+	}
+
+	@Override
+	public boolean test(ItemEntry e) {
+		return false;
 	}
 }

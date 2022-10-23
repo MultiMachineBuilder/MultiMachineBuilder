@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
+import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
@@ -35,7 +36,7 @@ class TestSelfSet {
 	}
 	@Test
 	void test() {
-		SelfSet<String, TestContainer> set = new HashSelfSet<>();
+		SelfSet<String, TestContainer> set = HashSelfSet.createNonnull(TestContainer.class);
 		TestContainer contA = new TestContainer();
 		TestValue objA = new TestValue();
 		contA.name = "A";

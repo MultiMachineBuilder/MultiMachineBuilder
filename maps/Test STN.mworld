@@ -6,11 +6,11 @@
     "startY" : -8,
     "world" : [ "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "chest.beginning",
-      "inventory" : [ 6.0, [ "mmb.planks", "mmb.planks", 100 ], [ "mmb.tree", "mmb.tree", 200 ] ],
+      "inventory" : [ 6.0 ],
       "color" : [ 255, 255, 255, 255 ]
     }, {
       "blocktype" : "chest.beginning",
-      "inventory" : [ 6.0, [ "mmb.planks", "mmb.planks", 300 ] ],
+      "inventory" : [ 6.0 ],
       "color" : [ 255, 255, 255, 255 ]
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "stnb.storage",
@@ -25,7 +25,7 @@
     "drops" : [ ],
     "machines" : [ ],
     "player" : {
-      "inventory" : [ 128.0, [ "stnb.terminal", 1 ], [ "stnb.storage", 1 ], [ "chest.beginning", 1 ] ],
+      "inventory" : [ 128.0, [ "stnb.exporter", 1 ], [ "stnb.terminal", 1 ], [ "stnb.importer", 1 ], [ "stnb.storage", 1 ], [ "chest.beginning", 1 ] ],
       "creative" : true,
       "x" : 0.0,
       "y" : 0.0,
@@ -33,7 +33,11 @@
       "alcohol2" : 0.0
     },
     "STN" : {
-      "queue" : [ 128.0, [ "mmb.tree", "mmb.tree", 200 ] ]
+      "queue" : [ 128.0 ],
+      "processing" : {
+        "recipesProcessing" : { },
+        "recipesCrafting" : [ "Infinity" ]
+      }
     }
   },
   "maps" : { }

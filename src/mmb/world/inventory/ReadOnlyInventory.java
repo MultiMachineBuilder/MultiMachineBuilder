@@ -11,7 +11,6 @@ import com.google.common.collect.Iterators;
 
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.items.ItemEntry;
-import monniasza.collects.MapIterator;
 
 /**
  * @author oskar
@@ -23,7 +22,7 @@ public class ReadOnlyInventory implements Inventory {
 	@Override
 	@Nonnull public Iterator<ItemRecord> iterator() {
 		return Iterators.unmodifiableIterator(
-				new MapIterator<ItemRecord, ItemRecord>(ReadOnlyItemRecord::decorate, inv.iterator())
+				Iterators.transform(inv.iterator(), ItemRecord::readOnly)
 		);
 	}
 
@@ -118,6 +117,11 @@ public class ReadOnlyInventory implements Inventory {
 	@Override
 	public int bulkInsert(RecipeOutput ent, int amount) {
 		return 0;
+	}
+
+	@Override
+	public boolean test(ItemEntry e) {
+		return false;
 	}
 
 }

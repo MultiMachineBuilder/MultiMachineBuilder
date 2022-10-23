@@ -19,12 +19,14 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import mmb.data.Save;
 import mmb.debug.Debugger;
 import mmb.world.crafting.RecipeOutput;
+import mmb.world.inventory.ItemStack;
 import mmb.world.item.ItemEntity;
 import mmb.world.item.ItemType;
 import mmb.world.items.ContentsItems;
 import mmb.world.items.ItemEntry;
 import mmb.world.recipes.CraftingGroups;
 import mmb.world.recipes.CraftingRecipeGroup.CraftingRecipe;
+import monniasza.collects.Collects;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 
@@ -32,58 +34,19 @@ import monniasza.collects.grid.Grid;
  * @author oskar
  * Represents a crafting grid recipe
  */
-public class Stencil extends ItemEntity implements Grid<@Nullable ItemEntry>{
+public class Stencil extends ItemEntity{
 	
 	//Others
 	private static final Debugger debug = new Debugger("STENCIL");
 	
 	//Collection methods
-	@Override
-	public FixedGrid<ItemEntry> copy(int x, int y, int w, int h) {
-		return grid.copy(x, y, w, h);
-	}
-
-	@Override
-	public void set(int x, int y, @Nullable ItemEntry data) {
-		throw new UnsupportedOperationException("Stencil is read-only");
-	}
-	@Override
-	public ItemEntry get(int x, int y) {
-		return grid.get(x, y);
-	}
-
-	@Override
-	public int width() {
-		return grid.width();
-	}
-	@Override
-	public int height() {
-		return grid.height();
-	}
-	@Override
-	public int size() {
-		return grid.size();
-	}
-
-	@Override
-	public FixedGrid<ItemEntry> trim() {
-		return grid.trim();
-	}
-
-	@Override
-	public Iterator<ItemEntry> iterator() {
-		return grid.iterator();
-	}
-	@Override
-	public Spliterator<ItemEntry> spliterator() {
-		return grid.spliterator();
-	}
-	@Override
-	public void forEach(Consumer<? super ItemEntry> c) {
-		grid.forEach(c);
-	}
 
 	@Nonnull private Grid<ItemEntry> grid = new FixedGrid<>(0);
+	
+	/** @return the unmodifiable item grid of this stencil*/
+	public Grid<ItemEntry> grid(){
+		return Collects.unmodifiableGrid(grid);
+	}
 	
 	//Item methods
 	private String title = "Crafting stencil - none";

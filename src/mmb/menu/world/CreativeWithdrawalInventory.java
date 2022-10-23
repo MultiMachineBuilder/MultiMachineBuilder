@@ -7,13 +7,14 @@ import java.util.Iterator;
 
 import javax.annotation.Nonnull;
 
+import com.google.common.collect.Iterators;
+
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.item.ItemType;
 import mmb.world.item.Items;
 import mmb.world.items.ItemEntry;
-import monniasza.collects.MapIterator;
 
 /**
  * @author oskar
@@ -28,9 +29,9 @@ public class CreativeWithdrawalInventory implements Inventory {
 	@SuppressWarnings("null")
 	@Override
 	public Iterator<ItemRecord> iterator() {
-		return new MapIterator<>(
-				CreativeWithdrawalItemRecord::new, //create new copies of the item
-				Items.items.iterator() //list item types
+		return Iterators.transform(
+				Items.items.iterator(), //list item types
+				CreativeWithdrawalItemRecord::new //create new copies of the item
 				);
 	}
 
@@ -123,5 +124,10 @@ public class CreativeWithdrawalInventory implements Inventory {
 	@Override
 	public int bulkInsert(RecipeOutput ent, int amount) {
 		return 0;
+	}
+
+	@Override
+	public boolean test(ItemEntry e) {
+		return false;
 	}
 }

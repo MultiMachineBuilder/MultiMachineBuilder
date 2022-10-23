@@ -22,7 +22,7 @@ public class Tools {
 	/**
 	 * A list of all registered tools
 	 */
-	public static final SelfSet<String, WindowToolModel> toollist = new HashSelfSet<>();
+	public static final SelfSet<String, WindowToolModel> toollist = HashSelfSet.createNonnull(WindowToolModel.class);
 	/**
 	 * A standard tool
 	 */

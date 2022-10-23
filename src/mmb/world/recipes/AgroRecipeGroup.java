@@ -104,7 +104,7 @@ public class AgroRecipeGroup extends AbstractRecipeGroup<AgroRecipeGroup.AgroPro
 	}
 	
 	//Recipe listing
-	@Nonnull private final SelfSet<ItemEntry, AgroProcessingRecipe> _recipes = new HashSelfSet<>();
+	@Nonnull private final SelfSet<ItemEntry, AgroProcessingRecipe> _recipes = HashSelfSet.createNonnull(AgroProcessingRecipe.class);
 	@Nonnull public final SelfSet<ItemEntry, AgroProcessingRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
 	@Override
 	public Set<? extends ItemEntry> supportedItems() {

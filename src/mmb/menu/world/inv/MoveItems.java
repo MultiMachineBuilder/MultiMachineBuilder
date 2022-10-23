@@ -95,7 +95,7 @@ public class MoveItems extends JPanel {
 			JButton btnSelL = new JButton("<< "+SEL);
 			btnSelL.addActionListener(e -> {
 				for(ItemRecord selRecord: right.getSelectedValuesList()) {
-					Inventories.transfer(selRecord, left.getInv());
+					Inventories.transferRecord(selRecord, left.getInv());
 				}
 				left.refresh();
 				right.refresh();
@@ -106,7 +106,7 @@ public class MoveItems extends JPanel {
 			JButton btnOPSelL = new JButton("<< "+OSEL);
 			btnOPSelL.addActionListener(e -> {
 				for(ItemRecord selRecord: right.getSelectedValuesList()) {
-					Inventories.transfer(selRecord, left.getInv(), 1);
+					Inventories.transferRecord(selRecord, left.getInv(), 1);
 				}
 				left.refresh();
 				right.refresh();
@@ -116,7 +116,7 @@ public class MoveItems extends JPanel {
 			
 			JButton btnOneL = new JButton("<< "+ONE);
 			btnOneL.addActionListener(e -> {
-				Inventories.transfer(right.getSelectedValue(), left.getInv(), 1);
+				Inventories.transferRecord(right.getSelectedValue(), left.getInv(), 1);
 				left.refresh();
 				right.refresh();
 			});
@@ -127,7 +127,7 @@ public class MoveItems extends JPanel {
 			btnNSelL.addActionListener(e -> {
 				int n = amount();
 				for(ItemRecord selRecord: right.getSelectedValuesList()) {
-					Inventories.transfer(selRecord, left.getInv(), n);
+					Inventories.transferRecord(selRecord, left.getInv(), n);
 				}
 				left.refresh();
 				right.refresh();
@@ -138,7 +138,7 @@ public class MoveItems extends JPanel {
 			JButton btnNL = new JButton("<< "+N);
 			btnNL.addActionListener(e -> {
 				int n = amount();
-				Inventories.transfer(right.getSelectedValue(), left.getInv(), n);
+				Inventories.transferRecord(right.getSelectedValue(), left.getInv(), n);
 				left.refresh();
 				right.refresh();
 			});
@@ -156,7 +156,7 @@ public class MoveItems extends JPanel {
 			JButton btnNR = new JButton(N+" >>");
 			btnNR.addActionListener(e -> {
 				int n = amount();
-				Inventories.transfer(left.getSelectedValue(), right.getInv(), n);
+				Inventories.transferRecord(left.getSelectedValue(), right.getInv(), n);
 				left.refresh();
 				right.refresh();
 			});
@@ -167,7 +167,7 @@ public class MoveItems extends JPanel {
 			btnNSelR.addActionListener(e -> {
 				int n = amount();
 				for(ItemRecord selRecord: left.getSelectedValuesList()) {
-					Inventories.transfer(selRecord, right.getInv(), n);
+					Inventories.transferRecord(selRecord, right.getInv(), n);
 				}
 				left.refresh();
 				right.refresh();
@@ -176,7 +176,7 @@ public class MoveItems extends JPanel {
 			add(btnNSelR);
 			JButton btnOneR = new JButton(ONE+" >>");
 			btnOneR.addActionListener(e -> {
-				Inventories.transfer(left.getSelectedValue(), right.getInv(), 1);
+				Inventories.transferRecord(left.getSelectedValue(), right.getInv(), 1);
 				left.refresh();
 				right.refresh();
 			});
@@ -186,7 +186,7 @@ public class MoveItems extends JPanel {
 			JButton btnOPSelR = new JButton(OSEL+" >>");
 			btnOPSelR.addActionListener(e -> {
 				for(ItemRecord selRecord: left.getSelectedValuesList()) {
-					Inventories.transfer(selRecord, right.getInv(), 1);
+					Inventories.transferRecord(selRecord, right.getInv(), 1);
 				}
 				left.refresh();
 				right.refresh();
@@ -197,7 +197,7 @@ public class MoveItems extends JPanel {
 			JButton btnSelR = new JButton(SEL+" >>");
 			btnSelR.addActionListener(e -> {
 				for(ItemRecord selRecord: left.getSelectedValuesList()) {
-					Inventories.transfer(selRecord, right.getInv());
+					Inventories.transferRecord(selRecord, right.getInv());
 				}
 				left.refresh();
 				right.refresh();

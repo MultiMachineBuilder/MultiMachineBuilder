@@ -8,7 +8,6 @@ import javax.annotation.Nullable;
 
 import mmb.cgui.BlockActivateListener;
 import mmb.menu.world.window.WorldWindow;
-import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
 import mmb.world.inventory.Inventory;
 import mmb.world.rotate.RotatedImageGroup;
@@ -29,17 +28,14 @@ public class STNTerminal extends STNBaseMachine implements BlockActivateListener
 	}
 
 	@Override
-	public BlockEntry blockCopy() {
-		STNTerminal copy = new STNTerminal();
-		copy.setRotation(getRotation());
-		return copy;
-	}
-	@Override
 	public RotatedImageGroup getImage() {
 		return rig;
 	}
 
-	
+	@Override
+	protected STNBaseMachine blockCopy0() {
+		return new STNTerminal();
+	}
 
 	//Storage and recipes not supported
 	@Override

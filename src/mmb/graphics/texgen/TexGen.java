@@ -40,6 +40,15 @@ public class TexGen {
 		return result;
 	}
 	
+	@Nonnull public static BufferedImage colormap(Color from, Color to, BufferedImage src, @Nullable BufferedImage dest) {
+		ColorMapper mapper = ColorMapper.ofType(src.getType(), from, to);
+		LookupOp lookup = new LookupOp(mapper, null);
+		BufferedImage result = dest;
+		if(result == null) result = new BufferedImage(src.getWidth(), src.getHeight(), src.getType());
+		lookup.filter(src, result);
+		return result;
+	}
+	
 	/**
 	 * Generates a texture from a template.
 	 * @param r red component of main color

@@ -23,7 +23,7 @@ import mmb.world.rotate.Side;
  *
  */
 public final class SideConfig implements
-Cloneable, Iterable<mmb.world.blocks.machine.SideConfig.SideBoolean>, Saver<@Nullable JsonNode>{
+Cloneable, Iterable<mmb.world.blocks.machine.SideConfig.SideBoolean>, Saver{
 	/**
 	 * Creates a side config with all values set to false
 	 */

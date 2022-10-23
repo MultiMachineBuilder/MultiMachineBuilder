@@ -10,15 +10,34 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
 import java.util.function.Supplier;
+import java.util.stream.Collector;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
 import javax.swing.event.ListDataListener;
 
+import com.google.common.collect.Iterators;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multiset;
+import com.google.common.collect.SetMultimap;
+
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import mmb.world.items.ItemEntry;
+import monniasza.collects.grid.Grid;
+import monniasza.collects.selfset.BaseMapSelfSet;
 import monniasza.collects.selfset.SelfSet;
 
 /**
@@ -45,7 +64,7 @@ public class Collects {
 	 * @param set self-set to wrap
 	 * @return an unmodifiable wrapper around the self-set
 	 */
-	@Nonnull public static <K, V extends Identifiable<K>> SelfSet<K, V> unmodifiableSelfSet(SelfSet<? extends K, ? extends V> set){
+	@Nonnull public static <K, V> SelfSet<K, V> unmodifiableSelfSet(SelfSet<? extends K, ? extends V> set){
 		return new SelfSet<K, V>() {
 			@Override
 			public boolean add(@SuppressWarnings("null") V e) {
@@ -131,6 +150,27 @@ public class Collects {
 			@Override
 			public boolean containsKey(@Nullable Object key) {
 				return set.containsKey(key);
+			}
+
+			@Override
+			public boolean test(Object o) {
+				return set.test(o);
+			}
+
+			@Override
+			public K id(Object value) {
+				return set.id(value);
+			}
+
+			@Override
+			public boolean nullable() {
+				return set.nullable();
+			}
+
+			@SuppressWarnings("unchecked")
+			@Override
+			public Class<V> type() {
+				return (Class<V>) set.type();
 			}
 		};
 	}
@@ -309,6 +349,10 @@ public class Collects {
 		list.addAll(collect);
 		return list;
 	}
+	@Nonnull public static <T, M extends Object2IntMap<T>> M inplaceAddIntMaps(M list, Object2IntMap<T> collect){
+		list.putAll(collect);
+		return list;
+	}
 	@Nonnull public static <T> List<T> ooplaceAddLists(Collection<T> a, Collection<T> b, Supplier<List<T>> supplier){
 		List<T> list0 = supplier.get();
 		list0.addAll(a);
@@ -318,4 +362,295 @@ public class Collects {
 	@Nonnull public static <T> BiFunction<Collection<T>, Collection<T>, List<T>> ooplaceListAdder(Supplier<List<T>> supplier){
 		return (a, b) -> ooplaceAddLists(a, b, supplier);
 	}
+	@Nonnull private static final SetMultimap<?, ?> emptyMultiMap = new EmptySetMultimap();
+	/**
+	 * Creates an empty multimap
+	 * @param <K> type of keys
+	 * @param <V> type of values
+	 * @return an empty, immutable multimap
+	 */
+	@SuppressWarnings("unchecked")
+	@Nonnull public static <K, V> SetMultimap<K, V> emptyMultimap(){
+		return (SetMultimap<K, V>) emptyMultiMap;
+	}
+	@Nonnull private static final Multiset<?> emptyMultiSet = new EmptyMultiSet();
+	/**
+	 * Creates an empty multiset
+	 * @param <T> type of values
+	 * @return an empty, immutable multiset
+	 */
+	@SuppressWarnings("unchecked")
+	@Nonnull public static <T> Multiset<T> emptyMultiset(){
+		return (Multiset<T>) emptyMultiSet;
+	}
+	@Nonnull public static <T, M extends Object2IntMap<T>> Collector<Object2IntMap.Entry<T>, Object2IntMap<T>, M> collectToIntMap(Supplier<M> mapsup){
+		return new IntMapCollector<>(mapsup);
+	}
+
+
+	/**
+	 * @param grid
+	 * @return
+	 */
+	public static <T> Grid<T> unmodifiableGrid(Grid<T> grid) {
+		return new Grid<T>() {
+
+			@Override
+			public void set(int x, int y, T data) {
+				throw new UnsupportedOperationException();
+			}
+
+			@Override
+			public T get(int x, int y) {
+				return grid.get(x, y);
+			}
+
+			@Override
+			public int width() {
+				return grid.width();
+			}
+
+			@Override
+			public int height() {
+				return grid.height();
+			}
+
+			@Override
+			public Iterator<T> iterator() {
+				return Iterators.unmodifiableIterator(grid.iterator());
+			}
+			
+		};
+	}
+}
+class IntMapCollector<T, M extends Object2IntMap<T>> implements Collector<Object2IntMap.Entry<T>, Object2IntMap<T>, M>{
+	@Nonnull private final Supplier<M> mapsup;
+
+	public IntMapCollector(Supplier<M> mapsup) {
+		this.mapsup = mapsup;
+	}
+
+	@Override
+	public Supplier<Object2IntMap<T>> supplier() {
+		return Object2IntOpenHashMap::new;
+	}
+
+	@Override
+	public BiConsumer<Object2IntMap<T>, Object2IntMap.Entry<T>> accumulator() {
+		return (map, entry) -> map.put(entry.getKey(), entry.getIntValue());
+	}
+
+	@Override
+	public BinaryOperator<Object2IntMap<T>> combiner() {
+		return Collects::inplaceAddIntMaps;
+	}
+
+	@Override
+	public Function<Object2IntMap<T>, M> finisher() {
+		return map -> {
+			M result = mapsup.get();
+			return Collects.inplaceAddIntMaps(result, map);
+		};
+	}
+
+	@Override
+	public Set<Characteristics> characteristics() {
+		return Set.of(Characteristics.UNORDERED);
+	}
+}
+class EmptyMultiSet implements Multiset<Object>{
+
+	@Override
+	public boolean isEmpty() {
+		return true;
+	}
+
+	@Override
+	public Object @Nonnull [] toArray() {
+		return new Object[0];
+	}
+
+	@Override
+	public <T> T @Nonnull [] toArray(T[] a) {
+		return a;
+	}
+
+	@Override
+	public boolean addAll(Collection<? extends Object> c) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void clear() {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public int size() {
+		return 0;
+	}
+
+	@Override
+	public int count(Object element) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public int add(Object element, int occurrences) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean add(Object element) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public int remove(Object element, int occurrences) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean remove(Object element) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public int setCount(Object element, int count) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean setCount(Object element, int oldCount, int newCount) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public Set<Object> elementSet() {
+		return Collections.emptySet();
+	}
+
+	@Override
+	public Set<Entry<Object>> entrySet() {
+		return Collections.emptySet();
+	}
+
+	@Override
+	public Iterator<Object> iterator() {
+		return Collections.emptyIterator();
+	}
+
+	@Override
+	public boolean contains(@Nullable Object element) {
+		return false;
+	}
+
+	@Override
+	public boolean containsAll(Collection<?> elements) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean removeAll(Collection<?> c) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean retainAll(Collection<?> c) {
+		throw new UnsupportedOperationException();
+	}
+	
+}
+class EmptySetMultimap implements SetMultimap<Object, Object>{
+
+	@Override
+	public int size() {
+		return 0;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return true;
+	}
+
+	@Override
+	public boolean containsKey(Object key) {
+		return false;
+	}
+
+	@Override
+	public boolean containsValue(Object value) {
+		return false;
+	}
+
+	@Override
+	public boolean containsEntry(Object key, Object value) {
+		return false;
+	}
+
+	@Override
+	public boolean put(Object key, Object value) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean remove(Object key, Object value) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean putAll(Object key, Iterable<? extends Object> values) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean putAll(Multimap<? extends Object, ? extends Object> multimap) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public Set<Object> replaceValues(Object key, Iterable<? extends Object> values) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public Set<Object> removeAll(Object key) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void clear() {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public Set<Object> get(Object key) {
+		return Collections.emptySet();
+	}
+
+	@Override
+	public Set<Object> keySet() {
+		return Collections.emptySet();
+	}
+
+	@Override
+	public Multiset<Object> keys() {
+		return Collects.emptyMultiset();
+	}
+
+	@Override
+	public Collection<Object> values() {
+		return Collections.emptyList();
+	}
+
+	@Override
+	public Set<Entry<Object, Object>> entries() {
+		return Collections.emptySet();
+	}
+
+	@Override
+	public Map<Object, Collection<Object>> asMap() {
+		return Collections.emptyMap();
+	}
+	
 }

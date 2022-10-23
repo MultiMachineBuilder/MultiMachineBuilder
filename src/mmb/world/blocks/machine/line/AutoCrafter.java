@@ -22,6 +22,7 @@ import mmb.world.items.ItemEntry;
 import mmb.world.items.data.Stencil;
 import mmb.world.rotate.RotatedImageGroup;
 import mmb.world.worlds.world.World;
+import monniasza.collects.grid.Grid;
 
 /**
  * @author oskar
@@ -143,12 +144,12 @@ public class AutoCrafter extends SkeletalBlockLinear implements BlockActivateLis
 		if(stencil == null) {
 			this.stencil = null;
 			return true;
-		}else if(stencil.width() > 3 || stencil.height() > 3) {
-			return false;
-		}else {
-			this.stencil = stencil;
-			return true;
 		}
+		Grid<ItemEntry> grid = stencil.grid();
+		if(grid.width() > 3 || grid.height() > 3) 
+			return false;
+		this.stencil = stencil;
+		return true;
 	}
 
 	@Override

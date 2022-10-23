@@ -191,4 +191,8 @@ public class SingleItemInventory implements Inventory {
 			this.handler = handler;
 		}
 	}
+	@Override
+	public boolean test(ItemEntry e) {
+		return true;
+	}
 }

@@ -36,7 +36,7 @@ import mmb.world.items.ItemEntry;
  * @author oskar
  * A {@code Player} is an object, which represents player data
  */
-public class Player implements Saver<JsonNode> {
+public class Player implements Saver{
 	@Nonnull private Debugger debug = new Debugger("PLAYERS");
 	@Nonnull private static final Debugger sdebug = new Debugger("PLAYERS");
 	

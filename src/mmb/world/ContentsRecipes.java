@@ -68,6 +68,7 @@ public class ContentsRecipes {
 			_wireworld();
 			_mechparts();
 			_sinter();
+			_upgrade();
 			
 			//Furnace
 			crafting.addRecipeGrid(new ItemEntry[]{
@@ -1237,6 +1238,47 @@ public class ContentsRecipes {
 			
 			//sifting seeds sometimes gives yeast
 			quarry.add(seeds, RecipeOutput.NONE, VoltageTier.V1, 40000, new RandomOrElseChance(0.05, yeast, seeds));
+		}
+		private static void _upgrade() {
+			crafting.addRecipeGrid(new ItemEntry[]{
+			rudimentary.base, coal.base,
+			coal.base, rudimentary.base
+			}, 2, 2, speed1);
+			crafting.addRecipeGrid(new ItemEntry[]{
+			rudimentary.base, rudimentary.base, rudimentary.base,
+			rudimentary.base,        coal.base, rudimentary.base,
+			rudimentary.base, rudimentary.base, rudimentary.base,
+			}, 3, 3, speed2);
+			crafting.addRecipeGrid(new ItemEntry[]{
+			rudimentary.base, rudimentary.base,  rudimentary.base,
+			alu.base,         rudimentary.panel, alu.base,
+			alu.base,         alu.base,          alu.base,
+			}, 3, 3, speed3);
+			crafting.addRecipeGrid(new ItemEntry[]{
+			alu.sheet, alu.sheet, alu.sheet,
+			iron.base, circuit0,  iron.base,
+			iron.base, iron.base, iron.base
+			}, 3, 3, speed4);
+			crafting.addRecipeGrid(new ItemEntry[]{
+			rudimentium.base, copper.base, rudimentium.base,
+			rudimentium.base, circuit0, rudimentium.base,
+			rudimentium.base, rudimentium.base, rudimentium.base
+			}, 3, 3, speed5);
+			crafting.addRecipeGrid(new ItemEntry[]{
+			silver.base,      copper.base,      silver.base,
+			rudimentium.base, circuit0,         rudimentium.base,
+			rudimentium.base, rudimentium.base, rudimentium.base
+			}, 3, 3, speed6);
+			crafting.addRecipeGrid(new ItemEntry[]{
+			silver.base, silver.base, silver.base,
+			steel.base,  circuit0,    steel.base,
+			steel.base,  steel.base,  steel.base
+			}, 3, 3, speed7);
+			crafting.addRecipeGrid(new ItemEntry[]{
+			silver.base, silver.base, silver.base,
+			steel.base,  circuit1,    steel.base,
+			steel.base,  steel.base,  steel.base
+			}, 3, 3, speed8);
 		}
 
 }

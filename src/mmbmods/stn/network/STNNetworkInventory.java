@@ -72,7 +72,7 @@ public class STNNetworkInventory implements Inventory{
 
 	@Override
 	public int insert(ItemEntry ent, int amount) {
-		return bulkInsert(ent, amount);
+		return networkInsert(ent, amount);
 	}
 
 	@Override
@@ -98,13 +98,12 @@ public class STNNetworkInventory implements Inventory{
 	}
 
 	/** Flushes the insertion queue */
-	public void flushQueue() {
-		debug.printl("Flushing");
+	public void flushQueue() { //fails to move items
 		for(ItemRecord irecord: storageQueue) {
 			ItemEntry item = irecord.item();
 			int amount = irecord.amount();
 			int move = networkInsert(item, amount);
-			storageQueue.extract(item, move);
+			irecord.extract(move);
 		}
 	}
 	
@@ -116,11 +115,12 @@ public class STNNetworkInventory implements Inventory{
 		for(Inventory inv: nodes0) {
 			int insertion = inv.insert(item, remain);
 			remain -= insertion;
-			itemInvIndex.put(item, inv);
+			if(insertion != 0)
+				itemInvIndex.put(item, inv);
 			if(remain == 0) break;
 		}
 		int inserted = amount - remain;
-		storageIndex.addTo(item, inserted);
+		if(inserted != 0) storageIndex.addTo(item, inserted);
 		return inserted;
 	}
 	private int networkExtract(ItemEntry item, int amount) {
@@ -137,7 +137,7 @@ public class STNNetworkInventory implements Inventory{
 			extractedTotal += extracted;
 			if(remain == 0) break;
 		}
-		if(extractedTotal >= amount) {
+		if(extractedTotal >= indexed) {
 			//All extracted, remove from index
 			storageIndex.removeLong(item);
 		}else {
@@ -279,5 +279,9 @@ public class STNNetworkInventory implements Inventory{
 			return STNNetworkInventory.this.extract(item, amount);
 		}
 		
+	}
+	@Override
+	public boolean test(ItemEntry e) {
+		return true;
 	}
 }

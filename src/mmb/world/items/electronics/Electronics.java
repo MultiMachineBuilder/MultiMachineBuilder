@@ -9,6 +9,7 @@ import javax.annotation.Nonnull;
 
 import mmb.world.contentgen.Materials;
 import mmb.world.electric.VoltageTier;
+import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 import monniasza.collects.Collects;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
@@ -25,9 +26,9 @@ public class Electronics {
 	public static void init() {}
 	
 	//Component index
-	@Nonnull        static final SelfSet<String, ComponentTier> tiers0 = new HashSelfSet<>();
+	@Nonnull        static final SelfSet<String, ComponentTier> tiers0 = HashSelfSet.createNonnull(ComponentTier.class);
 	@Nonnull public static final SelfSet<String, ComponentTier> tiers = Collects.unmodifiableSelfSet(tiers0);
-	@Nonnull        static final SelfSet<String, ComponentGenerator> comptypes0 = new HashSelfSet<>();
+	@Nonnull        static final SelfSet<String, ComponentGenerator> comptypes0 = HashSelfSet.createNonnull(ComponentGenerator.class);
 	@Nonnull public static final SelfSet<String, ComponentGenerator> comptypes = Collects.unmodifiableSelfSet(comptypes0);
 	//Advanced+ components
 	

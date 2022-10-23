@@ -3,27 +3,35 @@
  */
 package mmb.world.crafting;
 
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.ainslec.picocog.PicoWriter;
+import com.google.common.collect.Iterators;
 
+import it.unimi.dsi.fastutil.objects.AbstractObject2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMaps;
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.world.chance.Chance;
+import mmb.world.inventory.ItemStack;
 import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.items.ItemEntry;
 import mmb.world.worlds.world.World;
+import monniasza.collects.Collects;
 
 /**
  * @author oskar
  * Represents a recipe output.
  * All implementations of this interface must be immutable, and may have builders.
  */
-public interface RecipeOutput extends Chance{
+public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	@Override
 	default boolean drop(@Nullable InventoryWriter inv, @Nullable World map, int x, int y) {
 		if(map == null) {
@@ -177,5 +185,43 @@ public interface RecipeOutput extends Chance{
 	@Override
 	public default Set<@Nonnull ItemEntry> items(){
 		return getContents().keySet();
+	}
+	
+	//Arithmetic methods
+	public default SimpleItemList add(RecipeOutput rout) {
+		Object2IntOpenHashMap<ItemEntry> map = new Object2IntOpenHashMap<>(getContents());
+		for(ItemStack items: rout) 
+			map.addTo(items.item, items.amount);
+		return new SimpleItemList(map);
+	}
+	public default SimpleItemList add(SingleItem rout) {
+		return add(rout.item(), rout.amount());
+	}
+	public default SimpleItemList add(ItemEntry item, int amount) {
+		Object2IntOpenHashMap<ItemEntry> map = new Object2IntOpenHashMap<>(getContents());
+		map.addTo(item, amount);
+		return new SimpleItemList(map);
+	}
+	public default Stream<ItemStack> mul2stream(int amount) {
+		return getContents()
+			.object2IntEntrySet()
+			.stream()
+			.map(entry -> new ItemStack(entry.getKey(), entry.getIntValue()*amount));
+	}
+	public default Stream<Object2IntMap.Entry<ItemEntry>> mul2entrystream(int amount) {
+		return getContents()
+			.object2IntEntrySet()
+			.stream()
+			.map(entry -> new AbstractObject2IntMap.BasicEntry<ItemEntry>(entry.getKey(), entry.getIntValue()*amount));
+	}
+	public default SimpleItemList mul(int amount) {
+		return mul2stream(amount).collect(ItemLists.collectToItemList());
+	}
+	public default <M extends Object2IntMap<ItemEntry>> M mul2map(int amount, Supplier<M> map) {
+		return mul2entrystream(amount).collect(Collects.collectToIntMap(map));
+	}
+	@Override
+	default @Nonnull Iterator<ItemStack> iterator() {
+		return Iterators.transform(getContents().object2IntEntrySet().iterator(), entry -> new ItemStack(entry.getKey(), entry.getIntValue()));
 	}
 }

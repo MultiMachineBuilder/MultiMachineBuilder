@@ -22,6 +22,7 @@ import mmb.world.inventory.ItemRecord;
 import mmb.world.inventory.ItemStack;
 import mmb.world.inventory.ItemLoader.ItemTarget;
 import mmb.world.items.ItemEntry;
+import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 import monniasza.collects.Collects;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
@@ -30,9 +31,9 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class SimpleInventory implements Inventory, Saver<JsonNode>{
+public class SimpleInventory implements Inventory, Saver{
 	private static final Debugger debug = new Debugger("INVENTORIES");
-	@Nonnull private SelfSet<ItemEntry, Node> contents = new HashSelfSet<>();
+	@Nonnull private SelfSet<ItemEntry, Node> contents = HashSelfSet.createNonnull(Node.class);
 	private double volume = 0;
 	private double capacity = 2;
 	private final class Node implements ItemRecord{
@@ -301,5 +302,10 @@ public class SimpleInventory implements Inventory, Saver<JsonNode>{
 		}
 		debug.printl("score: "+max);
 		return max;
+	}
+
+	@Override
+	public boolean test(ItemEntry e) {
+		return true;
 	}
 }

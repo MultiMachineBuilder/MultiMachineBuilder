@@ -15,7 +15,7 @@ import monniasza.collects.Identifiable;
  * @param <K> the key type
  * @param <V> the value type
  */
-public interface SelfSet<K, V extends Identifiable<K>> extends Set<V>{
+public interface SelfSet<K, V> extends Set<V>{
 	/**
 	 * @return keys contained in the self-set
 	 */
@@ -57,7 +57,7 @@ public interface SelfSet<K, V extends Identifiable<K>> extends Set<V>{
 	 */
 	default boolean contains(@Nullable Object arg0) {
 		if(arg0 == null) return containsKey(null);
-		return arg0 instanceof Identifiable && containsKey(((V)arg0).id());
+		return test(arg0) && containsKey(id((V)arg0));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -67,6 +67,26 @@ public interface SelfSet<K, V extends Identifiable<K>> extends Set<V>{
 	 * The input must be of type <V>, because it is casted to {@link Identifiable} internally
 	 */
 	default boolean remove(@Nullable Object arg0) {
-		return arg0 instanceof Identifiable && removeKey(((V)arg0).id());
+		return test(arg0) && removeKey(id((V)arg0));
 	}
+	
+	/**
+	 * Checks if the object is supported
+	 * @param o
+	 * @return is the provided object a supported value
+	 */
+	public boolean test(@Nullable Object o);
+	/**
+	 * @param value
+	 * @return identifier for purposes of this self-set
+	 */
+	public K id(Object value);
+	/**
+	 * @return is this self-set nullable?
+	 */
+	public boolean nullable();
+	/**
+	 * @return the type of this self-set, or null if unrestricted
+	 */
+	@Nullable public Class<V> type();
 }

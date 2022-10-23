@@ -45,7 +45,7 @@ public abstract class STNBaseMachine extends SkeletalBlockEntityRotary {
 		network = w==null?null:STN.STN_datalayer.get(w);
 		if(network != null) network.embark(this, x, y);
 	}
-
+	
 	@Override
 	public void onStartup(World map, int x, int y) {
 		resetNetwork(map, x, y);
@@ -60,23 +60,28 @@ public abstract class STNBaseMachine extends SkeletalBlockEntityRotary {
 	 * @return supported recipes, or null if unsupported or unconfigured (used for re-validation)
 	 */
 	@Nullable public abstract STNRGroupTag recipes();
-	
 	/**
 	 * Returns the storage inventory for this unit
 	 * @return storage inventory, or null if absent
 	 */
 	@Nullable public abstract Inventory storage();
-	
 	/**
 	 * Returns previously supported recipes (applicable for processors)
 	 * @return supported recipes, or null if unsupported or unconfigured (used for re-validation)
 	 */
 	@Nullable public abstract STNRGroupTag oldrecipes();
-	
 	/**
 	 * Returns the previous storage inventory for this unit
 	 * @return storage inventory, or null if absent
 	 */
 	@Nullable public abstract Inventory oldstorage();
+	
+	@Override
+	public final STNBaseMachine blockCopy() {
+		STNBaseMachine copy = blockCopy0();
+		copy.setChirotation(getChirotation());
+		return copy;
+	}
+	protected abstract STNBaseMachine blockCopy0();
 	
 }

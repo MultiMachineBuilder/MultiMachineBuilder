@@ -15,6 +15,7 @@ import javax.annotation.Nonnull;
 import mmb.GlobalSettings;
 import mmb.data.contents.Textures;
 import mmb.graphics.awt.ColorMapper;
+import mmb.graphics.texgen.TexGen;
 import mmb.menu.wtool.ConfigureDroppedItemExtractors;
 import mmb.menu.wtool.DumpItems;
 import mmb.menu.wtool.ToolAim;
@@ -274,6 +275,27 @@ public class ContentsItems {
 	@Nonnull public static final Item resrc6 = resrcbed(6, Color.BLUE);
 	@Nonnull public static final Item resrc7 = resrcbed(7, Color.MAGENTA);
 	
+	//Speed upgrades
+	@Nonnull public static final Item speed1 =  speed(1,  new Color(128,   0,   0), 1.4);
+	@Nonnull public static final Item speed2 =  speed(2,  new Color(192,   0,   0), 2.0);
+	@Nonnull public static final Item speed3 =  speed(3,  new Color(255,   0,   0), 2.8);
+	@Nonnull public static final Item speed4 =  speed(4,  new Color(255,  64,   0), 4.0);
+	@Nonnull public static final Item speed5 =  speed(5,  new Color(255, 128,   0), 5.6);
+	@Nonnull public static final Item speed6 =  speed(6,  new Color(255, 192,   0), 8.0);
+	@Nonnull public static final Item speed7 =  speed(7,  new Color(255, 255,   0), 11.2);
+	@Nonnull public static final Item speed8 =  speed(8,  new Color(192, 255,   0), 16.0);
+	@Nonnull public static final Item speed9 =  speed(9,  new Color(128, 255,   0), 22.4);
+	@Nonnull public static final Item speed10 = speed(10, new Color( 64, 255,   0), 32.0);
+	@Nonnull public static final Item speed11 = speed(11, new Color(  0, 255,   0), 44.8);
+	@Nonnull public static final Item speed12 = speed(12, new Color(  0, 255,  64), 64.0);
+	@Nonnull public static final Item speed13 = speed(13, new Color(  0, 255, 128), 89.6);
+	@Nonnull public static final Item speed14 = speed(14, new Color(  0, 255, 192), 128.0);
+	@Nonnull public static final Item speed15 = speed(15, new Color(  0, 255, 255), 179.2);
+	@Nonnull public static final Item speed16 = speed(16, new Color(  0, 192, 255), 256.0);
+	@Nonnull public static final Item speed17 = speed(17, new Color(  0, 128, 255), 358.4);
+	@Nonnull public static final Item speed18 = speed(16, new Color(  0,  64, 255), 512.0);
+	@Nonnull public static final Item speed19 = speed(17, new Color(  0,   0, 255), 716.8);
+	
 	//Packaged items
 	@Nonnull public static final ItemEntityType pack = new ItemEntityType()
 		.title("#ipack1")
@@ -328,6 +350,21 @@ public class ContentsItems {
 		.volumed(0.00125)
 		.finish("industry.processor"+n);
 		Items.tagItem("parts-electronic", item);
+		return item;
+	}
+	@Nonnull private static final String speedd1 = GlobalSettings.$res("speedupd1");
+	@Nonnull private static final String speedd2 = GlobalSettings.$res("speedupd2");
+	@Nonnull private static final String speedlag = GlobalSettings.$res("speedlag");
+	@Nonnull private static Item speed(int n, Color c, double mul) {
+		StringBuilder descr = new StringBuilder().append(speedd1).append(' ').append(mul).append(' ').append(speedd2);
+		if(mul > 100) descr.append(' ').append(speedlag);
+		Item item = new SpeedUpgrade(mul)
+		.title(GlobalSettings.$res("speedup")+" "+n)
+		.texture(TexGen.colormap(Color.RED, c, Textures.get("item/speed.png"), null))
+		.volumed(0.00125)
+		.describe(descr.toString())
+		.finish("industry.speed"+n);
+		Items.tagItem("speed", item);
 		return item;
 	}
 	@Nonnull private static Item substrate(int n) {

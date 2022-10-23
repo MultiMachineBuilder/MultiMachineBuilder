@@ -4,8 +4,17 @@
 package mmb.world.crafting;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
+import java.util.Set;
+import java.util.function.BiConsumer;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -15,8 +24,10 @@ import mmb.data.json.JsonTool;
 import mmb.debug.Debugger;
 import mmb.world.inventory.ItemLoader;
 import mmb.world.inventory.ItemLoader.ItemTarget;
+import mmb.world.inventory.ItemStack;
 import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.items.ItemEntry;
+import monniasza.collects.Collects;
 
 /**
  * @author oskar
@@ -75,5 +86,40 @@ public class ItemLists {
 		result.addAll(nodes); //write nodes from the queue to the result
 		return result;
 	}
+	
+	/**
+	 * @return a stream collector to an item list
+	 */
+	@Nonnull public static Collector<ItemStack, List<ItemStack>, SimpleItemList> collectToItemList(){
+		return new ILCollector();
+	}
 
+}
+class ILCollector implements Collector<ItemStack, List<ItemStack>, SimpleItemList>{
+
+	@Override
+	public Supplier<List<ItemStack>> supplier() {
+		return ArrayList::new;
+	}
+
+	@Override
+	public BiConsumer<List<ItemStack>, ItemStack> accumulator() {
+		return List::add;
+	}
+
+	@Override
+	public BinaryOperator<List<ItemStack>> combiner() {
+		return Collects::inplaceAddLists;
+	}
+
+	@Override
+	public Function<List<ItemStack>, SimpleItemList> finisher() {
+		return SimpleItemList::new;
+	}
+
+	@Override
+	public Set<Characteristics> characteristics() {
+		return Set.of(Characteristics.UNORDERED);
+	}
+	
 }

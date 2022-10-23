@@ -158,15 +158,16 @@ public class CraftGUI extends GUITab {
 		btnLoad.addActionListener(e -> {
 			craftingGrid.items.fill(0, 0, size, size, null);
 			//Get the stencil
-			ItemRecord record = inventoryController.getSelectedValue();
-			if(record == null) return;
-			ItemEntry item = record.item();
+			ItemRecord irecord = inventoryController.getSelectedValue();
+			if(irecord == null) return;
+			ItemEntry item = irecord.item();
 			if(item instanceof Stencil) {
 				//It is a stencil
 				Stencil stencil = (Stencil) item;
-				int sizeX = Math.min(size, stencil.width());
-				int sizeY = Math.min(size, stencil.height());
-				Grid.copy(0, 0, stencil, 0, 0, craftingGrid.items, sizeX, sizeY);
+				Grid<ItemEntry> grid = stencil.grid();
+				int sizeX = Math.min(size, grid.width());
+				int sizeY = Math.min(size, grid.height());
+				Grid.copy(0, 0, grid, 0, 0, craftingGrid.items, sizeX, sizeY);
 			}//else it is not a stencil
 		});
 		buttonbar.add(btnLoad);

@@ -3,6 +3,7 @@
  */
 package mmb.world.crafting;
 
+import java.util.Collection;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
@@ -73,6 +74,16 @@ public final class SimpleItemList implements RecipeOutput {
 	 * @param stacks item stacks
 	 */
 	public SimpleItemList(SingleItem... stacks) {
+		for(SingleItem stack: stacks) {
+			data.put(stack.item(), stack.amount());
+		}
+	}
+	
+	/**
+	 * Creates an item list with items from the stack
+	 * @param stacks item stacks
+	 */
+	public SimpleItemList(Collection<? extends SingleItem> stacks) {
 		for(SingleItem stack: stacks) {
 			data.put(stack.item(), stack.amount());
 		}

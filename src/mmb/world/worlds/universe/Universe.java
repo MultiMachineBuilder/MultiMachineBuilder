@@ -28,7 +28,7 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class Universe implements Saver<JsonNode>, Indexable{
+public class Universe implements Saver, Indexable{
 	//Allocator & data layers
 	private static SimpleAllocator<Universe> allocator0 = new SimpleAllocator<>();
 	/** Allocator for universes */
@@ -62,7 +62,7 @@ public class Universe implements Saver<JsonNode>, Indexable{
 	 * If playing on the main world, the toolbar will display without square brackets:
 	 * Let's play
 	 */
-	public final SelfSet<String, World> maps = new HashSelfSet<>();
+	public final SelfSet<String, World> maps = HashSelfSet.createNonnull(World.class);
 	/** The main world */
 	private World main;
 	/** @return the main world */

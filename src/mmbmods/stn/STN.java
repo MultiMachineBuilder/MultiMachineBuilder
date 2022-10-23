@@ -21,6 +21,8 @@ import mmb.world.items.ItemEntry;
 import mmb.world.recipes.CraftingGroups;
 import mmb.world.worlds.DataLayers;
 import mmb.world.worlds.world.World;
+import mmbmods.stn.block.STNImporter;
+import mmbmods.stn.block.STNExporter;
 import mmbmods.stn.block.STNStorageAttachment;
 import mmbmods.stn.block.STNTerminal;
 import mmbmods.stn.network.DataLayerSTN;
@@ -68,6 +70,18 @@ public class STN {
 		.title("#STN-terminal")
 		.factory(STNTerminal::new)
 		.finish("stnb.terminal");
+	/** STN Exporter */
+	@Nonnull public static final BlockEntityType STN_exporter = new BlockEntityType()
+		.texture("stn/exporter.png")
+		.title("#STN-exporter")
+		.factory(STNExporter::new)
+		.finish("stnb.exporter");
+	/** STN Importer */
+	@Nonnull public static final BlockEntityType STN_importer= new BlockEntityType()
+		.texture("stn/importer.png")
+		.title("#STN-importer")
+		.factory(STNImporter::new)
+		.finish("stnb.importer");
 	
 	//The data layer
 	/**
@@ -83,7 +97,7 @@ public class STN {
 		if(inited) return;
 		inited = true;
 		
-		Items.tagItems("STN", STN_cabler, STN_storage, STN_terminal);
+		Items.tagItems("STN", STN_cabler, STN_storage, STN_terminal, STN_exporter, STN_importer);
 		
 		Materials.alloying(STN_a, 5, VoltageTier.V2, 800_000, 
 			Materials.iron.stack(1),

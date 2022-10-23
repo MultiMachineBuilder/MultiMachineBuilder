@@ -9,8 +9,6 @@ import javax.annotation.Nullable;
 
 import org.joml.Vector2d;
 
-import com.fasterxml.jackson.databind.JsonNode;
-
 import mmb.beans.Saver;
 import mmb.graphics.texture.BlockDrawer;
 import mmb.world.blocks.ppipe.PipeTunnelEntry;
@@ -33,7 +31,7 @@ import mmb.world.worlds.world.World;
  * The following methods can be overridden:
  * provideSignal - 
  */
-public interface BlockEntry extends Saver<JsonNode>, Rotable, Chiral {
+public interface BlockEntry extends Saver, Rotable, Chiral {
 	public boolean isBlockEntity();
 	@Nonnull public BlockEntity asBlockEntity();
 	public BlockEntity nasBlockEntity();

@@ -15,6 +15,7 @@ import javax.annotation.Nullable;
 import mmb.debug.Debugger;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.item.Items;
+import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 import monniasza.collects.Collects;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
@@ -25,7 +26,7 @@ import monniasza.collects.selfset.SelfSet;
  */
 public class Blocks {
 	private static Debugger debug = new Debugger("BLOCKS");
-	private static final SelfSet<String, BlockType> _blocks = new HashSelfSet<>();
+	private static final SelfSet<String, BlockType> _blocks = HashSelfSet.createNonnull(BlockType.class);
 	/**
 	 * An unmodifiable {@link SelfSet} of all {@link BlockType}s
 	 */

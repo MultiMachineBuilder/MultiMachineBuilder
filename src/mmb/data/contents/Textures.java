@@ -31,7 +31,7 @@ import monniasza.collects.selfset.SelfSet;
  */
 public class Textures {
 	private static final Debugger debug = new Debugger("TEXTURES");
-	private static final SelfSet<String, Texture> loadedTextures0 = new HashSelfSet<>();
+	private static final SelfSet<String, Texture> loadedTextures0 = HashSelfSet.createNonnull(Texture.class);
 	private static final TextureAtlas atlas = new TextureAtlas(BufferedImage.TYPE_INT_ARGB, 256, 256);
 	/**
 	 * 

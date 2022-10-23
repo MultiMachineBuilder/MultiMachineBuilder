@@ -3,6 +3,7 @@
  */
 package mmb.menu.world.inv;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 
 import javax.annotation.Nullable;
@@ -28,6 +29,7 @@ public class ItemSelectionSlot extends JComponent {
 	private boolean canSet = true;
 	
 	private Variable<@Nullable ItemEntry> selectionSrc;
+	private Variable<@Nullable ItemEntry> target;
 	private ItemEntry selection;
 	/**
 	 * @return the selection source
@@ -54,19 +56,27 @@ public class ItemSelectionSlot extends JComponent {
 		if(!canSet) return;
 		this.selection = selection;
 		stateChanged.trigger(selection);
+		if(target != null) target.set(selection);
 	}
 	
 	@SuppressWarnings("null")
 	@Override
 	protected void paintComponent(Graphics g) {
+		int w = getWidth();
+		int h = getHeight();
+		int size = (int) (Math.min(w, h)*0.8);
+		//center the item
+		int x = (w-size)/2;
+		int y = (h-size)/2;
 		if(selection != null) {
-			selection.render(g, 4, 4, 32, 32);
+			selection.render(g, x, y, size, size);
 		}
 	}
 	/**
 	 * Creates an item selection slot
 	 */
 	public ItemSelectionSlot() {
+		setPreferredSize(new Dimension(40, 40));
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(@SuppressWarnings("null") MouseEvent arg0) {
@@ -87,6 +97,16 @@ public class ItemSelectionSlot extends JComponent {
 	 */
 	public void setCanSet(boolean canSet) {
 		this.canSet = canSet;
+	}
+
+	/** @return the target item variable*/
+	public Variable<@Nullable ItemEntry> getTarget() {
+		return target;
+	}
+	/** @param target new target item variable */
+	public void setTarget(Variable<@Nullable ItemEntry> target) {
+		setSelection(target.get());
+		this.target = target;
 	}
 
 	private static final Debugger debug = new Debugger("ITEM SELECTION SLOT");

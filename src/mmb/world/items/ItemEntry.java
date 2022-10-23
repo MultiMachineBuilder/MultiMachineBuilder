@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.node.TextNode;
 
 import mmb.beans.Saver;
 import mmb.data.json.JsonTool;
+import mmb.debug.Debugger;
 import mmb.graphics.texture.BlockDrawer;
 import mmb.menu.wtool.WindowTool;
 import mmb.world.block.BlockEntry;
@@ -34,7 +35,7 @@ import mmb.world.worlds.world.World;
  * @author oskar
  * An item entry representing a single unit of item
  */
-public interface ItemEntry extends Saver<@Nullable JsonNode>, SingleItem{	
+public interface ItemEntry extends Saver, SingleItem{	
 	
 	/**
 	 * @return the volume of single given {@code ItemEntry}
@@ -159,7 +160,6 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, SingleItem{
 	 * @param data JSON data
 	 * @return item it if loaded successfully, or null if failed
 	 */
-	@SuppressWarnings("null")
 	@Nullable public static ItemEntry loadFromJson(@Nullable JsonNode data) {
 		if(data == null) return null;
 		if(data.isNull()) return null;
@@ -171,7 +171,13 @@ public interface ItemEntry extends Saver<@Nullable JsonNode>, SingleItem{
 			return type.loadItem(idata);
 		}
 		if(data.isTextual()) {
-			return Items.items.get(data.asText()).create();
+			String text = data.asText();
+			ItemType item = Items.items.get(text);
+			if(item == null) {
+				new Debugger("ITEMS").printl("Invalid item: "+text);
+				return null;
+			}
+			return item.create();
 		}
 		return null;
 	}

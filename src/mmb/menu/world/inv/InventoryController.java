@@ -8,9 +8,12 @@ import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 
 import mmb.GlobalSettings;
+import mmb.Lambdas;
+import mmb.data.variables.Variable;
 import mmb.menu.Icons;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
+import mmb.world.items.ItemEntry;
 import net.miginfocom.swing.MigLayout;
 
 import java.awt.Component;
@@ -142,7 +145,11 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	public ItemRecord getSelectedValue() {
 		return invlist.getSelectedValue();
 	}
-
+	/** @return item selection variable for item selection slots */
+	@Nonnull public Variable<ItemEntry> itemSelection(){
+		return Variable.delegate(() -> getSelectedValue().item(), Lambdas.doNothing());
+	}
+	
 	@Override
 	@SuppressWarnings("null")
 	@Nonnull public List<ItemRecord> getSelectedValuesList() {

@@ -13,6 +13,7 @@ import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
 import mmb.GlobalSettings;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
+import mmbmods.stn.block.STNPusherGUI;
 
 /**
  * @author oskar
@@ -50,5 +51,14 @@ public class MenuHelper {
 	
 	public static ActionListener closeGUI(WorldWindow window, GUITab tab) {
 		return e -> window.closeWindow(tab);
+	}
+	/**
+	 * Creates an exit button
+	 * @param GUI GUI to close
+	 * @param window window with the GUI
+	 * @return an exit button
+	 */
+	public static JButton exit(GUITab GUI, WorldWindow window) {
+		return newButton("#exit", Color.RED, e -> window.closeWindow(GUI));
 	}
 }

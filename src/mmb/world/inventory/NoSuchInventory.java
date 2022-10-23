@@ -71,4 +71,8 @@ public class NoSuchInventory implements Inventory{
 	public int bulkInsert(RecipeOutput ent, int amount) {
 		return 0;
 	}
+	@Override
+	public boolean test(ItemEntry e) {
+		return false;
+	}
 }

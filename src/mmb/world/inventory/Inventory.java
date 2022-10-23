@@ -11,11 +11,13 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.io.InventoryReader;
 import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.items.ItemEntry;
+import monniasza.collects.selfset.SelfSet;
 
 /**
  * @author oskar
@@ -222,6 +224,8 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 			}
 		};
 	}
+	
+	//Insertion checks
 	/** @return Remaining volume in this inventory */
 	public default double remainVolume() {
 		return capacity() - volume();
@@ -232,7 +236,8 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 		return capacity() - volume();
 	}
 	/**
-	 * 
+	 * Checks how many items by volume may be inserted.
+	 * @apiNote This method does not test if item is allowed.
 	 * @param amount
 	 * @param ivolume
 	 * @return
@@ -243,13 +248,21 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 		return (int) Math.floor(tvolume);
 	}
 	/**
-	 * @param amount mount of items
+	 * Counts how many units of the item may be inserted
+	 * @param amount amount of items
 	 * @param item item to check
 	 * @return number of items that may be inserted. May vary by inventory
 	 */
 	public default int insertibleRemain(int amount, ItemEntry item) {
+		if(!test(item)) return 0;
 		return insertibleRemain(amount, item.volume());
 	}
+	/**
+	 * Checks if the inventory allows given items
+	 * @param e item to test
+	 * @return does the inventory allow given item
+	 */
+	public boolean test(ItemEntry e);
 	
 	/**
 	 * Returns how many copies of {@code sub} exist in {@code main}.
@@ -288,5 +301,15 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 			if(result == 0) return 0;
 		}
 		return result;
+	}
+	
+	/**
+	 * Inserts contents of this inventory into a map
+	 * @param map
+	 */
+	public default void contents(Object2IntMap<@Nonnull ItemEntry> map) {
+		for(ItemRecord irecord: this) {
+			map.put(irecord.item(), irecord.amount());
+		}
 	}
 }

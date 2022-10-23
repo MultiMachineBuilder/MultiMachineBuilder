@@ -456,11 +456,11 @@ public class WorldWindow extends MMBFrame{
 		ScrollablePlacementList(ToolSelectionModel tsmodel) {
 			setFocusable(false);
 			addListSelectionListener(e -> {
-				ItemRecord record = getSelectedValue();
-				if(record == null) {
+				ItemRecord irecord = getSelectedValue();
+				if(irecord == null) {
 					tsmodel.toolSelectedItemList(null);
 				}else {
-					tsmodel.toolSelectedItemList(record.item().getTool());
+					tsmodel.toolSelectedItemList(irecord.item().getTool());
 				}
 				
 			});
@@ -473,7 +473,7 @@ public class WorldWindow extends MMBFrame{
 	}
 	
 	/** The tool selection. Changes to the model are reflected in the window and vice versa */
-	@Nonnull public final ToolSelectionModel toolModel = new ToolSelectionModel(this);
+	@Nonnull public final transient ToolSelectionModel toolModel = new ToolSelectionModel(this);
 	private MultilineLabel lblTool;
 	private JCheckBoxMenuItem checkBindCameraPlayer;
 	private JLabel lblStatus;

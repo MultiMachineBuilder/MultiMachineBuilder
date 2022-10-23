@@ -20,6 +20,7 @@ import com.google.common.collect.SetMultimap;
 
 import mmb.debug.Debugger;
 import mmb.mods.loader.ModLoader;
+import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 import monniasza.collects.Collects;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
@@ -30,7 +31,7 @@ import monniasza.collects.selfset.SelfSet;
  */
 public class Items {
 	private static Debugger debug = new Debugger("ITEMS");
-	@Nonnull                           private static final SelfSet<String, ItemType>     _items =      new HashSelfSet<>();
+	@Nonnull                           private static final SelfSet<String, ItemType>     _items =      HashSelfSet.createNonnull(ItemType.class);
 	@Nonnull                           public  static final SelfSet<String, ItemType>      items =      Collects.unmodifiableSelfSet(_items);
 	
 	@Nonnull                           private static final Map<String, ItemType>    _deprecator = new HashMap<>();

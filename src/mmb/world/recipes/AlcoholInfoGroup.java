@@ -15,6 +15,7 @@ import mmb.world.crafting.RecipeOutput;
 import mmb.world.electric.VoltageTier;
 import mmb.world.inventory.Inventory;
 import mmb.world.items.ItemEntry;
+import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;
@@ -104,7 +105,7 @@ public class AlcoholInfoGroup extends AbstractRecipeGroup<AlcoholInfoGroup.Alcoh
 		}
 	}
 	//Recipe listing
-	@Nonnull private final SelfSet<ItemEntry, AlcoholInfo> _recipes = new HashSelfSet<>();
+	@Nonnull private final SelfSet<ItemEntry, AlcoholInfo> _recipes = HashSelfSet.createNonnull(AlcoholInfo.class);
 	@Nonnull public final SelfSet<ItemEntry, AlcoholInfo> recipes = Collects.unmodifiableSelfSet(_recipes);
 	@Override
 	public Set<? extends ItemEntry> supportedItems() {
