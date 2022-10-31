@@ -13,6 +13,7 @@ Plugins:
 * WindowBuilder
 * SonarLint
 * ResourceBundle editor
+* [Eclipse Maven integration (M2E extension) for null analysis](https://github.com/lastnpe/eclipse-external-annotations-m2e-plugin)
 
 Connect SonarLint to SonarCloud [here](https://sonarcloud.io/project/configuration?id=MultiMachineBuilder_MultiMachineBuilder) for rules to be correct
 <br> SonarCloud organization: multimachinebuilder
