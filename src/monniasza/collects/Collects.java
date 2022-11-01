@@ -31,13 +31,9 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.SetMultimap;
 
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import mmb.world.items.ItemEntry;
 import monniasza.collects.grid.Grid;
-import monniasza.collects.selfset.BaseMapSelfSet;
 import monniasza.collects.selfset.SelfSet;
 
 /**
@@ -67,7 +63,7 @@ public class Collects {
 	@Nonnull public static <K, V> SelfSet<K, V> unmodifiableSelfSet(SelfSet<? extends K, ? extends V> set){
 		return new SelfSet<K, V>() {
 			@Override
-			public boolean add(@SuppressWarnings("null") V e) {
+			public boolean add(@Nullable V e) {
 				return false;
 			}
 
@@ -153,7 +149,7 @@ public class Collects {
 			}
 
 			@Override
-			public boolean test(Object o) {
+			public boolean test(@Nullable Object o) {
 				return set.test(o);
 			}
 
@@ -189,6 +185,7 @@ public class Collects {
 	 * @param iter enumeration to be converted
 	 * @return wrapped enumeration object
 	 */
+	@SuppressWarnings("null")
 	public static <T> Iterable<T> iter(Enumeration<T> iter) {
 		return iter::asIterator;
 	}
@@ -218,7 +215,7 @@ public class Collects {
 	@Nonnull public static <T> ListModel<T> toListModel(List<T> list){
 		return new ListModel<T>() {
 			@Override
-			public void addListDataListener(@SuppressWarnings("null") ListDataListener l) {
+			public void addListDataListener(@Nullable ListDataListener l) {
 				throw new UnsupportedOperationException("ListModel from List does not support listeners");
 			}
 			@Override
@@ -230,7 +227,7 @@ public class Collects {
 				return list.size();
 			}
 			@Override
-			public void removeListDataListener(@SuppressWarnings("null") ListDataListener l) {
+			public void removeListDataListener(@Nullable ListDataListener l) {
 				throw new UnsupportedOperationException("ListModel from List oes not support listeners");
 			}
 		};
@@ -265,7 +262,7 @@ public class Collects {
 				return list.remove(index);
 			}
 			@Override
-			public T set(int index, @SuppressWarnings("null") T e) {
+			public T set(int index, @SuppressWarnings("null") @Nullable T e) {
 				return list.set(index, e);
 			}
 			@Override
@@ -276,10 +273,12 @@ public class Collects {
 			public boolean contains(@Nullable Object o) {
 				return list.contains(list);
 			}
+			@SuppressWarnings("null")
 			@Override
 			public @Nonnull Iterator<T> iterator() {
 				return list.elements().asIterator();
 			}
+			@SuppressWarnings("null")
 			@Override
 			public Object @Nonnull [] toArray() {
 				return list.toArray();
@@ -290,7 +289,7 @@ public class Collects {
 				return a;
 			}
 			@Override
-			public boolean remove(Object o) {
+			public boolean remove(@Nullable Object o) {
 				return list.removeElement(o);
 			}
 			@Override
@@ -359,7 +358,7 @@ public class Collects {
 		list0.addAll(b);
 		return list0;
 	}
-	@Nonnull public static <T> BiFunction<Collection<T>, Collection<T>, List<T>> ooplaceListAdder(Supplier<List<T>> supplier){
+	@Nonnull public static <T> BiFunction<@Nonnull Collection<T>, @Nonnull Collection<T>, List<T>> ooplaceListAdder(Supplier<List<T>> supplier){
 		return (a, b) -> ooplaceAddLists(a, b, supplier);
 	}
 	@Nonnull private static final SetMultimap<?, ?> emptyMultiMap = new EmptySetMultimap();
@@ -389,8 +388,9 @@ public class Collects {
 
 
 	/**
-	 * @param grid
-	 * @return
+	 * Prevents changes to a grid
+	 * @param grid grid to prevent changes to
+	 * @return an unmodifiable view of the input grid
 	 */
 	public static <T> Grid<T> unmodifiableGrid(Grid<T> grid) {
 		return new Grid<T>() {
@@ -415,6 +415,7 @@ public class Collects {
 				return grid.height();
 			}
 
+			@SuppressWarnings("null")
 			@Override
 			public Iterator<T> iterator() {
 				return Iterators.unmodifiableIterator(grid.iterator());
@@ -445,6 +446,7 @@ class IntMapCollector<T, M extends Object2IntMap<T>> implements Collector<Object
 		return Collects::inplaceAddIntMaps;
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public Function<Object2IntMap<T>, M> finisher() {
 		return map -> {
@@ -501,7 +503,7 @@ class EmptyMultiSet implements Multiset<Object>{
 	}
 
 	@Override
-	public boolean add(Object element) {
+	public boolean add(@Nullable Object element) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -511,7 +513,7 @@ class EmptyMultiSet implements Multiset<Object>{
 	}
 
 	@Override
-	public boolean remove(Object element) {
+	public boolean remove(@Nullable Object element) {
 		throw new UnsupportedOperationException();
 	}
 

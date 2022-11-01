@@ -142,12 +142,18 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	 * @see javax.swing.JList#getSelectedValue()
 	 */
 	@Override
-	public ItemRecord getSelectedValue() {
+	@Nullable public ItemRecord getSelectedValue() {
 		return invlist.getSelectedValue();
 	}
 	/** @return item selection variable for item selection slots */
 	@Nonnull public Variable<ItemEntry> itemSelection(){
-		return Variable.delegate(() -> getSelectedValue().item(), Lambdas.doNothing());
+		return Variable.delegate(this::getSelectedItem, Lambdas.doNothing());
+	}
+	/** @return a selected item */
+	@Nullable public ItemEntry getSelectedItem() {
+		ItemRecord irecord = getSelectedValue();
+		if(irecord == null) return null;
+		return irecord.item();
 	}
 	
 	@Override

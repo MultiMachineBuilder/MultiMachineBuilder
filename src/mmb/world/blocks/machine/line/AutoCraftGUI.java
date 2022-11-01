@@ -86,16 +86,18 @@ class AutoCraftGUI extends GUITab {
 		setStencil.setBackground(new Color(255, 215, 0));
 		setStencil.addActionListener(e -> {
 			if(crafter.getStencil() != null) return;
-			ItemRecord record = craftGUI.inventoryController.getSelectedValue();
-			ItemEntry item = record.item();
+			ItemRecord irecord = craftGUI.inventoryController.getSelectedValue();
+			if(irecord == null) return;
+			ItemEntry item = irecord.item();
 			if(!(item instanceof Stencil)) return;
+			
 			Stencil stencil = (Stencil)item;
 			boolean insertible = crafter.setStencil(stencil);
 			if(!insertible) {
 				crafter.setStencil(null);
 				return;
 			}
-			int extract = record.extract(1);
+			int extract = irecord.extract(1);
 			if(extract == 0) {
 				crafter.setStencil(null);
 				return;

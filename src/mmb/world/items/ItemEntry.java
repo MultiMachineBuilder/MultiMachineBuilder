@@ -161,6 +161,9 @@ public interface ItemEntry extends Saver, SingleItem{
 	 * @return item it if loaded successfully, or null if failed
 	 */
 	@Nullable public static ItemEntry loadFromJson(@Nullable JsonNode data) {
+		return loadFromJsonExpectType(data, null);
+	}
+	@Nullable public static <T extends ItemEntry> ItemEntry loadFromJsonExpectType(@Nullable JsonNode data, @Nullable Class<T> cls) {
 		if(data == null) return null;
 		if(data.isNull()) return null;
 		if(data.isArray()) {
@@ -168,7 +171,7 @@ public interface ItemEntry extends Saver, SingleItem{
 			JsonNode idata = data.get(1);
 			ItemType type = Items.get(id);
 			if(type == null) return null;
-			return type.loadItem(idata);
+			return type.<T>loadItemExpectType(idata, cls);
 		}
 		if(data.isTextual()) {
 			String text = data.asText();

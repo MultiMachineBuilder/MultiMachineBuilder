@@ -33,15 +33,10 @@ public class Main extends JFrame {
 	private final JPanel contentPane;
 	private JLabel st1 = new JLabel("State 1");
 	private JLabel st2 = new JLabel("State 2");
-	private final boolean shouldWork;
 	private static Main loader;
 
-	/**
-	 * Create the frame.
-	 */
+	/** Create the frame. */
 	public Main() {
-		String jversion = System.getProperty("java.version");
-		shouldWork = !jversion.startsWith("1.");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -49,15 +44,6 @@ public class Main extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[32px]", "[13px][13px][13px][13px]"));
 		contentPane.add(st1, "cell 0 0,alignx center,aligny center");
-		if(!shouldWork) {
-			Font font = new Font("Tahoma", Font.PLAIN, 20);
-			st1.setFont(font);
-			st1.setForeground(Color.RED);
-			setDefaultCloseOperation(EXIT_ON_CLOSE);
-			String a = "The Java version you have is "+jversion.charAt(2)+". The game won't work.";
-			st1.setText(a);
-			return;
-		}
 		contentPane.add(st2, "cell 0 1,alignx center,aligny center");		
 	}
 
@@ -123,7 +109,7 @@ public class Main extends JFrame {
 			//UI initialized here
 			loader = new Main();
 			loader.setVisible(true);
-			if(Main.loader.shouldWork) EventQueue.invokeLater(() -> {
+			EventQueue.invokeLater(() -> {
 				try {
 					//LWJGL
 					String lwjgl = new File("./natives/").getAbsolutePath();
@@ -157,7 +143,7 @@ public class Main extends JFrame {
 		}
 	}
 	
-	public static void uncaughtException(@SuppressWarnings("null") Thread thread, @SuppressWarnings("null") Throwable ex) {
+	public static void uncaughtException(Thread thread, Throwable ex) {
 		@SuppressWarnings("null")
 		Debugger debug = new Debugger(thread.getName());
 		debug.pstm(ex, "A thread has thrown an exception");

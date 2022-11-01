@@ -29,6 +29,7 @@ import mmb.menu.wtool.WindowTool;
 import mmb.world.crafting.Recipe;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.item.Items;
+import mmb.world.items.ItemEntry;
 import mmb.world.worlds.universe.Universe;
 import mmb.world.worlds.world.Player;
 import mmb.world.worlds.world.World;
@@ -506,4 +507,9 @@ public class WorldWindow extends MMBFrame{
 	public        final Event<World> worldLoaded = new CatchingEvent<>(debug, "Failed to run world world loaded event");
 	public        final Event<World> worldLeft = new CatchingEvent<>(debug, "Failed to run world world left event");
 	private JProgressBar progressHP;
+
+	/** @return an item selected by the player */
+	@Nullable public ItemRecord selectedItem() {
+		return scrollablePlacementList.getSelectedValue();
+	}
 }

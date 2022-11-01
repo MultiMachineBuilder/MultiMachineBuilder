@@ -27,7 +27,9 @@ import mmb.world.inventory.basic.SetInventory;
 import mmb.world.items.ItemEntry;
 import mmb.world.items.data.Stencil;
 import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
+import mmb.world.recipes.CraftingRecipeGroup.CraftingRecipe;
 import mmbmods.stn.block.STNBaseMachine;
+import monniasza.collects.CollectionOps;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.indexar.Database;
@@ -268,9 +270,9 @@ public class STNNetworkProcessing implements Saver{
 	
 	//craft recipe index
 	/** Index of stencil inputs */
-	@Nonnull public final ManyToManyIndex<Stencil, ItemEntry> stencil2InIndex = new ManyToManyIndex<>(stencil -> stencil.recipe().inputs().items());
+	@Nonnull public final ManyToManyIndex<Stencil, ItemEntry> stencil2InIndex = new ManyToManyIndex<>(s -> s.in().items());
 	/** Index of stencil outputs */
-	@Nonnull public final ManyToManyIndex<Stencil, ItemEntry> stencil2OutIndex = new ManyToManyIndex<>(stencil -> stencil.recipe().output().items());
+	@Nonnull public final ManyToManyIndex<Stencil, ItemEntry> stencil2OutIndex = new ManyToManyIndex<>(s -> s.out().items());
 	@Nonnull private final Database<Stencil> stencils0 = new Database<>(Stencil.class).addIndex(stencil2OutIndex).addIndex(stencil2InIndex);
 	/** 
 	 * The inventory for stencils 
@@ -407,5 +409,9 @@ public class STNNetworkProcessing implements Saver{
 	 */
 	public boolean isEverObtainable(ItemEntry entry, Object2IntMap<ItemEntry> inv, Object2IntMap<ItemEntry> queue) {
 		return queue.getOrDefault(entry, 0) < 0 || inv.getOrDefault(entry, 0) > 0 || isEverProducible(entry);
+	}
+	
+	public boolean isAllObtainable(Set<@Nonnull ItemEntry> entries, Object2IntMap<ItemEntry> inv, Object2IntMap<ItemEntry> queue) {
+		return CollectionOps.isAll(entries, item -> isEverObtainable(item, inv, queue));
 	}
 }

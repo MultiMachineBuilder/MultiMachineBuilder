@@ -36,19 +36,19 @@ public interface Chance {
 	 * @param tgt inventory to move items to
 	 * @param amount number of items
 	 */
-	public void produceResults(@Nonnull InventoryWriter tgt, int amount);
+	public void produceResults(InventoryWriter tgt, int amount);
 	/**
 	 * Produces one unit of chance
 	 * @param tgt
 	 */
-	public default void produceResults(@Nonnull InventoryWriter tgt) {
+	public default void produceResults(InventoryWriter tgt) {
 		produceResults(tgt, 1);
 	}
 	/**
 	 * Represents this recipe output as text
 	 * @param out
 	 */
-	public void represent(@Nonnull PicoWriter out);
+	public void represent(PicoWriter out);
 	
 	/**
 	 * @param item
@@ -63,7 +63,7 @@ public interface Chance {
 	 * @param map block map
 	 * @param x X coordinate
 	 * @param y Y coordinate
-	 * @return
+	 * @return were items dropped
 	 */
 	public static boolean tryDrop(ItemEntry ent, @Nullable InventoryWriter i, @Nullable World map, int x, int y) {
 		int inserted = 0;
@@ -78,7 +78,7 @@ public interface Chance {
 	@Nonnull public static final Chance NONE = new Chance() {
 
 		@Override
-		public boolean drop(InventoryWriter inv, World map, int x, int y) {
+		public boolean drop(@Nullable InventoryWriter inv, World map, int x, int y) {
 			return true;
 		}
 

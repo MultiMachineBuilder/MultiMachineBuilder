@@ -59,12 +59,14 @@ public class DataLayers {
 			debug.printl("Loading world data layer: "+nodeName);
 			JsonNode node = tuple._2.get(nodeName);
 			T datalayer = databinder.get(tuple._1);
+			if(datalayer == null) throw new InternalError("Data layer found must not be null for a valid world");
 			if(node != null) datalayer.load(node);
 			datalayer.startup();
 		});
 		GameEvents.onWorldSave.addListener(tuple -> {
 			debug.printl("Saving world data layer: "+nodeName);
 			T datalayer = databinder.get(tuple._1);
+			if(datalayer == null) throw new InternalError("Data layer found must not be null for a valid world");
 			datalayer.shutdown();
 			JsonNode save = datalayer.save();
 			tuple._2.set(nodeName, save);
@@ -105,11 +107,13 @@ public class DataLayers {
 		GameEvents.onUniverseLoad.addListener(tuple -> {
 			JsonNode node = tuple._2.get(nodeName);
 			T datalayer = databinder.get(tuple._1);
+			if(datalayer == null) throw new InternalError("Data layer found must not be null for a valid universe");
 			if(node != null) datalayer.load(node);
 			datalayer.startup();
 		});
 		GameEvents.onUniverseSave.addListener(tuple -> {
 			T datalayer = databinder.get(tuple._1);
+			if(datalayer == null) throw new InternalError("Data layer found must not be null for a valid universe");
 			datalayer.shutdown();
 			JsonNode save = datalayer.save();
 			tuple._2.set(nodeName, save);

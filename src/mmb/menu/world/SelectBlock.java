@@ -48,7 +48,7 @@ public class SelectBlock extends JPanel {
 		btnOK = new JButton($res("ok"));
 		btnOK.setBackground(Color.GREEN);
 		btnOK.addActionListener(e -> {
-			ItemEntry item = window.getPlacer().getSelectedValue().item();
+			ItemEntry item = window.getPlacer().getSelectedItem();
 			if(item instanceof BlockType)
 				setting.setBlockSetting((BlockType) item);
 			close();

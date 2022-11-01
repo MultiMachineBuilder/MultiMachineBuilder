@@ -4,12 +4,17 @@
 package mmbmods.stn.planner;
 
 import java.util.ArrayDeque;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Function;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
+import com.google.common.collect.Iterators;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
@@ -129,7 +134,7 @@ public class STNPlanner {
 		
 		//Run the planning
 		ItemEntry entry;
-		while((entry = queue.poll()) != null) {
+		outer: while((entry = queue.poll()) != null) {
 			int plannedAmount = planMap.getInt(entry);
 			if(plannedAmount <= 0) continue; //All items are planned for now
 			
@@ -152,18 +157,18 @@ public class STNPlanner {
 			
 			//Option C: Crafting
 			Set<Stencil> stencils = stn.processor.stencil2OutIndex.multimap().get(entry);
-			Stencil stencil = findPlausibleRecipe(planMap, invRemain, entry, stencils);
+			Stencil stencil = findPlausibleRecipe(planMap, invRemain, stencils, s -> s.in().items());
 			//If no recipes are plausible, no recipe will be usable
 			if(stencil != null) {
 				//If a recipe is plausible, plan it
-				Set<ItemEntry> toPlan = planItems(stencil.recipe().in, stencil.recipe().out, entry, plannedAmount, planMap, stencil, craftRecipes, queue);
+				Set<ItemEntry> toPlan = planItems(stencil.in(), stencil.out(), entry, plannedAmount, planMap, stencil, craftRecipes, queue);
 				queue.addAll(toPlan);
 				continue;
 			}
 			
 			//Option D: Processing
 			Set<STNPRecipe> processables = stn.processor.processRecipe2OutIndex.multimap().get(entry);
-			STNPRecipe processRecipe = findPlausibleRecipe(planMap, invRemain, entry, processables);
+			STNPRecipe processRecipe = findPlausibleRecipe(planMap, invRemain, processables, pr -> pr.in.items());
 			//If no recipes are plausible, no recipe will be usable
 			if(processRecipe != null) {
 				//If a recipe is plausible, plan it
@@ -200,19 +205,19 @@ public class STNPlanner {
 	}
 	/**
 	 * Internal helper method for Phase 1
+	 * @param <T> type of recipes
 	 * @param planMap planning map
 	 * @param invRemain
-	 * @param entry
-	 * @param possible
-	 * @return a plausible recipe, or null if not found
+	 * @param possible all potential recipes
+	 * @param transformer obtains input items for the recipe
+	 * @return a iterator of plausible recipes, or null if not found
 	 */
-	private <T> T findPlausibleRecipe(Object2IntOpenHashMap<@Nonnull ItemEntry> planMap,
-			Object2IntOpenHashMap<@Nonnull ItemEntry> invRemain, ItemEntry entry, @Nullable Set<T> possible) {
+	private @Nullable <T> @Nullable T findPlausibleRecipe(Object2IntOpenHashMap<@Nonnull ItemEntry> planMap,
+			Object2IntOpenHashMap<@Nonnull ItemEntry> invRemain, @Nullable Set<T> possible, Function<? super T, @Nonnull Set<ItemEntry>> transformer) {
 		if(possible == null) return null;
 		for(T recipe: possible) {
-			//Check plausibility
-			boolean plausible = stn.processor.isEverObtainable(entry, invRemain, planMap);
-			if(plausible) 
+			Set<ItemEntry> inputs = transformer.apply(recipe);
+			if(stn.processor.isAllObtainable(inputs, invRemain, planMap))
 				return recipe;
 		}
 		return null;

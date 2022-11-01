@@ -16,12 +16,6 @@ import mmb.world.item.ItemType;
  *
  */
 public interface BlockType extends Placer, ItemType {
-	
-	/*@Override
-	default void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation, int side) {
-		getI*con().paintIcon(null, g, renderStartPos.x, renderStartPos.y);
-	}*/
-
 	/**
 	 * Creates a block entry for this type.
 	 * @return newly created block

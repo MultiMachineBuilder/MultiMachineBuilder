@@ -351,6 +351,7 @@ public class World implements Identifiable<String>, Indexable{
 			//Run every data layer
 			for(IndexedDatalayerMap<World, ? extends DataLayer<World>> dls: DataLayers.layersWorld) {
 				DataLayer<World> dl = dls.get(this);
+				if(dl == null) throw new InternalError("Data layer found must not be null for a valid world");
 				dl.cycle();
 			}
 		}catch(Exception e) {

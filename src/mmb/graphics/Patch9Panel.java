@@ -14,6 +14,8 @@ import javax.swing.JPanel;
  *
  */
 public class Patch9Panel extends JPanel {
+	private static final long serialVersionUID = -3093792696562188469L;
+	
 	private Patch9Image image;
 	
 	public Patch9Image getImage() {

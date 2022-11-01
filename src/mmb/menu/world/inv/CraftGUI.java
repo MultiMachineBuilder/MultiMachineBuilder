@@ -201,7 +201,9 @@ public class CraftGUI extends GUITab {
 		btnActivateItems.setBackground(new Color(255, 140, 0));
 		btnActivateItems.setToolTipText($res("wguim-activate"));
 		btnActivateItems.addActionListener(e -> {
-			ItemEntry item = inventoryController.getSelectedValue().item();
+			ItemRecord irecord = inventoryController.getSelectedValue();
+			if(irecord == null) return;
+			ItemEntry item = irecord.item();
 			Inventory inv = inventoryController.getInv();
 			if(inv == null) return;
 			if(item instanceof ItemRaw) {

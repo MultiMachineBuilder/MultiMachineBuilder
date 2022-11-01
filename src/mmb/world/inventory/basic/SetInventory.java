@@ -11,6 +11,8 @@ import java.util.function.Supplier;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import org.checkerframework.checker.nullness.qual.EnsuresNonNullIf;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.google.common.collect.Iterators;
@@ -210,9 +212,10 @@ public class SetInventory<T extends ItemEntry> implements Inventory, Saver{
 	}
 
 	@Override
-	public boolean test(@Nullable ItemEntry e) {
-		if(type == null) return true;
-		return type.isInstance(e);
+	@EnsuresNonNullIf(result = true, expression = {"e"})
+	public boolean test(@Nullable  ItemEntry e) {
+		Class<T> cls = type;
+		return cls == null || cls.isInstance(e);
 	}
 
 	@Override
@@ -244,7 +247,7 @@ public class SetInventory<T extends ItemEntry> implements Inventory, Saver{
 				@SuppressWarnings("unchecked")
 				T casted = (T) item; //item is already of the correct type
 				set.add(casted);
-				volume += item.volume();
+				if(item != null) volume += item.volume();
 			}
 		}
 	}

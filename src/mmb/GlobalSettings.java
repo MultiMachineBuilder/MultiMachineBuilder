@@ -62,7 +62,7 @@ public class GlobalSettings {
 	/**
 	 * Gets the translated string
 	 * @param s dictionary key
-	 * @return
+	 * @return a translated string
 	 */
 	@Nonnull public static String $res(String s) {
 		if(!Main.isRunning()) return s;

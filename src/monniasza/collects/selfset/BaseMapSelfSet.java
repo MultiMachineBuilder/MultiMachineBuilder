@@ -149,8 +149,9 @@ public class BaseMapSelfSet<K, V, M extends Map<K, V>> implements SelfSet<K, V>{
 	@Override
 	public boolean test(@Nullable Object o) {
 		if(o == null) return nullable;
-		if(type == null) return true;
-		return type.isInstance(o);
+		Class<V> cls = type;
+		if(cls == null) return true;
+		return cls.isInstance(o);
 	}
 
 	@SuppressWarnings("unchecked")

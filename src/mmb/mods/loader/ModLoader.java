@@ -30,6 +30,7 @@ import mmb.world.electromachine.BlockTransformer.TransformerData;
 import mmb.world.generator.Generators;
 import mmb.world.items.ContentsItems;
 import mmb.world.items.electronics.Electronics;
+import mmb.world.modulars.chest.ModularChests;
 import mmb.world.worlds.DataLayers;
 import mmbmods.stn.STN;
 import mmb.Lambdas;
@@ -142,6 +143,7 @@ public final class ModLoader {
 		Generators.init();
 		Tools.init();
 		FullScreen.initialize();
+		ModularChests.init();
 		
 		TransformerData.init();
 		

@@ -18,9 +18,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>MMB</groupId>
   <artifactId>MMB</artifactId>
-  <version>0.5-pre6</version>
+  <version>0.5</version>
   <name>Multi Machine Builder</name>
-  <packaging>pom</packaging>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>
@@ -57,8 +56,15 @@
 		<sonar.tests>test</sonar.tests>
 		<sonar.java.binaries>target</sonar.java.binaries>
 		<sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
-	</properties>
+		<m2e.eea.annotationpath.jre>/Multi Machine Builder/lib/eclipse-null-eea-augments-2.4.0/libraries/java</m2e.eea.annotationpath.jre>
+		<m2e.eea.annotationpath.maven>/Multi Machine Builder/lib/eclipse-null-eea-augments-2.4.0/libraries/other</m2e.eea.annotationpath.maven>
+  	</properties>
 	<dependencies>
+		<dependency>
+		  <groupId>org.lastnpe.eea</groupId>
+		  <artifactId>eea-all</artifactId>
+		  <version>2.4.0</version>
+		</dependency>
 		<dependency>
 		  <groupId>com.glazedlists</groupId>
 		  <artifactId>glazedlists</artifactId>
@@ -632,4 +638,24 @@
     		<version>1.18</version>
 		</dependency>
 	</dependencies>
+	<url>https://github.com/MultiMachineBuilder/MultiMachineBuilder</url>
+	<inceptionYear>16 Oct 2020</inceptionYear>
+	<organization>
+		<name>MultiMachineBuilder</name>
+		<url>https://github.com/MultiMachineBuilder</url>
+	</organization>
+	<scm>
+		<url>https://github.com/MultiMachineBuilder/MultiMachineBuilder</url>
+		<connection>scm:git:https://github.com/MultiMachineBuilder/MultiMachineBuilder</connection>
+		<developerConnection>scm:git:https://github.com/MultiMachineBuilder/MultiMachineBuilder</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/MultiMachineBuilder/MultiMachineBuilder/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>GitHub Actions</system>
+		<url>https://github.com/MultiMachineBuilder/MultiMachineBuilder/actions</url>
+	</ciManagement>
 </project>

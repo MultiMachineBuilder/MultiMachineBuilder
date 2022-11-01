@@ -88,7 +88,6 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 		drawer.draw(this, x, y, g, side);
 	}
 	
-
 	/**
 	 * Called when world is initialized
 	 * <br>Exception handling: If exception is thrown by this method, the block is not properly initialized

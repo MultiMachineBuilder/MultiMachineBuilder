@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.google.common.collect.Iterators;
 
@@ -24,7 +25,7 @@ import monniasza.collects.alloc.Indexable;
  * @param <K> type of keys
  * @param <V> type of values
  */                                                                //not overriding equals(), because the existing implementation meets a contract
-public class IndexedDatalayerMap<K extends Indexable, V> extends AbstractMap<K, V>{//NOSONAR ^^^
+public class IndexedDatalayerMap<@Nonnull K extends Indexable, V> extends AbstractMap<K, V>{//NOSONAR ^^^
 	private final ArrayList<V> values0;
 	private final Function<K, V> populator;
 	private final Allocator<K> allocator;
@@ -44,7 +45,7 @@ public class IndexedDatalayerMap<K extends Indexable, V> extends AbstractMap<K, 
 		}
 	}
 	
-	private class Listener implements AllocationListener<K>{
+	private class Listener implements AllocationListener<@Nonnull K>{
 		@Override
 		public void allocated(int index, K obj) {
 			if(index == values0.size()) 
@@ -71,7 +72,7 @@ public class IndexedDatalayerMap<K extends Indexable, V> extends AbstractMap<K, 
 		}
 
 		@Override
-		public boolean contains(Object o) {
+		public boolean contains(@Nullable Object o) {
 			return containsKey(o);
 		}
 	}
@@ -88,7 +89,7 @@ public class IndexedDatalayerMap<K extends Indexable, V> extends AbstractMap<K, 
 		}
 
 		@Override
-		public boolean contains(Object o) {
+		public boolean contains(@Nullable Object o) {
 			return containsKey(o);
 		}
 	}
@@ -102,7 +103,7 @@ public class IndexedDatalayerMap<K extends Indexable, V> extends AbstractMap<K, 
 	 * Checks if this map contains a key.
 	 */
 	@Override
-	public boolean containsKey(Object key) {
+	public boolean containsKey(@Nullable Object key) {
 		if(!(key instanceof Indexable)) return false;
 		Indexable k0 = (Indexable) key;
 		if(k0.index() != allocator) return false;
@@ -113,7 +114,7 @@ public class IndexedDatalayerMap<K extends Indexable, V> extends AbstractMap<K, 
 	 * @param key key to check
 	 * @return index of given key, or -1 if not found
 	 */
-	public int indexof(Object key) {
+	public int indexof(@Nullable Object key) {
 		if(!(key instanceof Indexable)) return -1;
 		Indexable k0 = (Indexable) key;
 		if(k0.index() != allocator) return -1;
@@ -121,7 +122,7 @@ public class IndexedDatalayerMap<K extends Indexable, V> extends AbstractMap<K, 
 	}
 	
 	@Override
-	public V get(Object key) {
+	@Nullable public V get(@Nullable Object key) {
 		int index = indexof(key);
 		if(index >= 0) return values0.get(index);
 		return null;

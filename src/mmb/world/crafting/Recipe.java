@@ -94,4 +94,13 @@ public interface Recipe<T extends Recipe<T>>{
 		rv.set(that());
 		return rv;
 	}
+	
+	@Nonnull public static RecipeOutput out(@Nullable Recipe<?> recipe) {
+		if(recipe == null) return RecipeOutput.NONE;
+		return recipe.output();
+	}
+	@Nonnull public static RecipeOutput in(@Nullable Recipe<?> recipe) {
+		if(recipe == null) return RecipeOutput.NONE;
+		return recipe.inputs();
+	}
 }

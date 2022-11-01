@@ -15,6 +15,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import mmb.data.contents.Textures;
+import mmb.world.inventory.ItemRecord;
 import mmb.world.items.ContentsItems;
 import mmb.world.items.ItemEntry;
 
@@ -50,7 +51,9 @@ public class DumpItems extends WindowTool {
 		Point trashed = frame.blockAt(e.getPoint());
 		switch(e.getButton()) {
 		case 1: //LMB drop
-			ItemEntry item = window.getPlacer().getSelectedValue().item();
+			ItemRecord irecord = window.getPlacer().getSelectedValue();
+			if(irecord == null) return;
+			ItemEntry item = irecord.item();
 			//In survival, the Item Bucket cannot be dropped
 			if(window.getPlayer().isSurvival() && item == ContentsItems.bucket) return;
 			int extract = window.getPlayer().inv.extract(item, 1);

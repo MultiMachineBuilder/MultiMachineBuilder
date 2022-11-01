@@ -7,6 +7,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.google.common.util.concurrent.Runnables;
 
 import mmb.beans.Saver;
 import mmb.data.json.JsonTool;
@@ -67,7 +68,9 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 	}
 	
 	private void blow() {
-		blow.owner().place(blow.type().leaveBehind(), blow.posX(), blow.posY());
+		final BlockEntity blow2 = blow;
+		if (blow2 != null) 
+			blow2.owner().place(blow2.type().leaveBehind(), blow2.posX(), blow2.posY());
 	}
 
 	@Override
@@ -157,7 +160,8 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 	 */
 	public void takeFrom(Electricity elec) {
 		double remain = remain();
-		double insert = elec.extract(Math.min(remain, maxPower), voltage, blow::blow);
+		BlockEntity blow2 = blow;
+		double insert = elec.extract(Math.min(remain, maxPower), voltage, blow2==null?Runnables.doNothing():blow2::blow);
 		if(maxPower > remain) pressure += remain*voltage.volts;
 		amt += insert;
 	}
@@ -179,9 +183,7 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 		this.pressure = pressure;
 	}
 
-	/**
-	 * @return stored enery in joules
-	 */
+	/** @return stored energy in joules */
 	public double energy() {
 		return amt*voltage.volts;
 	}

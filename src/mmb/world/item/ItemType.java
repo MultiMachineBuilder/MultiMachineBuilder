@@ -67,6 +67,12 @@ public interface ItemType extends Titled, Identifiable<String>{
 		item.load(node);
 		return item;
 	}
+	@Nullable public default <T extends ItemEntry> ItemEntry loadItemExpectType(@Nullable JsonNode node, @Nullable Class<T> cls) {
+		ItemEntry item = create();
+		if(cls != null && !cls.isInstance(item)) return null;
+		item.load(node);
+		return item;
+	}
 
 	/**
 	 * @param value should this item be unstackable?

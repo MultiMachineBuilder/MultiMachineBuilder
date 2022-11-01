@@ -15,7 +15,13 @@ import mmb.graphics.texture.BlockDrawer;
  *
  */
 public class RotatedImageGroup {
-	public BlockDrawer U, D, L ,R;
+	@Nonnull public final BlockDrawer U, D, L ,R;
+	public RotatedImageGroup(BlockDrawer u, BlockDrawer d, BlockDrawer l, BlockDrawer r) {
+		U = u;
+		D = d;
+		L = l;
+		R = r;
+	}
 	public BlockDrawer get(Rotation r) {
 		switch(r) {
 		case S:
@@ -29,15 +35,17 @@ public class RotatedImageGroup {
 		}
 	}
 	@Nonnull public static RotatedImageGroup create(BufferedImage img) {
-		RotatedImageGroup rig = new RotatedImageGroup();
-		rig.U = BlockDrawer.ofImage(img);
+		BlockDrawer U = BlockDrawer.ofImage(img);
 		BufferedImage progress = rotate(img);
-		rig.R = BlockDrawer.ofImage(progress);
+		BlockDrawer R = BlockDrawer.ofImage(progress);
 		progress = rotate(progress);
-		rig.D = BlockDrawer.ofImage(progress);
+		BlockDrawer D = BlockDrawer.ofImage(progress);
 		progress = rotate(progress);
-		rig.L = BlockDrawer.ofImage(progress);
-		return rig;
+		BlockDrawer L = BlockDrawer.ofImage(progress);
+		return new RotatedImageGroup(U, D, L, R);
+	}
+	@Nonnull public RotatedImageGroup flip() {
+		return new RotatedImageGroup(D, U, R, L);
 	}
 	@Nonnull public static RotatedImageGroup create(String texture) {
 		return create(Textures.get(texture));

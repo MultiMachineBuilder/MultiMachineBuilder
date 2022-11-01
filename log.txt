@@ -1143,6 +1143,25 @@
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\mine.png
 (MOD-LOADER) Loading a texture mine.png
 (TEXTURES) Loading texture: mine.png
+(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\modules
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\modules\chest_body.png
+(MOD-LOADER) Loading a texture modules\chest_body.png
+(TEXTURES) Loading texture: modules/chest_body.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\modules\chest_drawer.png
+(MOD-LOADER) Loading a texture modules\chest_drawer.png
+(TEXTURES) Loading texture: modules/chest_drawer.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\modules\chest_single.png
+(MOD-LOADER) Loading a texture modules\chest_single.png
+(TEXTURES) Loading texture: modules/chest_single.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\modules\chest_std.png
+(MOD-LOADER) Loading a texture modules\chest_std.png
+(TEXTURES) Loading texture: modules/chest_std.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\modules\chest_unique.png
+(MOD-LOADER) Loading a texture modules\chest_unique.png
+(TEXTURES) Loading texture: modules/chest_unique.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\modules\mover.png
+(MOD-LOADER) Loading a texture modules\mover.png
+(TEXTURES) Loading texture: modules/mover.png
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\nuclear reactor.png
 (MOD-LOADER) Loading a texture nuclear reactor.png
 (TEXTURES) Loading texture: nuclear reactor.png
@@ -1341,12 +1360,12 @@
 (MOD-LOADER) Failed to load a sound COPYRIGHT.txt
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at mmb.data.contents.Sounds.load(Sounds.java:89)
-	at mmb.mods.loader.ModLoader.lambda$2(ModLoader.java:117)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:346)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:352)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:334)
-	at mmb.mods.loader.ModLoader.modloading(ModLoader.java:114)
-	at mmb.Main.lambda$1(Main.java:132)
+	at mmb.mods.loader.ModLoader.lambda$2(ModLoader.java:118)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:348)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:354)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:336)
+	at mmb.mods.loader.ModLoader.modloading(ModLoader.java:115)
+	at mmb.Main.lambda$1(Main.java:118)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
@@ -1369,12 +1388,12 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (MOD-LOADER) Failed to load a sound error.mp3
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at mmb.data.contents.Sounds.load(Sounds.java:89)
-	at mmb.mods.loader.ModLoader.lambda$2(ModLoader.java:117)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:346)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:352)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:334)
-	at mmb.mods.loader.ModLoader.modloading(ModLoader.java:114)
-	at mmb.Main.lambda$1(Main.java:132)
+	at mmb.mods.loader.ModLoader.lambda$2(ModLoader.java:118)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:348)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:354)
+	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:336)
+	at mmb.mods.loader.ModLoader.modloading(ModLoader.java:115)
+	at mmb.Main.lambda$1(Main.java:118)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
@@ -8994,6 +9013,11 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with machine-transformer
 (TOOLS) Tools initialized
 (FullScreen) Setting up FullScreen
+(BLOCKS) Adding modchest.chest with title Skrzynia modularna and description:
+ (brak opisu)
+(ITEMS) Adding modchest.chest with title Skrzynia modularna and description:
+ (brak opisu)
+(ITEMS) Tagging Item Skrzynia modularna(modchest.chest) with modular
 (MAIN) State: Looking for mods
 (MOD-LOADER) Added missing mods directory
 (MOD-LOADER) Walking: C:\Users\oskar\git\MultiMachineBuilder\mods
@@ -9084,6 +9108,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found save: Distributor.mworld
 (SELECT A SAVE) Found save: fuzz seed.mworld
 (SELECT A SAVE) Found save: main.mworld
+(SELECT A SAVE) Found save: Modular chest test.mworld
 (SELECT A SAVE) Found save: Semi Auto Brewery.mworld
 (SELECT A SAVE) Found save: Sound ON Startup.mworld
 (SELECT A SAVE) Found save: Surv2.mworld
@@ -9099,10 +9124,10 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found save: Test.mworld
 (SELECT A SAVE) Found save: The longest player pipe ever.mworld
 (SELECT A SAVE) Found save: The smallest all in one quarry system.mworld
-(SELECT A SAVE) Found 21 saves
-(WORLD TEST) 1728 items
+(SELECT A SAVE) Found 22 saves
+(WORLD TEST) 1729 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@abbcb1e
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@3f4f3319
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -9111,15 +9136,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Opened a file
 (SELECT A SAVE) Loaded a file
 (SELECT A SAVE) Parsed file
-(STN data layer @null) Embarkment: [0,0]
-(STN data layer @null) Disembarkment: [-6,-5]
-(STN data layer @null) Embarkment: [-6,-5]
-(STN data layer @null) Embarkment: [0,0]
-(STN data layer @null) Disembarkment: [-5,-5]
-(STN data layer @null) Embarkment: [-5,-5]
-(STN data layer @null) Embarkment: [0,0]
-(STN data layer @null) Disembarkment: [-6,-1]
-(STN data layer @null) Embarkment: [-6,-1]
 (DATA LAYERS) Loading world data layer: STN
 (ITEMS) Invalid item: Infinity
 (INVENTORIES) Unsupported null item
@@ -9150,6 +9166,45 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (STN data layer @null) Alive
 (STN data layer @null) Alive
 (STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(TOOL-STANDARD) Running BlockActivateListener for: [-13,-8]
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN data layer @null) Alive
+(STN-inventory) Index rebuild
 (STN data layer @null) Alive
 (STN data layer @null) Alive
 (STN data layer @null) Alive
