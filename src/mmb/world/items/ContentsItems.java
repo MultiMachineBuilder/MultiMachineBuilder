@@ -352,12 +352,10 @@ public class ContentsItems {
 		Items.tagItem("parts-electronic", item);
 		return item;
 	}
-	@Nonnull private static final String speedd1 = GlobalSettings.$res("speedupd1");
-	@Nonnull private static final String speedd2 = GlobalSettings.$res("speedupd2");
-	@Nonnull private static final String speedlag = GlobalSettings.$res("speedlag");
+
 	@Nonnull private static Item speed(int n, Color c, double mul) {
-		StringBuilder descr = new StringBuilder().append(speedd1).append(' ').append(mul).append(' ').append(speedd2);
-		if(mul > 100) descr.append(' ').append(speedlag);
+		StringBuilder descr = new StringBuilder().append(GlobalSettings.$res("speedupd1")).append(' ').append(mul).append(' ').append(GlobalSettings.$res("speedupd2"));
+		if(mul > 100) descr.append(' ').append(GlobalSettings.$res("speedlag"));
 		Item item = new SpeedUpgrade(mul)
 		.title(GlobalSettings.$res("speedup")+" "+n)
 		.texture(TexGen.colormap(Color.RED, c, Textures.get("item/speed.png"), null))

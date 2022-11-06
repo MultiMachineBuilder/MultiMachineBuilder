@@ -2,8 +2,8 @@
  * 
  */
 /**
- * Modular chests
+ * Universal attachments
  * @author oskar
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmb.world.modulars.chest;
+package mmb.world.modulars.universal;

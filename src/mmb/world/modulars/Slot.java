@@ -7,7 +7,12 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import mmb.data.variables.Variable;
+import mmb.debug.Debugger;
+import mmb.world.inventory.storage.BaseSingleItemInventory;
+import mmb.world.items.ItemEntry;
+import mmb.world.modulars.BlockModule.BlockModuleParams;
 import mmb.world.rotate.Side;
+import mmb.world.worlds.world.World;
 
 /**
  * A type-checked slot for a module.
@@ -17,6 +22,7 @@ import mmb.world.rotate.Side;
  * @param <T> type of values
  */
 public class Slot<T> implements Variable<@Nullable T>{
+	@Nonnull private static final Debugger debug = new Debugger("MODULAR SLOTS");
 	/** The type of the slots */
 	@Nonnull public final Class<T> type;
 	@Nullable private T value;
@@ -96,14 +102,25 @@ public class Slot<T> implements Variable<@Nullable T>{
 
 		@Override
 		protected void removeOld(@Nullable Tmodule module) {
+			if(module == null) return;
+			//When killed, drop items
+			//Find where to drop
+			World w = block.owner();
+			int x = block.posX();
+			int y = block.posY();
+			//Drop the items
+			debug.printl("Dropping items");
 			Side realSide = block.getChirotation().apply(logicalSide);
-			if(module != null) module.onBroken(block, logicalSide, realSide);
+			BlockModuleParams<Tmodule> bmp = new BlockModuleParams<>(block, logicalSide, realSide);
+			w.dropChance(module.dropItems(), x, y);
+			module.onBroken(bmp);
 		}
 
 		@Override
 		protected void addNew(@Nullable Tmodule module) {
 			Side realSide = block.getChirotation().apply(logicalSide);
-			if(module != null) module.onAdded(block, logicalSide, realSide);
+			BlockModuleParams<Tmodule> bmp = new BlockModuleParams<>(block, logicalSide, realSide);
+			if(module != null) module.onAdded(bmp);
 		}
 	}
 	/**
@@ -127,7 +144,16 @@ public class Slot<T> implements Variable<@Nullable T>{
 
 		@Override
 		protected void removeOld(@Nullable Tcore module) {
-			if(module != null) module.onBroken(block);
+			if(module == null) return;
+			//When killed, drop items
+			//Find where to drop
+			World w = block.owner();
+			int x = block.posX();
+			int y = block.posY();
+			//Drop the items
+			debug.printl("Dropping items");
+			w.dropChance(module.dropItems(), x, y);
+			module.onBroken(block);
 		}
 
 		@Override
@@ -175,5 +201,31 @@ public class Slot<T> implements Variable<@Nullable T>{
 			default: return null;
 			}
 		}
+	}
+	/**
+	 * An inventory implementation using a slot
+	 * @author oskar
+	 * @param <Titem> type of items in the slot
+	 */
+	public static class SlotInv<Titem extends ItemEntry> extends BaseSingleItemInventory{
+		/** The slot used by the inventory */
+		@Nonnull public final Slot<Titem> slot;
+		/**
+		 * Creates a slot-based inventory
+		 * @param slot slot to use
+		 */
+		public SlotInv(Slot<Titem> slot) {
+			this.slot = slot;
+			setCapacity(Double.POSITIVE_INFINITY);
+		}
+		@Override
+		public ItemEntry getContents() {
+			return slot.value;
+		}
+		@Override
+		public boolean setContents(@Nullable ItemEntry contents) {
+			return slot.setto(contents);
+		}
+		
 	}
 }

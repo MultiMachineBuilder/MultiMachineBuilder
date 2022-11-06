@@ -3,196 +3,59 @@
  */
 package mmb.world.inventory.storage;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.function.Consumer;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.google.common.collect.Iterators;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
-import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
-import mmb.Bitwise;
-import mmb.world.crafting.RecipeOutput;
-import mmb.world.inventory.Inventory;
-import mmb.world.inventory.ItemRecord;
+import mmb.data.json.JsonTool;
+import mmb.data.variables.DataValue;
+import mmb.data.variables.Variable;
 import mmb.world.items.ItemEntry;
 
 /**
  * @author oskar
  *
  */
-public class SingleItemInventory implements Inventory {
-	@Nullable private ItemEntry contents;
-	private double capacity = 2;
+public class SingleItemInventory extends BaseSingleItemInventory {
+	/** The item variable used by this inventory */
+	@Nonnull public final Variable<@Nullable ItemEntry> itemvar;
 	
-	/** @return is there an item here? */
-	public boolean containsItems() {
-		return contents != null;
+	/** Creates a single item inventory with a simple item variable and no items */
+	public SingleItemInventory() {
+		itemvar = new DataValue<>(null);
 	}
+	/**
+	 * Creates a single item inventory with a simple item variable and an item
+	 * @param item
+	 */
+	public SingleItemInventory(@Nullable ItemEntry item) {
+		itemvar = new DataValue<>(item);
+	}
+	/**
+	 * Creates a single item inventory with a custom item variable
+	 * @param itemvar
+	 */
+	public SingleItemInventory(Variable<@Nullable ItemEntry> itemvar) {
+		this.itemvar = itemvar;
+	}
+	
 	/** @return contents of this inventory */
+	@Override
 	public ItemEntry getContents() {
-		return contents;
+		return itemvar.get();
 	}
 	/**  @param contents new contents of this inventory */
-	public void setContents(@Nullable ItemEntry contents) {
-		this.contents = contents;
-	}
-
-	private class Record implements ItemRecord{
-		private final @Nonnull ItemEntry item0;
-		public Record(ItemEntry item) {
-			item0 = item;
-		}
-		@Override
-		public int amount() {
-			return Bitwise.bool2int(item0 == contents);
-		}
-
-		@Override
-		public Inventory inventory() {
-			return SingleItemInventory.this;
-		}
-
-		@Override
-		public ItemEntry item() {
-			return item0;
-		}
-
-		@Override
-		public int insert(int amount) {
-			if(amount <= 0) return 0;
-			if(contents == null) {
-				contents = item0;
-				return 1;
-			}
-			return 0;
-		}
-
-		@Override
-		public int extract(int amount) {
-			if(amount <= 0) return 0;
-			if(contents == null) return 0;
-			if(contents != item0) return 0;
-			contents = null;
-			return 1;
-		}
-		
-	}
-	@SuppressWarnings("null")
 	@Override
-	public Iterator<ItemRecord> iterator() {
-		if(contents == null) return Collections.emptyIterator();
-		return Iterators.singletonIterator(get());
-	}
-
-	@SuppressWarnings("null")
-	@Override
-	public ItemRecord get(ItemEntry entry) {
-		Objects.requireNonNull(entry, "Selection is null");
-		return new Record(entry);
-	}
-	@Override
-	public ItemRecord nget(ItemEntry entry) {
-		Objects.requireNonNull(entry, "Selection is null");
-		if(Objects.equals(entry, contents)) return new Record(entry);
-		return null;
-	}
-	/**
-	 * @return item record of this inventory
-	 */
-	@SuppressWarnings("null")
-	@Nonnull public ItemRecord get() {
-		if(contents == null) throw new IllegalStateException("This inventory is empty");
-		return new Record(contents);
-	}
-	@SuppressWarnings("null")
-	public ItemRecord nget() {
-		if(contents == null) return null;
-		return new Record(contents);
-	}
-
-	@Override
-	public int insert(ItemEntry ent, int amount) {
-		if(contents != null) return 0;
-		if(amount <= 0) return 0;
-		setContents(ent);
-		return 1;
-	}
-
-	@Override
-	public int extract(ItemEntry ent, int amount) {
-		if(contents == null) return 0;
-		if(amount <= 0) return 0;
-		if(Objects.equals(contents, ent)) {
-			setContents(null);
-			return 1;
-		}
-		return 0;
-	}
-
-	@Override
-	public double capacity() {
-		return capacity;
-	}
-	/** @param cap new capacity */
-	public void setCapacity(double cap) {
-		capacity = cap;
-	}
-
-	@Override
-	public double volume() {
-		final ItemEntry contents2 = contents;
-		if (contents2 != null) 
-			return contents2.volume();
-		return 0;
-	}
-	@Override
-	public boolean isEmpty() {
-		return contents == null;
-	}
-	@Override
-	public int size() {
-		return Bitwise.bool2int(!isEmpty());
-	}
-	@Override
-	public int bulkInsert(RecipeOutput block, int amount) {
-		if(block.items().size() > 1) return 0;
-		if(block.items().isEmpty()) return amount;
-		for(Entry<ItemEntry> entry: block.getContents().object2IntEntrySet()) {
-			if(amount < 1) return 0;
-			if(entry.getIntValue() > 1) return 0;
-			if(entry.getIntValue() == 0) return amount;
-			ItemEntry ent = entry.getKey();
-			if(ent == null) return 0;
-			return insert(ent, 1); //NOSONAR this loop is required to get the required item entry
-		}
-		return 0;
-	}
-
-	/**
-	 * A single item inventory with a callback
-	 * @author oskar
-	 */
-	public static class Callback extends SingleItemInventory{
-		@Nonnull private final Consumer<@Nullable ItemEntry> handler;
-		@Override
-		public void setContents(@Nullable ItemEntry contents) {
-			handler.accept(contents);
-			super.setContents(contents);
-		}
-		/**
-		 * Creates a callback single item inventory
-		 * @param handler callback
-		 */
-		public Callback(Consumer<@Nullable ItemEntry> handler) {
-			this.handler = handler;
-		}
-	}
-	@Override
-	public boolean test(ItemEntry e) {
+	public boolean setContents(@Nullable ItemEntry contents) {
+		this.itemvar.set(contents);
 		return true;
+	}
+	
+	@Override
+	@Nonnull public SingleItemInventory setCapacity(double cap) {
+		super.setCapacity(cap);
+		return this;
 	}
 }

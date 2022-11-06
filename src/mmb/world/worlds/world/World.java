@@ -46,6 +46,7 @@ import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockLoader;
 import mmb.world.block.BlockType;
 import mmb.world.blocks.ContentsBlocks;
+import mmb.world.chance.Chance;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.items.ItemEntry;
@@ -76,7 +77,7 @@ import monniasza.collects.grid.Grid;
 public class World implements Identifiable<String>, Indexable{
 	//Allocator & data layers
 	@Nonnull private static SimpleAllocator<World> allocator0 = new SimpleAllocator<>();
-	/** Allocator for universes */
+	/** Allocator for world */
 	@Nonnull public static final Allocator<World> allocator = allocator0.readonly();
 	private int ordinal; //ordinal, set to -1 to prevent abuse after universe dies
 	@Override
@@ -188,14 +189,12 @@ public class World implements Identifiable<String>, Indexable{
 		
 		//Blocks
 		ArrayNode worldArray = (ArrayNode) json.get("world");
-		BlockLoader bloader = new BlockLoader(world);
 		Iterator<JsonNode> iter = worldArray.elements();
 		for(int y = startY; y < endY; y++) {
 			for(int x = startX; x < endX; x++) {
 				JsonNode node = iter.next();
-				bloader.x = x;
-				bloader.y = y;
-				BlockEntry block = bloader.load(node);
+
+				BlockEntry block = BlockLoader.load(node, x, y, world);
 				if(block == null) block = ContentsBlocks.grass;
 				block.onStartup(world, 0, 0);
 				world.set(block, x, y);
@@ -238,8 +237,6 @@ public class World implements Identifiable<String>, Indexable{
 		//Postload the blocks
 		for(int y = startY; y < endY; y++) {
 			for(int x = startX; x < endX; x++) {
-				bloader.x = x;
-				bloader.y = y;
 				BlockEntry block = world.get(x, y);
 				block.postLoad(world, 0, 0);
 			}
@@ -787,6 +784,23 @@ public class World implements Identifiable<String>, Indexable{
 			int amt2 = amount*entry.getIntValue();
 			for(int i = 0; i < amt2; i++) list.add(entry.getKey());
 		}
+	}
+	/**
+	 * @param item item to be dropped
+	 * @param x X coordinate of the item
+	 * @param y Y coordinate of the item
+	 */
+	public void dropChance(Chance item, int x, int y) {
+		item.drop(null, this, x, y);
+	}
+	/**
+	 * @param item item to be dropped
+	 * @param amount amount of the item to be dropped
+	 * @param x X coordinate of the item
+	 * @param y Y coordinate of the item
+	 */
+	public void dropChance(Chance item, int amount, int x, int y) {
+		item.produceResults(createDropper(x, y), amount);
 	}
 	/**
 	 * The multimap containing all dropped items.

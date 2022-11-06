@@ -10,7 +10,7 @@ import java.util.Objects;
 import com.google.common.collect.Iterators;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
-import mmb.Bitwise;
+import mmb.MMBUtils;
 import mmb.debug.Debugger;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.Inventory;
@@ -142,7 +142,7 @@ public class DrawerInventory implements Inventory{
 	}
 	@Override
 	public int size() {
-		return Bitwise.bool2int(!isEmpty());
+		return MMBUtils.bool2int(!isEmpty());
 	}
 
 	/** @return the current lock */

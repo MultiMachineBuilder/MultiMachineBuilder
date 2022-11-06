@@ -4,14 +4,18 @@
 package mmb.world.modulars.chest;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.MMBUtils;
+import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.BlockEntityData;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
+import mmb.world.inventory.Inventory;
+import mmb.world.inventory.NoSuchInventory;
 import mmb.world.modulars.ModularBlock;
 import mmb.world.modulars.Slot;
 import mmb.world.modulars.Slot.CoreSlot;
@@ -23,24 +27,28 @@ import mmb.world.worlds.MapProxy;
  * A chest which accepts modules
  * @author oskar
  */
-public class ModularChest extends BlockEntityData implements ModularBlock<ModularChest, BlockModuleUniversal, ChestCore<?>, Object> {
-
+public final class ModularChest extends BlockEntityData implements ModularBlock<ModularChest, BlockModuleUniversal, ChestCore<?>, Object> {	
+	//Basic stuff
 	@Override
 	public BlockType type() {
 		return ModularChests.chest;
 	}
-
 	@Override
 	public BlockEntry blockCopy() {
-		// TODO Auto-generated method stub
-		return null;
+		ModularChest copy = new ModularChest();
+		copy.setCore(core());
+		copy.setModule(module(Side.U), Side.U);
+		copy.setModule(module(Side.D), Side.D);
+		copy.setModule(module(Side.L), Side.L);
+		copy.setModule(module(Side.R), Side.R);
+		return copy;
 	}
 
+	//Serialization
 	@Override
-	public void load(JsonNode data) {
+	public void load(@Nullable JsonNode data) {
 		loadModularHelper(data);
 	}
-
 	@Override
 	protected void save0(ObjectNode node) {
 		saveModularHelper(node);
@@ -55,7 +63,6 @@ public class ModularChest extends BlockEntityData implements ModularBlock<Modula
 	}
 	
 	//Modules
-
 	@Override
 	public boolean isModular() {
 		return true;
@@ -66,28 +73,22 @@ public class ModularChest extends BlockEntityData implements ModularBlock<Modula
 		return ssh.get(s);
 	}
 	
-	//TODO settings
-
+	//No settings support
 	@Override
-	public void loadSettings(JsonNode node, Object settings) {
-		// TODO Auto-generated method stub
+	public void loadSettings(@Nullable JsonNode node, Object settings) {
+		//unused
 	}
-
 	@Override
 	public JsonNode saveSettings(Object node) {
-		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public Object getSettings() {
-		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public void setSettings(Object settings) {
-		// TODO Auto-generated method stub
+		//unused
 	}
 
 	@Override
@@ -95,5 +96,19 @@ public class ModularChest extends BlockEntityData implements ModularBlock<Modula
 		runAllModules(owner(), posX(), posY());
 	}
 	
-
+	//Inventory access
+	@Override
+	public Inventory i_inv(Side s) {
+		ChestCore<?> c = core();
+		if(c == null) return NoSuchInventory.INSTANCE;
+		return c.inventory;
+	}
+	
+	//GUI
+	@Override
+	public void openGUI(WorldWindow window) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

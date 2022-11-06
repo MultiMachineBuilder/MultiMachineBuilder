@@ -12,6 +12,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import org.joml.Vector2d;
+
 import mmb.cgui.BlockActivateListener;
 import mmb.data.contents.Textures;
 import mmb.debug.Debugger;
@@ -38,8 +40,11 @@ public class ToolStandard extends WindowTool{
 			mousePressedShift(e);
 			return;
 		}
-		int x = frame.getMouseoverBlockX();
-		int y = frame.getMouseoverBlockY();
+		int mx = e.getX();
+		int my = e.getY();
+		Vector2d mouseover = frame.worldAt(mx, my, new Vector2d());
+		int x = (int) Math.floor(mouseover.x);
+		int y = (int) Math.floor(mouseover.y);
 		switch(e.getButton()) {
 		case 0:
 			break;
@@ -49,7 +54,7 @@ public class ToolStandard extends WindowTool{
 			if(!map.inBounds(x, y)) break;
 			BlockEntry ent = map.get(x, y);
 			if(ent instanceof BlockActivateListener) {
-				((BlockActivateListener) ent).click(x, y, map, window, 0, 0);
+				((BlockActivateListener) ent).click(x, y, map, window, mouseover.x - x, mouseover.y - y);
 				debug.printl("Running BlockActivateListener for: ["+x+","+y+"]");
 			}else {
 				placeBlock(x, y, map, window);

@@ -14,9 +14,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.cgui.BlockActivateListener;
+import mmb.debug.Debugger;
 import mmb.graphics.texture.BlockDrawer;
 import mmb.menu.world.window.WorldWindow;
-import mmb.world.block.BlockEntry;
+import mmb.world.block.SensitiveBlock;
+import mmb.world.chance.Chance;
+import mmb.world.crafting.RecipeOutput;
 import mmb.world.electric.Electricity;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
@@ -31,8 +34,7 @@ import mmb.world.rotate.Side;
 import mmb.world.worlds.world.World;
 
 /**
- * 
- * 
+ * A modular block.
  * @author oskar
  * @param <Tblock> type of the block
  * @param <Tmodule> type of modules (usually {@link BlockModuleUniversal})
@@ -44,13 +46,35 @@ public interface ModularBlock<
 	Tblock extends ModularBlock<Tblock, Tmodule, Tcore, Tsettings>,
 	Tmodule extends BlockModule<Tmodule>,
 	Tcore extends BlockCore<Tcore>,
-	Tsettings> extends BlockActivateListener, BlockEntry{
+	Tsettings> extends BlockActivateListener, SensitiveBlock{
+	
+	//Death handler
+	/** Run when block is demolished */
+	default void killModular() {
+		//Kill the core
+		Slot<Tcore> slotCore = slotC();
+		if(slotCore != null) slotCore.set(null);
+		
+		//Kill modules
+		killModule(slotInternal(Side.U));
+		killModule(slotInternal(Side.D));
+		killModule(slotInternal(Side.L));
+		killModule(slotInternal(Side.R));
+	}
+	/**
+	 * An iternal helper to kill a module
+	 * @param slot
+	 */
+	default void killModule(@Nullable Slot<Tmodule> slot) {
+		if(slot != null) slot.set(null);
+	}
 	
 	//Click handler
 	@Override
 	default void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		if(window == null) return;
-		replaceHelper(window.selectedItem(), window.getPlayer().inv, partX, partY);
+		boolean result = replaceHelper(window.selectedItem(), window.getPlayer().inv, partX, partY);
+		if(!result) openGUI(window);
 	}
 	/**
 	 * Internal method to handle clicks
@@ -58,8 +82,9 @@ public interface ModularBlock<
 	 * @param inv inventory
 	 * @param partX X position of the click on this block
 	 * @param partY Y position of the click on this block
+	 * @return did the player click the slot?
 	 */
-	default void replaceHelper(@Nullable ItemRecord selected, Inventory inv, double partX, double partY) {
+	default boolean replaceHelper(@Nullable ItemRecord selected, Inventory inv, double partX, double partY) {
 		final double left = 5.0/16;
 		final double right = 11.0/16;
 		final double depth = 3.0/16;
@@ -68,20 +93,31 @@ public interface ModularBlock<
 		boolean inY = partY < right && partY > left;
 		if(inX) {
 			if(inY){
-				replace(slotC(), selected, inv); //Center 
+				replace(slotC(), selected, inv); //Center
+				return true;
 			}else if(partY > antidepth){
 				replace(slot(Side.D), selected, inv); //Down
+				return true;
 			}else if(partY < depth){
 				replace(slot(Side.U), selected, inv); //Up
+				return true;
 			}
 		}else if(inY) {
 			if(partX > antidepth){
 				replace(slot(Side.R), selected, inv); //Right
+				return true;
 			}else if(partX < depth){
 				replace(slot(Side.L), selected, inv); //Left
+				return true;
 			}
 		}
+		return false;
 	}
+	/**
+	 * Invoked when the block is clicked outside of any slot
+	 * @param window
+	 */
+	public void openGUI(WorldWindow window);
 	/**
 	 * Replaces the module with one requested by the player
 	 * @apiNote A helper method used in default implementation of the click handler.
@@ -89,23 +125,28 @@ public interface ModularBlock<
 	 * @param selected item record
 	 * @param inv player inventory
 	 */
-	default void replace(@Nullable Slot<? extends ItemEntry> slot, @Nullable ItemRecord selected, Inventory inv) {
+	default <Tmc extends BlockModuleOrCore<Tmc, ? super Tblock, ?>> void replace(@Nullable Slot<? extends Tmc> slot, @Nullable ItemRecord selected, Inventory inv) {
 		//Null check
 		if(slot == null) return;
 		
 		//Removal
-		ItemEntry already = slot.get();
-		if(already == null) return;
-		boolean insert = inv.insert(already, 1) == 1;
-		if(insert) slot.set(null);
+		Tmc already = slot.get();
+		if(already != null) {
+			RecipeOutput toinsert = already.returnToPlayer();
+			boolean insert = inv.bulkInsert(toinsert, 1) == 1;
+			if(insert) slot.set(null);
+			Chance drop = already.dropItems();
+			drop.drop(null, owner(), posX(), posY());
+		}
 		
 		//Addition
-		if(selected == null) return;
-		if(!selected.canExtract()) return;
-		if(selected.amount() == 0) return;
-		ItemEntry selectedItem = selected.item();
-		boolean replace = slot.setto(selectedItem);
-		if(replace) selected.extract(1);
+		if(selected != null) {
+			if(!selected.canExtract()) return;
+			if(selected.amount() == 0) return;
+			ItemEntry selectedItem = selected.item();
+			boolean replace = slot.setto(selectedItem);
+			if(replace) selected.extract(1);
+		}
 	}
 	
 	//Provision of internal access points to modules
@@ -213,7 +254,7 @@ public interface ModularBlock<
 	
 	//Core
 	/** @return core slot */
-	public Slot<@Nullable Tcore> slotC();
+	@Nullable public Slot<@Nullable Tcore> slotC();
 	/** @return the current core, or null if not found */
 	@Nullable public default Tcore core() {
 		Slot<@Nullable Tcore> slot = slotC();
@@ -225,7 +266,7 @@ public interface ModularBlock<
 	 * @param core new core
 	 * @return did the core chenge?
 	 */
-	public default boolean setCore(Tcore core) {
+	public default boolean setCore(@Nullable Tcore core) {
 		Slot<@Nullable Tcore> slot = slotC();
 		if(slot == null) return false;
 		slot.set(core);
@@ -245,7 +286,6 @@ public interface ModularBlock<
 	//Modules
 	/** @return is the block modular?*/
 	public boolean isModular();
-	
 	/**
 	 * Gets a module slot for a logical side
 	 * @param s side to access from
@@ -283,6 +323,17 @@ public interface ModularBlock<
 		if(slot == null) return null;
 		return slot.get();
 	}
+	/**
+	 * Sets a module
+	 * @param module replacement module
+	 * @param s logical side of the module
+	 * @return did the module change?
+	 */
+	public default boolean setModule(@Nullable Object module, Side s) {
+		Slot<@Nullable Tmodule> slot = slotInternal(s);
+		if(slot == null) return false;
+		return slot.setto(module);
+	}
 	
 	//Settings
 	/**
@@ -296,7 +347,7 @@ public interface ModularBlock<
 	 * @param node settings to save
 	 * @return saved settings
 	 */
-	public JsonNode saveSettings(Tsettings node);
+	public JsonNode saveSettings(@Nullable Tsettings node);
 	/**
 	 * Gets the current settings
 	 * @return current settings, or null if unsupported
@@ -389,7 +440,7 @@ public interface ModularBlock<
 	 */
 	public default void runModule(World w, int x, int y, ChiralRotation chirot, Side s) {
 		Tmodule module = module(s);
-		if(module != null) module.runModule(that(), s, chirot.apply(s));
+		if(module != null) module.run(that(), s, chirot.apply(s));
 	}
 	
 	/** @return this */
@@ -408,7 +459,7 @@ public interface ModularBlock<
 	 * @param s size
 	 */
 	public default void renderBG(Graphics g, int x, int y, int s) {
-		BlockEntry.super.render(x, y, g, s);
+		SensitiveBlock.super.render(x, y, g, s);
 	}
 	@Override
 	default void render(int x, int y, Graphics g, int side) {
@@ -437,8 +488,8 @@ public interface ModularBlock<
 		Side s = r.U();
 		Tmodule module = module(s);
 		if(module == null) return;
-		int offsetX = (size*s.blockOffsetX)/2;
-		int offsetY = (size*s.blockOffsetY)/2;
+		int offsetX = (13*size*s.blockOffsetX)/32;
+		int offsetY = (13*size*s.blockOffsetY)/32;
 		int px = x+offsetX;
 		int py = y+offsetY;
 		BlockDrawer rotated = module.rig().get(getRotation());

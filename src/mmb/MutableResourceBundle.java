@@ -7,14 +7,18 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.Set;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.google.common.collect.Iterators;
 
 import monniasza.collects.Collects;
 
 /**
+ * A resource bundle whose contents may change
  * @author oskar
- *
  */
 public class MutableResourceBundle extends ResourceBundle {
 	
@@ -41,7 +45,7 @@ public class MutableResourceBundle extends ResourceBundle {
 	}
 	
 	@Override
-	protected Object handleGetObject(String key) {
+	protected Object handleGetObject(@Nullable String key) {
 		return map.get(key);
 	}
 
@@ -50,4 +54,17 @@ public class MutableResourceBundle extends ResourceBundle {
 		return Iterators.asEnumeration(map.keySet().iterator());
 	}
 
+	@Override
+	public boolean containsKey(@Nullable String key) {
+		return map.containsKey(key);
+	}
+
+	@Override
+	protected Set<String> handleKeySet() {
+		return map.keySet();
+	}
+	@Override
+	public @Nonnull Set<String> keySet() {
+		return map.keySet();
+	}	
 }

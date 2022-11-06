@@ -633,6 +633,23 @@ public class WorldFrame extends JComponent {
 	private void setMousePosition(MouseEvent e) {
 		mousePosition.setLocation(e.getX(), e.getY());
 	}
+	/** @return X coordinate of the mouse pointer*/
+	public int mouseX() {
+		return mousePosition.x;
+	}
+	/** @return Y coordinate of the mouse pointer*/
+	public int mouseY() {
+		return mousePosition.x;
+	}
+	/**
+	 * Sets the point to the mouse location
+	 * @param pt location to write to
+	 * @return input
+	 */
+	public Point mouse(Point pt) {
+		pt.setLocation(mousePosition);
+		return pt;
+	}
 
 	//Mouseover block
 	@Nonnull private final Point mouseover = new Point();

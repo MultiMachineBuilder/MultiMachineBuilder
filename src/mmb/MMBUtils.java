@@ -21,4 +21,14 @@ public class MMBUtils {
 	@Nonnull public static <R> Class<R> classcast(Class<?> cls){
 		return (Class<R>) cls;
 	}
+	
+	/**
+	 * Bool-to-int conversion
+	 * @param bool value to convert
+	 * @return an integer representation of a boolean
+	 */
+	//Boolean to value
+	public static int bool2int(boolean bool) {
+		return bool ? 1 : 0;
+	}
 }

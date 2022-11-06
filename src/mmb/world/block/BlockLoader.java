@@ -3,36 +3,32 @@
  */
 package mmb.world.block;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.beans.ExternalSaver;
 import mmb.debug.Debugger;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.worlds.world.World;
 
 /**
+ * A class to help load blocks
  * @author oskar
- *
  */
-public class BlockLoader implements ExternalSaver<JsonNode, BlockEntry> {
-	public int x, y;
-	@Nonnull public final World map;
-	/**
-	 * Constructs a BlockLoader with given map
-	 * @param map the map to use to load the blocks
-	 */
-	public BlockLoader(World map) {
-		super();
-		this.map = map;
-	}
+public class BlockLoader{
+	private BlockLoader() {}
 	private static final Debugger debug = new Debugger("BLOCK LOADER");
 
-	@Override
-	public BlockEntry load(@Nullable JsonNode data) {
+	/**
+	 * Loads a block
+	 * @param data block data node
+	 * @param x X coordinate of the block
+	 * @param y Y coordinaye of the block
+	 * @param map world which holds the block
+	 * @return a loaded block
+	 */
+	public static BlockEntry load(@Nullable JsonNode data, int x, int y, World map) {
 		if(data == null) {
 			debug.printl("The block data is null");
 			return null;
@@ -45,7 +41,7 @@ public class BlockLoader implements ExternalSaver<JsonNode, BlockEntry> {
 			debug.printl("The block data is a virtual node");
 			return null;
 		}
-		if(data.isObject()) return doLoadEnhanced((ObjectNode) data); //with properties
+		if(data.isObject()) return doLoadEnhanced((ObjectNode) data, x, y); //with properties
 		String text = data.asText(); //without properties
 		if(text != null) return doLoadBasic(text);
 		debug.printl("Unknown block data: "+data);
@@ -59,7 +55,7 @@ public class BlockLoader implements ExternalSaver<JsonNode, BlockEntry> {
 				}
 		return type.createBlock();
 	}
-	private BlockEntry doLoadEnhanced(ObjectNode on) {
+	private static BlockEntry doLoadEnhanced(ObjectNode on, int x, int y) {
 		//find block type
 		String blockName = on.get("blocktype").asText();
 		BlockType typ = Blocks.get(blockName);

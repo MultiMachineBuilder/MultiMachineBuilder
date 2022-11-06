@@ -26,7 +26,7 @@ import mmb.world.worlds.world.World;
  * 	<li></li>
  * </ul>
  */
-public abstract class BlockEntity implements BlockEntry, Positioned{
+public abstract class BlockEntity implements SensitiveBlock{
 	
 	private static final Debugger bedebug = new Debugger("BLOCK ENTITIES");
 	
@@ -70,12 +70,7 @@ public abstract class BlockEntity implements BlockEntry, Positioned{
 	 * The map, in which the BlockEntity is located
 	 */
 	@Nullable private World owner;
-	@SuppressWarnings("null")
-	@Nonnull public World owner() {
-		if(owner == null) throw new IllegalStateException("Not placed in map");
-		return owner;
-	}
-	@Nullable public World nowner() {
+	@Override @Nullable public World nowner() {
 		return owner;
 	}
 	

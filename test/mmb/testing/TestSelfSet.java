@@ -19,8 +19,14 @@ import monniasza.collects.selfset.SelfSet;
  */
 class TestSelfSet {
 	class TestValue{
+		@Override
 		public boolean equals(Object other) {
 			return this == other;
+		}
+
+		@Override
+		public int hashCode() {
+			return super.hashCode();
 		}
 	}
 	class TestContainer implements Identifiable<String>{

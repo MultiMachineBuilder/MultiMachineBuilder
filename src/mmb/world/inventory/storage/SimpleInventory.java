@@ -20,6 +20,7 @@ import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemLoader;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.inventory.ItemStack;
+import mmb.world.inventory.SaveInventory;
 import mmb.world.inventory.ItemLoader.ItemTarget;
 import mmb.world.items.ItemEntry;
 import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
@@ -31,7 +32,7 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class SimpleInventory implements Inventory, Saver{
+public class SimpleInventory implements SaveInventory{
 	private static final Debugger debug = new Debugger("INVENTORIES");
 	@Nonnull private SelfSet<ItemEntry, Node> contents = HashSelfSet.createNonnull(Node.class);
 	private double volume = 0;
@@ -149,6 +150,7 @@ public class SimpleInventory implements Inventory, Saver{
 	 * @param capacity new capacity
 	 * @return this
 	 */
+	@Override
 	public @Nonnull SimpleInventory setCapacity(double capacity) {
 		this.capacity = capacity;
 		return this;
@@ -242,7 +244,7 @@ public class SimpleInventory implements Inventory, Saver{
 	}
 	/**
 	 * Replaces all inventory contents and settings with given inventory
-	 * @param in
+	 * @param in source inventory
 	 */
 	public void set(Inventory in) {
 		capacity = in.capacity();

@@ -111,8 +111,8 @@ public final class SimpleItemList implements RecipeOutput {
 	 * @param inv inventory to copy
 	 */
 	public SimpleItemList(Inventory inv) {
-		for(ItemRecord record: inv) {
-			data.put(record.item(), record.amount());
+		for(ItemRecord irecord: inv) {
+			data.put(irecord.item(), irecord.amount());
 		}
 	}
 	

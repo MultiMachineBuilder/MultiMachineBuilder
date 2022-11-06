@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.collect.Iterators;
 
-import mmb.Bitwise;
+import mmb.MMBUtils;
 import mmb.beans.Saver;
 import mmb.data.json.JsonTool;
 import mmb.data.variables.ListenerBooleanVariable;
@@ -73,10 +73,10 @@ Cloneable, Iterable<mmb.world.blocks.machine.SideConfig.SideBoolean>, Saver{
 	public int hashCode() {
 		final int prime = 2;
 		int result = 1;
-		result = prime * result + Bitwise.bool2int(U.getValue());
-		result = prime * result + Bitwise.bool2int(D.getValue());
-		result = prime * result + Bitwise.bool2int(L.getValue());
-		result = prime * result + Bitwise.bool2int(R.getValue());
+		result = prime * result + MMBUtils.bool2int(U.getValue());
+		result = prime * result + MMBUtils.bool2int(D.getValue());
+		result = prime * result + MMBUtils.bool2int(L.getValue());
+		result = prime * result + MMBUtils.bool2int(R.getValue());
 		return result;
 	}
 	@Override
@@ -111,7 +111,7 @@ Cloneable, Iterable<mmb.world.blocks.machine.SideConfig.SideBoolean>, Saver{
 			this.value = value;
 			this.side = side;
 			this.toString = (value ? "T_" : "F_")+side.toString();
-			this.index = (side.ordinal()*2)+Bitwise.bool2int(value);
+			this.index = (side.ordinal()*2)+MMBUtils.bool2int(value);
 		}
 		@Nonnull public static final SideBoolean T_U = new SideBoolean(true, Side.U);
 		@Nonnull public static final SideBoolean T_D = new SideBoolean(true, Side.D);

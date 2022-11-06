@@ -23,7 +23,7 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  * This is a common interface for 
  */
-public interface Inventory extends Collection<@Nonnull ItemRecord> {	
+public interface Inventory extends Collection<@Nonnull ItemRecord> {		
 	/**
 	 * Get the item record under given item type
 	 * @param entry
@@ -39,7 +39,7 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 		return insert(arg0.item(), arg0.amount()) != 0;
 	}
 	@Override
-	default boolean addAll(@SuppressWarnings("null") Collection<? extends ItemRecord> c) {
+	default boolean addAll(Collection<? extends ItemRecord> c) {
 		boolean changed = false;
 		for(ItemRecord record: c) {
 			changed |= (insert(record.item(), record.amount())) != 0;
@@ -62,7 +62,7 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 		return false;
 	}
 	@Override
-	default boolean containsAll(@SuppressWarnings("null") Collection<?> c) {
+	default boolean containsAll(Collection<?> c) {
 		for(ItemRecord record: this) {
 			if(!c.contains(record)) return false;
 		}
@@ -76,7 +76,7 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 		return record.extract(record.amount()) != 0;
 	}
 	@Override
-	default boolean removeAll(@SuppressWarnings("null") Collection<?> c) {
+	default boolean removeAll(Collection<?> c) {
 		boolean changed = false;
 		for(ItemRecord record: this) {
 			if(c.contains(record)) {
@@ -86,7 +86,7 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 		return changed;// TODO Auto-generated method stub
 	}
 	@Override
-	default boolean retainAll(@SuppressWarnings("null") Collection<?> c) {
+	default boolean retainAll(Collection<?> c) {
 		boolean changed = false;
 		for(ItemRecord record: this) {
 			if(!c.contains(record)) {
@@ -103,14 +103,13 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 		return toArray(new ItemRecord[size()]);
 	}
 	@Override
-	default <T> T[] toArray(@SuppressWarnings("null") T[] arr) {
+	default <T> T[] toArray(T[] arr) {
 		List<ItemRecord> list = new ArrayList<>();
 		for(ItemRecord record: this) {
 			list.add(record);
 		}
 		return list.toArray(arr);
 	}
-	
 	
 	/**
 	 * Get the item record under given item type
@@ -238,9 +237,9 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	/**
 	 * Checks how many items by volume may be inserted.
 	 * @apiNote This method does not test if item is allowed.
-	 * @param amount
-	 * @param ivolume
-	 * @return
+	 * @param amount max number of items
+	 * @param ivolume volume of an item
+	 * @return how many items can be inserted
 	 */
 	public default int insertibleRemain(int amount, double ivolume) {
 		double tvolume = ivolume * amount;
@@ -291,9 +290,9 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	 */
 	public static int howManyTimesThisContainsThat(Inventory main, RecipeOutput sub) {
 		int result = Integer.MAX_VALUE;
-		for(Entry<ItemEntry> record: sub.getContents().object2IntEntrySet()) {
-			int small = record.getIntValue(); //the sub contains null records
-			ItemRecord mrecord = main.nget(record.getKey());
+		for(Entry<@Nonnull ItemEntry> irecord: sub.getContents().object2IntEntrySet()) {
+			int small = irecord.getIntValue(); //the sub contains null records
+			ItemRecord mrecord = main.nget(irecord.getKey());
 			if(mrecord == null) return 0;
 			int big = mrecord.amount();
 			int units = big/small;
