@@ -228,7 +228,7 @@
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-egl</artifactId>
-			<version>3.2.3</version>
+			<version>3.3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
