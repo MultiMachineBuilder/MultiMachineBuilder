@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.data.json.JsonTool;
 import mmb.world.block.BlockEntity;
-import mmb.world.block.BlockEntityData;
+import mmb.world.blocks.BlockEntityData;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.storage.SimpleInventory;
 import mmb.world.rotate.Side;

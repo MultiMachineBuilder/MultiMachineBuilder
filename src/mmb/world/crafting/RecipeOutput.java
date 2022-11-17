@@ -22,7 +22,7 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.world.chance.Chance;
 import mmb.world.inventory.ItemStack;
 import mmb.world.inventory.io.InventoryWriter;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.worlds.world.World;
 import monniasza.collects.Collects;
 
@@ -77,7 +77,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	/**
 	 * @return contents of the item list as map.
 	 */
-	@Nonnull public Object2IntMap<@Nonnull ItemEntry> getContents();
+	@Nonnull public Object2IntMap<mmb.world.item.ItemEntry> getContents();
 	
 	/**
 	 * Checks if the item list contains the selected item
@@ -183,7 +183,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	 * @return unique items in this recipe output
 	 */
 	@Override
-	public default Set<@Nonnull ItemEntry> items(){
+	public default Set<mmb.world.item.ItemEntry> items(){
 		return getContents().keySet();
 	}
 	

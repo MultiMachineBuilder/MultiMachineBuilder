@@ -11,9 +11,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.MMBUtils;
 import mmb.menu.world.window.WorldWindow;
-import mmb.world.block.BlockEntityData;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
+import mmb.world.blocks.BlockEntityData;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.NoSuchInventory;
 import mmb.world.modulars.ModularBlock;

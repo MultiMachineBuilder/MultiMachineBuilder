@@ -18,7 +18,7 @@ import mmb.world.electric.VoltageTier;
 import mmb.world.electromachine.CycleResult;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.storage.SimpleInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.recipes.ComplexRecipeGroup;
 import mmb.world.recipes.ComplexRecipeGroup.ComplexRecipe;
 

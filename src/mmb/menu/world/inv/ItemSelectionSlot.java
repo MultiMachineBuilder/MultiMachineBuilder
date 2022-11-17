@@ -14,7 +14,7 @@ import com.pploder.events.Event;
 import mmb.CatchingEvent;
 import mmb.data.variables.Variable;
 import mmb.debug.Debugger;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -28,19 +28,19 @@ public class ItemSelectionSlot extends JComponent {
 	
 	private boolean canSet = true;
 	
-	private Variable<@Nullable ItemEntry> selectionSrc;
-	private Variable<@Nullable ItemEntry> target;
+	private Variable<mmb.world.item.ItemEntry> selectionSrc;
+	private Variable<mmb.world.item.ItemEntry> target;
 	private ItemEntry selection;
 	/**
 	 * @return the selection source
 	 */
-	public Variable<@Nullable ItemEntry> getSelectionSrc() {
+	public Variable<mmb.world.item.ItemEntry> getSelectionSrc() {
 		return selectionSrc;
 	}
 	/**
 	 * @param selectionSrc new selection source
 	 */
-	public void setSelectionSrc(Variable<@Nullable ItemEntry> selectionSrc) {
+	public void setSelectionSrc(Variable<mmb.world.item.ItemEntry> selectionSrc) {
 		this.selectionSrc = selectionSrc;
 	}
 	/**
@@ -100,11 +100,11 @@ public class ItemSelectionSlot extends JComponent {
 	}
 
 	/** @return the target item variable*/
-	public Variable<@Nullable ItemEntry> getTarget() {
+	public Variable<mmb.world.item.ItemEntry> getTarget() {
 		return target;
 	}
 	/** @param target new target item variable */
-	public void setTarget(Variable<@Nullable ItemEntry> target) {
+	public void setTarget(Variable<mmb.world.item.ItemEntry> target) {
 		setSelection(target.get());
 		this.target = target;
 	}

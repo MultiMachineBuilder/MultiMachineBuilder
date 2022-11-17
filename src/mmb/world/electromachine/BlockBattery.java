@@ -14,12 +14,12 @@ import mmb.beans.Electric;
 import mmb.cgui.BlockActivateListener;
 import mmb.menu.world.machine.BatteryTab;
 import mmb.menu.world.window.WorldWindow;
-import mmb.world.block.SkeletalBlockEntityRotary;
+import mmb.world.blocks.SkeletalBlockEntityRotary;
 import mmb.world.contentgen.ElectricMachineGroup.ElectroMachineType;
 import mmb.world.electric.Battery;
 import mmb.world.electric.Electricity;
 import mmb.world.inventory.storage.SingleItemInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.items.pickaxe.Pickaxe;
 import mmb.world.rotate.RotatedImageGroup;
 import mmb.world.rotate.Side;
@@ -101,7 +101,7 @@ public final class BlockBattery extends SkeletalBlockEntityRotary implements Blo
 	@Override
 	public void render(int x, int y, Graphics g, int ss) {
 		super.render(x, y, g, ss);
-		Pickaxe.renderDurability(battery.amt/battery.capacity, g, x, y, ss, ss);
+		Pickaxe.renderDurability(battery.stored/battery.capacity, g, x, y, ss, ss);
 	}
 
 	

@@ -16,7 +16,7 @@ import mmb.menu.wtool.ToolPickaxe;
 import mmb.menu.wtool.WindowTool;
 import mmb.world.item.ItemEntity;
 import mmb.world.item.ItemEntityType;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar

@@ -10,7 +10,7 @@ import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.items.data.Stencil;
 import net.miginfocom.swing.MigLayout;
 

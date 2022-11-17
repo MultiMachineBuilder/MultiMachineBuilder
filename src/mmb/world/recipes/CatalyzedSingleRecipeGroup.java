@@ -18,7 +18,7 @@ import mmb.world.crafting.singles.SimpleRecipe;
 import mmb.world.crafting.singles.SimpleRecipeGroup;
 import mmb.world.electric.VoltageTier;
 import mmb.world.inventory.Inventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;

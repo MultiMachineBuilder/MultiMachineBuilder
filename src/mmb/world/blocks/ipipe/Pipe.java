@@ -9,7 +9,7 @@ import mmb.data.variables.Variable;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
 import mmb.world.inventory.storage.SingleItemInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.rotate.ChirotatedImageGroup;
 import mmb.world.rotate.Side;
 import mmb.world.worlds.MapProxy;

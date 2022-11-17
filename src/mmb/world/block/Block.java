@@ -41,8 +41,7 @@ public class Block extends BlockBase implements BlockEntry{
 	
 	@Override
 	public BlockEntry place(int x, int y, World map) {
-		BlockEntry placed = map.place(this, x, y);
-		return placed;
+		return map.place(this, x, y);
 	}
 	@Override
 	public BlockEntry createBlock() {
@@ -87,101 +86,51 @@ public class Block extends BlockBase implements BlockEntry{
 		return null;
 	}
 
-	/**
-	 * Sets texture. This is a convenience chainable method
-	 * @param texture path to texture, starting from `/textures`
-	 * @return this
-	 */
 	@Override
 	public Block texture(String texture) {
 		setTexture(texture);
 		return this;
 	}
-	/**
-	 * Sets texture. This is a convenience chainable method
-	 * @param texture texture
-	 * @return this
-	 */
 	@Override
 	public Block texture(BufferedImage texture) {
 		setTexture(texture);
 		return this;
 	}
-	/**
-	 * Sets texture. This is a convenience chainable method
-	 * @param texture color
-	 * @return this
-	 */
 	@Override
 	public Block texture(Color texture) {
 		setTexture(BlockDrawer.ofColor(texture));
 		return this;
 	}
-	/**
-	 * Sets texture. This is a convenience chainable method
-	 * @param texture texture
-	 * @return this
-	 */
 	@Override
 	public Block texture(BlockDrawer texture) {
 		setTexture(texture);
 		return this;
 	}
-	/**
-	 * Sets title.This is a convenience chainable method
-	 * @param title title
-	 * @return this
-	 */
 	@Override
 	public Block title(String title) {
 		setTitle(title);
 		return this;
 	}
-	/**
-	 * Sets description.This is a convenience chainable method
-	 * @param description description
-	 * @return this
-	 */
 	@Override
 	public Block describe(String description) {
 		setDescription(description);
 		return this;
 	}
-	/**
-	 * Sets dropped item.This is a convenience chainable method
-	 * @param drop drop
-	 * @return this
-	 */
 	@Override
 	public Block drop(Chance drop) {
 		setDrop(drop);
 		return this;
 	}
-	/**
-	 * Registers this block. This is a convenience chainable method
-	 * @param id block id
-	 * @return this
-	 */
 	@Override
 	public Block finish(String id) {
 		register(id);
 		return this;
 	}
-	/**
-	 * Sets title.This is a convenience chainable method
-	 * @param block title
-	 * @return this
-	 */
 	@Override
 	public Block leaveBehind(BlockType block) {
 		setLeaveBehind(block);
 		return this;
 	}
-	/**
-	 * Sets volume. This is a convenience chainable method
-	 * @param volume volume
-	 * @return this
-	 */
 	@Override
 	@Nonnull public Block volumed(double volume) {
 		setVolume(volume);

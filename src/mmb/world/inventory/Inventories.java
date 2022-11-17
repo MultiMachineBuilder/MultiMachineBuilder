@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 
 import mmb.world.inventory.io.InventoryReader;
 import mmb.world.inventory.io.InventoryWriter;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * A set of utilities for working with inventories. <br>

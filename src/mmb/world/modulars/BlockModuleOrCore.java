@@ -3,11 +3,7 @@
  */
 package mmb.world.modulars;
 
-import javax.annotation.Nonnull;
-
-import mmb.world.chance.Chance;
-import mmb.world.crafting.RecipeOutput;
-import mmb.world.items.ItemEntry;
+import mmb.world.part.PartEntry;
 
 /**
  * Common representation of block modules and cores
@@ -16,13 +12,7 @@ import mmb.world.items.ItemEntry;
  * @param <Tblock> type of the block
  * @param <Tparams> type of broken/added params
  */
-public interface BlockModuleOrCore<Tmc extends BlockModuleOrCore<Tmc, Tblock, Tparams>, Tblock extends ModularBlock<?, ?, ?, ?>, Tparams> extends ItemEntry{
-	/** @return items dropped when module is removed */
-	@Nonnull public Chance dropItems();
-	/** @return items returned to the player */
-	@Nonnull public default RecipeOutput returnToPlayer() {
-		return this;
-	}
+public interface BlockModuleOrCore<Tmc extends BlockModuleOrCore<Tmc, Tblock, Tparams>, Tblock extends ModularBlock<?, ?, ?, ?>, Tparams> extends PartEntry{
 	/**
 	 * Called when a a module or a core is removed from a block
 	 * @param blk the block running this module

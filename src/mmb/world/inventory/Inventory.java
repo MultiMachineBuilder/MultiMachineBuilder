@@ -16,7 +16,7 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.io.InventoryReader;
 import mmb.world.inventory.io.InventoryWriter;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import monniasza.collects.selfset.SelfSet;
 
 /**
@@ -290,7 +290,7 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	 */
 	public static int howManyTimesThisContainsThat(Inventory main, RecipeOutput sub) {
 		int result = Integer.MAX_VALUE;
-		for(Entry<@Nonnull ItemEntry> irecord: sub.getContents().object2IntEntrySet()) {
+		for(Entry<mmb.world.item.ItemEntry> irecord: sub.getContents().object2IntEntrySet()) {
 			int small = irecord.getIntValue(); //the sub contains null records
 			ItemRecord mrecord = main.nget(irecord.getKey());
 			if(mrecord == null) return 0;
@@ -306,7 +306,7 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	 * Inserts contents of this inventory into a map
 	 * @param map
 	 */
-	public default void contents(Object2IntMap<@Nonnull ItemEntry> map) {
+	public default void contents(Object2IntMap<mmb.world.item.ItemEntry> map) {
 		for(ItemRecord irecord: this) {
 			map.put(irecord.item(), irecord.amount());
 		}

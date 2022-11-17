@@ -16,6 +16,7 @@ import mmb.menu.world.window.WorldWindow;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.chance.Chance;
 import mmb.world.item.Item;
+import mmb.world.item.Items;
 import mmb.world.worlds.world.World;
 
 /**
@@ -68,7 +69,7 @@ public abstract class BlockBase extends Item implements BlockType {
 	public void register() {
 		if(leaveBehind == null) leaveBehind = ContentsBlocks.grass; //NOSONAR
 		if(drop == null) drop = this;
-		Blocks.register(this);
+		Items.register(this);
 	}
 	@Override
 	public void register(String id) {
@@ -140,11 +141,11 @@ public abstract class BlockBase extends Item implements BlockType {
 	}
 	/**
 	 * Sets dropped item.This is a convenience chainable method
-	 * @param drop drop
+	 * @param newDrop drop
 	 * @return this
 	 */
-	public BlockBase drop(Chance drop) {
-		setDrop(drop);
+	public BlockBase drop(Chance newDrop) {
+		setDrop(newDrop);
 		return this;
 	}
 	/**
@@ -182,7 +183,6 @@ public abstract class BlockBase extends Item implements BlockType {
 	public int getRequiredPickaxe() {
 		return pickaxe;
 	}
-
 	@Override
 	public void setRequiredPickaxe(int level) {
 		pickaxe = level;

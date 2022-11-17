@@ -18,7 +18,7 @@ import mmb.debug.Debugger;
 import mmb.world.chance.Chance;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.ItemRecord;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar

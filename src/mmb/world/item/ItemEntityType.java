@@ -9,8 +9,6 @@ import java.awt.image.BufferedImage;
 import javax.annotation.Nonnull;
 
 import mmb.graphics.texture.BlockDrawer;
-import mmb.world.items.ItemBase;
-import mmb.world.items.ItemEntry;
 
 /**
  * @author oskar

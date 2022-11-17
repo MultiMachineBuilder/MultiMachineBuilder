@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 import mmb.data.variables.Variable;
 import mmb.debug.Debugger;
 import mmb.world.inventory.storage.BaseSingleItemInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.modulars.BlockModule.BlockModuleParams;
 import mmb.world.rotate.Side;
 import mmb.world.worlds.world.World;

@@ -5,8 +5,8 @@ package mmb.world.blocks.actuators;
 
 import java.awt.Point;
 
-import mmb.world.block.BlockEntityChirotable;
 import mmb.world.block.BlockEntry;
+import mmb.world.blocks.BlockEntityChirotable;
 import mmb.world.worlds.MapProxy;
 
 /**

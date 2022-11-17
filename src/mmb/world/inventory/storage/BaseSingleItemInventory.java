@@ -22,7 +22,7 @@ import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.inventory.SaveInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar
@@ -173,7 +173,7 @@ public abstract class BaseSingleItemInventory implements SaveInventory{
 	 * @author oskar
 	 */
 	public static class Callback extends SingleItemInventory{
-		@Nonnull private final Consumer<@Nullable ItemEntry> handler;
+		@Nonnull private final Consumer<mmb.world.item.ItemEntry> handler;
 		@Override
 		public boolean setContents(@Nullable ItemEntry contents) {
 			handler.accept(contents);
@@ -183,7 +183,7 @@ public abstract class BaseSingleItemInventory implements SaveInventory{
 		 * Creates a callback single item inventory
 		 * @param handler callback
 		 */
-		public Callback(Consumer<@Nullable ItemEntry> handler) {
+		public Callback(Consumer<mmb.world.item.ItemEntry> handler) {
 			this.handler = handler;
 		}
 	}

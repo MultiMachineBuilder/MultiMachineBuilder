@@ -26,7 +26,7 @@ import mmb.world.inventory.ItemLoader;
 import mmb.world.inventory.ItemLoader.ItemTarget;
 import mmb.world.inventory.ItemStack;
 import mmb.world.inventory.io.InventoryWriter;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import monniasza.collects.Collects;
 
 /**

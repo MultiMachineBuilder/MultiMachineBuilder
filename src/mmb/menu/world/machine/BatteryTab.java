@@ -64,7 +64,7 @@ public class BatteryTab extends GUITab {
 	 * Refreshes this GUI
 	 */
 	public void refresh() {
-		Electricity.formatProgress(progressBar, battery.battery.amt, battery.battery.capacity);
+		Electricity.formatProgress(progressBar, battery.battery.stored, battery.battery.capacity);
 	}
 	
 

@@ -15,20 +15,19 @@ import com.fasterxml.jackson.databind.JsonNode;
 import mmb.data.contents.Textures;
 import mmb.menu.world.inv.AbstractInventoryController;
 import mmb.world.chance.Chance;
-import mmb.world.crafting.RecipeOutput;
 import mmb.world.crafting.SimpleItemList;
 import mmb.world.crafting.SingleItem;
 import mmb.world.inventory.SaveInventory;
-import mmb.world.item.ItemEntityMutable;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.modulars.BlockCore;
+import mmb.world.part.PartEntity;
 
 /**
  * A chest core
  * @author oskar
  * @param <Tinv> type of the inventory
  */
-public abstract class ChestCore<Tinv extends SaveInventory> extends ItemEntityMutable implements BlockCore<ChestCore<Tinv>>{
+public abstract class ChestCore<Tinv extends SaveInventory> extends PartEntity implements BlockCore<ChestCore<Tinv>>{
 	/** Base constructor for chest cores */
 	protected ChestCore(Tinv inventory) {
 		this.inventory = inventory;
@@ -55,11 +54,6 @@ public abstract class ChestCore<Tinv extends SaveInventory> extends ItemEntityMu
 	public abstract @Nonnull ChestCore<Tinv> makeEmpty();
 	
 	@Override
-	public RecipeOutput returnToPlayer() {
-		return makeEmpty();
-	}
-
-	@Override
 	public void load(@Nullable JsonNode data) {
 		double capacity = inventory.capacity();
 		inventory.load(data);
@@ -75,24 +69,22 @@ public abstract class ChestCore<Tinv extends SaveInventory> extends ItemEntityMu
 	@Nullable public abstract SingleItem getRenderItem();
 
 	@Override
-	public void render(Graphics g, int x, int y, int w, int h) {
-		super.render(g, x, y, w, h);
-		
+	public void render(int x, int y, Graphics g, int w) {
+		super.render(x, y, g, w);
 		//Get the stack
 		SingleItem stack = getRenderItem();
 		if(stack == null) return;
 		
 		//Render the item
-		int iw = w/4;
-		int ih = h/4;
+		int is = w/4;
 		int ix = x + (3*w)/8;
-		int iy = y + (3*h)/8;
+		int iy = y + (3*w)/8;
 		ItemEntry item = stack.item();
-		item.render(g, ix, iy, iw, ih);
+		item.render(g, ix, iy, is, is);
 	
 		//Render the count
 		if(stack == item) return; //Do not render counts for plain items
-		if(w < 128 || h < 128) return; //To small to see digits
+		if(w < 128) return; //To small to see digits
 		int[] digits = new int[6];
 		digits[4] = -1;
 		int count = stack.amount();
@@ -118,9 +110,9 @@ public abstract class ChestCore<Tinv extends SaveInventory> extends ItemEntityMu
 		//hoffset=(64-15)/128 = 49/128
 		
 		int dhoffset = x + (49*w)/128;
-		int dvoffset = y + (81*h)/128;
+		int dvoffset = y + (81*w)/128;
 		int dwidth = (5*w)/128;
-		int dheight = (10*h)/128;
+		int dheight = (10*w)/128;
 		for(int i = 0; i < 6; i++) {
 			int digX = dhoffset+(i*dwidth);
 			int digit = digits[i];
@@ -130,6 +122,8 @@ public abstract class ChestCore<Tinv extends SaveInventory> extends ItemEntityMu
 	}
 	
 	@Nonnull private static final BufferedImage[] font;
+	
+	
 	
 	static {
 		BufferedImage srcfont = Textures.get("nums.png");
@@ -141,5 +135,19 @@ public abstract class ChestCore<Tinv extends SaveInventory> extends ItemEntityMu
 			font0[i] = srcfont.getSubimage(x, 0, chwidth, h);
 		}
 		font = font0;
+	}
+
+
+
+	@Override
+	protected int hash0() {
+		return inventory.hashCode();
+	}
+
+	@Override
+	protected boolean equal0(PartEntity other) {
+		if(other instanceof ChestCore) {
+			return inventory.equals(((ChestCore<?>)other).inventory);
+		} return false;
 	}
 }

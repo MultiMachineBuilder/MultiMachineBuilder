@@ -8,7 +8,7 @@ import java.util.Iterator;
 import javax.annotation.Nonnull;
 
 import mmb.world.crafting.RecipeOutput;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar

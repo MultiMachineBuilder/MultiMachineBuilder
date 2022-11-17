@@ -9,13 +9,13 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.data.json.JsonTool;
-import mmb.world.block.BlockEntityChirotable;
 import mmb.world.block.BlockType;
+import mmb.world.blocks.BlockEntityChirotable;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.io.InventoryReader;
 import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.inventory.storage.SingleItemInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.rotate.ChirotatedImageGroup;
 import mmb.world.rotate.Side;
 

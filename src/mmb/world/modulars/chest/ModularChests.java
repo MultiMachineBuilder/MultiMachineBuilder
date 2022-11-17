@@ -19,6 +19,9 @@ import mmb.world.item.ItemEntityType;
 import mmb.world.item.Items;
 import mmb.world.item.RotableItem;
 import mmb.world.modulars.universal.Plug;
+import mmb.world.part.Part;
+import mmb.world.part.PartEntity;
+import mmb.world.part.PartEntityType;
 
 /**
  * Items and blocks for modular chests
@@ -44,7 +47,7 @@ public class ModularChests {
 		.finish("modchest.chest");
 	
 	//Modules
-	@Nonnull public static final Item plug = new Plug()
+	@Nonnull public static final Part plug = new Plug()
 		.title("#modchest-plug")
 		.texture("modules/plug.png")
 		.volumed(0.002)
@@ -54,46 +57,47 @@ public class ModularChests {
 	//Chest cores - simple
 	@Nonnull private static final ChestProductionParams paramsSimple
 	= new ChestProductionParams("modchest-coresimple", "modules/chest_std.png", SimpleChestCore::new, "modchest.coreSimple");
-	@Nonnull public static final ItemEntityType coreSimple1 = chestCore(paramsSimple, Color.RED,       6, 1);
-	@Nonnull public static final ItemEntityType coreSimple2 = chestCore(paramsSimple, Color.YELLOW,   16, 2);
-	@Nonnull public static final ItemEntityType coreSimple3 = chestCore(paramsSimple, Color.GREEN,    32, 3);
-	@Nonnull public static final ItemEntityType coreSimple4 = chestCore(paramsSimple, Color.CYAN,     64, 4);
-	@Nonnull public static final ItemEntityType coreSimple5 = chestCore(paramsSimple, Color.BLUE,    128, 5);
-	@Nonnull public static final ItemEntityType coreSimple6 = chestCore(paramsSimple, Color.MAGENTA, 256, 6);
-	@Nonnull public static final ItemEntityType coreSimple7 = chestCore(paramsSimple, Color.WHITE,  1024, 7);
-	@Nonnull public static final ItemEntityType coreSimple8 = chestCore(paramsSimple, Color.BLACK,  4096, 8);
-	@Nonnull public static final ItemEntityType coreSimple9 = chestCore(paramsSimple, Color.GRAY,  16384, 9);
+	@Nonnull public static final PartEntityType coreSimple1 = chestCore(paramsSimple, Color.RED,       6, 1);
+	@Nonnull public static final PartEntityType coreSimple2 = chestCore(paramsSimple, Color.YELLOW,   16, 2);
+	@Nonnull public static final PartEntityType coreSimple3 = chestCore(paramsSimple, Color.GREEN,    32, 3);
+	@Nonnull public static final PartEntityType coreSimple4 = chestCore(paramsSimple, Color.CYAN,     64, 4);
+	@Nonnull public static final PartEntityType coreSimple5 = chestCore(paramsSimple, Color.BLUE,    128, 5);
+	@Nonnull public static final PartEntityType coreSimple6 = chestCore(paramsSimple, Color.MAGENTA, 256, 6);
+	@Nonnull public static final PartEntityType coreSimple7 = chestCore(paramsSimple, Color.WHITE,  1024, 7);
+	@Nonnull public static final PartEntityType coreSimple8 = chestCore(paramsSimple, Color.BLACK,  4096, 8);
+	@Nonnull public static final PartEntityType coreSimple9 = chestCore(paramsSimple, Color.GRAY,  16384, 9);
 	//Chest cores - drawers
 	@Nonnull private static final ChestProductionParams paramsDrawer
 	= new ChestProductionParams("modchest-coredrawer", "modules/chest_drawer.png", DrawerChestCore::new, "modchest.coreDrawer");
-	@Nonnull public static final ItemEntityType coreDrawer1 = chestCore(paramsDrawer, Color.RED,      12, 1);
-	@Nonnull public static final ItemEntityType coreDrawer2 = chestCore(paramsDrawer, Color.YELLOW,   32, 2);
-	@Nonnull public static final ItemEntityType coreDrawer3 = chestCore(paramsDrawer, Color.GREEN,    64, 3);
-	@Nonnull public static final ItemEntityType coreDrawer4 = chestCore(paramsDrawer, Color.CYAN,    128, 4);
-	@Nonnull public static final ItemEntityType coreDrawer5 = chestCore(paramsDrawer, Color.BLUE,    256, 5);
-	@Nonnull public static final ItemEntityType coreDrawer6 = chestCore(paramsDrawer, Color.MAGENTA, 512, 6);
-	@Nonnull public static final ItemEntityType coreDrawer7 = chestCore(paramsDrawer, Color.WHITE,  2048, 7);
-	@Nonnull public static final ItemEntityType coreDrawer8 = chestCore(paramsDrawer, Color.BLACK,  8192, 8);
-	@Nonnull public static final ItemEntityType coreDrawer9 = chestCore(paramsDrawer, Color.GRAY,  32768, 9);
+	@Nonnull public static final PartEntityType coreDrawer1 = chestCore(paramsDrawer, Color.RED,      12, 1);
+	@Nonnull public static final PartEntityType coreDrawer2 = chestCore(paramsDrawer, Color.YELLOW,   32, 2);
+	@Nonnull public static final PartEntityType coreDrawer3 = chestCore(paramsDrawer, Color.GREEN,    64, 3);
+	@Nonnull public static final PartEntityType coreDrawer4 = chestCore(paramsDrawer, Color.CYAN,    128, 4);
+	@Nonnull public static final PartEntityType coreDrawer5 = chestCore(paramsDrawer, Color.BLUE,    256, 5);
+	@Nonnull public static final PartEntityType coreDrawer6 = chestCore(paramsDrawer, Color.MAGENTA, 512, 6);
+	@Nonnull public static final PartEntityType coreDrawer7 = chestCore(paramsDrawer, Color.WHITE,  2048, 7);
+	@Nonnull public static final PartEntityType coreDrawer8 = chestCore(paramsDrawer, Color.BLACK,  8192, 8);
+	@Nonnull public static final PartEntityType coreDrawer9 = chestCore(paramsDrawer, Color.GRAY,  32768, 9);
 	//Chest cores - set
 	@Nonnull private static final ChestProductionParams paramsSet
 	= new ChestProductionParams("modchest-coreset", "modules/chest_unique.png", ChestCoreSet::new, "modchest.coreSet");
-	@Nonnull public static final ItemEntityType coreSet1 = chestCore(paramsSet, Color.RED,      12, 1);
-	@Nonnull public static final ItemEntityType coreSet2 = chestCore(paramsSet, Color.YELLOW,   32, 2);
-	@Nonnull public static final ItemEntityType coreSet3 = chestCore(paramsSet, Color.GREEN,    64, 3);
-	@Nonnull public static final ItemEntityType coreSet4 = chestCore(paramsSet, Color.CYAN,    128, 4);
-	@Nonnull public static final ItemEntityType coreSet5 = chestCore(paramsSet, Color.BLUE,    256, 5);
-	@Nonnull public static final ItemEntityType coreSet6 = chestCore(paramsSet, Color.MAGENTA, 512, 6);
-	@Nonnull public static final ItemEntityType coreSet7 = chestCore(paramsSet, Color.WHITE,  2048, 7);
-	@Nonnull public static final ItemEntityType coreSet8 = chestCore(paramsSet, Color.BLACK,  8192, 8);
-	@Nonnull public static final ItemEntityType coreSet9 = chestCore(paramsSet, Color.GRAY,  32768, 9);
+	@Nonnull public static final PartEntityType coreSet1 = chestCore(paramsSet, Color.RED,      12, 1);
+	@Nonnull public static final PartEntityType coreSet2 = chestCore(paramsSet, Color.YELLOW,   32, 2);
+	@Nonnull public static final PartEntityType coreSet3 = chestCore(paramsSet, Color.GREEN,    64, 3);
+	@Nonnull public static final PartEntityType coreSet4 = chestCore(paramsSet, Color.CYAN,    128, 4);
+	@Nonnull public static final PartEntityType coreSet5 = chestCore(paramsSet, Color.BLUE,    256, 5);
+	@Nonnull public static final PartEntityType coreSet6 = chestCore(paramsSet, Color.MAGENTA, 512, 6);
+	@Nonnull public static final PartEntityType coreSet7 = chestCore(paramsSet, Color.WHITE,  2048, 7);
+	@Nonnull public static final PartEntityType coreSet8 = chestCore(paramsSet, Color.BLACK,  8192, 8);
+	@Nonnull public static final PartEntityType coreSet9 = chestCore(paramsSet, Color.GRAY,  32768, 9);
 	//Chest core - single item
 	@Nonnull private static final ChestProductionParams paramsSingle
 	= new ChestProductionParams("modchest-coresingle", "modules/chest_single.png", ChestCoreSingle::new, "modchest.coreSingle");
-	@Nonnull public static final ItemEntityType coreSingle = chestCore(paramsSingle, Color.RED, 6, 1);
+	@Nonnull public static final PartEntityType coreSingle = chestCore(paramsSingle, Color.RED, 6, 1);
 	
 	//Chest modules
 	
+	//Helper classes
 	private static class ChestProductionParams{
 		@Nonnull public final String prefix;
 		@Nonnull public final BufferedImage img;
@@ -106,7 +110,6 @@ public class ModularChests {
 			this.id = idPrefix;
 		}
 	}
-	
 	/**
 	 * Creates chest cores
 	 * @author oskar
@@ -118,15 +121,17 @@ public class ModularChests {
 		 * @param capacity capacity
 		 * @return a new chest core
 		 */
-		public ItemEntity apply(ItemEntityType iet, double capacity);
+		public PartEntity apply(PartEntityType iet, double capacity);
 	}
-	@Nonnull private static ItemEntityType chestCore(ChestProductionParams params, Color c, double capacity, int n) {
+	
+	//Helper methods
+	@Nonnull private static PartEntityType chestCore(ChestProductionParams params, Color c, double capacity, int n) {
 		//Color mapping
 		BufferedImage outTexture = TexGen.colormap(Color.RED, c, params.img, null);
 		String prefix = params.prefix;
 		if(n > 0) prefix += " #"+n;
 		
-		ItemEntityType iet = new ItemEntityType();
+		PartEntityType iet = new PartEntityType();
 		return iet.title(prefix)
 		.texture(outTexture)
 		.factory(() -> params.ctor.apply(iet, capacity))
@@ -134,9 +139,9 @@ public class ModularChests {
 	}
 	
 	static {
-		ItemEntityType[] coresSimple = {coreSimple1, coreSimple2, coreSimple3, coreSimple4, coreSimple5, coreSimple6, coreSimple7, coreSimple8, coreSimple9};
-		ItemEntityType[] coresDrawer = {coreDrawer1, coreDrawer2, coreDrawer3, coreDrawer4, coreDrawer5, coreDrawer6, coreDrawer7, coreDrawer8, coreDrawer9};
-		ItemEntityType[] coresSet =    {coreSet1,    coreSet2,    coreSet3,    coreSet4,    coreSet5,    coreSet6,    coreSet7,    coreSet8,    coreSet9};
+		PartEntityType[] coresSimple = {coreSimple1, coreSimple2, coreSimple3, coreSimple4, coreSimple5, coreSimple6, coreSimple7, coreSimple8, coreSimple9};
+		PartEntityType[] coresDrawer = {coreDrawer1, coreDrawer2, coreDrawer3, coreDrawer4, coreDrawer5, coreDrawer6, coreDrawer7, coreDrawer8, coreDrawer9};
+		PartEntityType[] coresSet =    {coreSet1,    coreSet2,    coreSet3,    coreSet4,    coreSet5,    coreSet6,    coreSet7,    coreSet8,    coreSet9};
 		String[] chesttags = {"modular", "modchest"};
 		Items.tagsItems(chesttags, coresDrawer);
 		Items.tagsItems(chesttags, coresSimple);

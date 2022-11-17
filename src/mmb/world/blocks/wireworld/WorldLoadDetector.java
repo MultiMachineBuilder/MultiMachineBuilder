@@ -4,8 +4,8 @@
 package mmb.world.blocks.wireworld;
 
 import mmb.debug.Debugger;
-import mmb.world.block.BlockEntityDataless;
 import mmb.world.block.BlockType;
+import mmb.world.blocks.BlockEntityDataless;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.rotate.Side;
 import mmb.world.worlds.MapProxy;

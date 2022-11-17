@@ -17,7 +17,7 @@ import com.pploder.events.Event;
 import mmb.CatchingEvent;
 import mmb.data.variables.Variable;
 import mmb.debug.Debugger;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import monniasza.collects.grid.Grid;
 
 /**
@@ -134,7 +134,7 @@ public class CraftingGrid extends JPanel{
 			return "ItemGridStateChangedEvent [x=" + x + ", y=" + y + ", newEntry=" + newEntry + "]";
 		}
 	}
-	@Nonnull public final Grid<@Nullable ItemEntry> items = new Grid<@Nullable ItemEntry>() {
+	@Nonnull public final Grid<mmb.world.item.ItemEntry> items = new Grid<mmb.world.item.ItemEntry>() {
 
 		@Override
 		public void set(int x, int y, @Nullable ItemEntry data) {

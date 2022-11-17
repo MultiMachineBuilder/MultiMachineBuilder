@@ -21,7 +21,7 @@ import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.inventory.storage.SimpleInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * The implementation of the Storage component of the STN
@@ -154,8 +154,8 @@ public class STNNetworkInventory implements Inventory{
 	@Nonnull private final Set<@Nonnull Inventory> nodes0 = new DirtySet();
 	/** Inventories connected to the network */
 	@Nonnull public final Set<@Nonnull Inventory> nodes = Collections.unmodifiableSet(nodes0);
-	@Nonnull private final Object2LongOpenHashMap<@Nonnull ItemEntry> storageIndex = new Object2LongOpenHashMap<>();
-	@Nonnull private final SetMultimap<@Nonnull ItemEntry, @Nonnull Inventory> itemInvIndex = HashMultimap.create();
+	@Nonnull private final Object2LongOpenHashMap<mmb.world.item.ItemEntry> storageIndex = new Object2LongOpenHashMap<>();
+	@Nonnull private final SetMultimap<mmb.world.item.ItemEntry, @Nonnull Inventory> itemInvIndex = HashMultimap.create();
 	private double volume;
 	private double capacity;
 	private boolean dirty;

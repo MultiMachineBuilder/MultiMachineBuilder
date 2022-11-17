@@ -21,7 +21,7 @@ import mmb.world.blocks.machine.SkeletalBlockLinear;
 import mmb.world.crafting.Recipe;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.ItemRecord;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.items.data.Stencil;
 import mmb.world.recipes.CraftingRecipeGroup.CraftingRecipe;
 import mmb.world.rotate.RotatedImageGroup;

@@ -18,11 +18,10 @@ import mmb.cgui.BlockActivateListener;
 import mmb.data.contents.Textures;
 import mmb.debug.Debugger;
 import mmb.menu.world.Placer;
-import mmb.menu.world.window.WorldFrame;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.BlockEntry;
 import mmb.world.inventory.ItemRecord;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.worlds.world.World;
 
 /**
@@ -30,6 +29,67 @@ import mmb.world.worlds.world.World;
  * This class defines a standard tool, applicable to most items.
  */
 public class ToolStandard extends WindowTool{
+	private static final Debugger debug = new Debugger("TOOL-STANDARD");
+	public ToolStandard() {
+		super("standard");
+	}
+	public static final Icon ICON_NORMAL = new ImageIcon(Textures.get("tool/normal.png"));
+	@Override
+	public Icon getIcon() {
+		return ICON_NORMAL;
+	}
+	private final String title = $res("toolstd");
+	@Override
+	public String title() {
+		return title;
+	}
+	@Override
+	public void preview(int x, int y, double scale, Graphics g) {
+		ItemRecord irecord = frame.getPlacer().getSelectedValue();
+		if(irecord == null) return;
+		ItemEntry placer0 = irecord.item();
+		if(placer0 instanceof Placer) ((Placer) placer0).preview(g, new Point(x, y), frame.getMap(), frame.getMouseoverBlock(), (int)Math.ceil(scale));
+	}
+	
+	//Description
+	private static final String descr1 = $res("toolstd-1");
+	private static final String descr2 = $res("toolstd-2");
+	private static final String descr3 = $res("toolstd-3");
+	private static final String descr4 = $res("toolstd-4");
+	private static final String descr = descr1+'\n'+descr2+'\n'+descr3+'\n'+descr4;
+	@Override
+	public String description() { return descr; }
+	
+	//Keyboard
+	@Override
+	public void keyPressed(KeyEvent e) {
+		World map = frame.getMap();
+		if(!map.inBounds(bx, by)) return;
+		BlockEntry ent = map.get(bx, by);
+		switch(e.getKeyCode()) {
+		case KeyEvent.VK_I:
+			ent.flipH();
+			debug.printl("Flipped");
+			break;
+		case KeyEvent.VK_J:
+			ent.flipNW();
+			debug.printl("Flipped");
+			break;
+		case KeyEvent.VK_K:
+			ent.flipV();
+			debug.printl("Flipped");
+			break;
+		case KeyEvent.VK_L:
+			ent.flipNE();
+			debug.printl("Flipped");
+			break;
+		default:
+			break;
+		}
+	}
+	
+	//Mouse
+	private int bx, by;
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if(frame.ctrlPressed()) {
@@ -69,11 +129,6 @@ public class ToolStandard extends WindowTool{
 			break;
 		}
 	}
-	/**
-	 * @param x
-	 * @param y
-	 * @param map
-	 */
 	public static void placeBlock(int x, int y, World map, WorldWindow window) {
 		//Place the block
 		ItemRecord irecord = window.getPlacer().getSelectedValue();
@@ -136,69 +191,6 @@ public class ToolStandard extends WindowTool{
 			block.type().leaveBehind().place(x, y, map);
 		}
 	}
-	private WorldFrame frame;
-	@Override
-	public void setWindow(WorldWindow window) {
-		this.window = window;
-		frame = window.getWorldFrame();
-	}
-	private static final Debugger debug = new Debugger("TOOL-STANDARD");
-	public ToolStandard() {
-		super("standard");
-	}
-	public static final Icon ICON_NORMAL = new ImageIcon(Textures.get("tool/normal.png"));
-	@Override
-	public Icon getIcon() {
-		return ICON_NORMAL;
-	}
-	private final String title = $res("toolstd");
-	@Override
-	public String title() {
-		return title;
-	}
-	@Override
-	public void preview(int x, int y, double scale, Graphics g) {
-		ItemRecord irecord = frame.getPlacer().getSelectedValue();
-		if(irecord == null) return;
-		ItemEntry placer0 = irecord.item();
-		if(placer0 instanceof Placer) ((Placer) placer0).preview(g, new Point(x, y), frame.getMap(), frame.getMouseoverBlock(), (int)Math.ceil(scale));
-	}
-	private static final String descr1 = $res("toolstd-1");
-	private static final String descr2 = $res("toolstd-2");
-	private static final String descr3 = $res("toolstd-3");
-	private static final String descr4 = $res("toolstd-4");
-	private static final String descr = descr1+'\n'+descr2+'\n'+descr3+'\n'+descr4;
-	@Override
-	public String description() {
-		return descr;
-	}
-	@Override
-	public void keyPressed(KeyEvent e) {
-		World map = frame.getMap();
-		if(!map.inBounds(bx, by)) return;
-		BlockEntry ent = map.get(bx, by);
-		switch(e.getKeyCode()) {
-		case KeyEvent.VK_I:
-			ent.flipH();
-			debug.printl("Flipped");
-			break;
-		case KeyEvent.VK_J:
-			ent.flipNW();
-			debug.printl("Flipped");
-			break;
-		case KeyEvent.VK_K:
-			ent.flipV();
-			debug.printl("Flipped");
-			break;
-		case KeyEvent.VK_L:
-			ent.flipNE();
-			debug.printl("Flipped");
-			break;
-		default:
-			break;
-		}
-	}
-	private int bx, by;
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		bx = frame.getMouseoverBlockX();

@@ -8,14 +8,14 @@ import java.util.function.Predicate;
 import javax.annotation.Nonnull;
 
 import mmb.world.item.ItemEntity;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * Abstraction over item filters
  * @author oskar
  *
  */
-public abstract class ItemFilter extends ItemEntity implements Predicate<@Nonnull ItemEntry> {
+public abstract class ItemFilter extends ItemEntity implements Predicate<mmb.world.item.ItemEntry> {
 	
 	/**
 	 * Tests the item type

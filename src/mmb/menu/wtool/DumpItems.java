@@ -16,8 +16,8 @@ import javax.swing.ImageIcon;
 
 import mmb.data.contents.Textures;
 import mmb.world.inventory.ItemRecord;
+import mmb.world.item.ItemEntry;
 import mmb.world.items.ContentsItems;
-import mmb.world.items.ItemEntry;
 
 /**
  * @author oskar

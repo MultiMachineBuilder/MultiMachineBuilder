@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import mmb.world.crafting.SingleItem;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import monniasza.collects.Identifiable;
 
 /**

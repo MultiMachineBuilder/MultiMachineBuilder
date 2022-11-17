@@ -5,7 +5,7 @@ package mmb.world.inventory.io;
 
 import mmb.beans.Positioned;
 import mmb.world.crafting.RecipeOutput;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.worlds.world.World;
 
 /**

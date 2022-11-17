@@ -19,7 +19,8 @@ import mmb.world.crafting.SimpleItemList;
 import mmb.world.electric.VoltageTier;
 import mmb.world.inventory.ItemStack;
 import mmb.world.item.Item;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
+import mmb.world.item.Items;
 import mmb.world.recipes.CraftingGroups;
 
 /**
@@ -211,18 +212,18 @@ public class Materials {
 
 	static {
 		//Deprecation
-		Blocks.deprecate("mmb.iore", Materials.iron.ore);
-		Blocks.deprecate("mmb.cpore", Materials.copper.ore);
-		Blocks.deprecate("mmb.silicon_ore", Materials.silicon.ore);
-		Blocks.deprecate("mmb.silverore", Materials.silver.ore);
-		Blocks.deprecate("mmb.goldore", Materials.gold.ore);
-		Blocks.deprecate("mmb.uraniumore", Materials.uranium.ore);
-		Blocks.deprecate("elec.tinywire", wireRudimentary.tiny);
-		Blocks.deprecate("elec.smallwire", wireRudimentary.small);
-		Blocks.deprecate("elec.mediumwire", wireRudimentary.medium);
-		Blocks.deprecate("elec.largewire", wireRudimentary.large);
-		Blocks.deprecate("elec.infinite", ContentsBlocks.infinigens.blocks.get(0));
-		Blocks.deprecate("elec.infinite1", ContentsBlocks.infinigens.blocks.get(0));
+		Items.deprecate("mmb.iore", Materials.iron.ore);
+		Items.deprecate("mmb.cpore", Materials.copper.ore);
+		Items.deprecate("mmb.silicon_ore", Materials.silicon.ore);
+		Items.deprecate("mmb.silverore", Materials.silver.ore);
+		Items.deprecate("mmb.goldore", Materials.gold.ore);
+		Items.deprecate("mmb.uraniumore", Materials.uranium.ore);
+		Items.deprecate("elec.tinywire", wireRudimentary.tiny);
+		Items.deprecate("elec.smallwire", wireRudimentary.small);
+		Items.deprecate("elec.mediumwire", wireRudimentary.medium);
+		Items.deprecate("elec.largewire", wireRudimentary.large);
+		Items.deprecate("elec.infinite", ContentsBlocks.infinigens.blocks.get(0));
+		Items.deprecate("elec.infinite1", ContentsBlocks.infinigens.blocks.get(0));
 		
 		//Alloying recipes
 		alloying(copper, 4, zinc, 1, brass, 5, VoltageTier.V2, 80_000);
@@ -312,7 +313,7 @@ public class Materials {
 		malloyingHelper(in -> in.cluster, mats, out, ratioO, volt, energy*4);
 		malloyingHelper(in -> in.block, mats, out, ratioO, volt, energy*16);
 	}
-	private static void malloyingHelper(Function<@Nonnull MetalGroup, @Nonnull ItemEntry> selector, MaterialStack[] mat, MetalGroup out, int ratioO, VoltageTier volt, double energy) {
+	private static void malloyingHelper(Function<@Nonnull MetalGroup, mmb.world.item.ItemEntry> selector, MaterialStack[] mat, MetalGroup out, int ratioO, VoltageTier volt, double energy) {
 		Object2IntMap<ItemEntry> builder = new Object2IntOpenHashMap<>(mat.length);
 		for(int i = 0; i < mat.length; i++) {
 			builder.put(selector.apply(mat[i].material), mat[i].amount);

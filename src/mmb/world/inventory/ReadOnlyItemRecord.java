@@ -3,7 +3,7 @@
  */
 package mmb.world.inventory;
 
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar

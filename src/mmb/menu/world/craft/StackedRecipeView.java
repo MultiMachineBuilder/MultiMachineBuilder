@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import mmb.UnitFormatter;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.ItemStack;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.recipes.StackedRecipeGroup.StackedRecipe;
 
 import javax.swing.JList;

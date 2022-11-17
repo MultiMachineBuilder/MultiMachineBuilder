@@ -128,7 +128,7 @@ Titled{
 	protected WorldFrame frame;
 	public void setWindow(WorldWindow window) {
 		this.window = window;
-		if(window != null) frame = window.getWorldFrame();
+		frame = window.getWorldFrame();
 	}
 	/**
 	 * @return the description of the window tool;

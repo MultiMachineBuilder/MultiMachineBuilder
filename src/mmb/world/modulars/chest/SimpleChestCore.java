@@ -10,33 +10,35 @@ import mmb.menu.world.inv.InventoryController;
 import mmb.world.crafting.SingleItem;
 import mmb.world.inventory.storage.SimpleInventory;
 import mmb.world.item.ItemEntityType;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
+import mmb.world.part.PartEntityType;
+import mmb.world.part.PartEntry;
 
 /**
  * @author oskar
  *
  */
 public class SimpleChestCore extends ChestCore<SimpleInventory> {
-	@Nonnull private final ItemEntityType type;
+	@Nonnull private final PartEntityType type;
 	/**
 	 * Creates a simple chest core (many different items)
 	 * @param type item entity type
 	 * @param size volume in cubic meters
 	 */
-	public SimpleChestCore(ItemEntityType type, double size) {
+	public SimpleChestCore(PartEntityType type, double size) {
 		super(new SimpleInventory().setCapacity(size));
 		this.type = type;
 	}
 
 	@Override
-	public ItemEntry itemClone() {
+	public PartEntry partClone() {
 		SimpleChestCore copy = new SimpleChestCore(type, 0);
 		copy.inventory.set(inventory);
 		return copy;
 	}
 
 	@Override
-	public ItemEntityType type() {
+	public PartEntityType type() {
 		return type;
 	}
 

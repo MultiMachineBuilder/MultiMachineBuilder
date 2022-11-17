@@ -18,7 +18,7 @@ import mmb.world.electric.Electricity;
 import mmb.world.inventory.io.InventoryReader;
 import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.inventory.storage.SingleItemInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.recipes.ComplexCatalyzedRecipeGroup;
 import mmb.world.rotate.RotatedImageGroup;
 import mmb.world.rotate.Side;

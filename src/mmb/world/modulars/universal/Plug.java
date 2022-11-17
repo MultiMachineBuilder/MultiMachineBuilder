@@ -12,13 +12,14 @@ import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.item.RotableItem;
 import mmb.world.modulars.ModularBlock;
 import mmb.world.modulars.chest.BlockModuleUniversal;
+import mmb.world.part.RotablePart;
 import mmb.world.rotate.Side;
 
 /**
  * @author oskar
  *
  */
-public class Plug extends RotableItem implements BlockModuleUniversal {
+public class Plug extends RotablePart implements BlockModuleUniversal {
 	@Override
 	public Chance dropItems() {
 		return Chance.NONE;

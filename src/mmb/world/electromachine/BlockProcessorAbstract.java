@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 
 import mmb.menu.world.machine.GUIMachine;
 import mmb.world.block.BlockEntry;
-import mmb.world.block.SkeletalBlockEntityRotary;
+import mmb.world.blocks.SkeletalBlockEntityRotary;
 import mmb.world.contentgen.ElectricMachineGroup.ElectroMachineType;
 import mmb.world.electric.Battery;
 import mmb.world.electric.Electricity;

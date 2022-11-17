@@ -9,9 +9,9 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.world.block.BlockEntityData;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
+import mmb.world.blocks.BlockEntityData;
 import mmb.world.chance.Chance;
 import mmb.world.worlds.MapProxy;
 

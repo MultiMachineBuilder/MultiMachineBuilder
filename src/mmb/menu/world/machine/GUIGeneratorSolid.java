@@ -75,12 +75,12 @@ public class GUIGeneratorSolid extends GUITab {
 	public void refresh() {
 		double voltf = gen.fuel.voltage.volts;
 		double maxf =      voltf * gen.fuel.capacity;
-		double progressf = voltf * gen.fuel.amt;
+		double progressf = voltf * gen.fuel.stored;
 		Electricity.formatProgress(progressFuel, progressf, maxf);
 		
 		double volte = gen.buffer.voltage.volts;
 		double maxe =      volte * gen.buffer.capacity;
-		double progresse = volte * gen.buffer.amt;
+		double progresse = volte * gen.buffer.stored;
 		Electricity.formatProgress(progressEnergy, progresse, maxe);
 	}
 }

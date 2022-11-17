@@ -16,8 +16,8 @@ import mmb.world.electric.Electricity;
 import mmb.world.electric.VoltageTier;
 import mmb.world.item.ItemEntity;
 import mmb.world.item.ItemEntityType;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.ItemType;
-import mmb.world.items.ItemEntry;
 import mmb.world.items.pickaxe.Pickaxe;
 
 /**
@@ -66,7 +66,7 @@ public class ItemBattery extends ItemEntity implements Electric {
 	@Override
 	public void render(Graphics g, int x, int y, int w, int h) {
 		super.render(g, x, y, w, h);
-		Pickaxe.renderDurability(battery.amt/battery.capacity, g, x, y, w, h);
+		Pickaxe.renderDurability(battery.stored/battery.capacity, g, x, y, w, h);
 	}
 
 	

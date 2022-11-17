@@ -10,6 +10,7 @@ import mmb.menu.world.Placer;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.chance.Chance;
 import mmb.world.item.ItemType;
+import mmb.world.item.Items;
 
 /**
  * @author oskar
@@ -29,7 +30,7 @@ public interface BlockType extends Placer, ItemType {
 	@SuppressWarnings({ "unused", "null" })
 	public default void register() {
 		if(leaveBehind() == null) setLeaveBehind(ContentsBlocks.grass); //NOSONAR
-		Blocks.register(this);
+		Items.register(this);
 	}
 	public default void register(String id) {
 		setID(id);

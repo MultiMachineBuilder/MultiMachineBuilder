@@ -5,6 +5,7 @@ package mmb.world.items;
 
 import mmb.world.inventory.storage.SingleItemInventory;
 import mmb.world.item.Item;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar

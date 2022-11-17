@@ -24,7 +24,7 @@ import mmb.world.blocks.ContentsBlocks;
 import mmb.world.crafting.ItemLists;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.basic.SetInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.items.data.Stencil;
 import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.world.recipes.CraftingRecipeGroup.CraftingRecipe;
@@ -411,7 +411,7 @@ public class STNNetworkProcessing implements Saver{
 		return queue.getOrDefault(entry, 0) < 0 || inv.getOrDefault(entry, 0) > 0 || isEverProducible(entry);
 	}
 	
-	public boolean isAllObtainable(Set<@Nonnull ItemEntry> entries, Object2IntMap<ItemEntry> inv, Object2IntMap<ItemEntry> queue) {
+	public boolean isAllObtainable(Set<mmb.world.item.ItemEntry> entries, Object2IntMap<ItemEntry> inv, Object2IntMap<ItemEntry> queue) {
 		return CollectionOps.isAll(entries, item -> isEverObtainable(item, inv, queue));
 	}
 }

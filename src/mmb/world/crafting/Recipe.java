@@ -12,7 +12,7 @@ import mmb.menu.world.craft.RecipeView;
 import mmb.world.chance.Chance;
 import mmb.world.electric.VoltageTier;
 import mmb.world.inventory.Inventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar

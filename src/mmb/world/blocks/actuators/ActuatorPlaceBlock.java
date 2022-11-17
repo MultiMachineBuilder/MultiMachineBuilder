@@ -19,6 +19,7 @@ import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
 import mmb.world.block.Blocks;
 import mmb.world.blocks.ContentsBlocks;
+import mmb.world.item.Items;
 import mmb.world.rotate.RotatedImageGroup;
 import mmb.world.worlds.MapProxy;
 import mmb.world.worlds.world.World;
@@ -38,7 +39,7 @@ public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockAct
 	}
 	@Override
 	protected void load1(ObjectNode node) {
-		block = Blocks.get(node.get("place").asText(null));
+		block = Items.getExpectType(node.get("place").asText(null), BlockType.class);
 	}
 
 	@Override

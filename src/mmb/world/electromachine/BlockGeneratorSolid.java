@@ -19,7 +19,7 @@ import mmb.menu.world.machine.GUIGeneratorSolid;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
-import mmb.world.block.SkeletalBlockEntityRotary;
+import mmb.world.blocks.SkeletalBlockEntityRotary;
 import mmb.world.electric.Battery;
 import mmb.world.electric.Electricity;
 import mmb.world.electric.VoltageTier;

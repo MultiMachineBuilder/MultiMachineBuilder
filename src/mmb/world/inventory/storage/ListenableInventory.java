@@ -7,7 +7,7 @@ import com.pploder.events.Event;
 
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemStack;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import rx.Observable;
 
 /**

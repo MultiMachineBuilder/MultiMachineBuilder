@@ -10,9 +10,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.world.crafting.ProcessIngredients;
 import mmb.world.item.ItemEntity;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.ItemType;
 import mmb.world.items.ContentsItems;
-import mmb.world.items.ItemEntry;
 
 /**
  * @author oskar

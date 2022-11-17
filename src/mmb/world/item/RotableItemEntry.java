@@ -3,7 +3,6 @@
  */
 package mmb.world.item;
 
-import mmb.world.items.ItemEntry;
 import mmb.world.rotate.RotatedImageGroup;
 
 /**

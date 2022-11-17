@@ -23,7 +23,7 @@ import mmb.world.electric.VoltageTier;
 import mmb.world.electromachine.CycleResult;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.storage.SimpleInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.recipes.ComplexCatalyzedRecipeGroup;
 import mmb.world.recipes.ComplexRecipeGroup;
 import mmb.world.recipes.ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe;
@@ -51,10 +51,10 @@ public class ComplexCatalyzedItemProcessHelper {
 	/** The item produced by a recipe*/
 	public RecipeOutput rout;
 	
-	public final Supplier<@Nullable ItemEntry> selector;
+	public final Supplier<mmb.world.item.ItemEntry> selector;
 	
 	public ComplexCatalyzedItemProcessHelper(ComplexCatalyzedRecipeGroup recipes, Inventory input, Inventory output,
-			double speed, Battery elec, VoltageTier volt, Supplier<@Nullable ItemEntry> selector) {
+			double speed, Battery elec, VoltageTier volt, Supplier<mmb.world.item.ItemEntry> selector) {
 		super();
 		this.recipes = recipes;
 		this.input = input;

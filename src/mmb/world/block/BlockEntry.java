@@ -32,12 +32,12 @@ import mmb.world.worlds.world.World;
  * provideSignal - 
  */
 public interface BlockEntry extends Saver, Rotable, Chiral {
+	//Block entity checks
 	public boolean isBlockEntity();
 	@Nonnull public BlockEntity asBlockEntity();
 	public BlockEntity nasBlockEntity();
-	/**
-	 * @return the block type
-	 */
+	
+	/** @return the block type */
 	@Nonnull public BlockType type();
 	/**
 	 * @param type block type to check
@@ -78,6 +78,7 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 	}
 	
 	/**
+	 * Renders a block
 	 * @param x left X coordinate
 	 * @param y upper Y coordinate
 	 * @param g graphics context

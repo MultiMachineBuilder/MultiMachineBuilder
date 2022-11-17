@@ -19,8 +19,8 @@ import mmb.world.crafting.SimpleItemList;
 import mmb.world.electric.VoltageTier;
 import mmb.world.electromachine.BlockTransformer.TransformerData;
 import mmb.world.item.Item;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.ItemRaw;
-import mmb.world.items.ItemEntry;
 import mmb.world.items.electronics.Electronics;
 import monniasza.collects.grid.FixedGrid;
 

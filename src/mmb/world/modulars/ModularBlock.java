@@ -26,8 +26,10 @@ import mmb.world.inventory.ItemRecord;
 import mmb.world.inventory.NoSuchInventory;
 import mmb.world.inventory.io.InventoryReader;
 import mmb.world.inventory.io.InventoryWriter;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.modulars.chest.BlockModuleUniversal;
+import mmb.world.part.PartEntry;
+import mmb.world.part.PartType;
 import mmb.world.rotate.ChiralRotation;
 import mmb.world.rotate.Rotation;
 import mmb.world.rotate.Side;
@@ -144,8 +146,12 @@ public interface ModularBlock<
 			if(!selected.canExtract()) return;
 			if(selected.amount() == 0) return;
 			ItemEntry selectedItem = selected.item();
-			boolean replace = slot.setto(selectedItem);
-			if(replace) selected.extract(1);
+			if(selectedItem instanceof PartType) {
+				PartType pt = (PartType) selectedItem;
+				PartEntry part = pt.createPart();
+				boolean replace = slot.setto(part);
+				if(replace) selected.extract(1);
+			}
 		}
 	}
 	
@@ -367,16 +373,16 @@ public interface ModularBlock<
 	public default void saveModularHelper(ObjectNode node) {
 		//Save modules
 		if(isModular()) {
-			node.set("moduleU", ItemEntry.saveItem(moduleInternal(Side.U)));
-			node.set("moduleD", ItemEntry.saveItem(moduleInternal(Side.D)));
-			node.set("moduleL", ItemEntry.saveItem(moduleInternal(Side.L)));
-			node.set("moduleR", ItemEntry.saveItem(moduleInternal(Side.R)));
+			node.set("moduleU", PartEntry.savePart(moduleInternal(Side.U)));
+			node.set("moduleD", PartEntry.savePart(moduleInternal(Side.D)));
+			node.set("moduleL", PartEntry.savePart(moduleInternal(Side.L)));
+			node.set("moduleR", PartEntry.savePart(moduleInternal(Side.R)));
 		}
 		
 		//Save core
 		Slot<Tcore> coreSlot = slotC();
 		if(coreSlot != null) {
-			node.set("core", ItemEntry.saveItem(coreSlot.get()));
+			node.set("core", PartEntry.savePart(coreSlot.get()));
 		}
 		
 		//Save settings
@@ -391,7 +397,7 @@ public interface ModularBlock<
 		
 		//Load core
 		Slot<Tcore> slotC = slotC();
-		if(slotC != null) slotC.setto(ItemEntry.loadFromJsonExpectType(node.get("core"), slotC.type));
+		if(slotC != null) slotC.setto(PartEntry.loadFromJsonExpectType(node.get("core"), slotC.type));
 		
 		//Load modules
 		loadModuleHelper(node.get("moduleU"), Side.U);
@@ -474,7 +480,7 @@ public interface ModularBlock<
 		
 		//Render core
 		Tcore core = core();
-		if(core != null) core.render(g, x, y, side, side);
+		if(core != null) core.render(x, y, g, side);
 	}
 	/**
 	 * Renders a module

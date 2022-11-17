@@ -19,7 +19,7 @@ import mmb.world.crafting.RecipeGroup;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.electric.VoltageTier;
 import mmb.world.inventory.Inventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
@@ -51,13 +51,13 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 	 * @author oskar
 	 * A recipe with a complex input and a catalyst
 	 */
-	public class ComplexCatalyzedRecipe extends BaseElectricRecipe<ComplexCatalyzedRecipe> implements Identifiable<Tuple2<Set<ItemEntry>, @Nullable ItemEntry>>{
+	public class ComplexCatalyzedRecipe extends BaseElectricRecipe<ComplexCatalyzedRecipe> implements Identifiable<Tuple2<Set<ItemEntry>, mmb.world.item.ItemEntry>>{
 		/** The input item list */
 		@Nonnull public final RecipeOutput input;
 		/** Required catalyst */
 		@Nullable public final ItemEntry catalyst;
 		/** Item tuple */
-		@Nonnull private final Tuple2<Set<ItemEntry>, @Nullable ItemEntry> id;
+		@Nonnull private final Tuple2<Set<ItemEntry>, mmb.world.item.ItemEntry> id;
 		
 		/**
 		 * Creates a complex catalyzed recipe
@@ -85,7 +85,7 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 		}
 		
 		@Override
-		public Tuple2<Set<ItemEntry>, @Nullable ItemEntry> id() {
+		public Tuple2<Set<ItemEntry>, mmb.world.item.ItemEntry> id() {
 			return id;
 		}
 		@Override
@@ -107,8 +107,8 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 	}
 	
 	//Recipe listing
-	@Nonnull private final SelfSet<Tuple2<Set<ItemEntry>, @Nullable ItemEntry>, ComplexCatalyzedRecipe> _recipes = HashSelfSet.createNonnull(ComplexCatalyzedRecipe.class);
-	public final SelfSet<Tuple2<Set<ItemEntry>, @Nullable ItemEntry>, ComplexCatalyzedRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
+	@Nonnull private final SelfSet<Tuple2<Set<ItemEntry>, mmb.world.item.ItemEntry>, ComplexCatalyzedRecipe> _recipes = HashSelfSet.createNonnull(ComplexCatalyzedRecipe.class);
+	public final SelfSet<Tuple2<Set<ItemEntry>, mmb.world.item.ItemEntry>, ComplexCatalyzedRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
 	@Override
 	public Set<? extends ItemEntry> supportedItems() {
 		return supported0;
@@ -116,7 +116,7 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 	private final Set<ItemEntry> supported = new HashSet<>();
 	private final Set<ItemEntry> supported0 = Collections.unmodifiableSet(supported);
 	@Override
-	public SelfSet<Tuple2<Set<ItemEntry>, @Nullable ItemEntry>, ComplexCatalyzedRecipe> recipes() {
+	public SelfSet<Tuple2<Set<ItemEntry>, mmb.world.item.ItemEntry>, ComplexCatalyzedRecipe> recipes() {
 		return recipes;
 	}
 	

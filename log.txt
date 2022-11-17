@@ -1365,7 +1365,7 @@
 (MOD-LOADER) Loading a sound COPYRIGHT.txt
 (MOD-LOADER) Failed to load a sound COPYRIGHT.txt
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
-	at mmb.data.contents.Sounds.load(Sounds.java:89)
+	at mmb.data.contents.Sounds.load(Sounds.java:88)
 	at mmb.mods.loader.ModLoader.lambda$2(ModLoader.java:118)
 	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:348)
 	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:354)
@@ -1387,13 +1387,13 @@
 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
 Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at java.desktop/javax.sound.sampled.AudioSystem.getAudioInputStream(AudioSystem.java:1014)
-	at mmb.data.contents.Sounds.load(Sounds.java:62)
+	at mmb.data.contents.Sounds.load(Sounds.java:61)
 	... 19 more
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\error.mp3
 (MOD-LOADER) Loading a sound error.mp3
 (MOD-LOADER) Failed to load a sound error.mp3
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
-	at mmb.data.contents.Sounds.load(Sounds.java:89)
+	at mmb.data.contents.Sounds.load(Sounds.java:88)
 	at mmb.mods.loader.ModLoader.lambda$2(ModLoader.java:118)
 	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:348)
 	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:354)
@@ -1415,7 +1415,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
 Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at java.desktop/javax.sound.sampled.AudioSystem.getAudioInputStream(AudioSystem.java:1014)
-	at mmb.data.contents.Sounds.load(Sounds.java:62)
+	at mmb.data.contents.Sounds.load(Sounds.java:61)
 	... 19 more
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\minecxraft.wav
 (MOD-LOADER) Loading a sound minecxraft.wav
@@ -1428,191 +1428,97 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (MOD-LOADER) Sounds: [minecxraft.wav, 220203__gameaudio__casual-death-loose.wav, 377157__pfranzen__smashing-head-on-wall.ogg, warn .wav]
 (MAIN) State: Loading blocks
 (BLOCKS) Creating blocks
-(BLOCKS) Adding mmb.air with title Powietrze and description:
- (brak opisu)
 (ITEMS) Adding mmb.air with title Powietrze and description:
  (brak opisu)
-(BLOCKS) Adding mmb.grass with title Trawa and description:
- A default block in the world
 (ITEMS) Adding mmb.grass with title Trawa and description:
  A default block in the world
-(BLOCKS) Adding mmb.void with title Próżnia and description:
- (brak opisu)
 (ITEMS) Adding mmb.void with title Próżnia and description:
- (brak opisu)
-(BLOCKS) Adding mmb.planks with title Deski and description:
  (brak opisu)
 (ITEMS) Adding mmb.planks with title Deski and description:
  (brak opisu)
-(BLOCKS) Adding mmb.stone with title Skała and description:
- (brak opisu)
 (ITEMS) Adding mmb.stone with title Skała and description:
- (brak opisu)
-(BLOCKS) Adding mmb.leaves with title Liście and description:
  (brak opisu)
 (ITEMS) Adding mmb.leaves with title Liście and description:
  (brak opisu)
-(BLOCKS) Adding mmb.craft with title Stół montażowy and description:
- (brak opisu)
 (ITEMS) Adding mmb.craft with title Stół montażowy and description:
- (brak opisu)
-(BLOCKS) Adding mmb.tree with title Kłoda and description:
  (brak opisu)
 (ITEMS) Adding mmb.tree with title Kłoda and description:
  (brak opisu)
-(BLOCKS) Adding mmb.sand with title Piasek and description:
- (brak opisu)
 (ITEMS) Adding mmb.sand with title Piasek and description:
- (brak opisu)
-(BLOCKS) Adding mmb.gravel with title Żwir and description:
  (brak opisu)
 (ITEMS) Adding mmb.gravel with title Żwir and description:
  (brak opisu)
-(BLOCKS) Adding wireworld.wire with title Kabel WireWorld and description:
- (brak opisu)
 (ITEMS) Adding wireworld.wire with title Kabel WireWorld and description:
- (brak opisu)
-(BLOCKS) Adding wireworld.head with title Sygnał WireWorld and description:
  (brak opisu)
 (ITEMS) Adding wireworld.head with title Sygnał WireWorld and description:
  (brak opisu)
-(BLOCKS) Adding wireworld.tail with title Ogon WireWorld and description:
- (brak opisu)
 (ITEMS) Adding wireworld.tail with title Ogon WireWorld and description:
- (brak opisu)
-(BLOCKS) Adding wireworld.urandom with title Losownica jednorodna and description:
  (brak opisu)
 (ITEMS) Adding wireworld.urandom with title Losownica jednorodna and description:
  (brak opisu)
-(BLOCKS) Adding wireworld.true with title Prawda and description:
- (brak opisu)
 (ITEMS) Adding wireworld.true with title Prawda and description:
- (brak opisu)
-(BLOCKS) Adding wireworld.random with title Losownica and description:
  (brak opisu)
 (ITEMS) Adding wireworld.random with title Losownica and description:
  (brak opisu)
-(BLOCKS) Adding wireworld.onload with title Wykrywacz ładowania świata and description:
- (brak opisu)
 (ITEMS) Adding wireworld.onload with title Wykrywacz ładowania świata and description:
  (brak opisu)
-(BLOCKS) Adding wireworld.chatter with title Czater and description:
- A block which prints out its text, when activated by a signal
 (ITEMS) Adding wireworld.chatter with title Czater and description:
  A block which prints out its text, when activated by a signal
-(BLOCKS) Adding wireworld.lamp with title Lampa and description:
- (brak opisu)
 (ITEMS) Adding wireworld.lamp with title Lampa and description:
- (brak opisu)
-(BLOCKS) Adding wireworld.and with title Bramka I and description:
  (brak opisu)
 (ITEMS) Adding wireworld.and with title Bramka I and description:
  (brak opisu)
-(BLOCKS) Adding wireworld.or with title Bramka LUB and description:
- (brak opisu)
 (ITEMS) Adding wireworld.or with title Bramka LUB and description:
- (brak opisu)
-(BLOCKS) Adding wireworld.xor with title Bramka WYKLUB and description:
  (brak opisu)
 (ITEMS) Adding wireworld.xor with title Bramka WYKLUB and description:
  (brak opisu)
-(BLOCKS) Adding wireworld.button with title Przycisk and description:
- (brak opisu)
 (ITEMS) Adding wireworld.button with title Przycisk and description:
- (brak opisu)
-(BLOCKS) Adding wireworld.toggle with title Przerzutnik and description:
  (brak opisu)
 (ITEMS) Adding wireworld.toggle with title Przerzutnik and description:
  (brak opisu)
-(BLOCKS) Adding wireworld.yes with title Bramka TAK and description:
- (brak opisu)
 (ITEMS) Adding wireworld.yes with title Bramka TAK and description:
- (brak opisu)
-(BLOCKS) Adding wireworld.not with title Bramka NIE and description:
  (brak opisu)
 (ITEMS) Adding wireworld.not with title Bramka NIE and description:
  (brak opisu)
-(BLOCKS) Adding wireworld.randomctrl with title Losuj jeżeli and description:
- (brak opisu)
 (ITEMS) Adding wireworld.randomctrl with title Losuj jeżeli and description:
- (brak opisu)
-(BLOCKS) Adding wireworld.on with title Włącznik and description:
  (brak opisu)
 (ITEMS) Adding wireworld.on with title Włącznik and description:
  (brak opisu)
-(BLOCKS) Adding wireworld.off with title Wyłącznik and description:
- (brak opisu)
 (ITEMS) Adding wireworld.off with title Wyłącznik and description:
- (brak opisu)
-(BLOCKS) Adding machines.placer with title Nieskończony postawiacz bloków and description:
  (brak opisu)
 (ITEMS) Adding machines.placer with title Nieskończony postawiacz bloków and description:
  (brak opisu)
-(BLOCKS) Adding machines.clicker with title Klikacz and description:
- (brak opisu)
 (ITEMS) Adding machines.clicker with title Klikacz and description:
- (brak opisu)
-(BLOCKS) Adding machines.rotator with title Obracacz and description:
  (brak opisu)
 (ITEMS) Adding machines.rotator with title Obracacz and description:
  (brak opisu)
-(BLOCKS) Adding elec.coalgen1 with title Prądnica piecowa 1 and description:
- (brak opisu)
 (ITEMS) Adding elec.coalgen1 with title Prądnica piecowa 1 and description:
- (brak opisu)
-(BLOCKS) Adding elec.coalgen2 with title Prądnica piecowa 2 and description:
  (brak opisu)
 (ITEMS) Adding elec.coalgen2 with title Prądnica piecowa 2 and description:
  (brak opisu)
-(BLOCKS) Adding elec.coalgen3 with title Prądnica piecowa 3 and description:
- (brak opisu)
 (ITEMS) Adding elec.coalgen3 with title Prądnica piecowa 3 and description:
- (brak opisu)
-(BLOCKS) Adding elec.turbogen1 with title Turboprądnica 1 and description:
  (brak opisu)
 (ITEMS) Adding elec.turbogen1 with title Turboprądnica 1 and description:
  (brak opisu)
-(BLOCKS) Adding elec.turbogen2 with title Turboprądnica 2 and description:
- (brak opisu)
 (ITEMS) Adding elec.turbogen2 with title Turboprądnica 2 and description:
- (brak opisu)
-(BLOCKS) Adding elec.turbogen3 with title Turboprądnica 3 and description:
  (brak opisu)
 (ITEMS) Adding elec.turbogen3 with title Turboprądnica 3 and description:
  (brak opisu)
-(BLOCKS) Adding industry.infinigen0 with title Wieczna prądnica ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.infinigen0 with title Wieczna prądnica ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.infinigen1 with title Wieczna prądnica VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.infinigen1 with title Wieczna prądnica VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.infinigen2 with title Wieczna prądnica LV and description:
- (brak opisu)
 (ITEMS) Adding industry.infinigen2 with title Wieczna prądnica LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.infinigen3 with title Wieczna prądnica MV and description:
  (brak opisu)
 (ITEMS) Adding industry.infinigen3 with title Wieczna prądnica MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.infinigen4 with title Wieczna prądnica HV and description:
- (brak opisu)
 (ITEMS) Adding industry.infinigen4 with title Wieczna prądnica HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.infinigen5 with title Wieczna prądnica EV and description:
  (brak opisu)
 (ITEMS) Adding industry.infinigen5 with title Wieczna prądnica EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.infinigen6 with title Wieczna prądnica IV and description:
- (brak opisu)
 (ITEMS) Adding industry.infinigen6 with title Wieczna prądnica IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.infinigen7 with title Wieczna prądnica LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.infinigen7 with title Wieczna prądnica LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.infinigen8 with title Wieczna prądnica MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.infinigen8 with title Wieczna prądnica MAX and description:
  (brak opisu)
@@ -1634,148 +1540,80 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Wieczna prądnica IV(industry.infinigen6) with voltage-IV
 (ITEMS) Tagging Item Wieczna prądnica LuV(industry.infinigen7) with voltage-LuV
 (ITEMS) Tagging Item Wieczna prądnica MAX(industry.infinigen8) with voltage-MAX
-(BLOCKS) Adding elec.meter with title Miernik prądu and description:
- (brak opisu)
 (ITEMS) Adding elec.meter with title Miernik prądu and description:
- (brak opisu)
-(BLOCKS) Adding elec.load with title Obciążenie elektryczne and description:
  (brak opisu)
 (ITEMS) Adding elec.load with title Obciążenie elektryczne and description:
  (brak opisu)
-(BLOCKS) Adding elec.furnace with title zzz NIEAKTUALNE Piec elektryczny (zamień to na Piec ULV) and description:
- (brak opisu)
 (ITEMS) Adding elec.furnace with title zzz NIEAKTUALNE Piec elektryczny (zamień to na Piec ULV) and description:
  (brak opisu)
-(BLOCKS) Adding nuke.generator with title zzz NIEAKTUALNE Reaktor jądrowy (zamień to na Prądnicę jądrową 1) and description:
- (brak opisu)
 (ITEMS) Adding nuke.generator with title zzz NIEAKTUALNE Reaktor jądrowy (zamień to na Prądnicę jądrową 1) and description:
- (brak opisu)
-(BLOCKS) Adding chest.beginning with title 000 Unnamed Item and description:
  (brak opisu)
 (ITEMS) Adding chest.beginning with title 000 Unnamed Item and description:
  (brak opisu)
 (ITEMS) Tagging Item 000 Unnamed Item(chest.beginning) with chest
-(BLOCKS) Adding chest.simple with title 000 Unnamed Item and description:
- (brak opisu)
 (ITEMS) Adding chest.simple with title 000 Unnamed Item and description:
  (brak opisu)
 (ITEMS) Tagging Item 000 Unnamed Item(chest.simple) with chest
-(BLOCKS) Adding chest.intermediate with title 000 Unnamed Item and description:
- (brak opisu)
 (ITEMS) Adding chest.intermediate with title 000 Unnamed Item and description:
  (brak opisu)
 (ITEMS) Tagging Item 000 Unnamed Item(chest.intermediate) with chest
-(BLOCKS) Adding chest.advanced with title 000 Unnamed Item and description:
- (brak opisu)
 (ITEMS) Adding chest.advanced with title 000 Unnamed Item and description:
  (brak opisu)
 (ITEMS) Tagging Item 000 Unnamed Item(chest.advanced) with chest
-(BLOCKS) Adding chest.extreme with title 000 Unnamed Item and description:
- (brak opisu)
 (ITEMS) Adding chest.extreme with title 000 Unnamed Item and description:
  (brak opisu)
 (ITEMS) Tagging Item 000 Unnamed Item(chest.extreme) with chest
-(BLOCKS) Adding chest.ultimate with title 000 Unnamed Item and description:
- (brak opisu)
 (ITEMS) Adding chest.ultimate with title 000 Unnamed Item and description:
  (brak opisu)
 (ITEMS) Tagging Item 000 Unnamed Item(chest.ultimate) with chest
-(BLOCKS) Adding chest.penultimate with title 000 Unnamed Item and description:
- (brak opisu)
 (ITEMS) Adding chest.penultimate with title 000 Unnamed Item and description:
  (brak opisu)
 (ITEMS) Tagging Item 000 Unnamed Item(chest.penultimate) with chest
-(BLOCKS) Adding chest.penultimate2 with title 000 Unnamed Item and description:
- (brak opisu)
 (ITEMS) Adding chest.penultimate2 with title 000 Unnamed Item and description:
  (brak opisu)
 (ITEMS) Tagging Item 000 Unnamed Item(chest.penultimate2) with chest
-(BLOCKS) Adding chest.penultimate3 with title 000 Unnamed Item and description:
- (brak opisu)
 (ITEMS) Adding chest.penultimate3 with title 000 Unnamed Item and description:
  (brak opisu)
 (ITEMS) Tagging Item 000 Unnamed Item(chest.penultimate3) with chest
-(BLOCKS) Adding chest.hopper1 with title Wrzutnia and description:
- (brak opisu)
 (ITEMS) Adding chest.hopper1 with title Wrzutnia and description:
- (brak opisu)
-(BLOCKS) Adding chest.hopper2 with title Ssak and description:
  (brak opisu)
 (ITEMS) Adding chest.hopper2 with title Ssak and description:
  (brak opisu)
-(BLOCKS) Adding chest.hopper3 with title Wrzutniossak and description:
- (brak opisu)
 (ITEMS) Adding chest.hopper3 with title Wrzutniossak and description:
- (brak opisu)
-(BLOCKS) Adding itemsystem.mover with title Wyciągacz przedmiotów and description:
  (brak opisu)
 (ITEMS) Adding itemsystem.mover with title Wyciągacz przedmiotów and description:
  (brak opisu)
-(BLOCKS) Adding industry.placeitems with title Stawiacz bloków i przedmiotów and description:
- (brak opisu)
 (ITEMS) Adding industry.placeitems with title Stawiacz bloków i przedmiotów and description:
- (brak opisu)
-(BLOCKS) Adding industry.collector with title Zbieracz porzuconych przedmiotów and description:
  (brak opisu)
 (ITEMS) Adding industry.collector with title Zbieracz porzuconych przedmiotów and description:
  (brak opisu)
-(BLOCKS) Adding pipe.I with title Rura - prosta and description:
- A pipe which is straight.
 (ITEMS) Adding pipe.I with title Rura - prosta and description:
  A pipe which is straight.
-(BLOCKS) Adding pipe.L with title Rura - zakręt and description:
- A pipe which is bent.
 (ITEMS) Adding pipe.L with title Rura - zakręt and description:
  A pipe which is bent.
-(BLOCKS) Adding pipe.IPE with title Skrzyżowany wyciągacz and description:
- A hybrid of Item Mover and straight pipe
 (ITEMS) Adding pipe.IPE with title Skrzyżowany wyciągacz and description:
  A hybrid of Item Mover and straight pipe
-(BLOCKS) Adding pipe.toleft with title Rura - złącz z lewej and description:
- A pipe which directs its side input to the left.
 (ITEMS) Adding pipe.toleft with title Rura - złącz z lewej and description:
  A pipe which directs its side input to the left.
-(BLOCKS) Adding pipe.toright with title Rura - złącz z prawej and description:
- A pipe which directs its side input to the right.
 (ITEMS) Adding pipe.toright with title Rura - złącz z prawej and description:
  A pipe which directs its side input to the right.
-(BLOCKS) Adding pipe.X with title Rura - kryż and description:
- A pair of disconnected perpendicular pipes.
 (ITEMS) Adding pipe.X with title Rura - kryż and description:
  A pair of disconnected perpendicular pipes.
-(BLOCKS) Adding pipe.D with title Rura - 2zakr and description:
- A pair of curved pipes.
 (ITEMS) Adding pipe.D with title Rura - 2zakr and description:
  A pair of curved pipes.
-(BLOCKS) Adding pipe.F with title Rura z filtrem and description:
- A filtering pipe
 (ITEMS) Adding pipe.F with title Rura z filtrem and description:
  A filtering pipe
-(BLOCKS) Adding liquid.water with title Woda and description:
- (brak opisu)
 (ITEMS) Adding liquid.water with title Woda and description:
- (brak opisu)
-(BLOCKS) Adding liquid.lava with title Lawa and description:
  (brak opisu)
 (ITEMS) Adding liquid.lava with title Lawa and description:
  (brak opisu)
-(BLOCKS) Adding liquid.steam with title Para wodna and description:
- (brak opisu)
 (ITEMS) Adding liquid.steam with title Para wodna and description:
- (brak opisu)
-(BLOCKS) Adding liquid.alcohol with title Alkohol and description:
  (brak opisu)
 (ITEMS) Adding liquid.alcohol with title Alkohol and description:
  (brak opisu)
-(BLOCKS) Adding mmb.clay with title Glina and description:
- (brak opisu)
 (ITEMS) Adding mmb.clay with title Glina and description:
  (brak opisu)
-(BLOCKS) Adding crop.tree with title Drzewo and description:
- (brak opisu)
 (ITEMS) Adding crop.tree with title Drzewo and description:
- (brak opisu)
-(BLOCKS) Adding crop.water with title Studnia z wodą and description:
  (brak opisu)
 (ITEMS) Adding crop.water with title Studnia z wodą and description:
  (brak opisu)
@@ -1790,8 +1628,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Adding drugs.beer with title Piwo and description:
  (brak opisu)
 (ITEMS) Adding item.glass with title Szkło and description:
- (brak opisu)
-(BLOCKS) Adding block.rudimentary with title Blok z rudymentu and description:
  (brak opisu)
 (ITEMS) Adding block.rudimentary with title Blok z rudymentu and description:
  (brak opisu)
@@ -1861,11 +1697,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z rudymentu(ring.rudimentary) with shape-ring
 (ITEMS) Tagging Item Arkusz z rudymentu(sheet.rudimentary) with shape-sheet
 (ITEMS) Tagging Item Klatka z rudymentu(frame.rudimentary) with shape-frame
-(BLOCKS) Adding ore.rudimentary with title Ruda rudymentu and description:
- (brak opisu)
 (ITEMS) Adding ore.rudimentary with title Ruda rudymentu and description:
- (brak opisu)
-(BLOCKS) Adding crop.rudimentary with title Uprawa rudymentu and description:
  (brak opisu)
 (ITEMS) Adding crop.rudimentary with title Uprawa rudymentu and description:
  (brak opisu)
@@ -1873,8 +1705,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa rudymentu(crop.rudimentary) with material-rudimentary
 (ITEMS) Tagging Block Ruda rudymentu(ore.rudimentary) with shape-ore
 (ITEMS) Tagging Item Uprawa rudymentu(crop.rudimentary) with shape-crop
-(BLOCKS) Adding block.coal with title Blok z węgla and description:
- (brak opisu)
 (ITEMS) Adding block.coal with title Blok z węgla and description:
  (brak opisu)
 (ITEMS) Adding fcluster.coal with title Klaster z węgla and description:
@@ -1943,11 +1773,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z węgla(ring.coal) with shape-ring
 (ITEMS) Tagging Item Arkusz z węgla(sheet.coal) with shape-sheet
 (ITEMS) Tagging Item Klatka z węgla(frame.coal) with shape-frame
-(BLOCKS) Adding ore.coal with title Ruda węgla and description:
- (brak opisu)
 (ITEMS) Adding ore.coal with title Ruda węgla and description:
- (brak opisu)
-(BLOCKS) Adding crop.coal with title Uprawa węgla and description:
  (brak opisu)
 (ITEMS) Adding crop.coal with title Uprawa węgla and description:
  (brak opisu)
@@ -1955,8 +1781,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa węgla(crop.coal) with material-coal
 (ITEMS) Tagging Block Ruda węgla(ore.coal) with shape-ore
 (ITEMS) Tagging Item Uprawa węgla(crop.coal) with shape-crop
-(BLOCKS) Adding block.rubber with title Blok z gumy and description:
- (brak opisu)
 (ITEMS) Adding block.rubber with title Blok z gumy and description:
  (brak opisu)
 (ITEMS) Adding fcluster.rubber with title Klaster z gumy and description:
@@ -2025,8 +1849,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z gumy(ring.rubber) with shape-ring
 (ITEMS) Tagging Item Arkusz z gumy(sheet.rubber) with shape-sheet
 (ITEMS) Tagging Item Klatka z gumy(frame.rubber) with shape-frame
-(BLOCKS) Adding block.rudimentium with title Blok z rudimentium and description:
- (brak opisu)
 (ITEMS) Adding block.rudimentium with title Blok z rudimentium and description:
  (brak opisu)
 (ITEMS) Adding fcluster.rudimentium with title Klaster z rudimentium and description:
@@ -2095,8 +1917,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z rudimentium(ring.rudimentium) with shape-ring
 (ITEMS) Tagging Item Arkusz z rudimentium(sheet.rudimentium) with shape-sheet
 (ITEMS) Tagging Item Klatka z rudimentium(frame.rudimentium) with shape-frame
-(BLOCKS) Adding block.copper with title Blok z miedzi and description:
- (brak opisu)
 (ITEMS) Adding block.copper with title Blok z miedzi and description:
  (brak opisu)
 (ITEMS) Adding fcluster.copper with title Klaster z miedzi and description:
@@ -2165,11 +1985,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z miedzi(ring.copper) with shape-ring
 (ITEMS) Tagging Item Arkusz z miedzi(sheet.copper) with shape-sheet
 (ITEMS) Tagging Item Klatka z miedzi(frame.copper) with shape-frame
-(BLOCKS) Adding ore.copper with title Ruda miedzi and description:
- (brak opisu)
 (ITEMS) Adding ore.copper with title Ruda miedzi and description:
- (brak opisu)
-(BLOCKS) Adding crop.copper with title Uprawa miedzi and description:
  (brak opisu)
 (ITEMS) Adding crop.copper with title Uprawa miedzi and description:
  (brak opisu)
@@ -2177,8 +1993,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa miedzi(crop.copper) with material-copper
 (ITEMS) Tagging Block Ruda miedzi(ore.copper) with shape-ore
 (ITEMS) Tagging Item Uprawa miedzi(crop.copper) with shape-crop
-(BLOCKS) Adding block.iron with title Blok ze żelaza and description:
- (brak opisu)
 (ITEMS) Adding block.iron with title Blok ze żelaza and description:
  (brak opisu)
 (ITEMS) Adding fcluster.iron with title Klaster ze żelaza and description:
@@ -2247,11 +2061,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień ze żelaza(ring.iron) with shape-ring
 (ITEMS) Tagging Item Arkusz ze żelaza(sheet.iron) with shape-sheet
 (ITEMS) Tagging Item Klatka ze żelaza(frame.iron) with shape-frame
-(BLOCKS) Adding ore.iron with title Ruda żelaza and description:
- (brak opisu)
 (ITEMS) Adding ore.iron with title Ruda żelaza and description:
- (brak opisu)
-(BLOCKS) Adding crop.iron with title Uprawa żelaza and description:
  (brak opisu)
 (ITEMS) Adding crop.iron with title Uprawa żelaza and description:
  (brak opisu)
@@ -2259,8 +2069,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa żelaza(crop.iron) with material-iron
 (ITEMS) Tagging Block Ruda żelaza(ore.iron) with shape-ore
 (ITEMS) Tagging Item Uprawa żelaza(crop.iron) with shape-crop
-(BLOCKS) Adding block.silicon with title Blok z krzemu and description:
- (brak opisu)
 (ITEMS) Adding block.silicon with title Blok z krzemu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.silicon with title Klaster z krzemu and description:
@@ -2329,11 +2137,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z krzemu(ring.silicon) with shape-ring
 (ITEMS) Tagging Item Arkusz z krzemu(sheet.silicon) with shape-sheet
 (ITEMS) Tagging Item Klatka z krzemu(frame.silicon) with shape-frame
-(BLOCKS) Adding ore.silicon with title Ruda krzemu and description:
- (brak opisu)
 (ITEMS) Adding ore.silicon with title Ruda krzemu and description:
- (brak opisu)
-(BLOCKS) Adding crop.silicon with title Uprawa krzemu and description:
  (brak opisu)
 (ITEMS) Adding crop.silicon with title Uprawa krzemu and description:
  (brak opisu)
@@ -2341,8 +2145,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa krzemu(crop.silicon) with material-silicon
 (ITEMS) Tagging Block Ruda krzemu(ore.silicon) with shape-ore
 (ITEMS) Tagging Item Uprawa krzemu(crop.silicon) with shape-crop
-(BLOCKS) Adding block.tin with title Blok z cyny and description:
- (brak opisu)
 (ITEMS) Adding block.tin with title Blok z cyny and description:
  (brak opisu)
 (ITEMS) Adding fcluster.tin with title Klaster z cyny and description:
@@ -2411,11 +2213,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z cyny(ring.tin) with shape-ring
 (ITEMS) Tagging Item Arkusz z cyny(sheet.tin) with shape-sheet
 (ITEMS) Tagging Item Klatka z cyny(frame.tin) with shape-frame
-(BLOCKS) Adding ore.tin with title Ruda cyny and description:
- (brak opisu)
 (ITEMS) Adding ore.tin with title Ruda cyny and description:
- (brak opisu)
-(BLOCKS) Adding crop.tin with title Uprawa cyny and description:
  (brak opisu)
 (ITEMS) Adding crop.tin with title Uprawa cyny and description:
  (brak opisu)
@@ -2423,8 +2221,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa cyny(crop.tin) with material-tin
 (ITEMS) Tagging Block Ruda cyny(ore.tin) with shape-ore
 (ITEMS) Tagging Item Uprawa cyny(crop.tin) with shape-crop
-(BLOCKS) Adding block.zinc with title Blok z cynku and description:
- (brak opisu)
 (ITEMS) Adding block.zinc with title Blok z cynku and description:
  (brak opisu)
 (ITEMS) Adding fcluster.zinc with title Klaster z cynku and description:
@@ -2493,11 +2289,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z cynku(ring.zinc) with shape-ring
 (ITEMS) Tagging Item Arkusz z cynku(sheet.zinc) with shape-sheet
 (ITEMS) Tagging Item Klatka z cynku(frame.zinc) with shape-frame
-(BLOCKS) Adding ore.zinc with title Ruda cynku and description:
- (brak opisu)
 (ITEMS) Adding ore.zinc with title Ruda cynku and description:
- (brak opisu)
-(BLOCKS) Adding crop.zinc with title Uprawa cynku and description:
  (brak opisu)
 (ITEMS) Adding crop.zinc with title Uprawa cynku and description:
  (brak opisu)
@@ -2505,8 +2297,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa cynku(crop.zinc) with material-zinc
 (ITEMS) Tagging Block Ruda cynku(ore.zinc) with shape-ore
 (ITEMS) Tagging Item Uprawa cynku(crop.zinc) with shape-crop
-(BLOCKS) Adding block.alu with title Blok z aluminium and description:
- (brak opisu)
 (ITEMS) Adding block.alu with title Blok z aluminium and description:
  (brak opisu)
 (ITEMS) Adding fcluster.alu with title Klaster z aluminium and description:
@@ -2575,11 +2365,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z aluminium(ring.alu) with shape-ring
 (ITEMS) Tagging Item Arkusz z aluminium(sheet.alu) with shape-sheet
 (ITEMS) Tagging Item Klatka z aluminium(frame.alu) with shape-frame
-(BLOCKS) Adding ore.alu with title Ruda aluminium and description:
- (brak opisu)
 (ITEMS) Adding ore.alu with title Ruda aluminium and description:
- (brak opisu)
-(BLOCKS) Adding crop.alu with title Uprawa aluminium and description:
  (brak opisu)
 (ITEMS) Adding crop.alu with title Uprawa aluminium and description:
  (brak opisu)
@@ -2587,8 +2373,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa aluminium(crop.alu) with material-alu
 (ITEMS) Tagging Block Ruda aluminium(ore.alu) with shape-ore
 (ITEMS) Tagging Item Uprawa aluminium(crop.alu) with shape-crop
-(BLOCKS) Adding block.lead with title Blok z ołowiu and description:
- (brak opisu)
 (ITEMS) Adding block.lead with title Blok z ołowiu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.lead with title Klaster z ołowiu and description:
@@ -2657,11 +2441,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z ołowiu(ring.lead) with shape-ring
 (ITEMS) Tagging Item Arkusz z ołowiu(sheet.lead) with shape-sheet
 (ITEMS) Tagging Item Klatka z ołowiu(frame.lead) with shape-frame
-(BLOCKS) Adding ore.lead with title Ruda ołowiu and description:
- (brak opisu)
 (ITEMS) Adding ore.lead with title Ruda ołowiu and description:
- (brak opisu)
-(BLOCKS) Adding crop.lead with title Uprawa ołowiu and description:
  (brak opisu)
 (ITEMS) Adding crop.lead with title Uprawa ołowiu and description:
  (brak opisu)
@@ -2669,8 +2449,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa ołowiu(crop.lead) with material-lead
 (ITEMS) Tagging Block Ruda ołowiu(ore.lead) with shape-ore
 (ITEMS) Tagging Item Uprawa ołowiu(crop.lead) with shape-crop
-(BLOCKS) Adding block.nickel with title Blok z niklu and description:
- (brak opisu)
 (ITEMS) Adding block.nickel with title Blok z niklu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.nickel with title Klaster z niklu and description:
@@ -2739,11 +2517,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z niklu(ring.nickel) with shape-ring
 (ITEMS) Tagging Item Arkusz z niklu(sheet.nickel) with shape-sheet
 (ITEMS) Tagging Item Klatka z niklu(frame.nickel) with shape-frame
-(BLOCKS) Adding ore.nickel with title Ruda niklu and description:
- (brak opisu)
 (ITEMS) Adding ore.nickel with title Ruda niklu and description:
- (brak opisu)
-(BLOCKS) Adding crop.nickel with title Uprawa niklu and description:
  (brak opisu)
 (ITEMS) Adding crop.nickel with title Uprawa niklu and description:
  (brak opisu)
@@ -2751,8 +2525,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa niklu(crop.nickel) with material-nickel
 (ITEMS) Tagging Block Ruda niklu(ore.nickel) with shape-ore
 (ITEMS) Tagging Item Uprawa niklu(crop.nickel) with shape-crop
-(BLOCKS) Adding block.redstone with title Blok z czerwonego proszku and description:
- (brak opisu)
 (ITEMS) Adding block.redstone with title Blok z czerwonego proszku and description:
  (brak opisu)
 (ITEMS) Adding fcluster.redstone with title Klaster z czerwonego proszku and description:
@@ -2821,11 +2593,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z czerwonego proszku(ring.redstone) with shape-ring
 (ITEMS) Tagging Item Arkusz z czerwonego proszku(sheet.redstone) with shape-sheet
 (ITEMS) Tagging Item Klatka z czerwonego proszku(frame.redstone) with shape-frame
-(BLOCKS) Adding ore.redstone with title Ruda czerwonego proszku and description:
- (brak opisu)
 (ITEMS) Adding ore.redstone with title Ruda czerwonego proszku and description:
- (brak opisu)
-(BLOCKS) Adding crop.redstone with title Uprawa czerwonego proszku and description:
  (brak opisu)
 (ITEMS) Adding crop.redstone with title Uprawa czerwonego proszku and description:
  (brak opisu)
@@ -2833,8 +2601,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa czerwonego proszku(crop.redstone) with material-redstone
 (ITEMS) Tagging Block Ruda czerwonego proszku(ore.redstone) with shape-ore
 (ITEMS) Tagging Item Uprawa czerwonego proszku(crop.redstone) with shape-crop
-(BLOCKS) Adding block.silver with title Blok ze srebra and description:
- (brak opisu)
 (ITEMS) Adding block.silver with title Blok ze srebra and description:
  (brak opisu)
 (ITEMS) Adding fcluster.silver with title Klaster ze srebra and description:
@@ -2903,11 +2669,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień ze srebra(ring.silver) with shape-ring
 (ITEMS) Tagging Item Arkusz ze srebra(sheet.silver) with shape-sheet
 (ITEMS) Tagging Item Klatka ze srebra(frame.silver) with shape-frame
-(BLOCKS) Adding ore.silver with title Ruda srebra and description:
- (brak opisu)
 (ITEMS) Adding ore.silver with title Ruda srebra and description:
- (brak opisu)
-(BLOCKS) Adding crop.silver with title Uprawa srebra and description:
  (brak opisu)
 (ITEMS) Adding crop.silver with title Uprawa srebra and description:
  (brak opisu)
@@ -2915,8 +2677,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa srebra(crop.silver) with material-silver
 (ITEMS) Tagging Block Ruda srebra(ore.silver) with shape-ore
 (ITEMS) Tagging Item Uprawa srebra(crop.silver) with shape-crop
-(BLOCKS) Adding block.uranium with title Blok z uranu and description:
- (brak opisu)
 (ITEMS) Adding block.uranium with title Blok z uranu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.uranium with title Klaster z uranu and description:
@@ -2985,11 +2745,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z uranu(ring.uranium) with shape-ring
 (ITEMS) Tagging Item Arkusz z uranu(sheet.uranium) with shape-sheet
 (ITEMS) Tagging Item Klatka z uranu(frame.uranium) with shape-frame
-(BLOCKS) Adding ore.uranium with title Ruda uranu and description:
- (brak opisu)
 (ITEMS) Adding ore.uranium with title Ruda uranu and description:
- (brak opisu)
-(BLOCKS) Adding crop.uranium with title Uprawa uranu and description:
  (brak opisu)
 (ITEMS) Adding crop.uranium with title Uprawa uranu and description:
  (brak opisu)
@@ -2997,8 +2753,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa uranu(crop.uranium) with material-uranium
 (ITEMS) Tagging Block Ruda uranu(ore.uranium) with shape-ore
 (ITEMS) Tagging Item Uprawa uranu(crop.uranium) with shape-crop
-(BLOCKS) Adding block.steel with title Blok ze stali and description:
- (brak opisu)
 (ITEMS) Adding block.steel with title Blok ze stali and description:
  (brak opisu)
 (ITEMS) Adding fcluster.steel with title Klaster ze stali and description:
@@ -3067,8 +2821,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień ze stali(ring.steel) with shape-ring
 (ITEMS) Tagging Item Arkusz ze stali(sheet.steel) with shape-sheet
 (ITEMS) Tagging Item Klatka ze stali(frame.steel) with shape-frame
-(BLOCKS) Adding block.bronze with title Blok z brązu and description:
- (brak opisu)
 (ITEMS) Adding block.bronze with title Blok z brązu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.bronze with title Klaster z brązu and description:
@@ -3137,8 +2889,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z brązu(ring.bronze) with shape-ring
 (ITEMS) Tagging Item Arkusz z brązu(sheet.bronze) with shape-sheet
 (ITEMS) Tagging Item Klatka z brązu(frame.bronze) with shape-frame
-(BLOCKS) Adding block.brass with title Blok z mosiądzu and description:
- (brak opisu)
 (ITEMS) Adding block.brass with title Blok z mosiądzu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.brass with title Klaster z mosiądzu and description:
@@ -3207,8 +2957,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z mosiądzu(ring.brass) with shape-ring
 (ITEMS) Tagging Item Arkusz z mosiądzu(sheet.brass) with shape-sheet
 (ITEMS) Tagging Item Klatka z mosiądzu(frame.brass) with shape-frame
-(BLOCKS) Adding block.chrome with title Blok z chromu and description:
- (brak opisu)
 (ITEMS) Adding block.chrome with title Blok z chromu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.chrome with title Klaster z chromu and description:
@@ -3277,11 +3025,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z chromu(ring.chrome) with shape-ring
 (ITEMS) Tagging Item Arkusz z chromu(sheet.chrome) with shape-sheet
 (ITEMS) Tagging Item Klatka z chromu(frame.chrome) with shape-frame
-(BLOCKS) Adding ore.chrome with title Ruda chromu and description:
- (brak opisu)
 (ITEMS) Adding ore.chrome with title Ruda chromu and description:
- (brak opisu)
-(BLOCKS) Adding crop.chrome with title Uprawa chromu and description:
  (brak opisu)
 (ITEMS) Adding crop.chrome with title Uprawa chromu and description:
  (brak opisu)
@@ -3289,8 +3033,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa chromu(crop.chrome) with material-chrome
 (ITEMS) Tagging Block Ruda chromu(ore.chrome) with shape-ore
 (ITEMS) Tagging Item Uprawa chromu(crop.chrome) with shape-crop
-(BLOCKS) Adding block.nichrome with title Blok z niklochromu and description:
- (brak opisu)
 (ITEMS) Adding block.nichrome with title Blok z niklochromu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.nichrome with title Klaster z niklochromu and description:
@@ -3359,8 +3101,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z niklochromu(ring.nichrome) with shape-ring
 (ITEMS) Tagging Item Arkusz z niklochromu(sheet.nichrome) with shape-sheet
 (ITEMS) Tagging Item Klatka z niklochromu(frame.nichrome) with shape-frame
-(BLOCKS) Adding block.quartz with title Blok z kwarcu and description:
- (brak opisu)
 (ITEMS) Adding block.quartz with title Blok z kwarcu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.quartz with title Klaster z kwarcu and description:
@@ -3429,8 +3169,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z kwarcu(ring.quartz) with shape-ring
 (ITEMS) Tagging Item Arkusz z kwarcu(sheet.quartz) with shape-sheet
 (ITEMS) Tagging Item Klatka z kwarcu(frame.quartz) with shape-frame
-(BLOCKS) Adding block.PE with title Blok z polietylenu and description:
- (brak opisu)
 (ITEMS) Adding block.PE with title Blok z polietylenu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.PE with title Klaster z polietylenu and description:
@@ -3499,8 +3237,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z polietylenu(ring.PE) with shape-ring
 (ITEMS) Tagging Item Arkusz z polietylenu(sheet.PE) with shape-sheet
 (ITEMS) Tagging Item Klatka z polietylenu(frame.PE) with shape-frame
-(BLOCKS) Adding block.electrosteel with title Blok ze stali elektrycznej and description:
- (brak opisu)
 (ITEMS) Adding block.electrosteel with title Blok ze stali elektrycznej and description:
  (brak opisu)
 (ITEMS) Adding fcluster.electrosteel with title Klaster ze stali elektrycznej and description:
@@ -3569,8 +3305,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień ze stali elektrycznej(ring.electrosteel) with shape-ring
 (ITEMS) Tagging Item Arkusz ze stali elektrycznej(sheet.electrosteel) with shape-sheet
 (ITEMS) Tagging Item Klatka ze stali elektrycznej(frame.electrosteel) with shape-frame
-(BLOCKS) Adding block.ender with title Blok z enderu and description:
- (brak opisu)
 (ITEMS) Adding block.ender with title Blok z enderu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.ender with title Klaster z enderu and description:
@@ -3639,11 +3373,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z enderu(ring.ender) with shape-ring
 (ITEMS) Tagging Item Arkusz z enderu(sheet.ender) with shape-sheet
 (ITEMS) Tagging Item Klatka z enderu(frame.ender) with shape-frame
-(BLOCKS) Adding ore.ender with title Ruda enderu and description:
- (brak opisu)
 (ITEMS) Adding ore.ender with title Ruda enderu and description:
- (brak opisu)
-(BLOCKS) Adding crop.ender with title Uprawa enderu and description:
  (brak opisu)
 (ITEMS) Adding crop.ender with title Uprawa enderu and description:
  (brak opisu)
@@ -3651,8 +3381,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa enderu(crop.ender) with material-ender
 (ITEMS) Tagging Block Ruda enderu(ore.ender) with shape-ore
 (ITEMS) Tagging Item Uprawa enderu(crop.ender) with shape-crop
-(BLOCKS) Adding block.glowstone with title Blok z jasnogłazu and description:
- (brak opisu)
 (ITEMS) Adding block.glowstone with title Blok z jasnogłazu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.glowstone with title Klaster z jasnogłazu and description:
@@ -3721,11 +3449,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z jasnogłazu(ring.glowstone) with shape-ring
 (ITEMS) Tagging Item Arkusz z jasnogłazu(sheet.glowstone) with shape-sheet
 (ITEMS) Tagging Item Klatka z jasnogłazu(frame.glowstone) with shape-frame
-(BLOCKS) Adding ore.glowstone with title Ruda jasnogłazu and description:
- (brak opisu)
 (ITEMS) Adding ore.glowstone with title Ruda jasnogłazu and description:
- (brak opisu)
-(BLOCKS) Adding crop.glowstone with title Uprawa jasnogłazu and description:
  (brak opisu)
 (ITEMS) Adding crop.glowstone with title Uprawa jasnogłazu and description:
  (brak opisu)
@@ -3733,8 +3457,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa jasnogłazu(crop.glowstone) with material-glowstone
 (ITEMS) Tagging Block Ruda jasnogłazu(ore.glowstone) with shape-ore
 (ITEMS) Tagging Item Uprawa jasnogłazu(crop.glowstone) with shape-crop
-(BLOCKS) Adding block.silicopper with title Blok z krzemiedzi and description:
- (brak opisu)
 (ITEMS) Adding block.silicopper with title Blok z krzemiedzi and description:
  (brak opisu)
 (ITEMS) Adding fcluster.silicopper with title Klaster z krzemiedzi and description:
@@ -3803,8 +3525,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z krzemiedzi(ring.silicopper) with shape-ring
 (ITEMS) Tagging Item Arkusz z krzemiedzi(sheet.silicopper) with shape-sheet
 (ITEMS) Tagging Item Klatka z krzemiedzi(frame.silicopper) with shape-frame
-(BLOCKS) Adding block.cobalt with title Blok z kobaltu and description:
- (brak opisu)
 (ITEMS) Adding block.cobalt with title Blok z kobaltu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.cobalt with title Klaster z kobaltu and description:
@@ -3873,11 +3593,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z kobaltu(ring.cobalt) with shape-ring
 (ITEMS) Tagging Item Arkusz z kobaltu(sheet.cobalt) with shape-sheet
 (ITEMS) Tagging Item Klatka z kobaltu(frame.cobalt) with shape-frame
-(BLOCKS) Adding ore.cobalt with title Ruda kobaltu and description:
- (brak opisu)
 (ITEMS) Adding ore.cobalt with title Ruda kobaltu and description:
- (brak opisu)
-(BLOCKS) Adding crop.cobalt with title Uprawa kobaltu and description:
  (brak opisu)
 (ITEMS) Adding crop.cobalt with title Uprawa kobaltu and description:
  (brak opisu)
@@ -3885,8 +3601,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa kobaltu(crop.cobalt) with material-cobalt
 (ITEMS) Tagging Block Ruda kobaltu(ore.cobalt) with shape-ore
 (ITEMS) Tagging Item Uprawa kobaltu(crop.cobalt) with shape-crop
-(BLOCKS) Adding block.gold with title Blok ze złota and description:
- (brak opisu)
 (ITEMS) Adding block.gold with title Blok ze złota and description:
  (brak opisu)
 (ITEMS) Adding fcluster.gold with title Klaster ze złota and description:
@@ -3955,11 +3669,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień ze złota(ring.gold) with shape-ring
 (ITEMS) Tagging Item Arkusz ze złota(sheet.gold) with shape-sheet
 (ITEMS) Tagging Item Klatka ze złota(frame.gold) with shape-frame
-(BLOCKS) Adding ore.gold with title Ruda złota and description:
- (brak opisu)
 (ITEMS) Adding ore.gold with title Ruda złota and description:
- (brak opisu)
-(BLOCKS) Adding crop.gold with title Uprawa złota and description:
  (brak opisu)
 (ITEMS) Adding crop.gold with title Uprawa złota and description:
  (brak opisu)
@@ -3967,8 +3677,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa złota(crop.gold) with material-gold
 (ITEMS) Tagging Block Ruda złota(ore.gold) with shape-ore
 (ITEMS) Tagging Item Uprawa złota(crop.gold) with shape-crop
-(BLOCKS) Adding block.stainless with title Blok ze stali nierdzewnej and description:
- (brak opisu)
 (ITEMS) Adding block.stainless with title Blok ze stali nierdzewnej and description:
  (brak opisu)
 (ITEMS) Adding fcluster.stainless with title Klaster ze stali nierdzewnej and description:
@@ -4037,8 +3745,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień ze stali nierdzewnej(ring.stainless) with shape-ring
 (ITEMS) Tagging Item Arkusz ze stali nierdzewnej(sheet.stainless) with shape-sheet
 (ITEMS) Tagging Item Klatka ze stali nierdzewnej(frame.stainless) with shape-frame
-(BLOCKS) Adding block.energetic with title Blok ze stopu energetyzującego and description:
- (brak opisu)
 (ITEMS) Adding block.energetic with title Blok ze stopu energetyzującego and description:
  (brak opisu)
 (ITEMS) Adding fcluster.energetic with title Klaster ze stopu energetyzującego and description:
@@ -4107,8 +3813,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień ze stopu energetyzującego(ring.energetic) with shape-ring
 (ITEMS) Tagging Item Arkusz ze stopu energetyzującego(sheet.energetic) with shape-sheet
 (ITEMS) Tagging Item Klatka ze stopu energetyzującego(frame.energetic) with shape-frame
-(BLOCKS) Adding block.diamond with title Blok z diamentu and description:
- (brak opisu)
 (ITEMS) Adding block.diamond with title Blok z diamentu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.diamond with title Klaster z diamentu and description:
@@ -4177,11 +3881,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z diamentu(ring.diamond) with shape-ring
 (ITEMS) Tagging Item Arkusz z diamentu(sheet.diamond) with shape-sheet
 (ITEMS) Tagging Item Klatka z diamentu(frame.diamond) with shape-frame
-(BLOCKS) Adding ore.diamond with title Ruda diamentu and description:
- (brak opisu)
 (ITEMS) Adding ore.diamond with title Ruda diamentu and description:
- (brak opisu)
-(BLOCKS) Adding crop.diamond with title Uprawa diamentu and description:
  (brak opisu)
 (ITEMS) Adding crop.diamond with title Uprawa diamentu and description:
  (brak opisu)
@@ -4189,8 +3889,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa diamentu(crop.diamond) with material-diamond
 (ITEMS) Tagging Block Ruda diamentu(ore.diamond) with shape-ore
 (ITEMS) Tagging Item Uprawa diamentu(crop.diamond) with shape-crop
-(BLOCKS) Adding block.PVC with title Blok z PVC and description:
- (brak opisu)
 (ITEMS) Adding block.PVC with title Blok z PVC and description:
  (brak opisu)
 (ITEMS) Adding fcluster.PVC with title Klaster z PVC and description:
@@ -4259,8 +3957,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z PVC(ring.PVC) with shape-ring
 (ITEMS) Tagging Item Arkusz z PVC(sheet.PVC) with shape-sheet
 (ITEMS) Tagging Item Klatka z PVC(frame.PVC) with shape-frame
-(BLOCKS) Adding block.alnico with title Blok z alniko and description:
- (brak opisu)
 (ITEMS) Adding block.alnico with title Blok z alniko and description:
  (brak opisu)
 (ITEMS) Adding fcluster.alnico with title Klaster z alniko and description:
@@ -4329,8 +4025,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z alniko(ring.alnico) with shape-ring
 (ITEMS) Tagging Item Arkusz z alniko(sheet.alnico) with shape-sheet
 (ITEMS) Tagging Item Klatka z alniko(frame.alnico) with shape-frame
-(BLOCKS) Adding block.neosteel with title Blok z neostali and description:
- (brak opisu)
 (ITEMS) Adding block.neosteel with title Blok z neostali and description:
  (brak opisu)
 (ITEMS) Adding fcluster.neosteel with title Klaster z neostali and description:
@@ -4399,8 +4093,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z neostali(ring.neosteel) with shape-ring
 (ITEMS) Tagging Item Arkusz z neostali(sheet.neosteel) with shape-sheet
 (ITEMS) Tagging Item Klatka z neostali(frame.neosteel) with shape-frame
-(BLOCKS) Adding block.neodymium with title Blok z neodymu and description:
- (brak opisu)
 (ITEMS) Adding block.neodymium with title Blok z neodymu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.neodymium with title Klaster z neodymu and description:
@@ -4469,11 +4161,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z neodymu(ring.neodymium) with shape-ring
 (ITEMS) Tagging Item Arkusz z neodymu(sheet.neodymium) with shape-sheet
 (ITEMS) Tagging Item Klatka z neodymu(frame.neodymium) with shape-frame
-(BLOCKS) Adding ore.neodymium with title Ruda neodymu and description:
- (brak opisu)
 (ITEMS) Adding ore.neodymium with title Ruda neodymu and description:
- (brak opisu)
-(BLOCKS) Adding crop.neodymium with title Uprawa neodymu and description:
  (brak opisu)
 (ITEMS) Adding crop.neodymium with title Uprawa neodymu and description:
  (brak opisu)
@@ -4481,8 +4169,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa neodymu(crop.neodymium) with material-neodymium
 (ITEMS) Tagging Block Ruda neodymu(ore.neodymium) with shape-ore
 (ITEMS) Tagging Item Uprawa neodymu(crop.neodymium) with shape-crop
-(BLOCKS) Adding block.titanium with title Blok z tytanu and description:
- (brak opisu)
 (ITEMS) Adding block.titanium with title Blok z tytanu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.titanium with title Klaster z tytanu and description:
@@ -4551,11 +4237,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z tytanu(ring.titanium) with shape-ring
 (ITEMS) Tagging Item Arkusz z tytanu(sheet.titanium) with shape-sheet
 (ITEMS) Tagging Item Klatka z tytanu(frame.titanium) with shape-frame
-(BLOCKS) Adding ore.titanium with title Ruda tytanu and description:
- (brak opisu)
 (ITEMS) Adding ore.titanium with title Ruda tytanu and description:
- (brak opisu)
-(BLOCKS) Adding crop.titanium with title Uprawa tytanu and description:
  (brak opisu)
 (ITEMS) Adding crop.titanium with title Uprawa tytanu and description:
  (brak opisu)
@@ -4563,8 +4245,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa tytanu(crop.titanium) with material-titanium
 (ITEMS) Tagging Block Ruda tytanu(ore.titanium) with shape-ore
 (ITEMS) Tagging Item Uprawa tytanu(crop.titanium) with shape-crop
-(BLOCKS) Adding block.HSS with title Blok ze stali szybkotnącej and description:
- (brak opisu)
 (ITEMS) Adding block.HSS with title Blok ze stali szybkotnącej and description:
  (brak opisu)
 (ITEMS) Adding fcluster.HSS with title Klaster ze stali szybkotnącej and description:
@@ -4633,8 +4313,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień ze stali szybkotnącej(ring.HSS) with shape-ring
 (ITEMS) Tagging Item Arkusz ze stali szybkotnącej(sheet.HSS) with shape-sheet
 (ITEMS) Tagging Item Klatka ze stali szybkotnącej(frame.HSS) with shape-frame
-(BLOCKS) Adding block.platinum with title Blok z platyny and description:
- (brak opisu)
 (ITEMS) Adding block.platinum with title Blok z platyny and description:
  (brak opisu)
 (ITEMS) Adding fcluster.platinum with title Klaster z platyny and description:
@@ -4703,11 +4381,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z platyny(ring.platinum) with shape-ring
 (ITEMS) Tagging Item Arkusz z platyny(sheet.platinum) with shape-sheet
 (ITEMS) Tagging Item Klatka z platyny(frame.platinum) with shape-frame
-(BLOCKS) Adding ore.platinum with title Ruda platyny and description:
- (brak opisu)
 (ITEMS) Adding ore.platinum with title Ruda platyny and description:
- (brak opisu)
-(BLOCKS) Adding crop.platinum with title Uprawa platyny and description:
  (brak opisu)
 (ITEMS) Adding crop.platinum with title Uprawa platyny and description:
  (brak opisu)
@@ -4715,8 +4389,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa platyny(crop.platinum) with material-platinum
 (ITEMS) Tagging Block Ruda platyny(ore.platinum) with shape-ore
 (ITEMS) Tagging Item Uprawa platyny(crop.platinum) with shape-crop
-(BLOCKS) Adding block.lumium with title Blok z lumium and description:
- (brak opisu)
 (ITEMS) Adding block.lumium with title Blok z lumium and description:
  (brak opisu)
 (ITEMS) Adding fcluster.lumium with title Klaster z lumium and description:
@@ -4785,8 +4457,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z lumium(ring.lumium) with shape-ring
 (ITEMS) Tagging Item Arkusz z lumium(sheet.lumium) with shape-sheet
 (ITEMS) Tagging Item Klatka z lumium(frame.lumium) with shape-frame
-(BLOCKS) Adding block.vibrant with title Blok ze stopu vibrującego and description:
- (brak opisu)
 (ITEMS) Adding block.vibrant with title Blok ze stopu vibrującego and description:
  (brak opisu)
 (ITEMS) Adding fcluster.vibrant with title Klaster ze stopu vibrującego and description:
@@ -4855,8 +4525,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień ze stopu vibrującego(ring.vibrant) with shape-ring
 (ITEMS) Tagging Item Arkusz ze stopu vibrującego(sheet.vibrant) with shape-sheet
 (ITEMS) Tagging Item Klatka ze stopu vibrującego(frame.vibrant) with shape-frame
-(BLOCKS) Adding block.PTFE with title Blok z PTFE and description:
- (brak opisu)
 (ITEMS) Adding block.PTFE with title Blok z PTFE and description:
  (brak opisu)
 (ITEMS) Adding fcluster.PTFE with title Klaster z PTFE and description:
@@ -4925,8 +4593,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z PTFE(ring.PTFE) with shape-ring
 (ITEMS) Tagging Item Arkusz z PTFE(sheet.PTFE) with shape-sheet
 (ITEMS) Tagging Item Klatka z PTFE(frame.PTFE) with shape-frame
-(BLOCKS) Adding block.silicarbide with title Blok z węglika krzemu and description:
- (brak opisu)
 (ITEMS) Adding block.silicarbide with title Blok z węglika krzemu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.silicarbide with title Klaster z węglika krzemu and description:
@@ -4995,8 +4661,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z węglika krzemu(ring.silicarbide) with shape-ring
 (ITEMS) Tagging Item Arkusz z węglika krzemu(sheet.silicarbide) with shape-sheet
 (ITEMS) Tagging Item Klatka z węglika krzemu(frame.silicarbide) with shape-frame
-(BLOCKS) Adding block.diamide with title Blok z diamidu and description:
- (brak opisu)
 (ITEMS) Adding block.diamide with title Blok z diamidu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.diamide with title Klaster z diamidu and description:
@@ -5065,8 +4729,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z diamidu(ring.diamide) with shape-ring
 (ITEMS) Tagging Item Arkusz z diamidu(sheet.diamide) with shape-sheet
 (ITEMS) Tagging Item Klatka z diamidu(frame.diamide) with shape-frame
-(BLOCKS) Adding block.tungsten with title Blok z wolframu and description:
- (brak opisu)
 (ITEMS) Adding block.tungsten with title Blok z wolframu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.tungsten with title Klaster z wolframu and description:
@@ -5135,11 +4797,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z wolframu(ring.tungsten) with shape-ring
 (ITEMS) Tagging Item Arkusz z wolframu(sheet.tungsten) with shape-sheet
 (ITEMS) Tagging Item Klatka z wolframu(frame.tungsten) with shape-frame
-(BLOCKS) Adding ore.tungsten with title Ruda wolframu and description:
- (brak opisu)
 (ITEMS) Adding ore.tungsten with title Ruda wolframu and description:
- (brak opisu)
-(BLOCKS) Adding crop.tungsten with title Uprawa wolframu and description:
  (brak opisu)
 (ITEMS) Adding crop.tungsten with title Uprawa wolframu and description:
  (brak opisu)
@@ -5147,8 +4805,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa wolframu(crop.tungsten) with material-tungsten
 (ITEMS) Tagging Block Ruda wolframu(ore.tungsten) with shape-ore
 (ITEMS) Tagging Item Uprawa wolframu(crop.tungsten) with shape-crop
-(BLOCKS) Adding block.signalum with title Blok ze signalum and description:
- (brak opisu)
 (ITEMS) Adding block.signalum with title Blok ze signalum and description:
  (brak opisu)
 (ITEMS) Adding fcluster.signalum with title Klaster ze signalum and description:
@@ -5217,8 +4873,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień ze signalum(ring.signalum) with shape-ring
 (ITEMS) Tagging Item Arkusz ze signalum(sheet.signalum) with shape-sheet
 (ITEMS) Tagging Item Klatka ze signalum(frame.signalum) with shape-frame
-(BLOCKS) Adding block.iridium with title Blok z irydu and description:
- (brak opisu)
 (ITEMS) Adding block.iridium with title Blok z irydu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.iridium with title Klaster z irydu and description:
@@ -5287,11 +4941,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z irydu(ring.iridium) with shape-ring
 (ITEMS) Tagging Item Arkusz z irydu(sheet.iridium) with shape-sheet
 (ITEMS) Tagging Item Klatka z irydu(frame.iridium) with shape-frame
-(BLOCKS) Adding ore.iridium with title Ruda irydu and description:
- (brak opisu)
 (ITEMS) Adding ore.iridium with title Ruda irydu and description:
- (brak opisu)
-(BLOCKS) Adding crop.iridium with title Uprawa irydu and description:
  (brak opisu)
 (ITEMS) Adding crop.iridium with title Uprawa irydu and description:
  (brak opisu)
@@ -5299,8 +4949,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Uprawa irydu(crop.iridium) with material-iridium
 (ITEMS) Tagging Block Ruda irydu(ore.iridium) with shape-ore
 (ITEMS) Tagging Item Uprawa irydu(crop.iridium) with shape-crop
-(BLOCKS) Adding block.unamide with title Blok z unamidu and description:
- (brak opisu)
 (ITEMS) Adding block.unamide with title Blok z unamidu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.unamide with title Klaster z unamidu and description:
@@ -5369,8 +5017,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z unamidu(ring.unamide) with shape-ring
 (ITEMS) Tagging Item Arkusz z unamidu(sheet.unamide) with shape-sheet
 (ITEMS) Tagging Item Klatka z unamidu(frame.unamide) with shape-frame
-(BLOCKS) Adding block.tungstenC with title Blok z węglika wolframu and description:
- (brak opisu)
 (ITEMS) Adding block.tungstenC with title Blok z węglika wolframu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.tungstenC with title Klaster z węglika wolframu and description:
@@ -5439,8 +5085,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z węglika wolframu(ring.tungstenC) with shape-ring
 (ITEMS) Tagging Item Arkusz z węglika wolframu(sheet.tungstenC) with shape-sheet
 (ITEMS) Tagging Item Klatka z węglika wolframu(frame.tungstenC) with shape-frame
-(BLOCKS) Adding block.crystal with title Blok z krystalitu and description:
- (brak opisu)
 (ITEMS) Adding block.crystal with title Blok z krystalitu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.crystal with title Klaster z krystalitu and description:
@@ -5509,8 +5153,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z krystalitu(ring.crystal) with shape-ring
 (ITEMS) Tagging Item Arkusz z krystalitu(sheet.crystal) with shape-sheet
 (ITEMS) Tagging Item Klatka z krystalitu(frame.crystal) with shape-frame
-(BLOCKS) Adding block.enderium with title Blok z enderium and description:
- (brak opisu)
 (ITEMS) Adding block.enderium with title Blok z enderium and description:
  (brak opisu)
 (ITEMS) Adding fcluster.enderium with title Klaster z enderium and description:
@@ -5579,8 +5221,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z enderium(ring.enderium) with shape-ring
 (ITEMS) Tagging Item Arkusz z enderium(sheet.enderium) with shape-sheet
 (ITEMS) Tagging Item Klatka z enderium(frame.enderium) with shape-frame
-(BLOCKS) Adding block.omnamide with title Blok z omnamidu and description:
- (brak opisu)
 (ITEMS) Adding block.omnamide with title Blok z omnamidu and description:
  (brak opisu)
 (ITEMS) Adding fcluster.omnamide with title Klaster z omnamidu and description:
@@ -5649,8 +5289,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z omnamidu(ring.omnamide) with shape-ring
 (ITEMS) Tagging Item Arkusz z omnamidu(sheet.omnamide) with shape-sheet
 (ITEMS) Tagging Item Klatka z omnamidu(frame.omnamide) with shape-frame
-(BLOCKS) Adding block.stellar with title Blok ze Stellarine and description:
- (brak opisu)
 (ITEMS) Adding block.stellar with title Blok ze Stellarine and description:
  (brak opisu)
 (ITEMS) Adding fcluster.stellar with title Klaster ze Stellarine and description:
@@ -5719,8 +5357,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień ze Stellarine(ring.stellar) with shape-ring
 (ITEMS) Tagging Item Arkusz ze Stellarine(sheet.stellar) with shape-sheet
 (ITEMS) Tagging Item Klatka ze Stellarine(frame.stellar) with shape-frame
-(BLOCKS) Adding block.duranium with title Blok z duranium and description:
- (brak opisu)
 (ITEMS) Adding block.duranium with title Blok z duranium and description:
  (brak opisu)
 (ITEMS) Adding fcluster.duranium with title Klaster z duranium and description:
@@ -5789,8 +5425,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z duranium(ring.duranium) with shape-ring
 (ITEMS) Tagging Item Arkusz z duranium(sheet.duranium) with shape-sheet
 (ITEMS) Tagging Item Klatka z duranium(frame.duranium) with shape-frame
-(BLOCKS) Adding block.draconium with title Blok z Draconium and description:
- (brak opisu)
 (ITEMS) Adding block.draconium with title Blok z Draconium and description:
  (brak opisu)
 (ITEMS) Adding fcluster.draconium with title Klaster z Draconium and description:
@@ -5859,8 +5493,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z Draconium(ring.draconium) with shape-ring
 (ITEMS) Tagging Item Arkusz z Draconium(sheet.draconium) with shape-sheet
 (ITEMS) Tagging Item Klatka z Draconium(frame.draconium) with shape-frame
-(BLOCKS) Adding block.unobtainium with title Blok z unobtainium and description:
- (brak opisu)
 (ITEMS) Adding block.unobtainium with title Blok z unobtainium and description:
  (brak opisu)
 (ITEMS) Adding fcluster.unobtainium with title Klaster z unobtainium and description:
@@ -5929,8 +5561,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z unobtainium(ring.unobtainium) with shape-ring
 (ITEMS) Tagging Item Arkusz z unobtainium(sheet.unobtainium) with shape-sheet
 (ITEMS) Tagging Item Klatka z unobtainium(frame.unobtainium) with shape-frame
-(BLOCKS) Adding block.adraconium with title Blok z Awakened Draconium and description:
- (brak opisu)
 (ITEMS) Adding block.adraconium with title Blok z Awakened Draconium and description:
  (brak opisu)
 (ITEMS) Adding fcluster.adraconium with title Klaster z Awakened Draconium and description:
@@ -5999,8 +5629,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z Awakened Draconium(ring.adraconium) with shape-ring
 (ITEMS) Tagging Item Arkusz z Awakened Draconium(sheet.adraconium) with shape-sheet
 (ITEMS) Tagging Item Klatka z Awakened Draconium(frame.adraconium) with shape-frame
-(BLOCKS) Adding block.chaotium with title Blok z Chaotium and description:
- (brak opisu)
 (ITEMS) Adding block.chaotium with title Blok z Chaotium and description:
  (brak opisu)
 (ITEMS) Adding fcluster.chaotium with title Klaster z Chaotium and description:
@@ -6069,24 +5697,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień z Chaotium(ring.chaotium) with shape-ring
 (ITEMS) Tagging Item Arkusz z Chaotium(sheet.chaotium) with shape-sheet
 (ITEMS) Tagging Item Klatka z Chaotium(frame.chaotium) with shape-frame
-(BLOCKS) Adding elecwire.tiny.rudimentary with title Rudymentowy b-cienki kabel elektryczny and description:
- Power: 12.5 kW
 (ITEMS) Adding elecwire.tiny.rudimentary with title Rudymentowy b-cienki kabel elektryczny and description:
  Power: 12.5 kW
-(BLOCKS) Adding elecwire.small.rudimentary with title Rudymentowy cienki kabel elektryczny and description:
- Power: 25.0 kW
 (ITEMS) Adding elecwire.small.rudimentary with title Rudymentowy cienki kabel elektryczny and description:
  Power: 25.0 kW
-(BLOCKS) Adding elecwire.medium.rudimentary with title Rudymentowy średni kabel elektryczny and description:
- Power: 50.0 kW
 (ITEMS) Adding elecwire.medium.rudimentary with title Rudymentowy średni kabel elektryczny and description:
  Power: 50.0 kW
-(BLOCKS) Adding elecwire.large.rudimentary with title Rudymentowy gruby kabel elektryczny and description:
- Power: 100.0 kW
 (ITEMS) Adding elecwire.large.rudimentary with title Rudymentowy gruby kabel elektryczny and description:
  Power: 100.0 kW
-(BLOCKS) Adding elecwire.huge.rudimentary with title Rudymentowy b-gruby kabel elektryczny and description:
- Power: 200.0 kW
 (ITEMS) Adding elecwire.huge.rudimentary with title Rudymentowy b-gruby kabel elektryczny and description:
  Power: 200.0 kW
 (ITEMS) Tagging Item Rudymentowy b-cienki kabel elektryczny(elecwire.tiny.rudimentary) with voltage-ULV
@@ -6099,24 +5717,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Rudymentowy gruby kabel elektryczny(elecwire.large.rudimentary) with machine-wire
 (ITEMS) Tagging Item Rudymentowy b-gruby kabel elektryczny(elecwire.huge.rudimentary) with voltage-ULV
 (ITEMS) Tagging Item Rudymentowy b-gruby kabel elektryczny(elecwire.huge.rudimentary) with machine-wire
-(BLOCKS) Adding elecwire.tiny.copper with title Miedziany b-cienki kabel elektryczny and description:
- Power: 50.0 kW
 (ITEMS) Adding elecwire.tiny.copper with title Miedziany b-cienki kabel elektryczny and description:
  Power: 50.0 kW
-(BLOCKS) Adding elecwire.small.copper with title Miedziany cienki kabel elektryczny and description:
- Power: 100.0 kW
 (ITEMS) Adding elecwire.small.copper with title Miedziany cienki kabel elektryczny and description:
  Power: 100.0 kW
-(BLOCKS) Adding elecwire.medium.copper with title Miedziany średni kabel elektryczny and description:
- Power: 200.0 kW
 (ITEMS) Adding elecwire.medium.copper with title Miedziany średni kabel elektryczny and description:
  Power: 200.0 kW
-(BLOCKS) Adding elecwire.large.copper with title Miedziany gruby kabel elektryczny and description:
- Power: 400.0 kW
 (ITEMS) Adding elecwire.large.copper with title Miedziany gruby kabel elektryczny and description:
  Power: 400.0 kW
-(BLOCKS) Adding elecwire.huge.copper with title Miedziany b-gruby kabel elektryczny and description:
- Power: 800.0 kW
 (ITEMS) Adding elecwire.huge.copper with title Miedziany b-gruby kabel elektryczny and description:
  Power: 800.0 kW
 (ITEMS) Tagging Item Miedziany b-cienki kabel elektryczny(elecwire.tiny.copper) with voltage-VLV
@@ -6129,24 +5737,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Miedziany gruby kabel elektryczny(elecwire.large.copper) with machine-wire
 (ITEMS) Tagging Item Miedziany b-gruby kabel elektryczny(elecwire.huge.copper) with voltage-VLV
 (ITEMS) Tagging Item Miedziany b-gruby kabel elektryczny(elecwire.huge.copper) with machine-wire
-(BLOCKS) Adding elecwire.tiny.silver with title Srebrny b-cienki kabel elektryczny and description:
- Power: 200.0 kW
 (ITEMS) Adding elecwire.tiny.silver with title Srebrny b-cienki kabel elektryczny and description:
  Power: 200.0 kW
-(BLOCKS) Adding elecwire.small.silver with title Srebrny cienki kabel elektryczny and description:
- Power: 400.0 kW
 (ITEMS) Adding elecwire.small.silver with title Srebrny cienki kabel elektryczny and description:
  Power: 400.0 kW
-(BLOCKS) Adding elecwire.medium.silver with title Srebrny średni kabel elektryczny and description:
- Power: 800.0 kW
 (ITEMS) Adding elecwire.medium.silver with title Srebrny średni kabel elektryczny and description:
  Power: 800.0 kW
-(BLOCKS) Adding elecwire.large.silver with title Srebrny gruby kabel elektryczny and description:
- Power: 1600.0 kW
 (ITEMS) Adding elecwire.large.silver with title Srebrny gruby kabel elektryczny and description:
  Power: 1600.0 kW
-(BLOCKS) Adding elecwire.huge.silver with title Srebrny b-gruby kabel elektryczny and description:
- Power: 3200.0 kW
 (ITEMS) Adding elecwire.huge.silver with title Srebrny b-gruby kabel elektryczny and description:
  Power: 3200.0 kW
 (ITEMS) Tagging Item Srebrny b-cienki kabel elektryczny(elecwire.tiny.silver) with voltage-LV
@@ -6159,24 +5757,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Srebrny gruby kabel elektryczny(elecwire.large.silver) with machine-wire
 (ITEMS) Tagging Item Srebrny b-gruby kabel elektryczny(elecwire.huge.silver) with voltage-LV
 (ITEMS) Tagging Item Srebrny b-gruby kabel elektryczny(elecwire.huge.silver) with machine-wire
-(BLOCKS) Adding elecwire.tiny.gold with title Złoty b-cienki kabel elektryczny and description:
- Power: 800.0 kW
 (ITEMS) Adding elecwire.tiny.gold with title Złoty b-cienki kabel elektryczny and description:
  Power: 800.0 kW
-(BLOCKS) Adding elecwire.small.gold with title Złoty cienki kabel elektryczny and description:
- Power: 1600.0 kW
 (ITEMS) Adding elecwire.small.gold with title Złoty cienki kabel elektryczny and description:
  Power: 1600.0 kW
-(BLOCKS) Adding elecwire.medium.gold with title Złoty średni kabel elektryczny and description:
- Power: 3200.0 kW
 (ITEMS) Adding elecwire.medium.gold with title Złoty średni kabel elektryczny and description:
  Power: 3200.0 kW
-(BLOCKS) Adding elecwire.large.gold with title Złoty gruby kabel elektryczny and description:
- Power: 6400.0 kW
 (ITEMS) Adding elecwire.large.gold with title Złoty gruby kabel elektryczny and description:
  Power: 6400.0 kW
-(BLOCKS) Adding elecwire.huge.gold with title Złoty b-gruby kabel elektryczny and description:
- Power: 12.8 MW
 (ITEMS) Adding elecwire.huge.gold with title Złoty b-gruby kabel elektryczny and description:
  Power: 12.8 MW
 (ITEMS) Tagging Item Złoty b-cienki kabel elektryczny(elecwire.tiny.gold) with voltage-MV
@@ -6189,24 +5777,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Złoty gruby kabel elektryczny(elecwire.large.gold) with machine-wire
 (ITEMS) Tagging Item Złoty b-gruby kabel elektryczny(elecwire.huge.gold) with voltage-MV
 (ITEMS) Tagging Item Złoty b-gruby kabel elektryczny(elecwire.huge.gold) with machine-wire
-(BLOCKS) Adding elecwire.tiny.platinum with title Platynowy b-cienki kabel elektryczny and description:
- Power: 3200.0 kW
 (ITEMS) Adding elecwire.tiny.platinum with title Platynowy b-cienki kabel elektryczny and description:
  Power: 3200.0 kW
-(BLOCKS) Adding elecwire.small.platinum with title Platynowy cienki kabel elektryczny and description:
- Power: 6400.0 kW
 (ITEMS) Adding elecwire.small.platinum with title Platynowy cienki kabel elektryczny and description:
  Power: 6400.0 kW
-(BLOCKS) Adding elecwire.medium.platinum with title Platynowy średni kabel elektryczny and description:
- Power: 12.8 MW
 (ITEMS) Adding elecwire.medium.platinum with title Platynowy średni kabel elektryczny and description:
  Power: 12.8 MW
-(BLOCKS) Adding elecwire.large.platinum with title Platynowy gruby kabel elektryczny and description:
- Power: 25.6 MW
 (ITEMS) Adding elecwire.large.platinum with title Platynowy gruby kabel elektryczny and description:
  Power: 25.6 MW
-(BLOCKS) Adding elecwire.huge.platinum with title Platynowy b-gruby kabel elektryczny and description:
- Power: 51.2 MW
 (ITEMS) Adding elecwire.huge.platinum with title Platynowy b-gruby kabel elektryczny and description:
  Power: 51.2 MW
 (ITEMS) Tagging Item Platynowy b-cienki kabel elektryczny(elecwire.tiny.platinum) with voltage-HV
@@ -6219,24 +5797,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Platynowy gruby kabel elektryczny(elecwire.large.platinum) with machine-wire
 (ITEMS) Tagging Item Platynowy b-gruby kabel elektryczny(elecwire.huge.platinum) with voltage-HV
 (ITEMS) Tagging Item Platynowy b-gruby kabel elektryczny(elecwire.huge.platinum) with machine-wire
-(BLOCKS) Adding elecwire.tiny.iridium with title Irydowy b-cienki kabel elektryczny and description:
- Power: 12.8 MW
 (ITEMS) Adding elecwire.tiny.iridium with title Irydowy b-cienki kabel elektryczny and description:
  Power: 12.8 MW
-(BLOCKS) Adding elecwire.small.iridium with title Irydowy cienki kabel elektryczny and description:
- Power: 25.6 MW
 (ITEMS) Adding elecwire.small.iridium with title Irydowy cienki kabel elektryczny and description:
  Power: 25.6 MW
-(BLOCKS) Adding elecwire.medium.iridium with title Irydowy średni kabel elektryczny and description:
- Power: 51.2 MW
 (ITEMS) Adding elecwire.medium.iridium with title Irydowy średni kabel elektryczny and description:
  Power: 51.2 MW
-(BLOCKS) Adding elecwire.large.iridium with title Irydowy gruby kabel elektryczny and description:
- Power: 102.4 MW
 (ITEMS) Adding elecwire.large.iridium with title Irydowy gruby kabel elektryczny and description:
  Power: 102.4 MW
-(BLOCKS) Adding elecwire.huge.iridium with title Irydowy b-gruby kabel elektryczny and description:
- Power: 204.8 MW
 (ITEMS) Adding elecwire.huge.iridium with title Irydowy b-gruby kabel elektryczny and description:
  Power: 204.8 MW
 (ITEMS) Tagging Item Irydowy b-cienki kabel elektryczny(elecwire.tiny.iridium) with voltage-EV
@@ -6249,24 +5817,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Irydowy gruby kabel elektryczny(elecwire.large.iridium) with machine-wire
 (ITEMS) Tagging Item Irydowy b-gruby kabel elektryczny(elecwire.huge.iridium) with voltage-EV
 (ITEMS) Tagging Item Irydowy b-gruby kabel elektryczny(elecwire.huge.iridium) with machine-wire
-(BLOCKS) Adding elecwire.tiny.crystal with title Krystalitowy b-cienki kabel elektryczny and description:
- Power: 51.2 MW
 (ITEMS) Adding elecwire.tiny.crystal with title Krystalitowy b-cienki kabel elektryczny and description:
  Power: 51.2 MW
-(BLOCKS) Adding elecwire.small.crystal with title Krystalitowy cienki kabel elektryczny and description:
- Power: 102.4 MW
 (ITEMS) Adding elecwire.small.crystal with title Krystalitowy cienki kabel elektryczny and description:
  Power: 102.4 MW
-(BLOCKS) Adding elecwire.medium.crystal with title Krystalitowy średni kabel elektryczny and description:
- Power: 204.8 MW
 (ITEMS) Adding elecwire.medium.crystal with title Krystalitowy średni kabel elektryczny and description:
  Power: 204.8 MW
-(BLOCKS) Adding elecwire.large.crystal with title Krystalitowy gruby kabel elektryczny and description:
- Power: 409.6 MW
 (ITEMS) Adding elecwire.large.crystal with title Krystalitowy gruby kabel elektryczny and description:
  Power: 409.6 MW
-(BLOCKS) Adding elecwire.huge.crystal with title Krystalitowy b-gruby kabel elektryczny and description:
- Power: 819.2 MW
 (ITEMS) Adding elecwire.huge.crystal with title Krystalitowy b-gruby kabel elektryczny and description:
  Power: 819.2 MW
 (ITEMS) Tagging Item Krystalitowy b-cienki kabel elektryczny(elecwire.tiny.crystal) with voltage-IV
@@ -6279,24 +5837,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Krystalitowy gruby kabel elektryczny(elecwire.large.crystal) with machine-wire
 (ITEMS) Tagging Item Krystalitowy b-gruby kabel elektryczny(elecwire.huge.crystal) with voltage-IV
 (ITEMS) Tagging Item Krystalitowy b-gruby kabel elektryczny(elecwire.huge.crystal) with machine-wire
-(BLOCKS) Adding elecwire.tiny.stellar with title Stellarinowy b-cienki kabel elektryczny and description:
- Power: 204.8 MW
 (ITEMS) Adding elecwire.tiny.stellar with title Stellarinowy b-cienki kabel elektryczny and description:
  Power: 204.8 MW
-(BLOCKS) Adding elecwire.small.stellar with title Stellarinowy cienki kabel elektryczny and description:
- Power: 409.6 MW
 (ITEMS) Adding elecwire.small.stellar with title Stellarinowy cienki kabel elektryczny and description:
  Power: 409.6 MW
-(BLOCKS) Adding elecwire.medium.stellar with title Stellarinowy średni kabel elektryczny and description:
- Power: 819.2 MW
 (ITEMS) Adding elecwire.medium.stellar with title Stellarinowy średni kabel elektryczny and description:
  Power: 819.2 MW
-(BLOCKS) Adding elecwire.large.stellar with title Stellarinowy gruby kabel elektryczny and description:
- Power: 1638.4 MW
 (ITEMS) Adding elecwire.large.stellar with title Stellarinowy gruby kabel elektryczny and description:
  Power: 1638.4 MW
-(BLOCKS) Adding elecwire.huge.stellar with title Stellarinowy b-gruby kabel elektryczny and description:
- Power: 3276.8 MW
 (ITEMS) Adding elecwire.huge.stellar with title Stellarinowy b-gruby kabel elektryczny and description:
  Power: 3276.8 MW
 (ITEMS) Tagging Item Stellarinowy b-cienki kabel elektryczny(elecwire.tiny.stellar) with voltage-LuV
@@ -6309,24 +5857,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Stellarinowy gruby kabel elektryczny(elecwire.large.stellar) with machine-wire
 (ITEMS) Tagging Item Stellarinowy b-gruby kabel elektryczny(elecwire.huge.stellar) with voltage-LuV
 (ITEMS) Tagging Item Stellarinowy b-gruby kabel elektryczny(elecwire.huge.stellar) with machine-wire
-(BLOCKS) Adding elecwire.tiny.unobtainium with title Unobtainiowy b-cienki kabel elektryczny and description:
- Power: 819.2 MW
 (ITEMS) Adding elecwire.tiny.unobtainium with title Unobtainiowy b-cienki kabel elektryczny and description:
  Power: 819.2 MW
-(BLOCKS) Adding elecwire.small.unobtainium with title Unobtainiowy cienki kabel elektryczny and description:
- Power: 1638.4 MW
 (ITEMS) Adding elecwire.small.unobtainium with title Unobtainiowy cienki kabel elektryczny and description:
  Power: 1638.4 MW
-(BLOCKS) Adding elecwire.medium.unobtainium with title Unobtainiowy średni kabel elektryczny and description:
- Power: 3276.8 MW
 (ITEMS) Adding elecwire.medium.unobtainium with title Unobtainiowy średni kabel elektryczny and description:
  Power: 3276.8 MW
-(BLOCKS) Adding elecwire.large.unobtainium with title Unobtainiowy gruby kabel elektryczny and description:
- Power: 6553.6 MW
 (ITEMS) Adding elecwire.large.unobtainium with title Unobtainiowy gruby kabel elektryczny and description:
  Power: 6553.6 MW
-(BLOCKS) Adding elecwire.huge.unobtainium with title Unobtainiowy b-gruby kabel elektryczny and description:
- Power: 13.1072 GW
 (ITEMS) Adding elecwire.huge.unobtainium with title Unobtainiowy b-gruby kabel elektryczny and description:
  Power: 13.1072 GW
 (ITEMS) Tagging Item Unobtainiowy b-cienki kabel elektryczny(elecwire.tiny.unobtainium) with voltage-MAX
@@ -6339,24 +5877,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Unobtainiowy gruby kabel elektryczny(elecwire.large.unobtainium) with machine-wire
 (ITEMS) Tagging Item Unobtainiowy b-gruby kabel elektryczny(elecwire.huge.unobtainium) with voltage-MAX
 (ITEMS) Tagging Item Unobtainiowy b-gruby kabel elektryczny(elecwire.huge.unobtainium) with machine-wire
-(BLOCKS) Adding elecwire.tiny.rudimentium with title Rudimentiowy b-cienki kabel elektryczny and description:
- Power: 100.0 kW
 (ITEMS) Adding elecwire.tiny.rudimentium with title Rudimentiowy b-cienki kabel elektryczny and description:
  Power: 100.0 kW
-(BLOCKS) Adding elecwire.small.rudimentium with title Rudimentiowy cienki kabel elektryczny and description:
- Power: 200.0 kW
 (ITEMS) Adding elecwire.small.rudimentium with title Rudimentiowy cienki kabel elektryczny and description:
  Power: 200.0 kW
-(BLOCKS) Adding elecwire.medium.rudimentium with title Rudimentiowy średni kabel elektryczny and description:
- Power: 400.0 kW
 (ITEMS) Adding elecwire.medium.rudimentium with title Rudimentiowy średni kabel elektryczny and description:
  Power: 400.0 kW
-(BLOCKS) Adding elecwire.large.rudimentium with title Rudimentiowy gruby kabel elektryczny and description:
- Power: 800.0 kW
 (ITEMS) Adding elecwire.large.rudimentium with title Rudimentiowy gruby kabel elektryczny and description:
  Power: 800.0 kW
-(BLOCKS) Adding elecwire.huge.rudimentium with title Rudimentiowy b-gruby kabel elektryczny and description:
- Power: 1600.0 kW
 (ITEMS) Adding elecwire.huge.rudimentium with title Rudimentiowy b-gruby kabel elektryczny and description:
  Power: 1600.0 kW
 (ITEMS) Tagging Item Rudimentiowy b-cienki kabel elektryczny(elecwire.tiny.rudimentium) with voltage-VLV
@@ -6369,24 +5897,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Rudimentiowy gruby kabel elektryczny(elecwire.large.rudimentium) with machine-wire
 (ITEMS) Tagging Item Rudimentiowy b-gruby kabel elektryczny(elecwire.huge.rudimentium) with voltage-VLV
 (ITEMS) Tagging Item Rudimentiowy b-gruby kabel elektryczny(elecwire.huge.rudimentium) with machine-wire
-(BLOCKS) Adding elecwire.tiny.energetic with title Energetyzujący b-cienki kabel elektryczny and description:
- Power: 1600.0 kW
 (ITEMS) Adding elecwire.tiny.energetic with title Energetyzujący b-cienki kabel elektryczny and description:
  Power: 1600.0 kW
-(BLOCKS) Adding elecwire.small.energetic with title Energetyzujący cienki kabel elektryczny and description:
- Power: 3200.0 kW
 (ITEMS) Adding elecwire.small.energetic with title Energetyzujący cienki kabel elektryczny and description:
  Power: 3200.0 kW
-(BLOCKS) Adding elecwire.medium.energetic with title Energetyzujący średni kabel elektryczny and description:
- Power: 6400.0 kW
 (ITEMS) Adding elecwire.medium.energetic with title Energetyzujący średni kabel elektryczny and description:
  Power: 6400.0 kW
-(BLOCKS) Adding elecwire.large.energetic with title Energetyzujący gruby kabel elektryczny and description:
- Power: 12.8 MW
 (ITEMS) Adding elecwire.large.energetic with title Energetyzujący gruby kabel elektryczny and description:
  Power: 12.8 MW
-(BLOCKS) Adding elecwire.huge.energetic with title Energetyzujący b-gruby kabel elektryczny and description:
- Power: 25.6 MW
 (ITEMS) Adding elecwire.huge.energetic with title Energetyzujący b-gruby kabel elektryczny and description:
  Power: 25.6 MW
 (ITEMS) Tagging Item Energetyzujący b-cienki kabel elektryczny(elecwire.tiny.energetic) with voltage-MV
@@ -6399,24 +5917,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Energetyzujący gruby kabel elektryczny(elecwire.large.energetic) with machine-wire
 (ITEMS) Tagging Item Energetyzujący b-gruby kabel elektryczny(elecwire.huge.energetic) with voltage-MV
 (ITEMS) Tagging Item Energetyzujący b-gruby kabel elektryczny(elecwire.huge.energetic) with machine-wire
-(BLOCKS) Adding elecwire.tiny.vibrant with title Wibrujący b-cienki kabel elektryczny and description:
- Power: 6400.0 kW
 (ITEMS) Adding elecwire.tiny.vibrant with title Wibrujący b-cienki kabel elektryczny and description:
  Power: 6400.0 kW
-(BLOCKS) Adding elecwire.small.vibrant with title Wibrujący cienki kabel elektryczny and description:
- Power: 12.8 MW
 (ITEMS) Adding elecwire.small.vibrant with title Wibrujący cienki kabel elektryczny and description:
  Power: 12.8 MW
-(BLOCKS) Adding elecwire.medium.vibrant with title Wibrujący średni kabel elektryczny and description:
- Power: 25.6 MW
 (ITEMS) Adding elecwire.medium.vibrant with title Wibrujący średni kabel elektryczny and description:
  Power: 25.6 MW
-(BLOCKS) Adding elecwire.large.vibrant with title Wibrujący gruby kabel elektryczny and description:
- Power: 51.2 MW
 (ITEMS) Adding elecwire.large.vibrant with title Wibrujący gruby kabel elektryczny and description:
  Power: 51.2 MW
-(BLOCKS) Adding elecwire.huge.vibrant with title Wibrujący b-gruby kabel elektryczny and description:
- Power: 102.4 MW
 (ITEMS) Adding elecwire.huge.vibrant with title Wibrujący b-gruby kabel elektryczny and description:
  Power: 102.4 MW
 (ITEMS) Tagging Item Wibrujący b-cienki kabel elektryczny(elecwire.tiny.vibrant) with voltage-HV
@@ -6429,24 +5937,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Wibrujący gruby kabel elektryczny(elecwire.large.vibrant) with machine-wire
 (ITEMS) Tagging Item Wibrujący b-gruby kabel elektryczny(elecwire.huge.vibrant) with voltage-HV
 (ITEMS) Tagging Item Wibrujący b-gruby kabel elektryczny(elecwire.huge.vibrant) with machine-wire
-(BLOCKS) Adding elecwire.tiny.signalum with title Signaliowy b-cienki kabel elektryczny and description:
- Power: 6400.0 kW
 (ITEMS) Adding elecwire.tiny.signalum with title Signaliowy b-cienki kabel elektryczny and description:
  Power: 6400.0 kW
-(BLOCKS) Adding elecwire.small.signalum with title Signaliowy cienki kabel elektryczny and description:
- Power: 12.8 MW
 (ITEMS) Adding elecwire.small.signalum with title Signaliowy cienki kabel elektryczny and description:
  Power: 12.8 MW
-(BLOCKS) Adding elecwire.medium.signalum with title Signaliowy średni kabel elektryczny and description:
- Power: 25.6 MW
 (ITEMS) Adding elecwire.medium.signalum with title Signaliowy średni kabel elektryczny and description:
  Power: 25.6 MW
-(BLOCKS) Adding elecwire.large.signalum with title Signaliowy gruby kabel elektryczny and description:
- Power: 51.2 MW
 (ITEMS) Adding elecwire.large.signalum with title Signaliowy gruby kabel elektryczny and description:
  Power: 51.2 MW
-(BLOCKS) Adding elecwire.huge.signalum with title Signaliowy b-gruby kabel elektryczny and description:
- Power: 102.4 MW
 (ITEMS) Adding elecwire.huge.signalum with title Signaliowy b-gruby kabel elektryczny and description:
  Power: 102.4 MW
 (ITEMS) Tagging Item Signaliowy b-cienki kabel elektryczny(elecwire.tiny.signalum) with voltage-HV
@@ -6459,24 +5957,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Signaliowy gruby kabel elektryczny(elecwire.large.signalum) with machine-wire
 (ITEMS) Tagging Item Signaliowy b-gruby kabel elektryczny(elecwire.huge.signalum) with voltage-HV
 (ITEMS) Tagging Item Signaliowy b-gruby kabel elektryczny(elecwire.huge.signalum) with machine-wire
-(BLOCKS) Adding elecwire.tiny.enderium with title Enderiowy b-cienki kabel elektryczny and description:
- Power: 25.6 MW
 (ITEMS) Adding elecwire.tiny.enderium with title Enderiowy b-cienki kabel elektryczny and description:
  Power: 25.6 MW
-(BLOCKS) Adding elecwire.small.enderium with title Enderiowy cienki kabel elektryczny and description:
- Power: 51.2 MW
 (ITEMS) Adding elecwire.small.enderium with title Enderiowy cienki kabel elektryczny and description:
  Power: 51.2 MW
-(BLOCKS) Adding elecwire.medium.enderium with title Enderiowy średni kabel elektryczny and description:
- Power: 102.4 MW
 (ITEMS) Adding elecwire.medium.enderium with title Enderiowy średni kabel elektryczny and description:
  Power: 102.4 MW
-(BLOCKS) Adding elecwire.large.enderium with title Enderiowy gruby kabel elektryczny and description:
- Power: 204.8 MW
 (ITEMS) Adding elecwire.large.enderium with title Enderiowy gruby kabel elektryczny and description:
  Power: 204.8 MW
-(BLOCKS) Adding elecwire.huge.enderium with title Enderiowy b-gruby kabel elektryczny and description:
- Power: 409.6 MW
 (ITEMS) Adding elecwire.huge.enderium with title Enderiowy b-gruby kabel elektryczny and description:
  Power: 409.6 MW
 (ITEMS) Tagging Item Enderiowy b-cienki kabel elektryczny(elecwire.tiny.enderium) with voltage-EV
@@ -6489,24 +5977,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Enderiowy gruby kabel elektryczny(elecwire.large.enderium) with machine-wire
 (ITEMS) Tagging Item Enderiowy b-gruby kabel elektryczny(elecwire.huge.enderium) with voltage-EV
 (ITEMS) Tagging Item Enderiowy b-gruby kabel elektryczny(elecwire.huge.enderium) with machine-wire
-(BLOCKS) Adding elecwire.tiny.draconium with title Draconiowy b-cienki kabel elektryczny and description:
- Power: 102.4 MW
 (ITEMS) Adding elecwire.tiny.draconium with title Draconiowy b-cienki kabel elektryczny and description:
  Power: 102.4 MW
-(BLOCKS) Adding elecwire.small.draconium with title Draconiowy cienki kabel elektryczny and description:
- Power: 204.8 MW
 (ITEMS) Adding elecwire.small.draconium with title Draconiowy cienki kabel elektryczny and description:
  Power: 204.8 MW
-(BLOCKS) Adding elecwire.medium.draconium with title Draconiowy średni kabel elektryczny and description:
- Power: 409.6 MW
 (ITEMS) Adding elecwire.medium.draconium with title Draconiowy średni kabel elektryczny and description:
  Power: 409.6 MW
-(BLOCKS) Adding elecwire.large.draconium with title Draconiowy gruby kabel elektryczny and description:
- Power: 819.2 MW
 (ITEMS) Adding elecwire.large.draconium with title Draconiowy gruby kabel elektryczny and description:
  Power: 819.2 MW
-(BLOCKS) Adding elecwire.huge.draconium with title Draconiowy b-gruby kabel elektryczny and description:
- Power: 1638.4 MW
 (ITEMS) Adding elecwire.huge.draconium with title Draconiowy b-gruby kabel elektryczny and description:
  Power: 1638.4 MW
 (ITEMS) Tagging Item Draconiowy b-cienki kabel elektryczny(elecwire.tiny.draconium) with voltage-IV
@@ -6519,24 +5997,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Draconiowy gruby kabel elektryczny(elecwire.large.draconium) with machine-wire
 (ITEMS) Tagging Item Draconiowy b-gruby kabel elektryczny(elecwire.huge.draconium) with voltage-IV
 (ITEMS) Tagging Item Draconiowy b-gruby kabel elektryczny(elecwire.huge.draconium) with machine-wire
-(BLOCKS) Adding elecwire.tiny.adraconium with title Awakened Draconiowy b-cienki kabel elektryczny and description:
- Power: 409.6 MW
 (ITEMS) Adding elecwire.tiny.adraconium with title Awakened Draconiowy b-cienki kabel elektryczny and description:
  Power: 409.6 MW
-(BLOCKS) Adding elecwire.small.adraconium with title Awakened Draconiowy cienki kabel elektryczny and description:
- Power: 819.2 MW
 (ITEMS) Adding elecwire.small.adraconium with title Awakened Draconiowy cienki kabel elektryczny and description:
  Power: 819.2 MW
-(BLOCKS) Adding elecwire.medium.adraconium with title Awakened Draconiowy średni kabel elektryczny and description:
- Power: 1638.4 MW
 (ITEMS) Adding elecwire.medium.adraconium with title Awakened Draconiowy średni kabel elektryczny and description:
  Power: 1638.4 MW
-(BLOCKS) Adding elecwire.large.adraconium with title Awakened Draconiowy gruby kabel elektryczny and description:
- Power: 3276.8 MW
 (ITEMS) Adding elecwire.large.adraconium with title Awakened Draconiowy gruby kabel elektryczny and description:
  Power: 3276.8 MW
-(BLOCKS) Adding elecwire.huge.adraconium with title Awakened Draconiowy b-gruby kabel elektryczny and description:
- Power: 6553.6 MW
 (ITEMS) Adding elecwire.huge.adraconium with title Awakened Draconiowy b-gruby kabel elektryczny and description:
  Power: 6553.6 MW
 (ITEMS) Tagging Item Awakened Draconiowy b-cienki kabel elektryczny(elecwire.tiny.adraconium) with voltage-LuV
@@ -6549,24 +6017,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Awakened Draconiowy gruby kabel elektryczny(elecwire.large.adraconium) with machine-wire
 (ITEMS) Tagging Item Awakened Draconiowy b-gruby kabel elektryczny(elecwire.huge.adraconium) with voltage-LuV
 (ITEMS) Tagging Item Awakened Draconiowy b-gruby kabel elektryczny(elecwire.huge.adraconium) with machine-wire
-(BLOCKS) Adding elecwire.tiny.chaotium with title Chaotiowy b-cienki kabel elektryczny and description:
- Power: 1638.4 MW
 (ITEMS) Adding elecwire.tiny.chaotium with title Chaotiowy b-cienki kabel elektryczny and description:
  Power: 1638.4 MW
-(BLOCKS) Adding elecwire.small.chaotium with title Chaotiowy cienki kabel elektryczny and description:
- Power: 3276.8 MW
 (ITEMS) Adding elecwire.small.chaotium with title Chaotiowy cienki kabel elektryczny and description:
  Power: 3276.8 MW
-(BLOCKS) Adding elecwire.medium.chaotium with title Chaotiowy średni kabel elektryczny and description:
- Power: 6553.6 MW
 (ITEMS) Adding elecwire.medium.chaotium with title Chaotiowy średni kabel elektryczny and description:
  Power: 6553.6 MW
-(BLOCKS) Adding elecwire.large.chaotium with title Chaotiowy gruby kabel elektryczny and description:
- Power: 13.1072 GW
 (ITEMS) Adding elecwire.large.chaotium with title Chaotiowy gruby kabel elektryczny and description:
  Power: 13.1072 GW
-(BLOCKS) Adding elecwire.huge.chaotium with title Chaotiowy b-gruby kabel elektryczny and description:
- Power: 26.2144 GW
 (ITEMS) Adding elecwire.huge.chaotium with title Chaotiowy b-gruby kabel elektryczny and description:
  Power: 26.2144 GW
 (ITEMS) Tagging Item Chaotiowy b-cienki kabel elektryczny(elecwire.tiny.chaotium) with voltage-MAX
@@ -6579,29 +6037,17 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Chaotiowy gruby kabel elektryczny(elecwire.large.chaotium) with machine-wire
 (ITEMS) Tagging Item Chaotiowy b-gruby kabel elektryczny(elecwire.huge.chaotium) with voltage-MAX
 (ITEMS) Tagging Item Chaotiowy b-gruby kabel elektryczny(elecwire.huge.chaotium) with machine-wire
-(BLOCKS) Deprecating ore.iron as mmb.iore
 (ITEMS) Deprecating ore.iron as mmb.iore
-(BLOCKS) Deprecating ore.copper as mmb.cpore
 (ITEMS) Deprecating ore.copper as mmb.cpore
-(BLOCKS) Deprecating ore.silicon as mmb.silicon_ore
 (ITEMS) Deprecating ore.silicon as mmb.silicon_ore
-(BLOCKS) Deprecating ore.silver as mmb.silverore
 (ITEMS) Deprecating ore.silver as mmb.silverore
-(BLOCKS) Deprecating ore.gold as mmb.goldore
 (ITEMS) Deprecating ore.gold as mmb.goldore
-(BLOCKS) Deprecating ore.uranium as mmb.uraniumore
 (ITEMS) Deprecating ore.uranium as mmb.uraniumore
-(BLOCKS) Deprecating elecwire.tiny.rudimentary as elec.tinywire
 (ITEMS) Deprecating elecwire.tiny.rudimentary as elec.tinywire
-(BLOCKS) Deprecating elecwire.small.rudimentary as elec.smallwire
 (ITEMS) Deprecating elecwire.small.rudimentary as elec.smallwire
-(BLOCKS) Deprecating elecwire.medium.rudimentary as elec.mediumwire
 (ITEMS) Deprecating elecwire.medium.rudimentary as elec.mediumwire
-(BLOCKS) Deprecating elecwire.large.rudimentary as elec.largewire
 (ITEMS) Deprecating elecwire.large.rudimentary as elec.largewire
-(BLOCKS) Deprecating industry.infinigen0 as elec.infinite
 (ITEMS) Deprecating industry.infinigen0 as elec.infinite
-(BLOCKS) Deprecating industry.infinigen0 as elec.infinite1
 (ITEMS) Deprecating industry.infinigen0 as elec.infinite1
 (ITEMS) Adding item.draconic with title Odłam draconiowy and description:
  (brak opisu)
@@ -7202,63 +6648,33 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging ItemRaw Item Rudymentowy kilof(pick.rudimentary) with tool
 (ITEMS) Tagging ItemRaw Item Rudymentowy kilof(pick.rudimentary) with raw
 (ITEMS) Deprecating rawitem.pick.rudimentary as pickHead.rudimentary
-(BLOCKS) Adding crop.seeds with title Pole uprawne and description:
- (brak opisu)
 (ITEMS) Adding crop.seeds with title Pole uprawne and description:
- (brak opisu)
-(BLOCKS) Adding crop.hops with title Uprawa chmielu and description:
  (brak opisu)
 (ITEMS) Adding crop.hops with title Uprawa chmielu and description:
  (brak opisu)
-(BLOCKS) Adding industry.furnace with title Piec and description:
- (brak opisu)
 (ITEMS) Adding industry.furnace with title Piec and description:
- (brak opisu)
-(BLOCKS) Adding industry.cycle0 with title Konstruktor cykliczny and description:
  (brak opisu)
 (ITEMS) Adding industry.cycle0 with title Konstruktor cykliczny and description:
  (brak opisu)
-(BLOCKS) Adding machines.pickbuilder with title zzz NIEAKTUALNE Warsztat kilofów (scraftuj to samo, aby odzyskać składniki) and description:
- (brak opisu)
 (ITEMS) Adding machines.pickbuilder with title zzz NIEAKTUALNE Warsztat kilofów (scraftuj to samo, aby odzyskać składniki) and description:
- (brak opisu)
-(BLOCKS) Adding industry.autocraft1 with title Auto-konstruktor 3X3 and description:
  (brak opisu)
 (ITEMS) Adding industry.autocraft1 with title Auto-konstruktor 3X3 and description:
  (brak opisu)
-(BLOCKS) Adding industry.electrofurnace0 with title Piec ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.electrofurnace0 with title Piec ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.electrofurnace1 with title Piec VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.electrofurnace1 with title Piec VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.electrofurnace2 with title Piec LV and description:
- (brak opisu)
 (ITEMS) Adding industry.electrofurnace2 with title Piec LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.electrofurnace3 with title Piec MV and description:
  (brak opisu)
 (ITEMS) Adding industry.electrofurnace3 with title Piec MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.electrofurnace4 with title Piec HV and description:
- (brak opisu)
 (ITEMS) Adding industry.electrofurnace4 with title Piec HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.electrofurnace5 with title Piec EV and description:
  (brak opisu)
 (ITEMS) Adding industry.electrofurnace5 with title Piec EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.electrofurnace6 with title Piec IV and description:
- (brak opisu)
 (ITEMS) Adding industry.electrofurnace6 with title Piec IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.electrofurnace7 with title Piec LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.electrofurnace7 with title Piec LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.electrofurnace8 with title Piec MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.electrofurnace8 with title Piec MAX and description:
  (brak opisu)
@@ -7280,39 +6696,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Piec IV(industry.electrofurnace6) with voltage-IV
 (ITEMS) Tagging Item Piec LuV(industry.electrofurnace7) with voltage-LuV
 (ITEMS) Tagging Item Piec MAX(industry.electrofurnace8) with voltage-MAX
-(BLOCKS) Adding industry.crusher0 with title Rozdrabniacz ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.crusher0 with title Rozdrabniacz ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.crusher1 with title Rozdrabniacz VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.crusher1 with title Rozdrabniacz VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.crusher2 with title Rozdrabniacz LV and description:
- (brak opisu)
 (ITEMS) Adding industry.crusher2 with title Rozdrabniacz LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.crusher3 with title Rozdrabniacz MV and description:
  (brak opisu)
 (ITEMS) Adding industry.crusher3 with title Rozdrabniacz MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.crusher4 with title Rozdrabniacz HV and description:
- (brak opisu)
 (ITEMS) Adding industry.crusher4 with title Rozdrabniacz HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.crusher5 with title Rozdrabniacz EV and description:
  (brak opisu)
 (ITEMS) Adding industry.crusher5 with title Rozdrabniacz EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.crusher6 with title Rozdrabniacz IV and description:
- (brak opisu)
 (ITEMS) Adding industry.crusher6 with title Rozdrabniacz IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.crusher7 with title Rozdrabniacz LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.crusher7 with title Rozdrabniacz LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.crusher8 with title Rozdrabniacz MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.crusher8 with title Rozdrabniacz MAX and description:
  (brak opisu)
@@ -7334,39 +6732,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Rozdrabniacz IV(industry.crusher6) with voltage-IV
 (ITEMS) Tagging Item Rozdrabniacz LuV(industry.crusher7) with voltage-LuV
 (ITEMS) Tagging Item Rozdrabniacz MAX(industry.crusher8) with voltage-MAX
-(BLOCKS) Adding industry.clustermill0 with title Walec ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.clustermill0 with title Walec ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.clustermill1 with title Walec VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.clustermill1 with title Walec VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.clustermill2 with title Walec LV and description:
- (brak opisu)
 (ITEMS) Adding industry.clustermill2 with title Walec LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.clustermill3 with title Walec MV and description:
  (brak opisu)
 (ITEMS) Adding industry.clustermill3 with title Walec MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.clustermill4 with title Walec HV and description:
- (brak opisu)
 (ITEMS) Adding industry.clustermill4 with title Walec HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.clustermill5 with title Walec EV and description:
  (brak opisu)
 (ITEMS) Adding industry.clustermill5 with title Walec EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.clustermill6 with title Walec IV and description:
- (brak opisu)
 (ITEMS) Adding industry.clustermill6 with title Walec IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.clustermill7 with title Walec LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.clustermill7 with title Walec LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.clustermill8 with title Walec MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.clustermill8 with title Walec MAX and description:
  (brak opisu)
@@ -7388,39 +6768,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Walec IV(industry.clustermill6) with voltage-IV
 (ITEMS) Tagging Item Walec LuV(industry.clustermill7) with voltage-LuV
 (ITEMS) Tagging Item Walec MAX(industry.clustermill8) with voltage-MAX
-(BLOCKS) Adding industry.wiremill0 with title Druciarka ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.wiremill0 with title Druciarka ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.wiremill1 with title Druciarka VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.wiremill1 with title Druciarka VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.wiremill2 with title Druciarka LV and description:
- (brak opisu)
 (ITEMS) Adding industry.wiremill2 with title Druciarka LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.wiremill3 with title Druciarka MV and description:
  (brak opisu)
 (ITEMS) Adding industry.wiremill3 with title Druciarka MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.wiremill4 with title Druciarka HV and description:
- (brak opisu)
 (ITEMS) Adding industry.wiremill4 with title Druciarka HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.wiremill5 with title Druciarka EV and description:
  (brak opisu)
 (ITEMS) Adding industry.wiremill5 with title Druciarka EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.wiremill6 with title Druciarka IV and description:
- (brak opisu)
 (ITEMS) Adding industry.wiremill6 with title Druciarka IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.wiremill7 with title Druciarka LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.wiremill7 with title Druciarka LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.wiremill8 with title Druciarka MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.wiremill8 with title Druciarka MAX and description:
  (brak opisu)
@@ -7442,39 +6804,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Druciarka IV(industry.wiremill6) with voltage-IV
 (ITEMS) Tagging Item Druciarka LuV(industry.wiremill7) with voltage-LuV
 (ITEMS) Tagging Item Druciarka MAX(industry.wiremill8) with voltage-MAX
-(BLOCKS) Adding industry.alloyer0 with title Stapiacz ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.alloyer0 with title Stapiacz ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.alloyer1 with title Stapiacz VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.alloyer1 with title Stapiacz VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.alloyer2 with title Stapiacz LV and description:
- (brak opisu)
 (ITEMS) Adding industry.alloyer2 with title Stapiacz LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.alloyer3 with title Stapiacz MV and description:
  (brak opisu)
 (ITEMS) Adding industry.alloyer3 with title Stapiacz MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.alloyer4 with title Stapiacz HV and description:
- (brak opisu)
 (ITEMS) Adding industry.alloyer4 with title Stapiacz HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.alloyer5 with title Stapiacz EV and description:
  (brak opisu)
 (ITEMS) Adding industry.alloyer5 with title Stapiacz EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.alloyer6 with title Stapiacz IV and description:
- (brak opisu)
 (ITEMS) Adding industry.alloyer6 with title Stapiacz IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.alloyer7 with title Stapiacz LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.alloyer7 with title Stapiacz LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.alloyer8 with title Stapiacz MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.alloyer8 with title Stapiacz MAX and description:
  (brak opisu)
@@ -7496,39 +6840,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Stapiacz IV(industry.alloyer6) with voltage-IV
 (ITEMS) Tagging Item Stapiacz LuV(industry.alloyer7) with voltage-LuV
 (ITEMS) Tagging Item Stapiacz MAX(industry.alloyer8) with voltage-MAX
-(BLOCKS) Adding industry.assembler0 with title Monter ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.assembler0 with title Monter ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.assembler1 with title Monter VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.assembler1 with title Monter VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.assembler2 with title Monter LV and description:
- (brak opisu)
 (ITEMS) Adding industry.assembler2 with title Monter LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.assembler3 with title Monter MV and description:
  (brak opisu)
 (ITEMS) Adding industry.assembler3 with title Monter MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.assembler4 with title Monter HV and description:
- (brak opisu)
 (ITEMS) Adding industry.assembler4 with title Monter HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.assembler5 with title Monter EV and description:
  (brak opisu)
 (ITEMS) Adding industry.assembler5 with title Monter EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.assembler6 with title Monter IV and description:
- (brak opisu)
 (ITEMS) Adding industry.assembler6 with title Monter IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.assembler7 with title Monter LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.assembler7 with title Monter LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.assembler8 with title Monter MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.assembler8 with title Monter MAX and description:
  (brak opisu)
@@ -7550,39 +6876,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Monter IV(industry.assembler6) with voltage-IV
 (ITEMS) Tagging Item Monter LuV(industry.assembler7) with voltage-LuV
 (ITEMS) Tagging Item Monter MAX(industry.assembler8) with voltage-MAX
-(BLOCKS) Adding industry.spllitter0 with title Rozcinacz ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.spllitter0 with title Rozcinacz ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.spllitter1 with title Rozcinacz VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.spllitter1 with title Rozcinacz VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.spllitter2 with title Rozcinacz LV and description:
- (brak opisu)
 (ITEMS) Adding industry.spllitter2 with title Rozcinacz LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.spllitter3 with title Rozcinacz MV and description:
  (brak opisu)
 (ITEMS) Adding industry.spllitter3 with title Rozcinacz MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.spllitter4 with title Rozcinacz HV and description:
- (brak opisu)
 (ITEMS) Adding industry.spllitter4 with title Rozcinacz HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.spllitter5 with title Rozcinacz EV and description:
  (brak opisu)
 (ITEMS) Adding industry.spllitter5 with title Rozcinacz EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.spllitter6 with title Rozcinacz IV and description:
- (brak opisu)
 (ITEMS) Adding industry.spllitter6 with title Rozcinacz IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.spllitter7 with title Rozcinacz LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.spllitter7 with title Rozcinacz LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.spllitter8 with title Rozcinacz MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.spllitter8 with title Rozcinacz MAX and description:
  (brak opisu)
@@ -7604,39 +6912,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Rozcinacz IV(industry.spllitter6) with voltage-IV
 (ITEMS) Tagging Item Rozcinacz LuV(industry.spllitter7) with voltage-LuV
 (ITEMS) Tagging Item Rozcinacz MAX(industry.spllitter8) with voltage-MAX
-(BLOCKS) Adding industry.splicer0 with title Zespalacz ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.splicer0 with title Zespalacz ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.splicer1 with title Zespalacz VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.splicer1 with title Zespalacz VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.splicer2 with title Zespalacz LV and description:
- (brak opisu)
 (ITEMS) Adding industry.splicer2 with title Zespalacz LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.splicer3 with title Zespalacz MV and description:
  (brak opisu)
 (ITEMS) Adding industry.splicer3 with title Zespalacz MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.splicer4 with title Zespalacz HV and description:
- (brak opisu)
 (ITEMS) Adding industry.splicer4 with title Zespalacz HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.splicer5 with title Zespalacz EV and description:
  (brak opisu)
 (ITEMS) Adding industry.splicer5 with title Zespalacz EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.splicer6 with title Zespalacz IV and description:
- (brak opisu)
 (ITEMS) Adding industry.splicer6 with title Zespalacz IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.splicer7 with title Zespalacz LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.splicer7 with title Zespalacz LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.splicer8 with title Zespalacz MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.splicer8 with title Zespalacz MAX and description:
  (brak opisu)
@@ -7658,39 +6948,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Zespalacz IV(industry.splicer6) with voltage-IV
 (ITEMS) Tagging Item Zespalacz LuV(industry.splicer7) with voltage-LuV
 (ITEMS) Tagging Item Zespalacz MAX(industry.splicer8) with voltage-MAX
-(BLOCKS) Adding industry.brewery0 with title Browar ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.brewery0 with title Browar ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.brewery1 with title Browar VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.brewery1 with title Browar VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.brewery2 with title Browar LV and description:
- (brak opisu)
 (ITEMS) Adding industry.brewery2 with title Browar LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.brewery3 with title Browar MV and description:
  (brak opisu)
 (ITEMS) Adding industry.brewery3 with title Browar MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.brewery4 with title Browar HV and description:
- (brak opisu)
 (ITEMS) Adding industry.brewery4 with title Browar HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.brewery5 with title Browar EV and description:
  (brak opisu)
 (ITEMS) Adding industry.brewery5 with title Browar EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.brewery6 with title Browar IV and description:
- (brak opisu)
 (ITEMS) Adding industry.brewery6 with title Browar IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.brewery7 with title Browar LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.brewery7 with title Browar LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.brewery8 with title Browar MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.brewery8 with title Browar MAX and description:
  (brak opisu)
@@ -7712,39 +6984,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Browar IV(industry.brewery6) with voltage-IV
 (ITEMS) Tagging Item Browar LuV(industry.brewery7) with voltage-LuV
 (ITEMS) Tagging Item Browar MAX(industry.brewery8) with voltage-MAX
-(BLOCKS) Adding industry.extruder0 with title Wyciskarka ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.extruder0 with title Wyciskarka ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.extruder1 with title Wyciskarka VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.extruder1 with title Wyciskarka VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.extruder2 with title Wyciskarka LV and description:
- (brak opisu)
 (ITEMS) Adding industry.extruder2 with title Wyciskarka LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.extruder3 with title Wyciskarka MV and description:
  (brak opisu)
 (ITEMS) Adding industry.extruder3 with title Wyciskarka MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.extruder4 with title Wyciskarka HV and description:
- (brak opisu)
 (ITEMS) Adding industry.extruder4 with title Wyciskarka HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.extruder5 with title Wyciskarka EV and description:
  (brak opisu)
 (ITEMS) Adding industry.extruder5 with title Wyciskarka EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.extruder6 with title Wyciskarka IV and description:
- (brak opisu)
 (ITEMS) Adding industry.extruder6 with title Wyciskarka IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.extruder7 with title Wyciskarka LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.extruder7 with title Wyciskarka LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.extruder8 with title Wyciskarka MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.extruder8 with title Wyciskarka MAX and description:
  (brak opisu)
@@ -7766,39 +7020,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Wyciskarka IV(industry.extruder6) with voltage-IV
 (ITEMS) Tagging Item Wyciskarka LuV(industry.extruder7) with voltage-LuV
 (ITEMS) Tagging Item Wyciskarka MAX(industry.extruder8) with voltage-MAX
-(BLOCKS) Adding industry.inscriber0 with title Wprasowywarka ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.inscriber0 with title Wprasowywarka ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.inscriber1 with title Wprasowywarka VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.inscriber1 with title Wprasowywarka VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.inscriber2 with title Wprasowywarka LV and description:
- (brak opisu)
 (ITEMS) Adding industry.inscriber2 with title Wprasowywarka LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.inscriber3 with title Wprasowywarka MV and description:
  (brak opisu)
 (ITEMS) Adding industry.inscriber3 with title Wprasowywarka MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.inscriber4 with title Wprasowywarka HV and description:
- (brak opisu)
 (ITEMS) Adding industry.inscriber4 with title Wprasowywarka HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.inscriber5 with title Wprasowywarka EV and description:
  (brak opisu)
 (ITEMS) Adding industry.inscriber5 with title Wprasowywarka EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.inscriber6 with title Wprasowywarka IV and description:
- (brak opisu)
 (ITEMS) Adding industry.inscriber6 with title Wprasowywarka IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.inscriber7 with title Wprasowywarka LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.inscriber7 with title Wprasowywarka LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.inscriber8 with title Wprasowywarka MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.inscriber8 with title Wprasowywarka MAX and description:
  (brak opisu)
@@ -7820,39 +7056,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Wprasowywarka IV(industry.inscriber6) with voltage-IV
 (ITEMS) Tagging Item Wprasowywarka LuV(industry.inscriber7) with voltage-LuV
 (ITEMS) Tagging Item Wprasowywarka MAX(industry.inscriber8) with voltage-MAX
-(BLOCKS) Adding industry.sinterer0 with title Fabryka węglików spiekanych ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.sinterer0 with title Fabryka węglików spiekanych ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.sinterer1 with title Fabryka węglików spiekanych VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.sinterer1 with title Fabryka węglików spiekanych VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.sinterer2 with title Fabryka węglików spiekanych LV and description:
- (brak opisu)
 (ITEMS) Adding industry.sinterer2 with title Fabryka węglików spiekanych LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.sinterer3 with title Fabryka węglików spiekanych MV and description:
  (brak opisu)
 (ITEMS) Adding industry.sinterer3 with title Fabryka węglików spiekanych MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.sinterer4 with title Fabryka węglików spiekanych HV and description:
- (brak opisu)
 (ITEMS) Adding industry.sinterer4 with title Fabryka węglików spiekanych HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.sinterer5 with title Fabryka węglików spiekanych EV and description:
  (brak opisu)
 (ITEMS) Adding industry.sinterer5 with title Fabryka węglików spiekanych EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.sinterer6 with title Fabryka węglików spiekanych IV and description:
- (brak opisu)
 (ITEMS) Adding industry.sinterer6 with title Fabryka węglików spiekanych IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.sinterer7 with title Fabryka węglików spiekanych LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.sinterer7 with title Fabryka węglików spiekanych LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.sinterer8 with title Fabryka węglików spiekanych MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.sinterer8 with title Fabryka węglików spiekanych MAX and description:
  (brak opisu)
@@ -7874,39 +7092,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Fabryka węglików spiekanych IV(industry.sinterer6) with voltage-IV
 (ITEMS) Tagging Item Fabryka węglików spiekanych LuV(industry.sinterer7) with voltage-LuV
 (ITEMS) Tagging Item Fabryka węglików spiekanych MAX(industry.sinterer8) with voltage-MAX
-(BLOCKS) Adding industry.digger0 with title Koparka ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.digger0 with title Koparka ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.digger1 with title Koparka VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.digger1 with title Koparka VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.digger2 with title Koparka LV and description:
- (brak opisu)
 (ITEMS) Adding industry.digger2 with title Koparka LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.digger3 with title Koparka MV and description:
  (brak opisu)
 (ITEMS) Adding industry.digger3 with title Koparka MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.digger4 with title Koparka HV and description:
- (brak opisu)
 (ITEMS) Adding industry.digger4 with title Koparka HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.digger5 with title Koparka EV and description:
  (brak opisu)
 (ITEMS) Adding industry.digger5 with title Koparka EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.digger6 with title Koparka IV and description:
- (brak opisu)
 (ITEMS) Adding industry.digger6 with title Koparka IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.digger7 with title Koparka LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.digger7 with title Koparka LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.digger8 with title Koparka MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.digger8 with title Koparka MAX and description:
  (brak opisu)
@@ -7928,39 +7128,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Koparka IV(industry.digger6) with voltage-IV
 (ITEMS) Tagging Item Koparka LuV(industry.digger7) with voltage-LuV
 (ITEMS) Tagging Item Koparka MAX(industry.digger8) with voltage-MAX
-(BLOCKS) Adding industry.ptower0 with title Wieża energetyczna ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.ptower0 with title Wieża energetyczna ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.ptower1 with title Wieża energetyczna VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.ptower1 with title Wieża energetyczna VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.ptower2 with title Wieża energetyczna LV and description:
- (brak opisu)
 (ITEMS) Adding industry.ptower2 with title Wieża energetyczna LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.ptower3 with title Wieża energetyczna MV and description:
  (brak opisu)
 (ITEMS) Adding industry.ptower3 with title Wieża energetyczna MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.ptower4 with title Wieża energetyczna HV and description:
- (brak opisu)
 (ITEMS) Adding industry.ptower4 with title Wieża energetyczna HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.ptower5 with title Wieża energetyczna EV and description:
  (brak opisu)
 (ITEMS) Adding industry.ptower5 with title Wieża energetyczna EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.ptower6 with title Wieża energetyczna IV and description:
- (brak opisu)
 (ITEMS) Adding industry.ptower6 with title Wieża energetyczna IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.ptower7 with title Wieża energetyczna LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.ptower7 with title Wieża energetyczna LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.ptower8 with title Wieża energetyczna MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.ptower8 with title Wieża energetyczna MAX and description:
  (brak opisu)
@@ -7982,39 +7164,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Wieża energetyczna IV(industry.ptower6) with voltage-IV
 (ITEMS) Tagging Item Wieża energetyczna LuV(industry.ptower7) with voltage-LuV
 (ITEMS) Tagging Item Wieża energetyczna MAX(industry.ptower8) with voltage-MAX
-(BLOCKS) Adding industry.preceiver0 with title Odbiornik prądu ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.preceiver0 with title Odbiornik prądu ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.preceiver1 with title Odbiornik prądu VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.preceiver1 with title Odbiornik prądu VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.preceiver2 with title Odbiornik prądu LV and description:
- (brak opisu)
 (ITEMS) Adding industry.preceiver2 with title Odbiornik prądu LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.preceiver3 with title Odbiornik prądu MV and description:
  (brak opisu)
 (ITEMS) Adding industry.preceiver3 with title Odbiornik prądu MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.preceiver4 with title Odbiornik prądu HV and description:
- (brak opisu)
 (ITEMS) Adding industry.preceiver4 with title Odbiornik prądu HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.preceiver5 with title Odbiornik prądu EV and description:
  (brak opisu)
 (ITEMS) Adding industry.preceiver5 with title Odbiornik prądu EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.preceiver6 with title Odbiornik prądu IV and description:
- (brak opisu)
 (ITEMS) Adding industry.preceiver6 with title Odbiornik prądu IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.preceiver7 with title Odbiornik prądu LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.preceiver7 with title Odbiornik prądu LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.preceiver8 with title Odbiornik prądu MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.preceiver8 with title Odbiornik prądu MAX and description:
  (brak opisu)
@@ -8036,39 +7200,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Odbiornik prądu IV(industry.preceiver6) with voltage-IV
 (ITEMS) Tagging Item Odbiornik prądu LuV(industry.preceiver7) with voltage-LuV
 (ITEMS) Tagging Item Odbiornik prądu MAX(industry.preceiver8) with voltage-MAX
-(BLOCKS) Adding industry.quarry0 with title Kamieniołom ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.quarry0 with title Kamieniołom ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.quarry1 with title Kamieniołom VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.quarry1 with title Kamieniołom VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.quarry2 with title Kamieniołom LV and description:
- (brak opisu)
 (ITEMS) Adding industry.quarry2 with title Kamieniołom LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.quarry3 with title Kamieniołom MV and description:
  (brak opisu)
 (ITEMS) Adding industry.quarry3 with title Kamieniołom MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.quarry4 with title Kamieniołom HV and description:
- (brak opisu)
 (ITEMS) Adding industry.quarry4 with title Kamieniołom HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.quarry5 with title Kamieniołom EV and description:
  (brak opisu)
 (ITEMS) Adding industry.quarry5 with title Kamieniołom EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.quarry6 with title Kamieniołom IV and description:
- (brak opisu)
 (ITEMS) Adding industry.quarry6 with title Kamieniołom IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.quarry7 with title Kamieniołom LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.quarry7 with title Kamieniołom LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.quarry8 with title Kamieniołom MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.quarry8 with title Kamieniołom MAX and description:
  (brak opisu)
@@ -8090,39 +7236,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Kamieniołom IV(industry.quarry6) with voltage-IV
 (ITEMS) Tagging Item Kamieniołom LuV(industry.quarry7) with voltage-LuV
 (ITEMS) Tagging Item Kamieniołom MAX(industry.quarry8) with voltage-MAX
-(BLOCKS) Adding industry.battery0 with title Bateria ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.battery0 with title Bateria ULV and description:
- (brak opisu)
-(BLOCKS) Adding industry.battery1 with title Bateria VLV and description:
  (brak opisu)
 (ITEMS) Adding industry.battery1 with title Bateria VLV and description:
  (brak opisu)
-(BLOCKS) Adding industry.battery2 with title Bateria LV and description:
- (brak opisu)
 (ITEMS) Adding industry.battery2 with title Bateria LV and description:
- (brak opisu)
-(BLOCKS) Adding industry.battery3 with title Bateria MV and description:
  (brak opisu)
 (ITEMS) Adding industry.battery3 with title Bateria MV and description:
  (brak opisu)
-(BLOCKS) Adding industry.battery4 with title Bateria HV and description:
- (brak opisu)
 (ITEMS) Adding industry.battery4 with title Bateria HV and description:
- (brak opisu)
-(BLOCKS) Adding industry.battery5 with title Bateria EV and description:
  (brak opisu)
 (ITEMS) Adding industry.battery5 with title Bateria EV and description:
  (brak opisu)
-(BLOCKS) Adding industry.battery6 with title Bateria IV and description:
- (brak opisu)
 (ITEMS) Adding industry.battery6 with title Bateria IV and description:
  (brak opisu)
-(BLOCKS) Adding industry.battery7 with title Bateria LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.battery7 with title Bateria LuV and description:
- (brak opisu)
-(BLOCKS) Adding industry.battery8 with title Bateria MAX and description:
  (brak opisu)
 (ITEMS) Adding industry.battery8 with title Bateria MAX and description:
  (brak opisu)
@@ -8144,35 +7272,19 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Bateria IV(industry.battery6) with voltage-IV
 (ITEMS) Tagging Item Bateria LuV(industry.battery7) with voltage-LuV
 (ITEMS) Tagging Item Bateria MAX(industry.battery8) with voltage-MAX
-(BLOCKS) Adding playerpipe.straight with title Rura dla graczy - prosta and description:
- (brak opisu)
 (ITEMS) Adding playerpipe.straight with title Rura dla graczy - prosta and description:
- (brak opisu)
-(BLOCKS) Adding playerpipe.bend with title Rura dla graczy - zakręt and description:
  (brak opisu)
 (ITEMS) Adding playerpipe.bend with title Rura dla graczy - zakręt and description:
  (brak opisu)
-(BLOCKS) Adding playerpipe.straight2 with title Rura dla graczy - krzyż and description:
- (brak opisu)
 (ITEMS) Adding playerpipe.straight2 with title Rura dla graczy - krzyż and description:
- (brak opisu)
-(BLOCKS) Adding playerpipe.bend2 with title Rura dla graczy - 2zakr and description:
  (brak opisu)
 (ITEMS) Adding playerpipe.bend2 with title Rura dla graczy - 2zakr and description:
  (brak opisu)
-(BLOCKS) Adding playerpipe.end with title Rura dla graczy - wjazd and description:
- (brak opisu)
 (ITEMS) Adding playerpipe.end with title Rura dla graczy - wjazd and description:
- (brak opisu)
-(BLOCKS) Adding playerpipe.adj with title Rura dla graczy - złącz and description:
  (brak opisu)
 (ITEMS) Adding playerpipe.adj with title Rura dla graczy - złącz and description:
  (brak opisu)
-(BLOCKS) Adding playerpipe.adj2 with title Rura dla graczy - zjazd and description:
- (brak opisu)
 (ITEMS) Adding playerpipe.adj2 with title Rura dla graczy - zjazd and description:
- (brak opisu)
-(BLOCKS) Adding multi.speaker with title Głośnik and description:
  (brak opisu)
 (ITEMS) Adding multi.speaker with title Głośnik and description:
  (brak opisu)
@@ -8206,27 +7318,15 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Rura dla graczy - zjazd(playerpipe.adj2) with player-pipe
 (ITEMS) Tagging Item Rura dla graczy - wjazd(playerpipe.end) with player-pipe
 (ITEMS) Tagging Block zzz NIEAKTUALNE Warsztat kilofów (scraftuj to samo, aby odzyskać składniki)(machines.pickbuilder) with workbench
-(BLOCKS) Adding crafting.1 with title Stół rzemieślniczy 1 and description:
- (brak opisu)
 (ITEMS) Adding crafting.1 with title Stół rzemieślniczy 1 and description:
- (brak opisu)
-(BLOCKS) Adding crafting.2 with title Stół rzemieślniczy 2 and description:
  (brak opisu)
 (ITEMS) Adding crafting.2 with title Stół rzemieślniczy 2 and description:
  (brak opisu)
-(BLOCKS) Adding crafting.3 with title Stół rzemieślniczy 3 and description:
- (brak opisu)
 (ITEMS) Adding crafting.3 with title Stół rzemieślniczy 3 and description:
- (brak opisu)
-(BLOCKS) Adding crafting.4 with title Stół rzemieślniczy 4 and description:
  (brak opisu)
 (ITEMS) Adding crafting.4 with title Stół rzemieślniczy 4 and description:
  (brak opisu)
-(BLOCKS) Adding crafting.5 with title Stół rzemieślniczy 5 and description:
- (brak opisu)
 (ITEMS) Adding crafting.5 with title Stół rzemieślniczy 5 and description:
- (brak opisu)
-(BLOCKS) Adding crafting.6 with title Stół rzemieślniczy 6 and description:
  (brak opisu)
 (ITEMS) Adding crafting.6 with title Stół rzemieślniczy 6 and description:
  (brak opisu)
@@ -8647,8 +7747,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SETTINGS LIST) STN-terminal=Terminal STN
 (SETTINGS LIST) STN-exporter=Eksporter STN
 (SETTINGS LIST) ^^^^ Resource bundle end ^^^
-(BLOCKS) Adding block.stna with title Blok ze stopu STN a and description:
- (brak opisu)
 (ITEMS) Adding block.stna with title Blok ze stopu STN a and description:
  (brak opisu)
 (ITEMS) Adding fcluster.stna with title Klaster ze stopu STN a and description:
@@ -8717,8 +7815,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień ze stopu STN a(ring.stna) with shape-ring
 (ITEMS) Tagging Item Arkusz ze stopu STN a(sheet.stna) with shape-sheet
 (ITEMS) Tagging Item Klatka ze stopu STN a(frame.stna) with shape-frame
-(BLOCKS) Adding block.stnb with title Blok ze stopu STN b and description:
- (brak opisu)
 (ITEMS) Adding block.stnb with title Blok ze stopu STN b and description:
  (brak opisu)
 (ITEMS) Adding fcluster.stnb with title Klaster ze stopu STN b and description:
@@ -8787,8 +7883,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień ze stopu STN b(ring.stnb) with shape-ring
 (ITEMS) Tagging Item Arkusz ze stopu STN b(sheet.stnb) with shape-sheet
 (ITEMS) Tagging Item Klatka ze stopu STN b(frame.stnb) with shape-frame
-(BLOCKS) Adding block.stnc with title Blok ze stopu STN c and description:
- (brak opisu)
 (ITEMS) Adding block.stnc with title Blok ze stopu STN c and description:
  (brak opisu)
 (ITEMS) Adding fcluster.stnc with title Klaster ze stopu STN c and description:
@@ -8857,8 +7951,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Pierścień ze stopu STN c(ring.stnc) with shape-ring
 (ITEMS) Tagging Item Arkusz ze stopu STN c(sheet.stnc) with shape-sheet
 (ITEMS) Tagging Item Klatka ze stopu STN c(frame.stnc) with shape-frame
-(BLOCKS) Adding block.stnd with title Blok ze stopu STN d and description:
- (brak opisu)
 (ITEMS) Adding block.stnd with title Blok ze stopu STN d and description:
  (brak opisu)
 (ITEMS) Adding fcluster.stnd with title Klaster ze stopu STN d and description:
@@ -8929,19 +8021,11 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Klatka ze stopu STN d(frame.stnd) with shape-frame
 (ITEMS) Adding stn.cabler with title Wieszacz STN-ów and description:
  Modyfikuje podwieszane kable STN
-(BLOCKS) Adding stnb.storage with title Łącznik magazynowy STN and description:
- (brak opisu)
 (ITEMS) Adding stnb.storage with title Łącznik magazynowy STN and description:
- (brak opisu)
-(BLOCKS) Adding stnb.terminal with title Terminal STN and description:
  (brak opisu)
 (ITEMS) Adding stnb.terminal with title Terminal STN and description:
  (brak opisu)
-(BLOCKS) Adding stnb.exporter with title Eksporter STN and description:
- (brak opisu)
 (ITEMS) Adding stnb.exporter with title Eksporter STN and description:
- (brak opisu)
-(BLOCKS) Adding stnb.importer with title Importer STN and description:
  (brak opisu)
 (ITEMS) Adding stnb.importer with title Importer STN and description:
  (brak opisu)
@@ -8956,57 +8040,41 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
  Modyfikuje podwieszane kable STN
 (ITEMS) Tagging ItemRaw Item Wieszacz STN-ów(stn.cabler) with STN
 (ITEMS) Tagging ItemRaw Item Wieszacz STN-ów(stn.cabler) with raw
-(BLOCKS) Adding industry.transformer0 with title Transformer VLV/ULV and description:
- (brak opisu)
 (ITEMS) Adding industry.transformer0 with title Transformer VLV/ULV and description:
  (brak opisu)
 (ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with voltage-VLV
 (ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with voltage-ULV
 (ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with machine-transformer
-(BLOCKS) Adding industry.transformer1 with title Transformer LV/VLV and description:
- (brak opisu)
 (ITEMS) Adding industry.transformer1 with title Transformer LV/VLV and description:
  (brak opisu)
 (ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with voltage-LV
 (ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with voltage-VLV
 (ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with machine-transformer
-(BLOCKS) Adding industry.transformer2 with title Transformer MV/LV and description:
- (brak opisu)
 (ITEMS) Adding industry.transformer2 with title Transformer MV/LV and description:
  (brak opisu)
 (ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with voltage-MV
 (ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with voltage-LV
 (ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with machine-transformer
-(BLOCKS) Adding industry.transformer3 with title Transformer HV/MV and description:
- (brak opisu)
 (ITEMS) Adding industry.transformer3 with title Transformer HV/MV and description:
  (brak opisu)
 (ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with voltage-HV
 (ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with voltage-MV
 (ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with machine-transformer
-(BLOCKS) Adding industry.transformer4 with title Transformer EV/HV and description:
- (brak opisu)
 (ITEMS) Adding industry.transformer4 with title Transformer EV/HV and description:
  (brak opisu)
 (ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with voltage-EV
 (ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with voltage-HV
 (ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with machine-transformer
-(BLOCKS) Adding industry.transformer5 with title Transformer IV/EV and description:
- (brak opisu)
 (ITEMS) Adding industry.transformer5 with title Transformer IV/EV and description:
  (brak opisu)
 (ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with voltage-IV
 (ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with voltage-EV
 (ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with machine-transformer
-(BLOCKS) Adding industry.transformer6 with title Transformer LuV/IV and description:
- (brak opisu)
 (ITEMS) Adding industry.transformer6 with title Transformer LuV/IV and description:
  (brak opisu)
 (ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with voltage-LuV
 (ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with voltage-IV
 (ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with machine-transformer
-(BLOCKS) Adding industry.transformer7 with title Transformer MAX/LuV and description:
- (brak opisu)
 (ITEMS) Adding industry.transformer7 with title Transformer MAX/LuV and description:
  (brak opisu)
 (ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with voltage-MAX
@@ -9014,8 +8082,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with machine-transformer
 (TOOLS) Tools initialized
 (FullScreen) Setting up FullScreen
-(BLOCKS) Adding modchest.chest with title Skrzynia modularna and description:
- (brak opisu)
 (ITEMS) Adding modchest.chest with title Skrzynia modularna and description:
  (brak opisu)
 (ITEMS) Adding modchest.plug with title Korek and description:
@@ -9244,174 +8310,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Adding rawitem.filter.ientries with title Filtr przedmiotów (wartości) (surowy) and description:
  (brak opisu)
 (ITEMS) Tagging ItemRaw Item Filtr przedmiotów (wartości)(filter.ientries) with raw
-(ITEMS) Adding rawitem.modchest.coreSimple1 with title Podstawowy wkład do skrzyni #1 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #1(modchest.coreSimple1) with modchest-simple
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #1(modchest.coreSimple1) with modular
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #1(modchest.coreSimple1) with modchest
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #1(modchest.coreSimple1) with raw
-(ITEMS) Adding rawitem.modchest.coreSimple2 with title Podstawowy wkład do skrzyni #2 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #2(modchest.coreSimple2) with modchest-simple
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #2(modchest.coreSimple2) with modular
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #2(modchest.coreSimple2) with modchest
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #2(modchest.coreSimple2) with raw
-(ITEMS) Adding rawitem.modchest.coreSimple3 with title Podstawowy wkład do skrzyni #3 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #3(modchest.coreSimple3) with modchest-simple
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #3(modchest.coreSimple3) with modular
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #3(modchest.coreSimple3) with modchest
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #3(modchest.coreSimple3) with raw
-(ITEMS) Adding rawitem.modchest.coreSimple4 with title Podstawowy wkład do skrzyni #4 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #4(modchest.coreSimple4) with modchest-simple
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #4(modchest.coreSimple4) with modular
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #4(modchest.coreSimple4) with modchest
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #4(modchest.coreSimple4) with raw
-(ITEMS) Adding rawitem.modchest.coreSimple5 with title Podstawowy wkład do skrzyni #5 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #5(modchest.coreSimple5) with modchest-simple
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #5(modchest.coreSimple5) with modular
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #5(modchest.coreSimple5) with modchest
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #5(modchest.coreSimple5) with raw
-(ITEMS) Adding rawitem.modchest.coreSimple6 with title Podstawowy wkład do skrzyni #6 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #6(modchest.coreSimple6) with modchest-simple
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #6(modchest.coreSimple6) with modular
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #6(modchest.coreSimple6) with modchest
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #6(modchest.coreSimple6) with raw
-(ITEMS) Adding rawitem.modchest.coreSimple7 with title Podstawowy wkład do skrzyni #7 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #7(modchest.coreSimple7) with modchest-simple
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #7(modchest.coreSimple7) with modular
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #7(modchest.coreSimple7) with modchest
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #7(modchest.coreSimple7) with raw
-(ITEMS) Adding rawitem.modchest.coreSimple8 with title Podstawowy wkład do skrzyni #8 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #8(modchest.coreSimple8) with modchest-simple
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #8(modchest.coreSimple8) with modular
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #8(modchest.coreSimple8) with modchest
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #8(modchest.coreSimple8) with raw
-(ITEMS) Adding rawitem.modchest.coreSimple9 with title Podstawowy wkład do skrzyni #9 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #9(modchest.coreSimple9) with modchest-simple
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #9(modchest.coreSimple9) with modular
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #9(modchest.coreSimple9) with modchest
-(ITEMS) Tagging ItemRaw Item Podstawowy wkład do skrzyni #9(modchest.coreSimple9) with raw
-(ITEMS) Adding rawitem.modchest.coreDrawer1 with title Szufladkowy wkład do skrzyni #1 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #1(modchest.coreDrawer1) with modchest-drawer
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #1(modchest.coreDrawer1) with modular
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #1(modchest.coreDrawer1) with modchest
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #1(modchest.coreDrawer1) with raw
-(ITEMS) Adding rawitem.modchest.coreDrawer2 with title Szufladkowy wkład do skrzyni #2 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #2(modchest.coreDrawer2) with modchest-drawer
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #2(modchest.coreDrawer2) with modular
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #2(modchest.coreDrawer2) with modchest
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #2(modchest.coreDrawer2) with raw
-(ITEMS) Adding rawitem.modchest.coreDrawer3 with title Szufladkowy wkład do skrzyni #3 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #3(modchest.coreDrawer3) with modchest-drawer
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #3(modchest.coreDrawer3) with modular
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #3(modchest.coreDrawer3) with modchest
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #3(modchest.coreDrawer3) with raw
-(ITEMS) Adding rawitem.modchest.coreDrawer4 with title Szufladkowy wkład do skrzyni #4 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #4(modchest.coreDrawer4) with modchest-drawer
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #4(modchest.coreDrawer4) with modular
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #4(modchest.coreDrawer4) with modchest
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #4(modchest.coreDrawer4) with raw
-(ITEMS) Adding rawitem.modchest.coreDrawer5 with title Szufladkowy wkład do skrzyni #5 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #5(modchest.coreDrawer5) with modchest-drawer
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #5(modchest.coreDrawer5) with modular
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #5(modchest.coreDrawer5) with modchest
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #5(modchest.coreDrawer5) with raw
-(ITEMS) Adding rawitem.modchest.coreDrawer6 with title Szufladkowy wkład do skrzyni #6 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #6(modchest.coreDrawer6) with modchest-drawer
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #6(modchest.coreDrawer6) with modular
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #6(modchest.coreDrawer6) with modchest
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #6(modchest.coreDrawer6) with raw
-(ITEMS) Adding rawitem.modchest.coreDrawer7 with title Szufladkowy wkład do skrzyni #7 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #7(modchest.coreDrawer7) with modchest-drawer
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #7(modchest.coreDrawer7) with modular
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #7(modchest.coreDrawer7) with modchest
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #7(modchest.coreDrawer7) with raw
-(ITEMS) Adding rawitem.modchest.coreDrawer8 with title Szufladkowy wkład do skrzyni #8 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #8(modchest.coreDrawer8) with modchest-drawer
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #8(modchest.coreDrawer8) with modular
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #8(modchest.coreDrawer8) with modchest
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #8(modchest.coreDrawer8) with raw
-(ITEMS) Adding rawitem.modchest.coreDrawer9 with title Szufladkowy wkład do skrzyni #9 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #9(modchest.coreDrawer9) with modchest-drawer
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #9(modchest.coreDrawer9) with modular
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #9(modchest.coreDrawer9) with modchest
-(ITEMS) Tagging ItemRaw Item Szufladkowy wkład do skrzyni #9(modchest.coreDrawer9) with raw
-(ITEMS) Adding rawitem.modchest.coreSet1 with title Niepowielony wkład do skrzyni #1 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #1(modchest.coreSet1) with modchest-set
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #1(modchest.coreSet1) with modular
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #1(modchest.coreSet1) with modchest
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #1(modchest.coreSet1) with raw
-(ITEMS) Adding rawitem.modchest.coreSet2 with title Niepowielony wkład do skrzyni #2 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #2(modchest.coreSet2) with modchest-set
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #2(modchest.coreSet2) with modular
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #2(modchest.coreSet2) with modchest
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #2(modchest.coreSet2) with raw
-(ITEMS) Adding rawitem.modchest.coreSet3 with title Niepowielony wkład do skrzyni #3 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #3(modchest.coreSet3) with modchest-set
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #3(modchest.coreSet3) with modular
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #3(modchest.coreSet3) with modchest
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #3(modchest.coreSet3) with raw
-(ITEMS) Adding rawitem.modchest.coreSet4 with title Niepowielony wkład do skrzyni #4 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #4(modchest.coreSet4) with modchest-set
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #4(modchest.coreSet4) with modular
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #4(modchest.coreSet4) with modchest
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #4(modchest.coreSet4) with raw
-(ITEMS) Adding rawitem.modchest.coreSet5 with title Niepowielony wkład do skrzyni #5 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #5(modchest.coreSet5) with modchest-set
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #5(modchest.coreSet5) with modular
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #5(modchest.coreSet5) with modchest
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #5(modchest.coreSet5) with raw
-(ITEMS) Adding rawitem.modchest.coreSet6 with title Niepowielony wkład do skrzyni #6 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #6(modchest.coreSet6) with modchest-set
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #6(modchest.coreSet6) with modular
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #6(modchest.coreSet6) with modchest
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #6(modchest.coreSet6) with raw
-(ITEMS) Adding rawitem.modchest.coreSet7 with title Niepowielony wkład do skrzyni #7 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #7(modchest.coreSet7) with modchest-set
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #7(modchest.coreSet7) with modular
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #7(modchest.coreSet7) with modchest
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #7(modchest.coreSet7) with raw
-(ITEMS) Adding rawitem.modchest.coreSet8 with title Niepowielony wkład do skrzyni #8 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #8(modchest.coreSet8) with modchest-set
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #8(modchest.coreSet8) with modular
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #8(modchest.coreSet8) with modchest
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #8(modchest.coreSet8) with raw
-(ITEMS) Adding rawitem.modchest.coreSet9 with title Niepowielony wkład do skrzyni #9 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #9(modchest.coreSet9) with modchest-set
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #9(modchest.coreSet9) with modular
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #9(modchest.coreSet9) with modchest
-(ITEMS) Tagging ItemRaw Item Niepowielony wkład do skrzyni #9(modchest.coreSet9) with raw
-(ITEMS) Adding rawitem.modchest.coreSingle1 with title Jednoprzedmiotowy wkład do skrzyni #1 (surowy) and description:
- (brak opisu)
-(ITEMS) Tagging ItemRaw Item Jednoprzedmiotowy wkład do skrzyni #1(modchest.coreSingle1) with modular
-(ITEMS) Tagging ItemRaw Item Jednoprzedmiotowy wkład do skrzyni #1(modchest.coreSingle1) with modchest
-(ITEMS) Tagging ItemRaw Item Jednoprzedmiotowy wkład do skrzyni #1(modchest.coreSingle1) with modchest-single
-(ITEMS) Tagging ItemRaw Item Jednoprzedmiotowy wkład do skrzyni #1(modchest.coreSingle1) with raw
 (MAIN) State: Mods - Phase 3
 (MOD-LOADER) HOORAY, IT'S OVER!
 (MAIN) Cześć!
@@ -9439,9 +8337,9 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found save: The longest player pipe ever.mworld
 (SELECT A SAVE) Found save: The smallest all in one quarry system.mworld
 (SELECT A SAVE) Found 22 saves
-(WORLD TEST) 1786 items
+(WORLD TEST) 1758 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@18ef4b42
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@1800a8f9
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -9463,9 +8361,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Loaded
 (WORLD - IDLE) Exiting
 (WORLDS) Opening a new world
-(MODULAR BLOCK) Click handler
-(MODULAR BLOCK) Replace helper [0.6156249999999979,0.0852500000000056]
-(MODULAR BLOCK) U module
 (INVENTORIES) score: 1
 (MODULAR SLOTS) Dropping items
 (TOOL-STANDARD) Running BlockActivateListener for: [-13,-8]
@@ -9473,141 +8368,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) IL tool: null
 (TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(STN-inventory) Index rebuild
-(TOOL-STANDARD) Running BlockActivateListener for: [-12,-7]
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(MODULAR BLOCK) Click handler
-(MODULAR BLOCK) Replace helper [0.5968749999999989,0.9290000000000056]
-(MODULAR BLOCK) D module
-(MODULAR BLOCK) Item: Item Korek(modchest.plug)
-(MODULAR BLOCK) Check: true
 (TOOL-STANDARD) Running BlockActivateListener for: [-13,-8]
 (TOOL SELECTOR) IL tool: null
 (TOOL SELECTOR) Reset tools
@@ -9615,24 +8375,11 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) IL tool: null
 (TOOL SELECTOR) Reset tools
-(STN-inventory) Index rebuild
-(TOOL-STANDARD) Running BlockActivateListener for: [-12,-7]
-(MODULAR BLOCK) Click handler
-(MODULAR BLOCK) Replace helper [0.6343749999999986,0.9415000000000058]
-(MODULAR BLOCK) D module
 (INVENTORIES) score: 1
 (MODULAR SLOTS) Dropping items
 (TOOL-STANDARD) Running BlockActivateListener for: [-13,-8]
 (TOOL SELECTOR) IL tool: null
 (TOOL SELECTOR) Reset tools
-(STN-inventory) Index rebuild
-(TOOL-STANDARD) Running BlockActivateListener for: [-12,-7]
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
 (DATA LAYERS) Saving world data layer: STN

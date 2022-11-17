@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 import org.ainslec.picocog.PicoWriter;
 
 import mmb.world.inventory.io.InventoryWriter;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.worlds.world.World;
 
 /**
@@ -106,5 +106,5 @@ public interface Chance {
 	/**
 	 * @return unique items in this random chance
 	 */
-	@Nonnull public Set<@Nonnull ItemEntry> items();
+	@Nonnull public Set<mmb.world.item.ItemEntry> items();
 }

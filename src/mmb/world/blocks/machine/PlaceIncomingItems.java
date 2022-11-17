@@ -10,11 +10,11 @@ import mmb.debug.Debugger;
 import mmb.menu.world.Placer;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
-import mmb.world.block.SkeletalBlockEntityRotary;
 import mmb.world.blocks.ContentsBlocks;
+import mmb.world.blocks.SkeletalBlockEntityRotary;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.io.InventoryWriter;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.rotate.RotatedImageGroup;
 import mmb.world.rotate.Side;
 

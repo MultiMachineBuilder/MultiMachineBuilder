@@ -21,8 +21,8 @@ import mmb.world.crafting.SimpleItemList;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.inventory.ItemStack;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.ItemRaw;
-import mmb.world.items.ItemEntry;
 import mmb.world.items.data.Stencil;
 import mmb.world.recipes.CraftingGroups;
 import mmb.world.recipes.CraftingRecipeGroup.CraftingRecipe;
@@ -80,7 +80,7 @@ public class CraftGUI extends GUITab {
 		AtomicReference<RecipeOutput> outs = new AtomicReference<>();
 		
 		setLayout(new MigLayout("", "[263px][]", "[155px,grow]"));
-		Grid<@Nullable ItemEntry> contents = new FixedGrid<>(size, size);
+		Grid<mmb.world.item.ItemEntry> contents = new FixedGrid<>(size, size);
 		
 		box = new Box(BoxLayout.Y_AXIS);
 		add(box, "flowy,cell 1 0,growy");

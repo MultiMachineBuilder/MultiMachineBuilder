@@ -5,7 +5,7 @@ package mmb.world.inventory.io;
 
 import javax.annotation.Nonnull;
 
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar

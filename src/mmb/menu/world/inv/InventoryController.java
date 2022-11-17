@@ -13,7 +13,7 @@ import mmb.data.variables.Variable;
 import mmb.menu.Icons;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import net.miginfocom.swing.MigLayout;
 
 import java.awt.Component;

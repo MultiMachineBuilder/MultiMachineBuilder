@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.crafting.SingleItem;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar

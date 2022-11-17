@@ -26,9 +26,9 @@ import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.item.Item;
 import mmb.world.item.ItemEntityType;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.ItemType;
 import mmb.world.item.Items;
-import mmb.world.items.ItemEntry;
 import mmb.world.worlds.world.Player;
 import monniasza.collects.Collects;
 

@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import mmb.beans.BlockSetting;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.BlockType;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;

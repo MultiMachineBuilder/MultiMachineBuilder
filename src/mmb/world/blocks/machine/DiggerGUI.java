@@ -87,12 +87,12 @@ public class DiggerGUI extends GUITab {
 	public void refreshEnergy() {
 		double volts = coll.battery.voltage.volts;
 		double max = volts * coll.battery.capacity;
-		double amt = volts * coll.battery.amt;
+		double amt = volts * coll.battery.stored;
 		checkActive.setSelected(coll.isActive());
 		collectorInv.refresh();
 		Electricity.formatProgress(progressEnergy, amt, max);
 		double maxh = volts * coll.hammer.capacity;
-		double amth = volts * coll.hammer.amt;
+		double amth = volts * coll.hammer.stored;
 		Electricity.formatProgress(progressHammer, amth, maxh);
 	}
 }

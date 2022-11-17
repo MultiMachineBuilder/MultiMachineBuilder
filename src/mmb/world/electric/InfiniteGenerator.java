@@ -5,9 +5,9 @@ package mmb.world.electric;
 
 import javax.annotation.Nonnull;
 
-import mmb.world.block.BlockEntityDataless;
 import mmb.world.block.BlockEntityType;
 import mmb.world.block.BlockType;
+import mmb.world.blocks.BlockEntityDataless;
 import mmb.world.rotate.Side;
 import mmb.world.worlds.MapProxy;
 

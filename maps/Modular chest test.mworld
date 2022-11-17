@@ -10,7 +10,7 @@
       "moduleD" : null,
       "moduleL" : null,
       "moduleR" : null,
-      "core" : [ "modchest.coreSimple1", [ 6.0 ] ],
+      "core" : null,
       "settings" : null
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "stnb.storage",
@@ -22,7 +22,7 @@
     "drops" : [ ],
     "machines" : [ ],
     "player" : {
-      "inventory" : [ 128.0, [ "sheet.alnico", 1 ], [ "sheet.draconium", 1 ], [ "modchest.coreSingle1", [ 6.0, null ], 1 ], [ "sheet.bronze", 1 ], [ "sheet.alu", 1 ], [ "sheet.PTFE", 1 ], [ "sheet.PVC", 1 ], [ "modchest.plug", 1 ], [ "modchest.chest", 1 ], [ "stnb.terminal", 1 ], [ "stnb.storage", 1 ], [ "sheet.chaotium", 1 ], [ "sheet.chrome", 1 ] ],
+      "inventory" : [ 128.0, [ "sheet.alnico", 1 ], [ "sheet.draconium", 1 ], [ "sheet.PVC", 1 ], [ "modchest.plug", 1 ], [ "sheet.bronze", 1 ], [ "sheet.alu", 1 ], [ "modchest.chest", 1 ], [ "sheet.PTFE", 1 ], [ "stnb.terminal", 1 ], [ "stnb.storage", 1 ], [ "sheet.chaotium", 1 ], [ "sheet.chrome", 1 ] ],
       "creative" : true,
       "x" : -12.5,
       "y" : -8.695999999999994,

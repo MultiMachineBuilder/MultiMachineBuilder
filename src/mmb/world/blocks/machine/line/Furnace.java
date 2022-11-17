@@ -97,7 +97,7 @@ public class Furnace extends SkeletalBlockLinear implements BlockActivateListene
 	 * @return amount of active fuel
 	 */
 	public double getFuelLevel() {
-		return elec.amt * 100;
+		return elec.stored * 100;
 	}
 
 	@Override

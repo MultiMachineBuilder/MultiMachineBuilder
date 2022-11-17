@@ -18,7 +18,7 @@ import mmb.world.contentgen.Materials;
 import mmb.world.electric.VoltageTier;
 import mmb.world.inventory.Inventories;
 import mmb.world.inventory.storage.SingleItemInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.recipes.CraftingGroups;
 import mmb.world.worlds.MapProxy;
 

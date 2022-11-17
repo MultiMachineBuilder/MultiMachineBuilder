@@ -22,7 +22,7 @@ import mmb.world.inventory.ItemRecord;
 import mmb.world.inventory.ItemStack;
 import mmb.world.inventory.SaveInventory;
 import mmb.world.inventory.ItemLoader.ItemTarget;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 import monniasza.collects.Collects;
 import monniasza.collects.selfset.HashSelfSet;

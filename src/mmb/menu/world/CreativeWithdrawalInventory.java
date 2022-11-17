@@ -12,9 +12,9 @@ import com.google.common.collect.Iterators;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.ItemType;
 import mmb.world.item.Items;
-import mmb.world.items.ItemEntry;
 
 /**
  * @author oskar

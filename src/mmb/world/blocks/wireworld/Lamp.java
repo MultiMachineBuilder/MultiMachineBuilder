@@ -7,8 +7,8 @@ import java.awt.Graphics;
 
 import mmb.data.contents.Textures;
 import mmb.graphics.texture.BlockDrawer;
-import mmb.world.block.BlockEntityDataless;
 import mmb.world.block.BlockType;
+import mmb.world.blocks.BlockEntityDataless;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.worlds.world.WorldUtils;
 

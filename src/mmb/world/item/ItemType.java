@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.beans.Titled;
 import mmb.graphics.texture.BlockDrawer;
-import mmb.world.items.ItemEntry;
 import monniasza.collects.Identifiable;
 
 /**
@@ -40,10 +39,18 @@ public interface ItemType extends Titled, Identifiable<String>{
 	 */
 	@Nonnull public String description();
 	
+	/**
+	 * Sets the ID. For use only in registration
+	 * @param id new id
+	 */
 	public void setID(String id);
 	@Override
 	public String id();
 	
+	/**
+	 * Sets the title
+	 * @param title new title
+	 */
 	public void setTitle(String title);
 	/**
 	 * A title is name which is displayed in toolbars. If title is null, it will be set to the ID.
@@ -62,11 +69,23 @@ public interface ItemType extends Titled, Identifiable<String>{
 	 * @return a new instance of the item
 	 */
 	@Nonnull public ItemEntry create();
+	/**
+	 * Loads an item entry using JSON payload
+	 * @param node data to load from
+	 * @return a new item entry with data
+	 */
 	@Nonnull public default ItemEntry loadItem(@Nullable JsonNode node) {
 		ItemEntry item = create();
 		item.load(node);
 		return item;
 	}
+	/**
+	 * Loads an item entry using JSON payload, restricting the output type
+	 * @param <T> expected type
+	 * @param node data to load from
+	 * @param cls expected type
+	 * @return a new item entry with data, or null if failed
+	 */
 	@Nullable public default <T extends ItemEntry> ItemEntry loadItemExpectType(@Nullable JsonNode node, @Nullable Class<T> cls) {
 		ItemEntry item = create();
 		if(cls != null && !cls.isInstance(item)) return null;

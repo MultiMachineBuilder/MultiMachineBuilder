@@ -10,7 +10,7 @@ import javax.swing.ListCellRenderer;
 
 import mmb.beans.Titled;
 import mmb.menu.world.craft.RecipeView;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import monniasza.collects.Identifiable;
 
 /**

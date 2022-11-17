@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import mmb.data.json.JsonTool;
 import mmb.data.variables.DataValue;
 import mmb.data.variables.Variable;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar
@@ -20,7 +20,7 @@ import mmb.world.items.ItemEntry;
  */
 public class SingleItemInventory extends BaseSingleItemInventory {
 	/** The item variable used by this inventory */
-	@Nonnull public final Variable<@Nullable ItemEntry> itemvar;
+	@Nonnull public final Variable<mmb.world.item.ItemEntry> itemvar;
 	
 	/** Creates a single item inventory with a simple item variable and no items */
 	public SingleItemInventory() {
@@ -37,7 +37,7 @@ public class SingleItemInventory extends BaseSingleItemInventory {
 	 * Creates a single item inventory with a custom item variable
 	 * @param itemvar
 	 */
-	public SingleItemInventory(Variable<@Nullable ItemEntry> itemvar) {
+	public SingleItemInventory(Variable<mmb.world.item.ItemEntry> itemvar) {
 		this.itemvar = itemvar;
 	}
 	

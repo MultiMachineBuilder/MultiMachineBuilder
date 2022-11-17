@@ -17,7 +17,8 @@ import org.apache.commons.io.IOUtils;
 
 /**
  * @author oskar
- * This class contains utilities to create sound buffers
+ * A sound with all required information to play back properly.
+ * The class contains methods to read audio from a file and open a clip.
  */
 public class Sound {
 	/** Raw audio data */
@@ -26,16 +27,16 @@ public class Sound {
 	public final int offset;
 	/** Array length for audio data */
 	public final int length;
-	/** Auio format */
+	/** Audio format */
 	public final AudioFormat format;
 	/** Frame length */
 	public final long frameLen;
 	
 	/**
 	 * Creates a sound
-	 * @param data
-	 * @param format
-	 * @param frameLen
+	 * @param data raw PCM data
+	 * @param format audio format
+	 * @param frameLen frame count
 	 */
 	public Sound(byte[] data, AudioFormat format, long frameLen) {
 		if(frameLen < -1)
@@ -46,7 +47,14 @@ public class Sound {
 		this.offset = 0;
 		this.length = data.length;
 	}
-	
+	/**
+	 * Creates a sound with a portion of the array
+	 * @param data raw PCM data
+	 * @param offset offset from beginning of the array
+	 * @param length length of the sub-array
+	 * @param format audio format
+	 * @param frameLen frame count
+	 */
 	public Sound(byte[] data, int offset, int length, AudioFormat format, long frameLen) {
 		if(length < 0)
 			throw new IllegalArgumentException("The length must be nonnegative: "+length);
@@ -77,27 +85,25 @@ public class Sound {
 		clip.open(format, data, offset, length);
 	}
 	/**
-	 * Creates an audio input stream
+	 * Creates an audio input stream for this sound
 	 * @return an audio input stream
 	 */
 	@Nonnull public AudioInputStream newStream() {
 		return new AudioInputStream(new ByteArrayInputStream(data, offset, length), format, frameLen);
 	}
 	/**
-	 * Creates a new clip, already open
+	 * Creates a new clip, already open with this sound
 	 * @return a new clip object
 	 * @throws LineUnavailableException when clip fails to open
 	 * @throws IOException when I/O error occurs
 	 */
 	@Nonnull public Clip newClip() throws LineUnavailableException, IOException {
 		Clip clip = AudioSystem.getClip();
-		try(AudioInputStream stream = newStream()){
-			clip.open(stream);
-		}
+		open(clip);
 		return clip;
 	}
 	/**
-	 * Creates a new clip, already open, usig info
+	 * Creates a new clip, already open with this sound, using info
 	 * @param info the info object
 	 * @return a new clip object
 	 * @throws LineUnavailableException when clip fails to open
@@ -105,9 +111,7 @@ public class Sound {
 	 */
 	@Nonnull public Clip newClip(Info info) throws LineUnavailableException, IOException {
 		Clip clip = AudioSystem.getClip(info);
-		try(AudioInputStream stream = newStream()){
-			clip.open(stream);
-		}
+		open(clip);
 		return clip;
 	}
 	
