@@ -3,6 +3,7 @@
  */
 package mmb.world.inventory.basic;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -11,11 +12,13 @@ import java.util.function.Supplier;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import org.checkerframework.checker.nullness.qual.EnsuresNonNullIf;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.google.common.collect.Iterators;
 
-import mmb.Bitwise;
+import mmb.MMBUtils;
 import mmb.beans.Saver;
 import mmb.data.json.JsonTool;
 import mmb.debug.Debugger;
@@ -23,7 +26,8 @@ import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.inventory.ItemStack;
-import mmb.world.items.ItemEntry;
+import mmb.world.inventory.SaveInventory;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar
@@ -31,7 +35,7 @@ import mmb.world.items.ItemEntry;
  * A SetInventory is faster and self-contained implementation of the inventory
  * @implSpec Undefined behavior:
  * <ul>
- * 	<li>Creation with a populated inventory</li>
+ * 	<li>Creation with a populated set</li>
  *  <li>Modification of a set outside of the inventory</li>
  *  <li>Bulk insertion, if the set imposes restrictions on items beyond the type</li>
  *  <li>Using an unmodifiable set (if inventory will be modified)</li>
@@ -44,14 +48,19 @@ import mmb.world.items.ItemEntry;
  * </ol> 
  * @param <T> type of items 
  */
-public class SetInventory<T extends ItemEntry> implements Inventory, Saver{
+public class SetInventory<T extends ItemEntry> implements SaveInventory{
+	//Debug
 	@Nonnull private static final Debugger debug = new Debugger("INVENTORIES");
+	
+	//Inventory definition
+	/** The underlying set*/
 	@Nonnull public final Set<T> set;
 	/** The class of the items (null if unrestricted)*/
 	@Nullable public final Class<T> type;
 	private double capacity = 2;
 	private double volume = 0;
 	
+	//Constructors
 	/**
 	 * Creates an inventory using a set
 	 * @param set set to base on (should be empty)
@@ -60,6 +69,9 @@ public class SetInventory<T extends ItemEntry> implements Inventory, Saver{
 	public SetInventory(Set<T> set, @Nullable Class<T> type) {
 		this.set = set;
 		this.type = type;
+		for(ItemEntry item: set) {
+			volume += item.volume();
+		}
 	}
 	/**
 	 * Creates an inventory using a set factory
@@ -67,18 +79,17 @@ public class SetInventory<T extends ItemEntry> implements Inventory, Saver{
 	 * @param type type of items (null if unrestricted)
 	 */
 	public SetInventory(Supplier<@Nonnull Set<T>> supplier, @Nullable Class<T> type) {
-		this.set = supplier.get();
-		this.type = type;
+		this(supplier.get(), type);
 	}
 	/**
-	 * Creates a set inventory (simplest)
+	 * Creates an unrestricted set inventory (simplest)
 	 * @return a new set inventory
 	 */
 	@Nonnull public static SetInventory<ItemEntry> create() {
 		return new SetInventory<>(new HashSet<>(), null);
 	}
 	/**
-	 * Creates a set inventory with a custom set
+	 * Creates an unrestricted set inventory with a custom set
 	 * @param set set to use
 	 * @return a new set inventory
 	 */
@@ -86,7 +97,7 @@ public class SetInventory<T extends ItemEntry> implements Inventory, Saver{
 		return new SetInventory<>(set, null);
 	}
 	/**
-	 * Creates a set inventory using a set factory
+	 * Creates an unrestricted set inventory using a set factory
 	 * @param supplier set factory
 	 * @return a new set inventory
 	 */
@@ -94,25 +105,79 @@ public class SetInventory<T extends ItemEntry> implements Inventory, Saver{
 		return new SetInventory<>(supplier, null);
 	}
 
+	//Item calculation
+	@Override
+	public int insertibleRemain(int amount, ItemEntry item) {
+		if(amount <= 0) return 0;
+		if(set.contains(item)) return 0;
+		if(!test(item)) return 0;
+		return 1;
+	}
+	@Override
+	public int insertibleRemainBulk(int amount, RecipeOutput ent) {
+		if(amount <= 0) return 0;
+		//Test the volume
+		if(remainVolume() < ent.outVolume()) return 0;
+		//Test the recipe output
+		for(ItemStack entry: ent) {
+			if(entry.amount > 1) return 0;
+			if(!test(entry.item)) return 0;
+		}
+		return 1;
+	}
 	@Override
 	public boolean isEmpty() {
 		return set.isEmpty();
 	}
-
 	@Override
-	public @Nonnull Iterator<@Nonnull ItemRecord> iterator() {
-		return Iterators.transform(set.iterator(), this::get);
+	public int size() {
+		return set.size();
+	}
+	@Override
+	@EnsuresNonNullIf(result = true, expression = {"e"})
+	public boolean test(@Nullable  ItemEntry e) {
+		Class<T> cls = type;
+		return cls == null || cls.isInstance(e);
+	}
+	@Override
+	public double volume() {
+		return volume;
 	}
 
+	//Item manipulation
 	@Override
-	public ItemRecord get(ItemEntry entry) {
-		return new SIRecord(entry);
+	public int insert(ItemEntry ent, int amount) {
+		if(amount <= 0) return 0;
+		if(!test(ent)) return 0;
+		@SuppressWarnings("unchecked")
+		T casted = (T) ent; //item is already of correct type
+		if(remainVolume() < ent.volume()) return 0;
+		boolean insert = set.add(casted);
+		if(insert) volume += ent.volume();
+		return MMBUtils.bool2int(insert);
 	}
 	@Override
-	public ItemRecord nget(ItemEntry entry) {
-		if(!set.contains(entry)) return null;
-		return get(entry);
+	public int extract(ItemEntry ent, int amount) {
+		if(amount <= 0) return 0;
+		boolean remove = set.remove(ent);
+		if(remove) volume -= ent.volume();
+		return MMBUtils.bool2int(remove);
 	}
+	@Override
+	public int bulkInsert(RecipeOutput ent, int amount) {
+		int canInsert = insertibleRemainBulk(amount, ent);
+		if(canInsert == 0) return 0;
+		for(ItemStack entry: ent) {
+			if(entry.amount == 0) continue;
+			volume += entry.outVolume();
+			@SuppressWarnings("unchecked")
+			T casted = (T) entry.item; //item is already of correct type
+			set.add(casted);
+		}
+		return 1;
+	}
+
+	//Item records
 	class SIRecord implements ItemRecord{
 		@Nonnull private final ItemEntry entry;
 		public SIRecord(ItemEntry entry) {
@@ -121,7 +186,7 @@ public class SetInventory<T extends ItemEntry> implements Inventory, Saver{
 
 		@Override
 		public int amount() {
-			return Bitwise.bool2int(set.contains(entry));
+			return MMBUtils.bool2int(set.contains(entry));
 		}
 
 		@Override
@@ -145,51 +210,21 @@ public class SetInventory<T extends ItemEntry> implements Inventory, Saver{
 		}
 		
 	}
+	@Override
+	public @Nonnull Iterator<@Nonnull ItemRecord> iterator() {
+		return Iterators.transform(set.iterator(), this::get);
+	}
+	@Override
+	public ItemRecord get(ItemEntry entry) {
+		return new SIRecord(entry);
+	}
+	@Override
+	public ItemRecord nget(ItemEntry entry) {
+		if(!set.contains(entry)) return null;
+		return get(entry);
+	}
 	
-	@Override
-	public int size() {
-		return set.size();
-	}
-
-	@Override
-	public int insert(ItemEntry ent, int amount) {
-		if(amount <= 0 || !test(ent)) return 0;
-		@SuppressWarnings("unchecked")
-		T casted = (T) ent; //item is already of correct type
-		if(remainVolume() < ent.volume()) return 0;
-		boolean insert = set.add(casted);
-		if(insert) volume += ent.volume();
-		return Bitwise.bool2int(insert);
-	}
-
-	@Override
-	public int extract(ItemEntry ent, int amount) {
-		if(amount <= 0) return 0;
-		boolean remove = set.remove(ent);
-		if(remove) volume -= ent.volume();
-		return Bitwise.bool2int(remove);
-	}
-
-	@Override
-	public int bulkInsert(RecipeOutput ent, int amount) {
-		if(amount <= 0) return 0;
-		//Test the volume
-		if(remainVolume() < ent.outVolume()) return 0;
-		//Test the recipe output
-		for(ItemStack entry: ent) {
-			if(entry.amount > 1) return 0;
-			if(!test(entry.item)) return 0;
-		}
-		for(ItemStack entry: ent) {
-			if(entry.amount == 0) continue;
-			volume += entry.outVolume();
-			@SuppressWarnings("unchecked")
-			T casted = (T) entry.item; //item is already of correct type
-			set.add(casted);
-		}
-		return 1;
-	}
-
+	//Direct modification
 	@Override
 	public double capacity() {
 		return capacity;
@@ -199,22 +234,57 @@ public class SetInventory<T extends ItemEntry> implements Inventory, Saver{
 	 * @param capacity capacity of the inventory
 	 * @return this
 	 */
+	@Override
 	@Nonnull public SetInventory<T> setCapacity(double capacity) {
 		this.capacity = capacity;
 		return this;
 	}
-
-	@Override
-	public double volume() {
-		return volume;
+	/**
+	 * Directly sets the contents of the inventory (no capacity checks)
+	 * @param items contents to set
+	 */
+	public void setContents(Set<ItemEntry> items) {
+		set.clear();
+		addAllUnvolumed(items);
 	}
-
-	@Override
-	public boolean test(@Nullable ItemEntry e) {
-		if(type == null) return true;
-		return type.isInstance(e);
+	/**
+	 * Directly adds items (no capacity checks)
+	 * @param c items to add
+	 * @return were any items added?
+	 */
+	public boolean addAllUnvolumed(Collection<@Nonnull ItemEntry>  c) {
+		boolean result = false;
+		for(ItemEntry item: c) if(addUnvolumed(item)) result = true;
+		return result;
 	}
-
+	/**
+	 * Directly adds an item (no capacity checks)
+	 * @param ent item to add
+	 * @return was the item added?
+	 */
+	public boolean addUnvolumed(ItemEntry ent) {
+		if(!test(ent)) return false;
+		@SuppressWarnings("unchecked")
+		T casted = (T) ent; //item is already of correct type
+		boolean insert = set.add(casted);
+		if(insert) volume += ent.volume();
+		return insert;
+	}
+	/**
+	 * Replaces the contents of this inventory with the one of the other inventory
+	 * @param inv source inventory
+	 */
+	public void setContents(SetInventory<? extends T> inv) {
+		set.clear();
+		capacity = inv.capacity();
+		volume = 0;
+		for(T item: inv.set) {
+			boolean added = set.add(item);
+			if(added) volume += item.volume();
+		}
+	}
+	
+	//Serialization
 	@Override
 	public JsonNode save() {
 		ArrayNode array = JsonTool.newArrayNode();
@@ -223,7 +293,6 @@ public class SetInventory<T extends ItemEntry> implements Inventory, Saver{
 			array.add(ItemEntry.saveItem(item));
 		return array;
 	}
-
 	@Override
 	public void load(@Nullable JsonNode data) {
 		if(data == null) return;
@@ -244,7 +313,7 @@ public class SetInventory<T extends ItemEntry> implements Inventory, Saver{
 				@SuppressWarnings("unchecked")
 				T casted = (T) item; //item is already of the correct type
 				set.add(casted);
-				volume += item.volume();
+				if(item != null) volume += item.volume();
 			}
 		}
 	}

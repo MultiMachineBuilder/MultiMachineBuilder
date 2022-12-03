@@ -7,8 +7,8 @@ import javax.annotation.Nullable;
 
 import mmb.cgui.BlockActivateListener;
 import mmb.menu.world.window.WorldWindow;
-import mmb.world.block.BlockEntityDataless;
 import mmb.world.block.BlockType;
+import mmb.world.blocks.BlockEntityDataless;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.rotate.Side;
 import mmb.world.worlds.MapProxy;

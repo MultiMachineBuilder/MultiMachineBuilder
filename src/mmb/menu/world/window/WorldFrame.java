@@ -27,19 +27,19 @@ import com.pploder.events.Event;
 import it.unimi.dsi.fastutil.doubles.DoubleList;
 import mmb.CatchingEvent;
 import mmb.Vector2iconst;
-import mmb.data.contents.Textures;
 import mmb.data.variables.ListenerBooleanVariable;
 import mmb.debug.Debugger;
 import mmb.menu.StringRenderer;
 import mmb.menu.world.FPSCounter;
 import mmb.menu.world.window.WorldWindow.ScrollablePlacementList;
 import mmb.menu.wtool.WindowTool;
+import mmb.texture.Textures;
 import mmb.world.block.BlockEntry;
 import mmb.world.blocks.ppipe.Direction;
 import mmb.world.blocks.ppipe.PipeTunnelEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.ItemType;
 import mmb.world.item.Items;
-import mmb.world.items.ItemEntry;
 import mmb.world.mbmachine.Machine;
 import mmb.world.rotate.Side;
 import mmb.world.visuals.Visual;
@@ -632,6 +632,23 @@ public class WorldFrame extends JComponent {
 	@Nonnull private Point mousePosition = new Point();
 	private void setMousePosition(MouseEvent e) {
 		mousePosition.setLocation(e.getX(), e.getY());
+	}
+	/** @return X coordinate of the mouse pointer*/
+	public int mouseX() {
+		return mousePosition.x;
+	}
+	/** @return Y coordinate of the mouse pointer*/
+	public int mouseY() {
+		return mousePosition.x;
+	}
+	/**
+	 * Sets the point to the mouse location
+	 * @param pt location to write to
+	 * @return input
+	 */
+	public Point mouse(Point pt) {
+		pt.setLocation(mousePosition);
+		return pt;
 	}
 
 	//Mouseover block

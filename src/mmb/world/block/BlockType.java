@@ -10,18 +10,13 @@ import mmb.menu.world.Placer;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.chance.Chance;
 import mmb.world.item.ItemType;
+import mmb.world.item.Items;
 
 /**
  * @author oskar
  *
  */
 public interface BlockType extends Placer, ItemType {
-	
-	/*@Override
-	default void preview(Graphics g, Point renderStartPos, BlockMap map, Point targetLocation, int side) {
-		getI*con().paintIcon(null, g, renderStartPos.x, renderStartPos.y);
-	}*/
-
 	/**
 	 * Creates a block entry for this type.
 	 * @return newly created block
@@ -35,7 +30,7 @@ public interface BlockType extends Placer, ItemType {
 	@SuppressWarnings({ "unused", "null" })
 	public default void register() {
 		if(leaveBehind() == null) setLeaveBehind(ContentsBlocks.grass); //NOSONAR
-		Blocks.register(this);
+		Items.register(this);
 	}
 	public default void register(String id) {
 		setID(id);

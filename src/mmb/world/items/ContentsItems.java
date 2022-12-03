@@ -13,12 +13,12 @@ import java.util.List;
 import javax.annotation.Nonnull;
 
 import mmb.GlobalSettings;
-import mmb.data.contents.Textures;
 import mmb.graphics.awt.ColorMapper;
 import mmb.graphics.texgen.TexGen;
 import mmb.menu.wtool.ConfigureDroppedItemExtractors;
 import mmb.menu.wtool.DumpItems;
 import mmb.menu.wtool.ToolAim;
+import mmb.texture.Textures;
 import mmb.world.blocks.machine.pack.Pack;
 import mmb.world.contentgen.Materials;
 import mmb.world.crafting.RecipeOutput;
@@ -352,12 +352,10 @@ public class ContentsItems {
 		Items.tagItem("parts-electronic", item);
 		return item;
 	}
-	@Nonnull private static final String speedd1 = GlobalSettings.$res("speedupd1");
-	@Nonnull private static final String speedd2 = GlobalSettings.$res("speedupd2");
-	@Nonnull private static final String speedlag = GlobalSettings.$res("speedlag");
+
 	@Nonnull private static Item speed(int n, Color c, double mul) {
-		StringBuilder descr = new StringBuilder().append(speedd1).append(' ').append(mul).append(' ').append(speedd2);
-		if(mul > 100) descr.append(' ').append(speedlag);
+		StringBuilder descr = new StringBuilder().append(GlobalSettings.$res("speedupd1")).append(' ').append(mul).append(' ').append(GlobalSettings.$res("speedupd2"));
+		if(mul > 100) descr.append(' ').append(GlobalSettings.$res("speedlag"));
 		Item item = new SpeedUpgrade(mul)
 		.title(GlobalSettings.$res("speedup")+" "+n)
 		.texture(TexGen.colormap(Color.RED, c, Textures.get("item/speed.png"), null))

@@ -9,17 +9,17 @@ import javax.annotation.Nonnull;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.data.contents.Textures;
+import mmb.texture.Textures;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
-import mmb.world.block.SkeletalBlockEntityRotary;
 import mmb.world.blocks.ContentsBlocks;
+import mmb.world.blocks.SkeletalBlockEntityRotary;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.inventory.io.InventoryReader;
 import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.inventory.storage.SingleItemInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.rotate.RotatedImageGroup;
 import mmb.world.rotate.Rotation;
 import mmb.world.rotate.Side;
@@ -89,7 +89,7 @@ public class ItemTransporter extends SkeletalBlockEntityRotary {
 		}
 		//Stage 2: Buffer -> output
 		for(ItemRecord record: buffer) {
-			int moved = dst.write(record.item());
+			int moved = dst.insert(record.item());
 			if(moved == 1) {
 				record.extract(1);
 				return;

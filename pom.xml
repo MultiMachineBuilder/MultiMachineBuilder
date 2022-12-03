@@ -1,64 +1,221 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <repositories>
-	<repository>
-	    <id>maven-central</id>
-	    <name>Maven Central</name>
-	    <url>https://repo.maven.apache.org/maven2/</url>
-	</repository>
-	<repository>
-		<id>jcenter</id>
-		<name>jcenter</name>
-		<url>https://jcenter.bintray.com</url>
-	</repository>
-	<repository>
-		<id>jitpack.io</id>
-		<url>https://jitpack.io</url>
-	</repository>
-  </repositories>
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>MMB</groupId>
-  <artifactId>MMB</artifactId>
-  <version>0.5-pre6</version>
-  <name>Multi Machine Builder</name>
-  <packaging>pom</packaging>
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <resources>
-      <resource>
-        <directory>src</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </resource>
-    </resources>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.7.0</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-      <plugin>
-	    <groupId>org.apache.maven.plugins</groupId>
-	    <artifactId>maven-surefire-plugin</artifactId>
-	    <!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
-	    <version>2.22.0</version>
-	  </plugin>
-    </plugins>
-  </build>
-  	<properties>
-		<lwjgl.version>3.2.3</lwjgl.version>
+	<modelVersion>4.0.0</modelVersion>
+	 
+	<!-- GAV coordinates -->
+	<groupId>MMB</groupId>
+	<artifactId>MMB</artifactId>
+	<version>0.5</version>
+  
+	<!-- About -->
+	<name>Multi Machine Builder</name>
+	<licenses>
+	 <license>
+	   <name>GNU General Public License v3</name>
+	   <url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+	 </license>
+	</licenses>
+	<developers>
+	    <developer>
+	      <name>Monniasza</name>
+	      <email>monniasza.machines@onet.pl</email>
+	      <organization>MultiMachineBuilder team</organization>
+	      <organizationUrl>https://github.com/MultiMachineBuilder</organizationUrl>
+	    </developer>
+	 	</developers>
+	<url>https://github.com/MultiMachineBuilder/MultiMachineBuilder</url>
+	<inceptionYear>16 Oct 2020</inceptionYear>
+	<organization>
+		<name>MultiMachineBuilder</name>
+		<url>https://github.com/MultiMachineBuilder</url>
+	</organization>
+	
+	<!-- Development information -->
+	<distributionManagement>
+		<snapshotRepository>
+    		<id>ossrh</id>
+    		<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+  		</snapshotRepository>
+	</distributionManagement>
+	<scm>
+		<url>https://github.com/MultiMachineBuilder/MultiMachineBuilder</url>
+		<connection>scm:git:https://github.com/MultiMachineBuilder/MultiMachineBuilder</connection>
+		<developerConnection>scm:git:https://github.com/MultiMachineBuilder/MultiMachineBuilder</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/MultiMachineBuilder/MultiMachineBuilder/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>GitHub Actions</system>
+		<url>https://github.com/MultiMachineBuilder/MultiMachineBuilder/actions</url>
+	</ciManagement>
+	
+	<!-- Build params -->
+	<packaging>jar</packaging>
+	<repositories>
+		<repository>
+		    <id>maven-central</id>
+		    <name>Maven Central</name>
+		    <url>https://repo.maven.apache.org/maven2/</url>
+		</repository>
+		<repository>
+			<id>jcenter</id>
+			<name>jcenter</name>
+			<url>https://jcenter.bintray.com</url>
+		</repository>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+	<build>
+		<!-- Source params -->
+		<sourceDirectory>${project.basedir}/src</sourceDirectory>
+		<testSourceDirectory>${project.basedir}/test</testSourceDirectory>
+		
+		<!-- Output params -->
+		<resources>
+		  <resource>
+		    <directory>${project.basedir}/src</directory>
+		    <excludes>
+				<exclude>**/*.java</exclude>
+		    </excludes>
+		  </resource>
+		</resources>
+		<testResources>
+            <testResource>
+                <directory>${project.basedir}/test</directory>
+                <excludes>
+					<exclude>**/*.java</exclude>
+		    	</excludes>
+            </testResource>
+        </testResources>
+		
+		<!-- Plugins -->
+		<pluginManagement>
+		<plugins>
+		<!-- Maven Central staging -->
+		<plugin>
+      		<groupId>org.sonatype.plugins</groupId>
+      		<artifactId>nexus-staging-maven-plugin</artifactId>
+      		<version>1.6.7</version>
+      		<extensions>true</extensions>
+      		<configuration>
+        		<serverId>ossrh</serverId>
+        		<nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+        		<autoReleaseAfterClose>true</autoReleaseAfterClose>
+      		</configuration>
+    	</plugin>
+			<!-- Maven compiler -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+				</configuration>
+			</plugin>
+			
+			<!-- JAR assembler  NOT RUNNING -->
+			<plugin>
+				<!-- JAR packager's GAV -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.4.2</version>
+				
+				<!-- Configuration -->
+				<configuration>
+					<!-- outputDirectory>${project.basedir}/release</outputDirectory -->
+					<archive>
+						<manifest>
+							<mainClass>mmb.Main</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					
+					<!-- Keep the filename nice and tidy -->
+					<appendAssemblyId>false</appendAssemblyId>
+				</configuration>
+				
+				<!-- Execution policy -->
+				<executions>
+					<execution>
+						<id>make-assembly</id> <!-- this is used for inheritance merges -->
+						<phase>package</phase> <!-- bind to the packaging phase -->
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+			    </executions>
+			</plugin>
+			
+			<!-- Surefire -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
+				<version>2.22.0</version>
+	 		</plugin>
+	 		
+	 		<!-- Javadoc -->
+	 		<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+		    </plugin>   
+		    
+		    <!-- Source attachment -->
+		    <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+		    </plugin>
+	  </plugins>
+	  </pluginManagement>
+	</build>
+	<properties>
+		<!-- LWJGL -->
+		<lwjgl.version>3.3.1</lwjgl.version>
+		<joml.version>1.10.5</joml.version>
 		<lwjgl.natives>natives-windows</lwjgl.natives>
+		
+		<!-- Sonar scanner -->
 		<sonar.organization>multimachinebuilder</sonar.organization>
-  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<sonar.sources>src,pom.xml</sonar.sources>
 		<sonar.tests>test</sonar.tests>
 		<sonar.java.binaries>target</sonar.java.binaries>
 		<sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
+		
+		<!-- Eclipse External Annotations -->
+		<m2e.eea.annotationpath.jre>/Multi Machine Builder/lib/eclipse-null-eea-augments-2.4.0/libraries/java</m2e.eea.annotationpath.jre>
+		<m2e.eea.annotationpath.maven>/Multi Machine Builder/lib/eclipse-null-eea-augments-2.4.0/libraries/other</m2e.eea.annotationpath.maven>
 	</properties>
 	<dependencies>
+		<dependency>
+		  <groupId>org.lastnpe.eea</groupId>
+		  <artifactId>eea-all</artifactId>
+		  <version>2.4.0</version>
+		</dependency>
 		<dependency>
 		  <groupId>com.glazedlists</groupId>
 		  <artifactId>glazedlists</artifactId>
@@ -70,7 +227,7 @@
 	      <version>1.0.7</version>
 	   </dependency>
 	   <dependency>
-	   	<groupId>org.jgrapht</groupId>
+		<groupId>org.jgrapht</groupId>
 		<artifactId>jgrapht-core</artifactId>
 		<version>1.5.1</version>
 	   </dependency>
@@ -115,24 +272,24 @@
 		    <version>0.10.2</version>
 		</dependency>
 		<dependency>       
-           <groupId>fr.delthas</groupId>
-           <artifactId>javamp3</artifactId>
-           <version>1.0.1</version>
-    	</dependency>
+	          <groupId>fr.delthas</groupId>
+	          <artifactId>javamp3</artifactId>
+	          <version>1.0.1</version>
+	   	</dependency>
 		<dependency>
 		  <groupId>com.rainerhahnekamp</groupId>
 		  <artifactId>sneakythrow</artifactId>
 		  <version>1.2.0</version>
 		</dependency>
 		<dependency>
-  			<groupId>com.google.guava</groupId>
-  			<artifactId>guava</artifactId>
-  			<version>31.1-jre</version>
+	 		<groupId>com.google.guava</groupId>
+	 		<artifactId>guava</artifactId>
+	 		<version>31.1-jre</version>
 		</dependency>
 		<dependency>
-  			<groupId>com.fasterxml.jackson.core</groupId>
-  			<artifactId>jackson-databind</artifactId>
-  			<version>[2.14.0-rc1,)</version>
+	 		<groupId>com.fasterxml.jackson.core</groupId>
+	 		<artifactId>jackson-databind</artifactId>
+	 		<version>[2.14.0-rc1,)</version>
 		</dependency>
 		<dependency>
 		  	<groupId>com.fasterxml.jackson.core</groupId>
@@ -145,24 +302,24 @@
 		  	<version>2.13.4</version>
 		</dependency>
 		<dependency>
-  			<groupId>org.apache.commons</groupId>
-  			<artifactId>commons-lang3</artifactId>
-  			<version>3.12.0</version>
+	 		<groupId>org.apache.commons</groupId>
+	 		<artifactId>commons-lang3</artifactId>
+	 		<version>3.12.0</version>
 		</dependency>
 		<dependency>
-  			<groupId>org.apache.commons</groupId>
-  			<artifactId>commons-compress</artifactId>
-  			<version>1.21</version>
+	 		<groupId>org.apache.commons</groupId>
+	 		<artifactId>commons-compress</artifactId>
+	 		<version>1.21</version>
 		</dependency>
 		<dependency>
-	  		<groupId>org.apache.commons</groupId>
+	  		<groupId>commons-io</groupId>
 	  		<artifactId>commons-io</artifactId>
 	  		<version>1.3.2</version>
 		</dependency>
 		<dependency>
-  			<groupId>org.apache.commons</groupId>
-  			<artifactId>commons-csv</artifactId>
-  			<version>1.9.0</version>
+	 			<groupId>org.apache.commons</groupId>
+	 			<artifactId>commons-csv</artifactId>
+	 			<version>1.9.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.github.davidmoten</groupId>
@@ -215,348 +372,71 @@
 		    <version>5.3.1</version>
 		    <scope>test</scope>
 		</dependency>
+		
+		<!-- LWJGL -->
 		<dependency>
 			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-bgfx</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-cuda</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-egl</artifactId>
+			<artifactId>lwjgl</artifactId>
 			<version>3.2.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-glfw</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-jawt</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-jemalloc</artifactId>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-libdivide</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-llvm</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-lmdb</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-lz4</artifactId>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-meow</artifactId>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-nanovg</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-nfd</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-nuklear</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-odbc</artifactId>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-openal</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-opencl</artifactId>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-opengl</artifactId>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-opengles</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-openvr</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-opus</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-ovr</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-par</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-remotery</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-rpmalloc</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-shaderc</artifactId>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-sse</artifactId>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-stb</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-tinyexr</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-tinyfd</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-tootle</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-vma</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-vulkan</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-xxhash</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-yoga</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-zstd</artifactId>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
 			<version>3.2.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-assimp</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
+			<version>3.3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-bgfx</artifactId>
+			<artifactId>lwjgl-glfw</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.lwjgl</groupId>
+			<artifactId>lwjgl-openal</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.lwjgl</groupId>
+			<artifactId>lwjgl-opengl</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+		<!-- LWJGL natives -->
+		<dependency>
+			<groupId>org.lwjgl</groupId>
+			<artifactId>lwjgl</artifactId>
 			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
+			<version>3.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.lwjgl</groupId>
+			<artifactId>lwjgl-assimp</artifactId>
+			<classifier>${lwjgl.natives}</classifier>
+			<version>3.3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-glfw</artifactId>
 			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-jemalloc</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
 			<version>3.3.1</version>
 		</dependency>
 		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-libdivide</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-llvm</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-lmdb</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-lz4</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-meow</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-nanovg</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-nfd</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-nuklear</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-openal</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-opengl</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-opengles</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-openvr</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-opus</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-ovr</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-par</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-remotery</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-rpmalloc</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-shaderc</artifactId>
 			<classifier>${lwjgl.natives}</classifier>
 			<version>3.2.3</version>
 		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-sse</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.3.1</version>
+			<dependency>
+			<groupId>org.joml</groupId>
+			<artifactId>joml</artifactId>
+			<version>${joml.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-stb</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-tinyexr</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-tinyfd</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
+		
+		
 		<!-- https://mvnrepository.com/artifact/javax.vecmath/vecmath -->
 		<dependency>
 			<groupId>javax.vecmath</groupId>
@@ -564,7 +444,7 @@
 			<version>1.5.2</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-vfs2 -->
-
+	
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 		<!-- https://mvnrepository.com/artifact/com.miglayout/miglayout-swing -->
 		<dependency>
@@ -585,36 +465,6 @@
 			<version>1.0.3</version>
 		</dependency>
 		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-tootle</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-vma</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-xxhash</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-yoga</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-zstd</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>RELEASE</version>
@@ -627,9 +477,9 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-    		<groupId>io.github.parubok</groupId>
-    		<artifactId>multiline-label</artifactId>
-    		<version>1.18</version>
+	   		<groupId>io.github.parubok</groupId>
+	   		<artifactId>multiline-label</artifactId>
+	   		<version>1.18</version>
 		</dependency>
 	</dependencies>
 </project>

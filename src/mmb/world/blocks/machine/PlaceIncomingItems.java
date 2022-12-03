@@ -4,17 +4,20 @@
 package mmb.world.blocks.machine;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
+import mmb.MMBUtils;
 import mmb.debug.Debugger;
 import mmb.menu.world.Placer;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
-import mmb.world.block.SkeletalBlockEntityRotary;
 import mmb.world.blocks.ContentsBlocks;
+import mmb.world.blocks.SkeletalBlockEntityRotary;
 import mmb.world.crafting.RecipeOutput;
+import mmb.world.inventory.InvUtils;
 import mmb.world.inventory.io.InventoryWriter;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.rotate.RotatedImageGroup;
 import mmb.world.rotate.Side;
 
@@ -27,7 +30,7 @@ public class PlaceIncomingItems extends SkeletalBlockEntityRotary {
 	@Nonnull private InventoryWriter placer = new InventoryWriter() {
 
 		@Override
-		public int write(ItemEntry ent, int amount) {
+		public int insert(ItemEntry ent, int amount) {
 			if(amount < 1) return 0;
 			BlockEntry blk = getAtSide(getRotation().U());
 			if(blk.isSurface()) return 0;
@@ -45,22 +48,28 @@ public class PlaceIncomingItems extends SkeletalBlockEntityRotary {
 		public int bulkInsert(RecipeOutput block, int amount) {
 			if(block.items().size() > 1) return 0;
 			if(block.items().isEmpty()) return amount;
-			for(Entry<ItemEntry> entry: block.getContents().object2IntEntrySet()) {
-				if(amount < 1) return 0;
-				if(entry.getIntValue() > 1) return 0;
-				if(entry.getIntValue() == 0) return amount;
-				BlockEntry blk = getAtSide(getRotation().U());
-				if(!blk.isSurface()) return 0;
-				debug.printl("Item given");
-				ItemEntry ent = entry.getKey();
-				if(ent instanceof Placer) {
-					debug.printl("Placer given, placing");
-					Placer iplacer = (Placer)ent;
-					BlockEntry newBlock = iplacer.place(getRotation().U().offset(posX(), posY()), owner());
-					if(newBlock != null) return 1;
-				}
+			ItemEntry ent = InvUtils.onlyItem(block);
+			BlockEntry blk = getAtSide(getRotation().U());
+			if(!blk.isSurface()) return 0;
+			debug.printl("Item given");
+			if(ent instanceof Placer) {
+				debug.printl("Placer given, placing");
+				Placer iplacer = (Placer)ent;
+				BlockEntry newBlock = iplacer.place(getRotation().U().offset(posX(), posY()), owner());
+				if(newBlock != null) return 1;
 			}
 			return 0;
+		}
+
+		@Override
+		public int toInsertBulk(RecipeOutput block, int amount) {
+			return toInsert(InvUtils.onlyItem(block), amount);
+		}
+
+		@Override
+		public int toInsert(@Nullable ItemEntry item, int amount) {
+			if(amount == 0) return 0;
+			return MMBUtils.bool2int(item instanceof Placer);
 		}
 		
 	};

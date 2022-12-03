@@ -14,9 +14,9 @@ import mmb.beans.ToItemUnifiedCollector;
 import mmb.cgui.BlockActivateListener;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
-import mmb.world.block.BlockEntityData;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
+import mmb.world.blocks.BlockEntityData;
 import mmb.world.chance.Chance;
 import mmb.world.contentgen.ElectricMachineGroup.ElectroMachineType;
 import mmb.world.electric.Battery;
@@ -155,7 +155,7 @@ public class Digger extends BlockEntityData implements ToItemUnifiedCollector, B
 		battery.extractTo(hammer);
 		double reqcharge = ENERGY_PER_BLOCK/battery.voltage.volts;
 		InventoryWriter writer0 = inv0.createWriter();
-		while(hammer.amt >= reqcharge) {
+		while(hammer.stored >= reqcharge) {
 			//Check battery
 			if(hammer.energy() < ENERGY_PER_BLOCK) return;
 			
@@ -178,7 +178,7 @@ public class Digger extends BlockEntityData implements ToItemUnifiedCollector, B
 			if(block.isSurface()) continue;
 			
 			//Extract energy
-			hammer.amt -= reqcharge;
+			hammer.stored -= reqcharge;
 			
 			//Mine the block
 			Chance drop = block.type().getDrop();

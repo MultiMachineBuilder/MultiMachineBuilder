@@ -15,16 +15,16 @@ import java.util.TreeMap;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.data.contents.Textures;
 import mmb.graphics.texgen.TexGen;
 import mmb.mods.loader.ModLoader;
+import mmb.texture.Textures;
 import mmb.world.block.Block;
 import mmb.world.blocks.machine.manual.Crafting;
 import mmb.world.electric.VoltageTier;
 import mmb.world.item.Item;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.Items;
 import mmb.world.items.ContentsItems;
-import mmb.world.items.ItemEntry;
 import mmb.world.recipes.CraftingGroups;
 
 import static mmb.GlobalSettings.*;

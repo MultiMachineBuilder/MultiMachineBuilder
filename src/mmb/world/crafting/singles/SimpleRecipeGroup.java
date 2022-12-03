@@ -6,7 +6,7 @@ package mmb.world.crafting.singles;
 import javax.annotation.Nullable;
 
 import mmb.world.crafting.RecipeGroup;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar

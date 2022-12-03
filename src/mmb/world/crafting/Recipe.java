@@ -12,7 +12,7 @@ import mmb.menu.world.craft.RecipeView;
 import mmb.world.chance.Chance;
 import mmb.world.electric.VoltageTier;
 import mmb.world.inventory.Inventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar
@@ -93,5 +93,14 @@ public interface Recipe<T extends Recipe<T>>{
 		RecipeView<T> rv = group().createView();
 		rv.set(that());
 		return rv;
+	}
+	
+	@Nonnull public static RecipeOutput out(@Nullable Recipe<?> recipe) {
+		if(recipe == null) return RecipeOutput.NONE;
+		return recipe.output();
+	}
+	@Nonnull public static RecipeOutput in(@Nullable Recipe<?> recipe) {
+		if(recipe == null) return RecipeOutput.NONE;
+		return recipe.inputs();
 	}
 }

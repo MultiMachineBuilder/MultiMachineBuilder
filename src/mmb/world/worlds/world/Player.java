@@ -30,7 +30,7 @@ import mmb.debug.Debugger;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.inventory.storage.ListenableSimpleInventory;
 import mmb.world.inventory.storage.SimpleInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar

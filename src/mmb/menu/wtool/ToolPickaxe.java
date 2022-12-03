@@ -16,11 +16,11 @@ import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.data.contents.Textures;
+import mmb.texture.Textures;
 import mmb.world.block.BlockEntry;
 import mmb.world.chance.Chance;
 import mmb.world.inventory.ItemRecord;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.items.pickaxe.Pickaxe;
 import mmb.world.items.pickaxe.Pickaxe.PickaxeType;
 

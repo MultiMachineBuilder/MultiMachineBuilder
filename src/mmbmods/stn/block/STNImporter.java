@@ -10,8 +10,8 @@ import mmb.world.block.BlockType;
 import mmb.world.inventory.Inventories;
 import mmb.world.inventory.io.InventoryReader;
 import mmb.world.inventory.io.InventoryReader.ExtractionLevel;
+import mmb.world.item.ItemEntry;
 import mmb.world.inventory.io.InventoryWriter;
-import mmb.world.items.ItemEntry;
 import mmb.world.rotate.RotatedImageGroup;
 import mmbmods.stn.STN;
 

@@ -9,12 +9,12 @@ import java.awt.image.LookupOp;
 
 import javax.annotation.Nonnull;
 
-import mmb.data.contents.Textures;
 import mmb.graphics.awt.ColorMapper;
+import mmb.texture.Textures;
 import mmb.world.block.BlockEntityType;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
-import mmb.world.block.SkeletalBlockEntityRotary;
+import mmb.world.blocks.SkeletalBlockEntityRotary;
 import mmb.world.electric.Electricity;
 import mmb.world.electric.VoltageTier;
 import mmb.world.electric.Electricity.SettablePressure;

@@ -9,8 +9,6 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
 
-import mmb.Lambdas;
-import mmb.data.variables.Variable;
 import mmb.debug.Debugger;
 import mmb.menu.Icons;
 import mmb.menu.world.window.GUITab;
@@ -21,8 +19,8 @@ import mmb.world.crafting.SimpleItemList;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.inventory.ItemStack;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.ItemRaw;
-import mmb.world.items.ItemEntry;
 import mmb.world.items.data.Stencil;
 import mmb.world.recipes.CraftingGroups;
 import mmb.world.recipes.CraftingRecipeGroup.CraftingRecipe;
@@ -38,7 +36,6 @@ import javax.swing.BoxLayout;
 import static mmb.GlobalSettings.$res;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -118,15 +115,7 @@ public class CraftGUI extends GUITab {
 			}
 		});
 		box.add(craftingGrid);
-		for(ItemSelectionSlot[] slots: craftingGrid.slots) {
-			for(ItemSelectionSlot slot: slots) {
-				slot.setSelectionSrc(Variable.delegate(() -> {
-					ItemRecord sel = inventoryController.getSelectedValue();
-					if(sel == null) return null;
-					return sel.item();
-				}, Lambdas.doNothing()));
-			}
-		}
+		craftingGrid.setSource(inventoryController::getSelectedItem);
 		
 		//Buttons
 		buttonbar = new Box(BoxLayout.X_AXIS);
@@ -176,7 +165,7 @@ public class CraftGUI extends GUITab {
 		JButton btnClear = new JButton(Icons.erase);
 		btnClear.setToolTipText($res("wguic-clear"));
 		btnClear.addActionListener(e -> 
-			craftingGrid.items.fill(0, 0, size, size, null)
+			craftingGrid.items.fill(null)
 		);
 		btnClear.setBackground(new Color(255, 69, 0));
 		buttonbar.add(btnClear);
@@ -201,7 +190,9 @@ public class CraftGUI extends GUITab {
 		btnActivateItems.setBackground(new Color(255, 140, 0));
 		btnActivateItems.setToolTipText($res("wguim-activate"));
 		btnActivateItems.addActionListener(e -> {
-			ItemEntry item = inventoryController.getSelectedValue().item();
+			ItemRecord irecord = inventoryController.getSelectedValue();
+			if(irecord == null) return;
+			ItemEntry item = irecord.item();
 			Inventory inv = inventoryController.getInv();
 			if(inv == null) return;
 			if(item instanceof ItemRaw) {
@@ -214,7 +205,7 @@ public class CraftGUI extends GUITab {
 		
 		//Exit
 		if(window != null) {
-			btnExit = new JButton($res("wguic-exit"));
+			JButton btnExit = new JButton($res("wguic-exit"));
 			btnExit.setForeground(new Color(0, 0, 0));
 			btnExit.setToolTipText("Closes this crafting GUI, discarding any selections.");
 			btnExit.addActionListener(e -> {
@@ -225,17 +216,13 @@ public class CraftGUI extends GUITab {
 		}
 	}
 	@Nonnull private JLabel lblRecipeOutputs;
-	@Nonnull private JButton btnExit;	
+	/** Place toolbars here */
 	@Nonnull public final Box box;
+	/** Place buttons here */
 	@Nonnull public final Box buttonbar;
+	
 	@Override
-	public void createTab(WorldWindow window) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void destroyTab(WorldWindow window) {
-		// TODO Auto-generated method stub
-		
+	public void close(WorldWindow window) {
+		craftingGrid.close();
 	}
 }

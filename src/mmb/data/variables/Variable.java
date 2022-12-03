@@ -14,11 +14,7 @@ import javax.annotation.Nonnull;
  * @param <T> type of variable
  *
  */
-public interface Variable<T> {
-	/**
-	 * @return the value of the variable
-	 */
-	public T get();
+public interface Variable<T> extends Property<T>{
 	/**
 	 * 
 	 * @param value

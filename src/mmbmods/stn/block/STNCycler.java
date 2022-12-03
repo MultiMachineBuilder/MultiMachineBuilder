@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.cgui.BlockActivateListener;
 import mmb.data.variables.DataValue;
+import mmb.data.variables.ListenableValue;
 import mmb.data.variables.ListenerBooleanVariable;
 import mmb.data.variables.Variable;
 import mmb.menu.world.window.WorldWindow;
@@ -20,7 +21,7 @@ import mmb.world.inventory.Inventory;
 import mmb.world.inventory.io.InventoryReader;
 import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.inventory.storage.SingleItemInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.items.SpeedUpgrade;
 import mmb.world.worlds.MapProxy;
 import mmb.world.worlds.world.World;
@@ -34,7 +35,7 @@ public abstract class STNCycler extends STNBaseMachine implements BlockActivateL
 
 	/** The selection */
 	@Nonnull
-	public final Variable<@Nullable ItemEntry> selection = new DataValue<>(null);
+	public final ListenableValue<@Nullable ItemEntry> selection = new ListenableValue<>(null);
 	/** The speed upgrade slot */
 	@Nonnull
 	public final SingleItemInventory speedupgrade = new SingleItemInventory();

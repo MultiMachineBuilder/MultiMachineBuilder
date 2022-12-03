@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.beans.Titled;
 import mmb.cgui.BlockActivateListener;
 import mmb.menu.world.window.WorldWindow;
-import mmb.world.block.BlockEntityData;
+import mmb.world.blocks.BlockEntityData;
 import mmb.world.blocks.machine.SideConfig.SideBoolean;
 import mmb.world.electric.Battery;
 import mmb.world.electric.Electricity;

@@ -10,7 +10,7 @@ import javax.annotation.Nonnull;
 import com.google.common.collect.Iterators;
 
 import mmb.world.crafting.RecipeOutput;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar
@@ -108,5 +108,10 @@ public class InsertionsOnlyInventory implements Inventory{
 	@Override
 	public boolean test(ItemEntry e) {
 		return inv.test(e);
+	}
+
+	@Override
+	public int insertibleRemainBulk(int amount, RecipeOutput ent) {
+		return inv.insertibleRemainBulk(amount, ent);
 	}
 }

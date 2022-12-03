@@ -6,7 +6,7 @@ package mmbmods.stn.block;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.world.block.SkeletalBlockEntityRotary;
+import mmb.world.blocks.SkeletalBlockEntityRotary;
 import mmb.world.inventory.Inventory;
 import mmb.world.worlds.world.World;
 import mmbmods.stn.STN;

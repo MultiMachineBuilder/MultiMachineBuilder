@@ -26,8 +26,8 @@ import org.joml.Matrix2f;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
 
-import mmb.data.contents.Textures;
-import mmb.data.contents.Textures.Texture;
+import mmb.texture.Textures;
+import mmb.texture.Textures.Texture;
 import mmb.world.rotate.ChiralRotation;
 
 /**
@@ -52,7 +52,6 @@ public class HalfVecTest{
 		glfwShowWindow(window);
 		glfwMakeContextCurrent(window);
 		
-		
 		GL.createCapabilities();
 		glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
 		SimpleCtx ctx = new SimpleCtx();
@@ -60,6 +59,7 @@ public class HalfVecTest{
 		Texture frame = Textures.get1("item/frame 1.png");
 		Texture beer = Textures.get1("item/beer.png");
 		Texture pipeline = Textures.get1("pipeline.png");
+		Texture machinius = Textures.get1("player/Machinius The Engineer.png");
 		ctx.setup();
 		
 		//OpenGL stuff for loading in converted data
@@ -155,6 +155,9 @@ public class HalfVecTest{
 					-0.1f, 0.1f, pipeline,
 					0, 0, 1, 1,
 					1, 0, 1, 1);
+			
+			//Machinius won't look nice
+			ctx.renderTextureRecolored(machinius, -3.5f, -2.5f, 1, 2, 1, 1, 1, 1);
 			
 			//render a block grid
 			ctx.render();

@@ -11,8 +11,8 @@ import javax.annotation.Nullable;
 import com.github.davidmoten.rtree.geometry.Geometries;
 import com.github.davidmoten.rtree.geometry.Rectangle;
 
-import mmb.graphics.texture.BlockDrawer;
 import mmb.menu.world.window.WorldFrame;
+import mmb.texture.BlockDrawer;
 
 /**
  * @author oskar

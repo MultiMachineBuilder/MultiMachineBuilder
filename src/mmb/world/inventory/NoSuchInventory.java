@@ -8,7 +8,7 @@ import java.util.Iterator;
 import javax.annotation.Nonnull;
 
 import mmb.world.crafting.RecipeOutput;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar
@@ -74,5 +74,9 @@ public class NoSuchInventory implements Inventory{
 	@Override
 	public boolean test(ItemEntry e) {
 		return false;
+	}
+	@Override
+	public int insertibleRemainBulk(int amount, RecipeOutput ent) {
+		return 0;
 	}
 }

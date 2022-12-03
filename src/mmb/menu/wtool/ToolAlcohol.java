@@ -13,12 +13,12 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import mmb.beans.Intoxicating;
-import mmb.data.contents.Textures;
 import mmb.debug.Debugger;
+import mmb.texture.Textures;
 import mmb.world.chance.Chance;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.ItemRecord;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar

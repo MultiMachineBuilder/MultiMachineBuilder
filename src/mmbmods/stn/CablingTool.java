@@ -60,7 +60,7 @@ public final class CablingTool extends ItemEntityMutable {
 	
 	public boolean unloadWire(InventoryWriter inv) {
 		if(amt.getDouble() < 0) return false;
-		int write = inv.write(WIRE);
+		int write = inv.insert(WIRE);
 		boolean result = write==1;
 		if(result) amt.set(amt.getDouble()-1);
 		return result;

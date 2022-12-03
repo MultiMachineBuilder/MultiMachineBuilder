@@ -102,6 +102,8 @@ public class FixedGrid<T> implements Grid<T> {
 			arr[i] = Arrays.copyOf(data[i], data[i].length);
 		}
 	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -109,7 +111,6 @@ public class FixedGrid<T> implements Grid<T> {
 		result = prime * result + Arrays.deepHashCode(arr);
 		return result;
 	}
-
 	@Override
 	public boolean equals(@Nullable Object obj) {
 		if (this == obj) return true;

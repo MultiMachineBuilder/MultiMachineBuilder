@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 
-import mmb.graphics.texture.BlockDrawer;
+import mmb.texture.BlockDrawer;
 import mmb.world.chance.Chance;
 import mmb.world.worlds.world.World;
 

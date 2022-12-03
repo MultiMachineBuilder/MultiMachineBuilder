@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import org.ainslec.picocog.PicoWriter;
 
 import mmb.world.inventory.io.InventoryWriter;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.worlds.world.World;
 
 /**

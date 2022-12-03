@@ -12,9 +12,9 @@ import mmb.world.crafting.ItemLists;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.crafting.SimpleItemList;
 import mmb.world.item.ItemEntity;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.ItemType;
 import mmb.world.items.ContentsItems;
-import mmb.world.items.ItemEntry;
 
 /**
  * @author oskar

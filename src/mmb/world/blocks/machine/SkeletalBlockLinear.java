@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.data.json.JsonTool;
 import mmb.world.block.BlockEntry;
-import mmb.world.block.SkeletalBlockEntityRotary;
+import mmb.world.blocks.SkeletalBlockEntityRotary;
 import mmb.world.inventory.Inventories;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.NoSuchInventory;

@@ -7,6 +7,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.google.common.util.concurrent.Runnables;
 
 import mmb.beans.Saver;
 import mmb.data.json.JsonTool;
@@ -18,26 +19,23 @@ import mmb.world.electric.Electricity.SettablePressure;
  *
  */
 public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, Saver{
+	/** Maximum power in coulombs per tick */
 	public double maxPower;
-	/**
-	 * The energy capacity in coulombs
-	 */
+	/** The energy capacity in coulombs */
 	public double capacity;
-	/**
-	 * Stored energy in coulombs
-	 */
-	public double amt;
+	/** Stored energy in coulombs */
+	public double stored;
+	/** Current power pressure in joules */
 	public double pressure = 0;
+	/** Current power pressure weight */
 	public double pressureWt = 1;
 	@Nullable private final BlockEntity blow;
-	/**
-	 * The voltage tier of this battery
-	 */
+	/** The voltage tier of this battery */
 	@Nonnull public VoltageTier voltage;
 
 	/**
 	 * Create battery with capacity and power limits
-	 * @param maxPower max powr in coulombs per tick
+	 * @param maxPower max power in coulombs per tick
 	 * @param capacity power capacity in coulombs
 	 * @param blow block which owns this battery. Used to blow up the block if the battery is overvoltaged
 	 * @param voltage voltage tier
@@ -57,17 +55,19 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 	public Battery(Battery bat) {
 		maxPower = bat.maxPower;
 		capacity = bat.capacity;
-		amt = bat.amt;
+		stored = bat.stored;
 		blow = bat.blow;
 		voltage = bat.voltage;
 	}
 
 	public double amount() {
-		return amt;
+		return stored;
 	}
 	
 	private void blow() {
-		blow.owner().place(blow.type().leaveBehind(), blow.posX(), blow.posY());
+		final BlockEntity blow2 = blow;
+		if (blow2 != null) 
+			blow2.owner().place(blow2.type().leaveBehind(), blow2.posX(), blow2.posY());
 	}
 
 	@Override
@@ -83,7 +83,7 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 		}
 		double dpressure = amt - max;
 		pressure += dpressure;
-		this.amt += max;
+		this.stored += max;
 		return max;
 	}
 	@Override
@@ -93,14 +93,14 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 		if(cmp != 0) return 0;
 		if(volt != voltage) return 0;
 		if(amt < 0) return 0;
-		double max = Math.min(amt, Math.min(maxPower, this.amt));
+		double max = Math.min(amt, Math.min(maxPower, this.stored));
 		if(pressure > 0) {
 			pressure -= amt;
 			if(pressure < 0) pressure = 0;
 		}
 		double dpressure = amt - max;
 		pressure -= dpressure;
-		this.amt -= max;
+		this.stored -= max;
 		return max;
 	}
 
@@ -109,7 +109,7 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 		if(data == null || data.isEmpty()) return;
 		maxPower = data.get(0).asDouble();
 		capacity = data.get(1).asDouble();
-		amt = data.get(2).asDouble();
+		stored = data.get(2).asDouble();
 		if(data.size() >= 5) {
 			pressure = data.get(3).asDouble();
 			pressureWt = data.get(4).asDouble();
@@ -118,7 +118,7 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 
 	@Override
 	public JsonNode save() {
-		return JsonTool.newArrayNode().add(maxPower).add(capacity).add(amt).add(pressure).add(pressureWt);
+		return JsonTool.newArrayNode().add(maxPower).add(capacity).add(stored).add(pressure).add(pressureWt);
 	}
 	
 	@Override
@@ -140,16 +140,16 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 	 * @return remaining charge in coulombs
 	 */
 	public double remain() {
-		return capacity - amt;
+		return capacity - stored;
 	}
 	
 	/**
 	 * @param elec
 	 */
 	public void extractTo(Electricity elec) {
-		double insert = elec.insert(Math.min(amt, maxPower), voltage);
-		if(maxPower > amt) pressure -= amt*voltage.volts;
-		amt -= insert;
+		double insert = elec.insert(Math.min(stored, maxPower), voltage);
+		if(maxPower > stored) pressure -= stored*voltage.volts;
+		stored -= insert;
 	}
 	
 	/**
@@ -157,9 +157,10 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 	 */
 	public void takeFrom(Electricity elec) {
 		double remain = remain();
-		double insert = elec.extract(Math.min(remain, maxPower), voltage, blow::blow);
+		BlockEntity blow2 = blow;
+		double insert = elec.extract(Math.min(remain, maxPower), voltage, blow2==null?Runnables.doNothing():blow2::blow);
 		if(maxPower > remain) pressure += remain*voltage.volts;
-		amt += insert;
+		stored += insert;
 	}
 
 	/**
@@ -169,7 +170,7 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 	public void set(Battery bat) {
 		maxPower = bat.maxPower;
 		capacity = bat.capacity;
-		amt = bat.amt;
+		stored = bat.stored;
 		pressure = bat.pressure;
 		pressureWt = bat.pressureWt;
 	}
@@ -179,11 +180,9 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 		this.pressure = pressure;
 	}
 
-	/**
-	 * @return stored enery in joules
-	 */
+	/** @return stored energy in joules */
 	public double energy() {
-		return amt*voltage.volts;
+		return stored*voltage.volts;
 	}
 
 	
@@ -192,7 +191,7 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 	public int compareTo(Battery o) {
 		int cmp = voltage.compareTo(o.voltage);
 		if(cmp != 0) return cmp;
-		cmp = Double.compare(amt, o.amt);
+		cmp = Double.compare(stored, o.stored);
 		if(cmp != 0) return cmp;
 		cmp = Double.compare(capacity, o.capacity);
 		if(cmp != 0) return cmp;
@@ -204,7 +203,7 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 	}
 	@Override
 	public String toString() {
-		return "Battery [maxPower=" + maxPower + ", capacity=" + capacity + ", amt=" + amt + ", pressure=" + pressure
+		return "Battery [maxPower=" + maxPower + ", capacity=" + capacity + ", amt=" + stored + ", pressure=" + pressure
 				+ ", pressureWt=" + pressureWt + ", voltage=" + voltage + "]";
 	}
 
@@ -213,7 +212,7 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 		final int prime = 31;
 		int result = 1;
 		long temp;
-		temp = Double.doubleToLongBits(amt);
+		temp = Double.doubleToLongBits(stored);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		temp = Double.doubleToLongBits(capacity);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -235,7 +234,7 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 		if (getClass() != obj.getClass())
 			return false;
 		Battery other = (Battery) obj;
-		if (Double.doubleToLongBits(amt) != Double.doubleToLongBits(other.amt))
+		if (Double.doubleToLongBits(stored) != Double.doubleToLongBits(other.stored))
 			return false;
 		if (Double.doubleToLongBits(capacity) != Double.doubleToLongBits(other.capacity))
 			return false;

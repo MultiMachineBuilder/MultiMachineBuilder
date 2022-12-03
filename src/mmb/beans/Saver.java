@@ -8,8 +8,8 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 
 /**
- * @author oskar
  * Represents an object which can be saved
+ * @author oskar
  */
 public interface Saver {
 	/**

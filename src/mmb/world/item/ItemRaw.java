@@ -10,13 +10,14 @@ import javax.annotation.Nonnull;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import com.google.common.util.concurrent.ExecutionError;
+import com.google.common.util.concurrent.UncheckedExecutionException;
 
 import mmb.GlobalSettings;
-import mmb.data.contents.NotFoundException;
 
 /**
+ * A simple item wrapper for ItemEntities
  * @author oskar
- *
  */
 public class ItemRaw extends Item {
 	@Nonnull private static final String RAW = " "+GlobalSettings.$res("rawitem");
@@ -32,7 +33,7 @@ public class ItemRaw extends Item {
 	@Nonnull public static ItemRaw make(ItemEntityType iet) {
 		try {
 			return memoizer.get(iet);
-		} catch (ExecutionException e) {
+		} catch (ExecutionError|UncheckedExecutionException|ExecutionException e) {
 			throw new InternalError("Evaluation failed for "+iet.id(), e);
 		}
 	}

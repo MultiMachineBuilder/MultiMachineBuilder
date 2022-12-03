@@ -15,7 +15,7 @@ import javax.swing.SwingConstants;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.inventory.storage.SingleItemInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;

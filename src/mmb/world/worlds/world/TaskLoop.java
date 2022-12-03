@@ -3,6 +3,10 @@
  */
 package mmb.world.worlds.world;
 
+import java.lang.Thread.UncaughtExceptionHandler;
+
+import javax.annotation.Nonnull;
+
 /**
  * @author oskar
  *
@@ -24,31 +28,38 @@ public class TaskLoop {
 	}
 	private int state = 0;
 	private long next;
+	@Nonnull private final Runnable task;
+	private final long period;
 	/**
 	 * @param task task to run
 	 * @param period period in nanoseconds
 	 */
 	public TaskLoop(Runnable task, long period) {
-		thread = new Thread(() -> {
-			Thread thr = Thread.currentThread();
-			while(true) {
-				if(thr.isInterrupted()) {
-					state = 2;
-					return;
-				}
-				long currTime = System.nanoTime();
-				if(currTime >= next) {
-					//Run the task
-					try {
-						task.run();
-					}catch(Exception e) {
-						thr.getUncaughtExceptionHandler().uncaughtException(thr, e);
-						if(destroyOnFail) return;
-					}
-					next += period;
-				}
+		this.task = task;
+		this.period = period;
+		thread = new Thread(this::fullRun);
+	}
+	private void fullRun() {
+		Thread thr = Thread.currentThread();
+		while(true) {
+			if(thr.isInterrupted()) {
+				state = 2;
+				return;
 			}
-		});
+			long currTime = System.nanoTime();
+			if(currTime >= next) {
+				//Run the task
+				try {
+					task.run();
+				}catch(Exception e) {
+					UncaughtExceptionHandler ueh = thr.getUncaughtExceptionHandler();
+					if(ueh != null) ueh.uncaughtException(thr, e);
+					if(destroyOnFail) return;
+				}
+				next += period;
+			}else Thread.yield();
+		}
+	
 	}
 	public void start() {
 		if(state == 1) throw new IllegalStateException("The timer was already started");

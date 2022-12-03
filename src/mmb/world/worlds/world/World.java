@@ -43,12 +43,14 @@ import mmb.debug.Debugger;
 import mmb.menu.world.FPSCounter;
 import mmb.world.block.BlockEntity;
 import mmb.world.block.BlockEntry;
-import mmb.world.block.BlockLoader;
 import mmb.world.block.BlockType;
+import mmb.world.blocks.BlockLoader;
 import mmb.world.blocks.ContentsBlocks;
+import mmb.world.chance.Chance;
 import mmb.world.crafting.RecipeOutput;
+import mmb.world.inventory.io.Dropper;
 import mmb.world.inventory.io.InventoryWriter;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.mbmachine.Machine;
 import mmb.world.mbmachine.MachineModel;
 import mmb.world.rotate.Side;
@@ -76,7 +78,7 @@ import monniasza.collects.grid.Grid;
 public class World implements Identifiable<String>, Indexable{
 	//Allocator & data layers
 	@Nonnull private static SimpleAllocator<World> allocator0 = new SimpleAllocator<>();
-	/** Allocator for universes */
+	/** Allocator for world */
 	@Nonnull public static final Allocator<World> allocator = allocator0.readonly();
 	private int ordinal; //ordinal, set to -1 to prevent abuse after universe dies
 	@Override
@@ -188,14 +190,12 @@ public class World implements Identifiable<String>, Indexable{
 		
 		//Blocks
 		ArrayNode worldArray = (ArrayNode) json.get("world");
-		BlockLoader bloader = new BlockLoader(world);
 		Iterator<JsonNode> iter = worldArray.elements();
 		for(int y = startY; y < endY; y++) {
 			for(int x = startX; x < endX; x++) {
 				JsonNode node = iter.next();
-				bloader.x = x;
-				bloader.y = y;
-				BlockEntry block = bloader.load(node);
+
+				BlockEntry block = BlockLoader.load(node, x, y, world);
 				if(block == null) block = ContentsBlocks.grass;
 				block.onStartup(world, 0, 0);
 				world.set(block, x, y);
@@ -238,8 +238,6 @@ public class World implements Identifiable<String>, Indexable{
 		//Postload the blocks
 		for(int y = startY; y < endY; y++) {
 			for(int x = startX; x < endX; x++) {
-				bloader.x = x;
-				bloader.y = y;
 				BlockEntry block = world.get(x, y);
 				block.postLoad(world, 0, 0);
 			}
@@ -351,6 +349,7 @@ public class World implements Identifiable<String>, Indexable{
 			//Run every data layer
 			for(IndexedDatalayerMap<World, ? extends DataLayer<World>> dls: DataLayers.layersWorld) {
 				DataLayer<World> dl = dls.get(this);
+				if(dl == null) throw new InternalError("Data layer found must not be null for a valid world");
 				dl.cycle();
 			}
 		}catch(Exception e) {
@@ -788,6 +787,23 @@ public class World implements Identifiable<String>, Indexable{
 		}
 	}
 	/**
+	 * @param item item to be dropped
+	 * @param x X coordinate of the item
+	 * @param y Y coordinate of the item
+	 */
+	public void dropChance(Chance item, int x, int y) {
+		item.drop(null, this, x, y);
+	}
+	/**
+	 * @param item item to be dropped
+	 * @param amount amount of the item to be dropped
+	 * @param x X coordinate of the item
+	 * @param y Y coordinate of the item
+	 */
+	public void dropChance(Chance item, int amount, int x, int y) {
+		item.produceResults(createDropper(x, y), amount);
+	}
+	/**
 	 * The multimap containing all dropped items.
 	 * DO NOT CHANGE ANY VECTORS IN THIS MAP
 	 */
@@ -799,22 +815,7 @@ public class World implements Identifiable<String>, Indexable{
 	 * @return the inventory writer
 	 */
 	@Nonnull public InventoryWriter createDropper(int x, int y) {
-		Collection<ItemEntry> collect = getDrops(x, y);
-		return new InventoryWriter() {
-			@Override
-			public int write(ItemEntry ent, int amount) {
-				for(int i = 0; i < amount; i++) {
-					collect.add(ent);
-				}
-				return amount;
-			}
-
-			@Override
-			public int bulkInsert(RecipeOutput block, int amount) {
-				dropItems(block, amount, x, y);
-				return amount;
-			}
-		};
+		return new Dropper(x, y, this);
 	}
 	/**
 	 * @param x X coordinate of item drop(s)

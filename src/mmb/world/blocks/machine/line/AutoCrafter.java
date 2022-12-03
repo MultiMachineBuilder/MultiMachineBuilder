@@ -3,6 +3,7 @@
  */
 package mmb.world.blocks.machine.line;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -11,15 +12,18 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.cgui.BlockActivateListener;
+import mmb.debug.Debugger;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.blocks.machine.SkeletalBlockLinear;
+import mmb.world.crafting.Recipe;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.ItemRecord;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.items.data.Stencil;
+import mmb.world.recipes.CraftingRecipeGroup.CraftingRecipe;
 import mmb.world.rotate.RotatedImageGroup;
 import mmb.world.worlds.world.World;
 import monniasza.collects.grid.Grid;
@@ -29,7 +33,7 @@ import monniasza.collects.grid.Grid;
  *
  */
 public class AutoCrafter extends SkeletalBlockLinear implements BlockActivateListener {
-
+	@Nonnull private static final Debugger debug = new Debugger("AUTOCRAFTER MANUAL");
 	private static final RotatedImageGroup rig = RotatedImageGroup.create("machine/AutoCrafter 1.png");
 	private Stencil stencil;
 	ItemEntry toCraft;
@@ -49,13 +53,15 @@ public class AutoCrafter extends SkeletalBlockLinear implements BlockActivateLis
 
 	@Override
 	protected void cycle() {
+		Stencil stencil0 = stencil;
+		CraftingRecipe recipe = stencil0==null?null:stencil0.recipe();
 		if(remaining == 0) {
 			//Time to take a new item
 			for(ItemRecord ir: incoming) {
 				if(ir.amount() == 0) continue;
 				//Item exists
-				if(stencil != null && stencil.recipe().containsRequiredIngredients(incoming)) {
-					RecipeOutput ins = stencil.recipe().inputs();
+				if(recipe != null && recipe.containsRequiredIngredients(incoming)) {
+					RecipeOutput ins = recipe.inputs();
 					for(Entry<ItemEntry> irecord: ins.getContents().object2IntEntrySet()) {
 						incoming.extract(irecord.getKey(), irecord.getIntValue());
 					}
@@ -73,7 +79,7 @@ public class AutoCrafter extends SkeletalBlockLinear implements BlockActivateLis
 			remaining--;
 			if(remaining == 0) {
 				//Time to eject an item
-				RecipeOutput result = stencil.recipe().output();
+				RecipeOutput result = Recipe.out(recipe);
 				if(result == RecipeOutput.NONE) {
 					//Unsmeltable, return original
 					if(toCraft != null) 

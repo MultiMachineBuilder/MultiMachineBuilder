@@ -11,11 +11,9 @@ import net.miginfocom.swing.MigLayout;
 import mmb.menu.world.inv.InventoryController;
 import mmb.menu.world.inv.MoveItems;
 import mmb.GlobalSettings;
+import mmb.menu.components.ItemSelectionSlot;
 import mmb.menu.helper.MenuHelper;
-import mmb.menu.world.inv.AbstractInventoryController;
-import mmb.menu.world.inv.ItemSelectionSlot;
 import mmb.menu.world.inv.SingleInventoryController;
-import mmb.world.inventory.storage.SingleItemInventory;
 import javax.swing.border.BevelBorder;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -27,6 +25,7 @@ import javax.swing.JButton;
 public class STNPusherGUI extends GUITab {
 	private static final long serialVersionUID = 1823899317802392491L;
 	@Nonnull private final transient STNCycler pusher;
+	private ItemSelectionSlot itemSelectionSlot;
 	
 	STNPusherGUI(STNCycler pusher, WorldWindow window) {
 		this.pusher = pusher;
@@ -39,10 +38,10 @@ public class STNPusherGUI extends GUITab {
 		JButton btnNewButton = MenuHelper.exit(this, window);
 		add(btnNewButton, "cell 1 0,grow");
 		
-		ItemSelectionSlot itemSelectionSlot = new ItemSelectionSlot();
+		itemSelectionSlot = new ItemSelectionSlot();
 		itemSelectionSlot.setBackground(new Color(64, 224, 208));
 		itemSelectionSlot.setTarget(pusher.selection);
-		itemSelectionSlot.setSelectionSrc(inventoryController.itemSelection());
+		itemSelectionSlot.setSelector(inventoryController::getSelectedItem);
 		itemSelectionSlot.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		add(itemSelectionSlot, "cell 2 0,grow");
 		
@@ -53,16 +52,11 @@ public class STNPusherGUI extends GUITab {
 		MoveItems moveItems = new MoveItems(inventoryController, singleInventoryController);
 		add(moveItems, "cell 1 1,grow");
 	}
-	
 
 	@Override
-	public void createTab(WorldWindow window) {
-		//unused
-	}
-
-	@Override
-	public void destroyTab(WorldWindow window) {
+	public void close(WorldWindow window) {
 		pusher.gui = null;
+		itemSelectionSlot.close();
 	}
 
 }

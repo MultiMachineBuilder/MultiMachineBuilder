@@ -24,7 +24,8 @@ public class ColorGUI extends GUITab {
 
 	/**
 	 * Create the panel.
-	 * @param c color reference
+	 * @param initial initial value
+	 * @param action takes a new value
 	 * @param win world window
 	 */
 	@SuppressWarnings("null")
@@ -52,12 +53,7 @@ public class ColorGUI extends GUITab {
 	}
 
 	@Override
-	public void createTab(WorldWindow window) {
-		//unused
-	}
-
-	@Override
-	public void destroyTab(WorldWindow window) {
+	public void close(WorldWindow window) {
 		//unused
 	}
 

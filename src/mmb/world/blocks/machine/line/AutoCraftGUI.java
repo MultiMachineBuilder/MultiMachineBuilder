@@ -10,7 +10,7 @@ import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.items.data.Stencil;
 import net.miginfocom.swing.MigLayout;
 
@@ -29,7 +29,7 @@ import javax.swing.JProgressBar;
  *
  */
 class AutoCraftGUI extends GUITab {
-	private AutoCrafter crafter;
+	private transient AutoCrafter crafter;
 	public AutoCraftGUI(AutoCrafter crafter, WorldWindow window) {
 		this.crafter = crafter;
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[][grow][][][grow]"));
@@ -86,16 +86,18 @@ class AutoCraftGUI extends GUITab {
 		setStencil.setBackground(new Color(255, 215, 0));
 		setStencil.addActionListener(e -> {
 			if(crafter.getStencil() != null) return;
-			ItemRecord record = craftGUI.inventoryController.getSelectedValue();
-			ItemEntry item = record.item();
+			ItemRecord irecord = craftGUI.inventoryController.getSelectedValue();
+			if(irecord == null) return;
+			ItemEntry item = irecord.item();
 			if(!(item instanceof Stencil)) return;
+			
 			Stencil stencil = (Stencil)item;
 			boolean insertible = crafter.setStencil(stencil);
 			if(!insertible) {
 				crafter.setStencil(null);
 				return;
 			}
-			int extract = record.extract(1);
+			int extract = irecord.extract(1);
 			if(extract == 0) {
 				crafter.setStencil(null);
 				return;
@@ -135,11 +137,7 @@ class AutoCraftGUI extends GUITab {
 	}
 	
 	@Override
-	public void createTab(WorldWindow window) {
-		//unused
-	}
-	@Override
-	public void destroyTab(WorldWindow window) {
+	public void close(WorldWindow window) {
 		crafter.closeWindow();
 	}
 }

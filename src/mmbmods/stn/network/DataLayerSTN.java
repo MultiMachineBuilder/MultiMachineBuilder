@@ -111,7 +111,6 @@ public class DataLayerSTN extends DataLayer<World> {
 	/** The processing capabilities of this network */
 	@Nonnull public final STNNetworkProcessing processor = new STNNetworkProcessing(this);
 
-
 	@Override
 	public void shutdown() {
 		//Clean up
@@ -128,11 +127,11 @@ public class DataLayerSTN extends DataLayer<World> {
 		
 		if(cycler % SECOND == 0) {
 			//Every second
-			debug.printl("Alive");
 			inv.flushQueue();
 		}
 		if(cycler % MINUTE == 0) {
 			//Every minute
+			debug.printl("Rebuild");
 			inv.rebuild();
 		}
 	}

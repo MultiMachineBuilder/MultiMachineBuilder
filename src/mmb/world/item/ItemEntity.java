@@ -7,8 +7,6 @@ import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.world.items.ItemEntry;
-
 /**
  * @author oskar
  *

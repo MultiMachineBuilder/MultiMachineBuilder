@@ -11,8 +11,8 @@ import java.util.stream.IntStream;
 import javax.annotation.Nonnull;
 
 import mmb.GlobalSettings;
-import mmb.data.contents.Textures;
 import mmb.graphics.texgen.TexGen;
+import mmb.texture.Textures;
 import mmb.world.electric.VoltageTier;
 import mmb.world.item.Item;
 import mmb.world.item.Items;

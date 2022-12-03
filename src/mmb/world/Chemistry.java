@@ -9,8 +9,8 @@ import java.awt.image.LookupOp;
 
 import javax.annotation.Nonnull;
 
-import mmb.data.contents.Textures;
 import mmb.graphics.awt.ColorMapper;
+import mmb.texture.Textures;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.item.Item;
 import mmb.world.item.Items;

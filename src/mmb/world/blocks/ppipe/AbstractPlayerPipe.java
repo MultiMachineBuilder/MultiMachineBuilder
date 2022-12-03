@@ -6,7 +6,7 @@ package mmb.world.blocks.ppipe;
 import javax.annotation.Nonnull;
 
 import mmb.debug.Debugger;
-import mmb.world.block.BlockEntityChirotable;
+import mmb.world.blocks.BlockEntityChirotable;
 import mmb.world.rotate.Side;
 import mmb.world.rotate.Sided;
 import mmb.world.worlds.world.World;

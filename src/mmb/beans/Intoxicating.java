@@ -16,9 +16,7 @@ public interface Intoxicating {
 	 */
 	public double alcoholicity();
 	
-	/**
-	 * @return the items to inject into inventory after drinking
-	 */
+	/** @return the items to inject into inventory after drinking */
 	public Chance postdrink();
 	
 	/** Called after alcohol consumption */

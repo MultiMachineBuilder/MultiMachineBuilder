@@ -26,9 +26,9 @@ import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.item.Item;
 import mmb.world.item.ItemEntityType;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.ItemType;
 import mmb.world.item.Items;
-import mmb.world.items.ItemEntry;
 import mmb.world.worlds.world.Player;
 import monniasza.collects.Collects;
 
@@ -54,14 +54,13 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 
 import javax.swing.JCheckBox;
 import javax.swing.JList;
 import io.github.parubok.text.multiline.MultilineLabel;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.event.ListSelectionEvent;
 
 /**
  * @author oskar
@@ -73,18 +72,23 @@ public class TabInventory extends JPanel {
 	private JScrollPane creativeScrollPane;
 	private CreativeItemList creativeItemList;
 	
-	private static final Debugger debug = new Debugger("PLAYER INVENTORY");
+	@Nonnull private static final Debugger debug = new Debugger("PLAYER INVENTORY");
 	private Player player;
 	public final Event<Player> playerChanged = new CatchingEvent<>(debug, "Failed to process player changed event");
 	public final WorldWindow window;
 	
+	//Tag selectors (tagsels)
 	public static interface Tagsel{
 		@Nonnull public DefaultListModel<ItemType> eligible();
 		@Nonnull public String title();
 	}
 	
-	private static class AllTagsel implements Tagsel{
-		private static final String title = "1 "+$res("wguit-all");
+	/**
+	 * Selects all items
+	 * @author oskar
+	 */
+	public static class AllTagsel implements Tagsel{
+		@Nonnull private static final String title = "1 "+$res("wguit-all");
 		@Override
 		public DefaultListModel<ItemType> eligible() {
 			return CreativeItemList.model;
@@ -100,13 +104,16 @@ public class TabInventory extends JPanel {
 			return title;
 		}
 	}
-	
+	/**
+	 * Selects items which match criteria
+	 * @author oskar
+	 */
 	public static class FilterTagsel implements Tagsel{
-		public final String tag;
-		public final DefaultListModel<ItemType> set;
+		@Nonnull public final String tag;
+		@Nonnull public final DefaultListModel<ItemType> set;
 		public FilterTagsel(String s, Predicate<ItemType> filter) {
 			tag = "2 "+s;
-			set = new DefaultListModel<ItemType>();
+			set = new DefaultListModel<>();
 			for(ItemType item: Items.items) {
 				if(filter.test(item)) set.addElement(item);
 			}
@@ -124,13 +131,17 @@ public class TabInventory extends JPanel {
 			return tag;
 		}
 	}
-	
+	/**
+	 * Selects items by tag
+	 * @author oskar
+	 */
 	public static class TaggedSel implements Tagsel{
-		public final String tag;
-		public final DefaultListModel<ItemType> set;
+		/** The tag selection */
+		@Nonnull public final String tag;
+		@Nonnull public final DefaultListModel<ItemType> set;
 		public TaggedSel(String s, Set<ItemType> set2) {
 			tag = "3 "+s;
-			set = new DefaultListModel<ItemType>();
+			set = new DefaultListModel<>();
 			for(ItemType item: set2) {
 				set.addElement(item);
 			}
@@ -243,6 +254,9 @@ public class TabInventory extends JPanel {
 		});
 		creativeScrollPane.setViewportView(creativeItemList);
 		
+		lblResults = new JLabel($res("wgui-results"));
+		creativeScrollPane.setColumnHeaderView(lblResults);
+		
 		//Tags
 		DefaultListModel<Tagsel> model = new DefaultListModel<>();
 		model.addElement(new AllTagsel());
@@ -282,8 +296,10 @@ public class TabInventory extends JPanel {
 			Tagsel sel = tags.getSelectedValue();
 			Comparator<ItemType> cmp = selectSortItemTypes.getSelectedValue();
 			if(cmp == null) return;
-			CreativeItemList.resort(cmp, sel.eligible());
-			creativeItemList.setModel(sel.eligible());
+			DefaultListModel<ItemType> model0 = sel.eligible();
+			lblResults.setText(model0.getSize()+" "+$res("wgui-results"));
+			CreativeItemList.resort(cmp, model0);
+			creativeItemList.setModel(model0);
 		});
 		//Sort the tags
 		Collections.sort(Collects.toWritableList(model), (a, b) -> a.title().compareTo(b.title()));
@@ -422,6 +438,7 @@ public class TabInventory extends JPanel {
 	private JList<Tagsel> tags;
 	private JScrollPane scrollPane;
 	private MultilineLabel multilineLabel;
+	private JLabel lblResults;
 
 	/**
 	 * @author oskar
@@ -433,7 +450,7 @@ public class TabInventory extends JPanel {
 		 * The recipes which pass both phases 1 and 2 must be exactly the same as all recipes which pass this query's filter
 		 * @return potentially eligible items
 		 */
-		@Nonnull public Set<Recipe<?>> phase1();
+		@Nullable public Set<Recipe<?>> phase1();
 		/**
 		 * Narrows down the list of items to produce an exact list
 		 * The recipes which pass both phases 1 and 2 must be exactly the same as all recipes which pass this query's filter
@@ -442,11 +459,11 @@ public class TabInventory extends JPanel {
 		 */
 		public boolean phase2(Recipe<?> recipe);
 		
-		/** @return all elegible items*/		
+		/** @return all eligible items*/		
 		@Nonnull public default Set<Recipe<?>> eligible(){
 			Set<Recipe<?>> recipes = phase1();
 			Set<Recipe<?>> model = new HashSet<>();
-			for(Recipe<?> item: recipes) {
+			if(recipes != null) for(Recipe<?> item: recipes) {
 				if(phase2(item)) model.add(item);
 			}
 			return model;

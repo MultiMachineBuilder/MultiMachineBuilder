@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.world.block.BlockEntity;
 import mmb.world.block.BlockEntityType;
 import mmb.world.block.BlockEntry;
-import mmb.world.block.SkeletalBlockEntityRotary;
+import mmb.world.blocks.SkeletalBlockEntityRotary;
 import mmb.world.rotate.RotatedImageGroup;
 import mmb.world.rotate.Side;
 import mmb.world.worlds.MapProxy;

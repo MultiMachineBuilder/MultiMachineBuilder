@@ -16,9 +16,9 @@ import mmb.data.json.JsonTool;
 import mmb.world.crafting.ItemLists;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.item.ItemEntity;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.ItemType;
 import mmb.world.items.ContentsItems;
-import mmb.world.items.ItemEntry;
 
 /**
  * @author oskar
@@ -67,7 +67,7 @@ public class Pack extends ItemEntity {
 	private void recalc() {
 		volumeInner = 0;
 		for(Entry<ItemEntry> ent : contents.getContents().object2IntEntrySet()) {
-			volumeInner += ent.getKey().volume(ent.getIntValue());
+			volumeInner += ent.getKey().volume() * ent.getIntValue();
 		}
 		volumeOuter = 0.001 + volumeInner;
 	}

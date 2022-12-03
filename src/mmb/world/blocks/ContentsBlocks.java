@@ -8,8 +8,8 @@ import java.awt.image.BufferedImage;
 import javax.annotation.Nonnull;
 
 import mmb.GlobalSettings;
-import mmb.data.contents.Textures;
 import mmb.debug.Debugger;
+import mmb.texture.Textures;
 import mmb.world.block.Block;
 import mmb.world.block.BlockEntityType;
 import mmb.world.blocks.actuators.ActuatorClick;
@@ -86,7 +86,7 @@ public class ContentsBlocks {
 	private static final Debugger debug = new Debugger("BLOCKS");
 	
 	//Primitive blocks
-	/** The alternative surfce block */
+	/** The alternative surface block */
 	@Nonnull public static final Block air = createAir();
 	@Nonnull private static Block createAir() {
 		debug.printl("Creating blocks");
@@ -101,14 +101,14 @@ public class ContentsBlocks {
 	/** The basic building block of any world */
 	@Nonnull public static final Block grass = createGrass(); //REQUIRES SPECIAL INIT
 	@Nonnull private static Block createGrass() {
-		Block grass = new Block();
-		grass.texture("grass.png")
+		Block result = new Block();
+		result.texture("grass.png")
 		.leaveBehind(air)
 		.title("#grass")
 		.describe("A default block in the world")
 		.finish("mmb.grass");
-		grass.setSurface(true);
-		return grass;
+		result.setSurface(true);
+		return result;
 	}
 	/** A placeholder block used when the world access is out of bounds*/
 	@Nonnull public static final Block blockVoid = 
@@ -312,7 +312,7 @@ public class ContentsBlocks {
 			.finish("elec.load");
 	
 	//DEPRECATED old modular machines
-	/** @deprecated An old block for a furnace. Use {@link #efurnace}{@code .}{@link #ElectricMachineGroup.get(int) get}{@code (1)} instead */
+	/** @deprecated An old block for a furnace. Use {@link #efurnace}{@code .}{@link #ElectricMachineGroup.getBlock(int) get}{@code (1)} instead */
 	@Deprecated(since="0.5") @Nonnull public static final BlockEntityType EFURNACE = new BlockEntityType() //NOSONAR
 			.title("#depr-furnace")
 			.factory(FurnacePlus::new)

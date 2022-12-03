@@ -33,9 +33,9 @@ import it.unimi.dsi.fastutil.floats.FloatArrayList;
 import it.unimi.dsi.fastutil.floats.FloatIterator;
 import it.unimi.dsi.fastutil.floats.FloatList;
 import mmb.GlobalSettings;
-import mmb.data.contents.Textures;
-import mmb.data.contents.Textures.Texture;
 import mmb.debug.Debugger;
+import mmb.texture.Textures;
+import mmb.texture.Textures.Texture;
 
 /**
  * @author oskar
@@ -202,11 +202,11 @@ public class SimpleCtx extends RenderCtx {
 		circles.clear();
 		circlesFill.clear();
 	}
-	private void vertexPlain(FloatIterator iter, float zindex) {
+	private static void vertexPlain(FloatIterator iter, float zindex) {
 		glColor4f(iter.nextFloat(), iter.nextFloat(), iter.nextFloat(), iter.nextFloat());
 		glVertex3f(iter.nextFloat(), iter.nextFloat(), zindex);
 	}
-	private void vertex(FloatIterator iter, float zindex) {
+	private static void vertex(FloatIterator iter, float zindex) {
 		glColor4f(iter.nextFloat(), iter.nextFloat(), iter.nextFloat(), iter.nextFloat());
 		glTexCoord2f(iter.nextFloat(), iter.nextFloat());
 		glVertex3f(iter.nextFloat(), iter.nextFloat(), zindex);
@@ -217,18 +217,8 @@ public class SimpleCtx extends RenderCtx {
 		return new Transform2(offset, mat);
 	}
 
-	//Shader loading stuff
-	private static String loadShader(String s) {
-		return Sneaky.sneak(() -> new String(IOUtils.toByteArray(ClassLoader.getSystemResourceAsStream(s)), "UTF-8"));
-	}
-	
 	//The resources
 	private int texID;
-	private int uniformMatrix;
-	private int uniformOffset;
-	private int uniformAtlas;
-	private static final String shaderDataFS = loadShader("shader/fs.txt");
-	private static final String shaderDataVS = loadShader("shader/vs.txt");
 	@Override
 	public void setup() {
 		//Create shaders

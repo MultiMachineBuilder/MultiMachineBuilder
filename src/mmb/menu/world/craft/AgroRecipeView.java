@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 
 import mmb.world.inventory.ItemStack;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 
 /**

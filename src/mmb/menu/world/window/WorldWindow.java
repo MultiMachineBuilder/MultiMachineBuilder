@@ -28,6 +28,7 @@ import mmb.menu.wtool.ToolStandard;
 import mmb.menu.wtool.WindowTool;
 import mmb.world.crafting.Recipe;
 import mmb.world.inventory.ItemRecord;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.Items;
 import mmb.world.worlds.universe.Universe;
 import mmb.world.worlds.world.Player;
@@ -370,11 +371,9 @@ public class WorldWindow extends MMBFrame{
 	//tabs
 	private JTabbedPane pane;
 	public void openWindow(GUITab comp, String s) {
-		comp.createTab(this);
 		pane.add(s, comp);
 	}
 	public void openAndShowWindow(GUITab comp, String s) {
-		comp.createTab(this);
 		pane.add(s, comp);
 		pane.setSelectedComponent(comp);
 	}
@@ -384,7 +383,7 @@ public class WorldWindow extends MMBFrame{
 	 */
 	public void closeWindow(GUITab component) {
 		try {
-			component.destroyTab(this);
+			component.close(this);
 		} catch (Exception e) {
 			debug.pstm(e, "Failed to shut down the component");
 		}
@@ -506,4 +505,9 @@ public class WorldWindow extends MMBFrame{
 	public        final Event<World> worldLoaded = new CatchingEvent<>(debug, "Failed to run world world loaded event");
 	public        final Event<World> worldLeft = new CatchingEvent<>(debug, "Failed to run world world left event");
 	private JProgressBar progressHP;
+
+	/** @return an item selected by the player */
+	@Nullable public ItemRecord selectedItem() {
+		return scrollablePlacementList.getSelectedValue();
+	}
 }

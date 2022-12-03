@@ -3,7 +3,7 @@
  */
 package mmb.world.blocks.gates;
 
-import mmb.world.block.SkeletalBlockEntityRotary;
+import mmb.world.blocks.SkeletalBlockEntityRotary;
 import mmb.world.rotate.Side;
 import mmb.world.worlds.MapProxy;
 

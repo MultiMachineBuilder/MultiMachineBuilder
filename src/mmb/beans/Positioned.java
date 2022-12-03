@@ -6,8 +6,9 @@ package mmb.beans;
 import java.awt.Point;
 
 /**
+ * An object which has a position.
+ * Used with block entities
  * @author oskar
- * An object which has a position
  */
 public interface Positioned {
 	/** @return X coordinate */

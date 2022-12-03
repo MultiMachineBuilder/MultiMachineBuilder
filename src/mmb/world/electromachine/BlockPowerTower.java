@@ -14,7 +14,7 @@ import mmb.cgui.BlockActivateListener;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
-import mmb.world.block.SkeletalBlockEntityRotary;
+import mmb.world.blocks.SkeletalBlockEntityRotary;
 import mmb.world.contentgen.ElectricMachineGroup.ElectroMachineType;
 import mmb.world.electric.Electricity;
 import mmb.world.rotate.RotatedImageGroup;

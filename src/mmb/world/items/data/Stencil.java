@@ -18,12 +18,13 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import mmb.data.Save;
 import mmb.debug.Debugger;
+import mmb.world.crafting.Recipe;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.ItemStack;
 import mmb.world.item.ItemEntity;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.ItemType;
 import mmb.world.items.ContentsItems;
-import mmb.world.items.ItemEntry;
 import mmb.world.recipes.CraftingGroups;
 import mmb.world.recipes.CraftingRecipeGroup.CraftingRecipe;
 import monniasza.collects.Collects;
@@ -124,10 +125,7 @@ public class Stencil extends ItemEntity{
 		if (getClass() != obj.getClass())
 			return false;
 		Stencil other = (Stencil) obj;
-		if (grid == null) {
-			if (other.grid != null)
-				return false;
-		} else if (!grid.equals(other.grid))
+		if (!grid.equals(other.grid))
 			return false;
 		return true;
 	}
@@ -142,7 +140,15 @@ public class Stencil extends ItemEntity{
 			recipe0 = CraftingGroups.crafting.findRecipe(grid);
 		return recipe0;
 	}
-
+	/** @return items consumed by the recipe */
+	@Nonnull public RecipeOutput in() {
+		return Recipe.in(recipe());
+	}
+	/** @return items produced by the recipe */
+	@Nonnull public RecipeOutput out() {
+		return Recipe.out(recipe());
+	}
+	
 	@Override
 	public ItemType type() {
 		return ContentsItems.stencil;

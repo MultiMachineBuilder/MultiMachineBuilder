@@ -26,7 +26,7 @@ class TestInventoryIO {
 		//Test stacked inventory
 		SingleStackedInventory testinv = new SingleStackedInventory();
 		InventoryWriter writer = testinv.createWriter();
-		int write = writer.write(test, 2);
+		int write = writer.insert(test, 2);
 		Assertions.assertEquals(2, testinv.itemCount());
 		Assertions.assertEquals(2, write);
 		
@@ -39,7 +39,7 @@ class TestInventoryIO {
 		testinvA.setCapacity(2.01);
 		testinvB.setCapacity(2.01);
 		
-		prior.write(test, 7);
+		prior.insert(test, 7);
 		Assertions.assertEquals(5, testinvA.itemCount());
 		Assertions.assertEquals(2, testinvB.itemCount());
 	}

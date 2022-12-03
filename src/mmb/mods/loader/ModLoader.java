@@ -21,6 +21,7 @@ import mmb.mods.info.ModInfo;
 import mmb.mods.info.ModMetadata;
 import mmb.mods.info.ModState;
 import mmb.mods.info.Mods;
+import mmb.texture.Textures;
 import mmb.world.Chemistry;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.blocks.machine.Nuker;
@@ -30,12 +31,12 @@ import mmb.world.electromachine.BlockTransformer.TransformerData;
 import mmb.world.generator.Generators;
 import mmb.world.items.ContentsItems;
 import mmb.world.items.electronics.Electronics;
+import mmb.world.modulars.chest.ModularChests;
 import mmb.world.worlds.DataLayers;
 import mmbmods.stn.STN;
 import mmb.Lambdas;
 import mmb.Main;
 import mmb.data.contents.Sounds;
-import mmb.data.contents.Textures;
 
 /**
  * @author oskar
@@ -142,6 +143,7 @@ public final class ModLoader {
 		Generators.init();
 		Tools.init();
 		FullScreen.initialize();
+		ModularChests.init();
 		
 		TransformerData.init();
 		
@@ -316,9 +318,6 @@ public final class ModLoader {
 		
 		//everything done
 		debug.printl("HOORAY, IT'S OVER!");
-	}
-	private static void gameloading() {
-		
 	}
 	
 	/**

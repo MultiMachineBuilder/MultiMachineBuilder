@@ -17,9 +17,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.cgui.BlockActivateListener;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
-import mmb.world.block.BlockEntityData;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
+import mmb.world.blocks.BlockEntityData;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.rotate.Side;
 import mmb.world.worlds.MapProxy;
@@ -142,14 +142,8 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 			window.closeWindow(this);
 		}
 		@Override
-		public void createTab(WorldWindow window) {
-			// TODO Auto-generated method stub
-			
-		}
-		@Override
-		public void destroyTab(WorldWindow window) {
-			// TODO Auto-generated method stub
-			
+		public void close(WorldWindow window) {
+			//unused
 		}
 	}
 

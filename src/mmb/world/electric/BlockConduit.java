@@ -10,9 +10,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.debug.Debugger;
-import mmb.world.block.BlockEntityData;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
+import mmb.world.blocks.BlockEntityData;
 import mmb.world.rotate.Side;
 import mmb.world.worlds.MapProxy;
 

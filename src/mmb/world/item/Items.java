@@ -20,7 +20,6 @@ import com.google.common.collect.SetMultimap;
 
 import mmb.debug.Debugger;
 import mmb.mods.loader.ModLoader;
-import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
 import monniasza.collects.Collects;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
@@ -31,22 +30,22 @@ import monniasza.collects.selfset.SelfSet;
  */
 public class Items {
 	private static Debugger debug = new Debugger("ITEMS");
-	@Nonnull                           private static final SelfSet<String, ItemType>     _items =      HashSelfSet.createNonnull(ItemType.class);
-	@Nonnull                           public  static final SelfSet<String, ItemType>      items =      Collects.unmodifiableSelfSet(_items);
+	@Nonnull private static final SelfSet<String, ItemType>     _items =      HashSelfSet.createNonnull(ItemType.class);
+	@Nonnull public  static final SelfSet<String, ItemType>      items =      Collects.unmodifiableSelfSet(_items);
 	
-	@Nonnull                           private static final Map<String, ItemType>    _deprecator = new HashMap<>();
-	@SuppressWarnings("null") @Nonnull public  static final Map<String, ItemType>     deprecator = Collections.unmodifiableMap(_deprecator);
+	@Nonnull private static final Map<String, ItemType>    _deprecator = new HashMap<>();
+	@Nonnull public  static final Map<String, ItemType>     deprecator = Collections.unmodifiableMap(_deprecator);
 	
-	@Nonnull                           private static final Set<String>                    _keys =       new HashSet<>();
-	@SuppressWarnings("null") @Nonnull public  static final Set<String>                     keys =       Collections.unmodifiableSet(_keys);
+	@Nonnull private static final Set<String>                    _keys =       new HashSet<>();
+	@Nonnull public  static final Set<String>                     keys =       Collections.unmodifiableSet(_keys);
 	
-	@SuppressWarnings("null") @Nonnull private static final HashMultimap<String, ItemType> _tags = HashMultimap.create();
+	@Nonnull private static final HashMultimap<String, ItemType> _tags = HashMultimap.create();
 	/** Tag to items lookup */
-	@SuppressWarnings("null") @Nonnull public  static final SetMultimap<String, ItemType>  tags = Multimaps.unmodifiableSetMultimap(_tags);
+	@Nonnull public  static final SetMultimap<String, ItemType>  tags = Multimaps.unmodifiableSetMultimap(_tags);
 	
-	@SuppressWarnings("null") @Nonnull private static final HashMultimap<ItemType, String> _btags = HashMultimap.create();
+	@Nonnull private static final HashMultimap<ItemType, String> _btags = HashMultimap.create();
 	/** Item to tags lookup */
-	@SuppressWarnings("null") @Nonnull public  static final SetMultimap<ItemType, String>  btags = Multimaps.unmodifiableSetMultimap(_btags);
+	@Nonnull public  static final SetMultimap<ItemType, String>  btags = Multimaps.unmodifiableSetMultimap(_btags);
 	
 	public static void register(ItemType type) {
 		Objects.requireNonNull(type, "The block must not be null");
@@ -71,7 +70,7 @@ public class Items {
 	}
 	
 	/**
-	 * Get a block with following ID, or null if block with given ID is not found
+	 * Get an item with following ID, or null if block with given ID is not found
 	 * @param name ID of the block
 	 * @return a block with given name, or null if not found
 	 */
@@ -79,6 +78,11 @@ public class Items {
 		ItemType get = items.get(name);
 		if(get == null) get = deprecator.get(name);
 		return get;
+	}
+	public static <T extends ItemType> T getExpectType(@Nullable String name, Class<T> cls) {
+		ItemType item = get(name);
+		if(cls.isInstance(item)) return cls.cast(item);
+		return null;
 	}
 
 	public static void tagItem(String tag, ItemType item) {

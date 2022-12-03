@@ -7,7 +7,7 @@ import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import mmb.world.electric.Battery;
 import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 /**
  * @author oskar
@@ -43,7 +43,7 @@ public class FuelBurner {
 			if(remain < fv2) return; //There is not enough room for the fuel
 			int extract = ir.extract(1);
 			if(extract == 0) continue; //The extraction failed
-			bat.amt += fv2;
+			bat.stored += fv2;
 		}
 	}
 	

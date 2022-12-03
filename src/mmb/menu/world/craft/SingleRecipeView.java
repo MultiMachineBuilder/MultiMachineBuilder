@@ -10,7 +10,7 @@ import org.ainslec.picocog.PicoWriter;
 import io.github.parubok.text.multiline.MultilineLabel;
 import mmb.UnitFormatter;
 import mmb.world.inventory.ItemStack;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.recipes.SingleRecipeGroup.SingleRecipe;
 
 import javax.swing.JList;

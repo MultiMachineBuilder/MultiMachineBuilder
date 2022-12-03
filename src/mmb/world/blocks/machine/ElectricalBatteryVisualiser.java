@@ -32,7 +32,7 @@ public class ElectricalBatteryVisualiser extends JProgressBar {
 		if(battery != null) {
 			setMaximum((int) battery.capacity);
 			setMinimum(0);
-			setValue((int) battery.amt);
+			setValue((int) battery.stored);
 		}
 		super.paint(g);
 	}

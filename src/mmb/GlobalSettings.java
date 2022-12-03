@@ -7,6 +7,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javax.annotation.Nonnull;
+import javax.swing.JComponent;
 
 import mmb.data.Settings;
 import mmb.data.variables.ListenableDouble;
@@ -43,7 +44,6 @@ public class GlobalSettings {
 	/** Should all modded resource bundles be dumped? */
 	@Nonnull public static final ListenerBooleanVariable dumpBundles = new ListenerBooleanVariable();
 	
-	
 	/** @return the locale object for current language and country */
 	public static Locale locale() {
 		return new Locale(lang.get(), country.get());
@@ -62,7 +62,7 @@ public class GlobalSettings {
 	/**
 	 * Gets the translated string
 	 * @param s dictionary key
-	 * @return
+	 * @return a translated string
 	 */
 	@Nonnull public static String $res(String s) {
 		if(!Main.isRunning()) return s;
@@ -87,10 +87,10 @@ public class GlobalSettings {
 	}
 	
 	
-	private static boolean hasInited = false;
-	/** Initializes global properties and translations. Needed only by the {@link Main} class, has no effect when used elsewhere */
+	private static int hasInited = 0;
+	/** Initializes global properties. Needed only by the {@link Main} class, has no effect when used elsewhere */
 	public static void init() {
-		if(hasInited) return;
+		if(hasInited != 0) return;
 		Settings.addSettingString("lang", "en", lang);
 		Settings.addSettingString("country", "US", country);
 		Settings.addSettingBool("logExcessiveBlockTime", false, logExcessiveTime);
@@ -99,9 +99,18 @@ public class GlobalSettings {
 		Settings.addSettingBool("dumpBundles", false, dumpBundles);
 		Settings.addSettingDbl("scale", 1, uiScale);
 		Settings.addSettingInt("circleAccuracy", 32, circleAccuracy);
+		hasInited = 1;
+	}
+	/** Initializes global translations. Needed only by the {@link Main} class, has no effect when used elsewhere */
+	public static void translate() {
+		if(hasInited != 1) return;
 		debug.printl("Language: "+lang.get());
-		bundle = new MutableResourceBundle(ResourceBundle.getBundle("mmb/bundle", locale()));
-		hasInited = true;
+		Locale locale = locale();
+		JComponent.setDefaultLocale(locale);
+		Locale.setDefault(locale);
+		ResourceBundle actualBundle = ResourceBundle.getBundle("mmb/bundle", locale);
+		bundle = new MutableResourceBundle(actualBundle);
+		hasInited = 2;
 	}
 	
 	//hacking the ResourceBundle 

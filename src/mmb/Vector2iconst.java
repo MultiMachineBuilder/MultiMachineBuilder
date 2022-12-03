@@ -222,5 +222,17 @@ public class Vector2iconst implements Vector2ic {
 			return false;
 		return y == other.y();
 	}
+	@Override
+	public Vector2i div(float scalar, @SuppressWarnings("null") Vector2i dest) {
+		dest.x = (int) (x/scalar);
+		dest.y = (int) (y/scalar);
+		return dest;
+	}
+	@Override
+	public Vector2i div(int scalar, @SuppressWarnings("null") Vector2i dest) {
+		dest.x = x/scalar;
+		dest.y = y/scalar;
+		return dest;
+	}
 
 }

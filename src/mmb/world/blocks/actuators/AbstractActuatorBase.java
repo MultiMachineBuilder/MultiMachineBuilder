@@ -6,7 +6,7 @@ package mmb.world.blocks.actuators;
 import java.awt.Point;
 
 import mmb.world.block.BlockEntry;
-import mmb.world.block.SkeletalBlockEntityRotary;
+import mmb.world.blocks.SkeletalBlockEntityRotary;
 import mmb.world.worlds.MapProxy;
 
 /**

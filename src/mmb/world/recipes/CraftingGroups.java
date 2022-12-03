@@ -14,8 +14,8 @@ import mmb.debug.Debugger;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.crafting.SingleItem;
 import mmb.world.inventory.Inventory;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.ItemRaw;
-import mmb.world.items.ItemEntry;
 
 /**
  * @author oskar

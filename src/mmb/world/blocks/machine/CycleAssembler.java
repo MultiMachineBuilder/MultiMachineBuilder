@@ -11,8 +11,8 @@ import mmb.cgui.BlockActivateListener;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
-import mmb.world.block.SkeletalBlockEntityRotary;
 import mmb.world.blocks.ContentsBlocks;
+import mmb.world.blocks.SkeletalBlockEntityRotary;
 import mmb.world.rotate.RotatedImageGroup;
 import mmb.world.worlds.world.World;
 

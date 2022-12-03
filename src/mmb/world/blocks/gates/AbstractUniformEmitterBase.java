@@ -3,7 +3,7 @@
  */
 package mmb.world.blocks.gates;
 
-import mmb.world.block.BlockEntityDataless;
+import mmb.world.blocks.BlockEntityDataless;
 import mmb.world.rotate.Side;
 
 /**

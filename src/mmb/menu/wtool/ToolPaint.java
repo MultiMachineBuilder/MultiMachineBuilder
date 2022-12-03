@@ -17,10 +17,10 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import mmb.beans.Colorable;
-import mmb.data.contents.Textures;
 import mmb.graphics.awt.MappedColorTexture;
 import mmb.menu.world.ColorGUI;
 import mmb.menu.world.window.WorldWindow;
+import mmb.texture.Textures;
 import mmb.world.block.BlockEntry;
 
 /**

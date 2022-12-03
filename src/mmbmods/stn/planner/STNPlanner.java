@@ -4,17 +4,22 @@
 package mmbmods.stn.planner;
 
 import java.util.ArrayDeque;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Function;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.google.common.collect.Iterators;
+
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.world.crafting.RecipeOutput;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.items.data.Stencil;
 import mmbmods.stn.network.DataLayerSTN;
 import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag.STNPRecipe;
@@ -74,15 +79,15 @@ public class STNPlanner {
 	 */
 	public static class Phase1{
 		/** Items which are going to be withdrawn */
-		@Nonnull public final Object2IntOpenHashMap<@Nonnull ItemEntry> itemsWithdrawn;
+		@Nonnull public final Object2IntOpenHashMap<ItemEntry> itemsWithdrawn;
 		/** Used processing recipes */
 		@Nonnull public final Object2IntOpenHashMap<@Nonnull STNPRecipe> processes;
 		/** Used crafts */
 		@Nonnull public final Object2IntOpenHashMap<@Nonnull Stencil> crafts;
 		/** Used procurements */
-		@Nonnull public final Object2IntOpenHashMap<@Nonnull ItemEntry> procurements;
+		@Nonnull public final Object2IntOpenHashMap<ItemEntry> procurements;
 		/** Missing items */
-		@Nonnull public final Object2IntOpenHashMap<@Nonnull ItemEntry> missing;
+		@Nonnull public final Object2IntOpenHashMap<ItemEntry> missing;
 		/**
 		 * Creates a finished Phase 1 plan
 		 * @param itemsWithdrawn
@@ -91,9 +96,9 @@ public class STNPlanner {
 		 * @param procurements used procurements
 		 * @param missing missing items
 		 */
-		public Phase1(Object2IntOpenHashMap<@Nonnull ItemEntry> itemsWithdrawn,
+		public Phase1(Object2IntOpenHashMap<ItemEntry> itemsWithdrawn,
 				Object2IntOpenHashMap<@Nonnull STNPRecipe> processes, Object2IntOpenHashMap<@Nonnull Stencil> crafts,
-				Object2IntOpenHashMap<@Nonnull ItemEntry> procurements, Object2IntOpenHashMap<@Nonnull ItemEntry> missing) {
+				Object2IntOpenHashMap<ItemEntry> procurements, Object2IntOpenHashMap<ItemEntry> missing) {
 			this.itemsWithdrawn = itemsWithdrawn;
 			this.processes = processes;
 			this.crafts = crafts;
@@ -114,13 +119,13 @@ public class STNPlanner {
 		//Results
 		Object2IntOpenHashMap<@Nonnull STNPRecipe> processRecipes = new Object2IntOpenHashMap<>();
 		Object2IntOpenHashMap<@Nonnull Stencil> craftRecipes = new Object2IntOpenHashMap<>();
-		Object2IntOpenHashMap<@Nonnull ItemEntry> procurements = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<mmb.world.item.ItemEntry> procurements = new Object2IntOpenHashMap<>();
 		
 		//The planning queue (negative values mean that there are excess items
 		Queue<ItemEntry> queue = new ArrayDeque<>();
-		Object2IntOpenHashMap<@Nonnull ItemEntry> planMap = new Object2IntOpenHashMap<>();
-		Object2IntOpenHashMap<@Nonnull ItemEntry> invRemain = new Object2IntOpenHashMap<>();
-		Object2IntOpenHashMap<@Nonnull ItemEntry> missing = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<mmb.world.item.ItemEntry> planMap = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<mmb.world.item.ItemEntry> invRemain = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<mmb.world.item.ItemEntry> missing = new Object2IntOpenHashMap<>();
 		
 		//Populate the planning queue
 		planMap.putAll(items.getContents());
@@ -129,7 +134,7 @@ public class STNPlanner {
 		
 		//Run the planning
 		ItemEntry entry;
-		while((entry = queue.poll()) != null) {
+		outer: while((entry = queue.poll()) != null) {
 			int plannedAmount = planMap.getInt(entry);
 			if(plannedAmount <= 0) continue; //All items are planned for now
 			
@@ -152,18 +157,18 @@ public class STNPlanner {
 			
 			//Option C: Crafting
 			Set<Stencil> stencils = stn.processor.stencil2OutIndex.multimap().get(entry);
-			Stencil stencil = findPlausibleRecipe(planMap, invRemain, entry, stencils);
+			Stencil stencil = findPlausibleRecipe(planMap, invRemain, stencils, s -> s.in().items());
 			//If no recipes are plausible, no recipe will be usable
 			if(stencil != null) {
 				//If a recipe is plausible, plan it
-				Set<ItemEntry> toPlan = planItems(stencil.recipe().in, stencil.recipe().out, entry, plannedAmount, planMap, stencil, craftRecipes, queue);
+				Set<ItemEntry> toPlan = planItems(stencil.in(), stencil.out(), entry, plannedAmount, planMap, stencil, craftRecipes, queue);
 				queue.addAll(toPlan);
 				continue;
 			}
 			
 			//Option D: Processing
 			Set<STNPRecipe> processables = stn.processor.processRecipe2OutIndex.multimap().get(entry);
-			STNPRecipe processRecipe = findPlausibleRecipe(planMap, invRemain, entry, processables);
+			STNPRecipe processRecipe = findPlausibleRecipe(planMap, invRemain, processables, pr -> pr.in.items());
 			//If no recipes are plausible, no recipe will be usable
 			if(processRecipe != null) {
 				//If a recipe is plausible, plan it
@@ -176,19 +181,19 @@ public class STNPlanner {
 			missing.addTo(entry, plannedAmount);
 		}
 		
-		Object2IntOpenHashMap<@Nonnull ItemEntry> putback = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<mmb.world.item.ItemEntry> putback = new Object2IntOpenHashMap<>();
 		//Check for stray items
-		for(Entry<@Nonnull ItemEntry> stack: planMap.object2IntEntrySet()) {
+		for(Entry<mmb.world.item.ItemEntry> stack: planMap.object2IntEntrySet()) {
 			int amount = -stack.getIntValue();
 			if(amount < 0) throw new IllegalStateException("Unnacounted-for items in the plans: "+(-amount)+" x "+stack.getKey());
 			putback.put(stack.getKey(), amount);
 		}
 		
 		//Calculate extractions
-		Object2IntOpenHashMap<@Nonnull ItemEntry> itemsInInv = new Object2IntOpenHashMap<>();
-		Object2IntOpenHashMap<@Nonnull ItemEntry> itemsToWithdraw = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<mmb.world.item.ItemEntry> itemsInInv = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<mmb.world.item.ItemEntry> itemsToWithdraw = new Object2IntOpenHashMap<>();
 		stn.inv.contents(itemsInInv);
-		for(Entry<@Nonnull ItemEntry> itemCompare: itemsInInv.object2IntEntrySet()) {
+		for(Entry<mmb.world.item.ItemEntry> itemCompare: itemsInInv.object2IntEntrySet()) {
 			ItemEntry item = itemCompare.getKey();
 			int remaining = invRemain.getInt(item);
 			int stored = itemCompare.getIntValue();
@@ -200,25 +205,25 @@ public class STNPlanner {
 	}
 	/**
 	 * Internal helper method for Phase 1
+	 * @param <T> type of recipes
 	 * @param planMap planning map
 	 * @param invRemain
-	 * @param entry
-	 * @param possible
-	 * @return a plausible recipe, or null if not found
+	 * @param possible all potential recipes
+	 * @param transformer obtains input items for the recipe
+	 * @return a iterator of plausible recipes, or null if not found
 	 */
-	private <T> T findPlausibleRecipe(Object2IntOpenHashMap<@Nonnull ItemEntry> planMap,
-			Object2IntOpenHashMap<@Nonnull ItemEntry> invRemain, ItemEntry entry, @Nullable Set<T> possible) {
+	private @Nullable <T> T findPlausibleRecipe(Object2IntOpenHashMap<ItemEntry> planMap,
+			Object2IntOpenHashMap<ItemEntry> invRemain, @Nullable Set<T> possible, Function<? super T, @Nonnull Set<ItemEntry>> transformer) {
 		if(possible == null) return null;
 		for(T recipe: possible) {
-			//Check plausibility
-			boolean plausible = stn.processor.isEverObtainable(entry, invRemain, planMap);
-			if(plausible) 
+			Set<ItemEntry> inputs = transformer.apply(recipe);
+			if(stn.processor.isAllObtainable(inputs, invRemain, planMap))
 				return recipe;
 		}
 		return null;
 	}
-	private static <T> Set<@Nonnull ItemEntry> planItems(RecipeOutput inputs, RecipeOutput outputs, ItemEntry plannedItem, int plannedAmount,
-			Object2IntOpenHashMap<@Nonnull ItemEntry> planMap, T recipe, Object2IntOpenHashMap<@Nonnull T> recipesCounter, Queue<ItemEntry> queue) {
+	private static <T> Set<ItemEntry> planItems(RecipeOutput inputs, RecipeOutput outputs, ItemEntry plannedItem, int plannedAmount,
+			Object2IntOpenHashMap<ItemEntry> planMap, T recipe, Object2IntOpenHashMap<@Nonnull T> recipesCounter, Queue<ItemEntry> queue) {
 		int unitOutputQuantity = outputs.get(plannedItem);
 		if(unitOutputQuantity <= 0) throw new InternalError("No such item: "+plannedItem);
 		double recipeQuantity0 = (double)plannedAmount / unitOutputQuantity;
@@ -226,15 +231,15 @@ public class STNPlanner {
 		recipesCounter.addTo(recipe, recipeQuantity);
 		
 		//Add the inputs to the plans and queue
-		Object2IntOpenHashMap<@Nonnull ItemEntry> totalInputs = inputs.mul2map(recipeQuantity, Object2IntOpenHashMap::new);
-		for(Entry<@Nonnull ItemEntry> input: totalInputs.object2IntEntrySet()) {
+		Object2IntOpenHashMap<ItemEntry> totalInputs = inputs.mul2map(recipeQuantity, Object2IntOpenHashMap::new);
+		for(Entry<mmb.world.item.ItemEntry> input: totalInputs.object2IntEntrySet()) {
 			planMap.addTo(input.getKey(), Math.multiplyExact(input.getIntValue(), recipeQuantity));
 			queue.add(input.getKey());
 		}
 		
 		//Add the outputs to the plans
-		Object2IntOpenHashMap<@Nonnull ItemEntry> totalOutputs = outputs.mul2map(recipeQuantity, Object2IntOpenHashMap::new);
-		for(Entry<@Nonnull ItemEntry> output: totalOutputs.object2IntEntrySet()) 
+		Object2IntOpenHashMap<mmb.world.item.ItemEntry> totalOutputs = outputs.mul2map(recipeQuantity, Object2IntOpenHashMap::new);
+		for(Entry<mmb.world.item.ItemEntry> output: totalOutputs.object2IntEntrySet()) 
 			planMap.addTo(output.getKey(), Math.multiplyExact(-output.getIntValue(), recipeQuantity));
 		
 		return totalInputs.keySet();

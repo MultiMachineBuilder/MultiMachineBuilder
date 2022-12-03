@@ -14,7 +14,7 @@ import monniasza.collects.grid.Grid;
 import javax.swing.JList;
 
 import mmb.world.inventory.ItemStack;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.recipes.CraftingRecipeGroup.CraftingRecipe;
 
 import java.awt.Color;

@@ -26,7 +26,7 @@ import mmb.world.inventory.ItemLoader;
 import mmb.world.inventory.ItemLoader.ItemTarget;
 import mmb.world.inventory.ItemStack;
 import mmb.world.inventory.io.InventoryWriter;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import monniasza.collects.Collects;
 
 /**
@@ -51,7 +51,7 @@ public class ItemLists {
 			ItemLoader.load((ArrayNode)node, new ItemTarget() {
 				@Override
 				public void addItem(ItemEntry ent, int amt) {
-					writer.write(ent, amt);
+					writer.insert(ent, amt);
 				}
 				@Override
 				public void setCapacity(double cap) {

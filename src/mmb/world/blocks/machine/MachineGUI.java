@@ -110,12 +110,7 @@ class MachineGUI extends GUITab{
 	}
 	private final Debugger debug = new Debugger("MACHINE GUI");
 	@Override
-	public void createTab(WorldWindow window) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void destroyTab(WorldWindow window) {
+	public void close(WorldWindow window) {
 		if(sie != null) sie.close();
 		if(soe != null) soe.close();
 		if(sii != null) sii.close();

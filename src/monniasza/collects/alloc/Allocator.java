@@ -7,6 +7,8 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.google.common.collect.Iterators;
 
 /**
@@ -31,7 +33,7 @@ public interface Allocator<T> extends Iterable<T>{
 	 * @param id index to get from
 	 * @return object at given index, or null if absent
 	 */
-	public T get(int id);
+	@Nullable public T get(int id);
 	/**
 	 * @param id index to check
 	 * @return is given index currently allocateed?

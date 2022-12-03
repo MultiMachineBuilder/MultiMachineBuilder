@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
 import org.joml.Vector2d;
 
 import mmb.beans.Saver;
-import mmb.graphics.texture.BlockDrawer;
+import mmb.texture.BlockDrawer;
 import mmb.world.blocks.ppipe.PipeTunnelEntry;
 import mmb.world.electric.Electricity;
 import mmb.world.inventory.Inventory;
@@ -32,12 +32,12 @@ import mmb.world.worlds.world.World;
  * provideSignal - 
  */
 public interface BlockEntry extends Saver, Rotable, Chiral {
+	//Block entity checks
 	public boolean isBlockEntity();
 	@Nonnull public BlockEntity asBlockEntity();
 	public BlockEntity nasBlockEntity();
-	/**
-	 * @return the block type
-	 */
+	
+	/** @return the block type */
 	@Nonnull public BlockType type();
 	/**
 	 * @param type block type to check
@@ -78,6 +78,7 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 	}
 	
 	/**
+	 * Renders a block
 	 * @param x left X coordinate
 	 * @param y upper Y coordinate
 	 * @param g graphics context
@@ -88,7 +89,6 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 		drawer.draw(this, x, y, g, side);
 	}
 	
-
 	/**
 	 * Called when world is initialized
 	 * <br>Exception handling: If exception is thrown by this method, the block is not properly initialized

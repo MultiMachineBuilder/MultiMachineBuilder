@@ -14,7 +14,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import mmb.beans.Aimable;
-import mmb.data.contents.Textures;
+import mmb.texture.Textures;
 import mmb.world.block.BlockEntry;
 
 /**

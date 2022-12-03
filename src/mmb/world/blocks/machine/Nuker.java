@@ -18,7 +18,7 @@ import mmb.world.contentgen.Materials;
 import mmb.world.electric.VoltageTier;
 import mmb.world.inventory.Inventories;
 import mmb.world.inventory.storage.SingleItemInventory;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 import mmb.world.recipes.CraftingGroups;
 import mmb.world.worlds.MapProxy;
 
@@ -37,9 +37,8 @@ public class Nuker extends SkeletalBlockMachine {
 	@Override
 	protected void onTick0(MapProxy map) {
 		//Extract fuel if possible
-		if(!nuked.containsItems()) {
+		if(nuked.isEmpty()) 
 			Inventories.transferFirst(inItems, nuked);
-		}
 		
 		ItemEntry cont = nuked.getContents();
 		//Check the cache

@@ -3,6 +3,7 @@
  */
 package monniasza.collects.alloc;
 
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -25,7 +26,10 @@ import it.unimi.dsi.fastutil.ints.IntList;
  */
 public class SimpleAllocator<T> implements Allocator<T> {
 	
-	private Consumer<Exception> exceptionHandler = (ex -> Thread.currentThread().getUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), ex));
+	private Consumer<Exception> exceptionHandler = (ex -> {
+		UncaughtExceptionHandler ueh = Thread.currentThread().getUncaughtExceptionHandler();
+		if(ueh != null) ueh.uncaughtException(Thread.currentThread(), ex);
+	});
 
 	private ArrayList<Node> data = new ArrayList<>();
 	private IntList free = new IntArrayList();
@@ -39,7 +43,7 @@ public class SimpleAllocator<T> implements Allocator<T> {
 			return value;
 		}
 		final T value;
-		List<AllocationListener<T>> listeners = new ArrayList<>();
+		List<AllocationListener<T>> nodeListeners = new ArrayList<>();
 	}
 	
 	@Override
@@ -81,7 +85,7 @@ public class SimpleAllocator<T> implements Allocator<T> {
 				exceptionHandler.accept(e);
 			}
 		}
-		if(result != null) for(AllocationListener<T> listener: result.listeners) {
+		if(result != null) for(AllocationListener<T> listener: result.nodeListeners) {
 			try {
 				listener.deallocated(id, value);
 			}catch(Exception e) {
@@ -106,13 +110,13 @@ public class SimpleAllocator<T> implements Allocator<T> {
 	@Override
 	public void addSpecificAllocationListener(AllocationListener<T> listener, int index) {
 		Node result = data.get(index);
-		if(result != null) result.listeners.add(listener);
+		if(result != null) result.nodeListeners.add(listener);
 	}
 
 	@Override
 	public void removeSpecificAllocationListener(AllocationListener<T> listener, int index) {
 		Node result = data.get(index);
-		if(result != null) result.listeners.remove(listener);
+		if(result != null) result.nodeListeners.remove(listener);
 	}
 
 	/**

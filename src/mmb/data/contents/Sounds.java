@@ -58,8 +58,7 @@ public class Sounds {
 	public static Sound load(InputStream soundData, String name) throws IOException {
 		String ext = AdvancedFile.baseExtension(name)[1];
 		Sound loaded = null;
-		try {
-			AudioInputStream ais = AudioSystem.getAudioInputStream(new BufferedInputStream(soundData));
+		try(AudioInputStream ais = AudioSystem.getAudioInputStream(new BufferedInputStream(soundData))) {
 			switch(ext) {
 			case "wav":
 				//Wave

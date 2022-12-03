@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import mmb.beans.BlockSetting;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.BlockType;
-import mmb.world.items.ItemEntry;
+import mmb.world.item.ItemEntry;
 
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;
@@ -48,7 +48,7 @@ public class SelectBlock extends JPanel {
 		btnOK = new JButton($res("ok"));
 		btnOK.setBackground(Color.GREEN);
 		btnOK.addActionListener(e -> {
-			ItemEntry item = window.getPlacer().getSelectedValue().item();
+			ItemEntry item = window.getPlacer().getSelectedItem();
 			if(item instanceof BlockType)
 				setting.setBlockSetting((BlockType) item);
 			close();
@@ -63,7 +63,7 @@ public class SelectBlock extends JPanel {
 		});
 		add(btnRemove);
 		
-		BlockType type = setting.getBlockSetting();
+		BlockType type = setting.blockSetting();
 		lblType = new JLabel($res("wgui-nosel"));
 		if(type != null) lblType.setText($res("wgui-curr")+" "+type.title());
 		add(lblType);
