@@ -271,7 +271,7 @@
 		    <artifactId>reflections</artifactId>
 		    <version>0.10.2</version>
 		</dependency>
-		<dependency>       
+		<dependency>
 	          <groupId>fr.delthas</groupId>
 	          <artifactId>javamp3</artifactId>
 	          <version>1.0.1</version>
@@ -423,7 +423,6 @@
 			<classifier>${lwjgl.natives}</classifier>
 			<version>3.3.1</version>
 		</dependency>
-		<dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-shaderc</artifactId>
