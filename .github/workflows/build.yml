@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - master
+      - issue-*
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
