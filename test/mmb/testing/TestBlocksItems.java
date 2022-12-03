@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
 
 import org.junit.jupiter.api.Test;
 
-import mmb.graphics.texture.BlockDrawer;
+import mmb.texture.BlockDrawer;
 import mmb.world.block.Block;
 import mmb.world.block.BlockEntityType;
 import mmb.world.block.BlockEntry;
