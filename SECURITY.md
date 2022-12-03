@@ -8,4 +8,5 @@
 | <0.5-pre6 | :x:                |
 
 ## Reporting a Vulnerability
-Report all vulnerabilities to monniasza.machines@onet.pl
+Report all vulnerabilities directly in the repo [here](https://github.com/MultiMachineBuilder/MultiMachineBuilder/security/advisories/new) (recommended)
+or at monniasza.machines@onet.pl
