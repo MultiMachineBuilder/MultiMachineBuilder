@@ -32,7 +32,6 @@ public class CatchingEvent<T> implements Event<T> {
 	}
     private final List<Consumer<T>> listeners = new CopyOnWriteArrayList<>();
 
-    
 	@Override
     public void addListener(Consumer<T> listener) throws NullPointerException {
         synchronized (listeners) {

@@ -11,7 +11,7 @@ import javax.annotation.Nonnull;
 
 import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
 
-import mmb.graphics.texture.BlockDrawer;
+import mmb.texture.BlockDrawer;
 import mmb.world.chance.Chance;
 import mmb.world.crafting.RecipeOutput;
 

@@ -75,12 +75,7 @@ public class DiggerGUI extends GUITab {
 	}
 
 	@Override
-	public void createTab(WorldWindow window) {
-		//unused
-	}
-
-	@Override
-	public void destroyTab(WorldWindow window) {
+	public void close(WorldWindow window) {
 		coll.destroyTab(this);
 	}
 	

@@ -12,9 +12,9 @@ import java.awt.image.LookupOp;
 import javax.annotation.Nonnull;
 
 import mmb.beans.Titled;
-import mmb.data.contents.Textures;
-import mmb.data.contents.Textures.Texture;
 import mmb.graphics.awt.ColorMapper;
+import mmb.texture.Textures;
+import mmb.texture.Textures.Texture;
 import monniasza.collects.Identifiable;
 
 /**

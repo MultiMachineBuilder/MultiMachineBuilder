@@ -3,6 +3,9 @@
  */
 package mmb.world.modulars;
 
+import javax.annotation.Nullable;
+
+import mmb.world.modulars.gui.ModuleConfigHandler;
 import mmb.world.part.PartEntry;
 
 /**
@@ -26,5 +29,11 @@ public interface BlockModuleOrCore<Tmc extends BlockModuleOrCore<Tmc, Tblock, Tp
 	 */
 	public default void onAdded(Tparams blk) {
 		//empty
+	}
+	
+	//Config UI
+	/** @return module config handler for this block module or null*/
+	@Nullable public default ModuleConfigHandler<Tmc, ?> mch(){
+		return null;
 	}
 }

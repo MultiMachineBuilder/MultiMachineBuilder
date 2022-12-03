@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.node.TextNode;
 import mmb.beans.Saver;
 import mmb.data.json.JsonTool;
 import mmb.debug.Debugger;
-import mmb.graphics.texture.BlockDrawer;
+import mmb.texture.BlockDrawer;
 import mmb.world.chance.Chance;
 import mmb.world.crafting.RecipeOutput;
 import mmb.world.item.ItemEntry;

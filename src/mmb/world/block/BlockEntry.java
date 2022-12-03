@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
 import org.joml.Vector2d;
 
 import mmb.beans.Saver;
-import mmb.graphics.texture.BlockDrawer;
+import mmb.texture.BlockDrawer;
 import mmb.world.blocks.ppipe.PipeTunnelEntry;
 import mmb.world.electric.Electricity;
 import mmb.world.inventory.Inventory;

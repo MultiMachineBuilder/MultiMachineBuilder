@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
 import mmb.CatchingEvent;
 import mmb.beans.Positioned;
 import mmb.debug.Debugger;
-import mmb.graphics.texture.BlockDrawer;
+import mmb.texture.BlockDrawer;
 import mmb.world.event.BlockEntityDemolitionEvent;
 import mmb.world.rotate.Side;
 import mmb.world.worlds.MapProxy;

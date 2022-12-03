@@ -14,16 +14,15 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
-import mmb.graphics.texture.BlockDrawer;
 import mmb.menu.world.window.WorldWindow;
+import mmb.texture.BlockDrawer;
 import mmb.world.chance.Chance;
 import mmb.world.worlds.world.Player;
 import mmb.world.worlds.world.World;
 
 /**
- * @author oskar
  * This class represents a building block.
- * This class may also be used to represent a fluid, but use of {@link Fluid} is recommended
+ * @author oskar
  */
 public class Block extends BlockBase implements BlockEntry{
 	@Override

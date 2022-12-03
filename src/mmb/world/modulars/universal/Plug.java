@@ -12,6 +12,7 @@ import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.item.RotableItem;
 import mmb.world.modulars.ModularBlock;
 import mmb.world.modulars.chest.BlockModuleUniversal;
+import mmb.world.modulars.gui.ModuleConfigHandler;
 import mmb.world.part.RotablePart;
 import mmb.world.rotate.Side;
 
@@ -49,7 +50,10 @@ public class Plug extends RotablePart implements BlockModuleUniversal {
 	public Electricity provideElectricity(ModularBlock<?, BlockModuleUniversal, ?, ?> blk, Side s) {
 		return null;
 	}
-	
-	
 
+	
+	@Override
+	public ModuleConfigHandler<BlockModuleUniversal, ?> mch() {
+		return null;
+	}
 }

@@ -5,8 +5,8 @@ package mmb.world.rotate;
 
 import javax.annotation.Nonnull;
 
-import mmb.data.contents.Textures.Texture;
 import mmb.gl.RenderCtx;
+import mmb.texture.Textures.Texture;
 
 /**
  * @author oskar

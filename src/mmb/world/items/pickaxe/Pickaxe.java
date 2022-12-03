@@ -77,7 +77,7 @@ public class Pickaxe extends ItemEntity {
 	
 	/**
 	 * Renders durability for a block. Used most by items, but still useful for blocks
-	 * @param percent
+	 * @param percent amount from 0 to 1 representing remaining energy in the block or item
 	 * @param g graphics context
 	 * @param x left X coordinate
 	 * @param y upper Y coordinate

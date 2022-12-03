@@ -63,12 +63,7 @@ public class GUIGeneratorSolid extends GUITab {
 	}
 
 	@Override
-	public void createTab(WorldWindow window) {
-		// unused
-	}
-
-	@Override
-	public void destroyTab(WorldWindow window) {
+	public void close(WorldWindow window) {
 		gen.close(this);
 	}
 	

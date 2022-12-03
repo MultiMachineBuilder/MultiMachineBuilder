@@ -51,7 +51,7 @@ public class ItemLists {
 			ItemLoader.load((ArrayNode)node, new ItemTarget() {
 				@Override
 				public void addItem(ItemEntry ent, int amt) {
-					writer.write(ent, amt);
+					writer.insert(ent, amt);
 				}
 				@Override
 				public void setCapacity(double cap) {

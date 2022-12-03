@@ -5,8 +5,8 @@ package mmb.world.blocks.wireworld;
 
 import java.awt.Graphics;
 
-import mmb.data.contents.Textures;
-import mmb.graphics.texture.BlockDrawer;
+import mmb.texture.BlockDrawer;
+import mmb.texture.Textures;
 import mmb.world.block.BlockType;
 import mmb.world.blocks.BlockEntityDataless;
 import mmb.world.blocks.ContentsBlocks;

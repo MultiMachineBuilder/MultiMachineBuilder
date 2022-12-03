@@ -124,12 +124,7 @@ public class SpeakerGUI extends GUITab {
 	}
 
 	@Override
-	public void createTab(WorldWindow window) {
-		// unused
-	}
-
-	@Override
-	public void destroyTab(WorldWindow window) {
+	public void close(WorldWindow window) {
 		// unused
 	}
 

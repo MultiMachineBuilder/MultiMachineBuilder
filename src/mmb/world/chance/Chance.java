@@ -67,7 +67,7 @@ public interface Chance {
 	 */
 	public static boolean tryDrop(ItemEntry ent, @Nullable InventoryWriter i, @Nullable World map, int x, int y) {
 		int inserted = 0;
-		if(i != null) inserted = i.write(ent);
+		if(i != null) inserted = i.insert(ent);
 		if(inserted == 0 && map != null) map.dropItem(ent, x, y);
 		return true;
 	}
@@ -106,5 +106,5 @@ public interface Chance {
 	/**
 	 * @return unique items in this random chance
 	 */
-	@Nonnull public Set<mmb.world.item.ItemEntry> items();
+	@Nonnull public Set<ItemEntry> items();
 }

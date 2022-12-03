@@ -67,7 +67,7 @@ public class Pack extends ItemEntity {
 	private void recalc() {
 		volumeInner = 0;
 		for(Entry<ItemEntry> ent : contents.getContents().object2IntEntrySet()) {
-			volumeInner += ent.getKey().volume(ent.getIntValue());
+			volumeInner += ent.getKey().volume() * ent.getIntValue();
 		}
 		volumeOuter = 0.001 + volumeInner;
 	}

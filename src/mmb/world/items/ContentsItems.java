@@ -13,12 +13,12 @@ import java.util.List;
 import javax.annotation.Nonnull;
 
 import mmb.GlobalSettings;
-import mmb.data.contents.Textures;
 import mmb.graphics.awt.ColorMapper;
 import mmb.graphics.texgen.TexGen;
 import mmb.menu.wtool.ConfigureDroppedItemExtractors;
 import mmb.menu.wtool.DumpItems;
 import mmb.menu.wtool.ToolAim;
+import mmb.texture.Textures;
 import mmb.world.blocks.machine.pack.Pack;
 import mmb.world.contentgen.Materials;
 import mmb.world.crafting.RecipeOutput;

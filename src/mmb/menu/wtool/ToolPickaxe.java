@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.data.contents.Textures;
+import mmb.texture.Textures;
 import mmb.world.block.BlockEntry;
 import mmb.world.chance.Chance;
 import mmb.world.inventory.ItemRecord;

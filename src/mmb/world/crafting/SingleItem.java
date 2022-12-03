@@ -21,7 +21,7 @@ public interface SingleItem extends RecipeOutput {
 
 	@Override
 	default void produceResults(InventoryWriter tgt, int amount) {
-		tgt.write(item(), amount*amount());
+		tgt.insert(item(), amount*amount());
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public interface SingleItem extends RecipeOutput {
 
 	@Override
 	default double outVolume() {
-		return item().volume(amount());
+		return item().volume()*amount();
 	}
 
 	@Override
@@ -60,6 +60,5 @@ public interface SingleItem extends RecipeOutput {
 	@Nonnull public ItemEntry item();
 	
 	/** @return number of items */
-	public int amount();
-	
+	public int amount();	
 }

@@ -16,26 +16,20 @@ import mmb.world.item.ItemEntry;
  * Pushes items into inventory
  */
 public interface InventoryWriter {
+	//Insertion
 	/**
 	 * Pushes given item entry to the given inventory
 	 * @param ent itemto insert
 	 * @param amount number of items
 	 * @return number of items inserted into inventory
 	 */
-	public int write(ItemEntry ent, int amount);
+	public int insert(ItemEntry ent, int amount);
 	/**
 	 * @param stack item stack to insert
 	 * @return number of items inserted into inventory
 	 */
-	public default int write(SingleItem stack) {
-		return write(stack.item(), stack.amount());
-	}
-	/**
-	 * @param ent item to insert
-	 * @return number of items inserted into inventory, here 0 or 1
-	 */
-	public default int write(ItemEntry ent) {
-		return write(ent, 1);
+	public default int insert(SingleItem stack) {
+		return insert(stack.item(), stack.amount());
 	}
 	/**
 	 * Inserts items, keeping the blocks whole
@@ -51,21 +45,44 @@ public interface InventoryWriter {
 	 */
 	public default boolean bulkInsert(RecipeOutput block) {
 		return bulkInsert(block, 1) == 1;
-	}
+	}	
+
+	//Testing methods
 	/**
-	 * Represents an interface which does not allow input
+	 * Checks insertability of the items
+	 * @param block the indivisible insertion unit
+	 * @param amount number of insertion units
+	 * @return how many units can be inserted
 	 */
+	public int toInsertBulk(RecipeOutput block, int amount);
+	/**
+	 * Checks insertability of the items
+	 * @param item item to insert
+	 * @param amount number of items to insert
+	 * @return how many items can be inserted?
+	 */
+	public int toInsert(ItemEntry item, int amount);
+	
+	//Various modifications
+	/** Represents an interface which does not allow input */
 	@Nonnull public static final InventoryWriter NONE = new InventoryWriter() {
 		@Override
-		public int write(ItemEntry ent, int amount) {
+		public int insert(ItemEntry ent, int amount) {
 			return 0;
 		}
 		@Override
 		public int bulkInsert(RecipeOutput block, int amount) {
 			return 0;
 		}
+		@Override
+		public int toInsertBulk(RecipeOutput outItems, int amount) {
+			return 0;
+		}
+		@Override
+		public int toInsert(ItemEntry item, int amount) {
+			return 0;
+		}
 	};
-	
 	/**
 	 * Writes items to the first writer, only if items match the filter.
 	 * Otherwise it writes them to the second writer.
@@ -87,13 +104,21 @@ public interface InventoryWriter {
 			this.filter = filter;
 		}
 		@Override
-		public int write(ItemEntry ent, int amount) {
+		public int insert(ItemEntry ent, int amount) {
 			if(filter.test(ent)) 
-				return ifTrue.write(ent, amount);
-			return ifFalse.write(ent, amount);
+				return ifTrue.insert(ent, amount);
+			return ifFalse.insert(ent, amount);
 		}
 		@Override
 		public int bulkInsert(RecipeOutput block, int amount) {
+			return 0;
+		}
+		@Override
+		public int toInsertBulk(RecipeOutput outItems, int amount) {
+			return 0;
+		}
+		@Override
+		public int toInsert(ItemEntry item, int amount) {
 			return 0;
 		}
 		
@@ -116,9 +141,9 @@ public interface InventoryWriter {
 			this.filter = filter;
 		}
 		@Override
-		public int write(ItemEntry ent, int amount) {
+		public int insert(ItemEntry ent, int amount) {
 			if(filter.test(ent)) 
-				return writer.write(ent, amount);
+				return writer.insert(ent, amount);
 			return 0;
 		}
 		@Override
@@ -126,6 +151,17 @@ public interface InventoryWriter {
 			for(ItemEntry item: block.items()) 
 				if(!filter.test(item)) return 0;
 			return writer.bulkInsert(block, amount);
+		}
+		@Override
+		public int toInsertBulk(RecipeOutput block, int amount) {
+			for(ItemEntry item: block.items()) 
+				if(!filter.test(item)) return 0;
+			return writer.toInsertBulk(block, amount);
+		}
+		@Override
+		public int toInsert(ItemEntry item, int amount) {
+			if(!filter.test(item)) return 0;
+			return writer.toInsert(item, amount);
 		}
 	}
 	/**
@@ -149,13 +185,13 @@ public interface InventoryWriter {
 		}
 
 		@Override
-		public int write(ItemEntry ent, int amount) {
-			int writeFirst = first.write(ent, amount);
+		public int insert(ItemEntry ent, int amount) {
+			int writeFirst = first.insert(ent, amount);
 			if(writeFirst == amount) {
 				return amount; //all accepted
 			}
 			int next = amount - writeFirst;
-			int writeSecond = other.write(ent, next);
+			int writeSecond = other.insert(ent, next);
 			return writeFirst+writeSecond;
 		}
 
@@ -167,6 +203,28 @@ public interface InventoryWriter {
 			}
 			int next = amount - writeFirst;
 			int writeSecond = other.bulkInsert(block, next);
+			return writeFirst+writeSecond;
+		}
+
+		@Override
+		public int toInsertBulk(RecipeOutput block, int amount) {
+			int writeFirst = first.toInsertBulk(block, amount);
+			if(writeFirst == amount) {
+				return amount; //all accepted
+			}
+			int next = amount - writeFirst;
+			int writeSecond = other.toInsertBulk(block, next);
+			return writeFirst+writeSecond;
+		}
+
+		@Override
+		public int toInsert(ItemEntry item, int amount) {
+			int writeFirst = first.toInsert(item, amount);
+			if(writeFirst == amount) {
+				return amount; //all accepted
+			}
+			int next = amount - writeFirst;
+			int writeSecond = other.toInsert(item, next);
 			return writeFirst+writeSecond;
 		}		
 	}
@@ -185,13 +243,13 @@ public interface InventoryWriter {
 		}
 		private int pos = 0;
 		@Override
-		public int write(ItemEntry ent, int amount) {
+		public int insert(ItemEntry ent, int amount) {
 			next();
 			int remaining = amount;
 			int transferred = 0;
 			for(int i = 0; i < writers.length; i++) {
 				InventoryWriter writer = writers[pos];
-				int now = writer.write(ent, remaining);
+				int now = writer.insert(ent, remaining);
 				remaining -= now;
 				transferred += now;
 				if(remaining == 0) return transferred;
@@ -220,6 +278,17 @@ public interface InventoryWriter {
 				next();
 			}
 			return transferred;
+		}
+
+		@Override
+		public int toInsertBulk(RecipeOutput outItems, int amount) {
+			return 0;
+		}
+
+		@Override
+		public int toInsert(ItemEntry item, int amount) {
+			// TODO Auto-generated method stub
+			return 0;
 		}
 	}
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.gl;
+package mmb.texture;
 
 /**
  * @author oskar

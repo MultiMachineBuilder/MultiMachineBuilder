@@ -48,6 +48,7 @@ import mmb.world.blocks.BlockLoader;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.chance.Chance;
 import mmb.world.crafting.RecipeOutput;
+import mmb.world.inventory.io.Dropper;
 import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.item.ItemEntry;
 import mmb.world.mbmachine.Machine;
@@ -814,22 +815,7 @@ public class World implements Identifiable<String>, Indexable{
 	 * @return the inventory writer
 	 */
 	@Nonnull public InventoryWriter createDropper(int x, int y) {
-		Collection<ItemEntry> collect = getDrops(x, y);
-		return new InventoryWriter() {
-			@Override
-			public int write(ItemEntry ent, int amount) {
-				for(int i = 0; i < amount; i++) {
-					collect.add(ent);
-				}
-				return amount;
-			}
-
-			@Override
-			public int bulkInsert(RecipeOutput block, int amount) {
-				dropItems(block, amount, x, y);
-				return amount;
-			}
-		};
+		return new Dropper(x, y, this);
 	}
 	/**
 	 * @param x X coordinate of item drop(s)

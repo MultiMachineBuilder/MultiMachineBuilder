@@ -1,64 +1,89 @@
 /**
  * 
  */
-package mmb.menu.world.inv;
+package mmb.menu.components;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JComponent;
 
 import com.pploder.events.Event;
 
 import mmb.CatchingEvent;
-import mmb.data.variables.Variable;
+import mmb.data.variables.ListenableValue;
 import mmb.debug.Debugger;
 import mmb.world.item.ItemEntry;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 /**
  * @author oskar
  *
  */
-public class ItemSelectionSlot extends JComponent {
+public class ItemSelectionSlot extends JComponent implements AutoCloseable{
 	private static final long serialVersionUID = -5582224599293758548L;
 	
-	private boolean canSet = true;
+	//Item events
+	@Nonnull private static final Debugger debug = new Debugger("ITEM SELECTION SLOT");
+	/** Invoked when contents of this slot change  */
+	public final transient Event<ItemEntry> stateChanged = new CatchingEvent<>(debug, "Could not fire item changed event");
 	
-	private Variable<mmb.world.item.ItemEntry> selectionSrc;
-	private Variable<mmb.world.item.ItemEntry> target;
-	private ItemEntry selection;
-	/**
-	 * @return the selection source
-	 */
-	public Variable<mmb.world.item.ItemEntry> getSelectionSrc() {
-		return selectionSrc;
+	//Selection source
+	@Nullable private transient Supplier<ItemEntry> selector;
+	/** @return current selector */
+	public Supplier<ItemEntry> getSelector() {
+		return selector;
 	}
-	/**
-	 * @param selectionSrc new selection source
-	 */
-	public void setSelectionSrc(Variable<mmb.world.item.ItemEntry> selectionSrc) {
-		this.selectionSrc = selectionSrc;
+	/** @param selectionSrc new selector */
+	public void setSelector(Supplier<ItemEntry> selectionSrc) {
+		this.selector = selectionSrc;
 	}
+	
+	//Target (a variable where values are stored)
+	@Nullable private transient ListenableValue<@Nullable ItemEntry> target;
+	private void handleChanges(@Nullable ItemEntry i) { repaint(); stateChanged.trigger(i); }
+	@Nonnull private final transient Consumer<@Nullable ItemEntry> changeHandler = this::handleChanges;
+	/** @return the target item variable*/
+	@Nullable public ListenableValue<@Nullable ItemEntry> getTarget() {
+		return target;
+	}
+	/** @param newTarget new target item variable */
+	public void setTarget(@Nullable ListenableValue<@Nullable ItemEntry> newTarget) {
+		ItemEntry oldSelection = getSelection();
+		ListenableValue<@Nullable ItemEntry> oldTarget = target;
+		if(oldTarget != null) oldTarget.unlistenadd(changeHandler);
+		if(newTarget != null) newTarget.listenadd(changeHandler);
+		target = newTarget;
+		ItemEntry newSelection = getSelection();
+		if(oldSelection != newSelection) handleChanges(newSelection);
+	}
+	
+	//Selection
 	/**
 	 * @return currently selected item
 	 */
 	public @Nullable ItemEntry getSelection() {
-		return selection;
+		final ListenableValue<ItemEntry> target2 = target;
+		if (target2 == null) return null;
+		return target2.get();
+		
 	}
 	/**
 	 * @param selection item to be selected
 	 */
 	public void setSelection(@Nullable ItemEntry selection) {
-		if(!canSet) return;
-		this.selection = selection;
-		stateChanged.trigger(selection);
+		if(!isEnabled()) return;
 		if(target != null) target.set(selection);
+		handleChanges(selection);
 	}
 	
+	//Component
 	@SuppressWarnings("null")
 	@Override
 	protected void paintComponent(Graphics g) {
@@ -68,6 +93,7 @@ public class ItemSelectionSlot extends JComponent {
 		//center the item
 		int x = (w-size)/2;
 		int y = (h-size)/2;
+		ItemEntry selection = getSelection();
 		if(selection != null) {
 			selection.render(g, x, y, size, size);
 		}
@@ -80,38 +106,13 @@ public class ItemSelectionSlot extends JComponent {
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(@SuppressWarnings("null") MouseEvent arg0) {
-				if(selectionSrc != null) setSelection(selectionSrc.get());
+				if(selector != null) setSelection(selector.get());
 				repaint();
 			}
 		});
 	}
-	
-	/**
-	 * @return can the value be set by the user
-	 */
-	public boolean canSet() {
-		return canSet;
+	@Override
+	public void close() {
+		setTarget(null);
 	}
-	/**
-	 * @param canSet should value be settable by the user?
-	 */
-	public void setCanSet(boolean canSet) {
-		this.canSet = canSet;
-	}
-
-	/** @return the target item variable*/
-	public Variable<mmb.world.item.ItemEntry> getTarget() {
-		return target;
-	}
-	/** @param target new target item variable */
-	public void setTarget(Variable<mmb.world.item.ItemEntry> target) {
-		setSelection(target.get());
-		this.target = target;
-	}
-
-	private static final Debugger debug = new Debugger("ITEM SELECTION SLOT");
-	/**
-	 * Invoked when contents of this slot change
-	 */
-	public final Event<ItemEntry> stateChanged = new CatchingEvent<ItemEntry>(debug, "Could not fire item changed event");
 }

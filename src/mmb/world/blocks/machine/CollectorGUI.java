@@ -25,7 +25,12 @@ import javax.swing.JLabel;
 public class CollectorGUI extends GUITab {
 	private static final long serialVersionUID = 2506447463267036557L;
 	
-	private final ToItemUnifiedCollector coll;
+	private final transient ToItemUnifiedCollector coll;
+	/**
+	 * Creates an item collector GUI
+	 * @param collector item collector
+	 * @param window world window
+	 */
 	public CollectorGUI(Collector collector, WorldWindow window) {
 		coll = collector;
 		setLayout(new MigLayout("", "[][][grow]", "[][grow][]"));
@@ -61,12 +66,7 @@ public class CollectorGUI extends GUITab {
 	}
 
 	@Override
-	public void createTab(WorldWindow window) {
-		//unused
-	}
-
-	@Override
-	public void destroyTab(WorldWindow window) {
+	public void close(WorldWindow window) {
 		coll.destroyTab(this);
 	}
 }

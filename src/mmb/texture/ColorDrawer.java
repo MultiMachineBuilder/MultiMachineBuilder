@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.graphics.texture;
+package mmb.texture;
 
 import java.awt.Color;
 import java.awt.Graphics;

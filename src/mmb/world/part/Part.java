@@ -7,7 +7,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import javax.annotation.Nonnull;
 
-import mmb.graphics.texture.BlockDrawer;
+import mmb.texture.BlockDrawer;
 import mmb.world.chance.Chance;
 import mmb.world.crafting.RecipeOutput;
 

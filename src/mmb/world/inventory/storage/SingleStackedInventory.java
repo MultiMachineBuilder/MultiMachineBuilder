@@ -102,12 +102,24 @@ public class SingleStackedInventory implements SaveInventory{
 
 	//Item calculation
 	@Override
+	public int insertibleRemainBulk(int amount, RecipeOutput block) {
+		if(block.items().size() > 1) return 0;
+		if(block.items().isEmpty()) return 0;
+		for(Entry<ItemEntry> entry: block.getContents().object2IntEntrySet()) {
+			if(amount < 1) return 0;
+			if(entry.getIntValue() == 0) return 0;
+			ItemEntry ent = entry.getKey();
+			if(ent == null) return 0;
+			return insertibleRemain(amount*entry.getIntValue(), ent); //NOSONAR this loop is required to get the required item entry
+		}
+		return 0;
+	}
+	@Override
 	public int insertibleRemain(int amount, ItemEntry item) {
 		if(storedItem == null || item.equals(storedItem)) {
 			int tgtamount = Math.min((int)(remainVolume()/ item.volume()), amount);
 			return Math.max(0, tgtamount);
 		}
-		debug.printl("Differing items, rejecting");
 		return 0;
 	}
 	@Override
@@ -125,7 +137,7 @@ public class SingleStackedInventory implements SaveInventory{
 	@Override
 	public double volume() {
 		if(storedItem == null) return 0;
-		return storedItem.volume(storedAmount);
+		return storedItem.volume() * storedAmount;
 	}
 	
 	//Item manipulation
@@ -213,12 +225,12 @@ public class SingleStackedInventory implements SaveInventory{
 	}
 	/**
 	 * Replaces the configs in this inventory with the one of the other inventory
-	 * @param inventory source inventory
+	 * @param inv source inventory
 	 */
-	public void set(SingleStackedInventory inventory) {
-		setCapacity(inventory.capacity());
-		setCount(inventory.itemCount());
-		setItem(inventory.getItem());
+	public void set(SingleStackedInventory inv) {
+		setCapacity(inv.capacity());
+		setCount(inv.itemCount());
+		setItem(inv.getItem());
 	}
 	/**
 	 * @return contents of this single stacked inventory as an item stack

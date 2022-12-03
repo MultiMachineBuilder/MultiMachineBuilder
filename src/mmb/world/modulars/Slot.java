@@ -3,9 +3,15 @@
  */
 package mmb.world.modulars;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import mmb.data.reactive.ListenableProperty;
+import mmb.data.variables.ListenableValue;
 import mmb.data.variables.Variable;
 import mmb.debug.Debugger;
 import mmb.world.inventory.storage.BaseSingleItemInventory;
@@ -21,21 +27,10 @@ import mmb.world.worlds.world.World;
  * @author oskar
  * @param <T> type of values
  */
-public class Slot<T> implements Variable<@Nullable T>{
+public class Slot<@Nullable T> extends ListenableValue<T>{
 	@Nonnull private static final Debugger debug = new Debugger("MODULAR SLOTS");
 	/** The type of the slots */
 	@Nonnull public final Class<T> type;
-	@Nullable private T value;
-	@Override
-	public final T get() {
-		return value;
-	}
-	@Override
-	public void set(@Nullable T value) {
-		removeOld(this.value);
-		addNew(value);
-		this.value = value;
-	}
 	/**
 	 * Sets a value if it extends the expected type
 	 * @param value
@@ -44,7 +39,7 @@ public class Slot<T> implements Variable<@Nullable T>{
 	@SuppressWarnings("unchecked")
 	public boolean setto(@Nullable Object value) {
 		if(!test(value)) return false;
-		this.value = (T) value;
+		set((T) value);
 		return true;
 	}
 	/**
@@ -60,6 +55,9 @@ public class Slot<T> implements Variable<@Nullable T>{
 	 * @param type type of values;
 	 */
 	public Slot(Class<T> type) {
+		super(null);
+		listenadd(this::addNew);
+		listenrem(this::removeOld);
 		this.type = type;
 	}
 	/**
@@ -76,7 +74,7 @@ public class Slot<T> implements Variable<@Nullable T>{
 	protected void addNew(@Nullable T module) {
 		//to be overridden
 	}
-	
+		
 	/**
 	 * An implementation of a slot for block modules
 	 * @author oskar
@@ -220,12 +218,16 @@ public class Slot<T> implements Variable<@Nullable T>{
 		}
 		@Override
 		public ItemEntry getContents() {
-			return slot.value;
+			return slot.get();
 		}
 		@Override
 		public boolean setContents(@Nullable ItemEntry contents) {
 			return slot.setto(contents);
 		}
-		
+		@Override
+		public boolean test(ItemEntry e) {
+			return slot.test(e);
+		}
 	}
+	
 }

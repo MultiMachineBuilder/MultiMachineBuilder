@@ -14,9 +14,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.cgui.BlockActivateListener;
-import mmb.debug.Debugger;
-import mmb.graphics.texture.BlockDrawer;
 import mmb.menu.world.window.WorldWindow;
+import mmb.texture.BlockDrawer;
 import mmb.world.block.SensitiveBlock;
 import mmb.world.chance.Chance;
 import mmb.world.crafting.RecipeOutput;
@@ -28,6 +27,7 @@ import mmb.world.inventory.io.InventoryReader;
 import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.item.ItemEntry;
 import mmb.world.modulars.chest.BlockModuleUniversal;
+import mmb.world.modulars.gui.ModularChestGUI;
 import mmb.world.part.PartEntry;
 import mmb.world.part.PartType;
 import mmb.world.rotate.ChiralRotation;
@@ -76,7 +76,15 @@ public interface ModularBlock<
 	default void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		boolean result = replaceHelper(window.selectedItem(), window.getPlayer().inv, partX, partY);
-		if(!result) openGUI(window);
+		if(!result) {
+			ModularChestGUI tab = createGUI(window);
+			boolean open =  openTab(tab);
+			if(open) {
+				window.openAndShowWindow(tab, type().title());
+			}else {
+				tab.close(window);
+			}
+		}
 	}
 	/**
 	 * Internal method to handle clicks
@@ -115,11 +123,7 @@ public interface ModularBlock<
 		}
 		return false;
 	}
-	/**
-	 * Invoked when the block is clicked outside of any slot
-	 * @param window
-	 */
-	public void openGUI(WorldWindow window);
+	
 	/**
 	 * Replaces the module with one requested by the player
 	 * @apiNote A helper method used in default implementation of the click handler.
@@ -154,6 +158,26 @@ public interface ModularBlock<
 			}
 		}
 	}
+	
+	//GUI
+	/**
+	 * Invoked when the tab is closed
+	 * @param gui GUI to be closed
+	 */
+	public void closeTab(ModularChestGUI gui);
+	/**
+	 * Creates additional GUI for this block
+	 * @return an additional GUI
+	 */
+	public default ModularChestGUI createGUI(WorldWindow window) {
+		return new ModularChestGUI(window, this);
+	}
+	/**
+	 * Invoked when the tab is opened
+	 * @param tab tab to open
+	 * @return is the tab already open?
+	 */
+	public boolean openTab(ModularChestGUI tab);
 	
 	//Provision of internal access points to modules
 	/**
@@ -416,7 +440,7 @@ public interface ModularBlock<
 	 */
 	public default void loadModuleHelper(@Nullable JsonNode sub, Side side) {
 		Slot<Tmodule> slot = slotInternal(side);
-		if(slot != null) slot.setto(ItemEntry.loadFromJsonExpectType(sub, slot.type));
+		if(slot != null) slot.setto(PartEntry.loadFromJsonExpectType(sub, slot.type));
 	}
 	
 	//Ticker
@@ -432,20 +456,17 @@ public interface ModularBlock<
 		if(core != null) core.runCore(that());
 		
 		ChiralRotation chirot = getChirotation();
-		runModule(w, x, y, chirot, Side.U);
-		runModule(w, x, y, chirot, Side.D);
-		runModule(w, x, y, chirot, Side.L);
-		runModule(w, x, y, chirot, Side.R);
+		runModule(chirot, Side.U);
+		runModule(chirot, Side.D);
+		runModule(chirot, Side.L);
+		runModule(chirot, Side.R);
 	}
 	/**
-	 * @param w world in which block is located
-	 * @param x X coordinate of the block
-	 * @param y Y coordinate of the block
 	 * @param chirot chirotation of the block
 	 * @param s side, where the module is located
 	 */
-	public default void runModule(World w, int x, int y, ChiralRotation chirot, Side s) {
-		Tmodule module = module(s);
+	public default void runModule(ChiralRotation chirot, Side s) {
+		Tmodule module = moduleInternal(s);
 		if(module != null) module.run(that(), s, chirot.apply(s));
 	}
 	
@@ -498,7 +519,7 @@ public interface ModularBlock<
 		int offsetY = (13*size*s.blockOffsetY)/32;
 		int px = x+offsetX;
 		int py = y+offsetY;
-		BlockDrawer rotated = module.rig().get(getRotation());
+		BlockDrawer rotated = module.rig().get(r);
 		rotated.draw(this, px, py, g, size);
 	}
 }

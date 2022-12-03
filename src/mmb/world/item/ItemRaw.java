@@ -16,8 +16,8 @@ import com.google.common.util.concurrent.UncheckedExecutionException;
 import mmb.GlobalSettings;
 
 /**
+ * A simple item wrapper for ItemEntities
  * @author oskar
- *
  */
 public class ItemRaw extends Item {
 	@Nonnull private static final String RAW = " "+GlobalSettings.$res("rawitem");

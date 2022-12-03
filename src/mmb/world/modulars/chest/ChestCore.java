@@ -12,8 +12,8 @@ import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.data.contents.Textures;
 import mmb.menu.world.inv.AbstractInventoryController;
+import mmb.texture.Textures;
 import mmb.world.chance.Chance;
 import mmb.world.crafting.SimpleItemList;
 import mmb.world.crafting.SingleItem;
@@ -122,22 +122,22 @@ public abstract class ChestCore<Tinv extends SaveInventory> extends PartEntity i
 	}
 	
 	@Nonnull private static final BufferedImage[] font;
-	
-	
-	
 	static {
 		BufferedImage srcfont = Textures.get("nums.png");
-		int chwidth = srcfont.getWidth() / 12;
-		int h = srcfont.getHeight();
+		int chwidth = 5;
+		int chheight = 9;
 		BufferedImage[] font0 = new BufferedImage[12]; 
-		for(int i = 0; i < 12; i++) {
+		for(int i = 0; i < 6; i++) {
 			int x = i*chwidth;
-			font0[i] = srcfont.getSubimage(x, 0, chwidth, h);
+			font0[i] = srcfont.getSubimage(x, 0, chwidth, chheight);
 		}
+		for(int i = 0; i < 6; i++) {
+			int x = i*chwidth;
+			font0[i+6] = srcfont.getSubimage(x, 16, chwidth, chheight);
+		}
+		
 		font = font0;
 	}
-
-
 
 	@Override
 	protected int hash0() {

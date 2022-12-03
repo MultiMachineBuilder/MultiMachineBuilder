@@ -142,11 +142,7 @@ public abstract class AbstractBasePipe extends BlockEntityChirotable {
 		public Pusher(SingleItemInventory from, Side other) {
 			this.from = from;
 			this.other = other;
-		}
-		@Override
-		public int write(ItemEntry ent, int amount) {
-			return from.insert(ent, amount);
-		}
+		}	
 		//Returns: did pushing make assigned slot free
 		public boolean push() {
 			Side cother = getRotation().apply(other);
@@ -154,7 +150,7 @@ public abstract class AbstractBasePipe extends BlockEntityChirotable {
 			InventoryWriter writer = owner().getAtSide(cother, posX(), posY()).getInput(nother);
 			ItemEntry ent = from.getContents();
 			if(ent == null) return true;
-			int amt = writer.write(ent);
+			int amt = writer.insert(ent);
 			if(amt == 1) {
 				from.setContents(null);
 				return true;
@@ -162,8 +158,20 @@ public abstract class AbstractBasePipe extends BlockEntityChirotable {
 			return false;
 		}
 		@Override
+		public int insert(ItemEntry ent, int amount) {
+			return from.insert(ent, amount);
+		}
+		@Override
 		public int bulkInsert(RecipeOutput block, int amount) {
 			return from.bulkInsert(block, amount);
+		}
+		@Override
+		public int toInsertBulk(RecipeOutput block, int amount) {
+			return from.insertibleRemainBulk(amount, block);
+		}
+		@Override
+		public int toInsert(ItemEntry item, int amount) {
+			return from.insertibleRemain(amount, item);
 		}
 	}		
 }

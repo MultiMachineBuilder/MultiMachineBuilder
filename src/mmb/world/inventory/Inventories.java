@@ -7,6 +7,7 @@ import java.util.function.Predicate;
 
 import javax.annotation.Nullable;
 
+import mmb.world.crafting.RecipeOutput;
 import mmb.world.inventory.io.InventoryReader;
 import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.item.ItemEntry;
@@ -75,7 +76,7 @@ public class Inventories {
 		if(!src.canExtract()) return 0; //unable to extract from source
 		int amount0 = Math.min(src.amount(), amount);
 		
-		int amount1 = tgt.write(src.item(), amount0);
+		int amount1 = tgt.insert(src.item(), amount0);
 		src.extract(amount1);
 		
 		return amount1;
@@ -105,6 +106,27 @@ public class Inventories {
 	
 	//First stack
 	/**
+	 * Transfers a first stack from an inventory reader if supported
+	 * @param reader inventory reader
+	 * @param inv target inventory
+	 * @return transferred items
+	 * @throws UnsupportedOperationException when the inventory reader does not support random access
+	 */
+	public static ItemStack transferFirstStack(InventoryReader reader, Inventory inv) {
+		return transferFirstStack(reader, inv, Integer.MAX_VALUE);
+	}
+	/**
+	 * Transfers a portion of the first stack from an inventory reader if supported
+	 * @param reader inventory reader
+	 * @param inv target inventory
+	 * @param amount amount to transfer
+	 * @return transferred items
+	 * @throws UnsupportedOperationException when the inventory reader does not support random access
+	 */
+	public static ItemStack transferFirstStack(InventoryReader reader, Inventory inv, int amount) {
+		return transferFirstStack(reader, inv.createWriter(), amount);
+	}
+	/**
 	 * Transfers a portion of an item record to an inventory writer
 	 * @param src source inventory
 	 * @param tgt tagret inventory
@@ -112,14 +134,18 @@ public class Inventories {
 	 * @return items transfered, or null if none found
 	 */
 	@Nullable public static ItemStack transferFirstStack(InventoryReader src, InventoryWriter tgt, int amount) {
-		if(!src.hasCurrent()) return null;
+		while(!src.hasCurrent()) {
+			if(!src.hasNext()) return null;
+			src.next();	
+		}
 		ItemEntry item = src.currentItem();
 		if(item == null) return null;
 		int amount0 = src.toBeExtracted(amount);
-		int amount1 = tgt.write(item, amount0);
+		int amount1 = tgt.insert(item, amount0);
 		src.extract(amount1);
 		return new ItemStack(item, amount1);
 	}
+	
 	/**
 	 * Transfers a first item from inventory reader to an inventory
 	 * @param src inventory reader
@@ -140,18 +166,8 @@ public class Inventories {
 		if(stk == null || stk.amount == 0) return null;
 		return stk.item;
 	}
-	/**
-	 * Transfers a first stack from an inventory
-	 * @param src source inventory
-	 * @param tgt inventory writer
-	 * @return transferred items, or null if inventory is empty
-	 */
-	@Nullable public static ItemStack transferFirstStack(Inventory src, Inventory tgt) {
-		return transferFirstStack(src, tgt.createWriter());
-	}
 	
-	//From an inventory
-	
+	//Filtered
 	/**
 	 * Transfer source inventory to the target inventory, where predicate accepts it
 	 * @param src source inventory
@@ -163,6 +179,8 @@ public class Inventories {
 			if(filter.test(rec)) transferRecord(rec, tgt, Integer.MAX_VALUE);
 		}
 	}
+	
+	//First item
 	/**
 	 * Transfers first item from an inventory to other inventory
 	 * @param src source inventory
@@ -172,7 +190,6 @@ public class Inventories {
 	@Nullable public static ItemEntry transferFirst(Inventory src, Inventory tgt) {
 		return transferFirst(src, tgt.createWriter());
 	}
-		
 	/**
 	 * Transfers first item from an inventory to an inventory writer
 	 * @param src source inventory
@@ -186,6 +203,17 @@ public class Inventories {
 		}
 		return null;
 	}
+	
+	//First stack
+	/**
+	 * Transfers a first stack from an inventory
+	 * @param src source inventory
+	 * @param tgt inventory writer
+	 * @return transferred items, or null if inventory is empty
+	 */
+	@Nullable public static ItemStack transferFirstStack(Inventory src, Inventory tgt) {
+		return transferFirstStack(src, tgt.createWriter());
+	}
 	/**
 	 * Transfers a first stack from an inventory
 	 * @param src source inventory
@@ -198,8 +226,28 @@ public class Inventories {
 			if(tf > 0) return new ItemStack(rec.item(), tf);
 		}
 		return null;
-	}	
-			
+	}
+	/**
+	 * Transfers a first stack from an inventory
+	 * @param src source inventory
+	 * @param tgt inventory writer
+	 * @return transferred items, or null if inventory is empty
+	 */
+	@Nullable public static ItemStack transferFirstStack(InventoryReader src, InventoryWriter tgt) {
+		while(true) {
+			ItemEntry ient = null;
+			if(src.hasCurrent()) ient = src.currentItem();
+			else if(src.hasNext()) src.next();
+			else return null;
+			if(ient == null) continue;
+			int tbe = src.toBeExtracted(Integer.MAX_VALUE);
+			if(tbe == 0) return null;
+			int ins = tgt.insert(ient, tbe);
+			src.extract(ins);
+			return new ItemStack(ient, ins);
+		}
+	}
+	
 	//Specific stacks
 	/** 
 	 * Transfer a specified amount of given item into other inventory
@@ -221,31 +269,6 @@ public class Inventories {
 	 */
 	public static int transferStack(Inventory src, Inventory tgt, ItemEntry item) {
 		return transferRecord(src.get(item), tgt);
-	}
-	/**
-	 * Transfers a first stack from an inventory reader if supported
-	 * @param reader inventory reader
-	 * @param inv target inventory
-	 * @return transferred items
-	 * @throws UnsupportedOperationException when the inventory reader does not support random access
-	 */
-	public static ItemStack transferStack(InventoryReader reader, Inventory inv) {
-		return transferStack(reader, inv, Integer.MAX_VALUE);
-	}
-	/**
-	 * Transfers a portion of the first stack from an inventory reader if supported
-	 * @param reader inventory reader
-	 * @param inv target inventory
-	 * @param amount amount to transfer
-	 * @return transferred items
-	 * @throws UnsupportedOperationException when the inventory reader does not support random access
-	 */
-	public static ItemStack transferStack(InventoryReader reader, Inventory inv, int amount) {
-		ItemEntry item = reader.currentItem();
-		int amount0 = inv.insertibleRemain(amount, item);
-		int read = reader.extract(amount0);
-		inv.insert(item, read);
-		return new ItemStack(item, amount);
 	}
 	/**
 	 * Transfers all units of a specific item from an inventory reader if supported
@@ -292,5 +315,118 @@ public class Inventories {
 	 */
 	public static int transferStack(Inventory src, InventoryWriter tgt, ItemEntry item) {
 		return transferRecord(src.get(item), tgt);
+	}
+	/**
+	 * Transfers a specific item from an inventory reader if supported
+	 * @param reader inventory reader
+	 * @param tgt inventory writer
+	 * @param item item to transfer
+	 * @param amount amount to transfer
+	 * @return number of transferred items
+	 * @throws UnsupportedOperationException when the inventory reader does not support random access
+	 */
+	public static int transferStack(InventoryReader reader, InventoryWriter tgt, ItemEntry item, int amount) {
+		int amount0 = reader.toBeExtracted(item, amount);
+		int write = tgt.insert(item, amount0);
+		return reader.extract(item, write);
+	}
+	/**
+	 * Transfers a specific item from an inventory reader if supported
+	 * @param reader inventory reader
+	 * @param tgt inventory writer
+	 * @param item item to transfer
+	 * @param amount amount to transfer
+	 * @param maxvol maximum volume
+	 * @return number of transferred items
+	 * @throws UnsupportedOperationException when the inventory reader does not support random access
+	 */
+	public static int transferStackVolumeLimited(InventoryReader reader, InventoryWriter tgt, ItemEntry item, int amount, double maxvol) {
+		double outvol = item.outVolume();
+		if(outvol == 0) return 0;
+		double calcvolume = outvol*amount;
+		int amount0 = amount;
+		if(calcvolume > maxvol) amount0 = (int)(maxvol/outvol);
+		if(amount0 == 0) return 0;
+		return transferStack(reader, tgt, item, amount0);
+	}
+	/**
+	 * Transfers a specific stack from an inventory reader if supported
+	 * @param reader inventory reader
+	 * @param tgt inventory writer
+	 * @param item item to transfer
+	 * @return number of transferred items
+	 * @throws UnsupportedOperationException when the inventory reader does not support random access
+	 */
+	public static int transferStack(InventoryReader reader, InventoryWriter tgt, ItemEntry item) {
+		return transferStack(reader, tgt, item, Integer.MAX_VALUE);
+	}
+
+	
+	//Multi-stack
+	/**
+	 * Transfers multiple stacks of items
+	 * @param reader source
+	 * @param writer destination
+	 * @param items items to move
+	 * @param amount number of units to transfer
+	 * @throws UnsupportedOperationException when the inventory reader does not support random access
+	 */
+	public static void transferMulti(InventoryReader reader, InventoryWriter writer, RecipeOutput items, int amount) {
+		for(ItemStack stk: items) transferStack(reader, writer, stk.item, stk.amount);
+	}
+	/**
+	 * Transfers multiple stacks of items
+	 * @param reader source
+	 * @param writer destination
+	 * @param items items to move
+	 * @param amount number of units to transfer
+	 * @param maxvol maximum volume
+	 * @return number of units transferred
+	 * @throws UnsupportedOperationException when the inventory reader does not support random access
+	 */
+	public static int transferMultiVolumeLimited(InventoryReader reader, InventoryWriter writer, RecipeOutput items, int amount, double maxvol) {
+		double outvol = items.outVolume();
+		if(outvol == 0) return 0;
+		double calcvolume = outvol*amount;
+		int amount0 = amount;
+		if(calcvolume > maxvol) amount0 = (int)(maxvol/outvol);
+		if(amount0 == 0) return 0;
+		transferMulti(reader, writer, items, amount0);
+		return amount0;
+	}
+
+	//Bulk
+	/**
+	 * Transfers transfer units of items, without breaking them up
+	 * @param reader source
+	 * @param writer destination
+	 * @param items transfer unit
+	 * @param amount number of units to transfer
+	 * @return number of units transferred
+	 * @throws UnsupportedOperationException when the inventory reader does not support random access
+	 */
+	public static int transferBulk(InventoryReader reader, InventoryWriter writer, RecipeOutput items, int amount) {
+		int tomove = reader.toBeExtractedBulk(items, amount);
+		int moved = writer.bulkInsert(items, tomove);
+		return reader.extractBulk(items, moved);
+	}
+	/**
+	 * Transfers transfer units of items, without breaking them up
+	 * @param reader source
+	 * @param writer destination
+	 * @param items transfer unit
+	 * @param amount number of units to transfer
+	 * @param maxvol maximum volume
+	 * @return number of units transferred
+	 * @throws UnsupportedOperationException when the inventory reader does not support random access
+	 */
+	public static int transferBulkVolumeLimited(InventoryReader reader, InventoryWriter writer, RecipeOutput items, int amount, double maxvol) {
+		double outvol = items.outVolume();
+		if(outvol == 0) return 0;
+		double calcvolume = outvol*amount;
+		int amount0 = amount;
+		if(calcvolume > maxvol) amount0 = (int)(maxvol/outvol);
+		if(amount0 == 0) return 0;
+		return transferBulk(reader, writer, items, amount0);
 	}
 }

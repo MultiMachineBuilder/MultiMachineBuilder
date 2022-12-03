@@ -31,4 +31,28 @@ public class MMBUtils {
 	public static int bool2int(boolean bool) {
 		return bool ? 1 : 0;
 	}
+	/**
+	 * WARNING: THIS METHOD IS UNSAFE AND MISUSE WILL RESULT IN HARD TO TRACE CASTING BUGS, so the name is very long
+	 * @param in input
+	 * @param <T> source type
+	 * @param <U> destination type
+	 * @return the same object (but it might fail)
+	 * @throws ClassCastException randomly, when misused in various methods
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T, U> U thisIsAReallyLongNameUnsafeCast(T in) {
+		return (U) in;
+	}
+	/**
+	 * WARNING: THIS METHOD IS UNSAFE AND MISUSE WILL RESULT IN HARD TO TRACE CASTING BUGS, so the name is very long
+	 * @param in input
+	 * @param <T> source type
+	 * @param <U> destination type
+	 * @return the same object (but it might fail)
+	 * @throws ClassCastException randomly, when misused in various methods
+	 */
+	@SuppressWarnings("unchecked")
+	@Nonnull public static <T, U> U thisIsAReallyLongNameUnsafeCastNN(T in) {
+		return (U) in;
+	}	
 }

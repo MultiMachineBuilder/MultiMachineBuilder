@@ -114,6 +114,18 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 		return 1;
 	}
 	@Override
+	public int insertibleRemainBulk(int amount, RecipeOutput ent) {
+		if(amount <= 0) return 0;
+		//Test the volume
+		if(remainVolume() < ent.outVolume()) return 0;
+		//Test the recipe output
+		for(ItemStack entry: ent) {
+			if(entry.amount > 1) return 0;
+			if(!test(entry.item)) return 0;
+		}
+		return 1;
+	}
+	@Override
 	public boolean isEmpty() {
 		return set.isEmpty();
 	}
@@ -153,14 +165,8 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 	}
 	@Override
 	public int bulkInsert(RecipeOutput ent, int amount) {
-		if(amount <= 0) return 0;
-		//Test the volume
-		if(remainVolume() < ent.outVolume()) return 0;
-		//Test the recipe output
-		for(ItemStack entry: ent) {
-			if(entry.amount > 1) return 0;
-			if(!test(entry.item)) return 0;
-		}
+		int canInsert = insertibleRemainBulk(amount, ent);
+		if(canInsert == 0) return 0;
 		for(ItemStack entry: ent) {
 			if(entry.amount == 0) continue;
 			volume += entry.outVolume();
@@ -246,7 +252,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 	 * @param c items to add
 	 * @return were any items added?
 	 */
-	public boolean addAllUnvolumed(Collection<ItemEntry>  c) {
+	public boolean addAllUnvolumed(Collection<@Nonnull ItemEntry>  c) {
 		boolean result = false;
 		for(ItemEntry item: c) if(addUnvolumed(item)) result = true;
 		return result;

@@ -142,14 +142,8 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 			window.closeWindow(this);
 		}
 		@Override
-		public void createTab(WorldWindow window) {
-			// TODO Auto-generated method stub
-			
-		}
-		@Override
-		public void destroyTab(WorldWindow window) {
-			// TODO Auto-generated method stub
-			
+		public void close(WorldWindow window) {
+			//unused
 		}
 	}
 

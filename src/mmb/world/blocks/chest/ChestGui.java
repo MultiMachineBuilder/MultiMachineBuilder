@@ -24,6 +24,11 @@ import java.awt.Color;
  *
  */
 public class ChestGui extends GUITab{
+	/**
+	 * Creates a chest GUI
+	 * @param hopper chest to use
+	 * @param window world window
+	 */
 	public ChestGui(ArbitraryChest hopper, WorldWindow window) {
 		setLayout(new MigLayout("", "[300.00,grow][132.00,grow][300.00,grow]", "[grow][30.00]"));
 		
@@ -31,7 +36,7 @@ public class ChestGui extends GUITab{
 		
 		color = new JButton("Change color");
 		color.addActionListener(e -> {
-			ColorGUI gui = new ColorGUI(hopper.getColor(), c-> hopper.setColor(c), window);
+			ColorGUI gui = new ColorGUI(hopper.getColor(), hopper::setColor, window);
 			window.openAndShowWindow(gui, "Chest color");
 		});
 		
@@ -75,12 +80,7 @@ public class ChestGui extends GUITab{
 	}
 
 	@Override
-	public void createTab(WorldWindow window) {
-		//unused
-	}
-
-	@Override
-	public void destroyTab(WorldWindow window) {
+	public void close(WorldWindow window) {
 		//unused
 	}
 

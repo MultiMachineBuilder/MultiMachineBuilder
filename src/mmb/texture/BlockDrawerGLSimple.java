@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.gl.textureGL;
+package mmb.texture;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -9,8 +9,8 @@ import javax.annotation.Nullable;
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
 
-import mmb.data.contents.Textures.Texture;
 import mmb.gl.RenderCtx;
+import mmb.texture.Textures.Texture;
 import mmb.world.block.BlockEntry;
 import mmb.world.rotate.ChiralRotation;
 

@@ -15,7 +15,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import mmb.beans.Resizable;
-import mmb.data.contents.Textures;
+import mmb.texture.Textures;
 import mmb.world.block.BlockEntry;
 import mmb.world.blocks.machine.Collector;
 

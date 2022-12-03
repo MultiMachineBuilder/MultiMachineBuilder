@@ -1,30 +1,24 @@
 package mmb;
 
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import mmb.data.Settings;
 import mmb.debug.Debugger;
-import mmb.gl.HalfVecTest;
 import mmb.menu.main.MainMenu;
 import mmb.mods.loader.ModLoader;
 
 import javax.swing.JLabel;
 
-import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Font;
 import java.io.File;
-import java.util.Locale;
-
 import net.miginfocom.swing.MigLayout;
 import ru.krlvm.swingdpi.SwingDPI;
 
 /**
+ * The entry point to the game, and a dialog window with loading information
  * @author oskar
- * A dialog window with loading information
  */
 public class Main extends JFrame {
 	private static final long serialVersionUID = -8763636851592865062L;
@@ -92,8 +86,9 @@ public class Main extends JFrame {
 			debug.printl("Java version is: "+jversion);
 			
 			//Settings
-			Settings.loadSettings();
 			GlobalSettings.init();
+			Settings.loadSettings();
+			GlobalSettings.translate();
 			
 			//Scaling
 			double scale = GlobalSettings.uiScale.getDouble();
@@ -118,16 +113,7 @@ public class Main extends JFrame {
 					ModLoader.modloading(); //the main loading method
 					
 					//localized welcome
-					Locale locale = GlobalSettings.locale();
 					debug.printl(GlobalSettings.$res("hello"));
-					JComponent.setDefaultLocale(locale);
-					Locale.setDefault(locale);
-					
-					final boolean testingShunt = false;
-					if(testingShunt) {
-						HalfVecTest.run();
-						return;
-					}
 					
 					//create main menu
 					MainMenu.create();

@@ -48,13 +48,9 @@ public class STNTerminalGUI extends GUITab {
 		MoveItems moveItemsQueue = new MoveItems(player, stnQueue);
 		add(moveItemsQueue, "cell 1 2,grow");
 	}
-	@Override
-	public void createTab(WorldWindow window) {
-		//unused
-	}
 
 	@Override
-	public void destroyTab(WorldWindow window) {
+	public void close(WorldWindow window) {
 		term.gui = null;
 	}
 

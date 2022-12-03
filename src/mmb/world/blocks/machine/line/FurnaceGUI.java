@@ -144,13 +144,7 @@ public class FurnaceGUI extends GUITab implements Refreshable{
 	}
 
 	@Override
-	public void createTab(WorldWindow window) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void destroyTab(WorldWindow window) {
+	public void close(WorldWindow window) {
 		furnace.closeWindow();
 	}
 

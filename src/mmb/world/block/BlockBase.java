@@ -11,8 +11,8 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
-import mmb.graphics.texture.BlockDrawer;
 import mmb.menu.world.window.WorldWindow;
+import mmb.texture.BlockDrawer;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.chance.Chance;
 import mmb.world.item.Item;
@@ -20,8 +20,9 @@ import mmb.world.item.Items;
 import mmb.world.worlds.world.World;
 
 /**
+ * Shared implementation for {@link Block} and {@link BlockEntityType}.
+ * This class should not be subclassed by mods.
  * @author oskar
- * Shared implementation for {@link Block} and {@link BlockEntityType}. More types will be added in future
  */
 public abstract class BlockBase extends Item implements BlockType {
 	@Override

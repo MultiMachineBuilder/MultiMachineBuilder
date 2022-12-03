@@ -22,9 +22,9 @@ public class BoundCombo<E> extends JComboBox<E> {
 	private boolean valueChangeUnderway = false;
 	public void setVariable(@Nullable ListenableValue<E> var) {
 		if(var != null) setSelectedItem(var.get());
-		if(bvar != null) bvar.remove(update);
+		if(bvar != null) bvar.unlistenadd(update);
 		bvar = var;
-		if(bvar != null) bvar.add(update);
+		if(bvar != null) bvar.listenadd(update);
 	}
 	public BoundCombo() {
 		super();

@@ -14,7 +14,7 @@ import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.data.contents.Textures;
+import mmb.texture.Textures;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.item.ItemEntry;
 import mmb.world.items.ContentsItems;

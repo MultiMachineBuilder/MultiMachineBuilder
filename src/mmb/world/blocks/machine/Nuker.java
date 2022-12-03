@@ -37,9 +37,8 @@ public class Nuker extends SkeletalBlockMachine {
 	@Override
 	protected void onTick0(MapProxy map) {
 		//Extract fuel if possible
-		if(!nuked.containsItems()) {
+		if(nuked.isEmpty()) 
 			Inventories.transferFirst(inItems, nuked);
-		}
 		
 		ItemEntry cont = nuked.getContents();
 		//Check the cache

@@ -8,8 +8,8 @@ import java.awt.image.BufferedImage;
 import javax.annotation.Nonnull;
 
 import mmb.GlobalSettings;
-import mmb.data.contents.Textures;
 import mmb.debug.Debugger;
+import mmb.texture.Textures;
 import mmb.world.block.Block;
 import mmb.world.block.BlockEntityType;
 import mmb.world.blocks.actuators.ActuatorClick;

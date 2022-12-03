@@ -19,8 +19,8 @@ import javax.vecmath.Point2d;
 
 import org.joml.Vector2d;
 
-import mmb.data.contents.Textures;
 import mmb.debug.Debugger;
+import mmb.texture.Textures;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.item.ItemEntry;
 import mmb.world.visuals.VisCircle;

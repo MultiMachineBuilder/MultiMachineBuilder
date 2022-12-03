@@ -12,8 +12,8 @@ import javax.swing.Icon;
 
 import mmb.GlobalSettings;
 import mmb.Verify;
-import mmb.data.contents.Textures;
-import mmb.graphics.texture.BlockDrawer;
+import mmb.texture.BlockDrawer;
+import mmb.texture.Textures;
 
 /**
  * @author oskar
@@ -42,7 +42,6 @@ public abstract class ItemBase implements ItemType {
 		return this;
 	}
 
-	
 	private boolean stacks;
 	@Nonnull private static final String description0 = GlobalSettings.$res("nodescr");
 	@Nonnull private String description = description0;

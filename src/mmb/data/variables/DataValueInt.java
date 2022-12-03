@@ -19,7 +19,7 @@ public class DataValueInt implements Variable<@Nonnull Integer> {
 	}
 	@Override
 	public @Nonnull Integer get() {
-		return value;
+		return Integer.valueOf(value);
 	}
 	@Override
 	public void set(Integer newValue) {

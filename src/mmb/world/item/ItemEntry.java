@@ -19,8 +19,8 @@ import com.fasterxml.jackson.databind.node.TextNode;
 import mmb.beans.Saver;
 import mmb.data.json.JsonTool;
 import mmb.debug.Debugger;
-import mmb.graphics.texture.BlockDrawer;
 import mmb.menu.wtool.WindowTool;
+import mmb.texture.BlockDrawer;
 import mmb.world.block.BlockEntry;
 import mmb.world.chance.Chance;
 import mmb.world.crafting.SingleItem;
@@ -33,38 +33,35 @@ import mmb.world.worlds.world.World;
  * @author oskar
  * An item entry representing a single unit of item
  */
-public interface ItemEntry extends Saver, SingleItem{	
-	
-	/**
-	 * @return the volume of single given {@code ItemEntry}
-	 */
+public interface ItemEntry extends Saver, SingleItem{
+	//Item properties
+	/** @return the volume of this item entry */
 	public double volume();
-	public default double volume(int amount) {
-		return volume() * amount;
+	/** @return type of this item entry */
+	@Nonnull public ItemType type();
+	/** @return title of this item entry */
+	public default String title() {
+		return type().title();
 	}
+	/** @return description of this item entry */
+	public default String description() {
+		return type().description();
+	}
+	
+	//Item operations
 	/**
 	 * Clone this {@code ItemEntry}
 	 * @return a copy of given ItemEntry
 	 */
 	public ItemEntry itemClone();
-	@Nonnull public ItemType type();
-	public default String title() {
-		return type().title();
-	}
-	public default String description() {
-		return type().description();
-	}
 	/**
-	 * Saves the item data.
-	 * 
-	 * @return null if item has no data
-	 * , or a JSON node if data is present
+	 * Renders the item entry in menus
+	 * @param g graphics context
+	 * @param x X coordinate
+	 * @param y Y coordinate
+	 * @param w width
+	 * @param h height
 	 */
-	@Override
-	public default @Nullable JsonNode save() {
-		return null;
-	}
-	
 	public default void render(Graphics g, int x, int y, int w, int h) {
 		type().getTexture().draw(null, x, y, g, w, h);
 	}
@@ -108,17 +105,32 @@ public interface ItemEntry extends Saver, SingleItem{
 	
 	//Item entry ==> stack
 	/**
-	 * @return an item stack with one unit of this item
-	 */
-	@Nonnull public default ItemStack single() {
-		return new ItemStack(this, 1);
-	}
-	/**
-	 * @param amount
+	 * Creates an item stack
+	 * @param amount number of the item in a stack
 	 * @return an item stack with specified amount of given item
 	 */
 	@Nonnull public default ItemStack stack(int amount) {
 		return new ItemStack(this, amount);
+	}
+	
+	//Single item
+	@Deprecated(forRemoval = false) @Override
+	/**
+	 * @deprecated This method returns the same item, because it pertains to a single item
+	 * @apiNote This method is used for compatibility with {@link SingleItem}
+	 * @return this item
+	 */
+	default ItemEntry item() { //NOSONAR false positive
+		return this;
+	}
+	/**
+	 * @deprecated This method returns a constant 1, because it pertains to a single item
+	 * @apiNote This method is used for compatibility with {@link SingleItem}
+	 * @return the integer number 1. This is a single item
+	 */
+	@Deprecated(forRemoval = false) @Override
+	default int amount() { //NOSONAR false positive
+		return 1;
 	}
 	
 	//Recipe output & drop methods
@@ -133,13 +145,25 @@ public interface ItemEntry extends Saver, SingleItem{
 	
 	//Inventory management
 	/**
-	 * @param inv
+	 * Invoked when the item changes inventories
+	 * @param inv new inventory
 	 */
 	default void resetInventory(Inventory inv) {
 		//unused
 	}
 	
 	//Serialization
+	/**
+	 * Saves the item data, without the type
+	 * @return null if item has no data,
+	 * or a JSON node if data is present
+	 */
+	@Override
+	public default @Nullable JsonNode save() {
+		return null;
+	}
+	
+	//Static serialization
 	/**
 	 * @param item the item to save
 	 * @return the JSON representation of this item entry
@@ -187,22 +211,5 @@ public interface ItemEntry extends Saver, SingleItem{
 		}
 		return null;
 	}
-	@Deprecated(forRemoval = false) @Override
-	/**
-	 * @deprecated This method returns the same item, because it pertains to a single item
-	 * @apiNote This method is used for compatibility with {@link SingleItem}
-	 * @return this item
-	 */
-	default ItemEntry item() { //NOSONAR false positive
-		return this;
-	}
-	/**
-	 * @deprecated This method returns a constant 1, because it pertains to a single item
-	 * @apiNote This method is used for compatibility with {@link SingleItem}
-	 * @return the integer number 1. This is a single item
-	 */
-	@Deprecated(forRemoval = false) @Override
-	default int amount() {
-		return 1;
-	}
+	
 }

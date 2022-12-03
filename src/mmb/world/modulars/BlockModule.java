@@ -11,6 +11,8 @@ import mmb.world.inventory.Inventory;
 import mmb.world.inventory.io.InventoryReader;
 import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.item.RotableItemEntry;
+import mmb.world.modulars.gui.ModuleConfigHandler;
+import mmb.world.part.RotablePartEntry;
 import mmb.world.rotate.Side;
 
 /**
@@ -18,7 +20,7 @@ import mmb.world.rotate.Side;
  * @author oskar
  * @param <Tmodule> type of this module
  */
-public interface BlockModule<Tmodule extends BlockModule<Tmodule>> extends RotableItemEntry, BlockModuleOrCore<
+public interface BlockModule<Tmodule extends BlockModule<Tmodule>> extends RotablePartEntry, BlockModuleOrCore<
 Tmodule, ModularBlock<?, Tmodule, ?, ?>, BlockModule.BlockModuleParams<Tmodule>>{
 	//Provide the access points from a block
 	public default @Nonnull  Inventory provideInventory(ModularBlock<?, Tmodule, ?, ?> blk, Side s) {
@@ -59,6 +61,7 @@ Tmodule, ModularBlock<?, Tmodule, ?, ?>, BlockModule.BlockModuleParams<Tmodule>>
 	 * Called when a module is removed from a block
 	 * @param info the information about breakage
 	 */
+	@Override
 	public default void onBroken(BlockModuleParams<Tmodule> info) {
 		//empty
 	}
@@ -66,6 +69,7 @@ Tmodule, ModularBlock<?, Tmodule, ?, ?>, BlockModule.BlockModuleParams<Tmodule>>
 	 * Called when a module is added to a block
 	 * @param info the information about creation
 	 */
+	@Override
 	public default void onAdded(BlockModuleParams<Tmodule> info) {
 		//empty
 	}
@@ -81,5 +85,5 @@ Tmodule, ModularBlock<?, Tmodule, ?, ?>, BlockModule.BlockModuleParams<Tmodule>>
 		}
 	}
 	
-	//Config UI
+	
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.gl;
+package mmb.texture;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -11,30 +11,24 @@ import java.util.Map.Entry;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.data.contents.Textures.Texture;
 import mmb.debug.Debugger;
+import mmb.texture.Textures.Texture;
 
 /**
  * @author oskar
  * A class to help make texture atlases
  * Based on <a href="https://blackpawn.com/texts/lightmaps/">https://blackpawn.com/texts/lightmaps/</a>
- * @param <T> the type of texture ID
  */
 public class TextureAtlas{
 	public static int MAX_SIZE = 8192;
 	public TextureAtlasNode atlas;
 	public BufferedImage image;
 	private static final Debugger debug = new Debugger("TEXTURE ATLAS");
-	/**
-	 * Creates a texture atlas
-	 * @param type
-	 * @param w
-	 * @param h
-	 */
-	public TextureAtlas(int type, int w, int h) {
-		image = new BufferedImage(w, h, type);
+	/** Creates a texture atlas */
+	public TextureAtlas() {
+		image = new BufferedImage(256, 256, BufferedImage.TYPE_INT_ARGB);
 		atlas = new TextureAtlasNode();
-		atlas.rect.setBounds(0, 0, w, h);
+		atlas.rect.setBounds(0, 0, 256, 256);
 	}
 	@Nonnull public Texture insert(BufferedImage img, String id) {
 		while(true) {
@@ -107,8 +101,8 @@ public class TextureAtlas{
 				img, id); //insertion successfull
 		}
 	}
-	public void insert(Map<String, BufferedImage> textures) {
-		for(Entry<String, BufferedImage> entry: textures.entrySet()) {
+	public void insert(Map<@Nonnull String, @Nonnull BufferedImage> textures) {
+		for(Entry<@Nonnull String, @Nonnull BufferedImage> entry: textures.entrySet()) {
 			BufferedImage img = entry.getValue();
 			String id = entry.getKey();
 			insert(img, id);
@@ -116,8 +110,8 @@ public class TextureAtlas{
 	}
 	
 	/**
+	 * A portion of the texture atlas
 	 * @author oskar
-	 * @param <T>
 	 */
 	public static class TextureAtlasNode {
 		@Nullable public TextureAtlasNode a;

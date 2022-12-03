@@ -21,6 +21,7 @@ import mmb.mods.info.ModInfo;
 import mmb.mods.info.ModMetadata;
 import mmb.mods.info.ModState;
 import mmb.mods.info.Mods;
+import mmb.texture.Textures;
 import mmb.world.Chemistry;
 import mmb.world.blocks.ContentsBlocks;
 import mmb.world.blocks.machine.Nuker;
@@ -36,7 +37,6 @@ import mmbmods.stn.STN;
 import mmb.Lambdas;
 import mmb.Main;
 import mmb.data.contents.Sounds;
-import mmb.data.contents.Textures;
 
 /**
  * @author oskar
@@ -318,9 +318,6 @@ public final class ModLoader {
 		
 		//everything done
 		debug.printl("HOORAY, IT'S OVER!");
-	}
-	private static void gameloading() {
-		
 	}
 	
 	/**

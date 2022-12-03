@@ -183,8 +183,13 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	 * @return unique items in this recipe output
 	 */
 	@Override
-	public default Set<mmb.world.item.ItemEntry> items(){
+	public default Set<ItemEntry> items(){
 		return getContents().keySet();
+	}
+	
+	@Nonnull public static RecipeOutput orDefault(@Nullable RecipeOutput rout) {
+		if(rout == null) return NONE;
+		return rout;
 	}
 	
 	//Arithmetic methods

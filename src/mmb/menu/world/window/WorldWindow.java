@@ -371,11 +371,9 @@ public class WorldWindow extends MMBFrame{
 	//tabs
 	private JTabbedPane pane;
 	public void openWindow(GUITab comp, String s) {
-		comp.createTab(this);
 		pane.add(s, comp);
 	}
 	public void openAndShowWindow(GUITab comp, String s) {
-		comp.createTab(this);
 		pane.add(s, comp);
 		pane.setSelectedComponent(comp);
 	}
@@ -385,7 +383,7 @@ public class WorldWindow extends MMBFrame{
 	 */
 	public void closeWindow(GUITab component) {
 		try {
-			component.destroyTab(this);
+			component.close(this);
 		} catch (Exception e) {
 			debug.pstm(e, "Failed to shut down the component");
 		}

@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.MMBUtils;
+import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
@@ -20,6 +21,7 @@ import mmb.world.modulars.ModularBlock;
 import mmb.world.modulars.Slot;
 import mmb.world.modulars.Slot.CoreSlot;
 import mmb.world.modulars.Slot.SidedSlotHelper;
+import mmb.world.modulars.gui.ModularChestGUI;
 import mmb.world.rotate.Side;
 import mmb.world.worlds.MapProxy;
 
@@ -105,10 +107,16 @@ public final class ModularChest extends BlockEntityData implements ModularBlock<
 	}
 	
 	//GUI
+	private ModularChestGUI gui;
 	@Override
-	public void openGUI(WorldWindow window) {
-		// TODO Auto-generated method stub
-		
+	public void closeTab(ModularChestGUI gui0) {
+		if(gui == gui0) gui = null;
+	}
+	@Override
+	public boolean openTab(ModularChestGUI tab) {
+		if(gui != null) return false;
+		gui = tab;
+		return true;
 	}
 	
 }

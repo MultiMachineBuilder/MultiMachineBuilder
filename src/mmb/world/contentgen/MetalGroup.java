@@ -15,9 +15,9 @@ import java.util.TreeMap;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.data.contents.Textures;
 import mmb.graphics.texgen.TexGen;
 import mmb.mods.loader.ModLoader;
+import mmb.texture.Textures;
 import mmb.world.block.Block;
 import mmb.world.blocks.machine.manual.Crafting;
 import mmb.world.electric.VoltageTier;

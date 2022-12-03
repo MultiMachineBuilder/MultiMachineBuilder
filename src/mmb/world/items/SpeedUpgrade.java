@@ -3,6 +3,8 @@
  */
 package mmb.world.items;
 
+import javax.annotation.Nullable;
+
 import mmb.world.inventory.storage.SingleItemInventory;
 import mmb.world.item.Item;
 import mmb.world.item.ItemEntry;
@@ -36,8 +38,17 @@ public class SpeedUpgrade extends Item {
 	 * @param ent speed upgrade
 	 * @return speed mutiplier for the item
 	 */
-	public static double speedup(ItemEntry ent) {
+	public static double speedup(@Nullable ItemEntry ent) {
 		if(ent instanceof SpeedUpgrade) return ((SpeedUpgrade) ent).speed;
+		return 1;
+	}
+	/**
+	 * Gets a speed mutiplier (optimized)
+	 * @param ent speed upgrade
+	 * @return speed mutiplier for the item
+	 */
+	public static double speedup(@Nullable SpeedUpgrade ent) {
+		if(ent != null) return ent.speed;
 		return 1;
 	}
 }

@@ -8,7 +8,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimaps;
@@ -24,9 +23,9 @@ import mmb.world.item.ItemEntry;
 public class GlobalRecipeRegistrar {
 	private GlobalRecipeRegistrar() {}
 	
-	private static final Set<Recipe<?>> recipes0 = new HashSet<>();
+	@Nonnull private static final Set<Recipe<?>> recipes0 = new HashSet<>();
 	/** A full set of recipes */
-	public static final Set<Recipe<?>> recipes = Collections.unmodifiableSet(recipes0);
+	@Nonnull public static final Set<Recipe<?>> recipes = Collections.unmodifiableSet(recipes0);
 	
 	@Nonnull private static final Set<ItemEntry> chanceable0 = new HashSet<>();
 	@Nonnull public static final Set<ItemEntry> chanceable = Collections.unmodifiableSet(chanceable0);

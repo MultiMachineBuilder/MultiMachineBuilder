@@ -12,8 +12,8 @@ import org.joml.Vector2fc;
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
 
-import mmb.data.contents.Textures;
-import mmb.data.contents.Textures.Texture;
+import mmb.texture.Textures;
+import mmb.texture.Textures.Texture;
 
 /**
  * @author oskar

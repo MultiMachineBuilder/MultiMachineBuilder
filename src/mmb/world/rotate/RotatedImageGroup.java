@@ -7,8 +7,8 @@ import java.awt.image.BufferedImage;
 
 import javax.annotation.Nonnull;
 
-import mmb.data.contents.Textures;
-import mmb.graphics.texture.BlockDrawer;
+import mmb.texture.BlockDrawer;
+import mmb.texture.Textures;
 
 /**
  * @author oskar
@@ -44,6 +44,10 @@ public class RotatedImageGroup {
 		BlockDrawer L = BlockDrawer.ofImage(progress);
 		return new RotatedImageGroup(U, D, L, R);
 	}
+	/**
+	 * Rotates this rotated image group backwards
+	 * @return sbackwards RIG
+	 */
 	@Nonnull public RotatedImageGroup flip() {
 		return new RotatedImageGroup(D, U, R, L);
 	}

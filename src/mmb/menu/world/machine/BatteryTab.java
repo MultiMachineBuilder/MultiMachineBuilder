@@ -67,14 +67,8 @@ public class BatteryTab extends GUITab {
 		Electricity.formatProgress(progressBar, battery.battery.stored, battery.battery.capacity);
 	}
 	
-
 	@Override
-	public void createTab(WorldWindow window) {
-		//unused
-	}
-
-	@Override
-	public void destroyTab(WorldWindow window) {
+	public void close(WorldWindow window) {
 		battery.close(this);
 	}
 

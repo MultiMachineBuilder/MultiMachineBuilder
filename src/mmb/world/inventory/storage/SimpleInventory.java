@@ -33,10 +33,15 @@ import monniasza.collects.selfset.SelfSet;
  *
  */
 public class SimpleInventory implements SaveInventory{
+	//Debug
 	private static final Debugger debug = new Debugger("INVENTORIES");
+	
+	//Inventory definition
 	@Nonnull private SelfSet<ItemEntry, Node> contents = HashSelfSet.createNonnull(Node.class);
 	private double volume = 0;
 	private double capacity = 2;
+	
+	//Item records
 	private final class Node implements ItemRecord{
 		private Node(int amount, ItemEntry type) {
 			this.amount = amount;
@@ -57,7 +62,7 @@ public class SimpleInventory implements SaveInventory{
 			int remainAmount = (int) (remainVolume / type.volume());
 			int result = Math.min(n, remainAmount);
 			
-			volume += type.volume(result);
+			volume += type.volume() * result;
 			amount += result;
 			
 			if(amount == result) OV_add(type);
@@ -69,14 +74,10 @@ public class SimpleInventory implements SaveInventory{
 		public int extract(int n) {
 			if(n < 0) return -insert(n);
 			if(n == 0) return 0;
-			
-			String title = type.title();
-			//debug.printl("PASS: Requesting extraction on "+title+" in amount "+n);
-			//debug.printl("Remaining amount: "+amount);
-			
+						
 			int result = Math.min(n, amount);
 			
-			volume -= type.volume(result);
+			volume -= type.volume() * result;
 			amount -= result;
 			
 			if(amount == 0) OV_remove(type);
@@ -93,24 +94,10 @@ public class SimpleInventory implements SaveInventory{
 			return SimpleInventory.this;
 		}
 	}
-	/**
-	 * Creates an inventory with same contents as original
-	 * @param inv source inventory
-	 */
-	public SimpleInventory(Inventory inv) {
-		capacity = inv.capacity();
-		for(ItemRecord irecord: inv) {
-			insert(irecord.item(), irecord.amount());
-		}
+	@Override
+	public Iterator<ItemRecord> iterator() {
+		return Collects.downcastIterator(contents.iterator());
 	}
-
-	/**
-	 * Creates an empty inventory
-	 */
-	public SimpleInventory() {
-		// no initialization here
-	}
-
 	@Override
 	public ItemRecord get(ItemEntry entry) {
 		ItemRecord result = contents.get(entry);
@@ -121,7 +108,53 @@ public class SimpleInventory implements SaveInventory{
 		}
 		return result;
 	}
+	@Override
+	public ItemRecord nget(ItemEntry entry) {
+		return contents.get(entry);
+	}
+	
+	//Construction
+	/**
+	 * Creates an inventory with same contents as original
+	 * @param inv source inventory
+	 */
+	public SimpleInventory(Inventory inv) {
+		capacity = inv.capacity();
+		for(ItemRecord irecord: inv) {
+			insert(irecord.item(), irecord.amount());
+		}
+	}
+	/**
+	 * Creates an empty inventory
+	 */
+	public SimpleInventory() {
+		// no initialization here
+	}
 
+	//Item calculation
+	@Override
+	public boolean isEmpty() {
+		return contents.isEmpty();
+	}
+	@Override
+	public int size() {
+		return contents.size();
+	}
+	@Override
+	public boolean test(ItemEntry e) {
+		return true;
+	}
+	@Override
+	public double volume() {
+		return volume;
+	}
+	@Override
+	public int insertibleRemainBulk(int amount, RecipeOutput ent) {
+		int tasksInVolume = insertibleRemain(amount, ent.outVolume());
+		return Math.min(amount, tasksInVolume);
+	}
+	
+	//Item manipulation
 	@Override
 	public int insert(ItemEntry ent, int amount) {
 		Node node = contents.get(ent);
@@ -131,20 +164,26 @@ public class SimpleInventory implements SaveInventory{
 		}
 		return node.insert(amount);
 	}
-
 	@Override
 	public int extract(ItemEntry ent, int amount) {
-		//debug.printl("Requesting extraction on "+ent.title()+" in amount "+amount);
 		Node node = contents.get(ent);
 		if(node == null) return 0;
 		return node.extract(amount);
 	}
-
+	@Override
+	public int bulkInsert(RecipeOutput ent, int amount) {
+		int max = insertibleRemainBulk(amount, ent);
+		for(Entry<@Nonnull ItemEntry> entry: ent.getContents().object2IntEntrySet()) {
+			insert(entry.getKey(), entry.getIntValue()*max);
+		}
+		return max;
+	}
+	
+	//Direct modification
 	@Override
 	public double capacity() {
 		return capacity;
 	}
-	
 	/**
 	 * Sets capacity of this inventory
 	 * @param capacity new capacity
@@ -155,18 +194,26 @@ public class SimpleInventory implements SaveInventory{
 		this.capacity = capacity;
 		return this;
 	}
-
 	@Override
-	public double volume() {
-		return volume;
+	public void clear() {
+		volume = 0;
+		contents.clear();
+	}
+	/**
+	 * Replaces all inventory contents and settings with given inventory
+	 * @param in source inventory
+	 */
+	public void set(Inventory in) {
+		capacity = in.capacity();
+		clear();
+		for(ItemRecord irecord: in) {
+			double vol = irecord.volume();
+			contents.add(new Node(irecord.amount(), irecord.item()));
+			volume += vol;
+		}
 	}
 
-	@SuppressWarnings("null")
-	@Override
-	public Iterator<ItemRecord> iterator() {
-		return Collects.downcastIterator(contents.iterator());
-	}
-
+	//Serialization
 	@Override
 	public void load(@Nullable JsonNode data) {	
 		if(data == null) return;
@@ -203,27 +250,12 @@ public class SimpleInventory implements SaveInventory{
 			}
 		});
 	}
-
 	@Override
 	public @Nonnull JsonNode save() {
 		return ItemLoader.save(contents, capacity); //return the saved inventory
-	}
+	}	
 
-	@Override
-	public ItemRecord nget(ItemEntry entry) {
-		return contents.get(entry);
-	}
-
-	@Override
-	public boolean isEmpty() {
-		return contents.isEmpty();
-	}
-
-	@Override
-	public int size() {
-		return contents.size();
-	}
-	
+	//Representation
 	@Override
 	public String toString() {
 		PicoWriter writer = new PicoWriter();
@@ -237,25 +269,6 @@ public class SimpleInventory implements SaveInventory{
 		return writer.toString();
 	}
 
-	@Override
-	public void clear() {
-		volume = 0;
-		contents.clear();
-	}
-	/**
-	 * Replaces all inventory contents and settings with given inventory
-	 * @param in source inventory
-	 */
-	public void set(Inventory in) {
-		capacity = in.capacity();
-		clear();
-		for(ItemRecord irecord: in) {
-			double vol = irecord.volume();
-			contents.add(new Node(irecord.amount(), irecord.item()));
-			volume += vol;
-		}
-	}
-	
 	//Auxiliary methods for ListenableInventory and other programmable inventories
 	/**
 	 * An overridable method for use in listenable inventories
@@ -291,23 +304,5 @@ public class SimpleInventory implements SaveInventory{
 	 */
 	protected void OV_add(ItemEntry item) {
 		//to be overridden
-	}
-
-	@Override
-	public int bulkInsert(RecipeOutput ent, int amount) {
-		double remain = remainVolume();
-		double task = ent.outVolume();
-		int tasksInVolume = (int)(remain/task);
-		int max = Math.min(amount, tasksInVolume);
-		for(Entry<ItemEntry> entry: ent.getContents().object2IntEntrySet()) {
-			insert(entry.getKey(), entry.getIntValue()*max);
-		}
-		debug.printl("score: "+max);
-		return max;
-	}
-
-	@Override
-	public boolean test(ItemEntry e) {
-		return true;
 	}
 }

@@ -124,4 +124,9 @@ public class ReadOnlyInventory implements Inventory {
 		return false;
 	}
 
+	@Override
+	public int insertibleRemainBulk(int amount, RecipeOutput ent) {
+		return 0;
+	}
+
 }

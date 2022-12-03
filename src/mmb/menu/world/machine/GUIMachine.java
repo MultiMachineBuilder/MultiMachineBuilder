@@ -125,12 +125,7 @@ public class GUIMachine extends GUITab implements Refreshable{
 	}
 	
 	@Override
-	public void createTab(WorldWindow window) {
-		//unused
-	}
-
-	@Override
-	public void destroyTab(WorldWindow window) {
+	public void close(WorldWindow window) {
 		furnace.close(this);
 	}
 

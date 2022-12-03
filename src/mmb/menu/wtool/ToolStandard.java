@@ -15,10 +15,10 @@ import javax.swing.ImageIcon;
 import org.joml.Vector2d;
 
 import mmb.cgui.BlockActivateListener;
-import mmb.data.contents.Textures;
 import mmb.debug.Debugger;
 import mmb.menu.world.Placer;
 import mmb.menu.world.window.WorldWindow;
+import mmb.texture.Textures;
 import mmb.world.block.BlockEntry;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.item.ItemEntry;

@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.debug.Debugger;
-import mmb.graphics.texture.BlockDrawer;
+import mmb.texture.BlockDrawer;
 import monniasza.collects.Identifiable;
 
 /**

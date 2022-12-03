@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.graphics.texture;
+package mmb.texture;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -13,8 +13,8 @@ import javax.swing.ImageIcon;
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
 
-import mmb.data.contents.Textures.Texture;
 import mmb.gl.RenderCtx;
+import mmb.texture.Textures.Texture;
 import mmb.world.block.BlockEntry;
 
 /**

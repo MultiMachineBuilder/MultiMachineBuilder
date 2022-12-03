@@ -32,7 +32,7 @@ public class MutableResourceBundle extends ResourceBundle {
 	public MutableResourceBundle(ResourceBundle rb) {add(rb);}
 
 	/** The data array used by this bundle */
-	public final Map<String, Object> map = new HashMap<>();
+	@Nonnull public final Map<String, Object> map = new HashMap<>();
 	
 	/**
 	 * Adds contents of the resource bundle to this bundle

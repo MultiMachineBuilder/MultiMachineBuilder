@@ -23,26 +23,17 @@ import mmb.world.inventory.Inventory;
 import mmb.world.inventory.ItemRecord;
 import mmb.world.inventory.SaveInventory;
 import mmb.world.item.ItemEntry;
+import monniasza.collects.Collects;
 
 /**
  * @author oskar
  *
  */
 public abstract class BaseSingleItemInventory implements SaveInventory{
-
-	/** @return contents of this inventory */
-	public abstract ItemEntry getContents();
-	/**
-	 * Sets the contents of the inventory
-	 * @param contents new contents of this inventory 
-	 * @return were items accepted
-	 */
-	public abstract boolean setContents(@Nullable ItemEntry contents);
+	//Inventory definition
 	private double capacity = 2;
-	/** @return is there an item here? */
-	public boolean containsItems() {
-		return getContents() != null;
-	}
+
+	//Item records
 	private class Record implements ItemRecord{
 		private final @Nonnull ItemEntry item0;
 		public Record(ItemEntry item) {
@@ -81,7 +72,6 @@ public abstract class BaseSingleItemInventory implements SaveInventory{
 		if(item == null) return Collections.emptyIterator();
 		return Iterators.singletonIterator(get(item));
 	}
-
 	@Override
 	public ItemRecord get(ItemEntry entry) {
 		Objects.requireNonNull(entry, "Selection is null");
@@ -106,6 +96,49 @@ public abstract class BaseSingleItemInventory implements SaveInventory{
 		return new Record(contents);
 	}
 
+	//Item calculation
+	@Override
+	public int insertibleRemain(int amount, ItemEntry item) {
+		if(getContents() != null) return 0;
+		if(amount < 1) return 0;
+		if(item.volume() > capacity) return 0;
+		return 1;
+	}
+	@Override
+	public int insertibleRemainBulk(int amount, RecipeOutput block) {
+		if(block.items().size() > 1) return 0;
+		if(block.items().isEmpty()) return 0;
+		for(Entry<ItemEntry> entry: block.getContents().object2IntEntrySet()) {
+			if(amount < 1) return 0;
+			if(entry.getIntValue() > 1) return 0;
+			if(entry.getIntValue() == 0) return 0;
+			ItemEntry ent = entry.getKey();
+			if(ent == null) return 0;
+			return insertibleRemain(1, ent); //NOSONAR this loop is required to get the required item entry
+		}
+		return 0;
+	}
+	
+	@Override
+	public boolean isEmpty() {
+		return getContents() == null;
+	}
+	@Override
+	public int size() {
+		return MMBUtils.bool2int(!isEmpty());
+	}
+	@Override
+	public boolean test(ItemEntry e) {
+		return true;
+	}
+	@Override
+	public double volume() {
+		final ItemEntry item = getContents();
+		if (item != null) return item.volume();
+		return 0;
+	}
+	
+	//Item manipulation
 	@Override
 	public int insert(ItemEntry ent, int amount) {
 		ItemEntry current = getContents();
@@ -115,7 +148,6 @@ public abstract class BaseSingleItemInventory implements SaveInventory{
 		boolean result = setContents(ent);
 		return MMBUtils.bool2int(result);
 	}
-
 	@Override
 	public int extract(ItemEntry ent, int amount) {
 		ItemEntry current = getContents();
@@ -127,70 +159,36 @@ public abstract class BaseSingleItemInventory implements SaveInventory{
 		}
 		return 0;
 	}
-
+	@Override
+	public int bulkInsert(RecipeOutput block, int amount) {
+		int insertible = insertibleRemainBulk(amount, block);
+		if(insertible == 0) return 0;
+		setContents(Collects.first(block.items()));
+		return 1;
+	}
+	
+	//Direct modification
 	@Override
 	public double capacity() {
 		return capacity;
 	}
-
 	@Override
 	public BaseSingleItemInventory setCapacity(double cap) {
 		capacity = cap;
 		return this;
 	}
-
-	@Override
-	public double volume() {
-		final ItemEntry item = getContents();
-		if (item != null) return item.volume();
-		return 0;
-	}
-	@Override
-	public boolean isEmpty() {
-		return getContents() == null;
-	}
-	@Override
-	public int size() {
-		return MMBUtils.bool2int(!isEmpty());
-	}
-	@Override
-	public int bulkInsert(RecipeOutput block, int amount) {
-		if(block.items().size() > 1) return 0;
-		if(block.items().isEmpty()) return amount;
-		for(Entry<ItemEntry> entry: block.getContents().object2IntEntrySet()) {
-			if(amount < 1) return 0;
-			if(entry.getIntValue() > 1) return 0;
-			if(entry.getIntValue() == 0) return amount;
-			ItemEntry ent = entry.getKey();
-			if(ent == null) return 0;
-			return insert(ent, 1); //NOSONAR this loop is required to get the required item entry
-		}
-		return 0;
-	}
-
+	/** @return contents of this inventory */
+	public abstract ItemEntry getContents();
 	/**
-	 * A single item inventory with a callback
-	 * @author oskar
+	 * Sets the contents of the inventory
+	 * @param contents new contents of this inventory 
+	 * @return were items accepted
 	 */
-	public static class Callback extends SingleItemInventory{
-		@Nonnull private final Consumer<mmb.world.item.ItemEntry> handler;
-		@Override
-		public boolean setContents(@Nullable ItemEntry contents) {
-			handler.accept(contents);
-			return super.setContents(contents);
-		}
-		/**
-		 * Creates a callback single item inventory
-		 * @param handler callback
-		 */
-		public Callback(Consumer<mmb.world.item.ItemEntry> handler) {
-			this.handler = handler;
-		}
-	}
-	@Override
-	public boolean test(ItemEntry e) {
-		return true;
-	}
+	public abstract boolean setContents(@Nullable ItemEntry contents);
+	/**
+	 * Replaces the configs in this inventory with the one of the other inventory
+	 * @param inv source inventory
+	 */
 	public void set(BaseSingleItemInventory inv) {
 		setContents(inv.getContents());
 		setCapacity(inv.capacity());
@@ -208,5 +206,26 @@ public abstract class BaseSingleItemInventory implements SaveInventory{
 		JsonNode nodeCapacity = data.get(0);
 		setCapacity(nodeCapacity==null ? 2 : nodeCapacity.asDouble(2));
 		setContents(ItemEntry.loadFromJson(data.get(1)));
+	}
+	
+	//Callbacks
+	/**
+	 * A single item inventory with a callback
+	 * @author oskar
+	 */
+	public static class Callback extends SingleItemInventory{
+		@Nonnull private final Consumer<ItemEntry> handler;
+		@Override
+		public boolean setContents(@Nullable ItemEntry contents) {
+			handler.accept(contents);
+			return super.setContents(contents);
+		}
+		/**
+		 * Creates a callback single item inventory
+		 * @param handler callback
+		 */
+		public Callback(Consumer<ItemEntry> handler) {
+			this.handler = handler;
+		}
 	}
 }

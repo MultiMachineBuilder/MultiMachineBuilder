@@ -63,7 +63,7 @@ public class SelectBlock extends JPanel {
 		});
 		add(btnRemove);
 		
-		BlockType type = setting.getBlockSetting();
+		BlockType type = setting.blockSetting();
 		lblType = new JLabel($res("wgui-nosel"));
 		if(type != null) lblType.setText($res("wgui-curr")+" "+type.title());
 		add(lblType);

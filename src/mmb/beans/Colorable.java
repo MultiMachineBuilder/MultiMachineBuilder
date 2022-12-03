@@ -17,7 +17,7 @@ public interface Colorable {
 	/**
 	 * @return current color
 	 */
-	public Color getColor();
+	@Nonnull public Color getColor();
 	/**
 	 * Sets the color of the object
 	 * @param c new color

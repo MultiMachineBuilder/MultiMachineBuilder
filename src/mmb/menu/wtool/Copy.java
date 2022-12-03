@@ -13,9 +13,9 @@ import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.data.contents.Textures;
 import mmb.debug.Debugger;
 import mmb.menu.world.window.WorldFrame;
+import mmb.texture.Textures;
 import mmb.world.block.BlockEntry;
 import mmb.world.worlds.world.World;
 import monniasza.collects.grid.FixedGrid;

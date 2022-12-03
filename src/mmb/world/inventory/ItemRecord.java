@@ -13,16 +13,33 @@ import monniasza.collects.Identifiable;
  *
  */
 public interface ItemRecord extends Identifiable<ItemEntry> {
+	//Conversion
+	/** @return the UI string for this item record */
 	public default String toRecipeOutputString() {
 		return item().title() + "� "+ amount();
 	}
+	/** @return an item stack for this item record*/
+	@Nonnull public default ItemStack toItemStack() {
+		return new ItemStack(item(), amount());
+	}
+	
+	//Stack definition
 	@Override
 	@Nonnull default ItemEntry id() {
 		return item();
 	}
+	/** @return number of items stored */
 	public int amount();
+	/** @return inventory, which stores this item record */
 	@Nonnull public Inventory inventory();
+	/** @return the item stroed in this item record */
 	@Nonnull public ItemEntry item();
+	/** @return total volume of items in this item record*/
+	public default double volume() {
+		return item().volume()*amount();
+	}
+	
+	//Item I/O
 	/**
 	 * Insert specific amount of items
 	 * @param amount amount of items to insert
@@ -37,35 +54,32 @@ public interface ItemRecord extends Identifiable<ItemEntry> {
 	 * @return amount of items actually extracted
 	 */
 	public int extract(int amount);
-	@Nonnull default public ItemStack toItemStack() {
-		return new ItemStack(item(), amount());
-	}
-	default public boolean canExtract() {
-		return true;
-	}
-	default public boolean canInsert() {
-		return true;
-	}
-
-	default public @Nonnull ItemRecord lockInsertions() {
-		return ExtractionsOnlyItemRecord.decorate(this);
-	}
-	default public @Nonnull ItemRecord lockExtractions() {
-		return InsertionsOnlyItemRecord.decorate(this);
-	}
-	default public @Nonnull ItemRecord lockInsertions(Inventory inv) {
-		return ExtractionsOnlyItemRecord.decorate(this, inv);
-	}
-	default public @Nonnull ItemRecord lockExtractions(Inventory inv) {
-		return InsertionsOnlyItemRecord.decorate(this, inv);
-	}
-	default public @Nonnull ItemRecord readOnly() {
-		return ReadOnlyItemRecord.decorate(this);
-	}
-	default public boolean exists() {
+	
+	//I/O testing
+	public default boolean exists() {
 		return inventory().exists();
 	}
-	default public double volume() {
-		return item().volume(amount());
+	public default boolean canExtract() {
+		return true;
+	}
+	public default boolean canInsert() {
+		return true;
+	}
+	
+	//I/O restrictions
+	@Nonnull public default ItemRecord lockInsertions() {
+		return ExtractionsOnlyItemRecord.decorate(this);
+	}
+	@Nonnull public default ItemRecord lockExtractions() {
+		return InsertionsOnlyItemRecord.decorate(this);
+	}
+	@Nonnull public default ItemRecord lockInsertions(Inventory inv) {
+		return ExtractionsOnlyItemRecord.decorate(this, inv);
+	}
+	@Nonnull public default ItemRecord lockExtractions(Inventory inv) {
+		return InsertionsOnlyItemRecord.decorate(this, inv);
+	}
+	@Nonnull public default ItemRecord readOnly() {
+		return ReadOnlyItemRecord.decorate(this);
 	}
 }

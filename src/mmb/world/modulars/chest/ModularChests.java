@@ -5,23 +5,39 @@ package mmb.world.modulars.chest;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.util.function.Function;
-
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import mmb.GlobalSettings;
-import mmb.data.contents.Textures;
+import mmb.debug.Debugger;
 import mmb.graphics.texgen.TexGen;
+import mmb.texture.Textures;
 import mmb.world.block.BlockEntityType;
+import mmb.world.blocks.ContentsBlocks;
+import mmb.world.contentgen.BaseMetalGroup;
+import mmb.world.contentgen.MaterialType;
+import mmb.world.contentgen.Materials;
+import mmb.world.contentgen.MetalGroup;
+import mmb.world.crafting.Craftings;
+import mmb.world.crafting.RecipeOutput;
+import mmb.world.crafting.SimpleItemList;
+import mmb.world.electric.VoltageTier;
+import mmb.world.inventory.Inventories;
+import mmb.world.inventory.io.InventoryReader;
+import mmb.world.inventory.io.InventoryReader.ExtractionLevel;
+import mmb.world.inventory.io.InventoryWriter;
 import mmb.world.item.Item;
-import mmb.world.item.ItemEntity;
-import mmb.world.item.ItemEntityType;
+import mmb.world.item.ItemEntry;
 import mmb.world.item.Items;
-import mmb.world.item.RotableItem;
+import mmb.world.items.ContentsItems;
+import mmb.world.items.data.ItemBOM;
+import mmb.world.modulars.universal.MoverModule;
+import mmb.world.modulars.universal.MoverModule.MoverPair;
 import mmb.world.modulars.universal.Plug;
 import mmb.world.part.Part;
 import mmb.world.part.PartEntity;
 import mmb.world.part.PartEntityType;
+import mmb.world.recipes.CraftingGroups;
 
 /**
  * Items and blocks for modular chests
@@ -47,6 +63,7 @@ public class ModularChests {
 		.finish("modchest.chest");
 	
 	//Modules
+	/** Plug, blocks all traffic */
 	@Nonnull public static final Part plug = new Plug()
 		.title("#modchest-plug")
 		.texture("modules/plug.png")
@@ -94,8 +111,40 @@ public class ModularChests {
 	@Nonnull private static final ChestProductionParams paramsSingle
 	= new ChestProductionParams("modchest-coresingle", "modules/chest_single.png", ChestCoreSingle::new, "modchest.coreSingle");
 	@Nonnull public static final PartEntityType coreSingle = chestCore(paramsSingle, Color.RED, 6, 1);
-	
+		
 	//Chest modules
+	@Nonnull private static final BufferedImage moverImg = Textures.get("modules/mover.png");
+	/** Single-item mover pair */
+	@Nonnull public static final MoverPair moverPairSingle = MoverModule.create(ModularChests::moverImplSingle, moverImg, "#modchest-single", "single");
+	static void moverImplSingle(InventoryReader reader, InventoryWriter writer, @Nullable ItemEntry settings, int stacking, double maxVolume) {
+		if(settings != null && reader.level() == ExtractionLevel.RANDOM) {
+			Inventories.transferStackVolumeLimited(reader, writer, settings, stacking, maxVolume); //Extract filtered
+		}else {
+			ItemEntry ient = Inventories.transferFirst(reader, writer); //Extract sequentially
+		}
+	}
+	
+	@Nonnull private static final BufferedImage moverMultiImg = TexGen.colormap(Color.RED, Color.BLUE, moverImg, null);
+	/** Multi-item mover pair */
+	@Nonnull public static final MoverPair moverPairMulti = MoverModule.create(ModularChests::moverImplMulti, moverMultiImg, "#modchest-multi", "multi");
+	static void moverImplMulti(InventoryReader reader, InventoryWriter writer, @Nullable ItemEntry settings, int stacking, double maxVolume) {
+		if(settings instanceof ItemBOM && reader.level() == ExtractionLevel.RANDOM) {
+			ItemBOM bom = (ItemBOM) settings;
+			RecipeOutput items = bom.contents();
+			Inventories.transferMultiVolumeLimited(reader, writer, items, stacking, maxVolume);
+		}
+	}
+	
+	@Nonnull private static final BufferedImage moverBulkImg = TexGen.colormap(Color.RED, Color.CYAN, moverImg, null);
+	/** Bulk item mover pair */
+	@Nonnull public static final MoverPair moverPairBulk = MoverModule.create(ModularChests::moverImplBulk, moverBulkImg, "#modchest-bulk", "bulk");
+	static void moverImplBulk(InventoryReader reader, InventoryWriter writer, @Nullable ItemEntry settings, int stacking, double maxVolume) {
+		if(settings instanceof ItemBOM && reader.level() == ExtractionLevel.RANDOM) {
+			ItemBOM bom = (ItemBOM) settings;
+			RecipeOutput items = bom.contents();
+			Inventories.transferBulkVolumeLimited(reader, writer, items, stacking, maxVolume);
+		}
+	}
 	
 	//Helper classes
 	private static class ChestProductionParams{
@@ -152,5 +201,63 @@ public class ModularChests {
 		Items.tagItems("modchest-set", coresSet);
 		Items.tagItem("modchest-single", coreSingle);
 		Items.tagsItems(chesttags, chest, plug);
+		
+		//Recipes for cores
+		Item[] chests = {
+				ContentsBlocks.CHEST,  ContentsBlocks.CHEST1, ContentsBlocks.CHEST2,
+				ContentsBlocks.CHEST3, ContentsBlocks.CHEST4, ContentsBlocks.CHEST5,
+				ContentsBlocks.CHEST6, ContentsBlocks.CHEST7, ContentsBlocks.CHEST8};
+		CraftingGroups.assembler.add(new SimpleItemList(
+			ContentsBlocks.CHEST,
+			Materials.silicon.nugget
+		), coreSingle, plug, VoltageTier.V1, 8000);
+		for(int i = 0; i < 9; i++) {
+			int volt = (i < 2)?0:(i-2);
+			int energint = (8000)<<(i*2);
+			CraftingGroups.assembler.add(new SimpleItemList(
+				chests[i],
+				Materials.rudimentary.nugget
+			), coresSimple[i], plug, VoltageTier.VOLTS.get(volt), energint);
+			CraftingGroups.assembler.add(new SimpleItemList(
+				chests[i],
+				Materials.iron.nugget
+			), coresDrawer[i], plug, VoltageTier.VOLTS.get(volt), energint);
+			CraftingGroups.assembler.add(new SimpleItemList(
+				chests[i],
+				Materials.copper.nugget
+			), coresSet[i], plug, VoltageTier.VOLTS.get(volt), energint);
+		}
+	
+		//Recipes for modules
+		CraftingGroups.crafting.addRecipeGrid(new ItemEntry[]{
+		ContentsItems.paper, ContentsItems.paper, ContentsItems.paper,
+		}, 3, 1, plug);
+		moverRecipes(moverPairSingle, Materials.rudimentary);
+		moverRecipes(moverPairMulti, Materials.rudimentium);
+		moverRecipes(moverPairBulk, Materials.silver);
+		
+		//Recipe for the body
+		CraftingGroups.crafting.addRecipeGrid(new ItemEntry[]{
+		null, plug,                 null,
+		plug, Materials.iron.frame, plug,
+		null, plug,                 null
+		}, 3, 3, chest);
+	}
+	
+	private static void moverRecipes(MoverPair movers, MetalGroup frag) {
+		CraftingGroups.crafting.addRecipeGrid(new ItemEntry[]{
+			Materials.iron.frag, Materials.iron.frag,  Materials.iron.frag,
+			null,                frag.frag,            null
+		}, 3, 2, movers.importer);
+		CraftingGroups.crafting.addRecipeGrid(new ItemEntry[]{
+			null,                frag.frag,            null,
+			Materials.iron.frag, Materials.iron.frag,  Materials.iron.frag
+		}, 3, 2, movers.exporter);
+		CraftingGroups.assembler.add(new SimpleItemList(
+			frag.frag.stack(2),
+			Materials.iron.frag.stack(3)
+		), movers.importer.stack(4), plug, frag.volt, (frag.baseCost/2)+2000);
+		CraftingGroups.crafting.addRecipeGrid(movers.importer, 1, 1, movers.exporter);
+		CraftingGroups.crafting.addRecipeGrid(movers.exporter, 1, 1, movers.importer);
 	}
 }

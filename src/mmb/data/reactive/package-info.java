@@ -2,8 +2,8 @@
  * 
  */
 /**
+ * A collection of event-driven components
  * @author oskar
- *
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmb.graphics.texture;
+package mmb.data.reactive;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.data.contents;
+package mmb.texture;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -17,9 +17,8 @@ import org.joml.Vector2fc;
 import org.joml.Vector2i;
 import org.joml.Vector4f;
 
+import mmb.data.contents.NotFoundException;
 import mmb.debug.Debugger;
-import mmb.gl.TextureAtlas;
-import mmb.graphics.texture.LODs;
 import mmb.mods.loader.AddonLoader;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;
@@ -32,7 +31,7 @@ import monniasza.collects.selfset.SelfSet;
 public class Textures {
 	private static final Debugger debug = new Debugger("TEXTURES");
 	private static final SelfSet<String, Texture> loadedTextures0 = HashSelfSet.createNonnull(Texture.class);
-	private static final TextureAtlas atlas = new TextureAtlas(BufferedImage.TYPE_INT_ARGB, 256, 256);
+	private static final TextureAtlas atlas = new TextureAtlas();
 	/**
 	 * 
 	 * @param name texture name, without 'textures/' and with forward slashes only
@@ -54,7 +53,6 @@ public class Textures {
 			throw e;
 		}
 	}
-	
 	public static Texture load(String name, BufferedImage data) {
 		String name2 = name.replace('\\', '/'); //replace slashes so users can use both '/' and '\'
 		debug.printl("Loading texture: "+name2);

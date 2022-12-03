@@ -9,18 +9,26 @@ import mmb.world.item.ItemEntry;
 import mmb.world.worlds.world.World;
 
 /**
+ * A dropper is an inventory writer, which drops items at a specific location
  * @author oskar
- * An inventory writer, which drops items
  */
 public class Dropper implements InventoryWriter, Positioned {
 	private final World map;
 	private int x, y;
-	public Dropper(World map) {
+	/**
+	 * Creates a dropper
+	 * @param x X coordinate
+	 * @param y Y coordinate
+	 * @param map
+	 */
+	public Dropper(int x, int y, World map) {
 		this.map = map;
+		this.x  = x;
+		this.y = y;
 	}
 
 	@Override
-	public int write(ItemEntry ent, int amount) {
+	public int insert(ItemEntry ent, int amount) {
 		map.dropItem(ent, amount, x, y);
 		return amount; //always accepts
 	}
@@ -49,6 +57,16 @@ public class Dropper implements InventoryWriter, Positioned {
 	public int bulkInsert(RecipeOutput block, int amount) {
 		map.dropItems(block, amount, x, y);
 		return amount; //always accepts
+	}
+
+	@Override
+	public int toInsertBulk(RecipeOutput block, int amount) {
+		return amount;
+	}
+
+	@Override
+	public int toInsert(ItemEntry item, int amount) {
+		return amount;
 	}
 
 }

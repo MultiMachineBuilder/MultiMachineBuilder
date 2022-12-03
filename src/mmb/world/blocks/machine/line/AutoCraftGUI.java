@@ -29,7 +29,7 @@ import javax.swing.JProgressBar;
  *
  */
 class AutoCraftGUI extends GUITab {
-	private AutoCrafter crafter;
+	private transient AutoCrafter crafter;
 	public AutoCraftGUI(AutoCrafter crafter, WorldWindow window) {
 		this.crafter = crafter;
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[][grow][][][grow]"));
@@ -137,11 +137,7 @@ class AutoCraftGUI extends GUITab {
 	}
 	
 	@Override
-	public void createTab(WorldWindow window) {
-		//unused
-	}
-	@Override
-	public void destroyTab(WorldWindow window) {
+	public void close(WorldWindow window) {
 		crafter.closeWindow();
 	}
 }

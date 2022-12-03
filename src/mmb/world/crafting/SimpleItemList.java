@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import org.ainslec.picocog.PicoWriter;
 
@@ -154,16 +155,24 @@ public final class SimpleItemList implements RecipeOutput {
 	@Nonnull InventoryWriter createWriter() {
 		return new InventoryWriter() {
 			@Override
-			public int write(ItemEntry ent, int amount) {
+			public int insert(ItemEntry ent, int amount) {
 				data.put(ent, get(ent));
+				return amount;
+			}
+			@Override
+			public int bulkInsert(RecipeOutput block, int amount) {
+				for(Entry<ItemEntry> ent: block.getContents().object2IntEntrySet()) {
+					insert(ent.getKey(), amount*ent.getIntValue());
+				}
+				return amount;
+			}
+			@Override
+			public int toInsertBulk(RecipeOutput block, int amount) {
 				return amount;
 			}
 
 			@Override
-			public int bulkInsert(RecipeOutput block, int amount) {
-				for(Entry<ItemEntry> ent: block.getContents().object2IntEntrySet()) {
-					write(ent.getKey(), amount*ent.getIntValue());
-				}
+			public int toInsert(ItemEntry item, int amount) {
 				return amount;
 			}
 		};
@@ -187,7 +196,7 @@ public final class SimpleItemList implements RecipeOutput {
 		if(vol < 0) {
 			vol = 0;
 			for(Entry<ItemEntry> ent : data.object2IntEntrySet()) {
-				vol += ent.getKey().volume(ent.getIntValue());
+				vol += ent.getKey().volume()*ent.getIntValue();
 			}
 		}
 		return vol;
@@ -202,7 +211,7 @@ public final class SimpleItemList implements RecipeOutput {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(@Nullable Object obj) {
 		if (this == obj)
 			return true;
 		if (obj instanceof RecipeOutput)

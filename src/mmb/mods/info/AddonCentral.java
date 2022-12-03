@@ -10,13 +10,12 @@ import javax.annotation.*;
  * Class should set its public static variable which contains its instance
  */
 public interface AddonCentral {
-	
-	/**
-	 * @return a ModMetadata object with mod information
-	 * 
-	 */
+	/** @return a ModMetadata object with mod information */
     @Nonnull ModMetadata info();
+    /** Place your init and translation code here */
 	void firstOpen(); //first open
+	/** Place an init call to your blocks/items class here and create content */
 	void makeContent(); //Make content for addon
+	/** Place an init call to your recipes class here and integrate with other mods */
 	void integrationModules(); //integration modules
 }

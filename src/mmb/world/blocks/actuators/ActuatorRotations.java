@@ -8,8 +8,8 @@ import java.awt.Point;
 import javax.annotation.Nullable;
 
 import mmb.cgui.BlockActivateListener;
-import mmb.data.contents.Textures;
 import mmb.menu.world.window.WorldWindow;
+import mmb.texture.Textures;
 import mmb.world.block.BlockEntry;
 import mmb.world.block.BlockType;
 import mmb.world.blocks.ContentsBlocks;

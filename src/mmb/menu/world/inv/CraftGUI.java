@@ -9,8 +9,6 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
 
-import mmb.Lambdas;
-import mmb.data.variables.Variable;
 import mmb.debug.Debugger;
 import mmb.menu.Icons;
 import mmb.menu.world.window.GUITab;
@@ -38,7 +36,6 @@ import javax.swing.BoxLayout;
 import static mmb.GlobalSettings.$res;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -80,7 +77,7 @@ public class CraftGUI extends GUITab {
 		AtomicReference<RecipeOutput> outs = new AtomicReference<>();
 		
 		setLayout(new MigLayout("", "[263px][]", "[155px,grow]"));
-		Grid<mmb.world.item.ItemEntry> contents = new FixedGrid<>(size, size);
+		Grid<@Nullable ItemEntry> contents = new FixedGrid<>(size, size);
 		
 		box = new Box(BoxLayout.Y_AXIS);
 		add(box, "flowy,cell 1 0,growy");
@@ -118,15 +115,7 @@ public class CraftGUI extends GUITab {
 			}
 		});
 		box.add(craftingGrid);
-		for(ItemSelectionSlot[] slots: craftingGrid.slots) {
-			for(ItemSelectionSlot slot: slots) {
-				slot.setSelectionSrc(Variable.delegate(() -> {
-					ItemRecord sel = inventoryController.getSelectedValue();
-					if(sel == null) return null;
-					return sel.item();
-				}, Lambdas.doNothing()));
-			}
-		}
+		craftingGrid.setSource(inventoryController::getSelectedItem);
 		
 		//Buttons
 		buttonbar = new Box(BoxLayout.X_AXIS);
@@ -176,7 +165,7 @@ public class CraftGUI extends GUITab {
 		JButton btnClear = new JButton(Icons.erase);
 		btnClear.setToolTipText($res("wguic-clear"));
 		btnClear.addActionListener(e -> 
-			craftingGrid.items.fill(0, 0, size, size, null)
+			craftingGrid.items.fill(null)
 		);
 		btnClear.setBackground(new Color(255, 69, 0));
 		buttonbar.add(btnClear);
@@ -216,7 +205,7 @@ public class CraftGUI extends GUITab {
 		
 		//Exit
 		if(window != null) {
-			btnExit = new JButton($res("wguic-exit"));
+			JButton btnExit = new JButton($res("wguic-exit"));
 			btnExit.setForeground(new Color(0, 0, 0));
 			btnExit.setToolTipText("Closes this crafting GUI, discarding any selections.");
 			btnExit.addActionListener(e -> {
@@ -227,17 +216,13 @@ public class CraftGUI extends GUITab {
 		}
 	}
 	@Nonnull private JLabel lblRecipeOutputs;
-	@Nonnull private JButton btnExit;	
+	/** Place toolbars here */
 	@Nonnull public final Box box;
+	/** Place buttons here */
 	@Nonnull public final Box buttonbar;
+	
 	@Override
-	public void createTab(WorldWindow window) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void destroyTab(WorldWindow window) {
-		// TODO Auto-generated method stub
-		
+	public void close(WorldWindow window) {
+		craftingGrid.close();
 	}
 }

@@ -109,4 +109,9 @@ public class InsertionsOnlyInventory implements Inventory{
 	public boolean test(ItemEntry e) {
 		return inv.test(e);
 	}
+
+	@Override
+	public int insertibleRemainBulk(int amount, RecipeOutput ent) {
+		return inv.insertibleRemainBulk(amount, ent);
+	}
 }

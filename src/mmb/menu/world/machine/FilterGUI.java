@@ -78,11 +78,7 @@ public class FilterGUI extends GUITab {
 		box.add(sub);
 	}
 	@Override
-	public void createTab(WorldWindow window) {
-		//unused
-	}
-	@Override
-	public void destroyTab(WorldWindow window) {
+	public void close(WorldWindow window) {
 		filter.destroyTab(this);
 	}
 

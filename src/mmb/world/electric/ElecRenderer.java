@@ -16,12 +16,12 @@ import javax.swing.ImageIcon;
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
 
-import mmb.data.contents.Textures;
-import mmb.data.contents.Textures.Texture;
 import mmb.gl.GLHelper;
 import mmb.gl.RenderCtx;
 import mmb.graphics.awt.ColorMapper;
-import mmb.graphics.texture.BlockDrawer;
+import mmb.texture.BlockDrawer;
+import mmb.texture.Textures;
+import mmb.texture.Textures.Texture;
 import mmb.world.block.BlockEntry;
 import mmb.world.rotate.RotatedImageGroup;
 import mmb.world.rotate.Side;
@@ -114,7 +114,7 @@ public class ElecRenderer implements BlockDrawer {
 	@Override
 	public int LOD() {
 		if(lod < 0) {
-			int rgb1 = mmb.graphics.texture.LODs.calcLOD(base);
+			int rgb1 = mmb.texture.LODs.calcLOD(base);
 			int r = (rgb1 & 0x00ff0000) >> 16;
 			int g = (rgb1 & 0x0000ff00) >> 8;
 			int b = (rgb1 & 0x000000ff);

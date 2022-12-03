@@ -284,4 +284,9 @@ public class STNNetworkInventory implements Inventory{
 	public boolean test(ItemEntry e) {
 		return true;
 	}
+
+	@Override
+	public int insertibleRemainBulk(int amount, RecipeOutput ent) {
+		return storageQueue.insertibleRemainBulk(amount, ent);
+	}
 }

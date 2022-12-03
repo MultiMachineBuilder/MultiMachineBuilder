@@ -12,6 +12,7 @@ import mmb.menu.FullScreen;
 import mmb.menu.MMBFrame;
 import mmb.menu.components.BoundCheckBoxMenuItem;
 import mmb.mods.info.Mods;
+import mmb.texture.Textures;
 
 import java.net.URI;
 import java.util.Calendar;
@@ -23,7 +24,6 @@ import java.awt.BorderLayout;
 import javax.swing.border.EmptyBorder;
 
 import mmb.data.Settings;
-import mmb.data.contents.Textures;
 
 import static mmb.GlobalSettings.*;
 
