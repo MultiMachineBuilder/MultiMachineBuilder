@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 import javax.swing.JComponent;
 
 import mmb.data.reactive.ListenableProperty;
-import mmb.world.modulars.gui.SafeCloseable;
+import mmbgame.modular.gui.SafeCloseable;
 
 /**
  * A placeholder displays a component provided by a property

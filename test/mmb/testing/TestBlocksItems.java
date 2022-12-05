@@ -17,13 +17,13 @@ import javax.swing.ImageIcon;
 
 import org.junit.jupiter.api.Test;
 
-import mmb.texture.BlockDrawer;
-import mmb.world.block.Block;
-import mmb.world.block.BlockEntityType;
-import mmb.world.block.BlockEntry;
-import mmb.world.block.BlockType;
-import mmb.world.block.Blocks;
-import mmb.world.item.Items;
+import mmbeng.block.Block;
+import mmbeng.block.BlockEntityType;
+import mmbeng.block.BlockEntry;
+import mmbeng.block.BlockType;
+import mmbeng.block.Blocks;
+import mmbeng.item.Items;
+import mmbeng.texture.BlockDrawer;
 
 /**
  * Test block reistration

@@ -7,11 +7,11 @@ import java.util.function.Supplier;
 
 import org.junit.Test;
 
-import mmb.debug.Debugger;
-import mmb.world.inventory.Inventory;
-import mmb.world.inventory.storage.SimpleInventory;
-import mmb.world.inventory.storage.SingleItemInventory;
-import mmb.world.item.Item;
+import mmbeng.debug.Debugger;
+import mmbeng.inv.Inventory;
+import mmbeng.inv.storage.SimpleInventory;
+import mmbeng.inv.storage.SingleItemInventory;
+import mmbeng.item.Item;
 
 /**
  * @author oskar

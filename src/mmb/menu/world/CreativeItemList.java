@@ -14,8 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
-import mmb.world.item.ItemType;
-import mmb.world.item.Items;
+import mmbeng.item.ItemType;
+import mmbeng.item.Items;
 import monniasza.collects.Collects;
 
 /**

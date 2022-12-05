@@ -1224,13 +1224,13 @@
 (MOD-LOADER) Loading a sound COPYRIGHT.txt
 (MOD-LOADER) Failed to load a sound COPYRIGHT.txt
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
-	at mmb.data.contents.Sounds.load(Sounds.java:88)
-	at mmb.mods.loader.ModLoader.lambda$2(ModLoader.java:118)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:345)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:351)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:333)
-	at mmb.mods.loader.ModLoader.modloading(ModLoader.java:115)
-	at mmb.Main.lambda$1(Main.java:113)
+	at mmbeng.sound.Sounds.load(Sounds.java:89)
+	at mmb.mods.loader.GameLoader.lambda$2(GameLoader.java:119)
+	at mmb.mods.loader.GameLoader.walkDirectory(GameLoader.java:346)
+	at mmb.mods.loader.GameLoader.walkDirectory(GameLoader.java:352)
+	at mmb.mods.loader.GameLoader.walkDirectory(GameLoader.java:334)
+	at mmb.mods.loader.GameLoader.modloading(GameLoader.java:116)
+	at mmb.Main.lambda$1(Main.java:114)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
@@ -1246,19 +1246,19 @@
 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
 Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at java.desktop/javax.sound.sampled.AudioSystem.getAudioInputStream(AudioSystem.java:1014)
-	at mmb.data.contents.Sounds.load(Sounds.java:61)
+	at mmbeng.sound.Sounds.load(Sounds.java:62)
 	... 19 more
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\error.mp3
 (MOD-LOADER) Loading a sound error.mp3
 (MOD-LOADER) Failed to load a sound error.mp3
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
-	at mmb.data.contents.Sounds.load(Sounds.java:88)
-	at mmb.mods.loader.ModLoader.lambda$2(ModLoader.java:118)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:345)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:351)
-	at mmb.mods.loader.ModLoader.walkDirectory(ModLoader.java:333)
-	at mmb.mods.loader.ModLoader.modloading(ModLoader.java:115)
-	at mmb.Main.lambda$1(Main.java:113)
+	at mmbeng.sound.Sounds.load(Sounds.java:89)
+	at mmb.mods.loader.GameLoader.lambda$2(GameLoader.java:119)
+	at mmb.mods.loader.GameLoader.walkDirectory(GameLoader.java:346)
+	at mmb.mods.loader.GameLoader.walkDirectory(GameLoader.java:352)
+	at mmb.mods.loader.GameLoader.walkDirectory(GameLoader.java:334)
+	at mmb.mods.loader.GameLoader.modloading(GameLoader.java:116)
+	at mmb.Main.lambda$1(Main.java:114)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
@@ -1274,7 +1274,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
 Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at java.desktop/javax.sound.sampled.AudioSystem.getAudioInputStream(AudioSystem.java:1014)
-	at mmb.data.contents.Sounds.load(Sounds.java:61)
+	at mmbeng.sound.Sounds.load(Sounds.java:62)
 	... 19 more
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\minecxraft.wav
 (MOD-LOADER) Loading a sound minecxraft.wav
@@ -1286,7 +1286,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SOUNDS) Loading a sound: warn .wav
 (MOD-LOADER) Sounds: [minecxraft.wav, 220203__gameaudio__casual-death-loose.wav, 377157__pfranzen__smashing-head-on-wall.ogg, warn .wav]
 (MAIN) State: Loading blocks
-(BLOCKS) Creating blocks
+(BLOCK ENGINE) Creating blocks
 (ITEMS) Adding mmb.air with title Air and description:
  (no description)
 (ITEMS) Adding mmb.grass with title Grass and description:
@@ -8125,17 +8125,17 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
-	at mmb.files.LocalFile.getInputStream(LocalFile.java:35)
-	at mmb.mods.loader.AddonLoader.init(AddonLoader.java:99)
-	at mmb.mods.loader.AddonLoader.lambda$0(AddonLoader.java:78)
+	at mmbeng.files.LocalFile.getInputStream(LocalFile.java:35)
+	at mmb.mods.loader.ModLoader.init(ModLoader.java:99)
+	at mmb.mods.loader.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 (MOD - ) Opening a modfile: https://scratch.mit.edu/
 (MOD - ) Couldn't open zip or jar file https://scratch.mit.edu/
 (MOD - ) java.util.zip.ZipException: Unexpected record signature: 0X4F44213C
 	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.getNextZipEntry(ZipArchiveInputStream.java:296)
 	at org.apache.commons.compress.archivers.jar.JarArchiveInputStream.getNextJarEntry(JarArchiveInputStream.java:56)
-	at mmb.mods.loader.AddonLoader.init(AddonLoader.java:154)
-	at mmb.mods.loader.AddonLoader.lambda$0(AddonLoader.java:78)
+	at mmb.mods.loader.ModLoader.init(ModLoader.java:154)
+	at mmb.mods.loader.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 (MOD - X-Science-1.12.0-6.0.1.3.zip) Opening a modfile: https://github.com/linuxgurugamer/KSP-X-Science/releases/download/6.0.1.3/X-Science-1.12.0-6.0.1.3.zip
 (MOD - X-Science-1.12.0-6.0.1.3.zip) entry: GameData/[x]_Science!/
@@ -8257,7 +8257,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found save: Distributor.mworld
 (SELECT A SAVE) Found save: fuzz seed.mworld
 (SELECT A SAVE) Found save: main.mworld
-(SELECT A SAVE) Found save: Modular chest test.mworld
 (SELECT A SAVE) Found save: Semi Auto Brewery.mworld
 (SELECT A SAVE) Found save: Sound ON Startup.mworld
 (SELECT A SAVE) Found save: Surv2.mworld
@@ -8273,10 +8272,10 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found save: Test.mworld
 (SELECT A SAVE) Found save: The longest player pipe ever.mworld
 (SELECT A SAVE) Found save: The smallest all in one quarry system.mworld
-(SELECT A SAVE) Found 22 saves
+(SELECT A SAVE) Found 21 saves
 (WORLD TEST) 1764 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@6263582
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@319a3416
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -8285,12 +8284,8 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Opened a file
 (SELECT A SAVE) Loaded a file
 (SELECT A SAVE) Parsed file
-(STN data layer @null) Embarkment: [0,0]
-(STN data layer @null) Disembarkment: [-13,-7]
-(STN data layer @null) Embarkment: [-13,-7]
-(STN data layer @null) Embarkment: [0,0]
-(STN data layer @null) Disembarkment: [-12,-7]
-(STN data layer @null) Embarkment: [-12,-7]
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
 (DATA LAYERS) Loading world data layer: STN
 (ITEMS) Invalid item: Infinity
 (INVENTORIES) Unsupported null item
@@ -8298,36 +8293,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Loaded
 (WORLD - IDLE) Exiting
 (WORLDS) Opening a new world
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(PLAYER INVENTORY) Querying recipes
-(PLAYER INVENTORY) Query finished
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(PLAYER INVENTORY) Querying recipes
-(PLAYER INVENTORY) Query finished
-(PLAYER INVENTORY) Querying recipes
-(PLAYER INVENTORY) Query finished
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(PLAYER INVENTORY) Querying recipes
-(PLAYER INVENTORY) Query finished
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
 (DATA LAYERS) Saving world data layer: STN

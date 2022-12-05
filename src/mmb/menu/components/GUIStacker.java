@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import org.junit.jupiter.api.Test;
 
 import mmb.data.variables.BooleanVariable;
-import mmb.debug.Debugger;
+import mmbeng.debug.Debugger;
 
 /**
  * @author oskar

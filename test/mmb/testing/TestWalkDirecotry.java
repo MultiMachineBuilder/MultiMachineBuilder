@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import mmb.mods.loader.ModLoader;
+import mmbeng.mods.GameLoader;
 
 /**
  * @author oskar
@@ -22,14 +22,14 @@ class TestWalkDirecotry {
 	@Test
 	void testFind() {
 		List<File> files = new ArrayList<>();
-		ModLoader.walkDirectory(new File("mods/"), files);
+		GameLoader.walkDirectory(new File("mods/"), files);
 		assertFalse(files.isEmpty(), "Directory not walked");
 	}
 	
 	boolean isRun = false;
 	@Test
 	void testRun() {
-		ModLoader.walkDirectory(new File("mods/"), (s, f) -> 
+		GameLoader.walkDirectory(new File("mods/"), (s, f) -> 
 			isRun = true
 		);
 		assertTrue(isRun, "Directory not walked");

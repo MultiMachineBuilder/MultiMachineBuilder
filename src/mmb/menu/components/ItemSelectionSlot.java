@@ -12,10 +12,10 @@ import javax.swing.JComponent;
 
 import com.pploder.events.Event;
 
-import mmb.CatchingEvent;
 import mmb.data.variables.ListenableValue;
-import mmb.debug.Debugger;
-import mmb.world.item.ItemEntry;
+import mmbeng.CatchingEvent;
+import mmbeng.debug.Debugger;
+import mmbeng.item.ItemEntry;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

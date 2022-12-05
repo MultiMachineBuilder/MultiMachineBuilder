@@ -8,10 +8,10 @@ import javax.annotation.Nullable;
 
 import mmb.cgui.BlockActivateListener;
 import mmb.menu.world.window.WorldWindow;
-import mmb.world.block.BlockType;
-import mmb.world.inventory.Inventory;
-import mmb.world.rotate.RotatedImageGroup;
-import mmb.world.worlds.world.World;
+import mmbeng.block.BlockType;
+import mmbeng.inv.Inventory;
+import mmbeng.rotate.RotatedImageGroup;
+import mmbeng.worlds.world.World;
 import mmbmods.stn.STN;
 import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag;
 

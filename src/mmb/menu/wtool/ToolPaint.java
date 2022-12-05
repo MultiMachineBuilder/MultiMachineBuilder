@@ -3,7 +3,7 @@
  */
 package mmb.menu.wtool;
 
-import static mmb.GlobalSettings.$res;
+import static mmbeng.GlobalSettings.$res;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -17,11 +17,11 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import mmb.beans.Colorable;
-import mmb.graphics.awt.MappedColorTexture;
 import mmb.menu.world.ColorGUI;
 import mmb.menu.world.window.WorldWindow;
-import mmb.texture.Textures;
-import mmb.world.block.BlockEntry;
+import mmbeng.block.BlockEntry;
+import mmbeng.java2d.MappedColorTexture;
+import mmbeng.texture.Textures;
 
 /**
  * @author oskar

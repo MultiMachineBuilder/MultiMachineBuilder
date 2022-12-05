@@ -10,36 +10,34 @@ import javax.swing.Timer;
 
 import com.pploder.events.Event;
 
-import mmb.debug.Debugger;
 import mmb.menu.components.BoundCheckBox;
 import mmb.menu.world.CreativeItemList;
-import mmb.menu.world.SelectSortItemTypes;
 import mmb.menu.world.inv.CraftGUI;
 import mmb.menu.world.inv.InventoryController;
-import mmb.world.block.Block;
-import mmb.world.block.BlockEntityType;
-import mmb.world.block.BlockType;
-import mmb.world.crafting.GlobalRecipeRegistrar;
-import mmb.world.crafting.Recipe;
-import mmb.world.electric.VoltageTier;
-import mmb.world.inventory.Inventory;
-import mmb.world.inventory.ItemRecord;
-import mmb.world.item.Item;
-import mmb.world.item.ItemEntityType;
-import mmb.world.item.ItemEntry;
-import mmb.world.item.ItemType;
-import mmb.world.item.Items;
-import mmb.world.worlds.world.Player;
+import mmbeng.CatchingEvent;
+import mmbeng.block.Block;
+import mmbeng.block.BlockEntityType;
+import mmbeng.block.BlockType;
+import mmbeng.craft.GlobalRecipeRegistrar;
+import mmbeng.craft.Recipe;
+import mmbeng.debug.Debugger;
+import mmbeng.inv.Inventory;
+import mmbeng.inv.ItemRecord;
+import mmbeng.item.Item;
+import mmbeng.item.ItemEntityType;
+import mmbeng.item.ItemEntry;
+import mmbeng.item.ItemType;
+import mmbeng.item.Items;
+import mmbeng.worlds.world.Player;
+import mmbgame.electric.VoltageTier;
 import monniasza.collects.Collects;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import static mmb.GlobalSettings.*;
+import static mmbeng.GlobalSettings.*;
 
 import java.awt.Color;
-
-import mmb.CatchingEvent;
 
 import javax.swing.JSpinner;
 

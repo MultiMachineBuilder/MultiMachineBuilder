@@ -7,10 +7,10 @@ import javax.annotation.Nonnull;
 
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
+import mmbeng.GlobalSettings;
 import net.miginfocom.swing.MigLayout;
 import mmb.menu.world.inv.InventoryController;
 import mmb.menu.world.inv.MoveItems;
-import mmb.GlobalSettings;
 import mmb.menu.components.ItemSelectionSlot;
 import mmb.menu.helper.MenuHelper;
 import mmb.menu.world.inv.SingleInventoryController;

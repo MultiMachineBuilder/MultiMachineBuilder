@@ -6,7 +6,7 @@ package mmb.beans;
 import javax.annotation.Nullable;
 
 import mmb.data.variables.ListenableValue;
-import mmb.world.block.BlockType;
+import mmbeng.block.BlockType;
 
 /**
  * A block with replaceable block configuration

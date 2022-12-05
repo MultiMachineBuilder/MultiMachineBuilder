@@ -1,0 +1,38 @@
+/**
+ * 
+ */
+package mmbgame.electric;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+
+import mmb.menu.world.craft.*;
+import mmbgame.electric.machines.ElectroMachine;
+
+/**
+ * @author oskar
+ *
+ */
+public class MachineInfoTab extends Box {
+	private static final long serialVersionUID = -7855159998857476643L;
+
+	public MachineInfoTab(ElectroMachine machine) {
+		super(BoxLayout.Y_AXIS);
+		
+		JLabel volt = new JLabel(CRConstants.VOLT+machine.voltage().name);
+		add(volt);
+		
+		JLabel title = new JLabel(machine.machineName());
+		add(title);
+		
+		JCheckBox autoextract = new JCheckBox(CRConstants.AUTO, machine.isAutoExtract());
+		autoextract.addActionListener(e -> machine.setAutoExtract(autoextract.isSelected()));
+		add(autoextract);
+		
+		JCheckBox pass = new JCheckBox(CRConstants.PASS, machine.isPass());
+		pass.addActionListener(e -> machine.setPass(pass.isSelected()));
+		add(pass);
+	}
+}

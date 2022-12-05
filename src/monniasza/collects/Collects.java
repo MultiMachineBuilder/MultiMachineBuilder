@@ -34,8 +34,8 @@ import com.google.common.collect.SetMultimap;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import mmb.world.crafting.RecipeOutput;
-import mmb.world.item.ItemEntry;
+import mmbeng.craft.RecipeOutput;
+import mmbeng.item.ItemEntry;
 import monniasza.collects.grid.Grid;
 import monniasza.collects.selfset.SelfSet;
 

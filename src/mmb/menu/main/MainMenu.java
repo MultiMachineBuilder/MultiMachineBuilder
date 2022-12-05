@@ -1,18 +1,21 @@
 package mmb.menu.main;
 
+import static mmbeng.GlobalSettings.*;
+
 import java.awt.*;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;
 
-import mmb.GlobalSettings;
-import mmb.debug.Debugger;
-import mmb.gl.HalfVecTest;
-import mmb.menu.FullScreen;
-import mmb.menu.MMBFrame;
 import mmb.menu.components.BoundCheckBoxMenuItem;
-import mmb.mods.info.Mods;
-import mmb.texture.Textures;
+import mmbeng.GlobalSettings;
+import mmbeng.Settings;
+import mmbeng.debug.Debugger;
+import mmbeng.gl.HalfVecTest;
+import mmbeng.mods.Mods;
+import mmbeng.texture.Textures;
+import mmbeng.window.FullScreen;
+import mmbeng.window.MMBFrame;
 
 import java.net.URI;
 import java.util.Calendar;
@@ -22,10 +25,6 @@ import java.awt.Desktop;
 import java.awt.image.BufferedImage;
 import java.awt.BorderLayout;
 import javax.swing.border.EmptyBorder;
-
-import mmb.data.Settings;
-
-import static mmb.GlobalSettings.*;
 
 /**
  * @author oskar

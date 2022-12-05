@@ -14,8 +14,8 @@ import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListModel;
 
-import mmb.world.inventory.Inventory;
-import mmb.world.inventory.ItemRecord;
+import mmbeng.inv.Inventory;
+import mmbeng.inv.ItemRecord;
 import monniasza.collects.ReadOnlyListModel;
 
 /**

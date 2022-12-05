@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import mmbeng.Verify;
+
 /**
  * @author oskar
  *

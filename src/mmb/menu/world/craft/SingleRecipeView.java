@@ -8,10 +8,10 @@ import javax.swing.JLabel;
 import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
-import mmb.UnitFormatter;
-import mmb.world.inventory.ItemStack;
-import mmb.world.item.ItemEntry;
-import mmb.world.recipes.SingleRecipeGroup.SingleRecipe;
+import mmbeng.UnitFormatter;
+import mmbeng.craft.rgroups.SingleRecipeGroup.SingleRecipe;
+import mmbeng.inv.ItemStack;
+import mmbeng.item.ItemEntry;
 
 import javax.swing.JList;
 

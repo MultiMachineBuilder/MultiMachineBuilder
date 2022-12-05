@@ -3,19 +3,16 @@
  */
 package mmb.menu.world.inv;
 
-import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 
-import mmb.GlobalSettings;
-import mmb.Lambdas;
 import mmb.data.variables.Variable;
 import mmb.menu.Icons;
-import mmb.world.inventory.Inventory;
-import mmb.world.inventory.ItemRecord;
-import mmb.world.item.ItemEntry;
-import net.miginfocom.swing.MigLayout;
-
+import mmbeng.GlobalSettings;
+import mmbeng.MMBUtils;
+import mmbeng.inv.Inventory;
+import mmbeng.inv.ItemRecord;
+import mmbeng.item.ItemEntry;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -28,7 +25,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JButton;
 
-import static mmb.GlobalSettings.$res;
+import static mmbeng.GlobalSettings.$res;
 
 import java.awt.Color;
 import javax.swing.JScrollPane;
@@ -147,7 +144,7 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	}
 	/** @return item selection variable for item selection slots */
 	@Nonnull public Variable<ItemEntry> itemSelection(){
-		return Variable.delegate(this::getSelectedItem, Lambdas.doNothing());
+		return Variable.delegate(this::getSelectedItem, MMBUtils.doNothing());
 	}
 	/** @return a selected item */
 	@Nullable public ItemEntry getSelectedItem() {

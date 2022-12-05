@@ -10,9 +10,9 @@ import javax.annotation.Nullable;
 import javax.swing.JButton;
 
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
-import mmb.GlobalSettings;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
+import mmbeng.GlobalSettings;
 import mmbmods.stn.block.STNPusherGUI;
 
 /**

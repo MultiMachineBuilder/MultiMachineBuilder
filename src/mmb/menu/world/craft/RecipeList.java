@@ -6,9 +6,9 @@ package mmb.menu.world.craft;
 import javax.swing.JScrollPane;
 import javax.swing.ListCellRenderer;
 
-import mmb.world.crafting.Recipe;
-import mmb.world.crafting.RecipeGroup;
-import mmb.world.inventory.ItemStack;
+import mmbeng.craft.Recipe;
+import mmbeng.craft.RecipeGroup;
+import mmbeng.inv.ItemStack;
 
 import java.awt.Component;
 import java.awt.Dimension;

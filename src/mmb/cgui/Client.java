@@ -6,8 +6,9 @@ package mmb.cgui;
 import mmb.menu.wtool.ToolSelectionModel;
 
 /**
+ * A Client GUI-compliant player implementation
  * @author oskar
- * Client GUI implementation
+ * 
  */
 public interface Client {
 	/**

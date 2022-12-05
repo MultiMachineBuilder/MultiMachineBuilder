@@ -15,16 +15,16 @@ import mmb.data.variables.ListenableValue;
 import mmb.data.variables.ListenerBooleanVariable;
 import mmb.data.variables.Variable;
 import mmb.menu.world.window.WorldWindow;
-import mmb.world.block.BlockEntry;
-import mmb.world.inventory.Inventories;
-import mmb.world.inventory.Inventory;
-import mmb.world.inventory.io.InventoryReader;
-import mmb.world.inventory.io.InventoryWriter;
-import mmb.world.inventory.storage.SingleItemInventory;
-import mmb.world.item.ItemEntry;
-import mmb.world.items.SpeedUpgrade;
-import mmb.world.worlds.MapProxy;
-import mmb.world.worlds.world.World;
+import mmbeng.block.BlockEntry;
+import mmbeng.inv.Inventories;
+import mmbeng.inv.Inventory;
+import mmbeng.inv.io.InventoryReader;
+import mmbeng.inv.io.InventoryWriter;
+import mmbeng.inv.storage.SingleItemInventory;
+import mmbeng.item.ItemEntry;
+import mmbeng.worlds.MapProxy;
+import mmbeng.worlds.world.World;
+import mmbgame.imachine.SpeedUpgrade;
 import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag;
 
 /**

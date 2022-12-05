@@ -16,12 +16,12 @@ import com.google.common.collect.Iterators;
 import com.google.common.collect.SetMultimap;
 
 import it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap;
-import mmb.debug.Debugger;
-import mmb.world.crafting.RecipeOutput;
-import mmb.world.inventory.Inventory;
-import mmb.world.inventory.ItemRecord;
-import mmb.world.inventory.storage.SimpleInventory;
-import mmb.world.item.ItemEntry;
+import mmbeng.craft.RecipeOutput;
+import mmbeng.debug.Debugger;
+import mmbeng.inv.Inventory;
+import mmbeng.inv.ItemRecord;
+import mmbeng.inv.storage.SimpleInventory;
+import mmbeng.item.ItemEntry;
 
 /**
  * The implementation of the Storage component of the STN
@@ -154,8 +154,8 @@ public class STNNetworkInventory implements Inventory{
 	@Nonnull private final Set<@Nonnull Inventory> nodes0 = new DirtySet();
 	/** Inventories connected to the network */
 	@Nonnull public final Set<@Nonnull Inventory> nodes = Collections.unmodifiableSet(nodes0);
-	@Nonnull private final Object2LongOpenHashMap<mmb.world.item.ItemEntry> storageIndex = new Object2LongOpenHashMap<>();
-	@Nonnull private final SetMultimap<mmb.world.item.ItemEntry, @Nonnull Inventory> itemInvIndex = HashMultimap.create();
+	@Nonnull private final Object2LongOpenHashMap<mmbeng.item.ItemEntry> storageIndex = new Object2LongOpenHashMap<>();
+	@Nonnull private final SetMultimap<mmbeng.item.ItemEntry, @Nonnull Inventory> itemInvIndex = HashMultimap.create();
 	private double volume;
 	private double capacity;
 	private boolean dirty;

@@ -4,10 +4,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import mmb.data.Settings;
-import mmb.debug.Debugger;
 import mmb.menu.main.MainMenu;
-import mmb.mods.loader.ModLoader;
+import mmbeng.GlobalSettings;
+import mmbeng.Settings;
+import mmbeng.debug.Debugger;
+import mmbeng.mods.GameLoader;
 
 import javax.swing.JLabel;
 
@@ -110,7 +111,7 @@ public class Main extends JFrame {
 					String lwjgl = new File("./natives/").getAbsolutePath();
 					System.setProperty("org.lwjgl.librarypath", lwjgl);
 					
-					ModLoader.modloading(); //the main loading method
+					GameLoader.modloading(); //the main loading method
 					
 					//localized welcome
 					debug.printl(GlobalSettings.$res("hello"));

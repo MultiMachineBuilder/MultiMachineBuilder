@@ -12,14 +12,14 @@ import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
-import mmb.debug.Debugger;
-import mmb.mods.info.ModInfo;
-import mmb.mods.info.ModState;
-import mmb.mods.info.Modfile;
-import mmb.mods.info.Mods;
+import mmbeng.debug.Debugger;
+import mmbeng.mods.ModInfo;
+import mmbeng.mods.ModState;
+import mmbeng.mods.Modfile;
+import mmbeng.mods.Mods;
 import net.miginfocom.swing.MigLayout;
 
-import static mmb.GlobalSettings.$res;
+import static mmbeng.GlobalSettings.$res;
 
 import java.awt.Desktop;
 

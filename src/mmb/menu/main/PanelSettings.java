@@ -5,6 +5,9 @@ package mmb.menu.main;
 
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+
+import static mmbeng.GlobalSettings.*;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.io.File;
@@ -22,19 +25,16 @@ import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
 import io.github.parubok.text.multiline.MultilineLabel;
-import mmb.GlobalSettings;
-import mmb.debug.Debugger;
 import mmb.menu.components.BoundCheckBox;
 import mmb.menu.components.BoundCheckBoxMenuItem;
 import mmb.menu.components.BoundCombo;
+import mmbeng.GlobalSettings;
+import mmbeng.debug.Debugger;
 
 import java.awt.Color;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
-
-import static mmb.GlobalSettings.*;
-
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 

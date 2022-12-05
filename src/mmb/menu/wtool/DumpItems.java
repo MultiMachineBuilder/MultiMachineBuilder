@@ -3,7 +3,7 @@
  */
 package mmb.menu.wtool;
 
-import static mmb.GlobalSettings.$res;
+import static mmbeng.GlobalSettings.$res;
 
 import java.awt.Graphics;
 import java.awt.Point;
@@ -14,10 +14,10 @@ import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.texture.Textures;
-import mmb.world.inventory.ItemRecord;
-import mmb.world.item.ItemEntry;
-import mmb.world.items.ContentsItems;
+import mmbeng.inv.ItemRecord;
+import mmbeng.item.ItemEntry;
+import mmbeng.texture.Textures;
+import mmbgame.ContentsItems;
 
 /**
  * @author oskar

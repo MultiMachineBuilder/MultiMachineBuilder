@@ -95,18 +95,6 @@
 		<!-- Plugins -->
 		<pluginManagement>
 		<plugins>
-		<!-- Maven Central staging -->
-		<plugin>
-      		<groupId>org.sonatype.plugins</groupId>
-      		<artifactId>nexus-staging-maven-plugin</artifactId>
-      		<version>1.6.7</version>
-      		<extensions>true</extensions>
-      		<configuration>
-        		<serverId>ossrh</serverId>
-        		<nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-        		<autoReleaseAfterClose>true</autoReleaseAfterClose>
-      		</configuration>
-    	</plugin>
 			<!-- Maven compiler -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -168,6 +156,7 @@
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
+						<phase>deploy</phase>
 						<goals>
 							<goal>jar</goal>
 						</goals>
@@ -189,6 +178,19 @@
 					</execution>
 				</executions>
 		    </plugin>
+		    
+		    <!-- Maven Central staging -->
+			<plugin>
+	      		<groupId>org.sonatype.plugins</groupId>
+	      		<artifactId>nexus-staging-maven-plugin</artifactId>
+	      		<version>1.6.7</version>
+	      		<extensions>true</extensions>
+	      		<configuration>
+	        		<serverId>ossrh</serverId>
+	        		<nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+	        		<autoReleaseAfterClose>true</autoReleaseAfterClose>
+	      		</configuration>
+	    	</plugin>
 	  </plugins>
 	  </pluginManagement>
 	</build>
@@ -211,71 +213,85 @@
 		<m2e.eea.annotationpath.maven>/Multi Machine Builder/lib/eclipse-null-eea-augments-2.4.0/libraries/other</m2e.eea.annotationpath.maven>
 	</properties>
 	<dependencies>
-		<dependency>
-		  <groupId>org.lastnpe.eea</groupId>
-		  <artifactId>eea-all</artifactId>
-		  <version>2.4.0</version>
-		</dependency>
-		<dependency>
-		  <groupId>com.glazedlists</groupId>
-		  <artifactId>glazedlists</artifactId>
-		  <version>1.11.0</version>
-		</dependency>
-	   <dependency>
-	      <groupId>org.ainslec</groupId>
-	      <artifactId>picocog</artifactId>
-	      <version>1.0.7</version>
-	   </dependency>
-	   <dependency>
-		<groupId>org.jgrapht</groupId>
-		<artifactId>jgrapht-core</artifactId>
-		<version>1.5.1</version>
-	   </dependency>
-		<dependency>
-		  <groupId>it.unimi.dsi</groupId>
-		  <artifactId>fastutil</artifactId>
-		  <version>8.5.9</version>
-		</dependency>
-		<dependency>
-		    <groupId>com.googlecode.soundlibs</groupId>
-		    <artifactId>tritonus-share</artifactId>
-		    <version>0.3.7.4</version>
-		</dependency>
-		<dependency>
-		  <groupId>io.vavr</groupId>
-		  <artifactId>vavr</artifactId>
-		  <version>1.0.0-alpha-4</version>
-		</dependency>
+		<!-- Null analysis -->
 		<dependency>
 		  	<groupId>com.google.code.findbugs</groupId>
 	  		<artifactId>annotations</artifactId>
 	  		<version>3.0.1u2</version>
 		</dependency>
 		<dependency>
-		  <groupId>org.lwjglx</groupId>
-		  <artifactId>lwjgl3-awt</artifactId>
-		  <version>0.1.8</version>
+		  <groupId>org.lastnpe.eea</groupId>
+		  <artifactId>eea-all</artifactId>
+		  <version>2.4.0</version>
 		</dependency>
+		
+		<!-- Collections -->
+		<dependency>
+		  <groupId>com.glazedlists</groupId>
+		  <artifactId>glazedlists</artifactId>
+		  <version>1.11.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jgrapht</groupId>
+			<artifactId>jgrapht-core</artifactId>
+			<version>1.5.1</version>
+	    </dependency>
+		<dependency>
+		  <groupId>it.unimi.dsi</groupId>
+		  <artifactId>fastutil</artifactId>
+		  <version>8.5.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.davidmoten</groupId>
+			<artifactId>rtree</artifactId>
+		 	<version>0.9</version>
+		</dependency>	   
+		
+		<!-- UI libraries -->
 		<dependency>
 		    <groupId>io.github.krlvm</groupId>
 		    <artifactId>swingdpi</artifactId>
 		    <version>1.1.10</version>
 		</dependency>
 		<dependency>
+			<groupId>com.miglayout</groupId>
+			<artifactId>miglayout-swing</artifactId>
+			<version>11.0</version>
+		</dependency>
+		<dependency>
+	   		<groupId>io.github.parubok</groupId>
+	   		<artifactId>multiline-label</artifactId>
+	   		<version>1.18</version>
+		</dependency>
+		
+		<!-- Audio -->
+		<dependency>
 		    <groupId>com.github.trilarion</groupId>
 		    <artifactId>java-vorbis-support</artifactId>
 		    <version>1.2.1</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.reflections</groupId>
-		    <artifactId>reflections</artifactId>
-		    <version>0.10.2</version>
 		</dependency>
 		<dependency>
 	          <groupId>fr.delthas</groupId>
 	          <artifactId>javamp3</artifactId>
 	          <version>1.0.1</version>
 	   	</dependency>
+		<dependency>
+			<groupId>fr.delthas</groupId>
+			<artifactId>javamp3</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javazoom</groupId>
+			<artifactId>jlayer</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.googlecode.soundlibs</groupId>
+		    <artifactId>tritonus-share</artifactId>
+		    <version>0.3.7.4</version>
+		</dependency>
+	   	
+	   	<!-- General purpose -->
 		<dependency>
 		  <groupId>com.rainerhahnekamp</groupId>
 		  <artifactId>sneakythrow</artifactId>
@@ -286,6 +302,18 @@
 	 		<artifactId>guava</artifactId>
 	 		<version>31.1-jre</version>
 		</dependency>
+		<dependency>
+	      <groupId>org.ainslec</groupId>
+	      <artifactId>picocog</artifactId>
+	      <version>1.0.7</version>
+	   </dependency>
+		<dependency>
+		  <groupId>io.vavr</groupId>
+		  <artifactId>vavr</artifactId>
+		  <version>1.0.0-alpha-4</version>
+		</dependency>
+		
+		<!-- JSON -->
 		<dependency>
 	 		<groupId>com.fasterxml.jackson.core</groupId>
 	 		<artifactId>jackson-databind</artifactId>
@@ -301,6 +329,8 @@
 		  	<artifactId>jackson-annotations</artifactId>
 		  	<version>2.13.4</version>
 		</dependency>
+		
+		<!-- Apache Commons -->
 		<dependency>
 	 		<groupId>org.apache.commons</groupId>
 	 		<artifactId>commons-lang3</artifactId>
@@ -317,15 +347,11 @@
 	  		<version>2.7</version>
 		</dependency>
 		<dependency>
-	 			<groupId>org.apache.commons</groupId>
-	 			<artifactId>commons-csv</artifactId>
-	 			<version>1.9.0</version>
+	 		<groupId>org.apache.commons</groupId>
+	 		<artifactId>commons-csv</artifactId>
+	 		<version>1.9.0</version>
 		</dependency>
-		<dependency>
-			<groupId>com.github.davidmoten</groupId>
-			<artifactId>rtree</artifactId>
-		 	<version>0.9</version>
-		</dependency>
+		<!-- LWJGL -->
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-bom</artifactId>
@@ -338,27 +364,7 @@
 	        <artifactId>easy-events</artifactId>
 	        <version>v1.1.0</version>
 	    </dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-assimp</artifactId>
-			<version>3.2.3</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/javazoom/jlayer -->
-		<dependency>
-			<groupId>javazoom</groupId>
-			<artifactId>jlayer</artifactId>
-			<version>1.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.joml</groupId>
-			<artifactId>joml</artifactId>
-			<version>1.9.25</version>
-		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/org.eluder.juniter/juniter -->
 		<dependency>
 			<groupId>org.eluder.juniter</groupId>
@@ -377,12 +383,12 @@
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl</artifactId>
-			<version>3.2.3</version>
+			<version>3.3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-glfw</artifactId>
-			<version>3.2.3</version>
+			<version>3.3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
@@ -427,37 +433,21 @@
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-shaderc</artifactId>
 			<classifier>${lwjgl.natives}</classifier>
-			<version>3.2.3</version>
+			<version>3.3.1</version>
 		</dependency>
 			<dependency>
 			<groupId>org.joml</groupId>
 			<artifactId>joml</artifactId>
 			<version>${joml.version}</version>
 		</dependency>
+		<!-- JOML -->
+		<dependency>
+			<groupId>org.joml</groupId>
+			<artifactId>joml</artifactId>
+			<version>1.10.5</version>
+		</dependency>
 		
-		
-		<!-- https://mvnrepository.com/artifact/javax.vecmath/vecmath -->
-		<dependency>
-			<groupId>javax.vecmath</groupId>
-			<artifactId>vecmath</artifactId>
-			<version>1.5.2</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-vfs2 -->
-	
-		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
-		<!-- https://mvnrepository.com/artifact/com.miglayout/miglayout-swing -->
-		<dependency>
-			<groupId>com.miglayout</groupId>
-			<artifactId>miglayout-swing</artifactId>
-			<version>11.0</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/fr.delthas/javamp3 -->
-		<dependency>
-			<groupId>fr.delthas</groupId>
-			<artifactId>javamp3</artifactId>
-			<version>1.0.1</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.github.micwan88/helperclass4j -->
+		<!-- Others -->
 		<dependency>
 			<groupId>io.github.micwan88</groupId>
 			<artifactId>helperclass4j</artifactId>
@@ -474,11 +464,6 @@
 			<artifactId>junit-jupiter</artifactId>
 			<version>RELEASE</version>
 			<scope>compile</scope>
-		</dependency>
-		<dependency>
-	   		<groupId>io.github.parubok</groupId>
-	   		<artifactId>multiline-label</artifactId>
-	   		<version>1.18</version>
 		</dependency>
 	</dependencies>
 </project>

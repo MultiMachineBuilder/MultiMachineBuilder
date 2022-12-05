@@ -6,9 +6,9 @@ package mmbmods.stn.block;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.world.blocks.SkeletalBlockEntityRotary;
-import mmb.world.inventory.Inventory;
-import mmb.world.worlds.world.World;
+import mmbeng.block.BlockEntityRotary;
+import mmbeng.inv.Inventory;
+import mmbeng.worlds.world.World;
 import mmbmods.stn.STN;
 import mmbmods.stn.network.DataLayerSTN;
 import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag;
@@ -17,7 +17,7 @@ import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag;
  * Base class for all STN machines
  * @author oskar
  */
-public abstract class STNBaseMachine extends SkeletalBlockEntityRotary {
+public abstract class STNBaseMachine extends BlockEntityRotary {
 	@Nullable private DataLayerSTN network;
 	/**
 	 * @return the network used by a block

@@ -15,11 +15,11 @@ import javax.swing.border.Border;
 
 import com.pploder.events.Event;
 
-import mmb.CatchingEvent;
 import mmb.data.variables.ListenableValue;
-import mmb.debug.Debugger;
 import mmb.menu.components.ItemSelectionSlot;
-import mmb.world.item.ItemEntry;
+import mmbeng.CatchingEvent;
+import mmbeng.debug.Debugger;
+import mmbeng.item.ItemEntry;
 import monniasza.collects.Collects;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;

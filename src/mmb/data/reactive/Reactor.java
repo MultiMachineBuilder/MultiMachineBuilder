@@ -10,7 +10,7 @@ import java.util.function.Function;
 
 import javax.annotation.Nonnull;
 
-import mmb.world.modulars.gui.SafeCloseable;
+import mmbgame.modular.gui.SafeCloseable;
 
 /**
  * A reactor is a function-based listenable property

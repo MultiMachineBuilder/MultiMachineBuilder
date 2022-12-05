@@ -11,12 +11,13 @@ import javax.swing.JCheckBoxMenuItem;
 
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
 import mmb.data.variables.ListenerBooleanVariable;
+import mmbgame.modular.gui.SafeCloseable;
 
 /**
  * @author oskar
  *
  */
-public class BoundCheckBoxMenuItem extends JCheckBoxMenuItem {
+public class BoundCheckBoxMenuItem extends JCheckBoxMenuItem implements SafeCloseable {
 	private static final long serialVersionUID = 6007934685540436786L;
 	private boolean valueChangeUnderway = false;
 	@Override
@@ -71,6 +72,10 @@ public class BoundCheckBoxMenuItem extends JCheckBoxMenuItem {
 	public BoundCheckBoxMenuItem(String text) {
 		super(text);
 		initialize();
+	}
+	@Override
+	public void close() {
+		setVariable(null);
 	}
 	
 }

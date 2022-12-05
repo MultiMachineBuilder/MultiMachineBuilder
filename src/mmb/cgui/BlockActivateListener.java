@@ -6,7 +6,7 @@ package mmb.cgui;
 import javax.annotation.Nullable;
 
 import mmb.menu.world.window.WorldWindow;
-import mmb.world.worlds.world.World;
+import mmbeng.worlds.world.World;
 
 /**
  * This interface provides ability for blocks to perform an action or open a GUI when clicked

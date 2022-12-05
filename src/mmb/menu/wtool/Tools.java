@@ -8,8 +8,13 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
-import mmb.debug.Debugger;
 import mmb.menu.world.window.WorldWindow;
+import mmbeng.debug.Debugger;
+import mmbeng.visuals.ToolVisuals;
+import mmbgame.aim.ToolAim;
+import mmbgame.drugs.ToolAlcohol;
+import mmbgame.imachine.ConfigureDroppedItemExtractors;
+import mmbgame.pickaxe.ToolPickaxe;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
 

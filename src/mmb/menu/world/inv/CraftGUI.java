@@ -9,21 +9,22 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
 
-import mmb.debug.Debugger;
 import mmb.menu.Icons;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
-import mmb.world.blocks.machine.manual.Crafting;
-import mmb.world.crafting.RecipeOutput;
-import mmb.world.crafting.SimpleItemList;
-import mmb.world.inventory.Inventory;
-import mmb.world.inventory.ItemRecord;
-import mmb.world.inventory.ItemStack;
-import mmb.world.item.ItemEntry;
-import mmb.world.item.ItemRaw;
-import mmb.world.items.data.Stencil;
-import mmb.world.recipes.CraftingGroups;
-import mmb.world.recipes.CraftingRecipeGroup.CraftingRecipe;
+import mmbeng.craft.Craftings;
+import mmbeng.craft.RecipeOutput;
+import mmbeng.craft.SimpleItemList;
+import mmbeng.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
+import mmbeng.debug.Debugger;
+import mmbeng.inv.Inventory;
+import mmbeng.inv.ItemRecord;
+import mmbeng.inv.ItemStack;
+import mmbeng.item.ItemEntry;
+import mmbeng.item.ItemRaw;
+import mmbgame.CraftingGroups;
+import mmbgame.ditems.Stencil;
+import mmbgame.machinemics.manual.Crafting;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 
@@ -33,7 +34,7 @@ import javax.annotation.Nullable;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 
-import static mmb.GlobalSettings.$res;
+import static mmbeng.GlobalSettings.$res;
 
 import java.awt.Color;
 import java.util.concurrent.atomic.AtomicReference;
@@ -135,7 +136,7 @@ public class CraftGUI extends GUITab {
 				Stencil newStencil = new Stencil(craftingGrid.items);
 				Inventory inv0 = inventoryController.getInv();
 				if(inv0 == null) return;
-				CraftingGroups.transact(item, new ItemStack(newStencil, 1), inv0, inv0);
+				Craftings.transact(item, inv0, new ItemStack(newStencil, 1), inv0, 1);
 			}//else it is not a stencil
 		});
 		buttonbar.add(btnSave);
@@ -180,7 +181,7 @@ public class CraftGUI extends GUITab {
 			if(rout == null) return;
 			Inventory inv0 = inventoryController.getInv();
 			if(inv0 == null) return;
-			CraftingGroups.transact(new SimpleItemList(ins), rout, inv0, inv0);
+			Craftings.transact(new SimpleItemList(ins),inv0, rout, inv0, 1);
 			inventoryController.refresh();
 		});
 		buttonbar.add(btnCraft);

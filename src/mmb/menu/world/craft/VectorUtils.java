@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 
 import javax.annotation.Nonnull;
 
-import mmb.world.crafting.RecipeOutput;
-import mmb.world.inventory.ItemStack;
+import mmbeng.craft.RecipeOutput;
+import mmbeng.inv.ItemStack;
 
 /**
  * @author oskar

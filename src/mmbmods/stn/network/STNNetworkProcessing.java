@@ -16,18 +16,19 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.pploder.events.Event;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import mmb.CatchingEvent;
 import mmb.beans.Saver;
-import mmb.data.json.JsonTool;
-import mmb.debug.Debugger;
-import mmb.world.blocks.ContentsBlocks;
-import mmb.world.crafting.ItemLists;
-import mmb.world.crafting.RecipeOutput;
-import mmb.world.inventory.basic.SetInventory;
-import mmb.world.item.ItemEntry;
-import mmb.world.items.data.Stencil;
-import mmb.world.recipes.AgroRecipeGroup.AgroProcessingRecipe;
-import mmb.world.recipes.CraftingRecipeGroup.CraftingRecipe;
+import mmbeng.CatchingEvent;
+import mmbeng.block.Blocks;
+import mmbeng.craft.ItemLists;
+import mmbeng.craft.RecipeOutput;
+import mmbeng.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
+import mmbeng.debug.Debugger;
+import mmbeng.inv.storage.SetInventory;
+import mmbeng.item.ItemEntry;
+import mmbeng.json.JsonTool;
+import mmbgame.ContentsBlocks;
+import mmbgame.agro.AgroRecipeGroup.AgroProcessingRecipe;
+import mmbgame.ditems.Stencil;
 import mmbmods.stn.block.STNBaseMachine;
 import monniasza.collects.CollectionOps;
 import monniasza.collects.Collects;
@@ -56,7 +57,7 @@ public class STNNetworkProcessing implements Saver{
 	 */
 	public class STNRGroupTag implements Identifiable<String>, Saver{
 		/** The icon shown in lists */
-		@Nonnull public ItemEntry icon = ContentsBlocks.blockVoid;
+		@Nonnull public ItemEntry icon = Blocks.blockVoid;
 		/** The name of the crafting group */
 		@Nonnull public final String name;
 		/**
@@ -411,7 +412,7 @@ public class STNNetworkProcessing implements Saver{
 		return queue.getOrDefault(entry, 0) < 0 || inv.getOrDefault(entry, 0) > 0 || isEverProducible(entry);
 	}
 	
-	public boolean isAllObtainable(Set<mmb.world.item.ItemEntry> entries, Object2IntMap<ItemEntry> inv, Object2IntMap<ItemEntry> queue) {
+	public boolean isAllObtainable(Set<mmbeng.item.ItemEntry> entries, Object2IntMap<ItemEntry> inv, Object2IntMap<ItemEntry> queue) {
 		return CollectionOps.isAll(entries, item -> isEverObtainable(item, inv, queue));
 	}
 }

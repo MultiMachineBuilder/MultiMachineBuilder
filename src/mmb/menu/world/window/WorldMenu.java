@@ -6,10 +6,10 @@ package mmb.menu.world.window;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
-import mmb.debug.Debugger;
 import mmb.menu.wtool.ToolStandard;
-import mmb.world.block.BlockEntry;
-import mmb.world.worlds.world.World;
+import mmbeng.block.BlockEntry;
+import mmbeng.debug.Debugger;
+import mmbeng.worlds.world.World;
 
 /**
  * @author oskar

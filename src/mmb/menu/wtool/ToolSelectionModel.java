@@ -5,9 +5,9 @@ package mmb.menu.wtool;
 
 import javax.annotation.Nullable;
 
-import mmb.debug.Debugger;
 import mmb.menu.world.window.WorldWindow;
-import mmb.world.worlds.world.Player;
+import mmbeng.debug.Debugger;
+import mmbeng.worlds.world.Player;
 
 /**
  * @author oskar

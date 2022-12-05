@@ -8,19 +8,19 @@ import java.util.ResourceBundle;
 
 import javax.annotation.Nonnull;
 
-import mmb.GlobalSettings;
-import mmb.debug.Debugger;
-import mmb.world.block.BlockEntityType;
-import mmb.world.contentgen.Materials;
-import mmb.world.contentgen.MetalGroup;
-import mmb.world.electric.VoltageTier;
-import mmb.world.item.ItemEntityType;
-import mmb.world.item.ItemEntry;
-import mmb.world.item.ItemRaw;
-import mmb.world.item.Items;
-import mmb.world.recipes.CraftingGroups;
-import mmb.world.worlds.DataLayers;
-import mmb.world.worlds.world.World;
+import mmbeng.GlobalSettings;
+import mmbeng.block.BlockEntityType;
+import mmbeng.debug.Debugger;
+import mmbeng.item.ItemEntityType;
+import mmbeng.item.ItemEntry;
+import mmbeng.item.ItemRaw;
+import mmbeng.item.Items;
+import mmbeng.worlds.DataLayers;
+import mmbeng.worlds.world.World;
+import mmbgame.CraftingGroups;
+import mmbgame.electric.VoltageTier;
+import mmbgame.rawmats.Materials;
+import mmbgame.rawmats.MetalGroup;
 import mmbmods.stn.block.STNImporter;
 import mmbmods.stn.block.STNExporter;
 import mmbmods.stn.block.STNStorageAttachment;
@@ -55,7 +55,6 @@ public class STN {
 			.describe("#STN-cabler0")
 			.factory(CablingTool::new)
 			.finish("stn.cabler");
-	
 	
 	//Blocks
 	/** STN Storage Connector */

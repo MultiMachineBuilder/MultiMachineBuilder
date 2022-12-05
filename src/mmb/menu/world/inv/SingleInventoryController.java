@@ -3,7 +3,7 @@
  */
 package mmb.menu.world.inv;
 
-import static mmb.GlobalSettings.$res;
+import static mmbeng.GlobalSettings.$res;
 
 import java.awt.Color;
 import java.util.Collections;
@@ -12,10 +12,10 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import mmb.world.inventory.Inventory;
-import mmb.world.inventory.ItemRecord;
-import mmb.world.inventory.storage.SingleItemInventory;
-import mmb.world.item.ItemEntry;
+import mmbeng.inv.Inventory;
+import mmbeng.inv.ItemRecord;
+import mmbeng.inv.storage.SingleItemInventory;
+import mmbeng.item.ItemEntry;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;

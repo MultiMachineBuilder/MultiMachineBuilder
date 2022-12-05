@@ -6,10 +6,10 @@ package mmb.menu.world.craft;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 
-import mmb.UnitFormatter;
-import mmb.world.inventory.ItemStack;
-import mmb.world.item.ItemEntry;
-import mmb.world.recipes.CatalyzedSingleRecipeGroup.CatalyzedSimpleRecipe;
+import mmbeng.UnitFormatter;
+import mmbeng.craft.rgroups.CatalyzedSingleRecipeGroup.CatalyzedSimpleRecipe;
+import mmbeng.inv.ItemStack;
+import mmbeng.item.ItemEntry;
 
 import javax.swing.JList;
 import java.awt.Color;

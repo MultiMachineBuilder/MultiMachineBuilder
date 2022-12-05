@@ -3,6 +3,8 @@
  */
 package mmb.menu.world.inv;
 
+import static mmbeng.GlobalSettings.*;
+
 import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -12,10 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 
-import mmb.world.inventory.Inventories;
-import mmb.world.inventory.ItemRecord;
-
-import static mmb.GlobalSettings.*;
+import mmbeng.inv.Inventories;
+import mmbeng.inv.ItemRecord;
 
 /**
  * @author oskar

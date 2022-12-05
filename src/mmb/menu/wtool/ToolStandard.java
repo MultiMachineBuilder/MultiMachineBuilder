@@ -3,7 +3,7 @@
  */
 package mmb.menu.wtool;
 
-import static mmb.GlobalSettings.$res;
+import static mmbeng.GlobalSettings.$res;
 
 import java.awt.Graphics;
 import java.awt.Point;
@@ -15,14 +15,14 @@ import javax.swing.ImageIcon;
 import org.joml.Vector2d;
 
 import mmb.cgui.BlockActivateListener;
-import mmb.debug.Debugger;
-import mmb.menu.world.Placer;
 import mmb.menu.world.window.WorldWindow;
-import mmb.texture.Textures;
-import mmb.world.block.BlockEntry;
-import mmb.world.inventory.ItemRecord;
-import mmb.world.item.ItemEntry;
-import mmb.world.worlds.world.World;
+import mmbeng.block.BlockEntry;
+import mmbeng.block.Placer;
+import mmbeng.debug.Debugger;
+import mmbeng.inv.ItemRecord;
+import mmbeng.item.ItemEntry;
+import mmbeng.texture.Textures;
+import mmbeng.worlds.world.World;
 
 /**
  * @author oskar

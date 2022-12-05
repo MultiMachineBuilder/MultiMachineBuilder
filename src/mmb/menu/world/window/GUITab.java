@@ -5,7 +5,7 @@ package mmb.menu.world.window;
 
 import javax.swing.JPanel;
 
-import mmb.world.modulars.gui.SafeCloseable;
+import mmbgame.modular.gui.SafeCloseable;
 
 /**
  * @author oskar

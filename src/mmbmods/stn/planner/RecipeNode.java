@@ -8,7 +8,7 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.world.crafting.RecipeOutput;
+import mmbeng.craft.RecipeOutput;
 
 /**
  * The recipe node.

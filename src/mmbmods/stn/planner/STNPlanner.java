@@ -18,9 +18,9 @@ import com.google.common.collect.Iterators;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import mmb.world.crafting.RecipeOutput;
-import mmb.world.item.ItemEntry;
-import mmb.world.items.data.Stencil;
+import mmbeng.craft.RecipeOutput;
+import mmbeng.item.ItemEntry;
+import mmbgame.ditems.Stencil;
 import mmbmods.stn.network.DataLayerSTN;
 import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag.STNPRecipe;
 
@@ -119,13 +119,13 @@ public class STNPlanner {
 		//Results
 		Object2IntOpenHashMap<@Nonnull STNPRecipe> processRecipes = new Object2IntOpenHashMap<>();
 		Object2IntOpenHashMap<@Nonnull Stencil> craftRecipes = new Object2IntOpenHashMap<>();
-		Object2IntOpenHashMap<mmb.world.item.ItemEntry> procurements = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<ItemEntry> procurements = new Object2IntOpenHashMap<>();
 		
 		//The planning queue (negative values mean that there are excess items
 		Queue<ItemEntry> queue = new ArrayDeque<>();
-		Object2IntOpenHashMap<mmb.world.item.ItemEntry> planMap = new Object2IntOpenHashMap<>();
-		Object2IntOpenHashMap<mmb.world.item.ItemEntry> invRemain = new Object2IntOpenHashMap<>();
-		Object2IntOpenHashMap<mmb.world.item.ItemEntry> missing = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<ItemEntry> planMap = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<ItemEntry> invRemain = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<ItemEntry> missing = new Object2IntOpenHashMap<>();
 		
 		//Populate the planning queue
 		planMap.putAll(items.getContents());
@@ -181,19 +181,19 @@ public class STNPlanner {
 			missing.addTo(entry, plannedAmount);
 		}
 		
-		Object2IntOpenHashMap<mmb.world.item.ItemEntry> putback = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<ItemEntry> putback = new Object2IntOpenHashMap<>();
 		//Check for stray items
-		for(Entry<mmb.world.item.ItemEntry> stack: planMap.object2IntEntrySet()) {
+		for(Entry<ItemEntry> stack: planMap.object2IntEntrySet()) {
 			int amount = -stack.getIntValue();
 			if(amount < 0) throw new IllegalStateException("Unnacounted-for items in the plans: "+(-amount)+" x "+stack.getKey());
 			putback.put(stack.getKey(), amount);
 		}
 		
 		//Calculate extractions
-		Object2IntOpenHashMap<mmb.world.item.ItemEntry> itemsInInv = new Object2IntOpenHashMap<>();
-		Object2IntOpenHashMap<mmb.world.item.ItemEntry> itemsToWithdraw = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<ItemEntry> itemsInInv = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<ItemEntry> itemsToWithdraw = new Object2IntOpenHashMap<>();
 		stn.inv.contents(itemsInInv);
-		for(Entry<mmb.world.item.ItemEntry> itemCompare: itemsInInv.object2IntEntrySet()) {
+		for(Entry<ItemEntry> itemCompare: itemsInInv.object2IntEntrySet()) {
 			ItemEntry item = itemCompare.getKey();
 			int remaining = invRemain.getInt(item);
 			int stored = itemCompare.getIntValue();
@@ -232,14 +232,14 @@ public class STNPlanner {
 		
 		//Add the inputs to the plans and queue
 		Object2IntOpenHashMap<ItemEntry> totalInputs = inputs.mul2map(recipeQuantity, Object2IntOpenHashMap::new);
-		for(Entry<mmb.world.item.ItemEntry> input: totalInputs.object2IntEntrySet()) {
+		for(Entry<mmbeng.item.ItemEntry> input: totalInputs.object2IntEntrySet()) {
 			planMap.addTo(input.getKey(), Math.multiplyExact(input.getIntValue(), recipeQuantity));
 			queue.add(input.getKey());
 		}
 		
 		//Add the outputs to the plans
-		Object2IntOpenHashMap<mmb.world.item.ItemEntry> totalOutputs = outputs.mul2map(recipeQuantity, Object2IntOpenHashMap::new);
-		for(Entry<mmb.world.item.ItemEntry> output: totalOutputs.object2IntEntrySet()) 
+		Object2IntOpenHashMap<mmbeng.item.ItemEntry> totalOutputs = outputs.mul2map(recipeQuantity, Object2IntOpenHashMap::new);
+		for(Entry<mmbeng.item.ItemEntry> output: totalOutputs.object2IntEntrySet()) 
 			planMap.addTo(output.getKey(), Math.multiplyExact(-output.getIntValue(), recipeQuantity));
 		
 		return totalInputs.keySet();

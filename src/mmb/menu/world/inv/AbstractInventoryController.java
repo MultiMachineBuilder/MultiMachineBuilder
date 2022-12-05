@@ -5,8 +5,8 @@ package mmb.menu.world.inv;
 
 import java.util.List;
 
-import mmb.world.inventory.Inventory;
-import mmb.world.inventory.ItemRecord;
+import mmbeng.inv.Inventory;
+import mmbeng.inv.ItemRecord;
 
 /**
  * @author oskar

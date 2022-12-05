@@ -3,7 +3,7 @@
  */
 package mmb.menu.world.window;
 
-import static mmb.GlobalSettings.$res;
+import static mmbeng.GlobalSettings.$res;
 
 import java.awt.Adjustable;
 import java.awt.BorderLayout;
@@ -12,27 +12,26 @@ import java.awt.Component;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import mmb.CatchingEvent;
-import mmb.data.json.JsonTool;
 import mmb.data.variables.ListenableValue;
-import mmb.debug.Debugger;
-import mmb.files.Save;
-import mmb.menu.FullScreen;
-import mmb.menu.MMBFrame;
 import mmb.menu.components.BoundCheckBoxMenuItem;
 import mmb.menu.main.MainMenu;
-import mmb.menu.world.WorldToolList;
 import mmb.menu.world.inv.InventoryController;
 import mmb.menu.wtool.ToolSelectionModel;
 import mmb.menu.wtool.ToolStandard;
 import mmb.menu.wtool.WindowTool;
-import mmb.world.crafting.Recipe;
-import mmb.world.inventory.ItemRecord;
-import mmb.world.item.ItemEntry;
-import mmb.world.item.Items;
-import mmb.world.worlds.universe.Universe;
-import mmb.world.worlds.world.Player;
-import mmb.world.worlds.world.World;
+import mmbeng.CatchingEvent;
+import mmbeng.craft.Recipe;
+import mmbeng.debug.Debugger;
+import mmbeng.files.Save;
+import mmbeng.inv.ItemRecord;
+import mmbeng.item.ItemEntry;
+import mmbeng.item.Items;
+import mmbeng.json.JsonTool;
+import mmbeng.window.FullScreen;
+import mmbeng.window.MMBFrame;
+import mmbeng.worlds.universe.Universe;
+import mmbeng.worlds.world.Player;
+import mmbeng.worlds.world.World;
 
 import javax.swing.JMenuBar;
 import javax.swing.JScrollBar;

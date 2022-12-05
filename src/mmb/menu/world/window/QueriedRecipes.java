@@ -10,9 +10,9 @@ import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListModel;
 
-import mmb.menu.world.CellRendererGettingCellRenderer;
+import mmb.menu.components.CellRendererGettingCellRenderer;
 import mmb.menu.world.window.TabInventory.RecipeQuery;
-import mmb.world.crafting.Recipe;
+import mmbeng.craft.Recipe;
 import monniasza.collects.Collects;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;

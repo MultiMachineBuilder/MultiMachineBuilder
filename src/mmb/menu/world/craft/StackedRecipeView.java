@@ -10,11 +10,11 @@ import javax.annotation.Nonnull;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 
-import mmb.UnitFormatter;
-import mmb.world.crafting.RecipeOutput;
-import mmb.world.inventory.ItemStack;
-import mmb.world.item.ItemEntry;
-import mmb.world.recipes.StackedRecipeGroup.StackedRecipe;
+import mmbeng.UnitFormatter;
+import mmbeng.craft.RecipeOutput;
+import mmbeng.craft.rgroups.StackedRecipeGroup.StackedRecipe;
+import mmbeng.inv.ItemStack;
+import mmbeng.item.ItemEntry;
 
 import javax.swing.JList;
 

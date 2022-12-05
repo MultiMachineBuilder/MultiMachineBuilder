@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.texture.Textures;
+import mmbeng.texture.Textures;
 
 /**
  * @author oskar

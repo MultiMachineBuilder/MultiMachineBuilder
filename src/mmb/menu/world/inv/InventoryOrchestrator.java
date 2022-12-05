@@ -10,9 +10,9 @@ import java.awt.Color;
 
 import com.pploder.events.Event;
 
-import mmb.CatchingEvent;
-import mmb.debug.Debugger;
-import mmb.world.inventory.ItemRecord;
+import mmbeng.CatchingEvent;
+import mmbeng.debug.Debugger;
+import mmbeng.inv.ItemRecord;
 
 import javax.swing.JSpinner;
 import javax.swing.JCheckBox;

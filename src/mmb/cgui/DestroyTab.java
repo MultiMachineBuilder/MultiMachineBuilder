@@ -3,8 +3,8 @@
  */
 package mmb.cgui;
 
-import mmb.menu.world.machine.FilterGUI;
 import mmb.menu.world.window.GUITab;
+import mmbgame.imachine.filter.FilterGUI;
 
 /**
  * @author oskar

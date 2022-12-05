@@ -10,9 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
-import mmb.world.inventory.ItemStack;
+import mmbeng.inv.ItemStack;
 
-class ItemStackCellRenderer extends JLabel implements ListCellRenderer<ItemStack>{
+public class ItemStackCellRenderer extends JLabel implements ListCellRenderer<ItemStack>{
 	public static final ItemStackCellRenderer instance = new ItemStackCellRenderer();
 	private static final long serialVersionUID = -3535344904857285958L;
 	private static final Dimension PRESENT = new Dimension(275, 32);

@@ -7,8 +7,7 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
-import mmb.world.crafting.RecipeOutput;
-import mmbmods.stn.planner.RecipeNode.NodeSpec;
+import mmbeng.craft.RecipeOutput;
 
 /**
  * @author oskar
@@ -32,18 +31,6 @@ public class Procurement {
 		if(quantity <= 0) throw new IllegalArgumentException("Non-positive quantity");
 		this.node = node;
 		this.quantity = quantity;
-	}
-	
-	/**
-	 * Procurement node builder
-	 * @author oskar
-	 *
-	 */
-	public static class Builder{
-		/** The node spec for this node*/
-		@Nonnull public Source node;
-		/** Quantity of items */
-		public int quantity;
 	}
 
 	public static interface Source{

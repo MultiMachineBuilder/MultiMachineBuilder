@@ -6,9 +6,9 @@ package mmb.menu.world.craft;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 
-import mmb.UnitFormatter;
-import mmb.world.inventory.ItemStack;
-import mmb.world.recipes.ComplexRecipeGroup.ComplexRecipe;
+import mmbeng.UnitFormatter;
+import mmbeng.craft.rgroups.ComplexRecipeGroup.ComplexRecipe;
+import mmbeng.inv.ItemStack;
 
 import javax.swing.JList;
 

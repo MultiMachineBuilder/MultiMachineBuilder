@@ -3,6 +3,8 @@
  */
 package mmb.menu.main;
 
+import static mmbeng.GlobalSettings.*;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Desktop;
@@ -17,21 +19,20 @@ import org.apache.commons.io.IOUtils;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.Main;
-import mmb.data.json.JsonTool;
-import mmb.debug.Debugger;
-import mmb.files.AdvancedFile;
-import mmb.files.LocalFile;
-import mmb.files.Save;
-import mmb.menu.FullScreen;
-import mmb.menu.create.NewGame;
 import mmb.menu.world.window.WorldWindow;
-import mmb.world.worlds.universe.Universe;
+import mmbeng.debug.Debugger;
+import mmbeng.files.AdvancedFile;
+import mmbeng.files.LocalFile;
+import mmbeng.files.Save;
+import mmbeng.generator.NewGame;
+import mmbeng.json.JsonTool;
+import mmbeng.window.FullScreen;
+import mmbeng.worlds.universe.Universe;
 import net.miginfocom.swing.MigLayout;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import static mmb.GlobalSettings.*;
 
 /**
  * @author oskar
