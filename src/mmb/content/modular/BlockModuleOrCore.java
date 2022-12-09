@@ -1,12 +1,12 @@
 /**
  * 
  */
-package mmbgame.modular;
+package mmb.content.modular;
 
 import javax.annotation.Nullable;
 
-import mmbgame.modular.gui.ModuleConfigHandler;
-import mmbgame.modular.part.PartEntry;
+import mmb.content.modular.gui.ModuleConfigHandler;
+import mmb.content.modular.part.PartEntry;
 
 /**
  * Common representation of block modules and cores

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.window;
+package mmbbase.menu.world.window;
 
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
@@ -10,32 +10,12 @@ import javax.swing.Timer;
 
 import com.pploder.events.Event;
 
-import mmb.menu.components.BoundCheckBox;
-import mmb.menu.world.CreativeItemList;
-import mmb.menu.world.inv.CraftGUI;
-import mmb.menu.world.inv.InventoryController;
-import mmbeng.CatchingEvent;
-import mmbeng.block.Block;
-import mmbeng.block.BlockEntityType;
-import mmbeng.block.BlockType;
-import mmbeng.craft.GlobalRecipeRegistrar;
-import mmbeng.craft.Recipe;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemRecord;
-import mmbeng.item.Item;
-import mmbeng.item.ItemEntityType;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.ItemType;
-import mmbeng.item.Items;
-import mmbeng.worlds.world.Player;
-import mmbgame.electric.VoltageTier;
 import monniasza.collects.Collects;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import static mmbeng.GlobalSettings.*;
+import static mmb.engine.GlobalSettings.*;
 
 import java.awt.Color;
 
@@ -59,6 +39,26 @@ import javax.swing.DefaultListModel;
 import javax.swing.JCheckBox;
 import javax.swing.JList;
 import io.github.parubok.text.multiline.MultilineLabel;
+import mmb.content.electric.VoltageTier;
+import mmb.engine.CatchingEvent;
+import mmb.engine.block.Block;
+import mmb.engine.block.BlockEntityType;
+import mmb.engine.block.BlockType;
+import mmb.engine.craft.GlobalRecipeRegistrar;
+import mmb.engine.craft.Recipe;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.item.Item;
+import mmb.engine.item.ItemEntityType;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.ItemType;
+import mmb.engine.item.Items;
+import mmb.engine.worlds.world.Player;
+import mmbbase.menu.components.BoundCheckBox;
+import mmbbase.menu.world.CreativeItemList;
+import mmbbase.menu.world.inv.CraftGUI;
+import mmbbase.menu.world.inv.InventoryController;
 
 /**
  * @author oskar

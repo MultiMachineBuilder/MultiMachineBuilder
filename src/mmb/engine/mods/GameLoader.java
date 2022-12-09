@@ -1,7 +1,7 @@
 /**
  *
  */
-package mmbeng.mods;
+package mmb.engine.mods;
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -12,27 +12,27 @@ import java.util.function.Consumer;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import mmb.menu.wtool.Tools;
-import mmbeng.MMBUtils;
-import mmbeng.block.Blocks;
-import mmbeng.debug.Debugger;
-import mmbeng.files.FileUtil;
-import mmbeng.generator.Generators;
-import mmbeng.sound.Sounds;
-import mmbeng.texture.Textures;
-import mmbeng.window.FullScreen;
-import mmbeng.worlds.DataLayers;
-import mmbgame.Chemistry;
-import mmbgame.ContentsBlocks;
-import mmbgame.ContentsItems;
-import mmbgame.electric.machines.Nuker;
-import mmbgame.electric.machines.BlockTransformer.TransformerData;
-import mmbgame.electronics.Electronics;
-import mmbgame.machinemics.manual.Crafting;
-import mmbgame.modular.chest.ModularChests;
-import mmbgame.rawmats.Materials;
-import mmbmods.stn.STN;
 import mmb.Main;
+import mmb.content.Chemistry;
+import mmb.content.ContentsBlocks;
+import mmb.content.ContentsItems;
+import mmb.content.electric.machines.Nuker;
+import mmb.content.electric.machines.BlockTransformer.TransformerData;
+import mmb.content.electronics.Electronics;
+import mmb.content.machinemics.manual.Crafting;
+import mmb.content.modular.chest.ModularChests;
+import mmb.content.rawmats.Materials;
+import mmb.engine.MMBUtils;
+import mmb.engine.block.Blocks;
+import mmb.engine.debug.Debugger;
+import mmb.engine.files.FileUtil;
+import mmb.engine.generator.Generators;
+import mmb.engine.sound.Sounds;
+import mmb.engine.texture.Textures;
+import mmb.engine.window.FullScreen;
+import mmb.engine.worlds.DataLayers;
+import mmbbase.menu.wtool.Tools;
+import mmbmods.stn.STN;
 
 /**
  * @author oskar

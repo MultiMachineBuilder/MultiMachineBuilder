@@ -1,11 +1,11 @@
 /**
  * 
  */
-package mmb.data.reactive;
+package mmbbase.data.reactive;
 
 import java.util.function.Consumer;
 
-import mmb.data.variables.Property;
+import mmbbase.data.variables.Property;
 
 /**
  * A variable or a property which can be listened

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.window;
+package mmbbase.menu.world.window;
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -10,9 +10,9 @@ import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListModel;
 
-import mmb.menu.components.CellRendererGettingCellRenderer;
-import mmb.menu.world.window.TabInventory.RecipeQuery;
-import mmbeng.craft.Recipe;
+import mmb.engine.craft.Recipe;
+import mmbbase.menu.components.CellRendererGettingCellRenderer;
+import mmbbase.menu.world.window.TabInventory.RecipeQuery;
 import monniasza.collects.Collects;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;

@@ -1,14 +1,14 @@
 /**
  * 
  */
-package mmbgame.drugs;
+package mmb.content.drugs;
 
 import javax.annotation.Nonnull;
 
-import mmb.menu.wtool.WindowTool;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.item.Item;
-import mmbgame.CraftingGroups;
+import mmb.content.CraftingGroups;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.item.Item;
+import mmbbase.menu.wtool.WindowTool;
 
 /**
  * @author oskar

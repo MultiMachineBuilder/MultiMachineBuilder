@@ -1,14 +1,14 @@
 /**
  * 
  */
-package mmbeng.craft.rgroups;
+package mmb.engine.craft.rgroups;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.chance.Chance;
-import mmbeng.craft.Recipe;
-import mmbeng.craft.RecipeOutput;
-import mmbgame.electric.VoltageTier;
+import mmb.content.electric.VoltageTier;
+import mmb.engine.chance.Chance;
+import mmb.engine.craft.Recipe;
+import mmb.engine.craft.RecipeOutput;
 
 /**
  * @author oskar

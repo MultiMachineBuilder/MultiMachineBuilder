@@ -1,11 +1,11 @@
 /**
  * 
  */
-package mmb.menu.components;
+package mmbbase.menu.components;
 
 import javax.swing.*;
 
-import mmb.menu.components.ImageTextList.ImageAndText;
+import mmbbase.menu.components.ImageTextList.ImageAndText;
 
 import java.awt.*;
 

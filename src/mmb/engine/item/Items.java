@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.item;
+package mmb.engine.item;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -15,8 +15,8 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.SetMultimap;
 
-import mmbeng.debug.Debugger;
-import mmbeng.mods.GameLoader;
+import mmb.engine.debug.Debugger;
+import mmb.engine.mods.GameLoader;
 import monniasza.collects.Collects;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;

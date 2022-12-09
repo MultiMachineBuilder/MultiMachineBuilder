@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmb.data.variables;
+package mmbbase.data.variables;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-import mmb.data.reactive.ListenableProperty;
+import mmbbase.data.reactive.ListenableProperty;
 
 /**
  * A variable which notifies listeners of its value changes

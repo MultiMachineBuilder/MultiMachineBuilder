@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.texture;
+package mmb.engine.texture;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -11,8 +11,8 @@ import java.util.Map.Entry;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmbeng.debug.Debugger;
-import mmbeng.texture.Textures.Texture;
+import mmb.engine.debug.Debugger;
+import mmb.engine.texture.Textures.Texture;
 
 /**
  * @author oskar

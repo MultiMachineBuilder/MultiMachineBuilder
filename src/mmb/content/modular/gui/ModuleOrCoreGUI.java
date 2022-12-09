@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.modular.gui;
+package mmb.content.modular.gui;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -13,19 +13,19 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import mmb.data.reactive.ListenableProperty;
-import mmb.data.reactive.Reactor;
-import mmbeng.GlobalSettings;
-import mmbeng.craft.Craftings;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.craft.SimpleItemList;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.Inventory;
-import mmbeng.item.ItemEntry;
-import mmbgame.modular.BlockModuleOrCore;
-import mmbgame.modular.Slot;
-import mmb.menu.components.Placeholder;
-import mmb.menu.world.inv.InventoryController;
+import mmb.content.modular.BlockModuleOrCore;
+import mmb.content.modular.Slot;
+import mmb.engine.GlobalSettings;
+import mmb.engine.craft.Craftings;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.SimpleItemList;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.Inventory;
+import mmb.engine.item.ItemEntry;
+import mmbbase.data.reactive.ListenableProperty;
+import mmbbase.data.reactive.Reactor;
+import mmbbase.menu.components.Placeholder;
+import mmbbase.menu.world.inv.InventoryController;
 
 /**
  * A GUI wrapper with buttons, upgrades

@@ -7,4 +7,4 @@
  * (intermediate between bitmap and SVG)
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbeng.gl;
+package mmb.engine.gl;

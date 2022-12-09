@@ -6,4 +6,4 @@
  *
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbgame.machinemics;
+package mmb.content.machinemics;

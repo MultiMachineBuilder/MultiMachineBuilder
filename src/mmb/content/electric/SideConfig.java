@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric;
+package mmb.content.electric;
 
 import java.util.Iterator;
 import java.util.function.Consumer;
@@ -12,18 +12,18 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.collect.Iterators;
 
-import mmb.beans.Saver;
-import mmb.data.variables.ListenerBooleanVariable;
-import mmbeng.MMBUtils;
-import mmbeng.json.JsonTool;
-import mmbeng.rotate.Side;
+import mmb.engine.MMBUtils;
+import mmb.engine.json.JsonTool;
+import mmb.engine.rotate.Side;
+import mmbbase.beans.Saver;
+import mmbbase.data.variables.ListenerBooleanVariable;
 
 /**
  * @author oskar
  *
  */
 public final class SideConfig implements
-Cloneable, Iterable<mmbgame.electric.SideConfig.SideBoolean>, Saver{
+Cloneable, Iterable<mmb.content.electric.SideConfig.SideBoolean>, Saver{
 	/**
 	 * Creates a side config with all values set to false
 	 */
@@ -168,7 +168,7 @@ Cloneable, Iterable<mmbgame.electric.SideConfig.SideBoolean>, Saver{
 	}
 
 	@Override
-	public Iterator<mmbgame.electric.SideConfig.SideBoolean> iterator() {
+	public Iterator<mmb.content.electric.SideConfig.SideBoolean> iterator() {
 		return Iterators.forArray(SideBoolean.of(U.getValue(), Side.U),
 				SideBoolean.of(D.getValue(), Side.D),
 				SideBoolean.of(L.getValue(), Side.L),

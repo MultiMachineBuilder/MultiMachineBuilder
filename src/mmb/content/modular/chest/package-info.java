@@ -6,4 +6,4 @@
  * @author oskar
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbgame.modular.chest;
+package mmb.content.modular.chest;

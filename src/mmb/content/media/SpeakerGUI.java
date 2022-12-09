@@ -1,15 +1,17 @@
 /**
  * 
  */
-package mmbgame.media;
+package mmb.content.media;
 
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.GlobalSettings;
-import mmbeng.debug.Debugger;
-import mmbeng.sound.Sounds;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
+
+import mmb.engine.GlobalSettings;
+import mmb.engine.debug.Debugger;
+import mmb.engine.sound.Sounds;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;

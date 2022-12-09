@@ -1,20 +1,20 @@
 /**
  * 
  */
-package mmbgame.electric.machines;
+package mmb.content.electric.machines;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.block.BlockEntityRotary;
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.MapProxy;
-import mmbgame.ContentsBlocks;
-import mmbgame.electric.Electricity;
-import mmbgame.electric.VoltageTier;
+import mmb.content.ContentsBlocks;
+import mmb.content.electric.Electricity;
+import mmb.content.electric.VoltageTier;
+import mmb.engine.block.BlockEntityRotary;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.MapProxy;
 
 /**
  * @author oskar

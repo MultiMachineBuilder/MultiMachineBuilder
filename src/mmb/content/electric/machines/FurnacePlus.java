@@ -1,11 +1,11 @@
 /**
  * 
  */
-package mmbgame.electric.machines;
+package mmb.content.electric.machines;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbgame.ContentsBlocks;
+import mmb.content.ContentsBlocks;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
 
 /**
  * @author oskar

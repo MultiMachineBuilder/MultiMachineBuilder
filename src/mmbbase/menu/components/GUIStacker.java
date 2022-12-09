@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.components;
+package mmbbase.menu.components;
 
 import java.awt.Component;
 import java.util.ArrayDeque;
@@ -14,8 +14,8 @@ import javax.swing.JPanel;
 
 import org.junit.jupiter.api.Test;
 
-import mmb.data.variables.BooleanVariable;
-import mmbeng.debug.Debugger;
+import mmb.engine.debug.Debugger;
+import mmbbase.data.variables.BooleanVariable;
 
 /**
  * @author oskar

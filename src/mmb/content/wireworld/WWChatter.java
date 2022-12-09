@@ -1,24 +1,24 @@
 /**
  * 
  */
-package mmbgame.wireworld;
+package mmb.content.wireworld;
 
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.cgui.BlockActivateListener;
-import mmb.menu.world.TextEditor;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.block.BlockEntityData;
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.debug.Debugger;
-import mmbeng.worlds.MapProxy;
-import mmbeng.worlds.world.World;
-import mmbeng.worlds.world.WorldUtils;
-import mmbgame.ContentsBlocks;
+import mmb.content.ContentsBlocks;
+import mmb.engine.block.BlockEntityData;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.debug.Debugger;
+import mmb.engine.worlds.MapProxy;
+import mmb.engine.worlds.world.World;
+import mmb.engine.worlds.world.WorldUtils;
+import mmbbase.cgui.BlockActivateListener;
+import mmbbase.menu.world.TextEditor;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

@@ -6,4 +6,4 @@
  *
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbgame.electric.machines;
+package mmb.content.electric.machines;

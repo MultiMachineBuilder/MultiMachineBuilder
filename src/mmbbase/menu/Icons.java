@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmb.menu;
+package mmbbase.menu;
 
 import javax.annotation.Nonnull;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmbeng.texture.Textures;
+import mmb.engine.texture.Textures;
 
 /**
  * @author oskar

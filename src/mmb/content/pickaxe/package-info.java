@@ -6,4 +6,4 @@
  *
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbgame.pickaxe;
+package mmb.content.pickaxe;

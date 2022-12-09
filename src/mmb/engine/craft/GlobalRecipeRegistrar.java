@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.craft;
+package mmb.engine.craft;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -13,8 +13,8 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.SetMultimap;
 
-import mmbeng.item.ItemEntry;
-import mmbgame.electric.VoltageTier;
+import mmb.content.electric.VoltageTier;
+import mmb.engine.item.ItemEntry;
 
 /**
  * @author oskar
@@ -78,7 +78,7 @@ public class GlobalRecipeRegistrar {
 	//Indexing
 	@Nonnull private static final SetMultimap<          ItemEntry, Recipe<?>> byInputs0    = HashMultimap.create();
 	@Nonnull private static final SetMultimap<          ItemEntry, Recipe<?>> byOutputs0   = HashMultimap.create();
-	@Nonnull private static final SetMultimap<mmbeng.item.ItemEntry, Recipe<?>> byCatalyst0  = HashMultimap.create();
+	@Nonnull private static final SetMultimap<mmb.engine.item.ItemEntry, Recipe<?>> byCatalyst0  = HashMultimap.create();
 	@Nonnull private static final SetMultimap<          ItemEntry, Recipe<?>> byChance0    = HashMultimap.create();
 	@Nonnull private static final SetMultimap<        VoltageTier, Recipe<?>> byVoltage0   = HashMultimap.create();
 	@Nonnull private static final SetMultimap<        VoltageTier, Recipe<?>> uptoVoltage0 = HashMultimap.create();
@@ -89,7 +89,7 @@ public class GlobalRecipeRegistrar {
 	/** Recipes grouped by output items */
 	@Nonnull public static final SetMultimap<          ItemEntry, Recipe<?>> byOutputs   = Multimaps.unmodifiableSetMultimap(byOutputs0);
 	/** Recipes grouped by the catalyst */
-	@Nonnull public static final SetMultimap<mmbeng.item.ItemEntry, Recipe<?>> byCatalyst  = Multimaps.unmodifiableSetMultimap(byCatalyst0);
+	@Nonnull public static final SetMultimap<mmb.engine.item.ItemEntry, Recipe<?>> byCatalyst  = Multimaps.unmodifiableSetMultimap(byCatalyst0);
 	/** Recipes grouped by randomized outputs */
 	@Nonnull public static final SetMultimap<          ItemEntry, Recipe<?>> byChance    = Multimaps.unmodifiableSetMultimap(byChance0);
 	/** Recipes grouped by voltage tiers, exact*/

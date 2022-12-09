@@ -1,16 +1,16 @@
 /**
  * 
  */
-package mmbeng.block;
+package mmb.engine.block;
 
 import java.awt.Graphics;
 import java.awt.Point;
 
 import javax.swing.Icon;
 
-import mmb.beans.Titled;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.worlds.world.World;
+import mmb.engine.worlds.world.World;
+import mmbbase.beans.Titled;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

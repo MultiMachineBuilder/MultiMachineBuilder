@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.pickaxe;
+package mmb.content.pickaxe;
 
 import java.awt.Graphics;
 import java.awt.Color;
@@ -12,10 +12,10 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.IntNode;
 
-import mmb.menu.wtool.WindowTool;
-import mmbeng.item.ItemEntity;
-import mmbeng.item.ItemEntityType;
-import mmbeng.item.ItemEntry;
+import mmb.engine.item.ItemEntity;
+import mmb.engine.item.ItemEntityType;
+import mmb.engine.item.ItemEntry;
+import mmbbase.menu.wtool.WindowTool;
 
 /**
  * @author oskar

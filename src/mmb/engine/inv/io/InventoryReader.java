@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.inv.io;
+package mmb.engine.inv.io;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -9,8 +9,8 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.craft.RecipeOutput;
-import mmbeng.item.ItemEntry;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.item.ItemEntry;
 
 /**
  * @author oskar

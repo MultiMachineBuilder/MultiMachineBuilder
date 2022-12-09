@@ -1,16 +1,16 @@
 /**
  * 
  */
-package mmbgame.electric.machines;
+package mmb.content.electric.machines;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockEntityRotary;
-import mmbeng.rotate.RotatedImageGroup;
-import mmbgame.electric.Electric;
-import mmbgame.electric.Electricity;
-import mmbgame.electric.ElectricMachineGroup.ElectroMachineType;
+import mmb.content.electric.Electric;
+import mmb.content.electric.Electricity;
+import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
+import mmb.engine.block.BlockEntityRotary;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.rotate.RotatedImageGroup;
 
 /**
  * This block receiver power from Power Towers

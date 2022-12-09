@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmbgame.electric.machines;
+package mmb.content.electric.machines;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -17,18 +17,18 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import mmb.menu.world.inv.InventoryController;
-import mmb.menu.world.inv.MoveItems;
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.Inventory;
-import mmbgame.electric.ElectricalBatteryVisualiser;
-import mmbgame.electric.SideConfig;
-import mmbgame.electric.SideConfigCtrl;
-import mmbgame.electric.machines.SkeletalBlockMachine.Update;
 import net.miginfocom.swing.MigLayout;
 import io.github.parubok.text.multiline.MultilineLabel;
+import mmb.content.electric.ElectricalBatteryVisualiser;
+import mmb.content.electric.SideConfig;
+import mmb.content.electric.SideConfigCtrl;
+import mmb.content.electric.machines.SkeletalBlockMachine.Update;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.Inventory;
+import mmbbase.menu.world.inv.InventoryController;
+import mmbbase.menu.world.inv.MoveItems;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
 
 class MachineGUI extends GUITab{
 	private static final long serialVersionUID = -4029353853474275301L;

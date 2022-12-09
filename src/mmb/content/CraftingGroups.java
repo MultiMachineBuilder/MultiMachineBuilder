@@ -1,24 +1,24 @@
 /**
  * 
  */
-package mmbgame;
+package mmb.content;
 
 import javax.annotation.Nonnull;
 
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
-import mmbeng.craft.Craftings;
-import mmbeng.craft.rgroups.CatalyzedSingleRecipeGroup;
-import mmbeng.craft.rgroups.ComplexCatalyzedRecipeGroup;
-import mmbeng.craft.rgroups.ComplexRecipeGroup;
-import mmbeng.craft.rgroups.CraftingRecipeGroup;
-import mmbeng.craft.rgroups.SingleRecipeGroup;
-import mmbeng.craft.rgroups.StackedRecipeGroup;
-import mmbeng.inv.Inventory;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.ItemRaw;
-import mmbgame.agro.AgroRecipeGroup;
-import mmbgame.drugs.AlcoholInfoGroup;
+import mmb.content.agro.AgroRecipeGroup;
+import mmb.content.drugs.AlcoholInfoGroup;
+import mmb.engine.craft.Craftings;
+import mmb.engine.craft.rgroups.CatalyzedSingleRecipeGroup;
+import mmb.engine.craft.rgroups.ComplexCatalyzedRecipeGroup;
+import mmb.engine.craft.rgroups.ComplexRecipeGroup;
+import mmb.engine.craft.rgroups.CraftingRecipeGroup;
+import mmb.engine.craft.rgroups.SingleRecipeGroup;
+import mmb.engine.craft.rgroups.StackedRecipeGroup;
+import mmb.engine.inv.Inventory;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.ItemRaw;
 
 /**
  * @author oskar

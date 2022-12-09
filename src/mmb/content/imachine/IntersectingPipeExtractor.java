@@ -1,19 +1,19 @@
 /**
  * 
  */
-package mmbgame.imachine;
+package mmb.content.imachine;
 
 import javax.annotation.Nonnull;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.inv.storage.SingleItemInventory;
-import mmbeng.item.ItemEntry;
-import mmbeng.rotate.ChirotatedImageGroup;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.MapProxy;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.inv.storage.SingleItemInventory;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.rotate.ChirotatedImageGroup;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.MapProxy;
 
 /**
  * @author oskar

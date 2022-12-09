@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.files;
+package mmb.engine.files;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import mmbeng.debug.Debugger;
+import mmb.engine.debug.Debugger;
 
 /**
  * @author oskar

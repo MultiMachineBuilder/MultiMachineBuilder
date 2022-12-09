@@ -1,11 +1,11 @@
 /**
  * 
  */
-package mmbgame.event;
+package mmb.content.event;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmbeng.worlds.universe.Universe;
+import mmb.engine.worlds.universe.Universe;
 
 /**
  * @author oskar

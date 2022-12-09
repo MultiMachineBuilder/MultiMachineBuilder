@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.inv;
+package mmbbase.menu.world.inv;
 
 import java.awt.Component;
 import java.awt.Graphics;
@@ -14,8 +14,8 @@ import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListModel;
 
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemRecord;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemRecord;
 import monniasza.collects.ReadOnlyListModel;
 
 /**

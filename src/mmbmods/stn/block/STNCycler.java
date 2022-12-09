@@ -9,22 +9,22 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.cgui.BlockActivateListener;
-import mmb.data.variables.DataValue;
-import mmb.data.variables.ListenableValue;
-import mmb.data.variables.ListenerBooleanVariable;
-import mmb.data.variables.Variable;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.block.BlockEntry;
-import mmbeng.inv.Inventories;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.io.InventoryReader;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.inv.storage.SingleItemInventory;
-import mmbeng.item.ItemEntry;
-import mmbeng.worlds.MapProxy;
-import mmbeng.worlds.world.World;
-import mmbgame.imachine.SpeedUpgrade;
+import mmb.content.imachine.SpeedUpgrade;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.inv.Inventories;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.inv.storage.SingleItemInventory;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.worlds.MapProxy;
+import mmb.engine.worlds.world.World;
+import mmbbase.cgui.BlockActivateListener;
+import mmbbase.data.variables.DataValue;
+import mmbbase.data.variables.ListenableValue;
+import mmbbase.data.variables.ListenerBooleanVariable;
+import mmbbase.data.variables.Variable;
+import mmbbase.menu.world.window.WorldWindow;
 import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag;
 
 /**

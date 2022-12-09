@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.texture;
+package mmb.engine.texture;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -17,9 +17,9 @@ import org.joml.Vector2fc;
 import org.joml.Vector2i;
 import org.joml.Vector4f;
 
-import mmbeng.NotFoundException;
-import mmbeng.debug.Debugger;
-import mmbeng.mods.ModLoader;
+import mmb.engine.NotFoundException;
+import mmb.engine.debug.Debugger;
+import mmb.engine.mods.ModLoader;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;

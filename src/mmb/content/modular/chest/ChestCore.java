@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.modular.chest;
+package mmb.content.modular.chest;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -12,15 +12,15 @@ import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.menu.world.inv.AbstractInventoryController;
-import mmbeng.chance.Chance;
-import mmbeng.craft.SimpleItemList;
-import mmbeng.craft.SingleItem;
-import mmbeng.inv.SaveInventory;
-import mmbeng.item.ItemEntry;
-import mmbeng.texture.Textures;
-import mmbgame.modular.BlockCore;
-import mmbgame.modular.part.PartEntity;
+import mmb.content.modular.BlockCore;
+import mmb.content.modular.part.PartEntity;
+import mmb.engine.chance.Chance;
+import mmb.engine.craft.SimpleItemList;
+import mmb.engine.craft.SingleItem;
+import mmb.engine.inv.SaveInventory;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.texture.Textures;
+import mmbbase.menu.world.inv.AbstractInventoryController;
 
 /**
  * A chest core

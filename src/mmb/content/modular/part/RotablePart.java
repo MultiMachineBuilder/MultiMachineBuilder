@@ -1,11 +1,11 @@
 /**
  * 
  */
-package mmbgame.modular.part;
+package mmb.content.modular.part;
 
 import java.awt.image.BufferedImage;
 
-import mmbeng.rotate.RotatedImageGroup;
+import mmb.engine.rotate.RotatedImageGroup;
 
 /**
  * @author oskar

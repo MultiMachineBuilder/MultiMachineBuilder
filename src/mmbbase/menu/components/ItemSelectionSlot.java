@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.components;
+package mmbbase.menu.components;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -12,10 +12,10 @@ import javax.swing.JComponent;
 
 import com.pploder.events.Event;
 
-import mmb.data.variables.ListenableValue;
-import mmbeng.CatchingEvent;
-import mmbeng.debug.Debugger;
-import mmbeng.item.ItemEntry;
+import mmb.engine.CatchingEvent;
+import mmb.engine.debug.Debugger;
+import mmb.engine.item.ItemEntry;
+import mmbbase.data.variables.ListenableValue;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

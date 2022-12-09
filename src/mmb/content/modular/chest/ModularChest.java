@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.modular.chest;
+package mmb.content.modular.chest;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -9,21 +9,21 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.MMBUtils;
-import mmbeng.block.BlockEntityData;
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.NoSuchInventory;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.MapProxy;
-import mmbgame.modular.ModularBlock;
-import mmbgame.modular.Slot;
-import mmbgame.modular.Slot.CoreSlot;
-import mmbgame.modular.Slot.SidedSlotHelper;
-import mmbgame.modular.gui.ModularChestGUI;
+import mmb.content.modular.ModularBlock;
+import mmb.content.modular.Slot;
+import mmb.content.modular.Slot.CoreSlot;
+import mmb.content.modular.Slot.SidedSlotHelper;
+import mmb.content.modular.gui.ModularChestGUI;
+import mmb.engine.MMBUtils;
+import mmb.engine.block.BlockEntityData;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.NoSuchInventory;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.MapProxy;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * A chest which accepts modules

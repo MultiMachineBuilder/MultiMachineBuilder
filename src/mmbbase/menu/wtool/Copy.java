@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmb.menu.wtool;
+package mmbbase.menu.wtool;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -13,11 +13,11 @@ import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.menu.world.window.WorldFrame;
-import mmbeng.block.BlockEntry;
-import mmbeng.debug.Debugger;
-import mmbeng.texture.Textures;
-import mmbeng.worlds.world.World;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.debug.Debugger;
+import mmb.engine.texture.Textures;
+import mmb.engine.worlds.world.World;
+import mmbbase.menu.world.window.WorldFrame;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 

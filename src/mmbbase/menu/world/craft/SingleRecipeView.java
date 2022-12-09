@@ -1,17 +1,17 @@
 /**
  * 
  */
-package mmb.menu.world.craft;
+package mmbbase.menu.world.craft;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
-import mmbeng.UnitFormatter;
-import mmbeng.craft.rgroups.SingleRecipeGroup.SingleRecipe;
-import mmbeng.inv.ItemStack;
-import mmbeng.item.ItemEntry;
+import mmb.engine.UnitFormatter;
+import mmb.engine.craft.rgroups.SingleRecipeGroup.SingleRecipe;
+import mmb.engine.inv.ItemStack;
+import mmb.engine.item.ItemEntry;
 
 import javax.swing.JList;
 

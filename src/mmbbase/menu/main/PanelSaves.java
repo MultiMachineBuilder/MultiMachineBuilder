@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmb.menu.main;
+package mmbbase.menu.main;
 
-import static mmbeng.GlobalSettings.*;
+import static mmb.engine.GlobalSettings.*;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,15 +19,15 @@ import org.apache.commons.io.IOUtils;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.Main;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.debug.Debugger;
-import mmbeng.files.AdvancedFile;
-import mmbeng.files.LocalFile;
-import mmbeng.files.Save;
-import mmbeng.generator.NewGame;
-import mmbeng.json.JsonTool;
-import mmbeng.window.FullScreen;
-import mmbeng.worlds.universe.Universe;
+import mmb.engine.debug.Debugger;
+import mmb.engine.files.AdvancedFile;
+import mmb.engine.files.LocalFile;
+import mmb.engine.files.Save;
+import mmb.engine.generator.NewGame;
+import mmb.engine.json.JsonTool;
+import mmb.engine.window.FullScreen;
+import mmb.engine.worlds.universe.Universe;
+import mmbbase.menu.world.window.WorldWindow;
 import net.miginfocom.swing.MigLayout;
 import java.io.File;
 import java.io.IOException;

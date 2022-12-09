@@ -6,4 +6,4 @@
  *
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmb.menu.world.window;
+package mmbbase.menu.world.window;

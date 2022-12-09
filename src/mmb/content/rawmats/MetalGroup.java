@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.rawmats;
+package mmb.content.rawmats;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -15,20 +15,20 @@ import java.util.TreeMap;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmbeng.block.Block;
-import mmbeng.item.Item;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.Items;
-import mmbeng.java2d.TexGen;
-import mmbeng.mods.GameLoader;
-import mmbeng.texture.Textures;
-import mmbgame.ContentsItems;
-import mmbgame.CraftingGroups;
-import mmbgame.electric.VoltageTier;
-import mmbgame.machinemics.manual.Crafting;
+import mmb.content.ContentsItems;
+import mmb.content.CraftingGroups;
+import mmb.content.electric.VoltageTier;
+import mmb.content.machinemics.manual.Crafting;
+import mmb.engine.block.Block;
+import mmb.engine.item.Item;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.Items;
+import mmb.engine.java2d.TexGen;
+import mmb.engine.mods.GameLoader;
+import mmb.engine.texture.Textures;
 
-import static mmbeng.GlobalSettings.*;
-import static mmbgame.ContentsItems.frame1;
+import static mmb.content.ContentsItems.frame1;
+import static mmb.engine.GlobalSettings.*;
 
 /**
  * @author oskar

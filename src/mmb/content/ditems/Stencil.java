@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.ditems;
+package mmb.content.ditems;
 
 import java.util.Iterator;
 import java.util.Objects;
@@ -16,17 +16,17 @@ import org.ainslec.picocog.PicoWriter;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
-import mmbeng.craft.Recipe;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.ItemStack;
-import mmbeng.item.ItemEntity;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.ItemType;
-import mmbeng.json.Save;
-import mmbgame.ContentsItems;
-import mmbgame.CraftingGroups;
+import mmb.content.ContentsItems;
+import mmb.content.CraftingGroups;
+import mmb.engine.craft.Recipe;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.ItemStack;
+import mmb.engine.item.ItemEntity;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.ItemType;
+import mmb.engine.json.Save;
 import monniasza.collects.Collects;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;

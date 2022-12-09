@@ -6,4 +6,4 @@
  *
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbeng.generator;
+package mmb.engine.generator;

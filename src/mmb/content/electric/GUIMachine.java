@@ -1,25 +1,15 @@
 /**
  * 
  */
-package mmbgame.electric;
+package mmb.content.electric;
 
-import mmb.menu.world.inv.InventoryController;
-import mmb.menu.world.inv.MoveItems;
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.craft.Recipe;
-import mmbeng.craft.Refreshable;
-import mmbeng.inv.Inventories;
-import mmbeng.inv.ItemRecord;
-import mmbeng.inv.storage.SingleItemInventory;
-import mmbgame.electric.machines.ProcessorAbstractBlock;
 import net.miginfocom.swing.MigLayout;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JButton;
 
-import static mmbeng.GlobalSettings.*;
+import static mmb.engine.GlobalSettings.*;
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -28,6 +18,16 @@ import javax.swing.JProgressBar;
 import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
+import mmb.content.electric.machines.ProcessorAbstractBlock;
+import mmb.engine.craft.Recipe;
+import mmb.engine.craft.Refreshable;
+import mmb.engine.inv.Inventories;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.inv.storage.SingleItemInventory;
+import mmbbase.menu.world.inv.InventoryController;
+import mmbbase.menu.world.inv.MoveItems;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

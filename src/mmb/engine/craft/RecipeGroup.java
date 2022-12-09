@@ -1,16 +1,16 @@
 /**
  * 
  */
-package mmbeng.craft;
+package mmb.engine.craft;
 
 import java.util.Set;
 
 import javax.annotation.Nonnull;
 import javax.swing.ListCellRenderer;
 
-import mmb.beans.Titled;
-import mmb.menu.world.craft.RecipeView;
-import mmbeng.item.ItemEntry;
+import mmb.engine.item.ItemEntry;
+import mmbbase.beans.Titled;
+import mmbbase.menu.world.craft.RecipeView;
 import monniasza.collects.Identifiable;
 
 /**

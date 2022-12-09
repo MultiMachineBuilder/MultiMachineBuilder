@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.java2d;
+package mmb.engine.java2d;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,8 +14,8 @@ import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.texture.BlockDrawer;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.texture.BlockDrawer;
 
 /**
  * @author oskar
@@ -28,7 +28,7 @@ public class MappedColorTexture implements BlockDrawer {
 	private int LOD = 0;
 	/**
 	 * @param c
-	 * @see mmbeng.java2d.ColorMapperRGBA#setFrom(java.awt.Color)
+	 * @see mmb.engine.java2d.ColorMapperRGBA#setFrom(java.awt.Color)
 	 */
 	public void setFrom(Color c) {
 		synchronized(drawLock) {
@@ -45,7 +45,7 @@ public class MappedColorTexture implements BlockDrawer {
 	/**
 	 * Sets target color of this mapped texture
 	 * @param c
-	 * @see mmbeng.java2d.ColorMapperRGBA#setTo(java.awt.Color)
+	 * @see mmb.engine.java2d.ColorMapperRGBA#setTo(java.awt.Color)
 	 */
 	public void setTo(Color c) {
 		synchronized(drawLock) {

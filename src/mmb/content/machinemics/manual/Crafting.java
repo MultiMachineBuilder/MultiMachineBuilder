@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.machinemics.manual;
+package mmb.content.machinemics.manual;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,15 +10,15 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import it.unimi.dsi.fastutil.ints.IntList;
-import mmb.cgui.BlockActivateListener;
-import mmb.menu.world.inv.CraftGUI;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.GlobalSettings;
-import mmbeng.block.Block;
-import mmbeng.item.Item;
-import mmbeng.worlds.world.World;
-import mmbgame.ContentsRecipes;
-import mmbgame.CraftingGroups;
+import mmb.content.ContentsRecipes;
+import mmb.content.CraftingGroups;
+import mmb.engine.GlobalSettings;
+import mmb.engine.block.Block;
+import mmb.engine.item.Item;
+import mmb.engine.worlds.world.World;
+import mmbbase.cgui.BlockActivateListener;
+import mmbbase.menu.world.inv.CraftGUI;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

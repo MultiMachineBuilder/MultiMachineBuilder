@@ -6,4 +6,4 @@
  *
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbeng.mbmachine;
+package mmb.engine.mbmachine;

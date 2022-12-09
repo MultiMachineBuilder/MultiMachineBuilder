@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.block;
+package mmb.engine.block;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -11,12 +11,12 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.chance.Chance;
-import mmbeng.item.Item;
-import mmbeng.item.Items;
-import mmbeng.texture.BlockDrawer;
-import mmbeng.worlds.world.World;
+import mmb.engine.chance.Chance;
+import mmb.engine.item.Item;
+import mmb.engine.item.Items;
+import mmb.engine.texture.BlockDrawer;
+import mmb.engine.worlds.world.World;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * Shared implementation for {@link Block} and {@link BlockEntityType}.

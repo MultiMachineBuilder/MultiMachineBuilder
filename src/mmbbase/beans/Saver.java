@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.beans;
+package mmbbase.beans;
 
 import javax.annotation.Nullable;
 

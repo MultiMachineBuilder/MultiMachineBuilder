@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.rotate;
+package mmb.engine.rotate;
 
 /**
  * @author oskar

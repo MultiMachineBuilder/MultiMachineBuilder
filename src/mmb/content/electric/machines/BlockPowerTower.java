@@ -1,26 +1,26 @@
 /**
  * 
  */
-package mmbgame.electric.machines;
+package mmb.content.electric.machines;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.cgui.BlockActivateListener;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.block.BlockEntityRotary;
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.MapProxy;
-import mmbeng.worlds.world.World;
-import mmbgame.aim.Aimable;
-import mmbgame.electric.Electric;
-import mmbgame.electric.Electricity;
-import mmbgame.electric.ElectricMachineGroup.ElectroMachineType;
+import mmb.content.aim.Aimable;
+import mmb.content.electric.Electric;
+import mmb.content.electric.Electricity;
+import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
+import mmb.engine.block.BlockEntityRotary;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.MapProxy;
+import mmb.engine.worlds.world.World;
+import mmbbase.cgui.BlockActivateListener;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * A block for wireless transmission of power

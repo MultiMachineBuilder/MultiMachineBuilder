@@ -16,19 +16,19 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.pploder.events.Event;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import mmb.beans.Saver;
-import mmbeng.CatchingEvent;
-import mmbeng.block.Blocks;
-import mmbeng.craft.ItemLists;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.storage.SetInventory;
-import mmbeng.item.ItemEntry;
-import mmbeng.json.JsonTool;
-import mmbgame.ContentsBlocks;
-import mmbgame.agro.AgroRecipeGroup.AgroProcessingRecipe;
-import mmbgame.ditems.Stencil;
+import mmb.content.ContentsBlocks;
+import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
+import mmb.content.ditems.Stencil;
+import mmb.engine.CatchingEvent;
+import mmb.engine.block.Blocks;
+import mmb.engine.craft.ItemLists;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.storage.SetInventory;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.json.JsonTool;
+import mmbbase.beans.Saver;
 import mmbmods.stn.block.STNBaseMachine;
 import monniasza.collects.CollectionOps;
 import monniasza.collects.Collects;
@@ -412,7 +412,7 @@ public class STNNetworkProcessing implements Saver{
 		return queue.getOrDefault(entry, 0) < 0 || inv.getOrDefault(entry, 0) > 0 || isEverProducible(entry);
 	}
 	
-	public boolean isAllObtainable(Set<mmbeng.item.ItemEntry> entries, Object2IntMap<ItemEntry> inv, Object2IntMap<ItemEntry> queue) {
+	public boolean isAllObtainable(Set<mmb.engine.item.ItemEntry> entries, Object2IntMap<ItemEntry> inv, Object2IntMap<ItemEntry> queue) {
 		return CollectionOps.isAll(entries, item -> isEverObtainable(item, inv, queue));
 	}
 }

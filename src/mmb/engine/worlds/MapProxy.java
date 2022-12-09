@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.worlds;
+package mmb.engine.worlds;
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -9,12 +9,12 @@ import java.awt.Rectangle;
 import java.util.Arrays;
 import java.util.Collection;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.inv.Inventory;
-import mmbeng.rotate.Side;
-import mmbeng.visuals.Visual;
-import mmbeng.worlds.world.World;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.inv.Inventory;
+import mmb.engine.rotate.Side;
+import mmb.engine.visuals.Visual;
+import mmb.engine.worlds.world.World;
 
 /**
  * @author oskar

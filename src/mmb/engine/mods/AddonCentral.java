@@ -1,4 +1,4 @@
-package mmbeng.mods;
+package mmb.engine.mods;
 
 import javax.annotation.*;
 

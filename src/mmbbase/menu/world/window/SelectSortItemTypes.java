@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.window;
+package mmbbase.menu.world.window;
 
 import java.awt.Component;
 import java.util.Arrays;
@@ -12,8 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
-import mmb.menu.world.CreativeItemList;
-import mmb.menu.world.window.TabInventory.Tagsel;
+import mmbbase.menu.world.CreativeItemList;
+import mmbbase.menu.world.window.TabInventory.Tagsel;
 
 /**
  * @author oskar

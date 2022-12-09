@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.rawmats;
+package mmb.content.rawmats;
 
 import java.awt.Color;
 import java.util.function.Function;
@@ -10,18 +10,18 @@ import javax.annotation.Nonnull;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import mmbeng.block.Blocks;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.craft.SimpleItemList;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.ItemStack;
-import mmbeng.item.Item;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.Items;
-import mmbgame.ContentsBlocks;
-import mmbgame.CraftingGroups;
-import mmbgame.electric.VoltageTier;
-import mmbgame.rawmats.MetalGroup.MaterialStack;
+import mmb.content.ContentsBlocks;
+import mmb.content.CraftingGroups;
+import mmb.content.electric.VoltageTier;
+import mmb.content.rawmats.MetalGroup.MaterialStack;
+import mmb.engine.block.Blocks;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.SimpleItemList;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.ItemStack;
+import mmb.engine.item.Item;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.Items;
 
 /**
  * @author oskar
@@ -313,7 +313,7 @@ public class Materials {
 		malloyingHelper(in -> in.cluster, mats, out, ratioO, volt, energy*4);
 		malloyingHelper(in -> in.block, mats, out, ratioO, volt, energy*16);
 	}
-	private static void malloyingHelper(Function<@Nonnull MetalGroup, mmbeng.item.ItemEntry> selector, MaterialStack[] mat, MetalGroup out, int ratioO, VoltageTier volt, double energy) {
+	private static void malloyingHelper(Function<@Nonnull MetalGroup, mmb.engine.item.ItemEntry> selector, MaterialStack[] mat, MetalGroup out, int ratioO, VoltageTier volt, double energy) {
 		Object2IntMap<ItemEntry> builder = new Object2IntOpenHashMap<>(mat.length);
 		for(int i = 0; i < mat.length; i++) {
 			builder.put(selector.apply(mat[i].material), mat[i].amount);

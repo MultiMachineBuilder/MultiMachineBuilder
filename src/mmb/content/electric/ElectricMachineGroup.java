@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric;
+package mmb.content.electric;
 
 import java.awt.image.BufferedImage;
 import java.util.List;
@@ -10,12 +10,12 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import javax.annotation.Nonnull;
 
-import mmbeng.GlobalSettings;
-import mmbeng.block.BlockEntity;
-import mmbeng.block.BlockEntityType;
-import mmbeng.item.Items;
-import mmbeng.java2d.TexGen;
-import mmbeng.rotate.RotatedImageGroup;
+import mmb.engine.GlobalSettings;
+import mmb.engine.block.BlockEntity;
+import mmb.engine.block.BlockEntityType;
+import mmb.engine.item.Items;
+import mmb.engine.java2d.TexGen;
+import mmb.engine.rotate.RotatedImageGroup;
 
 /**
  * @author oskar

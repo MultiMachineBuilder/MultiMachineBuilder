@@ -1,15 +1,15 @@
 /**
  * 
  */
-package mmbeng.rotate;
+package mmb.engine.rotate;
 
 import java.util.EventListener;
 import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.gl.RenderCtx;
-import mmbeng.texture.Textures.Texture;
+import mmb.engine.gl.RenderCtx;
+import mmb.engine.texture.Textures.Texture;
 
 /**
  * @author oskar

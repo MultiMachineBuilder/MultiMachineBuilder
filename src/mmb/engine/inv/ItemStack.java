@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmbeng.inv;
+package mmb.engine.inv;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmbeng.craft.SingleItem;
-import mmbeng.item.ItemEntry;
+import mmb.engine.craft.SingleItem;
+import mmb.engine.item.ItemEntry;
 import monniasza.collects.Identifiable;
 
 /**

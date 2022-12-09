@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.item;
+package mmb.engine.item;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -9,8 +9,8 @@ import javax.swing.Icon;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.beans.Titled;
-import mmbeng.texture.BlockDrawer;
+import mmb.engine.texture.BlockDrawer;
+import mmbbase.beans.Titled;
 import monniasza.collects.Identifiable;
 
 /**

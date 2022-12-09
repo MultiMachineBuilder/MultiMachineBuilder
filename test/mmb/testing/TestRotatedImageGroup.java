@@ -9,8 +9,8 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.SwingConstants;
 
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.texture.Textures;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.texture.Textures;
 
 /**
  * @author oskar

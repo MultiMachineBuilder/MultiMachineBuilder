@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.texture;
+package mmb.engine.texture;
 
 import java.awt.Color;
 import java.awt.Component;

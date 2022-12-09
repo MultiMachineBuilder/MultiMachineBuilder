@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmbgame.imachine.filter;
+package mmb.content.imachine.filter;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Color;
 
@@ -11,14 +11,15 @@ import javax.annotation.Nullable;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 
-import mmb.menu.world.inv.InventoryController;
-import mmb.menu.world.inv.MoveItems;
-import mmb.menu.world.inv.SingleInventoryController;
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.inv.storage.SingleItemInventory;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
+
+import mmb.engine.inv.storage.SingleItemInventory;
+import mmbbase.menu.world.inv.InventoryController;
+import mmbbase.menu.world.inv.MoveItems;
+import mmbbase.menu.world.inv.SingleInventoryController;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

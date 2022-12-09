@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.item;
+package mmb.engine.item;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -10,10 +10,10 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
-import mmbeng.GlobalSettings;
-import mmbeng.Verify;
-import mmbeng.texture.BlockDrawer;
-import mmbeng.texture.Textures;
+import mmb.engine.GlobalSettings;
+import mmb.engine.Verify;
+import mmb.engine.texture.BlockDrawer;
+import mmb.engine.texture.Textures;
 
 /**
  * @author oskar

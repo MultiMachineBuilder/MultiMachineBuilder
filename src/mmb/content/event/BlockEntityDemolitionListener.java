@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.event;
+package mmb.content.event;
 
 import java.util.EventListener;
 

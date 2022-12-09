@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric;
+package mmb.content.electric;
 
 import java.util.function.Supplier;
 
@@ -9,10 +9,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JProgressBar;
 
-import mmbeng.UnitFormatter;
-import mmbeng.block.BlockEntity;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.MapProxy;
+import mmb.engine.UnitFormatter;
+import mmb.engine.block.BlockEntity;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.MapProxy;
 
 /**
  * @author oskar

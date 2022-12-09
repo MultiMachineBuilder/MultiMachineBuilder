@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmb.menu.world.window;
+package mmbbase.menu.world.window;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Adjustable;
 import java.awt.BorderLayout;
@@ -11,27 +11,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
-import mmb.data.variables.ListenableValue;
-import mmb.menu.components.BoundCheckBoxMenuItem;
-import mmb.menu.main.MainMenu;
-import mmb.menu.world.inv.InventoryController;
-import mmb.menu.wtool.ToolSelectionModel;
-import mmb.menu.wtool.ToolStandard;
-import mmb.menu.wtool.WindowTool;
-import mmbeng.CatchingEvent;
-import mmbeng.craft.Recipe;
-import mmbeng.debug.Debugger;
-import mmbeng.files.Save;
-import mmbeng.inv.ItemRecord;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.Items;
-import mmbeng.json.JsonTool;
-import mmbeng.window.FullScreen;
-import mmbeng.window.MMBFrame;
-import mmbeng.worlds.universe.Universe;
-import mmbeng.worlds.world.Player;
-import mmbeng.worlds.world.World;
 
 import javax.swing.JMenuBar;
 import javax.swing.JScrollBar;
@@ -41,6 +20,26 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.pploder.events.Event;
 
 import io.github.parubok.text.multiline.MultilineLabel;
+import mmb.engine.CatchingEvent;
+import mmb.engine.craft.Recipe;
+import mmb.engine.debug.Debugger;
+import mmb.engine.files.Save;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.Items;
+import mmb.engine.json.JsonTool;
+import mmb.engine.window.FullScreen;
+import mmb.engine.window.MMBFrame;
+import mmb.engine.worlds.universe.Universe;
+import mmb.engine.worlds.world.Player;
+import mmb.engine.worlds.world.World;
+import mmbbase.data.variables.ListenableValue;
+import mmbbase.menu.components.BoundCheckBoxMenuItem;
+import mmbbase.menu.main.MainMenu;
+import mmbbase.menu.world.inv.InventoryController;
+import mmbbase.menu.wtool.ToolSelectionModel;
+import mmbbase.menu.wtool.ToolStandard;
+import mmbbase.menu.wtool.WindowTool;
 
 import java.io.OutputStream;
 import java.util.Timer;

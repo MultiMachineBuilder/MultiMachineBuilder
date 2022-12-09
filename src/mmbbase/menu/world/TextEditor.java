@@ -1,20 +1,20 @@
 /**
  * 
  */
-package mmb.menu.world;
+package mmbbase.menu.world;
 
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.block.BlockEntity;
-import mmbgame.wireworld.TextMessageProvider;
+import mmb.content.wireworld.TextMessageProvider;
+import mmb.engine.block.BlockEntity;
+import mmbbase.menu.world.window.WorldWindow;
 
 import javax.annotation.Nonnull;
 import javax.swing.JButton;
 import java.awt.Component;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Color;
 import net.miginfocom.swing.MigLayout;

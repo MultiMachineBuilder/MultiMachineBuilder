@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.data.variables;
+package mmbbase.data.variables;
 
 import java.util.HashSet;
 import java.util.Set;

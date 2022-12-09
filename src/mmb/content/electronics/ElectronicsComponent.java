@@ -1,11 +1,11 @@
 /**
  * 
  */
-package mmbgame.electronics;
+package mmb.content.electronics;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.item.Item;
+import mmb.engine.item.Item;
 
 /**
  * @author oskar

@@ -1,19 +1,19 @@
 /**
  * 
  */
-package mmbgame.rawmats;
+package mmb.content.rawmats;
 
 import java.awt.Color;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.block.Block;
-import mmbeng.block.BlockEntityType;
-import mmbeng.item.Items;
-import mmbeng.java2d.TexGen;
-import mmbgame.ContentsBlocks;
-import mmbgame.CraftingGroups;
-import mmbgame.electric.VoltageTier;
+import mmb.content.ContentsBlocks;
+import mmb.content.CraftingGroups;
+import mmb.content.electric.VoltageTier;
+import mmb.engine.block.Block;
+import mmb.engine.block.BlockEntityType;
+import mmb.engine.item.Items;
+import mmb.engine.java2d.TexGen;
 
 /**
  * @author oskar

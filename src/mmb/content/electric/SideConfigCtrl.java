@@ -1,11 +1,11 @@
 /**
  * 
  */
-package mmbgame.electric;
+package mmb.content.electric;
 
 import javax.swing.JPanel;
 
-import mmb.menu.components.BoundCheckBox;
+import mmbbase.menu.components.BoundCheckBox;
 
 import javax.swing.BoxLayout;
 

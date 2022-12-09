@@ -1,14 +1,14 @@
 /**
  * 
  */
-package mmbeng.inv.storage;
+package mmb.engine.inv.storage;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.data.variables.DataValue;
-import mmb.data.variables.Variable;
-import mmbeng.item.ItemEntry;
+import mmb.engine.item.ItemEntry;
+import mmbbase.data.variables.DataValue;
+import mmbbase.data.variables.Variable;
 
 /**
  * @author oskar
@@ -32,7 +32,7 @@ public class SingleItemInventory extends BaseSingleItemInventory {
 	 * Creates a single item inventory with a custom item variable
 	 * @param itemvar
 	 */
-	public SingleItemInventory(Variable<mmbeng.item.ItemEntry> itemvar) {
+	public SingleItemInventory(Variable<mmb.engine.item.ItemEntry> itemvar) {
 		this.itemvar = itemvar;
 	}
 	

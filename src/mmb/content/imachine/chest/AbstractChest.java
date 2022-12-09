@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.imachine.chest;
+package mmb.content.imachine.chest;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -9,12 +9,12 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmbeng.block.BlockEntity;
-import mmbeng.block.BlockEntityData;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.storage.SimpleInventory;
-import mmbeng.json.JsonTool;
-import mmbeng.rotate.Side;
+import mmb.engine.block.BlockEntity;
+import mmb.engine.block.BlockEntityData;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.storage.SimpleInventory;
+import mmb.engine.json.JsonTool;
+import mmb.engine.rotate.Side;
 
 /**
  * @author oskar

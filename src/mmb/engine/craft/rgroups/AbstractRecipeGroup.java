@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.craft.rgroups;
+package mmb.engine.craft.rgroups;
 
 import java.util.function.Supplier;
 
@@ -10,13 +10,13 @@ import javax.swing.JComponent;
 import javax.swing.ListCellRenderer;
 
 import io.vavr.Tuple2;
-import mmb.menu.world.craft.RecipeList;
-import mmb.menu.world.window.TabRecipes;
-import mmbeng.GlobalSettings;
-import mmbeng.craft.GlobalRecipeRegistrar;
-import mmbeng.craft.PlugAndPlayRecipeCellRenderer;
-import mmbeng.craft.Recipe;
-import mmbeng.craft.RecipeGroup;
+import mmb.engine.GlobalSettings;
+import mmb.engine.craft.GlobalRecipeRegistrar;
+import mmb.engine.craft.PlugAndPlayRecipeCellRenderer;
+import mmb.engine.craft.Recipe;
+import mmb.engine.craft.RecipeGroup;
+import mmbbase.menu.world.craft.RecipeList;
+import mmbbase.menu.world.window.TabRecipes;
 
 /**
  * An implementation aid for recipe groups

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.components;
+package mmbbase.menu.components;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -10,8 +10,8 @@ import javax.swing.Icon;
 import javax.swing.JCheckBoxMenuItem;
 
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
-import mmb.data.variables.ListenerBooleanVariable;
-import mmbgame.modular.gui.SafeCloseable;
+import mmb.content.modular.gui.SafeCloseable;
+import mmbbase.data.variables.ListenerBooleanVariable;
 
 /**
  * @author oskar

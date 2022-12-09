@@ -1,10 +1,10 @@
 /**
  * 
  */
-package mmbgame.wireworld;
+package mmb.content.wireworld;
 
-import mmbeng.block.Block;
-import mmbeng.rotate.Side;
+import mmb.engine.block.Block;
+import mmb.engine.rotate.Side;
 
 /**
  * @author oskar

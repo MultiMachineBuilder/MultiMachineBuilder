@@ -1,15 +1,15 @@
 /**
  * 
  */
-package mmb.menu.world.craft;
+package mmbbase.menu.world.craft;
 
 import java.util.Vector;
 import java.util.stream.Collectors;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.craft.RecipeOutput;
-import mmbeng.inv.ItemStack;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.inv.ItemStack;
 
 /**
  * @author oskar

@@ -6,4 +6,4 @@
  * @author oskar
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbgame.modular.part;
+package mmb.content.modular.part;

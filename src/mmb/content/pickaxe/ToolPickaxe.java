@@ -1,12 +1,12 @@
 /**
  * 
  */
-package mmbgame.pickaxe;
+package mmb.content.pickaxe;
 
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Color;
 import java.awt.Point;
@@ -16,13 +16,13 @@ import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.menu.wtool.WindowTool;
-import mmbeng.block.BlockEntry;
-import mmbeng.chance.Chance;
-import mmbeng.inv.ItemRecord;
-import mmbeng.item.ItemEntry;
-import mmbeng.texture.Textures;
-import mmbgame.pickaxe.Pickaxe.PickaxeType;
+import mmb.content.pickaxe.Pickaxe.PickaxeType;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.chance.Chance;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.texture.Textures;
+import mmbbase.menu.wtool.WindowTool;
 
 /**
  * @author oskar

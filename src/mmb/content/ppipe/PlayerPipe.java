@@ -1,14 +1,14 @@
 /**
  * 
  */
-package mmbgame.ppipe;
+package mmb.content.ppipe;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.rotate.ChirotatedImageGroup;
-import mmbeng.rotate.Side;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.rotate.ChirotatedImageGroup;
+import mmb.engine.rotate.Side;
 
 /**
  * @author oskar

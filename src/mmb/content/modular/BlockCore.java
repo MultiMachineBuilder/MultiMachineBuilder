@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.modular;
+package mmb.content.modular;
 
 /**
  * A block core

@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmbgame.electronics;
+package mmb.content.electronics;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -11,10 +11,10 @@ import java.awt.image.LookupOp;
 
 import javax.annotation.Nonnull;
 
-import mmb.beans.Titled;
-import mmbeng.java2d.ColorMapper;
-import mmbeng.texture.Textures;
-import mmbeng.texture.Textures.Texture;
+import mmb.engine.java2d.ColorMapper;
+import mmb.engine.texture.Textures;
+import mmb.engine.texture.Textures.Texture;
+import mmbbase.beans.Titled;
 import monniasza.collects.Identifiable;
 
 /**

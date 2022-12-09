@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.ppipe;
+package mmb.content.ppipe;
 
 import javax.annotation.Nonnull;
 

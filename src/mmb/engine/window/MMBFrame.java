@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.window;
+package mmb.engine.window;
 
 import javax.swing.JFrame;
 

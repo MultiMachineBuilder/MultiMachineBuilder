@@ -1,10 +1,10 @@
 /**
  * 
  */
-package mmb.cgui;
+package mmbbase.cgui;
 
-import mmb.menu.world.window.GUITab;
-import mmbgame.imachine.filter.FilterGUI;
+import mmb.content.imachine.filter.FilterGUI;
+import mmbbase.menu.world.window.GUITab;
 
 /**
  * @author oskar

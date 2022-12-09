@@ -1,17 +1,17 @@
 /**
  * 
  */
-package mmbgame.wireworld;
+package mmb.content.wireworld;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmbeng.block.BlockEntity;
-import mmbeng.block.BlockEntityType;
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockEntityRotary;
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.MapProxy;
+import mmb.engine.block.BlockEntity;
+import mmb.engine.block.BlockEntityRotary;
+import mmb.engine.block.BlockEntityType;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.MapProxy;
 
 /**
  * @author oskar

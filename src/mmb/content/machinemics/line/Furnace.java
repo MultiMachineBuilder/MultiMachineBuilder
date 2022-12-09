@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.machinemics.line;
+package mmb.content.machinemics.line;
 
 import java.awt.image.BufferedImage;
 import javax.annotation.Nonnull;
@@ -10,20 +10,20 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.cgui.BlockActivateListener;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.debug.Debugger;
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.texture.Textures;
-import mmbeng.worlds.world.World;
-import mmbgame.ContentsBlocks;
-import mmbgame.CraftingGroups;
-import mmbgame.electric.Battery;
-import mmbgame.electric.VoltageTier;
-import mmbgame.electric.helper.SimpleProcessHelper;
-import mmbgame.electric.machines.FuelBurner;
+import mmb.content.ContentsBlocks;
+import mmb.content.CraftingGroups;
+import mmb.content.electric.Battery;
+import mmb.content.electric.VoltageTier;
+import mmb.content.electric.helper.SimpleProcessHelper;
+import mmb.content.electric.machines.FuelBurner;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.debug.Debugger;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.texture.Textures;
+import mmb.engine.worlds.world.World;
+import mmbbase.cgui.BlockActivateListener;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

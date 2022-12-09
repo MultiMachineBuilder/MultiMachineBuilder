@@ -6,4 +6,4 @@
  * @author oskar
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbgame.drugs;
+package mmb.content.drugs;

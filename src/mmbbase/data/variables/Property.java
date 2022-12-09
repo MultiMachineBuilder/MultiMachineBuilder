@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.data.variables;
+package mmbbase.data.variables;
 
 /**
  * An object with a value

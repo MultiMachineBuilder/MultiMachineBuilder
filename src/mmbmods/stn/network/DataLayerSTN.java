@@ -9,12 +9,12 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmbeng.UnitFormatter;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.Inventory;
-import mmbeng.json.JsonTool;
-import mmbeng.worlds.world.DataLayer;
-import mmbeng.worlds.world.World;
+import mmb.engine.UnitFormatter;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.Inventory;
+import mmb.engine.json.JsonTool;
+import mmb.engine.worlds.world.DataLayer;
+import mmb.engine.worlds.world.World;
 import mmbmods.stn.block.STNBaseMachine;
 import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag;
 

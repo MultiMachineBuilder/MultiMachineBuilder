@@ -1,14 +1,14 @@
 /**
  * 
  */
-package mmbeng.inv;
+package mmb.engine.inv;
 
 import java.util.Collections;
 import java.util.Iterator;
 import javax.annotation.Nonnull;
 
-import mmbeng.craft.RecipeOutput;
-import mmbeng.item.ItemEntry;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.item.ItemEntry;
 
 /**
  * @author oskar

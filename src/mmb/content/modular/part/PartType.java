@@ -1,17 +1,17 @@
 /**
  * 
  */
-package mmbgame.modular.part;
+package mmb.content.modular.part;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmbeng.chance.Chance;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.ItemType;
+import mmb.engine.chance.Chance;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.ItemType;
 
 /**
  *

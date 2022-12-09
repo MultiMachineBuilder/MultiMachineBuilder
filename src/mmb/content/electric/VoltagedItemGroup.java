@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric;
+package mmb.content.electric;
 
 import java.awt.image.BufferedImage;
 import java.util.List;
@@ -10,11 +10,11 @@ import java.util.stream.IntStream;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.GlobalSettings;
-import mmbeng.item.Item;
-import mmbeng.item.Items;
-import mmbeng.java2d.TexGen;
-import mmbeng.texture.Textures;
+import mmb.engine.GlobalSettings;
+import mmb.engine.item.Item;
+import mmb.engine.item.Items;
+import mmb.engine.java2d.TexGen;
+import mmb.engine.texture.Textures;
 
 /**
  * @author oskar

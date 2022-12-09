@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng;
+package mmb.engine;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -10,11 +10,11 @@ import javax.annotation.Nonnull;
 import javax.swing.JComponent;
 
 import mmb.Main;
-import mmb.data.variables.ListenableDouble;
-import mmb.data.variables.ListenableInt;
-import mmb.data.variables.ListenableValue;
-import mmb.data.variables.ListenerBooleanVariable;
-import mmbeng.debug.Debugger;
+import mmb.engine.debug.Debugger;
+import mmbbase.data.variables.ListenableDouble;
+import mmbbase.data.variables.ListenableInt;
+import mmbbase.data.variables.ListenableValue;
+import mmbbase.data.variables.ListenerBooleanVariable;
 import monniasza.collects.Collects;
 
 /**

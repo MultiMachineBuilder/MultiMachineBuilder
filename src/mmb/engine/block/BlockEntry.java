@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.block;
+package mmb.engine.block;
 
 import java.awt.Graphics;
 import javax.annotation.Nonnull;
@@ -9,22 +9,22 @@ import javax.annotation.Nullable;
 
 import org.joml.Vector2d;
 
-import mmb.beans.Saver;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.NoSuchInventory;
-import mmbeng.inv.io.InventoryReader;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.rotate.Chiral;
-import mmbeng.rotate.ChiralRotation;
-import mmbeng.rotate.Chirality;
-import mmbeng.rotate.Rotable;
-import mmbeng.rotate.Rotation;
-import mmbeng.rotate.Side;
-import mmbeng.texture.BlockDrawer;
-import mmbeng.worlds.world.Player;
-import mmbeng.worlds.world.World;
-import mmbgame.electric.Electricity;
-import mmbgame.ppipe.PipeTunnelEntry;
+import mmb.content.electric.Electricity;
+import mmb.content.ppipe.PipeTunnelEntry;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.NoSuchInventory;
+import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.rotate.Chiral;
+import mmb.engine.rotate.ChiralRotation;
+import mmb.engine.rotate.Chirality;
+import mmb.engine.rotate.Rotable;
+import mmb.engine.rotate.Rotation;
+import mmb.engine.rotate.Side;
+import mmb.engine.texture.BlockDrawer;
+import mmb.engine.worlds.world.Player;
+import mmb.engine.worlds.world.World;
+import mmbbase.beans.Saver;
 
 /**
  * @author oskar
@@ -46,6 +46,16 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 	public default boolean typeof(BlockType type) {
 		return type == type();
 	}
+	
+	//Block I/O
+	/**
+	 * Gets the electrical connection on this block
+	 * @param s
+	 * @return the electrical connection on given side.
+	 */
+	@Nullable public default Electricity getElectricalConnection(Side s) {
+		return null;
+	}
 	/**
 	 * @param s side, from which to get signal
 	 * @return the WireWorld signal
@@ -53,8 +63,6 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 	public default boolean provideSignal(Side s) {
 		return false;
 	}
-	
-	//Inventories
 	/**
 	 * @param s side, from which to get inventory
 	 * @return inventory at given side
@@ -77,18 +85,15 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 		return getInventory(s).createWriter();
 	}
 	
+	//Block events
 	/**
-	 * Renders a block
-	 * @param x left X coordinate
-	 * @param y upper Y coordinate
-	 * @param g graphics context
-	 * @param side side size
+	 * Moves this block to a new map
+	 * @param map new map (can be the same, or null if block goes off map)
+	 * @param x X coordinate on a new map
+	 * @param y Y coordinate on a new map
+	 * @throws IllegalStateException if given map/position combination is not surface
 	 */
-	public default void render(int x, int y, Graphics g, int side) {
-		BlockDrawer drawer = type().getTexture();
-		drawer.draw(this, x, y, g, side);
-	}
-	
+	public void resetMap(@Nullable World map, int x, int y); //should only be called by World
 	/**
 	 * Called when world is initialized
 	 * <br>Exception handling: If exception is thrown by this method, the block is not properly initialized
@@ -113,7 +118,6 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 	 * Called when block is placed
 	 * <br>Exception handling: If exception is thrown by this method, the block is not placed
 	 * @param map world, in which the block is placed
-	 * @param obj player, which placed the block
 	 * @param x X coordinate of the block
 	 * @param y	Y cordinate of the block
 	 */
@@ -124,7 +128,6 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 	 * Called when block is broken
 	 * <br>Exception handling: If exception is thrown by this method, the block is not broken
 	 * @param map world, in which block is broken
-	 * @param obj player, which broke the block
 	 * @param x X coordinate of the block
 	 * @param y	Y cordinate of the block
 	 */
@@ -141,14 +144,17 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 	}
 	
 	/**
-	 * Gets the electrical connection on this block
-	 * @param s
-	 * @return the electrical connection on given side.
+	 * Renders a block
+	 * @param x left X coordinate
+	 * @param y upper Y coordinate
+	 * @param g graphics context
+	 * @param side side size
 	 */
-	@Nullable public default Electricity getElectricalConnection(Side s) {
-		return null;
+	public default void render(int x, int y, Graphics g, int side) {
+		BlockDrawer drawer = type().getTexture();
+		drawer.draw(this, x, y, g, side);
 	}
-
+	
 	/**
 	 * Prints debug information for use in debug menu
 	 * @param sb string builder
@@ -167,15 +173,6 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 	 */
 	@Nonnull public BlockEntry blockCopy();
 
-	/**
-	 * Moves this block to a new map
-	 * @param map new map (can be the same, or null if block goes off map)
-	 * @param x X coordinate on a new map
-	 * @param y Y coordinate on a new map
-	 * @throws IllegalStateException if given map/position combination is not surface
-	 */
-	public void resetMap(@Nullable World map, int x, int y); //should only be called by World
-	
 	//Rotations - rotary
 	/**
 	 * Checks if given block supports rotations

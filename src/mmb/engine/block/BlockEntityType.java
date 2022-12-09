@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.block;
+package mmb.engine.block;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -9,9 +9,9 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.chance.Chance;
-import mmbeng.texture.BlockDrawer;
-import mmbeng.worlds.world.World;
+import mmb.engine.chance.Chance;
+import mmb.engine.texture.BlockDrawer;
+import mmb.engine.worlds.world.World;
 
 /**
  * @author oskar

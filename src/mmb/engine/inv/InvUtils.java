@@ -1,12 +1,12 @@
 /**
  * 
  */
-package mmbeng.inv;
+package mmb.engine.inv;
 
 import javax.annotation.Nullable;
 
-import mmbeng.craft.RecipeOutput;
-import mmbeng.item.ItemEntry;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.item.ItemEntry;
 import monniasza.collects.Collects;
 
 /**

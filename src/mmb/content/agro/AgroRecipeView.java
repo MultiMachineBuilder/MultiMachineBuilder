@@ -1,19 +1,19 @@
 /**
  * 
  */
-package mmbgame.agro;
+package mmb.content.agro;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JList;
 
-import mmb.menu.world.craft.CRConstants;
-import mmb.menu.world.craft.ItemStackCellRenderer;
-import mmb.menu.world.craft.RecipeView;
-import mmb.menu.world.craft.VectorUtils;
-import mmbeng.inv.ItemStack;
-import mmbeng.item.ItemEntry;
-import mmbgame.agro.AgroRecipeGroup.AgroProcessingRecipe;
+import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
+import mmb.engine.inv.ItemStack;
+import mmb.engine.item.ItemEntry;
+import mmbbase.menu.world.craft.CRConstants;
+import mmbbase.menu.world.craft.ItemStackCellRenderer;
+import mmbbase.menu.world.craft.RecipeView;
+import mmbbase.menu.world.craft.VectorUtils;
 
 /**
  * Represent a recipe view for crop outputs

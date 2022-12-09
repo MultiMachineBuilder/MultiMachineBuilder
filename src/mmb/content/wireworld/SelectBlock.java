@@ -1,20 +1,20 @@
 /**
  * 
  */
-package mmbgame.wireworld;
+package mmb.content.wireworld;
 
 import javax.swing.JPanel;
 
-import mmb.beans.BlockSetting;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.block.BlockType;
-import mmbeng.item.ItemEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.item.ItemEntry;
+import mmbbase.beans.BlockSetting;
+import mmbbase.menu.world.window.WorldWindow;
 
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Color;
 

@@ -1,15 +1,15 @@
 /**
  * 
  */
-package mmbeng.craft;
+package mmb.engine.craft;
 
 import java.util.Objects;
 
-import mmbeng.debug.Debugger;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.io.InventoryReader;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.item.ItemEntry;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.item.ItemEntry;
 
 /**
  *

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.gl;
+package mmb.engine.gl;
 
 import java.awt.Color;
 

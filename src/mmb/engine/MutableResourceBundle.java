@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng;
+package mmb.engine;
 
 import java.util.Enumeration;
 import java.util.HashMap;

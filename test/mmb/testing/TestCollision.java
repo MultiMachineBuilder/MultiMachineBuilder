@@ -5,8 +5,8 @@ package mmb.testing;
 
 import org.joml.Vector2d;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.debug.Debugger;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.debug.Debugger;
 
 /**
  * @author oskar

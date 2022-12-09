@@ -1,17 +1,17 @@
 /**
  * 
  */
-package mmbgame.electric;
+package mmb.content.electric;
 
 import javax.annotation.Nonnull;
 
 import com.google.common.util.concurrent.Runnables;
 
-import mmbeng.block.BlockEntity;
-import mmbeng.block.BlockEntry;
-import mmbeng.debug.Debugger;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.world.World;
+import mmb.engine.block.BlockEntity;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.debug.Debugger;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.world.World;
 
 /**
  * @author oskar

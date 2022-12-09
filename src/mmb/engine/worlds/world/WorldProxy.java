@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.worlds.world;
+package mmb.engine.worlds.world;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,11 +9,11 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.inv.Inventory;
-import mmbeng.visuals.Visual;
-import mmbeng.worlds.MapProxy;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.inv.Inventory;
+import mmb.engine.visuals.Visual;
+import mmb.engine.worlds.MapProxy;
 
 /**
  * @author oskar

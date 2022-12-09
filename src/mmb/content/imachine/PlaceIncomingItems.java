@@ -1,25 +1,25 @@
 /**
  * 
  */
-package mmbgame.imachine;
+package mmb.content.imachine;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
-import mmbeng.MMBUtils;
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.block.Placer;
-import mmbeng.block.BlockEntityRotary;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.InvUtils;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.item.ItemEntry;
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.rotate.Side;
-import mmbgame.ContentsBlocks;
+import mmb.content.ContentsBlocks;
+import mmb.engine.MMBUtils;
+import mmb.engine.block.BlockEntityRotary;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.block.Placer;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.InvUtils;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.rotate.Side;
 
 /**
  * @author oskar

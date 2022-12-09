@@ -6,4 +6,4 @@
  * Contaains agricultural items
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbgame.agro;
+package mmb.content.agro;

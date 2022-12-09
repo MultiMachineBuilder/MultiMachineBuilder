@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.sound;
+package mmb.engine.sound;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

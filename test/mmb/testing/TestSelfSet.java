@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import mmbgame.agro.AgroRecipeGroup.AgroProcessingRecipe;
+import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;

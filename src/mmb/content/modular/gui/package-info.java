@@ -6,4 +6,4 @@
  * @author oskar
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbgame.modular.gui;
+package mmb.content.modular.gui;

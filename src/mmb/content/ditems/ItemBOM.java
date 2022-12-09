@@ -1,21 +1,21 @@
 /**
  * 
  */
-package mmbgame.ditems;
+package mmb.content.ditems;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmbeng.craft.ItemLists;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.craft.SimpleItemList;
-import mmbeng.item.ItemEntity;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.ItemType;
-import mmbgame.ContentsItems;
-import mmbgame.imachine.filter.ItemFilter;
+import mmb.content.ContentsItems;
+import mmb.content.imachine.filter.ItemFilter;
+import mmb.engine.craft.ItemLists;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.SimpleItemList;
+import mmb.engine.item.ItemEntity;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.ItemType;
 
 /**
  * @author oskar

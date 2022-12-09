@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.window;
+package mmbbase.menu.world.window;
 
 import java.awt.Component;
 
@@ -13,10 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 
-import mmb.menu.wtool.ToolSelectionModel;
-import mmb.menu.wtool.Tools;
-import mmb.menu.wtool.WindowTool;
-import mmbeng.debug.Debugger;
+import mmb.engine.debug.Debugger;
+import mmbbase.menu.wtool.ToolSelectionModel;
+import mmbbase.menu.wtool.Tools;
+import mmbbase.menu.wtool.WindowTool;
 import monniasza.collects.Collects;
 
 /**

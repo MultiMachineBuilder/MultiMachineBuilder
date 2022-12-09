@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmb.menu.wtool;
+package mmbbase.menu.wtool;
 
 import javax.annotation.Nullable;
 
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.debug.Debugger;
-import mmbeng.worlds.world.Player;
+import mmb.engine.debug.Debugger;
+import mmb.engine.worlds.world.Player;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

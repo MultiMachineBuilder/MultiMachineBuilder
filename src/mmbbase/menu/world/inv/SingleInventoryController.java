@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmb.menu.world.inv;
+package mmbbase.menu.world.inv;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Color;
 import java.util.Collections;
@@ -12,10 +12,10 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemRecord;
-import mmbeng.inv.storage.SingleItemInventory;
-import mmbeng.item.ItemEntry;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.inv.storage.SingleItemInventory;
+import mmb.engine.item.ItemEntry;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;

@@ -7,9 +7,9 @@ import java.awt.Color;
 
 import javax.swing.JButton;
 
-import mmb.menu.helper.MenuHelper;
-import mmb.menu.world.inv.InventoryController;
-import mmbeng.inv.Inventory;
+import mmb.engine.inv.Inventory;
+import mmbbase.menu.helper.MenuHelper;
+import mmbbase.menu.world.inv.InventoryController;
 import mmbmods.stn.network.STNNetworkInventory;
 
 /**

@@ -1,18 +1,18 @@
 /**
  * 
  */
-package mmbgame.ditems;
+package mmb.content.ditems;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmbeng.craft.ProcessIngredients;
-import mmbeng.item.ItemEntity;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.ItemType;
-import mmbgame.ContentsItems;
+import mmb.content.ContentsItems;
+import mmb.engine.craft.ProcessIngredients;
+import mmb.engine.item.ItemEntity;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.ItemType;
 
 /**
  * @author oskar

@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmbeng.worlds.world;
+package mmb.engine.worlds.world;
 
-import mmbeng.block.BlockEntry;
+import mmb.engine.block.BlockEntry;
 
 /**
  * @author oskar

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.gl;
+package mmb.engine.gl;
 
 import javax.annotation.Nonnull;
 
@@ -12,8 +12,8 @@ import org.joml.Vector2fc;
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
 
-import mmbeng.texture.Textures;
-import mmbeng.texture.Textures.Texture;
+import mmb.engine.texture.Textures;
+import mmb.engine.texture.Textures.Texture;
 
 /**
  * @author oskar

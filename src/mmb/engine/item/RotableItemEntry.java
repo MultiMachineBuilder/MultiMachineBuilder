@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmbeng.item;
+package mmb.engine.item;
 
-import mmbeng.rotate.RotatedImageGroup;
+import mmb.engine.rotate.RotatedImageGroup;
 
 /**
  * An item with texture, which can be rotated

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.mbmachine;
+package mmb.engine.mbmachine;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -10,9 +10,9 @@ import java.awt.Rectangle;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.beans.Saver;
-import mmbeng.worlds.MapProxy;
-import mmbeng.worlds.world.World;
+import mmb.engine.worlds.MapProxy;
+import mmb.engine.worlds.world.World;
+import mmbbase.beans.Saver;
 
 /**
  * @author oskar

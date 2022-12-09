@@ -1,14 +1,14 @@
 /**
  * 
  */
-package mmbeng.item;
+package mmb.engine.item;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.texture.BlockDrawer;
+import mmb.engine.texture.BlockDrawer;
 
 /**
  * @author oskar

@@ -1,15 +1,15 @@
 /**
  * 
  */
-package mmbgame.ppipe;
+package mmb.content.ppipe;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.block.BlockEntityChirotable;
-import mmbeng.debug.Debugger;
-import mmbeng.rotate.Side;
-import mmbeng.rotate.Sided;
-import mmbeng.worlds.world.World;
+import mmb.engine.block.BlockEntityChirotable;
+import mmb.engine.debug.Debugger;
+import mmb.engine.rotate.Side;
+import mmb.engine.rotate.Sided;
+import mmb.engine.worlds.world.World;
 
 /**
  * @author oskar

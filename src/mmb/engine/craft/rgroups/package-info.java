@@ -6,4 +6,4 @@
  *
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbeng.craft.rgroups;
+package mmb.engine.craft.rgroups;

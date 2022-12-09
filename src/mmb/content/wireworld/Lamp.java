@@ -1,16 +1,16 @@
 /**
  * 
  */
-package mmbgame.wireworld;
+package mmb.content.wireworld;
 
 import java.awt.Graphics;
 
-import mmbeng.block.BlockEntityDataless;
-import mmbeng.block.BlockType;
-import mmbeng.texture.BlockDrawer;
-import mmbeng.texture.Textures;
-import mmbeng.worlds.world.WorldUtils;
-import mmbgame.ContentsBlocks;
+import mmb.content.ContentsBlocks;
+import mmb.engine.block.BlockEntityDataless;
+import mmb.engine.block.BlockType;
+import mmb.engine.texture.BlockDrawer;
+import mmb.engine.texture.Textures;
+import mmb.engine.worlds.world.WorldUtils;
 
 /**
  * @author oskar

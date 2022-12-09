@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric.machines;
+package mmb.content.electric.machines;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -9,19 +9,19 @@ import java.awt.image.LookupOp;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.block.BlockEntityType;
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.block.BlockEntityRotary;
-import mmbeng.item.Items;
-import mmbeng.java2d.ColorMapper;
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.rotate.Side;
-import mmbeng.texture.Textures;
-import mmbeng.worlds.MapProxy;
-import mmbgame.electric.Electricity;
-import mmbgame.electric.VoltageTier;
-import mmbgame.electric.Electricity.SettablePressure;
+import mmb.content.electric.Electricity;
+import mmb.content.electric.VoltageTier;
+import mmb.content.electric.Electricity.SettablePressure;
+import mmb.engine.block.BlockEntityRotary;
+import mmb.engine.block.BlockEntityType;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.item.Items;
+import mmb.engine.java2d.ColorMapper;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.rotate.Side;
+import mmb.engine.texture.Textures;
+import mmb.engine.worlds.MapProxy;
 
 /**
  * @author oskar

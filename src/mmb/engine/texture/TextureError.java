@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.texture;
+package mmb.engine.texture;
 
 /**
  * @author oskar

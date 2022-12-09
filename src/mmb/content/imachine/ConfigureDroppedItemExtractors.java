@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmbgame.imachine;
+package mmb.content.imachine;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,10 +14,10 @@ import javax.annotation.Nonnull;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.beans.Resizable;
-import mmb.menu.wtool.WindowTool;
-import mmbeng.block.BlockEntry;
-import mmbeng.texture.Textures;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.texture.Textures;
+import mmbbase.beans.Resizable;
+import mmbbase.menu.wtool.WindowTool;
 
 /**
  * @author oskar

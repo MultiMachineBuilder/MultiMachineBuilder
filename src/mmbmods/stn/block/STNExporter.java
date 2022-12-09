@@ -6,12 +6,12 @@ package mmbmods.stn.block;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmbeng.block.BlockType;
-import mmbeng.inv.Inventories;
-import mmbeng.inv.io.InventoryReader;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.item.ItemEntry;
-import mmbeng.rotate.RotatedImageGroup;
+import mmb.engine.block.BlockType;
+import mmb.engine.inv.Inventories;
+import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.rotate.RotatedImageGroup;
 import mmbmods.stn.STN;
 
 /**

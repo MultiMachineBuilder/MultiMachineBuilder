@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng;
+package mmb.engine;
 
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;

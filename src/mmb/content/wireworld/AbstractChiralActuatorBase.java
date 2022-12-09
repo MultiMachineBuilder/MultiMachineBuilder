@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmbgame.wireworld;
+package mmb.content.wireworld;
 
 import java.awt.Point;
 
-import mmbeng.block.BlockEntityChirotable;
-import mmbeng.block.BlockEntry;
-import mmbeng.worlds.MapProxy;
+import mmb.engine.block.BlockEntityChirotable;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.worlds.MapProxy;
 
 /**
  * @author oskar

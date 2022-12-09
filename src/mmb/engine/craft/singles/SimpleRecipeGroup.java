@@ -1,12 +1,12 @@
 /**
  * 
  */
-package mmbeng.craft.singles;
+package mmb.engine.craft.singles;
 
 import javax.annotation.Nullable;
 
-import mmbeng.craft.RecipeGroup;
-import mmbeng.item.ItemEntry;
+import mmb.engine.craft.RecipeGroup;
+import mmb.engine.item.ItemEntry;
 
 /**
  * @author oskar

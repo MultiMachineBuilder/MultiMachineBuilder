@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.components;
+package mmbbase.menu.components;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -11,8 +11,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JComponent;
 
-import mmb.data.reactive.ListenableProperty;
-import mmbgame.modular.gui.SafeCloseable;
+import mmb.content.modular.gui.SafeCloseable;
+import mmbbase.data.reactive.ListenableProperty;
 
 /**
  * A placeholder displays a component provided by a property

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric.machines;
+package mmb.content.electric.machines;
 
 import java.awt.Component;
 
@@ -10,17 +10,17 @@ import javax.annotation.Nonnull;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.Inventories;
-import mmbeng.inv.storage.SingleItemInventory;
-import mmbeng.item.ItemEntry;
-import mmbeng.worlds.MapProxy;
-import mmbgame.ContentsBlocks;
-import mmbgame.CraftingGroups;
-import mmbgame.electric.VoltageTier;
-import mmbgame.rawmats.Materials;
+import mmb.content.ContentsBlocks;
+import mmb.content.CraftingGroups;
+import mmb.content.electric.VoltageTier;
+import mmb.content.rawmats.Materials;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.Inventories;
+import mmb.engine.inv.storage.SingleItemInventory;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.worlds.MapProxy;
 
 /**
  * @author oskar

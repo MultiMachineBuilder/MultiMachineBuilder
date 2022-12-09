@@ -1,16 +1,16 @@
 /**
  * 
  */
-package mmbeng.worlds.world;
+package mmb.engine.worlds.world;
 
 import javax.annotation.Nonnull;
 
 import org.joml.Vector2d;
 
-import mmbeng.debug.Debugger;
-import mmbgame.ppipe.Direction;
-import mmbgame.ppipe.PipeTunnel;
-import mmbgame.ppipe.PipeTunnelEntry;
+import mmb.content.ppipe.Direction;
+import mmb.content.ppipe.PipeTunnel;
+import mmb.content.ppipe.PipeTunnelEntry;
+import mmb.engine.debug.Debugger;
 
 /**
  * @author oskar

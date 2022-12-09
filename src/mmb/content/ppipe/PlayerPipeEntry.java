@@ -1,18 +1,18 @@
 /**
  * 
  */
-package mmbgame.ppipe;
+package mmb.content.ppipe;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.debug.Debugger;
-import mmbeng.rotate.ChirotatedImageGroup;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.world.Player;
-import mmbeng.worlds.world.PlayerPhysicsPipe;
-import mmbeng.worlds.world.World;
-import mmbgame.ContentsBlocks;
+import mmb.content.ContentsBlocks;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.debug.Debugger;
+import mmb.engine.rotate.ChirotatedImageGroup;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.world.Player;
+import mmb.engine.worlds.world.PlayerPhysicsPipe;
+import mmb.engine.worlds.world.World;
 
 /**
  * @author oskar

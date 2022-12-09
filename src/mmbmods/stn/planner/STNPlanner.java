@@ -17,10 +17,10 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Iterators;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
+import mmb.content.ditems.Stencil;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.item.ItemEntry;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.item.ItemEntry;
-import mmbgame.ditems.Stencil;
 import mmbmods.stn.network.DataLayerSTN;
 import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag.STNPRecipe;
 
@@ -232,14 +232,14 @@ public class STNPlanner {
 		
 		//Add the inputs to the plans and queue
 		Object2IntOpenHashMap<ItemEntry> totalInputs = inputs.mul2map(recipeQuantity, Object2IntOpenHashMap::new);
-		for(Entry<mmbeng.item.ItemEntry> input: totalInputs.object2IntEntrySet()) {
+		for(Entry<mmb.engine.item.ItemEntry> input: totalInputs.object2IntEntrySet()) {
 			planMap.addTo(input.getKey(), Math.multiplyExact(input.getIntValue(), recipeQuantity));
 			queue.add(input.getKey());
 		}
 		
 		//Add the outputs to the plans
-		Object2IntOpenHashMap<mmbeng.item.ItemEntry> totalOutputs = outputs.mul2map(recipeQuantity, Object2IntOpenHashMap::new);
-		for(Entry<mmbeng.item.ItemEntry> output: totalOutputs.object2IntEntrySet()) 
+		Object2IntOpenHashMap<mmb.engine.item.ItemEntry> totalOutputs = outputs.mul2map(recipeQuantity, Object2IntOpenHashMap::new);
+		for(Entry<mmb.engine.item.ItemEntry> output: totalOutputs.object2IntEntrySet()) 
 			planMap.addTo(output.getKey(), Math.multiplyExact(-output.getIntValue(), recipeQuantity));
 		
 		return totalInputs.keySet();

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.item;
+package mmb.engine.item;
 
 import java.util.concurrent.ExecutionException;
 
@@ -13,7 +13,7 @@ import com.google.common.cache.LoadingCache;
 import com.google.common.util.concurrent.ExecutionError;
 import com.google.common.util.concurrent.UncheckedExecutionException;
 
-import mmbeng.GlobalSettings;
+import mmb.engine.GlobalSettings;
 
 /**
  * A simple item wrapper for ItemEntities

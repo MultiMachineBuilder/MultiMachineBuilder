@@ -1,15 +1,15 @@
 /**
  * 
  */
-package mmbeng.window;
+package mmb.engine.window;
 
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 
 import javax.annotation.Nonnull;
 
-import mmb.data.variables.ListenerBooleanVariable;
-import mmbeng.debug.Debugger;
+import mmb.engine.debug.Debugger;
+import mmbbase.data.variables.ListenerBooleanVariable;
 
 /**
  * @author oskar

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.craft;
+package mmb.engine.craft;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -19,11 +19,11 @@ import it.unimi.dsi.fastutil.objects.AbstractObject2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import mmbeng.chance.Chance;
-import mmbeng.inv.ItemStack;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.item.ItemEntry;
-import mmbeng.worlds.world.World;
+import mmb.engine.chance.Chance;
+import mmb.engine.inv.ItemStack;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.worlds.world.World;
 import monniasza.collects.Collects;
 
 /**
@@ -77,7 +77,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	/**
 	 * @return contents of the item list as map.
 	 */
-	@Nonnull public Object2IntMap<mmbeng.item.ItemEntry> getContents();
+	@Nonnull public Object2IntMap<mmb.engine.item.ItemEntry> getContents();
 	
 	/**
 	 * Checks if the item list contains the selected item

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric;
+package mmb.content.electric;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -16,15 +16,15 @@ import javax.swing.ImageIcon;
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.gl.GLHelper;
-import mmbeng.gl.RenderCtx;
-import mmbeng.java2d.ColorMapper;
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.rotate.Side;
-import mmbeng.texture.BlockDrawer;
-import mmbeng.texture.Textures;
-import mmbeng.texture.Textures.Texture;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.gl.GLHelper;
+import mmb.engine.gl.RenderCtx;
+import mmb.engine.java2d.ColorMapper;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.rotate.Side;
+import mmb.engine.texture.BlockDrawer;
+import mmb.engine.texture.Textures;
+import mmb.engine.texture.Textures.Texture;
 
 /**
  * @author oskar
@@ -114,7 +114,7 @@ public class ElecRenderer implements BlockDrawer {
 	@Override
 	public int LOD() {
 		if(lod < 0) {
-			int rgb1 = mmbeng.texture.LODs.calcLOD(base);
+			int rgb1 = mmb.engine.texture.LODs.calcLOD(base);
 			int r = (rgb1 & 0x00ff0000) >> 16;
 			int g = (rgb1 & 0x0000ff00) >> 8;
 			int b = (rgb1 & 0x000000ff);

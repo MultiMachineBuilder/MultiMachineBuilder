@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmbgame.imachine;
+package mmb.content.imachine;
 
 import javax.annotation.Nullable;
 
-import mmbeng.inv.storage.SingleItemInventory;
-import mmbeng.item.Item;
-import mmbeng.item.ItemEntry;
+import mmb.engine.inv.storage.SingleItemInventory;
+import mmb.engine.item.Item;
+import mmb.engine.item.ItemEntry;
 
 /**
  * @author oskar

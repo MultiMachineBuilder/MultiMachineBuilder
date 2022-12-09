@@ -1,16 +1,16 @@
 /**
  * 
  */
-package mmbgame.modular.gui;
+package mmb.content.modular.gui;
 
 import java.awt.Component;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.menu.world.inv.InventoryController;
-import mmbeng.debug.Debugger;
-import mmbeng.item.ItemEntry;
+import mmb.engine.debug.Debugger;
+import mmb.engine.item.ItemEntry;
+import mmbbase.menu.world.inv.InventoryController;
 
 /**
  * Handles the module GUIs

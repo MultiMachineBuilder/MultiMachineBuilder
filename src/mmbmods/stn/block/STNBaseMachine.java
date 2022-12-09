@@ -6,9 +6,9 @@ package mmbmods.stn.block;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmbeng.block.BlockEntityRotary;
-import mmbeng.inv.Inventory;
-import mmbeng.worlds.world.World;
+import mmb.engine.block.BlockEntityRotary;
+import mmb.engine.inv.Inventory;
+import mmb.engine.worlds.world.World;
 import mmbmods.stn.STN;
 import mmbmods.stn.network.DataLayerSTN;
 import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag;

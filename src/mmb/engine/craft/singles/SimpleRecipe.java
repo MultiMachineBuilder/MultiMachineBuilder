@@ -1,10 +1,10 @@
 /**
  * 
  */
-package mmbeng.craft.singles;
+package mmb.engine.craft.singles;
 
-import mmbeng.craft.Recipe;
-import mmbeng.craft.SingleItem;
+import mmb.engine.craft.Recipe;
+import mmb.engine.craft.SingleItem;
 
 /**
  * @author oskar

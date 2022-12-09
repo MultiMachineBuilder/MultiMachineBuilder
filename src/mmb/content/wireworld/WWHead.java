@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmbgame.wireworld;
+package mmb.content.wireworld;
 
-import mmbeng.block.BlockEntityDataless;
-import mmbeng.block.BlockType;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.MapProxy;
-import mmbgame.ContentsBlocks;
+import mmb.content.ContentsBlocks;
+import mmb.engine.block.BlockEntityDataless;
+import mmb.engine.block.BlockType;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.MapProxy;
 
 /**
  * @author oskar

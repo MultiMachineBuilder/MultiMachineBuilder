@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.main;
+package mmbbase.menu.main;
 
 import java.util.Date;
 
@@ -12,14 +12,14 @@ import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
-import mmbeng.debug.Debugger;
-import mmbeng.mods.ModInfo;
-import mmbeng.mods.ModState;
-import mmbeng.mods.Modfile;
-import mmbeng.mods.Mods;
+import mmb.engine.debug.Debugger;
+import mmb.engine.mods.ModInfo;
+import mmb.engine.mods.ModState;
+import mmb.engine.mods.Modfile;
+import mmb.engine.mods.Mods;
 import net.miginfocom.swing.MigLayout;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Desktop;
 

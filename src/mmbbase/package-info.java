@@ -21,6 +21,6 @@
  * @author oskar
  */
 @ParametersAreNonnullByDefault
-package mmb;
+package mmbbase;
 
 import javax.annotation.ParametersAreNonnullByDefault;

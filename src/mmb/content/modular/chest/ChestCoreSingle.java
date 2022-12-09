@@ -1,16 +1,16 @@
 /**
  * 
  */
-package mmbgame.modular.chest;
+package mmb.content.modular.chest;
 
 import javax.annotation.Nonnull;
 
-import mmb.menu.world.inv.AbstractInventoryController;
-import mmb.menu.world.inv.InventoryController;
-import mmbeng.craft.SingleItem;
-import mmbeng.inv.storage.SingleItemInventory;
-import mmbgame.modular.part.PartEntityType;
-import mmbgame.modular.part.PartEntry;
+import mmb.content.modular.part.PartEntityType;
+import mmb.content.modular.part.PartEntry;
+import mmb.engine.craft.SingleItem;
+import mmb.engine.inv.storage.SingleItemInventory;
+import mmbbase.menu.world.inv.AbstractInventoryController;
+import mmbbase.menu.world.inv.InventoryController;
 
 /**
  * @author oskar

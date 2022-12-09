@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmbeng.inv;
+package mmb.engine.inv;
 
-import mmb.beans.Saver;
+import mmbbase.beans.Saver;
 
 /**
  * An inventory with essential save and load capabilities

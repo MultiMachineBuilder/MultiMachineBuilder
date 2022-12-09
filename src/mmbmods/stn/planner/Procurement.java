@@ -7,7 +7,7 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.craft.RecipeOutput;
+import mmb.engine.craft.RecipeOutput;
 
 /**
  * @author oskar

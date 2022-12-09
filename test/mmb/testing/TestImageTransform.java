@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import mmbeng.rotate.Rotations;
+import mmb.engine.rotate.Rotations;
 
 /**
  * @author oskar

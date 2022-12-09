@@ -1,24 +1,24 @@
 /**
  * 
  */
-package mmbgame.machinemics.line;
+package mmb.content.machinemics.line;
 
 import javax.annotation.Nonnull;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockEntityRotary;
-import mmbeng.inv.Inventories;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.NoSuchInventory;
-import mmbeng.inv.io.InventoryReader;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.inv.storage.SimpleInventory;
-import mmbeng.json.JsonTool;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.MapProxy;
+import mmb.engine.block.BlockEntityRotary;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.inv.Inventories;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.NoSuchInventory;
+import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.inv.storage.SimpleInventory;
+import mmb.engine.json.JsonTool;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.MapProxy;
 
 /**
  * @author oskar

@@ -1,22 +1,22 @@
 /**
  * 
  */
-package mmbgame.rawmats;
+package mmb.content.rawmats;
 
-import static mmbeng.GlobalSettings.*;
+import static mmb.engine.GlobalSettings.*;
 
 import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
-import mmbeng.UnitFormatter;
-import mmbeng.block.BlockEntityType;
-import mmbeng.item.Item;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.Items;
-import mmbgame.CraftingGroups;
-import mmbgame.electric.BlockConduit;
-import mmbgame.electric.ElecRenderer;
-import mmbgame.electric.VoltageTier;
+import mmb.content.CraftingGroups;
+import mmb.content.electric.BlockConduit;
+import mmb.content.electric.ElecRenderer;
+import mmb.content.electric.VoltageTier;
+import mmb.engine.UnitFormatter;
+import mmb.engine.block.BlockEntityType;
+import mmb.engine.item.Item;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.Items;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;

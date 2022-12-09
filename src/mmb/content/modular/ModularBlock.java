@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.modular;
+package mmb.content.modular;
 
 import java.awt.Graphics;
 
@@ -13,27 +13,27 @@ import org.checkerframework.common.returnsreceiver.qual.This;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.cgui.BlockActivateListener;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.block.SensitiveBlock;
-import mmbeng.chance.Chance;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemRecord;
-import mmbeng.inv.NoSuchInventory;
-import mmbeng.inv.io.InventoryReader;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.item.ItemEntry;
-import mmbeng.rotate.ChiralRotation;
-import mmbeng.rotate.Rotation;
-import mmbeng.rotate.Side;
-import mmbeng.texture.BlockDrawer;
-import mmbeng.worlds.world.World;
-import mmbgame.electric.Electricity;
-import mmbgame.modular.chest.BlockModuleUniversal;
-import mmbgame.modular.gui.ModularChestGUI;
-import mmbgame.modular.part.PartEntry;
-import mmbgame.modular.part.PartType;
+import mmb.content.electric.Electricity;
+import mmb.content.modular.chest.BlockModuleUniversal;
+import mmb.content.modular.gui.ModularChestGUI;
+import mmb.content.modular.part.PartEntry;
+import mmb.content.modular.part.PartType;
+import mmb.engine.block.SensitiveBlock;
+import mmb.engine.chance.Chance;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.inv.NoSuchInventory;
+import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.rotate.ChiralRotation;
+import mmb.engine.rotate.Rotation;
+import mmb.engine.rotate.Side;
+import mmb.engine.texture.BlockDrawer;
+import mmb.engine.worlds.world.World;
+import mmbbase.cgui.BlockActivateListener;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * A modular block.

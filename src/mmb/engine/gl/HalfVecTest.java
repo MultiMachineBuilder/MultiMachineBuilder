@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.gl;
+package mmb.engine.gl;
 
 import static org.lwjgl.glfw.GLFW.glfwCreateWindow;
 import static org.lwjgl.glfw.GLFW.glfwGetPrimaryMonitor;
@@ -26,9 +26,9 @@ import org.joml.Matrix2f;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
 
-import mmbeng.rotate.ChiralRotation;
-import mmbeng.texture.Textures;
-import mmbeng.texture.Textures.Texture;
+import mmb.engine.rotate.ChiralRotation;
+import mmb.engine.texture.Textures;
+import mmb.engine.texture.Textures.Texture;
 
 /**
  * @author oskar

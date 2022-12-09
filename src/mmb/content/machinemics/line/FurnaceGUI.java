@@ -1,28 +1,29 @@
 /**
  * 
  */
-package mmbgame.machinemics.line;
+package mmb.content.machinemics.line;
 
 import net.miginfocom.swing.MigLayout;
-import mmb.menu.world.inv.InventoryController;
-import mmb.menu.world.inv.InventoryOrchestrator;
-import mmb.menu.world.inv.MoveItems;
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.craft.Recipe;
-import mmbeng.craft.Refreshable;
 
 import javax.swing.JLabel;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JButton;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Color;
 import javax.swing.JProgressBar;
 
 import org.ainslec.picocog.PicoWriter;
+
+import mmb.engine.craft.Recipe;
+import mmb.engine.craft.Refreshable;
+import mmbbase.menu.world.inv.InventoryController;
+import mmbbase.menu.world.inv.InventoryOrchestrator;
+import mmbbase.menu.world.inv.MoveItems;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
 
 import javax.swing.Box;
 

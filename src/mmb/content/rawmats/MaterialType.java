@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.rawmats;
+package mmb.content.rawmats;
 
 /**
  * @author oskar

@@ -6,11 +6,11 @@ package mmbmods.stn.block;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.inv.Inventory;
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.worlds.MapProxy;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.inv.Inventory;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.worlds.MapProxy;
 import mmbmods.stn.STN;
 import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag;
 

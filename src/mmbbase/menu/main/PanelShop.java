@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.main;
+package mmbbase.menu.main;
 
 import javax.swing.JPanel;
 import java.awt.BorderLayout;

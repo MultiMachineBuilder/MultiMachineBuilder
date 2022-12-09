@@ -1,10 +1,10 @@
 /**
  * 
  */
-package mmbgame.event;
+package mmb.content.event;
 
-import mmbeng.block.BlockEntity;
-import mmbeng.worlds.world.World;
+import mmb.engine.block.BlockEntity;
+import mmb.engine.worlds.world.World;
 
 /**
  * @author oskar

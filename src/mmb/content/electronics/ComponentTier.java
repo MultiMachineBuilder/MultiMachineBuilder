@@ -1,17 +1,17 @@
 /**
  * 
  */
-package mmbgame.electronics;
+package mmb.content.electronics;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Color;
 
 import javax.annotation.Nonnull;
 
-import mmb.beans.Titled;
-import mmbeng.item.Item;
-import mmbeng.item.Items;
+import mmb.engine.item.Item;
+import mmb.engine.item.Items;
+import mmbbase.beans.Titled;
 import monniasza.collects.Identifiable;
 
 /**

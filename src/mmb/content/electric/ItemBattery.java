@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric;
+package mmb.content.electric;
 
 import java.awt.Graphics;
 
@@ -10,11 +10,11 @@ import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmbeng.item.ItemEntity;
-import mmbeng.item.ItemEntityType;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.ItemType;
-import mmbgame.pickaxe.Pickaxe;
+import mmb.content.pickaxe.Pickaxe;
+import mmb.engine.item.ItemEntity;
+import mmb.engine.item.ItemEntityType;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.ItemType;
 
 /**
  * @author oskar

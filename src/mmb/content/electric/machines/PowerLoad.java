@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric.machines;
+package mmb.content.electric.machines;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -14,18 +14,18 @@ import javax.swing.JTextField;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.cgui.BlockActivateListener;
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.block.BlockEntityData;
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.MapProxy;
-import mmbeng.worlds.world.World;
-import mmbgame.ContentsBlocks;
-import mmbgame.electric.Electricity;
-import mmbgame.electric.VoltageTier;
+import mmb.content.ContentsBlocks;
+import mmb.content.electric.Electricity;
+import mmb.content.electric.VoltageTier;
+import mmb.engine.block.BlockEntityData;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.MapProxy;
+import mmb.engine.worlds.world.World;
+import mmbbase.cgui.BlockActivateListener;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

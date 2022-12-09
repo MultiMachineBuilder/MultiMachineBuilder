@@ -1,26 +1,26 @@
 /**
  * 
  */
-package mmbgame.modular.gui;
+package mmb.content.modular.gui;
 
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
 import net.miginfocom.swing.MigLayout;
-import mmbeng.GlobalSettings;
-import mmbeng.rotate.Side;
-import mmbgame.modular.BlockModuleOrCore;
-import mmbgame.modular.ModularBlock;
-import mmbgame.modular.Slot;
-import mmbgame.modular.Slot.CoreSlot;
 
 import java.awt.Component;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import mmb.menu.world.inv.InventoryController;
 import javax.swing.JButton;
 import javax.swing.border.BevelBorder;
+
+import mmb.content.modular.BlockModuleOrCore;
+import mmb.content.modular.ModularBlock;
+import mmb.content.modular.Slot;
+import mmb.content.modular.Slot.CoreSlot;
+import mmb.engine.GlobalSettings;
+import mmb.engine.rotate.Side;
+import mmbbase.menu.world.inv.InventoryController;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
 
 import java.awt.Color;
 

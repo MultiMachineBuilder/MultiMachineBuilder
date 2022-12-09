@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world;
+package mmbbase.menu.world;
 
 import java.awt.Component;
 import java.awt.event.MouseEvent;
@@ -14,8 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
-import mmbeng.item.ItemType;
-import mmbeng.item.Items;
+import mmb.engine.item.ItemType;
+import mmb.engine.item.Items;
 import monniasza.collects.Collects;
 
 /**

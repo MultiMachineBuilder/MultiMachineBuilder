@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.json;
+package mmb.engine.json;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;

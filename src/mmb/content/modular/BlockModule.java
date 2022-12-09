@@ -1,19 +1,19 @@
 /**
  * 
  */
-package mmbgame.modular;
+package mmb.content.modular;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmbeng.inv.Inventory;
-import mmbeng.inv.io.InventoryReader;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.item.RotableItemEntry;
-import mmbeng.rotate.Side;
-import mmbgame.electric.Electricity;
-import mmbgame.modular.gui.ModuleConfigHandler;
-import mmbgame.modular.part.RotablePartEntry;
+import mmb.content.electric.Electricity;
+import mmb.content.modular.gui.ModuleConfigHandler;
+import mmb.content.modular.part.RotablePartEntry;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.item.RotableItemEntry;
+import mmb.engine.rotate.Side;
 
 /**
  * An interface which provides addition/removal handling for the player.

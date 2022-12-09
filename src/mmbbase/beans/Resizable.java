@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.beans;
+package mmbbase.beans;
 
 /**
  * An object which has size.

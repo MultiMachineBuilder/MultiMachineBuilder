@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.inv.infty;
+package mmb.engine.inv.infty;
 
 import java.util.Iterator;
 
@@ -9,12 +9,12 @@ import javax.annotation.Nonnull;
 
 import com.google.common.collect.Iterators;
 
-import mmbeng.craft.RecipeOutput;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemRecord;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.ItemType;
-import mmbeng.item.Items;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.ItemType;
+import mmb.engine.item.Items;
 
 /**
  * An inventory with unlimited item withdrawals and shredding

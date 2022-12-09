@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmb.menu.wtool;
+package mmbbase.menu.wtool;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -16,12 +16,12 @@ import javax.annotation.Nonnull;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.beans.Colorable;
-import mmb.menu.world.ColorGUI;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.block.BlockEntry;
-import mmbeng.java2d.MappedColorTexture;
-import mmbeng.texture.Textures;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.java2d.MappedColorTexture;
+import mmb.engine.texture.Textures;
+import mmbbase.beans.Colorable;
+import mmbbase.menu.world.ColorGUI;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

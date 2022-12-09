@@ -1,18 +1,20 @@
 /**
  * 
  */
-package mmbgame.electric;
+package mmb.content.electric;
 
 import net.miginfocom.swing.MigLayout;
-import mmb.menu.world.inv.InventoryController;
-import mmb.menu.world.inv.MoveItems;
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
-import mmbgame.electric.machines.BlockGeneratorSolid;
 
 import javax.annotation.Nonnull;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
+
+import mmb.content.electric.machines.BlockGeneratorSolid;
+import mmbbase.menu.world.inv.InventoryController;
+import mmbbase.menu.world.inv.MoveItems;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
+
 import java.awt.Color;
 import javax.swing.JButton;
 

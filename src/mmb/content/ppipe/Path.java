@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.ppipe;
+package mmb.content.ppipe;
 
 import org.joml.Vector2d;
 

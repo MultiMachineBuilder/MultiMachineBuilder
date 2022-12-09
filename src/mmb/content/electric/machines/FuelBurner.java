@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmbgame.electric.machines;
+package mmb.content.electric.machines;
 
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemRecord;
-import mmbeng.item.ItemEntry;
-import mmbgame.electric.Battery;
+import mmb.content.electric.Battery;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.item.ItemEntry;
 
 /**
  * @author oskar

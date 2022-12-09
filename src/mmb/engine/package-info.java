@@ -7,4 +7,4 @@
  * @author oskar
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbeng;
+package mmb.engine;

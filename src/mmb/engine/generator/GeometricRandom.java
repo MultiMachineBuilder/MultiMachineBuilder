@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.generator;
+package mmb.engine.generator;
 
 /**
  * @author oskar

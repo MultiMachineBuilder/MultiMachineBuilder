@@ -1,20 +1,20 @@
 /**
  * 
  */
-package mmbgame.modular.universal;
+package mmb.content.modular.universal;
 
-import mmbeng.chance.Chance;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.NoSuchInventory;
-import mmbeng.inv.io.InventoryReader;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.item.RotableItem;
-import mmbeng.rotate.Side;
-import mmbgame.electric.Electricity;
-import mmbgame.modular.ModularBlock;
-import mmbgame.modular.chest.BlockModuleUniversal;
-import mmbgame.modular.gui.ModuleConfigHandler;
-import mmbgame.modular.part.RotablePart;
+import mmb.content.electric.Electricity;
+import mmb.content.modular.ModularBlock;
+import mmb.content.modular.chest.BlockModuleUniversal;
+import mmb.content.modular.gui.ModuleConfigHandler;
+import mmb.content.modular.part.RotablePart;
+import mmb.engine.chance.Chance;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.NoSuchInventory;
+import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.item.RotableItem;
+import mmb.engine.rotate.Side;
 
 /**
  * @author oskar

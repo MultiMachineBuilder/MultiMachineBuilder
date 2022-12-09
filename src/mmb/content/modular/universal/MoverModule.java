@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.modular.universal;
+package mmb.content.modular.universal;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.menu.world.inv.InventoryController;
-import mmbeng.GlobalSettings;
-import mmbeng.MMBUtils;
-import mmbeng.chance.Chance;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.inv.io.InventoryReader;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.Items;
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.rotate.Side;
-import mmbeng.texture.BlockDrawer;
-import mmbgame.imachine.SpeedUpgrade;
-import mmbgame.modular.ModularBlock;
-import mmbgame.modular.chest.BlockModuleUniversal;
-import mmbgame.modular.gui.ModuleConfigHandler;
-import mmbgame.modular.part.PartEntity;
-import mmbgame.modular.part.PartEntityType;
-import mmbgame.modular.part.PartEntry;
-import mmbgame.modular.part.PartType;
+import mmb.content.imachine.SpeedUpgrade;
+import mmb.content.modular.ModularBlock;
+import mmb.content.modular.chest.BlockModuleUniversal;
+import mmb.content.modular.gui.ModuleConfigHandler;
+import mmb.content.modular.part.PartEntity;
+import mmb.content.modular.part.PartEntityType;
+import mmb.content.modular.part.PartEntry;
+import mmb.content.modular.part.PartType;
+import mmb.engine.GlobalSettings;
+import mmb.engine.MMBUtils;
+import mmb.engine.chance.Chance;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.Items;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.rotate.Side;
+import mmb.engine.texture.BlockDrawer;
+import mmbbase.menu.world.inv.InventoryController;
 
 /**
  * A basic implementation of an item mover.

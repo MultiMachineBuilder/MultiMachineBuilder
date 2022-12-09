@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.craft;
+package mmbbase.menu.world.craft;
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
-import mmbeng.inv.ItemStack;
+import mmb.engine.inv.ItemStack;
 
 public class ItemStackCellRenderer extends JLabel implements ListCellRenderer<ItemStack>{
 	public static final ItemStackCellRenderer instance = new ItemStackCellRenderer();

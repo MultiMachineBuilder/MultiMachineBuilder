@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.item;
+package mmb.engine.item;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -10,8 +10,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmbeng.debug.Debugger;
-import mmbeng.texture.BlockDrawer;
+import mmb.engine.debug.Debugger;
+import mmb.engine.texture.BlockDrawer;
 import monniasza.collects.Identifiable;
 
 /**

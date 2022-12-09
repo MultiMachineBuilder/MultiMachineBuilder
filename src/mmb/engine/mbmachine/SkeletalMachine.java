@@ -1,11 +1,11 @@
 /**
  * 
  */
-package mmbeng.mbmachine;
+package mmb.engine.mbmachine;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.world.World;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.world.World;
 
 /**
  * @author oskar

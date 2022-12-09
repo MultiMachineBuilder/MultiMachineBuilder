@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.components;
+package mmbbase.menu.components;
 
 import javax.annotation.Nonnull;
 import javax.swing.*;

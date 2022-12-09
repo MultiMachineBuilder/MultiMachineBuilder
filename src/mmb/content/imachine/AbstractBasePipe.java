@@ -1,23 +1,23 @@
 /**
  * 
  */
-package mmbgame.imachine;
+package mmb.content.imachine;
 
 import javax.annotation.Nonnull;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmbeng.block.BlockEntityChirotable;
-import mmbeng.block.BlockType;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.inv.io.InventoryReader;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.inv.storage.SingleItemInventory;
-import mmbeng.item.ItemEntry;
-import mmbeng.json.JsonTool;
-import mmbeng.rotate.ChirotatedImageGroup;
-import mmbeng.rotate.Side;
+import mmb.engine.block.BlockEntityChirotable;
+import mmb.engine.block.BlockType;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.inv.storage.SingleItemInventory;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.json.JsonTool;
+import mmb.engine.rotate.ChirotatedImageGroup;
+import mmb.engine.rotate.Side;
 
 /**
  * @author oskar

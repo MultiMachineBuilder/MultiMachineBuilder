@@ -1,16 +1,16 @@
 /**
  * 
  */
-package mmbgame.wireworld;
+package mmb.content.wireworld;
 
 import java.awt.Point;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.texture.Textures;
-import mmbeng.worlds.MapProxy;
-import mmbgame.ContentsBlocks;
+import mmb.content.ContentsBlocks;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.texture.Textures;
+import mmb.engine.worlds.MapProxy;
 
 /**
  * @author oskar

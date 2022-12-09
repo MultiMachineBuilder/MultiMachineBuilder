@@ -1,15 +1,15 @@
 /**
  * 
  */
-package mmb.menu.world.window;
+package mmbbase.menu.world.window;
 
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
-import mmb.menu.wtool.ToolStandard;
-import mmbeng.block.BlockEntry;
-import mmbeng.debug.Debugger;
-import mmbeng.worlds.world.World;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.debug.Debugger;
+import mmb.engine.worlds.world.World;
+import mmbbase.menu.wtool.ToolStandard;
 
 /**
  * @author oskar

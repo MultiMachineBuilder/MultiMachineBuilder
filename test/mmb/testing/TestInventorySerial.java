@@ -7,11 +7,11 @@ import javax.annotation.Nonnull;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmbeng.debug.Debugger;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.storage.SimpleInventory;
-import mmbeng.item.Item;
-import mmbeng.json.JsonTool;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.storage.SimpleInventory;
+import mmb.engine.item.Item;
+import mmb.engine.json.JsonTool;
 
 /**
  * @author oskar

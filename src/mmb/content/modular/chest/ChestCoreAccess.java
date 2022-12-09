@@ -1,12 +1,12 @@
 /**
  * 
  */
-package mmbgame.modular.chest;
+package mmb.content.modular.chest;
 
 import javax.swing.JPanel;
 
-import mmb.menu.world.inv.InventoryController;
-import mmbgame.modular.gui.SafeCloseable;
+import mmb.content.modular.gui.SafeCloseable;
+import mmbbase.menu.world.inv.InventoryController;
 
 /**
  *

@@ -6,4 +6,4 @@
  * @author oskar
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmb.data.reactive;
+package mmbbase.data.reactive;

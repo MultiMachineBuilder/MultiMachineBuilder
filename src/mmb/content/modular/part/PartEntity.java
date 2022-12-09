@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.modular.part;
+package mmb.content.modular.part;
 
 import javax.annotation.Nullable;
 

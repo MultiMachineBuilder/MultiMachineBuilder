@@ -1,21 +1,21 @@
 /**
  * 
  */
-package mmbgame.agro;
+package mmb.content.agro;
 
 import java.util.Set;
 import javax.annotation.Nonnull;
 
-import mmb.menu.world.craft.RecipeView;
-import mmbeng.chance.Chance;
-import mmbeng.craft.GlobalRecipeRegistrar;
-import mmbeng.craft.Recipe;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.craft.rgroups.AbstractRecipeGroup;
-import mmbeng.inv.Inventory;
-import mmbeng.item.ItemEntry;
-import mmbgame.CraftingGroups;
-import mmbgame.electric.VoltageTier;
+import mmb.content.CraftingGroups;
+import mmb.content.electric.VoltageTier;
+import mmb.engine.chance.Chance;
+import mmb.engine.craft.GlobalRecipeRegistrar;
+import mmb.engine.craft.Recipe;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.rgroups.AbstractRecipeGroup;
+import mmb.engine.inv.Inventory;
+import mmb.engine.item.ItemEntry;
+import mmbbase.menu.world.craft.RecipeView;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;

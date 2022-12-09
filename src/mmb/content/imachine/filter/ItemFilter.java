@@ -1,12 +1,12 @@
 /**
  * 
  */
-package mmbgame.imachine.filter;
+package mmb.content.imachine.filter;
 
 import java.util.function.Predicate;
 
-import mmbeng.item.ItemEntity;
-import mmbeng.item.ItemEntry;
+import mmb.engine.item.ItemEntity;
+import mmb.engine.item.ItemEntry;
 
 /**
  * Abstraction over item filters

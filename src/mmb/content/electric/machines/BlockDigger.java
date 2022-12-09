@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric.machines;
+package mmb.content.electric.machines;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -9,24 +9,24 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.cgui.BlockActivateListener;
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.block.BlockEntityData;
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.chance.Chance;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.inv.storage.SimpleInventory;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.MapProxy;
-import mmbeng.worlds.world.World;
-import mmbgame.electric.Battery;
-import mmbgame.electric.Electric;
-import mmbgame.electric.Electricity;
-import mmbgame.electric.ElectricMachineGroup.ElectroMachineType;
-import mmbgame.imachine.ToItemUnifiedCollector;
+import mmb.content.electric.Battery;
+import mmb.content.electric.Electric;
+import mmb.content.electric.Electricity;
+import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
+import mmb.content.imachine.ToItemUnifiedCollector;
+import mmb.engine.block.BlockEntityData;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.chance.Chance;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.inv.storage.SimpleInventory;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.MapProxy;
+import mmb.engine.worlds.world.World;
+import mmbbase.cgui.BlockActivateListener;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

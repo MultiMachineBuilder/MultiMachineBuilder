@@ -1,12 +1,12 @@
 /**
  * 
  */
-package mmb.menu.main;
+package mmbbase.menu.main;
 
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import static mmbeng.GlobalSettings.*;
+import static mmb.engine.GlobalSettings.*;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -25,11 +25,11 @@ import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
 import io.github.parubok.text.multiline.MultilineLabel;
-import mmb.menu.components.BoundCheckBox;
-import mmb.menu.components.BoundCheckBoxMenuItem;
-import mmb.menu.components.BoundCombo;
-import mmbeng.GlobalSettings;
-import mmbeng.debug.Debugger;
+import mmb.engine.GlobalSettings;
+import mmb.engine.debug.Debugger;
+import mmbbase.menu.components.BoundCheckBox;
+import mmbbase.menu.components.BoundCheckBoxMenuItem;
+import mmbbase.menu.components.BoundCombo;
 
 import java.awt.Color;
 

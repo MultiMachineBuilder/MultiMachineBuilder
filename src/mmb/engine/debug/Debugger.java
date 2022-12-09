@@ -1,4 +1,4 @@
-package mmbeng.debug;
+package mmb.engine.debug;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import mmb.Main;
-import mmbeng.MMBUtils;
+import mmb.engine.MMBUtils;
 
 /**
  * 

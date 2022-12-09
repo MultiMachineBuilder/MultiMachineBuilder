@@ -7,4 +7,4 @@
  *
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbeng.texture;
+package mmb.engine.texture;

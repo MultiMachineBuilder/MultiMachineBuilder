@@ -1,15 +1,15 @@
 /**
  * 
  */
-package mmb.menu.world.window;
+package mmbbase.menu.world.window;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.util.Comparator;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.item.ItemType;
+import mmb.engine.item.ItemType;
 
 /**
  * @author oskar

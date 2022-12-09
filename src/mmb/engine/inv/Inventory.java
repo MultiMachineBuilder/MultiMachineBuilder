@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.inv;
+package mmb.engine.inv;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,10 +12,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.inv.io.InventoryReader;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.item.ItemEntry;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.item.ItemEntry;
 
 /**
  * An inventory is an object, which allows players and machines to store items.
@@ -440,7 +440,7 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	 * Inserts contents of this inventory into a map
 	 * @param map
 	 */
-	public default void contents(Object2IntMap<mmbeng.item.ItemEntry> map) {
+	public default void contents(Object2IntMap<mmb.engine.item.ItemEntry> map) {
 		for(ItemRecord irecord: this) {
 			map.put(irecord.item(), irecord.amount());
 		}

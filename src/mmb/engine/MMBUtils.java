@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng;
+package mmb.engine;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;

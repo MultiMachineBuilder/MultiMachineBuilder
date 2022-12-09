@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.inv;
+package mmb.engine.inv;
 
 import java.util.ArrayDeque;
 import java.util.Iterator;
@@ -14,11 +14,11 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.NumericNode;
 
-import mmbeng.debug.Debugger;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.ItemType;
-import mmbeng.item.Items;
-import mmbeng.json.JsonTool;
+import mmb.engine.debug.Debugger;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.ItemType;
+import mmb.engine.item.Items;
+import mmb.engine.json.JsonTool;
 import monniasza.collects.Collects;
 
 /**

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.worlds.world;
+package mmb.engine.worlds.world;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,7 +10,7 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.visuals.Visual;
+import mmb.engine.visuals.Visual;
 
 /**
  * @author oskar

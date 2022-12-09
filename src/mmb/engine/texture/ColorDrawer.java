@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.texture;
+package mmb.engine.texture;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -12,9 +12,9 @@ import org.joml.Vector2fc;
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.gl.GLHelper;
-import mmbeng.gl.RenderCtx;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.gl.GLHelper;
+import mmb.engine.gl.RenderCtx;
 
 /**
  * @author oskar

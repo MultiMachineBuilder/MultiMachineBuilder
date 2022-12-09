@@ -1,30 +1,30 @@
 /**
  * 
  */
-package mmb.menu.world.inv;
+package mmbbase.menu.world.inv;
 
 import org.ainslec.picocog.PicoWriter;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import mmb.content.CraftingGroups;
+import mmb.content.ditems.Stencil;
+import mmb.content.machinemics.manual.Crafting;
+import mmb.engine.craft.Craftings;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.SimpleItemList;
+import mmb.engine.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.inv.ItemStack;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.ItemRaw;
+import mmbbase.menu.Icons;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
 
-import mmb.menu.Icons;
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.craft.Craftings;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.craft.SimpleItemList;
-import mmbeng.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemRecord;
-import mmbeng.inv.ItemStack;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.ItemRaw;
-import mmbgame.CraftingGroups;
-import mmbgame.ditems.Stencil;
-import mmbgame.machinemics.manual.Crafting;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 
@@ -34,7 +34,7 @@ import javax.annotation.Nullable;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Color;
 import java.util.concurrent.atomic.AtomicReference;

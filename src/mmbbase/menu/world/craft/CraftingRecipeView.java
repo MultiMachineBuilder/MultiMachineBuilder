@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.craft;
+package mmbbase.menu.world.craft;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
@@ -13,9 +13,9 @@ import javax.swing.JComponent;
 import monniasza.collects.grid.Grid;
 import javax.swing.JList;
 
-import mmbeng.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
-import mmbeng.inv.ItemStack;
-import mmbeng.item.ItemEntry;
+import mmb.engine.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
+import mmb.engine.inv.ItemStack;
+import mmb.engine.item.ItemEntry;
 
 import java.awt.Color;
 

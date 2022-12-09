@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmb.beans;
+package mmbbase.beans;
 
 import java.awt.Color;
 
 import javax.annotation.Nonnull;
 
-import mmb.data.variables.Variable;
+import mmbbase.data.variables.Variable;
 
 /**
  * @author oskar

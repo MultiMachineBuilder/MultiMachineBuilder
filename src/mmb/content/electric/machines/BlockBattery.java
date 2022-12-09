@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric.machines;
+package mmb.content.electric.machines;
 
 import java.awt.Graphics;
 
@@ -10,21 +10,21 @@ import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.cgui.BlockActivateListener;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.block.BlockEntityRotary;
-import mmbeng.inv.storage.SingleItemInventory;
-import mmbeng.item.ItemEntry;
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.MapProxy;
-import mmbeng.worlds.world.World;
-import mmbgame.electric.Battery;
-import mmbgame.electric.BatteryTab;
-import mmbgame.electric.Electric;
-import mmbgame.electric.Electricity;
-import mmbgame.electric.ElectricMachineGroup.ElectroMachineType;
-import mmbgame.pickaxe.Pickaxe;
+import mmb.content.electric.Battery;
+import mmb.content.electric.BatteryTab;
+import mmb.content.electric.Electric;
+import mmb.content.electric.Electricity;
+import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
+import mmb.content.pickaxe.Pickaxe;
+import mmb.engine.block.BlockEntityRotary;
+import mmb.engine.inv.storage.SingleItemInventory;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.MapProxy;
+import mmb.engine.worlds.world.World;
+import mmbbase.cgui.BlockActivateListener;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

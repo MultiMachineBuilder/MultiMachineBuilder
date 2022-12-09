@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.visuals;
+package mmb.engine.visuals;
 
 import java.awt.Graphics;
 import java.awt.Point;
@@ -11,8 +11,8 @@ import javax.annotation.Nullable;
 import com.github.davidmoten.rtree.geometry.Geometries;
 import com.github.davidmoten.rtree.geometry.Rectangle;
 
-import mmb.menu.world.window.WorldFrame;
-import mmbeng.texture.BlockDrawer;
+import mmb.engine.texture.BlockDrawer;
+import mmbbase.menu.world.window.WorldFrame;
 
 /**
  * @author oskar

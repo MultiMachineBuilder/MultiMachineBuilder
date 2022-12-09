@@ -4,11 +4,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import mmb.menu.main.MainMenu;
-import mmbeng.GlobalSettings;
-import mmbeng.Settings;
-import mmbeng.debug.Debugger;
-import mmbeng.mods.GameLoader;
+import mmb.engine.GlobalSettings;
+import mmb.engine.Settings;
+import mmb.engine.debug.Debugger;
+import mmb.engine.mods.GameLoader;
+import mmbbase.menu.main.MainMenu;
 
 import javax.swing.JLabel;
 

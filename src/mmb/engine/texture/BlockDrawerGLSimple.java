@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.texture;
+package mmb.engine.texture;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -9,10 +9,10 @@ import javax.annotation.Nullable;
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.gl.RenderCtx;
-import mmbeng.rotate.ChiralRotation;
-import mmbeng.texture.Textures.Texture;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.gl.RenderCtx;
+import mmb.engine.rotate.ChiralRotation;
+import mmb.engine.texture.Textures.Texture;
 
 /**
  * @author oskar

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.craft;
+package mmb.engine.craft;
 
 import java.util.Collection;
 import java.util.Map;
@@ -13,10 +13,10 @@ import org.ainslec.picocog.PicoWriter;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemRecord;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.item.ItemEntry;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.item.ItemEntry;
 import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 

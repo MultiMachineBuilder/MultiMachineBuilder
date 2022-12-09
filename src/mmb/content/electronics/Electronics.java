@@ -1,15 +1,15 @@
 /**
  * 
  */
-package mmbgame.electronics;
+package mmb.content.electronics;
 
 import java.awt.Color;
 
 import javax.annotation.Nonnull;
 
-import mmbgame.agro.AgroRecipeGroup.AgroProcessingRecipe;
-import mmbgame.electric.VoltageTier;
-import mmbgame.rawmats.Materials;
+import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
+import mmb.content.electric.VoltageTier;
+import mmb.content.rawmats.Materials;
 import monniasza.collects.Collects;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;

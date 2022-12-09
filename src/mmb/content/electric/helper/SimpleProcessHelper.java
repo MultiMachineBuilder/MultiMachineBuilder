@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric.helper;
+package mmb.content.electric.helper;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -11,17 +11,17 @@ import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.util.concurrent.Runnables;
 
-import mmbeng.craft.Refreshable;
-import mmbeng.craft.singles.SimpleRecipe;
-import mmbeng.craft.singles.SimpleRecipeGroup;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemRecord;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.inv.storage.SingleItemInventory;
-import mmbeng.item.ItemEntry;
-import mmbgame.electric.Battery;
-import mmbgame.electric.VoltageTier;
-import mmbgame.electric.machines.CycleResult;
+import mmb.content.electric.Battery;
+import mmb.content.electric.VoltageTier;
+import mmb.content.electric.machines.CycleResult;
+import mmb.engine.craft.Refreshable;
+import mmb.engine.craft.singles.SimpleRecipe;
+import mmb.engine.craft.singles.SimpleRecipeGroup;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.inv.storage.SingleItemInventory;
+import mmb.engine.item.ItemEntry;
 
 /**
  * @author oskar

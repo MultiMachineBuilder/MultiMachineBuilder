@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng;
+package mmb.engine;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,12 +27,12 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
-import mmb.data.variables.BooleanVariable;
-import mmb.data.variables.DataValueDouble;
-import mmb.data.variables.DataValueInt;
-import mmb.data.variables.ListenableValue;
-import mmb.data.variables.Variable;
-import mmbeng.debug.Debugger;
+import mmb.engine.debug.Debugger;
+import mmbbase.data.variables.BooleanVariable;
+import mmbbase.data.variables.DataValueDouble;
+import mmbbase.data.variables.DataValueInt;
+import mmbbase.data.variables.ListenableValue;
+import mmbbase.data.variables.Variable;
 
 /**
  * @author oskar

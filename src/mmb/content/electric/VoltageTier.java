@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric;
+package mmb.content.electric;
 
 import java.awt.Color;
 import java.util.List;
@@ -9,8 +9,8 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 
-import mmbgame.rawmats.Materials;
-import mmbgame.rawmats.MetalGroup;
+import mmb.content.rawmats.Materials;
+import mmb.content.rawmats.MetalGroup;
 
 /**
  * @author oskar

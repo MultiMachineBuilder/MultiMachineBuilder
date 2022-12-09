@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.inv;
+package mmbbase.menu.world.inv;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -15,11 +15,11 @@ import javax.swing.border.Border;
 
 import com.pploder.events.Event;
 
-import mmb.data.variables.ListenableValue;
-import mmb.menu.components.ItemSelectionSlot;
-import mmbeng.CatchingEvent;
-import mmbeng.debug.Debugger;
-import mmbeng.item.ItemEntry;
+import mmb.engine.CatchingEvent;
+import mmb.engine.debug.Debugger;
+import mmb.engine.item.ItemEntry;
+import mmbbase.data.variables.ListenableValue;
+import mmbbase.menu.components.ItemSelectionSlot;
 import monniasza.collects.Collects;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;

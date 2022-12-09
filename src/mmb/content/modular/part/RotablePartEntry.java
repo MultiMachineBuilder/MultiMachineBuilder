@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmbgame.modular.part;
+package mmb.content.modular.part;
 
-import mmbeng.rotate.RotatedImageGroup;
+import mmb.engine.rotate.RotatedImageGroup;
 
 /**
  * A part with texture, which can be rotated

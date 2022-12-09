@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world;
+package mmbbase.menu.world;
 
 /**
  * @author oskar

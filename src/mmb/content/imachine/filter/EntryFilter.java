@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.imachine.filter;
+package mmb.content.imachine.filter;
 
 import java.util.Objects;
 
@@ -9,10 +9,10 @@ import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmbeng.item.ItemEntity;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.ItemType;
-import mmbgame.ContentsItems;
+import mmb.content.ContentsItems;
+import mmb.engine.item.ItemEntity;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.ItemType;
 
 /**
  * @author oskar

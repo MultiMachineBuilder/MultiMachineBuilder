@@ -1,18 +1,11 @@
 /**
  * 
  */
-package mmb.menu.world.inv;
+package mmbbase.menu.world.inv;
 
 import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 
-import mmb.data.variables.Variable;
-import mmb.menu.Icons;
-import mmbeng.GlobalSettings;
-import mmbeng.MMBUtils;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemRecord;
-import mmbeng.item.ItemEntry;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -25,12 +18,21 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JButton;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.event.ListSelectionListener;
+
+import mmb.engine.GlobalSettings;
+import mmb.engine.MMBUtils;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.item.ItemEntry;
+import mmbbase.data.variables.Variable;
+import mmbbase.menu.Icons;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 

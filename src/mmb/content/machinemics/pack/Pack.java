@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.machinemics.pack;
+package mmb.content.machinemics.pack;
 
 import java.util.Objects;
 
@@ -12,13 +12,13 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
-import mmbeng.craft.ItemLists;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.item.ItemEntity;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.ItemType;
-import mmbeng.json.JsonTool;
-import mmbgame.ContentsItems;
+import mmb.content.ContentsItems;
+import mmb.engine.craft.ItemLists;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.item.ItemEntity;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.ItemType;
+import mmb.engine.json.JsonTool;
 
 /**
  * @author oskar

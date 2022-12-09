@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmb.menu.wtool;
+package mmbbase.menu.wtool;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Graphics;
 import java.awt.Point;
@@ -14,10 +14,10 @@ import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmbeng.inv.ItemRecord;
-import mmbeng.item.ItemEntry;
-import mmbeng.texture.Textures;
-import mmbgame.ContentsItems;
+import mmb.content.ContentsItems;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.texture.Textures;
 
 /**
  * @author oskar

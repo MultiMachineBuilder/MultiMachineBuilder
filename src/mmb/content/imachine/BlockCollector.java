@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.imachine;
+package mmb.content.imachine;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -12,20 +12,20 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.cgui.BlockActivateListener;
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.block.BlockEntityData;
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.storage.SimpleInventory;
-import mmbeng.item.ItemEntry;
-import mmbeng.json.JsonTool;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.MapProxy;
-import mmbeng.worlds.world.World;
-import mmbgame.ContentsBlocks;
+import mmb.content.ContentsBlocks;
+import mmb.engine.block.BlockEntityData;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.storage.SimpleInventory;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.json.JsonTool;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.MapProxy;
+import mmb.engine.worlds.world.World;
+import mmbbase.cgui.BlockActivateListener;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

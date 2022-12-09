@@ -1,11 +1,11 @@
 /**
  * 
  */
-package mmbeng.visuals;
+package mmb.engine.visuals;
 
 import javax.annotation.Nullable;
 
-import mmbeng.worlds.world.World;
+import mmb.engine.worlds.world.World;
 
 /**
  * @author oskar

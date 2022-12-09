@@ -7,15 +7,17 @@ import java.awt.Color;
 
 import javax.annotation.Nonnull;
 
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
 import net.miginfocom.swing.MigLayout;
 import mmbmods.stn.STNInventoryController;
-import mmb.menu.world.inv.InventoryController;
-import mmb.menu.world.inv.MoveItems;
-import mmb.menu.helper.MenuHelper;
-import mmb.menu.world.inv.AbstractInventoryController;
+
 import javax.swing.JButton;
+
+import mmbbase.menu.helper.MenuHelper;
+import mmbbase.menu.world.inv.AbstractInventoryController;
+import mmbbase.menu.world.inv.InventoryController;
+import mmbbase.menu.world.inv.MoveItems;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

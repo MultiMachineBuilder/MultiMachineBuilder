@@ -1,16 +1,16 @@
 /**
  * 
  */
-package mmbeng.inv;
+package mmb.engine.inv;
 
 import java.util.function.Predicate;
 
 import javax.annotation.Nullable;
 
-import mmbeng.craft.RecipeOutput;
-import mmbeng.inv.io.InventoryReader;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.item.ItemEntry;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.item.ItemEntry;
 
 /**
  * A set of utilities for working with inventories. <br>

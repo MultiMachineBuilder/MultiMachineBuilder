@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmbeng.generator;
+package mmb.engine.generator;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -15,17 +15,17 @@ import javax.swing.border.EmptyBorder;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.menu.main.MainMenu;
-import mmb.menu.main.PanelSaves;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.Inventory;
-import mmbeng.json.JsonTool;
-import mmbeng.window.FullScreen;
-import mmbeng.window.MMBFrame;
-import mmbeng.worlds.universe.Universe;
-import mmbeng.worlds.world.World;
-import mmbgame.ContentsBlocks;
-import mmbgame.ContentsItems;
+import mmb.content.ContentsBlocks;
+import mmb.content.ContentsItems;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.Inventory;
+import mmb.engine.json.JsonTool;
+import mmb.engine.window.FullScreen;
+import mmb.engine.window.MMBFrame;
+import mmb.engine.worlds.universe.Universe;
+import mmb.engine.worlds.world.World;
+import mmbbase.menu.main.MainMenu;
+import mmbbase.menu.main.PanelSaves;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;

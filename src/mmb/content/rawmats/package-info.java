@@ -6,4 +6,4 @@
  * Contains stuff related to automatic content generation
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbgame.rawmats;
+package mmb.content.rawmats;

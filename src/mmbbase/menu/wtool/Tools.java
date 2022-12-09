@@ -1,20 +1,20 @@
 /**
  * 
  */
-package mmb.menu.wtool;
+package mmbbase.menu.wtool;
 
 import java.util.Collection;
 import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.debug.Debugger;
-import mmbeng.visuals.ToolVisuals;
-import mmbgame.aim.ToolAim;
-import mmbgame.drugs.ToolAlcohol;
-import mmbgame.imachine.ConfigureDroppedItemExtractors;
-import mmbgame.pickaxe.ToolPickaxe;
+import mmb.content.aim.ToolAim;
+import mmb.content.drugs.ToolAlcohol;
+import mmb.content.imachine.ConfigureDroppedItemExtractors;
+import mmb.content.pickaxe.ToolPickaxe;
+import mmb.engine.debug.Debugger;
+import mmb.engine.visuals.ToolVisuals;
+import mmbbase.menu.world.window.WorldWindow;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
 

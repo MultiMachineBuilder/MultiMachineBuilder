@@ -1,15 +1,15 @@
 /**
  * 
  */
-package mmbeng.inv.storage;
+package mmb.engine.inv.storage;
 
 import com.pploder.events.Event;
 
-import mmbeng.CatchingEvent;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemStack;
-import mmbeng.item.ItemEntry;
+import mmb.engine.CatchingEvent;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemStack;
+import mmb.engine.item.ItemEntry;
 
 /**
  * @author oskar

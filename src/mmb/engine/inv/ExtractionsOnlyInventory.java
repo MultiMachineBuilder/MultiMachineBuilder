@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.inv;
+package mmb.engine.inv;
 
 import java.util.Iterator;
 
@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 
 import com.google.common.collect.Iterators;
 
-import mmbeng.craft.RecipeOutput;
-import mmbeng.item.ItemEntry;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.item.ItemEntry;
 
 /**
  * @author oskar

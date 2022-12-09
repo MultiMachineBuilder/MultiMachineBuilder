@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.sound;
+package mmb.engine.sound;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -15,10 +15,10 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-import mmbeng.NotFoundException;
-import mmbeng.debug.Debugger;
-import mmbeng.files.AdvancedFile;
-import mmbeng.mods.ModLoader;
+import mmb.engine.NotFoundException;
+import mmb.engine.debug.Debugger;
+import mmb.engine.files.AdvancedFile;
+import mmb.engine.mods.ModLoader;
 
 /**
  * @author oskar

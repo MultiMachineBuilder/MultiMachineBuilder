@@ -1,12 +1,12 @@
 /**
  * 
  */
-package mmb.menu.world.inv;
+package mmbbase.menu.world.inv;
 
 import java.util.List;
 
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemRecord;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemRecord;
 
 /**
  * @author oskar

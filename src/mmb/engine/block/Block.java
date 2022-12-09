@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.block;
+package mmb.engine.block;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,11 +14,11 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.chance.Chance;
-import mmbeng.texture.BlockDrawer;
-import mmbeng.worlds.world.Player;
-import mmbeng.worlds.world.World;
+import mmb.engine.chance.Chance;
+import mmb.engine.texture.BlockDrawer;
+import mmb.engine.worlds.world.Player;
+import mmb.engine.worlds.world.World;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * This class represents a building block.

@@ -6,4 +6,4 @@
  *
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbgame.machinemics.line;
+package mmb.content.machinemics.line;

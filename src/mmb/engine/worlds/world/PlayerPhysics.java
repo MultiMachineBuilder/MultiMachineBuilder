@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.worlds.world;
+package mmb.engine.worlds.world;
 
 /**
  * @author oskar

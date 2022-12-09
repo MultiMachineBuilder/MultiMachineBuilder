@@ -1,15 +1,15 @@
 /**
  * 
  */
-package mmbgame.electric;
+package mmb.content.electric;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 
-import mmb.menu.world.craft.*;
-import mmbgame.electric.machines.ElectroMachine;
+import mmb.content.electric.machines.ElectroMachine;
+import mmbbase.menu.world.craft.*;
 
 /**
  * @author oskar

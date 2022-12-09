@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.window;
+package mmbbase.menu.world.window;
 
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;

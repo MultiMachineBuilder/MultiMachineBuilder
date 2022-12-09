@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmbeng.generator;
+package mmb.engine.generator;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.block.Blocks;
-import mmbeng.worlds.world.World;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.Blocks;
+import mmb.engine.worlds.world.World;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 

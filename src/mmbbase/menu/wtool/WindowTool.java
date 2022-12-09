@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.wtool;
+package mmbbase.menu.wtool;
 
 import java.awt.Component;
 import java.awt.Graphics;
@@ -15,9 +15,9 @@ import java.awt.event.MouseWheelListener;
 
 import javax.swing.Icon;
 
-import mmb.beans.Titled;
-import mmb.menu.world.window.WorldFrame;
-import mmb.menu.world.window.WorldWindow;
+import mmbbase.beans.Titled;
+import mmbbase.menu.world.window.WorldFrame;
+import mmbbase.menu.world.window.WorldWindow;
 import monniasza.collects.Identifiable;
 
 /**

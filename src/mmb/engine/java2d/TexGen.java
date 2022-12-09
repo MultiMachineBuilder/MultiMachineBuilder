@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.java2d;
+package mmb.engine.java2d;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.*;
@@ -12,8 +12,8 @@ import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmbeng.texture.Textures;
-import mmbgame.electric.VoltageTier;
+import mmb.content.electric.VoltageTier;
+import mmb.engine.texture.Textures;
 
 /**
  * @author oskar

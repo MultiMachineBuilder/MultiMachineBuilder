@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmbeng.block;
+package mmb.engine.block;
 
 import java.awt.Color;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.debug.Debugger;
+import mmb.engine.debug.Debugger;
 
 /**
  * A minimum set of blocks required for the game to work.

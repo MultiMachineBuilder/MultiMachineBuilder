@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import mmbeng.Verify;
+import mmb.engine.Verify;
 
 /**
  * @author oskar

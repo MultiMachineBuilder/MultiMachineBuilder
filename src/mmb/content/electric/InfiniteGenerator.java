@@ -1,15 +1,15 @@
 /**
  * 
  */
-package mmbgame.electric;
+package mmb.content.electric;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.block.BlockEntityDataless;
-import mmbeng.block.BlockEntityType;
-import mmbeng.block.BlockType;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.MapProxy;
+import mmb.engine.block.BlockEntityDataless;
+import mmb.engine.block.BlockEntityType;
+import mmb.engine.block.BlockType;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.MapProxy;
 
 /**
  * @author oskar

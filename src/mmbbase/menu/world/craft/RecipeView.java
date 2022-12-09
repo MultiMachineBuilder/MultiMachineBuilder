@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.craft;
+package mmbbase.menu.world.craft;
 
 import javax.swing.JPanel;
 

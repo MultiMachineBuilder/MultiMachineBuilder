@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmbeng.worlds.world;
+package mmb.engine.worlds.world;
 
 import javax.annotation.Nullable;
 
-import mmbeng.block.BlockEntity;
-import mmbeng.block.BlockEntry;
-import mmbeng.rotate.Side;
+import mmb.engine.block.BlockEntity;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.rotate.Side;
 
 /**
  * @author oskar

@@ -1,14 +1,14 @@
 /**
  * 
  */
-package mmbeng.block;
+package mmb.engine.block;
 
 import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
-import mmbeng.chance.Chance;
-import mmbeng.item.ItemType;
-import mmbeng.item.Items;
+import mmb.engine.chance.Chance;
+import mmb.engine.item.ItemType;
+import mmb.engine.item.Items;
 
 /**
  * @author oskar

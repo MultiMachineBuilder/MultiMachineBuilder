@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric.machines;
+package mmb.content.electric.machines;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -12,24 +12,24 @@ import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.cgui.BlockActivateListener;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.block.BlockEntityRotary;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.storage.SimpleInventory;
-import mmbeng.java2d.ColorMapper;
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.rotate.Side;
-import mmbeng.texture.Textures;
-import mmbeng.worlds.MapProxy;
-import mmbeng.worlds.world.World;
-import mmbgame.CraftingGroups;
-import mmbgame.electric.Battery;
-import mmbgame.electric.Electricity;
-import mmbgame.electric.GUIGeneratorSolid;
-import mmbgame.electric.VoltageTier;
+import mmb.content.CraftingGroups;
+import mmb.content.electric.Battery;
+import mmb.content.electric.Electricity;
+import mmb.content.electric.GUIGeneratorSolid;
+import mmb.content.electric.VoltageTier;
+import mmb.engine.block.BlockEntityRotary;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.storage.SimpleInventory;
+import mmb.engine.java2d.ColorMapper;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.rotate.Side;
+import mmb.engine.texture.Textures;
+import mmb.engine.worlds.MapProxy;
+import mmb.engine.worlds.world.World;
+import mmbbase.cgui.BlockActivateListener;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

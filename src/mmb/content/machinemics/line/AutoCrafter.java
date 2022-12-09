@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.machinemics.line;
+package mmb.content.machinemics.line;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -11,20 +11,20 @@ import com.fasterxml.jackson.databind.node.IntNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
-import mmb.cgui.BlockActivateListener;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.craft.Recipe;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.ItemRecord;
-import mmbeng.item.ItemEntry;
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.worlds.world.World;
-import mmbgame.ContentsBlocks;
-import mmbgame.ditems.Stencil;
+import mmb.content.ContentsBlocks;
+import mmb.content.ditems.Stencil;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.craft.Recipe;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.worlds.world.World;
+import mmbbase.cgui.BlockActivateListener;
+import mmbbase.menu.world.window.WorldWindow;
 import monniasza.collects.grid.Grid;
 
 /**

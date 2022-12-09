@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.modular.part;
+package mmb.content.modular.part;
 
 import java.awt.Graphics;
 
@@ -13,15 +13,15 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.NullNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
-import mmb.beans.Saver;
-import mmbeng.chance.Chance;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.debug.Debugger;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.ItemType;
-import mmbeng.item.Items;
-import mmbeng.json.JsonTool;
-import mmbeng.texture.BlockDrawer;
+import mmb.engine.chance.Chance;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.debug.Debugger;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.ItemType;
+import mmb.engine.item.Items;
+import mmb.engine.json.JsonTool;
+import mmb.engine.texture.BlockDrawer;
+import mmbbase.beans.Saver;
 
 /**
  *

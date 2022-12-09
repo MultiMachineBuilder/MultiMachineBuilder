@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.gl;
+package mmb.engine.gl;
 
 import javax.annotation.Nonnull;
 
@@ -32,10 +32,10 @@ import static org.lwjgl.opengl.GL30.*;
 import it.unimi.dsi.fastutil.floats.FloatArrayList;
 import it.unimi.dsi.fastutil.floats.FloatIterator;
 import it.unimi.dsi.fastutil.floats.FloatList;
-import mmbeng.GlobalSettings;
-import mmbeng.debug.Debugger;
-import mmbeng.texture.Textures;
-import mmbeng.texture.Textures.Texture;
+import mmb.engine.GlobalSettings;
+import mmb.engine.debug.Debugger;
+import mmb.engine.texture.Textures;
+import mmb.engine.texture.Textures.Texture;
 
 /**
  * @author oskar

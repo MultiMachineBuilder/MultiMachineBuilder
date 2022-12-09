@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.craft;
+package mmb.engine.craft;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -10,8 +10,8 @@ import org.ainslec.picocog.PicoWriter;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMaps;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.item.ItemEntry;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.item.ItemEntry;
 
 /**
  * An item stack or item entry

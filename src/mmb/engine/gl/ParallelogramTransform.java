@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.gl;
+package mmb.engine.gl;
 
 import org.joml.Vector2f;
 import org.joml.Vector2fc;

@@ -1,12 +1,12 @@
 /**
  * 
  */
-package mmb.beans;
+package mmbbase.beans;
 
 import javax.annotation.Nullable;
 
-import mmb.data.variables.ListenableValue;
-import mmbeng.block.BlockType;
+import mmb.engine.block.BlockType;
+import mmbbase.data.variables.ListenableValue;
 
 /**
  * A block with replaceable block configuration

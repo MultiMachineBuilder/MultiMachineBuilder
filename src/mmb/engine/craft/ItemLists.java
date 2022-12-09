@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.craft;
+package mmb.engine.craft;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -20,13 +20,13 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.ItemLoader;
-import mmbeng.inv.ItemStack;
-import mmbeng.inv.ItemLoader.ItemTarget;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.item.ItemEntry;
-import mmbeng.json.JsonTool;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.ItemLoader;
+import mmb.engine.inv.ItemStack;
+import mmb.engine.inv.ItemLoader.ItemTarget;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.json.JsonTool;
 import monniasza.collects.Collects;
 
 /**

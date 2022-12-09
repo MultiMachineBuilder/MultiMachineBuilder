@@ -1,17 +1,17 @@
 /**
  * 
  */
-package mmbgame.modular.part;
+package mmb.content.modular.part;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.chance.Chance;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.item.Item;
-import mmbeng.texture.BlockDrawer;
+import mmb.engine.chance.Chance;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.item.Item;
+import mmb.engine.texture.BlockDrawer;
 
 /**
  * A base implementation of a part type

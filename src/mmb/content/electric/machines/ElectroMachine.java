@@ -1,14 +1,14 @@
 /**
  * 
  */
-package mmbgame.electric.machines;
+package mmb.content.electric.machines;
 
-import mmbeng.craft.RecipeGroup;
-import mmbeng.inv.Inventory;
-import mmbgame.electric.Battery;
-import mmbgame.electric.Electric;
-import mmbgame.electric.Electricity;
-import mmbgame.electric.VoltageTier;
+import mmb.content.electric.Battery;
+import mmb.content.electric.Electric;
+import mmb.content.electric.Electricity;
+import mmb.content.electric.VoltageTier;
+import mmb.engine.craft.RecipeGroup;
+import mmb.engine.inv.Inventory;
 
 /**
  * @author oskar

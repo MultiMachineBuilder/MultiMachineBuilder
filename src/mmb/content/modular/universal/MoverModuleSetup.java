@@ -1,20 +1,22 @@
 /**
  * 
  */
-package mmbgame.modular.universal;
+package mmb.content.modular.universal;
 
 import javax.swing.JPanel;
 
-import mmb.data.variables.ListenableValue;
-import mmb.menu.world.inv.InventoryController;
-import mmbeng.GlobalSettings;
-import mmbgame.modular.gui.SafeCloseable;
 import net.miginfocom.swing.MigLayout;
 
 import javax.annotation.Nonnull;
 import javax.swing.JLabel;
-import mmb.menu.components.ItemSelectionSlot;
 import javax.swing.border.BevelBorder;
+
+import mmb.content.modular.gui.SafeCloseable;
+import mmb.engine.GlobalSettings;
+import mmbbase.data.variables.ListenableValue;
+import mmbbase.menu.components.ItemSelectionSlot;
+import mmbbase.menu.world.inv.InventoryController;
+
 import java.awt.Color;
 import javax.swing.JSpinner;
 

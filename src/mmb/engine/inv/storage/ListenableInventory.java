@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmbeng.inv.storage;
+package mmb.engine.inv.storage;
 
 import com.pploder.events.Event;
 
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemStack;
-import mmbeng.item.ItemEntry;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemStack;
+import mmb.engine.item.ItemEntry;
 
 /**
  * @author oskar

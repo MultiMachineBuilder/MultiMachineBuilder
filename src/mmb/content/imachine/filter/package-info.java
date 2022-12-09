@@ -6,4 +6,4 @@
  * @author oskar
  *
  */
-package mmbgame.imachine.filter;
+package mmb.content.imachine.filter;

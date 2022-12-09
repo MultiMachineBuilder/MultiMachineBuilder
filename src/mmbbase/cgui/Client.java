@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmb.cgui;
+package mmbbase.cgui;
 
-import mmb.menu.wtool.ToolSelectionModel;
+import mmbbase.menu.wtool.ToolSelectionModel;
 
 /**
  * A Client GUI-compliant player implementation

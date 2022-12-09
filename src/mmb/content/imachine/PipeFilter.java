@@ -1,30 +1,30 @@
 /**
  * 
  */
-package mmbgame.imachine;
+package mmb.content.imachine;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.cgui.BlockActivateListener;
-import mmb.data.variables.Variable;
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.inv.io.InventoryReader;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.inv.storage.SingleItemInventory;
-import mmbeng.item.ItemEntry;
-import mmbeng.rotate.ChirotatedImageGroup;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.MapProxy;
-import mmbeng.worlds.world.World;
-import mmbgame.imachine.filter.ControllableFilter;
-import mmbgame.imachine.filter.FilterGUI;
-import mmbgame.imachine.filter.ItemFilter;
+import mmb.content.imachine.filter.ControllableFilter;
+import mmb.content.imachine.filter.FilterGUI;
+import mmb.content.imachine.filter.ItemFilter;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.inv.storage.SingleItemInventory;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.rotate.ChirotatedImageGroup;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.MapProxy;
+import mmb.engine.worlds.world.World;
+import mmbbase.cgui.BlockActivateListener;
+import mmbbase.data.variables.Variable;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

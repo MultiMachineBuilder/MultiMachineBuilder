@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.modular;
+package mmb.content.modular;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,15 +10,15 @@ import java.util.function.Consumer;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.data.reactive.ListenableProperty;
-import mmb.data.variables.ListenableValue;
-import mmb.data.variables.Variable;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.storage.BaseSingleItemInventory;
-import mmbeng.item.ItemEntry;
-import mmbeng.rotate.Side;
-import mmbeng.worlds.world.World;
-import mmbgame.modular.BlockModule.BlockModuleParams;
+import mmb.content.modular.BlockModule.BlockModuleParams;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.storage.BaseSingleItemInventory;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.rotate.Side;
+import mmb.engine.worlds.world.World;
+import mmbbase.data.reactive.ListenableProperty;
+import mmbbase.data.variables.ListenableValue;
+import mmbbase.data.variables.Variable;
 
 /**
  * A type-checked slot for a module.

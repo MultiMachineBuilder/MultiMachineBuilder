@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.inv;
+package mmbbase.menu.world.inv;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -10,9 +10,9 @@ import java.awt.Color;
 
 import com.pploder.events.Event;
 
-import mmbeng.CatchingEvent;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.ItemRecord;
+import mmb.engine.CatchingEvent;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.ItemRecord;
 
 import javax.swing.JSpinner;
 import javax.swing.JCheckBox;

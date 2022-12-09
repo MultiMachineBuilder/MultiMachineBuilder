@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.data.reactive;
+package mmbbase.data.reactive;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.function.Function;
 
 import javax.annotation.Nonnull;
 
-import mmbgame.modular.gui.SafeCloseable;
+import mmb.content.modular.gui.SafeCloseable;
 
 /**
  * A reactor is a function-based listenable property

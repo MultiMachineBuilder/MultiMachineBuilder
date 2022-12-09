@@ -1,24 +1,24 @@
 /**
  * 
  */
-package mmbeng.block;
+package mmb.engine.block;
 
 import java.awt.Point;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.beans.Positioned;
-import mmbeng.CatchingEvent;
-import mmbeng.debug.Debugger;
-import mmbeng.rotate.Side;
-import mmbeng.texture.BlockDrawer;
-import mmbeng.worlds.MapProxy;
-import mmbeng.worlds.world.World;
-import mmbgame.event.BlockEntityDemolitionEvent;
+import mmb.content.event.BlockEntityDemolitionEvent;
+import mmb.engine.CatchingEvent;
+import mmb.engine.debug.Debugger;
+import mmb.engine.rotate.Side;
+import mmb.engine.texture.BlockDrawer;
+import mmb.engine.worlds.MapProxy;
+import mmb.engine.worlds.world.World;
+import mmbbase.beans.Positioned;
 
 /**
  * @author oskar
- * For machines, use {@link mmbeng.mbmachine.Machine}. For blocks, use {@link BlockEntityType}
+ * For machines, use {@link mmb.engine.mbmachine.Machine}. For blocks, use {@link BlockEntityType}
  * Events: <ul>
  * 	<li>Motion: runs when block entity is moved</li>
  * 	<li>Demolition: runs when block entity is mined</li>

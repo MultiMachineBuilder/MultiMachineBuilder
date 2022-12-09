@@ -1,11 +1,11 @@
 /**
  * 
  */
-package mmb.menu.world.window;
+package mmbbase.menu.world.window;
 
 import javax.swing.JPanel;
 
-import mmbgame.modular.gui.SafeCloseable;
+import mmb.content.modular.gui.SafeCloseable;
 
 /**
  * @author oskar

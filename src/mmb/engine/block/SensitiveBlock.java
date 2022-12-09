@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmbeng.block;
+package mmb.engine.block;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.beans.Positioned;
-import mmbeng.worlds.world.World;
+import mmb.engine.worlds.world.World;
+import mmbbase.beans.Positioned;
 
 /**
  * A block which is instantiated prior to placement, in contrast to placement directly as a simple block

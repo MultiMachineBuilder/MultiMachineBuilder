@@ -1,11 +1,11 @@
 /**
  * 
  */
-package mmbgame.imachine;
+package mmb.content.imachine;
 
-import mmb.beans.Resizable;
-import mmb.cgui.DestroyTab;
-import mmbeng.inv.Inventory;
+import mmb.engine.inv.Inventory;
+import mmbbase.beans.Resizable;
+import mmbbase.cgui.DestroyTab;
 
 /**
  * @author oskar

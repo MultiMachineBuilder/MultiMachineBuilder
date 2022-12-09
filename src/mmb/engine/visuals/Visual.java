@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmbeng.visuals;
+package mmb.engine.visuals;
 
 import java.awt.Graphics;
 
 import com.github.davidmoten.rtree.geometry.Geometry;
 
-import mmb.menu.world.window.WorldFrame;
+import mmbbase.menu.world.window.WorldFrame;
 
 /**
  * @author oskar

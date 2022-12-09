@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng;
+package mmb.engine;
 
 import javax.annotation.Nonnull;
 
@@ -9,9 +9,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.pploder.events.Event;
 
 import io.vavr.Tuple2;
-import mmbeng.debug.Debugger;
-import mmbeng.worlds.universe.Universe;
-import mmbeng.worlds.world.World;
+import mmb.engine.debug.Debugger;
+import mmb.engine.worlds.universe.Universe;
+import mmb.engine.worlds.world.World;
 
 /**
  * A collection of game-wide events

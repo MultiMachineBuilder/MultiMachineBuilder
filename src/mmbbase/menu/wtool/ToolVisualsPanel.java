@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.wtool;
+package mmbbase.menu.wtool;
 
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;

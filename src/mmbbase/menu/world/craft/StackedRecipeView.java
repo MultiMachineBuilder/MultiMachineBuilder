@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.craft;
+package mmbbase.menu.world.craft;
 
 import java.util.Vector;
 import java.util.stream.Collectors;
@@ -9,18 +9,16 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
-
-import mmbeng.UnitFormatter;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.craft.rgroups.StackedRecipeGroup.StackedRecipe;
-import mmbeng.inv.ItemStack;
-import mmbeng.item.ItemEntry;
-
 import javax.swing.JList;
 
 import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
+import mmb.engine.UnitFormatter;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.rgroups.StackedRecipeGroup.StackedRecipe;
+import mmb.engine.inv.ItemStack;
+import mmb.engine.item.ItemEntry;
 
 /**
  * Represents a recipe view for stacked-item recipes 

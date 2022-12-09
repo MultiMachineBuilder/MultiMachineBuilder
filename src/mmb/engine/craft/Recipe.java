@@ -1,18 +1,18 @@
 /**
  * 
  */
-package mmbeng.craft;
+package mmb.engine.craft;
 
 import java.awt.Component;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmb.menu.world.craft.RecipeView;
-import mmbeng.chance.Chance;
-import mmbeng.inv.Inventory;
-import mmbeng.item.ItemEntry;
-import mmbgame.electric.VoltageTier;
+import mmb.content.electric.VoltageTier;
+import mmb.engine.chance.Chance;
+import mmb.engine.inv.Inventory;
+import mmb.engine.item.ItemEntry;
+import mmbbase.menu.world.craft.RecipeView;
 
 /**
  * @author oskar

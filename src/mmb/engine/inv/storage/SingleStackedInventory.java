@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.inv.storage;
+package mmb.engine.inv.storage;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -14,16 +14,16 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.google.common.collect.Iterators;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
-import mmbeng.MMBUtils;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.craft.SingleItem;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemRecord;
-import mmbeng.inv.ItemStack;
-import mmbeng.inv.SaveInventory;
-import mmbeng.item.ItemEntry;
-import mmbeng.json.JsonTool;
+import mmb.engine.MMBUtils;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.SingleItem;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.inv.ItemStack;
+import mmb.engine.inv.SaveInventory;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.json.JsonTool;
 
 /**
  * @author oskar

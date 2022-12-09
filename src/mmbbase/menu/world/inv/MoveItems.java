@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmb.menu.world.inv;
+package mmbbase.menu.world.inv;
 
-import static mmbeng.GlobalSettings.*;
+import static mmb.engine.GlobalSettings.*;
 
 import java.awt.Component;
 import java.awt.GridBagConstraints;
@@ -14,8 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 
-import mmbeng.inv.Inventories;
-import mmbeng.inv.ItemRecord;
+import mmb.engine.inv.Inventories;
+import mmb.engine.inv.ItemRecord;
 
 /**
  * @author oskar

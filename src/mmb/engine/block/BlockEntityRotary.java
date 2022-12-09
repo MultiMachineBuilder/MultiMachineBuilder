@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.block;
+package mmb.engine.block;
 
 import java.awt.Graphics;
 
@@ -10,8 +10,8 @@ import javax.annotation.Nonnull;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.rotate.Rotation;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.rotate.Rotation;
 
 /**
  * @author oskar

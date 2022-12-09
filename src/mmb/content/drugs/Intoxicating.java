@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmbgame.drugs;
+package mmb.content.drugs;
 
-import mmbeng.chance.Chance;
+import mmb.engine.chance.Chance;
 
 /**
  * @author oskar

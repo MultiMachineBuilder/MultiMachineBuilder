@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.chance;
+package mmb.engine.chance;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -9,9 +9,9 @@ import java.util.Set;
 
 import org.ainslec.picocog.PicoWriter;
 
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.item.ItemEntry;
-import mmbeng.worlds.world.World;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.worlds.world.World;
 
 /**
  * @author oskar

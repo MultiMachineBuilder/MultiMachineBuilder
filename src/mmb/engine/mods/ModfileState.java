@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmbeng.mods;
+package mmb.engine.mods;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 /**
  * @author oskar

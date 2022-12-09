@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame;
+package mmb.content;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -12,32 +12,32 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-import mmb.menu.wtool.DumpItems;
-import mmbeng.GlobalSettings;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.item.Item;
-import mmbeng.item.ItemEntityType;
-import mmbeng.item.ItemRaw;
-import mmbeng.item.Items;
-import mmbeng.item.TooledItem;
-import mmbeng.java2d.ColorMapper;
-import mmbeng.java2d.TexGen;
-import mmbeng.texture.Textures;
-import mmbgame.aim.ToolAim;
-import mmbgame.ditems.ItemBOM;
-import mmbgame.ditems.ItemPIngredients;
-import mmbgame.ditems.Stencil;
-import mmbgame.drugs.AlcoPod;
-import mmbgame.electric.ItemBattery;
-import mmbgame.electric.VoltageTier;
-import mmbgame.electric.VoltagedItemGroup;
-import mmbgame.imachine.ConfigureDroppedItemExtractors;
-import mmbgame.imachine.SpeedUpgrade;
-import mmbgame.imachine.filter.EntryFilter;
-import mmbgame.machinemics.pack.Pack;
-import mmbgame.pickaxe.Pickaxe;
-import mmbgame.pickaxe.Pickaxe.PickaxeType;
-import mmbgame.rawmats.Materials;
+import mmb.content.aim.ToolAim;
+import mmb.content.ditems.ItemBOM;
+import mmb.content.ditems.ItemPIngredients;
+import mmb.content.ditems.Stencil;
+import mmb.content.drugs.AlcoPod;
+import mmb.content.electric.ItemBattery;
+import mmb.content.electric.VoltageTier;
+import mmb.content.electric.VoltagedItemGroup;
+import mmb.content.imachine.ConfigureDroppedItemExtractors;
+import mmb.content.imachine.SpeedUpgrade;
+import mmb.content.imachine.filter.EntryFilter;
+import mmb.content.machinemics.pack.Pack;
+import mmb.content.pickaxe.Pickaxe;
+import mmb.content.pickaxe.Pickaxe.PickaxeType;
+import mmb.content.rawmats.Materials;
+import mmb.engine.GlobalSettings;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.item.Item;
+import mmb.engine.item.ItemEntityType;
+import mmb.engine.item.ItemRaw;
+import mmb.engine.item.Items;
+import mmb.engine.item.TooledItem;
+import mmb.engine.java2d.ColorMapper;
+import mmb.engine.java2d.TexGen;
+import mmb.engine.texture.Textures;
+import mmbbase.menu.wtool.DumpItems;
 
 /**
  * @author oskar
@@ -49,7 +49,7 @@ public class ContentsItems {
 	/** Initializes items */
 	public static void init() {/* just for initialization */}
 	
-	//Misc
+	//Alcoholic beverages
 	/*
 	 * +-----------------------------------------------------+
 	 * |REAL-LIFE ALCOHOL CONSUMPTION IS HARMFUL             |
@@ -59,6 +59,24 @@ public class ContentsItems {
 	 * |AND IS DANGEROUS TO DRIVERS                          |
 	 * +-----------------------------------------------------+
 	 */
+	/** AlcoPod, unused */
+	@Nonnull public static final AlcoPod alcopod = (AlcoPod) new AlcoPod(1, RecipeOutput.NONE)
+			.title("AlcoPod")
+			.texture("item/alcopod.png")
+			.volumed(0.000125)
+			.finish("drugs.alcopod");
+		@Nonnull public static final Item beerEmpty = new Item()
+			.title("#beerb")
+			.texture("item/beer empty.png")
+			.volumed(0.004)
+			.finish("drugs.beer0");
+		@Nonnull public static final AlcoPod beer = (AlcoPod) new AlcoPod(1.5, beerEmpty)
+			.title("#beer")
+			.texture("item/beer.png")
+			.volumed(0.004)
+			.finish("drugs.beer");
+	
+	//Misc
 	@Nonnull public static final Item leaf = new Item()
 		.title("#leaf")
 		.texture("item/lisc.png")
@@ -69,21 +87,7 @@ public class ContentsItems {
 		.texture("item/rubber.png")
 		.volumed(0.00125)
 		.finish("plant.rubber");
-	@Nonnull public static final AlcoPod alcopod = (AlcoPod) new AlcoPod(1, RecipeOutput.NONE)
-		.title("AlcoPod")
-		.texture("item/alcopod.png")
-		.volumed(0.000125)
-		.finish("drugs.alcopod");
-	@Nonnull public static final Item beerEmpty = new Item()
-		.title("#beerb")
-		.texture("item/beer empty.png")
-		.volumed(0.004)
-		.finish("drugs.beer0");
-	@Nonnull public static final AlcoPod beer = (AlcoPod) new AlcoPod(1.5, beerEmpty)
-		.title("#beer")
-		.texture("item/beer.png")
-		.volumed(0.004)
-		.finish("drugs.beer");
+	
 	@Nonnull public static final Item glass = new Item()
 		.title("#glass")
 		.texture("item/glass.png")

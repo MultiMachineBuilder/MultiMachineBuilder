@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.modular.gui;
+package mmb.content.modular.gui;
 
 /**
  * Like {@link AutoCloseable}, but no exceptions allowed

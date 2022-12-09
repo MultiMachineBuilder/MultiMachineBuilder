@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric.helper;
+package mmb.content.electric.helper;
 
 import java.util.Objects;
 import java.util.function.Supplier;
@@ -14,20 +14,20 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.util.concurrent.Runnables;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.craft.Refreshable;
-import mmbeng.craft.SimpleItemList;
-import mmbeng.craft.rgroups.ComplexCatalyzedRecipeGroup;
-import mmbeng.craft.rgroups.ComplexRecipeGroup;
-import mmbeng.craft.rgroups.ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe;
-import mmbeng.craft.rgroups.ComplexRecipeGroup.ComplexRecipe;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.storage.SimpleInventory;
-import mmbeng.item.ItemEntry;
-import mmbgame.electric.Battery;
-import mmbgame.electric.VoltageTier;
-import mmbgame.electric.machines.CycleResult;
+import mmb.content.electric.Battery;
+import mmb.content.electric.VoltageTier;
+import mmb.content.electric.machines.CycleResult;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.Refreshable;
+import mmb.engine.craft.SimpleItemList;
+import mmb.engine.craft.rgroups.ComplexCatalyzedRecipeGroup;
+import mmb.engine.craft.rgroups.ComplexRecipeGroup;
+import mmb.engine.craft.rgroups.ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe;
+import mmb.engine.craft.rgroups.ComplexRecipeGroup.ComplexRecipe;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.storage.SimpleInventory;
+import mmb.engine.item.ItemEntry;
 
 /**
  * @author oskar
@@ -51,10 +51,10 @@ public class ComplexCatalyzedItemProcessHelper {
 	/** The item produced by a recipe*/
 	public RecipeOutput rout;
 	
-	public final Supplier<mmbeng.item.ItemEntry> selector;
+	public final Supplier<mmb.engine.item.ItemEntry> selector;
 	
 	public ComplexCatalyzedItemProcessHelper(ComplexCatalyzedRecipeGroup recipes, Inventory input, Inventory output,
-			double speed, Battery elec, VoltageTier volt, Supplier<mmbeng.item.ItemEntry> selector) {
+			double speed, Battery elec, VoltageTier volt, Supplier<mmb.engine.item.ItemEntry> selector) {
 		super();
 		this.recipes = recipes;
 		this.input = input;

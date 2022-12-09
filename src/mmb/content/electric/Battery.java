@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.electric;
+package mmb.content.electric;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -9,10 +9,10 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.util.concurrent.Runnables;
 
-import mmb.beans.Saver;
-import mmbeng.block.BlockEntity;
-import mmbeng.json.JsonTool;
-import mmbgame.electric.Electricity.SettablePressure;
+import mmb.content.electric.Electricity.SettablePressure;
+import mmb.engine.block.BlockEntity;
+import mmb.engine.json.JsonTool;
+import mmbbase.beans.Saver;
 
 /**
  * @author oskar

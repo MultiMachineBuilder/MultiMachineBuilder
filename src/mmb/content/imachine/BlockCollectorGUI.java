@@ -1,20 +1,22 @@
 /**
  * 
  */
-package mmbgame.imachine;
+package mmb.content.imachine;
 
 import net.miginfocom.swing.MigLayout;
-import mmb.menu.world.inv.InventoryController;
-import mmb.menu.world.inv.MoveItems;
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
 
 import javax.swing.JButton;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Color;
 import javax.swing.JSpinner;
+
+import mmbbase.menu.world.inv.InventoryController;
+import mmbbase.menu.world.inv.MoveItems;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
+
 import javax.swing.JLabel;
 
 /**

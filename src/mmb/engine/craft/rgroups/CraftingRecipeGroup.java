@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.craft.rgroups;
+package mmb.engine.craft.rgroups;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -12,18 +12,18 @@ import javax.annotation.Nullable;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import mmb.menu.world.craft.CraftingRecipeView;
-import mmbeng.chance.Chance;
-import mmbeng.craft.GlobalRecipeRegistrar;
-import mmbeng.craft.Recipe;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.craft.SimpleItemList;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemStack;
-import mmbeng.item.ItemEntry;
-import mmbgame.CraftingGroups;
-import mmbgame.agro.AgroRecipeGroup.AgroProcessingRecipe;
-import mmbgame.electric.VoltageTier;
+import mmb.content.CraftingGroups;
+import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
+import mmb.content.electric.VoltageTier;
+import mmb.engine.chance.Chance;
+import mmb.engine.craft.GlobalRecipeRegistrar;
+import mmb.engine.craft.Recipe;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.SimpleItemList;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemStack;
+import mmb.engine.item.ItemEntry;
+import mmbbase.menu.world.craft.CraftingRecipeView;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.grid.FixedGrid;
@@ -54,7 +54,7 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup<CraftingRecipeGroup
 	 * This class defines a crafting recipe
 	 */
 	public class CraftingRecipe implements Identifiable<Grid<ItemEntry>>, Recipe<CraftingRecipe>{
-		/** The recipe group. Usually it is {@link mmbgame.CraftingGroups#crafting} */
+		/** The recipe group. Usually it is {@link mmb.content.CraftingGroups#crafting} */
 		@Nonnull public final CraftingRecipeGroup group;
 		/** The item grid of the recipe */
 		@Nonnull public final Grid<ItemEntry> grid;

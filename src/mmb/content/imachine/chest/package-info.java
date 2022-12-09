@@ -6,4 +6,4 @@
  *
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmbgame.imachine.chest;
+package mmb.content.imachine.chest;

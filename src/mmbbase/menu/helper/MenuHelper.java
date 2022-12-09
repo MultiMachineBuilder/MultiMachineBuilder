@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.helper;
+package mmbbase.menu.helper;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -10,9 +10,9 @@ import javax.annotation.Nullable;
 import javax.swing.JButton;
 
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
-import mmbeng.GlobalSettings;
+import mmb.engine.GlobalSettings;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
 import mmbmods.stn.block.STNPusherGUI;
 
 /**

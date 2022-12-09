@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmbeng.item;
+package mmb.engine.item;
 
-import mmb.menu.wtool.WindowTool;
+import mmbbase.menu.wtool.WindowTool;
 
 /**
  * An item with assigned tool

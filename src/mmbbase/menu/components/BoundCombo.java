@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.components;
+package mmbbase.menu.components;
 
 import java.util.function.Consumer;
 
@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.JComboBox;
 
-import mmb.data.variables.ListenableValue;
+import mmbbase.data.variables.ListenableValue;
 
 /**
  * @author oskar

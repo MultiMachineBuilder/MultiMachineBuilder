@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng;
+package mmb.engine;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -12,7 +12,7 @@ import java.util.function.Consumer;
 
 import com.pploder.events.Event;
 
-import mmbeng.debug.Debugger;
+import mmb.engine.debug.Debugger;
 
 /**
  * An implementation of an event, which catches and reports exceptions thrown by listeners

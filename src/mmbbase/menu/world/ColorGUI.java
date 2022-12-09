@@ -1,12 +1,12 @@
 /**
  * 
  */
-package mmb.menu.world;
+package mmbbase.menu.world;
 
 import javax.swing.JColorChooser;
 
-import mmb.menu.world.window.GUITab;
-import mmb.menu.world.window.WorldWindow;
+import mmbbase.menu.world.window.GUITab;
+import mmbbase.menu.world.window.WorldWindow;
 
 import javax.swing.JButton;
 import java.awt.Color;

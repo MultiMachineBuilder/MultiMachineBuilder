@@ -1,14 +1,14 @@
 /**
  * 
  */
-package mmbeng.rotate;
+package mmb.engine.rotate;
 
 import java.awt.image.BufferedImage;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.texture.BlockDrawer;
-import mmbeng.texture.Textures;
+import mmb.engine.texture.BlockDrawer;
+import mmb.engine.texture.Textures;
 
 /**
  * @author oskar

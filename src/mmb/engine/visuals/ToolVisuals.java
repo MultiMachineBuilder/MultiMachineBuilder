@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmbeng.visuals;
+package mmb.engine.visuals;
 
-import static mmbeng.GlobalSettings.$res;
+import static mmb.engine.GlobalSettings.$res;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -17,13 +17,13 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import org.joml.Vector2d;
 
-import mmb.menu.wtool.ToolPaint;
-import mmb.menu.wtool.ToolVisualsPanel;
-import mmb.menu.wtool.WindowTool;
-import mmbeng.debug.Debugger;
-import mmbeng.inv.ItemRecord;
-import mmbeng.item.ItemEntry;
-import mmbeng.texture.Textures;
+import mmb.engine.debug.Debugger;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.texture.Textures;
+import mmbbase.menu.wtool.ToolPaint;
+import mmbbase.menu.wtool.ToolVisualsPanel;
+import mmbbase.menu.wtool.WindowTool;
 
 /**
  * @author oskar

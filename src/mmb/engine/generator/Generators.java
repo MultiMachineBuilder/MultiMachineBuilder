@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.generator;
+package mmb.engine.generator;
 
 import java.util.List;
 

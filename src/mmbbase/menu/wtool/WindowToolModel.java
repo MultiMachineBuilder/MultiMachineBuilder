@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.wtool;
+package mmbbase.menu.wtool;
 
 import java.util.Objects;
 import java.util.function.Supplier;

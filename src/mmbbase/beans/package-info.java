@@ -7,4 +7,4 @@
  * They play nicely with pattern checking for {@code instanceof}
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmb.beans;
+package mmbbase.beans;

@@ -1,24 +1,24 @@
 /**
  * 
  */
-package mmbgame.electric.machines;
+package mmb.content.electric.machines;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockEntityRotary;
-import mmbeng.inv.Inventories;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.inv.storage.SimpleInventory;
-import mmbeng.inv.storage.SingleItemInventory;
-import mmbeng.worlds.MapProxy;
-import mmbgame.electric.Battery;
-import mmbgame.electric.Electricity;
-import mmbgame.electric.GUIMachine;
-import mmbgame.electric.VoltageTier;
-import mmbgame.electric.ElectricMachineGroup.ElectroMachineType;
+import mmb.content.electric.Battery;
+import mmb.content.electric.Electricity;
+import mmb.content.electric.GUIMachine;
+import mmb.content.electric.VoltageTier;
+import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
+import mmb.engine.block.BlockEntityRotary;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.inv.Inventories;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.inv.storage.SimpleInventory;
+import mmb.engine.inv.storage.SingleItemInventory;
+import mmb.engine.worlds.MapProxy;
 
 /**
  * @author oskar

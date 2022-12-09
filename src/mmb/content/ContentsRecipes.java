@@ -1,26 +1,26 @@
 /**
  * 
  */
-package mmbgame;
+package mmb.content;
 
-import static mmbgame.ContentsBlocks.*;
-import static mmbgame.ContentsItems.*;
-import static mmbgame.CraftingGroups.*;
-import static mmbgame.rawmats.Materials.*;
+import static mmb.content.ContentsBlocks.*;
+import static mmb.content.ContentsItems.*;
+import static mmb.content.CraftingGroups.*;
+import static mmb.content.rawmats.Materials.*;
 
-import mmbeng.chance.ListChance;
-import mmbeng.chance.RandomChance;
-import mmbeng.chance.RandomOrElseChance;
-import mmbeng.craft.RecipeOutput;
-import mmbeng.craft.SimpleItemList;
-import mmbeng.item.Item;
-import mmbeng.item.ItemEntry;
-import mmbeng.item.ItemRaw;
-import mmbgame.electric.VoltageTier;
-import mmbgame.electric.machines.BlockTransformer.TransformerData;
-import mmbgame.electronics.Electronics;
-import mmbgame.machinemics.manual.Crafting;
-import mmbgame.rawmats.Materials;
+import mmb.content.electric.VoltageTier;
+import mmb.content.electric.machines.BlockTransformer.TransformerData;
+import mmb.content.electronics.Electronics;
+import mmb.content.machinemics.manual.Crafting;
+import mmb.content.rawmats.Materials;
+import mmb.engine.chance.ListChance;
+import mmb.engine.chance.RandomChance;
+import mmb.engine.chance.RandomOrElseChance;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.SimpleItemList;
+import mmb.engine.item.Item;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.item.ItemRaw;
 import monniasza.collects.grid.FixedGrid;
 
 /**

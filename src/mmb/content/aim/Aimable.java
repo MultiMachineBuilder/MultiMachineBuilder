@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.aim;
+package mmb.content.aim;
 
 import java.awt.Point;
 

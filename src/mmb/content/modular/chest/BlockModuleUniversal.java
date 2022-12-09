@@ -1,9 +1,9 @@
 /**
  * 
  */
-package mmbgame.modular.chest;
+package mmb.content.modular.chest;
 
-import mmbgame.modular.BlockModule;
+import mmb.content.modular.BlockModule;
 
 /**
  * @author oskar

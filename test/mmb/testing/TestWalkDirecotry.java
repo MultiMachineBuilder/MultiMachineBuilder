@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import mmbeng.mods.GameLoader;
+import mmb.engine.mods.GameLoader;
 
 /**
  * @author oskar

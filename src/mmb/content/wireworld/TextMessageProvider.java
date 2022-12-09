@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.wireworld;
+package mmb.content.wireworld;
 
 /**
  * @author oskar

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbeng.texture;
+package mmb.engine.texture;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -12,7 +12,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.Icon;
 
-import mmbeng.block.BlockEntry;
+import mmb.engine.block.BlockEntry;
 
 /**
  * @author oskar

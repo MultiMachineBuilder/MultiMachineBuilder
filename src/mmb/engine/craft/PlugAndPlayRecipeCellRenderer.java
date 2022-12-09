@@ -1,14 +1,14 @@
 /**
  * 
  */
-package mmbeng.craft;
+package mmb.engine.craft;
 
 import java.awt.Component;
 
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
-import mmb.menu.world.craft.RecipeView;
+import mmbbase.menu.world.craft.RecipeView;
 
 /**
  * @author oskar

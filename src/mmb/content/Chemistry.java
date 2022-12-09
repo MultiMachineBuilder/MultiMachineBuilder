@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame;
+package mmb.content;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -9,11 +9,11 @@ import java.awt.image.LookupOp;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.block.Blocks;
-import mmbeng.item.Item;
-import mmbeng.item.Items;
-import mmbeng.java2d.ColorMapper;
-import mmbeng.texture.Textures;
+import mmb.engine.block.Blocks;
+import mmb.engine.item.Item;
+import mmb.engine.item.Items;
+import mmb.engine.java2d.ColorMapper;
+import mmb.engine.texture.Textures;
 
 /**
  * @author oskar

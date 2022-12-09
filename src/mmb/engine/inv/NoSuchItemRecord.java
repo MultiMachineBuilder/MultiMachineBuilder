@@ -1,11 +1,11 @@
 /**
  * 
  */
-package mmbeng.inv;
+package mmb.engine.inv;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.item.ItemEntry;
+import mmb.engine.item.ItemEntry;
 
 /**
  * @author oskar

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmbgame.imachine;
+package mmb.content.imachine;
 
 import java.awt.image.BufferedImage;
 
@@ -9,21 +9,21 @@ import javax.annotation.Nonnull;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmbeng.block.BlockEntry;
-import mmbeng.block.BlockType;
-import mmbeng.block.BlockEntityRotary;
-import mmbeng.inv.Inventory;
-import mmbeng.inv.ItemRecord;
-import mmbeng.inv.io.InventoryReader;
-import mmbeng.inv.io.InventoryWriter;
-import mmbeng.inv.storage.SingleItemInventory;
-import mmbeng.item.ItemEntry;
-import mmbeng.rotate.RotatedImageGroup;
-import mmbeng.rotate.Rotation;
-import mmbeng.rotate.Side;
-import mmbeng.texture.Textures;
-import mmbeng.worlds.MapProxy;
-import mmbgame.ContentsBlocks;
+import mmb.content.ContentsBlocks;
+import mmb.engine.block.BlockEntityRotary;
+import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
+import mmb.engine.inv.Inventory;
+import mmb.engine.inv.ItemRecord;
+import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.inv.storage.SingleItemInventory;
+import mmb.engine.item.ItemEntry;
+import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.rotate.Rotation;
+import mmb.engine.rotate.Side;
+import mmb.engine.texture.Textures;
+import mmb.engine.worlds.MapProxy;
 
 /**
  * @author oskar

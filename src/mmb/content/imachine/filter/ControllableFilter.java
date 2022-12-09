@@ -1,12 +1,12 @@
 /**
  * 
  */
-package mmbgame.imachine.filter;
+package mmb.content.imachine.filter;
 
 import javax.annotation.Nullable;
 
-import mmb.cgui.DestroyTab;
-import mmbeng.inv.storage.SingleItemInventory;
+import mmb.engine.inv.storage.SingleItemInventory;
+import mmbbase.cgui.DestroyTab;
 
 /**
  * @author oskar

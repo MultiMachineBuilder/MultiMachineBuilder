@@ -1,12 +1,12 @@
 /**
  * 
  */
-package mmbeng.worlds.world;
+package mmb.engine.worlds.world;
 
 import javax.annotation.Nonnull;
 
-import mmbeng.block.BlockType;
-import mmbeng.worlds.MapProxy;
+import mmb.engine.block.BlockType;
+import mmb.engine.worlds.MapProxy;
 
 /**
  * @author oskar
