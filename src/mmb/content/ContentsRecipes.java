@@ -105,22 +105,6 @@ public class ContentsRecipes {
 			ipipe_ELBOW, ipipe_ELBOW,
 			ipipe_STRAIGHT, null
 			}, 2, 3, AGRO_WATER); //Water well
-			
-			//Alcohol
-			crafting.addRecipeGrid(new ItemEntry[]{
-			glassp, glassp, glassp,
-			glassp,  paper, glassp,
-			glassp, glassp, glassp
-			}, 3, 3, beerEmpty, 16); //Beer bottle
-			
-			//Brewery recipe for beer
-			brewery.add(new SimpleItemList(
-			beerEmpty.stack(16),
-			seeds.stack(8),
-			water.stack(1),
-			hops.stack(1),
-			yeast.stack(3)
-			), new SimpleItemList(beer.stack(16), yeast.stack(4)), VoltageTier.V1, 1000000);
 		}
 
 		private static void _sinter() {

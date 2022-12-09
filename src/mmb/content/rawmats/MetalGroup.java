@@ -24,8 +24,8 @@ import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 import mmb.engine.java2d.TexGen;
-import mmb.engine.mods.GameLoader;
 import mmb.engine.texture.Textures;
+import mmbbase.GameLoader;
 
 import static mmb.content.ContentsItems.frame1;
 import static mmb.engine.GlobalSettings.*;

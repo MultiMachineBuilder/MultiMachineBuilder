@@ -1,7 +1,7 @@
 /**
  *
  */
-package mmb.engine.mods;
+package mmbbase;
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -16,6 +16,7 @@ import mmb.Main;
 import mmb.content.Chemistry;
 import mmb.content.ContentsBlocks;
 import mmb.content.ContentsItems;
+import mmb.content.drugs.Alcohol;
 import mmb.content.electric.machines.Nuker;
 import mmb.content.electric.machines.BlockTransformer.TransformerData;
 import mmb.content.electronics.Electronics;
@@ -27,6 +28,11 @@ import mmb.engine.block.Blocks;
 import mmb.engine.debug.Debugger;
 import mmb.engine.files.FileUtil;
 import mmb.engine.generator.Generators;
+import mmb.engine.mods.AddonCentral;
+import mmb.engine.mods.ModInfo;
+import mmb.engine.mods.ModLoader;
+import mmb.engine.mods.ModState;
+import mmb.engine.mods.Mods;
 import mmb.engine.sound.Sounds;
 import mmb.engine.texture.Textures;
 import mmb.engine.window.FullScreen;
@@ -131,7 +137,8 @@ public final class GameLoader {
 		Electronics.init();
 		//Load datalayers
 		DataLayers.init();
-		//Load machines
+		//Load machines and more
+		Alcohol.init();
 		Main.state1("Loading machines");
 		Chemistry.init();
 		STN.init();

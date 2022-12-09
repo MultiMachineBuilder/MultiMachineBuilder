@@ -7,7 +7,7 @@ import javax.swing.border.EmptyBorder;
 import mmb.engine.GlobalSettings;
 import mmb.engine.Settings;
 import mmb.engine.debug.Debugger;
-import mmb.engine.mods.GameLoader;
+import mmbbase.GameLoader;
 import mmbbase.menu.main.MainMenu;
 
 import javax.swing.JLabel;

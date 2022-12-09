@@ -5,7 +5,6 @@ package mmb.content.drugs;
 
 import javax.annotation.Nonnull;
 
-import mmb.content.CraftingGroups;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.Item;
 import mmbbase.menu.wtool.WindowTool;
@@ -45,6 +44,6 @@ public class AlcoPod extends Item implements Intoxicating {
 	}
 	@Override
 	public void onregister() {
-		CraftingGroups.alcohol.add(this, drop, dose);
+		Alcohol.alcohol.add(this, drop, dose);
 	}
 }

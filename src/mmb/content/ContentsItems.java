@@ -16,7 +16,6 @@ import mmb.content.aim.ToolAim;
 import mmb.content.ditems.ItemBOM;
 import mmb.content.ditems.ItemPIngredients;
 import mmb.content.ditems.Stencil;
-import mmb.content.drugs.AlcoPod;
 import mmb.content.electric.ItemBattery;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.VoltagedItemGroup;
@@ -28,7 +27,6 @@ import mmb.content.pickaxe.Pickaxe;
 import mmb.content.pickaxe.Pickaxe.PickaxeType;
 import mmb.content.rawmats.Materials;
 import mmb.engine.GlobalSettings;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntityType;
 import mmb.engine.item.ItemRaw;
@@ -48,33 +46,6 @@ public class ContentsItems {
 	private ContentsItems() {}
 	/** Initializes items */
 	public static void init() {/* just for initialization */}
-	
-	//Alcoholic beverages
-	/*
-	 * +-----------------------------------------------------+
-	 * |REAL-LIFE ALCOHOL CONSUMPTION IS HARMFUL             |
-	 * |½ LITER OF BEER CONTAINS 25g OF ETHYL ALCOHOL        |
-	 * |SALE OF LIQUOR TO PEOPLE BELOW 18y IS A CRIME        |
-	 * |EVEN THAT AMOUNT HARMS HEALTH OF PREGNANT WOMEN      |
-	 * |AND IS DANGEROUS TO DRIVERS                          |
-	 * +-----------------------------------------------------+
-	 */
-	/** AlcoPod, unused */
-	@Nonnull public static final AlcoPod alcopod = (AlcoPod) new AlcoPod(1, RecipeOutput.NONE)
-			.title("AlcoPod")
-			.texture("item/alcopod.png")
-			.volumed(0.000125)
-			.finish("drugs.alcopod");
-		@Nonnull public static final Item beerEmpty = new Item()
-			.title("#beerb")
-			.texture("item/beer empty.png")
-			.volumed(0.004)
-			.finish("drugs.beer0");
-		@Nonnull public static final AlcoPod beer = (AlcoPod) new AlcoPod(1.5, beerEmpty)
-			.title("#beer")
-			.texture("item/beer.png")
-			.volumed(0.004)
-			.finish("drugs.beer");
 	
 	//Misc
 	@Nonnull public static final Item leaf = new Item()
@@ -324,8 +295,7 @@ public class ContentsItems {
 		Items.tagItems("craftcode", craftcodes);
 		Items.tagItems("parts-electronic", resistor, capacitor, inductor, diode, transistor, IC, resistors);
 		Items.tagItems("agro", yeast, hops, seeds);
-		Items.tagItems("material-glass", glass, glassp, beerEmpty);
-		Items.tagItems("alcohol", alcopod, beer);
+		Items.tagItems("material-glass", glass, glassp);
 		Items.tagItems("machine-battery", bat1, bat2, bat3, bat4, bat5, bat6, bat7);
 		Items.tagItem("voltage-ULV", bat1);
 		Items.tagItem("voltage-VLV", bat2);
