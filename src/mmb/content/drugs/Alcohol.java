@@ -12,11 +12,11 @@ import java.util.ResourceBundle;
 import javax.annotation.Nonnull;
 
 import mmb.content.electric.VoltageTier;
-import mmb.engine.GlobalSettings;
 import mmb.engine.craft.SimpleItemList;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
+import mmb.engine.settings.GlobalSettings;
 
 /**
  * The main class for alcoholic beverages

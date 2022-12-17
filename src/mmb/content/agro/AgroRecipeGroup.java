@@ -6,7 +6,8 @@ package mmb.content.agro;
 import java.util.Set;
 import javax.annotation.Nonnull;
 
-import mmb.content.CraftingGroups;
+import org.checkerframework.checker.nullness.qual.NonNull;
+
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.GlobalRecipeRegistrar;
@@ -40,9 +41,9 @@ public class AgroRecipeGroup extends AbstractRecipeGroup<AgroRecipeGroup.AgroPro
 	 */
 	public class AgroProcessingRecipe implements Identifiable<ItemEntry>, Recipe<AgroProcessingRecipe>{
 		/** The input crop */
-		@Nonnull public final ItemEntry input;
+		public final ItemEntry input;
 		/** The crop's output */		
-		@Nonnull public final RecipeOutput output;
+		public final RecipeOutput output;
 		/** Duration between drops in ticks */
 		         public final int duration;
 		
@@ -101,8 +102,8 @@ public class AgroRecipeGroup extends AbstractRecipeGroup<AgroRecipeGroup.AgroPro
 	}
 	
 	//Recipe listing
-	@Nonnull private final SelfSet<ItemEntry, AgroProcessingRecipe> _recipes = HashSelfSet.createNonnull(AgroProcessingRecipe.class);
-	@Nonnull public final SelfSet<ItemEntry, AgroProcessingRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
+	private final SelfSet<ItemEntry, AgroProcessingRecipe> _recipes = HashSelfSet.createNonnull(AgroProcessingRecipe.class);
+	public final SelfSet<ItemEntry, AgroProcessingRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
 	@Override
 	public Set<? extends ItemEntry> supportedItems() {
 		return recipes.keys();

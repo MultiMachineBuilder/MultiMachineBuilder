@@ -3,7 +3,7 @@
  */
 package mmbbase.menu.world.craft;
 
-import static mmb.engine.GlobalSettings.*;
+import static mmb.engine.settings.GlobalSettings.*;
 
 /**
  * @author oskar

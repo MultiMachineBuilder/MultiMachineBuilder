@@ -10,11 +10,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.Nonnull;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import mmb.Main;
 import mmb.engine.NotFoundException;
 import mmb.engine.debug.Debugger;
 import mmb.engine.files.AdvancedFile;
@@ -26,16 +28,20 @@ import mmb.engine.mods.ModLoader;
  */
 public class Sounds {
 	private Sounds() {}
-	private static Debugger debug = new Debugger("SOUNDS");
+	@Nonnull private static final Debugger debug = new Debugger("SOUNDS");
 	
-	private static final Map<String, Sound> sounds0 = new HashMap<>();
+	@Nonnull private static final Map<String, Sound> sounds0 = new HashMap<>();
 	/** The list of all sounds */
-	public static final Map<String, Sound> sounds = Collections.unmodifiableMap(sounds0);
+	@Nonnull public static final Map<String, Sound> sounds = Collections.unmodifiableMap(sounds0);
+	@Nonnull public static final AudioFormat dummyAF = new AudioFormat(48000, 16, 1, false, false);
+	@Nonnull public static final Sound EMPTY = new Sound(new byte[0], dummyAF, 0);
+	
 	/**
 	 * @param name
 	 * @return
 	 */
 	public static Sound getSound(String name) {
+		if(!Main.isRunning()) return EMPTY;
 		Sound s = sounds0.get(name);
 		if(s == null) {
 			//Cache miss, load classpath
@@ -49,6 +55,21 @@ public class Sounds {
 		}
 		return s;
 	}
+	public static Sound ngetSound(String name) {
+		Sound s = sounds0.get(name);
+		if(s == null) {
+			//Cache miss, load classpath
+			try(InputStream in = ModLoader.bcl.getResourceAsStream("sound/"+name)) {
+				if(in == null) return null;
+				s = load(in, name);
+				if(s == null) throw new NotFoundException("Could not load sound "+name);
+			} catch (IOException e) {
+				throw new NotFoundException("Failed to load sound "+name, e);
+			}	
+		}
+		return s;
+	}
+	
 	/**
 	 * Load the sound data from a file
 	 * @param soundData file input stream

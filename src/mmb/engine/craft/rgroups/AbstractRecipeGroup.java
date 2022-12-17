@@ -10,11 +10,11 @@ import javax.swing.JComponent;
 import javax.swing.ListCellRenderer;
 
 import io.vavr.Tuple2;
-import mmb.engine.GlobalSettings;
 import mmb.engine.craft.GlobalRecipeRegistrar;
 import mmb.engine.craft.PlugAndPlayRecipeCellRenderer;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.RecipeGroup;
+import mmb.engine.settings.GlobalSettings;
 import mmbbase.menu.world.craft.RecipeList;
 import mmbbase.menu.world.window.TabRecipes;
 

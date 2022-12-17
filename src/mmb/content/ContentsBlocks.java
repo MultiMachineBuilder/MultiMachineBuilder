@@ -59,7 +59,6 @@ import mmb.content.wireworld.WWWire;
 import mmb.content.wireworld.AbstractStateGate.StateGateType;
 import mmb.content.wireworld.GateBi.BiGateType;
 import mmb.content.wireworld.GateMono.MonoGateType;
-import mmb.engine.GlobalSettings;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.Blocks;
@@ -70,6 +69,7 @@ import mmb.engine.craft.singles.SimpleRecipeGroup;
 import mmb.engine.item.Items;
 import mmb.engine.rotate.ChirotatedImageGroup;
 import mmb.engine.rotate.Side;
+import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;
 
 /**

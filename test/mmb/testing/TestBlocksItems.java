@@ -10,13 +10,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.junit.jupiter.api.Test;
 
+import mmb.StandardTestReferences;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockEntry;
@@ -30,27 +30,6 @@ import mmb.engine.texture.BlockDrawer;
  * @author oskar
  */
 class TestBlocksItems {
-	//Create a texture, so ExceptionInInitializerError is not thrown in Blocks initializer
-	@Nonnull private static final BlockDrawer fake = new BlockDrawer() {
-
-		@Override
-		public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int w, int h) {
-			//dummy
-		}
-
-		@Override
-		public Icon toIcon() {
-			//dummy
-			return new ImageIcon();
-		}
-
-		@Override
-		public int LOD() {
-			// dummy
-			return 0;
-		}
-	};
-	
 	@Test
 	void testRegisterNull() {
 		assertThrows(NullPointerException.class, () -> Items.register(null));
@@ -60,7 +39,7 @@ class TestBlocksItems {
 	void testRegisterNoID() {
 		BlockEntityType nullID = new BlockEntityType();
 		nullID.setLeaveBehind(nullID);
-		nullID.setTexture(fake);
+		nullID.setTexture(StandardTestReferences.drawer);
 		assertThrows(NullPointerException.class, () -> Items.register(nullID), "Blocks with null ID should not be registerable");
 	}
 	
@@ -68,12 +47,12 @@ class TestBlocksItems {
 	void testRegisterCorrect() {
 		BlockEntityType correct = new BlockEntityType();
 		correct.setLeaveBehind(correct);
-		correct.setTexture(fake);
+		correct.setTexture(StandardTestReferences.drawer);
 		correct.register("test");
 		assertEquals(correct, Items.getExpectType("test", BlockType.class), "Block was not properly added");
 	}
 	
-	@Nonnull private static final Block blk = new Block();
+	@NonNull private static final Block blk = new Block();
 	
 	@Test
 	void testWontTakeNullTitle() {

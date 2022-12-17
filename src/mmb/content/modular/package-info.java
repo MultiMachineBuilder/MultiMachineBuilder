@@ -8,5 +8,5 @@
  * 
  * @author oskar
  */
-@javax.annotation.ParametersAreNonnullByDefault
+@mmb.NNByDefault
 package mmb.content.modular;

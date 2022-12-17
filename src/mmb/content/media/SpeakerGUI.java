@@ -6,8 +6,8 @@ package mmb.content.media;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 
-import mmb.engine.GlobalSettings;
 import mmb.engine.debug.Debugger;
+import mmb.engine.settings.GlobalSettings;
 import mmb.engine.sound.Sounds;
 import mmbbase.menu.world.window.GUITab;
 import mmbbase.menu.world.window.WorldWindow;

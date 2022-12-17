@@ -6,8 +6,7 @@ package mmb.engine;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
-import javax.annotation.Nullable;
-
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.joml.Vector2i;
 import org.joml.Vector2ic;
 
@@ -28,22 +27,22 @@ public class Vector2iconst implements Vector2ic {
 	}
 
 	@Override
-	public Vector2i absolute(@SuppressWarnings("null") Vector2i dest) {
+	public Vector2i absolute(Vector2i dest) {
 		return dest.set(Math.abs(x), Math.abs(y));
 	}
 
 	@Override
-	public Vector2i add(@SuppressWarnings("null") Vector2ic sum, @SuppressWarnings("null") Vector2i dest) {
+	public Vector2i add(Vector2ic sum, Vector2i dest) {
 		return add(sum.x(), sum.y(), dest);
 	}
 
 	@Override
-	public Vector2i add(int X, int Y, @SuppressWarnings("null") Vector2i dest) {
+	public Vector2i add(int X, int Y, Vector2i dest) {
 		return dest.set(X+x, Y+y);
 	}
 
 	@Override
-	public double distance(@SuppressWarnings("null") Vector2ic v) {
+	public double distance(Vector2ic v) {
 		return Math.sqrt(distanceSquared(v.x(), v.y()));
 	}
 
@@ -53,7 +52,7 @@ public class Vector2iconst implements Vector2ic {
 	}
 
 	@Override
-	public long distanceSquared(@SuppressWarnings("null") Vector2ic v) {
+	public long distanceSquared(Vector2ic v) {
 		return distanceSquared(v.x(), v.y());
 	}
 
@@ -68,14 +67,14 @@ public class Vector2iconst implements Vector2ic {
 	}
 
 	@Override
-	public ByteBuffer get(@SuppressWarnings("null") ByteBuffer buffer) {
+	public ByteBuffer get(ByteBuffer buffer) {
 		buffer.putInt(x);
 		buffer.putInt(y);
 		return buffer;
 	}
 
 	@Override
-	public IntBuffer get(@SuppressWarnings("null") IntBuffer buffer) {
+	public IntBuffer get(IntBuffer buffer) {
 		buffer.put(x);
 		return buffer.put(y);
 	}
@@ -93,13 +92,13 @@ public class Vector2iconst implements Vector2ic {
 	}
 
 	@Override
-	public ByteBuffer get(int index, @SuppressWarnings("null") ByteBuffer buffer) {
+	public ByteBuffer get(int index, ByteBuffer buffer) {
 		buffer.putInt(index, x);
 		return buffer.putInt(index+4, y);
 	}
 
 	@Override
-	public IntBuffer get(int index, @SuppressWarnings("null") IntBuffer buffer) {
+	public IntBuffer get(int index, IntBuffer buffer) {
 		buffer.put(index, x);
 		return buffer.put(index+1, y);
 	}
@@ -111,7 +110,7 @@ public class Vector2iconst implements Vector2ic {
 	}
 
 	@Override
-	public long gridDistance(@SuppressWarnings("null") Vector2ic v) {
+	public long gridDistance(Vector2ic v) {
 		return gridDistance(v.x(), v.y());
 	}
 
@@ -131,7 +130,7 @@ public class Vector2iconst implements Vector2ic {
 	}
 
 	@Override
-	public Vector2i max(@SuppressWarnings("null") Vector2ic other, @SuppressWarnings("null") Vector2i dest) {
+	public Vector2i max(Vector2ic other, Vector2i dest) {
 		dest.x = Math.max(other.x(), x);
 		dest.y = Math.max(other.y(), y);
 		return dest;
@@ -143,7 +142,7 @@ public class Vector2iconst implements Vector2ic {
 	}
 
 	@Override
-	public Vector2i min(@SuppressWarnings("null") Vector2ic other, @SuppressWarnings("null") Vector2i dest) {
+	public Vector2i min(Vector2ic other, Vector2i dest) {
 		dest.x = Math.min(other.x(), x);
 		dest.y = Math.min(other.y(), y);
 		return dest;
@@ -155,38 +154,38 @@ public class Vector2iconst implements Vector2ic {
 	}
 
 	@Override
-	public Vector2i mul(int n, @SuppressWarnings("null") Vector2i dest) {
+	public Vector2i mul(int n, Vector2i dest) {
 		dest.x = x*n;
 		dest.y = y*n;
 		return dest;
 	}
 
 	@Override
-	public Vector2i mul(@SuppressWarnings("null") Vector2ic mul, @SuppressWarnings("null") Vector2i dest) {
+	public Vector2i mul(Vector2ic mul, Vector2i dest) {
 		return mul(mul.x(), mul.y(), dest);
 	}
 
 	@Override
-	public Vector2i mul(int xx, int yy, @SuppressWarnings("null") Vector2i dest) {
+	public Vector2i mul(int xx, int yy, Vector2i dest) {
 		dest.x = x*xx;
 		dest.y = y*yy;
 		return dest;
 	}
 
 	@Override
-	public Vector2i negate(@SuppressWarnings("null") Vector2i dest) {
+	public Vector2i negate(Vector2i dest) {
 		dest.x = -x;
 		dest.y = -y;
 		return dest;
 	}
 
 	@Override
-	public Vector2i sub(@SuppressWarnings("null") Vector2ic sub, @SuppressWarnings("null") Vector2i dest) {
+	public Vector2i sub(Vector2ic sub, Vector2i dest) {
 		return sub(sub.x(), sub.y(), dest);
 	}
 
 	@Override
-	public Vector2i sub(int xx, int yy, @SuppressWarnings("null") Vector2i dest) {
+	public Vector2i sub(int xx, int yy, Vector2i dest) {
 		dest.x = x-xx;
 		dest.y = y-yy;
 		return dest;
@@ -223,13 +222,13 @@ public class Vector2iconst implements Vector2ic {
 		return y == other.y();
 	}
 	@Override
-	public Vector2i div(float scalar, @SuppressWarnings("null") Vector2i dest) {
+	public Vector2i div(float scalar, Vector2i dest) {
 		dest.x = (int) (x/scalar);
 		dest.y = (int) (y/scalar);
 		return dest;
 	}
 	@Override
-	public Vector2i div(int scalar, @SuppressWarnings("null") Vector2i dest) {
+	public Vector2i div(int scalar, Vector2i dest) {
 		dest.x = x/scalar;
 		dest.y = y/scalar;
 		return dest;

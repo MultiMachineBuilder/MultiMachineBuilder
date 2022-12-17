@@ -35,9 +35,12 @@ public enum VoltageTier {
 	V8(1638400, "LuV", () -> Materials.duranium,    () -> Materials.stellar,      4096, new Color(  0, 128, 255)),
 	V9(6553600, "MAX", () -> Materials.unobtainium, () -> Materials.unobtainium, 16384, new Color(  0,   0, 255));
 	
+	/** Voltage in volts */
 	public final double volts;
 	@Nonnull public final String name;
+	/** The construction material */
 	@Nonnull public final Supplier<MetalGroup> construction;
+	/** The electrical material */
 	@Nonnull public final Supplier<MetalGroup> electrical;
 	public final int speedMul;
 	/** Color of machines and conduits for this voltage */

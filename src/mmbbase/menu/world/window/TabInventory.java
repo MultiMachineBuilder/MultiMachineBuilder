@@ -15,7 +15,7 @@ import monniasza.collects.Collects;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import static mmb.engine.GlobalSettings.*;
+import static mmb.engine.settings.GlobalSettings.*;
 
 import java.awt.Color;
 

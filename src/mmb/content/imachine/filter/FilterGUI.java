@@ -3,7 +3,7 @@
  */
 package mmb.content.imachine.filter;
 
-import static mmb.engine.GlobalSettings.$res;
+import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.awt.Color;
 

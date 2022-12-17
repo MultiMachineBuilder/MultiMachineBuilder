@@ -10,8 +10,8 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
-import mmb.engine.GlobalSettings;
 import mmb.engine.Verify;
+import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.BlockDrawer;
 import mmb.engine.texture.Textures;
 

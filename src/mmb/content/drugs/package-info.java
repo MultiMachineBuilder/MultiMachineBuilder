@@ -5,5 +5,5 @@
  * Alcoholic beverages and drugs component
  * @author oskar
  */
-@javax.annotation.ParametersAreNonnullByDefault
+@mmb.NNByDefault
 package mmb.content.drugs;

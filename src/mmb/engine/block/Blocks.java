@@ -7,6 +7,7 @@ import java.awt.Color;
 
 import javax.annotation.Nonnull;
 
+import mmb.Main;
 import mmb.engine.debug.Debugger;
 
 /**
@@ -40,6 +41,8 @@ public class Blocks {
 	@Nonnull public static final Block grass = Blocks.createGrass(); //REQUIRES SPECIAL INIT
 	@Nonnull
 	private static Block createGrass() {
+		if(!Main.isRunning()) return air;
+		
 		Block result = new Block();
 		result.texture("grass.png")
 		.leaveBehind(air)

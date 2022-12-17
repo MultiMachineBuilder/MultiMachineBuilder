@@ -109,16 +109,16 @@ public class BlockEntityType extends BlockBase{
 		return map.place(this, x, y);
 	}
 	@Override
-	public BlockEntity createBlock() {
+	public @Nonnull BlockEntry createBlock() {
 		return factory.get();
 	}
 
 	//Factory
-	private Supplier<@Nonnull BlockEntity> factory;
+	private Supplier<@Nonnull BlockEntry> factory;
 	/**
 	 * @param factory the factory to set
 	 */
-	public void setFactory(Supplier<@Nonnull BlockEntity> factory) {
+	public void setFactory(Supplier<@Nonnull BlockEntry> factory) {
 		this.factory = factory;
 	}
 	
@@ -181,7 +181,7 @@ public class BlockEntityType extends BlockBase{
 	 * @param factory block entity factory lambda expression
 	 * @return this
 	 */
-	public BlockEntityType factory(Supplier<BlockEntity> factory) {
+	public BlockEntityType factory(Supplier<BlockEntry> factory) {
 		setFactory(factory);
 		return this;
 	}

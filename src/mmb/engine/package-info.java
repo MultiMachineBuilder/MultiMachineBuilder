@@ -6,5 +6,5 @@
  * The only content is air, grass and void blocks
  * @author oskar
  */
-@javax.annotation.ParametersAreNonnullByDefault
+@mmb.NNByDefault
 package mmb.engine;

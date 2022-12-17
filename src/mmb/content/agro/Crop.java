@@ -3,8 +3,8 @@
  */
 package mmb.content.agro;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -26,8 +26,8 @@ public class Crop extends BlockEntityData {
 		return type;
 	}
 
-	@Nonnull private BlockType type;
-	@Nonnull private Chance drop;
+	private BlockType type;
+	private Chance drop;
 	private int progress;
 	private int time;
 	public Crop(BlockType type, int time, Chance drop) {
@@ -45,7 +45,7 @@ public class Crop extends BlockEntityData {
 	}
 
 	@Override
-	protected void save0(ObjectNode node) {
+	protected void save0(@NonNull ObjectNode node) {
 		node.put("progress", progress);
 	}
 

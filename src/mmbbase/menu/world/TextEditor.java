@@ -14,7 +14,7 @@ import javax.annotation.Nonnull;
 import javax.swing.JButton;
 import java.awt.Component;
 
-import static mmb.engine.GlobalSettings.$res;
+import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.awt.Color;
 import net.miginfocom.swing.MigLayout;

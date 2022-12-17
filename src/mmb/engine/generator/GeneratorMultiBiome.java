@@ -15,7 +15,7 @@ import mmb.engine.worlds.world.World;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 
-import static mmb.engine.GlobalSettings.$res;
+import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.awt.Rectangle;
 import java.util.Random;

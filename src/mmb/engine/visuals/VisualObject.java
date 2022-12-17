@@ -3,7 +3,7 @@
  */
 package mmb.engine.visuals;
 
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import mmb.engine.worlds.world.World;
 

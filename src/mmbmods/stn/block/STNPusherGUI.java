@@ -9,7 +9,7 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.border.BevelBorder;
 
-import mmb.engine.GlobalSettings;
+import mmb.engine.settings.GlobalSettings;
 import mmbbase.menu.components.ItemSelectionSlot;
 import mmbbase.menu.helper.MenuHelper;
 import mmbbase.menu.world.inv.InventoryController;

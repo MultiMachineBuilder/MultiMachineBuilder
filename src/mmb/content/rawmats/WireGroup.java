@@ -3,7 +3,7 @@
  */
 package mmb.content.rawmats;
 
-import static mmb.engine.GlobalSettings.*;
+import static mmb.engine.settings.GlobalSettings.*;
 
 import javax.annotation.Nonnull;
 import javax.swing.Icon;

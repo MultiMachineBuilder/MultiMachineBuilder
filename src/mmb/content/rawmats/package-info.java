@@ -5,5 +5,5 @@
  * @author oskar
  * Contains stuff related to automatic content generation
  */
-@javax.annotation.ParametersAreNonnullByDefault
+@mmb.NNByDefault
 package mmb.content.rawmats;

@@ -23,7 +23,6 @@ import mmb.content.rawmats.BaseMetalGroup;
 import mmb.content.rawmats.MaterialType;
 import mmb.content.rawmats.Materials;
 import mmb.content.rawmats.MetalGroup;
-import mmb.engine.GlobalSettings;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.craft.Craftings;
 import mmb.engine.craft.RecipeOutput;
@@ -37,6 +36,7 @@ import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 import mmb.engine.java2d.TexGen;
+import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;
 
 /**

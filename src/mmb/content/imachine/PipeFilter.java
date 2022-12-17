@@ -3,7 +3,7 @@
  */
 package mmb.content.imachine;
 
-import static mmb.engine.GlobalSettings.$res;
+import static mmb.engine.settings.GlobalSettings.$res;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

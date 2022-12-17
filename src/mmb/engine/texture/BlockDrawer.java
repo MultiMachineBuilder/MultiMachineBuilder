@@ -8,9 +8,10 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.Icon;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import mmb.engine.block.BlockEntry;
 
@@ -25,7 +26,7 @@ public interface BlockDrawer {
 	 * @param y upper Y coordinate on the frame
 	 * @param g graphics context
 	 */
-	public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int w, int h);
+	public void draw(@Nullable BlockEntry ent, int x, int y, @NonNull Graphics g, int w, int h);
 	/**
 	 * @param ent block to be drawn, optional
 	 * @param p upper left corner on the frame
@@ -58,7 +59,7 @@ public interface BlockDrawer {
 	 * @param img new BlockDrawer's desired image
 	 * @return a BlockDrawer for given BufferedImage
 	 */
-	@Nonnull public static BlockDrawer ofImage(BufferedImage img) {
+	@NonNull public static BlockDrawer ofImage(BufferedImage img) {
 		return new TextureDrawer(img);
 	}
 	/**
@@ -66,14 +67,14 @@ public interface BlockDrawer {
 	 * @param c new BlockDrawer's desired color
 	 * @return a BlockDrawer of given color
 	 */
-	@Nonnull public static BlockDrawer ofColor(Color c) {
+	@NonNull public static BlockDrawer ofColor(Color c) {
 		return new ColorDrawer(c);
 	}
 	/**
 	 * Convert this drawer to preview icon
 	 * @return an {@link Icon}, which represents a preview of this drawer
 	 */
-	@Nonnull public Icon toIcon();
+	@NonNull public Icon toIcon();
 	/**
 	 * @return a low level of detail color in sRGB
 	 */
@@ -98,7 +99,7 @@ public interface BlockDrawer {
 			}
 
 			@Override
-			public void paintIcon(Component c, @SuppressWarnings("null") @Nonnull Graphics g, int x, int y) {
+			public void paintIcon(Component c, @SuppressWarnings("null") @NonNull Graphics g, int x, int y) {
 				draw(null, x, y, g, 32);
 			}
 		};

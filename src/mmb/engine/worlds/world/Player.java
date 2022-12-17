@@ -24,7 +24,6 @@ import mmb.engine.CatchingEvent;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.inv.storage.ListenableSimpleInventory;
-import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
 import mmb.engine.sound.Sound;
@@ -42,6 +41,7 @@ public class Player implements Saver{
 	
 	/**
 	 * Creates a new player object
+	 * @param w world, where player resides
 	 */
 	public Player(World w) {
 		playerHP.addChangeListener(this::changeHP);

@@ -17,7 +17,7 @@ import mmbbase.menu.world.window.WorldWindow;
 
 import javax.annotation.Nonnull;
 
-import static mmb.engine.GlobalSettings.$res;
+import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.awt.Color;
 

@@ -20,7 +20,6 @@ import mmb.content.modular.part.PartEntity;
 import mmb.content.modular.part.PartEntityType;
 import mmb.content.modular.part.PartEntry;
 import mmb.content.modular.part.PartType;
-import mmb.engine.GlobalSettings;
 import mmb.engine.MMBUtils;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
@@ -30,6 +29,7 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
+import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.BlockDrawer;
 import mmbbase.menu.world.inv.InventoryController;
 

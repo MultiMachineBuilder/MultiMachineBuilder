@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.border.BevelBorder;
 
 import mmb.content.modular.gui.SafeCloseable;
-import mmb.engine.GlobalSettings;
+import mmb.engine.settings.GlobalSettings;
 import mmbbase.data.variables.ListenableValue;
 import mmbbase.menu.components.ItemSelectionSlot;
 import mmbbase.menu.world.inv.InventoryController;

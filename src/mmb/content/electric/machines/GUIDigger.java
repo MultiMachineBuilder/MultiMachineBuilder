@@ -8,7 +8,7 @@ import net.miginfocom.swing.MigLayout;
 import javax.annotation.Nonnull;
 import javax.swing.JButton;
 
-import static mmb.engine.GlobalSettings.$res;
+import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.awt.Color;
 import javax.swing.JLabel;

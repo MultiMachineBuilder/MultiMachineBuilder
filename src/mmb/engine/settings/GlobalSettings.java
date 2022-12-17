@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine;
+package mmb.engine.settings;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 import javax.swing.JComponent;
 
 import mmb.Main;
+import mmb.engine.MutableResourceBundle;
 import mmb.engine.debug.Debugger;
 import mmbbase.data.variables.ListenableDouble;
 import mmbbase.data.variables.ListenableInt;

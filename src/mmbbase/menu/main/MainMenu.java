@@ -1,6 +1,6 @@
 package mmbbase.menu.main;
 
-import static mmb.engine.GlobalSettings.*;
+import static mmb.engine.settings.GlobalSettings.*;
 
 import java.awt.*;
 
@@ -16,11 +16,11 @@ import java.awt.image.BufferedImage;
 import java.awt.BorderLayout;
 import javax.swing.border.EmptyBorder;
 
-import mmb.engine.GlobalSettings;
-import mmb.engine.Settings;
 import mmb.engine.debug.Debugger;
 import mmb.engine.gl.HalfVecTest;
 import mmb.engine.mods.Mods;
+import mmb.engine.settings.GlobalSettings;
+import mmb.engine.settings.Settings;
 import mmb.engine.texture.Textures;
 import mmb.engine.window.FullScreen;
 import mmb.engine.window.MMBFrame;
@@ -191,7 +191,7 @@ public class MainMenu extends MMBFrame {
 		tabbedPane = new JTabbedPane(SwingConstants.TOP);
 		contentPane.add(tabbedPane, BorderLayout.CENTER);
 		tabbedPane.addTab($res("cgui-saves"), null, PanelSaves.INSTANCE, null);
-		tabbedPane.addTab($res("cgui-mods"), null, new PanelMods(), null);
+		tabbedPane.addTab($res("cgui-mods"), null, PanelMods.INSTANCE, null);
 		tabbedPane.addTab($res("cgui-settings"), null, new PanelSettings(), null);
 		tabbedPane.addTab($res("cgui-shop"), new PanelShop());
 	}

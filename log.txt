@@ -1222,11 +1222,11 @@
 (MOD-LOADER) Loading a sound COPYRIGHT.txt
 (MOD-LOADER) Failed to load a sound COPYRIGHT.txt
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
-	at mmb.engine.sound.Sounds.load(Sounds.java:89)
+	at mmb.engine.sound.Sounds.load(Sounds.java:110)
 	at mmbbase.GameLoader.lambda$2(GameLoader.java:120)
-	at mmbbase.GameLoader.walkDirectory(GameLoader.java:348)
-	at mmbbase.GameLoader.walkDirectory(GameLoader.java:354)
-	at mmbbase.GameLoader.walkDirectory(GameLoader.java:336)
+	at mmbbase.GameLoader.walkDirectory(GameLoader.java:347)
+	at mmbbase.GameLoader.walkDirectory(GameLoader.java:353)
+	at mmbbase.GameLoader.walkDirectory(GameLoader.java:335)
 	at mmbbase.GameLoader.modloading(GameLoader.java:117)
 	at mmb.Main.lambda$1(Main.java:114)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
@@ -1244,17 +1244,17 @@
 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
 Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at java.desktop/javax.sound.sampled.AudioSystem.getAudioInputStream(AudioSystem.java:1014)
-	at mmb.engine.sound.Sounds.load(Sounds.java:62)
+	at mmb.engine.sound.Sounds.load(Sounds.java:83)
 	... 19 more
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\error.mp3
 (MOD-LOADER) Loading a sound error.mp3
 (MOD-LOADER) Failed to load a sound error.mp3
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
-	at mmb.engine.sound.Sounds.load(Sounds.java:89)
+	at mmb.engine.sound.Sounds.load(Sounds.java:110)
 	at mmbbase.GameLoader.lambda$2(GameLoader.java:120)
-	at mmbbase.GameLoader.walkDirectory(GameLoader.java:348)
-	at mmbbase.GameLoader.walkDirectory(GameLoader.java:354)
-	at mmbbase.GameLoader.walkDirectory(GameLoader.java:336)
+	at mmbbase.GameLoader.walkDirectory(GameLoader.java:347)
+	at mmbbase.GameLoader.walkDirectory(GameLoader.java:353)
+	at mmbbase.GameLoader.walkDirectory(GameLoader.java:335)
 	at mmbbase.GameLoader.modloading(GameLoader.java:117)
 	at mmb.Main.lambda$1(Main.java:114)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
@@ -1272,7 +1272,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
 Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at java.desktop/javax.sound.sampled.AudioSystem.getAudioInputStream(AudioSystem.java:1014)
-	at mmb.engine.sound.Sounds.load(Sounds.java:62)
+	at mmb.engine.sound.Sounds.load(Sounds.java:83)
 	... 19 more
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\minecxraft.wav
 (MOD-LOADER) Loading a sound minecxraft.wav
@@ -8214,7 +8214,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found 21 saves
 (WORLD TEST) 1763 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@19c71202
+(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@437ca35e
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -8232,779 +8232,56 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Loaded
 (WORLD - IDLE) Exiting
 (WORLDS) Opening a new world
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(WORLD TEST) 1763 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@64679aeb
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(COMPLEX RECIPE RPOCESSOR) IUW data:null
-(COMPLEX RECIPE RPOCESSOR) IUW data:null
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(ITEMS) Invalid item: Infinity
-(INVENTORIES) Unsupported null item
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
+(AWT-EventQueue-0) A thread has thrown an exception
+(AWT-EventQueue-0) java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7
+	at java.desktop/javax.swing.plaf.basic.BasicListUI.updateLayoutState(BasicListUI.java:1446)
+	at java.desktop/javax.swing.plaf.basic.BasicListUI.maybeUpdateLayoutState(BasicListUI.java:1389)
+	at java.desktop/javax.swing.plaf.basic.BasicListUI.getPreferredSize(BasicListUI.java:648)
+	at java.desktop/javax.swing.JComponent.getPreferredSize(JComponent.java:1680)
+	at java.desktop/javax.swing.ScrollPaneLayout.layoutContainer(ScrollPaneLayout.java:795)
+	at java.desktop/java.awt.Container.layout(Container.java:1537)
+	at java.desktop/java.awt.Container.doLayout(Container.java:1526)
+	at java.desktop/java.awt.Container.validateTree(Container.java:1722)
+	at java.desktop/java.awt.Container.validate(Container.java:1657)
+	at java.desktop/javax.swing.RepaintManager$3.run(RepaintManager.java:745)
+	at java.desktop/javax.swing.RepaintManager$3.run(RepaintManager.java:743)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.desktop/javax.swing.RepaintManager.validateInvalidComponents(RepaintManager.java:742)
+	at java.desktop/javax.swing.RepaintManager$ProcessingRunnable.run(RepaintManager.java:1889)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
 (DATA LAYERS) Saving world data layer: STN

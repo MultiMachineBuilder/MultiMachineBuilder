@@ -5,5 +5,5 @@
  * A collection of immutable items used to transfer data between blocks
  * @author oskar
  */
-@javax.annotation.ParametersAreNonnullByDefault
+@mmb.NNByDefault
 package mmb.content.ditems;

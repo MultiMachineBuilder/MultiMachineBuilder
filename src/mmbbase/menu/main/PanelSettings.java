@@ -6,7 +6,7 @@ package mmbbase.menu.main;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import static mmb.engine.GlobalSettings.*;
+import static mmb.engine.settings.GlobalSettings.*;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -25,8 +25,8 @@ import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
 import io.github.parubok.text.multiline.MultilineLabel;
-import mmb.engine.GlobalSettings;
 import mmb.engine.debug.Debugger;
+import mmb.engine.settings.GlobalSettings;
 import mmbbase.menu.components.BoundCheckBox;
 import mmbbase.menu.components.BoundCheckBoxMenuItem;
 import mmbbase.menu.components.BoundCombo;

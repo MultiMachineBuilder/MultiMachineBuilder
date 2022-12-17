@@ -13,7 +13,7 @@ import com.google.common.cache.LoadingCache;
 import com.google.common.util.concurrent.ExecutionError;
 import com.google.common.util.concurrent.UncheckedExecutionException;
 
-import mmb.engine.GlobalSettings;
+import mmb.engine.settings.GlobalSettings;
 
 /**
  * A simple item wrapper for ItemEntities

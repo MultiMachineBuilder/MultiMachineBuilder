@@ -13,6 +13,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.checkerframework.checker.nullness.qual.EnsuresNonNullIf;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -66,7 +67,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 	 * @param set set to base on (should be empty)
 	 * @param type type of items (null if unrestricted)
 	 */
-	public SetInventory(Set<T> set, @Nullable Class<T> type) {
+	public SetInventory(Set<@NonNull T> set, @Nullable Class<T> type) {
 		this.set = set;
 		this.type = type;
 		for(ItemEntry item: set) {

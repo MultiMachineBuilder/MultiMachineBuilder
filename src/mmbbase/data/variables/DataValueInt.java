@@ -12,18 +12,19 @@ import javax.annotation.Nonnull;
 public class DataValueInt implements Variable<@Nonnull Integer> {
 	private int value;
 	/**
-	 * 
+	 * Creates a new interger variable
+	 * @param data 
 	 */
 	public DataValueInt(int data) {
 		value = data;
 	}
-	@Override
+	@Deprecated @Override
 	public @Nonnull Integer get() {
 		return Integer.valueOf(value);
 	}
-	@Override
-	public void set(Integer newValue) {
-		value = newValue;
+	@Deprecated @Override
+	public void set(@Nonnull Integer newValue) {
+		value = newValue.intValue();
 	}
 	public int getInt() {
 		return value;

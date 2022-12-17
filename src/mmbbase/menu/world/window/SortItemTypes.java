@@ -3,7 +3,7 @@
  */
 package mmbbase.menu.world.window;
 
-import static mmb.engine.GlobalSettings.$res;
+import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.util.Comparator;
 

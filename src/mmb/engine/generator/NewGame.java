@@ -3,7 +3,7 @@
  */
 package mmb.engine.generator;
 
-import static mmb.engine.GlobalSettings.$res;
+import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.awt.BorderLayout;
 import java.awt.Component;

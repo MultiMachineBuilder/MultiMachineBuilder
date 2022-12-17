@@ -8,10 +8,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
 
+import org.checkerframework.checker.nullness.qual.*;
 import org.joml.Vector2f;
 import org.joml.Vector2fc;
 import org.joml.Vector2i;
@@ -61,10 +60,10 @@ public class Textures {
 		return tex;
 	}
 	
-	@Nonnull public static BufferedImage get(String name) {
+	@NonNull public static BufferedImage get(String name) {
 		return get1(name).img;
 	}
-	@Nonnull public static Texture get1(String name) {
+	@NonNull public static Texture get1(String name) {
 		Texture result = loadedTextures0.get(name);
 		if(result == null) {
 			//Cache miss, load classpath
@@ -84,8 +83,8 @@ public class Textures {
 		public final int miny;
 		public final int maxx;
 		public final int maxy;
-		@Nonnull public final BufferedImage img;
-		@Nonnull public final String id;
+		@NonNull public final BufferedImage img;
+		@NonNull public final String id;
 		private Vector4f lod;
 		public Texture(int minx, int miny, int maxx, int maxy, BufferedImage img, String id) {
 			this.minx = minx;
@@ -95,16 +94,16 @@ public class Textures {
 			this.img = img;
 			this.id = id;
 		}
-		@Nonnull public Vector2f uvconvert(Vector2fc src, Vector2f dest) {
+		@NonNull public Vector2f uvconvert(Vector2fc src, Vector2f dest) {
 			return uvconvert(src.x(), src.y(), dest);
 		}
-		@Nonnull public Vector2f uvconvert(float x, float y, Vector2f dest) {
+		@NonNull public Vector2f uvconvert(float x, float y, Vector2f dest) {
 			dest.x = ((maxx-minx)*x + minx + 0.0f)/atlas.image.getWidth();
 			dest.y = ((maxy-miny)*y + miny + 0.0f)/atlas.image.getHeight();
 			return dest;
 		}
 		@Override
-		@Nonnull public String id() {
+		@NonNull public String id() {
 			return id;
 		}
 		/**

@@ -1,6 +1,6 @@
 package mmb.engine.mods;
 
-import javax.annotation.*;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Central class of each addon
@@ -11,7 +11,7 @@ import javax.annotation.*;
  */
 public interface AddonCentral {
 	/** @return a ModMetadata object with mod information */
-    @Nonnull ModMetadata info();
+    @NonNull ModMetadata info();
     /** Place your init and translation code here */
 	void firstOpen(); //first open
 	/** Place an init call to your blocks/items class here and create content */

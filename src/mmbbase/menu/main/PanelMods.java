@@ -19,7 +19,7 @@ import mmb.engine.mods.Modfile;
 import mmb.engine.mods.Mods;
 import net.miginfocom.swing.MigLayout;
 
-import static mmb.engine.GlobalSettings.$res;
+import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.awt.Desktop;
 
@@ -34,10 +34,9 @@ import java.io.IOException;
 public class PanelMods extends JPanel {
 	private static final long serialVersionUID = -971992923441938268L;
 	private static Debugger debug = new Debugger("MODLIST");
-	/**
-	 * Create the panel.
-	 */
-	public PanelMods() {
+	public static final PanelMods INSTANCE = new PanelMods();
+	
+	private PanelMods() {
 		setLayout(new MigLayout("", "[450px,grow 300][grow]", "[][265px,grow][35px]"));
 		
 		JLabel lblMods = new JLabel($res("cgui-mods"));

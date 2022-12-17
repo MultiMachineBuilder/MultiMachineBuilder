@@ -28,7 +28,7 @@ import mmb.engine.texture.Textures;
 import mmbbase.GameLoader;
 
 import static mmb.content.ContentsItems.frame1;
-import static mmb.engine.GlobalSettings.*;
+import static mmb.engine.settings.GlobalSettings.*;
 
 /**
  * @author oskar

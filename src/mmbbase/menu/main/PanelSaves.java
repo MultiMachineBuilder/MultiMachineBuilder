@@ -3,7 +3,7 @@
  */
 package mmbbase.menu.main;
 
-import static mmb.engine.GlobalSettings.*;
+import static mmb.engine.settings.GlobalSettings.*;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -17,8 +17,10 @@ import javax.swing.JPanel;
 import org.apache.commons.io.IOUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.rainerhahnekamp.sneakythrow.Sneaky;
 
 import mmb.Main;
+import mmb.engine.MMBUtils;
 import mmb.engine.debug.Debugger;
 import mmb.engine.files.AdvancedFile;
 import mmb.engine.files.LocalFile;
@@ -39,15 +41,14 @@ import java.util.ArrayList;
  *
  */
 public class PanelSaves extends JPanel {
-	
+	private static final long serialVersionUID = -873377369477463310L;
+	private final transient Debugger debug = new Debugger("SELECT A SAVE");	
 	private static final JFileChooser jfc = new JFileChooser();
 	/**
 	 * The singleton instance of {@code PanelSaves}
 	 */
 	public static final PanelSaves INSTANCE = new PanelSaves();
-	private static final long serialVersionUID = -873377369477463310L;
 	
-	private final transient Debugger debug = new Debugger("SELECT A SAVE");
 	/**The list of all saves*/
 	public final transient java.util.List<Save> saves = new ArrayList<>();
 	private List list;
@@ -103,6 +104,7 @@ public class PanelSaves extends JPanel {
 		EventQueue.invokeLater(this::refresh);
 	}
 	
+	/** Plays an external world */
 	@SuppressWarnings("null")
 	private void playExternal() {
 		int result = jfc.showOpenDialog(this);
@@ -111,7 +113,8 @@ public class PanelSaves extends JPanel {
 		}
 	}
 
-	private void play() {
+	/** Plays the selected world */
+	public void play() {
 		int index = list.getSelectedIndex();
 		if(index < 0) {
 			debug.printl("No selected world!");
@@ -126,44 +129,54 @@ public class PanelSaves extends JPanel {
 		play(s);
 	}
 	
-	private void play(Save s) {
+	/**
+	 * Plays a specific world
+	 * @param s file to play
+	 */
+	public void play(Save s) {
 		WorldWindow ww = new WorldWindow();
 		FullScreen.setWindow(ww);
-		new Thread(() -> {
-			boolean fail = true;
-			try(InputStream in = s.file.getInputStream()) {
-				debug.printl("Opened a file");
-				String loadedData = IOUtils.toString(in);
-				debug.printl("Loaded a file");
-				Universe world = new Universe();
-				@SuppressWarnings("null")
-				JsonNode node = JsonTool.parse(loadedData);
-				if(node == null || node.isMissingNode()) {
-					debug.printl("Failed to parse JSON data");
-					EventQueue.invokeLater(ww::dispose); //Control given back to EDT to close unnecessary window
-				}
-				debug.printl("Parsed file");
-				world.load(node);
-				debug.printl("Loaded");
-				ww.setWorld(s, world);
-				fail = false;
-				return;
-			}catch(Exception e) {
-				debug.pstm(e, "Failed to load the world");
-			}catch(OutOfMemoryError e) {
-				debug.pstm(e, "Ran out of memory while loading");
-			}catch(Throwable e) {
-				debug.printerrl("Fatal error while world loading");
-				Main.crash(e);
-			}finally {
-				if(fail) {
-					EventQueue.invokeLater(() -> {
-						ww.dispose();
-						FullScreen.setWindow(MainMenu.INSTANCE);
-					});//Control given back to EDT to close unnecessary window
-				}
+		new Thread(() -> fullPlay(s, ww)).start();
+	}
+
+	/**
+	 * @param s
+	 * @param ww
+	 */
+	public void fullPlay(Save s, WorldWindow ww){
+		boolean fail = true;
+		try(InputStream in = s.file.getInputStream()) {
+			debug.printl("Opened a file");
+			String loadedData = IOUtils.toString(in);
+			debug.printl("Loaded a file");
+			Universe world = new Universe();
+			@SuppressWarnings("null")
+			JsonNode node = JsonTool.parse(loadedData);
+			if(node == null || node.isMissingNode()) {
+				debug.printl("Failed to parse JSON data");
+				EventQueue.invokeLater(ww::dispose); //Control given back to EDT to close unnecessary window
 			}
-		}).start();
+			debug.printl("Parsed file");
+			world.load(node);
+			debug.printl("Loaded");
+			ww.setWorld(s, world);
+			fail = false;
+		}catch(Exception e) {
+			debug.pstm(e, "Failed to load the world");
+			MMBUtils.shoot(e);
+		}catch(OutOfMemoryError e) {
+			debug.pstm(e, "Ran out of memory while loading");
+		}catch(Throwable e) {
+			debug.printerrl("Fatal error while world loading");
+			Main.crash(e);
+		}finally {
+			if(fail) {
+				EventQueue.invokeLater(() -> {
+					ww.dispose();
+					FullScreen.setWindow(MainMenu.INSTANCE);
+				});//Control given back to EDT to close unnecessary window
+			}
+		}
 	}
 	
 	/**

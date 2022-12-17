@@ -240,7 +240,6 @@ public final class GameLoader {
 					debug.printl("End 1st stage for " + ai.meta.name);
 				} catch (VirtualMachineError e) {
 					Main.crash(e);
-					// deepcode ignore DontCatch: guarantee that game fully loads
 				} catch (Throwable e) {
 					debug.pstm(e, "Failed to run a mod " + ai.meta.name);
 					ai.state = ModState.DEAD;

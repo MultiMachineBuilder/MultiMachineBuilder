@@ -3,7 +3,7 @@
  */
 package mmb.content.aim;
 
-import static mmb.engine.GlobalSettings.$res;
+import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.awt.Graphics;
 import java.awt.Point;

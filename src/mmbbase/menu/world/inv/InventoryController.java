@@ -18,18 +18,18 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JButton;
 
-import static mmb.engine.GlobalSettings.$res;
+import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.event.ListSelectionListener;
 
-import mmb.engine.GlobalSettings;
 import mmb.engine.MMBUtils;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.settings.GlobalSettings;
 import mmbbase.data.variables.Variable;
 import mmbbase.menu.Icons;
 

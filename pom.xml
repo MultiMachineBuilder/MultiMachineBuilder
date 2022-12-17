@@ -68,6 +68,10 @@
 			<id>jitpack.io</id>
 			<url>https://jitpack.io</url>
 		</repository>
+		<repository>
+		    <id>gitlab-maven</id>
+		    <url>https://gitlab.com/api/v4/projects/19871573/packages/maven</url>
+		</repository>
 	</repositories>
 	<build>
 		<!-- Source params -->
@@ -215,9 +219,9 @@
 	<dependencies>
 		<!-- Null analysis -->
 		<dependency>
-		  	<groupId>com.google.code.findbugs</groupId>
-	  		<artifactId>annotations</artifactId>
-	  		<version>3.0.1u2</version>
+		    <groupId>org.checkerframework</groupId>
+		    <artifactId>checker-qual</artifactId>
+		    <version>3.28.0</version>
 		</dependency>
 		<dependency>
 		  <groupId>org.lastnpe.eea</groupId>
@@ -226,11 +230,6 @@
 		</dependency>
 		
 		<!-- Collections -->
-		<dependency>
-		  <groupId>com.glazedlists</groupId>
-		  <artifactId>glazedlists</artifactId>
-		  <version>1.11.0</version>
-		</dependency>
 		<dependency>
 			<groupId>org.jgrapht</groupId>
 			<artifactId>jgrapht-core</artifactId>
@@ -271,11 +270,6 @@
 		    <version>1.2.1</version>
 		</dependency>
 		<dependency>
-	          <groupId>fr.delthas</groupId>
-	          <artifactId>javamp3</artifactId>
-	          <version>1.0.1</version>
-	   	</dependency>
-		<dependency>
 			<groupId>fr.delthas</groupId>
 			<artifactId>javamp3</artifactId>
 			<version>1.0.1</version>
@@ -301,6 +295,16 @@
 	 		<groupId>com.google.guava</groupId>
 	 		<artifactId>guava</artifactId>
 	 		<version>31.1-jre</version>
+	 		<exclusions>
+	 			<exclusion>
+	 				<groupId>com.google.errorprone</groupId>
+	 				<artifactId>error_prone_annotations</artifactId>
+	 			</exclusion>
+	 			<exclusion>
+	 				<groupId>com.google.code.findbugs</groupId>
+	 				<artifactId>jsr305</artifactId>
+	 			</exclusion>
+	 		</exclusions>
 		</dependency>
 		<dependency>
 	      <groupId>org.ainslec</groupId>
@@ -351,14 +355,6 @@
 	 		<artifactId>commons-csv</artifactId>
 	 		<version>1.9.0</version>
 		</dependency>
-		<!-- LWJGL -->
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-bom</artifactId>
-			<version>${lwjgl.version}</version>
-			<scope>import</scope>
-			<type>pom</type>
-		</dependency>
 	    <dependency>
 	        <groupId>com.github.Fylipp</groupId>
 	        <artifactId>easy-events</artifactId>
@@ -392,21 +388,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-assimp</artifactId>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-glfw</artifactId>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-openal</artifactId>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-opengl</artifactId>
 			<version>3.3.1</version>
 		</dependency>
@@ -419,27 +400,17 @@
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-assimp</artifactId>
-			<classifier>${lwjgl.natives}</classifier>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-glfw</artifactId>
 			<classifier>${lwjgl.natives}</classifier>
 			<version>3.3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
-			<artifactId>lwjgl-shaderc</artifactId>
+			<artifactId>lwjgl-opengl</artifactId>
 			<classifier>${lwjgl.natives}</classifier>
 			<version>3.3.1</version>
 		</dependency>
-			<dependency>
-			<groupId>org.joml</groupId>
-			<artifactId>joml</artifactId>
-			<version>${joml.version}</version>
-		</dependency>
+
 		<!-- JOML -->
 		<dependency>
 			<groupId>org.joml</groupId>

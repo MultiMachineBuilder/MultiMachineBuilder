@@ -4,9 +4,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import mmb.engine.GlobalSettings;
-import mmb.engine.Settings;
 import mmb.engine.debug.Debugger;
+import mmb.engine.settings.GlobalSettings;
+import mmb.engine.settings.Settings;
 import mmbbase.GameLoader;
 import mmbbase.menu.main.MainMenu;
 
@@ -54,7 +54,7 @@ public class Main extends JFrame {
 	/**
 	 * Crashes the game to the desktop
 	 * @param e throwable, which caused the crash
-	 * @throws SecurityException if run by the mod
+	 * @throws SecurityException if run by a mod
 	 */
 	public static void crash(Throwable e) {
 		debug.pstm(e, "GAME HAS CRASHED");
@@ -70,9 +70,9 @@ public class Main extends JFrame {
 
 	/**
 	 * Runs the game
-	 * @param args the comand line arguments
+	 * @param args the command line arguments
 	 */
-	public static void main(String[] args) {
+	public static void main(String... args) {
 		if(running) throw new IllegalStateException("The game is already running");
 		running = true;
 		
@@ -131,7 +131,6 @@ public class Main extends JFrame {
 	}
 	
 	public static void uncaughtException(Thread thread, Throwable ex) {
-		@SuppressWarnings("null")
 		Debugger debug = new Debugger(thread.getName());
 		debug.pstm(ex, "A thread has thrown an exception");
 	}

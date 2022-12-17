@@ -3,7 +3,7 @@
  */
 package mmbbase.menu.world.inv;
 
-import static mmb.engine.GlobalSettings.*;
+import static mmb.engine.settings.GlobalSettings.*;
 
 import java.awt.Component;
 import java.awt.GridBagConstraints;

@@ -6,8 +6,9 @@ package mmb.engine.item;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.engine.debug.Debugger;
@@ -63,7 +64,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	public Item texture(String texture) {
+	@NonNull public Item texture(String texture) {
 		setTexture(texture);
 		return this;
 	}
@@ -73,7 +74,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	public Item texture(BufferedImage texture) {
+	@NonNull public Item texture(BufferedImage texture) {
 		setTexture(texture);
 		return this;
 	}
@@ -83,7 +84,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	public Item texture(Color texture) {
+	@NonNull public Item texture(Color texture) {
 		setTexture(BlockDrawer.ofColor(texture));
 		return this;
 	}
@@ -93,7 +94,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	public Item texture(BlockDrawer texture) {
+	@NonNull public Item texture(BlockDrawer texture) {
 		setTexture(texture);
 		return this;
 	}
@@ -103,7 +104,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	public Item title(String title) {
+	@NonNull public Item title(String title) {
 		setTitle(title);
 		return this;
 	}
@@ -113,7 +114,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	public Item describe(String description) {
+	@NonNull public Item describe(String description) {
 		setDescription(description);
 		return this;
 	}
@@ -123,7 +124,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	public Item finish(String id) {
+	@NonNull public Item finish(String id) {
 		register(id);
 		return this;
 	}
@@ -133,7 +134,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	@Nonnull public Item volumed(double volume) {
+	@NonNull public Item volumed(double volume) {
 		setVolume(volume);
 		return this;
 	}

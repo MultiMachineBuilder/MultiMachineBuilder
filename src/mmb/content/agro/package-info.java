@@ -5,5 +5,5 @@
  * @author oskar
  * Contaains agricultural items
  */
-@javax.annotation.ParametersAreNonnullByDefault
+@mmb.NNByDefault
 package mmb.content.agro;

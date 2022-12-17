@@ -26,7 +26,6 @@ import mmb.content.machinemics.pack.Pack;
 import mmb.content.pickaxe.Pickaxe;
 import mmb.content.pickaxe.Pickaxe.PickaxeType;
 import mmb.content.rawmats.Materials;
-import mmb.engine.GlobalSettings;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntityType;
 import mmb.engine.item.ItemRaw;
@@ -34,6 +33,7 @@ import mmb.engine.item.Items;
 import mmb.engine.item.TooledItem;
 import mmb.engine.java2d.ColorMapper;
 import mmb.engine.java2d.TexGen;
+import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;
 import mmbbase.menu.wtool.DumpItems;
 

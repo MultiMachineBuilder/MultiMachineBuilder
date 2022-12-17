@@ -6,7 +6,7 @@ package mmb.content.pickaxe;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 
-import static mmb.engine.GlobalSettings.$res;
+import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.awt.Color;
 import java.awt.Point;

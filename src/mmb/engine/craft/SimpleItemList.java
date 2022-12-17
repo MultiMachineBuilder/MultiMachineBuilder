@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.ainslec.picocog.PicoWriter;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
@@ -84,7 +85,7 @@ public final class SimpleItemList implements RecipeOutput {
 	 * Creates an item list with items from the stack
 	 * @param stacks item stacks
 	 */
-	public SimpleItemList(Collection<? extends SingleItem> stacks) {
+	public SimpleItemList(Collection<@NonNull ? extends SingleItem> stacks) {
 		for(SingleItem stack: stacks) {
 			data.put(stack.item(), stack.amount());
 		}

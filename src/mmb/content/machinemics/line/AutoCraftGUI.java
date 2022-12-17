@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import static mmb.engine.GlobalSettings.$res;
+import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.awt.Color;
 

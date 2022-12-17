@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine;
+package mmb.engine.settings;
 
 import java.io.File;
 import java.io.FileInputStream;

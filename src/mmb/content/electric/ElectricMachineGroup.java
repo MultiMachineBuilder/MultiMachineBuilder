@@ -10,12 +10,12 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import javax.annotation.Nonnull;
 
-import mmb.engine.GlobalSettings;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.item.Items;
 import mmb.engine.java2d.TexGen;
 import mmb.engine.rotate.RotatedImageGroup;
+import mmb.engine.settings.GlobalSettings;
 
 /**
  * @author oskar

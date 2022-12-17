@@ -10,10 +10,10 @@ import java.util.stream.IntStream;
 
 import javax.annotation.Nonnull;
 
-import mmb.engine.GlobalSettings;
 import mmb.engine.item.Item;
 import mmb.engine.item.Items;
 import mmb.engine.java2d.TexGen;
+import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;
 
 /**
