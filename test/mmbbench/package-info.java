@@ -5,5 +5,5 @@
  * A set of benchmrks for MultiMachineBuilder
  * @author oskar
  */
-@javax.annotation.ParametersAreNonnullByDefault
+@mmb.NNByDefault
 package mmbbench;

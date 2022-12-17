@@ -9,8 +9,8 @@ import java.awt.Point;
 
 import javax.annotation.Nullable;
 
-import com.github.davidmoten.rtree.geometry.Circle;
-import com.github.davidmoten.rtree.geometry.Geometries;
+import com.github.davidmoten.rtree2.geometry.Circle;
+import com.github.davidmoten.rtree2.geometry.Geometries;
 
 import mmbbase.menu.world.window.WorldFrame;
 

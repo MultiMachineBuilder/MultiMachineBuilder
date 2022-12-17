@@ -8,8 +8,8 @@ import java.awt.Graphics;
 
 import javax.annotation.Nullable;
 
-import com.github.davidmoten.rtree.geometry.Geometries;
-import com.github.davidmoten.rtree.geometry.Point;
+import com.github.davidmoten.rtree2.geometry.Geometries;
+import com.github.davidmoten.rtree2.geometry.Point;
 
 import mmbbase.menu.world.window.WorldFrame;
 

@@ -9,6 +9,10 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import javax.annotation.Nonnull;
+
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 import com.google.common.collect.Iterators;
 
 import monniasza.collects.Collects;
@@ -29,7 +33,7 @@ public class MutableResourceBundle extends ResourceBundle {
 	public MutableResourceBundle(ResourceBundle rb) {add(rb);}
 
 	/** The data array used by this bundle */
-	@NonNull public final Map<String, Object> map = new HashMap<>();
+	public final Map<String, Object> map = new HashMap<>();
 	
 	/**
 	 * Adds contents of the resource bundle to this bundle

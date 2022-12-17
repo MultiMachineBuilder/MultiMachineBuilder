@@ -27,9 +27,9 @@ import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.github.davidmoten.rtree.Entries;
-import com.github.davidmoten.rtree.RTree;
-import com.github.davidmoten.rtree.geometry.Geometry;
+import com.github.davidmoten.rtree2.Entries;
+import com.github.davidmoten.rtree2.RTree;
+import com.github.davidmoten.rtree2.geometry.Geometry;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import io.vavr.Tuple2;
@@ -880,31 +880,31 @@ public class World implements Identifiable<String>, Indexable{
 		visuals.updateAndGet(v -> v.add(vis, vis.border()));
 	}
 	public void addVisuals(Visual... vis) {
-		List<com.github.davidmoten.rtree.Entry<Visual, Geometry>> list = visuals2list(vis);
+		List<com.github.davidmoten.rtree2.Entry<Visual, Geometry>> list = visuals2list(vis);
 		visuals.updateAndGet(v -> v.add(list));
 	}
 	public void addVisuals(Collection<Visual> vis) {
-		List<com.github.davidmoten.rtree.Entry<Visual, Geometry>> list = visuals2list(vis);
+		List<com.github.davidmoten.rtree2.Entry<Visual, Geometry>> list = visuals2list(vis);
 		visuals.updateAndGet(v -> v.add(list));
 	}
 	public void removeVisual(Visual vis) {
 		visuals.updateAndGet(v -> v.delete(vis, vis.border()));
 	}
 	public void removeVisuals(Visual... vis) {
-		List<com.github.davidmoten.rtree.Entry<Visual, Geometry>> list = visuals2list(vis);
+		List<com.github.davidmoten.rtree2.Entry<Visual, Geometry>> list = visuals2list(vis);
 		visuals.updateAndGet(v -> v.delete(list));
 	}
 	public void removeVisuals(Collection<Visual> vis) {
-		List<com.github.davidmoten.rtree.Entry<Visual, Geometry>> list = visuals2list(vis);
+		List<com.github.davidmoten.rtree2.Entry<Visual, Geometry>> list = visuals2list(vis);
 		visuals.updateAndGet(v -> v.delete(list));
 	}
 	
-	private static List<com.github.davidmoten.rtree.Entry<Visual, Geometry>> visuals2list(Visual... vis) {
+	private static List<com.github.davidmoten.rtree2.Entry<Visual, Geometry>> visuals2list(Visual... vis) {
 		return Arrays.stream(vis).map(
 				val -> Entries.entry(val, val.border())
 				).collect(Collectors.toList());
 	}
-	private static List<com.github.davidmoten.rtree.Entry<Visual, Geometry>> visuals2list(Collection<Visual> vis) {
+	private static List<com.github.davidmoten.rtree2.Entry<Visual, Geometry>> visuals2list(Collection<Visual> vis) {
 		return vis.stream().map(
 				val -> Entries.entry(val, val.border())
 				).collect(Collectors.toList());

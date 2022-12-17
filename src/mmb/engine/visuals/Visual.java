@@ -5,7 +5,7 @@ package mmb.engine.visuals;
 
 import java.awt.Graphics;
 
-import com.github.davidmoten.rtree.geometry.Geometry;
+import com.github.davidmoten.rtree2.geometry.Geometry;
 
 import mmbbase.menu.world.window.WorldFrame;
 

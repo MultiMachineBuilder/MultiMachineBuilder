@@ -1,7 +1,7 @@
 /**
  * 
  */
-package bench;
+package mmbbench;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.junit.jupiter.api.Test;

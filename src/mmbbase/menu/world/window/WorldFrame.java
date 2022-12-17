@@ -20,8 +20,8 @@ import javax.swing.JComponent;
 
 import org.joml.Vector2d;
 
-import com.github.davidmoten.rtree.geometry.Geometries;
-import com.github.davidmoten.rtree.geometry.Geometry;
+import com.github.davidmoten.rtree2.geometry.Geometries;
+import com.github.davidmoten.rtree2.geometry.Geometry;
 import com.pploder.events.Event;
 
 import it.unimi.dsi.fastutil.doubles.DoubleList;
@@ -46,8 +46,6 @@ import mmbbase.data.variables.ListenerBooleanVariable;
 import mmbbase.menu.world.FPSCounter;
 import mmbbase.menu.world.window.WorldWindow.ScrollablePlacementList;
 import mmbbase.menu.wtool.WindowTool;
-import rx.Observable;
-import rx.Subscriber;
 import java.awt.Color;
 
 /**
@@ -461,32 +459,18 @@ public class WorldFrame extends JComponent {
 			int y = (int)((mc.posY()+pos.y)*blockScale);
 			int w = mc.sizeX();
 			int h = mc.sizeY();
-			@SuppressWarnings("null")
 			@Nonnull Graphics g2 = g.create(x, y, (int)Math.ceil(w*blockScale), (int)Math.ceil(h*blockScale));
 			mc.render(g2);
 		}
 		
 		//Render visual objects
-		Observable<com.github.davidmoten.rtree.Entry<Visual, Geometry>> visuals = map.visuals().search(Geometries.rectangle(l, u, r, d));
+		Iterable<com.github.davidmoten.rtree2.Entry<Visual, Geometry>> visuals = map.visuals().search(Geometries.rectangle(l, u, r, d));
 		AtomicInteger nvisuals = new AtomicInteger();
 		AtomicBoolean success = new AtomicBoolean();
-		visuals.subscribe(new Subscriber<com.github.davidmoten.rtree.Entry<Visual, Geometry>>() {
-			@Override
-			public void onCompleted() {
-				success.set(true);
-			}
-
-			@Override
-			public void onError(@SuppressWarnings("null") Throwable e) {
-				debug.pstm(e, "Failed to retrieve or render a visual");
-			}
-
-			@Override
-			public void onNext(com.github.davidmoten.rtree.Entry<Visual, Geometry> t) {
-				t.value().render(g, WorldFrame.this);
-				nvisuals.incrementAndGet();
-			}
-		});
+		for(com.github.davidmoten.rtree2.Entry<Visual, Geometry> node: visuals) {
+			node.value().render(g, WorldFrame.this);
+			nvisuals.incrementAndGet();
+		}
 		
 		
 		//Render player
