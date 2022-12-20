@@ -5,5 +5,5 @@
  * Modular chests
  * @author oskar
  */
-@mmb.NNByDefault
+@javax.annotation.ParametersAreNonnullByDefault
 package mmb.content.modular.chest;

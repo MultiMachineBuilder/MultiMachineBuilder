@@ -10,8 +10,7 @@ import java.util.ResourceBundle;
 import java.util.Set;
 
 import javax.annotation.Nonnull;
-
-import org.checkerframework.checker.nullness.qual.Nullable;
+import javax.annotation.Nullable;
 
 import com.google.common.collect.Iterators;
 

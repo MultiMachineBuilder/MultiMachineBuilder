@@ -5,5 +5,5 @@
  * Contains aiming tools
  * @author oskar
  */
-@mmb.NNByDefault
+@javax.annotation.ParametersAreNonnullByDefault
 package mmb.content.aim;

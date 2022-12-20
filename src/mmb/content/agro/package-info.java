@@ -3,7 +3,7 @@
  */
 /**
  * @author oskar
- * Contaains agricultural items
+ * Contains agricultural items
  */
-@mmb.NNByDefault
+@javax.annotation.ParametersAreNonnullByDefault
 package mmb.content.agro;

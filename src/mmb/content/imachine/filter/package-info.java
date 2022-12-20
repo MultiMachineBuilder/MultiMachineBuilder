@@ -6,5 +6,5 @@
  * @author oskar
  *
  */
-@mmb.NNByDefault
+@javax.annotation.ParametersAreNonnullByDefault
 package mmb.content.imachine.filter;

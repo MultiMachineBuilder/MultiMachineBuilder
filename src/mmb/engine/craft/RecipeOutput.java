@@ -13,7 +13,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.ainslec.picocog.PicoWriter;
-import org.checkerframework.checker.nullness.qual.NonNull;
 
 import com.google.common.collect.Iterators;
 
@@ -80,7 +79,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	/**
 	 * @return contents of the item list as map.
 	 */
-	@Nonnull public Object2IntMap<@NonNull ItemEntry> getContents();
+	@Nonnull public Object2IntMap<@Nonnull ItemEntry> getContents();
 	
 	/**
 	 * Checks if the item list contains the selected item
@@ -108,7 +107,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	 * @param data item data to compare to
 	 * @return are contents of this item list equal to the map?
 	 */
-	public default boolean equiv(Map<@NonNull ItemEntry, Integer> data) {
+	public default boolean equiv(Map<@Nonnull ItemEntry, Integer> data) {
 		return getContents().equals(data);
 	}
 
@@ -186,7 +185,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	 * @return unique items in this recipe output
 	 */
 	@Override
-	public default @NonNull Set<@NonNull ItemEntry> items(){
+	public default @Nonnull Set<@Nonnull ItemEntry> items(){
 		return getContents().keySet();
 	}
 	
@@ -229,11 +228,11 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 		return mul2entrystream(amount).collect(Collects.collectToIntMap(map));
 	}
 	@Override
-	default @Nonnull Iterator<@NonNull ItemStack> iterator() {
+	default @Nonnull Iterator<@Nonnull ItemStack> iterator() {
 		return Iterators.transform(getContents().object2IntEntrySet().iterator(), RecipeOutput::entry2stack);
 	}
 	
-	public static ItemStack entry2stack(@NonNull Entry<ItemEntry> entry){
+	public static ItemStack entry2stack(Entry<ItemEntry> entry){
 		return new ItemStack(entry.getKey(), entry.getIntValue());
 	}
 }

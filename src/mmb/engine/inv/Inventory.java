@@ -11,8 +11,6 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
-
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.inv.io.InventoryReader;
@@ -23,7 +21,7 @@ import mmb.engine.item.ItemEntry;
  * An inventory is an object, which allows players and machines to store items.
  * @author oskar
  */
-public interface Inventory extends Collection<@NonNull ItemRecord> {
+public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	//Item records
 	/**
 	 * Returns an iterator over the item records in this inventory.
@@ -326,13 +324,13 @@ public interface Inventory extends Collection<@NonNull ItemRecord> {
 	/** @return capacity of given inventory */
 	public double capacity();
 	@Override
-	default boolean add(@NonNull ItemRecord arg0) {
+	default boolean add(@Nonnull ItemRecord arg0) {
 		return insert(arg0.item(), arg0.amount()) != 0;
 	}
 	@Override
-	default boolean addAll(Collection<@NonNull ? extends ItemRecord> c) {
+	default boolean addAll(Collection<@Nonnull ? extends ItemRecord> c) {
 		boolean changed = false;
-		for(@NonNull ItemRecord irecord: c) {
+		for(@Nonnull ItemRecord irecord: c) {
 			changed |= (insert(irecord.item(), irecord.amount())) != 0;
 		}
 		return changed;

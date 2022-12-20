@@ -9,8 +9,6 @@ import java.util.Queue;
 
 import javax.annotation.Nonnull;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
@@ -120,7 +118,7 @@ public class ItemLoader {
 	 * @param capacity inventory's capacity
 	 * @return the inventory representation in JSON
 	 */
-	public static @Nonnull ArrayNode save(Iterable<@NonNull ? extends ItemRecord> iter, double capacity) {
+	public static @Nonnull ArrayNode save(Iterable<@Nonnull ? extends ItemRecord> iter, double capacity) {
 		Queue<JsonNode> nodes = new ArrayDeque<>(); //prepare the queue
 		nodes.add(new DoubleNode(capacity)); // write the volume
 		for(ItemRecord n: iter) { //write items
@@ -132,7 +130,7 @@ public class ItemLoader {
 				ent.add(data); //...add data to a item node
 			ent.add(n.amount()); //write the amount
 			
-			nodes.add(ent); //write the item node to the list;
+			nodes.add(ent); //write the item node to the list
 		}
 		ArrayNode result = JsonTool.newArrayNode();
 		result.addAll(nodes); //write nodes from the queue to the result

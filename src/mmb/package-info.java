@@ -5,5 +5,5 @@
  * The ENTIRE MultiMachineBuilder base game
  * @author oskar
  */
-@NNByDefault
+@javax.annotation.ParametersAreNonnullByDefault
 package mmb;

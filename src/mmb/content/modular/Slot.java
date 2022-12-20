@@ -3,7 +3,8 @@
  */
 package mmb.content.modular;
 
-import org.checkerframework.checker.nullness.qual.*;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import mmb.content.modular.BlockModule.BlockModuleParams;
 import mmb.engine.debug.Debugger;
@@ -21,9 +22,9 @@ import mmbbase.data.variables.ListenableValue;
  * @param <T> type of values
  */
 public class Slot<@Nullable T> extends ListenableValue<T>{
-	@NonNull private static final Debugger debug = new Debugger("MODULAR SLOTS");
+	@Nonnull private static final Debugger debug = new Debugger("MODULAR SLOTS");
 	/** The type of the slots */
-	@NonNull public final Class<T> type;
+	@Nonnull public final Class<T> type;
 	/**
 	 * Sets a value if it extends the expected type
 	 * @param value
@@ -76,9 +77,9 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 	 */
 	public static class ModuleSlot<Tblock extends ModularBlock<Tblock, Tmodule, ?, ?>, Tmodule extends BlockModule<Tmodule>> extends Slot<Tmodule>{
 		/** The logical side on which the slot is located */
-		@NonNull public final Side logicalSide;
+		@Nonnull public final Side logicalSide;
 		/** The owner of this slot */
-		@NonNull public final Tblock block;
+		@Nonnull public final Tblock block;
 		/**
 		 * Creates a module slot
 		 * @param logicalSide the logical side (before rotation)
@@ -122,7 +123,7 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 	 */
 	public static class CoreSlot<Tblock extends ModularBlock<Tblock, ?, Tcore, ?>, Tcore extends BlockCore<Tcore>> extends Slot<Tcore>{
 		/** The owner of this slot */
-		@NonNull public final Tblock block;
+		@Nonnull public final Tblock block;
 		/**
 		 * Creates a core slot
 		 * @param block block which hosts this slot
@@ -160,13 +161,13 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 	 */
 	public static class SidedSlotHelper<Tblock extends ModularBlock<Tblock, Tmodule, ?, ?>, Tmodule extends BlockModule<Tmodule>>{
 		/** The upper slot */
-		@NonNull public final ModuleSlot<Tblock, Tmodule> U;
+		@Nonnull public final ModuleSlot<Tblock, Tmodule> U;
 		/** The lower slot */
-		@NonNull public final ModuleSlot<Tblock, Tmodule> D;
+		@Nonnull public final ModuleSlot<Tblock, Tmodule> D;
 		/** The left slot */
-		@NonNull public final ModuleSlot<Tblock, Tmodule> L;
+		@Nonnull public final ModuleSlot<Tblock, Tmodule> L;
 		/** The right slot */
-		@NonNull public final ModuleSlot<Tblock, Tmodule> R;
+		@Nonnull public final ModuleSlot<Tblock, Tmodule> R;
 		/**
 		 * Creates a sided slot helper
 		 * @param cls type of the modules
@@ -200,7 +201,7 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 	 */
 	public static class SlotInv<@Nullable Titem extends ItemEntry> extends BaseSingleItemInventory{
 		/** The slot used by the inventory */
-		@NonNull public final Slot<Titem> slot;
+		@Nonnull public final Slot<Titem> slot;
 		/**
 		 * Creates a slot-based inventory
 		 * @param slot slot to use

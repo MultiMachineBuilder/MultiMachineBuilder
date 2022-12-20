@@ -5,5 +5,5 @@
  * Contains electric machines and electric utilities
  * @author oskar
  */
-@mmb.NNByDefault
+@javax.annotation.ParametersAreNonnullByDefault
 package mmb.content.electric;

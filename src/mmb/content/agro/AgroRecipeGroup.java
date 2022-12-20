@@ -4,10 +4,6 @@
 package mmb.content.agro;
 
 import java.util.Set;
-import javax.annotation.Nonnull;
-
-import org.checkerframework.checker.nullness.qual.NonNull;
-
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.GlobalRecipeRegistrar;

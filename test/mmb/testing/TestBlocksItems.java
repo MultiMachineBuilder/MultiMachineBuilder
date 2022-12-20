@@ -7,21 +7,15 @@ import static org.junit.Assert.assertSame;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-
-import org.checkerframework.checker.nullness.qual.NonNull;
+import javax.annotation.Nonnull;
 import org.junit.jupiter.api.Test;
 
 import mmb.StandardTestReferences;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockEntityType;
-import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
-import mmb.engine.block.Blocks;
 import mmb.engine.item.Items;
 import mmb.engine.texture.BlockDrawer;
 
@@ -52,7 +46,7 @@ class TestBlocksItems {
 		assertEquals(correct, Items.getExpectType("test", BlockType.class), "Block was not properly added");
 	}
 	
-	@NonNull private static final Block blk = new Block();
+	@Nonnull private static final Block blk = new Block();
 	
 	@Test
 	void testWontTakeNullTitle() {

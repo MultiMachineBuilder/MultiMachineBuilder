@@ -5,5 +5,5 @@
  * Game content
  * @author oskar
  */
-@mmb.NNByDefault
+@javax.annotation.ParametersAreNonnullByDefault
 package mmb.content;

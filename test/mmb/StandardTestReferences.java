@@ -5,10 +5,9 @@ package mmb;
 
 import java.awt.Graphics;
 
+import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-
-import org.checkerframework.checker.nullness.qual.Nullable;
 
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockEntityType;

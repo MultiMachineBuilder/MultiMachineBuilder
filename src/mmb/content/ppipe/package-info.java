@@ -5,5 +5,5 @@
  * @author oskar
  * Contains items related to player pipes
  */
-@mmb.NNByDefault
+@javax.annotation.ParametersAreNonnullByDefault
 package mmb.content.ppipe;

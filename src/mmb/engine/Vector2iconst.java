@@ -6,7 +6,8 @@ package mmb.engine;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import javax.annotation.Nullable;
+
 import org.joml.Vector2i;
 import org.joml.Vector2ic;
 

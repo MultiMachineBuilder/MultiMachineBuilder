@@ -5,8 +5,8 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import mmb.Main;
 import mmb.engine.MMBUtils;
@@ -21,7 +21,7 @@ public class Debugger {
 	
 	//Log file creation
 	private static OutputStream logstream;
-	@NonNull private static OutputStream logstream() {
+	@Nonnull private static OutputStream logstream() {
 		OutputStream os = logstream;
 		try {
 			if(os == null) {
@@ -90,7 +90,7 @@ public class Debugger {
 	}
 	//Instance code
 	/** The debugger ID */
-	@NonNull public String id = "";
+	@Nonnull public String id = "";
 	/**
 	 * Creates a debugger
 	 * @param id ddebugger ID
