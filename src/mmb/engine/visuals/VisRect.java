@@ -7,11 +7,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
-import javax.annotation.Nullable;
-
 import com.github.davidmoten.rtree2.geometry.Geometries;
 import com.github.davidmoten.rtree2.geometry.Rectangle;
 
+import mmb.Nil;
 import mmbbase.menu.world.window.WorldFrame;
 
 /**
@@ -50,7 +49,7 @@ public final class VisRect implements Visual {
 	 * @param fill fill color, set to null to disable fill
 	 * @param border border color, set to null to disable border
 	 */
-	public VisRect(double x1, double y1, double x2, double y2, @Nullable Color fill, @Nullable Color border) {
+	public VisRect(double x1, double y1, double x2, double y2, @Nil Color fill, @Nil Color border) {
 		super();
 		line = Geometries.rectangle(x1, y1, x2, y2);
 		this.x1 = x1;
@@ -80,7 +79,7 @@ public final class VisRect implements Visual {
 	}
 
 	@Override
-	public boolean equals(@Nullable Object obj) {
+	public boolean equals(@Nil Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)

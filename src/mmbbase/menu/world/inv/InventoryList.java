@@ -6,14 +6,14 @@ package mmbbase.menu.world.inv;
 import java.awt.Component;
 import java.awt.Graphics;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListModel;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import monniasza.collects.ReadOnlyListModel;
@@ -44,11 +44,11 @@ public class InventoryList extends JList<ItemRecord> {
 	public InventoryList() {
 		this(null);
 	}
-	public InventoryList(@Nullable Inventory inv) {
+	public InventoryList(@Nil Inventory inv) {
 		this(new DefaultListModel<ItemRecord>(), inv);
 		setCellRenderer(new ItemListCellRenderer());		
 	}
-	private InventoryList(DefaultListModel<ItemRecord> model,@Nullable Inventory inv) {
+	private InventoryList(DefaultListModel<ItemRecord> model,@Nil Inventory inv) {
 		super(model);
 		this._model = model;
 		this.model = new ReadOnlyListModel<>(_model);
@@ -67,7 +67,7 @@ public class InventoryList extends JList<ItemRecord> {
 		}
 	}
 	
-	public static class ItemListCellRenderer extends JLabel implements ListCellRenderer<@Nonnull ItemRecord>{
+	public static class ItemListCellRenderer extends JLabel implements ListCellRenderer<@NN ItemRecord>{
 		private static final long serialVersionUID = -3535344904857285958L;
 		public ItemListCellRenderer() {
 			setOpaque(true);

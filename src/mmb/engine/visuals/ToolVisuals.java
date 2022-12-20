@@ -12,11 +12,11 @@ import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-import javax.annotation.Nonnull;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import org.joml.Vector2d;
 
+import mmb.NN;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
@@ -41,7 +41,7 @@ public class ToolVisuals extends WindowTool{
 		return title;
 	}
 
-	@Nonnull public static final Icon ICON = new ImageIcon(Textures.get("visuals.png"));
+	@NN public static final Icon ICON = new ImageIcon(Textures.get("visuals.png"));
 	@Override
 	public Icon getIcon() {
 		return ICON;
@@ -49,8 +49,8 @@ public class ToolVisuals extends WindowTool{
 
 	
 	//Tool parameters
-	@Nonnull Vector2d p1 = new Vector2d();
-	@Nonnull Vector2d p2 = new Vector2d();
+	@NN Vector2d p1 = new Vector2d();
+	@NN Vector2d p2 = new Vector2d();
 	double r;
 	Vector2d pointingAt = new Vector2d();
 	Color border; //Border color

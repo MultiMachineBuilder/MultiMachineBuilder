@@ -7,15 +7,14 @@ import java.util.Collections;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.pploder.events.Event;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.content.ditems.Stencil;
@@ -46,7 +45,7 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  */
 public class STNNetworkProcessing implements Saver{
-	@Nonnull private final Debugger debug = new Debugger("STN crafting and procurement");
+	@NN private final Debugger debug = new Debugger("STN crafting and procurement");
 	
 	//Processing recipe
 	//recipe counter (to avoid confusion)
@@ -57,9 +56,9 @@ public class STNNetworkProcessing implements Saver{
 	 */
 	public class STNRGroupTag implements Identifiable<String>, Saver{
 		/** The icon shown in lists */
-		@Nonnull public ItemEntry icon = Blocks.blockVoid;
+		@NN public ItemEntry icon = Blocks.blockVoid;
 		/** The name of the crafting group */
-		@Nonnull public final String name;
+		@NN public final String name;
 		/**
 		 * Creates a recipe tag
 		 * @param icon the recipe tag's icon
@@ -80,7 +79,7 @@ public class STNNetworkProcessing implements Saver{
 			return result;
 		}
 		@Override
-		public boolean equals(@Nullable Object obj) {
+		public boolean equals(@Nil Object obj) {
 			if (this == obj)
 				return true;
 			if (obj == null)
@@ -107,9 +106,9 @@ public class STNNetworkProcessing implements Saver{
 		 */
 		public class STNPRecipe{
 			/** The ingredients required to craft the recipe*/
-			@Nonnull public final RecipeOutput in;
+			@NN public final RecipeOutput in;
 			/** The results of this recipe */
-			@Nonnull public final RecipeOutput out;
+			@NN public final RecipeOutput out;
 			/** The recipe counter (unique ID) */
 			public final int count;
 			
@@ -130,7 +129,7 @@ public class STNNetworkProcessing implements Saver{
 			}
 
 			@Override
-			public boolean equals(@Nullable Object obj) {
+			public boolean equals(@Nil Object obj) {
 				if (this == obj)
 					return true;
 				if (obj == null)
@@ -152,20 +151,20 @@ public class STNNetworkProcessing implements Saver{
 			}
 		}
 		/** Index of recipes by input, for this recipe tag*/
-		@Nonnull public final ManyToManyIndex<STNPRecipe, ItemEntry> inputIndex =
+		@NN public final ManyToManyIndex<STNPRecipe, ItemEntry> inputIndex =
 				new ManyToManyIndex<>(recipe -> recipe.in.items());
 		/** Index of recipes by output, for this recipe tag*/
-		@Nonnull public final ManyToManyIndex<STNPRecipe, ItemEntry> outputIndex =
+		@NN public final ManyToManyIndex<STNPRecipe, ItemEntry> outputIndex =
 				new ManyToManyIndex<>(recipe -> recipe.out.items());
 		/** Index of recipes by input, for this recipe tag*/
-		@Nonnull public final OneToOneIndex<STNPRecipe, Integer> countIndex =
+		@NN public final OneToOneIndex<STNPRecipe, Integer> countIndex =
 				new OneToOneIndex<>(recipe -> Integer.valueOf(recipe.count));
-		@Nonnull final Database<STNPRecipe> recipes0 =
+		@NN final Database<STNPRecipe> recipes0 =
 				new Database<>(STNPRecipe.class)
 				.addIndex(inputIndex)
 				.addIndex(outputIndex);
 		/** The index of recipes for this tag*/
-		@Nonnull public final Set<STNPRecipe> recipes = Collections.unmodifiableSet(recipes0);
+		@NN public final Set<STNPRecipe> recipes = Collections.unmodifiableSet(recipes0);
 		
 		//Recipe manipulation
 		/**
@@ -196,12 +195,12 @@ public class STNNetworkProcessing implements Saver{
 		
 		//Events
 		/** Invoked when a processing recipe is produced */
-		@Nonnull public final Event<STNRGroupTag.STNPRecipe> recipeProduced = new CatchingEvent<>(debug, "Failed to run a processing recipe produced event");
+		@NN public final Event<STNRGroupTag.STNPRecipe> recipeProduced = new CatchingEvent<>(debug, "Failed to run a processing recipe produced event");
 		/** Invoked when a processing recipe is killed */
-		@Nonnull public final Event<STNRGroupTag.STNPRecipe> recipeKilled = new CatchingEvent<>(debug, "Failed to run a processing recipe killed event");
+		@NN public final Event<STNRGroupTag.STNPRecipe> recipeKilled = new CatchingEvent<>(debug, "Failed to run a processing recipe killed event");
 		
 		@Override
-		public @Nullable JsonNode save() {
+		public @Nil JsonNode save() {
 			ObjectNode node = JsonTool.newObjectNode();
 			
 			//Save the icon
@@ -223,7 +222,7 @@ public class STNNetworkProcessing implements Saver{
 		}
 
 		@Override
-		public void load(@Nullable JsonNode data) {
+		public void load(@Nil JsonNode data) {
 			if(data == null) return;
 			
 			//Load the icon
@@ -271,43 +270,43 @@ public class STNNetworkProcessing implements Saver{
 	
 	//craft recipe index
 	/** Index of stencil inputs */
-	@Nonnull public final ManyToManyIndex<Stencil, ItemEntry> stencil2InIndex = new ManyToManyIndex<>(s -> s.in().items());
+	@NN public final ManyToManyIndex<Stencil, ItemEntry> stencil2InIndex = new ManyToManyIndex<>(s -> s.in().items());
 	/** Index of stencil outputs */
-	@Nonnull public final ManyToManyIndex<Stencil, ItemEntry> stencil2OutIndex = new ManyToManyIndex<>(s -> s.out().items());
-	@Nonnull private final Database<Stencil> stencils0 = new Database<>(Stencil.class).addIndex(stencil2OutIndex).addIndex(stencil2InIndex);
+	@NN public final ManyToManyIndex<Stencil, ItemEntry> stencil2OutIndex = new ManyToManyIndex<>(s -> s.out().items());
+	@NN private final Database<Stencil> stencils0 = new Database<>(Stencil.class).addIndex(stencil2OutIndex).addIndex(stencil2InIndex);
 	/** 
 	 * The inventory for stencils 
 	 * @apiNote DO NOT BULK INSERT
 	 */
-	@Nonnull public final SetInventory<Stencil> stencilinv = new SetInventory<>(stencils0, Stencil.class).setCapacity(Double.POSITIVE_INFINITY);
+	@NN public final SetInventory<Stencil> stencilinv = new SetInventory<>(stencils0, Stencil.class).setCapacity(Double.POSITIVE_INFINITY);
 	/** The set of stencils */
-	@Nonnull public final Set<Stencil> stencils = Collections.unmodifiableSet(stencils0);
+	@NN public final Set<Stencil> stencils = Collections.unmodifiableSet(stencils0);
 	
 	//TODO processor index
 	
 	//process recipe index
 	/** Index of recipes by input, for this world*/
-	@Nonnull public final ManyToManyIndex<STNRGroupTag.STNPRecipe, ItemEntry> processRecipe2InIndex =
+	@NN public final ManyToManyIndex<STNRGroupTag.STNPRecipe, ItemEntry> processRecipe2InIndex =
 			new ManyToManyIndex<>(recipe -> recipe.in.items());
 	/** Index of recipes by output, for this world*/
-	@Nonnull public final ManyToManyIndex<STNRGroupTag.STNPRecipe, ItemEntry> processRecipe2OutIndex =
+	@NN public final ManyToManyIndex<STNRGroupTag.STNPRecipe, ItemEntry> processRecipe2OutIndex =
 			new ManyToManyIndex<>(recipe -> recipe.out.items());
 	/** Index of recipes by input, for this recipe tag*/
-	@Nonnull public final OneToOneIndex<STNRGroupTag.STNPRecipe, Integer> processCountIndex =
+	@NN public final OneToOneIndex<STNRGroupTag.STNPRecipe, Integer> processCountIndex =
 			new OneToOneIndex<>(recipe -> Integer.valueOf(recipe.count));
 	/** The full index of processing recipes */
-	@Nonnull private final Database<STNRGroupTag.STNPRecipe> precipes0 =
+	@NN private final Database<STNRGroupTag.STNPRecipe> precipes0 =
 			new Database<>(STNRGroupTag.STNPRecipe.class)
 			.addIndex(processRecipe2InIndex)
 			.addIndex(processRecipe2OutIndex)
 			.addIndex(processCountIndex);
 	/** The full index of recipes*/
-	@Nonnull public final Set<STNRGroupTag.STNPRecipe> precipes = Collections.unmodifiableSet(precipes0);
+	@NN public final Set<STNRGroupTag.STNPRecipe> precipes = Collections.unmodifiableSet(precipes0);
 	
 	//Process tag index
-	@Nonnull private final SelfSet<String, STNRGroupTag> processingTagsIndex0 = HashSelfSet.createNonnull(STNRGroupTag.class);
+	@NN private final SelfSet<String, STNRGroupTag> processingTagsIndex0 = HashSelfSet.createNonnull(STNRGroupTag.class);
 	/** The self-set of tags */
-	@Nonnull public final SelfSet<String, STNRGroupTag> processingTagsIndex = Collects.unmodifiableSelfSet(processingTagsIndex0);
+	@NN public final SelfSet<String, STNRGroupTag> processingTagsIndex = Collects.unmodifiableSelfSet(processingTagsIndex0);
 	/**
 	 * Produces a new tag
 	 * @param icon item to be used as an icon
@@ -334,13 +333,13 @@ public class STNNetworkProcessing implements Saver{
 	
 	//Events
 	/** Invoked when tag is produced */
-	@Nonnull public final Event<STNRGroupTag> tagProduced = new CatchingEvent<>(debug, "Failed to run a tag produced event");
+	@NN public final Event<STNRGroupTag> tagProduced = new CatchingEvent<>(debug, "Failed to run a tag produced event");
 	/** Invoked when tag is killed */
-	@Nonnull public final Event<STNRGroupTag> tagKilled = new CatchingEvent<>(debug, "Failed to run a tag killed event");
+	@NN public final Event<STNRGroupTag> tagKilled = new CatchingEvent<>(debug, "Failed to run a tag killed event");
 	/** Invoked when a processing recipe is produced */
-	@Nonnull public final Event<STNRGroupTag.STNPRecipe> precipeProduced = new CatchingEvent<>(debug, "Failed to run a processing recipe produced event");
+	@NN public final Event<STNRGroupTag.STNPRecipe> precipeProduced = new CatchingEvent<>(debug, "Failed to run a processing recipe produced event");
 	/** Invoked when a processing recipe is killed */
-	@Nonnull public final Event<STNRGroupTag.STNPRecipe> precipeKilled = new CatchingEvent<>(debug, "Failed to run a processing recipe killed event");
+	@NN public final Event<STNRGroupTag.STNPRecipe> precipeKilled = new CatchingEvent<>(debug, "Failed to run a processing recipe killed event");
 	
 	//Serialization
 	@Override
@@ -367,7 +366,7 @@ public class STNNetworkProcessing implements Saver{
 	}
 
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		
 		//Load processing recipes

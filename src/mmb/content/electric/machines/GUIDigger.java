@@ -5,7 +5,6 @@ package mmb.content.electric.machines;
 
 import net.miginfocom.swing.MigLayout;
 
-import javax.annotation.Nonnull;
 import javax.swing.JButton;
 
 import static mmb.engine.settings.GlobalSettings.$res;
@@ -14,6 +13,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
+import mmb.NN;
 import mmb.content.electric.Electricity;
 import mmbbase.menu.world.inv.InventoryController;
 import mmbbase.menu.world.inv.MoveItems;
@@ -29,11 +29,11 @@ import javax.swing.JCheckBox;
 public class GUIDigger extends GUITab {
 	private static final long serialVersionUID = 2506447463267036557L;
 	
-	@Nonnull private final transient BlockDigger coll;
-	@Nonnull private JProgressBar progressEnergy;
-	@Nonnull private JCheckBox checkActive;
-	@Nonnull private InventoryController collectorInv;
-	@Nonnull private JProgressBar progressHammer;
+	@NN private final transient BlockDigger coll;
+	@NN private JProgressBar progressEnergy;
+	@NN private JCheckBox checkActive;
+	@NN private InventoryController collectorInv;
+	@NN private JProgressBar progressHammer;
 	public GUIDigger(BlockDigger collector, WorldWindow window) {
 		coll = collector;
 		setLayout(new MigLayout("", "[][][grow]", "[][][grow][]"));

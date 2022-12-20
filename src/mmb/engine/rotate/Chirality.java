@@ -6,7 +6,7 @@ package mmb.engine.rotate;
 import java.util.EventListener;
 import java.util.function.Consumer;
 
-import javax.annotation.Nonnull;
+import mmb.NN;
 
 /**
  * @author oskar
@@ -78,32 +78,32 @@ public enum Chirality {
 	 * @param rotation rotation to rotate
 	 * @return rotated rotation
 	 */
-	public abstract @Nonnull Rotation right(Rotation rotation);
+	public abstract @NN Rotation right(Rotation rotation);
 	
 	/**
 	 * Rotates the object in the chirality's "left" direction, meaning the same as negative
 	 * @param rotation rotation to rotate
 	 * @return rotated rotation
 	 */
-	public abstract @Nonnull Rotation left(Rotation rotation);
+	public abstract @NN Rotation left(Rotation rotation);
 	/**
 	 * Rotates the object in the chirality's "right" direction, meaning the same as positive
 	 * @param rotation rotation to rotate
 	 * @return rotated rotation
 	 */
-	public abstract @Nonnull Side right(Side rotation);
+	public abstract @NN Side right(Side rotation);
 	
 	/**
 	 * Rotates the object in the chirality's "left" direction, meaning the same as negative
 	 * @param rotation rotation to rotate
 	 * @return rotated rotation
 	 */
-	public abstract @Nonnull Side left(Side rotation);
+	public abstract @NN Side left(Side rotation);
 	
 	/**
 	 * @return reverse of this chirality
 	 */
-	public abstract @Nonnull Chirality reverse();
+	public abstract @NN Chirality reverse();
 	/**
 	 * @author oskar
 	 * Represents a chirality listener, used in chiral blocks

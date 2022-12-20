@@ -3,9 +3,9 @@
  */
 package mmbbase.beans;
 
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
+
+import mmb.Nil;
 
 /**
  * Represents an object which can be saved
@@ -15,10 +15,10 @@ public interface Saver {
 	/**
 	 * @return the saved data
 	 */
-	public @Nullable JsonNode save();
+	public @Nil JsonNode save();
 	/**
 	 * Loads the following data object.
 	 * @param data
 	 */
-	public void load(@Nullable JsonNode data);
+	public void load(@Nil JsonNode data);
 }

@@ -3,12 +3,11 @@
  */
 package mmbmods.stn.block;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.imachine.SpeedUpgrade;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.inv.Inventories;
@@ -34,13 +33,13 @@ import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag;
 public abstract class STNCycler extends STNBaseMachine implements BlockActivateListener{
 
 	/** The selection */
-	@Nonnull
-	public final ListenableValue<@Nullable ItemEntry> selection = new ListenableValue<>(null);
+	@NN
+	public final ListenableValue<@Nil ItemEntry> selection = new ListenableValue<>(null);
 	/** The speed upgrade slot */
-	@Nonnull
+	@NN
 	public final SingleItemInventory speedupgrade = new SingleItemInventory();
 	/** Should the pusher be signal controlled */
-	@Nonnull
+	@NN
 	public final ListenerBooleanVariable isControlled = new ListenerBooleanVariable();
 	protected double counter = 0;
 	protected STNPusherGUI gui;
@@ -70,7 +69,7 @@ public abstract class STNCycler extends STNBaseMachine implements BlockActivateL
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(gui != null) return;
 		if(window == null) return;
 		gui = newGUI(window);
@@ -104,7 +103,7 @@ public abstract class STNCycler extends STNBaseMachine implements BlockActivateL
 	
 	protected abstract String title();
 
-	protected abstract void runCycle(@Nullable ItemEntry item, InventoryWriter writer, InventoryReader reader);
+	protected abstract void runCycle(@Nil ItemEntry item, InventoryWriter writer, InventoryReader reader);
 
 	@Override
 	protected void save1(ObjectNode node) {

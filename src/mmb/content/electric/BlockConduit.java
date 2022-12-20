@@ -3,12 +3,11 @@
  */
 package mmb.content.electric;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
@@ -21,11 +20,11 @@ import mmb.engine.worlds.MapProxy;
  *
  */
 public class BlockConduit extends BlockEntityData {
-	@Nonnull private Electricity u, d, l, r;
-	@Nonnull private final BlockType type;
-	@Nonnull private TransferHelper tf;
+	@NN private Electricity u, d, l, r;
+	@NN private final BlockType type;
+	@NN private TransferHelper tf;
 	private static final Debugger debug = new Debugger("CONDUIT");
-	@Nonnull public final VoltageTier volt;
+	@NN public final VoltageTier volt;
 	/**
 	 * @param type block type
 	 * @param cap capacity in coulombs per tick
@@ -64,7 +63,7 @@ public class BlockConduit extends BlockEntityData {
 	}
 
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		//unused
 	}
 

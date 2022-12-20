@@ -3,8 +3,7 @@
  */
 package mmb.content.electric.machines;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.content.electric.Electric;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
@@ -18,7 +17,7 @@ import mmb.engine.rotate.RotatedImageGroup;
  */
 public class BlockPowerReceiver extends BlockEntityRotary implements Electric {
 	public static final RotatedImageGroup rig = RotatedImageGroup.create("machine/preceiver.png");
-	@Nonnull private final ElectroMachineType type;
+	@NN private final ElectroMachineType type;
 
 	@Override
 	public ElectroMachineType type() {

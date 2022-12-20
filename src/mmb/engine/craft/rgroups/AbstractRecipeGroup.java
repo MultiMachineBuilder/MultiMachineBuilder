@@ -5,11 +5,11 @@ package mmb.engine.craft.rgroups;
 
 import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
 import javax.swing.JComponent;
 import javax.swing.ListCellRenderer;
 
 import io.vavr.Tuple2;
+import mmb.NN;
 import mmb.engine.craft.GlobalRecipeRegistrar;
 import mmb.engine.craft.PlugAndPlayRecipeCellRenderer;
 import mmb.engine.craft.Recipe;
@@ -24,10 +24,10 @@ import mmbbase.menu.world.window.TabRecipes;
  * @param <T> type of recipes
  */
 public abstract class AbstractRecipeGroup<T extends Recipe<T>> implements RecipeGroup<T>{
-	@Nonnull private final ListCellRenderer<T> cellRenderer;
+	@NN private final ListCellRenderer<T> cellRenderer;
 	
-	@Nonnull private final String title;
-	@Nonnull private final String id;
+	@NN private final String title;
+	@NN private final String id;
 	/**
 	 * Create a recipe tab. Invoked once per recipe group
 	 * @return

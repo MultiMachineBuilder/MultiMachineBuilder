@@ -8,14 +8,13 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.SetMultimap;
 
 import it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
@@ -32,7 +31,7 @@ public class STNNetworkInventory implements Inventory{
 	
 	//Outgoing items
 	/** The STN storage queue. Items are going to get moved to various inventories from here */
-	@Nonnull public final SimpleInventory storageQueue = new SimpleInventory().setCapacity(128);
+	@NN public final SimpleInventory storageQueue = new SimpleInventory().setCapacity(128);
 
 	/**
 	 * Creates a network inventory. This is an implementation of inventory for the STN
@@ -49,7 +48,7 @@ public class STNNetworkInventory implements Inventory{
 	}
 
 	@Override
-	public @Nonnull Iterator<@Nonnull ItemRecord> iterator() {
+	public @NN Iterator<@NN ItemRecord> iterator() {
 		return Iterators.transform(storageIndex.keySet().iterator(), this::get);
 	}
 
@@ -65,7 +64,7 @@ public class STNNetworkInventory implements Inventory{
 	}
 
 	@Override
-	@Nonnull public ItemRecord nget(ItemEntry entry) {
+	@NN public ItemRecord nget(ItemEntry entry) {
 		reindex();
 		return new STNNetworkItemNode(entry);
 	}
@@ -128,7 +127,7 @@ public class STNNetworkInventory implements Inventory{
 		long indexed = storageIndex.getLong(item);
 		//the expected amount of items
 		int expected = (int)Math.min(indexed, amount);
-		Set<@Nonnull Inventory> candidates = itemInvIndex.get(item);
+		Set<@NN Inventory> candidates = itemInvIndex.get(item);
 		int remain = expected;
 		int extractedTotal = 0;
 		for(Inventory inv: candidates) {
@@ -151,11 +150,11 @@ public class STNNetworkInventory implements Inventory{
 	}
 	
 	//storage index
-	@Nonnull private final Set<@Nonnull Inventory> nodes0 = new DirtySet();
+	@NN private final Set<@NN Inventory> nodes0 = new DirtySet();
 	/** Inventories connected to the network */
-	@Nonnull public final Set<@Nonnull Inventory> nodes = Collections.unmodifiableSet(nodes0);
-	@Nonnull private final Object2LongOpenHashMap<mmb.engine.item.ItemEntry> storageIndex = new Object2LongOpenHashMap<>();
-	@Nonnull private final SetMultimap<mmb.engine.item.ItemEntry, @Nonnull Inventory> itemInvIndex = HashMultimap.create();
+	@NN public final Set<@NN Inventory> nodes = Collections.unmodifiableSet(nodes0);
+	@NN private final Object2LongOpenHashMap<mmb.engine.item.ItemEntry> storageIndex = new Object2LongOpenHashMap<>();
+	@NN private final SetMultimap<mmb.engine.item.ItemEntry, @NN Inventory> itemInvIndex = HashMultimap.create();
 	private double volume;
 	private double capacity;
 	private boolean dirty;
@@ -206,7 +205,7 @@ public class STNNetworkInventory implements Inventory{
 	 * @param inv inventory to add
 	 * @return was the inventory added
 	 */
-	public boolean addInv(@Nullable Inventory inv) {
+	public boolean addInv(@Nil Inventory inv) {
 		if(inv == null || inv instanceof STNNetworkInventory) return false;
 		return nodes0.add(inv);
 	}
@@ -215,10 +214,10 @@ public class STNNetworkInventory implements Inventory{
 	 * @param inv inventory to remove
 	 * @return was the inventory removed?
 	 */
-	public boolean removeInv(@Nullable Inventory inv) {
+	public boolean removeInv(@Nil Inventory inv) {
 		return nodes0.remove(inv);
 	}
-	private class DirtySet extends HashSet<@Nonnull Inventory>{
+	private class DirtySet extends HashSet<@NN Inventory>{
 		private static final long serialVersionUID = -3126410334552219394L;
 
 		@Override
@@ -244,7 +243,7 @@ public class STNNetworkInventory implements Inventory{
 	}
 	private class STNNetworkItemNode implements ItemRecord{
 
-		@Nonnull private final ItemEntry item;
+		@NN private final ItemEntry item;
 		private long cache = -1;
 		public STNNetworkItemNode(ItemEntry entry) {
 			item = entry;

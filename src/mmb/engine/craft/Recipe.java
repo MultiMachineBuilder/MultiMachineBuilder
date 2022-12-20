@@ -5,9 +5,8 @@ package mmb.engine.craft;
 
 import java.awt.Component;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.inv.Inventory;
@@ -60,23 +59,23 @@ public interface Recipe<T extends Recipe<T>>{
 	
 	//CONTENTS
 	/** @return the recipe output of a single craft */
-	@Nonnull public RecipeOutput output();
+	@NN public RecipeOutput output();
 	/**
 	 * @return the required input items
 	 * @implNote the returned value should be read only
 	 */
-	@Nonnull public RecipeOutput inputs();
+	@NN public RecipeOutput inputs();
 	/** @return the catalyst. If the method returns {@code null}, it means there is no catalyst */
-	@Nullable public ItemEntry catalyst();
+	@Nil public ItemEntry catalyst();
 	/**
 	 * @return the parent recipe group
 	 * @throws UnsupportedOperationException if the implementation is a stencil, or something similar (optional operation)
 	 */
-	@Nonnull public RecipeGroup<T> group();
+	@NN public RecipeGroup<T> group();
 	/**
 	 * @return randomly chanced items
 	 */
-	@Nonnull public Chance luck();
+	@NN public Chance luck();
 	/**
 	 * @return amount of electricity required for the recipe
 	 */
@@ -84,24 +83,24 @@ public interface Recipe<T extends Recipe<T>>{
 	/**
 	 * @return voltage required for the recipe
 	 */
-	@Nonnull public VoltageTier voltTier();
+	@NN public VoltageTier voltTier();
 	/**
 	 * @return this object
 	 * @apiNote Used to enforce type safety in recipes
 	 */
-	@Nonnull public T that();
+	@NN public T that();
 	/** @return the AWT or Swing component for this recipe */
-	@Nonnull public default Component createComponent() {
+	@NN public default Component createComponent() {
 		RecipeView<T> rv = group().createView();
 		rv.set(that());
 		return rv;
 	}
 	
-	@Nonnull public static RecipeOutput out(@Nullable Recipe<?> recipe) {
+	@NN public static RecipeOutput out(@Nil Recipe<?> recipe) {
 		if(recipe == null) return RecipeOutput.NONE;
 		return recipe.output();
 	}
-	@Nonnull public static RecipeOutput in(@Nullable Recipe<?> recipe) {
+	@NN public static RecipeOutput in(@Nil Recipe<?> recipe) {
 		if(recipe == null) return RecipeOutput.NONE;
 		return recipe.inputs();
 	}

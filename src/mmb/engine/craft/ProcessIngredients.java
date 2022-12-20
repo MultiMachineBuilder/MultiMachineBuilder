@@ -3,12 +3,11 @@
  */
 package mmb.engine.craft;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.json.JsonTool;
 
 /**
@@ -17,11 +16,11 @@ import mmb.engine.json.JsonTool;
  */
 public class ProcessIngredients{
 	/** An empty list of processing ingredients*/
-	@Nonnull public static final ProcessIngredients EMPTY = new ProcessIngredients(RecipeOutput.NONE, RecipeOutput.NONE);
+	@NN public static final ProcessIngredients EMPTY = new ProcessIngredients(RecipeOutput.NONE, RecipeOutput.NONE);
 	/** Input items */
-	@Nonnull public final RecipeOutput input;
+	@NN public final RecipeOutput input;
 	/** Output items */
-	@Nonnull public final RecipeOutput output;
+	@NN public final RecipeOutput output;
 	/**
 	 * Creates a list of processing ingredients
 	 * @param input
@@ -35,7 +34,7 @@ public class ProcessIngredients{
 	 * Saves this list of processing ingredients
 	 * @return a JSON array with representation of this list of processing ingredients
 	 */
-	@Nonnull public ArrayNode save() {
+	@NN public ArrayNode save() {
 		ArrayNode node = JsonTool.newArrayNode();
 		node.add(ItemLists.save(input));
 		node.add(ItemLists.save(output));
@@ -46,7 +45,7 @@ public class ProcessIngredients{
 	 * @param data a JSON array with representation of a list of processing ingredients
 	 * @return a list of processing ingredients
 	 */
-	@Nullable public static ProcessIngredients read(@Nullable JsonNode data) {
+	@Nil public static ProcessIngredients read(@Nil JsonNode data) {
 		if(data == null) return null;
 		RecipeOutput a = ItemLists.read(data.get(0));
 		if(a == null) return null;
@@ -59,7 +58,7 @@ public class ProcessIngredients{
 	 * @param x a list of processing ingredients
 	 * @return a JSON array with representation of this list of processing ingredients
 	 */
-	@Nullable public static ArrayNode save(@Nullable ProcessIngredients x) {
+	@Nil public static ArrayNode save(@Nil ProcessIngredients x) {
 		if(x == null) return null;
 		return x.save();
 	}

@@ -7,14 +7,14 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 
 import com.pploder.events.Event;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.CatchingEvent;
 import mmb.engine.debug.Debugger;
 import mmb.engine.item.ItemEntry;
@@ -34,18 +34,18 @@ public class CraftingGrid extends JPanel implements AutoCloseable{
 	/** Size of this grid */
 	public final int size;
 	/** A grid of all of the slots */
-	public final transient Grid<@Nonnull ItemSelectionSlot> slots;
+	public final transient Grid<@NN ItemSelectionSlot> slots;
 	/** A grid of all item variables */
-	public final transient Grid<@Nonnull ListenableValue<@Nullable ItemEntry>> listenvars;
+	public final transient Grid<@NN ListenableValue<@Nil ItemEntry>> listenvars;
 	
 	/**
 	 * Creates a new crafting grid
 	 * @param size grid size
 	 */
 	public CraftingGrid(int size) {
-		Grid<@Nonnull ListenableValue<ItemEntry>> listenvars0 = new FixedGrid<>(size);
+		Grid<@NN ListenableValue<ItemEntry>> listenvars0 = new FixedGrid<>(size);
 		listenvars = Collects.unmodifiableGrid(listenvars0);
-		Grid<@Nonnull ItemSelectionSlot> slots0 = new FixedGrid<>(size);
+		Grid<@NN ItemSelectionSlot> slots0 = new FixedGrid<>(size);
 		slots = Collects.unmodifiableGrid(slots0);
 		
 		Border border = new BevelBorder(BevelBorder.LOWERED);
@@ -56,7 +56,7 @@ public class CraftingGrid extends JPanel implements AutoCloseable{
 			for(int xx = 0; xx < size; xx++){
 				@SuppressWarnings("resource") //closed later in close()
 				ItemSelectionSlot slot = new ItemSelectionSlot();
-				ListenableValue<@Nullable ItemEntry> variable = new ListenableValue<>(null);
+				ListenableValue<@Nil ItemEntry> variable = new ListenableValue<>(null);
 				slots0.set(xx, yy, slot);
 				listenvars0.set(xx, yy, variable);
 				slot.setBorder(border);
@@ -99,7 +99,7 @@ public class CraftingGrid extends JPanel implements AutoCloseable{
 		}
 	}
 
-	@Nonnull private static final Debugger debug = new Debugger("CRAFTING GRID");
+	@NN private static final Debugger debug = new Debugger("CRAFTING GRID");
 	/**
 	 * Invoked when any item in the grid changes
 	 */
@@ -122,7 +122,7 @@ public class CraftingGrid extends JPanel implements AutoCloseable{
 		 * @param y Y coordinate of a change
 		 * @param newEntry the new item at given location
 		 */
-		public ItemGridStateChangedEvent(int x, int y, @Nullable ItemEntry newEntry) {
+		public ItemGridStateChangedEvent(int x, int y, @Nil ItemEntry newEntry) {
 			super();
 			this.x = x;
 			this.y = y;
@@ -134,10 +134,10 @@ public class CraftingGrid extends JPanel implements AutoCloseable{
 		}
 	}
 	/** A grid of items in this crafting grid */
-	@Nonnull public final transient Grid<@Nullable ItemEntry> items = new Grid<>() {
+	@NN public final transient Grid<@Nil ItemEntry> items = new Grid<>() {
 		@SuppressWarnings("resource")
 		@Override
-		public void set(int x, int y, @Nullable ItemEntry data) {
+		public void set(int x, int y, @Nil ItemEntry data) {
 			slots.get(x, y).setSelection(data);
 		}
 

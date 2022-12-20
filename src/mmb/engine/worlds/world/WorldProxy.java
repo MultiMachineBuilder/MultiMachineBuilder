@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.Inventory;
@@ -24,7 +23,7 @@ public class WorldProxy implements MapProxy{
 	public WorldProxy(World target) {
 		that = target;
 	}
-	@Nonnull private World that;
+	@NN private World that;
 	@SuppressWarnings("null")
 	@Override
 	public void close() {

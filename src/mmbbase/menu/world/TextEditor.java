@@ -6,11 +6,11 @@ package mmbbase.menu.world;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import mmb.NN;
 import mmb.content.wireworld.TextMessageProvider;
 import mmb.engine.block.BlockEntity;
 import mmbbase.menu.world.window.WorldWindow;
 
-import javax.annotation.Nonnull;
 import javax.swing.JButton;
 import java.awt.Component;
 
@@ -29,7 +29,7 @@ public class TextEditor extends JPanel {
 	private JTextPane textPane;
 	private JButton btnOk;
 	private JButton btnCancel;
-	@Nonnull public final String title;
+	@NN public final String title;
 	private final WorldWindow frame;
 
 	/**

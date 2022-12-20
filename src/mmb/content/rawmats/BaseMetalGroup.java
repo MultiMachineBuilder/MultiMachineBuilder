@@ -5,8 +5,7 @@ package mmb.content.rawmats;
 
 import java.awt.Color;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.content.ContentsBlocks;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.VoltageTier;
@@ -21,8 +20,8 @@ import mmb.engine.java2d.TexGen;
  */
 public class BaseMetalGroup extends MetalGroup{
 
-	@Nonnull public final Block ore;
-	@Nonnull public final BlockEntityType crop;
+	@NN public final Block ore;
+	@NN public final BlockEntityType crop;
 	
 	/**
 	 * @param c display color

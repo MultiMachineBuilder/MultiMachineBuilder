@@ -8,12 +8,12 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Objects;
 
-import javax.annotation.Nullable;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 import org.junit.jupiter.api.Test;
 
+import mmb.Nil;
 import mmb.engine.debug.Debugger;
 import mmbbase.data.variables.BooleanVariable;
 
@@ -33,7 +33,7 @@ public class GUIStacker extends JPanel {
 	 * which allows empty stack. When null is provided, the component will not be added
 	 * @param comp initial component
 	 */
-	public GUIStacker(@Nullable Component comp) {
+	public GUIStacker(@Nil Component comp) {
 		this(comp, false);
 	}
 	/**
@@ -41,7 +41,7 @@ public class GUIStacker extends JPanel {
 	 * @param comp initial component
 	 * @param componentsRequired are components required?
 	 */
-	public GUIStacker(@Nullable Component comp, boolean componentsRequired) {
+	public GUIStacker(@Nil Component comp, boolean componentsRequired) {
 		this.componentsRequired = componentsRequired;
 	}
 	
@@ -54,7 +54,7 @@ public class GUIStacker extends JPanel {
 	 * @return the component closed, or else null
 	 */
 	
-	@Nullable public Component npop() {
+	@Nil public Component npop() {
 		Component last = stack.element();
 		if(componentsRequired && stack.size() < 2)
 			return null;
@@ -84,7 +84,7 @@ public class GUIStacker extends JPanel {
 	 * To check components, use {@link #push(Component)}, which throws {@link NullPointerException}
 	 * @param comp
 	 */
-	public void pushn(@Nullable Component comp) {
+	public void pushn(@Nil Component comp) {
 		if(comp == null) return;
 		stack.add(comp);
 		update();

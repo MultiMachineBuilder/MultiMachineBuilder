@@ -3,8 +3,7 @@
  */
 package mmb.content.drugs;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.Item;
 import mmbbase.menu.wtool.WindowTool;
@@ -23,7 +22,7 @@ import mmbbase.menu.wtool.WindowTool;
 public class AlcoPod extends Item implements Intoxicating {
 	
 	private final double dose;
-	@Nonnull private final RecipeOutput drop;
+	@NN private final RecipeOutput drop;
 	public AlcoPod(double dose, RecipeOutput drop) {
 		super();
 		this.dose = dose;

@@ -3,11 +3,10 @@
  */
 package mmb.content.modular.part;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
@@ -26,13 +25,13 @@ public interface PartType extends ItemType, ItemEntry {
 	 * Creates a block entry for this type.
 	 * @return newly created block
 	 */
-	@Nonnull public PartEntry createPart();
+	@NN public PartEntry createPart();
 	/**
 	 * Loads a part entry using JSON payload
 	 * @param node data to load from
 	 * @return a new part entry with data
 	 */
-	@Nonnull public default PartEntry loadPart(@Nullable JsonNode node) {
+	@NN public default PartEntry loadPart(@Nil JsonNode node) {
 		PartEntry item = createPart();
 		item.load(node);
 		return item;
@@ -44,7 +43,7 @@ public interface PartType extends ItemType, ItemEntry {
 	 * @param cls expected type
 	 * @return a new part entry with data, or null if failed
 	 */
-	@Nullable public default <T extends PartEntry> PartEntry loadPartExpectType(@Nullable JsonNode node, @Nullable Class<T> cls) {
+	@Nil public default <T extends PartEntry> PartEntry loadPartExpectType(@Nil JsonNode node, @Nil Class<T> cls) {
 		PartEntry item = createPart();
 		if(cls != null && !cls.isInstance(item)) return null;
 		item.load(node);
@@ -52,9 +51,9 @@ public interface PartType extends ItemType, ItemEntry {
 	}
 	
 	/** @return items dropped when module is removed */
-	@Nonnull public Chance dropItems();
+	@NN public Chance dropItems();
 	/** @return items returned to the player */
-	@Nonnull public RecipeOutput returnToPlayer();
+	@NN public RecipeOutput returnToPlayer();
 	
 	
 }

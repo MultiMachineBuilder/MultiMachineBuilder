@@ -5,8 +5,8 @@ package mmb.content.modular.part;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import javax.annotation.Nonnull;
 
+import mmb.NN;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.texture.BlockDrawer;
@@ -67,7 +67,7 @@ public class Part extends PartBase implements PartEntry{
 		return this;
 	}
 	@Override
-	@Nonnull public Part volumed(double volume) {
+	@NN public Part volumed(double volume) {
 		setVolume(volume);
 		return this;
 	}

@@ -4,11 +4,11 @@
 package mmb.engine.block;
 
 import java.awt.Graphics;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import org.joml.Vector2d;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.Electricity;
 import mmb.content.ppipe.PipeTunnelEntry;
 import mmb.engine.inv.Inventory;
@@ -34,11 +34,11 @@ import mmbbase.beans.Saver;
 public interface BlockEntry extends Saver, Rotable, Chiral {
 	//Block entity checks
 	public boolean isBlockEntity();
-	@Nonnull public BlockEntity asBlockEntity();
+	@NN public BlockEntity asBlockEntity();
 	public BlockEntity nasBlockEntity();
 	
 	/** @return the block type */
-	@Nonnull public BlockType type();
+	@NN public BlockType type();
 	/**
 	 * @param type block type to check
 	 * @return does given type match actual type?
@@ -53,7 +53,7 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 	 * @param s
 	 * @return the electrical connection on given side.
 	 */
-	@Nullable public default Electricity getElectricalConnection(Side s) {
+	@Nil public default Electricity getElectricalConnection(Side s) {
 		return null;
 	}
 	/**
@@ -67,21 +67,21 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 	 * @param s side, from which to get inventory
 	 * @return inventory at given side
 	 */
-	@Nonnull public default Inventory getInventory(Side s) {
+	@NN public default Inventory getInventory(Side s) {
 		return NoSuchInventory.INSTANCE;
 	}
 	/**
 	 * @param s side, from which to get output
 	 * @return inventory reader at given side
 	 */
-	@Nonnull public default InventoryReader getOutput(Side s) {
+	@NN public default InventoryReader getOutput(Side s) {
 		return getInventory(s).createReader();
 	}
 	/**
 	 * @param s side, from which to get input
 	 * @return inventory writer at given side
 	 */
-	@Nonnull public default InventoryWriter getInput(Side s) {
+	@NN public default InventoryWriter getInput(Side s) {
 		return getInventory(s).createWriter();
 	}
 	
@@ -93,7 +93,7 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 	 * @param y Y coordinate on a new map
 	 * @throws IllegalStateException if given map/position combination is not surface
 	 */
-	public void resetMap(@Nullable World map, int x, int y); //should only be called by World
+	public void resetMap(@Nil World map, int x, int y); //should only be called by World
 	/**
 	 * Called when world is initialized
 	 * <br>Exception handling: If exception is thrown by this method, the block is not properly initialized
@@ -171,7 +171,7 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 	 * @implSpec This method must not throw any exceptions
 	 * @apiNote Used to copy blocks by world editing tools
 	 */
-	@Nonnull public BlockEntry blockCopy();
+	@NN public BlockEntry blockCopy();
 
 	//Rotations - rotary
 	/**
@@ -186,7 +186,7 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 		//does nothing
 	}
 	@Override
-	@Nonnull default Rotation getRotation() {
+	@NN default Rotation getRotation() {
 		return Rotation.N;
 	}
 	/** Rotates the block clockwise */
@@ -221,7 +221,7 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 		return false;
 	}
 	@Override
-	@Nonnull default Chirality getChirality() {
+	@NN default Chirality getChirality() {
 		return Chirality.R;
 	}
 	@Override
@@ -241,7 +241,7 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 		setChirality(rotation.chirality);
 	}
 	/** @return chirality and rotation of this block together */
-	@Nonnull default ChiralRotation getChirotation() {
+	@NN default ChiralRotation getChirotation() {
 		return ChiralRotation.of(getRotation(), getChirality());
 	}
 	/** Flips on | plane */

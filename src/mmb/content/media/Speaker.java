@@ -5,14 +5,14 @@ package mmb.content.media;
 
 import java.awt.Graphics;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.rainerhahnekamp.sneakythrow.Sneaky;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntry;
@@ -38,14 +38,14 @@ public class Speaker extends BlockEntityData implements BlockActivateListener {
 	/**
 	 * The clip should be preserved for speaker's life, but activated or reactivated when needed
 	 */
-	@Nonnull private final Clip clip = Sneaky.sneak(AudioSystem::getClip);
+	@NN private final Clip clip = Sneaky.sneak(AudioSystem::getClip);
 	
 	//saveable elements
 	private String selection;
 	private int phase;
 	private boolean playbackRequested;
 	private boolean hasAlreadyGotSignal;
-	@Nonnull private SpeakerMode mode = SpeakerMode.ONCE;
+	@NN private SpeakerMode mode = SpeakerMode.ONCE;
 	private final Object soundLock = new Object();
 	
 	/**
@@ -66,7 +66,7 @@ public class Speaker extends BlockEntityData implements BlockActivateListener {
 	}
 
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		JsonNode nsound = data.get("sound");
 		if(nsound != null) setSelection(nsound.asText());
@@ -92,7 +92,7 @@ public class Speaker extends BlockEntityData implements BlockActivateListener {
 	/**
 	 * @param sound
 	 */
-	public void setSound(@Nullable Sound sound) { //something breaks the block, when loading, clip is created and sound is set correctly
+	public void setSound(@Nil Sound sound) { //something breaks the block, when loading, clip is created and sound is set correctly
 		synchronized(soundLock){
 			this.sound = sound;
 			selection = null;
@@ -177,7 +177,7 @@ public class Speaker extends BlockEntityData implements BlockActivateListener {
 	/**
 	 * @param selection new sound to select
 	 */
-	public void setSelection(@Nullable String selection) {
+	public void setSelection(@Nil String selection) {
 		if(selection == null) {
 			setSound(null);
 		}else {
@@ -284,7 +284,7 @@ public class Speaker extends BlockEntityData implements BlockActivateListener {
 
 	//Click listener
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) {
 			//Clicked by a Block Clicking Claw
 		}else {

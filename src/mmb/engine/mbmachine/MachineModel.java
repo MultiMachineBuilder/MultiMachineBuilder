@@ -13,6 +13,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.Placer;
 import mmb.engine.debug.Debugger;
@@ -42,8 +43,7 @@ public class MachineModel extends Item implements Placer {
 	}
 	public Machine place() {
 		try {
-			@NonNull
-			Machine result = machineClass.getConstructor().newInstance(); //create
+			@NN Machine result = machineClass.getConstructor().newInstance(); //create
 			result.onPlace();
 			return result;
 		} catch (Exception e) {
@@ -54,7 +54,7 @@ public class MachineModel extends Item implements Placer {
 	
 	public Machine initialize() {
 		try {
-			Machine result = machineClass.getConstructor().newInstance(); //create
+			@NN Machine result = machineClass.getConstructor().newInstance(); //create
 			result.onStartup();
 			return result;
 		} catch (Exception e) {
@@ -64,7 +64,7 @@ public class MachineModel extends Item implements Placer {
 	}
 	public Machine initialize(JsonNode je) {
 		try {
-			Machine result = machineClass.getConstructor().newInstance(); //create
+			@NN Machine result = machineClass.getConstructor().newInstance(); //create
 			result.onStartup();
 			result.load(je);
 			result.onDataLoaded();
@@ -76,7 +76,7 @@ public class MachineModel extends Item implements Placer {
 	}
 	public Machine initialize(int x, int y, JsonNode je) {
 		try {
-			Machine result = machineClass.getConstructor().newInstance(); //create
+			@NN Machine result = machineClass.getConstructor().newInstance(); //create
 			result.onStartup();
 			result.load(je);
 			result.setPos(x, y);

@@ -7,11 +7,10 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.Objects;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.imachine.SpeedUpgrade;
 import mmb.content.modular.ModularBlock;
 import mmb.content.modular.chest.BlockModuleUniversal;
@@ -45,9 +44,9 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 	 */
 	public static class MoverPair{
 		/** Importer of this pair */
-		@Nonnull public final MoverDef importer;
+		@NN public final MoverDef importer;
 		/** Exporter of this pair */
-		@Nonnull public final MoverDef exporter;
+		@NN public final MoverDef exporter;
 		/**
 		 * Creates a mover pair
 		 * @param importer importer
@@ -71,7 +70,7 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 		 * @param stacking stacking value of the mover
 		 * @param maxVolume maximum volume
 		 */
-		public void moveItems(InventoryReader ireader, InventoryWriter iwriter, @Nullable ItemEntry settings, int stacking, double maxVolume);
+		public void moveItems(InventoryReader ireader, InventoryWriter iwriter, @Nil ItemEntry settings, int stacking, double maxVolume);
 	}
 	/**
 	 * A provider for a mover
@@ -79,11 +78,11 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 	 */
 	public static class MoverDef extends PartEntityType{
 		/** The tick handler for the mover */
-		@Nonnull public final ItemMoverHandle handler;
+		@NN public final ItemMoverHandle handler;
 		/** false - import, true-export */
 		public final boolean direction;
 		/** The rotated texture */
-		@Nonnull public final RotatedImageGroup rig;
+		@NN public final RotatedImageGroup rig;
 		
 		/**
 		 * Creates a mover type
@@ -140,7 +139,7 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 			return this;
 		}
 		@Override
-		@Nonnull public MoverDef volumed(double volume) {
+		@NN public MoverDef volumed(double volume) {
 			setVolume(volume);
 			return this;
 		}
@@ -155,8 +154,8 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 	}
 	
 	//Utils
-	@Nonnull private static final String IMPORTER = GlobalSettings.$res("modchest-import");
-	@Nonnull private static final String EXPORTER = GlobalSettings.$res("modchest-export");
+	@NN private static final String IMPORTER = GlobalSettings.$res("modchest-import");
+	@NN private static final String EXPORTER = GlobalSettings.$res("modchest-export");
 	/**
 	 * Creates a pair of movers
 	 * @param handle item move handler
@@ -165,7 +164,7 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 	 * @param id part ID (without suffixes)
 	 * @return a new pair (importing, exporting) of modular item movers
 	 */
-	@Nonnull public static MoverPair create(ItemMoverHandle handle, BufferedImage img, String title, String id){
+	@NN public static MoverPair create(ItemMoverHandle handle, BufferedImage img, String title, String id){
 		RotatedImageGroup rigExport = RotatedImageGroup.create(img);
 		RotatedImageGroup rigImport = rigExport.flip();
 		
@@ -199,7 +198,7 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 	 * @param upgrade 
 	 * @param stacking 
 	 */
-	public MoverModule(MoverDef type, @Nullable ItemEntry settings, @Nullable SpeedUpgrade upgrade, int stacking) {
+	public MoverModule(MoverDef type, @Nil ItemEntry settings, @Nil SpeedUpgrade upgrade, int stacking) {
 		this.type = type;
 		this.settings = settings;
 		this.upgrade = upgrade;
@@ -207,10 +206,10 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 	}
 
 	//Part definition
-	@Nonnull private final MoverDef type;
-	@Nullable private ItemEntry settings;
+	@NN private final MoverDef type;
+	@Nil private ItemEntry settings;
 	/** The current upgrade */
-	@Nullable public final SpeedUpgrade upgrade;
+	@Nil public final SpeedUpgrade upgrade;
 	/** The current stack value */
 	public final int stacking;
 	
@@ -241,7 +240,7 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 	public ModuleConfigHandler<BlockModuleUniversal, ?> mch() {
 		return mch;
 	}
-	@Nonnull private static final ModuleConfigHandler<BlockModuleUniversal, ?> mch = MMBUtils.thisIsAReallyLongNameUnsafeCastNN(new MMMCH());
+	@NN private static final ModuleConfigHandler<BlockModuleUniversal, ?> mch = MMBUtils.thisIsAReallyLongNameUnsafeCastNN(new MMMCH());
 	private static class MMMCH implements ModuleConfigHandler<MoverModule, MoverModuleSetup>{
 
 		@Override
@@ -265,7 +264,7 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 		}
 
 		@Override
-		public MoverModule replaceUpgradesWithinItem(MoverModule element, @Nullable ItemEntry upgrade) {
+		public MoverModule replaceUpgradesWithinItem(MoverModule element, @Nil ItemEntry upgrade) {
 			if(!(upgrade instanceof SpeedUpgrade)) return null;
 			return new MoverModule(element.type, element.settings, (SpeedUpgrade) upgrade, element.stacking);
 		}
@@ -294,7 +293,7 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 		return ItemEntry.saveItem(settings);
 	}
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		settings = ItemEntry.loadFromJson(data);
 	}
 	

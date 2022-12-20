@@ -20,6 +20,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.pploder.events.Event;
 
 import io.github.parubok.text.multiline.MultilineLabel;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.CatchingEvent;
 import mmb.engine.craft.Recipe;
 import mmb.engine.debug.Debugger;
@@ -46,8 +48,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.swing.JSplitPane;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
@@ -442,7 +442,7 @@ public class WorldWindow extends MMBFrame{
 		scrollBar.setValue(amount+scrollBar.getValue());
 		
 	}
-	@Nonnull private ScrollablePlacementList scrollablePlacementList;
+	@NN private ScrollablePlacementList scrollablePlacementList;
 	/**
 	 * @author oskar
 	 * A {@code ScrollablePlacementList} is used to select a block or machine
@@ -470,14 +470,14 @@ public class WorldWindow extends MMBFrame{
 	}
 	
 	/** The tool selection. Changes to the model are reflected in the window and vice versa */
-	@Nonnull public final transient ToolSelectionModel toolModel = new ToolSelectionModel(this);
+	@NN public final transient ToolSelectionModel toolModel = new ToolSelectionModel(this);
 	private MultilineLabel lblTool;
 	private JCheckBoxMenuItem checkBindCameraPlayer;
 	private JLabel lblStatus;
 	
 	//Recipe selection
 	/** Recipe clipboard */
-	@Nonnull public final transient ListenableValue<@Nullable Recipe<?>> recipesel = new ListenableValue<>(null);
+	@NN public final transient ListenableValue<@Nil Recipe<?>> recipesel = new ListenableValue<>(null);
 	
 	public void redrawUIs() {
 		scrollablePlacementList.repaint();
@@ -488,7 +488,7 @@ public class WorldWindow extends MMBFrame{
 	 * Creates a new inventory controller boiund to the player
 	 * @return a new inventroy controller
 	 */
-	@Nonnull public InventoryController playerInventory() {
+	@NN public InventoryController playerInventory() {
 		return new InventoryController(panelPlayerInv.craftGUI.inventoryController);
 	}
 	public void playerInventory(InventoryController invctrl) {
@@ -505,7 +505,7 @@ public class WorldWindow extends MMBFrame{
 	private JProgressBar progressHP;
 
 	/** @return an item selected by the player */
-	@Nullable public ItemRecord selectedItem() {
+	@Nil public ItemRecord selectedItem() {
 		return scrollablePlacementList.getSelectedValue();
 	}
 }

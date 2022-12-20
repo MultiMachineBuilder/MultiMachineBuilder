@@ -4,9 +4,10 @@
 package mmbbase.menu.wtool;
 
 import javax.swing.JPanel;
+
+import mmb.NN;
 import net.miginfocom.swing.MigLayout;
 
-import javax.annotation.Nonnull;
 import javax.swing.JCheckBox;
 
 /**
@@ -15,7 +16,7 @@ import javax.swing.JCheckBox;
  */
 public class ToolVisualsPanel extends JPanel {
 	private static final long serialVersionUID = 4745533816341127056L;
-	@Nonnull public final JCheckBox autoRefresh;
+	@NN public final JCheckBox autoRefresh;
 
 	/**
 	 * Create the panel.

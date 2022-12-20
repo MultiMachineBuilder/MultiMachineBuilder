@@ -6,11 +6,11 @@ package monniasza.collects.indexar;
 import java.util.Set;
 import java.util.function.Function;
 
-import javax.annotation.Nonnull;
-
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.SetMultimap;
+
+import mmb.NN;
 
 /**
  * An index, where property is a set of values and may repeat between objects
@@ -20,9 +20,9 @@ import com.google.common.collect.SetMultimap;
  */
 public class ManyToManyIndex<T, U> implements Index<T, U, SetMultimap<U, T>> {
 	/** Function which defines a property of an object */
-	@Nonnull public final Function<T, Set<U>> fn;
-	@Nonnull private final SetMultimap<U, T> multimap = HashMultimap.create();
-	@Nonnull private final SetMultimap<U, T> pmultimap = Multimaps.unmodifiableSetMultimap(multimap);
+	@NN public final Function<T, Set<U>> fn;
+	@NN private final SetMultimap<U, T> multimap = HashMultimap.create();
+	@NN private final SetMultimap<U, T> pmultimap = Multimaps.unmodifiableSetMultimap(multimap);
 	
 	public ManyToManyIndex(Function<T, Set<U>> fn) {
 		this.fn = fn;

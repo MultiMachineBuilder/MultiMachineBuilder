@@ -9,7 +9,7 @@ import java.awt.Graphics;
 import java.util.Objects;
 import java.util.Scanner;
 
-import javax.annotation.Nullable;
+import mmb.Nil;
 
 /**
  * @author oskar
@@ -27,7 +27,7 @@ public class StringRenderer {
 	 * @param margY vertical margin
 	 * @param g graphics context
 	 */
-	public static void renderStringBounded(@Nullable Color bound, @Nullable Color bg, Color text,
+	public static void renderStringBounded(@Nil Color bound, @Nil Color bg, Color text,
 			String string, int x, int y, int margX, int margY, Graphics g) {
 		Objects.requireNonNull(text, "text color is null");
 		Objects.requireNonNull(string, "text is null");

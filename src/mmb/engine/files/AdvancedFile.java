@@ -9,9 +9,9 @@ import java.net.URL;
 import java.util.jar.JarInputStream;
 import java.util.zip.ZipInputStream;
 
-import javax.annotation.Nonnull;
-
 import org.apache.commons.io.IOUtils;
+
+import mmb.NN;
 
 /**
  * @author oskar
@@ -23,14 +23,14 @@ public interface AdvancedFile {
 	 * @return input stream
 	 * @throws IOException if file can't be retrieved
 	 */
-	@Nonnull InputStream getInputStream() throws IOException;
+	@NN InputStream getInputStream() throws IOException;
 	
 	/**
 	 * Open an output stream to given advanced file
 	 * @return output stream
 	 * @throws IOException if file can't be retrieved or is read-only
 	 */
-	@Nonnull OutputStream getOutputStream() throws IOException;
+	@NN OutputStream getOutputStream() throws IOException;
 	
 	/**
 	 * @return file equivalent {@code File} object
@@ -43,7 +43,7 @@ public interface AdvancedFile {
 	 * Gets string path of file
 	 * @return path
 	 */
-	@Nonnull String name();
+	@NN String name();
 	
 	/**
 	 * Gets URL of the file

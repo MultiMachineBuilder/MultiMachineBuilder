@@ -5,9 +5,8 @@ package mmb.content.imachine;
 
 import static mmb.engine.settings.GlobalSettings.$res;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.imachine.filter.ControllableFilter;
 import mmb.content.imachine.filter.FilterGUI;
 import mmb.content.imachine.filter.ItemFilter;
@@ -31,9 +30,9 @@ import mmbbase.menu.world.window.WorldWindow;
  * Represents a binding pipe. The binding side goes to UP
  */
 public class PipeFilter extends AbstractBasePipe implements BlockActivateListener, ControllableFilter{
-	protected final @Nonnull Pusher toCommon;
-	protected final @Nonnull Pusher toSide;
-	protected final @Nonnull Pusher toMain;
+	protected final @NN Pusher toCommon;
+	protected final @NN Pusher toSide;
+	protected final @NN Pusher toMain;
 	/**
 	 * The inventory which houses the item filter
 	 */
@@ -90,7 +89,7 @@ public class PipeFilter extends AbstractBasePipe implements BlockActivateListene
 	
 	private FilterGUI gui;
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		gui = new FilterGUI(this, window);
 		window.openAndShowWindow(gui, $res("wgui-filter"));

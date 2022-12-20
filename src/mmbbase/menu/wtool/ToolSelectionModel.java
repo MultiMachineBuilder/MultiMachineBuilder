@@ -3,8 +3,7 @@
  */
 package mmbbase.menu.wtool;
 
-import javax.annotation.Nullable;
-
+import mmb.Nil;
 import mmb.engine.debug.Debugger;
 import mmb.engine.worlds.world.Player;
 import mmbbase.menu.world.window.WorldWindow;
@@ -16,18 +15,18 @@ import mmbbase.menu.world.window.WorldWindow;
 public class ToolSelectionModel {
 	private WindowTool toolIL;
 	private WindowTool toolTL;
-	@Nullable public final WorldWindow window;
+	@Nil public final WorldWindow window;
 	private static final Debugger debug = new Debugger("TOOL SELECTOR");
-	public ToolSelectionModel(@Nullable WorldWindow window) {
+	public ToolSelectionModel(@Nil WorldWindow window) {
 		this.window = window;
 	}
 
-	public void toolSelectedItemList(@Nullable WindowTool tool) {
+	public void toolSelectedItemList(@Nil WindowTool tool) {
 		debug.printl("IL tool: "+tool);
 		toolIL = tool;
 		resetTools();
 	}
-	public void toolSelectedToolList(@Nullable WindowTool tool) {
+	public void toolSelectedToolList(@Nil WindowTool tool) {
 		debug.printl("TL tool: "+tool);
 		toolTL = tool;
 		resetTools();
@@ -55,7 +54,7 @@ public class ToolSelectionModel {
 	}
 
 	private WindowTool tool;
-	public void setTool(@Nullable WindowTool newTool) {
+	public void setTool(@Nil WindowTool newTool) {
 		if(tool == newTool) return;
 		if(tool != null) {
 			tool.deselected();

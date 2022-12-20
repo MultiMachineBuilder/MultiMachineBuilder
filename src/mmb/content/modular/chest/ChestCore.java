@@ -7,11 +7,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.modular.BlockCore;
 import mmb.content.modular.part.PartEntity;
 import mmb.engine.chance.Chance;
@@ -34,27 +33,27 @@ public abstract class ChestCore<Tinv extends SaveInventory> extends PartEntity i
 	}
 	
 	@Override
-	@Nonnull public Chance dropItems() {
+	@NN public Chance dropItems() {
 		return new SimpleItemList(inventory);
 	}
 	
 	/** The inventory for the core*/
-	@Nonnull public final Tinv inventory;
+	@NN public final Tinv inventory;
 
 	/**
 	 * Creates a new inventory controller
 	 * @return a new inventory controller
 	 */
-	public abstract @Nonnull AbstractInventoryController invctrl();
+	public abstract @NN AbstractInventoryController invctrl();
 
 	/**
 	 * Creates an empty chest core of the same type. Used by the {@link #returnToPlayer()}
 	 * @return an empty chest core of the same type
 	 */
-	public abstract @Nonnull ChestCore<Tinv> makeEmpty();
+	public abstract @NN ChestCore<Tinv> makeEmpty();
 	
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		double capacity = inventory.capacity();
 		inventory.load(data);
 		inventory.setCapacity(capacity);
@@ -66,7 +65,7 @@ public abstract class ChestCore<Tinv extends SaveInventory> extends PartEntity i
 	}
 	
 	/** @return item to display on modular chests */
-	@Nullable public abstract SingleItem getRenderItem();
+	@Nil public abstract SingleItem getRenderItem();
 
 	@Override
 	public void render(int x, int y, Graphics g, int w) {
@@ -121,7 +120,7 @@ public abstract class ChestCore<Tinv extends SaveInventory> extends PartEntity i
 		}
 	}
 	
-	@Nonnull private static final BufferedImage[] font;
+	@NN private static final BufferedImage[] font;
 	static {
 		BufferedImage srcfont = Textures.get("nums.png");
 		int chwidth = 5;

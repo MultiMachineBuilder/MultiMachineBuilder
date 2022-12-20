@@ -3,11 +3,10 @@
  */
 package mmb.engine.block;
 
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.Nil;
 import mmb.engine.debug.Debugger;
 import mmb.engine.item.Items;
 import mmb.engine.worlds.world.World;
@@ -28,7 +27,7 @@ public class BlockLoader{
 	 * @param map world which holds the block
 	 * @return a loaded block
 	 */
-	public static BlockEntry load(@Nullable JsonNode data, int x, int y, World map) {
+	public static BlockEntry load(@Nil JsonNode data, int x, int y, World map) {
 		if(data == null) {
 			debug.printl("The block data is null");
 			return null;

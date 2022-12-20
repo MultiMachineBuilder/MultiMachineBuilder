@@ -5,9 +5,8 @@ package mmb.engine.block;
 
 import java.awt.Color;
 
-import javax.annotation.Nonnull;
-
 import mmb.Main;
+import mmb.NN;
 import mmb.engine.debug.Debugger;
 
 /**
@@ -25,8 +24,8 @@ public class Blocks {
 
 	//Primitive blocks
 	/** The alternative surface block */
-	@Nonnull public static final Block air = Blocks.createAir();
-	@Nonnull
+	@NN public static final Block air = Blocks.createAir();
+	@NN
 	private static Block createAir() {
 		debug.printl("Creating blocks");
 		Block result = new Block();
@@ -38,8 +37,8 @@ public class Blocks {
 		return result;
 	}
 	/** The basic building block of any world */
-	@Nonnull public static final Block grass = Blocks.createGrass(); //REQUIRES SPECIAL INIT
-	@Nonnull
+	@NN public static final Block grass = Blocks.createGrass(); //REQUIRES SPECIAL INIT
+	@NN
 	private static Block createGrass() {
 		if(!Main.isRunning()) return air;
 		
@@ -53,7 +52,7 @@ public class Blocks {
 		return result;
 	}
 	/** A placeholder block used when the world access is out of bounds*/
-	@Nonnull public static final Block blockVoid = 
+	@NN public static final Block blockVoid = 
 		new Block()
 		.texture(Color.DARK_GRAY)
 		.title("#void")

@@ -10,13 +10,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 import mmb.Main;
+import mmb.NN;
 import mmb.engine.NotFoundException;
 import mmb.engine.debug.Debugger;
 import mmb.engine.files.AdvancedFile;
@@ -28,13 +28,13 @@ import mmb.engine.mods.ModLoader;
  */
 public class Sounds {
 	private Sounds() {}
-	@Nonnull private static final Debugger debug = new Debugger("SOUNDS");
+	@NN private static final Debugger debug = new Debugger("SOUNDS");
 	
-	@Nonnull private static final Map<String, Sound> sounds0 = new HashMap<>();
+	@NN private static final Map<String, Sound> sounds0 = new HashMap<>();
 	/** The list of all sounds */
-	@Nonnull public static final Map<String, Sound> sounds = Collections.unmodifiableMap(sounds0);
-	@Nonnull public static final AudioFormat dummyAF = new AudioFormat(48000, 16, 1, false, false);
-	@Nonnull public static final Sound EMPTY = new Sound(new byte[0], dummyAF, 0);
+	@NN public static final Map<String, Sound> sounds = Collections.unmodifiableMap(sounds0);
+	@NN public static final AudioFormat dummyAF = new AudioFormat(48000, 16, 1, false, false);
+	@NN public static final Sound EMPTY = new Sound(new byte[0], dummyAF, 0);
 	
 	/**
 	 * @param name

@@ -3,10 +3,9 @@
  */
 package mmb.content.imachine;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.engine.MMBUtils;
 import mmb.engine.block.BlockEntityRotary;
@@ -27,7 +26,7 @@ import mmb.engine.rotate.Side;
  */
 public class PlaceIncomingItems extends BlockEntityRotary {
 	private static final Debugger debug = new Debugger("BLOCK PLACE MACHINE");
-	@Nonnull private InventoryWriter placer = new InventoryWriter() {
+	@NN private InventoryWriter placer = new InventoryWriter() {
 
 		@Override
 		public int insert(ItemEntry ent, int amount) {
@@ -67,7 +66,7 @@ public class PlaceIncomingItems extends BlockEntityRotary {
 		}
 
 		@Override
-		public int toInsert(@Nullable ItemEntry item, int amount) {
+		public int toInsert(@Nil ItemEntry item, int amount) {
 			if(amount == 0) return 0;
 			return MMBUtils.bool2int(item instanceof Placer);
 		}

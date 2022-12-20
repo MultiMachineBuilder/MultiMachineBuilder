@@ -10,10 +10,10 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 
-import javax.annotation.Nonnull;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.texture.Textures;
 import mmbbase.beans.Resizable;
@@ -51,7 +51,7 @@ public class ConfigureDroppedItemExtractors extends WindowTool {
 			frame.renderBlockRange(collector.posX(), collector.posY(), collector.posX()+rangeX-1, collector.posY()+rangeY-1, Color.ORANGE, g);
 		}
 	}
-	@Nonnull private Point mouse = new Point();
+	@NN private Point mouse = new Point();
 	private Resizable collector;
 	@Override
 	public void mouseClicked(MouseEvent e) {

@@ -3,9 +3,8 @@
  */
 package mmb.engine.inv.storage;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.item.ItemEntry;
 import mmbbase.data.variables.DataValue;
 import mmbbase.data.variables.Variable;
@@ -15,7 +14,7 @@ import mmbbase.data.variables.Variable;
  */
 public class SingleItemInventory extends BaseSingleItemInventory {
 	/** The item variable used by this inventory */
-	@Nonnull public final Variable<@Nullable ItemEntry> itemvar;
+	@NN public final Variable<@Nil ItemEntry> itemvar;
 	
 	/** Creates a single item inventory with a simple item variable and no items */
 	public SingleItemInventory() {
@@ -25,7 +24,7 @@ public class SingleItemInventory extends BaseSingleItemInventory {
 	 * Creates a single item inventory with a simple item variable and an item
 	 * @param item
 	 */
-	public SingleItemInventory(@Nullable ItemEntry item) {
+	public SingleItemInventory(@Nil ItemEntry item) {
 		itemvar = new DataValue<>(item);
 	}
 	/**
@@ -43,13 +42,13 @@ public class SingleItemInventory extends BaseSingleItemInventory {
 	}
 	/**  @param contents new contents of this inventory */
 	@Override
-	public boolean setContents(@Nullable ItemEntry contents) {
+	public boolean setContents(@Nil ItemEntry contents) {
 		this.itemvar.set(contents);
 		return true;
 	}
 	
 	@Override
-	@Nonnull public SingleItemInventory setCapacity(double cap) {
+	@NN public SingleItemInventory setCapacity(double cap) {
 		super.setCapacity(cap);
 		return this;
 	}

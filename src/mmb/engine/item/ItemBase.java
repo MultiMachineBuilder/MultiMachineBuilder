@@ -7,9 +7,9 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.Objects;
 
-import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
+import mmb.NN;
 import mmb.engine.Verify;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.BlockDrawer;
@@ -37,14 +37,14 @@ public abstract class ItemBase implements ItemType {
 	 * @param volume volume
 	 * @return this
 	 */
-	@Nonnull public ItemBase volumed(double volume) {
+	@NN public ItemBase volumed(double volume) {
 		this.volume = volume;
 		return this;
 	}
 
 	private boolean stacks;
-	@Nonnull private static final String description0 = GlobalSettings.$res("nodescr");
-	@Nonnull private String description = description0;
+	@NN private static final String description0 = GlobalSettings.$res("nodescr");
+	@NN private String description = description0;
 	/**
 	 * The texture determines the block's or items's looks.
 	 * <br> If texture is null, the block or item won't be drawn.
@@ -57,7 +57,7 @@ public abstract class ItemBase implements ItemType {
 	}
 	
 	private String id;
-	@Nonnull private String title = "000 Unnamed Item";
+	@NN private String title = "000 Unnamed Item";
 	@Override
 	public void setUnstackable(boolean value) {
 		stacks = value;
@@ -96,7 +96,7 @@ public abstract class ItemBase implements ItemType {
 		this.description = GlobalSettings.$str1(description);
 	}
 	@Override
-	public void setTexture(@Nonnull BlockDrawer texture) {
+	public void setTexture(@NN BlockDrawer texture) {
 		Objects.requireNonNull(texture, "texture is null");
 		drawer = texture;
 	}
@@ -134,7 +134,7 @@ public abstract class ItemBase implements ItemType {
 	 * @param texture path to texture, starting from `/textures`
 	 * @return this
 	 */
-	@Nonnull
+	@NN
 	public ItemBase texture(String texture) {
 		setTexture(texture);
 		return this;
@@ -144,7 +144,7 @@ public abstract class ItemBase implements ItemType {
 	 * @param texture texture
 	 * @return this
 	 */
-	@Nonnull
+	@NN
 	public ItemBase texture(BufferedImage texture) {
 		setTexture(texture);
 		return this;
@@ -154,7 +154,7 @@ public abstract class ItemBase implements ItemType {
 	 * @param texture color
 	 * @return this
 	 */
-	@Nonnull
+	@NN
 	public ItemBase texture(Color texture) {
 		setTexture(BlockDrawer.ofColor(texture));
 		return this;
@@ -164,7 +164,7 @@ public abstract class ItemBase implements ItemType {
 	 * @param texture texture
 	 * @return this
 	 */
-	@Nonnull
+	@NN
 	public ItemBase texture(BlockDrawer texture) {
 		setTexture(texture);
 		return this;
@@ -174,7 +174,7 @@ public abstract class ItemBase implements ItemType {
 	 * @param title title
 	 * @return this
 	 */
-	@Nonnull
+	@NN
 	public ItemBase title(String title) {
 		setTitle(title);
 		return this;
@@ -184,7 +184,7 @@ public abstract class ItemBase implements ItemType {
 	 * @param description description
 	 * @return this
 	 */
-	@Nonnull
+	@NN
 	public ItemBase describe(String description) {
 		setDescription(description);
 		return this;
@@ -194,7 +194,7 @@ public abstract class ItemBase implements ItemType {
 	 * @param id block id
 	 * @return this
 	 */
-	@Nonnull
+	@NN
 	public ItemBase finish(String id) {
 		register(id);
 		return this;

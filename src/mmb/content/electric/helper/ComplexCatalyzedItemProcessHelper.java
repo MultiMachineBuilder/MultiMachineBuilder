@@ -6,14 +6,13 @@ package mmb.content.electric.helper;
 import java.util.Objects;
 import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.util.concurrent.Runnables;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.Battery;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.CycleResult;
@@ -34,12 +33,12 @@ import mmb.engine.item.ItemEntry;
  *
  */
 public class ComplexCatalyzedItemProcessHelper {
-	@Nonnull private final ComplexCatalyzedRecipeGroup recipes;
-	@Nonnull private final Inventory input;
-	@Nonnull private final Inventory output;
+	@NN private final ComplexCatalyzedRecipeGroup recipes;
+	@NN private final Inventory input;
+	@NN private final Inventory output;
 	         private final double speed;
-	@Nonnull private final Battery elec;
-	@Nonnull private final VoltageTier volt;
+	@NN private final Battery elec;
+	@NN private final VoltageTier volt;
 	/** The object which is currently refreshed. It may be null */
 	public Refreshable refreshable;
 	/** Last known recipe. Redone immediately if required items still exist */
@@ -159,7 +158,7 @@ public class ComplexCatalyzedItemProcessHelper {
 		if(refreshable != null) refreshable.refreshProgress(progress, lastKnown);
 		return CycleResult.RUN;
 	}
-	@Nonnull private static final Debugger debug = new Debugger("COMPLEX RECIPE RPOCESSOR");
+	@NN private static final Debugger debug = new Debugger("COMPLEX RECIPE RPOCESSOR");
 	private void useRecipe(ComplexCatalyzedRecipe recipe) {
 		lastKnown = recipe;
 		rout = recipe.output;

@@ -6,7 +6,7 @@ package mmb.engine;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
+import mmb.NN;
 
 /**
  * @author oskar
@@ -22,7 +22,7 @@ public class MMBUtils {
 	 * @return a casted class
 	 */
 	@SuppressWarnings("unchecked")
-	@Nonnull public static <R> Class<R> classcast(Class<?> cls){
+	@NN public static <R> Class<R> classcast(Class<?> cls){
 		return (Class<R>) cls;
 	}
 	/**
@@ -46,7 +46,7 @@ public class MMBUtils {
 	 * @throws ClassCastException randomly, when misused in various methods
 	 */
 	@SuppressWarnings("unchecked")
-	@Nonnull public static <T, U> U thisIsAReallyLongNameUnsafeCastNN(T in) {
+	@NN public static <T, U> U thisIsAReallyLongNameUnsafeCastNN(T in) {
 		return (U) in;
 	}	
 	
@@ -61,14 +61,14 @@ public class MMBUtils {
 	}
 	
 	//Lambda expressions
-	@Nonnull private static final Consumer<?> nothing = v -> {};
+	@NN private static final Consumer<?> nothing = v -> {};
 	/**
 	 * @param <T> type of the input
 	 * @return a consumer which does nothing.
 	 * @apiNote The returned consumers are the same object
 	 */
 	@SuppressWarnings("unchecked")
-	@Nonnull public static <T> Consumer<T> doNothing(){
+	@NN public static <T> Consumer<T> doNothing(){
 		return (Consumer<T>) nothing;
 	}	
 	/**

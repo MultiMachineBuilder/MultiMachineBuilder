@@ -14,12 +14,11 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.ItemLoader;
 import mmb.engine.inv.ItemStack;
@@ -41,7 +40,7 @@ public class ItemLists {
 	 * @param node saved recipe output
 	 * @return loaded recipe output
 	 */
-	public static SimpleItemList read(@Nullable JsonNode node) {
+	public static SimpleItemList read(@Nil JsonNode node) {
 		if(node == null) {
 			debug.printl("Item list node is null");
 			return null;
@@ -90,7 +89,7 @@ public class ItemLists {
 	/**
 	 * @return a stream collector to an item list
 	 */
-	@Nonnull public static Collector<ItemStack, List<ItemStack>, SimpleItemList> collectToItemList(){
+	@NN public static Collector<ItemStack, List<ItemStack>, SimpleItemList> collectToItemList(){
 		return new ILCollector();
 	}
 

@@ -3,12 +3,11 @@
  */
 package mmb.content.agro;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
@@ -38,14 +37,14 @@ public class Crop extends BlockEntityData {
 	}
 
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		JsonNode progNode = data.get("progress");
 		if(progNode != null) progress = progNode.asInt();
 	}
 
 	@Override
-	protected void save0(@Nonnull ObjectNode node) {
+	protected void save0(@NN ObjectNode node) {
 		node.put("progress", progress);
 	}
 

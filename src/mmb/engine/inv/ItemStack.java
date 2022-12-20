@@ -3,9 +3,8 @@
  */
 package mmb.engine.inv;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.craft.SingleItem;
 import mmb.engine.item.ItemEntry;
 import monniasza.collects.Identifiable;
@@ -23,7 +22,7 @@ public final class ItemStack implements Identifiable<ItemEntry>, SingleItem{
 	/**
 	 * An item stored in the inventory
 	 */
-	@Nonnull public final ItemEntry item;
+	@NN public final ItemEntry item;
 	/**
 	 * Number of items in the entry
 	 */
@@ -49,7 +48,7 @@ public final class ItemStack implements Identifiable<ItemEntry>, SingleItem{
 	}
 
 	@Override
-	public boolean equals(@Nullable Object obj) {
+	public boolean equals(@Nil Object obj) {
 		if (this == obj) return true;
 		if (obj == null) return false;
 		if (getClass() != obj.getClass())

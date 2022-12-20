@@ -3,8 +3,6 @@
  */
 package mmb.engine.worlds.world;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.BoundedRangeModel;
@@ -20,6 +18,8 @@ import com.pploder.events.Event;
 import com.rainerhahnekamp.sneakythrow.Sneaky;
 
 import io.vavr.Tuple2;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.CatchingEvent;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.ItemRecord;
@@ -36,8 +36,8 @@ import mmbbase.data.variables.ListenerBooleanVariable;
  * A {@code Player} is an object, which represents player data
  */
 public class Player implements Saver{
-	@Nonnull private Debugger debug = new Debugger("PLAYERS");
-	@Nonnull private static final Debugger sdebug = new Debugger("PLAYERS");
+	@NN private Debugger debug = new Debugger("PLAYERS");
+	@NN private static final Debugger sdebug = new Debugger("PLAYERS");
 	
 	/**
 	 * Creates a new player object
@@ -54,9 +54,9 @@ public class Player implements Saver{
 		world = w;
 	}
 	
-	@Nonnull public final ListenableSimpleInventory inv = new ListenableSimpleInventory(debug);
-	@Nonnull public final ListenerBooleanVariable creative = new ListenerBooleanVariable();
-	@Nonnull public final World world;
+	@NN public final ListenableSimpleInventory inv = new ListenableSimpleInventory(debug);
+	@NN public final ListenerBooleanVariable creative = new ListenerBooleanVariable();
+	@NN public final World world;
 	public boolean isCreative() {
 		return creative.getValue();
 	}
@@ -73,7 +73,7 @@ public class Player implements Saver{
 	= new CatchingEvent<>(sdebug, "Failed to load mod player data");
 	
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		ObjectNode on = (ObjectNode) data;
 		
@@ -123,11 +123,11 @@ public class Player implements Saver{
 	/**
 	 * The center position of the player
 	 */
-	@Nonnull public final Vector2d pos = new Vector2d();
-	@Nonnull private final Vector2d speedTrue0 = new Vector2d();
-	@Nonnull public final Vector2dc speedTrue = speedTrue0;
-	@Nonnull public final Vector2d speed = new Vector2d();
-	@Nonnull public PlayerPhysics physics = new PlayerPhysicsNormal();
+	@NN public final Vector2d pos = new Vector2d();
+	@NN private final Vector2d speedTrue0 = new Vector2d();
+	@NN public final Vector2dc speedTrue = speedTrue0;
+	@NN public final Vector2d speed = new Vector2d();
+	@NN public PlayerPhysics physics = new PlayerPhysicsNormal();
 	void onTick(World world) {
 		alcohol();
 		blink();

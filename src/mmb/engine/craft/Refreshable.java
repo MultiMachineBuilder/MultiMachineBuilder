@@ -3,7 +3,7 @@
  */
 package mmb.engine.craft;
 
-import javax.annotation.Nullable;
+import mmb.Nil;
 
 /**
  * @author oskar
@@ -19,5 +19,5 @@ public interface Refreshable{
 	 * @param recipe item which is currently smelted
 	 * @param max energy required to complete the recipe
 	 */
-	public void refreshProgress(double progress, @Nullable Recipe<?> recipe);
+	public void refreshProgress(double progress, @Nil Recipe<?> recipe);
 }

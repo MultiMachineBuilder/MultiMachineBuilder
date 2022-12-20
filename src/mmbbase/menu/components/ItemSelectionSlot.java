@@ -6,12 +6,12 @@ package mmbbase.menu.components;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JComponent;
 
 import com.pploder.events.Event;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.CatchingEvent;
 import mmb.engine.debug.Debugger;
 import mmb.engine.item.ItemEntry;
@@ -30,12 +30,12 @@ public class ItemSelectionSlot extends JComponent implements AutoCloseable{
 	private static final long serialVersionUID = -5582224599293758548L;
 	
 	//Item events
-	@Nonnull private static final Debugger debug = new Debugger("ITEM SELECTION SLOT");
+	@NN private static final Debugger debug = new Debugger("ITEM SELECTION SLOT");
 	/** Invoked when contents of this slot change  */
 	public final transient Event<ItemEntry> stateChanged = new CatchingEvent<>(debug, "Could not fire item changed event");
 	
 	//Selection source
-	@Nullable private transient Supplier<ItemEntry> selector;
+	@Nil private transient Supplier<ItemEntry> selector;
 	/** @return current selector */
 	public Supplier<ItemEntry> getSelector() {
 		return selector;
@@ -46,17 +46,17 @@ public class ItemSelectionSlot extends JComponent implements AutoCloseable{
 	}
 	
 	//Target (a variable where values are stored)
-	@Nullable private transient ListenableValue<@Nullable ItemEntry> target;
-	private void handleChanges(@Nullable ItemEntry i) { repaint(); stateChanged.trigger(i); }
-	@Nonnull private final transient Consumer<@Nullable ItemEntry> changeHandler = this::handleChanges;
+	@Nil private transient ListenableValue<@Nil ItemEntry> target;
+	private void handleChanges(@Nil ItemEntry i) { repaint(); stateChanged.trigger(i); }
+	@NN private final transient Consumer<@Nil ItemEntry> changeHandler = this::handleChanges;
 	/** @return the target item variable*/
-	@Nullable public ListenableValue<@Nullable ItemEntry> getTarget() {
+	@Nil public ListenableValue<@Nil ItemEntry> getTarget() {
 		return target;
 	}
 	/** @param newTarget new target item variable */
-	public void setTarget(@Nullable ListenableValue<@Nullable ItemEntry> newTarget) {
+	public void setTarget(@Nil ListenableValue<@Nil ItemEntry> newTarget) {
 		ItemEntry oldSelection = getSelection();
-		ListenableValue<@Nullable ItemEntry> oldTarget = target;
+		ListenableValue<@Nil ItemEntry> oldTarget = target;
 		if(oldTarget != null) oldTarget.unlistenadd(changeHandler);
 		if(newTarget != null) newTarget.listenadd(changeHandler);
 		target = newTarget;
@@ -68,7 +68,7 @@ public class ItemSelectionSlot extends JComponent implements AutoCloseable{
 	/**
 	 * @return currently selected item
 	 */
-	public @Nullable ItemEntry getSelection() {
+	public @Nil ItemEntry getSelection() {
 		final ListenableValue<ItemEntry> target2 = target;
 		if (target2 == null) return null;
 		return target2.get();
@@ -77,7 +77,7 @@ public class ItemSelectionSlot extends JComponent implements AutoCloseable{
 	/**
 	 * @param selection item to be selected
 	 */
-	public void setSelection(@Nullable ItemEntry selection) {
+	public void setSelection(@Nil ItemEntry selection) {
 		if(!isEnabled()) return;
 		if(target != null) target.set(selection);
 		handleChanges(selection);

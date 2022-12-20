@@ -5,8 +5,7 @@ package monniasza.collects.selfset;
 
 import java.util.Set;
 
-import javax.annotation.Nullable;
-
+import mmb.Nil;
 import monniasza.collects.Identifiable;
 
 /**
@@ -31,14 +30,14 @@ public interface SelfSet<K, V> extends Set<V>{
 	 * @param key key
 	 * @return value under the key, or null if absent
 	 */
-	@Nullable public V get(@Nullable Object key);
+	@Nil public V get(@Nil Object key);
 	/**
 	 * Get the value under a given key
 	 * @param key key
 	 * @param defalt default value
 	 * @return value under the key, or default if absent
 	 */
-	public V getOrDefault(@Nullable Object key, V defalt);
+	public V getOrDefault(@Nil Object key, V defalt);
 	
 	/**
 	 * Remove given key from the self-set
@@ -47,7 +46,7 @@ public interface SelfSet<K, V> extends Set<V>{
 	 */
 	public boolean removeKey(K key);
 	
-	public boolean containsKey(@Nullable Object key);
+	public boolean containsKey(@Nil Object key);
 
 	@SuppressWarnings({"unchecked"})
 	@Override
@@ -55,7 +54,7 @@ public interface SelfSet<K, V> extends Set<V>{
 	 * Checks if given self-set contains given key
 	 * The input must be of type <V>, because it is casted to {@link Identifiable} internally
 	 */
-	default boolean contains(@Nullable Object arg0) {
+	default boolean contains(@Nil Object arg0) {
 		if(arg0 == null) return containsKey(null);
 		return test(arg0) && containsKey(id((V)arg0));
 	}
@@ -66,7 +65,7 @@ public interface SelfSet<K, V> extends Set<V>{
 	 * Removes given value from the self-set.
 	 * The input must be of type <V>, because it is casted to {@link Identifiable} internally
 	 */
-	default boolean remove(@Nullable Object arg0) {
+	default boolean remove(@Nil Object arg0) {
 		return test(arg0) && removeKey(id((V)arg0));
 	}
 	
@@ -75,7 +74,7 @@ public interface SelfSet<K, V> extends Set<V>{
 	 * @param o
 	 * @return is the provided object a supported value
 	 */
-	public boolean test(@Nullable Object o);
+	public boolean test(@Nil Object o);
 	/**
 	 * @param value
 	 * @return identifier for purposes of this self-set
@@ -88,5 +87,5 @@ public interface SelfSet<K, V> extends Set<V>{
 	/**
 	 * @return the type of this self-set, or null if unrestricted
 	 */
-	@Nullable public Class<V> type();
+	@Nil public Class<V> type();
 }

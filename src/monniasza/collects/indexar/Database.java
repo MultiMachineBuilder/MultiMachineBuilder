@@ -9,8 +9,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import mmb.NN;
+import mmb.Nil;
 
 /**
  * A database is a collection of values allowing values to be indexed, stored and retrieved.
@@ -18,11 +18,11 @@ import javax.annotation.Nullable;
  * @author oskar
  * @param <T> type of values
  */
-public class Database<@Nonnull T> extends AbstractSet<T>{ //NOSONAR the method is a contract
+public class Database<@NN T> extends AbstractSet<T>{ //NOSONAR the method is a contract
 	/** A list of indexes */
-	@Nonnull public final Set<@Nonnull Index<T, ?, ?>> indexes0 = new HashSet<>();
+	@NN public final Set<@NN Index<T, ?, ?>> indexes0 = new HashSet<>();
 	/** Type of objects */
-	@Nonnull public final Class<T> cls;
+	@NN public final Class<T> cls;
 	
 	/**
 	 * Creates a database
@@ -48,7 +48,7 @@ public class Database<@Nonnull T> extends AbstractSet<T>{ //NOSONAR the method i
 	 * @param index index to add
 	 * @return this
 	 */
-	@Nonnull public Database<T> addIndex(Index<T, ?, ?> index){
+	@NN public Database<T> addIndex(Index<T, ?, ?> index){
 		removeIf(val -> !index.add(val)); //add and filter both at once
 		return this;
 	}
@@ -60,7 +60,7 @@ public class Database<@Nonnull T> extends AbstractSet<T>{ //NOSONAR the method i
 		indexes0.remove(index);
 	}
 
-	@Nonnull private final Set<T> set;
+	@NN private final Set<T> set;
 	
 	@Override
 	public int size() {
@@ -73,12 +73,12 @@ public class Database<@Nonnull T> extends AbstractSet<T>{ //NOSONAR the method i
 	}
 
 	@Override
-	public boolean contains(@Nullable Object o) {
+	public boolean contains(@Nil Object o) {
 		return set.contains(o);
 	}
 
 	@Override
-	public @Nonnull Iterator<T> iterator() {
+	public @NN Iterator<T> iterator() {
 		Iterator<T> iter = set.iterator();
 		return new Iterator<T>(){
 			@SuppressWarnings("null")
@@ -109,12 +109,12 @@ public class Database<@Nonnull T> extends AbstractSet<T>{ //NOSONAR the method i
 	}
 
 	@Override
-	public Object @Nonnull [] toArray() {
+	public Object @NN [] toArray() {
 		return set.toArray();
 	}
 
 	@Override
-	public <U> U @Nonnull [] toArray(U[] a) {
+	public <U> U @NN [] toArray(U[] a) {
 		return set.toArray(a);
 	}
 
@@ -129,7 +129,7 @@ public class Database<@Nonnull T> extends AbstractSet<T>{ //NOSONAR the method i
 	}
 
 	@Override
-	public boolean remove(@Nullable Object o) {
+	public boolean remove(@Nil Object o) {
 		T value = cls.cast(o); //type check
 		if(o == null) return false;
 		for(Index<T, ?, ?> idx: indexes0) idx.remove(value);

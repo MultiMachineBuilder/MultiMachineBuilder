@@ -3,12 +3,11 @@
  */
 package mmbmods.stn.network;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.UnitFormatter;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
@@ -23,7 +22,7 @@ import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag;
  * @author oskar
  */
 public class DataLayerSTN extends DataLayer<World> {
-	@Nonnull private final Debugger debug;
+	@NN private final Debugger debug;
 
 	/**
 	 * Creates a Simple Transportation Network
@@ -35,7 +34,7 @@ public class DataLayerSTN extends DataLayer<World> {
 	}
 
 	@Override
-	public @Nonnull JsonNode save() {
+	public @NN JsonNode save() {
 		ObjectNode node = JsonTool.newObjectNode();
 		
 		//Save the flush queue (if it failed to flush)
@@ -48,7 +47,7 @@ public class DataLayerSTN extends DataLayer<World> {
 	}
 
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		//Load the flush queue
 		JsonNode queueNode = data.get("queue");
@@ -105,11 +104,11 @@ public class DataLayerSTN extends DataLayer<World> {
 	
 	//STORAGE
 	/** The storage capabilities of this network, expressed as an inventory */
-	@Nonnull public final STNNetworkInventory inv = new STNNetworkInventory(this);
+	@NN public final STNNetworkInventory inv = new STNNetworkInventory(this);
 	
 	//TODO CRAFTING
 	/** The processing capabilities of this network */
-	@Nonnull public final STNNetworkProcessing processor = new STNNetworkProcessing(this);
+	@NN public final STNNetworkProcessing processor = new STNNetworkProcessing(this);
 
 	@Override
 	public void shutdown() {

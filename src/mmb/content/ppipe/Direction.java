@@ -3,7 +3,7 @@
  */
 package mmb.content.ppipe;
 
-import javax.annotation.Nonnull;
+import mmb.NN;
 
 /**
  * @author oskar
@@ -38,5 +38,5 @@ public enum Direction {
 	/**
 	 * @return this direction reversed
 	 */
-	@Nonnull public abstract Direction reverse();
+	@NN public abstract Direction reverse();
 }

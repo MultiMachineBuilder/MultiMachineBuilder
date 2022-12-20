@@ -3,8 +3,7 @@
  */
 package mmb.engine.inv;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.item.ItemEntry;
 
 /**
@@ -17,7 +16,7 @@ public class ReadOnlyItemRecord implements ItemRecord{
 	 * @param itemRecord
 	 * @return
 	 */
-	public static @Nonnull ItemRecord decorate(ItemRecord itemRecord) {
+	public static @NN ItemRecord decorate(ItemRecord itemRecord) {
 		return new ReadOnlyItemRecord(itemRecord);
 	}
 

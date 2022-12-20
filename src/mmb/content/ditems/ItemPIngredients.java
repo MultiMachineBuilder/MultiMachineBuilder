@@ -3,11 +3,10 @@
  */
 package mmb.content.ditems;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ContentsItems;
 import mmb.engine.craft.ProcessIngredients;
 import mmb.engine.item.ItemEntity;
@@ -31,17 +30,17 @@ public final class ItemPIngredients extends ItemEntity {
 		return this;
 	}
 
-	@Nonnull private ProcessIngredients items = ProcessIngredients.EMPTY;
+	@NN private ProcessIngredients items = ProcessIngredients.EMPTY;
 	
 	/**
 	 * @return the item list for this Bill Of Materials. The returned item list is immutable
 	 */
-	@Nonnull public ProcessIngredients contents() {
+	@NN public ProcessIngredients contents() {
 		return items;
 	}
 	
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		ProcessIngredients list0 = ProcessIngredients.read(data);
 		if(list0 == null) list0 = ProcessIngredients.EMPTY;

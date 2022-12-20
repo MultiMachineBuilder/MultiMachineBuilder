@@ -3,8 +3,7 @@
  */
 package mmb.content.ppipe;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.block.BlockEntityChirotable;
 import mmb.engine.debug.Debugger;
 import mmb.engine.rotate.Side;
@@ -32,8 +31,8 @@ public abstract class AbstractPlayerPipe extends BlockEntityChirotable {
 	 * A helper class to make pipe tunnels
 	 */
 	protected class TunnelHelper extends PipeTunnel{
-		@Nonnull protected final Side from;
-		@Nonnull protected final Side to;
+		@NN protected final Side from;
+		@NN protected final Side to;
 		/**
 		 * @param from side, from which player enters in FWD direction
 		 * @param to side, to which player goes in FWD direction

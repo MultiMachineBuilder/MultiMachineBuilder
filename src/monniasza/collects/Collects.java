@@ -21,8 +21,6 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
 import javax.swing.event.ListDataListener;
@@ -34,6 +32,8 @@ import com.google.common.collect.SetMultimap;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
 import monniasza.collects.grid.Grid;
@@ -54,7 +54,7 @@ public class Collects {
 	 * @return downcasted iterator
 	 */
 	@SuppressWarnings("unchecked")
-	@Nonnull public static <T> Iterator<T> downcastIterator(Iterator<? extends T> iter) {
+	@NN public static <T> Iterator<T> downcastIterator(Iterator<? extends T> iter) {
 		return (Iterator<T>) iter;
 	}
 	/**
@@ -63,7 +63,7 @@ public class Collects {
 	 * @param iter iterator to be converted
 	 * @return wrapped iterator object
 	 */
-	@Nonnull public static <T> Iterable<T> iter(Iterator<T> iter){
+	@NN public static <T> Iterable<T> iter(Iterator<T> iter){
 		return () -> iter;
 	}
 	/**
@@ -84,7 +84,7 @@ public class Collects {
 	 * @param list the ListModel to be wrapped
 	 * @return the wrapped list
 	 */
-	@Nonnull public static <T> List<T> fromListModel(ListModel<T> list){
+	@NN public static <T> List<T> fromListModel(ListModel<T> list){
 		return new AbstractList<>() {
 			@Override public T get(int index) {
 				return list.getElementAt(index);
@@ -101,10 +101,10 @@ public class Collects {
 	 * @return a list model
 	 * @apiNote The list model does not support listeners
 	 */
-	@Nonnull public static <T> ListModel<T> toListModel(List<T> list){
+	@NN public static <T> ListModel<T> toListModel(List<T> list){
 		return new ListModel<>() {
 			@Override
-			public void addListDataListener(@Nullable ListDataListener l) {
+			public void addListDataListener(@Nil ListDataListener l) {
 				throw new UnsupportedOperationException("ListModel from List does not support listeners");
 			}
 			@Override
@@ -116,7 +116,7 @@ public class Collects {
 				return list.size();
 			}
 			@Override
-			public void removeListDataListener(@Nullable ListDataListener l) {
+			public void removeListDataListener(@Nil ListDataListener l) {
 				throw new UnsupportedOperationException("ListModel from List oes not support listeners");
 			}
 		};
@@ -127,7 +127,7 @@ public class Collects {
 	 * @param list list model
 	 * @return a list wrapper
 	 */
-	@Nonnull public static <T> List<T> toWritableList(DefaultListModel<T> list){
+	@NN public static <T> List<T> toWritableList(DefaultListModel<T> list){
 		return new AbstractList<>() {
 			@Override
 			public T get(int index) {
@@ -138,11 +138,11 @@ public class Collects {
 				return list.getSize();
 			}
 			@Override
-			public void add(int index, @Nullable T element) {
+			public void add(int index, @Nil T element) {
 				list.add(index, element);
 			}
 			@Override
-			public boolean add(@Nullable T e) {
+			public boolean add(@Nil T e) {
 				list.addElement(e);
 				return true;
 			}
@@ -151,7 +151,7 @@ public class Collects {
 				return list.remove(index);
 			}
 			@Override
-			public T set(int index, @SuppressWarnings("null") @Nullable T e) {
+			public T set(int index, @SuppressWarnings("null") @Nil T e) {
 				return list.set(index, e);
 			}
 			@Override
@@ -159,26 +159,26 @@ public class Collects {
 				return list.isEmpty();
 			}
 			@Override
-			public boolean contains(@Nullable Object o) {
+			public boolean contains(@Nil Object o) {
 				return list.contains(list);
 			}
 			@SuppressWarnings("null")
 			@Override
-			public @Nonnull Iterator<T> iterator() {
+			public @NN Iterator<T> iterator() {
 				return list.elements().asIterator();
 			}
 			@SuppressWarnings("null")
 			@Override
-			public Object @Nonnull [] toArray() {
+			public Object @NN [] toArray() {
 				return list.toArray();
 			}
 			@Override
-			public <U> U @Nonnull [] toArray(U[] a) {
+			public <U> U @NN [] toArray(U[] a) {
 				list.copyInto(a);
 				return a;
 			}
 			@Override
-			public boolean remove(@Nullable Object o) {
+			public boolean remove(@Nil Object o) {
 				return list.removeElement(o);
 			}
 			@Override
@@ -218,17 +218,17 @@ public class Collects {
 				list.removeAllElements();
 			}
 			@Override
-			public int indexOf(@Nullable Object o) {
+			public int indexOf(@Nil Object o) {
 				return list.indexOf(o);
 			}
 			@Override
-			public int lastIndexOf(@Nullable Object o) {
+			public int lastIndexOf(@Nil Object o) {
 				return list.lastIndexOf(o);
 			}
 			
 		};
 	}
-	@Nonnull public static <T> DefaultListModel<T> newListModel(Collection<? extends T> list){
+	@NN public static <T> DefaultListModel<T> newListModel(Collection<? extends T> list){
 		DefaultListModel<T> model = new DefaultListModel<>();
 		model.addAll(list);
 		return model;
@@ -241,10 +241,10 @@ public class Collects {
 	 * @param set self-set to wrap
 	 * @return an unmodifiable wrapper around the self-set
 	 */
-	@Nonnull public static <K, V> SelfSet<K, V> unmodifiableSelfSet(SelfSet<? extends K, ? extends V> set){
+	@NN public static <K, V> SelfSet<K, V> unmodifiableSelfSet(SelfSet<? extends K, ? extends V> set){
 		return new SelfSet<>() {
 			@Override
-			public boolean add(@Nullable V e) {
+			public boolean add(@Nil V e) {
 				return false;
 			}
 
@@ -309,13 +309,13 @@ public class Collects {
 			}
 
 			@Override
-			public V get(@Nullable Object  key) {
+			public V get(@Nil Object  key) {
 				return set.get(key);
 			}
 
 			@SuppressWarnings("unchecked") //cast is required to accept a supertype, it will never fail
 			@Override
-			public V getOrDefault(@Nullable Object key, V defalt) {
+			public V getOrDefault(@Nil Object key, V defalt) {
 				return ((SelfSet<K, V>)set).getOrDefault(key, defalt);
 			}
 
@@ -325,12 +325,12 @@ public class Collects {
 			}
 
 			@Override
-			public boolean containsKey(@Nullable Object key) {
+			public boolean containsKey(@Nil Object key) {
 				return set.containsKey(key);
 			}
 
 			@Override
-			public boolean test(@Nullable Object o) {
+			public boolean test(@Nil Object o) {
 				return set.test(o);
 			}
 
@@ -353,17 +353,17 @@ public class Collects {
 	}
 	
 	//Lists
-	@Nonnull public static <T> List<T> inplaceAddLists(List<T> list, Collection<T> collect){
+	@NN public static <T> List<T> inplaceAddLists(List<T> list, Collection<T> collect){
 		list.addAll(collect);
 		return list;
 	}
-	@Nonnull public static <T> List<T> ooplaceAddLists(Collection<T> a, Collection<T> b, Supplier<List<T>> supplier){
+	@NN public static <T> List<T> ooplaceAddLists(Collection<T> a, Collection<T> b, Supplier<List<T>> supplier){
 		List<T> list0 = supplier.get();
 		list0.addAll(a);
 		list0.addAll(b);
 		return list0;
 	}
-	@Nonnull public static <T> BiFunction<@Nonnull Collection<T>, @Nonnull Collection<T>, List<T>> ooplaceListAdder(Supplier<List<T>> supplier){
+	@NN public static <T> BiFunction<@NN Collection<T>, @NN Collection<T>, List<T>> ooplaceListAdder(Supplier<List<T>> supplier){
 		return (a, b) -> ooplaceAddLists(a, b, supplier);
 	}
 	
@@ -375,26 +375,26 @@ public class Collects {
 	 * @return an empty, immutable multimap
 	 */
 	@SuppressWarnings("unchecked")
-	@Nonnull public static <K, V> SetMultimap<K, V> emptyMultimap(){
+	@NN public static <K, V> SetMultimap<K, V> emptyMultimap(){
 		return (SetMultimap<K, V>) emptyMultiMap;
 	}
-	@Nonnull private static final SetMultimap<?, ?> emptyMultiMap = new EmptySetMultimap();
+	@NN private static final SetMultimap<?, ?> emptyMultiMap = new EmptySetMultimap();
 	/**
 	 * Creates an empty multiset
 	 * @param <T> type of values
 	 * @return an empty, immutable multiset
 	 */
 	@SuppressWarnings("unchecked")
-	@Nonnull public static <T> Multiset<T> emptyMultiset(){
+	@NN public static <T> Multiset<T> emptyMultiset(){
 		return (Multiset<T>) emptyMultiSet;
 	}
-	@Nonnull private static final Multiset<?> emptyMultiSet = new EmptyMultiSet();
+	@NN private static final Multiset<?> emptyMultiSet = new EmptyMultiSet();
 	
 	//Maps
-	@Nonnull public static <T, M extends Object2IntMap<T>> Collector<Object2IntMap.Entry<T>, Object2IntMap<T>, M> collectToIntMap(Supplier<M> mapsup){
+	@NN public static <T, M extends Object2IntMap<T>> Collector<Object2IntMap.Entry<T>, Object2IntMap<T>, M> collectToIntMap(Supplier<M> mapsup){
 		return new IntMapCollector<>(mapsup);
 	}
-	@Nonnull public static <T, M extends Object2IntMap<T>> M inplaceAddIntMaps(M list, Object2IntMap<T> collect){
+	@NN public static <T, M extends Object2IntMap<T>> M inplaceAddIntMaps(M list, Object2IntMap<T> collect){
 		list.putAll(collect);
 		return list;
 	}
@@ -438,7 +438,7 @@ public class Collects {
 	 * @param grid input grid
 	 * @return a transformed view of the grid. The view is backed by the grid, so any changes made to the original are reflected in the view and vice versa
 	 */
-	public static <Tin, Tout> Grid<Tout> mapGrid(Function<? super Tin, ? extends Tout> forward, @Nullable Function<? super Tout, ? extends Tin> backward, Grid<Tin> grid){
+	public static <Tin, Tout> Grid<Tout> mapGrid(Function<? super Tin, ? extends Tout> forward, @Nil Function<? super Tout, ? extends Tin> backward, Grid<Tin> grid){
 		return new Grid<>() {
 			@SuppressWarnings("null")
 			@Override
@@ -497,7 +497,7 @@ public class Collects {
 	}
 }
 class IntMapCollector<T, M extends Object2IntMap<T>> implements Collector<Object2IntMap.Entry<T>, Object2IntMap<T>, M>{
-	@Nonnull private final Supplier<M> mapsup;
+	@NN private final Supplier<M> mapsup;
 
 	public IntMapCollector(Supplier<M> mapsup) {
 		this.mapsup = mapsup;
@@ -540,12 +540,12 @@ class EmptyMultiSet implements Multiset<Object>{
 	}
 
 	@Override
-	public Object @Nonnull [] toArray() {
+	public Object @NN [] toArray() {
 		return new Object[0];
 	}
 
 	@Override
-	public <T> T @Nonnull [] toArray(T[] a) {
+	public <T> T @NN [] toArray(T[] a) {
 		return a;
 	}
 
@@ -575,7 +575,7 @@ class EmptyMultiSet implements Multiset<Object>{
 	}
 
 	@Override
-	public boolean add(@Nullable Object element) {
+	public boolean add(@Nil Object element) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -585,7 +585,7 @@ class EmptyMultiSet implements Multiset<Object>{
 	}
 
 	@Override
-	public boolean remove(@Nullable Object element) {
+	public boolean remove(@Nil Object element) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -615,7 +615,7 @@ class EmptyMultiSet implements Multiset<Object>{
 	}
 
 	@Override
-	public boolean contains(@Nullable Object element) {
+	public boolean contains(@Nil Object element) {
 		return false;
 	}
 

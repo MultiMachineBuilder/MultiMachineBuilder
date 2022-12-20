@@ -7,10 +7,10 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.util.function.Consumer;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JComponent;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.modular.gui.SafeCloseable;
 import mmbbase.data.reactive.ListenableProperty;
 
@@ -43,13 +43,13 @@ public class Placeholder extends JComponent implements SafeCloseable {
 	}
 	
 	//The underlying component
-	@Nullable private transient ListenableProperty<? extends Component> property;
-	@Nullable Component oldComponent;
+	@Nil private transient ListenableProperty<? extends Component> property;
+	@Nil Component oldComponent;
 	/** 
 	 * Sets up the component after closing 
 	 * @param newp  new property
 	 */
-	public void setProperty(@Nullable ListenableProperty<? extends Component> newp) {
+	public void setProperty(@Nil ListenableProperty<? extends Component> newp) {
 		ListenableProperty<? extends Component> old = property;
 		if(old != null) old.unlistenadd(listener);
 		
@@ -63,13 +63,13 @@ public class Placeholder extends JComponent implements SafeCloseable {
 		
 	}
 	/** @return current underlying property */
-	public @Nullable ListenableProperty<? extends Component> getProperty(){
+	public @Nil ListenableProperty<? extends Component> getProperty(){
 		return property;
 	}
 	
 	//Listener
-	@Nonnull private final transient Consumer<Component> listener = this::listener;
-	private void listener(@Nullable Component newComponent) {
+	@NN private final transient Consumer<Component> listener = this::listener;
+	private void listener(@Nil Component newComponent) {
 		if(oldComponent != null) remove(oldComponent);
 		setLayout(new BorderLayout());
 		if(newComponent != null) add(newComponent, BorderLayout.CENTER);

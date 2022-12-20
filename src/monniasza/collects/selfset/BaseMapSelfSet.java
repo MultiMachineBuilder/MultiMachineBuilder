@@ -10,9 +10,8 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Function;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import mmb.NN;
+import mmb.Nil;
 import monniasza.collects.Identifiable;
 
 /**
@@ -23,10 +22,10 @@ import monniasza.collects.Identifiable;
  * @param <M> the type of map
  */
 public class BaseMapSelfSet<K, V, M extends Map<K, V>> implements SelfSet<K, V>{
-	@Nonnull private final M map;
+	@NN private final M map;
 	public final boolean nullable;
-	@Nullable public final Class<V> type;
-	@Nonnull private final Function<V, K> fn;
+	@Nil public final Class<V> type;
+	@NN private final Function<V, K> fn;
 
 	/**
 	 * A complex self-set constructor. Usually not used by the user
@@ -53,17 +52,17 @@ public class BaseMapSelfSet<K, V, M extends Map<K, V>> implements SelfSet<K, V>{
 	}
 
 	@Override
-	public @Nonnull Iterator<V> iterator() {
+	public @NN Iterator<V> iterator() {
 		return map.values().iterator();
 	}
 
 	@Override
-	public Object @Nonnull [] toArray() {
+	public Object @NN [] toArray() {
 		return map.values().toArray();
 	}
 
 	@Override
-	public <T> T @Nonnull [] toArray(T[] a) {
+	public <T> T @NN [] toArray(T[] a) {
 		return map.values().toArray(a);
 	}
 
@@ -127,12 +126,12 @@ public class BaseMapSelfSet<K, V, M extends Map<K, V>> implements SelfSet<K, V>{
 	}
 
 	@Override
-	public V get(@Nullable Object key) {
+	public V get(@Nil Object key) {
 		return map.get(key);
 	}
 
 	@Override
-	public V getOrDefault(@Nullable Object key, V defalt) {
+	public V getOrDefault(@Nil Object key, V defalt) {
 		return map.getOrDefault(key, defalt);
 	}
 
@@ -142,12 +141,12 @@ public class BaseMapSelfSet<K, V, M extends Map<K, V>> implements SelfSet<K, V>{
 	}
 
 	@Override
-	public boolean containsKey(@Nullable Object key) {
+	public boolean containsKey(@Nil Object key) {
 		return map.containsKey(key);
 	}
 
 	@Override
-	public boolean test(@Nullable Object o) {
+	public boolean test(@Nil Object o) {
 		if(o == null) return nullable;
 		Class<V> cls = type;
 		if(cls == null) return true;

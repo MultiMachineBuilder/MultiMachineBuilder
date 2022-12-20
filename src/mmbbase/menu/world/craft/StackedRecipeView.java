@@ -6,7 +6,6 @@ package mmbbase.menu.world.craft;
 import java.util.Vector;
 import java.util.stream.Collectors;
 
-import javax.annotation.Nonnull;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -14,6 +13,7 @@ import javax.swing.JList;
 import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
+import mmb.NN;
 import mmb.engine.UnitFormatter;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.rgroups.StackedRecipeGroup.StackedRecipe;
@@ -80,7 +80,7 @@ public class StackedRecipeView extends RecipeView<StackedRecipe> {
 	}
 	
 	
-	@Nonnull public static Vector<ItemStack> list2vector(RecipeOutput output){
+	@NN public static Vector<ItemStack> list2vector(RecipeOutput output){
 		return output
 				.getContents()
 				.object2IntEntrySet()
@@ -88,7 +88,7 @@ public class StackedRecipeView extends RecipeView<StackedRecipe> {
 				.map(ent -> new ItemStack(ent.getKey(), ent.getIntValue()))
 				.collect(Collectors.toCollection(Vector::new));
 	}
-	@Nonnull public static ItemStack[] list2arr(RecipeOutput output){
+	@NN public static ItemStack[] list2arr(RecipeOutput output){
 		return output
 				.getContents()
 				.object2IntEntrySet()

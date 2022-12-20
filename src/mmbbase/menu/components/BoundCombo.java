@@ -5,10 +5,10 @@ package mmbbase.menu.components;
 
 import java.util.function.Consumer;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JComboBox;
 
+import mmb.NN;
+import mmb.Nil;
 import mmbbase.data.variables.ListenableValue;
 
 /**
@@ -18,9 +18,9 @@ import mmbbase.data.variables.ListenableValue;
 public class BoundCombo<E> extends JComboBox<E> {
 	private static final long serialVersionUID = -3081047509881544718L;
 	private transient ListenableValue<E> bvar;
-	@Nonnull private transient Consumer<E> update = this::setSelectedItem;
+	@NN private transient Consumer<E> update = this::setSelectedItem;
 	private boolean valueChangeUnderway = false;
-	public void setVariable(@Nullable ListenableValue<E> var) {
+	public void setVariable(@Nil ListenableValue<E> var) {
 		if(var != null) setSelectedItem(var.get());
 		if(bvar != null) bvar.unlistenadd(update);
 		bvar = var;

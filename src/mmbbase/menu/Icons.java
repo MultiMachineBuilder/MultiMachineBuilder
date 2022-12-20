@@ -3,10 +3,10 @@
  */
 package mmbbase.menu;
 
-import javax.annotation.Nonnull;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import mmb.NN;
 import mmb.engine.texture.Textures;
 
 /**
@@ -16,18 +16,18 @@ import mmb.engine.texture.Textures;
 public class Icons {
 	private Icons() {}
 	
-	@Nonnull public static final String refresh = "🗘";
-	@Nonnull public static final String drop = "🠋";
-	@Nonnull public static final String pick = "🠉";
-	@Nonnull public static final Icon insertitems = new ImageIcon(Textures.get("UIs/dropoff.png"));
-	@Nonnull public static final String unsel = "―";
+	@NN public static final String refresh = "🗘";
+	@NN public static final String drop = "🠋";
+	@NN public static final String pick = "🠉";
+	@NN public static final Icon insertitems = new ImageIcon(Textures.get("UIs/dropoff.png"));
+	@NN public static final String unsel = "―";
 	
-	@Nonnull public static final String grid = "⋮⋮⋮";
-	@Nonnull public static final String list = "☰";
+	@NN public static final String grid = "⋮⋮⋮";
+	@NN public static final String list = "☰";
 	
-	@Nonnull public static final String encode = "⟵";
-	@Nonnull public static final String decode = "⟶";
-	@Nonnull public static final String erase = "🞪";
-	@Nonnull public static final String craft = "<<<";
-	@Nonnull public static final String activate = "!!!";
+	@NN public static final String encode = "⟵";
+	@NN public static final String decode = "⟶";
+	@NN public static final String erase = "🞪";
+	@NN public static final String craft = "<<<";
+	@NN public static final String activate = "!!!";
 }

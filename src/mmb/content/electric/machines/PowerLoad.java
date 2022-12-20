@@ -6,7 +6,6 @@ package mmb.content.electric.machines;
 import java.awt.Color;
 import java.awt.Dimension;
 
-import javax.annotation.Nullable;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -14,6 +13,7 @@ import javax.swing.JTextField;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.VoltageTier;
@@ -78,7 +78,7 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 	}
 
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		setPower(data.get("power").asDouble());
 	}
@@ -150,7 +150,7 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		window.openAndShowWindow(new Dialog(window), "Power load");
 	}

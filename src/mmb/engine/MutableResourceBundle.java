@@ -9,11 +9,10 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.google.common.collect.Iterators;
 
+import mmb.NN;
+import mmb.Nil;
 import monniasza.collects.Collects;
 
 /**
@@ -45,7 +44,7 @@ public class MutableResourceBundle extends ResourceBundle {
 	}
 	
 	@Override
-	protected Object handleGetObject(@Nullable String key) {
+	protected Object handleGetObject(@Nil String key) {
 		return map.get(key);
 	}
 
@@ -55,7 +54,7 @@ public class MutableResourceBundle extends ResourceBundle {
 	}
 
 	@Override
-	public boolean containsKey(@Nullable String key) {
+	public boolean containsKey(@Nil String key) {
 		return map.containsKey(key);
 	}
 
@@ -64,7 +63,7 @@ public class MutableResourceBundle extends ResourceBundle {
 		return map.keySet();
 	}
 	@Override
-	public @Nonnull Set<String> keySet() {
+	public @NN Set<String> keySet() {
 		return map.keySet();
 	}	
 }

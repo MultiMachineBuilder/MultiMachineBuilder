@@ -14,8 +14,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.swing.Timer;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JComponent;
 
 import org.joml.Vector2d;
@@ -25,6 +23,8 @@ import com.github.davidmoten.rtree2.geometry.Geometry;
 import com.pploder.events.Event;
 
 import it.unimi.dsi.fastutil.doubles.DoubleList;
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ppipe.Direction;
 import mmb.content.ppipe.PipeTunnelEntry;
 import mmb.engine.CatchingEvent;
@@ -57,14 +57,14 @@ public class WorldFrame extends JComponent {
 	private static final long serialVersionUID = 7346245653768692732L;
 	
 	//Debugging
-	@Nonnull private transient Debugger debug = new Debugger("WORLD - anonymous");
-	@Nonnull private static Debugger sdebug = new Debugger("WORLDS");
+	@NN private transient Debugger debug = new Debugger("WORLD - anonymous");
+	@NN private static Debugger sdebug = new Debugger("WORLDS");
 	/** The global boolean variable controlling debug display */
-	@Nonnull public static final ListenerBooleanVariable DEBUG_DISPLAY = new ListenerBooleanVariable();
+	@NN public static final ListenerBooleanVariable DEBUG_DISPLAY = new ListenerBooleanVariable();
 	
 	//Frames Per Second
 	/** This variable holds current framerate */
-	@Nonnull public final FPSCounter fps = new FPSCounter();
+	@NN public final FPSCounter fps = new FPSCounter();
 	
 	/** Create a new WorldFrame 
 	 * @param window the window, which contains the frame
@@ -119,9 +119,9 @@ public class WorldFrame extends JComponent {
 
 	//Events
 	/** Runs when title changes */
-	@Nonnull public final transient Event<String> titleChange = new CatchingEvent<>(debug, "Failed to run a title listener");
+	@NN public final transient Event<String> titleChange = new CatchingEvent<>(debug, "Failed to run a title listener");
 	/** Runs on each frame */
-	@Nonnull public final transient Event<Graphics> redraw = new CatchingEvent<>(debug, "Failed to run a renderer");
+	@NN public final transient Event<Graphics> redraw = new CatchingEvent<>(debug, "Failed to run a renderer");
 	
 	//Universe
 	private transient Universe world;
@@ -133,7 +133,7 @@ public class WorldFrame extends JComponent {
 	 * Enter given universe
 	 * @param w new universe
 	 */
-	public void enterWorld(@Nullable Universe w) {
+	public void enterWorld(@Nil Universe w) {
 		setNoMap();
 		world = w;
 		if(w == null) {
@@ -166,7 +166,7 @@ public class WorldFrame extends JComponent {
 	 * Change the world map
 	 * @param newMap new world map
 	 */
-	public void setMap(@Nullable World newMap) {
+	public void setMap(@Nil World newMap) {
 		setNoMap();
 		map = newMap;
 		if(map == null) {
@@ -215,27 +215,27 @@ public class WorldFrame extends JComponent {
 	//Mouse and key listener
 	boolean u, d, l, r;
 	private class Listener implements MouseListener, KeyListener, MouseMotionListener, MouseWheelListener{
-		@Override public void mouseWheelMoved(@Nullable MouseWheelEvent e) {
+		@Override public void mouseWheelMoved(@Nil MouseWheelEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			window.scrollScrollist(e.getWheelRotation()*32);
 			WindowTool tool = window.toolModel.getTool();
 			setZoom(zoomsel - e.getWheelRotation());
 			if(tool != null) tool.mouseWheelMoved(e);
 		}
-		@Override public void mouseDragged(@Nullable MouseEvent e) {
+		@Override public void mouseDragged(@Nil MouseEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			setMousePosition(e);
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseDragged(e);
 		}
-		@Override public void mouseMoved(@Nullable MouseEvent e) {
+		@Override public void mouseMoved(@Nil MouseEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			setMousePosition(e);
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseMoved(e);
 		}
 	
-		@Override public void keyPressed(@Nullable KeyEvent e) {
+		@Override public void keyPressed(@Nil KeyEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			switch(e.getKeyCode()) {
 			case KeyEvent.VK_A:
@@ -282,7 +282,7 @@ public class WorldFrame extends JComponent {
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.keyPressed(e);
 		}
-		@Override public void keyReleased(@Nullable KeyEvent e) {
+		@Override public void keyReleased(@Nil KeyEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			switch(e.getKeyCode()) {
 			case KeyEvent.VK_ALT:
@@ -313,35 +313,35 @@ public class WorldFrame extends JComponent {
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.keyReleased(e);
 		}
-		@Override public void keyTyped(@Nullable KeyEvent e) {
+		@Override public void keyTyped(@Nil KeyEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.keyTyped(e);
 		}
 	
-		@Override public void mouseClicked(@Nullable MouseEvent e) {
+		@Override public void mouseClicked(@Nil MouseEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseClicked(e);
 		}
-		@Override public void mouseEntered(@Nullable MouseEvent e) {
+		@Override public void mouseEntered(@Nil MouseEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			setMousePosition(e);
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseEntered(e);
 		}
-		@Override public void mouseExited(@Nullable MouseEvent e) {
+		@Override public void mouseExited(@Nil MouseEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseExited(e);
 		}
-		@Override public void mousePressed(@Nullable MouseEvent e) {
+		@Override public void mousePressed(@Nil MouseEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			setMousePosition(e);
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mousePressed(e);
 		}
-		@Override public void mouseReleased(@Nullable MouseEvent e) {
+		@Override public void mouseReleased(@Nil MouseEvent e) {
 			Objects.requireNonNull(e, "event is null");
 			WindowTool tool = window.toolModel.getTool();
 			if(tool != null) tool.mouseReleased(e);
@@ -349,10 +349,10 @@ public class WorldFrame extends JComponent {
 	}
 	
 	//Graphics
-	@Nonnull public final transient Event<StringBuilder> informators =
+	@NN public final transient Event<StringBuilder> informators =
 			new CatchingEvent<>(debug, "Failed to process render task");
 	@Override
-	public void paint(@Nullable Graphics g) {
+	public void paint(@Nil Graphics g) {
 		resetMouseoverBlock();
 		redraw.trigger(g);
 		if(g == null) return;
@@ -459,7 +459,7 @@ public class WorldFrame extends JComponent {
 			int y = (int)((mc.posY()+pos.y)*blockScale);
 			int w = mc.sizeX();
 			int h = mc.sizeY();
-			@Nonnull Graphics g2 = g.create(x, y, (int)Math.ceil(w*blockScale), (int)Math.ceil(h*blockScale));
+			@NN Graphics g2 = g.create(x, y, (int)Math.ceil(w*blockScale), (int)Math.ceil(h*blockScale));
 			mc.render(g2);
 		}
 		
@@ -549,12 +549,12 @@ public class WorldFrame extends JComponent {
 			StringRenderer.renderStringBounded(Color.BLACK, Color.CYAN, Color.BLACK, sb.toString(), 0, 0, 5, 5, g);
 		}
 	}
-	private static void printPipeTunnel(StringBuilder sb, @Nullable PipeTunnelEntry ent) {
+	private static void printPipeTunnel(StringBuilder sb, @Nil PipeTunnelEntry ent) {
 		if(ent == null) sb.append('X');
 		else if(ent.dir == Direction.BWD) sb.append('B');
 		else sb.append('F');
 	}
-	private void renderTile(int x, int y, Graphics g, @Nullable BlockEntry blockEntry) {
+	private void renderTile(int x, int y, Graphics g, @Nil BlockEntry blockEntry) {
 		if(blockEntry == null) return;
 		try {
 			blockEntry.render(x, y, g, (int) Math.ceil(blockScale));
@@ -571,7 +571,7 @@ public class WorldFrame extends JComponent {
 	public final Vector2d perspective = new Vector2d();
 	
 	//Activity
-	@Nonnull private transient Timer timer = new Timer(20, e -> {
+	@NN private transient Timer timer = new Timer(20, e -> {
 		repaint();
 		requestFocusInWindow();
 	});
@@ -610,10 +610,10 @@ public class WorldFrame extends JComponent {
 	
 	//Window reference
 	/** The reference to the world window */
-	@Nonnull public final WorldWindow window;
+	@NN public final WorldWindow window;
 	
 	//Mouse position
-	@Nonnull private Point mousePosition = new Point();
+	@NN private Point mousePosition = new Point();
 	private void setMousePosition(MouseEvent e) {
 		mousePosition.setLocation(e.getX(), e.getY());
 	}
@@ -636,9 +636,9 @@ public class WorldFrame extends JComponent {
 	}
 
 	//Mouseover block
-	@Nonnull private final Point mouseover = new Point();
+	@NN private final Point mouseover = new Point();
 	/** @return block position over which mouse is over*/
-	@Nonnull public Point getMouseoverBlock() {
+	@NN public Point getMouseoverBlock() {
 		return new Point(mouseover);
 	}
 	/** @return the block which is currently selected with the mouse */
@@ -667,7 +667,7 @@ public class WorldFrame extends JComponent {
 	 * @param y on-frame Y coordinate
 	 * @return the new point with block coordinates
 	 */
-	@Nonnull public Point blockAt(int x, int y) {
+	@NN public Point blockAt(int x, int y) {
 		return blockAt(x, y, new Point());
 	}
 	/**
@@ -676,7 +676,7 @@ public class WorldFrame extends JComponent {
 	 * @param tgt where to write data?
 	 * @return target point with written position
 	 */
-	@Nonnull public Point blockAt(int x, int y, Point tgt) {
+	@NN public Point blockAt(int x, int y, Point tgt) {
 		tgt.x = (int)Math.floor((x / blockScale)-pos.x);
 		tgt.y = (int)Math.floor((y / blockScale)-pos.y);
 		return tgt;
@@ -685,7 +685,7 @@ public class WorldFrame extends JComponent {
 	 * @param p on-frame position
 	 * @return the new point with block coordinates
 	 */
-	@Nonnull public Point blockAt(Point p) {
+	@NN public Point blockAt(Point p) {
 		return blockAt(p.x, p.y);
 	}
 	/**
@@ -693,7 +693,7 @@ public class WorldFrame extends JComponent {
 	 * @param tgt where to write data?
 	 * @return target point with written position
 	 */
-	@Nonnull public Point blockAt(Point p, Point tgt) {
+	@NN public Point blockAt(Point p, Point tgt) {
 		return blockAt(p.x, p.y, tgt);
 	}
 	
@@ -703,7 +703,7 @@ public class WorldFrame extends JComponent {
 	 * @param tgt where to write data?
 	 * @return target point with written position
 	 */
-	@Nonnull public Vector2d worldAt(double x, double y, Vector2d tgt) {
+	@NN public Vector2d worldAt(double x, double y, Vector2d tgt) {
 		tgt.x = (x / blockScale)-pos.x;
 		tgt.y = (y / blockScale)-pos.y;
 		return tgt;
@@ -714,21 +714,21 @@ public class WorldFrame extends JComponent {
 	 * @param y Y coordinate of the screen
 	 * @return point with on-screen block position of UL corner
 	 */
-	@Nonnull public Point blockPositionOnScreen(int x, int y) {
+	@NN public Point blockPositionOnScreen(int x, int y) {
 		int X = (int) ((x+pos.x)*blockScale);
 		int Y = (int) ((y+pos.y)*blockScale);
 		return new Point(X, Y);
 		
 	}
 	
-	@Nonnull public Point blockPositionOnScreen(int x, int y, Point tgt) {
+	@NN public Point blockPositionOnScreen(int x, int y, Point tgt) {
 		tgt.x = (int) ((x+pos.x)*blockScale);
 		tgt.y = (int) ((y+pos.y)*blockScale);
 		return tgt;
 		
 	}
 	
-	@Nonnull public Point worldPositionOnScreen(double x, double y) {
+	@NN public Point worldPositionOnScreen(double x, double y) {
 		int X = (int) ((x+pos.x)*blockScale);
 		int Y = (int) ((y+pos.y)*blockScale);
 		return new Point(X, Y);
@@ -799,7 +799,7 @@ public class WorldFrame extends JComponent {
 	/**
 	 * Zoom levels selectable with scroll wheel
 	 */
-	@Nonnull public static final DoubleList zoomlevels =
+	@NN public static final DoubleList zoomlevels =
 		DoubleList.of(   0.012, 0.016,  0.024,  0.032,  0.048,  0.064,  0.080, 0.096,
 				         0.120, 0.160,  0.240,  0.320,  0.480,  0.640,  0.800, 0.96,
 				         1.200, 1.600,  2.400,  3.200,  4.800,  6.400,  8.000, 9.6,
@@ -809,7 +809,7 @@ public class WorldFrame extends JComponent {
 	private int zoomsel = 27;
 	
 	//Player icon
-	@Nonnull private static final BufferedImage playerface0 = Textures.get("player/pchar.png");
-	@Nonnull private static final BufferedImage playerface1 = Textures.get("player/pchar1.png");
-	@Nonnull private static final BufferedImage playerface2 = Textures.get("player/pchar2.png");
+	@NN private static final BufferedImage playerface0 = Textures.get("player/pchar.png");
+	@NN private static final BufferedImage playerface1 = Textures.get("player/pchar1.png");
+	@NN private static final BufferedImage playerface2 = Textures.get("player/pchar2.png");
 }

@@ -6,11 +6,10 @@ package mmb.engine.chance;
 import java.util.Collections;
 import java.util.Set;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import org.ainslec.picocog.PicoWriter;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.worlds.world.World;
@@ -29,7 +28,7 @@ public interface Chance {
 	 * @return Were items dropped?
 	 * @throws IllegalArgumentException when both world and inventory are absent
 	 */
-	public boolean drop(@Nullable InventoryWriter inv, World map, int x, int y);
+	public boolean drop(@Nil InventoryWriter inv, World map, int x, int y);
 	
 	/**
 	 * Produces {@code amount} units of this chance
@@ -65,7 +64,7 @@ public interface Chance {
 	 * @param y Y coordinate
 	 * @return were items dropped
 	 */
-	public static boolean tryDrop(ItemEntry ent, @Nullable InventoryWriter i, @Nullable World map, int x, int y) {
+	public static boolean tryDrop(ItemEntry ent, @Nil InventoryWriter i, @Nil World map, int x, int y) {
 		int inserted = 0;
 		if(i != null) inserted = i.insert(ent);
 		if(inserted == 0 && map != null) map.dropItem(ent, x, y);
@@ -75,10 +74,10 @@ public interface Chance {
 	/**
 	 * A chance that drops nothing
 	 */
-	@Nonnull public static final Chance NONE = new Chance() {
+	@NN public static final Chance NONE = new Chance() {
 
 		@Override
-		public boolean drop(@Nullable InventoryWriter inv, World map, int x, int y) {
+		public boolean drop(@Nil InventoryWriter inv, World map, int x, int y) {
 			return true;
 		}
 
@@ -106,5 +105,5 @@ public interface Chance {
 	/**
 	 * @return unique items in this random chance
 	 */
-	@Nonnull public Set<ItemEntry> items();
+	@NN public Set<ItemEntry> items();
 }

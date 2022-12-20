@@ -3,11 +3,10 @@
  */
 package mmb.content.electric.machines;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.aim.Aimable;
 import mmb.content.electric.Electric;
 import mmb.content.electric.Electricity;
@@ -28,9 +27,9 @@ import mmbbase.menu.world.window.WorldWindow;
  */
 public class BlockPowerTower extends BlockEntityRotary implements Electric, BlockActivateListener, Aimable{
 	/** The block type*/
-	@Nonnull public final ElectroMachineType type;
+	@NN public final ElectroMachineType type;
 	/** The electrical connection*/
-	@Nonnull public final Electricity elec;
+	@NN public final Electricity elec;
 	
 	/**
 	 * Creates a power tower
@@ -60,7 +59,7 @@ public class BlockPowerTower extends BlockEntityRotary implements Electric, Bloc
 		return null;
 	}
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		
 	}

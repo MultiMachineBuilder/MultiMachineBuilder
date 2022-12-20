@@ -13,6 +13,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import mmb.Main;
+import mmb.NN;
 import mmb.content.Chemistry;
 import mmb.content.ContentsBlocks;
 import mmb.content.ContentsItems;
@@ -219,7 +220,7 @@ public final class GameLoader {
 		Main.state1("Mods - Instantiation 0a");
 		for(Class<? extends AddonCentral> modcls: classes) {
 			try {
-				AddonCentral mod = modcls.getConstructor().newInstance();
+				@NN AddonCentral mod = modcls.getConstructor().newInstance();
 				ModInfo info = new ModInfo(mod);
 				Mods.mods.add(info);
 			} catch (Exception e) {

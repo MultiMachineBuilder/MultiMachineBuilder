@@ -7,8 +7,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.chance.Chance;
 import mmb.engine.texture.BlockDrawer;
 import mmb.engine.worlds.world.World;
@@ -109,16 +108,16 @@ public class BlockEntityType extends BlockBase{
 		return map.place(this, x, y);
 	}
 	@Override
-	public @Nonnull BlockEntry createBlock() {
+	public @NN BlockEntry createBlock() {
 		return factory.get();
 	}
 
 	//Factory
-	private Supplier<@Nonnull BlockEntry> factory;
+	private Supplier<@NN BlockEntry> factory;
 	/**
 	 * @param factory the factory to set
 	 */
-	public void setFactory(Supplier<@Nonnull BlockEntry> factory) {
+	public void setFactory(Supplier<@NN BlockEntry> factory) {
 		this.factory = factory;
 	}
 	
@@ -241,7 +240,7 @@ public class BlockEntityType extends BlockBase{
 	 * @return this
 	 */
 	@Override
-	@Nonnull public BlockEntityType volumed(double volume) {
+	@NN public BlockEntityType volumed(double volume) {
 		setVolume(volume);
 		return this;
 	}

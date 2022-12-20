@@ -5,8 +5,6 @@ package mmb.content.electric;
 
 import net.miginfocom.swing.MigLayout;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JButton;
 
 import static mmb.engine.settings.GlobalSettings.*;
@@ -18,6 +16,8 @@ import javax.swing.JProgressBar;
 import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.machines.ProcessorAbstractBlock;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.Refreshable;
@@ -35,17 +35,17 @@ import mmbbase.menu.world.window.WorldWindow;
  */
 public class GUIMachine extends GUITab implements Refreshable{
 	private static final long serialVersionUID = 3998363632338624337L;
-	@Nonnull private final ProcessorAbstractBlock furnace;
-	@Nonnull private InventoryController invOutput;
-	@Nonnull private InventoryController invInput;
-	@Nonnull private MultilineLabel lblSmelt;
-	@Nonnull private JProgressBar progressSmelt;
-	@Nonnull private JProgressBar progressEnergy;
+	@NN private final ProcessorAbstractBlock furnace;
+	@NN private InventoryController invOutput;
+	@NN private InventoryController invInput;
+	@NN private MultilineLabel lblSmelt;
+	@NN private JProgressBar progressSmelt;
+	@NN private JProgressBar progressEnergy;
 	private MultilineLabel lblChance;
 	
-	@Nonnull private static final String SMELT = ($res("wguim-smelt"));
-	@Nonnull private static final String NOSMELT = ($res("wguim-nosmelt"));
-	@Nonnull private static final String CHANCE = ($res("wguim-chance"));
+	@NN private static final String SMELT = ($res("wguim-smelt"));
+	@NN private static final String NOSMELT = ($res("wguim-nosmelt"));
+	@NN private static final String CHANCE = ($res("wguim-chance"));
 	/**
 	 * Creates a processing machine panel.
 	 * @param machine machine block
@@ -141,7 +141,7 @@ public class GUIMachine extends GUITab implements Refreshable{
 	}
 
 	@Override
-	public void refreshProgress(double progress, @Nullable Recipe<?> underway) {
+	public void refreshProgress(double progress, @Nil Recipe<?> underway) {
 		if(underway == null) {
 			lblSmelt.setText(NOSMELT);
 		}else {

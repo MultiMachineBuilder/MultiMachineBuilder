@@ -8,9 +8,9 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.Map;
 import java.util.Map.Entry;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.debug.Debugger;
 import mmb.engine.texture.Textures.Texture;
 
@@ -30,7 +30,7 @@ public class TextureAtlas{
 		atlas = new TextureAtlasNode();
 		atlas.rect.setBounds(0, 0, 256, 256);
 	}
-	@Nonnull public Texture insert(BufferedImage img, String id) {
+	@NN public Texture insert(BufferedImage img, String id) {
 		while(true) {
 			TextureAtlasNode result = atlas.insert(img, id);
 			if(result == null) {
@@ -101,8 +101,8 @@ public class TextureAtlas{
 				img, id); //insertion successfull
 		}
 	}
-	public void insert(Map<@Nonnull String, @Nonnull BufferedImage> textures) {
-		for(Entry<@Nonnull String, @Nonnull BufferedImage> entry: textures.entrySet()) {
+	public void insert(Map<@NN String, @NN BufferedImage> textures) {
+		for(Entry<@NN String, @NN BufferedImage> entry: textures.entrySet()) {
 			BufferedImage img = entry.getValue();
 			String id = entry.getKey();
 			insert(img, id);
@@ -114,10 +114,10 @@ public class TextureAtlas{
 	 * @author oskar
 	 */
 	public static class TextureAtlasNode {
-		@Nullable public TextureAtlasNode a;
-		@Nullable public TextureAtlasNode b;
+		@Nil public TextureAtlasNode a;
+		@Nil public TextureAtlasNode b;
 		public final Rectangle rect = new Rectangle();
-		public @Nullable String textureID;
+		public @Nil String textureID;
 		public TextureAtlasNode insert(BufferedImage img, String id) {
 			TextureAtlasNode aa = a;
 			TextureAtlasNode bb = b;

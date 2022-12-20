@@ -3,10 +3,9 @@
  */
 package mmb.content.machinemics;
 
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityRotary;
 import mmb.engine.block.BlockEntry;
@@ -35,7 +34,7 @@ public class CycleAssembler extends BlockEntityRotary implements BlockActivateLi
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 	}
 

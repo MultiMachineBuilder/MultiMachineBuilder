@@ -3,12 +3,11 @@
  */
 package mmb.engine.texture;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.gl.RenderCtx;
 import mmb.engine.rotate.ChiralRotation;
@@ -19,8 +18,8 @@ import mmb.engine.texture.Textures.Texture;
  *
  */
 public class BlockDrawerGLSimple {
-	@Nonnull public final Texture tex;
-	@Nonnull public final ChiralRotation rot;
+	@NN public final Texture tex;
+	@NN public final ChiralRotation rot;
 	/**
 	 * This texture's color. Components may be greater than 1
 	 */
@@ -70,7 +69,7 @@ public class BlockDrawerGLSimple {
 	 * @param w width in meters
 	 * @param h height in meters
 	 */
-	public void drawGL(@Nullable BlockEntry ent, float x, float y, RenderCtx gr, float w, float h) {
+	public void drawGL(@Nil BlockEntry ent, float x, float y, RenderCtx gr, float w, float h) {
 		rot.renderGL(tex, x, y, w, h, r, g, b, a, gr);
 	}
 	/**
@@ -86,7 +85,7 @@ public class BlockDrawerGLSimple {
 	 * @param b blue color
 	 * @param a alpha color
 	 */
-	public void drawGL(@Nullable BlockEntry ent, float x, float y, RenderCtx gr, float w, float h, float r, float g, float b, float a) {
+	public void drawGL(@Nil BlockEntry ent, float x, float y, RenderCtx gr, float w, float h, float r, float g, float b, float a) {
 		rot.renderGL(tex, x, y, w, h, r, g, b, a, gr);
 	}
 	public Vector4f color(Vector4f vec) {

@@ -3,9 +3,8 @@
  */
 package mmb.engine.block;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.worlds.world.World;
 import mmbbase.beans.Positioned;
 
@@ -19,7 +18,7 @@ public interface SensitiveBlock extends BlockEntry, Positioned {
 	 * @throws IllegalArgumentException when there is no onwer
 	 * @return the current owner
 	 */
-	@Nonnull public default World owner() {
+	@NN public default World owner() {
 		World owner = nowner();
 		if(owner == null) throw new IllegalStateException("Not placed in map");
 		return owner;
@@ -28,5 +27,5 @@ public interface SensitiveBlock extends BlockEntry, Positioned {
 	 * Gets the current holder of the block
 	 * @return the current owner or null
 	 */
-	@Nullable public World nowner();
+	@Nil public World nowner();
 }

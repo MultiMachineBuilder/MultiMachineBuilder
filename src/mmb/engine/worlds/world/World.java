@@ -21,9 +21,6 @@ import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -34,6 +31,8 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import io.vavr.Tuple2;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.GameEvents;
 import mmb.engine.Vector2iconst;
 import mmb.engine.block.BlockEntity;
@@ -77,9 +76,9 @@ import monniasza.collects.grid.Grid;
  */
 public class World implements Identifiable<String>, Indexable{
 	//Allocator & data layers
-	@Nonnull private static SimpleAllocator<World> allocator0 = new SimpleAllocator<>();
+	@NN private static SimpleAllocator<World> allocator0 = new SimpleAllocator<>();
 	/** Allocator for world */
-	@Nonnull public static final Allocator<World> allocator = allocator0.readonly();
+	@NN public static final Allocator<World> allocator = allocator0.readonly();
 	private int ordinal; //ordinal, set to -1 to prevent abuse after universe dies
 	@Override
 	public int ordinal() {
@@ -104,7 +103,7 @@ public class World implements Identifiable<String>, Indexable{
 	/**
 	 * @param name new name
 	 */
-	public void setName(@Nullable String name) {
+	public void setName(@Nil String name) {
 		this.name = name;
 		if(name == null) {
 			debug.printl("Became anonymous");
@@ -439,7 +438,7 @@ public class World implements Identifiable<String>, Indexable{
 	/**
 	 * The player object for this world
 	 */
-	@Nonnull public final Player player = new Player(this);
+	@NN public final Player player = new Player(this);
 	
 	//Map proxy
 	/**
@@ -459,7 +458,7 @@ public class World implements Identifiable<String>, Indexable{
 	
 	//Block array
 	private final Object blockLock = new Object();
-	Grid<@Nonnull BlockEntry> entries;
+	Grid<@NN BlockEntry> entries;
 	/**
 	 * Gets block at given location
 	 * @param x X coordinate
@@ -467,7 +466,7 @@ public class World implements Identifiable<String>, Indexable{
 	 * @return a block at given location, or null if absent
 	 * @throws IndexOutOfBoundsException if the coordinates are out of bounds
 	 */
-	@Nonnull public BlockEntry get(int x, int y) {
+	@NN public BlockEntry get(int x, int y) {
 		if(!inBounds(x, y)) return Blocks.blockVoid;
 		return entries.get(x-startX, y-startY);
 	}
@@ -710,7 +709,7 @@ public class World implements Identifiable<String>, Indexable{
 	 * @param y Y coordinate
 	 * @return machine, or null if not found
 	 */
-	@Nullable
+	@Nil
 	public Machine getMachine(int x, int y) {
 		return getMachine(new Point(x, y));
 	}
@@ -719,7 +718,7 @@ public class World implements Identifiable<String>, Indexable{
 	 * @param p point to check
 	 * @return machine at given point, or null if none
 	 */
-	@Nullable
+	@Nil
 	public Machine getMachine(Point p) {
 		return machinesPoints.get(p);
 	}
@@ -814,7 +813,7 @@ public class World implements Identifiable<String>, Indexable{
 	 * @param y Y coordinate of item drop(s)
 	 * @return the inventory writer
 	 */
-	@Nonnull public InventoryWriter createDropper(int x, int y) {
+	@NN public InventoryWriter createDropper(int x, int y) {
 		return new Dropper(x, y, this);
 	}
 	/**
@@ -841,7 +840,7 @@ public class World implements Identifiable<String>, Indexable{
 	 * @return a block at given location, or null if absent
 	 * @throws IndexOutOfBoundsException if the coordinates are out of bounds
 	 */
-	@Nonnull public BlockEntry get(Point p) {
+	@NN public BlockEntry get(Point p) {
 		return get(p.x, p.y);
 	}
 		
@@ -850,15 +849,15 @@ public class World implements Identifiable<String>, Indexable{
 	 * Any changes in the grid are represented in the block map and vice versa.
 	 * @return the {@link Grid} representation of this block map
 	 */
-	@Nonnull public Grid<@Nonnull BlockEntry> toGrid() {
-		return new Grid<@Nonnull BlockEntry>() {
+	@NN public Grid<@NN BlockEntry> toGrid() {
+		return new Grid<@NN BlockEntry>() {
 			@Override
 			public void set(int x, int y, BlockEntry data) {
 				World.this.set(data, x+startX, y+startY);
 			}
 
 			@Override
-			public @Nonnull BlockEntry get(int x, int y) {
+			public @NN BlockEntry get(int x, int y) {
 				return World.this.get(x+startX, y+startY);
 			}
 

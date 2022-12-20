@@ -5,8 +5,7 @@ package mmb.engine.rotate;
 
 import java.awt.image.BufferedImage;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.texture.BlockDrawer;
 import mmb.engine.texture.Textures;
 
@@ -15,7 +14,7 @@ import mmb.engine.texture.Textures;
  *
  */
 public class RotatedImageGroup {
-	@Nonnull public final BlockDrawer U, D, L ,R;
+	@NN public final BlockDrawer U, D, L ,R;
 	public RotatedImageGroup(BlockDrawer u, BlockDrawer d, BlockDrawer l, BlockDrawer r) {
 		U = u;
 		D = d;
@@ -34,7 +33,7 @@ public class RotatedImageGroup {
 			return U;
 		}
 	}
-	@Nonnull public static RotatedImageGroup create(BufferedImage img) {
+	@NN public static RotatedImageGroup create(BufferedImage img) {
 		BlockDrawer U = BlockDrawer.ofImage(img);
 		BufferedImage progress = rotate(img);
 		BlockDrawer R = BlockDrawer.ofImage(progress);
@@ -48,10 +47,10 @@ public class RotatedImageGroup {
 	 * Rotates this rotated image group backwards
 	 * @return sbackwards RIG
 	 */
-	@Nonnull public RotatedImageGroup flip() {
+	@NN public RotatedImageGroup flip() {
 		return new RotatedImageGroup(D, U, R, L);
 	}
-	@Nonnull public static RotatedImageGroup create(String texture) {
+	@NN public static RotatedImageGroup create(String texture) {
 		return create(Textures.get(texture));
 	}
 	static BufferedImage rotate(BufferedImage img) {

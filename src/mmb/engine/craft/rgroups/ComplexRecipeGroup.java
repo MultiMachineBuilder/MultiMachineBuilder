@@ -6,8 +6,8 @@ package mmb.engine.craft.rgroups;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import javax.annotation.Nonnull;
 
+import mmb.NN;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.GlobalRecipeRegistrar;
@@ -46,8 +46,8 @@ public class ComplexRecipeGroup extends AbstractRecipeGroup<ComplexRecipeGroup.C
 	 */
 	public class ComplexRecipe extends BaseElectricRecipe<ComplexRecipe> implements Identifiable<Set<ItemEntry>>{
 		/** The input item list */
-		@Nonnull public final RecipeOutput input;
-		@Nonnull private final Set<ItemEntry> id;
+		@NN public final RecipeOutput input;
+		@NN private final Set<ItemEntry> id;
 		
 		/**
 		 * Creates a complex recipe
@@ -90,7 +90,7 @@ public class ComplexRecipeGroup extends AbstractRecipeGroup<ComplexRecipeGroup.C
 	}
 	
 	//Recipe listing
-	@Nonnull private final SelfSet<Set<ItemEntry>, ComplexRecipe> _recipes = HashSelfSet.createNonnull(ComplexRecipe.class);
+	@NN private final SelfSet<Set<ItemEntry>, ComplexRecipe> _recipes = HashSelfSet.createNonnull(ComplexRecipe.class);
 	public final SelfSet<Set<ItemEntry>, ComplexRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
 	@Override
 	public Set<? extends ItemEntry> supportedItems() {

@@ -6,14 +6,13 @@ package mmb.engine.inv.storage;
 import java.util.Collections;
 import java.util.Iterator;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.google.common.collect.Iterators;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.MMBUtils;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.SingleItem;
@@ -45,7 +44,7 @@ public class SingleStackedInventory implements SaveInventory{
 			return SingleStackedInventory.this.storedItem == entry;
 		}
 
-		@Nonnull private final ItemEntry entry;
+		@NN private final ItemEntry entry;
 		public Record(ItemEntry ent) {
 			entry = ent;
 		}
@@ -188,7 +187,7 @@ public class SingleStackedInventory implements SaveInventory{
 		return capacity;
 	}
 	@Override
-	@Nonnull public SingleStackedInventory setCapacity(double capacity) {
+	@NN public SingleStackedInventory setCapacity(double capacity) {
 		this.capacity = capacity;
 		return this;
 	}
@@ -219,7 +218,7 @@ public class SingleStackedInventory implements SaveInventory{
 	 * @param item new item
 	 * @return did the change succeed (always true)
 	 */
-	public boolean setItem(@Nullable ItemEntry item) {
+	public boolean setItem(@Nil ItemEntry item) {
 		storedItem = item;
 		return true;
 	}
@@ -235,7 +234,7 @@ public class SingleStackedInventory implements SaveInventory{
 	/**
 	 * @return contents of this single stacked inventory as an item stack
 	 */
-	@Nullable public ItemStack getStack() {
+	@Nil public ItemStack getStack() {
 		ItemEntry item = getItem();
 		if(item == null) return null;
 		return new ItemStack(item, itemCount());
@@ -249,7 +248,7 @@ public class SingleStackedInventory implements SaveInventory{
 		return array;
 	}
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		JsonNode capacity0 = data.get(0);
 		if(capacity0 != null) setCapacity(capacity0.asDouble(2));

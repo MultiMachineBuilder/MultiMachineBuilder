@@ -5,11 +5,10 @@ package mmb.engine.block;
 
 import java.awt.Graphics;
 
-import javax.annotation.Nonnull;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Rotation;
 
@@ -31,7 +30,7 @@ public abstract class BlockEntityRotary extends BlockEntityData {
 		if(side == null) side = Rotation.N;
 		load1((ObjectNode) data);
 	}
-	@Nonnull private Rotation side = Rotation.N;
+	@NN private Rotation side = Rotation.N;
 	@Override
 	public void setRotation(Rotation rotation) {
 		side = rotation;

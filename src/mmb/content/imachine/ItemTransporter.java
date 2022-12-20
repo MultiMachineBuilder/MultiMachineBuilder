@@ -5,10 +5,9 @@ package mmb.content.imachine;
 
 import java.awt.image.BufferedImage;
 
-import javax.annotation.Nonnull;
-
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityRotary;
 import mmb.engine.block.BlockEntry;
@@ -31,8 +30,8 @@ import mmb.engine.worlds.MapProxy;
  */
 public class ItemTransporter extends BlockEntityRotary {
 
-	@Nonnull public static final BufferedImage TEXTURE = Textures.get("machine/imover.png");
-	@Nonnull public static final RotatedImageGroup RTEXTURE = RotatedImageGroup.create(TEXTURE);
+	@NN public static final BufferedImage TEXTURE = Textures.get("machine/imover.png");
+	@NN public static final RotatedImageGroup RTEXTURE = RotatedImageGroup.create(TEXTURE);
 	
 	@Override
 	public BlockType type() {
@@ -49,7 +48,7 @@ public class ItemTransporter extends BlockEntityRotary {
 		moveItems(posX(), posY(), map, getRotation(), inv);
 	}
 	
-	@Nonnull private SingleItemInventory inv = new SingleItemInventory();
+	@NN private SingleItemInventory inv = new SingleItemInventory();
 	@Override
 	protected void save1(ObjectNode node) {
 		node.set("tmp", ItemEntry.saveItem(inv.getContents()));

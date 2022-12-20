@@ -6,12 +6,11 @@ package mmb.content.pickaxe;
 import java.awt.Graphics;
 import java.awt.Color;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.IntNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.item.ItemEntity;
 import mmb.engine.item.ItemEntityType;
 import mmb.engine.item.ItemEntry;
@@ -44,7 +43,7 @@ public class Pickaxe extends ItemEntity {
 	}
 
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		uses = data.asInt();
 	}
@@ -141,7 +140,7 @@ public class Pickaxe extends ItemEntity {
 		 * @param durability the durability to set
 		 * @return this
 		 */
-		@Nonnull public PickaxeType setDurability(int durability) {
+		@NN public PickaxeType setDurability(int durability) {
 			this.durability = durability;
 			return this;
 		}
@@ -163,7 +162,7 @@ public class Pickaxe extends ItemEntity {
 		 * @param time the time to set
 		 * @return this
 		 */
-		@Nonnull public PickaxeType setTime(int time) {
+		@NN public PickaxeType setTime(int time) {
 			this.time = time;
 			return this;
 		}
@@ -177,7 +176,7 @@ public class Pickaxe extends ItemEntity {
 	 * @param id ID of the pickaxe
 	 * @return a new registered pickaxe type
 	 */
-	@Nonnull public static PickaxeType create(int time, int durability, String texture, String title, String id) {
+	@NN public static PickaxeType create(int time, int durability, String texture, String title, String id) {
 		PickaxeType result = new PickaxeType();
 		return (PickaxeType) result.setDurability(durability).setTime(time).texture(texture).title(title).finish(id);
 	}
@@ -193,7 +192,7 @@ public class Pickaxe extends ItemEntity {
 		return type().title() + " ("+(durability-uses)+"/"+durability+")";
 	}
 
-	@Nonnull private final PickaxeType type;
+	@NN private final PickaxeType type;
 	@Override
 	public PickaxeType type() {
 		return type;

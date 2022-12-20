@@ -5,7 +5,6 @@ package mmb;
 
 import java.awt.Graphics;
 
-import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -23,7 +22,7 @@ import mmb.engine.texture.BlockDrawer;
 public class StandardTestReferences {
 	public static final BlockDrawer drawer = new BlockDrawer() {
 		@Override
-		public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int w, int h) {
+		public void draw(@Nil BlockEntry ent, int x, int y, Graphics g, int w, int h) {
 			//dummy
 		}
 		@Override

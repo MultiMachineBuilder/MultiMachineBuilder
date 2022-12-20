@@ -6,8 +6,7 @@ package mmb.engine.rotate;
 import java.util.EventListener;
 import java.util.function.Consumer;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.gl.RenderCtx;
 import mmb.engine.texture.Textures.Texture;
 
@@ -117,45 +116,45 @@ public enum Rotation {
 		@Override public Rotation flipNE() {return N;}
 	};
 	/**@return The upper side after this rotation*/
-	@Nonnull public abstract Side U();
+	@NN public abstract Side U();
 	/**@return The lower side after this rotation*/
-	@Nonnull public abstract Side D();
+	@NN public abstract Side D();
 	/**@return The left side after this rotation*/
-	@Nonnull public abstract Side L();
+	@NN public abstract Side L();
 	/**@return The right side after this rotation*/
-	@Nonnull public abstract Side R();
+	@NN public abstract Side R();
 	
 	/**@return The lower left corner after this rotation*/
-	@Nonnull public abstract Side DL();
+	@NN public abstract Side DL();
 	/**@return The lower right corner after this rotation*/
-	@Nonnull public abstract Side DR();
+	@NN public abstract Side DR();
 	/**@return The upper left corner after this rotation*/
-	@Nonnull public abstract Side UL();
+	@NN public abstract Side UL();
 	/**@return The upper right corner after this rotation*/
-	@Nonnull public abstract Side UR();
+	@NN public abstract Side UR();
 	
 	/**@return Rotation clockwise*/
-	@Nonnull public abstract Rotation cw();
+	@NN public abstract Rotation cw();
 	/**@return Rotation counter clockwise*/
-	@Nonnull public abstract Rotation ccw();
+	@NN public abstract Rotation ccw();
 	/**@return Rotation opposite*/
-	@Nonnull public abstract Rotation opposite();
+	@NN public abstract Rotation opposite();
 	/**@return Rotation backwards*/
-	@Nonnull public abstract Rotation bwd();
+	@NN public abstract Rotation bwd();
 	
 	/**@return Left-handed chiral rotation*/
-	@Nonnull public abstract ChiralRotation left();
+	@NN public abstract ChiralRotation left();
 	/**@return Right-handed chiral rotation*/
-	@Nonnull public abstract ChiralRotation right();
+	@NN public abstract ChiralRotation right();
 	
 	/**@return Mirrored on | plane */
-	@Nonnull public abstract Rotation flipH();
+	@NN public abstract Rotation flipH();
 	/**@return Mirrored on ― plane*/
-	@Nonnull public abstract Rotation flipV();
+	@NN public abstract Rotation flipV();
 	/**@return Mirrored on / plane*/
-	@Nonnull public abstract Rotation flipNW();
+	@NN public abstract Rotation flipNW();
 	/**@return Mirrored on \ plane*/
-	@Nonnull public abstract Rotation flipNE();
+	@NN public abstract Rotation flipNE();
 	public void renderGL(Texture tex, float x, float y, float w, float h, float r, float g, float b, float a, RenderCtx graphics) {
 		ChiralRotation.of(this, Chirality.R).renderGL(tex, x, y, w, h, r, g, b, a, graphics);
 	}
@@ -167,7 +166,7 @@ public enum Rotation {
 	 * @param chirality chirality of returned orientation
 	 * @return Rotation with specified chirality
 	 */
-	@Nonnull public ChiralRotation chiral(Chirality chirality) {
+	@NN public ChiralRotation chiral(Chirality chirality) {
 		return chirality == Chirality.L ? left() : right();
 	}
 	/**
@@ -175,7 +174,7 @@ public enum Rotation {
 	 * @param s source side
 	 * @return rotated side
 	 */
-	public @Nonnull Side apply(Side s) {
+	public @NN Side apply(Side s) {
 		switch(s) {
 		case D:
 			return D();

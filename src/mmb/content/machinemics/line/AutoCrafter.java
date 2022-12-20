@@ -3,14 +3,13 @@
  */
 package mmb.content.machinemics.line;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.IntNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.content.ditems.Stencil;
 import mmb.engine.block.BlockEntry;
@@ -32,7 +31,7 @@ import monniasza.collects.grid.Grid;
  *
  */
 public class AutoCrafter extends SkeletalBlockLinear implements BlockActivateListener {
-	@Nonnull private static final Debugger debug = new Debugger("AUTOCRAFTER MANUAL");
+	@NN private static final Debugger debug = new Debugger("AUTOCRAFTER MANUAL");
 	private static final RotatedImageGroup rig = RotatedImageGroup.create("machine/AutoCrafter 1.png");
 	private Stencil stencil;
 	ItemEntry toCraft;
@@ -44,7 +43,7 @@ public class AutoCrafter extends SkeletalBlockLinear implements BlockActivateLis
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		openWindow = new AutoCraftGUI(this, window);
 		window.openAndShowWindow(openWindow, "AutoCrafting");
@@ -135,7 +134,7 @@ public class AutoCrafter extends SkeletalBlockLinear implements BlockActivateLis
 	/**
 	 * @return currenct stencil
 	 */
-	@Nullable public Stencil getStencil() {
+	@Nil public Stencil getStencil() {
 		return stencil;
 	}
 
@@ -145,7 +144,7 @@ public class AutoCrafter extends SkeletalBlockLinear implements BlockActivateLis
 	 * @param stencil new stencil
 	 * @return did the stencil change?
 	 */
-	public boolean setStencil(@Nullable Stencil stencil) {
+	public boolean setStencil(@Nil Stencil stencil) {
 		if(stencil == null) {
 			this.stencil = null;
 			return true;

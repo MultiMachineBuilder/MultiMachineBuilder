@@ -3,10 +3,9 @@
  */
 package mmb.engine.worlds.world;
 
-import javax.annotation.Nonnull;
-
 import org.joml.Vector2d;
 
+import mmb.NN;
 import mmb.content.ppipe.Direction;
 import mmb.content.ppipe.PipeTunnel;
 import mmb.content.ppipe.PipeTunnelEntry;
@@ -115,7 +114,7 @@ public class PlayerPhysicsPipe implements PlayerPhysics {
 	}
 	public double progress;
 	public PipeTunnel pipe;
-	@Nonnull public Direction direction = Direction.FWD;
+	@NN public Direction direction = Direction.FWD;
 	@Override
 	public String description() {
 		return "Direction: "+direction;

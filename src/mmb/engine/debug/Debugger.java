@@ -5,10 +5,9 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import mmb.Main;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.MMBUtils;
 
 /**
@@ -21,7 +20,7 @@ public class Debugger {
 	
 	//Log file creation
 	private static OutputStream logstream;
-	@Nonnull private static OutputStream logstream() {
+	@NN private static OutputStream logstream() {
 		OutputStream os = logstream;
 		try {
 			if(os == null) {
@@ -67,7 +66,7 @@ public class Debugger {
 		}
 	}
 	
-	public void pstm(Throwable t, @Nullable String s) {
+	public void pstm(Throwable t, @Nil String s) {
 		printerrl(s);
 		pst(t);
 	}
@@ -75,7 +74,7 @@ public class Debugger {
 		printName();
 		t.printStackTrace(System.err);
 	}
-	public void print(@Nullable String s) {
+	public void print(@Nil String s) {
 		printName();
 		out().print(s);
 	}
@@ -84,13 +83,13 @@ public class Debugger {
 		out().print(id);
 		out().print(") ");
 	}
-	public void printl(@Nullable String s) {
+	public void printl(@Nil String s) {
 		print(s);
 		out().print('\n');
 	}
 	//Instance code
 	/** The debugger ID */
-	@Nonnull public String id = "";
+	@NN public String id = "";
 	/**
 	 * Creates a debugger
 	 * @param id ddebugger ID
@@ -109,13 +108,13 @@ public class Debugger {
 		out().print(ch);
 	}
 
-	public void printerr(@Nullable String s) {
+	public void printerr(@Nil String s) {
 		err().print('(');
 		err().print(id);
 		err().print(") ");
 		err().print(s);
 	}
-	public void printerrl(@Nullable String s) {
+	public void printerrl(@Nil String s) {
 		printerr(s);
 		err().print('\n');
 	}

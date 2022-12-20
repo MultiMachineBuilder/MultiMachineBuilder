@@ -7,8 +7,7 @@ import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.awt.Color;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.item.Item;
 import mmb.engine.item.Items;
 import mmbbase.beans.Titled;
@@ -20,11 +19,11 @@ import monniasza.collects.Identifiable;
  */
 public class ComponentTier implements Titled, Identifiable<String>{
 	/** The color of the component's contacts */
-	@Nonnull public final Color c;
+	@NN public final Color c;
 	/** The prefix for component titles */
-	@Nonnull public final String tiername;
+	@NN public final String tiername;
 	/** The ID used for item ID generation*/
-	@Nonnull public final String id;
+	@NN public final String id;
 	public ComponentTier(Color c, String id) {
 		this.c= c;
 		this.id= id;
@@ -32,10 +31,10 @@ public class ComponentTier implements Titled, Identifiable<String>{
 		Electronics.tiers0.add(this);
 	}
 	
-	@Nonnull public ElectronicsComponent generate(ComponentGenerator gen) {
+	@NN public ElectronicsComponent generate(ComponentGenerator gen) {
 		return advcomponent(gen);
 	}
-	@Nonnull private ElectronicsComponent advcomponent(ComponentGenerator gen) {
+	@NN private ElectronicsComponent advcomponent(ComponentGenerator gen) {
 		Item item = new ElectronicsComponent(gen, this)
 		.title(tiername+gen.pre)
 		.texture(gen.newTexture(this))

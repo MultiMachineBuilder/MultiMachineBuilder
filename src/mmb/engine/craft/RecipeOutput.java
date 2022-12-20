@@ -9,9 +9,6 @@ import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import org.ainslec.picocog.PicoWriter;
 
 import com.google.common.collect.Iterators;
@@ -21,6 +18,8 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.chance.Chance;
 import mmb.engine.inv.ItemStack;
 import mmb.engine.inv.io.InventoryWriter;
@@ -35,12 +34,12 @@ import monniasza.collects.Collects;
  */
 public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	@Override
-	default boolean drop(@Nullable InventoryWriter inv, @Nullable World map, int x, int y) {
+	default boolean drop(@Nil InventoryWriter inv, @Nil World map, int x, int y) {
 		if(map == null) {
 			if(inv == null) return false;
 			produceResults(inv, 1);
 		}else {
-			@Nonnull InventoryWriter dropper = map.createDropper(x, y);
+			@NN InventoryWriter dropper = map.createDropper(x, y);
 			InventoryWriter priority = (inv == null)? dropper :new InventoryWriter.Priority(inv, dropper);
 			produceResults(priority, 1);
 		}
@@ -79,7 +78,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	/**
 	 * @return contents of the item list as map.
 	 */
-	@Nonnull public Object2IntMap<@Nonnull ItemEntry> getContents();
+	@NN public Object2IntMap<@NN ItemEntry> getContents();
 	
 	/**
 	 * Checks if the item list contains the selected item
@@ -87,7 +86,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	 * @return does this item list contain selected item?
 	 */
 	@Override
-	public boolean contains(@Nullable ItemEntry entry);
+	public boolean contains(@Nil ItemEntry entry);
 	
 	/**
 	 * @param entry item to get amount
@@ -107,7 +106,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	 * @param data item data to compare to
 	 * @return are contents of this item list equal to the map?
 	 */
-	public default boolean equiv(Map<@Nonnull ItemEntry, Integer> data) {
+	public default boolean equiv(Map<@NN ItemEntry, Integer> data) {
 		return getContents().equals(data);
 	}
 
@@ -118,7 +117,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	 * @return true if this item list is equal to the argument; false otherwise.
 	 */
 	@Override
-	boolean equals(@Nullable Object obj);
+	boolean equals(@Nil Object obj);
 
 	/**
 	 * The list's hash code is the hash code of their contents map as specified by {@link Map#hashCode()}
@@ -128,7 +127,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	int hashCode();
 
 	/** Represents a recipe output that does nothing */
-	@Nonnull public static final RecipeOutput NONE = new RecipeOutput() {
+	@NN public static final RecipeOutput NONE = new RecipeOutput() {
 
 		@Override
 		public void produceResults(InventoryWriter tgt, int amount) {
@@ -153,7 +152,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 		}
 
 		@Override
-		public boolean contains(@Nullable ItemEntry entry) {
+		public boolean contains(@Nil ItemEntry entry) {
 			return false;
 		}
 
@@ -167,7 +166,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 			return value;
 		}
 		@Override
-		public boolean equals(@Nullable Object obj) {
+		public boolean equals(@Nil Object obj) {
 			if(obj == this) return true;
 			if(obj instanceof RecipeOutput) {
 				RecipeOutput other = (RecipeOutput) obj;
@@ -185,11 +184,11 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	 * @return unique items in this recipe output
 	 */
 	@Override
-	public default @Nonnull Set<@Nonnull ItemEntry> items(){
+	public default @NN Set<@NN ItemEntry> items(){
 		return getContents().keySet();
 	}
 	
-	@Nonnull public static RecipeOutput orDefault(@Nullable RecipeOutput rout) {
+	@NN public static RecipeOutput orDefault(@Nil RecipeOutput rout) {
 		if(rout == null) return NONE;
 		return rout;
 	}
@@ -228,7 +227,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 		return mul2entrystream(amount).collect(Collects.collectToIntMap(map));
 	}
 	@Override
-	default @Nonnull Iterator<@Nonnull ItemStack> iterator() {
+	default @NN Iterator<@NN ItemStack> iterator() {
 		return Iterators.transform(getContents().object2IntEntrySet().iterator(), RecipeOutput::entry2stack);
 	}
 	

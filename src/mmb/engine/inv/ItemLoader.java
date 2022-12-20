@@ -7,13 +7,12 @@ import java.util.ArrayDeque;
 import java.util.Iterator;
 import java.util.Queue;
 
-import javax.annotation.Nonnull;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.NumericNode;
 
+import mmb.NN;
 import mmb.engine.debug.Debugger;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
@@ -118,7 +117,7 @@ public class ItemLoader {
 	 * @param capacity inventory's capacity
 	 * @return the inventory representation in JSON
 	 */
-	public static @Nonnull ArrayNode save(Iterable<@Nonnull ? extends ItemRecord> iter, double capacity) {
+	public static @NN ArrayNode save(Iterable<@NN ? extends ItemRecord> iter, double capacity) {
 		Queue<JsonNode> nodes = new ArrayDeque<>(); //prepare the queue
 		nodes.add(new DoubleNode(capacity)); // write the volume
 		for(ItemRecord n: iter) { //write items

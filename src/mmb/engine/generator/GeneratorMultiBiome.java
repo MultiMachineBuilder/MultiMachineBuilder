@@ -3,8 +3,7 @@
  */
 package mmb.engine.generator;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.content.ContentsBlocks;
 import mmb.content.rawmats.Materials;
 import mmb.engine.block.Block;
@@ -223,7 +222,7 @@ public class GeneratorMultiBiome implements Generator {
 			}
 		};
 		
-		@Nonnull public abstract Block randomize(long genseed);
+		@NN public abstract Block randomize(long genseed);
 	}
 	private final Biome[] biomes = Biome.values();
 

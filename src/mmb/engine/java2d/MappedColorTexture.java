@@ -9,11 +9,11 @@ import java.awt.image.BufferedImage;
 import java.awt.image.BufferedImageOp;
 import java.awt.image.LookupOp;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.texture.BlockDrawer;
 
@@ -73,13 +73,13 @@ public class MappedColorTexture implements BlockDrawer {
 		resetColors();
 	}
 	@Override
-	public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int w, int h) {
+	public void draw(@Nil BlockEntry ent, int x, int y, Graphics g, int w, int h) {
 		synchronized(drawLock) {
 			g.drawImage(result, x, y, w, h, null);
 		}
 	}
 
-	@Nonnull private final ImageIcon icon;
+	@NN private final ImageIcon icon;
 	@Override
 	public Icon toIcon() {
 		return icon;

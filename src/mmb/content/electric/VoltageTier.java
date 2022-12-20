@@ -7,8 +7,7 @@ import java.awt.Color;
 import java.util.List;
 import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.content.rawmats.Materials;
 import mmb.content.rawmats.MetalGroup;
 
@@ -37,16 +36,16 @@ public enum VoltageTier {
 	
 	/** Voltage in volts */
 	public final double volts;
-	@Nonnull public final String name;
+	@NN public final String name;
 	/** The construction material */
-	@Nonnull public final Supplier<MetalGroup> construction;
+	@NN public final Supplier<MetalGroup> construction;
 	/** The electrical material */
-	@Nonnull public final Supplier<MetalGroup> electrical;
+	@NN public final Supplier<MetalGroup> electrical;
 	public final int speedMul;
 	/** Color of machines and conduits for this voltage */
-	@Nonnull public final Color c;
+	@NN public final Color c;
 	/** List of all voltages */
-	@Nonnull public static final List<@Nonnull VoltageTier> VOLTS = List.of(VoltageTier.values());
+	@NN public static final List<@NN VoltageTier> VOLTS = List.of(VoltageTier.values());
 	/** @return maximum voltage now supported. Subject to change. */
 	public static VoltageTier maxVoltage() { 
 		return V9;

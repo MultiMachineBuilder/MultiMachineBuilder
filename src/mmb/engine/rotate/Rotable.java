@@ -3,7 +3,7 @@
  */
 package mmb.engine.rotate;
 
-import javax.annotation.Nonnull;
+import mmb.NN;
 
 /**
  * @author oskar
@@ -11,7 +11,7 @@ import javax.annotation.Nonnull;
  */
 public interface Rotable {
 	public void setRotation(Rotation rotation);
-	public @Nonnull Rotation getRotation();
+	public @NN Rotation getRotation();
 	public default void cw() {
 		setRotation(getRotation().cw());
 	}

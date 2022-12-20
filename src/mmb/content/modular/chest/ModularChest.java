@@ -3,12 +3,11 @@
  */
 package mmb.content.modular.chest;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.modular.ModularBlock;
 import mmb.content.modular.Slot;
 import mmb.content.modular.Slot.CoreSlot;
@@ -48,7 +47,7 @@ public final class ModularChest extends BlockEntityData implements ModularBlock<
 
 	//Serialization
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		loadModularHelper(data);
 	}
 	@Override
@@ -57,8 +56,8 @@ public final class ModularChest extends BlockEntityData implements ModularBlock<
 	}
 
 	//Core
-	@Nonnull private static Class<ChestCore<?>> cls1 = MMBUtils.classcast(ChestCore.class);
-	@Nonnull private final CoreSlot<ModularChest, ChestCore<?>> core = new CoreSlot<>(this, cls1);
+	@NN private static Class<ChestCore<?>> cls1 = MMBUtils.classcast(ChestCore.class);
+	@NN private final CoreSlot<ModularChest, ChestCore<?>> core = new CoreSlot<>(this, cls1);
 	@Override
 	public Slot<ChestCore<?>> slotC() {
 		return core;
@@ -69,7 +68,7 @@ public final class ModularChest extends BlockEntityData implements ModularBlock<
 	public boolean isModular() {
 		return true;
 	}
-	@Nonnull private final SidedSlotHelper<ModularChest, BlockModuleUniversal> ssh = new SidedSlotHelper<>(BlockModuleUniversal.class, this);
+	@NN private final SidedSlotHelper<ModularChest, BlockModuleUniversal> ssh = new SidedSlotHelper<>(BlockModuleUniversal.class, this);
 	@Override
 	public Slot<BlockModuleUniversal> slotInternal(Side s) {
 		return ssh.get(s);
@@ -77,7 +76,7 @@ public final class ModularChest extends BlockEntityData implements ModularBlock<
 	
 	//No settings support
 	@Override
-	public void loadSettings(@Nullable JsonNode node, Object settings) {
+	public void loadSettings(@Nil JsonNode node, Object settings) {
 		//unused
 	}
 	@Override

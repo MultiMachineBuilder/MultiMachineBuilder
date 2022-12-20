@@ -4,12 +4,12 @@
 package mmb.content.machinemics.line;
 
 import java.awt.image.BufferedImage;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.Battery;
@@ -31,16 +31,16 @@ import mmbbase.menu.world.window.WorldWindow;
  */
 public class Furnace extends SkeletalBlockLinear implements BlockActivateListener {
 	
-	@Nonnull public static final BufferedImage TEXTURE_INERT = Textures.get("machine/smelter inert.png");
-	@Nonnull public static final BufferedImage TEXTURE_ACTIVE = Textures.get("machine/smelter active.png");
-	@Nonnull public static final RotatedImageGroup IMAGE_INERT = RotatedImageGroup.create(TEXTURE_INERT);
-	@Nonnull public static final RotatedImageGroup IMAGE_ACTIVE = RotatedImageGroup.create(TEXTURE_ACTIVE);
+	@NN public static final BufferedImage TEXTURE_INERT = Textures.get("machine/smelter inert.png");
+	@NN public static final BufferedImage TEXTURE_ACTIVE = Textures.get("machine/smelter active.png");
+	@NN public static final RotatedImageGroup IMAGE_INERT = RotatedImageGroup.create(TEXTURE_INERT);
+	@NN public static final RotatedImageGroup IMAGE_ACTIVE = RotatedImageGroup.create(TEXTURE_ACTIVE);
 	private static final Debugger debug = new Debugger("FURNACE");
 
 	private FurnaceGUI openWindow;
-	@Nonnull private Battery elec = new Battery(20_000, 120_000, this, VoltageTier.V1);
-	@Nonnull private SimpleProcessHelper processor = new SimpleProcessHelper(CraftingGroups.smelting, incoming, output, 500, elec, null, VoltageTier.V1); //borked here
-	@Nonnull private final FuelBurner burner = new FuelBurner(1, incoming, elec, CraftingGroups.furnaceFuels);
+	@NN private Battery elec = new Battery(20_000, 120_000, this, VoltageTier.V1);
+	@NN private SimpleProcessHelper processor = new SimpleProcessHelper(CraftingGroups.smelting, incoming, output, 500, elec, null, VoltageTier.V1); //borked here
+	@NN private final FuelBurner burner = new FuelBurner(1, incoming, elec, CraftingGroups.furnaceFuels);
 
 	@Override
 	protected void save2(ObjectNode node) {
@@ -78,7 +78,7 @@ public class Furnace extends SkeletalBlockLinear implements BlockActivateListene
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(openWindow != null) return;
 		openWindow = new FurnaceGUI(this, window);

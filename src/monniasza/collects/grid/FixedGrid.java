@@ -7,8 +7,8 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Objects;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import mmb.NN;
+import mmb.Nil;
 
 /**
  * @author oskar
@@ -36,7 +36,7 @@ public class FixedGrid<T> implements Grid<T> {
 	private final int h;
 	private final int w;
 	
-	@Nonnull public static <U> FixedGrid<U> fill(int w, int h, U data){
+	@NN public static <U> FixedGrid<U> fill(int w, int h, U data){
 		FixedGrid<U> grid = new FixedGrid<>(w, h);
 		grid.fill(0, 0, w, h, data);
 		return grid;
@@ -112,7 +112,7 @@ public class FixedGrid<T> implements Grid<T> {
 		return result;
 	}
 	@Override
-	public boolean equals(@Nullable Object obj) {
+	public boolean equals(@Nil Object obj) {
 		if (this == obj) return true;
 		if (obj == null) return false;
 		if (!(obj instanceof Grid)) return false;

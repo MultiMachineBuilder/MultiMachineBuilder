@@ -7,15 +7,14 @@ import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.util.Comparator;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.item.ItemType;
 
 /**
  * @author oskar
  *
  */
-public enum SortItemTypes implements Comparator<@Nonnull ItemType> {
+public enum SortItemTypes implements Comparator<@NN ItemType> {
 	DESC_TITLE($res("wgui-titledesc")) {
 		@Override
 		public int compare(ItemType o1, ItemType o2) {

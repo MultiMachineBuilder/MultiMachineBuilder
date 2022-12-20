@@ -4,8 +4,8 @@
 package mmb.content.drugs;
 
 import java.util.Set;
-import javax.annotation.Nonnull;
 
+import mmb.NN;
 import mmb.content.CraftingGroups;
 import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.content.electric.VoltageTier;
@@ -41,9 +41,9 @@ public class AlcoholInfoGroup extends AbstractRecipeGroup<AlcoholInfoGroup.Alcoh
 	 */
 	public class AlcoholInfo implements Identifiable<ItemEntry>, Recipe<AlcoholInfo>{
 		/** The alcoholic beverage*/
-		@Nonnull public final ItemEntry input;
+		@NN public final ItemEntry input;
 		/** The packaging for the alcoholic beverage*/
-		@Nonnull public final RecipeOutput output;
+		@NN public final RecipeOutput output;
 		/** Amount of alcohol in one serving*/
 		public final double dose;
 		/**
@@ -102,8 +102,8 @@ public class AlcoholInfoGroup extends AbstractRecipeGroup<AlcoholInfoGroup.Alcoh
 		}
 	}
 	//Recipe listing
-	@Nonnull private final SelfSet<ItemEntry, AlcoholInfo> _recipes = HashSelfSet.createNonnull(AlcoholInfo.class);
-	@Nonnull public final SelfSet<ItemEntry, AlcoholInfo> recipes = Collects.unmodifiableSelfSet(_recipes);
+	@NN private final SelfSet<ItemEntry, AlcoholInfo> _recipes = HashSelfSet.createNonnull(AlcoholInfo.class);
+	@NN public final SelfSet<ItemEntry, AlcoholInfo> recipes = Collects.unmodifiableSelfSet(_recipes);
 	@Override
 	public Set<? extends ItemEntry> supportedItems() {
 		return recipes.keys();

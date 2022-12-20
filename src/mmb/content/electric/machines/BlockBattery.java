@@ -5,11 +5,10 @@ package mmb.content.electric.machines;
 
 import java.awt.Graphics;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.Battery;
 import mmb.content.electric.BatteryTab;
 import mmb.content.electric.Electric;
@@ -32,13 +31,13 @@ import mmbbase.menu.world.window.WorldWindow;
  */
 public final class BlockBattery extends BlockEntityRotary implements BlockActivateListener, Electric {
 	//Block definition
-	@Nonnull private final ElectroMachineType type;
+	@NN private final ElectroMachineType type;
 	/** The energy storage for this block */
-	@Nonnull public final Battery battery;
+	@NN public final Battery battery;
 	/** The charging slot for this block */
-	@Nonnull public final SingleItemInventory charger = new SingleItemInventory();
+	@NN public final SingleItemInventory charger = new SingleItemInventory();
 	/** The discharging slot for this block */
-	@Nonnull public final SingleItemInventory discharger = new SingleItemInventory();
+	@NN public final SingleItemInventory discharger = new SingleItemInventory();
 	
 	/**
 	 * Creates a new battery block
@@ -56,7 +55,7 @@ public final class BlockBattery extends BlockEntityRotary implements BlockActiva
 		if(tab == tbb) tab = null;
 	}
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(tab != null) return;
 		tab = new BatteryTab(this, window);

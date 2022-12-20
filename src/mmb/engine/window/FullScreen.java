@@ -6,8 +6,7 @@ package mmb.engine.window;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.debug.Debugger;
 import mmbbase.data.variables.ListenerBooleanVariable;
 
@@ -16,7 +15,7 @@ import mmbbase.data.variables.ListenerBooleanVariable;
  *
  */
 public class FullScreen {
-	@Nonnull public static final ListenerBooleanVariable isFullScreen = new ListenerBooleanVariable();
+	@NN public static final ListenerBooleanVariable isFullScreen = new ListenerBooleanVariable();
 	private static MMBFrame fullScreenFrame;
 	
 	private static Debugger debug = new Debugger("FullScreen");

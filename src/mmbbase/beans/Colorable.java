@@ -5,8 +5,7 @@ package mmbbase.beans;
 
 import java.awt.Color;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmbbase.data.variables.Variable;
 
 /**
@@ -17,7 +16,7 @@ public interface Colorable {
 	/**
 	 * @return current color
 	 */
-	@Nonnull public Color getColor();
+	@NN public Color getColor();
 	/**
 	 * Sets the color of the object
 	 * @param c new color
@@ -26,7 +25,7 @@ public interface Colorable {
 	/**
 	 * @return this object's color as a variable object
 	 */
-	@Nonnull public default Variable<Color> getColorVariable(){
+	@NN public default Variable<Color> getColorVariable(){
 		return Variable.delegate(this::getColor, this::setColor);
 	}
 }

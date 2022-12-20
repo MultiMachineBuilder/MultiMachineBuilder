@@ -7,10 +7,10 @@ import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
 
-import javax.annotation.Nonnull;
 import javax.swing.JLabel;
 import javax.swing.border.BevelBorder;
 
+import mmb.NN;
 import mmb.content.modular.gui.SafeCloseable;
 import mmb.engine.settings.GlobalSettings;
 import mmbbase.data.variables.ListenableValue;
@@ -29,9 +29,9 @@ public class MoverModuleSetup extends JPanel implements SafeCloseable{
 	private static final long serialVersionUID = -6701441866106804925L;
 	
 	/** The item selection slot */
-	@Nonnull public final ItemSelectionSlot settings;
+	@NN public final ItemSelectionSlot settings;
 	/** Configures stack count */
-	@Nonnull public final JSpinner stacker;
+	@NN public final JSpinner stacker;
 
 	/**
 	 * Create the panel.

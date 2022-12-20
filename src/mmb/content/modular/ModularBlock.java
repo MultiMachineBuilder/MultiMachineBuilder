@@ -5,14 +5,13 @@ package mmb.content.modular;
 
 import java.awt.Graphics;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import org.checkerframework.common.returnsreceiver.qual.This;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.Electricity;
 import mmb.content.modular.chest.BlockModuleUniversal;
 import mmb.content.modular.gui.ModularChestGUI;
@@ -67,13 +66,13 @@ public interface ModularBlock<
 	 * An iternal helper to kill a module
 	 * @param slot
 	 */
-	default void killModule(@Nullable Slot<Tmodule> slot) {
+	default void killModule(@Nil Slot<Tmodule> slot) {
 		if(slot != null) slot.set(null);
 	}
 	
 	//Click handler
 	@Override
-	default void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	default void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		boolean result = replaceHelper(window.selectedItem(), window.getPlayer().inv, partX, partY);
 		if(!result) {
@@ -94,7 +93,7 @@ public interface ModularBlock<
 	 * @param partY Y position of the click on this block
 	 * @return did the player click the slot?
 	 */
-	default boolean replaceHelper(@Nullable ItemRecord selected, Inventory inv, double partX, double partY) {
+	default boolean replaceHelper(@Nil ItemRecord selected, Inventory inv, double partX, double partY) {
 		final double left = 5.0/16;
 		final double right = 11.0/16;
 		final double depth = 3.0/16;
@@ -131,7 +130,7 @@ public interface ModularBlock<
 	 * @param selected item record
 	 * @param inv player inventory
 	 */
-	default <Tmc extends BlockModuleOrCore<Tmc, ? super Tblock, ?>> void replace(@Nullable Slot<? extends Tmc> slot, @Nullable ItemRecord selected, Inventory inv) {
+	default <Tmc extends BlockModuleOrCore<Tmc, ? super Tblock, ?>> void replace(@Nil Slot<? extends Tmc> slot, @Nil ItemRecord selected, Inventory inv) {
 		//Null check
 		if(slot == null) return;
 		
@@ -185,7 +184,7 @@ public interface ModularBlock<
 	 * @param s side to access from
 	 * @return an inventory
 	 */	
-	@Nonnull default Inventory i_inv(Side s) {
+	@NN default Inventory i_inv(Side s) {
 		return NoSuchInventory.INSTANCE;
 	}
 	/**
@@ -193,7 +192,7 @@ public interface ModularBlock<
 	 * @param s side to access from
 	 * @return an inventory writer
 	 */
-	default @Nonnull InventoryWriter i_in(Side s) {
+	default @NN InventoryWriter i_in(Side s) {
 		return i_inv(s).createWriter();
 	}
 	/**
@@ -201,7 +200,7 @@ public interface ModularBlock<
 	 * @param s side to access from
 	 * @return an inventory reader
 	 */
-	default @Nonnull InventoryReader i_out(Side s) {
+	default @NN InventoryReader i_out(Side s) {
 		return i_inv(s).createReader();
 	}
 	/**
@@ -217,7 +216,7 @@ public interface ModularBlock<
 	 * @param s side to access from
 	 * @return an electrical connection
 	 */
-	@Nullable default Electricity i_elec(Side s) {
+	@Nil default Electricity i_elec(Side s) {
 		return null;
 	}
 		
@@ -284,10 +283,10 @@ public interface ModularBlock<
 	
 	//Core
 	/** @return core slot */
-	@Nullable public Slot<@Nullable Tcore> slotC();
+	@Nil public Slot<@Nil Tcore> slotC();
 	/** @return the current core, or null if not found */
-	@Nullable public default Tcore core() {
-		Slot<@Nullable Tcore> slot = slotC();
+	@Nil public default Tcore core() {
+		Slot<@Nil Tcore> slot = slotC();
 		if(slot == null) return null;
 		return slot.get();
 	}
@@ -296,8 +295,8 @@ public interface ModularBlock<
 	 * @param core new core
 	 * @return did the core chenge?
 	 */
-	public default boolean setCore(@Nullable Tcore core) {
-		Slot<@Nullable Tcore> slot = slotC();
+	public default boolean setCore(@Nil Tcore core) {
+		Slot<@Nil Tcore> slot = slotC();
 		if(slot == null) return false;
 		slot.set(core);
 		return true;
@@ -308,7 +307,7 @@ public interface ModularBlock<
 	 * @return did the core chenge?
 	 */
 	public default boolean settoCore(Object core) {
-		Slot<@Nullable Tcore> slot = slotC();
+		Slot<@Nil Tcore> slot = slotC();
 		if(slot == null) return false;
 		return slot.setto(core);
 	}
@@ -321,14 +320,14 @@ public interface ModularBlock<
 	 * @param s side to access from
 	 * @return a module slot
 	 */
-	@Nullable public Slot<@Nullable Tmodule> slotInternal(Side s);
+	@Nil public Slot<@Nil Tmodule> slotInternal(Side s);
 	/**
 	 * Gets a module slot for a side
 	 * @implSpec This method should not be overridden
 	 * @param s side to access from
 	 * @return a module slot
 	 */
-	@Nullable public default Slot<@Nullable Tmodule> slot(Side s){
+	@Nil public default Slot<@Nil Tmodule> slot(Side s){
 		return slotInternal(getChirotation().apply(s));
 	}
 	/**
@@ -337,7 +336,7 @@ public interface ModularBlock<
 	 * @param s side to access from
 	 * @return a module at given side
 	 */
-	@Nullable public default Tmodule module(Side s) {
+	@Nil public default Tmodule module(Side s) {
 		Slot<Tmodule> slot = slot(s);
 		if(slot == null) return null;
 		return slot.get();
@@ -348,7 +347,7 @@ public interface ModularBlock<
 	 * @param s side to access from
 	 * @return a module at given side
 	 */
-	@Nullable public default Tmodule moduleInternal(Side s) {
+	@Nil public default Tmodule moduleInternal(Side s) {
 		Slot<Tmodule> slot = slotInternal(s);
 		if(slot == null) return null;
 		return slot.get();
@@ -359,8 +358,8 @@ public interface ModularBlock<
 	 * @param s logical side of the module
 	 * @return did the module change?
 	 */
-	public default boolean setModule(@Nullable Object module, Side s) {
-		Slot<@Nullable Tmodule> slot = slotInternal(s);
+	public default boolean setModule(@Nil Object module, Side s) {
+		Slot<@Nil Tmodule> slot = slotInternal(s);
 		if(slot == null) return false;
 		return slot.setto(module);
 	}
@@ -371,18 +370,18 @@ public interface ModularBlock<
 	 * @param node node to load from
 	 * @param settings settings to load
 	 */
-	public void loadSettings(@Nullable JsonNode node, Tsettings settings);
+	public void loadSettings(@Nil JsonNode node, Tsettings settings);
 	/**
 	 * Saves settings
 	 * @param node settings to save
 	 * @return saved settings
 	 */
-	public JsonNode saveSettings(@Nullable Tsettings node);
+	public JsonNode saveSettings(@Nil Tsettings node);
 	/**
 	 * Gets the current settings
 	 * @return current settings, or null if unsupported
 	 */
-	public @Nullable Tsettings getSettings();
+	public @Nil Tsettings getSettings();
 	/**
 	 * Replaces settings with the ones stored in the settings object
 	 * @param settings settings to use
@@ -416,7 +415,7 @@ public interface ModularBlock<
 	 * Load core, module and settings
 	 * @param node node to load from
 	 */
-	public default void loadModularHelper(@Nullable JsonNode node) {
+	public default void loadModularHelper(@Nil JsonNode node) {
 		if(node == null) return;
 		
 		//Load core
@@ -438,7 +437,7 @@ public interface ModularBlock<
 	 * @param sub node to load from
 	 * @param side side of the slot
 	 */
-	public default void loadModuleHelper(@Nullable JsonNode sub, Side side) {
+	public default void loadModuleHelper(@Nil JsonNode sub, Side side) {
 		Slot<Tmodule> slot = slotInternal(side);
 		if(slot != null) slot.setto(PartEntry.loadFromJsonExpectType(sub, slot.type));
 	}
@@ -473,7 +472,7 @@ public interface ModularBlock<
 	/** @return this */
 	@SuppressWarnings("unchecked")
 	@This
-	@Nonnull public default Tblock that() {
+	@NN public default Tblock that() {
 		return (Tblock) this;
 	}
 	

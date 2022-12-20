@@ -6,8 +6,7 @@ package mmbbase.menu.world.craft;
 import java.util.Vector;
 import java.util.stream.Collectors;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.inv.ItemStack;
 
@@ -22,7 +21,7 @@ public class VectorUtils {
 	 * @param output
 	 * @return
 	 */
-	@Nonnull public static Vector<ItemStack> list2vector(RecipeOutput output){
+	@NN public static Vector<ItemStack> list2vector(RecipeOutput output){
 		return output
 				.getContents()
 				.object2IntEntrySet()
@@ -31,7 +30,7 @@ public class VectorUtils {
 				.collect(Collectors.toCollection(() -> new Vector<ItemStack>()));
 	}
 
-	@Nonnull public static ItemStack[] list2arr(RecipeOutput output){
+	@NN public static ItemStack[] list2arr(RecipeOutput output){
 		return output
 				.getContents()
 				.object2IntEntrySet()

@@ -6,10 +6,10 @@ package monniasza.collects.alloc;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.google.common.collect.Iterators;
+
+import mmb.NN;
+import mmb.Nil;
 
 /**
  * @author oskar
@@ -33,7 +33,7 @@ public interface Allocator<T> extends Iterable<T>{
 	 * @param id index to get from
 	 * @return object at given index, or null if absent
 	 */
-	@Nullable public T get(int id);
+	@Nil public T get(int id);
 	/**
 	 * @param id index to check
 	 * @return is given index currently allocateed?
@@ -80,7 +80,7 @@ public interface Allocator<T> extends Iterable<T>{
 	 * @return read-only allocator which mirrors this allocator.
 	 * The returned allocator does not allow new allocations and changes to the exception handler
 	 */
-	@Nonnull public default Allocator<T> readonly(){
+	@NN public default Allocator<T> readonly(){
 		final Allocator<T> alloc = this;
 		return new Allocator<T>() {
 
@@ -134,7 +134,7 @@ public interface Allocator<T> extends Iterable<T>{
 
 			@SuppressWarnings("null")
 			@Override
-			public @Nonnull Iterator<T> iterator() {
+			public @NN Iterator<T> iterator() {
 				return Iterators.unmodifiableIterator(alloc.iterator());
 			}
 			};

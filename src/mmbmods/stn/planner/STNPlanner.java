@@ -11,12 +11,11 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.google.common.collect.Iterators;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ditems.Stencil;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
@@ -67,7 +66,7 @@ import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag.STNPRecipe;
  * @author oskar
  */
 public class STNPlanner {
-	@Nonnull public final DataLayerSTN stn;
+	@NN public final DataLayerSTN stn;
 	public STNPlanner(DataLayerSTN stn) {
 		this.stn = stn;
 	}
@@ -79,15 +78,15 @@ public class STNPlanner {
 	 */
 	public static class Phase1{
 		/** Items which are going to be withdrawn */
-		@Nonnull public final Object2IntOpenHashMap<ItemEntry> itemsWithdrawn;
+		@NN public final Object2IntOpenHashMap<ItemEntry> itemsWithdrawn;
 		/** Used processing recipes */
-		@Nonnull public final Object2IntOpenHashMap<@Nonnull STNPRecipe> processes;
+		@NN public final Object2IntOpenHashMap<@NN STNPRecipe> processes;
 		/** Used crafts */
-		@Nonnull public final Object2IntOpenHashMap<@Nonnull Stencil> crafts;
+		@NN public final Object2IntOpenHashMap<@NN Stencil> crafts;
 		/** Used procurements */
-		@Nonnull public final Object2IntOpenHashMap<ItemEntry> procurements;
+		@NN public final Object2IntOpenHashMap<ItemEntry> procurements;
 		/** Missing items */
-		@Nonnull public final Object2IntOpenHashMap<ItemEntry> missing;
+		@NN public final Object2IntOpenHashMap<ItemEntry> missing;
 		/**
 		 * Creates a finished Phase 1 plan
 		 * @param itemsWithdrawn
@@ -97,7 +96,7 @@ public class STNPlanner {
 		 * @param missing missing items
 		 */
 		public Phase1(Object2IntOpenHashMap<ItemEntry> itemsWithdrawn,
-				Object2IntOpenHashMap<@Nonnull STNPRecipe> processes, Object2IntOpenHashMap<@Nonnull Stencil> crafts,
+				Object2IntOpenHashMap<@NN STNPRecipe> processes, Object2IntOpenHashMap<@NN Stencil> crafts,
 				Object2IntOpenHashMap<ItemEntry> procurements, Object2IntOpenHashMap<ItemEntry> missing) {
 			this.itemsWithdrawn = itemsWithdrawn;
 			this.processes = processes;
@@ -117,8 +116,8 @@ public class STNPlanner {
 	 */
 	public Phase1 plan1(RecipeOutput items) {
 		//Results
-		Object2IntOpenHashMap<@Nonnull STNPRecipe> processRecipes = new Object2IntOpenHashMap<>();
-		Object2IntOpenHashMap<@Nonnull Stencil> craftRecipes = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<@NN STNPRecipe> processRecipes = new Object2IntOpenHashMap<>();
+		Object2IntOpenHashMap<@NN Stencil> craftRecipes = new Object2IntOpenHashMap<>();
 		Object2IntOpenHashMap<ItemEntry> procurements = new Object2IntOpenHashMap<>();
 		
 		//The planning queue (negative values mean that there are excess items
@@ -212,8 +211,8 @@ public class STNPlanner {
 	 * @param transformer obtains input items for the recipe
 	 * @return a iterator of plausible recipes, or null if not found
 	 */
-	private @Nullable <T> T findPlausibleRecipe(Object2IntOpenHashMap<ItemEntry> planMap,
-			Object2IntOpenHashMap<ItemEntry> invRemain, @Nullable Set<T> possible, Function<? super T, @Nonnull Set<ItemEntry>> transformer) {
+	private @Nil <T> T findPlausibleRecipe(Object2IntOpenHashMap<ItemEntry> planMap,
+			Object2IntOpenHashMap<ItemEntry> invRemain, @Nil Set<T> possible, Function<? super T, @NN Set<ItemEntry>> transformer) {
 		if(possible == null) return null;
 		for(T recipe: possible) {
 			Set<ItemEntry> inputs = transformer.apply(recipe);
@@ -223,7 +222,7 @@ public class STNPlanner {
 		return null;
 	}
 	private static <T> Set<ItemEntry> planItems(RecipeOutput inputs, RecipeOutput outputs, ItemEntry plannedItem, int plannedAmount,
-			Object2IntOpenHashMap<ItemEntry> planMap, T recipe, Object2IntOpenHashMap<@Nonnull T> recipesCounter, Queue<ItemEntry> queue) {
+			Object2IntOpenHashMap<ItemEntry> planMap, T recipe, Object2IntOpenHashMap<@NN T> recipesCounter, Queue<ItemEntry> queue) {
 		int unitOutputQuantity = outputs.get(plannedItem);
 		if(unitOutputQuantity <= 0) throw new InternalError("No such item: "+plannedItem);
 		double recipeQuantity0 = (double)plannedAmount / unitOutputQuantity;

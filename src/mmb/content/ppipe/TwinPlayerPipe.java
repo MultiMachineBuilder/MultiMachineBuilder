@@ -3,8 +3,7 @@
  */
 package mmb.content.ppipe;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.rotate.ChirotatedImageGroup;
@@ -39,14 +38,14 @@ public class TwinPlayerPipe extends AbstractPlayerPipe {
 		tunnel2.path.length = length;
 	}
 
-	@Nonnull private final BlockType type;
-	@Nonnull private final ChirotatedImageGroup img;
-	@Nonnull private final Side from1;
-	@Nonnull private final Side to1;
-	@Nonnull protected final PipeTunnel tunnel1;
-	@Nonnull private final Side from2;
-	@Nonnull private final Side to2;
-	@Nonnull protected final PipeTunnel tunnel2; 
+	@NN private final BlockType type;
+	@NN private final ChirotatedImageGroup img;
+	@NN private final Side from1;
+	@NN private final Side to1;
+	@NN protected final PipeTunnel tunnel1;
+	@NN private final Side from2;
+	@NN private final Side to2;
+	@NN protected final PipeTunnel tunnel2; 
 	@Override
 	public BlockType type() {
 		return type;

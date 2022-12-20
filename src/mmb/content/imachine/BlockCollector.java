@@ -6,12 +6,11 @@ package mmb.content.imachine;
 import java.util.Collection;
 import java.util.Iterator;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntry;
@@ -35,8 +34,8 @@ public class BlockCollector extends BlockEntityData implements BlockActivateList
 	/**
 	 * The inventory, in which collected items go
 	 */
-	@Nonnull private SimpleInventory inv0 = new SimpleInventory();
-	@Nonnull private Inventory inv = inv0.lockInsertions();
+	@NN private SimpleInventory inv0 = new SimpleInventory();
+	@NN private Inventory inv = inv0.lockInsertions();
 	@Override
 	public Inventory inv() {
 		return inv;
@@ -52,7 +51,7 @@ public class BlockCollector extends BlockEntityData implements BlockActivateList
 	}
 
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		inv0.load(data.get("inv"));
 		rangeX = data.get("rangeX").asInt(4);
@@ -139,7 +138,7 @@ public class BlockCollector extends BlockEntityData implements BlockActivateList
 
 	BlockCollectorGUI gui;
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(gui != null) return;
 		gui = new BlockCollectorGUI(this, window);

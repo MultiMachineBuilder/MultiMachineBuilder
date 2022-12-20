@@ -12,10 +12,10 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.function.Consumer;
 
-import javax.annotation.Nonnull;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.java2d.MappedColorTexture;
 import mmb.engine.texture.Textures;
@@ -51,9 +51,9 @@ public class ToolPaint extends WindowTool {
 		}
 	}
 
-	@Nonnull private static final BufferedImage img = Textures.get("tool/paint.png");
+	@NN private static final BufferedImage img = Textures.get("tool/paint.png");
 	@SuppressWarnings("null")
-	@Nonnull private Color c = Color.WHITE;
+	@NN private Color c = Color.WHITE;
 	@SuppressWarnings("null")
 	private final MappedColorTexture texture = new MappedColorTexture(Color.RED, Color.WHITE, img);
 	public static final Icon icon = new ImageIcon(img);

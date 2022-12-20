@@ -3,8 +3,7 @@
  */
 package mmb.content.wireworld;
 
-import javax.annotation.Nullable;
-
+import mmb.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityDataless;
 import mmb.engine.block.BlockType;
@@ -37,7 +36,7 @@ public class BlockButton extends BlockEntityDataless implements BlockActivateLis
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		pressed = 2;
 	}
 

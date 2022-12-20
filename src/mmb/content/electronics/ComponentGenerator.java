@@ -9,8 +9,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.awt.image.LookupOp;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.java2d.ColorMapper;
 import mmb.engine.texture.Textures;
 import mmb.engine.texture.Textures.Texture;
@@ -23,11 +22,11 @@ import monniasza.collects.Identifiable;
  */
 public class ComponentGenerator implements Titled, Identifiable<String>{
 	/** The color of the component's contacts */
-	@Nonnull public final Texture tex;
+	@NN public final Texture tex;
 	/** The prefix for component titles */
-	@Nonnull public final String pre;
+	@NN public final String pre;
 	/** The ID used for item ID generation*/
-	@Nonnull public final String id;
+	@NN public final String id;
 	public ComponentGenerator(String id) {
 		this.tex = Textures.get1("item/adv "+id+".png");
 		this.id= id;
@@ -46,7 +45,7 @@ public class ComponentGenerator implements Titled, Identifiable<String>{
 	 * @param componentTier component tier to use
 	 * @return generated component texture
 	 */
-	@Nonnull public BufferedImage newTexture(ComponentTier componentTier) {
+	@NN public BufferedImage newTexture(ComponentTier componentTier) {
 		ColorMapper mapper = ColorMapper.ofType(tex.img.getType(), Color.RED, componentTier.c);
 		LookupOp op = new LookupOp(mapper, null);
 		BufferedImage img = op.createCompatibleDestImage(tex.img, null);

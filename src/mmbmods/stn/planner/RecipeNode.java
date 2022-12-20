@@ -5,9 +5,8 @@ package mmbmods.stn.planner;
 
 import java.util.Objects;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.craft.RecipeOutput;
 
 /**
@@ -17,7 +16,7 @@ import mmb.engine.craft.RecipeOutput;
  */
 public final class RecipeNode {
 	/** The node spec for this node*/
-	@Nonnull public final NodeSpec node;
+	@NN public final NodeSpec node;
 	/** Quantity of items */
 	public final int quantity;
 	
@@ -45,7 +44,7 @@ public final class RecipeNode {
 	 */
 	public static class Builder{
 		/** The node spec for this node*/
-		@Nonnull public NodeSpec node;
+		@NN public NodeSpec node;
 		/** Quantity of items */
 		public int quantity;
 	}

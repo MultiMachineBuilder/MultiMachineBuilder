@@ -3,7 +3,7 @@
  */
 package mmb.content.electric;
 
-import javax.annotation.Nonnull;
+import mmb.NN;
 
 /**
  * @author oskar
@@ -11,5 +11,5 @@ import javax.annotation.Nonnull;
  */
 public interface Electric {
 	/** @return the main electrical connection */
-	@Nonnull public Electricity getElectricity();
+	@NN public Electricity getElectricity();
 }

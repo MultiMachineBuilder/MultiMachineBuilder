@@ -3,12 +3,11 @@
  */
 package mmb.content.electric.machines;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.GUIMachine;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
@@ -35,12 +34,12 @@ public class ProcessorComplexCatalyzedBlock extends ProcessorAbstractBlock imple
 		return type.rig;
 	}
 
-	@Nonnull private final ComplexCatalyzedItemProcessHelper helper;
-	@Nonnull public final ComplexCatalyzedRecipeGroup group;
+	@NN private final ComplexCatalyzedItemProcessHelper helper;
+	@NN public final ComplexCatalyzedRecipeGroup group;
 	/**
 	 * The current catalyst
 	 */
-	@Nonnull public final SingleItemInventory catalyst = new SingleItemInventory();
+	@NN public final SingleItemInventory catalyst = new SingleItemInventory();
 	
 	//Constructor
 	public ProcessorComplexCatalyzedBlock(ElectroMachineType type, ComplexCatalyzedRecipeGroup group) {
@@ -97,7 +96,7 @@ public class ProcessorComplexCatalyzedBlock extends ProcessorAbstractBlock imple
 	public final ComplexCatalyzedRecipeGroup recipes;
 	//GUI
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(tab != null) return;
 		tab = new GUIMachine(this, window);

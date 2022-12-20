@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.item.Item;
 import mmb.engine.item.Items;
 import mmb.engine.java2d.TexGen;
@@ -21,8 +20,8 @@ import mmb.engine.texture.Textures;
  * A  group of items by voltage
  */
 public class VoltagedItemGroup {
-	@Nonnull public final List<@Nonnull Item> items;
-	@Nonnull public final List<@Nonnull BufferedImage> images;
+	@NN public final List<@NN Item> items;
+	@NN public final List<@NN BufferedImage> images;
 	private static final VoltageTier[] volts = VoltageTier.values();
 	/**
 	 * Creates a voltaged item group

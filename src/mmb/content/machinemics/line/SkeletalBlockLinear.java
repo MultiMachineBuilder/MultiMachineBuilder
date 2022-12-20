@@ -3,11 +3,10 @@
  */
 package mmb.content.machinemics.line;
 
-import javax.annotation.Nonnull;
-
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
 import mmb.engine.block.BlockEntityRotary;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.inv.Inventories;
@@ -26,9 +25,9 @@ import mmb.engine.worlds.MapProxy;
  */
 public abstract class SkeletalBlockLinear extends BlockEntityRotary {
 	
-	@Nonnull public final SimpleInventory incoming = new SimpleInventory();
-	@Nonnull protected final SimpleInventory outgoing = new SimpleInventory();
-	@Nonnull public final Inventory output = outgoing.lockInsertions();
+	@NN public final SimpleInventory incoming = new SimpleInventory();
+	@NN protected final SimpleInventory outgoing = new SimpleInventory();
+	@NN public final Inventory output = outgoing.lockInsertions();
 	
 	@Override
 	protected final void save1(ObjectNode node) {

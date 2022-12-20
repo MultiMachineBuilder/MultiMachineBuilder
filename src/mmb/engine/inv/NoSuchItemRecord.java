@@ -3,8 +3,7 @@
  */
 package mmb.engine.inv;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.item.ItemEntry;
 
 /**
@@ -12,7 +11,7 @@ import mmb.engine.item.ItemEntry;
  *
  */
 public class NoSuchItemRecord implements ItemRecord {
-	@Nonnull private final Inventory inv;
+	@NN private final Inventory inv;
 	@Override
 	public ItemRecord lockInsertions() {
 		return this;

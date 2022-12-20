@@ -5,13 +5,12 @@ package mmb.content.machinemics.pack;
 
 import java.util.Objects;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ContentsItems;
 import mmb.engine.craft.ItemLists;
 import mmb.engine.craft.RecipeOutput;
@@ -28,7 +27,7 @@ public class Pack extends ItemEntity {
 
 	private double volumeInner = 0;
 	private double volumeOuter = 0.001;
-	@Nonnull private RecipeOutput contents = RecipeOutput.NONE;
+	@NN private RecipeOutput contents = RecipeOutput.NONE;
 
 	/**
 	 * Creates an empty item pack
@@ -52,7 +51,7 @@ public class Pack extends ItemEntity {
 	}
 
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		JsonNode ilist = data.get("contents");
 		RecipeOutput contents0 = ItemLists.read(ilist);

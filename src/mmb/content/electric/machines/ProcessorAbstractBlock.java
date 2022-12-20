@@ -3,9 +3,8 @@
  */
 package mmb.content.electric.machines;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.Battery;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.GUIMachine;
@@ -27,15 +26,15 @@ import mmb.engine.worlds.MapProxy;
 public abstract class ProcessorAbstractBlock extends BlockEntityRotary implements ElectroMachine{
 
 	/** The input inventory */
-	@Nonnull public final SimpleInventory in = new SimpleInventory();
+	@NN public final SimpleInventory in = new SimpleInventory();
 	/** Internal output inventory for recipe processors */
-	@Nonnull protected final SimpleInventory out0 = new SimpleInventory();
+	@NN protected final SimpleInventory out0 = new SimpleInventory();
 	/** The output inventory */
-	@Nonnull public final Inventory out = out0.lockInsertions();
+	@NN public final Inventory out = out0.lockInsertions();
 	/** The electrical buffer */
-	@Nonnull public final Battery elec;
+	@NN public final Battery elec;
 	/** The block type */
-	@Nonnull protected final ElectroMachineType type;
+	@NN protected final ElectroMachineType type;
 			 protected boolean pass;
 			 protected boolean autoExtract;
 			 protected GUIMachine tab;
@@ -90,7 +89,7 @@ public abstract class ProcessorAbstractBlock extends BlockEntityRotary implement
 	 * @apiNote This method may be overridden if catalysts are supported
 	 * @return the item catalyst inventory, or {@code null} if catalysts are unsupported
 	 */
-	@Nullable public SingleItemInventory catalyst() {
+	@Nil public SingleItemInventory catalyst() {
 		return null;
 	}
 
@@ -99,7 +98,7 @@ public abstract class ProcessorAbstractBlock extends BlockEntityRotary implement
 	 * For implementers: Do not copy input, output, pass on, auto-extract and battery., as copying these is redundant
 	 * @return the partial copy
 	 */
-	@Nonnull protected abstract ProcessorAbstractBlock copy0();
+	@NN protected abstract ProcessorAbstractBlock copy0();
 
 	@Override
 	public final BlockEntry blockCopy() {

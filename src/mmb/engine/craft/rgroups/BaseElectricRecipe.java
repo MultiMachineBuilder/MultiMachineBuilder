@@ -3,8 +3,7 @@
  */
 package mmb.engine.craft.rgroups;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.Recipe;
@@ -19,11 +18,11 @@ public abstract class BaseElectricRecipe<T extends Recipe<T>> implements Recipe<
 	/** Energy required for completion in joules */
 	public final double energy;
 	/** Voltage tier required for this recipe */
-	@Nonnull public final VoltageTier voltage;
+	@NN public final VoltageTier voltage;
 	/** Deterministic output of this recipe */
-	@Nonnull public final RecipeOutput output;
+	@NN public final RecipeOutput output;
 	/** Randomized output of this recipe */
-	@Nonnull public final Chance luck;
+	@NN public final Chance luck;
 	
 	/**
 	 * Base constructor for recipes

@@ -6,8 +6,6 @@ package mmb.engine.item;
 import java.awt.Component;
 import java.awt.Graphics;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.Icon;
 
 import org.ainslec.picocog.PicoWriter;
@@ -16,6 +14,8 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.NullNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.SingleItem;
@@ -38,7 +38,7 @@ public interface ItemEntry extends Saver, SingleItem{
 	/** @return the volume of this item entry */
 	public double volume();
 	/** @return type of this item entry */
-	@Nonnull public ItemType type();
+	@NN public ItemType type();
 	/** @return title of this item entry */
 	public default String title() {
 		return type().title();
@@ -73,7 +73,7 @@ public interface ItemEntry extends Saver, SingleItem{
 		return new BlockDrawer() {
 
 			@Override
-			public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int w, int h) {
+			public void draw(@Nil BlockEntry ent, int x, int y, Graphics g, int w, int h) {
 				item.render(g, x, y, w, h);
 			}
 
@@ -89,7 +89,7 @@ public interface ItemEntry extends Saver, SingleItem{
 		};
 	}
 	/** @return an icon for this item entry */
-	public default @Nonnull Icon icon() {
+	public default @NN Icon icon() {
 		return new Icon() {
 			@Override public int getIconHeight() {
 				return 32;
@@ -97,7 +97,7 @@ public interface ItemEntry extends Saver, SingleItem{
 			@Override public int getIconWidth() {
 				return 32;
 			}
-			@Override public void paintIcon(@Nullable Component c, @SuppressWarnings("null") Graphics g, int x, int y) {
+			@Override public void paintIcon(@Nil Component c, @SuppressWarnings("null") Graphics g, int x, int y) {
 				render(g, x, y, 32, 32);
 			}
 		};
@@ -109,7 +109,7 @@ public interface ItemEntry extends Saver, SingleItem{
 	 * @param amount number of the item in a stack
 	 * @return an item stack with specified amount of given item
 	 */
-	@Nonnull public default ItemStack stack(int amount) {
+	@NN public default ItemStack stack(int amount) {
 		return new ItemStack(this, amount);
 	}
 	
@@ -135,7 +135,7 @@ public interface ItemEntry extends Saver, SingleItem{
 	
 	//Recipe output & drop methods
 	@Override
-	default boolean drop(@Nullable InventoryWriter inv, @Nullable World map, int x, int y) {
+	default boolean drop(@Nil InventoryWriter inv, @Nil World map, int x, int y) {
 		return Chance.tryDrop(this, inv, map, x, y);
 	}
 	@Override
@@ -159,7 +159,7 @@ public interface ItemEntry extends Saver, SingleItem{
 	 * or a JSON node if data is present
 	 */
 	@Override
-	public default @Nullable JsonNode save() {
+	public default @Nil JsonNode save() {
 		return null;
 	}
 	
@@ -168,7 +168,7 @@ public interface ItemEntry extends Saver, SingleItem{
 	 * @param item the item to save
 	 * @return the JSON representation of this item entry
 	 */
-	public static JsonNode saveItem(@Nullable ItemEntry item) {
+	public static JsonNode saveItem(@Nil ItemEntry item) {
 		if(item == null) return NullNode.instance;
 		JsonNode save = item.save();
 		if(save == null) return new TextNode(item.type().id());
@@ -182,7 +182,7 @@ public interface ItemEntry extends Saver, SingleItem{
 	 * @param data JSON data
 	 * @return item it if loaded successfully, or null if failed
 	 */
-	@Nullable public static ItemEntry loadFromJson(@Nullable JsonNode data) {
+	@Nil public static ItemEntry loadFromJson(@Nil JsonNode data) {
 		return loadFromJsonExpectType(data, null);
 	}
 	/**
@@ -190,7 +190,7 @@ public interface ItemEntry extends Saver, SingleItem{
 	 * @param data JSON data
 	 * @return item it if loaded successfully, or null if failed
 	 */
-	@Nullable public static <T extends ItemEntry> ItemEntry loadFromJsonExpectType(@Nullable JsonNode data, @Nullable Class<T> cls) {
+	@Nil public static <T extends ItemEntry> ItemEntry loadFromJsonExpectType(@Nil JsonNode data, @Nil Class<T> cls) {
 		if(data == null) return null;
 		if(data.isNull()) return null;
 		if(data.isArray()) {

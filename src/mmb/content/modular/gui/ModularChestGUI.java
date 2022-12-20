@@ -7,11 +7,11 @@ import net.miginfocom.swing.MigLayout;
 
 import java.awt.Component;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JButton;
 import javax.swing.border.BevelBorder;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.modular.BlockModuleOrCore;
 import mmb.content.modular.ModularBlock;
 import mmb.content.modular.Slot;
@@ -50,8 +50,8 @@ public class ModularChestGUI extends GUITab implements SafeCloseable{
 		add(exit, "cell 2 2,grow");
 	}
 	
-	@Nullable private <Telement extends BlockModuleOrCore<Telement, ?, ?>, Tgui extends Component&SafeCloseable> ModuleOrCoreGUI<Telement, Tgui>
-	createSlot(@Nullable Slot<Telement> slot){
+	@Nil private <Telement extends BlockModuleOrCore<Telement, ?, ?>, Tgui extends Component&SafeCloseable> ModuleOrCoreGUI<Telement, Tgui>
+	createSlot(@Nil Slot<Telement> slot){
 		if(slot == null) return null;
 				
 		ModuleOrCoreGUI<Telement, Tgui> mcg = new ModuleOrCoreGUI<>(slot, invctrl);
@@ -66,8 +66,8 @@ public class ModularChestGUI extends GUITab implements SafeCloseable{
 	private ModuleOrCoreGUI<?, ?> mcgC;
 	private ModuleOrCoreGUI<?, ?> mcgU;
 	private ModuleOrCoreGUI<?, ?> mcgD;
-	@Nonnull private final ModularBlock<?, ?, ?, ?> mblock;
-	@Nonnull private final InventoryController invctrl;
+	@NN private final ModularBlock<?, ?, ?, ?> mblock;
+	@NN private final InventoryController invctrl;
 
 	@Override
 	public void close(WorldWindow window) {

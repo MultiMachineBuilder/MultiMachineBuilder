@@ -5,10 +5,10 @@ package mmb.content.electric;
 
 import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JProgressBar;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.UnitFormatter;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.rotate.Side;
@@ -52,7 +52,7 @@ public interface Electricity {
 	/**
 	 * @return the maximum voltage
 	 */
-	@Nonnull public VoltageTier voltage();
+	@NN public VoltageTier voltage();
 	/**
 	 * @return the power pressure in joules
 	 */
@@ -77,7 +77,7 @@ public interface Electricity {
 	/**
 	 * Does nothing. Used to make wires look good and in {@link #optional(Electricity)};
 	 */
-	@Nonnull public static final Electricity NONE = new Electricity() {
+	@NN public static final Electricity NONE = new Electricity() {
 		@Override
 		public double insert(double amt, VoltageTier volt) {
 			return 0;
@@ -106,7 +106,7 @@ public interface Electricity {
 	 * @param elec the electrical connection
 	 * @return electrical connection without ability to extract
 	 */
-	@Nonnull public static Electricity extractOnly(Electricity elec) {
+	@NN public static Electricity extractOnly(Electricity elec) {
 		return new Electricity() {
 
 			@Override
@@ -141,7 +141,7 @@ public interface Electricity {
 	 * @param elec the electrical connection
 	 * @return electrical connection without ability to insert
 	 */
-	@Nonnull public static Electricity insertOnly(Electricity elec) {
+	@NN public static Electricity insertOnly(Electricity elec) {
 		return new Electricity() {
 
 			@Override
@@ -177,7 +177,7 @@ public interface Electricity {
 	 * @param blow block to blow, optional
 	 * @return a new electrical connection
 	 */
-	@Nonnull public static Electricity circuitBreaker(Electricity elec, VoltageTier max, @Nullable BlockEntity blow) {
+	@NN public static Electricity circuitBreaker(Electricity elec, VoltageTier max, @Nil BlockEntity blow) {
 		return new Electricity() {
 			@Override
 			public double insert(double amt, VoltageTier volt) {
@@ -219,7 +219,7 @@ public interface Electricity {
 	 * @param elec supplier of electrical connections (the supplier may return null to indicate lack of connection)
 	 * @return an electrical connection based on given supplier of electrical connections
 	 */
-	@Nonnull public static Electricity dynamicElectricity(Supplier<@Nullable Electricity> elec) {
+	@NN public static Electricity dynamicElectricity(Supplier<@Nil Electricity> elec) {
 		return new Electricity() {
 			private Electricity obtain() {
 				Electricity result = elec.get();
@@ -258,7 +258,7 @@ public interface Electricity {
 	 * @param pwr maximum current
 	 * @return new electrical connection
 	 */
-	@Nonnull public static Electricity limitCurrent(Electricity elec, double pwr) {
+	@NN public static Electricity limitCurrent(Electricity elec, double pwr) {
 		return new Electricity() {
 
 			@Override
@@ -379,7 +379,7 @@ public interface Electricity {
 	 * @param energy input electrical connection
 	 * @return the Electricity.NONE if null or else input value
 	 */
-	@Nonnull public static Electricity optional(@Nullable Electricity energy) {
+	@NN public static Electricity optional(@Nil Electricity energy) {
 		return energy==null?NONE:energy;
 	}
 }

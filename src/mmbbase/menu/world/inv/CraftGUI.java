@@ -6,6 +6,8 @@ package mmbbase.menu.world.inv;
 import org.ainslec.picocog.PicoWriter;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.CraftingGroups;
 import mmb.content.ditems.Stencil;
 import mmb.content.machinemics.manual.Crafting;
@@ -29,8 +31,6 @@ import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 
 import javax.swing.JLabel;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 
@@ -50,11 +50,11 @@ public class CraftGUI extends GUITab {
 	/**
 	 * The crafting grid object
 	 */
-	@Nonnull public final CraftingGrid craftingGrid;
+	@NN public final CraftingGrid craftingGrid;
 	/**
 	 * Invenotry controller for the crafting
 	 */
-	@Nonnull public final InventoryController inventoryController;
+	@NN public final InventoryController inventoryController;
 	/**
 	 * Creates a crafting GUI with given size and inventory
 	 * @param size size of each grid side in squares
@@ -63,7 +63,7 @@ public class CraftGUI extends GUITab {
 	 * @param window the window, which stores this GUI (optional)
 	 * @wbp.parser.constructor
 	 */
-	public CraftGUI(int size, @Nullable Inventory inv, @Nullable Crafting crafter, @Nullable WorldWindow window) {
+	public CraftGUI(int size, @Nil Inventory inv, @Nil Crafting crafter, @Nil WorldWindow window) {
 		this(size, crafter, window, new InventoryController(inv));
 	}
 	/**
@@ -73,12 +73,12 @@ public class CraftGUI extends GUITab {
 	 * @param window the window, which stores this GUI (optional)
 	 * @param ctrl inventory controller, which will be used as a selector
 	 */
-	public CraftGUI(int size, @Nullable Crafting crafter, @Nullable WorldWindow window, InventoryController ctrl) {
+	public CraftGUI(int size, @Nil Crafting crafter, @Nil WorldWindow window, InventoryController ctrl) {
 		Object2IntMap<ItemEntry> ins = new Object2IntOpenHashMap<>();
 		AtomicReference<RecipeOutput> outs = new AtomicReference<>();
 		
 		setLayout(new MigLayout("", "[263px][]", "[155px,grow]"));
-		Grid<@Nullable ItemEntry> contents = new FixedGrid<>(size, size);
+		Grid<@Nil ItemEntry> contents = new FixedGrid<>(size, size);
 		
 		box = new Box(BoxLayout.Y_AXIS);
 		add(box, "flowy,cell 1 0,growy");
@@ -216,11 +216,11 @@ public class CraftGUI extends GUITab {
 			buttonbar.add(btnExit);
 		}
 	}
-	@Nonnull private JLabel lblRecipeOutputs;
+	@NN private JLabel lblRecipeOutputs;
 	/** Place toolbars here */
-	@Nonnull public final Box box;
+	@NN public final Box box;
 	/** Place buttons here */
-	@Nonnull public final Box buttonbar;
+	@NN public final Box buttonbar;
 	
 	@Override
 	public void close(WorldWindow window) {

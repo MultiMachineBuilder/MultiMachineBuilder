@@ -7,8 +7,9 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 
-import javax.annotation.Nullable;
 import javax.swing.Icon;
+
+import mmb.Nil;
 
 /**
  * @author oskar
@@ -36,7 +37,7 @@ public class ConstSolidIcon implements Icon {
 	}
 
 	@Override
-	public void paintIcon(@Nullable Component cm, Graphics g, int x, int y) {
+	public void paintIcon(@Nil Component cm, Graphics g, int x, int y) {
 		g.setColor(c);
 		g.fillRect(x, y, w, h);
 	}

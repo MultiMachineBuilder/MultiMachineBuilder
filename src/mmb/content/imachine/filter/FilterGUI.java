@@ -7,13 +7,13 @@ import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.awt.Color;
 
-import javax.annotation.Nullable;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
 
+import mmb.Nil;
 import mmb.engine.inv.storage.SingleItemInventory;
 import mmbbase.menu.world.inv.InventoryController;
 import mmbbase.menu.world.inv.MoveItems;

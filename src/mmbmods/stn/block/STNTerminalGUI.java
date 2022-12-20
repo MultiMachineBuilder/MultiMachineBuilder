@@ -5,13 +5,12 @@ package mmbmods.stn.block;
 
 import java.awt.Color;
 
-import javax.annotation.Nonnull;
-
 import net.miginfocom.swing.MigLayout;
 import mmbmods.stn.STNInventoryController;
 
 import javax.swing.JButton;
 
+import mmb.NN;
 import mmbbase.menu.helper.MenuHelper;
 import mmbbase.menu.world.inv.AbstractInventoryController;
 import mmbbase.menu.world.inv.InventoryController;
@@ -26,7 +25,7 @@ import mmbbase.menu.world.window.WorldWindow;
 public class STNTerminalGUI extends GUITab {
 	private static final long serialVersionUID = -2283860749818164470L;
 	
-	@Nonnull private final STNTerminal term;
+	@NN private final STNTerminal term;
 	STNTerminalGUI(STNTerminal term, WorldWindow window){
 		this.term = term;
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][][grow]"));

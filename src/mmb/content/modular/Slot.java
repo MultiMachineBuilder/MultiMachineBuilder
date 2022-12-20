@@ -3,9 +3,8 @@
  */
 package mmb.content.modular;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.modular.BlockModule.BlockModuleParams;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.storage.BaseSingleItemInventory;
@@ -21,17 +20,17 @@ import mmbbase.data.variables.ListenableValue;
  * @author oskar
  * @param <T> type of values
  */
-public class Slot<@Nullable T> extends ListenableValue<T>{
-	@Nonnull private static final Debugger debug = new Debugger("MODULAR SLOTS");
+public class Slot<@Nil T> extends ListenableValue<T>{
+	@NN private static final Debugger debug = new Debugger("MODULAR SLOTS");
 	/** The type of the slots */
-	@Nonnull public final Class<T> type;
+	@NN public final Class<T> type;
 	/**
 	 * Sets a value if it extends the expected type
 	 * @param value
 	 * @return does the input have a correct type
 	 */
 	@SuppressWarnings("unchecked")
-	public boolean setto(@Nullable Object value) {
+	public boolean setto(@Nil Object value) {
 		if(!test(value)) return false;
 		set((T) value);
 		return true;
@@ -41,7 +40,7 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 	 * @param totest value to test
 	 * @return does the input have a correct type
 	 */
-	public final boolean test(@Nullable Object totest) {
+	public final boolean test(@Nil Object totest) {
 		return totest == null || type.isInstance(totest);
 	}
 	/**
@@ -58,14 +57,14 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 	 * Called when an old value is removed
 	 * @param module removed module
 	 */
-	protected void removeOld(@Nullable T module) {
+	protected void removeOld(@Nil T module) {
 		//to be overridden
 	}
 	/**
 	 * Called when a new value is added
 	 * @param module
 	 */
-	protected void addNew(@Nullable T module) {
+	protected void addNew(@Nil T module) {
 		//to be overridden
 	}
 		
@@ -77,9 +76,9 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 	 */
 	public static class ModuleSlot<Tblock extends ModularBlock<Tblock, Tmodule, ?, ?>, Tmodule extends BlockModule<Tmodule>> extends Slot<Tmodule>{
 		/** The logical side on which the slot is located */
-		@Nonnull public final Side logicalSide;
+		@NN public final Side logicalSide;
 		/** The owner of this slot */
-		@Nonnull public final Tblock block;
+		@NN public final Tblock block;
 		/**
 		 * Creates a module slot
 		 * @param logicalSide the logical side (before rotation)
@@ -93,7 +92,7 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 		}
 
 		@Override
-		protected void removeOld(@Nullable Tmodule module) {
+		protected void removeOld(@Nil Tmodule module) {
 			if(module == null) return;
 			//When killed, drop items
 			//Find where to drop
@@ -109,7 +108,7 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 		}
 
 		@Override
-		protected void addNew(@Nullable Tmodule module) {
+		protected void addNew(@Nil Tmodule module) {
 			Side realSide = block.getChirotation().apply(logicalSide);
 			BlockModuleParams<Tmodule> bmp = new BlockModuleParams<>(block, logicalSide, realSide);
 			if(module != null) module.onAdded(bmp);
@@ -123,7 +122,7 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 	 */
 	public static class CoreSlot<Tblock extends ModularBlock<Tblock, ?, Tcore, ?>, Tcore extends BlockCore<Tcore>> extends Slot<Tcore>{
 		/** The owner of this slot */
-		@Nonnull public final Tblock block;
+		@NN public final Tblock block;
 		/**
 		 * Creates a core slot
 		 * @param block block which hosts this slot
@@ -135,7 +134,7 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 		}
 
 		@Override
-		protected void removeOld(@Nullable Tcore module) {
+		protected void removeOld(@Nil Tcore module) {
 			if(module == null) return;
 			//When killed, drop items
 			//Find where to drop
@@ -149,7 +148,7 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 		}
 
 		@Override
-		protected void addNew(@Nullable Tcore module) {
+		protected void addNew(@Nil Tcore module) {
 			if(module != null) module.onAdded(block);
 		}
 	}
@@ -161,13 +160,13 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 	 */
 	public static class SidedSlotHelper<Tblock extends ModularBlock<Tblock, Tmodule, ?, ?>, Tmodule extends BlockModule<Tmodule>>{
 		/** The upper slot */
-		@Nonnull public final ModuleSlot<Tblock, Tmodule> U;
+		@NN public final ModuleSlot<Tblock, Tmodule> U;
 		/** The lower slot */
-		@Nonnull public final ModuleSlot<Tblock, Tmodule> D;
+		@NN public final ModuleSlot<Tblock, Tmodule> D;
 		/** The left slot */
-		@Nonnull public final ModuleSlot<Tblock, Tmodule> L;
+		@NN public final ModuleSlot<Tblock, Tmodule> L;
 		/** The right slot */
-		@Nonnull public final ModuleSlot<Tblock, Tmodule> R;
+		@NN public final ModuleSlot<Tblock, Tmodule> R;
 		/**
 		 * Creates a sided slot helper
 		 * @param cls type of the modules
@@ -184,7 +183,7 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 		 * @param s side to get from
 		 * @return a module slot, or null if side is a corner or null
 		 */
-		@Nullable public ModuleSlot<Tblock, Tmodule> get(Side s){
+		@Nil public ModuleSlot<Tblock, Tmodule> get(Side s){
 			switch(s) {
 			case U: return U;
 			case D: return D;
@@ -199,9 +198,9 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 	 * @author oskar
 	 * @param <Titem> type of items in the slot
 	 */
-	public static class SlotInv<@Nullable Titem extends ItemEntry> extends BaseSingleItemInventory{
+	public static class SlotInv<@Nil Titem extends ItemEntry> extends BaseSingleItemInventory{
 		/** The slot used by the inventory */
-		@Nonnull public final Slot<Titem> slot;
+		@NN public final Slot<Titem> slot;
 		/**
 		 * Creates a slot-based inventory
 		 * @param slot slot to use
@@ -215,7 +214,7 @@ public class Slot<@Nullable T> extends ListenableValue<T>{
 			return slot.get();
 		}
 		@Override
-		public boolean setContents(@Nullable ItemEntry contents) {
+		public boolean setContents(@Nil ItemEntry contents) {
 			return slot.setto(contents);
 		}
 		@Override

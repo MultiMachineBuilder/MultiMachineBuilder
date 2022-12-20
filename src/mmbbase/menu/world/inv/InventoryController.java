@@ -11,8 +11,6 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -25,6 +23,8 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.event.ListSelectionListener;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.MMBUtils;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
@@ -44,7 +44,7 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	private static final long serialVersionUID = -3804277344383315579L;
 	
 	private final JList<ItemRecord> invlist;
-	@Nonnull private DefaultListModel<ItemRecord> model0 = new DefaultListModel<>();
+	@NN private DefaultListModel<ItemRecord> model0 = new DefaultListModel<>();
 	
 	private Inventory inv;
 	private JLabel label;
@@ -52,7 +52,7 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	private InventoryOrchestrator orchestrator;
 	private JScrollPane scrollPane;
 	private JButton btnUnsel;
-	@Nonnull public final Box ubox;
+	@NN public final Box ubox;
 
 	@Override
 	public void refresh() {
@@ -109,7 +109,7 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	/**
 	 * @param out
 	 */
-	public InventoryController(@Nullable Inventory out) {
+	public InventoryController(@Nil Inventory out) {
 		this();
 		setInv(out);
 	}
@@ -133,7 +133,7 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	 * @see javax.swing.JList#getSelectedIndices()
 	 */
 	@SuppressWarnings("null")
-	@Nonnull public int[] getSelectedIndices() {
+	public int @NN [] getSelectedIndices() {
 		return invlist.getSelectedIndices();
 	}
 	/**
@@ -141,15 +141,15 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	 * @see javax.swing.JList#getSelectedValue()
 	 */
 	@Override
-	@Nullable public ItemRecord getSelectedValue() {
+	@Nil public ItemRecord getSelectedValue() {
 		return invlist.getSelectedValue();
 	}
 	/** @return item selection variable for item selection slots */
-	@Nonnull public Variable<ItemEntry> itemSelection(){
+	@NN public Variable<ItemEntry> itemSelection(){
 		return Variable.delegate(this::getSelectedItem, MMBUtils.doNothing());
 	}
 	/** @return a selected item */
-	@Nullable public ItemEntry getSelectedItem() {
+	@Nil public ItemEntry getSelectedItem() {
 		ItemRecord irecord = getSelectedValue();
 		if(irecord == null) return null;
 		return irecord.item();
@@ -157,7 +157,7 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	
 	@Override
 	@SuppressWarnings("null")
-	@Nonnull public List<ItemRecord> getSelectedValuesList() {
+	@NN public List<ItemRecord> getSelectedValuesList() {
 		return invlist.getSelectedValuesList();
 	}
 	/**
@@ -194,7 +194,7 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	 * Sets the inventory of this list
 	 * @param inv the new inventory
 	 */
-	public void setInv(@Nullable Inventory inv) {
+	public void setInv(@Nil Inventory inv) {
 		this.inv = inv;
 		configureButtons();
 		refresh();
@@ -207,14 +207,14 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	/**
 	 * @return the current inventory orchestrator
 	 */
-	public @Nullable InventoryOrchestrator getOrchestrator() {
+	public @Nil InventoryOrchestrator getOrchestrator() {
 		return orchestrator;
 	}
 	/**
 	 * Set the new inventory orchestrator
 	 * @param orchestrator new inventory orchestrator
 	 */
-	public void setOrchestrator(@Nullable InventoryOrchestrator orchestrator) {
+	public void setOrchestrator(@Nil InventoryOrchestrator orchestrator) {
 		this.orchestrator = orchestrator;
 		configureButtons();
 	}
@@ -280,7 +280,7 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	/**
 	 * @return the model
 	 */
-	@Nonnull public DefaultListModel<ItemRecord> getModel() {
+	@NN public DefaultListModel<ItemRecord> getModel() {
 		return model0;
 	}
 	/**
@@ -301,7 +301,7 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	 * @return current selection model
 	 * @see javax.swing.JList#getSelectionModel()
 	 */
-	@Nonnull public ListSelectionModel getSelectionModel() {
+	@NN public ListSelectionModel getSelectionModel() {
 		return invlist.getSelectionModel();
 	}
 	/**

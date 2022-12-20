@@ -6,10 +6,10 @@ package mmbbase.menu.helper;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 
-import javax.annotation.Nullable;
 import javax.swing.JButton;
 
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
+import mmb.Nil;
 import mmb.engine.settings.GlobalSettings;
 import mmbbase.menu.world.window.GUITab;
 import mmbbase.menu.world.window.WorldWindow;
@@ -42,7 +42,7 @@ public class MenuHelper {
 	 * @param listener action listener
 	 * @return a button
 	 */
-	public static JButton newButton(String resource, @Nullable Color color, @Nullable ActionListener listener) {
+	public static JButton newButton(String resource, @Nil Color color, @Nil ActionListener listener) {
 		JButton button = new JButton(GlobalSettings.$str1(resource));
 		button.setBackground(color);
 		button.addActionListener(listener);

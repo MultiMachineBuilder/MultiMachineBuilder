@@ -5,13 +5,12 @@ package mmb.engine.block;
 
 import java.awt.Graphics;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.pploder.events.Event;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.CatchingEvent;
 import mmb.engine.debug.Debugger;
 import mmb.engine.rotate.ChiralRotation;
@@ -28,7 +27,7 @@ import mmb.engine.rotate.Rotation.RotationListener;
 public abstract class BlockEntityChirotable extends BlockEntityData {
 	private static final Debugger debug = new Debugger("CHIROTABLE BLOCK");
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		JsonNode dirnode = data.get("dir");
 		boolean dir = (dirnode == null) ? false : dirnode.asBoolean();
@@ -46,7 +45,7 @@ public abstract class BlockEntityChirotable extends BlockEntityData {
 	}
 
 	//Chirality
-	@Nonnull private Chirality chirality = Chirality.R;
+	@NN private Chirality chirality = Chirality.R;
 	@Override public Chirality getChirality() {
 		return chirality;
 	}
@@ -68,7 +67,7 @@ public abstract class BlockEntityChirotable extends BlockEntityData {
 	}
 	
 	//Rotation
-	@Nonnull private Rotation rotation = Rotation.N;
+	@NN private Rotation rotation = Rotation.N;
 	private Event<Rotation> onRotation = new CatchingEvent<>(debug, "Failed to run rotation event");
 	@Override public void setRotation(Rotation rotation) {
 		if(this.rotation == rotation) return;
@@ -90,7 +89,7 @@ public abstract class BlockEntityChirotable extends BlockEntityData {
 	}
 
 	//Chirotation
-	@Nonnull private ChiralRotation chirotation = ChiralRotation.Nr;
+	@NN private ChiralRotation chirotation = ChiralRotation.Nr;
 	/** @return current chiral rotation */
 	@Override public ChiralRotation getChirotation() {
 		return chirotation;

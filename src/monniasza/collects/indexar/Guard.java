@@ -5,10 +5,9 @@ package monniasza.collects.indexar;
 
 import java.util.function.Predicate;
 
-import javax.annotation.Nonnull;
-
 import com.google.common.collect.SetMultimap;
 
+import mmb.NN;
 import monniasza.collects.Collects;
 
 /**
@@ -20,7 +19,7 @@ import monniasza.collects.Collects;
 public class Guard<T> implements Index<T, Object, SetMultimap<Object, T>> {
 
 	/** Condition required for new objects in the database*/
-	@Nonnull public final Predicate<T> pred;
+	@NN public final Predicate<T> pred;
 	/**
 	 * Creates a guard
 	 * @param pred condition required for new objects in the database

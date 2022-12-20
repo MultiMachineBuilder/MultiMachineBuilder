@@ -3,8 +3,7 @@
  */
 package mmb.content.ppipe;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.rotate.ChirotatedImageGroup;
@@ -15,11 +14,11 @@ import mmb.engine.rotate.Side;
  *
  */
 public class PlayerPipe extends AbstractPlayerPipe {
-	@Nonnull private final BlockType type;
-	@Nonnull private final ChirotatedImageGroup img;
-	@Nonnull private final Side from;
-	@Nonnull private final Side to;
-	@Nonnull protected final PipeTunnel tunnel; 
+	@NN private final BlockType type;
+	@NN private final ChirotatedImageGroup img;
+	@NN private final Side from;
+	@NN private final Side to;
+	@NN protected final PipeTunnel tunnel; 
 	@Override
 	public BlockType type() {
 		return type;

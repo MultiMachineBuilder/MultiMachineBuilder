@@ -3,11 +3,11 @@
  */
 package mmb.content.imachine;
 
-import javax.annotation.Nonnull;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
 import mmb.engine.block.BlockEntityChirotable;
 import mmb.engine.block.BlockType;
 import mmb.engine.craft.RecipeOutput;
@@ -81,7 +81,7 @@ public abstract class AbstractBasePipe extends BlockEntityChirotable {
 		}
 	}
 
-	@Nonnull private final BlockType type;
+	@NN private final BlockType type;
 
 	@Override
 	protected void save1(ObjectNode node) {
@@ -98,7 +98,7 @@ public abstract class AbstractBasePipe extends BlockEntityChirotable {
 	protected InventoryWriter inU, inD, inL, inR;
 	protected InventoryReader outU, outD, outL, outR;
 	
-	@Nonnull protected final SingleItemInventory[] items;
+	@NN protected final SingleItemInventory[] items;
 	
 	private final ChirotatedImageGroup texture;
 	protected AbstractBasePipe(BlockType type, int numItems, ChirotatedImageGroup texture) {
@@ -133,7 +133,7 @@ public abstract class AbstractBasePipe extends BlockEntityChirotable {
 	 */
 	protected class Pusher implements InventoryWriter{
 		private final SingleItemInventory from;
-		@Nonnull private final Side other;
+		@NN private final Side other;
 		/**
 		 * 
 		 * @param from item entry source variable

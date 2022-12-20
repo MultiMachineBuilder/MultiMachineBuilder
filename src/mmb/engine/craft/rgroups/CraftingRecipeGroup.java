@@ -7,11 +7,10 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.CraftingGroups;
 import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.content.electric.VoltageTier;
@@ -44,7 +43,7 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup<CraftingRecipeGroup
 	 * @param grid the item grid
 	 * @return recipe output for given grid, or null if not found
 	 */
-	@Nullable public CraftingRecipe findRecipe(Grid<ItemEntry> grid) {
+	@Nil public CraftingRecipe findRecipe(Grid<ItemEntry> grid) {
 		Grid<ItemEntry> trim = grid.trim();
 		return recipes.get(trim);
 	}
@@ -55,13 +54,13 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup<CraftingRecipeGroup
 	 */
 	public class CraftingRecipe implements Identifiable<Grid<ItemEntry>>, Recipe<CraftingRecipe>{
 		/** The recipe group. Usually it is {@link mmb.content.CraftingGroups#crafting} */
-		@Nonnull public final CraftingRecipeGroup group;
+		@NN public final CraftingRecipeGroup group;
 		/** The item grid of the recipe */
-		@Nonnull public final Grid<ItemEntry> grid;
+		@NN public final Grid<ItemEntry> grid;
 		/** The outgoing items */
-		@Nonnull public final RecipeOutput out;
+		@NN public final RecipeOutput out;
 		/** The incoming items */
-		@Nonnull public final RecipeOutput in;
+		@NN public final RecipeOutput in;
 		public CraftingRecipe(Grid<ItemEntry> grid, RecipeOutput out) {
 			super();
 			group = CraftingRecipeGroup.this;

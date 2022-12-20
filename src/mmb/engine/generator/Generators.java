@@ -5,9 +5,9 @@ package mmb.engine.generator;
 
 import java.util.List;
 
-import javax.annotation.Nonnull;
 import javax.swing.DefaultListModel;
 
+import mmb.NN;
 import monniasza.collects.Collects;
 
 /**
@@ -22,8 +22,8 @@ public class Generators {
 		add(new GeneratorPlain());
 		inited = true;
 	}
-	@Nonnull public static final DefaultListModel<Generator> generators = new DefaultListModel<>();
-	@Nonnull public static final List<Generator> generatorsList = Collects.toWritableList(generators);
+	@NN public static final DefaultListModel<Generator> generators = new DefaultListModel<>();
+	@NN public static final List<Generator> generatorsList = Collects.toWritableList(generators);
 	public static void add(Generator g) {
 		generators.addElement(g);
 	}

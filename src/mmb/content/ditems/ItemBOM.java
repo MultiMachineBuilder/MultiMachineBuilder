@@ -3,11 +3,10 @@
  */
 package mmb.content.ditems;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ContentsItems;
 import mmb.content.imachine.filter.ItemFilter;
 import mmb.engine.craft.ItemLists;
@@ -51,17 +50,17 @@ public final class ItemBOM extends ItemFilter {
 		return this;
 	}
 
-	@Nonnull private SimpleItemList items = SimpleItemList.EMPTY;
+	@NN private SimpleItemList items = SimpleItemList.EMPTY;
 	
 	/**
 	 * @return the item list for this Bill Of Materials. The returned item list is immutable
 	 */
-	@Nonnull public RecipeOutput contents() {
+	@NN public RecipeOutput contents() {
 		return items;
 	}
 	
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		SimpleItemList list0 = ItemLists.read(data);
 		if(list0 == null) list0 = SimpleItemList.EMPTY;
@@ -89,7 +88,7 @@ public final class ItemBOM extends ItemFilter {
 	}
 	
 	@Override
-	public boolean test(@Nullable ItemEntry item) {
+	public boolean test(@Nil ItemEntry item) {
 		return items.contains(item);
 	}
 

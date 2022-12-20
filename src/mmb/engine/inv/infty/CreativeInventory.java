@@ -5,10 +5,9 @@ package mmb.engine.inv.infty;
 
 import java.util.Iterator;
 
-import javax.annotation.Nonnull;
-
 import com.google.common.collect.Iterators;
 
+import mmb.NN;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
@@ -22,9 +21,9 @@ import mmb.engine.item.Items;
  */
 public class CreativeInventory implements Inventory {
 	/** The singleton instance of CreativeInventory */
-	@Nonnull public static final CreativeInventory INSTANCE = new CreativeInventory();
+	@NN public static final CreativeInventory INSTANCE = new CreativeInventory();
 	private class CreativeWithdrawalItemRecord implements ItemRecord{
-		@Nonnull private final ItemEntry item;
+		@NN private final ItemEntry item;
 
 		public CreativeWithdrawalItemRecord(ItemType item) {
 			this.item = item.create();

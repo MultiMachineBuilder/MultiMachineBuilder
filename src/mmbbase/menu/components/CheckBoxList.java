@@ -3,9 +3,11 @@
  */
 package mmbbase.menu.components;
 
-import javax.annotation.Nonnull;
 import javax.swing.*;
 import javax.swing.border.*;
+
+import mmb.NN;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -14,7 +16,7 @@ import java.awt.event.*;
  * @author http://www.devx.com/tips/Tip/5342
  *
  */
-public class CheckBoxList extends JList<@Nonnull JCheckBox>
+public class CheckBoxList extends JList<@NN JCheckBox>
 {
 	private static final long serialVersionUID = -6753085033817535388L;
 	protected static Border noFocusBorder = new EmptyBorder(1, 1, 1, 1);

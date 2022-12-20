@@ -6,14 +6,15 @@ package mmbbase.menu.world.craft;
 import javax.swing.JScrollPane;
 import javax.swing.ListCellRenderer;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.RecipeGroup;
 import mmb.engine.inv.ItemStack;
 
 import java.awt.Component;
 import java.awt.Dimension;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+
 import javax.swing.JList;
 
 /**
@@ -45,8 +46,8 @@ public class RecipeList<T extends Recipe<T>, G extends RecipeGroup<T>> extends J
 		setViewportView(list);
 	}
 	static class RecipeEntry<T extends Recipe<T>>{
-		@Nonnull public final T recipe;
-		@Nonnull public final ItemStack[] stack;
+		@NN public final T recipe;
+		@NN public final ItemStack[] stack;
 		public RecipeEntry(T recipe2) {
 			this.recipe = recipe2;
 			stack = VectorUtils.list2arr(recipe2.output());
@@ -59,7 +60,7 @@ public class RecipeList<T extends Recipe<T>, G extends RecipeGroup<T>> extends J
 		@Override
 		public Component getListCellRendererComponent(
 				@SuppressWarnings("null") JList<? extends RecipeEntry<T>> list,
-						@Nullable RecipeEntry<T> value, int index,
+						@Nil RecipeEntry<T> value, int index,
 				boolean isSelected, boolean cellHasFocus) {
 			if(value != null) rv.set(value.recipe);
 			return rv;

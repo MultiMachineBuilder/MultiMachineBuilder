@@ -5,11 +5,10 @@ package mmb.content.wireworld;
 
 import java.awt.Point;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
@@ -63,7 +62,7 @@ public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockAct
 		}
 	}
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		window.openDialogWindow(new SelectBlock(this, window), "["+posX()+","+posY()+"]");
 	}
@@ -76,7 +75,7 @@ public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockAct
 	}
 	
 	//Block settings
-	@Nonnull private static final ListenableValue<@Nullable BlockType> bsetting = new ListenableValue<>(null);
+	@NN private static final ListenableValue<@Nil BlockType> bsetting = new ListenableValue<>(null);
 	@Override
 	public ListenableValue<BlockType> getBlockVariable() {
 		return bsetting;

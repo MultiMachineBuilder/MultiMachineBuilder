@@ -3,7 +3,7 @@
  */
 package mmb.content.modular.part;
 
-import javax.annotation.Nullable;
+import mmb.Nil;
 
 /**
  *
@@ -20,7 +20,7 @@ public abstract class PartEntity implements PartEntry {
 	}
 
 	@Override
-	public final boolean equals(@Nullable Object obj) {
+	public final boolean equals(@Nil Object obj) {
 		if(this == obj) return true;
 		if(obj == null) return false;
 		if(getClass() != obj.getClass()) return false;

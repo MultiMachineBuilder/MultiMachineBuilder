@@ -4,9 +4,9 @@
 package mmb.engine.craft.rgroups;
 
 import java.util.Set;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.CraftingGroups;
 import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.content.electric.VoltageTier;
@@ -43,7 +43,7 @@ implements SimpleRecipeGroup<StackedRecipeGroup.StackedRecipe>{
 	 */
 	public class StackedRecipe extends BaseElectricRecipe<StackedRecipe> implements Identifiable<ItemEntry>, SimpleRecipe<StackedRecipe>{
 		/** The input item stack */
-		@Nonnull public final SingleItem input;
+		@NN public final SingleItem input;
 		/**
 		 * Creates a complex recipe
 		 * @param energy energy required for completion in joules
@@ -91,8 +91,8 @@ implements SimpleRecipeGroup<StackedRecipeGroup.StackedRecipe>{
 	}
 	
 	//Recipe listing
-	@Nonnull private final SelfSet<ItemEntry, StackedRecipe> _recipes = HashSelfSet.createNonnull(StackedRecipe.class);
-	@Nonnull public final SelfSet<ItemEntry, StackedRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
+	@NN private final SelfSet<ItemEntry, StackedRecipe> _recipes = HashSelfSet.createNonnull(StackedRecipe.class);
+	@NN public final SelfSet<ItemEntry, StackedRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
 	@Override
 	public Set<? extends ItemEntry> supportedItems() {
 		return recipes.keys();
@@ -102,7 +102,7 @@ implements SimpleRecipeGroup<StackedRecipeGroup.StackedRecipe>{
 		return recipes;
 	}
 	@Override
-	public StackedRecipe findRecipe(@Nullable ItemEntry catalyst, ItemEntry in) {
+	public StackedRecipe findRecipe(@Nil ItemEntry catalyst, ItemEntry in) {
 		return recipes.get(in);
 	}
 	

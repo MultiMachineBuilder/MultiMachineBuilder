@@ -6,8 +6,7 @@ package mmb.content.modular.part;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.Item;
@@ -19,7 +18,7 @@ import mmb.engine.texture.BlockDrawer;
  */
 public abstract class PartBase extends Item implements PartType {
 	//Drops
-	@Nonnull private Chance drop = Chance.NONE;
+	@NN private Chance drop = Chance.NONE;
 	/**
 	 * Sets the item drops
 	 * @param newDrop new drops
@@ -35,7 +34,7 @@ public abstract class PartBase extends Item implements PartType {
 	}
 
 	//RTP
-	@Nonnull private RecipeOutput rtp = this;
+	@NN private RecipeOutput rtp = this;
 	/**
 	 * Sets the Return to Player
 	 * @param newrtp new return to player
@@ -127,7 +126,7 @@ public abstract class PartBase extends Item implements PartType {
 	 * @return this
 	 */
 	@Override
-	@Nonnull public PartBase volumed(double volume) {
+	@NN public PartBase volumed(double volume) {
 		setVolume(volume);
 		return this;
 	}

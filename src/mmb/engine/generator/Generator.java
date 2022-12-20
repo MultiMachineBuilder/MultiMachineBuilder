@@ -3,10 +3,9 @@
  */
 package mmb.engine.generator;
 
-import javax.annotation.Nonnull;
-
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.debug.Debugger;
 import mmb.engine.worlds.world.World;
@@ -18,7 +17,7 @@ import monniasza.collects.grid.Grid;
  *
  */
 public interface Generator extends Titled{
-	@Nonnull public Grid<BlockEntry> genChunk(World map, int minX, int minY, int w, int h);
+	@NN public Grid<BlockEntry> genChunk(World map, int minX, int minY, int w, int h);
 	public void setSeed(long seed);
 	default void generate(World map, int chunkSize) {
 		Debugger debug = new Debugger("WORLD GEN");
@@ -42,7 +41,7 @@ public interface Generator extends Titled{
 		}
 		debug.printl(chnkYs.toString());
 		
-		Grid<@Nonnull BlockEntry> grid = map.toGrid();
+		Grid<@NN BlockEntry> grid = map.toGrid();
 		int maxx = chnkXs.size()-1;
 		int maxy = chnkYs.size()-1;
 		int left = chnkXs.getInt(0);

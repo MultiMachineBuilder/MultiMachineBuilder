@@ -9,9 +9,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.texture.Textures;
 
@@ -27,7 +26,7 @@ public class TexGen {
 	 * @param dest destination image. If it is null, a new compatible image is constructed
 	 * @return the generated texture
 	 */
-	@Nonnull public static BufferedImage genTexture(Color color, BufferedImage src, @Nullable BufferedImage dest) {
+	@NN public static BufferedImage genTexture(Color color, BufferedImage src, @Nil BufferedImage dest) {
 		ColorMul mapper = ColorMul.ofType(src.getType());
 		mapper.setColor(color);
 		LookupOp lookup = new LookupOp(mapper, null);
@@ -38,7 +37,7 @@ public class TexGen {
 		return result;
 	}
 	
-	@Nonnull public static BufferedImage colormap(Color from, Color to, BufferedImage src, @Nullable BufferedImage dest) {
+	@NN public static BufferedImage colormap(Color from, Color to, BufferedImage src, @Nil BufferedImage dest) {
 		ColorMapper mapper = ColorMapper.ofType(src.getType(), from, to);
 		LookupOp lookup = new LookupOp(mapper, null);
 		BufferedImage result = dest;
@@ -56,7 +55,7 @@ public class TexGen {
 	 * @param dest destination image. If it is null, a new compatible image is constructed
 	 * @return the generated texture
 	 */
-	@Nonnull public static BufferedImage genTexture(int r, int g, int b, BufferedImage src, @Nullable BufferedImage dest) {
+	@NN public static BufferedImage genTexture(int r, int g, int b, BufferedImage src, @Nil BufferedImage dest) {
 		return genTexture(new Color(r, g, b), src, dest);
 	}
 	
@@ -68,7 +67,7 @@ public class TexGen {
 	 * @param dest destination image. If it is null, a new compatible image is constructed
 	 * @return the generated texture
 	 */
-	@Nonnull public static BufferedImage genTexture(Color c, BufferedImage src, BufferedImage bg, @Nullable BufferedImage dest) {
+	@NN public static BufferedImage genTexture(Color c, BufferedImage src, BufferedImage bg, @Nil BufferedImage dest) {
 		BufferedImage dest0 = dest;
 		if(dest0 == null) dest0 = new BufferedImage(
 				bg.getWidth(), bg.getHeight(), bg.getType());
@@ -90,38 +89,38 @@ public class TexGen {
 	 * @param dest destination image. If it is null, a new compatible image is constructed
 	 * @return the generated texture
 	 */
-	@Nonnull public static BufferedImage genTexture(int r, int g, int b, BufferedImage src, BufferedImage bg, @Nullable BufferedImage dest) {
+	@NN public static BufferedImage genTexture(int r, int g, int b, BufferedImage src, BufferedImage bg, @Nil BufferedImage dest) {
 		return genTexture(new Color(r, g, b), src, bg, dest);
 	}
 
 	
 	
-	@Nonnull public static final BufferedImage NUGGET = Textures.get("item/nugget.png");
-	@Nonnull public static BufferedImage nugget(Color c) {
+	@NN public static final BufferedImage NUGGET = Textures.get("item/nugget.png");
+	@NN public static BufferedImage nugget(Color c) {
 		return genTexture(c, NUGGET, null);
 	}
 
-	@Nonnull public static final BufferedImage WIREBASE = Textures.get("item/wire spool.png");
-	@Nonnull public static final BufferedImage WIREOV = Textures.get("item/wire overlay.png");
-	@Nonnull public static BufferedImage wire(Color c) {
+	@NN public static final BufferedImage WIREBASE = Textures.get("item/wire spool.png");
+	@NN public static final BufferedImage WIREOV = Textures.get("item/wire overlay.png");
+	@NN public static BufferedImage wire(Color c) {
 		return genTexture(c, TexGen.WIREOV, TexGen.WIREBASE, null);
 	}
 
-	@Nonnull public static final BufferedImage INGOT = Textures.get("item/ingot.png");
-	@Nonnull public static BufferedImage ingot(Color c) {
+	@NN public static final BufferedImage INGOT = Textures.get("item/ingot.png");
+	@NN public static BufferedImage ingot(Color c) {
 		return genTexture(c, TexGen.INGOT, null);
 	}
 
 	
-	@Nonnull public static final BufferedImage OREOV = Textures.get("block/ore overlay.png");
+	@NN public static final BufferedImage OREOV = Textures.get("block/ore overlay.png");
 	
-	@Nonnull public static final BufferedImage ORE = Textures.get("block/coal ore.png");
-	@Nonnull public static BufferedImage genOre(Color c) {
+	@NN public static final BufferedImage ORE = Textures.get("block/coal ore.png");
+	@NN public static BufferedImage genOre(Color c) {
 		return genTexture(c, TexGen.OREOV, TexGen.ORE, null);
 	}
 	
-	@Nonnull public static final BufferedImage CROP = Textures.get("block/coal crop.png");
-	@Nonnull public static BufferedImage genCrop(Color c) {
+	@NN public static final BufferedImage CROP = Textures.get("block/coal crop.png");
+	@NN public static BufferedImage genCrop(Color c) {
 		return genTexture(c, TexGen.OREOV, TexGen.CROP, null);
 	}
 	
@@ -129,7 +128,7 @@ public class TexGen {
 	 * @param src the source image
 	 * @return the list with generated machine textures, in order of increasing voltages
 	 */
-	@Nonnull public static List<@Nonnull BufferedImage> generateMachineTextures(BufferedImage src){
+	@NN public static List<@NN BufferedImage> generateMachineTextures(BufferedImage src){
 		ColorMapper mapper = ColorMapper.ofType(src.getType(), Color.RED, Color.BLACK);
 		LookupOp lookup = new LookupOp(mapper, null);
 		return Stream.of(VoltageTier.values())

@@ -3,10 +3,9 @@
  */
 package mmb.content;
 
-import javax.annotation.Nonnull;
-
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
+import mmb.NN;
 import mmb.content.agro.AgroRecipeGroup;
 import mmb.engine.craft.Craftings;
 import mmb.engine.craft.rgroups.CatalyzedSingleRecipeGroup;
@@ -40,37 +39,37 @@ public class CraftingGroups {
 	
 	//Recipes
 	/** The list of all furnace fuels */
-	@Nonnull public static final Object2DoubleMap<ItemEntry> furnaceFuels = new Object2DoubleOpenHashMap<>();
+	@NN public static final Object2DoubleMap<ItemEntry> furnaceFuels = new Object2DoubleOpenHashMap<>();
 	/** The list of all nuclear reactor fuels */
-	@Nonnull public static final Object2DoubleMap<ItemEntry> nukeFuels = new Object2DoubleOpenHashMap<>();
+	@NN public static final Object2DoubleMap<ItemEntry> nukeFuels = new Object2DoubleOpenHashMap<>();
 	/** Furnace recipes */
-	@Nonnull public static final SingleRecipeGroup smelting = new SingleRecipeGroup("electrofurnace");
+	@NN public static final SingleRecipeGroup smelting = new SingleRecipeGroup("electrofurnace");
 	/** Cluster mill recipes*/
- 	@Nonnull public static final SingleRecipeGroup clusterMill = new SingleRecipeGroup("clustermill");
+ 	@NN public static final SingleRecipeGroup clusterMill = new SingleRecipeGroup("clustermill");
  	/** Crusher recipes */
-	@Nonnull public static final SingleRecipeGroup crusher = new SingleRecipeGroup("crusher");
+	@NN public static final SingleRecipeGroup crusher = new SingleRecipeGroup("crusher");
 	/** Wiremill recipes */
-	@Nonnull public static final SingleRecipeGroup wiremill = new SingleRecipeGroup("wiremill");
+	@NN public static final SingleRecipeGroup wiremill = new SingleRecipeGroup("wiremill");
 	/** Splitter recipes */
-	@Nonnull public static final SingleRecipeGroup splitter = new SingleRecipeGroup("spllitter");
+	@NN public static final SingleRecipeGroup splitter = new SingleRecipeGroup("spllitter");
 	/** Splicer recipes */
-	@Nonnull public static final StackedRecipeGroup combiner = new StackedRecipeGroup("splicer");
+	@NN public static final StackedRecipeGroup combiner = new StackedRecipeGroup("splicer");
 	/** Alloy smelter recipes */
-	@Nonnull public static final ComplexRecipeGroup alloyer = new ComplexRecipeGroup("alloyer", 2);
+	@NN public static final ComplexRecipeGroup alloyer = new ComplexRecipeGroup("alloyer", 2);
 	/** Machine assembler recipes */
-	@Nonnull public static final ComplexCatalyzedRecipeGroup assembler = new ComplexCatalyzedRecipeGroup("assembler", 2);
+	@NN public static final ComplexCatalyzedRecipeGroup assembler = new ComplexCatalyzedRecipeGroup("assembler", 2);
 	/** Brewery recipes */
-	@Nonnull public static final ComplexRecipeGroup brewery = new ComplexRecipeGroup("brewery", 2);
+	@NN public static final ComplexRecipeGroup brewery = new ComplexRecipeGroup("brewery", 2);
 	/** Crafting recipes */
-	@Nonnull public static final CraftingRecipeGroup crafting = new CraftingRecipeGroup("crafter");
+	@NN public static final CraftingRecipeGroup crafting = new CraftingRecipeGroup("crafter");
 	/** Quarry recipes */
-	@Nonnull public static final SingleRecipeGroup quarry = new SingleRecipeGroup("quarry");
+	@NN public static final SingleRecipeGroup quarry = new SingleRecipeGroup("quarry");
 	/** Extruder recipes */
-	@Nonnull public static final CatalyzedSingleRecipeGroup extruder = new CatalyzedSingleRecipeGroup("extruder");
+	@NN public static final CatalyzedSingleRecipeGroup extruder = new CatalyzedSingleRecipeGroup("extruder");
 	/** Crop outputs */
-	@Nonnull public static final AgroRecipeGroup agro = new AgroRecipeGroup("agrorecipes");
+	@NN public static final AgroRecipeGroup agro = new AgroRecipeGroup("agrorecipes");
 	/** Sintered Carbides Factory recipes */
-	@Nonnull public static final ComplexRecipeGroup sinterer = new ComplexRecipeGroup("sinterer", 2);
+	@NN public static final ComplexRecipeGroup sinterer = new ComplexRecipeGroup("sinterer", 2);
 	/** Inscriber recipes */
-	@Nonnull public static final CatalyzedSingleRecipeGroup inscriber = new CatalyzedSingleRecipeGroup("inscriber");
+	@NN public static final CatalyzedSingleRecipeGroup inscriber = new CatalyzedSingleRecipeGroup("inscriber");
 }

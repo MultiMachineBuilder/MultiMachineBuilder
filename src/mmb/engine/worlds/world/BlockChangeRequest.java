@@ -3,8 +3,7 @@
  */
 package mmb.engine.worlds.world;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.block.BlockType;
 import mmb.engine.worlds.MapProxy;
 
@@ -14,7 +13,7 @@ import mmb.engine.worlds.MapProxy;
  */
 public class BlockChangeRequest {
 	public final int x, y;
-	@Nonnull public final BlockType block;
+	@NN public final BlockType block;
 	public BlockChangeRequest(int x, int y, BlockType block) {
 		super();
 		this.x = x;

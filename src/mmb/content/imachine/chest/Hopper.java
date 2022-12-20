@@ -6,12 +6,11 @@ package mmb.content.imachine.chest;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityRotary;
 import mmb.engine.block.BlockEntry;
@@ -85,13 +84,13 @@ public class Hopper extends BlockEntityRotary implements ArbitraryChest, BlockAc
 		return tex0;
 	}
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		window.openAndShowWindow(new ChestGui(this, window), "chest");
 	}
 	
 	//Inventory
-	@Nonnull private final SimpleInventory inv = new SimpleInventory();
+	@NN private final SimpleInventory inv = new SimpleInventory();
 	@Override
 	public Inventory inv() {
 		return inv;
@@ -117,7 +116,7 @@ public class Hopper extends BlockEntityRotary implements ArbitraryChest, BlockAc
 	}
 
 	//Color
-	@Nonnull private Color c = Color.WHITE;
+	@NN private Color c = Color.WHITE;
 	@Override
 	public Color getColor() {
 		return c;
@@ -137,7 +136,7 @@ public class Hopper extends BlockEntityRotary implements ArbitraryChest, BlockAc
 	}
 
 	@Override
-	protected final void load1(@Nullable ObjectNode data) {
+	protected final void load1(@Nil ObjectNode data) {
 		if(data == null) return;
 		inv.load(JsonTool.requestArray("inventory", data));
 		inv.setCapacity(5);

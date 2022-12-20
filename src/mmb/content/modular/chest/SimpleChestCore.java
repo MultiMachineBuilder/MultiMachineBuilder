@@ -3,8 +3,7 @@
  */
 package mmb.content.modular.chest;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.content.modular.part.PartEntityType;
 import mmb.content.modular.part.PartEntry;
 import mmb.engine.craft.SingleItem;
@@ -19,7 +18,7 @@ import mmbbase.menu.world.inv.InventoryController;
  *
  */
 public class SimpleChestCore extends ChestCore<SimpleInventory> {
-	@Nonnull private final PartEntityType type;
+	@NN private final PartEntityType type;
 	/**
 	 * Creates a simple chest core (many different items)
 	 * @param type item entity type

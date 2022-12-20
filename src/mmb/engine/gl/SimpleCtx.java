@@ -3,8 +3,6 @@
  */
 package mmb.engine.gl;
 
-import javax.annotation.Nonnull;
-
 import org.apache.commons.io.IOUtils;
 import org.joml.Matrix2f;
 import org.joml.Matrix2fc;
@@ -32,6 +30,7 @@ import static org.lwjgl.opengl.GL30.*;
 import it.unimi.dsi.fastutil.floats.FloatArrayList;
 import it.unimi.dsi.fastutil.floats.FloatIterator;
 import it.unimi.dsi.fastutil.floats.FloatList;
+import mmb.NN;
 import mmb.engine.debug.Debugger;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;
@@ -59,8 +58,8 @@ public class SimpleCtx extends RenderCtx {
 		this.mat = new Matrix2f(tf);
 	}
 	
-	@Nonnull private final Vector2f offset;
-	@Nonnull private final Matrix2f mat;
+	@NN private final Vector2f offset;
+	@NN private final Matrix2f mat;
 	
 	/**
 	 * Format:
@@ -73,12 +72,12 @@ public class SimpleCtx extends RenderCtx {
 	 * X position
 	 * Y position
 	 */
-	@Nonnull private final FloatList tris = new FloatArrayList();
-	@Nonnull private final FloatList quads = new FloatArrayList();
-	@Nonnull private final FloatList trisPlain = new FloatArrayList();
-	@Nonnull private final FloatList quadsPlain = new FloatArrayList();
-	@Nonnull private final FloatList circles = new FloatArrayList();
-	@Nonnull private final FloatList circlesFill = new FloatArrayList();
+	@NN private final FloatList tris = new FloatArrayList();
+	@NN private final FloatList quads = new FloatArrayList();
+	@NN private final FloatList trisPlain = new FloatArrayList();
+	@NN private final FloatList quadsPlain = new FloatArrayList();
+	@NN private final FloatList circles = new FloatArrayList();
+	@NN private final FloatList circlesFill = new FloatArrayList();
 
 	@Override
 	public void transform(Matrix2fc mat, Vector2fc offset) {
@@ -253,7 +252,7 @@ public class SimpleCtx extends RenderCtx {
 		//Destroy the VBO
 	}
 
-	@Nonnull private final Vector2f reuseUV = new Vector2f();
+	@NN private final Vector2f reuseUV = new Vector2f();
 	@Override
 	public void renderColoredTexTri(Texture tex,
 			Vector4fc col1, Vector2fc uv1, Vector2fc pos1,

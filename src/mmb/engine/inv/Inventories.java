@@ -5,8 +5,7 @@ package mmb.engine.inv;
 
 import java.util.function.Predicate;
 
-import javax.annotation.Nullable;
-
+import mmb.Nil;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
@@ -41,7 +40,7 @@ public class Inventories {
 	 * @param amount number of items to transfer
 	 * @return number of items transfered
 	 */
-	public static int transferRecord(@Nullable ItemRecord src, Inventory tgt, int amount) {
+	public static int transferRecord(@Nil ItemRecord src, Inventory tgt, int amount) {
 		if(!tgt.canInsert()) return 0; //unable to insert to target
 		return transferRecord(src, tgt.createWriter(), amount);
 	}
@@ -51,7 +50,7 @@ public class Inventories {
 	 * @param tgt target inventory
 	 * @return number of items transfered
 	 */
-	public static int transferRecord(@Nullable ItemRecord src, InventoryWriter tgt) {
+	public static int transferRecord(@Nil ItemRecord src, InventoryWriter tgt) {
 		return transferRecord(src, tgt, Integer.MAX_VALUE);
 	}
 	/**
@@ -60,7 +59,7 @@ public class Inventories {
 	 * @param tgt target inventory
 	 * @return number of items transfered
 	 */
-	public static int transferRecord(@Nullable ItemRecord src, Inventory tgt) {
+	public static int transferRecord(@Nil ItemRecord src, Inventory tgt) {
 		if(!tgt.canInsert()) return 0;
 		return transferRecord(src, tgt, Integer.MAX_VALUE);
 	}
@@ -71,7 +70,7 @@ public class Inventories {
 	 * @param amount number of items to transfer
 	 * @return number of items transfered
 	 */
-	public static int transferRecord(@Nullable ItemRecord src, InventoryWriter tgt, int amount) {
+	public static int transferRecord(@Nil ItemRecord src, InventoryWriter tgt, int amount) {
 		if(src == null) return 0; //not selected
 		if(!src.canExtract()) return 0; //unable to extract from source
 		int amount0 = Math.min(src.amount(), amount);
@@ -133,7 +132,7 @@ public class Inventories {
 	 * @param amount number of items to transfer
 	 * @return items transfered, or null if none found
 	 */
-	@Nullable public static ItemStack transferFirstStack(InventoryReader src, InventoryWriter tgt, int amount) {
+	@Nil public static ItemStack transferFirstStack(InventoryReader src, InventoryWriter tgt, int amount) {
 		while(!src.hasCurrent()) {
 			if(!src.hasNext()) return null;
 			src.next();	
@@ -187,7 +186,7 @@ public class Inventories {
 	 * @param tgt target inventory
 	 * @return item transferred, or null if none
 	 */
-	@Nullable public static ItemEntry transferFirst(Inventory src, Inventory tgt) {
+	@Nil public static ItemEntry transferFirst(Inventory src, Inventory tgt) {
 		return transferFirst(src, tgt.createWriter());
 	}
 	/**
@@ -196,7 +195,7 @@ public class Inventories {
 	 * @param tgt inventory writer
 	 * @return item transferred, or null if none
 	 */
-	@Nullable public static ItemEntry transferFirst(Inventory src, InventoryWriter tgt) {
+	@Nil public static ItemEntry transferFirst(Inventory src, InventoryWriter tgt) {
 		for(ItemRecord rec: src) {
 			int tf = transferRecord(rec, tgt, 1);
 			if(tf == 1) return rec.item();
@@ -211,7 +210,7 @@ public class Inventories {
 	 * @param tgt inventory writer
 	 * @return transferred items, or null if inventory is empty
 	 */
-	@Nullable public static ItemStack transferFirstStack(Inventory src, Inventory tgt) {
+	@Nil public static ItemStack transferFirstStack(Inventory src, Inventory tgt) {
 		return transferFirstStack(src, tgt.createWriter());
 	}
 	/**
@@ -220,7 +219,7 @@ public class Inventories {
 	 * @param tgt inventory writer
 	 * @return transferred items, or null if inventory is empty
 	 */
-	@Nullable public static ItemStack transferFirstStack(Inventory src, InventoryWriter tgt) {
+	@Nil public static ItemStack transferFirstStack(Inventory src, InventoryWriter tgt) {
 		for(ItemRecord rec: src) {
 			int tf = transferRecord(rec, tgt, Integer.MAX_VALUE);
 			if(tf > 0) return new ItemStack(rec.item(), tf);
@@ -233,7 +232,7 @@ public class Inventories {
 	 * @param tgt inventory writer
 	 * @return transferred items, or null if inventory is empty
 	 */
-	@Nullable public static ItemStack transferFirstStack(InventoryReader src, InventoryWriter tgt) {
+	@Nil public static ItemStack transferFirstStack(InventoryReader src, InventoryWriter tgt) {
 		while(true) {
 			ItemEntry ient = null;
 			if(src.hasCurrent()) ient = src.currentItem();

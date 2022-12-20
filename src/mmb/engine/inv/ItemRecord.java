@@ -3,8 +3,7 @@
  */
 package mmb.engine.inv;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.item.ItemEntry;
 import monniasza.collects.Identifiable;
 
@@ -19,21 +18,21 @@ public interface ItemRecord extends Identifiable<ItemEntry> {
 		return item().title() + "� "+ amount();
 	}
 	/** @return an item stack for this item record*/
-	@Nonnull public default ItemStack toItemStack() {
+	@NN public default ItemStack toItemStack() {
 		return new ItemStack(item(), amount());
 	}
 	
 	//Stack definition
 	@Override
-	@Nonnull default ItemEntry id() {
+	@NN default ItemEntry id() {
 		return item();
 	}
 	/** @return number of items stored */
 	public int amount();
 	/** @return inventory, which stores this item record */
-	@Nonnull public Inventory inventory();
+	@NN public Inventory inventory();
 	/** @return the item stroed in this item record */
-	@Nonnull public ItemEntry item();
+	@NN public ItemEntry item();
 	/** @return total volume of items in this item record*/
 	public default double volume() {
 		return item().volume()*amount();
@@ -67,19 +66,19 @@ public interface ItemRecord extends Identifiable<ItemEntry> {
 	}
 	
 	//I/O restrictions
-	@Nonnull public default ItemRecord lockInsertions() {
+	@NN public default ItemRecord lockInsertions() {
 		return ExtractionsOnlyItemRecord.decorate(this);
 	}
-	@Nonnull public default ItemRecord lockExtractions() {
+	@NN public default ItemRecord lockExtractions() {
 		return InsertionsOnlyItemRecord.decorate(this);
 	}
-	@Nonnull public default ItemRecord lockInsertions(Inventory inv) {
+	@NN public default ItemRecord lockInsertions(Inventory inv) {
 		return ExtractionsOnlyItemRecord.decorate(this, inv);
 	}
-	@Nonnull public default ItemRecord lockExtractions(Inventory inv) {
+	@NN public default ItemRecord lockExtractions(Inventory inv) {
 		return InsertionsOnlyItemRecord.decorate(this, inv);
 	}
-	@Nonnull public default ItemRecord readOnly() {
+	@NN public default ItemRecord readOnly() {
 		return ReadOnlyItemRecord.decorate(this);
 	}
 }

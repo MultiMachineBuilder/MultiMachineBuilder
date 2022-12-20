@@ -3,12 +3,11 @@
  */
 package mmb.content.imachine.chest;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.block.BlockEntityData;
 import mmb.engine.inv.Inventory;
@@ -21,9 +20,9 @@ import mmb.engine.rotate.Side;
  *
  */
 public abstract class AbstractChest extends BlockEntityData implements ArbitraryChest{
-	@Nonnull protected SimpleInventory inv = new SimpleInventory();
+	@NN protected SimpleInventory inv = new SimpleInventory();
 	@Override
-	public final void load(@Nullable JsonNode data) {
+	public final void load(@Nil JsonNode data) {
 		if(data == null) return;
 		inv.load(JsonTool.requestArray("inventory", (ObjectNode) data));
 		load1((ObjectNode)data);

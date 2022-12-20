@@ -5,12 +5,11 @@ package mmbmods.stn;
 
 import java.util.Objects;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.Item;
@@ -27,7 +26,7 @@ public final class CablingTool extends ItemEntityMutable {
 	/** Amount of cable in spools */
 	public final DataValueDouble amt = new DataValueDouble(0);
 	/** The item required to load the cabling tool */
-	@Nonnull public static final Item WIRE = STN.STN_a.wire;
+	@NN public static final Item WIRE = STN.STN_a.wire;
 	/** Maximum wire in spools */
 	public final double MAX_WIRE = 1000;
 	
@@ -46,7 +45,7 @@ public final class CablingTool extends ItemEntityMutable {
 	}
 
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null || !data.isObject()) return;
 		JsonNode amtNode = data.get("amt");
 		if(amtNode != null) amt.set(amtNode.asDouble());

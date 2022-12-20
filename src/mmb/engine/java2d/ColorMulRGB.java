@@ -5,8 +5,8 @@ package mmb.engine.java2d;
 
 import java.awt.Color;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import mmb.NN;
+import mmb.Nil;
 
 /**
  * @author oskar
@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 public class ColorMulRGB extends ColorMul {
 	
 	@SuppressWarnings("null")
-	@Nonnull private Color mutiplier = Color.GRAY;
+	@NN private Color mutiplier = Color.GRAY;
 	/**
 	 * @param offset
 	 * @param numComponents
@@ -25,7 +25,7 @@ public class ColorMulRGB extends ColorMul {
 	}
 
 	@Override
-	public int[] lookupPixel(@SuppressWarnings("null") int[] src, @Nullable int[] dest) {
+	public int[] lookupPixel(@SuppressWarnings("null") int[] src, int @Nil [] dest) {
 		int[] dest0 = dest;
 		if(dest0 == null) dest0 = new int[3];
 		int r = src[0] * mutiplier.getRed() / 128;

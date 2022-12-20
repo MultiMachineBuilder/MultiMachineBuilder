@@ -3,12 +3,11 @@
  */
 package mmbmods.stn.block;
 
-import javax.annotation.Nonnull;
-
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.border.BevelBorder;
 
+import mmb.NN;
 import mmb.engine.settings.GlobalSettings;
 import mmbbase.menu.components.ItemSelectionSlot;
 import mmbbase.menu.helper.MenuHelper;
@@ -27,7 +26,7 @@ import javax.swing.JButton;
  */
 public class STNPusherGUI extends GUITab {
 	private static final long serialVersionUID = 1823899317802392491L;
-	@Nonnull private final transient STNCycler pusher;
+	@NN private final transient STNCycler pusher;
 	private ItemSelectionSlot itemSelectionSlot;
 	
 	STNPusherGUI(STNCycler pusher, WorldWindow window) {

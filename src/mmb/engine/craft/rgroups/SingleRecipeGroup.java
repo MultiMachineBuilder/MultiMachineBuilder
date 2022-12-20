@@ -4,9 +4,9 @@
 package mmb.engine.craft.rgroups;
 
 import java.util.Set;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.CraftingGroups;
 import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.content.electric.VoltageTier;
@@ -42,7 +42,7 @@ implements SimpleRecipeGroup<SingleRecipeGroup.SingleRecipe>{
 	 */
 	public class SingleRecipe extends BaseElectricRecipe<SingleRecipe> implements Identifiable<ItemEntry>, SimpleRecipe<SingleRecipe>{
 		/** The input item */
-		@Nonnull public final ItemEntry input;
+		@NN public final ItemEntry input;
 		
 		/**
 		 * Creates a single recipe
@@ -84,8 +84,8 @@ implements SimpleRecipeGroup<SingleRecipeGroup.SingleRecipe>{
 	}
 	
 	//Recipe listing
-	@Nonnull private final SelfSet<ItemEntry, SingleRecipe> _recipes = HashSelfSet.createNonnull(SingleRecipe.class);
-	@Nonnull public final SelfSet<ItemEntry, SingleRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
+	@NN private final SelfSet<ItemEntry, SingleRecipe> _recipes = HashSelfSet.createNonnull(SingleRecipe.class);
+	@NN public final SelfSet<ItemEntry, SingleRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
 	@Override
 	public Set<? extends ItemEntry> supportedItems() {
 		return recipes.keys();
@@ -95,7 +95,7 @@ implements SimpleRecipeGroup<SingleRecipeGroup.SingleRecipe>{
 		return recipes;
 	}
 	@Override
-	public SingleRecipe findRecipe(@Nullable ItemEntry catalyst, ItemEntry in) {
+	public SingleRecipe findRecipe(@Nil ItemEntry catalyst, ItemEntry in) {
 		return recipes.get(in);
 	}
 	

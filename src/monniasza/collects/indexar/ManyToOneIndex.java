@@ -9,10 +9,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 
-import javax.annotation.Nonnull;
-
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.SetMultimap;
+
+import mmb.NN;
 
 /**
  * An index, where property is a set of values and may not repeat between objects
@@ -22,9 +22,9 @@ import com.google.common.collect.SetMultimap;
  */
 public class ManyToOneIndex<T, U> implements Index<T, U, SetMultimap<U, T>> {
 	/** Function which defines a property of an object */
-	@Nonnull public final Function<T, Set<U>> fn;
-	@Nonnull private final Map<U, T> map0 = new HashMap<>();
-	@Nonnull public final Map<U, T> map = Collections.unmodifiableMap(map0);
+	@NN public final Function<T, Set<U>> fn;
+	@NN private final Map<U, T> map0 = new HashMap<>();
+	@NN public final Map<U, T> map = Collections.unmodifiableMap(map0);
 	
 	/**
 	 * Creates a m-1 index

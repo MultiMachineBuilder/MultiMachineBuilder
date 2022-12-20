@@ -3,12 +3,11 @@
  */
 package mmb.content.electric;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.util.concurrent.Runnables;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.Electricity.SettablePressure;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.json.JsonTool;
@@ -18,7 +17,7 @@ import mmbbase.beans.Saver;
  * @author oskar
  *
  */
-public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, Saver{
+public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver{
 	/** Maximum power in coulombs per tick */
 	public double maxPower;
 	/** The energy capacity in coulombs */
@@ -29,9 +28,9 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 	public double pressure = 0;
 	/** Current power pressure weight */
 	public double pressureWt = 1;
-	@Nullable private final BlockEntity blow;
+	@Nil private final BlockEntity blow;
 	/** The voltage tier of this battery */
-	@Nonnull public VoltageTier voltage;
+	@NN public VoltageTier voltage;
 
 	/**
 	 * Create battery with capacity and power limits
@@ -40,7 +39,7 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 	 * @param blow block which owns this battery. Used to blow up the block if the battery is overvoltaged
 	 * @param voltage voltage tier
 	 */
-	public Battery(double maxPower, double capacity, @Nullable BlockEntity blow, VoltageTier voltage) {
+	public Battery(double maxPower, double capacity, @Nil BlockEntity blow, VoltageTier voltage) {
 		super();
 		this.maxPower = maxPower;
 		this.capacity = capacity;
@@ -105,7 +104,7 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 	}
 
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null || data.isEmpty()) return;
 		maxPower = data.get(0).asDouble();
 		capacity = data.get(1).asDouble();
@@ -226,7 +225,7 @@ public class Battery implements SettablePressure, Comparable<@Nonnull Battery>, 
 		return result;
 	}
 	@Override
-	public boolean equals(@Nullable Object obj) {
+	public boolean equals(@Nil Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)

@@ -6,7 +6,7 @@ package mmb.engine.java2d;
 import java.awt.Color;
 import java.util.Arrays;
 
-import javax.annotation.Nullable;
+import mmb.Nil;
 
 /**
  * @author oskar constructor javadoc, getters and setters <br>
@@ -39,15 +39,15 @@ public class ColorMapperRGBA extends ColorMapper {
 
     @Override
     public int[] lookupPixel(@SuppressWarnings("null") int[] src,
-                             @Nullable int[] dest) {
-        if (dest == null) {
-            dest = new int[src.length];
-        }
+                             int @Nil [] dest) {
+    	int[] dest0;
+        if (dest == null) dest0 = new int[src.length];
+        else dest0 = dest;
 
         int[] newColor = (Arrays.equals(src, from) ? to : src);
-        System.arraycopy(newColor, 0, dest, 0, newColor.length);
+        System.arraycopy(newColor, 0, dest0, 0, newColor.length);
 
-        return dest;
+        return dest0;
     }
 
 	/**

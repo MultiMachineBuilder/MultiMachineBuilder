@@ -3,12 +3,11 @@
  */
 package mmb.content.electric.machines;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.GUIMachine;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
@@ -39,7 +38,7 @@ public class ProcessorSimpleBlock extends ProcessorAbstractBlock implements Bloc
 	}
 
 	//Containers
-	@Nonnull private final SimpleProcessHelper helper;
+	@NN private final SimpleProcessHelper helper;
 	
 	//Constructor
 	public ProcessorSimpleBlock(ElectroMachineType type, SimpleRecipeGroup<?> group) {
@@ -107,7 +106,7 @@ public class ProcessorSimpleBlock extends ProcessorAbstractBlock implements Bloc
 	
 	//GUI
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(tab != null) return;
 		tab = new GUIMachine(this, window);

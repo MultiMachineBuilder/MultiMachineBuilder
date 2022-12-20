@@ -5,14 +5,13 @@ package mmb.engine.item;
 
 import java.util.concurrent.ExecutionException;
 
-import javax.annotation.Nonnull;
-
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.util.concurrent.ExecutionError;
 import com.google.common.util.concurrent.UncheckedExecutionException;
 
+import mmb.NN;
 import mmb.engine.settings.GlobalSettings;
 
 /**
@@ -20,8 +19,8 @@ import mmb.engine.settings.GlobalSettings;
  * @author oskar
  */
 public class ItemRaw extends Item {
-	@Nonnull private static final String RAW = " "+GlobalSettings.$res("rawitem");
-	@Nonnull private static final LoadingCache<@Nonnull ItemEntityType, @Nonnull ItemRaw> memoizer
+	@NN private static final String RAW = " "+GlobalSettings.$res("rawitem");
+	@NN private static final LoadingCache<@NN ItemEntityType, @NN ItemRaw> memoizer
 	= CacheBuilder.newBuilder().build(CacheLoader.from(ItemRaw::new));
 	
 	/**
@@ -30,7 +29,7 @@ public class ItemRaw extends Item {
 	 * @return a raw item
 	 * @throws InternalError when constructor evaluation fails (this WILL be a bug)
 	 */
-	@Nonnull public static ItemRaw make(ItemEntityType iet) {
+	@NN public static ItemRaw make(ItemEntityType iet) {
 		try {
 			return memoizer.get(iet);
 		} catch (ExecutionError|UncheckedExecutionException|ExecutionException e) {
@@ -38,7 +37,7 @@ public class ItemRaw extends Item {
 		}
 	}
 	
-	@Nonnull public final ItemEntityType iet;
+	@NN public final ItemEntityType iet;
 	private ItemRaw(ItemEntityType iet) {
 		this.iet = iet;
 		title(iet.title()+RAW);

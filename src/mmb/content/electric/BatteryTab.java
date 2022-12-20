@@ -3,13 +3,12 @@
  */
 package mmb.content.electric;
 
-import javax.annotation.Nonnull;
-
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.JButton;
 import javax.swing.JProgressBar;
 
+import mmb.NN;
 import mmb.content.electric.machines.BlockBattery;
 import mmbbase.menu.helper.MenuHelper;
 import mmbbase.menu.world.inv.InventoryController;
@@ -26,8 +25,8 @@ import java.awt.Color;
  */
 public class BatteryTab extends GUITab {
 	private static final long serialVersionUID = -6777331260258929072L;
-	@Nonnull private final transient BlockBattery battery;
-	@Nonnull private final JProgressBar progressBar;
+	@NN private final transient BlockBattery battery;
+	@NN private final JProgressBar progressBar;
 	/**
 	 * Creates a batter GUI
 	 * @param battery block to use

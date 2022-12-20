@@ -3,8 +3,7 @@
  */
 package mmb.content.electric;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.block.BlockEntityDataless;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockType;
@@ -42,7 +41,7 @@ public class InfiniteGenerator extends BlockEntityDataless {
 	/**
 	 * The voltage of this generator
 	 */
-	@Nonnull public final VoltageTier voltage;
+	@NN public final VoltageTier voltage;
 	private final BlockEntityType type;
 	public InfiniteGenerator(VoltageTier voltage, BlockEntityType type) {
 		this.voltage = voltage;

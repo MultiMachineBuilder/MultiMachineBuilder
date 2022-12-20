@@ -5,10 +5,9 @@ package mmb.engine.files;
 
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-
 import org.apache.commons.csv.CSVRecord;
 
+import mmb.NN;
 import mmb.engine.debug.Debugger;
 
 /**
@@ -41,7 +40,7 @@ public class Downloadable {
 	 */
 	public void download(AdvancedFile directory) {
 		@SuppressWarnings("null")
-		@Nonnull String fileName = download.substring(download.lastIndexOf('/')+1, download.length()-1);
+		@NN String fileName = download.substring(download.lastIndexOf('/')+1, download.length()-1);
 		String tgt = "mods/"+fileName;
 		try {
 			debug.printl("Connecting with "+download);

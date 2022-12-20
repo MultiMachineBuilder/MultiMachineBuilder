@@ -3,8 +3,7 @@
  */
 package mmb.engine.inv;
 
-import javax.annotation.Nullable;
-
+import mmb.Nil;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
 import monniasza.collects.Collects;
@@ -14,20 +13,20 @@ import monniasza.collects.Collects;
  * @author oskar
  */
 public class InvUtils {
-	public static @Nullable ItemEntry onlyItem(RecipeOutput rout) {
+	public static @Nil ItemEntry onlyItem(RecipeOutput rout) {
 		if(rout.items().size() != 1) return null;
 		ItemStack entry = Collects.first(rout);
 		if(entry.amount > 1) return null;
 		if(entry.amount == 0) return null;
 		return entry.item;
 	}
-	public static @Nullable ItemStack onlyItemStack(RecipeOutput rout) {
+	public static @Nil ItemStack onlyItemStack(RecipeOutput rout) {
 		if(rout.items().size() != 1) return null;
 		ItemStack entry = Collects.first(rout);
 		if(entry.amount == 0) return null;
 		return entry;
 	}
-	public static @Nullable ItemStack onlyItemStackUpTo(RecipeOutput rout, int amount) {
+	public static @Nil ItemStack onlyItemStackUpTo(RecipeOutput rout, int amount) {
 		if(rout.items().size() != 1) return null;
 		ItemStack entry = Collects.first(rout);
 		if(entry.amount > amount) return null;

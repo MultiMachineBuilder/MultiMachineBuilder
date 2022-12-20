@@ -6,10 +6,10 @@ package mmb.content.machinemics.manual;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import it.unimi.dsi.fastutil.ints.IntList;
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ContentsRecipes;
 import mmb.content.CraftingGroups;
 import mmb.engine.block.Block;
@@ -35,8 +35,8 @@ public class Crafting extends Block implements BlockActivateListener {
 	}
 	
 	//Tiers
-	@Nonnull public static final IntList sizes = IntList.of(3, 4, 5, 7, 9, 10);
-	@Nonnull public static final List<@Nonnull Block> types;
+	@NN public static final IntList sizes = IntList.of(3, 4, 5, 7, 9, 10);
+	@NN public static final List<@NN Block> types;
 	static {
 		int n = sizes.size();
 		Block[] ttypes = new Block[n];
@@ -75,7 +75,7 @@ public class Crafting extends Block implements BlockActivateListener {
 	
 	private CraftGUI component;
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(component != null) return;
 		component = new CraftGUI(size, window.getPlayer().inv, this, window);

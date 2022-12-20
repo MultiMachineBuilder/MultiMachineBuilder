@@ -5,7 +5,7 @@ package monniasza.collects.alloc;
 
 import java.util.EventListener;
 
-import javax.annotation.Nullable;
+import mmb.Nil;
 
 /**
  * @author oskar
@@ -18,10 +18,10 @@ public interface AllocationListener<T> extends EventListener {
 	 * @param index integer identifier of allocation
 	 * @param obj the object allocated
 	 */
-	public void allocated(int index, @Nullable T obj);
+	public void allocated(int index, @Nil T obj);
 	/**
 	 * @param index integer identifier of deallocated object
 	 * @param obj the object in the slot before deallocation
 	 */
-	public void deallocated(int index, @Nullable T obj);
+	public void deallocated(int index, @Nil T obj);
 }

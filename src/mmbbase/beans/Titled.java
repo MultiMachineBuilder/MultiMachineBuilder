@@ -3,7 +3,7 @@
  */
 package mmbbase.beans;
 
-import javax.annotation.Nonnull;
+import mmb.NN;
 
 /**
  * @author oskar
@@ -14,5 +14,5 @@ public interface Titled {
 	/**
 	 * @return the GUI title
 	 */
-	public @Nonnull String title();
+	public @NN String title();
 }

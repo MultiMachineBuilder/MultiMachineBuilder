@@ -8,9 +8,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+
 import io.vavr.Tuple2;
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.CraftingGroups;
 import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.content.electric.VoltageTier;
@@ -54,11 +55,11 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 	 */
 	public class ComplexCatalyzedRecipe extends BaseElectricRecipe<ComplexCatalyzedRecipe> implements Identifiable<Tuple2<Set<ItemEntry>, mmb.engine.item.ItemEntry>>{
 		/** The input item list */
-		@Nonnull public final RecipeOutput input;
+		@NN public final RecipeOutput input;
 		/** Required catalyst */
-		@Nullable public final ItemEntry catalyst;
+		@Nil public final ItemEntry catalyst;
 		/** Item tuple */
-		@Nonnull private final Tuple2<Set<ItemEntry>, mmb.engine.item.ItemEntry> id;
+		@NN private final Tuple2<Set<ItemEntry>, mmb.engine.item.ItemEntry> id;
 		
 		/**
 		 * Creates a complex catalyzed recipe
@@ -69,7 +70,7 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 		 * @param catalyst required catalyst
 		 * @param luck randomized output of this recipe
 		 */
-		public ComplexCatalyzedRecipe(double energy, VoltageTier voltage, RecipeOutput in, RecipeOutput output, @Nullable ItemEntry catalyst, Chance luck) {
+		public ComplexCatalyzedRecipe(double energy, VoltageTier voltage, RecipeOutput in, RecipeOutput output, @Nil ItemEntry catalyst, Chance luck) {
 			super(energy, voltage, output, luck);
 			this.input = in;
 			this.id = new Tuple2<>(input.getContents().keySet(), catalyst);
@@ -104,7 +105,7 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 	}
 	
 	//Recipe listing
-	@Nonnull private final SelfSet<Tuple2<Set<ItemEntry>, mmb.engine.item.ItemEntry>, ComplexCatalyzedRecipe> _recipes = HashSelfSet.createNonnull(ComplexCatalyzedRecipe.class);
+	@NN private final SelfSet<Tuple2<Set<ItemEntry>, mmb.engine.item.ItemEntry>, ComplexCatalyzedRecipe> _recipes = HashSelfSet.createNonnull(ComplexCatalyzedRecipe.class);
 	public final SelfSet<Tuple2<Set<ItemEntry>, mmb.engine.item.ItemEntry>, ComplexCatalyzedRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
 	@Override
 	public Set<? extends ItemEntry> supportedItems() {
@@ -128,7 +129,7 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 	 * @param luck random chanced items
 	 * @return a new recipe
 	 */
-	public ComplexCatalyzedRecipe add(RecipeOutput in, RecipeOutput out, @Nullable ItemEntry catalyst, VoltageTier voltage, double energy, Chance luck) {
+	public ComplexCatalyzedRecipe add(RecipeOutput in, RecipeOutput out, @Nil ItemEntry catalyst, VoltageTier voltage, double energy, Chance luck) {
 		if(in.getContents().size() < minIngredients) throw new IllegalArgumentException("The recipe must have at least "+minIngredients+" inputs");
 		if(in.getContents().size() == 0) throw new IllegalArgumentException("The recipe must have at least 1 input");
 		ComplexCatalyzedRecipe recipe = new ComplexCatalyzedRecipe(energy, voltage, in, out, catalyst, luck);
@@ -148,7 +149,7 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 	 * @param luck random chanced items
 	 * @return a new recipe
 	 */
-	public ComplexCatalyzedRecipe add(RecipeOutput in, ItemEntry out, @Nullable ItemEntry catalyst, int amount, VoltageTier voltage, double energy, Chance luck) {
+	public ComplexCatalyzedRecipe add(RecipeOutput in, ItemEntry out, @Nil ItemEntry catalyst, int amount, VoltageTier voltage, double energy, Chance luck) {
 		return add(in, out.stack(amount), catalyst, voltage, energy, luck);
 	}
 	/**
@@ -160,7 +161,7 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 	 * @param energy energy consumed by this recipe
 	 * @return a new recipe
 	 */
-	public ComplexCatalyzedRecipe add(RecipeOutput in, RecipeOutput out, @Nullable ItemEntry catalyst, VoltageTier voltage, double energy) {
+	public ComplexCatalyzedRecipe add(RecipeOutput in, RecipeOutput out, @Nil ItemEntry catalyst, VoltageTier voltage, double energy) {
 		return add(in, out, catalyst, voltage, energy, Chance.NONE);
 	}
 	/**
@@ -173,7 +174,7 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 	 * @param energy energy consumed by this recipe
 	 * @return a new recipe
 	 */
-	public ComplexCatalyzedRecipe add(RecipeOutput in, ItemEntry out, @Nullable ItemEntry catalyst, int amount, VoltageTier voltage, double energy) {
+	public ComplexCatalyzedRecipe add(RecipeOutput in, ItemEntry out, @Nil ItemEntry catalyst, int amount, VoltageTier voltage, double energy) {
 		return add(in, out.stack(amount), catalyst, voltage, energy, Chance.NONE);
 	}
 	

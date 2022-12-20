@@ -9,8 +9,7 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.Objects;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.chance.Chance;
 import mmb.engine.item.Item;
 import mmb.engine.item.Items;
@@ -173,7 +172,7 @@ public abstract class BlockBase extends Item implements BlockType {
 	 * @return this
 	 */
 	@Override
-	@Nonnull public BlockBase volumed(double volume) {
+	@NN public BlockBase volumed(double volume) {
 		setVolume(volume);
 		return this;
 	}

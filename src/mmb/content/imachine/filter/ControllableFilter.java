@@ -3,8 +3,7 @@
  */
 package mmb.content.imachine.filter;
 
-import javax.annotation.Nullable;
-
+import mmb.Nil;
 import mmb.engine.inv.storage.SingleItemInventory;
 import mmbbase.cgui.DestroyTab;
 
@@ -25,6 +24,6 @@ public interface ControllableFilter extends DestroyTab{
 	 * otherwise the {@link FilterGUI} will fail with {@link IllegalStateException};
 	 * @return a list of filter titles
 	 */
-	@Nullable public String[] getTitles();
+	@Nil public String[] getTitles();
 	
 }

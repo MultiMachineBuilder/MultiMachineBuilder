@@ -6,11 +6,11 @@ package mmb.content.electric.machines;
 import java.awt.Component;
 import java.util.function.Consumer;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.Battery;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.SideConfig;
@@ -34,16 +34,16 @@ import mmbbase.menu.world.window.WorldWindow;
 public abstract class SkeletalBlockMachine extends BlockEntityData implements BlockActivateListener, Titled{
 	
 	//Electrical components
-	@Nonnull protected Battery inElec = new Battery(200, 20000, this, VoltageTier.V1);
-	@Nonnull SideConfig cfgInElec = new SideConfig();
-	@Nonnull protected Battery outElec  = new Battery(200, 20000, this, VoltageTier.V1);
-	@Nonnull SideConfig cfgOutElec = new SideConfig();
+	@NN protected Battery inElec = new Battery(200, 20000, this, VoltageTier.V1);
+	@NN SideConfig cfgInElec = new SideConfig();
+	@NN protected Battery outElec  = new Battery(200, 20000, this, VoltageTier.V1);
+	@NN SideConfig cfgOutElec = new SideConfig();
 	
 	//Item components
-	@Nonnull protected SimpleInventory inItems = new SimpleInventory();
-	@Nonnull SideConfig cfgInItems = new SideConfig();
-	@Nonnull protected SimpleInventory outItems = new SimpleInventory();
-	@Nonnull SideConfig cfgOutItems = new SideConfig();
+	@NN protected SimpleInventory inItems = new SimpleInventory();
+	@NN SideConfig cfgInItems = new SideConfig();
+	@NN protected SimpleInventory outItems = new SimpleInventory();
+	@NN SideConfig cfgOutItems = new SideConfig();
 	
 	//Setting flags
 	/** This constant contains active components. All flags begin with 'SETTING_FLAG_' */
@@ -53,7 +53,7 @@ public abstract class SkeletalBlockMachine extends BlockEntityData implements Bl
 	public static final int SETTING_FLAG_ITEM_INPUT = 4;
 	public static final int SETTING_FLAG_ITEM_OUTPUT = 8;
 	
-	private final Consumer<@Nonnull SideBoolean> SHOVE_ELECTRICITY = s -> {
+	private final Consumer<@NN SideBoolean> SHOVE_ELECTRICITY = s -> {
 		if(s.value){
 			Electricity elec = getAtSide(s.side).getElectricalConnection(s.side.negate());
 			if(elec == null) return;
@@ -104,7 +104,7 @@ public abstract class SkeletalBlockMachine extends BlockEntityData implements Bl
 	}
 
 	@Override
-	public final void load(@Nullable JsonNode data) {
+	public final void load(@Nil JsonNode data) {
 		if(data == null) return;
 		load1((ObjectNode)data);
 		if((flags & SETTING_FLAG_ELEC_INPUT) != 0) {
@@ -166,12 +166,12 @@ public abstract class SkeletalBlockMachine extends BlockEntityData implements Bl
 	 * @return the title of this machine
 	 */
 	@Override
-	@Nonnull public String title() {
+	@NN public String title() {
 		return type().title();
 	}
 	MachineGUI gui;
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		MachineGUI gui0 = gui;
 		if(gui0 != null) return;

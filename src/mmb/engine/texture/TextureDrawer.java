@@ -6,13 +6,13 @@ package mmb.engine.texture;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import javax.annotation.Nonnull;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
 
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.gl.RenderCtx;
 import mmb.engine.texture.Textures.Texture;
@@ -27,7 +27,7 @@ public class TextureDrawer implements BlockDrawer {
 	 */
 	public final BufferedImage img;
 	private int LOD = -1;
-	@Nonnull private final Icon icon;
+	@NN private final Icon icon;
 	/**
 	 * @param img the image to be drawn
 	 */

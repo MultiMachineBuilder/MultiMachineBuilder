@@ -5,7 +5,6 @@ package mmb.content.machinemics.line;
 
 import net.miginfocom.swing.MigLayout;
 
-import javax.annotation.Nonnull;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -15,6 +14,7 @@ import java.awt.Color;
 
 import javax.swing.JProgressBar;
 
+import mmb.NN;
 import mmb.content.ditems.Stencil;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
@@ -121,9 +121,9 @@ class AutoCraftGUI extends GUITab {
 		
 	}
 	private static final long serialVersionUID = 6896680900244482487L;
-	@Nonnull private InventoryController invOut;
-	@Nonnull private InventoryController invIn;
-	@Nonnull private JProgressBar progressBar;
+	@NN private InventoryController invOut;
+	@NN private InventoryController invIn;
+	@NN private JProgressBar progressBar;
 	/**
 	 * 
 	 */

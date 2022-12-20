@@ -8,14 +8,13 @@ import java.util.Objects;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import org.ainslec.picocog.PicoWriter;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ContentsItems;
 import mmb.content.CraftingGroups;
 import mmb.engine.craft.Recipe;
@@ -42,7 +41,7 @@ public class Stencil extends ItemEntity{
 	
 	//Collection methods
 
-	@Nonnull private Grid<ItemEntry> grid = new FixedGrid<>(0);
+	@NN private Grid<ItemEntry> grid = new FixedGrid<>(0);
 	
 	/** @return the unmodifiable item grid of this stencil*/
 	public Grid<ItemEntry> grid(){
@@ -76,7 +75,7 @@ public class Stencil extends ItemEntity{
 	}
 
 	@Override
-	public void load(@Nullable JsonNode array) {
+	public void load(@Nil JsonNode array) {
 		if(array == null) return;
 		if(array.isArray()) {
 			Grid<ItemEntry> grid = Save.loadGrid(ItemEntry::loadFromJson, (ArrayNode)array);
@@ -117,7 +116,7 @@ public class Stencil extends ItemEntity{
 		return result;
 	}
 	@Override
-	public boolean equal0(@Nullable ItemEntity obj) {
+	public boolean equal0(@Nil ItemEntity obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -135,17 +134,17 @@ public class Stencil extends ItemEntity{
 	/**
 	 * @return recipe for this stencil
 	 */
-	@Nullable public CraftingRecipe recipe() {
+	@Nil public CraftingRecipe recipe() {
 		if(recipe0 == null) 
 			recipe0 = CraftingGroups.crafting.findRecipe(grid);
 		return recipe0;
 	}
 	/** @return items consumed by the recipe */
-	@Nonnull public RecipeOutput in() {
+	@NN public RecipeOutput in() {
 		return Recipe.in(recipe());
 	}
 	/** @return items produced by the recipe */
-	@Nonnull public RecipeOutput out() {
+	@NN public RecipeOutput out() {
 		return Recipe.out(recipe());
 	}
 	

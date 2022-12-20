@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
+import mmb.NN;
 
 /**
  * @author oskar
@@ -21,7 +21,7 @@ public interface Variable<T> extends Property<T>{
 	 */
 	public void set(T value);
 	
-	public static @Nonnull <U> Variable<U> delegate(Supplier<U> getter, Consumer<U> setter){
+	public static @NN <U> Variable<U> delegate(Supplier<U> getter, Consumer<U> setter){
 		return new Variable<U>() {
 
 			@Override
@@ -36,11 +36,11 @@ public interface Variable<T> extends Property<T>{
 		};
 	}
 	
-	public static @Nonnull <U> Variable<U> ofArraySlot(int slot, U[] array){
+	public static @NN <U> Variable<U> ofArraySlot(int slot, U[] array){
 		return delegate(() -> array[slot], val -> array[slot] = val);
 	}
 	
-	public static @Nonnull <U> Variable<U> ofListSlot(int slot, List<U> array){
+	public static @NN <U> Variable<U> ofListSlot(int slot, List<U> array){
 		return delegate(() -> array.get(slot), val -> array.set(slot, val));
 	}
 }

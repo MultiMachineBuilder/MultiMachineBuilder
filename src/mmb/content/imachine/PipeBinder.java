@@ -3,8 +3,7 @@
  */
 package mmb.content.imachine;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.io.InventoryReader;
@@ -21,8 +20,8 @@ import mmbbase.data.variables.Variable;
  * Represents a binding pipe. The binding side goes to UP
  */
 public class PipeBinder extends AbstractBasePipe{
-	@Nonnull private final Side binding;
-	protected final @Nonnull Pusher toCommon, toSide, toMain;
+	@NN private final Side binding;
+	protected final @NN Pusher toCommon, toSide, toMain;
 	/**
 	 * Creates a binding pipe.
 	 * @param type block type

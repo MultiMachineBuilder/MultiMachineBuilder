@@ -5,8 +5,7 @@ package mmb.engine.rotate;
 
 import java.awt.image.BufferedImage;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.texture.BlockDrawer;
 import mmb.engine.texture.Textures;
 
@@ -35,7 +34,7 @@ public class ChirotatedImageGroup {
 	}
 
 	public BlockDrawer Ul, Dl, Ll, Rl, Ur, Dr, Lr, Rr;
-	@Nonnull public static ChirotatedImageGroup create(BufferedImage img) {
+	@NN public static ChirotatedImageGroup create(BufferedImage img) {
 		ChirotatedImageGroup rig = new ChirotatedImageGroup();
 		rig.Ur = BlockDrawer.ofImage(img);
 		BufferedImage progress = RotatedImageGroup.rotate(img);
@@ -54,7 +53,7 @@ public class ChirotatedImageGroup {
 		rig.Ll = BlockDrawer.ofImage(progress);
 		return rig;
 	}
-	@Nonnull public static ChirotatedImageGroup create(String texture) {
+	@NN public static ChirotatedImageGroup create(String texture) {
 		return create(Textures.get(texture));
 	}
 	static BufferedImage flip(BufferedImage img) {

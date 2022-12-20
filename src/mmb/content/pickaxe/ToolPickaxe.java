@@ -11,11 +11,11 @@ import static mmb.engine.settings.GlobalSettings.$res;
 import java.awt.Color;
 import java.awt.Point;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.pickaxe.Pickaxe.PickaxeType;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.chance.Chance;
@@ -29,8 +29,8 @@ import mmbbase.menu.wtool.WindowTool;
  *
  */
 public class ToolPickaxe extends WindowTool {
-	@Nullable private final Pickaxe pick;
-	public ToolPickaxe(@Nullable Pickaxe pick) {
+	@Nil private final Pickaxe pick;
+	public ToolPickaxe(@Nil Pickaxe pick) {
 		super("pickaxe");
 		this.pick = pick;
 	}

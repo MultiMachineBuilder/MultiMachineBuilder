@@ -3,9 +3,8 @@
  */
 package mmbmods.stn.block;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.Inventory;
@@ -19,7 +18,7 @@ import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag;
  *
  */
 public class STNStorageAttachment extends STNBaseMachine {
-	@Nonnull private static final RotatedImageGroup rig = RotatedImageGroup.create("stn/storage.png");
+	@NN private static final RotatedImageGroup rig = RotatedImageGroup.create("stn/storage.png");
 
 	@Override
 	public BlockType type() {
@@ -41,8 +40,8 @@ public class STNStorageAttachment extends STNBaseMachine {
 		return rig;
 	}
 
-	@Nullable private Inventory storage;
-	@Nullable private Inventory old;
+	@Nil private Inventory storage;
+	@Nil private Inventory old;
 	@Override
 	public Inventory storage() {
 		return storage;

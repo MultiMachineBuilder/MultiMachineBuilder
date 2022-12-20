@@ -3,9 +3,8 @@
  */
 package mmbmods.stn.block;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.Inventories;
 import mmb.engine.inv.io.InventoryReader;
@@ -20,7 +19,7 @@ import mmbmods.stn.STN;
  *
  */
 public class STNImporter extends STNCycler{
-	@Nonnull private static final RotatedImageGroup rig = RotatedImageGroup.create("stn/importer.png");
+	@NN private static final RotatedImageGroup rig = RotatedImageGroup.create("stn/importer.png");
 	
 	@Override
 	public BlockType type() {
@@ -33,7 +32,7 @@ public class STNImporter extends STNCycler{
 	}
 
 	@Override
-	protected void runCycle(@Nullable ItemEntry item, InventoryWriter writer, InventoryReader reader) {
+	protected void runCycle(@Nil ItemEntry item, InventoryWriter writer, InventoryReader reader) {
 		if(item == null) {
 			Inventories.transferFirst(reader, network().inv);
 		}else if(reader.level() == ExtractionLevel.RANDOM){

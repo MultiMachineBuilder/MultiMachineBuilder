@@ -6,13 +6,13 @@ package mmb.content.modular.gui;
 import java.awt.Color;
 import java.awt.Component;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.modular.BlockModuleOrCore;
 import mmb.content.modular.Slot;
 import mmb.engine.craft.Craftings;
@@ -36,15 +36,15 @@ import mmbbase.menu.world.inv.InventoryController;
 public class ModuleOrCoreGUI<Telement extends BlockModuleOrCore<Telement, ?, ?>, Tgui extends Component&SafeCloseable> extends Box implements AutoCloseable{
 	private static final long serialVersionUID = 1044001523317555311L;
 	
-	@Nonnull private static final Debugger debug = new Debugger("MODULAR GUI");
+	@NN private static final Debugger debug = new Debugger("MODULAR GUI");
 	
 	//Managed resources & components
-	@Nonnull private final transient Reactor<@Nullable Telement, @Nullable Tgui> guiReactor;
+	@NN private final transient Reactor<@Nil Telement, @Nil Tgui> guiReactor;
 	
 	//GUI definition
-	@Nonnull public final Slot<Telement> prop;
-	@Nonnull public final InventoryController invctrl;
-	@Nonnull private final Placeholder placeholder;
+	@NN public final Slot<Telement> prop;
+	@NN public final InventoryController invctrl;
+	@NN private final Placeholder placeholder;
 	
 	/**
 	 * Creates a module GUI
@@ -117,7 +117,7 @@ public class ModuleOrCoreGUI<Telement extends BlockModuleOrCore<Telement, ?, ?>,
 		return mch.elementCreate(gui, el, debug, "Failed to create a new element");
 	}
 	
-	private @Nullable Tgui createGUI(@Nullable Telement elem) {
+	private @Nil Tgui createGUI(@Nil Telement elem) {
 		if(elem == null) return null;
 		@SuppressWarnings("unchecked")
 		ModuleConfigHandler<Telement, Tgui> mch = (ModuleConfigHandler<Telement, Tgui>) elem.mch();

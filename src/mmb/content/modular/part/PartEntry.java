@@ -5,14 +5,13 @@ package mmb.content.modular.part;
 
 import java.awt.Graphics;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.NullNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.debug.Debugger;
@@ -30,11 +29,11 @@ import mmbbase.beans.Saver;
  */
 public interface PartEntry extends Saver{
 	/** @return a part-wise copy of this*/
-	@Nonnull public PartEntry partClone();
+	@NN public PartEntry partClone();
 	
 	//Type
 	/** @return the part type */
-	@Nonnull public PartType type();
+	@NN public PartType type();
 	/**
 	 * @param type block type to check
 	 * @return does given type match actual type?
@@ -45,11 +44,11 @@ public interface PartEntry extends Saver{
 	
 	//Drop & RTP
 	/** @return items dropped when module is removed */
-	@Nonnull public default Chance dropItems() {
+	@NN public default Chance dropItems() {
 		return type().dropItems();
 	}
 	/** @return items returned to the player */
-	@Nonnull public default RecipeOutput returnToPlayer() {
+	@NN public default RecipeOutput returnToPlayer() {
 		return type().returnToPlayer();
 	}
 	
@@ -71,7 +70,7 @@ public interface PartEntry extends Saver{
 	 * @param item the item to save
 	 * @return the JSON representation of this item entry
 	 */
-	public static JsonNode savePart(@Nullable PartEntry item) {
+	public static JsonNode savePart(@Nil PartEntry item) {
 		if(item == null) return NullNode.instance;
 		JsonNode save = item.save();
 		if(save == null) return new TextNode(item.type().id());
@@ -85,10 +84,10 @@ public interface PartEntry extends Saver{
 	 * @param data JSON data
 	 * @return item it if loaded successfully, or null if failed
 	 */
-	@Nullable public static PartEntry loadFromJson(@Nullable JsonNode data) {
+	@Nil public static PartEntry loadFromJson(@Nil JsonNode data) {
 		return loadFromJsonExpectType(data, null);
 	}
-	@Nullable public static <T extends PartEntry> PartEntry loadFromJsonExpectType(@Nullable JsonNode data, @Nullable Class<T> cls) {
+	@Nil public static <T extends PartEntry> PartEntry loadFromJsonExpectType(@Nil JsonNode data, @Nil Class<T> cls) {
 		if(data == null) return null;
 		if(data.isNull()) return null;
 		if(data.isArray()) {

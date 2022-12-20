@@ -8,14 +8,13 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.google.common.collect.Iterators;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.MMBUtils;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.inv.Inventory;
@@ -35,7 +34,7 @@ public abstract class BaseSingleItemInventory implements SaveInventory{
 
 	//Item records
 	private class Record implements ItemRecord{
-		private final @Nonnull ItemEntry item0;
+		private final @NN ItemEntry item0;
 		public Record(ItemEntry item) {
 			item0 = item;
 		}
@@ -84,7 +83,7 @@ public abstract class BaseSingleItemInventory implements SaveInventory{
 		return null;
 	}
 	/** @return item record of this inventory or throw */
-	@Nonnull public ItemRecord get() {
+	@NN public ItemRecord get() {
 		ItemEntry contents = getContents();
 		if(contents == null) throw new IllegalStateException("This inventory is empty");
 		return new Record(contents);
@@ -184,7 +183,7 @@ public abstract class BaseSingleItemInventory implements SaveInventory{
 	 * @param contents new contents of this inventory 
 	 * @return were items accepted
 	 */
-	public abstract boolean setContents(@Nullable ItemEntry contents);
+	public abstract boolean setContents(@Nil ItemEntry contents);
 	/**
 	 * Replaces the configs in this inventory with the one of the other inventory
 	 * @param inv source inventory
@@ -201,7 +200,7 @@ public abstract class BaseSingleItemInventory implements SaveInventory{
 		return array.add(capacity()).add(ItemEntry.saveItem(getContents()));
 	}
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		JsonNode nodeCapacity = data.get(0);
 		setCapacity(nodeCapacity==null ? 2 : nodeCapacity.asDouble(2));
@@ -214,9 +213,9 @@ public abstract class BaseSingleItemInventory implements SaveInventory{
 	 * @author oskar
 	 */
 	public static class Callback extends SingleItemInventory{
-		@Nonnull private final Consumer<ItemEntry> handler;
+		@NN private final Consumer<ItemEntry> handler;
 		@Override
-		public boolean setContents(@Nullable ItemEntry contents) {
+		public boolean setContents(@Nil ItemEntry contents) {
 			handler.accept(contents);
 			return super.setContents(contents);
 		}

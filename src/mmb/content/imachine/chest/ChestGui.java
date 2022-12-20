@@ -7,6 +7,7 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.JButton;
 
+import mmb.NN;
 import mmb.engine.worlds.world.Player;
 import mmbbase.menu.world.ColorGUI;
 import mmbbase.menu.world.inv.InventoryController;
@@ -14,8 +15,6 @@ import mmbbase.menu.world.inv.InventoryOrchestrator;
 import mmbbase.menu.world.inv.MoveItems;
 import mmbbase.menu.world.window.GUITab;
 import mmbbase.menu.world.window.WorldWindow;
-
-import javax.annotation.Nonnull;
 
 import static mmb.engine.settings.GlobalSettings.$res;
 
@@ -69,12 +68,12 @@ public class ChestGui extends GUITab{
 		refresh();
 	}
 	private static final long serialVersionUID = -3527290050616724746L;
-	@Nonnull private InventoryController playerCtrl;
-	@Nonnull private InventoryOrchestrator inventoryOrchestrator;
-	@Nonnull private InventoryController chestCtrl;
-	@Nonnull private JButton close;
-	@Nonnull private JButton color;
-	@Nonnull private MoveItems moveItems;
+	@NN private InventoryController playerCtrl;
+	@NN private InventoryOrchestrator inventoryOrchestrator;
+	@NN private InventoryController chestCtrl;
+	@NN private JButton close;
+	@NN private JButton color;
+	@NN private MoveItems moveItems;
 	
 	private void refresh() {
 		chestCtrl.refresh();

@@ -5,9 +5,9 @@ package mmb.content.modular.chest;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.content.ContentsItems;
 import mmb.content.CraftingGroups;
@@ -51,12 +51,12 @@ public class ModularChests {
 	}
 	
 	//Translation keys
-	@Nonnull private static final String s_import = GlobalSettings.$res("modchest-import");
-	@Nonnull private static final String s_export = GlobalSettings.$res("modchest-export");
+	@NN private static final String s_import = GlobalSettings.$res("modchest-import");
+	@NN private static final String s_export = GlobalSettings.$res("modchest-export");
 	
 	//The modular chest itself
 	/** The modular chest body */
-	@Nonnull public static final BlockEntityType chest = new BlockEntityType()
+	@NN public static final BlockEntityType chest = new BlockEntityType()
 		.texture("modules/chest_body.png")
 		.title("#modchest-chest")
 		.factory(ModularChest::new)
@@ -64,7 +64,7 @@ public class ModularChests {
 	
 	//Modules
 	/** Plug, blocks all traffic */
-	@Nonnull public static final Part plug = new Plug()
+	@NN public static final Part plug = new Plug()
 		.title("#modchest-plug")
 		.texture("modules/plug.png")
 		.volumed(0.002)
@@ -72,51 +72,51 @@ public class ModularChests {
 	
 	//Chest cores
 	//Chest cores - simple
-	@Nonnull private static final ChestProductionParams paramsSimple
+	@NN private static final ChestProductionParams paramsSimple
 	= new ChestProductionParams("modchest-coresimple", "modules/chest_std.png", SimpleChestCore::new, "modchest.coreSimple");
-	@Nonnull public static final PartEntityType coreSimple1 = chestCore(paramsSimple, Color.RED,       6, 1);
-	@Nonnull public static final PartEntityType coreSimple2 = chestCore(paramsSimple, Color.YELLOW,   16, 2);
-	@Nonnull public static final PartEntityType coreSimple3 = chestCore(paramsSimple, Color.GREEN,    32, 3);
-	@Nonnull public static final PartEntityType coreSimple4 = chestCore(paramsSimple, Color.CYAN,     64, 4);
-	@Nonnull public static final PartEntityType coreSimple5 = chestCore(paramsSimple, Color.BLUE,    128, 5);
-	@Nonnull public static final PartEntityType coreSimple6 = chestCore(paramsSimple, Color.MAGENTA, 256, 6);
-	@Nonnull public static final PartEntityType coreSimple7 = chestCore(paramsSimple, Color.WHITE,  1024, 7);
-	@Nonnull public static final PartEntityType coreSimple8 = chestCore(paramsSimple, Color.BLACK,  4096, 8);
-	@Nonnull public static final PartEntityType coreSimple9 = chestCore(paramsSimple, Color.GRAY,  16384, 9);
+	@NN public static final PartEntityType coreSimple1 = chestCore(paramsSimple, Color.RED,       6, 1);
+	@NN public static final PartEntityType coreSimple2 = chestCore(paramsSimple, Color.YELLOW,   16, 2);
+	@NN public static final PartEntityType coreSimple3 = chestCore(paramsSimple, Color.GREEN,    32, 3);
+	@NN public static final PartEntityType coreSimple4 = chestCore(paramsSimple, Color.CYAN,     64, 4);
+	@NN public static final PartEntityType coreSimple5 = chestCore(paramsSimple, Color.BLUE,    128, 5);
+	@NN public static final PartEntityType coreSimple6 = chestCore(paramsSimple, Color.MAGENTA, 256, 6);
+	@NN public static final PartEntityType coreSimple7 = chestCore(paramsSimple, Color.WHITE,  1024, 7);
+	@NN public static final PartEntityType coreSimple8 = chestCore(paramsSimple, Color.BLACK,  4096, 8);
+	@NN public static final PartEntityType coreSimple9 = chestCore(paramsSimple, Color.GRAY,  16384, 9);
 	//Chest cores - drawers
-	@Nonnull private static final ChestProductionParams paramsDrawer
+	@NN private static final ChestProductionParams paramsDrawer
 	= new ChestProductionParams("modchest-coredrawer", "modules/chest_drawer.png", DrawerChestCore::new, "modchest.coreDrawer");
-	@Nonnull public static final PartEntityType coreDrawer1 = chestCore(paramsDrawer, Color.RED,      12, 1);
-	@Nonnull public static final PartEntityType coreDrawer2 = chestCore(paramsDrawer, Color.YELLOW,   32, 2);
-	@Nonnull public static final PartEntityType coreDrawer3 = chestCore(paramsDrawer, Color.GREEN,    64, 3);
-	@Nonnull public static final PartEntityType coreDrawer4 = chestCore(paramsDrawer, Color.CYAN,    128, 4);
-	@Nonnull public static final PartEntityType coreDrawer5 = chestCore(paramsDrawer, Color.BLUE,    256, 5);
-	@Nonnull public static final PartEntityType coreDrawer6 = chestCore(paramsDrawer, Color.MAGENTA, 512, 6);
-	@Nonnull public static final PartEntityType coreDrawer7 = chestCore(paramsDrawer, Color.WHITE,  2048, 7);
-	@Nonnull public static final PartEntityType coreDrawer8 = chestCore(paramsDrawer, Color.BLACK,  8192, 8);
-	@Nonnull public static final PartEntityType coreDrawer9 = chestCore(paramsDrawer, Color.GRAY,  32768, 9);
+	@NN public static final PartEntityType coreDrawer1 = chestCore(paramsDrawer, Color.RED,      12, 1);
+	@NN public static final PartEntityType coreDrawer2 = chestCore(paramsDrawer, Color.YELLOW,   32, 2);
+	@NN public static final PartEntityType coreDrawer3 = chestCore(paramsDrawer, Color.GREEN,    64, 3);
+	@NN public static final PartEntityType coreDrawer4 = chestCore(paramsDrawer, Color.CYAN,    128, 4);
+	@NN public static final PartEntityType coreDrawer5 = chestCore(paramsDrawer, Color.BLUE,    256, 5);
+	@NN public static final PartEntityType coreDrawer6 = chestCore(paramsDrawer, Color.MAGENTA, 512, 6);
+	@NN public static final PartEntityType coreDrawer7 = chestCore(paramsDrawer, Color.WHITE,  2048, 7);
+	@NN public static final PartEntityType coreDrawer8 = chestCore(paramsDrawer, Color.BLACK,  8192, 8);
+	@NN public static final PartEntityType coreDrawer9 = chestCore(paramsDrawer, Color.GRAY,  32768, 9);
 	//Chest cores - set
-	@Nonnull private static final ChestProductionParams paramsSet
+	@NN private static final ChestProductionParams paramsSet
 	= new ChestProductionParams("modchest-coreset", "modules/chest_unique.png", ChestCoreSet::new, "modchest.coreSet");
-	@Nonnull public static final PartEntityType coreSet1 = chestCore(paramsSet, Color.RED,      12, 1);
-	@Nonnull public static final PartEntityType coreSet2 = chestCore(paramsSet, Color.YELLOW,   32, 2);
-	@Nonnull public static final PartEntityType coreSet3 = chestCore(paramsSet, Color.GREEN,    64, 3);
-	@Nonnull public static final PartEntityType coreSet4 = chestCore(paramsSet, Color.CYAN,    128, 4);
-	@Nonnull public static final PartEntityType coreSet5 = chestCore(paramsSet, Color.BLUE,    256, 5);
-	@Nonnull public static final PartEntityType coreSet6 = chestCore(paramsSet, Color.MAGENTA, 512, 6);
-	@Nonnull public static final PartEntityType coreSet7 = chestCore(paramsSet, Color.WHITE,  2048, 7);
-	@Nonnull public static final PartEntityType coreSet8 = chestCore(paramsSet, Color.BLACK,  8192, 8);
-	@Nonnull public static final PartEntityType coreSet9 = chestCore(paramsSet, Color.GRAY,  32768, 9);
+	@NN public static final PartEntityType coreSet1 = chestCore(paramsSet, Color.RED,      12, 1);
+	@NN public static final PartEntityType coreSet2 = chestCore(paramsSet, Color.YELLOW,   32, 2);
+	@NN public static final PartEntityType coreSet3 = chestCore(paramsSet, Color.GREEN,    64, 3);
+	@NN public static final PartEntityType coreSet4 = chestCore(paramsSet, Color.CYAN,    128, 4);
+	@NN public static final PartEntityType coreSet5 = chestCore(paramsSet, Color.BLUE,    256, 5);
+	@NN public static final PartEntityType coreSet6 = chestCore(paramsSet, Color.MAGENTA, 512, 6);
+	@NN public static final PartEntityType coreSet7 = chestCore(paramsSet, Color.WHITE,  2048, 7);
+	@NN public static final PartEntityType coreSet8 = chestCore(paramsSet, Color.BLACK,  8192, 8);
+	@NN public static final PartEntityType coreSet9 = chestCore(paramsSet, Color.GRAY,  32768, 9);
 	//Chest core - single item
-	@Nonnull private static final ChestProductionParams paramsSingle
+	@NN private static final ChestProductionParams paramsSingle
 	= new ChestProductionParams("modchest-coresingle", "modules/chest_single.png", ChestCoreSingle::new, "modchest.coreSingle");
-	@Nonnull public static final PartEntityType coreSingle = chestCore(paramsSingle, Color.RED, 6, 1);
+	@NN public static final PartEntityType coreSingle = chestCore(paramsSingle, Color.RED, 6, 1);
 		
 	//Chest modules
-	@Nonnull private static final BufferedImage moverImg = Textures.get("modules/mover.png");
+	@NN private static final BufferedImage moverImg = Textures.get("modules/mover.png");
 	/** Single-item mover pair */
-	@Nonnull public static final MoverPair moverPairSingle = MoverModule.create(ModularChests::moverImplSingle, moverImg, "#modchest-single", "single");
-	static void moverImplSingle(InventoryReader reader, InventoryWriter writer, @Nullable ItemEntry settings, int stacking, double maxVolume) {
+	@NN public static final MoverPair moverPairSingle = MoverModule.create(ModularChests::moverImplSingle, moverImg, "#modchest-single", "single");
+	static void moverImplSingle(InventoryReader reader, InventoryWriter writer, @Nil ItemEntry settings, int stacking, double maxVolume) {
 		if(settings != null && reader.level() == ExtractionLevel.RANDOM) {
 			Inventories.transferStackVolumeLimited(reader, writer, settings, stacking, maxVolume); //Extract filtered
 		}else {
@@ -124,10 +124,10 @@ public class ModularChests {
 		}
 	}
 	
-	@Nonnull private static final BufferedImage moverMultiImg = TexGen.colormap(Color.RED, Color.BLUE, moverImg, null);
+	@NN private static final BufferedImage moverMultiImg = TexGen.colormap(Color.RED, Color.BLUE, moverImg, null);
 	/** Multi-item mover pair */
-	@Nonnull public static final MoverPair moverPairMulti = MoverModule.create(ModularChests::moverImplMulti, moverMultiImg, "#modchest-multi", "multi");
-	static void moverImplMulti(InventoryReader reader, InventoryWriter writer, @Nullable ItemEntry settings, int stacking, double maxVolume) {
+	@NN public static final MoverPair moverPairMulti = MoverModule.create(ModularChests::moverImplMulti, moverMultiImg, "#modchest-multi", "multi");
+	static void moverImplMulti(InventoryReader reader, InventoryWriter writer, @Nil ItemEntry settings, int stacking, double maxVolume) {
 		if(settings instanceof ItemBOM && reader.level() == ExtractionLevel.RANDOM) {
 			ItemBOM bom = (ItemBOM) settings;
 			RecipeOutput items = bom.contents();
@@ -135,10 +135,10 @@ public class ModularChests {
 		}
 	}
 	
-	@Nonnull private static final BufferedImage moverBulkImg = TexGen.colormap(Color.RED, Color.CYAN, moverImg, null);
+	@NN private static final BufferedImage moverBulkImg = TexGen.colormap(Color.RED, Color.CYAN, moverImg, null);
 	/** Bulk item mover pair */
-	@Nonnull public static final MoverPair moverPairBulk = MoverModule.create(ModularChests::moverImplBulk, moverBulkImg, "#modchest-bulk", "bulk");
-	static void moverImplBulk(InventoryReader reader, InventoryWriter writer, @Nullable ItemEntry settings, int stacking, double maxVolume) {
+	@NN public static final MoverPair moverPairBulk = MoverModule.create(ModularChests::moverImplBulk, moverBulkImg, "#modchest-bulk", "bulk");
+	static void moverImplBulk(InventoryReader reader, InventoryWriter writer, @Nil ItemEntry settings, int stacking, double maxVolume) {
 		if(settings instanceof ItemBOM && reader.level() == ExtractionLevel.RANDOM) {
 			ItemBOM bom = (ItemBOM) settings;
 			RecipeOutput items = bom.contents();
@@ -148,10 +148,10 @@ public class ModularChests {
 	
 	//Helper classes
 	private static class ChestProductionParams{
-		@Nonnull public final String prefix;
-		@Nonnull public final BufferedImage img;
-		@Nonnull public final ChestCoreCtor ctor;
-		@Nonnull public final String id;
+		@NN public final String prefix;
+		@NN public final BufferedImage img;
+		@NN public final ChestCoreCtor ctor;
+		@NN public final String id;
 		public ChestProductionParams(String prefixKey, String texture, ChestCoreCtor ctor, String idPrefix) {
 			this.prefix = GlobalSettings.$res(prefixKey);
 			this.img = Textures.get(texture);
@@ -174,7 +174,7 @@ public class ModularChests {
 	}
 	
 	//Helper methods
-	@Nonnull private static PartEntityType chestCore(ChestProductionParams params, Color c, double capacity, int n) {
+	@NN private static PartEntityType chestCore(ChestProductionParams params, Color c, double capacity, int n) {
 		//Color mapping
 		BufferedImage outTexture = TexGen.colormap(Color.RED, c, params.img, null);
 		String prefix = params.prefix;

@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
 
-import javax.annotation.Nonnull;
+import mmb.NN;
 
 /**
  * A grid contains data arranged in a regular grid.
@@ -47,7 +47,7 @@ public interface Grid<T> extends Iterable<T>{
 	 * @param h height
 	 * @return a new grid with values copied
 	 */
-	@Nonnull public default FixedGrid<T> copy(int x, int y, int w, int h){
+	@NN public default FixedGrid<T> copy(int x, int y, int w, int h){
 		FixedGrid<T> grid = new FixedGrid<>(w, h);
 		for(int i = 0, X = x; i < w; i++, X++) {
 			for(int j = 0, Y = y; j < h; j++, Y++) {
@@ -60,7 +60,7 @@ public interface Grid<T> extends Iterable<T>{
 	 * Trims a grid so on no side are there null values
 	 * @return a trimmed grid
 	 */
-	@Nonnull public default FixedGrid<T> trim(){
+	@NN public default FixedGrid<T> trim(){
 		int left = width();
 		int right = -1;
 		int down = -1;

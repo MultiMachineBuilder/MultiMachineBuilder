@@ -5,10 +5,10 @@ package mmb.content.electric;
 
 import net.miginfocom.swing.MigLayout;
 
-import javax.annotation.Nonnull;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
+import mmb.NN;
 import mmb.content.electric.machines.BlockGeneratorSolid;
 import mmbbase.menu.world.inv.InventoryController;
 import mmbbase.menu.world.inv.MoveItems;
@@ -24,7 +24,7 @@ import javax.swing.JButton;
  */
 public class GUIGeneratorSolid extends GUITab {
 	private static final long serialVersionUID = 1680582237436697644L;
-	@Nonnull private final transient BlockGeneratorSolid gen;
+	@NN private final transient BlockGeneratorSolid gen;
 	private JProgressBar progressEnergy;
 	private JProgressBar progressFuel;
 	public GUIGeneratorSolid(WorldWindow window, BlockGeneratorSolid generator) {

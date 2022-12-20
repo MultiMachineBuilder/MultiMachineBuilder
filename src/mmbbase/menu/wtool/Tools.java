@@ -6,8 +6,7 @@ package mmbbase.menu.wtool;
 import java.util.Collection;
 import java.util.Objects;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.content.aim.ToolAim;
 import mmb.content.drugs.ToolAlcohol;
 import mmb.content.imachine.ConfigureDroppedItemExtractors;
@@ -73,7 +72,7 @@ public class Tools {
 	 * Creates a new array of window tools
 	 * @return a new array of window tools
 	 */
-	@Nonnull public static WindowTool[] createWindowTools() {
+	@NN public static WindowTool[] createWindowTools() {
 		WindowTool[] result = new WindowTool[toollist.size()];
 		int i = 0;
 		for(WindowToolModel wtm: toollist) {

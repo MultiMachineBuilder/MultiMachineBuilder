@@ -3,8 +3,7 @@
  */
 package mmb.content.imachine;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.storage.SingleItemInventory;
@@ -22,8 +21,8 @@ import mmbbase.data.variables.Variable;
  */
 public class DualPipe extends AbstractBasePipe {
 
-	@Nonnull private final Side sideA, sideB;
-	@Nonnull protected final Pusher invwA, invwB, invwC, invwD;
+	@NN private final Side sideA, sideB;
+	@NN protected final Pusher invwA, invwB, invwC, invwD;
 	/**
 	 * 
 	 * @param sideA side bound to uppper interface

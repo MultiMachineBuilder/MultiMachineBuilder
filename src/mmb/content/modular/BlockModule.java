@@ -3,9 +3,8 @@
  */
 package mmb.content.modular;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.Electricity;
 import mmb.content.modular.gui.ModuleConfigHandler;
 import mmb.content.modular.part.RotablePartEntry;
@@ -23,19 +22,19 @@ import mmb.engine.rotate.Side;
 public interface BlockModule<Tmodule extends BlockModule<Tmodule>> extends RotablePartEntry, BlockModuleOrCore<
 Tmodule, ModularBlock<?, Tmodule, ?, ?>, BlockModule.BlockModuleParams<Tmodule>>{
 	//Provide the access points from a block
-	public default @Nonnull  Inventory provideInventory(ModularBlock<?, Tmodule, ?, ?> blk, Side s) {
+	public default @NN  Inventory provideInventory(ModularBlock<?, Tmodule, ?, ?> blk, Side s) {
 		return blk.i_inv(s);
 	}
-	public default @Nonnull  InventoryWriter provideInput(ModularBlock<?, Tmodule, ?, ?> blk, Side s) {
+	public default @NN  InventoryWriter provideInput(ModularBlock<?, Tmodule, ?, ?> blk, Side s) {
 		return blk.i_in(s);
 	}
-	public default @Nonnull  InventoryReader provideOutput(ModularBlock<?, Tmodule, ?, ?> blk, Side s) {
+	public default @NN  InventoryReader provideOutput(ModularBlock<?, Tmodule, ?, ?> blk, Side s) {
 		return blk.i_out(s);
 	}
 	public default           boolean provideSignal(ModularBlock<?, Tmodule, ?, ?> blk, Side s) {
 		return blk.i_signal(s);
 	}
-	public default @Nullable Electricity provideElectricity(ModularBlock<?, Tmodule, ?, ?> blk, Side s) {
+	public default @Nil Electricity provideElectricity(ModularBlock<?, Tmodule, ?, ?> blk, Side s) {
 		return blk.i_elec(s);
 	}
 	
@@ -75,9 +74,9 @@ Tmodule, ModularBlock<?, Tmodule, ?, ?>, BlockModule.BlockModuleParams<Tmodule>>
 	}
 	
 	public static class BlockModuleParams<Tmodule extends BlockModule<Tmodule>>{
-		@Nonnull public final ModularBlock<?, Tmodule, ?, ?> blk;
-		@Nonnull public final Side storedSide;
-		@Nonnull public final Side realSide;
+		@NN public final ModularBlock<?, Tmodule, ?, ?> blk;
+		@NN public final Side storedSide;
+		@NN public final Side realSide;
 		public BlockModuleParams(ModularBlock<?, Tmodule, ?, ?> blk, Side storedSide, Side realSide) {
 			this.blk = blk;
 			this.storedSide = storedSide;

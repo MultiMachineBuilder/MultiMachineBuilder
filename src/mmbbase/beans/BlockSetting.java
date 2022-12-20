@@ -3,8 +3,7 @@
  */
 package mmbbase.beans;
 
-import javax.annotation.Nullable;
-
+import mmb.Nil;
 import mmb.engine.block.BlockType;
 import mmbbase.data.variables.ListenableValue;
 
@@ -14,7 +13,7 @@ import mmbbase.data.variables.ListenableValue;
  */
 public interface BlockSetting {
 	/** @return the variable used to set block settings */
-	public ListenableValue<@Nullable BlockType> getBlockVariable();
+	public ListenableValue<@Nil BlockType> getBlockVariable();
 	/** @return currently selected block */
 	public default BlockType blockSetting() {
 		return getBlockVariable().get();
@@ -23,7 +22,7 @@ public interface BlockSetting {
 	 * Set the block setting
 	 * @param setting new block
 	 */
-	public default void setBlockSetting(@Nullable BlockType setting) {
+	public default void setBlockSetting(@Nil BlockType setting) {
 		getBlockVariable().set(setting);
 	}
 }

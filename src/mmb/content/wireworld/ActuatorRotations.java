@@ -5,8 +5,7 @@ package mmb.content.wireworld;
 
 import java.awt.Point;
 
-import javax.annotation.Nullable;
-
+import mmb.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
@@ -41,7 +40,7 @@ public class ActuatorRotations extends AbstractChiralActuatorBase implements Blo
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		flip();
 	}
 

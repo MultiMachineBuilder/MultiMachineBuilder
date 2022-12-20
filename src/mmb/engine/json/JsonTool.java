@@ -8,9 +8,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.TreeNode;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -20,27 +17,30 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
+
 /**
  * @author oskar
  *
  */
 public class JsonTool {
 	@SuppressWarnings("null")
-	@Nonnull public static ObjectNode newObjectNode() {
+	@NN public static ObjectNode newObjectNode() {
 		return JsonNodeFactory.instance.objectNode();
 	}
 	@SuppressWarnings("null")
-	@Nonnull public static ArrayNode newArrayNode() {
+	@NN public static ArrayNode newArrayNode() {
 		return JsonNodeFactory.instance.arrayNode();
 	}
-	@Nonnull public static ObjectNode requestObject(String name, ObjectNode node) {
+	@NN public static ObjectNode requestObject(String name, ObjectNode node) {
 		JsonNode result = node.get(name);
 		if(result instanceof ObjectNode) {
 			return (ObjectNode) result;
 		}
 		return newObjectNode();
 	}
-	@Nonnull public static ArrayNode requestArray(String name, ObjectNode node) {
+	@NN public static ArrayNode requestArray(String name, ObjectNode node) {
 		JsonNode result = node.get(name);
 		if(result instanceof ArrayNode) {
 			return (ArrayNode) result;
@@ -74,7 +74,7 @@ public class JsonTool {
 	 * @param node source node
 	 * @return JSON node representing the object
 	 */
-	public static JsonNode saveNode(@Nullable Object node) {
+	public static JsonNode saveNode(@Nil Object node) {
 		return mapper.valueToTree(node);
 	}
 	/**

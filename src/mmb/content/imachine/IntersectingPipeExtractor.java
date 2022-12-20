@@ -3,10 +3,9 @@
  */
 package mmb.content.imachine;
 
-import javax.annotation.Nonnull;
-
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.storage.SingleItemInventory;
@@ -31,7 +30,7 @@ public class IntersectingPipeExtractor extends Pipe {
 		ItemTransporter.moveItems(posX(), posY(), map, getRotation(), inv);
 	}
 
-	@Nonnull private SingleItemInventory inv = new SingleItemInventory();
+	@NN private SingleItemInventory inv = new SingleItemInventory();
 	@Override
 	protected void save1(ObjectNode node) {
 		node.set("tmp", ItemEntry.saveItem(inv.getContents()));

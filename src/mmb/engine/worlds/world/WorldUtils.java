@@ -3,8 +3,7 @@
  */
 package mmb.engine.worlds.world;
 
-import javax.annotation.Nullable;
-
+import mmb.Nil;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.rotate.Side;
@@ -72,7 +71,7 @@ public class WorldUtils {
 	 * @param s side
 	 * @return does block provide signal?
 	 */
-	public static boolean provideSignal(@Nullable BlockEntry ent, Side s) {
+	public static boolean provideSignal(@Nil BlockEntry ent, Side s) {
 		if(ent == null) return false;
 		return ent.provideSignal(s);
 	}

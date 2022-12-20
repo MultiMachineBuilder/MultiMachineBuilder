@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.content.modular.gui.SafeCloseable;
 
 /**
@@ -20,9 +19,9 @@ import mmb.content.modular.gui.SafeCloseable;
  */
 public class Reactor<Tin, Tout> implements ListenableProperty<Tout>, SafeCloseable{
 	/** The underlying listenable property */
-	@Nonnull public final ListenableProperty<Tin> original;
+	@NN public final ListenableProperty<Tin> original;
 	/** Function to transform original values with */
-	@Nonnull public final Function<Tin, Tout> fn;
+	@NN public final Function<Tin, Tout> fn;
 	private Tout cache;
 	
 	/**
@@ -51,7 +50,7 @@ public class Reactor<Tin, Tout> implements ListenableProperty<Tout>, SafeCloseab
 		original.listenadd(listener);
 	}
 	
-	@Nonnull private final Consumer<Tin> listener = this::listener;
+	@NN private final Consumer<Tin> listener = this::listener;
 	private void listener(Tin value) {
 		for(Consumer<? super Tout> c: oldlisteners) c.accept(cache);
 		cache = fn.apply(value);

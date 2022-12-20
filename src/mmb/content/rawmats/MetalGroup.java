@@ -12,9 +12,8 @@ import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.ContentsItems;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.VoltageTier;
@@ -35,37 +34,37 @@ import static mmb.engine.settings.GlobalSettings.*;
  *
  */
 public class MetalGroup{
-	@Nonnull public final Block block;
-	@Nonnull public final Item cluster;
-	@Nonnull public final Item base;
-	@Nonnull public final Item frag;
-	@Nonnull public final Item nugget;
+	@NN public final Block block;
+	@NN public final Item cluster;
+	@NN public final Item base;
+	@NN public final Item frag;
+	@NN public final Item nugget;
 	
-	@Nonnull public final Item wire;
-	@Nonnull public final Item megadust;
-	@Nonnull public final Item dust;
-	@Nonnull public final Item smalldust;
-	@Nonnull public final Item tinydust;
+	@NN public final Item wire;
+	@NN public final Item megadust;
+	@NN public final Item dust;
+	@NN public final Item smalldust;
+	@NN public final Item tinydust;
 	
-	@Nonnull public final Item panel;
-	@Nonnull public final Item foil;
-	@Nonnull public final Item gear;
-	@Nonnull public final Item rod;
-	@Nonnull public final Item ring;
-	@Nonnull public final Item sheet;
-	@Nonnull public final Item frame;
+	@NN public final Item panel;
+	@NN public final Item foil;
+	@NN public final Item gear;
+	@NN public final Item rod;
+	@NN public final Item ring;
+	@NN public final Item sheet;
+	@NN public final Item frame;
 	
-	@Nonnull public final Color c;
-	@Nonnull public final String id;
+	@NN public final Color c;
+	@NN public final String id;
 			 public final boolean isGem;
 	
-	@Nonnull public final String t_nominative;
-	@Nonnull public final String t_nominative_short;
-	@Nonnull public final String t_basic;
-	@Nonnull public final String t_adjective;
-	@Nonnull public final VoltageTier volt;
+	@NN public final String t_nominative;
+	@NN public final String t_nominative_short;
+	@NN public final String t_basic;
+	@NN public final String t_adjective;
+	@NN public final VoltageTier volt;
 	         public final double baseCost;
-	@Nonnull static final BufferedImage GEM = Textures.get("item/gem.png");
+	@NN static final BufferedImage GEM = Textures.get("item/gem.png");
 	
 	/**
 	 * @param c display color
@@ -298,7 +297,7 @@ public class MetalGroup{
 	 * @param id material ID
 	 * @return the created base item
 	 */
-	@Nonnull public Item createBase(Color c, String id) {
+	@NN public Item createBase(Color c, String id) {
 		if(isGem) {
 			return new Item()
 				.title(t_basic)
@@ -312,63 +311,63 @@ public class MetalGroup{
 		.volumed(0.00125)
 		.finish("ingot."+id);
 	}
-	@Nonnull private static final BufferedImage BLOCK = Textures.get("block/block.png");
-	@Nonnull private static final BufferedImage DUST = Textures.get("item/dust.png");
-	@Nonnull private static final BufferedImage MINIDUST = Textures.get("item/minidust.png");
-	@Nonnull private static final BufferedImage PANEL = Textures.get("item/panel.png");
-	@Nonnull private static final BufferedImage FOIL = Textures.get("item/foil.png");
-	@Nonnull private static final BufferedImage GEAR = Textures.get("item/gear.png");
-	@Nonnull private static final BufferedImage FRAG = Textures.get("item/fragment.png");
-	@Nonnull private static final BufferedImage CLUSTER = Textures.get("item/cluster.png");
-	@Nonnull private static final BufferedImage MDUST = Textures.get("item/smalldust.png");
-	@Nonnull private static final BufferedImage LDUST = Textures.get("item/ldust.png");
-	@Nonnull private static final BufferedImage ROD = Textures.get("item/rod.png");
-	@Nonnull private static final BufferedImage RING = Textures.get("item/ring 1.png");
-	@Nonnull private static final BufferedImage SHEET = Textures.get("item/sheet.png");
-	@Nonnull private static final BufferedImage FRAME = Textures.get("item/frame 1.png");
-	@Nonnull protected static BufferedImage mdust(Color c) {
+	@NN private static final BufferedImage BLOCK = Textures.get("block/block.png");
+	@NN private static final BufferedImage DUST = Textures.get("item/dust.png");
+	@NN private static final BufferedImage MINIDUST = Textures.get("item/minidust.png");
+	@NN private static final BufferedImage PANEL = Textures.get("item/panel.png");
+	@NN private static final BufferedImage FOIL = Textures.get("item/foil.png");
+	@NN private static final BufferedImage GEAR = Textures.get("item/gear.png");
+	@NN private static final BufferedImage FRAG = Textures.get("item/fragment.png");
+	@NN private static final BufferedImage CLUSTER = Textures.get("item/cluster.png");
+	@NN private static final BufferedImage MDUST = Textures.get("item/smalldust.png");
+	@NN private static final BufferedImage LDUST = Textures.get("item/ldust.png");
+	@NN private static final BufferedImage ROD = Textures.get("item/rod.png");
+	@NN private static final BufferedImage RING = Textures.get("item/ring 1.png");
+	@NN private static final BufferedImage SHEET = Textures.get("item/sheet.png");
+	@NN private static final BufferedImage FRAME = Textures.get("item/frame 1.png");
+	@NN protected static BufferedImage mdust(Color c) {
 		return TexGen.genTexture(c, MDUST, null);
 	}
-	@Nonnull protected static BufferedImage ldust(Color c) {
+	@NN protected static BufferedImage ldust(Color c) {
 		return TexGen.genTexture(c, LDUST, null);
 	}
-	@Nonnull protected static BufferedImage block(Color c) {
+	@NN protected static BufferedImage block(Color c) {
 		return TexGen.genTexture(c, BLOCK, null);
 	}
-	@Nonnull protected static BufferedImage dust(Color c) {
+	@NN protected static BufferedImage dust(Color c) {
 		return TexGen.genTexture(c, DUST, null);
 	}
-	@Nonnull protected static BufferedImage fragment(Color c) {
+	@NN protected static BufferedImage fragment(Color c) {
 		return TexGen.genTexture(c, FRAG, null);
 	}
-	@Nonnull protected static BufferedImage cluster(Color c) {
+	@NN protected static BufferedImage cluster(Color c) {
 		return TexGen.genTexture(c, CLUSTER, null);
 	}
-	@Nonnull protected static BufferedImage minidust(Color c) {
+	@NN protected static BufferedImage minidust(Color c) {
 		return TexGen.genTexture(c, MINIDUST, null);
 	}
-	@Nonnull protected static BufferedImage panel(Color c) {
+	@NN protected static BufferedImage panel(Color c) {
 		return TexGen.genTexture(c, PANEL, null);
 	}
-	@Nonnull protected static BufferedImage foil(Color c) {
+	@NN protected static BufferedImage foil(Color c) {
 		return TexGen.genTexture(c, FOIL, null);
 	}
-	@Nonnull protected static BufferedImage gear(Color c) {
+	@NN protected static BufferedImage gear(Color c) {
 		return TexGen.genTexture(c, GEAR, null);
 	}
-	@Nonnull protected static BufferedImage rod(Color c) {
+	@NN protected static BufferedImage rod(Color c) {
 		return TexGen.genTexture(c, ROD, null);
 	}
-	@Nonnull protected static BufferedImage ring(Color c) {
+	@NN protected static BufferedImage ring(Color c) {
 		return TexGen.genTexture(c, RING, null);
 	}
-	@Nonnull protected static BufferedImage sheet(Color c) {
+	@NN protected static BufferedImage sheet(Color c) {
 		return TexGen.genTexture(c, SHEET, null);
 	}
-	@Nonnull protected static BufferedImage frame(Color c) {
+	@NN protected static BufferedImage frame(Color c) {
 		return TexGen.genTexture(c, FRAME, null);
 	}
-	@Nonnull protected static BufferedImage gem(Color c) {
+	@NN protected static BufferedImage gem(Color c) {
 		return TexGen.genTexture(c, GEM, null);
 	}
 
@@ -379,7 +378,7 @@ public class MetalGroup{
 	 */
 	public static class MaterialStack{
 		/** The stacked material */
-		@Nonnull public final MetalGroup material;
+		@NN public final MetalGroup material;
 		/** Amount of material stacked */
 		public final int amount;
 		/**
@@ -400,7 +399,7 @@ public class MetalGroup{
 			return result;
 		}
 		@Override
-		public boolean equals(@Nullable Object obj) {
+		public boolean equals(@Nil Object obj) {
 			if (this == obj)
 				return true;
 			if (obj == null)
@@ -434,12 +433,12 @@ public class MetalGroup{
 	 * The orderting of the elements
 	 */
 	public static final boolean order = Boolean.parseBoolean($res("material-grammar"));
-	@Nonnull public String materialConcatenate(String matname) {
+	@NN public String materialConcatenate(String matname) {
 		String mattype = $res(matname);
 		if(order) return mattype+" "+t_nominative;
 		return t_nominative+" "+mattype;
 	}
-	@Nonnull public String materialConcatenateShort(String matname) {
+	@NN public String materialConcatenateShort(String matname) {
 		String mattype = $res(matname);
 		if(order) return mattype+" "+t_nominative_short;
 		return t_nominative_short+" "+mattype;

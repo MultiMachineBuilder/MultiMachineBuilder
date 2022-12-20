@@ -3,12 +3,11 @@
  */
 package mmb.content.electric.machines;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.Battery;
 import mmb.content.electric.Electric;
 import mmb.content.electric.Electricity;
@@ -53,7 +52,7 @@ public class BlockDigger extends BlockEntityData implements ToItemUnifiedCollect
 	}
 
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null)  return;
 		JsonNode noderx = data.get("rangeX");
 		if(noderx != null) rangeX = noderx.asInt();
@@ -87,12 +86,12 @@ public class BlockDigger extends BlockEntityData implements ToItemUnifiedCollect
 	private int scanX;
 	private int scanY;
 	private boolean active;
-	@Nonnull private final SimpleInventory inv0;
-	@Nonnull public final Inventory inv;
+	@NN private final SimpleInventory inv0;
+	@NN public final Inventory inv;
 	private final int range;
-	@Nonnull private final ElectroMachineType type;
-	@Nonnull public final Battery battery;
-	@Nonnull public final Battery hammer;
+	@NN private final ElectroMachineType type;
+	@NN public final Battery battery;
+	@NN public final Battery hammer;
 	
 	public BlockDigger(ElectroMachineType type) {
 		this.type = type;
@@ -200,7 +199,7 @@ public class BlockDigger extends BlockEntityData implements ToItemUnifiedCollect
 	
 	GUIDigger gui;
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(gui != null) return;
 		gui = new GUIDigger(this, window);

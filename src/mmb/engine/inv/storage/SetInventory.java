@@ -9,16 +9,14 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import org.checkerframework.checker.nullness.qual.EnsuresNonNullIf;
-import org.checkerframework.checker.nullness.qual.NonNull;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.google.common.collect.Iterators;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.MMBUtils;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.debug.Debugger;
@@ -28,7 +26,6 @@ import mmb.engine.inv.ItemStack;
 import mmb.engine.inv.SaveInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
-import mmbbase.beans.Saver;
 
 /**
  * @author oskar
@@ -51,13 +48,13 @@ import mmbbase.beans.Saver;
  */
 public class SetInventory<T extends ItemEntry> implements SaveInventory{
 	//Debug
-	@Nonnull private static final Debugger debug = new Debugger("INVENTORIES");
+	@NN private static final Debugger debug = new Debugger("INVENTORIES");
 	
 	//Inventory definition
 	/** The underlying set*/
-	@Nonnull public final Set<T> set;
+	@NN public final Set<T> set;
 	/** The class of the items (null if unrestricted)*/
-	@Nullable public final Class<T> type;
+	@Nil public final Class<T> type;
 	private double capacity = 2;
 	private double volume = 0;
 	
@@ -67,7 +64,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 	 * @param set set to base on (should be empty)
 	 * @param type type of items (null if unrestricted)
 	 */
-	public SetInventory(Set<@NonNull T> set, @Nullable Class<T> type) {
+	public SetInventory(Set<@NN T> set, @Nil Class<T> type) {
 		this.set = set;
 		this.type = type;
 		for(ItemEntry item: set) {
@@ -79,14 +76,14 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 	 * @param supplier set factory
 	 * @param type type of items (null if unrestricted)
 	 */
-	public SetInventory(Supplier<@Nonnull Set<T>> supplier, @Nullable Class<T> type) {
+	public SetInventory(Supplier<@NN Set<T>> supplier, @Nil Class<T> type) {
 		this(supplier.get(), type);
 	}
 	/**
 	 * Creates an unrestricted set inventory (simplest)
 	 * @return a new set inventory
 	 */
-	@Nonnull public static SetInventory<ItemEntry> create() {
+	@NN public static SetInventory<ItemEntry> create() {
 		return new SetInventory<>(new HashSet<>(), null);
 	}
 	/**
@@ -94,7 +91,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 	 * @param set set to use
 	 * @return a new set inventory
 	 */
-	@Nonnull public static SetInventory<ItemEntry> create(Set<ItemEntry> set) {
+	@NN public static SetInventory<ItemEntry> create(Set<ItemEntry> set) {
 		return new SetInventory<>(set, null);
 	}
 	/**
@@ -102,7 +99,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 	 * @param supplier set factory
 	 * @return a new set inventory
 	 */
-	@Nonnull public static SetInventory<ItemEntry> create(Supplier<@Nonnull Set<ItemEntry>> supplier) {
+	@NN public static SetInventory<ItemEntry> create(Supplier<@NN Set<ItemEntry>> supplier) {
 		return new SetInventory<>(supplier, null);
 	}
 
@@ -136,7 +133,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 	}
 	@Override
 	@EnsuresNonNullIf(result = true, expression = {"e"})
-	public boolean test(@Nullable  ItemEntry e) {
+	public boolean test(@Nil  ItemEntry e) {
 		Class<T> cls = type;
 		return cls == null || cls.isInstance(e);
 	}
@@ -180,7 +177,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 
 	//Item records
 	class SIRecord implements ItemRecord{
-		@Nonnull private final ItemEntry entry;
+		@NN private final ItemEntry entry;
 		public SIRecord(ItemEntry entry) {
 			this.entry = entry;
 		}
@@ -212,7 +209,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 		
 	}
 	@Override
-	public @Nonnull Iterator<@Nonnull ItemRecord> iterator() {
+	public @NN Iterator<@NN ItemRecord> iterator() {
 		return Iterators.transform(set.iterator(), this::get);
 	}
 	@Override
@@ -236,7 +233,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 	 * @return this
 	 */
 	@Override
-	@Nonnull public SetInventory<T> setCapacity(double capacity) {
+	@NN public SetInventory<T> setCapacity(double capacity) {
 		this.capacity = capacity;
 		return this;
 	}
@@ -253,7 +250,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 	 * @param c items to add
 	 * @return were any items added?
 	 */
-	public boolean addAllUnvolumed(Collection<@Nonnull ItemEntry>  c) {
+	public boolean addAllUnvolumed(Collection<@NN ItemEntry>  c) {
 		boolean result = false;
 		for(ItemEntry item: c) if(addUnvolumed(item)) result = true;
 		return result;
@@ -295,7 +292,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 		return array;
 	}
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		for(JsonNode node: data) {
 			if(node.isNumber()) {

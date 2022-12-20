@@ -7,10 +7,9 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
-
 import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
 
+import mmb.NN;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.texture.BlockDrawer;
@@ -27,19 +26,19 @@ public class PartEntityType extends PartBase{
 	}
 	
 	//Factory
-	@MonotonicNonNull private Supplier<@Nonnull PartEntry> factory;
+	@MonotonicNonNull private Supplier<@NN PartEntry> factory;
 	/**
 	 * Sets the factory used to create
 	 * @param newfactory
 	 * @return this
 	 */
-	public PartEntityType factory(Supplier<@Nonnull PartEntry> newfactory) {
+	public PartEntityType factory(Supplier<@NN PartEntry> newfactory) {
 		factory = newfactory;
 		return this;
 	}
 	@Override
 	public PartEntry createPart() {
-		Supplier<@Nonnull PartEntry> factory0 = factory;
+		Supplier<@NN PartEntry> factory0 = factory;
 		if(factory0 == null) throw new IllegalArgumentException("The factory is not set");
 		return factory0.get();
 	}
@@ -81,7 +80,7 @@ public class PartEntityType extends PartBase{
 		return this;
 	}
 	@Override
-	@Nonnull public PartEntityType volumed(double volume) {
+	@NN public PartEntityType volumed(double volume) {
 		setVolume(volume);
 		return this;
 	}

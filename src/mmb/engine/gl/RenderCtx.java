@@ -3,8 +3,6 @@
  */
 package mmb.engine.gl;
 
-import javax.annotation.Nonnull;
-
 import org.joml.Matrix2f;
 import org.joml.Matrix2fc;
 import org.joml.Vector2f;
@@ -12,6 +10,7 @@ import org.joml.Vector2fc;
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
 
+import mmb.NN;
 import mmb.engine.texture.Textures;
 import mmb.engine.texture.Textures.Texture;
 
@@ -20,14 +19,14 @@ import mmb.engine.texture.Textures.Texture;
  * Provides an interface for rendering half-vector 2D graphics
  */
 public abstract class RenderCtx implements AutoCloseable{
-	@Nonnull private static final Vector4fc WHITE = new Vector4f(1, 0, 0, 0);
-	@Nonnull private static final Texture PLAIN = Textures.get1("plain.png");
-	@Nonnull private static final Vector2fc q1 = new Vector2f(0, 0);
-	@Nonnull private static final Vector2fc q2 = new Vector2f(0, 1);
-	@Nonnull private static final Vector2fc q3 = new Vector2f(1, 1);
-	@Nonnull private static final Vector2fc q4 = new Vector2f(1, 0);
+	@NN private static final Vector4fc WHITE = new Vector4f(1, 0, 0, 0);
+	@NN private static final Texture PLAIN = Textures.get1("plain.png");
+	@NN private static final Vector2fc q1 = new Vector2f(0, 0);
+	@NN private static final Vector2fc q2 = new Vector2f(0, 1);
+	@NN private static final Vector2fc q3 = new Vector2f(1, 1);
+	@NN private static final Vector2fc q4 = new Vector2f(1, 0);
 
-	@Nonnull private final Vector2f r2f1 = new Vector2f();
+	@NN private final Vector2f r2f1 = new Vector2f();
 	
 	//Z-index
 	/**

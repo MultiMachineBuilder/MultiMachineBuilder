@@ -6,10 +6,10 @@ package mmb.engine.craft.rgroups;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import io.vavr.Tuple2;
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.CraftingGroups;
 import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.content.electric.VoltageTier;
@@ -46,11 +46,11 @@ implements SimpleRecipeGroup<CatalyzedSingleRecipeGroup.CatalyzedSimpleRecipe>{
 	 */
 	public class CatalyzedSimpleRecipe extends BaseElectricRecipe<CatalyzedSimpleRecipe> implements Identifiable<Tuple2<ItemEntry, ItemEntry>>, SimpleRecipe<CatalyzedSimpleRecipe>{
 		/** The input item */
-		@Nonnull public final ItemEntry input;
+		@NN public final ItemEntry input;
 		/** Required catalyst */
-		@Nullable public final ItemEntry catalyst;
+		@Nil public final ItemEntry catalyst;
 		/** Item tuple */
-		@Nonnull public final Tuple2<ItemEntry, ItemEntry> tuple;
+		@NN public final Tuple2<ItemEntry, ItemEntry> tuple;
 		
 		/**
 		 * Creates a single catalyzed recipe
@@ -61,7 +61,7 @@ implements SimpleRecipeGroup<CatalyzedSingleRecipeGroup.CatalyzedSimpleRecipe>{
 		 * @param catalyst required catalyst
 		 * @param luck randomized output of this recipe
 		 */
-		public CatalyzedSimpleRecipe(double energy, VoltageTier voltage, ItemEntry input, @Nullable ItemEntry catalyst, RecipeOutput output, Chance luck) {
+		public CatalyzedSimpleRecipe(double energy, VoltageTier voltage, ItemEntry input, @Nil ItemEntry catalyst, RecipeOutput output, Chance luck) {
 			super(energy, voltage, output, luck);
 			this.input = input;
 			this.catalyst = catalyst;
@@ -96,8 +96,8 @@ implements SimpleRecipeGroup<CatalyzedSingleRecipeGroup.CatalyzedSimpleRecipe>{
 	}
 	
 	//Recipe listing
-	@Nonnull private final SelfSet<Tuple2<ItemEntry, ItemEntry>, CatalyzedSimpleRecipe> _recipes = HashSelfSet.createNonnull(CatalyzedSimpleRecipe.class);
-	@Nonnull public final SelfSet<Tuple2<ItemEntry, ItemEntry>, CatalyzedSimpleRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
+	@NN private final SelfSet<Tuple2<ItemEntry, ItemEntry>, CatalyzedSimpleRecipe> _recipes = HashSelfSet.createNonnull(CatalyzedSimpleRecipe.class);
+	@NN public final SelfSet<Tuple2<ItemEntry, ItemEntry>, CatalyzedSimpleRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
 	@Override
 	public Set<? extends ItemEntry> supportedItems() {
 		return supported0;
@@ -116,7 +116,7 @@ implements SimpleRecipeGroup<CatalyzedSingleRecipeGroup.CatalyzedSimpleRecipe>{
 	 * @param luck random chanced items
 	 * @return a new recipe
 	 */
-	public CatalyzedSimpleRecipe add(ItemEntry in, RecipeOutput out, @Nullable ItemEntry catalyst, VoltageTier voltage, double energy, Chance luck) {
+	public CatalyzedSimpleRecipe add(ItemEntry in, RecipeOutput out, @Nil ItemEntry catalyst, VoltageTier voltage, double energy, Chance luck) {
 		CatalyzedSimpleRecipe recipe = new CatalyzedSimpleRecipe(energy, voltage, in, catalyst, out, luck);
 		_recipes.add(recipe);
 		GlobalRecipeRegistrar.addRecipe(recipe);
@@ -133,7 +133,7 @@ implements SimpleRecipeGroup<CatalyzedSingleRecipeGroup.CatalyzedSimpleRecipe>{
 	 * @param luck random chanced items
 	 * @return a new recipe
 	 */
-	public CatalyzedSimpleRecipe add(ItemEntry in, ItemEntry out, @Nullable ItemEntry catalyst, int amount, VoltageTier voltage, double energy, Chance luck) {
+	public CatalyzedSimpleRecipe add(ItemEntry in, ItemEntry out, @Nil ItemEntry catalyst, int amount, VoltageTier voltage, double energy, Chance luck) {
 		return add(in, out.stack(amount), catalyst, voltage, energy, luck);
 	}
 	/**
@@ -145,7 +145,7 @@ implements SimpleRecipeGroup<CatalyzedSingleRecipeGroup.CatalyzedSimpleRecipe>{
 	 * @param energy energy consumed by this recipe
 	 * @return a new recipe
 	 */
-	public CatalyzedSimpleRecipe add(ItemEntry in, RecipeOutput out, @Nullable ItemEntry catalyst, VoltageTier voltage, double energy) {
+	public CatalyzedSimpleRecipe add(ItemEntry in, RecipeOutput out, @Nil ItemEntry catalyst, VoltageTier voltage, double energy) {
 		return add(in, out, catalyst, voltage, energy, Chance.NONE);
 	}
 	/**
@@ -157,7 +157,7 @@ implements SimpleRecipeGroup<CatalyzedSingleRecipeGroup.CatalyzedSimpleRecipe>{
 	 * @param energy energy consumed by this recipe
 	 * @return a new recipe
 	 */
-	public CatalyzedSimpleRecipe add(ItemEntry in, ItemEntry out, @Nullable ItemEntry catalyst, int amount, VoltageTier voltage, double energy) {
+	public CatalyzedSimpleRecipe add(ItemEntry in, ItemEntry out, @Nil ItemEntry catalyst, int amount, VoltageTier voltage, double energy) {
 		return add(in, out.stack(amount), catalyst, voltage, energy, Chance.NONE);
 	}
 	
@@ -175,7 +175,7 @@ implements SimpleRecipeGroup<CatalyzedSingleRecipeGroup.CatalyzedSimpleRecipe>{
 		return false;
 	}
 	@Override
-	public CatalyzedSimpleRecipe findRecipe(@Nullable ItemEntry catalyst, ItemEntry in) {
+	public CatalyzedSimpleRecipe findRecipe(@Nil ItemEntry catalyst, ItemEntry in) {
 		return recipes.get(new Tuple2<>(in, catalyst));
 	}
 }

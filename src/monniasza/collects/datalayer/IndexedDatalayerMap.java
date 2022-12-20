@@ -10,11 +10,11 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import com.google.common.collect.Iterators;
 
+import mmb.NN;
+import mmb.Nil;
 import monniasza.collects.alloc.AllocationListener;
 import monniasza.collects.alloc.Allocator;
 import monniasza.collects.alloc.Indexable;
@@ -25,7 +25,7 @@ import monniasza.collects.alloc.Indexable;
  * @param <K> type of keys
  * @param <V> type of values
  */                                                                //not overriding equals(), because the existing implementation meets a contract
-public class IndexedDatalayerMap<@Nonnull K extends Indexable, V> extends AbstractMap<K, V>{//NOSONAR ^^^
+public class IndexedDatalayerMap<@NN K extends Indexable, V> extends AbstractMap<K, V>{//NOSONAR ^^^
 	private final ArrayList<V> values0;
 	private final Function<K, V> populator;
 	private final Allocator<K> allocator;
@@ -45,7 +45,7 @@ public class IndexedDatalayerMap<@Nonnull K extends Indexable, V> extends Abstra
 		}
 	}
 	
-	private class Listener implements AllocationListener<@Nonnull K>{
+	private class Listener implements AllocationListener<@NN K>{
 		@Override
 		public void allocated(int index, K obj) {
 			if(index == values0.size()) 
@@ -62,7 +62,7 @@ public class IndexedDatalayerMap<@Nonnull K extends Indexable, V> extends Abstra
 	private class KeySet extends AbstractSet<K>{
 		@SuppressWarnings("null")
 		@Override
-		public @Nonnull Iterator<K> iterator() {
+		public @NN Iterator<K> iterator() {
 			return Iterators.unmodifiableIterator(allocator.iterator());
 		}
 
@@ -72,14 +72,14 @@ public class IndexedDatalayerMap<@Nonnull K extends Indexable, V> extends Abstra
 		}
 
 		@Override
-		public boolean contains(@Nullable Object o) {
+		public boolean contains(@Nil Object o) {
 			return containsKey(o);
 		}
 	}
 	private class EntrySet extends AbstractSet<Entry<K, V>>{
 		@SuppressWarnings("null")
 		@Override
-		public @Nonnull Iterator<Entry<K, V>> iterator() {
+		public @NN Iterator<Entry<K, V>> iterator() {
 			return Iterators.transform(allocator.iterator(), key -> new AbstractMap.SimpleImmutableEntry<>(key, get(key)));
 		}
 
@@ -89,7 +89,7 @@ public class IndexedDatalayerMap<@Nonnull K extends Indexable, V> extends Abstra
 		}
 
 		@Override
-		public boolean contains(@Nullable Object o) {
+		public boolean contains(@Nil Object o) {
 			return containsKey(o);
 		}
 	}
@@ -103,7 +103,7 @@ public class IndexedDatalayerMap<@Nonnull K extends Indexable, V> extends Abstra
 	 * Checks if this map contains a key.
 	 */
 	@Override
-	public boolean containsKey(@Nullable Object key) {
+	public boolean containsKey(@Nil Object key) {
 		if(!(key instanceof Indexable)) return false;
 		Indexable k0 = (Indexable) key;
 		if(k0.index() != allocator) return false;
@@ -114,7 +114,7 @@ public class IndexedDatalayerMap<@Nonnull K extends Indexable, V> extends Abstra
 	 * @param key key to check
 	 * @return index of given key, or -1 if not found
 	 */
-	public int indexof(@Nullable Object key) {
+	public int indexof(@Nil Object key) {
 		if(!(key instanceof Indexable)) return -1;
 		Indexable k0 = (Indexable) key;
 		if(k0.index() != allocator) return -1;
@@ -122,7 +122,7 @@ public class IndexedDatalayerMap<@Nonnull K extends Indexable, V> extends Abstra
 	}
 	
 	@Override
-	@Nullable public V get(@Nullable Object key) {
+	@Nil public V get(@Nil Object key) {
 		int index = indexof(key);
 		if(index >= 0) return values0.get(index);
 		return null;

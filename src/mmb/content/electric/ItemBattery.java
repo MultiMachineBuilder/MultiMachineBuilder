@@ -5,11 +5,10 @@ package mmb.content.electric;
 
 import java.awt.Graphics;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.pickaxe.Pickaxe;
 import mmb.engine.item.ItemEntity;
 import mmb.engine.item.ItemEntityType;
@@ -22,7 +21,7 @@ import mmb.engine.item.ItemType;
  */
 public class ItemBattery extends ItemEntity implements Electric {
 
-	@Nonnull public final Battery battery;
+	@NN public final Battery battery;
 	public ItemBattery(ItemEntityType type, VoltageTier volt) {
 		this.type = type;
 		battery = new Battery(200, 20000, null, volt);
@@ -36,7 +35,7 @@ public class ItemBattery extends ItemEntity implements Electric {
 	}
 
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		battery.load(data);
 	}
 	@Override
@@ -66,7 +65,7 @@ public class ItemBattery extends ItemEntity implements Electric {
 	}
 
 	
-	@Nonnull private ItemEntityType type;
+	@NN private ItemEntityType type;
 	@Override
 	public ItemType type() {
 		return type;

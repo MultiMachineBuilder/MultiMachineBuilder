@@ -5,13 +5,13 @@ package mmb.engine.worlds.universe;
 
 import java.util.Iterator;
 import java.util.Map.Entry;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import io.vavr.Tuple2;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.GameEvents;
 import mmb.engine.debug.Debugger;
 import mmb.engine.json.JsonTool;
@@ -92,7 +92,7 @@ public class Universe implements Saver, Indexable{
 	 * @param name map name
 	 * @return map with given name
 	 */
-	public World getMap(@Nullable String name) {
+	public World getMap(@Nil String name) {
 		if(name == null) return main;
 		return maps.get(name);
 	}
@@ -100,7 +100,7 @@ public class Universe implements Saver, Indexable{
 	//Serialization
 	@SuppressWarnings("null")
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data instanceof ObjectNode) {
 			ObjectNode on = (ObjectNode)data;
 			if(on.has("main")) {//Load as a world				
@@ -127,7 +127,7 @@ public class Universe implements Saver, Indexable{
 		}else debug.printl("Not an ObjectNode");
 	}
 	@Override
-	@Nonnull public JsonNode save() {
+	@NN public JsonNode save() {
 		//Save the main map
 		debug.printl("Saving main BlockMap");
 		World main0 = main;

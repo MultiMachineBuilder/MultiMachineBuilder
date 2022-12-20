@@ -8,13 +8,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.SetMultimap;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.debug.Debugger;
 import mmbbase.GameLoader;
 import monniasza.collects.Collects;
@@ -30,9 +30,9 @@ public class Items {
 	private static Debugger debug = new Debugger("ITEMS");
 	
 	//Registration
-	@Nonnull private static final SelfSet<String, ItemType>     _items =      HashSelfSet.createNonnull(ItemType.class);
+	@NN private static final SelfSet<String, ItemType>     _items =      HashSelfSet.createNonnull(ItemType.class);
 	/** String to item lookup */
-	@Nonnull public  static final SelfSet<String, ItemType>      items =      Collects.unmodifiableSelfSet(_items);	
+	@NN public  static final SelfSet<String, ItemType>      items =      Collects.unmodifiableSelfSet(_items);	
 	/**
 	 * Registers a new item type
 	 * @param type item type to register
@@ -49,9 +49,9 @@ public class Items {
 	}
 	
 	//Deprecation
-	@Nonnull private static final Map<String, ItemType>    _deprecator = new HashMap<>();
+	@NN private static final Map<String, ItemType>    _deprecator = new HashMap<>();
 	/** A map from deprecated IDs to items. Used to keep compatibility with older versions after renaming */
-	@Nonnull public  static final Map<String, ItemType>     deprecator = Collections.unmodifiableMap(_deprecator);
+	@NN public  static final Map<String, ItemType>     deprecator = Collections.unmodifiableMap(_deprecator);
 	/**
 	 * @param deprecated the deprecated ID of an item
 	 * @param type item type to be deprecated
@@ -69,24 +69,24 @@ public class Items {
 	 * @param name ID of the block
 	 * @return a block with given name, or null if not found
 	 */
-	public static ItemType get(@Nullable String name) {
+	public static ItemType get(@Nil String name) {
 		ItemType get = items.get(name);
 		if(get == null) get = deprecator.get(name);
 		return get;
 	}
-	public static <T extends ItemType> T getExpectType(@Nullable String name, Class<T> cls) {
+	public static <T extends ItemType> T getExpectType(@Nil String name, Class<T> cls) {
 		ItemType item = get(name);
 		if(cls.isInstance(item)) return cls.cast(item);
 		return null;
 	}
 
 	//Tags
-	@Nonnull private static final HashMultimap<String, ItemType> _tags = HashMultimap.create();
+	@NN private static final HashMultimap<String, ItemType> _tags = HashMultimap.create();
 	/** Tag to items lookup */
-	@Nonnull public  static final SetMultimap<String, ItemType>  tags = Multimaps.unmodifiableSetMultimap(_tags);
-	@Nonnull private static final HashMultimap<ItemType, String> _btags = HashMultimap.create();
+	@NN public  static final SetMultimap<String, ItemType>  tags = Multimaps.unmodifiableSetMultimap(_tags);
+	@NN private static final HashMultimap<ItemType, String> _btags = HashMultimap.create();
 	/** Item to tags lookup */
-	@Nonnull public  static final SetMultimap<ItemType, String>  btags = Multimaps.unmodifiableSetMultimap(_btags);
+	@NN public  static final SetMultimap<ItemType, String>  btags = Multimaps.unmodifiableSetMultimap(_btags);
 	public static void tagItem(String tag, ItemType item) {
 		debug.printl("Tagging "+item+" with "+tag);
 		_tags.put(tag, item);
@@ -95,7 +95,7 @@ public class Items {
 	public static void tagsItem(ItemType item, String... tags) {
 		tagsItem(item, Arrays.asList(tags));
 	}
-	public static void tagsItem(ItemType item, Iterable<@Nonnull String> tags) {
+	public static void tagsItem(ItemType item, Iterable<@NN String> tags) {
 		for(String tag: tags) {
 			tagItem(tag, item);
 		}
@@ -106,12 +106,12 @@ public class Items {
 	public static void tagsItems(String[] tag, ItemType... items) {
 		tagsItems(tag, Arrays.asList(items));
 	}
-	public static void tagItems(String tag, Iterable<@Nonnull ? extends ItemType> items) {
+	public static void tagItems(String tag, Iterable<@NN ? extends ItemType> items) {
 		for(ItemType item: items) {
 			tagItem(tag, item);
 		}
 	}
-	public static void tagsItems(String[] tag, Iterable<@Nonnull ? extends ItemType> items) {
+	public static void tagsItems(String[] tag, Iterable<@NN ? extends ItemType> items) {
 		for(ItemType item: items) {
 			tagsItem(item, tag);
 		}

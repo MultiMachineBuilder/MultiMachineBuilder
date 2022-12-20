@@ -6,12 +6,11 @@ package mmb.engine.craft;
 import java.util.Collection;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import org.ainslec.picocog.PicoWriter;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.inv.io.InventoryWriter;
@@ -24,12 +23,12 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
  * A mutable implementation of item list
  */
 public final class SimpleItemList implements RecipeOutput {
-	@Nonnull public static final SimpleItemList EMPTY = new SimpleItemList();
+	@NN public static final SimpleItemList EMPTY = new SimpleItemList();
 	
 	/**
 	 * The data array
 	 */
-	@Nonnull private final Object2IntMap<ItemEntry> data = new Object2IntOpenHashMap<>();
+	@NN private final Object2IntMap<ItemEntry> data = new Object2IntOpenHashMap<>();
 	
 	/**
 	 * Creates an empty item list
@@ -83,7 +82,7 @@ public final class SimpleItemList implements RecipeOutput {
 	 * Creates an item list with items from the stack
 	 * @param stacks item stacks
 	 */
-	public SimpleItemList(Collection<@Nonnull ? extends SingleItem> stacks) {
+	public SimpleItemList(Collection<@NN ? extends SingleItem> stacks) {
 		for(SingleItem stack: stacks) {
 			data.put(stack.item(), stack.amount());
 		}
@@ -151,7 +150,7 @@ public final class SimpleItemList implements RecipeOutput {
 	 * Creates an inventory writer which adds items into this item list
 	 * @return an inventory writer
 	 */
-	@Nonnull InventoryWriter createWriter() {
+	@NN InventoryWriter createWriter() {
 		return new InventoryWriter() {
 			@Override
 			public int insert(ItemEntry ent, int amount) {
@@ -210,7 +209,7 @@ public final class SimpleItemList implements RecipeOutput {
 	}
 
 	@Override
-	public boolean equals(@Nullable Object obj) {
+	public boolean equals(@Nil Object obj) {
 		if (this == obj)
 			return true;
 		if (obj instanceof RecipeOutput)

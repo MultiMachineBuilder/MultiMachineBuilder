@@ -7,11 +7,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
-import javax.annotation.Nullable;
-
 import com.github.davidmoten.rtree2.geometry.Circle;
 import com.github.davidmoten.rtree2.geometry.Geometries;
 
+import mmb.Nil;
 import mmbbase.menu.world.window.WorldFrame;
 
 /**
@@ -49,7 +48,7 @@ public final class VisCircle implements Visual {
 	 * @param fill fill color, set to null to disable fill
 	 * @param border border color, set to null to disable border
 	 */
-	public VisCircle(double x1, double y1, double r, @Nullable Color fill, @Nullable Color border) {
+	public VisCircle(double x1, double y1, double r, @Nil Color fill, @Nil Color border) {
 		super();
 		line = Geometries.circle(x1, y1, r);
 		this.x = x1;
@@ -76,7 +75,7 @@ public final class VisCircle implements Visual {
 	}
 
 	@Override
-	public boolean equals(@Nullable Object obj) {
+	public boolean equals(@Nil Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)

@@ -31,14 +31,14 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.function.Predicate;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 
 import javax.swing.JCheckBox;
 import javax.swing.JList;
 import io.github.parubok.text.multiline.MultilineLabel;
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.CatchingEvent;
 import mmb.engine.block.Block;
@@ -70,15 +70,15 @@ public class TabInventory extends JPanel {
 	private JScrollPane creativeScrollPane;
 	private CreativeItemList creativeItemList;
 	
-	@Nonnull private static final Debugger debug = new Debugger("PLAYER INVENTORY");
+	@NN private static final Debugger debug = new Debugger("PLAYER INVENTORY");
 	private Player player;
 	public final Event<Player> playerChanged = new CatchingEvent<>(debug, "Failed to process player changed event");
 	public final WorldWindow window;
 	
 	//Tag selectors (tagsels)
 	public static interface Tagsel{
-		@Nonnull public DefaultListModel<ItemType> eligible();
-		@Nonnull public String title();
+		@NN public DefaultListModel<ItemType> eligible();
+		@NN public String title();
 	}
 	
 	/**
@@ -86,7 +86,7 @@ public class TabInventory extends JPanel {
 	 * @author oskar
 	 */
 	public static class AllTagsel implements Tagsel{
-		@Nonnull private static final String title = "1 "+$res("wguit-all");
+		@NN private static final String title = "1 "+$res("wguit-all");
 		@Override
 		public DefaultListModel<ItemType> eligible() {
 			return CreativeItemList.model;
@@ -107,8 +107,8 @@ public class TabInventory extends JPanel {
 	 * @author oskar
 	 */
 	public static class FilterTagsel implements Tagsel{
-		@Nonnull public final String tag;
-		@Nonnull public final DefaultListModel<ItemType> set;
+		@NN public final String tag;
+		@NN public final DefaultListModel<ItemType> set;
 		public FilterTagsel(String s, Predicate<ItemType> filter) {
 			tag = "2 "+s;
 			set = new DefaultListModel<>();
@@ -135,8 +135,8 @@ public class TabInventory extends JPanel {
 	 */
 	public static class TaggedSel implements Tagsel{
 		/** The tag selection */
-		@Nonnull public final String tag;
-		@Nonnull public final DefaultListModel<ItemType> set;
+		@NN public final String tag;
+		@NN public final DefaultListModel<ItemType> set;
 		public TaggedSel(String s, Set<ItemType> set2) {
 			tag = "3 "+s;
 			set = new DefaultListModel<>();
@@ -448,7 +448,7 @@ public class TabInventory extends JPanel {
 		 * The recipes which pass both phases 1 and 2 must be exactly the same as all recipes which pass this query's filter
 		 * @return potentially eligible items
 		 */
-		@Nullable public Set<Recipe<?>> phase1();
+		@Nil public Set<Recipe<?>> phase1();
 		/**
 		 * Narrows down the list of items to produce an exact list
 		 * The recipes which pass both phases 1 and 2 must be exactly the same as all recipes which pass this query's filter
@@ -458,7 +458,7 @@ public class TabInventory extends JPanel {
 		public boolean phase2(Recipe<?> recipe);
 		
 		/** @return all eligible items*/		
-		@Nonnull public default Set<Recipe<?>> eligible(){
+		@NN public default Set<Recipe<?>> eligible(){
 			Set<Recipe<?>> recipes = phase1();
 			Set<Recipe<?>> model = new HashSet<>();
 			if(recipes != null) for(Recipe<?> item: recipes) {
@@ -484,7 +484,7 @@ public class TabInventory extends JPanel {
 	/**
 	 * @return a recipe query, which accepts all recipes
 	 */
-	@Nonnull public static RecipeQuery all() {
+	@NN public static RecipeQuery all() {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
@@ -510,7 +510,7 @@ public class TabInventory extends JPanel {
 	 * @param item
 	 * @return a recipe query, which accepts recipes
 	 */
-	@Nonnull public static RecipeQuery consuming(ItemEntry item) {
+	@NN public static RecipeQuery consuming(ItemEntry item) {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
@@ -533,7 +533,7 @@ public class TabInventory extends JPanel {
 			}
 		};
 	}
-	@Nonnull public static RecipeQuery producing(ItemEntry item) {
+	@NN public static RecipeQuery producing(ItemEntry item) {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
@@ -556,7 +556,7 @@ public class TabInventory extends JPanel {
 			}
 		};
 	}
-	@Nonnull public static RecipeQuery gambling(ItemEntry item) {
+	@NN public static RecipeQuery gambling(ItemEntry item) {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
@@ -579,7 +579,7 @@ public class TabInventory extends JPanel {
 			}
 		};
 	}
-	@Nonnull public static RecipeQuery catalysing(ItemEntry item) {
+	@NN public static RecipeQuery catalysing(ItemEntry item) {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
@@ -601,7 +601,7 @@ public class TabInventory extends JPanel {
 			}
 		};
 	}
-	@Nonnull public static RecipeQuery uptoVolt(VoltageTier item) {
+	@NN public static RecipeQuery uptoVolt(VoltageTier item) {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
@@ -623,7 +623,7 @@ public class TabInventory extends JPanel {
 			}
 		};
 	}
-	@Nonnull public static RecipeQuery byVolt(VoltageTier item) {
+	@NN public static RecipeQuery byVolt(VoltageTier item) {
 		return new RecipeQuery() {
 			@Override
 			public String name() {

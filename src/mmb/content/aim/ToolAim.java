@@ -9,10 +9,10 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 
-import javax.annotation.Nonnull;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.texture.Textures;
 import mmbbase.menu.wtool.WindowTool;
@@ -50,7 +50,7 @@ public class ToolAim extends WindowTool {
 			g.drawImage(icon.getImage(), chpos.x, chpos.y, s, s, null);
 		}
 	}
-	@Nonnull private Point mouse = new Point();
+	@NN private Point mouse = new Point();
 	private Aimable collector;
 	@Override
 	public void mouseClicked(MouseEvent e) {

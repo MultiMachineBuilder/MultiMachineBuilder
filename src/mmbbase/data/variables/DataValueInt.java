@@ -3,13 +3,13 @@
  */
 package mmbbase.data.variables;
 
-import javax.annotation.Nonnull;
+import mmb.NN;
 
 /**
  * @author oskar
  *
  */
-public class DataValueInt implements Variable<@Nonnull Integer> {
+public class DataValueInt implements Variable<@NN Integer> {
 	private int value;
 	/**
 	 * Creates a new interger variable
@@ -19,11 +19,11 @@ public class DataValueInt implements Variable<@Nonnull Integer> {
 		value = data;
 	}
 	@Deprecated @Override
-	public @Nonnull Integer get() {
+	public @NN Integer get() {
 		return Integer.valueOf(value);
 	}
 	@Deprecated @Override
-	public void set(@Nonnull Integer newValue) {
+	public void set(@NN Integer newValue) {
 		value = newValue.intValue();
 	}
 	public int getInt() {

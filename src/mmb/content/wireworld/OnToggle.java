@@ -3,8 +3,7 @@
  */
 package mmb.content.wireworld;
 
-import javax.annotation.Nullable;
-
+import mmb.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.Block;
 import mmb.engine.rotate.Side;
@@ -23,7 +22,7 @@ public class OnToggle extends Block implements BlockActivateListener {
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		map.place(ContentsBlocks.OFF, blockX, blockY);
 	}
 

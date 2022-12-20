@@ -8,8 +8,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.visuals.Visual;
 
 /**
@@ -17,8 +16,8 @@ import mmb.engine.visuals.Visual;
  * A class to help apply visuals
  */
 public class ModifyVisuals {	
-	@Nonnull private List<@Nonnull Visual> add = new ArrayList<>();
-	@Nonnull private List<@Nonnull Visual> remove = new ArrayList<>();
+	@NN private List<@NN Visual> add = new ArrayList<>();
+	@NN private List<@NN Visual> remove = new ArrayList<>();
 	
 	/**
 	 * Adds a single visual object
@@ -38,7 +37,7 @@ public class ModifyVisuals {
 	 * Adds multiple visual objects
 	 * @param vis collection of visual objects
 	 */
-	public void adds(Collection<@Nonnull Visual> vis) {
+	public void adds(Collection<@NN Visual> vis) {
 		add.addAll(vis);
 	}
 	/**
@@ -59,7 +58,7 @@ public class ModifyVisuals {
 	 * Removes multiple visual objects
 	 * @param vis collection of visual objects
 	 */
-	public void removes(Collection<@Nonnull Visual> vis) {
+	public void removes(Collection<@NN Visual> vis) {
 		remove.addAll(vis);
 	}
 	/**

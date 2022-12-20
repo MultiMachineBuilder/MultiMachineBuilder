@@ -3,9 +3,9 @@
  */
 package mmb.engine.block;
 
-import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
+import mmb.NN;
 import mmb.engine.chance.Chance;
 import mmb.engine.item.ItemType;
 import mmb.engine.item.Items;
@@ -19,10 +19,10 @@ public interface BlockType extends Placer, ItemType {
 	 * Creates a block entry for this type.
 	 * @return newly created block
 	 */
-	@Nonnull public BlockEntry createBlock();
+	@NN public BlockEntry createBlock();
 	
 	public boolean isBlockEntity();
-	@Nonnull public BlockEntityType asBlockEntityType();
+	@NN public BlockEntityType asBlockEntityType();
 	public BlockEntityType nasBlockEntityType();
 	
 	@SuppressWarnings({ "unused", "null" })
@@ -41,7 +41,7 @@ public interface BlockType extends Placer, ItemType {
 	 */
 	public void setLeaveBehind(BlockType block);
 	/** @return a block which is left behind*/
-	@Nonnull public BlockType leaveBehind();
+	@NN public BlockType leaveBehind();
 
 	@Override
 	default Icon getIcon() {

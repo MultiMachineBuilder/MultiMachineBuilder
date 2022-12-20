@@ -5,10 +5,9 @@ package mmb.content.imachine.filter;
 
 import java.util.Objects;
 
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 
+import mmb.Nil;
 import mmb.content.ContentsItems;
 import mmb.engine.item.ItemEntity;
 import mmb.engine.item.ItemEntry;
@@ -34,7 +33,7 @@ public class EntryFilter extends ItemFilter {
 	}
 
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		// TODO Auto-generated method stub
 	}
 	@Override

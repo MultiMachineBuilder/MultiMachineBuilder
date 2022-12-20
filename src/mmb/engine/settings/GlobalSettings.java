@@ -6,10 +6,10 @@ package mmb.engine.settings;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import javax.annotation.Nonnull;
 import javax.swing.JComponent;
 
 import mmb.Main;
+import mmb.NN;
 import mmb.engine.MutableResourceBundle;
 import mmb.engine.debug.Debugger;
 import mmbbase.data.variables.ListenableDouble;
@@ -24,26 +24,26 @@ import monniasza.collects.Collects;
  */
 public class GlobalSettings {
 	private GlobalSettings() {}
-	@Nonnull private static final Debugger debug = new Debugger("SETTINGS LIST");
+	@NN private static final Debugger debug = new Debugger("SETTINGS LIST");
 	
 	/** Is the game full screen? */
 	public static final ListenerBooleanVariable fullScreen = new ListenerBooleanVariable();
 	/** The country used for translation */
-	@Nonnull public static final ListenableValue<String> country = new ListenableValue<>("US");
+	@NN public static final ListenableValue<String> country = new ListenableValue<>("US");
 	/** The game's UI language */
-	@Nonnull public static final ListenableValue<String> lang = new ListenableValue<>("en");
+	@NN public static final ListenableValue<String> lang = new ListenableValue<>("en");
 	/** Should blocks be logged for execution time? */
-	@Nonnull public static final ListenerBooleanVariable logExcessiveTime = new ListenerBooleanVariable();
+	@NN public static final ListenerBooleanVariable logExcessiveTime = new ListenerBooleanVariable();
 	/** Should the game use native scaling */
-	@Nonnull public static final ListenerBooleanVariable sysscale = new ListenerBooleanVariable();
+	@NN public static final ListenerBooleanVariable sysscale = new ListenerBooleanVariable();
 	/** Should items be sorted in inventory lists? */
-	@Nonnull public static final ListenerBooleanVariable sortItems = new ListenerBooleanVariable();
+	@NN public static final ListenerBooleanVariable sortItems = new ListenerBooleanVariable();
 	/** The accuracy of circles rendered using OpenGL*/
-	@Nonnull public static final ListenableInt circleAccuracy = new ListenableInt(32);
+	@NN public static final ListenableInt circleAccuracy = new ListenableInt(32);
 	/** The UI scale mutiplier*/
-	@Nonnull public static final ListenableDouble uiScale = new ListenableDouble(1);
+	@NN public static final ListenableDouble uiScale = new ListenableDouble(1);
 	/** Should all modded resource bundles be dumped? */
-	@Nonnull public static final ListenerBooleanVariable dumpBundles = new ListenerBooleanVariable();
+	@NN public static final ListenerBooleanVariable dumpBundles = new ListenerBooleanVariable();
 	
 	/** @return the locale object for current language and country */
 	public static Locale locale() {
@@ -65,23 +65,23 @@ public class GlobalSettings {
 	 * @param s dictionary key
 	 * @return a translated string
 	 */
-	@Nonnull public static String $res(String s) {
+	@NN public static String $res(String s) {
 		if(!Main.isRunning()) return s;
 		return bundle().getString(s);
 	}
-	@Nonnull public static String $res1(String s) {
+	@NN public static String $res1(String s) {
 		if(bundle == null || !bundle.containsKey(s)) {
 			debug.printl("Missed translation: "+s);
 			return "UNTRANSLATABLE "+s;
 		}
 		return bundle.getString(s);
 	}
-	@Nonnull public static String $str(String s) {
+	@NN public static String $str(String s) {
 		if(s.charAt(0) == '#')
 			return bundle().getString(s.substring(1));
 		return s;
 	}
-	@Nonnull public static String $str1(String s) {
+	@NN public static String $str1(String s) {
 		if(s.charAt(0) == '#')
 			return $res1(s.substring(1));
 		return s;

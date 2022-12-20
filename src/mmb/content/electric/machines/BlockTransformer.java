@@ -7,8 +7,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.awt.image.LookupOp;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.Electricity.SettablePressure;
@@ -29,7 +28,7 @@ import mmb.engine.worlds.MapProxy;
  */
 public class BlockTransformer extends BlockEntityRotary {
 
-	@Nonnull public final TransformerData type;
+	@NN public final TransformerData type;
 	public BlockTransformer(TransformerData type) {
 		this.type = type;
 	}
@@ -49,11 +48,11 @@ public class BlockTransformer extends BlockEntityRotary {
 		return type.image;
 	}
 	
-	@Nonnull private static final BufferedImage src0 = Textures.get("machine/transformer.png");
-	@Nonnull private static final ColorMapper mapper = ColorMapper.ofType(src0.getType(), Color.RED, Color.red);
-	@Nonnull private static final LookupOp op = new LookupOp(mapper, null);
-	@Nonnull private static final ColorMapper mapper2 = ColorMapper.ofType(src0.getType(), Color.MAGENTA, Color.red);
-	@Nonnull private static final LookupOp op2 = new LookupOp(mapper2, null);
+	@NN private static final BufferedImage src0 = Textures.get("machine/transformer.png");
+	@NN private static final ColorMapper mapper = ColorMapper.ofType(src0.getType(), Color.RED, Color.red);
+	@NN private static final LookupOp op = new LookupOp(mapper, null);
+	@NN private static final ColorMapper mapper2 = ColorMapper.ofType(src0.getType(), Color.MAGENTA, Color.red);
+	@NN private static final LookupOp op2 = new LookupOp(mapper2, null);
 	/**
 	 * @author oskar
 	 * This class contains information about transformer tiers
@@ -68,10 +67,10 @@ public class BlockTransformer extends BlockEntityRotary {
 		LuV(VoltageTier.V8, VoltageTier.V7),
 		MAX(VoltageTier.V9, VoltageTier.V8);
 		
-		@Nonnull public final VoltageTier high;
-		@Nonnull public final VoltageTier low;
-		@Nonnull public final BlockEntityType type;
-		@Nonnull public final RotatedImageGroup image;
+		@NN public final VoltageTier high;
+		@NN public final VoltageTier low;
+		@NN public final BlockEntityType type;
+		@NN public final RotatedImageGroup image;
 		/**
 		 * Initializes the transformers
 		 */
@@ -96,8 +95,8 @@ public class BlockTransformer extends BlockEntityRotary {
 	//Electrical data
 	public double ppres;
 	/**1-up, 2-down, 3-right*/
-	@Nonnull private ElecLow elow = new ElecLow();
-	@Nonnull private ElecHi ehigh = new ElecHi();
+	@NN private ElecLow elow = new ElecLow();
+	@NN private ElecHi ehigh = new ElecHi();
 	
 	private class ElecLow implements SettablePressure{
 		@Override

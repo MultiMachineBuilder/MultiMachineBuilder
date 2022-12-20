@@ -6,10 +6,10 @@ package mmb.engine;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
-import javax.annotation.Nullable;
-
 import org.joml.Vector2i;
 import org.joml.Vector2ic;
+
+import mmb.Nil;
 
 /**
  * @author oskar
@@ -210,7 +210,7 @@ public class Vector2iconst implements Vector2ic {
 		return result;
 	}
 	@Override
-	public boolean equals(@Nullable Object obj) {
+	public boolean equals(@Nil Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)

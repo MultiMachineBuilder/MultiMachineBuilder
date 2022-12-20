@@ -5,8 +5,7 @@ package mmb.engine.inv.io;
 
 import java.util.function.Predicate;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.SingleItem;
 import mmb.engine.item.ItemEntry;
@@ -65,7 +64,7 @@ public interface InventoryWriter {
 	
 	//Various modifications
 	/** Represents an interface which does not allow input */
-	@Nonnull public static final InventoryWriter NONE = new InventoryWriter() {
+	@NN public static final InventoryWriter NONE = new InventoryWriter() {
 		@Override
 		public int insert(ItemEntry ent, int amount) {
 			return 0;

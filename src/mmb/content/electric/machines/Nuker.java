@@ -5,11 +5,10 @@ package mmb.content.electric.machines;
 
 import java.awt.Component;
 
-import javax.annotation.Nonnull;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
 import mmb.content.ContentsBlocks;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.VoltageTier;
@@ -85,7 +84,7 @@ public class Nuker extends SkeletalBlockMachine {
 	}
 
 	private double fuelRemain;
-	@Nonnull private final SingleItemInventory nuked = new SingleItemInventory();
+	@NN private final SingleItemInventory nuked = new SingleItemInventory();
 
 	public Nuker() {
 		super(15);

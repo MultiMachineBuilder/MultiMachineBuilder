@@ -3,13 +3,13 @@
  */
 package mmbbase.menu.components;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JCheckBox;
 
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
+import mmb.NN;
+import mmb.Nil;
 import mmbbase.data.variables.ListenerBooleanVariable;
 
 /**
@@ -29,8 +29,8 @@ public class BoundCheckBox extends JCheckBox {
 	}
 	
 	private transient ListenerBooleanVariable bvar;
-	@Nonnull private transient BooleanConsumer update = this::setSelected;
-	public void setVariable(@Nullable ListenerBooleanVariable var) {
+	@NN private transient BooleanConsumer update = this::setSelected;
+	public void setVariable(@Nil ListenerBooleanVariable var) {
 		if(var != null) setSelected(var.getValue());
 		if(bvar != null) bvar.remove(update);
 		bvar = var;

@@ -5,10 +5,9 @@ package mmb.engine.inv;
 
 import java.util.Iterator;
 
-import javax.annotation.Nonnull;
-
 import com.google.common.collect.Iterators;
 
+import mmb.NN;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
 
@@ -17,7 +16,7 @@ import mmb.engine.item.ItemEntry;
  *
  */
 public class InsertionsOnlyInventory implements Inventory{
-	private final @Nonnull Inventory inv;
+	private final @NN Inventory inv;
 
 	@Override
 	public Iterator<ItemRecord> iterator() {
@@ -73,7 +72,7 @@ public class InsertionsOnlyInventory implements Inventory{
 	public double volume() {
 		return inv.volume();
 	}
-	@Nonnull public static Inventory decorate(Inventory inv) {
+	@NN public static Inventory decorate(Inventory inv) {
 		if(!inv.canExtract()) return inv;
 		return new InsertionsOnlyInventory(inv);
 	}

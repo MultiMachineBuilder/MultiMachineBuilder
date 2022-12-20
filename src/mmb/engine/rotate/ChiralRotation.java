@@ -3,8 +3,7 @@
  */
 package mmb.engine.rotate;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.gl.RenderCtx;
 import mmb.engine.texture.Textures.Texture;
 
@@ -200,40 +199,40 @@ public enum ChiralRotation {
 		}
 	};
 	
-	@Nonnull public final Rotation rotation;
-	@Nonnull public final Chirality chirality;
+	@NN public final Rotation rotation;
+	@NN public final Chirality chirality;
 	ChiralRotation(Rotation rotation, Chirality chirality) {
 		this.rotation = rotation;
 		this.chirality = chirality;
 	}
 	
 	/**@return The upper side after this rotation*/
-	@Nonnull public abstract Side U();
+	@NN public abstract Side U();
 	/**@return The lower side after this rotation*/
-	@Nonnull public abstract Side D();
+	@NN public abstract Side D();
 	/**@return The left side after this rotation*/
-	@Nonnull public abstract Side L();
+	@NN public abstract Side L();
 	/**@return The right side after this rotation*/
-	@Nonnull public abstract Side R();
+	@NN public abstract Side R();
 	
 	/**@return The lower left corner after this rotation*/
-	@Nonnull public abstract Side DL();
+	@NN public abstract Side DL();
 	/**@return The lower right corner after this rotation*/
-	@Nonnull public abstract Side DR();
+	@NN public abstract Side DR();
 	/**@return The upper left corner after this rotation*/
-	@Nonnull public abstract Side UL();
+	@NN public abstract Side UL();
 	/**@return The upper right corner after this rotation*/
-	@Nonnull public abstract Side UR();
+	@NN public abstract Side UR();
 	
 	/**@return Rotation clockwise*/
-	@Nonnull public abstract ChiralRotation cw();
+	@NN public abstract ChiralRotation cw();
 	/**@return Rotation counter clockwise*/
-	@Nonnull public abstract ChiralRotation ccw();
+	@NN public abstract ChiralRotation ccw();
 	/**@return Rotation opposite*/
-	@Nonnull public abstract ChiralRotation opposite();
+	@NN public abstract ChiralRotation opposite();
 	
 	/**@return Rotation with reversed chirality*/
-	@Nonnull public abstract ChiralRotation flip();
+	@NN public abstract ChiralRotation flip();
 	
 	/**
 	 * Construes a {@code ChiralRotation} object with given chirality and rotation
@@ -241,7 +240,7 @@ public enum ChiralRotation {
 	 * @param chirality chirality of returned object
 	 * @return object with given chirality and rotation
 	 */
-	@Nonnull public static ChiralRotation of(Rotation rotation, Chirality chirality) {
+	@NN public static ChiralRotation of(Rotation rotation, Chirality chirality) {
 		switch(rotation) {
 		case E:
 			return chirality == Chirality.L ? El : Er;
@@ -257,26 +256,26 @@ public enum ChiralRotation {
 	}
 	
 	/** @return the chiral rotation flipped on | plane */
-	@Nonnull public ChiralRotation flipH() {
+	@NN public ChiralRotation flipH() {
 		return of(rotation.flipH(), chirality.reverse());
 	}
 	/** @return the chiral rotation flipped on ― plane */
-	@Nonnull public ChiralRotation flipV() {
+	@NN public ChiralRotation flipV() {
 		return of(rotation.flipV(), chirality.reverse());
 	}
 	/** @return the chiral rotation flipped on \ plane */
-	@Nonnull public ChiralRotation flipNW() {
+	@NN public ChiralRotation flipNW() {
 		return of(rotation.flipNW(), chirality.reverse());
 	}
 	/** @return the chiral rotation flipped on / plane */
-	@Nonnull public ChiralRotation flipNE() {
+	@NN public ChiralRotation flipNE() {
 		return of(rotation.flipNE(), chirality.reverse());
 	}
 	/** @return the chiral rotation with rotation flipped and chirality reversed*/
-	@Nonnull public ChiralRotation flipopposite() {
+	@NN public ChiralRotation flipopposite() {
 		return of(rotation.opposite(), chirality.reverse());
 	}
-	@Nonnull public Side apply(Side s) {
+	@NN public Side apply(Side s) {
 		switch(s) {
 		case D:
 			return D();

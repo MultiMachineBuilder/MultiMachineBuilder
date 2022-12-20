@@ -6,8 +6,6 @@ package mmb.content.machinemics.line;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.JLabel;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.JButton;
 
 import static mmb.engine.settings.GlobalSettings.$res;
@@ -17,6 +15,8 @@ import javax.swing.JProgressBar;
 
 import org.ainslec.picocog.PicoWriter;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.Refreshable;
 import mmbbase.menu.world.inv.InventoryController;
@@ -34,15 +34,15 @@ import javax.swing.Box;
 public class FurnaceGUI extends GUITab implements Refreshable{
 	private static final long serialVersionUID = 82163446136100004L;
 	
-	@Nonnull private InventoryController invPlayer;
-	@Nonnull private InventoryOrchestrator inventoryOrchestrator;
-	@Nonnull private MoveItems moveItemsInput;
-	@Nonnull public final InventoryController invInput;
-	@Nonnull private MoveItems moveItemsOutput;
-	@Nonnull public final InventoryController invOutput;
-	@Nonnull private JButton exit;
-	@Nonnull private JLabel lblSmelt;
-	@Nonnull private JProgressBar smelt;
+	@NN private InventoryController invPlayer;
+	@NN private InventoryOrchestrator inventoryOrchestrator;
+	@NN private MoveItems moveItemsInput;
+	@NN public final InventoryController invInput;
+	@NN private MoveItems moveItemsOutput;
+	@NN public final InventoryController invOutput;
+	@NN private JButton exit;
+	@NN private JLabel lblSmelt;
+	@NN private JProgressBar smelt;
 
 	private Furnace furnace;
 	private JLabel lblFuelWarn;
@@ -118,7 +118,7 @@ public class FurnaceGUI extends GUITab implements Refreshable{
 	}
 	
 	@Override
-	public void refreshProgress(double progress, @Nullable Recipe<?> underway) {
+	public void refreshProgress(double progress, @Nil Recipe<?> underway) {
 		smelt.setValue((int)progress);
 		if(underway == null) {
 			lblSmelt.setText("Not smelting");

@@ -8,10 +8,10 @@ import static mmb.engine.settings.GlobalSettings.$res;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 
-import javax.annotation.Nonnull;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import mmb.NN;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.debug.Debugger;
@@ -27,7 +27,7 @@ import mmbbase.menu.wtool.WindowTool;
 public class ToolAlcohol extends WindowTool {
 	private static final Debugger debug = new Debugger("ALCOHOL");
 	
-	@Nonnull public static final Icon ICON = new ImageIcon(Textures.get("liquid/alcohol.png"));
+	@NN public static final Icon ICON = new ImageIcon(Textures.get("liquid/alcohol.png"));
 	@Override
 	public Icon getIcon() {
 		return ICON;

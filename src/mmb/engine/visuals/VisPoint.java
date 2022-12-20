@@ -6,11 +6,10 @@ package mmb.engine.visuals;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import javax.annotation.Nullable;
-
 import com.github.davidmoten.rtree2.geometry.Geometries;
 import com.github.davidmoten.rtree2.geometry.Point;
 
+import mmb.Nil;
 import mmbbase.menu.world.window.WorldFrame;
 
 /**
@@ -55,7 +54,7 @@ public final class VisPoint implements Visual {
 	}
 
 	@Override
-	public boolean equals(@Nullable Object obj) {
+	public boolean equals(@Nil Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)

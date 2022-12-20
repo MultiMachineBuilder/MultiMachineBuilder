@@ -3,10 +3,9 @@
  */
 package mmb.content.electric;
 
-import javax.annotation.Nonnull;
-
 import com.google.common.util.concurrent.Runnables;
 
+import mmb.NN;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.debug.Debugger;
@@ -132,7 +131,7 @@ public class TransferHelper{
 	 * @param s side to which power goes
 	 * @return electricity proxy for this transfer helper
 	 */
-	@Nonnull public Electricity proxy(Side s) {
+	@NN public Electricity proxy(Side s) {
 		return new Electricity() {
 			@Override
 			public double insert(double amt, VoltageTier volt) {

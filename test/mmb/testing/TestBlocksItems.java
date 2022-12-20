@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
-import javax.annotation.Nonnull;
 import org.junit.jupiter.api.Test;
 
+import mmb.NN;
 import mmb.StandardTestReferences;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockEntityType;
@@ -46,7 +46,7 @@ class TestBlocksItems {
 		assertEquals(correct, Items.getExpectType("test", BlockType.class), "Block was not properly added");
 	}
 	
-	@Nonnull private static final Block blk = new Block();
+	@NN private static final Block blk = new Block();
 	
 	@Test
 	void testWontTakeNullTitle() {

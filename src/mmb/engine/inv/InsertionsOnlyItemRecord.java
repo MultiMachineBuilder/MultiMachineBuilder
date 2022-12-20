@@ -3,8 +3,7 @@
  */
 package mmb.engine.inv;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.item.ItemEntry;
 
 /**
@@ -12,8 +11,8 @@ import mmb.engine.item.ItemEntry;
  *
  */
 public class InsertionsOnlyItemRecord implements ItemRecord {
-	@Nonnull private final ItemRecord ir;
-	@Nonnull private final Inventory inv;
+	@NN private final ItemRecord ir;
+	@NN private final Inventory inv;
 	private InsertionsOnlyItemRecord(ItemRecord ir, Inventory inv) {
 		super();
 		this.ir = ir;
@@ -25,7 +24,7 @@ public class InsertionsOnlyItemRecord implements ItemRecord {
 	 * @param inv 
 	 * @return
 	 */
-	@Nonnull public static ItemRecord decorate(ItemRecord rec, Inventory inv) {
+	@NN public static ItemRecord decorate(ItemRecord rec, Inventory inv) {
 		if(!rec.canExtract()) return rec;
 		return new InsertionsOnlyItemRecord(rec, inv.lockExtractions());
 	}
@@ -33,7 +32,7 @@ public class InsertionsOnlyItemRecord implements ItemRecord {
 	 * @param itemRecord
 	 * @return
 	 */
-	public static @Nonnull ItemRecord decorate(ItemRecord itemRecord) {
+	public static @NN ItemRecord decorate(ItemRecord itemRecord) {
 		return decorate(itemRecord, itemRecord.inventory());
 	}
 

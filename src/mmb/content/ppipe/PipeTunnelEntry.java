@@ -3,7 +3,7 @@
  */
 package mmb.content.ppipe;
 
-import javax.annotation.Nonnull;
+import mmb.NN;
 
 /**
  * @author oskar
@@ -13,11 +13,11 @@ public class PipeTunnelEntry {
 	/**
 	 * A pipe to enter
 	 */
-	@Nonnull public final PipeTunnel pipe;
+	@NN public final PipeTunnel pipe;
 	/**
 	 * A directionality required to enter the pipe
 	 */
-	@Nonnull public final Direction dir;
+	@NN public final Direction dir;
 	/**
 	 * @param pipe the pipe
 	 * @param dir pipe's entry directionality

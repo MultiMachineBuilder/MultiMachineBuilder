@@ -11,7 +11,6 @@ import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Nonnull;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -19,6 +18,7 @@ import javax.swing.JLabel;
 
 import net.miginfocom.swing.MigLayout;
 import io.github.parubok.text.multiline.MultilineLabel;
+import mmb.NN;
 import mmb.content.electric.ElectricalBatteryVisualiser;
 import mmb.content.electric.SideConfig;
 import mmb.content.electric.SideConfigCtrl;
@@ -33,7 +33,7 @@ import mmbbase.menu.world.window.WorldWindow;
 class MachineGUI extends GUITab{
 	private static final long serialVersionUID = -4029353853474275301L;
 	private final SideConfigCtrl sie, soe, sii, soi;
-	@Nonnull private InventoryController playerController;
+	@NN private InventoryController playerController;
 	private final Component main;
 	private final List<InventoryController> invctrls = new ArrayList<>();
 	private final SkeletalBlockMachine machine;

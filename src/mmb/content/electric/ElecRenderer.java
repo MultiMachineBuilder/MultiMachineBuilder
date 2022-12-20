@@ -8,14 +8,14 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.image.LookupOp;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.gl.GLHelper;
 import mmb.engine.gl.RenderCtx;
@@ -32,13 +32,13 @@ import mmb.engine.texture.Textures.Texture;
  */
 public class ElecRenderer implements BlockDrawer {
 	//Static stuff
-	@Nonnull public static final ElecRenderer tiny =   gen("tiny");
-	@Nonnull public static final ElecRenderer small =  gen("small");
-	@Nonnull public static final ElecRenderer medium = gen("medium");
-	@Nonnull public static final ElecRenderer large =  gen("large");
-	@Nonnull public static final ElecRenderer huge  =  gen("huge");
+	@NN public static final ElecRenderer tiny =   gen("tiny");
+	@NN public static final ElecRenderer small =  gen("small");
+	@NN public static final ElecRenderer medium = gen("medium");
+	@NN public static final ElecRenderer large =  gen("large");
+	@NN public static final ElecRenderer huge  =  gen("huge");
 	
-	@Nonnull private static ElecRenderer gen(String title) {
+	@NN private static ElecRenderer gen(String title) {
 		String rigPath = "machine/power/"+title+" connector.png";
 		String iconPath = "machine/power/"+title+" wire.png";
 		String basePath = "machine/power/"+title+" center.png";
@@ -49,11 +49,11 @@ public class ElecRenderer implements BlockDrawer {
 	}
 	
 	//Instance stuff
-	@Nonnull public final RotatedImageGroup rig;
-	@Nonnull public final ImageIcon icon;
-	@Nonnull public final BufferedImage base;
-	@Nonnull public final Texture baseTex;
-	@Nonnull public final Vector4fc color;
+	@NN public final RotatedImageGroup rig;
+	@NN public final ImageIcon icon;
+	@NN public final BufferedImage base;
+	@NN public final Texture baseTex;
+	@NN public final Vector4fc color;
 	public ElecRenderer(RotatedImageGroup rig, ImageIcon icon, BufferedImage base, Texture baseTex, Vector4fc color) {
 		this.rig = rig;
 		this.icon = icon;
@@ -69,7 +69,7 @@ public class ElecRenderer implements BlockDrawer {
 		this.color = GLHelper.color2vec(color, new Vector4f());
 	}
 	@Override
-	public void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int w, int h) {
+	public void draw(@Nil BlockEntry ent, int x, int y, Graphics g, int w, int h) {
 		g.drawImage(base, x, y, w, h, null);
 		if(ent instanceof BlockConduit) {
 			int xx = ((BlockConduit) ent).posX();
@@ -88,7 +88,7 @@ public class ElecRenderer implements BlockDrawer {
 	public Icon toIcon() {
 		return icon;
 	}
-	@Nonnull public static ElecRenderer repaint(Color c, ElecRenderer renderer) {
+	@NN public static ElecRenderer repaint(Color c, ElecRenderer renderer) {
 		BufferedImage conn0 = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
 		Graphics g = conn0.createGraphics();
 		renderer.rig.U.draw(null, 0, 0, g, 32);

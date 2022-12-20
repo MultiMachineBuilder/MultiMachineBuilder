@@ -5,7 +5,7 @@ package mmb.engine.worlds.world;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 
-import javax.annotation.Nonnull;
+import mmb.NN;
 
 /**
  * @author oskar
@@ -28,7 +28,7 @@ public class TaskLoop {
 	}
 	private int state = 0;
 	private long next;
-	@Nonnull private final Runnable task;
+	@NN private final Runnable task;
 	private final long period;
 	/**
 	 * @param task task to run

@@ -3,13 +3,13 @@
  */
 package mmbbase.data.variables;
 
-import javax.annotation.Nonnull;
+import mmb.NN;
 
 /**
  * @author oskar
  *
  */
-public class DataValueDouble implements Variable<@Nonnull Double> {
+public class DataValueDouble implements Variable<@NN Double> {
 	private double value;
 	/**
 	 * Creates a double-specialized variable

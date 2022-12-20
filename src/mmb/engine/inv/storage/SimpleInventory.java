@@ -4,8 +4,6 @@
 package mmb.engine.inv.storage;
 
 import java.util.Iterator;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import org.ainslec.picocog.PicoWriter;
 
@@ -13,6 +11,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.debug.Debugger;
@@ -37,7 +37,7 @@ public class SimpleInventory implements SaveInventory{
 	private static final Debugger debug = new Debugger("INVENTORIES");
 	
 	//Inventory definition
-	@Nonnull private SelfSet<ItemEntry, Node> contents = HashSelfSet.createNonnull(Node.class);
+	@NN private SelfSet<ItemEntry, Node> contents = HashSelfSet.createNonnull(Node.class);
 	private double volume = 0;
 	private double capacity = 2;
 	
@@ -48,7 +48,7 @@ public class SimpleInventory implements SaveInventory{
 			this.type = type;
 		}
 		protected int amount;
-		@Nonnull public final ItemEntry type;
+		@NN public final ItemEntry type;
 		@Override
 		public ItemEntry item() {
 			return type;
@@ -173,7 +173,7 @@ public class SimpleInventory implements SaveInventory{
 	@Override
 	public int bulkInsert(RecipeOutput ent, int amount) {
 		int max = insertibleRemainBulk(amount, ent);
-		for(Entry<@Nonnull ItemEntry> entry: ent.getContents().object2IntEntrySet()) {
+		for(Entry<@NN ItemEntry> entry: ent.getContents().object2IntEntrySet()) {
 			insert(entry.getKey(), entry.getIntValue()*max);
 		}
 		return max;
@@ -190,7 +190,7 @@ public class SimpleInventory implements SaveInventory{
 	 * @return this
 	 */
 	@Override
-	public @Nonnull SimpleInventory setCapacity(double capacity) {
+	public @NN SimpleInventory setCapacity(double capacity) {
 		this.capacity = capacity;
 		return this;
 	}
@@ -215,7 +215,7 @@ public class SimpleInventory implements SaveInventory{
 
 	//Serialization
 	@Override
-	public void load(@Nullable JsonNode data) {	
+	public void load(@Nil JsonNode data) {	
 		if(data == null) return;
 		//Prepare
 		contents.clear();
@@ -251,7 +251,7 @@ public class SimpleInventory implements SaveInventory{
 		});
 	}
 	@Override
-	public @Nonnull JsonNode save() {
+	public @NN JsonNode save() {
 		return ItemLoader.save(contents, capacity); //return the saved inventory
 	}	
 

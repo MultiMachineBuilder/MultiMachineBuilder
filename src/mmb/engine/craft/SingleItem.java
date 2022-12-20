@@ -3,13 +3,12 @@
  */
 package mmb.engine.craft;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import org.ainslec.picocog.PicoWriter;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMaps;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 
@@ -40,7 +39,7 @@ public interface SingleItem extends RecipeOutput {
 	}
 
 	@Override
-	default boolean contains(@Nullable ItemEntry entry) {
+	default boolean contains(@Nil ItemEntry entry) {
 		return item().equals(entry);
 	}
 
@@ -57,7 +56,7 @@ public interface SingleItem extends RecipeOutput {
 	}
 	
 	/** @return this item or this stack's corresponding items*/
-	@Nonnull public ItemEntry item();
+	@NN public ItemEntry item();
 	
 	/** @return number of items */
 	public int amount();	

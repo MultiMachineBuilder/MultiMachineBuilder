@@ -7,7 +7,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.awt.image.LookupTable;
 
-import javax.annotation.Nonnull;
+import mmb.NN;
 
 /**
  * @author oskar
@@ -19,7 +19,7 @@ public abstract class ColorMul extends LookupTable {
 		// TODO Auto-generated constructor stub
 	}
 	/** @return the current color */
-	@Nonnull public abstract Color color();
+	@NN public abstract Color color();
 	/** @param c new color */
 	public abstract void setColor(Color c);
 	

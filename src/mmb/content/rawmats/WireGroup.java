@@ -5,9 +5,9 @@ package mmb.content.rawmats;
 
 import static mmb.engine.settings.GlobalSettings.*;
 
-import javax.annotation.Nonnull;
 import javax.swing.Icon;
 
+import mmb.NN;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.BlockConduit;
 import mmb.content.electric.ElecRenderer;
@@ -27,15 +27,15 @@ import monniasza.collects.selfset.SelfSet;
  *
  */
 public class WireGroup implements Identifiable<String> {
-	@Nonnull public final BlockEntityType tiny;
-	@Nonnull public final BlockEntityType small;
-	@Nonnull public final BlockEntityType medium;
-	@Nonnull public final BlockEntityType large;
-	@Nonnull public final BlockEntityType huge;
-	@Nonnull public final String id;
-	@Nonnull public final String title;
-	@Nonnull public final VoltageTier volt;
-	@Nonnull public final MetalGroup group;
+	@NN public final BlockEntityType tiny;
+	@NN public final BlockEntityType small;
+	@NN public final BlockEntityType medium;
+	@NN public final BlockEntityType large;
+	@NN public final BlockEntityType huge;
+	@NN public final String id;
+	@NN public final String title;
+	@NN public final VoltageTier volt;
+	@NN public final MetalGroup group;
 	/**
 	 * @param mul power of smallest wire in watts
 	 * @param group the imetal group
@@ -72,7 +72,7 @@ public class WireGroup implements Identifiable<String> {
 		Items.tagsItems(new String[]{"voltage-"+volt.name, "machine-wire"}, tiny, small, medium, large, huge);
 	}
 	//Various helper methods
-	@Nonnull public static BlockEntityType conduit(String title, double pwr, ElecRenderer texture, String id, VoltageTier volt) {
+	@NN public static BlockEntityType conduit(String title, double pwr, ElecRenderer texture, String id, VoltageTier volt) {
 		BlockEntityType b = new BlockEntityType() {
 			@Override public Icon icon() {
 				return texture.icon;
@@ -99,6 +99,6 @@ public class WireGroup implements Identifiable<String> {
 	public String id() {
 		return id;
 	}
-	@Nonnull private static final SelfSet<@Nonnull String, @Nonnull WireGroup> _index = HashSelfSet.createNonnull(WireGroup.class);
-	@Nonnull public static final SelfSet<@Nonnull String, @Nonnull WireGroup> index = Collects.unmodifiableSelfSet(_index);
+	@NN private static final SelfSet<@NN String, @NN WireGroup> _index = HashSelfSet.createNonnull(WireGroup.class);
+	@NN public static final SelfSet<@NN String, @NN WireGroup> index = Collects.unmodifiableSelfSet(_index);
 }

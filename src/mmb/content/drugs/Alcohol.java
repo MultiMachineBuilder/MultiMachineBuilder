@@ -9,8 +9,7 @@ import static mmb.content.CraftingGroups.*;
 
 import java.util.ResourceBundle;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.craft.SimpleItemList;
 import mmb.engine.item.Item;
@@ -36,15 +35,15 @@ public class Alcohol {
 	}
 	
 	/** A recipe group for alcoholic beverages */
-	@Nonnull public static final AlcoholInfoGroup alcohol = new AlcoholInfoGroup("alcohol");
+	@NN public static final AlcoholInfoGroup alcohol = new AlcoholInfoGroup("alcohol");
 	/** An empty container for beer */
-	@Nonnull public static final Item beerEmpty = new Item()
+	@NN public static final Item beerEmpty = new Item()
 		.title("#beerb")
 		.texture("alcohol/beer empty.png")
 		.volumed(0.004)
 		.finish("drugs.beer0");
 	/** Beer, an alcoholic drink (now the only alcoholic drink)*/
-	@Nonnull public static final AlcoPod beer = (AlcoPod) new AlcoPod(1.5, beerEmpty)
+	@NN public static final AlcoPod beer = (AlcoPod) new AlcoPod(1.5, beerEmpty)
 		.title("#beer")
 		.texture("alcohol/beer.png")
 		.volumed(0.004)

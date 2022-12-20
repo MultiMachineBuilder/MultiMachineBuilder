@@ -5,11 +5,12 @@ package mmbbase.menu.world.window;
 
 import java.awt.Component;
 import java.awt.Dimension;
-import javax.annotation.Nullable;
+
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListModel;
 
+import mmb.Nil;
 import mmb.engine.craft.Recipe;
 import mmbbase.menu.components.CellRendererGettingCellRenderer;
 import mmbbase.menu.world.window.TabInventory.RecipeQuery;
@@ -71,7 +72,7 @@ public class QueriedRecipes extends GUITab {
 			setPreferredSize(new Dimension(600, 200));
 		}
 		@Override
-		public Component getListCellRendererComponent(@SuppressWarnings("null") JList<? extends Component> list, @Nullable Component value, int index,
+		public Component getListCellRendererComponent(@SuppressWarnings("null") JList<? extends Component> list, @Nil Component value, int index,
 				boolean isSelected, boolean cellHasFocus) {
 			return value;
 		} 

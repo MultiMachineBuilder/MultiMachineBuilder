@@ -7,11 +7,10 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.awt.image.LookupOp;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.Battery;
 import mmb.content.electric.Electricity;
@@ -38,25 +37,25 @@ import mmbbase.menu.world.window.WorldWindow;
 public class BlockGeneratorSolid extends BlockEntityRotary implements BlockActivateListener{
 	//Standard generator definitions
 	/** The texture for ULV furnace generator */
-	@Nonnull public static final BufferedImage img;
-	@Nonnull private static final RotatedImageGroup tex0;
+	@NN public static final BufferedImage img;
+	@NN private static final RotatedImageGroup tex0;
 	/** The texture for VLV furnace generator */
-	@Nonnull public static final BufferedImage img1;
-	@Nonnull private static final RotatedImageGroup tex1;
+	@NN public static final BufferedImage img1;
+	@NN private static final RotatedImageGroup tex1;
 	/** The texture for LV furnace generator */
-	@Nonnull public static final BufferedImage img2;
-	@Nonnull private static final RotatedImageGroup tex2;
+	@NN public static final BufferedImage img2;
+	@NN private static final RotatedImageGroup tex2;
 	
 	//Turbogenerator definitions
 	/** The texture foor VLV turbogenerator */
-	@Nonnull public static final BufferedImage turboimg;
-	@Nonnull private static final RotatedImageGroup turbotex0;
+	@NN public static final BufferedImage turboimg;
+	@NN private static final RotatedImageGroup turbotex0;
 	/** The texture for LV turbogenerator */
-	@Nonnull public static final BufferedImage turboimg1;
-	@Nonnull private static final RotatedImageGroup turbotex1;
+	@NN public static final BufferedImage turboimg1;
+	@NN private static final RotatedImageGroup turbotex1;
 	/** The texture for MV turbogenerator*/
-	@Nonnull public static final BufferedImage turboimg2;
-	@Nonnull private static final RotatedImageGroup turbotex2;
+	@NN public static final BufferedImage turboimg2;
+	@NN private static final RotatedImageGroup turbotex2;
 	static {
 		img = Textures.get("machine/coalgen.png");
 		tex0 = RotatedImageGroup.create(img);
@@ -82,15 +81,15 @@ public class BlockGeneratorSolid extends BlockEntityRotary implements BlockActiv
 		
 	//Block definition
 	/** Voltage tier */
-	@Nonnull public final VoltageTier volt;
-	@Nonnull private final BlockType type;
+	@NN public final VoltageTier volt;
+	@NN private final BlockType type;
 	/** Fuel storage */
-	@Nonnull public final Battery fuel;
+	@NN public final Battery fuel;
 	/** Output buffer */
-	@Nonnull public final Battery buffer;
+	@NN public final Battery buffer;
 	/** Burn queue */
-	@Nonnull public final SimpleInventory inv = new SimpleInventory();
-	@Nonnull private final FuelBurner burner;
+	@NN public final SimpleInventory inv = new SimpleInventory();
+	@NN private final FuelBurner burner;
 	/** 1-furnace generator, 2-turbogenerator */
 	public final int mul;
 	/**
@@ -131,7 +130,7 @@ public class BlockGeneratorSolid extends BlockEntityRotary implements BlockActiv
 	//GUI
 	GUIGeneratorSolid tab;
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		if(tab != null) return;
 		tab = new GUIGeneratorSolid(window, this);

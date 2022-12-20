@@ -5,8 +5,8 @@ package mmb.engine.inv;
 
 import java.util.Collections;
 import java.util.Iterator;
-import javax.annotation.Nonnull;
 
+import mmb.NN;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
 
@@ -15,8 +15,8 @@ import mmb.engine.item.ItemEntry;
  *
  */
 public class NoSuchInventory implements Inventory{
-	@Nonnull public static final NoSuchInventory INSTANCE = new NoSuchInventory();
-	@Nonnull private static final NoSuchItemRecord nsir = new NoSuchItemRecord(INSTANCE);
+	@NN public static final NoSuchInventory INSTANCE = new NoSuchInventory();
+	@NN private static final NoSuchItemRecord nsir = new NoSuchItemRecord(INSTANCE);
 	private NoSuchInventory() {}
 	@SuppressWarnings("null")
 	@Override

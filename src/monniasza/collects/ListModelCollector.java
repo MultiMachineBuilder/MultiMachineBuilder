@@ -13,8 +13,9 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
 
-import javax.annotation.Nonnull;
 import javax.swing.DefaultListModel;
+
+import mmb.NN;
 
 /**
  * @author oskar
@@ -27,8 +28,8 @@ public class ListModelCollector<T> implements Collector<T, List<T>, DefaultListM
 	 * @param <T> type of values
 	 * @return a stream collector for list models
 	 */
-	@Nonnull public static <T> ListModelCollector<T> create(){return (ListModelCollector<T>) collector;}
-	@Nonnull private static final ListModelCollector<?> collector = new ListModelCollector<>();
+	@NN public static <T> ListModelCollector<T> create(){return (ListModelCollector<T>) collector;}
+	@NN private static final ListModelCollector<?> collector = new ListModelCollector<>();
 	private ListModelCollector(){}
 	
 	@Override

@@ -3,8 +3,7 @@
  */
 package mmb.engine.craft.singles;
 
-import javax.annotation.Nullable;
-
+import mmb.Nil;
 import mmb.engine.craft.RecipeGroup;
 import mmb.engine.item.ItemEntry;
 
@@ -20,5 +19,5 @@ public interface SimpleRecipeGroup<T extends SimpleRecipe<?>> extends RecipeGrou
 	 * @param in required input item
 	 * @return a matching recipe or null if not found
 	 */
-	public T findRecipe(@Nullable ItemEntry catalyst, ItemEntry in);
+	public T findRecipe(@Nil ItemEntry catalyst, ItemEntry in);
 }

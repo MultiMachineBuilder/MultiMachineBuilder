@@ -3,12 +3,12 @@
  */
 package mmb.engine.item;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.Icon;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.texture.BlockDrawer;
 import mmbbase.beans.Titled;
 import monniasza.collects.Identifiable;
@@ -37,7 +37,7 @@ public interface ItemType extends Titled, Identifiable<String>{
 	 * A description contains extra information about the item, which can be used by their users.
 	 * @return item's description
 	 */
-	@Nonnull public String description();
+	@NN public String description();
 	
 	/**
 	 * Sets the ID. For use only in registration
@@ -60,7 +60,7 @@ public interface ItemType extends Titled, Identifiable<String>{
 	public String title();
 	
 	public void setTexture(BlockDrawer texture);
-	@Nonnull public BlockDrawer getTexture();
+	@NN public BlockDrawer getTexture();
 	public default Icon getIcon() {
 		return getTexture().toIcon();
 	}
@@ -68,13 +68,13 @@ public interface ItemType extends Titled, Identifiable<String>{
 	/**
 	 * @return a new instance of the item
 	 */
-	@Nonnull public ItemEntry create();
+	@NN public ItemEntry create();
 	/**
 	 * Loads an item entry using JSON payload
 	 * @param node data to load from
 	 * @return a new item entry with data
 	 */
-	@Nonnull public default ItemEntry loadItem(@Nullable JsonNode node) {
+	@NN public default ItemEntry loadItem(@Nil JsonNode node) {
 		ItemEntry item = create();
 		item.load(node);
 		return item;
@@ -86,7 +86,7 @@ public interface ItemType extends Titled, Identifiable<String>{
 	 * @param cls expected type
 	 * @return a new item entry with data, or null if failed
 	 */
-	@Nullable public default <T extends ItemEntry> ItemEntry loadItemExpectType(@Nullable JsonNode node, @Nullable Class<T> cls) {
+	@Nil public default <T extends ItemEntry> ItemEntry loadItemExpectType(@Nil JsonNode node, @Nil Class<T> cls) {
 		ItemEntry item = create();
 		if(cls != null && !cls.isInstance(item)) return null;
 		item.load(node);

@@ -3,8 +3,7 @@
  */
 package mmb.content.electronics;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.item.Item;
 
 /**
@@ -12,8 +11,8 @@ import mmb.engine.item.Item;
  *
  */
 public class ElectronicsComponent extends Item {
-	@Nonnull public final ComponentGenerator gen;
-	@Nonnull public final ComponentTier tier;
+	@NN public final ComponentGenerator gen;
+	@NN public final ComponentTier tier;
 	ElectronicsComponent(ComponentGenerator gen, ComponentTier tier){
 		this.gen = gen;
 		this.tier = tier;

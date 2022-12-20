@@ -3,8 +3,7 @@
  */
 package mmb.content.imachine;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.storage.SingleItemInventory;
@@ -19,8 +18,8 @@ import mmbbase.data.variables.Variable;
  *
  */
 public class Pipe extends AbstractBasePipe {
-	@Nonnull protected final Pusher invwA, invwB;
-	@Nonnull final Side sideA, sideB;
+	@NN protected final Pusher invwA, invwB;
+	@NN final Side sideA, sideB;
 	public Pipe(Side sideA, Side sideB, BlockType type, ChirotatedImageGroup rig) {
 		super(type, 2, rig);
 		this.sideA = sideA;

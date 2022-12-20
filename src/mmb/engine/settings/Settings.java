@@ -23,10 +23,9 @@ import java.util.function.IntConsumer;
 import java.util.function.IntSupplier;
 import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.debug.Debugger;
 import mmbbase.data.variables.BooleanVariable;
 import mmbbase.data.variables.DataValueDouble;
@@ -123,7 +122,7 @@ public class Settings {
 	 * @param key key
 	 * @return retrieved boolean value, or null if unable to retrieve or process
 	 */
-	public static @Nullable Boolean getOptionalBool(String key) {
+	public static @Nil Boolean getOptionalBool(String key) {
 		String result = props.getProperty(key);
 		if(result == null) return null;
 		return Boolean.valueOf(result);
@@ -150,10 +149,10 @@ public class Settings {
 	private static final Map<String, Setting> settingModules0 = new HashMap<>();
 	public static final Map<String, Setting> settingModules = Collections.unmodifiableMap(settingModules0);
 	public static class Setting{
-		public final Consumer<@Nonnull String> onload;
+		public final Consumer<@NN String> onload;
 		public final Supplier<String> save;
 		public final String defalt;
-		public Setting(Consumer<@Nonnull String> onload, Supplier<String> save, String defalt) {
+		public Setting(Consumer<@NN String> onload, Supplier<String> save, String defalt) {
 			super();
 			this.onload = onload;
 			this.save = save;
@@ -169,7 +168,7 @@ public class Settings {
 	 * @param onload method which handles setting loading. The method
 	 * @param save method which provides strings for saving
 	 */
-	public static void addSettingString(String name, String defalt, Consumer<@Nonnull String> onload, Supplier<String> save) {
+	public static void addSettingString(String name, String defalt, Consumer<@NN String> onload, Supplier<String> save) {
 		settingModules0.put(name, new Setting(onload, save, defalt));
 		if(hasCreated) {
 			String val = get(name);

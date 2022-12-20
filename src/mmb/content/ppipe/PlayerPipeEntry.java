@@ -3,8 +3,7 @@
  */
 package mmb.content.ppipe;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.debug.Debugger;
@@ -19,7 +18,7 @@ import mmb.engine.worlds.world.World;
  *
  */
 public class PlayerPipeEntry extends PlayerPipe {
-	@Nonnull private static final ChirotatedImageGroup img = ChirotatedImageGroup.create("machine/pipe exit.png");
+	@NN private static final ChirotatedImageGroup img = ChirotatedImageGroup.create("machine/pipe exit.png");
 	public PlayerPipeEntry() {
 		super(ContentsBlocks.PPIPE_cap, img, Side.U, Side.D, 1);
 	}

@@ -3,8 +3,7 @@
  */
 package mmb.content.modular;
 
-import javax.annotation.Nullable;
-
+import mmb.Nil;
 import mmb.content.modular.gui.ModuleConfigHandler;
 import mmb.content.modular.part.PartEntry;
 
@@ -33,7 +32,7 @@ public interface BlockModuleOrCore<Tmc extends BlockModuleOrCore<Tmc, Tblock, Tp
 	
 	//Config UI
 	/** @return module config handler for this block module or null*/
-	@Nullable public default ModuleConfigHandler<Tmc, ?> mch(){
+	@Nil public default ModuleConfigHandler<Tmc, ?> mch(){
 		return null;
 	}
 }

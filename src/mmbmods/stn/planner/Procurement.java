@@ -5,8 +5,7 @@ package mmbmods.stn.planner;
 
 import java.util.Objects;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.craft.RecipeOutput;
 
 /**
@@ -15,7 +14,7 @@ import mmb.engine.craft.RecipeOutput;
  */
 public class Procurement {
 	/** The source for this node*/
-	@Nonnull public final Source node;
+	@NN public final Source node;
 	/** Quantity of items */
 	public final int quantity;
 	

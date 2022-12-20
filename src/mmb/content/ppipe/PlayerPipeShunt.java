@@ -3,8 +3,7 @@
  */
 package mmb.content.ppipe;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.rotate.ChirotatedImageGroup;
@@ -49,12 +48,12 @@ public class PlayerPipeShunt extends AbstractPlayerPipe {
 		tunnelS = new TunnelHelper(Side.R, Side.D);
 		tunnelS.path.length = 0.8;
 	}
-	@Nonnull private final BlockType type;
-	@Nonnull private static final ChirotatedImageGroup img0 = ChirotatedImageGroup.create("machine/switch straight.png");
-	@Nonnull private static final ChirotatedImageGroup img1 = ChirotatedImageGroup.create("machine/switch turn.png");
-	@Nonnull private final Side main;
-	@Nonnull protected final PipeTunnel tunnelM;
-	@Nonnull protected final PipeTunnel tunnelS; 
+	@NN private final BlockType type;
+	@NN private static final ChirotatedImageGroup img0 = ChirotatedImageGroup.create("machine/switch straight.png");
+	@NN private static final ChirotatedImageGroup img1 = ChirotatedImageGroup.create("machine/switch turn.png");
+	@NN private final Side main;
+	@NN protected final PipeTunnel tunnelM;
+	@NN protected final PipeTunnel tunnelS; 
 	@Override
 	public BlockType type() {
 		return type;

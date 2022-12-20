@@ -8,10 +8,9 @@ import java.util.IdentityHashMap;
 import java.util.Set;
 import java.util.function.Function;
 
-import javax.annotation.Nonnull;
-
 import com.fasterxml.jackson.databind.JsonNode;
 
+import mmb.NN;
 import mmb.engine.GameEvents;
 import mmb.engine.debug.Debugger;
 import mmb.engine.worlds.universe.Universe;
@@ -40,10 +39,10 @@ public class DataLayers {
 	
 	//Map data layers
 	@SuppressWarnings("null")
-	@Nonnull private static final Set<IndexedDatalayerMap<World, ? extends DataLayer<World>>> layersWorld0 =
+	@NN private static final Set<IndexedDatalayerMap<World, ? extends DataLayer<World>>> layersWorld0 =
 		Collections.newSetFromMap(new IdentityHashMap<>());
 	/** An unmodifiable set of world data layers */
-	@Nonnull public static final Set<IndexedDatalayerMap<World, ? extends DataLayer<World>>> layersWorld =
+	@NN public static final Set<IndexedDatalayerMap<World, ? extends DataLayer<World>>> layersWorld =
 		Collections.unmodifiableSet(layersWorld0);
 	/**
 	 * Sets up a world data layer for given JSON node
@@ -80,7 +79,7 @@ public class DataLayers {
 	 * @param populator populator for data layer
 	 * @return a new data layer
 	 */
-	@Nonnull public static <T extends DataLayer<World>> IndexedDatalayerMap<World, T> createWorldDataLayerUsingNode
+	@NN public static <T extends DataLayer<World>> IndexedDatalayerMap<World, T> createWorldDataLayerUsingNode
 	(String nodeName, Function<World, T> populator){
 		IndexedDatalayerMap<World, T> datalayer = new IndexedDatalayerMap<>(World.allocator, populator);
 		registerWorldDataLayerUsingNode(nodeName, datalayer);
@@ -89,10 +88,10 @@ public class DataLayers {
 	
 	//Universe data layers
 	@SuppressWarnings("null")
-	@Nonnull private static final Set<IndexedDatalayerMap<Universe, ? extends DataLayer<Universe>>> layersUniverse0 =
+	@NN private static final Set<IndexedDatalayerMap<Universe, ? extends DataLayer<Universe>>> layersUniverse0 =
 		Collections.newSetFromMap(new IdentityHashMap<>());
 	/** An unmodifiable set of universe data layers */
-	@Nonnull public static final Set<IndexedDatalayerMap<Universe, ? extends DataLayer<Universe>>> layersUniverse =
+	@NN public static final Set<IndexedDatalayerMap<Universe, ? extends DataLayer<Universe>>> layersUniverse =
 			Collections.unmodifiableSet(layersUniverse0);
 	/**
 	 * Sets up a world data layer for given JSON node

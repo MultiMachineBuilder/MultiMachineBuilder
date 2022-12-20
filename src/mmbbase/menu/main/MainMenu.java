@@ -4,7 +4,6 @@ import static mmb.engine.settings.GlobalSettings.*;
 
 import java.awt.*;
 
-import javax.annotation.Nonnull;
 import javax.swing.*;
 
 import java.net.URI;
@@ -16,6 +15,7 @@ import java.awt.image.BufferedImage;
 import java.awt.BorderLayout;
 import javax.swing.border.EmptyBorder;
 
+import mmb.NN;
 import mmb.engine.debug.Debugger;
 import mmb.engine.gl.HalfVecTest;
 import mmb.engine.mods.Mods;
@@ -38,7 +38,7 @@ public class MainMenu extends MMBFrame {
 	
 	//ToolKit API
 	/** The singleton instance of main menu*/
-	@Nonnull public static final MainMenu INSTANCE = new MainMenu();
+	@NN public static final MainMenu INSTANCE = new MainMenu();
 	/**
 	 * Add a main menu tab
 	 * @param tab tab contents

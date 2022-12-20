@@ -5,10 +5,9 @@ package mmb.engine.inv;
 
 import java.util.Iterator;
 
-import javax.annotation.Nonnull;
-
 import com.google.common.collect.Iterators;
 
+import mmb.NN;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
 
@@ -20,7 +19,7 @@ public class ReadOnlyInventory implements Inventory {
 	private final Inventory inv;
 	@SuppressWarnings("null")
 	@Override
-	@Nonnull public Iterator<ItemRecord> iterator() {
+	@NN public Iterator<ItemRecord> iterator() {
 		return Iterators.unmodifiableIterator(
 				Iterators.transform(inv.iterator(), ItemRecord::readOnly)
 		);
@@ -85,7 +84,7 @@ public class ReadOnlyInventory implements Inventory {
 		super();
 		this.inv = inv;
 	}
-	public static @Nonnull Inventory decorate(Inventory inv) {
+	public static @NN Inventory decorate(Inventory inv) {
 		if(inv.canExtract() && inv.canInsert()) return new ReadOnlyInventory(inv);
 		if(inv.canInsert()) return inv.lockInsertions();
 		if(inv.canExtract()) return inv.lockExtractions();

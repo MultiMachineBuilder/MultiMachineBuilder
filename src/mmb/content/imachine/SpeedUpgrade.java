@@ -3,8 +3,7 @@
  */
 package mmb.content.imachine;
 
-import javax.annotation.Nullable;
-
+import mmb.Nil;
 import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
@@ -38,7 +37,7 @@ public class SpeedUpgrade extends Item {
 	 * @param ent speed upgrade
 	 * @return speed mutiplier for the item
 	 */
-	public static double speedup(@Nullable ItemEntry ent) {
+	public static double speedup(@Nil ItemEntry ent) {
 		if(ent instanceof SpeedUpgrade) return ((SpeedUpgrade) ent).speed;
 		return 1;
 	}
@@ -47,7 +46,7 @@ public class SpeedUpgrade extends Item {
 	 * @param ent speed upgrade
 	 * @return speed mutiplier for the item
 	 */
-	public static double speedup(@Nullable SpeedUpgrade ent) {
+	public static double speedup(@Nil SpeedUpgrade ent) {
 		if(ent != null) return ent.speed;
 		return 1;
 	}

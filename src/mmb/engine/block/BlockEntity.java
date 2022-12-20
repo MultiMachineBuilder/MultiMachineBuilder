@@ -4,9 +4,9 @@
 package mmb.engine.block;
 
 import java.awt.Point;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.event.BlockEntityDemolitionEvent;
 import mmb.engine.CatchingEvent;
 import mmb.engine.debug.Debugger;
@@ -46,7 +46,7 @@ public abstract class BlockEntity implements SensitiveBlock{
 		return x;
 	}
 	@Override
-	public void resetMap(@Nullable World map, int x, int y) {
+	public void resetMap(@Nil World map, int x, int y) {
 		if(map != null && (!map.get(x, y).isSurface())) throw new IllegalStateException("The position ["+x+","+y+"] on target map is not surface");
 		owner = map;
 		this.x = x;
@@ -56,7 +56,7 @@ public abstract class BlockEntity implements SensitiveBlock{
 	public int posY() {
 		return y;
 	}
-	@Nonnull public Point getPosition() {
+	@NN public Point getPosition() {
 		return new Point(x, y);
 	}
 	
@@ -69,8 +69,8 @@ public abstract class BlockEntity implements SensitiveBlock{
 	/**
 	 * The map, in which the BlockEntity is located
 	 */
-	@Nullable private World owner;
-	@Override @Nullable public World nowner() {
+	@Nil private World owner;
+	@Override @Nil public World nowner() {
 		return owner;
 	}
 	

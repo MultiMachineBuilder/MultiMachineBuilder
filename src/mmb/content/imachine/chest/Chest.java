@@ -6,11 +6,11 @@ package mmb.content.imachine.chest;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import javax.annotation.Nullable;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
@@ -86,7 +86,7 @@ public class Chest extends AbstractChest implements BlockActivateListener {
 	}
 
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		window.openAndShowWindow(new ChestGui(this, window), "chest");
 	}

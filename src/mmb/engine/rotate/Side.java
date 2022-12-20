@@ -5,7 +5,7 @@ package mmb.engine.rotate;
 
 import java.awt.Point;
 
-import javax.annotation.Nonnull;
+import mmb.NN;
 
 /**
  * @author oskar
@@ -27,13 +27,13 @@ public enum Side {
 	 * @param x X coordinate
 	 * @param y Y coordinate
 	 */
-	@Nonnull public Point offset(int x, int y) {
+	@NN public Point offset(int x, int y) {
 		return new Point(x+blockOffsetX, y+blockOffsetY);
 	}
 	/**
 	 * @return opposite side
 	 */
-	@Nonnull public Side negate() {
+	@NN public Side negate() {
 		switch(this) {
 		case D:
 			return U;
@@ -55,17 +55,17 @@ public enum Side {
 			throw new InternalError("Somehow an unknown side appearred");
 		}
 	}
-	@Nonnull public Side ccw() {
+	@NN public Side ccw() {
 		return Rotation.W.apply(this);
 	}
-	@Nonnull public Side cw() {
+	@NN public Side cw() {
 		return Rotation.E.apply(this);
 	}
 	/**
 	 * @param pt
 	 * @return
 	 */
-	@Nonnull public Point offset(Point pt) {
+	@NN public Point offset(Point pt) {
 		return offset(pt.x, pt.y);
 	}
 	

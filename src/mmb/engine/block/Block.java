@@ -8,12 +8,11 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.chance.Chance;
 import mmb.engine.texture.BlockDrawer;
 import mmb.engine.worlds.world.Player;
@@ -30,7 +29,7 @@ public class Block extends BlockBase implements BlockEntry{
 		return "Block " + title() + "(" + id() + ")";
 	}
 	@Override
-	public @Nonnull JsonNode save() {
+	public @NN JsonNode save() {
 		return new TextNode(id());
 	}
 	@Override
@@ -131,7 +130,7 @@ public class Block extends BlockBase implements BlockEntry{
 		return this;
 	}
 	@Override
-	@Nonnull public Block volumed(double volume) {
+	@NN public Block volumed(double volume) {
 		setVolume(volume);
 		return this;
 	}
@@ -175,7 +174,7 @@ public class Block extends BlockBase implements BlockEntry{
 		return this;
 	}
 	@Override
-	public void resetMap(@Nullable World map, int x, int y) {
+	public void resetMap(@Nil World map, int x, int y) {
 		//does nothing
 	}
 }

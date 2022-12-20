@@ -5,7 +5,7 @@ package mmb.engine.sound;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import javax.annotation.Nonnull;
+
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -14,6 +14,8 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.Mixer.Info;
 
 import org.apache.commons.io.IOUtils;
+
+import mmb.NN;
 
 /**
  * @author oskar
@@ -88,7 +90,7 @@ public class Sound {
 	 * Creates an audio input stream for this sound
 	 * @return an audio input stream
 	 */
-	@Nonnull public AudioInputStream newStream() {
+	@NN public AudioInputStream newStream() {
 		return new AudioInputStream(new ByteArrayInputStream(data, offset, length), format, frameLen);
 	}
 	/**
@@ -97,7 +99,7 @@ public class Sound {
 	 * @throws LineUnavailableException when clip fails to open
 	 * @throws IOException when I/O error occurs
 	 */
-	@Nonnull public Clip newClip() throws LineUnavailableException, IOException {
+	@NN public Clip newClip() throws LineUnavailableException, IOException {
 		Clip clip = AudioSystem.getClip();
 		open(clip);
 		return clip;
@@ -109,7 +111,7 @@ public class Sound {
 	 * @throws LineUnavailableException when clip fails to open
 	 * @throws IOException when I/O error occurs
 	 */
-	@Nonnull public Clip newClip(Info info) throws LineUnavailableException, IOException {
+	@NN public Clip newClip(Info info) throws LineUnavailableException, IOException {
 		Clip clip = AudioSystem.getClip(info);
 		open(clip);
 		return clip;

@@ -6,12 +6,11 @@ package mmb.content.electric;
 import java.util.Iterator;
 import java.util.function.Consumer;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.collect.Iterators;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.MMBUtils;
 import mmb.engine.json.JsonTool;
 import mmb.engine.rotate.Side;
@@ -80,7 +79,7 @@ Cloneable, Iterable<mmb.content.electric.SideConfig.SideBoolean>, Saver{
 		return result;
 	}
 	@Override
-	public boolean equals(@Nullable Object obj) {
+	public boolean equals(@Nil Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -100,7 +99,7 @@ Cloneable, Iterable<mmb.content.electric.SideConfig.SideBoolean>, Saver{
 	
 	public static class SideBoolean implements Comparable<SideBoolean>{
 		public final boolean value;
-		@Nonnull public final Side side;
+		@NN public final Side side;
 		private final String toString;
 		@Override
 		public String toString() {
@@ -113,22 +112,22 @@ Cloneable, Iterable<mmb.content.electric.SideConfig.SideBoolean>, Saver{
 			this.toString = (value ? "T_" : "F_")+side.toString();
 			this.index = (side.ordinal()*2)+MMBUtils.bool2int(value);
 		}
-		@Nonnull public static final SideBoolean T_U = new SideBoolean(true, Side.U);
-		@Nonnull public static final SideBoolean T_D = new SideBoolean(true, Side.D);
-		@Nonnull public static final SideBoolean T_L = new SideBoolean(true, Side.L);
-		@Nonnull public static final SideBoolean T_R = new SideBoolean(true, Side.R);
-		@Nonnull public static final SideBoolean T_UL = new SideBoolean(true, Side.UL);
-		@Nonnull public static final SideBoolean T_UR = new SideBoolean(true, Side.UR);
-		@Nonnull public static final SideBoolean T_DL = new SideBoolean(true, Side.DL);
-		@Nonnull public static final SideBoolean T_DR = new SideBoolean(true, Side.DR);
-		@Nonnull public static final SideBoolean F_U = new SideBoolean(false, Side.U);
-		@Nonnull public static final SideBoolean F_D = new SideBoolean(false, Side.D);
-		@Nonnull public static final SideBoolean F_L = new SideBoolean(false, Side.L);
-		@Nonnull public static final SideBoolean F_R = new SideBoolean(false, Side.R);
-		@Nonnull public static final SideBoolean F_UL = new SideBoolean(false, Side.UL);
-		@Nonnull public static final SideBoolean F_UR = new SideBoolean(false, Side.UR);
-		@Nonnull public static final SideBoolean F_DL = new SideBoolean(false, Side.DL);
-		@Nonnull public static final SideBoolean F_DR = new SideBoolean(false, Side.DR);
+		@NN public static final SideBoolean T_U = new SideBoolean(true, Side.U);
+		@NN public static final SideBoolean T_D = new SideBoolean(true, Side.D);
+		@NN public static final SideBoolean T_L = new SideBoolean(true, Side.L);
+		@NN public static final SideBoolean T_R = new SideBoolean(true, Side.R);
+		@NN public static final SideBoolean T_UL = new SideBoolean(true, Side.UL);
+		@NN public static final SideBoolean T_UR = new SideBoolean(true, Side.UR);
+		@NN public static final SideBoolean T_DL = new SideBoolean(true, Side.DL);
+		@NN public static final SideBoolean T_DR = new SideBoolean(true, Side.DR);
+		@NN public static final SideBoolean F_U = new SideBoolean(false, Side.U);
+		@NN public static final SideBoolean F_D = new SideBoolean(false, Side.D);
+		@NN public static final SideBoolean F_L = new SideBoolean(false, Side.L);
+		@NN public static final SideBoolean F_R = new SideBoolean(false, Side.R);
+		@NN public static final SideBoolean F_UL = new SideBoolean(false, Side.UL);
+		@NN public static final SideBoolean F_UR = new SideBoolean(false, Side.UR);
+		@NN public static final SideBoolean F_DL = new SideBoolean(false, Side.DL);
+		@NN public static final SideBoolean F_DR = new SideBoolean(false, Side.DR);
 		@Override
 		public int compareTo(@SuppressWarnings("null") SideBoolean o) {
 			return Integer.compare(index, o.index);
@@ -138,12 +137,12 @@ Cloneable, Iterable<mmb.content.electric.SideConfig.SideBoolean>, Saver{
 			return index;
 		}
 		@Override
-		public boolean equals(@Nullable Object obj) {
+		public boolean equals(@Nil Object obj) {
 			if(obj instanceof SideBoolean) 
 				return ((SideBoolean) obj).index == index;
 			return false;
 		}
-		public static @Nonnull SideBoolean of(boolean value, Side side) {
+		public static @NN SideBoolean of(boolean value, Side side) {
 			switch(side) {
 			case D:
 				return value ? T_D : F_D;
@@ -218,7 +217,7 @@ Cloneable, Iterable<mmb.content.electric.SideConfig.SideBoolean>, Saver{
 		return JsonTool.newArrayNode().add(U.getValue()).add(D.getValue()).add(L.getValue()).add(R.getValue());
 	}
 	@Override
-	public void load(@Nullable JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		U.setValue(data.get(0).asBoolean());
 		D.setValue(data.get(1).asBoolean());

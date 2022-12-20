@@ -5,10 +5,9 @@ package mmb.engine.inv;
 
 import java.util.Iterator;
 
-import javax.annotation.Nonnull;
-
 import com.google.common.collect.Iterators;
 
+import mmb.NN;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
 
@@ -17,7 +16,7 @@ import mmb.engine.item.ItemEntry;
  * An inventory, which only allows to extract items
  */
 public class ExtractionsOnlyInventory implements Inventory {
-	@Nonnull private final Inventory inv;
+	@NN private final Inventory inv;
 	private ExtractionsOnlyInventory(Inventory inv) {
 		this.inv = inv;
 	}
@@ -81,7 +80,7 @@ public class ExtractionsOnlyInventory implements Inventory {
 	public double volume() {
 		return inv.volume();
 	}
-	@Nonnull public static Inventory decorate(Inventory inv) {
+	@NN public static Inventory decorate(Inventory inv) {
 		if(!inv.canInsert()) return inv;
 		return new ExtractionsOnlyInventory(inv);
 	}

@@ -8,10 +8,9 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
@@ -21,7 +20,7 @@ import mmb.engine.item.ItemEntry;
  * An inventory is an object, which allows players and machines to store items.
  * @author oskar
  */
-public interface Inventory extends Collection<@Nonnull ItemRecord> {
+public interface Inventory extends Collection<@NN ItemRecord> {
 	//Item records
 	/**
 	 * Returns an iterator over the item records in this inventory.
@@ -30,7 +29,7 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	 * @return an {@code Iterator} over the elements in this inventory
 	 */
 	@Override
-	@Nonnull Iterator<@Nonnull ItemRecord> iterator();
+	@NN Iterator<@NN ItemRecord> iterator();
 	/**
 	 * Get the item record under given item type
 	 * @param entry item to get
@@ -38,14 +37,14 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	 * @throws NullPointerException if {@code entry} is null
 	 * @throws IllegalStateException if item does not exist
 	 */
-	@Nonnull public ItemRecord get(ItemEntry entry);
+	@NN public ItemRecord get(ItemEntry entry);
 	/**
 	 * Get the item record under given item type
 	 * @param entry
 	 * @return the item record with given type, or null if not found
 	 * @throws NullPointerException if {@code entry} is null
 	 */
-	@Nullable public ItemRecord nget(ItemEntry entry);
+	@Nil public ItemRecord nget(ItemEntry entry);
 	@Override
 	default ItemRecord[] toArray() {
 		return toArray(new ItemRecord[size()]);
@@ -154,7 +153,7 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	/** @return used volume of given inventory */
 	public double volume();
 	@Override
-	default boolean contains(@Nullable Object o) {
+	default boolean contains(@Nil Object o) {
 		if(o instanceof ItemRecord) {
 			ItemRecord got = nget(((ItemRecord) o).item());
 			if(got == null) return false;
@@ -224,7 +223,7 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	 * @apiNote The inventory reader is random access and iterative.
 	 * If inventory is modified during iteration, this inventory reader will fail.
 	 */
-	@Nonnull public default InventoryReader createReader() {
+	@NN public default InventoryReader createReader() {
 		return new InventoryReader() {
 			private final Iterator<ItemRecord> records = iterator();
 			private ItemRecord current = records.hasNext() ? records.next() : null;
@@ -296,7 +295,7 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	 * If this inventory does not allow insertions, the writer will be useless.
 	 * @return a new inventory writer
 	 */
-	@Nonnull public default InventoryWriter createWriter() {
+	@NN public default InventoryWriter createWriter() {
 		return new InventoryWriter() {
 			@Override
 			public int insert(ItemEntry ent, int amount) {
@@ -324,13 +323,13 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	/** @return capacity of given inventory */
 	public double capacity();
 	@Override
-	default boolean add(@Nonnull ItemRecord arg0) {
+	default boolean add(@NN ItemRecord arg0) {
 		return insert(arg0.item(), arg0.amount()) != 0;
 	}
 	@Override
-	default boolean addAll(Collection<@Nonnull ? extends ItemRecord> c) {
+	default boolean addAll(Collection<@NN ? extends ItemRecord> c) {
 		boolean changed = false;
-		for(@Nonnull ItemRecord irecord: c) {
+		for(@NN ItemRecord irecord: c) {
 			changed |= (insert(irecord.item(), irecord.amount())) != 0;
 		}
 		return changed;
@@ -343,7 +342,7 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	}
 	
 	@Override
-	default boolean remove(@Nullable Object o) {
+	default boolean remove(@Nil Object o) {
 		if(!(o instanceof ItemRecord)) return false;
 		ItemRecord iecord = nget(((ItemRecord)o).item());
 		if(iecord == null) return false;
@@ -386,15 +385,15 @@ public interface Inventory extends Collection<@Nonnull ItemRecord> {
 	
 	//I/O restrictions
 	/** @return an inventory without insertions allowed */
-	@Nonnull public default Inventory lockInsertions() {
+	@NN public default Inventory lockInsertions() {
 		return ExtractionsOnlyInventory.decorate(this);
 	}
 	/** @return an inventory without extractions allowed */
-	@Nonnull public default Inventory lockExtractions() {
+	@NN public default Inventory lockExtractions() {
 		return InsertionsOnlyInventory.decorate(this);
 	}
 	/** @return an inventory without I/O allowed */
-	@Nonnull public default Inventory readOnly() {
+	@NN public default Inventory readOnly() {
 		return ReadOnlyInventory.decorate(this);
 	}
 

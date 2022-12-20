@@ -6,8 +6,7 @@ package mmb.engine.item;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.texture.BlockDrawer;
 
 /**
@@ -123,7 +122,7 @@ public class ItemEntityType extends ItemBase{
 	 * @return this
 	 */
 	@Override
-	@Nonnull public ItemEntityType volumed(double volume) {
+	@NN public ItemEntityType volumed(double volume) {
 		setVolume(volume);
 		return this;
 	}

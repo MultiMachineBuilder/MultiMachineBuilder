@@ -6,12 +6,12 @@ package mmb.engine.mods;
 import java.io.*;
 import java.util.function.*;
 
-import javax.annotation.Nonnull;
 import org.apache.commons.compress.archivers.jar.JarArchiveEntry;
 import org.apache.commons.compress.archivers.jar.JarArchiveInputStream;
 import org.apache.commons.io.IOUtils;
 
 import io.github.micwan88.helperclass4j.ByteClassLoader;
+import mmb.NN;
 import mmb.engine.MMBUtils;
 import mmb.engine.debug.*;
 import mmb.engine.files.AdvancedFile;
@@ -25,10 +25,10 @@ public class ModLoader {
 	/**
 	 * This mod loader's loaded mod
 	 */
-	@Nonnull public final Modfile modfile;
-	@Nonnull public final String originalPath;
-	@Nonnull public final String name;
-	@Nonnull private Thread runningOn;
+	@NN public final Modfile modfile;
+	@NN public final String originalPath;
+	@NN public final String name;
+	@NN private Thread runningOn;
 	/**
 	 * Waits until mod finishes loading
 	 * @throws InterruptedException when loading stops abruptly

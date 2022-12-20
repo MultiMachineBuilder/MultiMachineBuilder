@@ -7,8 +7,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
-
+import mmb.NN;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
 
@@ -18,7 +17,7 @@ import mmb.engine.item.ItemEntry;
  */
 public interface InventoryReader {
 	/** An inventory reader without items */
-	@Nonnull InventoryReader NONE = new InventoryReader() {
+	@NN InventoryReader NONE = new InventoryReader() {
 		@Override
 		public int currentAmount() {
 			return 0;
@@ -146,9 +145,9 @@ public interface InventoryReader {
 	 */
 	public static class ExtractOpportunity{
 		/** The item under this extraction opportunity */
-		@Nonnull public final ItemEntry item;
+		@NN public final ItemEntry item;
 		/** The current inventory reader */
-		@Nonnull public final InventoryReader ir;
+		@NN public final InventoryReader ir;
 		/**
 		 * Creates a new extraction opportunity
 		 * @param item the item under this extraction opportunity

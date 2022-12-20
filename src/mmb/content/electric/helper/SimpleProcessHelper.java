@@ -3,14 +3,13 @@
  */
 package mmb.content.electric.helper;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.util.concurrent.Runnables;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.Battery;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.CycleResult;
@@ -28,14 +27,14 @@ import mmb.engine.item.ItemEntry;
  * A class to help make simple item processors
  */
 public class SimpleProcessHelper{
-	@Nonnull private final SimpleRecipeGroup<?> recipes;
-	@Nonnull private final Inventory input;
-	@Nonnull private final Inventory output;
+	@NN private final SimpleRecipeGroup<?> recipes;
+	@NN private final Inventory input;
+	@NN private final Inventory output;
 	/**  The inventory to source catalysts from */
 	public final SingleItemInventory catalysts;
 	private final double speed;
-	@Nonnull private final Battery elec;
-	@Nonnull private final VoltageTier volt;
+	@NN private final Battery elec;
+	@NN private final VoltageTier volt;
 	/** The object which is currently refreshed. It may be null */
 	public Refreshable refreshable;
 	
@@ -65,7 +64,7 @@ public class SimpleProcessHelper{
 	 * @param volt voltage tier
 	 */
 	public SimpleProcessHelper(SimpleRecipeGroup<?> recipes, Inventory input, Inventory output,
-			double speed, Battery elec, @Nullable SingleItemInventory catalysts, VoltageTier volt) {
+			double speed, Battery elec, @Nil SingleItemInventory catalysts, VoltageTier volt) {
 		super();
 		this.recipes = recipes;
 		this.input = input;

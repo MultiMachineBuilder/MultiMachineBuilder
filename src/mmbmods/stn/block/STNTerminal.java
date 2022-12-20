@@ -3,9 +3,8 @@
  */
 package mmbmods.stn.block;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.Inventory;
 import mmb.engine.rotate.RotatedImageGroup;
@@ -21,7 +20,7 @@ import mmbmods.stn.network.STNNetworkProcessing.STNRGroupTag;
  */
 public class STNTerminal extends STNBaseMachine implements BlockActivateListener {
 
-	@Nonnull private static final RotatedImageGroup rig = RotatedImageGroup.create("stn/terminal.png");
+	@NN private static final RotatedImageGroup rig = RotatedImageGroup.create("stn/terminal.png");
 	@Override
 	public BlockType type() {
 		return STN.STN_terminal;
@@ -57,7 +56,7 @@ public class STNTerminal extends STNBaseMachine implements BlockActivateListener
 
 	STNTerminalGUI gui;
 	@Override
-	public void click(int blockX, int blockY, World map, @Nullable WorldWindow window, double partX, double partY) {
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(gui != null) return;
 		if(window == null) return;
 		gui = new STNTerminalGUI(this, window);
