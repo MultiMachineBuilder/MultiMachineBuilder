@@ -26,6 +26,11 @@ import mmb.engine.debug.Debugger;
 public class CatchingEvent<T> implements Event<T> {
 	private Debugger debug;
 	private String msg;
+	/**
+	 * Creates a catching event
+	 * @param debug debugger which prints errors
+	 * @param msg error message
+	 */
 	public CatchingEvent(Debugger debug, String msg) {
 		this.debug = debug;
 		this.msg = msg;

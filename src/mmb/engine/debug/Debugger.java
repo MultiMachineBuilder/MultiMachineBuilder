@@ -95,6 +95,7 @@ public class Debugger {
 	 * @param id ddebugger ID
 	 */
 	public Debugger(String id) {
+		init();
 		this.id = id;
 	}
 	/**

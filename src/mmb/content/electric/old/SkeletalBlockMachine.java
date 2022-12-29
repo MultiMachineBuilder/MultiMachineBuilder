@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.electric.machines;
+package mmb.content.electric.old;
 
 import java.awt.Component;
 import java.util.function.Consumer;

@@ -4,14 +4,9 @@
 package mmbmods.stn.planner;
 
 import java.util.ArrayDeque;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.Queue;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
-
-import com.google.common.collect.Iterators;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.NN;

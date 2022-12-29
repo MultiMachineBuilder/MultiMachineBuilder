@@ -21,8 +21,6 @@ import mmb.engine.inv.Inventory;
 import mmb.engine.inv.NoSuchInventory;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
-import mmbbase.menu.world.window.GUITab;
-import mmbbase.menu.world.window.WorldWindow;
 
 /**
  * A chest which accepts modules
@@ -76,11 +74,11 @@ public final class ModularChest extends BlockEntityData implements ModularBlock<
 	
 	//No settings support
 	@Override
-	public void loadSettings(@Nil JsonNode node, Object settings) {
+	public void loadSettings(@Nil JsonNode node, @Nil Object settings) {
 		//unused
 	}
 	@Override
-	public JsonNode saveSettings(Object node) {
+	public JsonNode saveSettings(@Nil Object node) {
 		return null;
 	}
 	@Override
@@ -88,7 +86,7 @@ public final class ModularChest extends BlockEntityData implements ModularBlock<
 		return null;
 	}
 	@Override
-	public void setSettings(Object settings) {
+	public void setSettings(@Nil Object settings) {
 		//unused
 	}
 

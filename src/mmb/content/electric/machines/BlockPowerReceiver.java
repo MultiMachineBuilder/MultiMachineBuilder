@@ -16,6 +16,7 @@ import mmb.engine.rotate.RotatedImageGroup;
  * @author oskar
  */
 public class BlockPowerReceiver extends BlockEntityRotary implements Electric {
+	/** The texture for a power receiver */
 	public static final RotatedImageGroup rig = RotatedImageGroup.create("machine/preceiver.png");
 	@NN private final ElectroMachineType type;
 

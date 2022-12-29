@@ -13,6 +13,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.SetMultimap;
 
+import mmb.Main;
 import mmb.NN;
 import mmb.Nil;
 import mmb.engine.debug.Debugger;
@@ -69,12 +70,13 @@ public class Items {
 	 * @param name ID of the block
 	 * @return a block with given name, or null if not found
 	 */
-	public static ItemType get(@Nil String name) {
+	@Nil public static ItemType get(@Nil String name) {
+		if(name == null) return null;		
 		ItemType get = items.get(name);
 		if(get == null) get = deprecator.get(name);
 		return get;
 	}
-	public static <T extends ItemType> T getExpectType(@Nil String name, Class<T> cls) {
+	@Nil public static <T extends ItemType> T getExpectType(@Nil String name, Class<T> cls) {
 		ItemType item = get(name);
 		if(cls.isInstance(item)) return cls.cast(item);
 		return null;

@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import io.vavr.Tuple2;
+import mmb.Main;
 import mmb.NN;
 import mmb.Nil;
 import mmb.engine.GameEvents;
@@ -64,9 +65,10 @@ public class Universe implements Saver, Indexable{
 	 */
 	public final SelfSet<String, World> maps = HashSelfSet.createNonnull(World.class);
 	/** The main world */
-	private World main;
+	@Nil private World main;
 	/** @return the main world */
 	public World getMain() {
+		if(main == null) main = new World(1, 1, 0, 0);
 		return main;
 	}
 	/** @param main new main world*/
@@ -124,15 +126,21 @@ public class Universe implements Saver, Indexable{
 				main = map;
 			}
 			GameEvents.onUniverseLoad.trigger(new Tuple2<>(this, on));
-		}else debug.printl("Not an ObjectNode");
+		}else if(Main.isRunning()) {
+			 debug.printl("Not an ObjectNode");
+		}
 	}
 	@Override
 	@NN public JsonNode save() {
+		//Node to save to
+		ObjectNode master = JsonTool.newObjectNode();
+		
 		//Save the main map
 		debug.printl("Saving main BlockMap");
-		World main0 = main;
+		World main0 = getMain();
 		if(main0 == null) throw new IllegalStateException("The main map is null");
 		JsonNode mainNode = World.save(main0);
+		master.set("main", mainNode); //main map
 		
 		//Save extra maps
 		ObjectNode mapsNode = JsonTool.newObjectNode();
@@ -140,15 +148,11 @@ public class Universe implements Saver, Indexable{
 			debug.printl("Saving BlockMap: "+map.getName());
 			mapsNode.set(map.getName(), World.save(map));
 		}
-				
-		//Node to save to
-		ObjectNode master = JsonTool.newObjectNode();
 		
 		//Run the save event
 		GameEvents.onUniverseSave.trigger(new Tuple2<>(this, master));
 		
 		//Combine all three
-		master.set("main", mainNode); //main map
 		master.set("maps", mapsNode); //extra maps
 		return master;
 	}
@@ -158,7 +162,7 @@ public class Universe implements Saver, Indexable{
 	 * Starts up the universe
 	 */
 	public void start() {
-		main.startTimer(); //this fails
+		getMain().startTimer();
 		maps.values().forEach(World::startTimer);
 	}
 	/**
@@ -166,7 +170,7 @@ public class Universe implements Saver, Indexable{
 	 */
 	public void destroy() {		
 		//Shut down all maps
-		main.destroy();
+		if(main != null) main.destroy();
 		maps.values().forEach(World::destroy);
 		
 		//Kill the allocation

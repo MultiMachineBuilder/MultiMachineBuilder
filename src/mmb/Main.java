@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import mmb.engine.MMBUtils;
 import mmb.engine.debug.Debugger;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.settings.Settings;
@@ -14,6 +15,8 @@ import javax.swing.JLabel;
 
 import java.awt.EventQueue;
 import java.io.File;
+import java.util.function.Consumer;
+
 import net.miginfocom.swing.MigLayout;
 import ru.krlvm.swingdpi.SwingDPI;
 
@@ -58,8 +61,18 @@ public class Main extends JFrame {
 	 */
 	public static void crash(Throwable e) {
 		debug.pstm(e, "GAME HAS CRASHED");
-		System.exit(1);
+		if(errorHook != null) {
+			 errorHook.accept(e);
+			 MMBUtils.shoot(e);
+		}
+		else System.exit(1);
 	}
+	@Nil private static Consumer<Throwable> errorHook;
+	public static void errorhook(Consumer<Throwable> eh) {
+		if(running && errorHook != null) throw new IllegalStateException("Debugging only");
+		errorHook = eh;
+	}
+	
 	public static void state1(String str) {
 		loader.st1.setText(str);
 		debug.printl("State: "+str);

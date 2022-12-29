@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.electric.machines;
+package mmb.content.electric.old;
 
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntry;

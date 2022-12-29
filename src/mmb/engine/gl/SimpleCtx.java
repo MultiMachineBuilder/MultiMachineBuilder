@@ -3,7 +3,6 @@
  */
 package mmb.engine.gl;
 
-import org.apache.commons.io.IOUtils;
 import org.joml.Matrix2f;
 import org.joml.Matrix2fc;
 import org.joml.Matrix4f;
@@ -11,8 +10,6 @@ import org.joml.Vector2f;
 import org.joml.Vector2fc;
 import org.joml.Vector2i;
 import org.joml.Vector4fc;
-import com.rainerhahnekamp.sneakythrow.Sneaky;
-
 import static org.lwjgl.opengl.GL11.GL_NEAREST;
 import static org.lwjgl.opengl.GL11.GL_RGBA;
 import static org.lwjgl.opengl.GL11.GL_RGBA8;

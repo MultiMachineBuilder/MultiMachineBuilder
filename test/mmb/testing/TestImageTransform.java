@@ -12,6 +12,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import mmb.engine.rotate.Rotations;
@@ -25,18 +26,13 @@ public class TestImageTransform extends JFrame {
 	private JPanel contentPane;
 	private TestRotationsDrawer testRotationsDrawer;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TestImageTransform frame = new TestImageTransform();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		EventQueue.invokeLater(() -> {
+			try {
+				TestImageTransform frame = new TestImageTransform();
+				frame.setVisible(true);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		});
 	}
@@ -45,10 +41,7 @@ public class TestImageTransform extends JFrame {
 	 * Create the frame.
 	 */
 	public TestImageTransform() {
-		initialize();
-	}
-	private void initialize() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -58,16 +51,12 @@ public class TestImageTransform extends JFrame {
 		try {
 			img = ImageIO.read(new File("textures/example rotation.png"));
 			BufferedImage[] images = Rotations.mirroredVersions(img);
-			BufferedImage result = new BufferedImage(256, 32, BufferedImage.TYPE_INT_RGB);
 			testRotationsDrawer = new TestRotationsDrawer();
 			testRotationsDrawer.images = images;
 			contentPane.add(testRotationsDrawer, BorderLayout.CENTER);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 	}
 
 }

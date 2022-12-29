@@ -20,7 +20,7 @@ import mmbbase.data.variables.ListenableValue;
  * @author oskar
  * @param <T> type of values
  */
-public class Slot<@Nil T> extends ListenableValue<T>{
+public class Slot<T> extends ListenableValue<@Nil T>{
 	@NN private static final Debugger debug = new Debugger("MODULAR SLOTS");
 	/** The type of the slots */
 	@NN public final Class<T> type;

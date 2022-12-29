@@ -15,14 +15,14 @@ import mmb.content.electric.machines.BlockDigger;
 import mmb.content.electric.machines.BlockGeneratorSolid;
 import mmb.content.electric.machines.BlockPowerReceiver;
 import mmb.content.electric.machines.BlockPowerTower;
-import mmb.content.electric.machines.FurnacePlus;
-import mmb.content.electric.machines.Nuker;
 import mmb.content.electric.machines.PowerLoad;
 import mmb.content.electric.machines.PowerMeter;
 import mmb.content.electric.machines.ProcessorComplexBlock;
 import mmb.content.electric.machines.ProcessorComplexCatalyzedBlock;
 import mmb.content.electric.machines.ProcessorSimpleBlock;
 import mmb.content.electric.machines.ProcessorSimpleCatalyzedBlock;
+import mmb.content.electric.old.FurnacePlus;
+import mmb.content.electric.old.Nuker;
 import mmb.content.imachine.BlockCollector;
 import mmb.content.imachine.DualPipe;
 import mmb.content.imachine.IntersectingPipeExtractor;
@@ -277,12 +277,12 @@ public class ContentsBlocks {
 	
 	//DEPRECATED old modular machines
 	/** @deprecated An old block for a furnace. Use {@link #efurnace}{@code .}{@link #ElectricMachineGroup.getBlock(int) get}{@code (1)} instead */
-	@Deprecated(since="0.5") @NN public static final BlockEntityType EFURNACE = new BlockEntityType() //NOSONAR
+	@Deprecated(since="0.5", forRemoval=true) @NN public static final BlockEntityType EFURNACE = new BlockEntityType()
 			.title("#depr-furnace")
 			.factory(FurnacePlus::new)
 			.texture("machine/esmelter.png")
 			.finish("elec.furnace");
-	@NN public static final BlockEntityType NUKEGEN = new BlockEntityType()
+	@Deprecated(since="0.6", forRemoval=true) @NN public static final BlockEntityType NUKEGEN = new BlockEntityType()
 			.title("#depr-nuker")
 			.factory(Nuker::new)
 			.texture("machine/power/nuke reactor.png")

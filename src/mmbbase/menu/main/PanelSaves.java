@@ -14,26 +14,16 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 
-import org.apache.commons.io.IOUtils;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.rainerhahnekamp.sneakythrow.Sneaky;
-
-import mmb.Main;
-import mmb.engine.MMBUtils;
+import mmb.PlayAWorld;
 import mmb.engine.debug.Debugger;
 import mmb.engine.files.AdvancedFile;
 import mmb.engine.files.LocalFile;
 import mmb.engine.files.Save;
 import mmb.engine.generator.NewGame;
-import mmb.engine.json.JsonTool;
 import mmb.engine.window.FullScreen;
-import mmb.engine.worlds.universe.Universe;
-import mmbbase.menu.world.window.WorldWindow;
 import net.miginfocom.swing.MigLayout;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -42,7 +32,7 @@ import java.util.ArrayList;
  */
 public class PanelSaves extends JPanel {
 	private static final long serialVersionUID = -873377369477463310L;
-	private final transient Debugger debug = new Debugger("SELECT A SAVE");	
+	private static final Debugger debug = new Debugger("SELECT A SAVE");	
 	private static final JFileChooser jfc = new JFileChooser();
 	/**
 	 * The singleton instance of {@code PanelSaves}
@@ -106,10 +96,10 @@ public class PanelSaves extends JPanel {
 	
 	/** Plays an external world */
 	@SuppressWarnings("null")
-	private void playExternal() {
+	public void playExternal() {
 		int result = jfc.showOpenDialog(this);
 		if(result == JFileChooser.APPROVE_OPTION) {
-			play(new Save(new LocalFile(jfc.getSelectedFile())));
+			new PlayAWorld().play(new Save(new LocalFile(jfc.getSelectedFile())));
 		}
 	}
 
@@ -126,57 +116,7 @@ public class PanelSaves extends JPanel {
 			refresh();
 			return;
 		}
-		play(s);
-	}
-	
-	/**
-	 * Plays a specific world
-	 * @param s file to play
-	 */
-	public void play(Save s) {
-		WorldWindow ww = new WorldWindow();
-		FullScreen.setWindow(ww);
-		new Thread(() -> fullPlay(s, ww)).start();
-	}
-
-	/**
-	 * @param s
-	 * @param ww
-	 */
-	public void fullPlay(Save s, WorldWindow ww){
-		boolean fail = true;
-		try(InputStream in = s.file.getInputStream()) {
-			debug.printl("Opened a file");
-			String loadedData = IOUtils.toString(in);
-			debug.printl("Loaded a file");
-			Universe world = new Universe();
-			@SuppressWarnings("null")
-			JsonNode node = JsonTool.parse(loadedData);
-			if(node == null || node.isMissingNode()) {
-				debug.printl("Failed to parse JSON data");
-				EventQueue.invokeLater(ww::dispose); //Control given back to EDT to close unnecessary window
-			}
-			debug.printl("Parsed file");
-			world.load(node);
-			debug.printl("Loaded");
-			ww.setWorld(s, world);
-			fail = false;
-		}catch(Exception e) {
-			debug.pstm(e, "Failed to load the world");
-			MMBUtils.shoot(e);
-		}catch(OutOfMemoryError e) {
-			debug.pstm(e, "Ran out of memory while loading");
-		}catch(Throwable e) {
-			debug.printerrl("Fatal error while world loading");
-			Main.crash(e);
-		}finally {
-			if(fail) {
-				EventQueue.invokeLater(() -> {
-					ww.dispose();
-					FullScreen.setWindow(MainMenu.INSTANCE);
-				});//Control given back to EDT to close unnecessary window
-			}
-		}
+		new PlayAWorld().play(s);
 	}
 	
 	/**

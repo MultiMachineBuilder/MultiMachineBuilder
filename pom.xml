@@ -217,6 +217,13 @@
 		<m2e.eea.annotationpath.maven>/Multi Machine Builder/lib/eclipse-null-eea-augments-2.4.0/libraries/other</m2e.eea.annotationpath.maven>
 	</properties>
 	<dependencies>
+		<!-- Fuzzing -->
+		<dependency>
+		    <groupId>com.code-intelligence</groupId>
+		    <artifactId>jazzer-junit</artifactId>
+		    <version>0.13.3</version>
+		</dependency>
+	
 		<!-- Null analysis -->
 		<dependency>
 		  <groupId>org.lastnpe.eea</groupId>

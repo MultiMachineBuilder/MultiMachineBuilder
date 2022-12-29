@@ -6,7 +6,6 @@ package mmb.content.electronics;
 import java.awt.Color;
 
 import mmb.NN;
-import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.content.electric.VoltageTier;
 import mmb.content.rawmats.Materials;
 import monniasza.collects.Collects;
@@ -19,10 +18,8 @@ import monniasza.collects.selfset.SelfSet;
  */
 public class Electronics {
 	private Electronics() {}
-	/**
-	 * Initializes electronic components
-	 */
-	public static void init() {}
+	/** Initializes electronic components */
+	public static void init() { /* */ }
 	
 	//Component index
 	@NN        static final SelfSet<String, ComponentTier> tiers0 = HashSelfSet.createNonnull(ComponentTier.class);
