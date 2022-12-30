@@ -105,5 +105,5 @@ public interface Chance {
 	/**
 	 * @return unique items in this random chance
 	 */
-	@NN public Set<ItemEntry> items();
+	@NN public Set<@NN ItemEntry> items();
 }

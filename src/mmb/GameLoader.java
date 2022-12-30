@@ -1,7 +1,7 @@
 /**
  *
  */
-package mmbbase;
+package mmb;
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -12,11 +12,10 @@ import java.util.function.Consumer;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import mmb.Main;
-import mmb.NN;
 import mmb.content.Chemistry;
 import mmb.content.ContentsBlocks;
 import mmb.content.ContentsItems;
+import mmb.content.agro.Agro;
 import mmb.content.drugs.Alcohol;
 import mmb.content.electric.machines.BlockTransformer.TransformerData;
 import mmb.content.electric.old.Nuker;
@@ -24,6 +23,7 @@ import mmb.content.electronics.Electronics;
 import mmb.content.machinemics.manual.Crafting;
 import mmb.content.modular.chest.ModularChests;
 import mmb.content.rawmats.Materials;
+import mmb.content.stn.STN;
 import mmb.engine.MMBUtils;
 import mmb.engine.block.Blocks;
 import mmb.engine.debug.Debugger;
@@ -39,7 +39,6 @@ import mmb.engine.texture.Textures;
 import mmb.engine.window.FullScreen;
 import mmb.engine.worlds.DataLayers;
 import mmbbase.menu.wtool.Tools;
-import mmbmods.stn.STN;
 
 /**
  * @author oskar
@@ -125,7 +124,9 @@ public final class GameLoader {
 		});
 		debug.printl("Sounds: "+Sounds.sounds.keySet());
 		
-		
+		//Load base
+		Agro.init();
+		Tools.init();
 		//Load blocks
 		Main.state1("Loading blocks");
 		Blocks.init();
@@ -146,10 +147,9 @@ public final class GameLoader {
 		Crafting.init();
 		Nuker.init();
 		Generators.init();
-		Tools.init();
+		
 		FullScreen.initialize();
 		ModularChests.init();
-		
 		TransformerData.init();
 		
 		//Get external mods to load
@@ -261,7 +261,6 @@ public final class GameLoader {
 					debug.printl("End 2nd stage for " + mod.meta.name);
 				}catch(VirtualMachineError e){
 					Main.crash(e);
-				// deepcode ignore DontCatch: guarantee that game fully loads, VM errors used to crash the game earlier
 				}catch(Throwable e){
 					debug.pstm(e, "Failed to run a mod "+ mod.meta.name);
 					mod.state = ModState.DEAD;

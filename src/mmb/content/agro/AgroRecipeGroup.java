@@ -3,7 +3,10 @@
  */
 package mmb.content.agro;
 
+import java.util.Objects;
 import java.util.Set;
+
+import mmb.NN;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.GlobalRecipeRegistrar;
@@ -50,6 +53,8 @@ public class AgroRecipeGroup extends AbstractRecipeGroup<AgroRecipeGroup.AgroPro
 		 * @param duration duration in ticks between drops
 		 */
 		public AgroProcessingRecipe(ItemEntry input, RecipeOutput output, int duration) {
+			Objects.requireNonNull(input, "input crop is null");
+			Objects.requireNonNull(output, "output is null");
 			this.input = input;
 			this.output = output;
 			this.duration = duration;
@@ -101,11 +106,11 @@ public class AgroRecipeGroup extends AbstractRecipeGroup<AgroRecipeGroup.AgroPro
 	private final SelfSet<ItemEntry, AgroProcessingRecipe> _recipes = HashSelfSet.createNonnull(AgroProcessingRecipe.class);
 	public final SelfSet<ItemEntry, AgroProcessingRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
 	@Override
-	public Set<? extends ItemEntry> supportedItems() {
+	public @NN Set<? extends ItemEntry> supportedItems() {
 		return recipes.keys();
 	}
 	@Override
-	public SelfSet<ItemEntry, AgroProcessingRecipe> recipes() {
+	public @NN SelfSet<ItemEntry, AgroProcessingRecipe> recipes() {
 		return recipes;
 	}
 	

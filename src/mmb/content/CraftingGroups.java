@@ -6,7 +6,6 @@ package mmb.content;
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
 import mmb.NN;
-import mmb.content.agro.AgroRecipeGroup;
 import mmb.engine.craft.Craftings;
 import mmb.engine.craft.rgroups.CatalyzedSingleRecipeGroup;
 import mmb.engine.craft.rgroups.ComplexCatalyzedRecipeGroup;
@@ -66,8 +65,6 @@ public class CraftingGroups {
 	@NN public static final SingleRecipeGroup quarry = new SingleRecipeGroup("quarry");
 	/** Extruder recipes */
 	@NN public static final CatalyzedSingleRecipeGroup extruder = new CatalyzedSingleRecipeGroup("extruder");
-	/** Crop outputs */
-	@NN public static final AgroRecipeGroup agro = new AgroRecipeGroup("agrorecipes");
 	/** Sintered Carbides Factory recipes */
 	@NN public static final ComplexRecipeGroup sinterer = new ComplexRecipeGroup("sinterer", 2);
 	/** Inscriber recipes */

@@ -42,7 +42,7 @@ public class DataLayers {
 	@NN private static final Set<IndexedDatalayerMap<World, ? extends DataLayer<World>>> layersWorld0 =
 		Collections.newSetFromMap(new IdentityHashMap<>());
 	/** An unmodifiable set of world data layers */
-	@NN public static final Set<IndexedDatalayerMap<World, ? extends DataLayer<World>>> layersWorld =
+	@NN public static final Set<IndexedDatalayerMap<@NN World, ? extends DataLayer<World>>> layersWorld =
 		Collections.unmodifiableSet(layersWorld0);
 	/**
 	 * Sets up a world data layer for given JSON node
@@ -79,9 +79,9 @@ public class DataLayers {
 	 * @param populator populator for data layer
 	 * @return a new data layer
 	 */
-	@NN public static <T extends DataLayer<World>> IndexedDatalayerMap<World, T> createWorldDataLayerUsingNode
-	(String nodeName, Function<World, T> populator){
-		IndexedDatalayerMap<World, T> datalayer = new IndexedDatalayerMap<>(World.allocator, populator);
+	@NN public static <T extends DataLayer<@NN World>> IndexedDatalayerMap<@NN World, T> createWorldDataLayerUsingNode
+	(String nodeName, Function<@NN World, T> populator){
+		IndexedDatalayerMap<@NN World, T> datalayer = new IndexedDatalayerMap<>(World.allocator, populator);
 		registerWorldDataLayerUsingNode(nodeName, datalayer);
 		return datalayer;
 	}

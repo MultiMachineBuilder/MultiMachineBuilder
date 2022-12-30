@@ -4323,14 +4323,21 @@
     } ],
     "drops" : [ ],
     "machines" : [ ],
-    "data" : { },
     "player" : {
       "inventory" : [ 128.0, [ "mmb.stone", "mmb.stone", 1 ], [ "playerpipe.bend", 1 ], [ "playerpipe.bend2", 1 ], [ "playerpipe.end", 1 ], [ "playerpipe.straight2", 1 ], [ "playerpipe.straight", 1 ], [ "mmb.grass", "mmb.grass", 1 ] ],
       "creative" : true,
       "x" : -15.5,
-      "y" : -12.5
+      "y" : -13.5,
+      "alcohol1" : 0.0,
+      "alcohol2" : 0.0
+    },
+    "STN" : {
+      "queue" : [ 128.0 ],
+      "processing" : {
+        "recipesProcessing" : { },
+        "recipesCrafting" : [ "Infinity" ]
+      }
     }
   },
-  "data" : { },
   "maps" : { }
 }

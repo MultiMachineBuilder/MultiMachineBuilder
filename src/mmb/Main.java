@@ -8,7 +8,6 @@ import mmb.engine.MMBUtils;
 import mmb.engine.debug.Debugger;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.settings.Settings;
-import mmbbase.GameLoader;
 import mmbbase.menu.main.MainMenu;
 
 import javax.swing.JLabel;
@@ -29,9 +28,8 @@ public class Main extends JFrame {
 	private static final Debugger debug = new Debugger("MAIN");
 	
 	private final JPanel contentPane;
-	private JLabel st1 = new JLabel("State 1");
-	private JLabel st2 = new JLabel("State 2");
-	private static Main loader;
+	
+	
 
 	/** Create the frame. */
 	public Main() {
@@ -45,6 +43,7 @@ public class Main extends JFrame {
 		contentPane.add(st2, "cell 0 1,alignx center,aligny center");		
 	}
 
+	//Running check
 	private static boolean running;
 	/**
 	 * Checks if the game is run as executable. Used to suppress debugger initialization when designing GUIs
@@ -54,6 +53,7 @@ public class Main extends JFrame {
 		return Main.running;
 	}
 
+	//Crash handling
 	/**
 	 * Crashes the game to the desktop
 	 * @param e throwable, which caused the crash
@@ -73,6 +73,9 @@ public class Main extends JFrame {
 		errorHook = eh;
 	}
 	
+	//Labels
+	private JLabel st1 = new JLabel("State 1");
+	private JLabel st2 = new JLabel("State 2");
 	public static void state1(String str) {
 		loader.st1.setText(str);
 		debug.printl("State: "+str);
@@ -81,6 +84,8 @@ public class Main extends JFrame {
 		loader.st2.setText(str);
 	}
 
+	//Main method
+	private static Main loader;
 	/**
 	 * Runs the game
 	 * @param args the command line arguments

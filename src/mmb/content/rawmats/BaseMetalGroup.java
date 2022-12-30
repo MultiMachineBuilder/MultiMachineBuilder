@@ -6,8 +6,8 @@ package mmb.content.rawmats;
 import java.awt.Color;
 
 import mmb.NN;
-import mmb.content.ContentsBlocks;
 import mmb.content.CraftingGroups;
+import mmb.content.agro.Agro;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockEntityType;
@@ -37,7 +37,7 @@ public class BaseMetalGroup extends MetalGroup{
 		.texture(TexGen.genOre(c))
 		.title(materialConcatenateShort("mattype-ore"))
 		.finish("ore."+id);
-		crop = ContentsBlocks.crop(1500, ore, materialConcatenateShort("mattype-crop"), TexGen.genCrop(c), "crop."+id);
+		crop = Agro.crop(1500, ore, materialConcatenateShort("mattype-crop"), TexGen.genCrop(c), "crop."+id);
 		
 		//Recipes
 		CraftingGroups.smelting.add(ore, base, orePerSmelt, volt, baseEnergy);

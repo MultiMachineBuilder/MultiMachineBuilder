@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import mmbbase.GameLoader;
+import mmb.GameLoader;
 
 /**
  * @author oskar

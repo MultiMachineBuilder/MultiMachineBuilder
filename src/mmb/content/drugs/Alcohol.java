@@ -10,12 +10,15 @@ import static mmb.content.CraftingGroups.*;
 import java.util.ResourceBundle;
 
 import mmb.NN;
+import mmb.content.agro.Agro;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.craft.SimpleItemList;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 import mmb.engine.settings.GlobalSettings;
+import mmbbase.menu.wtool.Tools;
+import mmbbase.menu.wtool.WindowToolModel;
 
 /**
  * The main class for alcoholic beverages
@@ -48,6 +51,8 @@ public class Alcohol {
 		.texture("alcohol/beer.png")
 		.volumed(0.004)
 		.finish("drugs.beer");
+	public static final WindowToolModel TOOL_ALCOHOL =
+		new WindowToolModel(ToolAlcohol.ICON, ToolAlcohol::new, "alcohol");
 	
 	private static boolean inited = false;
 	/** Initializes items */
@@ -68,10 +73,13 @@ public class Alcohol {
 		//Brewery recipe for beer
 		brewery.add(new SimpleItemList(
 		Alcohol.beerEmpty.stack(16),
-		seeds.stack(8),
+		Agro.seeds.stack(8),
 		water.stack(1),
-		hops.stack(1),
-		yeast.stack(3)
-		), new SimpleItemList(Alcohol.beer.stack(16), yeast.stack(4)), VoltageTier.V1, 1000000);
+		Agro.hops.stack(1),
+		Agro.yeast.stack(3)
+		), new SimpleItemList(Alcohol.beer.stack(16), Agro.yeast.stack(4)), VoltageTier.V1, 1000000);
+		
+		//Alcohol tool
+		Tools.toollist.add(TOOL_ALCOHOL);
 	}
 }

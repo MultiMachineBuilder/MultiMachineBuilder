@@ -6,7 +6,7 @@ package mmb.content;
 import java.awt.image.BufferedImage;
 
 import mmb.NN;
-import mmb.content.agro.Crop;
+import mmb.content.agro.Agro;
 import mmb.content.electric.ElectricMachineGroup;
 import mmb.content.electric.InfiniteGenerator;
 import mmb.content.electric.VoltageTier;
@@ -62,7 +62,6 @@ import mmb.content.wireworld.GateMono.MonoGateType;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.Blocks;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.rgroups.ComplexCatalyzedRecipeGroup;
 import mmb.engine.craft.rgroups.ComplexRecipeGroup;
 import mmb.engine.craft.singles.SimpleRecipeGroup;
@@ -440,24 +439,10 @@ public class ContentsBlocks {
 	.texture("liquid/steam.png")
 	.title("#steam")
 	.finish("liquid.steam");
-	@NN public static final Block alcohol = new Block()
-	.texture("liquid/alcohol.png")
-	.title("#alcohol")
-	.finish("liquid.alcohol");
 	@NN public static final Block clay = new Block()
 	.texture("block/clay.png")
 	.title("#clay")
 	.finish("mmb.clay");
-	
-	//Crops
-	@NN public static final BlockEntityType AGRO_TREE =
-			crop(1500, logs, "#machine-tree", Textures.get("block/tree.png"), "crop.tree");
-	@NN public static final BlockEntityType AGRO_WATER =
-			crop(1000, water, "#machine-water", Textures.get("machine/water well.png"), "crop.water");
-	@NN public static final BlockEntityType AGRO_SEEDS =
-			crop(1000, ContentsItems.seeds, "#machine-seeds", Textures.get("block/cropfield.png"), "crop.seeds");
-	@NN public static final BlockEntityType AGRO_HOPS =
-			crop(1000, ContentsItems.hops, "#machine-hops", Textures.get("machine/hops.png"), "crop.hops");
 	
 	//Non-electic processing machines
 	@NN public static final BlockEntityType FURNACE = new BlockEntityType()
@@ -527,13 +512,6 @@ public class ContentsBlocks {
 			.texture("machine/speaker 2.png")
 			.finish("multi.speaker");
 	
-	//Reusable block methods
-	@NN
-	public static BlockEntityType crop(int duration, RecipeOutput cropDrop, String title, BufferedImage texture, String id) {
-		BlockEntityType result = new BlockEntityType().title(title).texture(texture).finish(id);
-		CraftingGroups.agro.add(result, cropDrop, duration);
-		return result.factory(() -> new Crop(result, duration, cropDrop));
-	}
 	@NN private static BlockEntityType ppipe(double length, Side a, Side b, String texture, String title, String id) {
 		BlockEntityType type = new BlockEntityType();
 		ChirotatedImageGroup tex = ChirotatedImageGroup.create(texture);
@@ -622,7 +600,6 @@ public class ContentsBlocks {
 		Items.tagItems("special", Blocks.air, Blocks.grass);
 		Items.tagItems("basic", Blocks.air, Blocks.grass, plank, stone, leaves, logs, sand, gravel, clay, water);
 		Items.tagItems("chest", HOPPER, HOPPER_suck, HOPPER_both);
-		Items.tagItems("shape-crop", AGRO_TREE, AGRO_WATER, AGRO_SEEDS, AGRO_HOPS);
 		Items.tagItems("pipe",ipipe_STRAIGHT, ipipe_ELBOW, ipipe_IPE, ipipe_TOLEFT, ipipe_TORIGHT, ipipe_CROSS, ipipe_DUALTURN, ipipe_FILTER, IMOVER);
 		Items.tagItem("voltage-ULV", COALGEN1);
 		Items.tagItems("voltage-VLV", COALGEN2, TURBOGEN1);

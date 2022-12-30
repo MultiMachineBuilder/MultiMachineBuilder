@@ -8,6 +8,7 @@ import java.util.Objects;
 
 import mmb.NN;
 import mmb.content.aim.ToolAim;
+import mmb.content.drugs.Alcohol;
 import mmb.content.drugs.ToolAlcohol;
 import mmb.content.imachine.ConfigureDroppedItemExtractors;
 import mmb.content.pickaxe.ToolPickaxe;
@@ -44,10 +45,8 @@ public class Tools {
 			new WindowToolModel(ToolPickaxe.icon, ToolPickaxe::new, "pickaxe");
 	public static final WindowToolModel TOOL_VISUALS =
 			new WindowToolModel(ToolVisuals.ICON, ToolVisuals::new, "visuals");
-	public static final WindowToolModel TOOL_ALCOHOL =
-			new WindowToolModel(ToolAlcohol.ICON, ToolAlcohol::new, "alcohol");
 	public static final WindowToolModel TOOL_AIM =
-			new WindowToolModel(ToolAlcohol.ICON, ToolAim::new, "aim");
+			new WindowToolModel(ToolAim.icon, ToolAim::new, "aim");
 
 	private static boolean initialized = false;
 	/**
@@ -62,7 +61,7 @@ public class Tools {
 		toollist.add(TOOL_DUMP);
 		toollist.add(TOOL_PICKAXE);
 		toollist.add(TOOL_VISUALS);
-		toollist.add(TOOL_ALCOHOL);
+		
 		toollist.add(TOOL_AIM);
 		debug.printl("Tools initialized");
 		initialized = true;

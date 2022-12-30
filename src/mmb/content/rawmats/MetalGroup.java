@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 
+import mmb.GameLoader;
 import mmb.NN;
 import mmb.Nil;
 import mmb.content.ContentsItems;
@@ -24,7 +25,6 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 import mmb.engine.java2d.TexGen;
 import mmb.engine.texture.Textures;
-import mmbbase.GameLoader;
 
 import static mmb.content.ContentsItems.frame1;
 import static mmb.engine.settings.GlobalSettings.*;

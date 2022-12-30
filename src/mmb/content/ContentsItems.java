@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 import mmb.NN;
+import mmb.content.agro.Agro;
 import mmb.content.aim.ToolAim;
 import mmb.content.ditems.ItemBOM;
 import mmb.content.ditems.ItemPIngredients;
@@ -74,21 +75,6 @@ public class ContentsItems {
 		.texture("item/glass panel.png")
 		.volumed(0.004)
 		.finish("item.glassp");
-	@NN public static final Item yeast = new Item()
-			.title("#yeast")
-			.texture("item/yeast.png")
-			.volumed(0.001)
-			.finish("item.yeast");
-	@NN public static final Item hops = new Item()
-			.title("#hops")
-			.texture("item/hops.png")
-			.volumed(0.001)
-			.finish("item.hops");
-	@NN public static final Item seeds = new Item()
-		.title("#seeds")
-		.texture("item/seeds.png")
-		.volumed(0.002)
-		.finish("item.seeds");
 	
 	//Tools
 	@NN public static final PickaxeType pickVW = Pickaxe.create(120, 15, "item/wood pick.png", "#pick-b", "pick.weak");
@@ -176,64 +162,6 @@ public class ContentsItems {
 		.volumed(0.00125)
 		.finish("industry.bearing1");
 	
-	//Electronic parts
-	@NN public static final Item resistor = new Item()
-			.title("#ind-res1")
-			.texture("item/resistor.png")
-			.volumed(0.00125)
-			.finish("industry.resistor1");
-	@NN public static final Item resistors = new Item()
-			.title("#ind-resa1")
-			.texture("item/resistor array.png")
-			.volumed(0.00625)
-			.finish("industry.resistors1");
-	@NN public static final Item capacitor = new Item()
-			.title("#ind-cap1")
-			.texture("item/capacitor.png")
-			.volumed(0.00125)
-			.finish("industry.capacitor1");
-	@NN public static final Item inductor = new Item()
-			.title("#ind-ind1")
-			.texture("item/inductor.png")
-			.volumed(0.00125)
-			.finish("industry.inductor1");
-	@NN public static final Item diode = new Item()
-			.title("#ind-dio1")
-			.texture("item/diode.png")
-			.volumed(0.00125)
-			.finish("industry.diode1");
-	@NN public static final Item transistor = new Item()
-			.title("#ind-tra1")
-			.texture("item/transistor.png")
-			.volumed(0.00125)
-			.finish("industry.transistor1");
-	@NN public static final Item IC = new Item()
-			.title("#ind-ic1")
-			.texture("item/IC.png")
-			.volumed(0.00125)
-			.finish("industry.IC1");
-	
-	@NN public static final Item circuit0 = circuit(0);
-	@NN public static final Item substrate0 = substrate(0);
-	@NN public static final Item circuit1 = circuit(1);
-	@NN public static final Item substrate1 = substrate(1);
-	@NN public static final Item circuit2 = circuit(2);
-	@NN public static final Item substrate2 = substrate(2);
-	@NN public static final Item circuit3 = circuit(3);
-	@NN public static final Item substrate3 = substrate(3);
-	@NN public static final Item circuit4 = circuit(4);
-	@NN public static final Item substrate4 = substrate(4);
-	@NN public static final Item circuit5 = circuit(5);
-	@NN public static final Item substrate5 = substrate(5);
-	@NN public static final Item circuit6 = circuit(6);
-	@NN public static final Item substrate6 = substrate(6);
-	@NN public static final Item circuit7 = circuit(7);
-	@NN public static final Item substrate7 = substrate(7);
-	@NN public static final Item circuit8 = circuit(8);
-	@NN public static final Item substrate8 = substrate(8);
-	@NN public static final Item circuit9 = circuit(9);
-	@NN public static final Item substrate9 = substrate(9);
-	
 	//Batteries
 	private static final String BATTERY = GlobalSettings.$res("battery");
 	@NN public static final ItemEntityType bat1 = battery(VoltageTier.V1);
@@ -292,8 +220,7 @@ public class ContentsItems {
 	static {
 		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, bucket, configExtractors, aim);
 		Items.tagItems("craftcode", craftcodes);
-		Items.tagItems("parts-electronic", resistor, capacitor, inductor, diode, transistor, IC, resistors);
-		Items.tagItems("agro", yeast, hops, seeds);
+		Items.tagItems("agro", Agro.yeast, Agro.hops, Agro.seeds);
 		Items.tagItems("material-glass", glass, glassp);
 		Items.tagItems("machine-battery", bat1, bat2, bat3, bat4, bat5, bat6, bat7);
 		Items.tagItem("voltage-ULV", bat1);
@@ -320,16 +247,6 @@ public class ContentsItems {
 				.factory(() -> new ItemBattery(type, voltage))
 				.finish("industry.bat"+(voltage.ordinal()+1));
 	}
-	@NN private static Item circuit(int n) {
-		Item item = new Item()
-		.title("#ind-circ"+n)
-		.texture("item/circuit "+n+".png")
-		.volumed(0.00125)
-		.finish("industry.processor"+n);
-		Items.tagItem("parts-electronic", item);
-		return item;
-	}
-
 	@NN private static Item speed(int n, Color c, double mul) {
 		StringBuilder descr = new StringBuilder().append(GlobalSettings.$res("speedupd1")).append(' ').append(mul).append(' ').append(GlobalSettings.$res("speedupd2"));
 		if(mul > 100) descr.append(' ').append(GlobalSettings.$res("speedlag"));
@@ -340,15 +257,6 @@ public class ContentsItems {
 		.describe(descr.toString())
 		.finish("industry.speed"+n);
 		Items.tagItem("speed", item);
-		return item;
-	}
-	@NN private static Item substrate(int n) {
-		Item item = new Item()
-		.title("#ind-sub"+n)
-		.texture("item/substrate "+n+".png")
-		.volumed(0.00125)
-		.finish("industry.substrate"+n);
-		Items.tagItem("parts-electronic", item);
 		return item;
 	}
 	@NN private static Item resrcbed(int n, Color c) {

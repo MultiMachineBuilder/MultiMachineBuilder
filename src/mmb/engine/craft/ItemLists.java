@@ -89,30 +89,30 @@ public class ItemLists {
 	/**
 	 * @return a stream collector to an item list
 	 */
-	@NN public static Collector<ItemStack, List<ItemStack>, SimpleItemList> collectToItemList(){
+	@NN public static Collector<@NN ItemStack, @NN List<@NN ItemStack>, @NN SimpleItemList> collectToItemList(){
 		return new ILCollector();
 	}
 
 }
-class ILCollector implements Collector<ItemStack, List<ItemStack>, SimpleItemList>{
+class ILCollector implements Collector<@NN ItemStack, @NN List<@NN ItemStack>, @NN SimpleItemList>{
 
 	@Override
-	public Supplier<List<ItemStack>> supplier() {
+	public @NN Supplier<@NN List<@NN ItemStack>> supplier() {
 		return ArrayList::new;
 	}
 
 	@Override
-	public BiConsumer<List<ItemStack>, ItemStack> accumulator() {
+	public @NN BiConsumer<@NN List<@NN ItemStack>, @NN ItemStack> accumulator() {
 		return List::add;
 	}
 
 	@Override
-	public BinaryOperator<List<ItemStack>> combiner() {
+	public @NN BinaryOperator<@NN List<@NN ItemStack>> combiner() {
 		return Collects::inplaceAddLists;
 	}
 
 	@Override
-	public Function<List<ItemStack>, SimpleItemList> finisher() {
+	public @NN Function<@NN List<@NN ItemStack>, @NN SimpleItemList> finisher() {
 		return SimpleItemList::new;
 	}
 

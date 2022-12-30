@@ -10,10 +10,10 @@ import javax.swing.JButton;
 
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
 import mmb.Nil;
+import mmb.content.stn.block.STNPusherGUI;
 import mmb.engine.settings.GlobalSettings;
 import mmbbase.menu.world.window.GUITab;
 import mmbbase.menu.world.window.WorldWindow;
-import mmbmods.stn.block.STNPusherGUI;
 
 /**
  * @author oskar

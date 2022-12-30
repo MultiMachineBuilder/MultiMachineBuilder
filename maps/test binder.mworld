@@ -23,18 +23,15 @@
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "pipe.toright",
       "side" : "N",
-      "dir" : false,
-      "items" : [ null, null, null ]
+      "dir" : false
     }, {
       "blocktype" : "pipe.L",
       "side" : "E",
-      "dir" : false,
-      "items" : [ null, null ]
+      "dir" : false
     }, {
       "blocktype" : "pipe.I",
       "side" : "E",
-      "dir" : false,
-      "items" : [ null, null ]
+      "dir" : false
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "itemsystem.mover",
       "side" : "N",
@@ -62,14 +59,21 @@
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass" ],
     "drops" : [ ],
     "machines" : [ ],
-    "data" : { },
     "player" : {
       "inventory" : [ 128.0, [ "gem.coal", 4 ] ],
       "creative" : true,
       "x" : 0.30000000000000004,
-      "y" : 0.30000000000000004
+      "y" : 0.30000000000000004,
+      "alcohol1" : 0.0,
+      "alcohol2" : 0.0
+    },
+    "STN" : {
+      "queue" : [ 128.0 ],
+      "processing" : {
+        "recipesProcessing" : { },
+        "recipesCrafting" : [ "Infinity" ]
+      }
     }
   },
-  "data" : { },
   "maps" : { }
 }

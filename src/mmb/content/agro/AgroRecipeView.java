@@ -4,6 +4,9 @@
 package mmb.content.agro;
 
 import net.miginfocom.swing.MigLayout;
+
+import static mmb.engine.settings.GlobalSettings.$res;
+
 import javax.swing.JLabel;
 import javax.swing.JList;
 
@@ -27,6 +30,9 @@ public class AgroRecipeView extends RecipeView<AgroProcessingRecipe>{
 	private JList<ItemStack> outList;
 	private JLabel lblMachine;
 	private JLabel lblEvery;
+	
+	public static final String EVERYTIME = $res("everytime")+" ";
+	public static final String SECONDS = " "+$res("seconds");
 	
 	/** Creates a recipe view for crop outputs */
 	public AgroRecipeView() {
@@ -53,7 +59,7 @@ public class AgroRecipeView extends RecipeView<AgroProcessingRecipe>{
 	}
 	@Override public void set(AgroProcessingRecipe recipe) {
 		lblMachine.setText(CRConstants.MACHINE+recipe.group().title());
-		lblEvery.setText(CRConstants.EVERYTIME+(recipe.duration/50.0)+CRConstants.SECONDS);
+		lblEvery.setText(EVERYTIME+(recipe.duration/50.0)+SECONDS);
 		ItemEntry item = recipe.input;
 		lblIn.setIcon(item.icon());
 		lblIn.setText(item.title());

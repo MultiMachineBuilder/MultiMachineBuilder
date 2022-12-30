@@ -4,6 +4,9 @@
 package mmb.content.drugs;
 
 import net.miginfocom.swing.MigLayout;
+
+import static mmb.engine.settings.GlobalSettings.$res;
+
 import javax.swing.JLabel;
 import javax.swing.JList;
 
@@ -27,6 +30,8 @@ public class AlcoholInfoView extends RecipeView<AlcoholInfo> {
 	private JList<ItemStack> outList;
 	private JLabel lblMachine;
 	private JLabel lblIntoxication;
+	
+	public static final String DOSE = " "+$res("alcodose")+" ";
 	
 	/** Creates recipe view for alcoholic beverages */
 	public AlcoholInfoView() {
@@ -54,7 +59,7 @@ public class AlcoholInfoView extends RecipeView<AlcoholInfo> {
 	@Override public void set(AlcoholInfo recipe) {
 		lblMachine.setText(CRConstants.MACHINE+recipe.group().title());
 		ItemEntry item = recipe.input;
-		lblIntoxication.setText(CRConstants.DOSE+recipe.dose);
+		lblIntoxication.setText(DOSE+recipe.dose);
 		lblIn.setIcon(item.icon());
 		lblIn.setText(item.title());
 		outList.setListData(VectorUtils.list2arr(recipe.output));

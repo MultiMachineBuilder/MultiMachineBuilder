@@ -32,7 +32,7 @@ import monniasza.collects.Collects;
  * Represents a recipe output.
  * All implementations of this interface must be immutable, and may have builders.
  */
-public interface RecipeOutput extends Chance, Iterable<ItemStack>{
+public interface RecipeOutput extends Chance, Iterable<@NN ItemStack>{
 	@Override
 	default boolean drop(@Nil InventoryWriter inv, @Nil World map, int x, int y) {
 		if(map == null) {
@@ -231,7 +231,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 		return Iterators.transform(getContents().object2IntEntrySet().iterator(), RecipeOutput::entry2stack);
 	}
 	
-	public static ItemStack entry2stack(Entry<ItemEntry> entry){
+	public static ItemStack entry2stack(Entry<@NN ItemEntry> entry){
 		return new ItemStack(entry.getKey(), entry.getIntValue());
 	}
 }

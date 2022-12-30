@@ -10,7 +10,7 @@
       "mode" : "ONCE_WHEN_POWERED",
       "state" : false,
       "signal" : false,
-      "phase" : 0
+      "phase" : 2
     }, "mmb.grass", "mmb.grass", "mmb.grass" ],
     "drops" : [ ],
     "machines" : [ ],
@@ -21,6 +21,13 @@
       "y" : 1.3,
       "alcohol1" : 0.0,
       "alcohol2" : 0.0
+    },
+    "STN" : {
+      "queue" : [ 128.0 ],
+      "processing" : {
+        "recipesProcessing" : { },
+        "recipesCrafting" : [ "Infinity" ]
+      }
     }
   },
   "maps" : { }
