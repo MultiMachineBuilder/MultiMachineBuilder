@@ -128,7 +128,7 @@ public class STNPlanner {
 		
 		//Run the planning
 		ItemEntry entry;
-		outer: while((entry = queue.poll()) != null) {
+		while((entry = queue.poll()) != null) {
 			int plannedAmount = planMap.getInt(entry);
 			if(plannedAmount <= 0) continue; //All items are planned for now
 			
@@ -137,6 +137,7 @@ public class STNPlanner {
 			if(itemsInInv >= plannedAmount) {
 				//Option A1: all planned items are stored
 				invRemain.addTo(entry, -plannedAmount);
+				continue;
 			}else if(itemsInInv > 0) {
 				//Option A2: some planned items are stored
 				plannedAmount -= itemsInInv;
@@ -226,14 +227,14 @@ public class STNPlanner {
 		
 		//Add the inputs to the plans and queue
 		Object2IntOpenHashMap<ItemEntry> totalInputs = inputs.mul2map(recipeQuantity, Object2IntOpenHashMap::new);
-		for(Entry<mmb.engine.item.ItemEntry> input: totalInputs.object2IntEntrySet()) {
+		for(Entry<ItemEntry> input: totalInputs.object2IntEntrySet()) {
 			planMap.addTo(input.getKey(), Math.multiplyExact(input.getIntValue(), recipeQuantity));
 			queue.add(input.getKey());
 		}
 		
 		//Add the outputs to the plans
-		Object2IntOpenHashMap<mmb.engine.item.ItemEntry> totalOutputs = outputs.mul2map(recipeQuantity, Object2IntOpenHashMap::new);
-		for(Entry<mmb.engine.item.ItemEntry> output: totalOutputs.object2IntEntrySet()) 
+		Object2IntOpenHashMap<ItemEntry> totalOutputs = outputs.mul2map(recipeQuantity, Object2IntOpenHashMap::new);
+		for(Entry<ItemEntry> output: totalOutputs.object2IntEntrySet()) 
 			planMap.addTo(output.getKey(), Math.multiplyExact(-output.getIntValue(), recipeQuantity));
 		
 		return totalInputs.keySet();

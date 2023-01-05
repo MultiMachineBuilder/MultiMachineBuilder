@@ -21,7 +21,7 @@ import mmb.engine.worlds.world.World;
  * The brains of Simple Transportation Network
  * @author oskar
  */
-public class DataLayerSTN extends DataLayer<World> {
+public class DataLayerSTN extends DataLayer<@NN World> {
 	@NN private final Debugger debug;
 
 	/**

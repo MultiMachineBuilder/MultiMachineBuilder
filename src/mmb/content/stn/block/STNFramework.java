@@ -3,6 +3,8 @@
  */
 package mmb.content.stn.block;
 
+import java.awt.Graphics;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -14,8 +16,8 @@ import mmb.content.modular.Slot.CoreSlot;
 import mmb.content.modular.Slot.SidedSlotHelper;
 import mmb.content.modular.chest.BlockModuleUniversal;
 import mmb.content.modular.chest.ChestCore;
-import mmb.content.modular.chest.ModularChests;
 import mmb.content.modular.gui.ModularChestGUI;
+import mmb.content.stn.STN;
 import mmb.content.stn.network.STNNetworkInventory;
 import mmb.content.stn.network.STNNetworkProcessing.STNRGroupTag;
 import mmb.engine.MMBUtils;
@@ -37,7 +39,7 @@ public class STNFramework extends STNBaseMachine implements ModularBlock<STNFram
 	//Basic stuff
 	@Override
 	public BlockType type() {
-		return ModularChests.chest;
+		return STN.STN_fw;
 	}
 	@Override
 	public STNBaseMachine blockCopy0() {
@@ -103,7 +105,8 @@ public class STNFramework extends STNBaseMachine implements ModularBlock<STNFram
 	public void onTick(MapProxy map) {
 		runAllModules(owner(), posX(), posY());
 		old = storage;
-		storage = getAtSide(getRotation().U()).getInventory(getRotation().D());
+		ChestCore<?> c = core();
+		storage = c==null?null:c.inventory;
 		if(storage instanceof STNNetworkInventory) storage = null;
 		if(storage != old) network().revalidate(this);
 	}
@@ -111,15 +114,16 @@ public class STNFramework extends STNBaseMachine implements ModularBlock<STNFram
 	//Inventory access
 	@Override
 	public Inventory i_inv(Side s) {
-		return network().inv;
+		return inv();
 	}
 	/** @return inventory of the used module */
-	public Inventory inv() {
+	@NN public Inventory inv() {
 		ChestCore<?> c = core();
 		if(c == null) return NoSuchInventory.INSTANCE;
-		return c.inventory;
+		return network().inv;
 	}
-
+	
+	//STN
 	@Override
 	public @Nil STNRGroupTag recipes() {
 		return null;
@@ -128,17 +132,24 @@ public class STNFramework extends STNBaseMachine implements ModularBlock<STNFram
 	public @Nil STNRGroupTag oldrecipes() {
 		return null;
 	}
-	
 	@Override
 	public @Nil Inventory storage() {
 		return storage;
 	}
-
 	@Override
 	public @Nil Inventory oldstorage() {
 		return old;
 	}
 
+	//Rendering
+	@Override
+	public void renderBG(Graphics g, int x, int y, int s) {
+		super.render(x, y, g, s);
+	}
+	@Override
+	public void render(int x, int y, Graphics g, int ss) {
+		ModularBlock.super.render(x, y, g, ss);
+	}
 	@Override
 	public RotatedImageGroup getImage() {
 		return rig;
@@ -156,5 +167,4 @@ public class STNFramework extends STNBaseMachine implements ModularBlock<STNFram
 		gui = tab;
 		return true;
 	}
-
 }

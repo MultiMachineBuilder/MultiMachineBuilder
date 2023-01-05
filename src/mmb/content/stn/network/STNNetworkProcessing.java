@@ -273,7 +273,7 @@ public class STNNetworkProcessing implements Saver{
 	@NN public final ManyToManyIndex<Stencil, ItemEntry> stencil2InIndex = new ManyToManyIndex<>(s -> s.in().items());
 	/** Index of stencil outputs */
 	@NN public final ManyToManyIndex<Stencil, ItemEntry> stencil2OutIndex = new ManyToManyIndex<>(s -> s.out().items());
-	@NN private final Database<Stencil> stencils0 = new Database<>(Stencil.class).addIndex(stencil2OutIndex).addIndex(stencil2InIndex);
+	@NN private final Database<@NN Stencil> stencils0 = new Database<>(Stencil.class).addIndex(stencil2OutIndex).addIndex(stencil2InIndex);
 	/** 
 	 * The inventory for stencils 
 	 * @apiNote DO NOT BULK INSERT
@@ -286,16 +286,16 @@ public class STNNetworkProcessing implements Saver{
 	
 	//process recipe index
 	/** Index of recipes by input, for this world*/
-	@NN public final ManyToManyIndex<STNRGroupTag.STNPRecipe, ItemEntry> processRecipe2InIndex =
+	@NN public final ManyToManyIndex<@NN STNRGroupTag.STNPRecipe, ItemEntry> processRecipe2InIndex =
 			new ManyToManyIndex<>(recipe -> recipe.in.items());
 	/** Index of recipes by output, for this world*/
-	@NN public final ManyToManyIndex<STNRGroupTag.STNPRecipe, ItemEntry> processRecipe2OutIndex =
+	@NN public final ManyToManyIndex<@NN STNRGroupTag.STNPRecipe, ItemEntry> processRecipe2OutIndex =
 			new ManyToManyIndex<>(recipe -> recipe.out.items());
 	/** Index of recipes by input, for this recipe tag*/
-	@NN public final OneToOneIndex<STNRGroupTag.STNPRecipe, Integer> processCountIndex =
+	@NN public final OneToOneIndex<@NN STNRGroupTag.STNPRecipe, Integer> processCountIndex =
 			new OneToOneIndex<>(recipe -> Integer.valueOf(recipe.count));
 	/** The full index of processing recipes */
-	@NN private final Database<STNRGroupTag.STNPRecipe> precipes0 =
+	@NN private final Database<@NN STNRGroupTag.STNPRecipe> precipes0 =
 			new Database<>(STNRGroupTag.STNPRecipe.class)
 			.addIndex(processRecipe2InIndex)
 			.addIndex(processRecipe2OutIndex)
@@ -411,7 +411,7 @@ public class STNNetworkProcessing implements Saver{
 		return queue.getOrDefault(entry, 0) < 0 || inv.getOrDefault(entry, 0) > 0 || isEverProducible(entry);
 	}
 	
-	public boolean isAllObtainable(Set<mmb.engine.item.ItemEntry> entries, Object2IntMap<ItemEntry> inv, Object2IntMap<ItemEntry> queue) {
+	public boolean isAllObtainable(Set<ItemEntry> entries, Object2IntMap<ItemEntry> inv, Object2IntMap<ItemEntry> queue) {
 		return CollectionOps.isAll(entries, item -> isEverObtainable(item, inv, queue));
 	}
 }

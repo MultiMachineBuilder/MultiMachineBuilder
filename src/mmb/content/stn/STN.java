@@ -46,15 +46,13 @@ public class STN {
 	@NN public static final MetalGroup STN_d =  new MetalGroup(new Color(0,  255, 250), "stnd", VoltageTier.V5, 6400_000, false);
 	
 	//Items
-	/**
-	 * Allows to add or remove STN cables
-	 */
+	/** Allows to add or remove STN cables */
 	@NN public static final ItemEntityType STN_cabler = new ItemEntityType()
-			.title("#STN-cabler")
-			.texture("stn/cabler.png")
-			.describe("#STN-cabler0")
-			.factory(CablingTool::new)
-			.finish("stn.cabler");
+		.title("#STN-cabler")
+		.texture("stn/cabler.png")
+		.describe("#STN-cabler0")
+		.factory(CablingTool::new)
+		.finish("stn.cabler");
 	
 	//Blocks
 	/** STN Storage Connector */
@@ -102,7 +100,7 @@ public class STN {
 		if(inited) return;
 		inited = true;
 		
-		Items.tagItems("STN", STN_cabler, STN_storage, STN_terminal, STN_exporter, STN_importer);
+		Items.tagItems("STN", STN_cabler, STN_storage, STN_terminal, STN_exporter, STN_importer, STN_fw);
 		
 		Materials.alloying(STN_a, 5, VoltageTier.V2, 800_000, 
 			Materials.iron.stack(1),
