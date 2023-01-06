@@ -306,15 +306,15 @@ public class ContentsRecipes {
 		crafting.addRecipeGrid(new ItemEntry[]{Materials.silicon.base, Materials.copper.base}, 1, 2, ww_wire, 24);
 		
 		//WireWorld gates - 2 inputs
-		crafting.addRecipe(new FixedGrid<ItemEntry>(3, 2,
+		crafting.addRecipeGrid(new ItemEntry[] {
 		null, YES, null,
-		YES, ww_wire, YES), OR, 4); //OR
-		crafting.addRecipe(new FixedGrid<ItemEntry>(3, 2,
+		YES, ww_wire, YES}, 3, 2, OR, 4); //OR
+		crafting.addRecipeGrid(new ItemEntry[] {
 		null, NOT, null,
-		YES, ww_wire, YES), XOR, 4); //XOR
-		crafting.addRecipe(new FixedGrid<ItemEntry>(3, 2,
+		YES, ww_wire, YES}, 3, 2, XOR, 4); //XOR
+		crafting.addRecipeGrid(new ItemEntry[] {
 		null, NOT, null,
-		NOT, ww_wire, NOT), AND, 4); //AND
+		NOT, ww_wire, NOT}, 3, 1, AND, 4); //AND
 		
 		//WireWorld gates - 1 input
 		crafting.addRecipeGrid(ww_wire, 1, 2, YES); //YES

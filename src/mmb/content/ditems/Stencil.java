@@ -3,11 +3,7 @@
  */
 package mmb.content.ditems;
 
-import java.util.Iterator;
 import java.util.Objects;
-import java.util.Spliterator;
-import java.util.function.Consumer;
-
 import org.ainslec.picocog.PicoWriter;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -21,7 +17,6 @@ import mmb.engine.craft.Recipe;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
 import mmb.engine.debug.Debugger;
-import mmb.engine.inv.ItemStack;
 import mmb.engine.item.ItemEntity;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
@@ -35,16 +30,23 @@ import monniasza.collects.grid.Grid;
  * Represents a crafting grid recipe
  */
 public class Stencil extends ItemEntity{
-	
-	//Others
 	private static final Debugger debug = new Debugger("STENCIL");
 	
-	//Collection methods
-
-	@NN private Grid<ItemEntry> grid = new FixedGrid<>(0);
+	//Constructors
+	/** Creates an empty stencil. */
+	public Stencil() {
+		//empty
+	}
+	/** @param items */
+	public Stencil(Grid<@Nil ItemEntry> items) {
+		this();
+		doReplaceTable(items);
+	}
 	
+	//Contents
+	@NN private Grid<@Nil ItemEntry> grid = new FixedGrid<>(0);
 	/** @return the unmodifiable item grid of this stencil*/
-	public Grid<ItemEntry> grid(){
+	public Grid<@Nil ItemEntry> grid(){
 		return Collects.unmodifiableGrid(grid);
 	}
 	
@@ -54,60 +56,6 @@ public class Stencil extends ItemEntity{
 	public String title() {
 		return title;
 	}
-
-	/**
-	 * Creates an empty stencil.
-	 */
-	public Stencil() {
-		//empty
-	}
-	/**
-	 * @param items
-	 */
-	public Stencil(Grid<ItemEntry> items) {
-		this();
-		doReplaceTable(items);
-	}
-
-	@Override
-	public ItemEntry itemClone() {
-		return this;
-	}
-
-	@Override
-	public void load(@Nil JsonNode array) {
-		if(array == null) return;
-		if(array.isArray()) {
-			Grid<ItemEntry> grid = Save.loadGrid(ItemEntry::loadFromJson, (ArrayNode)array);
-			doReplaceTable(grid);
-		}else{
-			debug.printl("Unsupported JsonNode: "+array.getNodeType());
-		}
-	}
-	@Override
-	public JsonNode save() {
-		return Save.saveGrid(ItemEntry::saveItem, grid);
-	}
-
-	private void doReplaceTable(Grid<ItemEntry> items) {
-		Grid<ItemEntry> trim = items.trim();
-		grid = trim;
-		if(trim.size() == 0) {
-			title = "Crafting stencil - none";
-			return;
-		}
-		CraftingRecipe recipe = recipe();
-		if(recipe == null) {
-			title = "Crafting stencil - invalid";
-			return;
-		}
-		RecipeOutput results = recipe.out;
-		PicoWriter writer = new PicoWriter();
-		writer.write("Crafting stencil - ");
-		results.represent(writer);
-		title = writer.toString();
-	}
-
 	@Override
 	public int hash0() {
 		final int prime = 31;
@@ -128,6 +76,48 @@ public class Stencil extends ItemEntity{
 			return false;
 		return true;
 	}
+	@Override
+	public ItemEntry itemClone() {
+		return this;
+	}
+	@Override
+	public ItemType type() {
+		return ContentsItems.stencil;
+	}
+	
+	//Serialization
+	@Override
+	public void load(@Nil JsonNode array) {
+		if(array == null) return;
+		if(array.isArray()) {
+			Grid<@Nil ItemEntry> grid1 = Save.loadGrid(ItemEntry::loadFromJson, (ArrayNode)array);
+			doReplaceTable(grid1);
+		}else{
+			debug.printl("Unsupported JsonNode: "+array.getNodeType());
+		}
+	}
+	@Override
+	public JsonNode save() {
+		return Save.saveGrid(ItemEntry::saveItem, grid);
+	}
+	private void doReplaceTable(Grid<@Nil ItemEntry> items) {
+		Grid<@Nil ItemEntry> trim = items.trim();
+		grid = trim;
+		if(trim.size() == 0) {
+			title = "Crafting stencil - none";
+			return;
+		}
+		CraftingRecipe recipe = recipe();
+		if(recipe == null) {
+			title = "Crafting stencil - invalid";
+			return;
+		}
+		RecipeOutput results = recipe.out;
+		PicoWriter writer = new PicoWriter();
+		writer.write("Crafting stencil - ");
+		results.represent(writer);
+		title = writer.toString();
+	}
 
 	//Crafting methods
 	private CraftingRecipe recipe0;
@@ -147,10 +137,4 @@ public class Stencil extends ItemEntity{
 	@NN public RecipeOutput out() {
 		return Recipe.out(recipe());
 	}
-	
-	@Override
-	public ItemType type() {
-		return ContentsItems.stencil;
-	}
-	
 }

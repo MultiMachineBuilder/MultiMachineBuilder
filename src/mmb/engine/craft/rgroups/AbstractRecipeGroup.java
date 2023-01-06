@@ -23,7 +23,7 @@ import mmbbase.menu.world.window.TabRecipes;
  * @author oskar
  * @param <T> type of recipes
  */
-public abstract class AbstractRecipeGroup<T extends Recipe<T>> implements RecipeGroup<T>{
+public abstract class AbstractRecipeGroup<@NN T extends Recipe<@NN T>> implements RecipeGroup<@NN T>{
 	@NN private final ListCellRenderer<T> cellRenderer;
 	
 	@NN private final String title;

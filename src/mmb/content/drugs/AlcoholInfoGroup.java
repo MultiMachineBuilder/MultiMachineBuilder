@@ -6,8 +6,6 @@ package mmb.content.drugs;
 import java.util.Set;
 
 import mmb.NN;
-import mmb.content.CraftingGroups;
-import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.GlobalRecipeRegistrar;
@@ -26,7 +24,7 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class AlcoholInfoGroup extends AbstractRecipeGroup<AlcoholInfoGroup.AlcoholInfo>{
+public class AlcoholInfoGroup extends AbstractRecipeGroup<@NN AlcoholInfoGroup.AlcoholInfo>{
 	/**
 	 * Creates a list of information about alcoholic beverages
 	 * @param id group ID (normally "alcohol")

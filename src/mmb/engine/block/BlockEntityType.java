@@ -141,7 +141,7 @@ public class BlockEntityType extends BlockBase{
 	 * @return this
 	 */
 	@Override
-	public BlockEntityType texture(String texture) {
+	@NN public BlockEntityType texture(String texture) {
 		setTexture(texture);
 		return this;
 	}
@@ -151,7 +151,7 @@ public class BlockEntityType extends BlockBase{
 	 * @return this
 	 */
 	@Override
-	public BlockEntityType texture(BufferedImage texture) {
+	@NN public BlockEntityType texture(BufferedImage texture) {
 		setTexture(texture);
 		return this;
 	}
@@ -161,7 +161,7 @@ public class BlockEntityType extends BlockBase{
 	 * @return this
 	 */
 	@Override
-	public BlockEntityType texture(Color texture) {
+	@NN public BlockEntityType texture(Color texture) {
 		setTexture(BlockDrawer.ofColor(texture));
 		return this;
 	}
@@ -171,17 +171,17 @@ public class BlockEntityType extends BlockBase{
 	 * @return this
 	 */
 	@Override
-	public BlockEntityType texture(BlockDrawer texture) {
+	@NN public BlockEntityType texture(BlockDrawer texture) {
 		setTexture(texture);
 		return this;
 	}
 	/**
 	 * Sets block factory.This is a convenience chainable method
-	 * @param factory block entity factory lambda expression
+	 * @param factory1 block entity factory lambda expression
 	 * @return this
 	 */
-	public BlockEntityType factory(Supplier<BlockEntry> factory) {
-		setFactory(factory);
+	@NN public BlockEntityType factory(Supplier<@NN BlockEntry> factory1) {
+		setFactory(factory1);
 		return this;
 	}
 	/**
@@ -190,7 +190,7 @@ public class BlockEntityType extends BlockBase{
 	 * @return this
 	 */
 	@Override
-	public BlockEntityType title(String title) {
+	@NN public BlockEntityType title(String title) {
 		setTitle(title);
 		return this;
 	}
@@ -200,7 +200,7 @@ public class BlockEntityType extends BlockBase{
 	 * @return this
 	 */
 	@Override
-	public BlockEntityType describe(String description) {
+	@NN public BlockEntityType describe(String description) {
 		setDescription(description);
 		return this;
 	}
@@ -210,7 +210,7 @@ public class BlockEntityType extends BlockBase{
 	 * @return this
 	 */
 	@Override
-	public BlockEntityType drop(Chance drop) {
+	@NN public BlockEntityType drop(Chance drop) {
 		setDrop(drop);
 		return this;
 	}
@@ -220,7 +220,7 @@ public class BlockEntityType extends BlockBase{
 	 * @return this
 	 */
 	@Override
-	public BlockEntityType finish(String id) {
+	@NN public BlockEntityType finish(String id) {
 		register(id);
 		return this;
 	}
@@ -230,7 +230,7 @@ public class BlockEntityType extends BlockBase{
 	 * @return this
 	 */
 	@Override
-	public BlockEntityType leaveBehind(BlockType block) {
+	@NN public BlockEntityType leaveBehind(BlockType block) {
 		setLeaveBehind(block);
 		return this;
 	}

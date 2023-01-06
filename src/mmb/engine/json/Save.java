@@ -19,7 +19,7 @@ import monniasza.collects.grid.Grid;
  */
 public class Save {
 	private Save() {}
-	@NN public static <T> FixedGrid<T> loadGrid(Function<JsonNode, @NN T> itemLoader, ArrayNode array){
+	@NN public static <T> FixedGrid<T> loadGrid(Function<JsonNode, T> itemLoader, ArrayNode array){
 		int width = array.get(0).asInt();
 		int height = array.get(1).asInt();
 		FixedGrid<T> grid = new FixedGrid<>(width, height);

@@ -18,7 +18,7 @@ import mmb.Nil;
  * @author oskar
  * @param <T> type of values
  */
-public class Database<@NN T> extends AbstractSet<T>{ //NOSONAR the method is a contract
+public class Database<@NN T> extends AbstractSet<@NN T>{ //NOSONAR the method is a contract
 	/** A list of indexes */
 	@NN public final Set<@NN Index<T, ?, ?>> indexes0 = new HashSet<>();
 	/** Type of objects */
@@ -49,6 +49,7 @@ public class Database<@NN T> extends AbstractSet<T>{ //NOSONAR the method is a c
 	 * @return this
 	 */
 	@NN public Database<T> addIndex(Index<T, ?, ?> index){
+		indexes0.add(index);
 		removeIf(val -> !index.add(val)); //add and filter both at once
 		return this;
 	}

@@ -25,10 +25,16 @@ public class Crop extends BlockEntityData {
 		return type;
 	}
 
-	private BlockType type;
-	private Chance drop;
+	@NN private BlockType type;
+	@NN private Chance drop;
 	private int progress;
 	private int time;
+	/**
+	 * Creates a crop block
+	 * @param type block type
+	 * @param time time between drops in ticks
+	 * @param drop item(s) to drop
+	 */
 	public Crop(BlockType type, int time, Chance drop) {
 		super();
 		this.type = type;

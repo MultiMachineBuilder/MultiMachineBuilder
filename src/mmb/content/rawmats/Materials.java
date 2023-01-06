@@ -13,7 +13,6 @@ import mmb.content.ContentsBlocks;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.VoltageTier;
 import mmb.content.rawmats.MetalGroup.MaterialStack;
-import mmb.engine.block.Blocks;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.SimpleItemList;
 import mmb.engine.debug.Debugger;
@@ -23,8 +22,8 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 
 /**
+ * A collection of base materials used for machine construction in MultiMachineBuilder
  * @author oskar
- *
  */
 public class Materials {
 	/**
@@ -112,44 +111,77 @@ public class Materials {
 	@NN public static final Color colorPTFE = new Color(150, 128, 150);
 	
 	//Tier 1 materials
+	/** The most basic metal in the game */
 	@NN public static final BaseMetalGroup rudimentary = new BaseMetalGroup(colorRudimentary, "rudimentary", VoltageTier.V1, 50_000, 3, false);
+	/** Important energy resource and resistive material */
 	@NN public static final BaseMetalGroup coal = new BaseMetalGroup(colorCoal, "coal", VoltageTier.V1, 50_000, 3, true);
+	/** Early game insulation and sealing material */
 	@NN public static final MetalGroup rubber =  new MetalGroup(colorRubber, "rubber", VoltageTier.V1, 20_000, false);
 	
 	//Tier 2 materials
+	/** Cheap VLV high power cable alloy */
 	@NN public static final MetalGroup rudimentium =  new MetalGroup(colorRudimentium, "rudimentium", VoltageTier.V1, 100_000, false);
+	/** The basic conductive, lower power VLV cable material and used for electronic components */
 	@NN public static final BaseMetalGroup copper =   new BaseMetalGroup(colorCopper, "copper", VoltageTier.V1, 100_000, 1, false);
+	/** The primary VLV construction and transformer material*/
 	@NN public static final BaseMetalGroup iron =     new BaseMetalGroup(colorIron, "iron", VoltageTier.V1, 120_000, 1, false);
+	/** The basic semiconductor material, used in basic, enhanced, refined and advanced circuits */
 	@NN public static final BaseMetalGroup silicon =  new BaseMetalGroup(colorSilicon, "silicon", VoltageTier.V1, 115_000, 1, false);
+	/** Solder material, used to solder some electronic components */
 	@NN public static final BaseMetalGroup tin =      new BaseMetalGroup(colorTin, "tin", VoltageTier.V1, 20_000, 1, false);
+	/** Used only for brass, which is unused */
 	@NN public static final BaseMetalGroup zinc =     new BaseMetalGroup(colorZinc, "zinc", VoltageTier.V1, 30_000, 1, false);
+	/** A lightweight material, used in some speed upgrades */
 	@NN public static final BaseMetalGroup alu =      new BaseMetalGroup(colorAlu, "alu", VoltageTier.V1, 40_000, 1, false);
+	/** A heavy material, used in ULV and VLV batteries */
 	@NN public static final BaseMetalGroup lead =     new BaseMetalGroup(colorLead, "lead", VoltageTier.V1, 25_000, 1, false);
+	/** Enhanced resistive material, used in VLV machines and advanced components*/
 	@NN public static final BaseMetalGroup nickel =   new BaseMetalGroup(colorNickel, "nickel", VoltageTier.V1, 120_000, 1, false);
+	/** A basic signalling material, used in STN and Energetic Alloy*/
 	@NN public static final BaseMetalGroup redstone = new BaseMetalGroup(colorRedstone, "redstone", VoltageTier.V1, 80_000, 15, true);
 	
 	//Tier 3 materials
+	/** A highly conductive material, used in LV cables */
 	@NN public static final BaseMetalGroup silver =    new BaseMetalGroup(colorSilver, "silver", VoltageTier.V1, 100_000, 1, false);
+	/** A radioactive material, planned to be used in nuclear reactors */
 	@NN public static final BaseMetalGroup uranium =   new BaseMetalGroup(colorUranium, "uranium", VoltageTier.V1, 200_000, 1, false);
+	/** A strong metal, used in LV machines and advanced inductors */
 	@NN public static final MetalGroup steel =         new MetalGroup(colorSteel, "steel", VoltageTier.V2, 150_000, false);
+	/** Currently unused */
 	@NN public static final MetalGroup bronze =        new MetalGroup(colorBronze, "bronze", VoltageTier.V1, 100_000, false);
+	/** Currently unused */
 	@NN public static final MetalGroup brass =         new MetalGroup(colorBrass, "brass", VoltageTier.V1, 110_000, false);
+	/** A hard material, used in nichrome and stainless */
 	@NN public static final BaseMetalGroup chrome =    new BaseMetalGroup(colorChrome, "chrome", VoltageTier.V2, 120_000, 1, false);
+	/** An advanced resistive material, used in LV machines and extreme resistors */
 	@NN public static final MetalGroup nichrome =      new MetalGroup(colorNichrome, "nichrome", VoltageTier.V2, 150_000, false);
+	/** A  higly resonant crystal, used in ceritors */
 	@NN public static final MetalGroup quartz =        new MetalGroup(colorQuartz, "quartz", VoltageTier.V2, 150_000, true);
+	/** An excellent insulator, used in extreme capacitors and circuit boards */
 	@NN public static final MetalGroup PE =            new MetalGroup(colorPE, "PE", VoltageTier.V2, 50_000, false);
-	@NN public static final MetalGroup electrosteel =  new MetalGroup(colorElectrosteel, "electrosteel", VoltageTier.V2, 100_000, false);
+	/** A material capable of player teleportation, used in enderium and Vibrant Alloy */
 	@NN public static final BaseMetalGroup ender =     new BaseMetalGroup(colorEnder, "ender", VoltageTier.V2, 150_000, 5, true);
+	/** A material which produces light, used for Energetic Alloy */
 	@NN public static final BaseMetalGroup glowstone = new BaseMetalGroup(colorGlowstone, "glowstone", VoltageTier.V2, 130_000, 5, true);
+	/** A high performance semiconductor, used in extreme circuits */
 	@NN public static final MetalGroup silicopper =  new MetalGroup(colorSilicopper, "silicopper", VoltageTier.V2, 135_000, false);
 	
 	//Tier 4 materials
+	/** A steel with excellent magnetic properties, used in extreme inductors and MV transformers*/
+	@NN public static final MetalGroup electrosteel =  new MetalGroup(colorElectrosteel, "electrosteel", VoltageTier.V2, 100_000, false);
+	/** A super hard metal, used in high speed steel and alnico */
 	@NN public static final BaseMetalGroup cobalt =  new BaseMetalGroup(colorCobalt, "cobalt", VoltageTier.V2, 200_000, 1, false);
+	/** Super expensive, but easy to process material used in MV machines and wires */
 	@NN public static final BaseMetalGroup gold =    new BaseMetalGroup(colorGold, "gold", VoltageTier.V1, 120_000, 1, false);
+	/** Super durable and long-lasting material used for MV machines and as a half of LV/MV and MV/HV transformers */
 	@NN public static final MetalGroup stainless =   new MetalGroup(colorStainless, "stainless", VoltageTier.V2, 180_000, false);
+	/** An advanced high-power alloy used for MV wires */
 	@NN public static final MetalGroup energetic =   new MetalGroup(colorEnergetic, "energetic", VoltageTier.V2, 280_000, false);
+	/** An insanely hard material, used for cutting and as an insulator */
 	@NN public static final BaseMetalGroup diamond = new BaseMetalGroup(colorDiamond, "diamond", VoltageTier.V2, 250_000, 1, true);
+	/** An advanced insulator, used in insane capacitors and circuit boards */
 	@NN public static final MetalGroup PVC =         new MetalGroup(colorPVC, "PVC", VoltageTier.V2, 75_000, false);
+	/** A super magnetic material used in HV transformers and extreme inductors*/
 	@NN public static final MetalGroup alnico =   new MetalGroup(colorAlnico, "alnico", VoltageTier.V2, 150_000, false);
 	
 	//Tier 5 materials
@@ -312,7 +344,7 @@ public class Materials {
 		malloyingHelper(in -> in.cluster, mats, out, ratioO, volt, energy*4);
 		malloyingHelper(in -> in.block, mats, out, ratioO, volt, energy*16);
 	}
-	private static void malloyingHelper(Function<@NN MetalGroup, mmb.engine.item.ItemEntry> selector, MaterialStack[] mat, MetalGroup out, int ratioO, VoltageTier volt, double energy) {
+	private static void malloyingHelper(Function<@NN MetalGroup, ItemEntry> selector, MaterialStack[] mat, MetalGroup out, int ratioO, VoltageTier volt, double energy) {
 		Object2IntMap<ItemEntry> builder = new Object2IntOpenHashMap<>(mat.length);
 		for(int i = 0; i < mat.length; i++) {
 			builder.put(selector.apply(mat[i].material), mat[i].amount);

@@ -166,6 +166,7 @@ public interface ModularBlock<
 	public void closeTab(ModularChestGUI gui);
 	/**
 	 * Creates additional GUI for this block
+	 * @param window world window to use
 	 * @return an additional GUI
 	 */
 	public default ModularChestGUI createGUI(WorldWindow window) {
@@ -223,31 +224,31 @@ public interface ModularBlock<
 	//Provision of access points for outside blocks
 	@Override
 	default boolean provideSignal(Side s) {
-		Tmodule module = module(s);
+		@Nil Tmodule module = module(s);
 		if(module == null) return i_signal(s);
 		return module.provideSignal(that(), s);
 	}
 	@Override
 	default Inventory getInventory(Side s) {
-		Tmodule module = module(s);
+		@Nil Tmodule module = module(s);
 		if(module == null) return i_inv(s);
 		return module.provideInventory(that(), s);
 	}
 	@Override
 	default InventoryReader getOutput(Side s) {
-		Tmodule module = module(s);
+		@Nil Tmodule module = module(s);
 		if(module == null) return i_out(s);
 		return module.provideOutput(that(), s);
 	}
 	@Override
 	default InventoryWriter getInput(Side s) {
-		Tmodule module = module(s);
+		@Nil Tmodule module = module(s);
 		if(module == null) return i_in(s);
 		return module.provideInput(that(), s);
 	}
 	@Override
 	default Electricity getElectricalConnection(Side s) {
-		Tmodule module = module(s);
+		@Nil Tmodule module = module(s);
 		if(module == null) return i_elec(s);
 		return module.provideElectricity(that(), s);
 	}
@@ -275,7 +276,7 @@ public interface ModularBlock<
 	 * @return a signal
 	 */
 	public default boolean findSignalsSub(World w, int x, int y, Side s) {
-		Tmodule module = module(s);
+		@Nil Tmodule module = module(s);
 		boolean sig = w.getAtSide(s, x, y).provideSignal(s.negate());
 		if(module != null) sig = module.decorateExternalSignal(sig);
 		return sig;
@@ -337,7 +338,7 @@ public interface ModularBlock<
 	 * @return a module at given side
 	 */
 	@Nil public default Tmodule module(Side s) {
-		Slot<Tmodule> slot = slot(s);
+		@Nil Slot<@Nil Tmodule> slot = slot(s);
 		if(slot == null) return null;
 		return slot.get();
 	}
@@ -348,7 +349,7 @@ public interface ModularBlock<
 	 * @return a module at given side
 	 */
 	@Nil public default Tmodule moduleInternal(Side s) {
-		Slot<Tmodule> slot = slotInternal(s);
+		@Nil Slot<@Nil Tmodule> slot = slotInternal(s);
 		if(slot == null) return null;
 		return slot.get();
 	}
@@ -403,7 +404,7 @@ public interface ModularBlock<
 		}
 		
 		//Save core
-		Slot<Tcore> coreSlot = slotC();
+		@Nil Slot<@Nil Tcore> coreSlot = slotC();
 		if(coreSlot != null) {
 			node.set("core", PartEntry.savePart(coreSlot.get()));
 		}
@@ -419,7 +420,7 @@ public interface ModularBlock<
 		if(node == null) return;
 		
 		//Load core
-		Slot<Tcore> slotC = slotC();
+		@Nil Slot<@Nil Tcore> slotC = slotC();
 		if(slotC != null) slotC.setto(PartEntry.loadFromJsonExpectType(node.get("core"), slotC.type));
 		
 		//Load modules
@@ -429,7 +430,7 @@ public interface ModularBlock<
 		loadModuleHelper(node.get("moduleR"), Side.R);
 		
 		//Load settings
-		Tsettings settings = getSettings();
+		@Nil Tsettings settings = getSettings();
 		if(settings != null) loadSettings(node.get("settings"), settings);
 	}
 	/**

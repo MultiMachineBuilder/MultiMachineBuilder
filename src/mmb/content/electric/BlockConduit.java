@@ -11,20 +11,24 @@ import mmb.Nil;
 import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
-import mmb.engine.debug.Debugger;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 
 /**
+ * A power cable, used to transfer electricity
  * @author oskar
- *
  */
 public class BlockConduit extends BlockEntityData {
-	@NN private Electricity u, d, l, r;
+	@NN private Electricity u;
+	@NN private Electricity d;
+	@NN private Electricity l;
+	@NN private Electricity r;
 	@NN private final BlockType type;
 	@NN private TransferHelper tf;
-	private static final Debugger debug = new Debugger("CONDUIT");
+	/** Maximum voltage of this conduit */
 	@NN public final VoltageTier volt;
+	
+	//Constructors
 	/**
 	 * @param type block type
 	 * @param cap capacity in coulombs per tick
@@ -41,11 +45,27 @@ public class BlockConduit extends BlockEntityData {
 		r = tf.proxy(Side.L);
 	}
 
+	//Conduit methods
+	/**
+	 * @return maximum power in coulombs per tick
+	 */
+	public double condCapacity() {
+		return tf.power;
+	}
+	/** @return the transfer helper */
+	public TransferHelper getTransfer() {
+		return tf;
+	}
+
+	//Block methods
+	@Override
+	public void onTick(MapProxy map) {
+		Electricity.equatePPs(this, map, tf, 0.9);
+	}
 	@Override
 	public BlockType type() {
 		return type;
 	}
-
 	@Override
 	public Electricity getElectricalConnection(Side s) {
 		switch(s) {
@@ -61,37 +81,20 @@ public class BlockConduit extends BlockEntityData {
 			return null;
 		}
 	}
-
-	@Override
-	public void load(@Nil JsonNode data) {
-		//unused
-	}
-
-	@Override
-	protected void save0(ObjectNode node) {
-		//unused
-	}
-	
-	/**
-	 * @return maximum power in coulombs per tick
-	 */
-	public double condCapacity() {
-		return tf.power;
-	}
-	
-	public TransferHelper getTransfer() {
-		return tf;
-	}
-
-	@Override
-	public void onTick(MapProxy map) {
-		Electricity.equatePPs(this, map, tf, 0.9);
-	}
-
 	@Override
 	public BlockEntry blockCopy() {
 		BlockConduit copy = new BlockConduit(type, tf.power, volt);
 		copy.tf.set(tf);
 		return copy;
+	}
+	
+	//Serialization
+	@Override
+	public void load(@Nil JsonNode data) {
+		//unused
+	}
+	@Override
+	protected void save0(ObjectNode node) {
+		//unused
 	}
 }

@@ -448,7 +448,7 @@ public class TabInventory extends JPanel {
 		 * The recipes which pass both phases 1 and 2 must be exactly the same as all recipes which pass this query's filter
 		 * @return potentially eligible items
 		 */
-		@Nil public Set<Recipe<?>> phase1();
+		@Nil public Set<@NN Recipe> phase1();
 		/**
 		 * Narrows down the list of items to produce an exact list
 		 * The recipes which pass both phases 1 and 2 must be exactly the same as all recipes which pass this query's filter
@@ -459,7 +459,7 @@ public class TabInventory extends JPanel {
 		
 		/** @return all eligible items*/		
 		@NN public default Set<Recipe<?>> eligible(){
-			Set<Recipe<?>> recipes = phase1();
+			Set<@NN Recipe> recipes = phase1();
 			Set<Recipe<?>> model = new HashSet<>();
 			if(recipes != null) for(Recipe<?> item: recipes) {
 				if(phase2(item)) model.add(item);
@@ -496,7 +496,7 @@ public class TabInventory extends JPanel {
 				return true;
 			}
 			@Override
-			public Set<Recipe<?>> phase1() {
+			public @Nil Set<@NN Recipe> phase1() {
 				return GlobalRecipeRegistrar.recipes;
 			}
 
@@ -523,8 +523,8 @@ public class TabInventory extends JPanel {
 			}
 
 			@Override
-			public Set<Recipe<?>> phase1() {
-				return GlobalRecipeRegistrar.byInputs.get(item);
+			public @Nil Set<@NN Recipe> phase1() {
+				return GlobalRecipeRegistrar.inputs.multimap().get(item);
 			}
 
 			@Override
@@ -546,8 +546,8 @@ public class TabInventory extends JPanel {
 			}
 			
 			@Override
-			public Set<Recipe<?>> phase1() {
-				return GlobalRecipeRegistrar.byOutputs.get(item);
+			public @Nil Set<@NN Recipe> phase1() {
+				return GlobalRecipeRegistrar.output.multimap().get(item);
 			}
 
 			@Override
@@ -569,8 +569,8 @@ public class TabInventory extends JPanel {
 			}
 			
 			@Override
-			public Set<Recipe<?>> phase1() {
-				return GlobalRecipeRegistrar.byChance.get(item);
+			public @Nil Set<@NN Recipe> phase1() {
+				return GlobalRecipeRegistrar.chance.multimap().get(item);
 			}
 
 			@Override
@@ -591,30 +591,8 @@ public class TabInventory extends JPanel {
 				return Objects.equals(item, recipe.catalyst());
 			}
 			@Override
-			public Set<Recipe<?>> phase1() {
-				return GlobalRecipeRegistrar.byCatalyst.get(item);
-			}
-
-			@Override
-			public boolean phase2(Recipe<?> recipe) {
-				return true;
-			}
-		};
-	}
-	@NN public static RecipeQuery uptoVolt(VoltageTier item) {
-		return new RecipeQuery() {
-			@Override
-			public String name() {
-				return "Recipes up to: "+item.name;
-			}
-
-			@Override
-			public boolean filter(Recipe<?> recipe) {
-				return recipe.voltTier().compareTo(item) <= 0;
-			}
-			@Override
-			public Set<Recipe<?>> phase1() {
-				return GlobalRecipeRegistrar.uptoVoltage.get(item);
+			public Set<@NN Recipe> phase1() {
+				return GlobalRecipeRegistrar.catalyst.multimap().get(item);
 			}
 
 			@Override
@@ -635,8 +613,8 @@ public class TabInventory extends JPanel {
 				return recipe.voltTier() == item;
 			}
 			@Override
-			public Set<Recipe<?>> phase1() {
-				return GlobalRecipeRegistrar.byVoltage.get(item);
+			public @Nil Set<@NN Recipe> phase1() {
+				return GlobalRecipeRegistrar.volt.multimap().get(item);
 			}
 
 			@Override

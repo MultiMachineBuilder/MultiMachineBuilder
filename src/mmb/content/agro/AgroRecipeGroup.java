@@ -25,7 +25,7 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class AgroRecipeGroup extends AbstractRecipeGroup<AgroRecipeGroup.AgroProcessingRecipe>{
+public class AgroRecipeGroup extends AbstractRecipeGroup<@NN AgroRecipeGroup.AgroProcessingRecipe>{
 	/**
 	 * Creates a list of crop outputs
 	 * @param id group ID (normally "alcohol")
@@ -40,9 +40,9 @@ public class AgroRecipeGroup extends AbstractRecipeGroup<AgroRecipeGroup.AgroPro
 	 */
 	public class AgroProcessingRecipe implements Identifiable<ItemEntry>, Recipe<AgroProcessingRecipe>{
 		/** The input crop */
-		public final ItemEntry input;
+		@NN public final ItemEntry input;
 		/** The crop's output */		
-		public final RecipeOutput output;
+		@NN public final RecipeOutput output;
 		/** Duration between drops in ticks */
 		         public final int duration;
 		
@@ -103,14 +103,15 @@ public class AgroRecipeGroup extends AbstractRecipeGroup<AgroRecipeGroup.AgroPro
 	}
 	
 	//Recipe listing
-	private final SelfSet<ItemEntry, AgroProcessingRecipe> _recipes = HashSelfSet.createNonnull(AgroProcessingRecipe.class);
-	public final SelfSet<ItemEntry, AgroProcessingRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
+	@NN private final SelfSet<@NN ItemEntry, AgroProcessingRecipe> _recipes = HashSelfSet.createNonnull(AgroProcessingRecipe.class);
+	/** Set of all crop outputs */
+	@NN public final SelfSet<@NN ItemEntry, AgroProcessingRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
 	@Override
-	public @NN Set<? extends ItemEntry> supportedItems() {
+	public @NN Set<@NN ? extends ItemEntry> supportedItems() {
 		return recipes.keys();
 	}
 	@Override
-	public @NN SelfSet<ItemEntry, AgroProcessingRecipe> recipes() {
+	public @NN SelfSet<@NN ItemEntry, AgroProcessingRecipe> recipes() {
 		return recipes;
 	}
 	

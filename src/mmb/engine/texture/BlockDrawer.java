@@ -13,6 +13,7 @@ import javax.swing.Icon;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 
 /**
@@ -59,7 +60,7 @@ public interface BlockDrawer {
 	 * @param img new BlockDrawer's desired image
 	 * @return a BlockDrawer for given BufferedImage
 	 */
-	@NonNull public static BlockDrawer ofImage(BufferedImage img) {
+	@NN public static BlockDrawer ofImage(BufferedImage img) {
 		return new TextureDrawer(img);
 	}
 	/**
@@ -67,14 +68,14 @@ public interface BlockDrawer {
 	 * @param c new BlockDrawer's desired color
 	 * @return a BlockDrawer of given color
 	 */
-	@NonNull public static BlockDrawer ofColor(Color c) {
+	@NN public static BlockDrawer ofColor(Color c) {
 		return new ColorDrawer(c);
 	}
 	/**
 	 * Convert this drawer to preview icon
 	 * @return an {@link Icon}, which represents a preview of this drawer
 	 */
-	@NonNull public Icon toIcon();
+	@NN public Icon toIcon();
 	/**
 	 * @return a low level of detail color in sRGB
 	 */

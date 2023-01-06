@@ -5,8 +5,8 @@ package monniasza.collects.selfset;
 
 import java.util.Set;
 
+import mmb.NN;
 import mmb.Nil;
-import monniasza.collects.Identifiable;
 
 /**
  * @author oskar
@@ -18,12 +18,12 @@ public interface SelfSet<K, V> extends Set<V>{
 	/**
 	 * @return keys contained in the self-set
 	 */
-	public Set<K> keys();
+	@NN public Set<K> keys();
 	
 	/**
 	 * @return values contained in the self-set
 	 */
-	public Set<V> values();
+	@NN public Set<V> values();
 	
 	/**
 	 * Get the value under a given key

@@ -17,10 +17,12 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
 
 /**
- * @author oskar
  * An item for Bill Of Materials, which contains a list of items.
+ * The Bill of Materials can also be used as an item filter
+ * @author oskar
  */
 public final class ItemBOM extends ItemFilter {	
+	//Constructors
 	/**
 	 * Creates an empty Bill of Materials
 	 */
@@ -45,13 +47,8 @@ public final class ItemBOM extends ItemFilter {
 			this.items = new SimpleItemList(items);
 	}
 	
-	@Override
-	public ItemEntry itemClone() {
-		return this;
-	}
-
+	//Contents
 	@NN private SimpleItemList items = SimpleItemList.EMPTY;
-	
 	/**
 	 * @return the item list for this Bill Of Materials. The returned item list is immutable
 	 */
@@ -59,6 +56,27 @@ public final class ItemBOM extends ItemFilter {
 		return items;
 	}
 	
+	//Item methods
+	@Override
+	public ItemEntry itemClone() {
+		return this;
+	}
+	@Override
+	protected int hash0() {
+		return items.hashCode();
+	}
+	@Override
+	protected boolean equal0(ItemEntity other) {
+		if(other instanceof ItemBOM)
+			return ((ItemBOM) other).contents().equals(items);
+		return false;
+	}
+	@Override
+	public ItemType type() {
+		return ContentsItems.BOM;
+	}
+	
+	//Serialization
 	@Override
 	public void load(@Nil JsonNode data) {
 		if(data == null) return;
@@ -71,27 +89,9 @@ public final class ItemBOM extends ItemFilter {
 		return ItemLists.save(items);
 	}
 
-	@Override
-	protected int hash0() {
-		return items.hashCode();
-	}
-
-	@Override
-	protected boolean equal0(ItemEntity other) {
-		if(other instanceof ItemBOM)
-			return ((ItemBOM) other).contents().equals(items);
-		return false;
-	}
-	@Override
-	public ItemType type() {
-		return ContentsItems.BOM;
-	}
-	
+	//Item filter
 	@Override
 	public boolean test(@Nil ItemEntry item) {
 		return items.contains(item);
 	}
-
-	
-
 }

@@ -75,10 +75,6 @@ public class Agro {
 	@NN public static final BlockEntityType AGRO_HOPS =
 		Agro.crop(1000, hops, "#machine-hops", Textures.get("machine/hops.png"), "crop.hops");
 	
-	
-	
-	
-	
 	private static boolean inited = false;
 	/** Initializes items */
 	public static void init() {
@@ -110,8 +106,16 @@ public class Agro {
 		Items.tagItems("shape-crop", AGRO_TREE, AGRO_WATER, AGRO_SEEDS, AGRO_HOPS);
 	}
 	//Reusable block methods
-	@NN
-	public static BlockEntityType crop(int duration, RecipeOutput cropDrop, String title, BufferedImage texture, String id) {
+	/**
+	 * Creates a crop
+	 * @param duration time in ticks between drops
+	 * @param cropDrop item(s) to produce
+	 * @param title block title
+	 * @param texture block texture
+	 * @param id block ID
+	 * @return the crop block entity type
+	 */
+	@NN public static BlockEntityType crop(int duration, RecipeOutput cropDrop, String title, BufferedImage texture, String id) {
 		BlockEntityType result = new BlockEntityType().title(title).texture(texture).finish(id);
 		crops.add(result, cropDrop, duration);
 		return result.factory(() -> new Crop(result, duration, cropDrop));

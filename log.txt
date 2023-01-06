@@ -1139,6 +1139,9 @@
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\exporter.png
 (MOD-LOADER) Loading a texture stn\exporter.png
 (TEXTURES) Loading texture: stn/exporter.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\fw.png
+(MOD-LOADER) Loading a texture stn\fw.png
+(TEXTURES) Loading texture: stn/fw.png
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\importer.png
 (MOD-LOADER) Loading a texture stn\importer.png
 (TEXTURES) Loading texture: stn/importer.png
@@ -7608,7 +7611,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SETTINGS LIST) STN-storage=STN Storage Attachment
 (SETTINGS LIST) matname1-stnb=STN alloy B
 (SETTINGS LIST) matname1-stnc=STN alloy C
-(SETTINGS LIST) STN-hub=STN hub
 (SETTINGS LIST) matname-stna=STN alloy A
 (SETTINGS LIST) stnm-reset=Re-inventorise
 (SETTINGS LIST) matname-stnb=STN alloy B
@@ -7617,6 +7619,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SETTINGS LIST) matname2-stnd=STN alloy D
 (SETTINGS LIST) matname2-stnc=STN alloy C
 (SETTINGS LIST) matname2-stnb=STN alloy B
+(SETTINGS LIST) STN-framework=STN Framework
 (SETTINGS LIST) matname2-stna=STN alloy A
 (SETTINGS LIST) STN-cabler=STN cabler
 (SETTINGS LIST) STN-terminal=STN Terminal
@@ -7904,6 +7907,8 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
  (no description)
 (ITEMS) Adding stnb.importer with title STN Importer and description:
  (no description)
+(ITEMS) Adding stnb.framework with title STN Framework and description:
+ (no description)
 (DATA LAYERS) New world data layer: STN
 (STN) Initing
 (ITEMS) Tagging Item STN cabler(stn.cabler) with STN
@@ -7911,6 +7916,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item STN Terminal(stnb.terminal) with STN
 (ITEMS) Tagging Item STN Exporter(stnb.exporter) with STN
 (ITEMS) Tagging Item STN Importer(stnb.importer) with STN
+(ITEMS) Tagging Item STN Framework(stnb.framework) with STN
 (ITEMS) Adding rawitem.stn.cabler with title STN cabler (raw) and description:
  Modifies hanging STN cables
 (ITEMS) Tagging ItemRaw Item STN cabler(stn.cabler) with STN
@@ -8227,9 +8233,9 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found save: The longest player pipe ever.mworld
 (SELECT A SAVE) Found save: The smallest all in one quarry system.mworld
 (SELECT A SAVE) Found 22 saves
-(WORLD TEST) 1762 items
+(WORLD TEST) 1763 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@78b0d3e8
+(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@330effc2
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -8237,329 +8243,43 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (WORLD TEST) Scrollbar max: 57
 (SELECT A SAVE) Opened a file
 (SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(ITEMS) Attempting to load a non-data item
-(BLOCK LOADER) Failed to load a block pipe.L at [-7,-5]
-(BLOCK LOADER) java.lang.ArrayStoreException: mmb.engine.block.Block
-	at mmb.engine.json.JsonTool.loadToArray(JsonTool.java:99)
-	at mmb.content.imachine.AbstractBasePipe.load1(AbstractBasePipe.java:95)
-	at mmb.engine.block.BlockEntityChirotable.load(BlockEntityChirotable.java:44)
-	at mmb.engine.block.BlockLoader.doLoadEnhanced(BlockLoader.java:67)
-	at mmb.engine.block.BlockLoader.load(BlockLoader.java:43)
-	at mmb.engine.worlds.world.World.load(World.java:197)
-	at mmb.engine.worlds.universe.Universe.load(Universe.java:120)
-	at mmb.PlayAWorld.fullPlay0(PlayAWorld.java:49)
+(SELECT A SAVE) Failed to load the world
+(SELECT A SAVE) com.fasterxml.jackson.core.JsonParseException: Unexpected close marker '}': expected ']' (for root starting at [Source: (StringReader); line: 1, column: 0])
+ at [Source: (StringReader); line: 1, column: 2]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2418)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:749)
+	at com.fasterxml.jackson.core.base.ParserBase._reportMismatchedEndMarker(ParserBase.java:1169)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._closeScope(ReaderBasedJsonParser.java:3059)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:710)
+	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4759)
+	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:3124)
+	at mmb.engine.json.JsonTool.parse(JsonTool.java:62)
+	at mmb.PlayAWorld.fullPlay0(PlayAWorld.java:43)
 	at mmb.PlayAWorld.fullPlay(PlayAWorld.java:72)
 	at mmb.PlayAWorld.lambda$2(PlayAWorld.java:88)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-(ITEMS) Attempting to load a non-data item
-(BLOCK LOADER) Failed to load a block pipe.L at [-6,-5]
-(BLOCK LOADER) java.lang.ArrayStoreException: mmb.engine.block.Block
-	at mmb.engine.json.JsonTool.loadToArray(JsonTool.java:99)
-	at mmb.content.imachine.AbstractBasePipe.load1(AbstractBasePipe.java:95)
-	at mmb.engine.block.BlockEntityChirotable.load(BlockEntityChirotable.java:44)
-	at mmb.engine.block.BlockLoader.doLoadEnhanced(BlockLoader.java:67)
-	at mmb.engine.block.BlockLoader.load(BlockLoader.java:43)
-	at mmb.engine.worlds.world.World.load(World.java:197)
-	at mmb.engine.worlds.universe.Universe.load(Universe.java:120)
-	at mmb.PlayAWorld.fullPlay0(PlayAWorld.java:49)
+(WORLD TEST) Exiting the world
+(WORLD - IDLE) Exiting
+(WORLDS) (The given world is null, exiting
+Thread-6) A thread has thrown an exception
+(Thread-6) com.fasterxml.jackson.core.JsonParseException: Unexpected close marker '}': expected ']' (for root starting at [Source: (StringReader); line: 1, column: 0])
+ at [Source: (StringReader); line: 1, column: 2]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2418)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:749)
+	at com.fasterxml.jackson.core.base.ParserBase._reportMismatchedEndMarker(ParserBase.java:1169)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._closeScope(ReaderBasedJsonParser.java:3059)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:710)
+	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4759)
+	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:3124)
+	at mmb.engine.json.JsonTool.parse(JsonTool.java:62)
+	at mmb.PlayAWorld.fullPlay0(PlayAWorld.java:43)
 	at mmb.PlayAWorld.fullPlay(PlayAWorld.java:72)
 	at mmb.PlayAWorld.lambda$2(PlayAWorld.java:88)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-(COMPLEX RECIPE RPOCESSOR) IUW data:null
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(TOOL-STANDARD) Running BlockActivateListener for: [-7,-4]
-(TOOL-STANDARD) Running BlockActivateListener for: [-6,-3]
-(TOOL-STANDARD) Running BlockActivateListener for: [-7,-4]
-(TOOL-STANDARD) Running BlockActivateListener for: [-7,-4]
-(TOOL-STANDARD) Running BlockActivateListener for: [-6,-3]
-(TOOL-STANDARD) Running BlockActivateListener for: [-7,-4]
-(TOOL-STANDARD) Running BlockActivateListener for: [-7,-4]
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(TOOL-STANDARD) Running BlockActivateListener for: [-7,-4]
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
 (WORLD TEST) Exited the world
-(WORLD TEST) 1762 items
+(WORLD TEST) 1763 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@45a83c74
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(COMPLEX RECIPE RPOCESSOR) IUW data:null
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(ITEMS) Invalid item: Infinity
-(INVENTORIES) Unsupported null item
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(TOOL-STANDARD) Running BlockActivateListener for: [-7,-4]
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(BLOCKS) Failed to write JSON data
-(BLOCKS) java.lang.NullPointerException
-	at mmb.content.imachine.AbstractBasePipe.lambda$0(AbstractBasePipe.java:88)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:110)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:105)
-	at mmb.content.imachine.AbstractBasePipe.save1(AbstractBasePipe.java:88)
-	at mmb.engine.block.BlockEntityChirotable.save0(BlockEntityChirotable.java:122)
-	at mmb.engine.block.BlockEntityData.save(BlockEntityData.java:23)
-	at mmb.engine.worlds.world.World.save(World.java:273)
-	at mmb.engine.worlds.universe.Universe.save(Universe.java:142)
-	at mmbbase.menu.world.window.WorldWindow.save(WorldWindow.java:102)
-	at mmbbase.menu.world.window.WorldWindow.destroy(WorldWindow.java:85)
-	at mmb.engine.window.MMBFrame.dispose(MMBFrame.java:29)
-	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:306)
-	at java.desktop/java.awt.Window.processEvent(Window.java:2037)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(BLOCKS) Failed to write JSON data
-(BLOCKS) java.lang.NullPointerException
-	at mmb.content.imachine.AbstractBasePipe.lambda$0(AbstractBasePipe.java:88)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:110)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:105)
-	at mmb.content.imachine.AbstractBasePipe.save1(AbstractBasePipe.java:88)
-	at mmb.engine.block.BlockEntityChirotable.save0(BlockEntityChirotable.java:122)
-	at mmb.engine.block.BlockEntityData.save(BlockEntityData.java:23)
-	at mmb.engine.worlds.world.World.save(World.java:273)
-	at mmb.engine.worlds.universe.Universe.save(Universe.java:142)
-	at mmbbase.menu.world.window.WorldWindow.save(WorldWindow.java:102)
-	at mmbbase.menu.world.window.WorldWindow.destroy(WorldWindow.java:85)
-	at mmb.engine.window.MMBFrame.dispose(MMBFrame.java:29)
-	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:306)
-	at java.desktop/java.awt.Window.processEvent(Window.java:2037)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(WORLD TEST) 1762 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@68588ac9
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(DATA LAYERS) Loading world data layer: STN
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.ArrayIndexOutOfBoundsException: Index 16 out of bounds for length 16
-	at java.desktop/javax.swing.plaf.basic.BasicListUI.updateLayoutState(BasicListUI.java:1446)
-	at java.desktop/javax.swing.plaf.basic.BasicListUI.maybeUpdateLayoutState(BasicListUI.java:1389)
-	at java.desktop/javax.swing.plaf.basic.BasicListUI.getPreferredSize(BasicListUI.java:648)
-	at java.desktop/javax.swing.JComponent.getPreferredSize(JComponent.java:1680)
-	at java.desktop/javax.swing.ScrollPaneLayout.layoutContainer(ScrollPaneLayout.java:795)
-	at java.desktop/java.awt.Container.layout(Container.java:1537)
-	at java.desktop/java.awt.Container.doLayout(Container.java:1526)
-	at java.desktop/java.awt.Container.validateTree(Container.java:1722)
-	at java.desktop/java.awt.Container.validate(Container.java:1657)
-	at java.desktop/javax.swing.RepaintManager$3.run(RepaintManager.java:745)
-	at java.desktop/javax.swing.RepaintManager$3.run(RepaintManager.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/javax.swing.RepaintManager.validateInvalidComponents(RepaintManager.java:742)
-	at java.desktop/javax.swing.RepaintManager$ProcessingRunnable.run(RepaintManager.java:1889)
-	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(WORLD TEST) 1762 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@15af751
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(ITEMS) Invalid item: Infinity
-(INVENTORIES) Unsupported null item
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 0
-(TEST PIPES) X: 5/5, Y: -4/-4, 1
-(PLAYER IN PIPE) Player ejected
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 0
-(TEST PIPES) X: 4/4, Y: -5/-5, 2
-(PLAYER IN PIPE) Player ejected
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 0
-(TEST PIPES) X: 5/5, Y: -2/-2, 1
-(PLAYER IN PIPE) Player ejected
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(WORLD TEST) 1762 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@796bb371
+(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@12c73515
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -8570,7 +8290,749 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Parsed file
 (COMPLEX RECIPE RPOCESSOR) IUW data:null
 (COMPLEX RECIPE RPOCESSOR) IUW data:null
-(COMPLEX RECIPE RPOCESSOR) IUW data:null
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
 (DATA LAYERS) Loading world data layer: STN
 (ITEMS) Invalid item: Infinity
 (INVENTORIES) Unsupported null item
@@ -8580,1096 +9042,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (WORLDS) Opening a new world
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(WORLD TEST) 1762 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@37a40f23
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(ITEMS) Invalid item: Infinity
-(INVENTORIES) Unsupported null item
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(WORLD TEST) 1762 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@1374e22c
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(BLOCK LOADER) Failed to load a block multi.speaker at [-13,1]
-(BLOCK LOADER) mmb.engine.NotFoundException: Could not find sound null
-	at mmb.engine.sound.Sounds.getSound(Sounds.java:49)
-	at mmb.content.media.Speaker.setSelection(Speaker.java:184)
-	at mmb.content.media.Speaker.load(Speaker.java:72)
-	at mmb.engine.block.BlockLoader.doLoadEnhanced(BlockLoader.java:67)
-	at mmb.engine.block.BlockLoader.load(BlockLoader.java:43)
-	at mmb.engine.worlds.world.World.load(World.java:197)
-	at mmb.engine.worlds.universe.Universe.load(Universe.java:120)
-	at mmb.PlayAWorld.fullPlay0(PlayAWorld.java:49)
-	at mmb.PlayAWorld.fullPlay(PlayAWorld.java:72)
-	at mmb.PlayAWorld.lambda$2(PlayAWorld.java:88)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(ITEMS) Invalid item: Infinity
-(INVENTORIES) Unsupported null item
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(TOOL-STANDARD) Running BlockActivateListener for: [-14,-28]
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 0
-(TEST PIPES) X: -21/-21, Y: -23/-23, 1
-(PLAYER IN PIPE) Player ejected
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 0
-(TEST PIPES) X: -22/-22, Y: -16/-16, 2
-(PLAYER IN PIPE) Player ejected
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 0
-(TEST PIPES) X: -21/-21, Y: -9/-9, 1
-(PLAYER IN PIPE) Player ejected
-(TOOL-STANDARD) Running BlockActivateListener for: [-13,2]
-(TOOL-STANDARD) Running BlockActivateListener for: [-13,2]
-(TOOL-STANDARD) Running BlockActivateListener for: [-15,-6]
-(TOOL-STANDARD) Running BlockActivateListener for: [-13,2]
-(TOOL-STANDARD) Running BlockActivateListener for: [-15,-6]
-(TOOL-STANDARD) Running BlockActivateListener for: [-15,-6]
-(TOOL-STANDARD) Running BlockActivateListener for: [-15,-6]
-(TOOL-STANDARD) Running BlockActivateListener for: [-15,-6]
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(TOOL-STANDARD) Running BlockActivateListener for: [27,-24]
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 0
-(TEST PIPES) X: -4/-4, Y: 0/0, 2
-(TOOL-STANDARD) Running BlockActivateListener for: [-13,2]
-(PLAYER IN PIPE) Player ejected
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 0
-(TEST PIPES) X: -22/-22, Y: -10/-10, 2
-(PLAYER IN PIPE) Player ejected
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 0
-(TEST PIPES) X: -21/-21, Y: -17/-17, 1
-(PLAYER IN PIPE) Player ejected
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 0
-(TEST PIPES) X: 33/33, Y: -17/-17, 1
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(PLAYER IN PIPE) Player ejected
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 0
-(TEST PIPES) X: 74/74, Y: -17/-17, 1
-(PLAYER IN PIPE) Player ejected
-(TOOL-STANDARD) Running BlockActivateListener for: [75,-7]
-(TOOL-STANDARD) Running BlockActivateListener for: [60,-5]
-(TOOL-STANDARD) Running BlockActivateListener for: [60,-5]
-(TOOL-STANDARD) Running BlockActivateListener for: [55,-5]
-(TOOL-STANDARD) Running BlockActivateListener for: [55,-5]
-(TOOL-STANDARD) Running BlockActivateListener for: [55,-5]
-(TOOL-STANDARD) Running BlockActivateListener for: [55,-5]
-(TOOL-STANDARD) Running BlockActivateListener for: [55,-5]
-(TOOL-STANDARD) Running BlockActivateListener for: [55,-5]
-(TOOL-STANDARD) Running BlockActivateListener for: [55,-5]
-(TOOL-STANDARD) Running BlockActivateListener for: [55,-5]
-(TOOL-STANDARD) Running BlockActivateListener for: [54,2]
-(TOOL-STANDARD) Running BlockActivateListener for: [54,2]
-(TOOL-STANDARD) Running BlockActivateListener for: [57,2]
-(TOOL-STANDARD) Running BlockActivateListener for: [57,2]
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(TOOL-STANDARD) Running BlockActivateListener for: [54,2]
-(TOOL-STANDARD) Running BlockActivateListener for: [57,2]
-(TOOL-STANDARD) Running BlockActivateListener for: [57,2]
-(TOOL-STANDARD) Running BlockActivateListener for: [57,2]
-(TOOL-STANDARD) Running BlockActivateListener for: [54,2]
-(TOOL-STANDARD) Running BlockActivateListener for: [57,2]
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(WORLD TEST) 1762 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@25819fe9
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(WORLD TEST) 1762 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@16e6d588
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(ITEMS) Invalid item: Infinity
-(INVENTORIES) Unsupported null item
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.util.ConcurrentModificationException
-	at java.base/java.util.HashMap$HashIterator.nextNode(HashMap.java:1511)
-	at java.base/java.util.HashMap$EntryIterator.next(HashMap.java:1544)
-	at java.base/java.util.HashMap$EntryIterator.next(HashMap.java:1542)
-	at com.google.common.collect.AbstractMapBasedMultimap$Itr.next(AbstractMapBasedMultimap.java:1193)
-	at mmbbase.menu.world.window.WorldFrame.render(WorldFrame.java:443)
-	at mmbbase.menu.world.window.WorldFrame.paint(WorldFrame.java:378)
-	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:907)
-	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1083)
-	at java.desktop/javax.swing.JComponent.paintToOffscreen(JComponent.java:5255)
-	at java.desktop/javax.swing.RepaintManager$PaintManager.paintDoubleBufferedImpl(RepaintManager.java:1643)
-	at java.desktop/javax.swing.RepaintManager$PaintManager.paintDoubleBuffered(RepaintManager.java:1618)
-	at java.desktop/javax.swing.RepaintManager$PaintManager.paint(RepaintManager.java:1556)
-	at java.desktop/javax.swing.RepaintManager.paint(RepaintManager.java:1323)
-	at java.desktop/javax.swing.JComponent._paintImmediately(JComponent.java:5203)
-	at java.desktop/javax.swing.JComponent.paintImmediately(JComponent.java:5013)
-	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:865)
-	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:848)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:848)
-	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:823)
-	at java.desktop/javax.swing.RepaintManager.prePaintDirtyRegions(RepaintManager.java:772)
-	at java.desktop/javax.swing.RepaintManager$ProcessingRunnable.run(RepaintManager.java:1890)
-	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(BLOCKS) Failed to write JSON data
-(BLOCKS) java.lang.NullPointerException
-	at mmb.content.imachine.AbstractBasePipe.lambda$0(AbstractBasePipe.java:88)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:110)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:105)
-	at mmb.content.imachine.AbstractBasePipe.save1(AbstractBasePipe.java:88)
-	at mmb.engine.block.BlockEntityChirotable.save0(BlockEntityChirotable.java:122)
-	at mmb.engine.block.BlockEntityData.save(BlockEntityData.java:23)
-	at mmb.engine.worlds.world.World.save(World.java:273)
-	at mmb.engine.worlds.universe.Universe.save(Universe.java:142)
-	at mmbbase.menu.world.window.WorldWindow.save(WorldWindow.java:102)
-	at mmbbase.menu.world.window.WorldWindow.destroy(WorldWindow.java:85)
-	at mmb.engine.window.MMBFrame.dispose(MMBFrame.java:29)
-	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:306)
-	at java.desktop/java.awt.Window.processEvent(Window.java:2037)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(BLOCKS) Failed to write JSON data
-(BLOCKS) java.lang.NullPointerException
-	at mmb.content.imachine.AbstractBasePipe.lambda$0(AbstractBasePipe.java:88)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:110)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:105)
-	at mmb.content.imachine.AbstractBasePipe.save1(AbstractBasePipe.java:88)
-	at mmb.engine.block.BlockEntityChirotable.save0(BlockEntityChirotable.java:122)
-	at mmb.engine.block.BlockEntityData.save(BlockEntityData.java:23)
-	at mmb.engine.worlds.world.World.save(World.java:273)
-	at mmb.engine.worlds.universe.Universe.save(Universe.java:142)
-	at mmbbase.menu.world.window.WorldWindow.save(WorldWindow.java:102)
-	at mmbbase.menu.world.window.WorldWindow.destroy(WorldWindow.java:85)
-	at mmb.engine.window.MMBFrame.dispose(MMBFrame.java:29)
-	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:306)
-	at java.desktop/java.awt.Window.processEvent(Window.java:2037)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(BLOCKS) Failed to write JSON data
-(BLOCKS) java.lang.NullPointerException
-	at mmb.content.imachine.AbstractBasePipe.lambda$0(AbstractBasePipe.java:88)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:110)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:105)
-	at mmb.content.imachine.AbstractBasePipe.save1(AbstractBasePipe.java:88)
-	at mmb.engine.block.BlockEntityChirotable.save0(BlockEntityChirotable.java:122)
-	at mmb.engine.block.BlockEntityData.save(BlockEntityData.java:23)
-	at mmb.engine.worlds.world.World.save(World.java:273)
-	at mmb.engine.worlds.universe.Universe.save(Universe.java:142)
-	at mmbbase.menu.world.window.WorldWindow.save(WorldWindow.java:102)
-	at mmbbase.menu.world.window.WorldWindow.destroy(WorldWindow.java:85)
-	at mmb.engine.window.MMBFrame.dispose(MMBFrame.java:29)
-	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:306)
-	at java.desktop/java.awt.Window.processEvent(Window.java:2037)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(WORLD TEST) 1762 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@68191373
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 0
-(TEST PIPES) X: -16/-16, Y: -12/-12, 2
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(WORLD TEST) 1762 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@412b620d
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(ITEMS) Invalid item: Infinity
-(INVENTORIES) Unsupported null item
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(TEST PIPES) X: -15/-15, Y: -16/-16, 0
-(TEST PIPES) X: -15/-15, Y: -16/-16, 0
-(TEST PIPES) X: -15/-15, Y: -16/-16, 0
-(TEST PIPES) X: -15/-15, Y: -16/-16, 0
-(TEST PIPES) X: -15/-15, Y: -16/-16, 2
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(WORLD TEST) 1762 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@1a580a86
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(ITEMS) Invalid item: Infinity
-(INVENTORIES) Unsupported null item
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(PLAYER INVENTORY) Querying recipes
-(PLAYER INVENTORY) Query finished
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(WORLD TEST) 1762 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmbbase.menu.wtool.ToolStandard@3066b331
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(DATA LAYERS) Loading world data layer: STN
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(BLOCKS) Failed to write JSON data
-(BLOCKS) java.lang.NullPointerException
-	at mmb.content.imachine.AbstractBasePipe.lambda$0(AbstractBasePipe.java:88)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:110)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:105)
-	at mmb.content.imachine.AbstractBasePipe.save1(AbstractBasePipe.java:88)
-	at mmb.engine.block.BlockEntityChirotable.save0(BlockEntityChirotable.java:122)
-	at mmb.engine.block.BlockEntityData.save(BlockEntityData.java:23)
-	at mmb.engine.worlds.world.World.save(World.java:273)
-	at mmb.engine.worlds.universe.Universe.save(Universe.java:142)
-	at mmbbase.menu.world.window.WorldWindow.save(WorldWindow.java:102)
-	at mmbbase.menu.world.window.WorldWindow.destroy(WorldWindow.java:85)
-	at mmb.engine.window.MMBFrame.dispose(MMBFrame.java:29)
-	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:306)
-	at java.desktop/java.awt.Window.processEvent(Window.java:2037)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(BLOCKS) Failed to write JSON data
-(BLOCKS) java.lang.NullPointerException
-	at mmb.content.imachine.AbstractBasePipe.lambda$0(AbstractBasePipe.java:88)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:110)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:105)
-	at mmb.content.imachine.AbstractBasePipe.save1(AbstractBasePipe.java:88)
-	at mmb.engine.block.BlockEntityChirotable.save0(BlockEntityChirotable.java:122)
-	at mmb.engine.block.BlockEntityData.save(BlockEntityData.java:23)
-	at mmb.engine.worlds.world.World.save(World.java:273)
-	at mmb.engine.worlds.universe.Universe.save(Universe.java:142)
-	at mmbbase.menu.world.window.WorldWindow.save(WorldWindow.java:102)
-	at mmbbase.menu.world.window.WorldWindow.destroy(WorldWindow.java:85)
-	at mmb.engine.window.MMBFrame.dispose(MMBFrame.java:29)
-	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:306)
-	at java.desktop/java.awt.Window.processEvent(Window.java:2037)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(BLOCKS) Failed to write JSON data
-(BLOCKS) java.lang.NullPointerException
-	at mmb.content.imachine.AbstractBasePipe.lambda$0(AbstractBasePipe.java:88)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:110)
-	at mmb.engine.json.JsonTool.saveArray(JsonTool.java:105)
-	at mmb.content.imachine.AbstractBasePipe.save1(AbstractBasePipe.java:88)
-	at mmb.engine.block.BlockEntityChirotable.save0(BlockEntityChirotable.java:122)
-	at mmb.engine.block.BlockEntityData.save(BlockEntityData.java:23)
-	at mmb.engine.worlds.world.World.save(World.java:273)
-	at mmb.engine.worlds.universe.Universe.save(Universe.java:142)
-	at mmbbase.menu.world.window.WorldWindow.save(WorldWindow.java:102)
-	at mmbbase.menu.world.window.WorldWindow.destroy(WorldWindow.java:85)
-	at mmb.engine.window.MMBFrame.dispose(MMBFrame.java:29)
-	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:306)
-	at java.desktop/java.awt.Window.processEvent(Window.java:2037)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
 (DATA LAYERS) Saving world data layer: STN
 (WORLD TEST) Saving the world
 (WORLD TEST) Saved the world

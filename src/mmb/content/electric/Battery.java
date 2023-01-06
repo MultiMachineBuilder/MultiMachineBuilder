@@ -14,8 +14,8 @@ import mmb.engine.json.JsonTool;
 import mmbbase.beans.Saver;
 
 /**
+ * An implementation of a battery
  * @author oskar
- *
  */
 public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver{
 	/** Maximum power in coulombs per tick */
@@ -32,6 +32,7 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 	/** The voltage tier of this battery */
 	@NN public VoltageTier voltage;
 
+	//Constructors
 	/**
 	 * Create battery with capacity and power limits
 	 * @param maxPower max power in coulombs per tick
@@ -46,7 +47,6 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 		this.blow = blow;
 		this.voltage = voltage;
 	}
-
 	/**
 	 * Creates a copy of the battery
 	 * @param bat battery to copy
@@ -59,16 +59,7 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 		voltage = bat.voltage;
 	}
 
-	public double amount() {
-		return stored;
-	}
-	
-	private void blow() {
-		final BlockEntity blow2 = blow;
-		if (blow2 != null) 
-			blow2.owner().place(blow2.type().leaveBehind(), blow2.posX(), blow2.posY());
-	}
-
+	//Electricity methods
 	@Override
 	public double insert(double amt, VoltageTier volt) {
 		int cmp = volt.compareTo(voltage);
@@ -86,9 +77,9 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 		return max;
 	}
 	@Override
-	public double extract(double amt, VoltageTier volt, Runnable blow) {
+	public double extract(double amt, VoltageTier volt, Runnable blow1) {
 		int cmp = voltage.compareTo(volt);
-		if(cmp > 0) blow.run();
+		if(cmp > 0) blow1.run();
 		if(cmp != 0) return 0;
 		if(volt != voltage) return 0;
 		if(amt < 0) return 0;
@@ -102,7 +93,20 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 		this.stored -= max;
 		return max;
 	}
-
+	@Override
+	public VoltageTier voltage() {
+		return voltage;
+	}
+	@Override
+	public double pressure() {
+		return pressure;
+	}
+	@Override
+	public double pressureWeight() {
+		return pressureWt;
+	}
+	
+	//Serialization
 	@Override
 	public void load(@Nil JsonNode data) {
 		if(data == null || data.isEmpty()) return;
@@ -114,54 +118,26 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 			pressureWt = data.get(4).asDouble();
 		}
 	}
-
 	@Override
 	public JsonNode save() {
 		return JsonTool.newArrayNode().add(maxPower).add(capacity).add(stored).add(pressure).add(pressureWt);
 	}
 	
-	@Override
-	public VoltageTier voltage() {
-		return voltage;
+	//Battery get methods
+	/** @return stored charge in coulombs */
+	public double amount() {
+		return stored;
 	}
-
-	@Override
-	public double pressure() {
-		return pressure;
-	}
-
-	@Override
-	public double pressureWeight() {
-		return pressureWt;
-	}
-
-	/**
-	 * @return remaining charge in coulombs
-	 */
+	/** @return remaining charge in coulombs */
 	public double remain() {
 		return capacity - stored;
 	}
-	
-	/**
-	 * @param elec
-	 */
-	public void extractTo(Electricity elec) {
-		double insert = elec.insert(Math.min(stored, maxPower), voltage);
-		if(maxPower > stored) pressure -= stored*voltage.volts;
-		stored -= insert;
+	/** @return stored energy in joules */
+	public double energy() {
+		return stored*voltage.volts;
 	}
 	
-	/**
-	 * @param elec
-	 */
-	public void takeFrom(Electricity elec) {
-		double remain = remain();
-		BlockEntity blow2 = blow;
-		double insert = elec.extract(Math.min(remain, maxPower), voltage, blow2==null?Runnables.doNothing():blow2::blow);
-		if(maxPower > remain) pressure += remain*voltage.volts;
-		stored += insert;
-	}
-
+	//Battery set methods
 	/**
 	 * Sets all properties of this battery to those of other battery
 	 * @param bat battery with new settings
@@ -173,17 +149,37 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 		pressure = bat.pressure;
 		pressureWt = bat.pressureWt;
 	}
-
 	@Override
 	public void setPressure(double pressure) {
 		this.pressure = pressure;
 	}
-
-	/** @return stored energy in joules */
-	public double energy() {
-		return stored*voltage.volts;
+	
+	//Battery I/O methods
+	private void blow() {
+		final BlockEntity blow2 = blow;
+		if (blow2 != null) 
+			blow2.owner().place(blow2.type().leaveBehind(), blow2.posX(), blow2.posY());
 	}
-
+	/**
+	 * Move energy somewhere else
+	 * @param elec target electrical connection
+	 */
+	public void extractTo(Electricity elec) {
+		double insert = elec.insert(Math.min(stored, maxPower), voltage);
+		if(maxPower > stored) pressure -= stored*voltage.volts;
+		stored -= insert;
+	}
+	/**
+	 * Take energy from somewhere else
+	 * @param elec target electrical connection
+	 */
+	public void takeFrom(Electricity elec) {
+		double remain = remain();
+		BlockEntity blow2 = blow;
+		double insert = elec.extract(Math.min(remain, maxPower), voltage, blow2==null?Runnables.doNothing():blow2::blow);
+		if(maxPower > remain) pressure += remain*voltage.volts;
+		stored += insert;
+	}
 	
 	//Value
 	@Override
@@ -205,7 +201,6 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 		return "Battery [maxPower=" + maxPower + ", capacity=" + capacity + ", amt=" + stored + ", pressure=" + pressure
 				+ ", pressureWt=" + pressureWt + ", voltage=" + voltage + "]";
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

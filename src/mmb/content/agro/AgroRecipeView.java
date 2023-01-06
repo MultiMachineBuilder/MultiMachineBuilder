@@ -10,6 +10,7 @@ import static mmb.engine.settings.GlobalSettings.$res;
 import javax.swing.JLabel;
 import javax.swing.JList;
 
+import mmb.NN;
 import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.engine.inv.ItemStack;
 import mmb.engine.item.ItemEntry;
@@ -22,7 +23,7 @@ import mmbbase.menu.world.craft.VectorUtils;
  * Represent a recipe view for crop outputs
  * @author oskar
  */
-public class AgroRecipeView extends RecipeView<AgroProcessingRecipe>{
+public class AgroRecipeView extends RecipeView<@NN AgroProcessingRecipe>{
 	private static final long serialVersionUID = -2864705123116802475L;
 	private JLabel lblIncoming;
 	private JLabel lblOutgoing;
