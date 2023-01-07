@@ -24,15 +24,15 @@ import mmb.content.rawmats.MetalGroup;
  * V9: graphene
  */
 public enum VoltageTier {
-	V1(    100, "ULV", () -> Materials.rudimentary, () -> Materials.rudimentary,     2, new Color(255,   0,   0)),
-	V2(    400, "VLV", () -> Materials.iron,        () -> Materials.copper,          4, new Color(255, 128,   0)), 
-	V3(   1600,  "LV", () -> Materials.steel,       () -> Materials.silver,          8, new Color(255, 255,   0)),
-	V4(   6400,  "MV", () -> Materials.stainless,   () -> Materials.gold,           16, new Color(128, 255,   0)),
-	V5(  25600,  "HV", () -> Materials.titanium,    () -> Materials.platinum,       64, new Color(  0, 255, 128)),
-	V6( 102400,  "EV", () -> Materials.signalum,    () -> Materials.iridium,       256, new Color(  0, 255, 255)),
-	V7( 409600,  "IV", () -> Materials.enderium,    () -> Materials.crystal,      1024, new Color(  0, 200, 255)),
-	V8(1638400, "LuV", () -> Materials.duranium,    () -> Materials.stellar,      4096, new Color(  0, 128, 255)),
-	V9(6553600, "MAX", () -> Materials.unobtainium, () -> Materials.unobtainium, 16384, new Color(  0,   0, 255));
+	V1(    100, "ULV", () -> Materials.rudimentary, () -> Materials.rudimentary,      2, new Color(255,   0,   0)),
+	V2(    400, "VLV", () -> Materials.iron,        () -> Materials.copper,           8, new Color(255, 128,   0)), 
+	V3(   1600,  "LV", () -> Materials.steel,       () -> Materials.silver,          32, new Color(255, 255,   0)),
+	V4(   6400,  "MV", () -> Materials.stainless,   () -> Materials.gold,           128, new Color(128, 255,   0)),
+	V5(  25600,  "HV", () -> Materials.titanium,    () -> Materials.platinum,       512, new Color(  0, 255, 128)),
+	V6( 102400,  "EV", () -> Materials.signalum,    () -> Materials.iridium,       2048, new Color(  0, 255, 255)),
+	V7( 409600,  "IV", () -> Materials.enderium,    () -> Materials.crystal,       8192, new Color(  0, 200, 255)),
+	V8(1638400, "LuV", () -> Materials.duranium,    () -> Materials.stellar,      32768, new Color(  0, 128, 255)),
+	V9(6553600, "MAX", () -> Materials.unobtainium, () -> Materials.unobtainium, 131072, new Color(  0,   0, 255));
 	
 	/** Voltage in volts */
 	public final double volts;
