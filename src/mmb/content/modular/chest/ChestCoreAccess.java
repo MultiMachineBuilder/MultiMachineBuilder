@@ -6,7 +6,7 @@ package mmb.content.modular.chest;
 import javax.swing.JPanel;
 
 import mmb.content.modular.gui.SafeCloseable;
-import mmbbase.menu.world.inv.InventoryController;
+import mmb.menu.world.inv.InventoryController;
 
 /**
  *

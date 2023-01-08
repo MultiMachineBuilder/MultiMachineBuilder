@@ -5,8 +5,8 @@ package mmb.engine.block;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.beans.Positioned;
 import mmb.engine.worlds.world.World;
-import mmbbase.beans.Positioned;
 
 /**
  * A block which is instantiated prior to placement, in contrast to placement directly as a simple block

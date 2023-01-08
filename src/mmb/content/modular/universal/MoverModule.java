@@ -30,7 +30,7 @@ import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.BlockDrawer;
-import mmbbase.menu.world.inv.InventoryController;
+import mmb.menu.world.inv.InventoryController;
 
 /**
  * A basic implementation of an item mover.

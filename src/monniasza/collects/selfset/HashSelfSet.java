@@ -12,9 +12,6 @@ import monniasza.collects.Identifiable;
 
 /**
  * @author oskar
- * @param <K> the key type
- * @param <V> the value type
- *
  */
 public class HashSelfSet{
 	private HashSelfSet() {}

@@ -4,8 +4,8 @@
 package mmb.content.imachine.filter;
 
 import mmb.Nil;
+import mmb.cgui.DestroyTab;
 import mmb.engine.inv.storage.SingleItemInventory;
-import mmbbase.cgui.DestroyTab;
 
 /**
  * @author oskar

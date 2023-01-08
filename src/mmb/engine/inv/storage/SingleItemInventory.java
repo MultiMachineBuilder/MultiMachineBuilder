@@ -5,9 +5,9 @@ package mmb.engine.inv.storage;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.data.variables.DataValue;
+import mmb.data.variables.Variable;
 import mmb.engine.item.ItemEntry;
-import mmbbase.data.variables.DataValue;
-import mmbbase.data.variables.Variable;
 
 /**
  * @author oskar

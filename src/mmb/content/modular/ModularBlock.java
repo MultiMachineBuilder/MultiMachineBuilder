@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.cgui.BlockActivateListener;
 import mmb.content.electric.Electricity;
 import mmb.content.modular.chest.BlockModuleUniversal;
 import mmb.content.modular.gui.ModularChestGUI;
@@ -31,8 +32,7 @@ import mmb.engine.rotate.Rotation;
 import mmb.engine.rotate.Side;
 import mmb.engine.texture.BlockDrawer;
 import mmb.engine.worlds.world.World;
-import mmbbase.cgui.BlockActivateListener;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * A modular block.

@@ -14,7 +14,7 @@ import mmb.engine.craft.GlobalRecipeRegistrar;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
-import mmbbase.menu.world.craft.ComplexRecipeView;
+import mmb.menu.world.craft.ComplexRecipeView;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;

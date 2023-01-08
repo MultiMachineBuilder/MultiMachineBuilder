@@ -35,7 +35,7 @@ import mmb.engine.java2d.ColorMapper;
 import mmb.engine.java2d.TexGen;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;
-import mmbbase.menu.wtool.DumpItems;
+import mmb.menu.wtool.DumpItems;
 
 /**
  * @author oskar

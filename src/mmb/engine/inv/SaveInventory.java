@@ -3,7 +3,7 @@
  */
 package mmb.engine.inv;
 
-import mmbbase.beans.Saver;
+import mmb.beans.Saver;
 
 /**
  * An inventory with essential save and load capabilities

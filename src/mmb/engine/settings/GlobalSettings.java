@@ -10,12 +10,12 @@ import javax.swing.JComponent;
 
 import mmb.Main;
 import mmb.NN;
+import mmb.data.variables.ListenableDouble;
+import mmb.data.variables.ListenableInt;
+import mmb.data.variables.ListenableValue;
+import mmb.data.variables.ListenerBooleanVariable;
 import mmb.engine.MutableResourceBundle;
 import mmb.engine.debug.Debugger;
-import mmbbase.data.variables.ListenableDouble;
-import mmbbase.data.variables.ListenableInt;
-import mmbbase.data.variables.ListenableValue;
-import mmbbase.data.variables.ListenerBooleanVariable;
 import monniasza.collects.Collects;
 
 /**

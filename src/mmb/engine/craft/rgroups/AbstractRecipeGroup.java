@@ -15,8 +15,8 @@ import mmb.engine.craft.PlugAndPlayRecipeCellRenderer;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.RecipeGroup;
 import mmb.engine.settings.GlobalSettings;
-import mmbbase.menu.world.craft.RecipeList;
-import mmbbase.menu.world.window.TabRecipes;
+import mmb.menu.world.craft.RecipeList;
+import mmb.menu.world.window.TabRecipes;
 
 /**
  * An implementation aid for recipe groups

@@ -3,10 +3,10 @@
  */
 package mmb.engine.inv.io;
 
+import mmb.beans.Positioned;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.worlds.world.World;
-import mmbbase.beans.Positioned;
 
 /**
  * A dropper is an inventory writer, which drops items at a specific location

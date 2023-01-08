@@ -8,7 +8,7 @@ import mmb.engine.MMBUtils;
 import mmb.engine.debug.Debugger;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.settings.Settings;
-import mmbbase.menu.main.MainMenu;
+import mmb.menu.main.MainMenu;
 
 import javax.swing.JLabel;
 

@@ -11,7 +11,7 @@ import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
-import mmbbase.menu.world.craft.RecipeView;
+import mmb.menu.world.craft.RecipeView;
 
 /**
  * @author oskar

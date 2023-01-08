@@ -8,9 +8,9 @@ import java.util.Set;
 import javax.swing.ListCellRenderer;
 
 import mmb.NN;
+import mmb.beans.Titled;
 import mmb.engine.item.ItemEntry;
-import mmbbase.beans.Titled;
-import mmbbase.menu.world.craft.RecipeView;
+import mmb.menu.world.craft.RecipeView;
 import monniasza.collects.Identifiable;
 
 /**

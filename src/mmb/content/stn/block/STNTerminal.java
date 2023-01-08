@@ -5,14 +5,14 @@ package mmb.content.stn.block;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.cgui.BlockActivateListener;
 import mmb.content.stn.STN;
 import mmb.content.stn.network.STNNetworkProcessing.STNRGroupTag;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.Inventory;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.worlds.world.World;
-import mmbbase.cgui.BlockActivateListener;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

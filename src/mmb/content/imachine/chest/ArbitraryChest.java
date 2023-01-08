@@ -3,8 +3,8 @@
  */
 package mmb.content.imachine.chest;
 
+import mmb.beans.Colorable;
 import mmb.engine.inv.Inventory;
-import mmbbase.beans.Colorable;
 
 /**
  * @author oskar

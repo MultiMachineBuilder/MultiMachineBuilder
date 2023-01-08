@@ -10,15 +10,15 @@ import java.util.List;
 import it.unimi.dsi.fastutil.ints.IntList;
 import mmb.NN;
 import mmb.Nil;
+import mmb.cgui.BlockActivateListener;
 import mmb.content.ContentsRecipes;
 import mmb.content.CraftingGroups;
 import mmb.engine.block.Block;
 import mmb.engine.item.Item;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.worlds.world.World;
-import mmbbase.cgui.BlockActivateListener;
-import mmbbase.menu.world.inv.CraftGUI;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.inv.CraftGUI;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

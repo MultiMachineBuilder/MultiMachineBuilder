@@ -15,7 +15,7 @@ import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.rgroups.AbstractRecipeGroup;
 import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
-import mmbbase.menu.world.craft.RecipeView;
+import mmb.menu.world.craft.RecipeView;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.selfset.HashSelfSet;

@@ -7,6 +7,7 @@ import java.awt.Point;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.beans.Positioned;
 import mmb.content.event.BlockEntityDemolitionEvent;
 import mmb.engine.CatchingEvent;
 import mmb.engine.debug.Debugger;
@@ -14,7 +15,6 @@ import mmb.engine.rotate.Side;
 import mmb.engine.texture.BlockDrawer;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
-import mmbbase.beans.Positioned;
 
 /**
  * @author oskar

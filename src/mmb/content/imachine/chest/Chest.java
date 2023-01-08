@@ -11,15 +11,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.Nil;
+import mmb.beans.*;
+import mmb.cgui.BlockActivateListener;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.java2d.MappedColorTexture;
 import mmb.engine.json.Save;
 import mmb.engine.worlds.world.World;
-import mmbbase.beans.*;
-import mmbbase.cgui.BlockActivateListener;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

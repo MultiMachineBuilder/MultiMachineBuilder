@@ -19,7 +19,7 @@ import mmb.engine.craft.SingleItem;
 import mmb.engine.inv.SaveInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.texture.Textures;
-import mmbbase.menu.world.inv.AbstractInventoryController;
+import mmb.menu.world.inv.AbstractInventoryController;
 
 /**
  * A chest core

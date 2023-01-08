@@ -9,7 +9,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 
 import mmb.content.electric.machines.ElectroMachine;
-import mmbbase.menu.world.craft.*;
+import mmb.menu.world.craft.*;
 
 /**
  * @author oskar

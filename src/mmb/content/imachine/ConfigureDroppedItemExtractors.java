@@ -14,10 +14,10 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import mmb.NN;
+import mmb.beans.Resizable;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.texture.Textures;
-import mmbbase.beans.Resizable;
-import mmbbase.menu.wtool.WindowTool;
+import mmb.menu.wtool.WindowTool;
 
 /**
  * @author oskar

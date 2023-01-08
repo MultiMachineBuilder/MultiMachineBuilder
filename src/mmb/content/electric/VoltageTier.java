@@ -36,13 +36,15 @@ public enum VoltageTier {
 	
 	/** Voltage in volts */
 	public final double volts;
+	/** The name of the voltage tier */
 	@NN public final String name;
 	/** The construction material */
 	@NN public final Supplier<MetalGroup> construction;
 	/** The electrical material */
 	@NN public final Supplier<MetalGroup> electrical;
+	/** How much machines of given tier are faster than manual */
 	public final int speedMul;
-	/** Color of machines and conduits for this voltage */
+	/** Color of machines for this voltage */
 	@NN public final Color c;
 	/** List of all voltages */
 	@NN public static final List<@NN VoltageTier> VOLTS = List.of(VoltageTier.values());
@@ -50,7 +52,6 @@ public enum VoltageTier {
 	public static VoltageTier maxVoltage() { 
 		return V9;
 	}
-	
 	/**
 	 * @param current current or charge
 	 * @return the power or energy at given current or charge respectively, and this voltage

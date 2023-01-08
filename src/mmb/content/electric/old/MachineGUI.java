@@ -25,10 +25,10 @@ import mmb.content.electric.SideConfigCtrl;
 import mmb.content.electric.old.SkeletalBlockMachine.Update;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
-import mmbbase.menu.world.inv.InventoryController;
-import mmbbase.menu.world.inv.MoveItems;
-import mmbbase.menu.world.window.GUITab;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.inv.InventoryController;
+import mmb.menu.world.inv.MoveItems;
+import mmb.menu.world.window.GUITab;
+import mmb.menu.world.window.WorldWindow;
 
 class MachineGUI extends GUITab{
 	private static final long serialVersionUID = -4029353853474275301L;

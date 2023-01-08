@@ -19,11 +19,11 @@ import mmb.content.ditems.Stencil;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
-import mmbbase.menu.world.inv.CraftGUI;
-import mmbbase.menu.world.inv.InventoryController;
-import mmbbase.menu.world.inv.MoveItems;
-import mmbbase.menu.world.window.GUITab;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.inv.CraftGUI;
+import mmb.menu.world.inv.InventoryController;
+import mmb.menu.world.inv.MoveItems;
+import mmb.menu.world.window.GUITab;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

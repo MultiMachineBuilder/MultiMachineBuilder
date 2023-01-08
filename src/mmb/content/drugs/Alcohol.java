@@ -17,8 +17,8 @@ import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 import mmb.engine.settings.GlobalSettings;
-import mmbbase.menu.wtool.Tools;
-import mmbbase.menu.wtool.WindowToolModel;
+import mmb.menu.wtool.Tools;
+import mmb.menu.wtool.WindowToolModel;
 
 /**
  * The main class for alcoholic beverages

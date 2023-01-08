@@ -3,9 +3,9 @@
  */
 package mmb.content.imachine;
 
+import mmb.beans.Resizable;
+import mmb.cgui.DestroyTab;
 import mmb.engine.inv.Inventory;
-import mmbbase.beans.Resizable;
-import mmbbase.cgui.DestroyTab;
 
 /**
  * @author oskar

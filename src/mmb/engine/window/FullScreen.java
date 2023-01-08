@@ -7,8 +7,8 @@ import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 
 import mmb.NN;
+import mmb.data.variables.ListenerBooleanVariable;
 import mmb.engine.debug.Debugger;
-import mmbbase.data.variables.ListenerBooleanVariable;
 
 /**
  * @author oskar

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.Nil;
+import mmb.cgui.BlockActivateListener;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntry;
@@ -15,9 +16,8 @@ import mmb.engine.debug.Debugger;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
 import mmb.engine.worlds.world.WorldUtils;
-import mmbbase.cgui.BlockActivateListener;
-import mmbbase.menu.world.TextEditor;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.TextEditor;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

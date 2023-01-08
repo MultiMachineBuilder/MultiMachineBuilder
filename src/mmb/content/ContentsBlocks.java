@@ -102,7 +102,6 @@ public class ContentsBlocks {
 			.texture("log.png")
 			.title("#logs")
 			.finish("mmb.tree");
-	
 	@NN public static final Block sand = new Block()
 			.texture("block/sand.png")
 			.title("#sand")
@@ -275,7 +274,7 @@ public class ContentsBlocks {
 			.finish("elec.load");
 	
 	//DEPRECATED old modular machines
-	/** @deprecated An old block for a furnace. Use {@link #efurnace}{@code .}{@link #ElectricMachineGroup.getBlock(int) get}{@code (1)} instead */
+	/** @deprecated An old block for a furnace. Use {@link #efurnace}{@code .}{@link #ElectricMachineGroup.get(int) get}{@code (1)} instead */
 	@Deprecated(since="0.5", forRemoval=true) @NN public static final BlockEntityType EFURNACE = new BlockEntityType()
 			.title("#depr-furnace")
 			.factory(FurnacePlus::new)

@@ -22,7 +22,7 @@ import mmb.engine.craft.SimpleItemList;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemStack;
 import mmb.engine.item.ItemEntry;
-import mmbbase.menu.world.craft.CraftingRecipeView;
+import mmb.menu.world.craft.CraftingRecipeView;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.grid.FixedGrid;

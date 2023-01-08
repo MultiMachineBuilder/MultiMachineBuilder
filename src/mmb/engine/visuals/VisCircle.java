@@ -11,7 +11,7 @@ import com.github.davidmoten.rtree2.geometry.Circle;
 import com.github.davidmoten.rtree2.geometry.Geometries;
 
 import mmb.Nil;
-import mmbbase.menu.world.window.WorldFrame;
+import mmb.menu.world.window.WorldFrame;
 
 /**
  * @author oskar

@@ -9,8 +9,8 @@ import javax.swing.JLabel;
 import mmb.engine.debug.Debugger;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.sound.Sounds;
-import mmbbase.menu.world.window.GUITab;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.GUITab;
+import mmb.menu.world.window.WorldWindow;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;

@@ -8,9 +8,9 @@ import java.awt.Point;
 
 import javax.swing.Icon;
 
+import mmb.beans.Titled;
 import mmb.engine.worlds.world.World;
-import mmbbase.beans.Titled;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

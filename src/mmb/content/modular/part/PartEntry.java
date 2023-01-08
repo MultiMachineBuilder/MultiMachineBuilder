@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.node.TextNode;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.beans.Saver;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.debug.Debugger;
@@ -20,7 +21,6 @@ import mmb.engine.item.ItemType;
 import mmb.engine.item.Items;
 import mmb.engine.json.JsonTool;
 import mmb.engine.texture.BlockDrawer;
-import mmbbase.beans.Saver;
 
 /**
  *

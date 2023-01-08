@@ -8,10 +8,10 @@ import com.google.common.util.concurrent.Runnables;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.beans.Saver;
 import mmb.content.electric.Electricity.SettablePressure;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.json.JsonTool;
-import mmbbase.beans.Saver;
 
 /**
  * An implementation of a battery

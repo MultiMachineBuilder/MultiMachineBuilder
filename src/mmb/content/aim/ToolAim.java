@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
 import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.texture.Textures;
-import mmbbase.menu.wtool.WindowTool;
+import mmb.menu.wtool.WindowTool;
 
 /**
  * @author oskar
@@ -28,20 +28,6 @@ public class ToolAim extends WindowTool {
 	public ToolAim() {
 		super("aim");
 	}
-
-	private final String title = $res("aim");
-	@Override
-	public String title() {
-		return title;
-	}
-
-	public static final ImageIcon icon = new ImageIcon(Textures.get("aim.png"));
-	@Override
-	public Icon getIcon() {
-		return icon;
-	}
-
-	@SuppressWarnings("null")
 	@Override
 	public void preview(int startX, int startY, double scale, Graphics g) {
 		if(collector != null) {
@@ -50,8 +36,10 @@ public class ToolAim extends WindowTool {
 			g.drawImage(icon.getImage(), chpos.x, chpos.y, s, s, null);
 		}
 	}
-	@NN private Point mouse = new Point();
+	
+	//Event listeners
 	private Aimable collector;
+	@NN private Point mouse = new Point();
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		frame.blockAt(e.getX(), e.getY(), mouse);
@@ -75,21 +63,40 @@ public class ToolAim extends WindowTool {
 			break;
 		case 3: //RMB
 			collector = null;
+			break;
+		default:
+			break;
 		}
 	}
-
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		frame.blockAt(e.getX(), e.getY(), mouse);
 	}
 
-	private static final String descr = $res("aim-descr");
-	private static final String select = $res("aim-select");
+	//Description
+	/** Description, when no block is selected */
+	@NN private static final String DESCR = $res("aim-descr");
+	/** Description, when a block is selected */
+	@NN private static final String SELECT = $res("aim-select");
 	@Override
 	public String description() {
 		if(collector == null) 
-			return descr;
-		return select;
+			return DESCR;
+		return SELECT;
 	}
-
+	
+	//Title
+	@NN private static final String TITLE = $res("aim");
+	@Override
+	public String title() {
+		return TITLE;
+	}
+	
+	//Icon
+	/** The aim icon */
+	public static final ImageIcon icon = new ImageIcon(Textures.get("aim.png"));
+	@Override
+	public Icon getIcon() {
+		return icon;
+	}
 }

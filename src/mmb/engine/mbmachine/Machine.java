@@ -10,9 +10,9 @@ import java.awt.Rectangle;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
+import mmb.beans.Saver;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
-import mmbbase.beans.Saver;
 
 /**
  * @author oskar

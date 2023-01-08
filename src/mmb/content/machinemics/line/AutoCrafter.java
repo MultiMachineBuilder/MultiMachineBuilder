@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.NN;
 import mmb.Nil;
+import mmb.cgui.BlockActivateListener;
 import mmb.content.ContentsBlocks;
 import mmb.content.ditems.Stencil;
 import mmb.engine.block.BlockEntry;
@@ -22,8 +23,7 @@ import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.worlds.world.World;
-import mmbbase.cgui.BlockActivateListener;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.WorldWindow;
 import monniasza.collects.grid.Grid;
 
 /**

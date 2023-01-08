@@ -12,10 +12,10 @@ import static mmb.engine.settings.GlobalSettings.$res;
 import java.awt.Color;
 import javax.swing.JSpinner;
 
-import mmbbase.menu.world.inv.InventoryController;
-import mmbbase.menu.world.inv.MoveItems;
-import mmbbase.menu.world.window.GUITab;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.inv.InventoryController;
+import mmb.menu.world.inv.MoveItems;
+import mmb.menu.world.window.GUITab;
+import mmb.menu.world.window.WorldWindow;
 
 import javax.swing.JLabel;
 

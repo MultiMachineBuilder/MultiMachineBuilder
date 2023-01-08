@@ -38,7 +38,7 @@ import mmb.engine.sound.Sounds;
 import mmb.engine.texture.Textures;
 import mmb.engine.window.FullScreen;
 import mmb.engine.worlds.DataLayers;
-import mmbbase.menu.wtool.Tools;
+import mmb.menu.wtool.Tools;
 
 /**
  * @author oskar

@@ -6,7 +6,7 @@ package mmb.content.drugs;
 import mmb.NN;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.Item;
-import mmbbase.menu.wtool.WindowTool;
+import mmb.menu.wtool.WindowTool;
 
 /**
  * @author oskar

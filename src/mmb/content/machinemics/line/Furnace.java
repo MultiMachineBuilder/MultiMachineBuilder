@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.cgui.BlockActivateListener;
 import mmb.content.ContentsBlocks;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.Battery;
@@ -22,8 +23,7 @@ import mmb.engine.debug.Debugger;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.texture.Textures;
 import mmb.engine.worlds.world.World;
-import mmbbase.cgui.BlockActivateListener;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

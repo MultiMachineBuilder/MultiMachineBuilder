@@ -4,6 +4,7 @@
 package mmb.content.imachine;
 
 import mmb.NN;
+import mmb.data.variables.Variable;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.storage.SingleItemInventory;
@@ -11,7 +12,6 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.rotate.ChirotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
-import mmbbase.data.variables.Variable;
 
 /**
  * @author oskar

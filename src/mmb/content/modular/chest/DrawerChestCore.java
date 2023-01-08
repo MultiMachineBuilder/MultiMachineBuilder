@@ -9,8 +9,8 @@ import mmb.content.modular.part.PartEntry;
 import mmb.engine.craft.SingleItem;
 import mmb.engine.inv.storage.SingleStackedInventory;
 import mmb.engine.item.ItemEntry;
-import mmbbase.menu.world.inv.AbstractInventoryController;
-import mmbbase.menu.world.inv.InventoryController;
+import mmb.menu.world.inv.AbstractInventoryController;
+import mmb.menu.world.inv.InventoryController;
 
 /**
  * @author oskar

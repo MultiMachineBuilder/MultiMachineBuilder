@@ -13,10 +13,10 @@ import javax.swing.JList;
 import mmb.content.drugs.AlcoholInfoGroup.AlcoholInfo;
 import mmb.engine.inv.ItemStack;
 import mmb.engine.item.ItemEntry;
-import mmbbase.menu.world.craft.CRConstants;
-import mmbbase.menu.world.craft.ItemStackCellRenderer;
-import mmbbase.menu.world.craft.RecipeView;
-import mmbbase.menu.world.craft.VectorUtils;
+import mmb.menu.world.craft.CRConstants;
+import mmb.menu.world.craft.ItemStackCellRenderer;
+import mmb.menu.world.craft.RecipeView;
+import mmb.menu.world.craft.VectorUtils;
 
 /**
  * Represents a recipe view for alcoholic beverages

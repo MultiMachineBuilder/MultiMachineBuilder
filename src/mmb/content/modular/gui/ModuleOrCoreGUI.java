@@ -15,6 +15,8 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.content.modular.BlockModuleOrCore;
 import mmb.content.modular.Slot;
+import mmb.data.reactive.ListenableProperty;
+import mmb.data.reactive.Reactor;
 import mmb.engine.craft.Craftings;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.SimpleItemList;
@@ -22,10 +24,8 @@ import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.settings.GlobalSettings;
-import mmbbase.data.reactive.ListenableProperty;
-import mmbbase.data.reactive.Reactor;
-import mmbbase.menu.components.Placeholder;
-import mmbbase.menu.world.inv.InventoryController;
+import mmb.menu.components.Placeholder;
+import mmb.menu.world.inv.InventoryController;
 
 /**
  * A GUI wrapper with buttons, upgrades

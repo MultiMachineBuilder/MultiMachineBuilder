@@ -15,7 +15,7 @@ import mmb.engine.item.Item;
 import mmb.engine.item.Items;
 import mmb.engine.texture.BlockDrawer;
 import mmb.engine.worlds.world.World;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * Shared implementation for {@link Block} and {@link BlockEntityType}.

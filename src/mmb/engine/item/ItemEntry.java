@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.node.TextNode;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.beans.Saver;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.SingleItem;
@@ -26,8 +27,7 @@ import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.json.JsonTool;
 import mmb.engine.texture.BlockDrawer;
 import mmb.engine.worlds.world.World;
-import mmbbase.beans.Saver;
-import mmbbase.menu.wtool.WindowTool;
+import mmb.menu.wtool.WindowTool;
 
 /**
  * @author oskar

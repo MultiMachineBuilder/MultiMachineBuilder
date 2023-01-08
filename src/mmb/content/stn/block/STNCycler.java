@@ -8,8 +8,13 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.cgui.BlockActivateListener;
 import mmb.content.imachine.SpeedUpgrade;
 import mmb.content.stn.network.STNNetworkProcessing.STNRGroupTag;
+import mmb.data.variables.DataValue;
+import mmb.data.variables.ListenableValue;
+import mmb.data.variables.ListenerBooleanVariable;
+import mmb.data.variables.Variable;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.inv.Inventories;
 import mmb.engine.inv.Inventory;
@@ -19,12 +24,7 @@ import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
-import mmbbase.cgui.BlockActivateListener;
-import mmbbase.data.variables.DataValue;
-import mmbbase.data.variables.ListenableValue;
-import mmbbase.data.variables.ListenerBooleanVariable;
-import mmbbase.data.variables.Variable;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

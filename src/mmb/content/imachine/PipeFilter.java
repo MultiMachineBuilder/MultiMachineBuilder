@@ -7,9 +7,11 @@ import static mmb.engine.settings.GlobalSettings.$res;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.cgui.BlockActivateListener;
 import mmb.content.imachine.filter.ControllableFilter;
 import mmb.content.imachine.filter.FilterGUI;
 import mmb.content.imachine.filter.ItemFilter;
+import mmb.data.variables.Variable;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.io.InventoryReader;
@@ -20,10 +22,8 @@ import mmb.engine.rotate.ChirotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
-import mmbbase.cgui.BlockActivateListener;
-import mmbbase.data.variables.Variable;
-import mmbbase.menu.world.window.GUITab;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.GUITab;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

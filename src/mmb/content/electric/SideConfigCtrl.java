@@ -5,7 +5,7 @@ package mmb.content.electric;
 
 import javax.swing.JPanel;
 
-import mmbbase.menu.components.BoundCheckBox;
+import mmb.menu.components.BoundCheckBox;
 
 import javax.swing.BoxLayout;
 

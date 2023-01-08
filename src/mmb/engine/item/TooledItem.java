@@ -3,7 +3,7 @@
  */
 package mmb.engine.item;
 
-import mmbbase.menu.wtool.WindowTool;
+import mmb.menu.wtool.WindowTool;
 
 /**
  * An item with assigned tool

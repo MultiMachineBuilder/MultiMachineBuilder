@@ -18,9 +18,9 @@ import mmb.content.modular.Slot;
 import mmb.content.modular.Slot.CoreSlot;
 import mmb.engine.rotate.Side;
 import mmb.engine.settings.GlobalSettings;
-import mmbbase.menu.world.inv.InventoryController;
-import mmbbase.menu.world.window.GUITab;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.inv.InventoryController;
+import mmb.menu.world.window.GUITab;
+import mmb.menu.world.window.WorldWindow;
 
 import java.awt.Color;
 

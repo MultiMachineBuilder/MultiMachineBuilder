@@ -22,7 +22,7 @@ import mmb.engine.MMBUtils;
 import mmb.engine.debug.Debugger;
 import mmb.engine.files.LocalFile;
 import mmb.engine.files.Save;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  *

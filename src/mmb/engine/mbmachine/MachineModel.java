@@ -19,7 +19,7 @@ import mmb.engine.block.Placer;
 import mmb.engine.debug.Debugger;
 import mmb.engine.item.Item;
 import mmb.engine.worlds.world.World;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

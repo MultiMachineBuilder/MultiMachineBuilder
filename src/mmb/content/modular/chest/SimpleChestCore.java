@@ -10,8 +10,8 @@ import mmb.engine.craft.SingleItem;
 import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.item.ItemEntityType;
 import mmb.engine.item.ItemEntry;
-import mmbbase.menu.world.inv.AbstractInventoryController;
-import mmbbase.menu.world.inv.InventoryController;
+import mmb.menu.world.inv.AbstractInventoryController;
+import mmb.menu.world.inv.InventoryController;
 
 /**
  * @author oskar

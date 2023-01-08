@@ -19,8 +19,8 @@ import mmb.engine.files.Save;
 import mmb.engine.json.JsonTool;
 import mmb.engine.window.FullScreen;
 import mmb.engine.worlds.universe.Universe;
-import mmbbase.menu.main.MainMenu;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.main.MainMenu;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * Controls the game loading process

@@ -4,12 +4,12 @@
 package mmb.content.wireworld;
 
 import mmb.Nil;
+import mmb.cgui.BlockActivateListener;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.Block;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.world.World;
-import mmbbase.cgui.BlockActivateListener;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

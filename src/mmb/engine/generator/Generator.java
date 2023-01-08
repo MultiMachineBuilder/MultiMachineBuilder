@@ -6,10 +6,10 @@ package mmb.engine.generator;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
 import mmb.NN;
+import mmb.beans.Titled;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.debug.Debugger;
 import mmb.engine.worlds.world.World;
-import mmbbase.beans.Titled;
 import monniasza.collects.grid.Grid;
 
 /**

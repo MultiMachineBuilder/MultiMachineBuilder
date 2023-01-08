@@ -10,12 +10,12 @@ import javax.swing.JProgressBar;
 
 import mmb.NN;
 import mmb.content.electric.machines.BlockBattery;
-import mmbbase.menu.helper.MenuHelper;
-import mmbbase.menu.world.inv.InventoryController;
-import mmbbase.menu.world.inv.MoveItems;
-import mmbbase.menu.world.inv.SingleInventoryController;
-import mmbbase.menu.world.window.GUITab;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.helper.MenuHelper;
+import mmb.menu.world.inv.InventoryController;
+import mmb.menu.world.inv.MoveItems;
+import mmb.menu.world.inv.SingleInventoryController;
+import mmb.menu.world.window.GUITab;
+import mmb.menu.world.window.WorldWindow;
 
 import java.awt.Color;
 

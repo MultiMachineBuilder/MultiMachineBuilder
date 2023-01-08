@@ -19,11 +19,11 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.Refreshable;
-import mmbbase.menu.world.inv.InventoryController;
-import mmbbase.menu.world.inv.InventoryOrchestrator;
-import mmbbase.menu.world.inv.MoveItems;
-import mmbbase.menu.world.window.GUITab;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.inv.InventoryController;
+import mmb.menu.world.inv.InventoryOrchestrator;
+import mmb.menu.world.inv.MoveItems;
+import mmb.menu.world.window.GUITab;
+import mmb.menu.world.window.WorldWindow;
 
 import javax.swing.Box;
 

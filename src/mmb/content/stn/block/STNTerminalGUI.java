@@ -11,12 +11,12 @@ import javax.swing.JButton;
 
 import mmb.NN;
 import mmb.content.stn.STNInventoryController;
-import mmbbase.menu.helper.MenuHelper;
-import mmbbase.menu.world.inv.AbstractInventoryController;
-import mmbbase.menu.world.inv.InventoryController;
-import mmbbase.menu.world.inv.MoveItems;
-import mmbbase.menu.world.window.GUITab;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.helper.MenuHelper;
+import mmb.menu.world.inv.AbstractInventoryController;
+import mmb.menu.world.inv.InventoryController;
+import mmb.menu.world.inv.MoveItems;
+import mmb.menu.world.window.GUITab;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

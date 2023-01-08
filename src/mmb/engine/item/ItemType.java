@@ -9,8 +9,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.beans.Titled;
 import mmb.engine.texture.BlockDrawer;
-import mmbbase.beans.Titled;
 import monniasza.collects.Identifiable;
 
 /**

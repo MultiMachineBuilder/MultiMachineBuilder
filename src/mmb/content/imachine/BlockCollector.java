@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.cgui.BlockActivateListener;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntry;
@@ -22,9 +23,8 @@ import mmb.engine.json.JsonTool;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
-import mmbbase.cgui.BlockActivateListener;
-import mmbbase.menu.world.window.GUITab;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.GUITab;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

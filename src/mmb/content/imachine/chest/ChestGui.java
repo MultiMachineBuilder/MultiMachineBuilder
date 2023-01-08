@@ -9,12 +9,12 @@ import javax.swing.JButton;
 
 import mmb.NN;
 import mmb.engine.worlds.world.Player;
-import mmbbase.menu.world.ColorGUI;
-import mmbbase.menu.world.inv.InventoryController;
-import mmbbase.menu.world.inv.InventoryOrchestrator;
-import mmbbase.menu.world.inv.MoveItems;
-import mmbbase.menu.world.window.GUITab;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.ColorGUI;
+import mmb.menu.world.inv.InventoryController;
+import mmb.menu.world.inv.InventoryOrchestrator;
+import mmb.menu.world.inv.MoveItems;
+import mmb.menu.world.window.GUITab;
+import mmb.menu.world.window.WorldWindow;
 
 import static mmb.engine.settings.GlobalSettings.$res;
 

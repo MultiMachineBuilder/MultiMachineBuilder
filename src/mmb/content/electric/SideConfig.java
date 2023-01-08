@@ -11,11 +11,11 @@ import com.google.common.collect.Iterators;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.beans.Saver;
+import mmb.data.variables.ListenerBooleanVariable;
 import mmb.engine.MMBUtils;
 import mmb.engine.json.JsonTool;
 import mmb.engine.rotate.Side;
-import mmbbase.beans.Saver;
-import mmbbase.data.variables.ListenerBooleanVariable;
 
 /**
  * @author oskar

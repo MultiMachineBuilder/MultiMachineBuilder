@@ -9,7 +9,10 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.beans.BlockSetting;
+import mmb.cgui.BlockActivateListener;
 import mmb.content.ContentsBlocks;
+import mmb.data.variables.ListenableValue;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.debug.Debugger;
@@ -18,10 +21,7 @@ import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.texture.Textures;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
-import mmbbase.beans.BlockSetting;
-import mmbbase.cgui.BlockActivateListener;
-import mmbbase.data.variables.ListenableValue;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * @author oskar

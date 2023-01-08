@@ -26,12 +26,12 @@ import java.util.function.Supplier;
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
 import mmb.NN;
 import mmb.Nil;
+import mmb.data.variables.BooleanVariable;
+import mmb.data.variables.DataValueDouble;
+import mmb.data.variables.DataValueInt;
+import mmb.data.variables.ListenableValue;
+import mmb.data.variables.Variable;
 import mmb.engine.debug.Debugger;
-import mmbbase.data.variables.BooleanVariable;
-import mmbbase.data.variables.DataValueDouble;
-import mmbbase.data.variables.DataValueInt;
-import mmbbase.data.variables.ListenableValue;
-import mmbbase.data.variables.Variable;
 
 /**
  * @author oskar

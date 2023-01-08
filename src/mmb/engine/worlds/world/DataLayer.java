@@ -3,7 +3,7 @@
  */
 package mmb.engine.worlds.world;
 
-import mmbbase.beans.Saver;
+import mmb.beans.Saver;
 import monniasza.collects.Identifiable;
 
 /**

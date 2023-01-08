@@ -9,7 +9,7 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.engine.debug.Debugger;
 import mmb.engine.item.ItemEntry;
-import mmbbase.menu.world.inv.InventoryController;
+import mmb.menu.world.inv.InventoryController;
 
 /**
  * Handles the module GUIs

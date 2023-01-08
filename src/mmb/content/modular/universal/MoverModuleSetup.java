@@ -12,10 +12,10 @@ import javax.swing.border.BevelBorder;
 
 import mmb.NN;
 import mmb.content.modular.gui.SafeCloseable;
+import mmb.data.variables.ListenableValue;
 import mmb.engine.settings.GlobalSettings;
-import mmbbase.data.variables.ListenableValue;
-import mmbbase.menu.components.ItemSelectionSlot;
-import mmbbase.menu.world.inv.InventoryController;
+import mmb.menu.components.ItemSelectionSlot;
+import mmb.menu.world.inv.InventoryController;
 
 import java.awt.Color;
 import javax.swing.JSpinner;

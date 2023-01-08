@@ -17,7 +17,7 @@ import mmb.engine.chance.Chance;
 import mmb.engine.texture.BlockDrawer;
 import mmb.engine.worlds.world.Player;
 import mmb.engine.worlds.world.World;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.WorldWindow;
 
 /**
  * This class represents a building block.

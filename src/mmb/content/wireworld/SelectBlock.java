@@ -5,10 +5,10 @@ package mmb.content.wireworld;
 
 import javax.swing.JPanel;
 
+import mmb.beans.BlockSetting;
 import mmb.engine.block.BlockType;
 import mmb.engine.item.ItemEntry;
-import mmbbase.beans.BlockSetting;
-import mmbbase.menu.world.window.WorldWindow;
+import mmb.menu.world.window.WorldWindow;
 
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;

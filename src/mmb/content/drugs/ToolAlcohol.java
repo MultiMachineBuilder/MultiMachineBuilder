@@ -18,7 +18,7 @@ import mmb.engine.debug.Debugger;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.texture.Textures;
-import mmbbase.menu.wtool.WindowTool;
+import mmb.menu.wtool.WindowTool;
 
 /**
  * @author oskar

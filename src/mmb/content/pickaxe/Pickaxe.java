@@ -14,7 +14,7 @@ import mmb.Nil;
 import mmb.engine.item.ItemEntity;
 import mmb.engine.item.ItemEntityType;
 import mmb.engine.item.ItemEntry;
-import mmbbase.menu.wtool.WindowTool;
+import mmb.menu.wtool.WindowTool;
 
 /**
  * @author oskar
