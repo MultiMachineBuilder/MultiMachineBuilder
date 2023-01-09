@@ -22,9 +22,7 @@ import mmb.menu.wtool.WindowTool;
  *
  */
 public class ToolAim extends WindowTool {
-	/**
-	 * Creates an aim tool
-	 */
+	/** Creates an aim tool */
 	public ToolAim() {
 		super("aim");
 	}

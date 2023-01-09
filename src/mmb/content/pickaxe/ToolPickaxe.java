@@ -14,9 +14,7 @@ import java.awt.Point;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.NN;
 import mmb.Nil;
-import mmb.content.pickaxe.Pickaxe.PickaxeType;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.chance.Chance;
 import mmb.engine.inv.ItemRecord;
@@ -30,28 +28,22 @@ import mmb.menu.wtool.WindowTool;
  */
 public class ToolPickaxe extends WindowTool {
 	@Nil private final Pickaxe pick;
+	
+	/**
+	 * Creates a pickaxe tool bound to a pickaxe
+	 * @param pick pickexe to use
+	 */
 	public ToolPickaxe(@Nil Pickaxe pick) {
 		super("pickaxe");
 		this.pick = pick;
 	}
+	/** Creates a creative mode pickaxe tool */
 	public ToolPickaxe() {
 		this(null);
 	}
-
-	private final String title = $res("pickaxe");
-	@Override
-	public String title() {
-		return title;
-	}
-
-	public static final Icon icon = new ImageIcon(Textures.get("base/pickaxe.png"));
-	@Override
-	public Icon getIcon() {
-		return icon;
-	}
 	
+	//Preview
 	private static final long toMine = 2_000_000_000L;
-
 	@Override
 	public void preview(int startX, int startY, double scale, Graphics g) {
 		frame.blockAt(startX+1, startY+1, block);
@@ -114,6 +106,8 @@ public class ToolPickaxe extends WindowTool {
 		//Unpress the button
 		pressed = false;
 	}
+	
+	//Event listeners
 	private boolean pressed;
 	private long lastPressedTime;
 	private long sincePress;
@@ -124,20 +118,16 @@ public class ToolPickaxe extends WindowTool {
 		sincePress = 0;
 		frame.blockAt(e.getX(), e.getY(), block);
 	}
-
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		pressed = false;
 	}
-
 	@Override
 	public void deselected() {
 		pressed = false;
 	}
-	
 	private Point block = new Point();
-	private Point block0 = new Point();
-	
+	private Point block0 = new Point();	
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		block0.setLocation(block);
@@ -147,9 +137,22 @@ public class ToolPickaxe extends WindowTool {
 			sincePress = 0;
 		}
 	}
-
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		mouseMoved(e);
+	}
+	
+	//Title	
+	private final String title = $res("pickaxe");
+	@Override
+	public String title() {
+		return title;
+	}
+
+	//Icon
+	public static final Icon icon = new ImageIcon(Textures.get("base/pickaxe.png"));
+	@Override
+	public Icon getIcon() {
+		return icon;
 	}
 }

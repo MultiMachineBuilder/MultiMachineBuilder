@@ -13,6 +13,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.debug.Debugger;
 import mmb.engine.texture.Textures;
@@ -23,53 +24,50 @@ import monniasza.collects.grid.Grid;
 
 /**
  * @author oskar
- *
  */
 public class Copy extends WindowTool {
-
-	private int state = 0;
-	/**
-	 * @param s
-	 */
+	/** Creates a copy tool */
 	protected Copy() {
 		super("Copy");
 	}
-
-	private static final String descr0 = $res("tcopy-0");
-	private static final String descr1= $res("tcopy-1");
-	private static final String descr2 = $res("tcopy-2");
 	@Override
-	public String description() {
-		switch(state) {
-		case 0:
-			return descr0;
-		case 1:
-			return descr1;
-		case 2:
-			return descr2;
-		default:
-			state = 0;
-			return descr0;
+	public void preview(int x, int y, double scale, Graphics g) {
+		if(a == null) {
+			int framesize = (int)Math.ceil(scale-1);
+			WorldFrame.thickframe(x, y, framesize, framesize, Color.RED, g);
+		}else {
+			if(b == null) {
+				Point onmouse = frame.blockAt(mouse);
+				frame.renderBlockRange(onmouse.x, onmouse.y, a.x, a.y, Color.ORANGE, g);
+			}else {//Draw previewed blocks
+				//Calculate positions
+				int sizex = (int)Math.ceil((grid.width())*scale);
+				int sizey = (int)Math.ceil((grid.height())*scale);
+				int sizeX = (int)Math.ceil(sizex-scale);
+				int sizeY = (int)Math.ceil(sizey-scale);
+				int startX = x-sizeX;
+				int startY = y-sizeY;
+				for(int px = startX, i = 0; i < grid.width(); px += scale, i++) {
+					for(int py = startY, j = 0; j < grid.height(); py += scale, j++) {
+						BlockEntry todraw = grid.get(i, j);
+						todraw.render(px, py, g, (int)Math.ceil(scale));
+					}
+				}
+				
+				//Draw frame
+				WorldFrame.thickframe(startX, startY, sizex-1, sizey-1, Color.GREEN, g);
+				
+			}
 		}
 	}
 	
+	//Event listeners & state
+	private int state = 0;
 	private Grid<BlockEntry> grid;
 	private Point a, b;
 	private int boxsizeX, boxsizeY;
 	private Point mouse;
 	private static final Debugger debug = new Debugger("TOOL-COPY");
-
-	@Override public Icon getIcon() {
-		return icon;
-	}
-	
-	public static final Icon icon = new ImageIcon(Textures.get("copy.png"));
-	private final String title = $res("tcopy");
-	@Override
-	public String title() {
-		return title;
-	}
-
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		switch(state) {
@@ -149,40 +147,40 @@ public class Copy extends WindowTool {
 		}
 		
 	}
-
-	@Override
-	public void preview(int x, int y, double scale, Graphics g) {
-		if(a == null) {
-			int framesize = (int)Math.ceil(scale-1);
-			WorldFrame.thickframe(x, y, framesize, framesize, Color.RED, g);
-		}else {
-			if(b == null) {
-				Point onmouse = frame.blockAt(mouse);
-				frame.renderBlockRange(onmouse.x, onmouse.y, a.x, a.y, Color.ORANGE, g);
-			}else {//Draw previewed blocks
-				//Calculate positions
-				int sizex = (int)Math.ceil((grid.width())*scale);
-				int sizey = (int)Math.ceil((grid.height())*scale);
-				int sizeX = (int)Math.ceil(sizex-scale);
-				int sizeY = (int)Math.ceil(sizey-scale);
-				int startX = x-sizeX;
-				int startY = y-sizeY;
-				for(int px = startX, i = 0; i < grid.width(); px += scale, i++) {
-					for(int py = startY, j = 0; j < grid.height(); py += scale, j++) {
-						BlockEntry todraw = grid.get(i, j);
-						todraw.render(px, py, g, (int)Math.ceil(scale));
-					}
-				}
-				
-				//Draw frame
-				WorldFrame.thickframe(startX, startY, sizex-1, sizey-1, Color.GREEN, g);
-				
-			}
-		}
-	}
-
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		mouse = e.getPoint();
+	}
+	
+	//Title
+	@NN private final String title = $res("tcopy");
+	@Override
+	public String title() {
+		return title;
+	}
+	
+	//Description
+	private static final String descr0 = $res("tcopy-0");
+	private static final String descr1= $res("tcopy-1");
+	private static final String descr2 = $res("tcopy-2");
+	@Override
+	public String description() {
+		switch(state) {
+		case 0:
+			return descr0;
+		case 1:
+			return descr1;
+		case 2:
+			return descr2;
+		default:
+			state = 0;
+			return descr0;
+		}
+	}
+	
+	//Icon
+	public static final Icon icon = new ImageIcon(Textures.get("copy.png"));
+	@Override public Icon getIcon() {
+		return icon;
 	}
 }

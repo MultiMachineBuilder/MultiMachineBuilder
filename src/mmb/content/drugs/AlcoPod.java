@@ -20,19 +20,21 @@ import mmb.menu.wtool.WindowTool;
  *  +-----------------------------------------------------+
  */
 public class AlcoPod extends Item implements Intoxicating {
-	
-	private final double dose;
-	@NN private final RecipeOutput drop;
+	// Constructors
+	/**
+	 * Creates an alcoholic beverage
+	 * @param dose amount of alcohol per drink
+	 * @param drop items left after use
+	 */
 	public AlcoPod(double dose, RecipeOutput drop) {
 		super();
 		this.dose = dose;
 		this.drop = drop;
 	}
-	private static final WindowTool TOOL = new ToolAlcohol();
-	@Override
-	public WindowTool getTool() {
-		return TOOL;
-	}
+	
+	//Contents
+	private final double dose;
+	@NN private final RecipeOutput drop;
 	@Override
 	public double alcoholicity() {
 		return dose;
@@ -45,4 +47,12 @@ public class AlcoPod extends Item implements Intoxicating {
 	public void onregister() {
 		Alcohol.alcohol.add(this, drop, dose);
 	}
+	
+	//Tool methods
+	private static final WindowTool TOOL = new ToolAlcohol();
+	@Override
+	public WindowTool getTool() {
+		return TOOL;
+	}
+	
 }

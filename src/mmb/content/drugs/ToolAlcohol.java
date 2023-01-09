@@ -13,7 +13,6 @@ import javax.swing.ImageIcon;
 
 import mmb.NN;
 import mmb.engine.chance.Chance;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
@@ -27,24 +26,7 @@ import mmb.menu.wtool.WindowTool;
 public class ToolAlcohol extends WindowTool {
 	private static final Debugger debug = new Debugger("ALCOHOL");
 	
-	@NN public static final Icon ICON = new ImageIcon(Textures.get("liquid/alcohol.png"));
-	@Override
-	public Icon getIcon() {
-		return ICON;
-	}
-	
-	private static final String title = $res("alcohol");
-	@Override
-	public String title() {
-		return title;
-	}
-	
-	private static final String description = $res("toolalc");
-	@Override
-	public String description() {
-		return description;
-	}
-	
+	/** Creates an alcohol tool */
 	public ToolAlcohol() {
 		super("alcohol");
 	}
@@ -53,7 +35,8 @@ public class ToolAlcohol extends WindowTool {
 		//unused
 
 	}
-
+	
+	//Event listeners
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if(e.getButton() != MouseEvent.BUTTON1) return; //Wrong button
@@ -76,9 +59,25 @@ public class ToolAlcohol extends WindowTool {
 			((Intoxicating) item).effects();
 		}
 	}
-
-
-
 	
+	//Description
+	private static final String description = $res("toolalc");
+	@Override
+	public String description() {
+		return description;
+	}
 
+	//Title
+	private static final String title = $res("alcohol");
+	@Override
+	public String title() {
+		return title;
+	}
+	
+	//Icon	
+	@NN public static final Icon ICON = new ImageIcon(Textures.get("liquid/alcohol.png"));
+	@Override
+	public Icon getIcon() {
+		return ICON;
+	}
 }

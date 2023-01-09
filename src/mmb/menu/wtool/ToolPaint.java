@@ -28,6 +28,16 @@ import mmb.menu.world.window.WorldWindow;
  * Press C key to change color, and press X to reset
  */
 public class ToolPaint extends WindowTool {
+	/** Creates a paint tool*/
+	public ToolPaint() {
+		super("paint");
+	}
+	@Override
+	public void preview(int startX, int startY, double scale, Graphics g) {
+		// unused
+	}
+	
+	//Event listeners
 	@Override
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
@@ -40,7 +50,6 @@ public class ToolPaint extends WindowTool {
 			window.redrawUIs();
 		}
 	}
-
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if(e.getButton() == MouseEvent.BUTTON1) {
@@ -51,20 +60,15 @@ public class ToolPaint extends WindowTool {
 		}
 	}
 
-	@NN private static final BufferedImage img = Textures.get("tool/paint.png");
+	//Color
 	@SuppressWarnings("null")
 	@NN private Color c = Color.WHITE;
-	@SuppressWarnings("null")
-	private final MappedColorTexture texture = new MappedColorTexture(Color.RED, Color.WHITE, img);
-	public static final Icon icon = new ImageIcon(img);
-	private final Icon textureIcon = texture.iconRenderer();
 	/**
 	 * @return this paintbrushes current color
 	 */
 	public Color getColor() {
 		return c;
 	}
-
 	/**
 	 * @param c new color
 	 */
@@ -73,32 +77,32 @@ public class ToolPaint extends WindowTool {
 		texture.setTo(c);
 	}
 
-	public ToolPaint() {
-		super("paint");
-	}
-
+	//Title
 	private final String title = $res("paint");
 	@Override
 	public String title() {
 		return title;
 	}
 
-	@Override
-	public Icon getIcon() {
-		return textureIcon;
-	}
-
-	@Override
-	public void preview(int startX, int startY, double scale, Graphics g) {
-		// unused
-	}
-
+	//Description
 	private final String descr = $res("paint-descr");
 	@Override
 	public String description() {
 		return descr;
 	}
 	
+	//Icon
+	@NN private static final BufferedImage img = Textures.get("tool/paint.png");
+	@SuppressWarnings("null")
+	private final MappedColorTexture texture = new MappedColorTexture(Color.RED, Color.WHITE, img);
+	private final Icon textureIcon = texture.iconRenderer();
+	public static final Icon icon = new ImageIcon(img);
+	@Override
+	public Icon getIcon() {
+		return textureIcon;
+	}
+	
+	//Utils
 	/**
 	 * Asks for a paint color
 	 * @param message the message

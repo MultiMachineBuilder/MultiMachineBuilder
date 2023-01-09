@@ -24,22 +24,10 @@ import mmb.menu.wtool.WindowTool;
  *
  */
 public class ConfigureDroppedItemExtractors extends WindowTool {
+	/** Creates an extrector configurer */
 	public ConfigureDroppedItemExtractors() {
 		super("droppedItems");
 	}
-
-	private final String title = $res("cdie");
-	@Override
-	public String title() {
-		return title;
-	}
-
-	public static final Icon icon = new ImageIcon(Textures.get("hoover.png"));
-	@Override
-	public Icon getIcon() {
-		return icon;
-	}
-
 	@SuppressWarnings("null")
 	@Override
 	public void preview(int startX, int startY, double scale, Graphics g) {
@@ -51,6 +39,8 @@ public class ConfigureDroppedItemExtractors extends WindowTool {
 			frame.renderBlockRange(collector.posX(), collector.posY(), collector.posX()+rangeX-1, collector.posY()+rangeY-1, Color.ORANGE, g);
 		}
 	}
+
+	//Event listeners
 	@NN private Point mouse = new Point();
 	private Resizable collector;
 	@Override
@@ -81,12 +71,12 @@ public class ConfigureDroppedItemExtractors extends WindowTool {
 			collector = null;
 		}
 	}
-
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		frame.blockAt(e.getX(), e.getY(), mouse);
 	}
-
+	
+	//Description
 	private static final String descr = $res("cdie-descr");
 	private static final String select = $res("cdie-select");
 	@Override
@@ -95,5 +85,18 @@ public class ConfigureDroppedItemExtractors extends WindowTool {
 			return descr;
 		return select;
 	}
+	
+	//Title
+	private final String title = $res("cdie");
+	@Override
+	public String title() {
+		return title;
+	}
 
+	//Icon
+	public static final Icon icon = new ImageIcon(Textures.get("hoover.png"));
+	@Override
+	public Icon getIcon() {
+		return icon;
+	}
 }

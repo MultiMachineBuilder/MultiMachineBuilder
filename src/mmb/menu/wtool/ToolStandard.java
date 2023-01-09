@@ -30,18 +30,10 @@ import mmb.menu.world.window.WorldWindow;
  */
 public class ToolStandard extends WindowTool{
 	private static final Debugger debug = new Debugger("TOOL-STANDARD");
+	
+	/** Creates a standard tool*/
 	public ToolStandard() {
 		super("standard");
-	}
-	public static final Icon ICON_NORMAL = new ImageIcon(Textures.get("tool/normal.png"));
-	@Override
-	public Icon getIcon() {
-		return ICON_NORMAL;
-	}
-	private final String title = $res("toolstd");
-	@Override
-	public String title() {
-		return title;
 	}
 	@Override
 	public void preview(int x, int y, double scale, Graphics g) {
@@ -50,15 +42,6 @@ public class ToolStandard extends WindowTool{
 		ItemEntry placer0 = irecord.item();
 		if(placer0 instanceof Placer) ((Placer) placer0).preview(g, new Point(x, y), frame.getMap(), frame.getMouseoverBlock(), (int)Math.ceil(scale));
 	}
-	
-	//Description
-	private static final String descr1 = $res("toolstd-1");
-	private static final String descr2 = $res("toolstd-2");
-	private static final String descr3 = $res("toolstd-3");
-	private static final String descr4 = $res("toolstd-4");
-	private static final String descr = descr1+'\n'+descr2+'\n'+descr3+'\n'+descr4;
-	@Override
-	public String description() { return descr; }
 	
 	//Keyboard
 	@Override
@@ -87,7 +70,6 @@ public class ToolStandard extends WindowTool{
 			break;
 		}
 	}
-	
 	//Mouse
 	private int bx, by;
 	@Override
@@ -197,4 +179,26 @@ public class ToolStandard extends WindowTool{
 		by = frame.getMouseoverBlockY();
 	}
 	
+	//Title
+	private final String title = $res("toolstd");
+	@Override
+	public String title() {
+		return title;
+	}
+	
+	//Description
+	private static final String descr1 = $res("toolstd-1");
+	private static final String descr2 = $res("toolstd-2");
+	private static final String descr3 = $res("toolstd-3");
+	private static final String descr4 = $res("toolstd-4");
+	private static final String descr = descr1+'\n'+descr2+'\n'+descr3+'\n'+descr4;
+	@Override
+	public String description() { return descr; }
+	
+	//Icon
+	public static final Icon ICON_NORMAL = new ImageIcon(Textures.get("tool/normal.png"));
+	@Override
+	public Icon getIcon() {
+		return ICON_NORMAL;
+	}
 }

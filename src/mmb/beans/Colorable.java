@@ -9,8 +9,9 @@ import mmb.NN;
 import mmb.data.variables.Variable;
 
 /**
+ * An object which has a color.
+ * Objects with this type can be painted with a paintbrush
  * @author oskar
- * Used for objects which have a color
  */
 public interface Colorable {
 	/**

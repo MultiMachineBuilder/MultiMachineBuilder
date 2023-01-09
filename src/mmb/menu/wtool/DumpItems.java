@@ -21,31 +21,18 @@ import mmb.engine.texture.Textures;
 
 /**
  * @author oskar
- *
  */
 public class DumpItems extends WindowTool {
-
+	/** Creates a dump items tool */
 	public DumpItems() {
 		super("dumpItems");
 	}
-
-	private final String title = $res("dump");
-	@Override
-	public String title() {
-		return title;
-	}
-
-	public static final Icon icon = new ImageIcon(Textures.get("dropItems.png"));
-	@Override
-	public Icon getIcon() {
-		return icon;
-	}
-
 	@Override
 	public void preview(int startX, int startY, double scale, Graphics g) {
 		// unused
 	}
 
+	//Event listeners
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		Point trashed = frame.blockAt(e.getPoint());
@@ -77,4 +64,17 @@ public class DumpItems extends WindowTool {
 		
 	}
 
+	//Title
+	private final String title = $res("dump");
+	@Override
+	public String title() {
+		return title;
+	}
+	
+	//Icon
+	public static final Icon icon = new ImageIcon(Textures.get("dropItems.png"));
+	@Override
+	public Icon getIcon() {
+		return icon;
+	}
 }
