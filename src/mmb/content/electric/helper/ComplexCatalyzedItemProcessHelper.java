@@ -12,7 +12,6 @@ import com.google.common.util.concurrent.Runnables;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.NN;
-import mmb.Nil;
 import mmb.content.electric.Battery;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.CycleResult;
@@ -20,9 +19,7 @@ import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.Refreshable;
 import mmb.engine.craft.SimpleItemList;
 import mmb.engine.craft.rgroups.ComplexCatRecipeGroup;
-import mmb.engine.craft.rgroups.ComplexRecipeGroup;
 import mmb.engine.craft.rgroups.ComplexCatRecipeGroup.ComplexCatalyzedRecipe;
-import mmb.engine.craft.rgroups.ComplexRecipeGroup.ComplexRecipe;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.storage.SimpleInventory;
@@ -36,7 +33,7 @@ public class ComplexCatalyzedItemProcessHelper {
 	@NN private final ComplexCatRecipeGroup recipes;
 	@NN private final Inventory input;
 	@NN private final Inventory output;
-	         private final double speed;
+	    private final double speed;
 	@NN private final Battery elec;
 	@NN private final VoltageTier volt;
 	/** The object which is currently refreshed. It may be null */
@@ -158,7 +155,7 @@ public class ComplexCatalyzedItemProcessHelper {
 		if(refreshable != null) refreshable.refreshProgress(progress, lastKnown);
 		return CycleResult.RUN;
 	}
-	@NN private static final Debugger debug = new Debugger("COMPLEX RECIPE RPOCESSOR");
+	@NN private static final Debugger debug = new Debugger("COMPLEX RECIPE PROCESSOR");
 	private void useRecipe(ComplexCatalyzedRecipe recipe) {
 		lastKnown = recipe;
 		rout = recipe.output;
@@ -166,7 +163,7 @@ public class ComplexCatalyzedItemProcessHelper {
 	}
 	private void extractItems(RecipeOutput out) {
 		//this does not extract items
-		for(Entry<ItemEntry> ent: out.getContents().object2IntEntrySet()) {
+		for(Entry<@NN ItemEntry> ent: out.getContents().object2IntEntrySet()) {
 			input.extract(ent.getKey(), ent.getIntValue());
 		}
 		if(refreshable != null) refreshable.refreshInputs();

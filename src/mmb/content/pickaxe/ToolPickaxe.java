@@ -83,7 +83,7 @@ public class ToolPickaxe extends WindowTool {
 				pick = (Pickaxe) entry;
 				int uses = pick.getUses();
 				pick.setUses(uses+1);
-				if(uses > pick.durability) {
+				if(uses > pick.type().getDurability()) {
 					//Break the pickaxe
 					record.extract(Integer.MAX_VALUE);
 					pressed = false;
@@ -97,7 +97,7 @@ public class ToolPickaxe extends WindowTool {
 		frame.getMap().place(block1.type().leaveBehind(), block.x, block.y);
 		drop.drop(window.getPlayer().inv.createWriter(), frame.getMap(), block.x, block.y);
 		
-		if(record != null && pick != null && pick.getUses() > pick.durability) {
+		if(record != null && pick != null && pick.getUses() > pick.type().getDurability()) {
 			//Break the pickaxe
 			record.extract(Integer.MAX_VALUE);
 		}

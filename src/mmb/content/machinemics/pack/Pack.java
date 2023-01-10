@@ -24,14 +24,8 @@ import mmb.engine.json.JsonTool;
  *
  */
 public class Pack extends ItemEntity {
-
-	private double volumeInner = 0;
-	private double volumeOuter = 0.001;
-	@NN private RecipeOutput contents = RecipeOutput.NONE;
-
-	/**
-	 * Creates an empty item pack
-	 */
+	//Constructors
+	/** Creates an empty item pack */
 	public Pack() {
 		super();
 	}
@@ -44,12 +38,60 @@ public class Pack extends ItemEntity {
 		contents = ilist;
 		recalc();
 	}
-
+	
+	//Contents
+	private double volumeInner = 0;
+	private double volumeOuter = 0.001;
+	@NN private RecipeOutput contents = RecipeOutput.NONE;
+	private void recalc() {
+		volumeInner = 0;
+		for(Entry<ItemEntry> ent : contents.getContents().object2IntEntrySet()) {
+			volumeInner += ent.getKey().volume() * ent.getIntValue();
+		}
+		volumeOuter = 0.001 + volumeInner;
+	}
+	
+	@Override
+	public double volume() {
+		return volumeOuter;
+	}
+	@NN public RecipeOutput contents() {
+		return contents;
+	}
+	
+	//Item methods
 	@Override
 	public ItemEntry itemClone() {
 		return this;
 	}
-
+	@Override
+	public int hash0() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + contents.hashCode();
+		return result;
+	}
+	@Override
+	public boolean equal0(ItemEntity obj) {
+		if (getClass() != obj.getClass())
+			return false;
+		Pack other = (Pack) obj;
+		return Objects.equals(contents, other.contents);
+	}
+	@Override
+	public ItemType type() {
+		return ContentsItems.pack;
+	}
+	
+	//Serialization
+	@Override
+	public JsonNode save() {
+		JsonNode data = ItemLists.save(contents);
+		ObjectNode master = JsonTool.newObjectNode();
+		master.set("contents", data);
+		save0(master);
+		return master;
+	}
 	@Override
 	public void load(@Nil JsonNode data) {
 		if(data == null) return;
@@ -63,52 +105,10 @@ public class Pack extends ItemEntity {
 		load0(data);
 		recalc();
 	}
-	private void recalc() {
-		volumeInner = 0;
-		for(Entry<ItemEntry> ent : contents.getContents().object2IntEntrySet()) {
-			volumeInner += ent.getKey().volume() * ent.getIntValue();
-		}
-		volumeOuter = 0.001 + volumeInner;
-	}
-	
-	@Override
-	public double volume() {
-		return volumeOuter;
-	}
-
-	@Override
-	public JsonNode save() {
-		JsonNode data = ItemLists.save(contents);
-		ObjectNode master = JsonTool.newObjectNode();
-		master.set("contents", data);
-		save0(master);
-		return master;
-	}
-	
 	void save0(ObjectNode obj) {
 		//used in CodedPack
 	}
 	void load0(JsonNode node) {
 		//used in CodedPack
-	}
-
-	@Override
-	public int hash0() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + contents.hashCode();
-		return result;
-	}
-
-	@Override
-	public boolean equal0(ItemEntity obj) {
-		if (getClass() != obj.getClass())
-			return false;
-		Pack other = (Pack) obj;
-		return Objects.equals(contents, other.contents);
-	}
-	@Override
-	public ItemType type() {
-		return ContentsItems.pack;
 	}
 }

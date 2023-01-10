@@ -11,68 +11,78 @@ import com.fasterxml.jackson.databind.node.IntNode;
 
 import mmb.NN;
 import mmb.Nil;
-import mmb.engine.item.ItemEntity;
+import mmb.engine.item.ItemEntityMutable;
 import mmb.engine.item.ItemEntityType;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.wtool.WindowTool;
 
 /**
+ * A tool to mine blocks
  * @author oskar
- *
  */
-public class Pickaxe extends ItemEntity {
+public class Pickaxe extends ItemEntityMutable {
+	//Constructors
 	/**
-	 * Maximum number of uses before pickaxe breaks
+	 * Creates a pickaxe
+	 * @param type pickaxe type
 	 */
-	public final int durability;
-	private int uses;
-	
-	/**
-	 * @param type
-	 */
-	protected Pickaxe(PickaxeType type, int durability) {
+	protected Pickaxe(PickaxeType type) {
 		this.type = type;
-		this.durability = durability;
 		pick = new ToolPickaxe(this);
 	}
-
+	
+	//Contents
+	private int uses;
+	/** @return use count */
+	public int getUses() {
+		return uses;
+	}
+	/**  @param uses new use count */
+	public void setUses(int uses) {
+		this.uses = uses;
+	}
+	
+	//Item methods
 	@Override
 	public ItemEntry itemClone() {
-		// TODO Auto-generated method stub
-		return null;
+		Pickaxe copy = new Pickaxe(type);
+		copy.uses = uses;
+		return copy;
 	}
-
+	@NN private final PickaxeType type;
+	@Override
+	public PickaxeType type() {
+		return type;
+	}
+	
+	//Serialization
 	@Override
 	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		uses = data.asInt();
 	}
-
 	@Override
 	public JsonNode save() {
 		return new IntNode(uses);
 	}
 
-	/**
-	 * @return the uses
-	 */
-	public int getUses() {
-		return uses;
+	//Tool methods
+	private final ToolPickaxe pick;
+	@Override
+	public WindowTool getTool() {
+		return pick;
 	}
-
-	/**
-	 * @param uses the uses to set
-	 */
-	public void setUses(int uses) {
-		this.uses = uses;
-	}
-
+	
+	//Preview
 	@Override
 	public void render(Graphics g, int x, int y, int w, int h) {
 		super.render(g, x, y, w, h);
-		renderDurability(1.0-((double)uses/durability), g, x, y, w, h);
+		renderDurability(1.0-((double)uses/type.durability), g, x, y, w, h);
 	}
-	
+	@Override
+	public String title() {
+		return type().title() + " ("+(type.durability-uses)+"/"+type.durability+")";
+	}
 	/**
 	 * Renders durability for a block. Used most by items, but still useful for blocks
 	 * @param percent amount from 0 to 1 representing remaining energy in the block or item
@@ -115,27 +125,25 @@ public class Pickaxe extends ItemEntity {
 		}
 	}
 	
+	//Utils
 	/**
 	 * An extension for {@link ItemEntityType} for pickaxes
 	 * @author oskar
-	 *
 	 */
 	public static class PickaxeType extends ItemEntityType{
+		/** Creates a new pickaxe type*/
 		public PickaxeType() {
 			super();
 			setUnstackable(true);
 		}
-
 		private int durability;
 		private int time;
-
 		/**
 		 * @return the durability
 		 */
 		public int getDurability() {
 			return durability;
 		}
-
 		/**
 		 * @param durability the durability to set
 		 * @return this
@@ -144,19 +152,16 @@ public class Pickaxe extends ItemEntity {
 			this.durability = durability;
 			return this;
 		}
-
 		@Override
 		public ItemEntry create() {
-			return new Pickaxe(this, durability);
+			return new Pickaxe(this);
 		}
-
 		/**
 		 * @return the time
 		 */
 		public int getTime() {
 			return time;
 		}
-
 		/**
 		 * Sets the mining time
 		 * @param time the time to set
@@ -180,32 +185,4 @@ public class Pickaxe extends ItemEntity {
 		PickaxeType result = new PickaxeType();
 		return (PickaxeType) result.setDurability(durability).setTime(time).texture(texture).title(title).finish(id);
 	}
-
-	private final ToolPickaxe pick;
-	@Override
-	public WindowTool getTool() {
-		return pick;
-	}
-
-	@Override
-	public String title() {
-		return type().title() + " ("+(durability-uses)+"/"+durability+")";
-	}
-
-	@NN private final PickaxeType type;
-	@Override
-	public PickaxeType type() {
-		return type;
-	}
-
-	@Override
-	protected int hash0() {
-		return Integer.hashCode(uses);
-	}
-
-	@Override
-	protected boolean equal0(ItemEntity other) {
-		return ((Pickaxe) other).uses == uses;
-	}
-
 }

@@ -21,7 +21,6 @@ import mmb.content.electric.VoltageTier;
 import mmb.content.electric.VoltagedItemGroup;
 import mmb.content.imachine.ConfigureDroppedItemExtractors;
 import mmb.content.imachine.SpeedUpgrade;
-import mmb.content.imachine.filter.EntryFilter;
 import mmb.content.machinemics.pack.Pack;
 import mmb.content.pickaxe.Pickaxe;
 import mmb.content.pickaxe.Pickaxe.PickaxeType;
@@ -209,14 +208,6 @@ public class ContentsItems {
 		.volumed(0.001)
 		.factory(Pack::new)
 		.finish("boxed.packItem");
-	
-	//Item filters
-	@NN public static final ItemEntityType ifilterEntries =new ItemEntityType()
-		.title("#filt-ient")
-		.texture("item/filter entry.png")
-		.volumed(0.001)
-		.factory(EntryFilter::new)
-		.finish("filter.ientries");
 	static {
 		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, bucket, configExtractors, aim);
 		Items.tagItems("craftcode", craftcodes);

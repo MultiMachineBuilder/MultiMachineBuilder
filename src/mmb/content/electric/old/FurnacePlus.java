@@ -18,7 +18,7 @@ public class FurnacePlus extends SkeletalBlockMachine {
 
 	@Override
 	public BlockType type() {
-		return ContentsBlocks.EFURNACE;
+		return ContentsBlocks.old_EFURNACE;
 	}
 
 	@Override

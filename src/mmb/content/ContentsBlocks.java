@@ -259,7 +259,7 @@ public class ContentsBlocks {
 	//Electrical testing equipment
 	/** A series of 9 infinite power generators. Intended for machine testing.*/
 	@NN public static final ElectricMachineGroup infinigens =
-			new ElectricMachineGroup(Textures.get("machine/power/infinity.png"), type -> new InfiniteGenerator(type.volt, type), "infinigen");
+			new ElectricMachineGroup(Textures.get("machine/power/infinity.png"), InfiniteGenerator::new, "infinigen");
 	/** Measures power of machines */
 	@NN public static final BlockEntityType PMETER = new BlockEntityType()
 			.title("#elec-meter")
@@ -275,12 +275,12 @@ public class ContentsBlocks {
 	
 	//DEPRECATED old modular machines
 	/** @deprecated An old block for a furnace. Use {@link #efurnace}{@code .}{@link #ElectricMachineGroup.get(int) get}{@code (1)} instead */
-	@Deprecated(since="0.5", forRemoval=true) @NN public static final BlockEntityType EFURNACE = new BlockEntityType()
+	@Deprecated(since="0.5", forRemoval=true) @NN public static final BlockEntityType old_EFURNACE = new BlockEntityType()
 			.title("#depr-furnace")
 			.factory(FurnacePlus::new)
 			.texture("machine/esmelter.png")
 			.finish("elec.furnace");
-	@Deprecated(since="0.6", forRemoval=true) @NN public static final BlockEntityType NUKEGEN = new BlockEntityType()
+	@Deprecated(since="0.6", forRemoval=true) @NN public static final BlockEntityType old_NUKEGEN = new BlockEntityType()
 			.title("#depr-nuker")
 			.factory(Nuker::new)
 			.texture("machine/power/nuke reactor.png")
@@ -323,18 +323,19 @@ public class ContentsBlocks {
 			.factory(() -> new Hopper((byte) 3))
 			.texture("machine/transferrer.png")
 			.finish("chest.hopper3");
-	
+	/** Item extractor */
 	@NN public static final BlockEntityType IMOVER = new BlockEntityType()
 			.title("#ipipe-extractor")
 			.factory(ItemTransporter::new)
 			.texture(ItemTransporter.TEXTURE)
 			.finish("itemsystem.mover");
-	
+	/** Places incoming items */
 	@NN public static final BlockEntityType PLACEITEMS = new BlockEntityType()
 			.title("#placeitems")
 			.factory(PlaceIncomingItems::new)
 			.texture("machine/block place interface.png")
 			.finish("industry.placeitems");
+	/** Wide area block collector */
 	@NN public static final BlockEntityType COLLECTOR = new BlockEntityType()
 			.title("#collector")
 			.factory(BlockCollector::new)

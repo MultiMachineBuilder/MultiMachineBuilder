@@ -4,6 +4,7 @@
 package mmb.content.electric;
 
 import mmb.NN;
+import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
 import mmb.engine.block.BlockEntityDataless;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockType;
@@ -15,6 +16,27 @@ import mmb.engine.worlds.MapProxy;
  *
  */
 public class InfiniteGenerator extends BlockEntityDataless {
+	//Block methods
+	@Override
+	public Electricity getElectricalConnection(Side s) {
+		return Electricity.NONE;
+	}
+
+	@Override
+	public ElectroMachineType type() {
+		return type;
+	}
+
+	@NN private final ElectroMachineType type;
+	/** 
+	 * Creates an infinite generator
+	 * @param type block type
+	 */
+	public InfiniteGenerator(ElectroMachineType type) {
+		this.type = type;
+	}
+	
+	//Tick handler
 	@Override
 	public void onTick(MapProxy map) {
 		shoveElectricity(Side.U);
@@ -25,26 +47,6 @@ public class InfiniteGenerator extends BlockEntityDataless {
 	public void shoveElectricity(Side s) {
 		Electricity elec = getAtSide(s).getElectricalConnection(s.negate());
 		if(elec == null) return;
-		elec.insert(Double.POSITIVE_INFINITY, voltage);
-	}
-
-	@Override
-	public Electricity getElectricalConnection(Side s) {
-		return Electricity.NONE;
-	}
-
-	@Override
-	public BlockType type() {
-		return type;
-	}
-
-	/**
-	 * The voltage of this generator
-	 */
-	@NN public final VoltageTier voltage;
-	private final BlockEntityType type;
-	public InfiniteGenerator(VoltageTier voltage, BlockEntityType type) {
-		this.voltage = voltage;
-		this.type = type;
+		elec.insert(Double.POSITIVE_INFINITY, type.volt);
 	}
 }

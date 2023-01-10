@@ -37,16 +37,14 @@ public class SimpleProcessHelper{
 	@NN private final VoltageTier volt;
 	/** The object which is currently refreshed. It may be null */
 	public Refreshable refreshable;
-	
 	/** Energy put into item to smelt it */
 	public double progress;
 	
 	//Info about recipe
+	/** Required energy to complete*/
 	public double currRequired;
-	
 	/** The item which is currently smelted */
 	public SimpleRecipe<?> underway;
-	
 	/**Required voltage tier */
 	public VoltageTier voltRequired;
 	

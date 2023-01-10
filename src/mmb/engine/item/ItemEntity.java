@@ -11,7 +11,7 @@ import mmb.Nil;
  * @author oskar
  *
  */
-public abstract class ItemEntity implements ItemEntry{
+public abstract class ItemEntity implements ItemEntry{	
 	protected abstract int hash0();
 	protected abstract boolean equal0(ItemEntity other);
 	

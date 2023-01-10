@@ -93,7 +93,7 @@ public class Nuker extends SkeletalBlockMachine {
 
 	@Override
 	public BlockType type() {
-		return ContentsBlocks.NUKEGEN;
+		return ContentsBlocks.old_NUKEGEN;
 	}
 
 	@Override
