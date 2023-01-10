@@ -7,8 +7,8 @@ import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
 import mmb.NN;
 import mmb.engine.craft.Craftings;
-import mmb.engine.craft.rgroups.CatalyzedSingleRecipeGroup;
-import mmb.engine.craft.rgroups.ComplexCatalyzedRecipeGroup;
+import mmb.engine.craft.rgroups.CatSingleRecipeGroup;
+import mmb.engine.craft.rgroups.ComplexCatRecipeGroup;
 import mmb.engine.craft.rgroups.ComplexRecipeGroup;
 import mmb.engine.craft.rgroups.CraftingRecipeGroup;
 import mmb.engine.craft.rgroups.SingleRecipeGroup;
@@ -56,7 +56,7 @@ public class CraftingGroups {
 	/** Alloy smelter recipes */
 	@NN public static final ComplexRecipeGroup alloyer = new ComplexRecipeGroup("alloyer", 2);
 	/** Machine assembler recipes */
-	@NN public static final ComplexCatalyzedRecipeGroup assembler = new ComplexCatalyzedRecipeGroup("assembler", 2);
+	@NN public static final ComplexCatRecipeGroup assembler = new ComplexCatRecipeGroup("assembler", 2);
 	/** Brewery recipes */
 	@NN public static final ComplexRecipeGroup brewery = new ComplexRecipeGroup("brewery", 2);
 	/** Crafting recipes */
@@ -64,9 +64,9 @@ public class CraftingGroups {
 	/** Quarry recipes */
 	@NN public static final SingleRecipeGroup quarry = new SingleRecipeGroup("quarry");
 	/** Extruder recipes */
-	@NN public static final CatalyzedSingleRecipeGroup extruder = new CatalyzedSingleRecipeGroup("extruder");
+	@NN public static final CatSingleRecipeGroup extruder = new CatSingleRecipeGroup("extruder");
 	/** Sintered Carbides Factory recipes */
 	@NN public static final ComplexRecipeGroup sinterer = new ComplexRecipeGroup("sinterer", 2);
 	/** Inscriber recipes */
-	@NN public static final CatalyzedSingleRecipeGroup inscriber = new CatalyzedSingleRecipeGroup("inscriber");
+	@NN public static final CatSingleRecipeGroup inscriber = new CatSingleRecipeGroup("inscriber");
 }

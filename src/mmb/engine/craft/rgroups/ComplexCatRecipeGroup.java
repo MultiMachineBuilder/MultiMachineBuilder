@@ -3,37 +3,23 @@
  */
 package mmb.engine.craft.rgroups;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 import io.vavr.Tuple2;
 import mmb.NN;
 import mmb.Nil;
-import mmb.content.CraftingGroups;
-import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
-import mmb.engine.craft.GlobalRecipeRegistrar;
-import mmb.engine.craft.RecipeGroup;
 import mmb.engine.craft.RecipeOutput;
-import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.ComplexCatalyzedRecipeView;
 import mmb.menu.world.craft.RecipeView;
-import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
-import monniasza.collects.selfset.HashSelfSet;
-import monniasza.collects.selfset.SelfSet;
 
 /**
  * @author oskar
  * A group of recipes with a complex input and a catalyst
  */
-public class ComplexCatalyzedRecipeGroup extends
-AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
+public class ComplexCatRecipeGroup extends
+AbstractRecipeGroupCatalyzed<@NN RecipeOutput, @NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>{
 	/**
 	 * The minimum amount of ingredients
 	 */
@@ -43,8 +29,8 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 	 * @param id the title of this recipe group
 	 * @param minIngredients minimum amount of ingredients, must be >= 1
 	 */
-	public ComplexCatalyzedRecipeGroup(String id, int minIngredients) {
-		super(id);
+	public ComplexCatRecipeGroup(String id, int minIngredients) {
+		super(id, ComplexCatalyzedRecipe.class);
 		if(minIngredients < 1) throw new IllegalArgumentException("The minimum ingredient count must be >=1, got "+minIngredients);
 		this.minIngredients = minIngredients;
 	}
@@ -53,13 +39,13 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 	 * @author oskar
 	 * A recipe with a complex input and a catalyst
 	 */
-	public class ComplexCatalyzedRecipe extends BaseElectricRecipe<ComplexCatalyzedRecipe> implements Identifiable<Tuple2<Set<ItemEntry>, mmb.engine.item.ItemEntry>>{
+	public class ComplexCatalyzedRecipe extends BaseElectricRecipe<ComplexCatalyzedRecipe> implements Identifiable<@NN Tuple2<@NN RecipeOutput, @NN ItemEntry>>{
 		/** The input item list */
 		@NN public final RecipeOutput input;
 		/** Required catalyst */
 		@Nil public final ItemEntry catalyst;
 		/** Item tuple */
-		@NN private final Tuple2<Set<ItemEntry>, mmb.engine.item.ItemEntry> id;
+		@NN private final Tuple2<@NN RecipeOutput, @NN ItemEntry> id;
 		
 		/**
 		 * Creates a complex catalyzed recipe
@@ -73,17 +59,11 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 		public ComplexCatalyzedRecipe(double energy, VoltageTier voltage, RecipeOutput in, RecipeOutput output, @Nil ItemEntry catalyst, Chance luck) {
 			super(energy, voltage, output, luck);
 			this.input = in;
-			this.id = new Tuple2<>(input.getContents().keySet(), catalyst);
+			this.id = new Tuple2<>(input, catalyst);
 			this.catalyst = catalyst;
 		}
-		
 		@Override
-		public int maxCraftable(Inventory src, int amount) {
-			return Inventory.howManyTimesThisContainsThat(src, input);
-		}
-		
-		@Override
-		public Tuple2<Set<ItemEntry>, mmb.engine.item.ItemEntry> id() {
+		public @NN Tuple2<@NN RecipeOutput, @NN ItemEntry> id() {
 			return id;
 		}
 		@Override
@@ -95,29 +75,14 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 			return catalyst;
 		}
 		@Override
-		public RecipeGroup<ComplexCatalyzedRecipe> group() {
-			return ComplexCatalyzedRecipeGroup.this;
+		public ComplexCatRecipeGroup group() {
+			return ComplexCatRecipeGroup.this;
 		}
 		@Override
 		public ComplexCatalyzedRecipe that() {
 			return this;
 		}
-	}
-	
-	//Recipe listing
-	@NN private final SelfSet<Tuple2<Set<ItemEntry>, mmb.engine.item.ItemEntry>, ComplexCatalyzedRecipe> _recipes = HashSelfSet.createNonnull(ComplexCatalyzedRecipe.class);
-	public final SelfSet<Tuple2<Set<ItemEntry>, mmb.engine.item.ItemEntry>, ComplexCatalyzedRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
-	@Override
-	public Set<? extends ItemEntry> supportedItems() {
-		return supported0;
-	}
-	private final Set<ItemEntry> supported = new HashSet<>();
-	private final Set<ItemEntry> supported0 = Collections.unmodifiableSet(supported);
-	@Override
-	public SelfSet<Tuple2<Set<ItemEntry>, mmb.engine.item.ItemEntry>, ComplexCatalyzedRecipe> recipes() {
-		return recipes;
-	}
-	
+	}	
 	//Recipe addition
 	/**
 	 * Adds a recipe to this recipe group
@@ -133,9 +98,7 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 		if(in.getContents().size() < minIngredients) throw new IllegalArgumentException("The recipe must have at least "+minIngredients+" inputs");
 		if(in.getContents().size() == 0) throw new IllegalArgumentException("The recipe must have at least 1 input");
 		ComplexCatalyzedRecipe recipe = new ComplexCatalyzedRecipe(energy, voltage, in, out, catalyst, luck);
-		_recipes.add(recipe);
-		supported.addAll(in.getContents().keySet());
-		GlobalRecipeRegistrar.addRecipe(recipe);
+		insert(recipe);
 		return recipe;
 	}
 	/**
@@ -182,9 +145,5 @@ AbstractRecipeGroup<ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe>{
 	@Override
 	public RecipeView<ComplexCatalyzedRecipe> createView() {
 		return new ComplexCatalyzedRecipeView();
-	}
-	@Override
-	public boolean isCatalyzed() {
-		return true;
 	}
 }

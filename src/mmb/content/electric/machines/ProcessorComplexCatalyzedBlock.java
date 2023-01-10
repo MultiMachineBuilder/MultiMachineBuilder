@@ -13,7 +13,7 @@ import mmb.content.electric.Electricity;
 import mmb.content.electric.GUIMachine;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
 import mmb.content.electric.helper.ComplexCatalyzedItemProcessHelper;
-import mmb.engine.craft.rgroups.ComplexCatalyzedRecipeGroup;
+import mmb.engine.craft.rgroups.ComplexCatRecipeGroup;
 import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.inv.storage.SingleItemInventory;
@@ -35,14 +35,14 @@ public class ProcessorComplexCatalyzedBlock extends ProcessorAbstractBlock imple
 	}
 
 	@NN private final ComplexCatalyzedItemProcessHelper helper;
-	@NN public final ComplexCatalyzedRecipeGroup group;
+	@NN public final ComplexCatRecipeGroup group;
 	/**
 	 * The current catalyst
 	 */
 	@NN public final SingleItemInventory catalyst = new SingleItemInventory();
 	
 	//Constructor
-	public ProcessorComplexCatalyzedBlock(ElectroMachineType type, ComplexCatalyzedRecipeGroup group) {
+	public ProcessorComplexCatalyzedBlock(ElectroMachineType type, ComplexCatRecipeGroup group) {
 		super(type);
 		this.recipes = group;
 		helper = new ComplexCatalyzedItemProcessHelper(group, in, out0, 1000, elec, type.volt, () -> catalyst.getContents());
@@ -93,7 +93,7 @@ public class ProcessorComplexCatalyzedBlock extends ProcessorAbstractBlock imple
 		catalyst.setContents(ItemEntry.loadFromJson(node.get("catalyst")));
 	}
 
-	public final ComplexCatalyzedRecipeGroup recipes;
+	public final ComplexCatRecipeGroup recipes;
 	//GUI
 	@Override
 	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
@@ -110,7 +110,7 @@ public class ProcessorComplexCatalyzedBlock extends ProcessorAbstractBlock imple
 	}
 
 	@Override
-	public ComplexCatalyzedRecipeGroup recipes() {
+	public ComplexCatRecipeGroup recipes() {
 		return group;
 	}
 

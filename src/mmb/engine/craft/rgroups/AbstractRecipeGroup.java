@@ -3,6 +3,9 @@
  */
 package mmb.engine.craft.rgroups;
 
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.Supplier;
 
 import javax.swing.JComponent;
@@ -14,17 +17,27 @@ import mmb.engine.craft.GlobalRecipeRegistrar;
 import mmb.engine.craft.PlugAndPlayRecipeCellRenderer;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.RecipeGroup;
+import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.rgroups.ComplexCatRecipeGroup.ComplexCatalyzedRecipe;
+import mmb.engine.item.ItemEntry;
 import mmb.engine.settings.GlobalSettings;
 import mmb.menu.world.craft.RecipeList;
 import mmb.menu.world.window.TabRecipes;
+import monniasza.collects.Collects;
+import monniasza.collects.Identifiable;
+import monniasza.collects.selfset.HashSelfSet;
+import monniasza.collects.selfset.SelfSet;
 
 /**
- * An implementation aid for recipe groups
+ * An implementation aid for recipe groups.
+ * @dontextend This class should not be extended directly.
+ * Extend {@link AbstractRecipeGroupCatalyzed} or {@link AbstractRecipeGroupUncatalyzed} instead
  * @author oskar
- * @param <T> type of recipes
+ * @param <Tbackend> the backend input identification type
+ * @param <Trecipe> type of recipes
  */
-public abstract class AbstractRecipeGroup<@NN T extends Recipe<@NN T>> implements RecipeGroup<@NN T>{
-	@NN private final ListCellRenderer<T> cellRenderer;
+public abstract class AbstractRecipeGroup<@NN Tbackend, @NN Trecipe extends Recipe<@NN Trecipe>&Identifiable<Tbackend>> implements RecipeGroup<@NN Trecipe>{
+	@NN private final ListCellRenderer<Trecipe> cellRenderer;
 	
 	@NN private final String title;
 	@NN private final String id;
@@ -35,7 +48,12 @@ public abstract class AbstractRecipeGroup<@NN T extends Recipe<@NN T>> implement
 	protected final Tuple2<String, JComponent> createTab(){
 		return new Tuple2<String, JComponent>(title, new RecipeList<>(this));
 	}
-	protected AbstractRecipeGroup(String id) {
+	protected AbstractRecipeGroup(String id, Class<Trecipe> rtype) {
+		//Backend generation
+		this.rtype = rtype;
+		recipesBackend = HashSelfSet.createNonnull(rtype);
+		recipesView = Collects.unmodifiableSelfSet(recipesBackend);
+		
 		this.title = GlobalSettings.$res("machine-"+id);
 		this.id=id;
 		cellRenderer = new PlugAndPlayRecipeCellRenderer<>(createView());
@@ -52,7 +70,46 @@ public abstract class AbstractRecipeGroup<@NN T extends Recipe<@NN T>> implement
 		return id;
 	}
 	@Override
-	public ListCellRenderer<? super T> cellRenderer() {
+	public ListCellRenderer<? super Trecipe> cellRenderer() {
 		return cellRenderer;
 	}
+	
+	//Recipe listing backend
+	/** Type of recipes */
+	@NN public final Class<Trecipe> rtype;
+	@NN private final SelfSet<Tbackend, Trecipe> recipesBackend;
+	@NN private final SelfSet<Tbackend, Trecipe> recipesView;
+	@Override
+	public @NN SelfSet<Tbackend, Trecipe> recipes() {
+		return recipesView;
+	}
+	
+	//Supported items
+	@NN private final Set<ItemEntry> supportedBackend = new HashSet<>();
+	@NN private final Set<ItemEntry> supportedView = Collections.unmodifiableSet(supportedBackend);
+	@Override
+	public Set<? extends ItemEntry> supportedItems() {
+		return supportedView;
+	}
+	
+	//Recipe insertion
+	protected void insert(Trecipe recipe) {
+		Tbackend recipeid = recipe.id();
+		Set<ItemEntry> items = items4id(recipeid);
+		
+		//Supported items addition
+		for(ItemEntry item: items) {
+			supportedBackend.add(item);
+		}
+		
+		//Recipe addition
+		recipesBackend.add(recipe);
+		
+		//GlobalRecipeRegistrar
+		GlobalRecipeRegistrar.addRecipe(recipe);
+	}
+	
+	//Backend conversion
+	public abstract Set<ItemEntry> items4id(Tbackend id);
+	
 }

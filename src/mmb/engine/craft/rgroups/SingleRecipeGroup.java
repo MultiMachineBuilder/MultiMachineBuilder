@@ -3,38 +3,29 @@
  */
 package mmb.engine.craft.rgroups;
 
-import java.util.Set;
-
 import mmb.NN;
 import mmb.Nil;
-import mmb.content.CraftingGroups;
-import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
-import mmb.engine.craft.GlobalRecipeRegistrar;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.singles.SimpleRecipe;
 import mmb.engine.craft.singles.SimpleRecipeGroup;
-import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.SingleRecipeView;
-import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
-import monniasza.collects.selfset.HashSelfSet;
-import monniasza.collects.selfset.SelfSet;
 
 /**
  * @author oskar
  *
  */
-public class SingleRecipeGroup extends AbstractRecipeGroup<SingleRecipeGroup.SingleRecipe>
+public class SingleRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemEntry, @NN SingleRecipeGroup.SingleRecipe>
 implements SimpleRecipeGroup<SingleRecipeGroup.SingleRecipe>{
 	/**
 	 * Creates a list of single-item recipes
 	 * @param id group ID
 	 */
 	public SingleRecipeGroup(String id) {
-		super(id);
+		super(id, SingleRecipe.class);
 	}
 	/**
 	 * A recipe with a single input item
@@ -61,11 +52,6 @@ implements SimpleRecipeGroup<SingleRecipeGroup.SingleRecipe>{
 			return input;
 		}
 		@Override
-		public int maxCraftable(Inventory src, int amount) {
-			return Inventory.howManyTimesThisContainsThat(src, input);
-		}
-
-		@Override
 		public ItemEntry inputs() {
 			return input;
 		}
@@ -83,22 +69,6 @@ implements SimpleRecipeGroup<SingleRecipeGroup.SingleRecipe>{
 		}
 	}
 	
-	//Recipe listing
-	@NN private final SelfSet<ItemEntry, SingleRecipe> _recipes = HashSelfSet.createNonnull(SingleRecipe.class);
-	@NN public final SelfSet<ItemEntry, SingleRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
-	@Override
-	public Set<? extends ItemEntry> supportedItems() {
-		return recipes.keys();
-	}
-	@Override
-	public SelfSet<ItemEntry, SingleRecipe> recipes() {
-		return recipes;
-	}
-	@Override
-	public SingleRecipe findRecipe(@Nil ItemEntry catalyst, ItemEntry in) {
-		return recipes.get(in);
-	}
-	
 	//Recipe addition
 	/**
 	 * Adds a recipes to this recipe group
@@ -110,9 +80,8 @@ implements SimpleRecipeGroup<SingleRecipeGroup.SingleRecipe>{
 	 * @return new recipe
 	 */
 	public SingleRecipe add(ItemEntry in, RecipeOutput out, VoltageTier voltage, double energy, Chance luck) {
-		SingleRecipe recipe = new SingleRecipe(energy, voltage, in, out, luck);
-		_recipes.add(recipe);
-		GlobalRecipeRegistrar.addRecipe(recipe);
+		@NN SingleRecipe recipe = new SingleRecipe(energy, voltage, in, out, luck);
+		insert(recipe);
 		return recipe;
 	}
 	/**
@@ -156,9 +125,7 @@ implements SimpleRecipeGroup<SingleRecipeGroup.SingleRecipe>{
 		return new SingleRecipeView();
 	}
 	@Override
-	public boolean isCatalyzed() {
-		return false;
+	public SingleRecipe findRecipe(@Nil ItemEntry catalyst, ItemEntry in) {
+		return recipes().get(in);
 	}
-	
-
 }

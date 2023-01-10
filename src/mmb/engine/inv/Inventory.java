@@ -401,13 +401,14 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 	 * Returns how many copies of {@code sub} exist in {@code main}.
 	 * @param main inventory to check
 	 * @param sub copies to count
+	 * @param amount maximum reported amount
 	 * @return amount of {@code sub} ins {@code main}
 	 */
-	public static int howManyTimesThisContainsThat(Inventory main, Inventory sub) {
-		int result = Integer.MAX_VALUE;
-		for(ItemRecord irecord: sub) {
-			int small = irecord.amount(); //the sub contains null records
-			ItemRecord mrecord = main.nget(irecord.item());
+	public static int howManyTimesThisContainsThat(Inventory main, RecipeOutput sub, int amount) {
+		int result = amount;
+		for(ItemStack irecord: sub) {
+			int small = irecord.amount; //the sub contains null records
+			ItemRecord mrecord = main.nget(irecord.item);
 			if(mrecord == null) return 0;
 			int big = mrecord.amount();
 			int units = big/small;
@@ -423,25 +424,16 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 	 * @return amount of {@code sub} ins {@code main}
 	 */
 	public static int howManyTimesThisContainsThat(Inventory main, RecipeOutput sub) {
-		int result = Integer.MAX_VALUE;
-		for(ItemStack irecord: sub) {
-			int small = irecord.amount; //the sub contains null records
-			ItemRecord mrecord = main.nget(irecord.item);
-			if(mrecord == null) return 0;
-			int big = mrecord.amount();
-			int units = big/small;
-			if(result > units) result = units;
-			if(result == 0) return 0;
-		}
-		return result;
+		return howManyTimesThisContainsThat(main, sub, Integer.MAX_VALUE);
 	}
 	/**
 	 * Inserts contents of this inventory into a map
 	 * @param map
 	 */
-	public default void contents(Object2IntMap<mmb.engine.item.ItemEntry> map) {
+	public default void contents(Object2IntMap<ItemEntry> map) {
 		for(ItemRecord irecord: this) {
 			map.put(irecord.item(), irecord.amount());
 		}
 	}
+	
 }

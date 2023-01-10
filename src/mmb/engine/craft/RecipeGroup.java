@@ -22,17 +22,14 @@ import monniasza.collects.Identifiable;
 public interface RecipeGroup<@NN T extends Recipe<?>> extends Identifiable<String>, Titled{
 	/**@return a set with recipes*/
 	@NN public Set<@NN T> recipes();
-	
-	/**@return a set with all supported items*/
+	/** @return a set with all supported items */
 	@NN public Set<@NN ? extends ItemEntry> supportedItems();
-	
+	/** @return a component which displays recipes */
 	public @NN RecipeView<T> createView();
-	
 	/**
 	 * @return a cell renderer for compatible recipes
 	 */
 	public @NN ListCellRenderer<? super T> cellRenderer();
-	
 	/**
 	 * @return does the recipe group support catalysts?
 	 */

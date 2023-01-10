@@ -3,39 +3,30 @@
  */
 package mmb.engine.craft.rgroups;
 
-import java.util.Set;
-
 import mmb.NN;
 import mmb.Nil;
-import mmb.content.CraftingGroups;
-import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
-import mmb.engine.craft.GlobalRecipeRegistrar;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.SingleItem;
 import mmb.engine.craft.singles.SimpleRecipe;
 import mmb.engine.craft.singles.SimpleRecipeGroup;
-import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.StackedRecipeView;
-import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
-import monniasza.collects.selfset.HashSelfSet;
-import monniasza.collects.selfset.SelfSet;
 
 /**
  * A list of recipes with a stacked input
  * @author oskar
  */
-public class StackedRecipeGroup extends AbstractRecipeGroup<StackedRecipeGroup.StackedRecipe>
+public class StackedRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemEntry, @NN StackedRecipeGroup.StackedRecipe>
 implements SimpleRecipeGroup<StackedRecipeGroup.StackedRecipe>{
 	/**
 	 * Creates a list of stacked recipes
 	 * @param id group ID
 	 */
 	public StackedRecipeGroup(String id) {
-		super(id);
+		super(id, StackedRecipe.class);
 	}
 	/**
 	 * A recipe with a stacked input
@@ -59,10 +50,6 @@ implements SimpleRecipeGroup<StackedRecipeGroup.StackedRecipe>{
 		@Override
 		public ItemEntry id() {
 			return input.item();
-		}
-		@Override
-		public int maxCraftable(Inventory src, int amount) {
-			return Inventory.howManyTimesThisContainsThat(src, input);
 		}
 		@Override
 		public SingleItem inputs() {
@@ -90,22 +77,6 @@ implements SimpleRecipeGroup<StackedRecipeGroup.StackedRecipe>{
 		}
 	}
 	
-	//Recipe listing
-	@NN private final SelfSet<ItemEntry, StackedRecipe> _recipes = HashSelfSet.createNonnull(StackedRecipe.class);
-	@NN public final SelfSet<ItemEntry, StackedRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
-	@Override
-	public Set<? extends ItemEntry> supportedItems() {
-		return recipes.keys();
-	}
-	@Override
-	public SelfSet<ItemEntry, StackedRecipe> recipes() {
-		return recipes;
-	}
-	@Override
-	public StackedRecipe findRecipe(@Nil ItemEntry catalyst, ItemEntry in) {
-		return recipes.get(in);
-	}
-	
 	//Recipe addition
 	/**
 	 * Adds a recipe to this recipe group
@@ -116,10 +87,9 @@ implements SimpleRecipeGroup<StackedRecipeGroup.StackedRecipe>{
 	 * @param luck random chanced items
 	 * @return new recipe
 	 */
-	public StackedRecipe add(SingleItem in, RecipeOutput out, VoltageTier voltage, double energy, Chance luck) {
+	@NN public StackedRecipe add(SingleItem in, RecipeOutput out, VoltageTier voltage, double energy, Chance luck) {
 		StackedRecipe recipe = new StackedRecipe(energy, voltage, in, out, luck);
-		_recipes.add(recipe);
-		GlobalRecipeRegistrar.addRecipe(recipe);
+		insert(recipe);
 		return recipe;
 	}
 	/**
@@ -164,8 +134,7 @@ implements SimpleRecipeGroup<StackedRecipeGroup.StackedRecipe>{
 		return new StackedRecipeView();
 	}
 	@Override
-	public boolean isCatalyzed() {
-		return false;
+	public StackedRecipe findRecipe(@Nil ItemEntry catalyst, ItemEntry in) {
+		return recipes().get(in);
 	}
-
 }

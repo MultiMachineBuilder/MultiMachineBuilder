@@ -89,20 +89,17 @@ public class ProcessorSimpleBlock extends ProcessorAbstractBlock implements Bloc
 		if(autoNode != null) autoExtract = autoNode.asBoolean();
 	}
 
-	
 	//Crafting
 	/** The recipe group used for this machine */
 	public final SimpleRecipeGroup<?> recipes;
 	@Override
 	public String machineName() {
-		return "Quarry";
+		return recipes.title();
 	}
-
 	@Override
 	public SimpleRecipeGroup<?> recipes() {
 		return recipes;
 	}
-	
 	
 	//GUI
 	@Override

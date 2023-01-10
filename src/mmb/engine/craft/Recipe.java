@@ -18,7 +18,7 @@ import mmb.menu.world.craft.RecipeView;
  * Represents a recipe
  * @param <T> the type of recipe
  */
-public interface Recipe<T extends Recipe<T>>{
+public interface Recipe<@NN T extends Recipe<T>>{
 	
 	//CONTAINS methods
 	/**
@@ -29,12 +29,14 @@ public interface Recipe<T extends Recipe<T>>{
 		return maxCraftable(src, 1) == 1;
 	}
 	/**
-	 * 
+	 * Calculates
 	 * @param src inventory with source items
 	 * @param amount number of recipes to craft
 	 * @return number of craftable recipes
 	 */
-	public int maxCraftable(Inventory src, int amount);
+	public default int maxCraftable(Inventory src, int amount) {
+		return Inventory.howManyTimesThisContainsThat(src, inputs(), amount);
+	}
 		
 	//CRAFT methods
 	/**

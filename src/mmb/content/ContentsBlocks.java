@@ -62,7 +62,7 @@ import mmb.content.wireworld.GateMono.MonoGateType;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.Blocks;
-import mmb.engine.craft.rgroups.ComplexCatalyzedRecipeGroup;
+import mmb.engine.craft.rgroups.ComplexCatRecipeGroup;
 import mmb.engine.craft.rgroups.ComplexRecipeGroup;
 import mmb.engine.craft.singles.SimpleRecipeGroup;
 import mmb.engine.item.Items;
@@ -570,7 +570,7 @@ public class ContentsBlocks {
 	@NN private static ElectricMachineGroup machinesComplex(String texture, ComplexRecipeGroup group, String id) {
 		return new ElectricMachineGroup(Textures.get(texture), type -> new ProcessorComplexBlock(type, group), id);
 	}
-	@NN private static ElectricMachineGroup machinesComplexCat(String texture, ComplexCatalyzedRecipeGroup group, String id) {
+	@NN private static ElectricMachineGroup machinesComplexCat(String texture, ComplexCatRecipeGroup group, String id) {
 		return new ElectricMachineGroup(Textures.get(texture), type -> new ProcessorComplexCatalyzedBlock(type, group), id);
 	}
 	@NN private static ElectricMachineGroup machinesSimple(String texture, SimpleRecipeGroup<?> group, String id, double d) {

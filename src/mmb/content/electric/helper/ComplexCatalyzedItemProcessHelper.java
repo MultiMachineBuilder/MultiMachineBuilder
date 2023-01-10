@@ -19,9 +19,9 @@ import mmb.content.electric.machines.CycleResult;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.Refreshable;
 import mmb.engine.craft.SimpleItemList;
-import mmb.engine.craft.rgroups.ComplexCatalyzedRecipeGroup;
+import mmb.engine.craft.rgroups.ComplexCatRecipeGroup;
 import mmb.engine.craft.rgroups.ComplexRecipeGroup;
-import mmb.engine.craft.rgroups.ComplexCatalyzedRecipeGroup.ComplexCatalyzedRecipe;
+import mmb.engine.craft.rgroups.ComplexCatRecipeGroup.ComplexCatalyzedRecipe;
 import mmb.engine.craft.rgroups.ComplexRecipeGroup.ComplexRecipe;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
@@ -33,7 +33,7 @@ import mmb.engine.item.ItemEntry;
  *
  */
 public class ComplexCatalyzedItemProcessHelper {
-	@NN private final ComplexCatalyzedRecipeGroup recipes;
+	@NN private final ComplexCatRecipeGroup recipes;
 	@NN private final Inventory input;
 	@NN private final Inventory output;
 	         private final double speed;
@@ -50,9 +50,9 @@ public class ComplexCatalyzedItemProcessHelper {
 	/** The item produced by a recipe*/
 	public RecipeOutput rout;
 	
-	public final Supplier<mmb.engine.item.ItemEntry> selector;
+	public final Supplier<ItemEntry> selector;
 	
-	public ComplexCatalyzedItemProcessHelper(ComplexCatalyzedRecipeGroup recipes, Inventory input, Inventory output,
+	public ComplexCatalyzedItemProcessHelper(ComplexCatRecipeGroup recipes, Inventory input, Inventory output,
 			double speed, Battery elec, VoltageTier volt, Supplier<mmb.engine.item.ItemEntry> selector) {
 		super();
 		this.recipes = recipes;
@@ -123,7 +123,7 @@ public class ComplexCatalyzedItemProcessHelper {
 			if(input.size() < recipes.minIngredients) return CycleResult.UNSUPPORTED;
 			
 			//Find a new recipe(slow) and extract if found
-			for(ComplexCatalyzedRecipe recipe: recipes.recipes) {
+			for(ComplexCatalyzedRecipe recipe: recipes.recipes()) {
 				if(Inventory.howManyTimesThisContainsThat(input, recipe.input) <= 0)
 					//The required ingredients were not found
 					continue;

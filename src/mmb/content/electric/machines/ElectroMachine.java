@@ -35,9 +35,7 @@ public interface ElectroMachine extends Electric{
 	 * @return the recipe name
 	 */
 	public String machineName();
-	/**
-	 * @return the recipe group
-	 */
+	/** @return the recipe group */
 	public RecipeGroup<?> recipes();
 	@Override
 	public default Electricity getElectricity() {

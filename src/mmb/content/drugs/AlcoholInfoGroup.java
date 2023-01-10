@@ -3,41 +3,34 @@
  */
 package mmb.content.drugs;
 
-import java.util.Set;
-
 import mmb.NN;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
-import mmb.engine.craft.GlobalRecipeRegistrar;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.rgroups.AbstractRecipeGroup;
-import mmb.engine.inv.Inventory;
+import mmb.engine.craft.rgroups.AbstractRecipeGroupUncatalyzed;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.RecipeView;
-import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
-import monniasza.collects.selfset.HashSelfSet;
-import monniasza.collects.selfset.SelfSet;
 
 /**
  * @author oskar
  *
  */
-public class AlcoholInfoGroup extends AbstractRecipeGroup<@NN AlcoholInfoGroup.AlcoholInfo>{
+public class AlcoholInfoGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemEntry, @NN AlcoholInfoGroup.AlcoholInfo>{
 	/**
 	 * Creates a list of information about alcoholic beverages
 	 * @param id group ID (normally "alcohol")
 	 */
 	public AlcoholInfoGroup(String id) {
-		super(id);
+		super(id, AlcoholInfo.class);
 	}
 
 	/**
 	 * @author oskar
 	 * A recipe with one input item and output
 	 */
-	public class AlcoholInfo implements Identifiable<ItemEntry>, Recipe<AlcoholInfo>{
+	public class AlcoholInfo implements Identifiable<ItemEntry>, Recipe<@NN AlcoholInfo>{
 		/** The alcoholic beverage*/
 		@NN public final ItemEntry input;
 		/** The packaging for the alcoholic beverage*/
@@ -54,13 +47,7 @@ public class AlcoholInfoGroup extends AbstractRecipeGroup<@NN AlcoholInfoGroup.A
 			this.input = input;
 			this.output = output;
 			this.dose = dose;
-		}
-		
-		@Override
-		public int maxCraftable(Inventory src, int amount) {
-			return Inventory.howManyTimesThisContainsThat(src, input);
-		}
-		
+		}		
 		@Override
 		public ItemEntry id() {
 			return input;
@@ -99,17 +86,6 @@ public class AlcoholInfoGroup extends AbstractRecipeGroup<@NN AlcoholInfoGroup.A
 			return Chance.NONE;
 		}
 	}
-	//Recipe listing
-	@NN private final SelfSet<ItemEntry, AlcoholInfo> _recipes = HashSelfSet.createNonnull(AlcoholInfo.class);
-	@NN public final SelfSet<ItemEntry, AlcoholInfo> recipes = Collects.unmodifiableSelfSet(_recipes);
-	@Override
-	public Set<? extends ItemEntry> supportedItems() {
-		return recipes.keys();
-	}
-	@Override
-	public SelfSet<ItemEntry, AlcoholInfo> recipes() {
-		return recipes;
-	}
 	
 	//Recipe addition
 	/**
@@ -120,9 +96,8 @@ public class AlcoholInfoGroup extends AbstractRecipeGroup<@NN AlcoholInfoGroup.A
 	 * @return the recipe
 	 */
 	public AlcoholInfo add(ItemEntry in, RecipeOutput out, double dose) {
-		AlcoholInfo recipe = new AlcoholInfo(in, out, dose);
-		_recipes.add(recipe);
-		GlobalRecipeRegistrar.addRecipe(recipe);
+		@NN AlcoholInfo recipe = new AlcoholInfo(in, out, dose);
+		insert(recipe);
 		return recipe;
 	}
 	/**
@@ -139,9 +114,5 @@ public class AlcoholInfoGroup extends AbstractRecipeGroup<@NN AlcoholInfoGroup.A
 	//Others
 	@Override public RecipeView<AlcoholInfo> createView() {
 		return new AlcoholInfoView();
-	}
-	@Override
-	public boolean isCatalyzed() {
-		return false;
 	}
 }

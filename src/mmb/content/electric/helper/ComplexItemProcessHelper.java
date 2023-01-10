@@ -112,7 +112,7 @@ public class ComplexItemProcessHelper {
 			if(input.size() < recipes.minIngredients) return CycleResult.PARTIAL;
 			
 			//Find a new recipe(slow) and extract if found
-			for(ComplexRecipe recipe: recipes.recipes) {
+			for(ComplexRecipe recipe: recipes.recipes()) {
 				if(Inventory.howManyTimesThisContainsThat(input, recipe.input) <= 0)
 					//The required ingredients were not found
 					continue;

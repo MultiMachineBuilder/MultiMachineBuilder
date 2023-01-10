@@ -13,6 +13,7 @@ import mmb.engine.craft.GlobalRecipeRegistrar;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.rgroups.AbstractRecipeGroup;
+import mmb.engine.craft.rgroups.AbstractRecipeGroupUncatalyzed;
 import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.RecipeView;
@@ -25,20 +26,20 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  *
  */
-public class AgroRecipeGroup extends AbstractRecipeGroup<@NN AgroRecipeGroup.AgroProcessingRecipe>{
+public class AgroRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemEntry, @NN AgroRecipeGroup.AgroProcessingRecipe>{
 	/**
 	 * Creates a list of crop outputs
 	 * @param id group ID (normally "alcohol")
 	 */
 	public AgroRecipeGroup(String id) {
-		super(id);
+		super(id, AgroProcessingRecipe.class);
 	}
 	
 	/**
 	 * @author oskar
 	 * A recipe with one input item and output
 	 */
-	public class AgroProcessingRecipe implements Identifiable<ItemEntry>, Recipe<AgroProcessingRecipe>{
+	public class AgroProcessingRecipe implements Identifiable<ItemEntry>, Recipe<@NN AgroProcessingRecipe>{
 		/** The input crop */
 		@NN public final ItemEntry input;
 		/** The crop's output */		
@@ -62,12 +63,7 @@ public class AgroRecipeGroup extends AbstractRecipeGroup<@NN AgroRecipeGroup.Agr
 		@Override
 		public ItemEntry id() {
 			return input;
-		}
-		@Override
-		public int maxCraftable(Inventory src, int amount) {
-			return Inventory.howManyTimesThisContainsThat(src, input);
-		}
-		
+		}		
 		@Override
 		public RecipeOutput output() {
 			return output;
@@ -102,19 +98,6 @@ public class AgroRecipeGroup extends AbstractRecipeGroup<@NN AgroRecipeGroup.Agr
 		}
 	}
 	
-	//Recipe listing
-	@NN private final SelfSet<@NN ItemEntry, AgroProcessingRecipe> _recipes = HashSelfSet.createNonnull(AgroProcessingRecipe.class);
-	/** Set of all crop outputs */
-	@NN public final SelfSet<@NN ItemEntry, AgroProcessingRecipe> recipes = Collects.unmodifiableSelfSet(_recipes);
-	@Override
-	public @NN Set<@NN ? extends ItemEntry> supportedItems() {
-		return recipes.keys();
-	}
-	@Override
-	public @NN SelfSet<@NN ItemEntry, AgroProcessingRecipe> recipes() {
-		return recipes;
-	}
-	
 	//Recipe addition
 	/**
 	 * Adds a recipes to this recipe group
@@ -125,8 +108,7 @@ public class AgroRecipeGroup extends AbstractRecipeGroup<@NN AgroRecipeGroup.Agr
 	 */
 	public AgroProcessingRecipe add(ItemEntry in, RecipeOutput out, int duration) {
 		AgroProcessingRecipe recipe = new AgroProcessingRecipe(in, out, duration);
-		_recipes.add(recipe);
-		GlobalRecipeRegistrar.addRecipe(recipe);
+		insert(recipe);
 		return recipe;
 	}
 	/**
@@ -144,9 +126,5 @@ public class AgroRecipeGroup extends AbstractRecipeGroup<@NN AgroRecipeGroup.Agr
 	@Override
 	public RecipeView<AgroProcessingRecipe> createView() {
 		return new AgroRecipeView();
-	}
-	@Override
-	public boolean isCatalyzed() {
-		return false;
 	}
 }
