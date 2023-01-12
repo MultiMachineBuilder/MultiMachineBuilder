@@ -483,8 +483,8 @@ public class World implements Identifiable<String>, Indexable{
 	BlockEntry set0(BlockEntry b, int x, int y) {
 		BlockEntry old = get(x, y);
 		//Remove old block entity
-		if(old.isBlockEntity()) {
-			BlockEntity old0 = old.asBlockEntity();
+		if(old instanceof BlockEntity) {
+			BlockEntity old0 = (BlockEntity) old;
 			try {
 				old0.onBreak(this, x, y);
 				_blockents.remove(old0);
@@ -494,8 +494,8 @@ public class World implements Identifiable<String>, Indexable{
 			}
 		}
 		//Add new block entity
-		if(b.isBlockEntity()) {
-			BlockEntity new0 = b.asBlockEntity();
+		if(b instanceof BlockEntity) {
+			BlockEntity new0 = (BlockEntity) b;
 			try {
 				new0.onPlace(this, x, y);
 				_blockents.add(new0);

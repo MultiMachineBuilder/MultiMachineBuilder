@@ -113,28 +113,6 @@ class TestBlocksItems {
 		assertDoesNotThrow(() -> blk.volumed(1));
 	}
 	
-	//Block entity tests
-	@Test
-	void testIsBlockEntity() {
-		assertFalse(blk.isBlockEntity());
-	}
-	@Test
-	void testAsBlockEntity() {
-		assertThrows(IllegalStateException.class, () -> blk.asBlockEntity());
-	}
-	@Test
-	void testNASBlockEntity() {
-		assertNull(blk.nasBlockEntity());
-	}
-	@Test
-	void testAsBlockEntityType() {
-		assertThrows(IllegalStateException.class, () -> blk.asBlockEntityType());
-	}
-	@Test
-	void testNASBlockEntityType() {
-		assertNull(blk.nasBlockEntityType());
-	}
-	
 	//Collision config tests
 	@Test
 	void testSetCollidable() {

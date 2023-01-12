@@ -31,12 +31,7 @@ import mmb.engine.worlds.world.World;
  * The following methods can be overridden:
  * provideSignal - 
  */
-public interface BlockEntry extends Saver, Rotable, Chiral {
-	//Block entity checks
-	public boolean isBlockEntity();
-	@NN public BlockEntity asBlockEntity();
-	public BlockEntity nasBlockEntity();
-	
+public interface BlockEntry extends Saver, Rotable, Chiral {	
 	/** @return the block type */
 	@NN public BlockType type();
 	/**

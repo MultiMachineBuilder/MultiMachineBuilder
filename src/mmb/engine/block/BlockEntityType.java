@@ -121,20 +121,6 @@ public class BlockEntityType extends BlockBase{
 		this.factory = factory;
 	}
 	
-	//It is a BlockEntity
-	@Override
-	public BlockEntityType asBlockEntityType() {
-		return this;
-	}
-	@Override
-	public boolean isBlockEntity() {
-		return true;
-	}
-	@Override
-	public BlockEntityType nasBlockEntityType() {
-		return this;
-	}
-
 	/**
 	 * Sets texture. This is a convenience chainable method
 	 * @param texture path to texture, starting from `/textures`

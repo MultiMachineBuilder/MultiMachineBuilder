@@ -21,10 +21,6 @@ public interface BlockType extends Placer, ItemType {
 	 */
 	@NN public BlockEntry createBlock();
 	
-	public boolean isBlockEntity();
-	@NN public BlockEntityType asBlockEntityType();
-	public BlockEntityType nasBlockEntityType();
-	
 	@SuppressWarnings({ "unused", "null" })
 	public default void register() {
 		if(leaveBehind() == null) setLeaveBehind(Blocks.grass); //NOSONAR

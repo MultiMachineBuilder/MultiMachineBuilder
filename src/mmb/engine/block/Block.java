@@ -62,28 +62,7 @@ public class Block extends BlockBase implements BlockEntry{
 		getTexture().draw(this, renderStartPos, g, side);
 	}
 
-	//Not a BlockEntity
-	@Override
-	public boolean isBlockEntity() {
-		return false;
-	}
-	@Override
-	public BlockEntity asBlockEntity() {
-		throw new IllegalStateException("Not a BlockEntity");
-	}
-	@Override
-	public BlockEntityType asBlockEntityType() {
-		throw new IllegalStateException("Not a BlockEntity");
-	}
-	@Override
-	public BlockEntityType nasBlockEntityType() {
-		return null;
-	}
-	@Override
-	public BlockEntity nasBlockEntity() {
-		return null;
-	}
-
+	//Convienient setters
 	@Override
 	public Block texture(String texture) {
 		setTexture(texture);

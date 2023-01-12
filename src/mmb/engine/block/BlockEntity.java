@@ -30,6 +30,7 @@ public abstract class BlockEntity implements SensitiveBlock{
 	
 	private static final Debugger bedebug = new Debugger("BLOCK ENTITIES");
 	
+	//Positioning
 	@Override
 	public void setX(int x) {
 		this.x = x;
@@ -38,8 +39,6 @@ public abstract class BlockEntity implements SensitiveBlock{
 	public void setY(int y) {
 		this.y = y;
 	}
-	
-	//Positioning
 	private int x, y;
 	@Override
 	public int posX() {
@@ -83,23 +82,6 @@ public abstract class BlockEntity implements SensitiveBlock{
 	public boolean typeof(BlockEntityType type) {
 		return type() == type;
 	}
-	@Override
-	public BlockEntity nasBlockEntity() {
-		return this;
-	}
-	@Override
-	public boolean isBlockEntity() {
-		return true;
-	}
-	@Override
-	public BlockEntity asBlockEntity() {
-		return this;
-	}	
-	
-	public BlockEntry getAtSide(Side s) {
-		return owner().getAtSide(s, x, y);
-	}
-	
 	/**
 	 * Invoked on every tick
 	 * @param map map proxy
@@ -108,7 +90,9 @@ public abstract class BlockEntity implements SensitiveBlock{
 		//Optional
 	}
 	
-	//Block demolition event
+	public BlockEntry getAtSide(Side s) {
+		return owner().getAtSide(s, x, y);
+	}
 	
 	/**
 	 * Clears listeners
@@ -145,8 +129,4 @@ public abstract class BlockEntity implements SensitiveBlock{
 	public final CatchingEvent<BlockEntityDemolitionEvent> eventDemolition = new CatchingEvent<>(bedebug, "Failed to run a block entity demolition event");
 	public final CatchingEvent<World> eventShutdown = new CatchingEvent<>(bedebug, "Failed to run a block entity world shutdown event");
 	public final CatchingEvent<World> eventRemoval = new CatchingEvent<>(bedebug, "Failed to run a block entity removal event");
-
-	
-
-	
 }
