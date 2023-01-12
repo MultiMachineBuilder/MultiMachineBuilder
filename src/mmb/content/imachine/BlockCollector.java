@@ -27,76 +27,13 @@ import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * Collects dropped items in range
  * @author oskar
- *
  */
 public class BlockCollector extends BlockEntityData implements BlockActivateListener, ToItemUnifiedCollector {
-	/**
-	 * The inventory, in which collected items go
-	 */
-	@NN private SimpleInventory inv0 = new SimpleInventory();
-	@NN private Inventory inv = inv0.lockInsertions();
-	@Override
-	public Inventory inv() {
-		return inv;
-	}
-	
-	private int rangeX = 4;
-	private int rangeY = 4;
-	private int period = 10;
+	//Timing
 	private int timer = 0;
-	@Override
-	public BlockType type() {
-		return ContentsBlocks.COLLECTOR;
-	}
-
-	@Override
-	public void load(@Nil JsonNode data) {
-		if(data == null) return;
-		inv0.load(data.get("inv"));
-		rangeX = data.get("rangeX").asInt(4);
-		rangeY = data.get("rangeY").asInt(4);
-		period = JsonTool.getInt(data, "period", 10);
-		timer = JsonTool.getInt(data, "timer", 0);
-	}
-
-	@Override
-	protected void save0(ObjectNode node) {
-		node.set("inv", inv0.save());
-		node.put("rangeX", rangeX);
-		node.put("rangeY", rangeY);
-		node.put("period", period);
-		node.put("timer", timer);
-	}
-
-	/**
-	 * @return the rangeX
-	 */
-	public int getRangeX() {
-		return rangeX;
-	}
-
-	/**
-	 * @param rangeX the rangeX to set
-	 */
-	public void setRangeX(int rangeX) {
-		this.rangeX = clamp(1, rangeX, 16);
-	}
-
-	/**
-	 * @return the rangeY
-	 */
-	public int getRangeY() {
-		return rangeY;
-	}
-
-	/**
-	 * @param rangeY the rangeY to set
-	 */
-	public void setRangeY(int rangeY) {
-		this.rangeY = clamp(1, rangeY, 16);
-	}
-	
+	private int period = 10;
 	/** @return current collection period*/
 	public int getPeriod() {
 		return period;
@@ -105,7 +42,69 @@ public class BlockCollector extends BlockEntityData implements BlockActivateList
 	public void setPeriod(int period) {
 		this.period = clamp(1, period, Integer.MAX_VALUE);
 	}
-
+	
+	//Inventory
+	/** The inventory, in which collected items go */
+	@NN private SimpleInventory inv0 = new SimpleInventory();
+	@NN private Inventory inv = inv0.lockInsertions();
+	@Override
+	public Inventory inv() {
+		return inv;
+	}
+	
+	//Range
+	private int rangeX = 4;
+	private int rangeY = 4;
+	/**
+	 * @return the rangeX
+	 */
+	@Override
+	public int getRangeX() {
+		return rangeX;
+	}
+	/**
+	 * @param rangeX the rangeX to set
+	 */
+	@Override
+	public void setRangeX(int rangeX) {
+		this.rangeX = clamp(1, rangeX, 16);
+	}
+	/**
+	 * @return the rangeY
+	 */
+	@Override
+	public int getRangeY() {
+		return rangeY;
+	}
+	/**
+	 * @param rangeY the rangeY to set
+	 */
+	@Override
+	public void setRangeY(int rangeY) {
+		this.rangeY = clamp(1, rangeY, 16);
+	}
+	@Override
+	public int maxSize() {
+		return 16;
+	}
+	
+	//Block methods
+	@Override
+	public Inventory getInventory(Side s) {
+		return inv;
+	}
+	@Override
+	public BlockType type() {
+		return ContentsBlocks.COLLECTOR;
+	}
+	@Override
+	public BlockEntry blockCopy() {
+		BlockCollector copy = new BlockCollector();
+		copy.inv0.set(inv);
+		copy.rangeX = rangeX;
+		copy.rangeY = rangeY;
+		return copy;
+	}
 	@Override
 	public void onTick(MapProxy map) {
 		timer++;
@@ -129,13 +128,6 @@ public class BlockCollector extends BlockEntityData implements BlockActivateList
 			}
 		}
 	}
-
-	public static int clamp(int min, int value, int max) {
-		if(value < min) return min;
-		if(value > max) return max;
-		return value;
-	}
-
 	BlockCollectorGUI gui;
 	@Override
 	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
@@ -144,31 +136,42 @@ public class BlockCollector extends BlockEntityData implements BlockActivateList
 		gui = new BlockCollectorGUI(this, window);
 		window.openAndShowWindow(gui, "Item collector");
 	}
-
-	@Override
-	public Inventory getInventory(Side s) {
-		return inv;
-	}
-
-	@Override
-	public BlockEntry blockCopy() {
-		BlockCollector copy = new BlockCollector();
-		copy.inv0.set(inv);
-		copy.rangeX = rangeX;
-		copy.rangeY = rangeY;
-		return copy;
-	}
-
-	@Override
-	public int maxSize() {
-		return 16;
-	}
-
 	@Override
 	public void destroyTab(GUITab filterGUI) {
 		if(filterGUI != gui) throw new IllegalStateException("Wrong GUI");
 		gui = null;
 	}
-
 	
+	//Serialization
+	@Override
+	public void load(@Nil JsonNode data) {
+		if(data == null) return;
+		inv0.load(data.get("inv"));
+		rangeX = data.get("rangeX").asInt(4);
+		rangeY = data.get("rangeY").asInt(4);
+		period = JsonTool.getInt(data, "period", 10);
+		timer = JsonTool.getInt(data, "timer", 0);
+	}
+	@Override
+	protected void save0(ObjectNode node) {
+		node.set("inv", inv0.save());
+		node.put("rangeX", rangeX);
+		node.put("rangeY", rangeY);
+		node.put("period", period);
+		node.put("timer", timer);
+	}
+	
+	//Utils
+	/**
+	 * Clamps a value to the range
+	 * @param min minimmum value
+	 * @param value value to be constrained
+	 * @param max maximum value
+	 * @return constrained value
+	 */
+	public static int clamp(int min, int value, int max) {
+		if(value < min) return min;
+		if(value > max) return max;
+		return value;
+	}
 }

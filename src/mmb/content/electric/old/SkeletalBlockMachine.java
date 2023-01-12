@@ -28,8 +28,9 @@ import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
 /**
- * @author oskar
+ * @discouraged The use of this type of machines is discouraged. Use more modern electric machines
  * A block which implements electricity and item I/O capabilities. It has helper indicators.
+ * @author oskar
  */
 public abstract class SkeletalBlockMachine extends BlockEntityData implements BlockActivateListener, Titled{
 	

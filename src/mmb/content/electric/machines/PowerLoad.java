@@ -28,16 +28,29 @@ import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * Consumes constant power
  * @author oskar
- *
  */
 public class PowerLoad extends BlockEntityData implements BlockActivateListener {
+	//Configuration
 	private double power;
-	@Override
-	public Electricity getElectricalConnection(Side s) {
-		return elec;
+	/**
+	 * @return current power limit in joules per tick
+	 */
+	public double getPower() {
+		return power;
 	}
-
+	/**
+	 * @param power new power limit in joules per tick
+	 * @throws IllegalArgumentException if power is negative or NaN
+	 */
+	public void setPower(double power) {
+		if(Double.isNaN(power)) throw new IllegalArgumentException("The power limit is NaN");
+		if(power < 0) throw new IllegalArgumentException("The power limit is negative");
+		this.power = power;
+	}
+	
+	//Electricity
 	private double accumulated = 0;
 	private static class Elec implements Electricity{
 		private final PowerLoad load;
@@ -71,45 +84,28 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 		}	
 	}
 	private Electricity elec = new Elec(this);
-
+	@Override
+	public Electricity getElectricalConnection(Side s) {
+		return elec;
+	}
+	
+	//Block methods
 	@Override
 	public BlockType type() {
 		return ContentsBlocks.LOAD;
 	}
-
 	@Override
-	public void load(@Nil JsonNode data) {
-		if(data == null) return;
-		setPower(data.get("power").asDouble());
+	public BlockEntry blockCopy() {
+		PowerLoad copy = new PowerLoad();
+		copy.power = power;
+		return copy;
 	}
-
-	@Override
-	protected void save0(ObjectNode node) {
-		node.put("power", power);
-	}
-
-	/**
-	 * @return current power limit in joules per tick
-	 */
-	public double getPower() {
-		return power;
-	}
-
-	/**
-	 * @param power new power limit in joules per tick
-	 * @throws IllegalArgumentException if power is negative or NaN
-	 */
-	public void setPower(double power) {
-		if(Double.isNaN(power)) throw new IllegalArgumentException("The power limit is NaN");
-		if(power < 0) throw new IllegalArgumentException("The power limit is negative");
-		this.power = power;
-	}
-
 	@Override
 	public void onTick(MapProxy map) {
 		accumulated = 0;
 	}
 	
+	//GUI
 	private class Dialog extends GUITab{
 		private static final long serialVersionUID = 4755568394083395990L;
 		final JTextField field;
@@ -148,18 +144,20 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 			//unused
 		}
 	}
-
 	@Override
 	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		window.openAndShowWindow(new Dialog(window), "Power load");
 	}
-
+	
+	//Serialization
 	@Override
-	public BlockEntry blockCopy() {
-		PowerLoad copy = new PowerLoad();
-		copy.power = power;
-		return copy;
+	public void load(@Nil JsonNode data) {
+		if(data == null) return;
+		setPower(data.get("power").asDouble());
 	}
-
+	@Override
+	protected void save0(ObjectNode node) {
+		node.put("power", power);
+	}
 }

@@ -16,6 +16,13 @@ import mmb.engine.texture.BlockDrawer;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
 
+/*
+ * TODO refactoring
+ * v simple data
+ * - rotary
+ * - chirotable
+ * - no data
+ */
 /**
  * @author oskar
  * For machines, use {@link mmb.engine.mbmachine.Machine}. For blocks, use {@link BlockEntityType}
@@ -27,7 +34,6 @@ import mmb.engine.worlds.world.World;
  * </ul>
  */
 public abstract class BlockEntity implements SensitiveBlock{
-	
 	private static final Debugger bedebug = new Debugger("BLOCK ENTITIES");
 	
 	//Positioning
@@ -118,7 +124,6 @@ public abstract class BlockEntity implements SensitiveBlock{
 		eventShutdown.trigger(map);
 		underShutdown = false;
 	}
-	
 	
 	/** Breaks this block entity */
 	public void blow() {

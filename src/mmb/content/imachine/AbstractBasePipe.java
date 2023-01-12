@@ -24,7 +24,28 @@ import mmb.engine.rotate.Side;
  * A base class for pipes.
  */
 public abstract class AbstractBasePipe extends BlockEntityChirotable {
+	//Constructors
+	protected AbstractBasePipe(BlockType type, int numItems, ChirotatedImageGroup texture) {
+		this.type = type;
+		this.items = new SingleItemInventory[numItems];
+		for(int i = 0; i < numItems; i++)
+			items[i] = new SingleItemInventory();
+		this.texture = texture;
+		eventDemolition.addListener(event -> {
+			for(SingleItemInventory item: items) {
+				ItemEntry ent = item.getContents();
+				if(ent != null)
+					event.world.dropItem(ent, posX(), posY());
+			}
+		});
+	}
 	
+	//Contents
+	protected InventoryWriter inU, inD, inL, inR;
+	protected InventoryReader outU, outD, outL, outR;
+	@NN protected final SingleItemInventory[] items;
+	
+	//Block methods
 	@Override
 	public InventoryReader getOutput(Side s) {
 		if(s == getRotation().U() && outU != null) return outU;
@@ -33,7 +54,6 @@ public abstract class AbstractBasePipe extends BlockEntityChirotable {
 		if(s == getRotation().R() && outR != null) return outR;
 		return InventoryReader.NONE;
 	}
-
 	@Override
 	public InventoryWriter getInput(Side s) {
 		if(s == getRotation().U() && inU != null) return inU;
@@ -42,7 +62,6 @@ public abstract class AbstractBasePipe extends BlockEntityChirotable {
 		if(s == getRotation().R() && inR != null) return inR;
 		return InventoryWriter.NONE;
 	}
-	
 	protected void setIn(InventoryWriter in, Side s) {
 		switch(s) {
 		case U:
@@ -61,7 +80,6 @@ public abstract class AbstractBasePipe extends BlockEntityChirotable {
 			break;
 		}
 	}
-	
 	protected void setOut(InventoryReader out, Side s) {
 		switch(s) {
 		case U:
@@ -80,42 +98,8 @@ public abstract class AbstractBasePipe extends BlockEntityChirotable {
 			break;
 		}
 	}
-
 	@NN private final BlockType type;
-
-	@Override
-	protected void save1(ObjectNode node) {
-		node.set("items", JsonTool.saveArray(i -> ItemEntry.saveItem(i.getContents()), items));
-	}
-
-	@Override
-	protected void load1(ObjectNode node) {
-		JsonNode data = node.get("items");
-		if(data == null || data.isNull() || data.isMissingNode()) return;
-		JsonTool.loadToArray(ItemEntry::loadFromJson, (ArrayNode) data, items);
-	}
-
-	protected InventoryWriter inU, inD, inL, inR;
-	protected InventoryReader outU, outD, outL, outR;
-	
-	@NN protected final SingleItemInventory[] items;
-	
 	private final ChirotatedImageGroup texture;
-	protected AbstractBasePipe(BlockType type, int numItems, ChirotatedImageGroup texture) {
-		this.type = type;
-		this.items = new SingleItemInventory[numItems];
-		for(int i = 0; i < numItems; i++)
-			items[i] = new SingleItemInventory();
-		this.texture = texture;
-		eventDemolition.addListener(event -> {
-			for(SingleItemInventory item: items) {
-				ItemEntry ent = item.getContents();
-				if(ent != null)
-					event.world.dropItem(ent, posX(), posY());
-			}
-		});
-	}
-
 	@Override
 	public ChirotatedImageGroup getImage() {
 		return texture;
@@ -126,10 +110,22 @@ public abstract class AbstractBasePipe extends BlockEntityChirotable {
 		return type;
 	}
 	
+	//Serialization
+	@Override
+	protected void save1(ObjectNode node) {
+		node.set("items", JsonTool.saveArray(i -> ItemEntry.saveItem(i.getContents()), items));
+	}
+	@Override
+	protected void load1(ObjectNode node) {
+		JsonNode data = node.get("items");
+		if(data == null || data.isNull() || data.isMissingNode()) return;
+		JsonTool.loadToArray(ItemEntry::loadFromJson, (ArrayNode) data, items);
+	}
+	
+	//Utilities
 	/**
-	 * 
+	 * A runnable item input used to handle item pipes
 	 * @author oskar
-	 *
 	 */
 	protected class Pusher implements InventoryWriter{
 		private final SingleItemInventory from;

@@ -26,7 +26,7 @@ import mmb.engine.worlds.MapProxy;
  * A chest which accepts modules
  * @author oskar
  */
-public final class ModularChest extends BlockEntityData implements ModularBlock<ModularChest, BlockModuleUniversal, ChestCore<?>, Object> {	
+public final class ModularChest extends BlockEntityData implements ModularBlock<ModularChest, BlockModuleUniversal, ChestCore<?>, Object> {
 	//Basic stuff
 	@Override
 	public BlockType type() {
@@ -41,16 +41,6 @@ public final class ModularChest extends BlockEntityData implements ModularBlock<
 		copy.setModule(module(Side.L), Side.L);
 		copy.setModule(module(Side.R), Side.R);
 		return copy;
-	}
-
-	//Serialization
-	@Override
-	public void load(@Nil JsonNode data) {
-		loadModularHelper(data);
-	}
-	@Override
-	protected void save0(ObjectNode node) {
-		saveModularHelper(node);
 	}
 
 	//Core
@@ -116,4 +106,13 @@ public final class ModularChest extends BlockEntityData implements ModularBlock<
 		return true;
 	}
 	
+	//Serialization
+	@Override
+	public void load(@Nil JsonNode data) {
+		loadModularHelper(data);
+	}
+	@Override
+	protected void save0(ObjectNode node) {
+		saveModularHelper(node);
+	}
 }

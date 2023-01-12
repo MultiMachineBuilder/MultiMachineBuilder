@@ -10,6 +10,7 @@ import java.awt.image.BufferedImage;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.NN;
 import mmb.Nil;
 import mmb.beans.*;
 import mmb.cgui.BlockActivateListener;
@@ -26,22 +27,7 @@ import mmb.menu.world.window.WorldWindow;
  *
  */
 public class Chest extends AbstractChest implements BlockActivateListener {
-	private Color c = Color.WHITE;
-	@Override
-	public Color getColor() {
-		return c;
-	}
-	@Override
-	public void setColor(Color c) {
-		this.c = c;
-		mctexture.setTo(c);
-	}
-
-	private final BlockType type;
-	private final double capacity;
-	private final BufferedImage texture;
-	@SuppressWarnings("null")
-	private final MappedColorTexture mctexture;
+	//Constructors
 	/**
 	 * Creates a chest
 	 * @param capacity capacity in cubic meters
@@ -54,12 +40,48 @@ public class Chest extends AbstractChest implements BlockActivateListener {
 		this.mctexture = new MappedColorTexture(Color.WHITE, Color.WHITE, texture);
 		inv.setCapacity(capacity);
 	}
-
+	
+	//Contents
+	private Color c = Color.WHITE;
+	@Override
+	public Color getColor() {
+		return c;
+	}
+	@Override
+	public void setColor(Color c) {
+		this.c = c;
+		mctexture.setTo(c);
+	}
+	
+	private final double capacity;
+	
+	//Block methods
+	@NN private final BlockType type;
+	@NN private final BufferedImage texture;
+	@NN private final MappedColorTexture mctexture;
 	@Override
 	public BlockType type() {
-		return ContentsBlocks.CHEST;
+		return type;
 	}
-
+	@Override
+	public BlockEntry blockCopy() {
+		Chest copy = new Chest(capacity, type, texture);
+		copy.c = c;
+		copy.inv.set(inv);
+		return copy;
+	}
+	
+	@Override
+	public void render(int x, int y, Graphics g, int side) {
+		mctexture.draw(this, x, y, g, side);
+	}
+	@Override
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
+		if(window == null) return;
+		window.openAndShowWindow(new ChestGui(this, window), "chest");
+	}
+	
+	//Serialization
 	@SuppressWarnings("null")
 	@Override
 	protected void load1(ObjectNode node) {
@@ -71,31 +93,10 @@ public class Chest extends AbstractChest implements BlockActivateListener {
 		else
 			setColor(Color.WHITE);
 	}
-
 	@SuppressWarnings("null")
 	@Override
 	protected void save1(ObjectNode node) {
 		ObjectNode on = node;
 		on.set("color", Save.saveColor(c));
 	}
-
-	
-	@Override
-	public void render(int x, int y, Graphics g, int side) {
-		mctexture.draw(this, x, y, g, side);
-	}
-
-	@Override
-	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
-		if(window == null) return;
-		window.openAndShowWindow(new ChestGui(this, window), "chest");
-	}
-	@Override
-	public BlockEntry blockCopy() {
-		Chest copy = new Chest(capacity, type, texture);
-		copy.c = c;
-		copy.inv.set(inv);
-		return copy;
-	}
-	
 }

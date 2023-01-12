@@ -19,15 +19,6 @@ import mmb.engine.worlds.MapProxy;
  * @author oskar
  */
 public class BlockConduit extends BlockEntityData {
-	@NN private Electricity u;
-	@NN private Electricity d;
-	@NN private Electricity l;
-	@NN private Electricity r;
-	@NN private final BlockType type;
-	@NN private TransferHelper tf;
-	/** Maximum voltage of this conduit */
-	@NN public final VoltageTier volt;
-	
 	//Constructors
 	/**
 	 * @param type block type
@@ -45,6 +36,16 @@ public class BlockConduit extends BlockEntityData {
 		r = tf.proxy(Side.L);
 	}
 
+	//Electric properties
+	@NN private Electricity u;
+	@NN private Electricity d;
+	@NN private Electricity l;
+	@NN private Electricity r;
+	@NN private final BlockType type;
+	@NN private TransferHelper tf;
+	/** Maximum voltage of this conduit */
+	@NN public final VoltageTier volt;
+	
 	//Conduit methods
 	/**
 	 * @return maximum power in coulombs per tick
