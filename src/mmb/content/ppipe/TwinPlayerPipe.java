@@ -14,6 +14,7 @@ import mmb.engine.rotate.Side;
  *
  */
 public class TwinPlayerPipe extends AbstractPlayerPipe {
+	//Constructors
 	/**
 	 * Creates a twin player pipe
 	 * @param type block type
@@ -37,20 +38,6 @@ public class TwinPlayerPipe extends AbstractPlayerPipe {
 		this.tunnel2 = new TunnelHelper(from2, to2);
 		tunnel2.path.length = length;
 	}
-
-	@NN private final BlockType type;
-	@NN private final ChirotatedImageGroup img;
-	@NN private final Side from1;
-	@NN private final Side to1;
-	@NN protected final PipeTunnel tunnel1;
-	@NN private final Side from2;
-	@NN private final Side to2;
-	@NN protected final PipeTunnel tunnel2; 
-	@Override
-	public BlockType type() {
-		return type;
-	}
-
 	@Override
 	protected void initConnections(int x, int y) {
 		sides.reset();
@@ -81,12 +68,26 @@ public class TwinPlayerPipe extends AbstractPlayerPipe {
 			tunnel2.path.endX = ox4 + x;
 			tunnel2.path.endY = oy4 + y;
 	}
-
+	
+	//Contents
+	@NN private final Side from1;
+	@NN private final Side to1;
+	@NN protected final PipeTunnel tunnel1;
+	@NN private final Side from2;
+	@NN private final Side to2;
+	@NN protected final PipeTunnel tunnel2; 
+	
+	//Block methods
+	@NN private final BlockType type;
+	@Override
+	public BlockType type() {
+		return type;
+	}
+	@NN private final ChirotatedImageGroup img;
 	@Override
 	public ChirotatedImageGroup getImage() {
 		return img;
 	}
-
 	@Override
 	public BlockEntry blockCopy() {
 		TwinPlayerPipe copy = new TwinPlayerPipe(type, img, from1, to1, from2, to2, tunnel1.path.length);

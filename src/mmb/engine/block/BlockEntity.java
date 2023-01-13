@@ -20,7 +20,7 @@ import mmb.engine.worlds.world.World;
  * TODO refactoring
  * v simple data
  * - rotary
- * - chirotable
+ * v chirotable
  * - no data
  */
 /**

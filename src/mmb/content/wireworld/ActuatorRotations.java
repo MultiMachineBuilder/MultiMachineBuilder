@@ -21,34 +21,35 @@ import mmb.menu.world.window.WorldWindow;
  *
  */
 public class ActuatorRotations extends AbstractChiralActuatorBase implements BlockActivateListener {
-
-	private static final ChirotatedImageGroup TEXTURE = ChirotatedImageGroup.create(Textures.get("machine/CW.png"));
-
+	//Block methods
 	@Override
 	public BlockType type() {
 		return ContentsBlocks.ROTATOR;
 	}
-
-	@Override
-	public ChirotatedImageGroup getImage() {
-		return TEXTURE;
-	}
-
-	@Override
-	protected void run(Point p, BlockEntry ent, MapProxy proxy) {
-		ent.wrenchRight(getChirality());
-	}
-
-	@Override
-	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
-		flip();
-	}
-
 	@Override
 	public BlockEntry blockCopy() {
 		ActuatorRotations result = new ActuatorRotations();
 		result.setChirotation(getChirotation());
 		return result;
 	}
+	private static final ChirotatedImageGroup TEXTURE = ChirotatedImageGroup.create(Textures.get("machine/CW.png"));
+	@Override
+	public ChirotatedImageGroup getImage() {
+		return TEXTURE;
+	}
+	@Override
+	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
+		flip();
+	}
+	
+	//Actuator methods
+	@Override
+	protected void run(Point p, BlockEntry ent, MapProxy proxy) {
+		ent.wrenchRight(getChirality());
+	}
+
+	
+
+	
 
 }

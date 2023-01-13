@@ -18,12 +18,11 @@ import mmb.engine.worlds.world.World;
  *
  */
 public class PlayerPipeEntry extends PlayerPipe {
+	private static final Debugger debug = new Debugger("TEST PIPES");
 	@NN private static final ChirotatedImageGroup img = ChirotatedImageGroup.create("machine/pipe exit.png");
 	public PlayerPipeEntry() {
 		super(ContentsBlocks.PPIPE_cap, img, Side.U, Side.D, 1);
 	}
-
-	private static final Debugger debug = new Debugger("TEST PIPES");
 	@Override //on some pipes this does not work
 	public void onPlayerCollide(int blockX, int blockY, World world, Player player) {
 		
@@ -37,5 +36,4 @@ public class PlayerPipeEntry extends PlayerPipe {
 			player.physics = phys;
 		}
 	}
-
 }

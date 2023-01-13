@@ -11,10 +11,9 @@ import mmb.engine.rotate.Side;
 
 /**
  * @author oskar
- *
  */
 public class JoiningPlayerPipe extends AbstractPlayerPipe {
-
+	//Constructors
 	/**
 	 * Creates a player pipe which combines two pipes into one. It has connections (R → D of length 0.8) and ({@code mainDir} → D of length {@code mainLen})
 	 * @param mainLen length of main branch
@@ -31,16 +30,6 @@ public class JoiningPlayerPipe extends AbstractPlayerPipe {
 		tunnelS = new TunnelHelper(Side.R, Side.D);
 		tunnelS.path.length = 0.8;
 	}
-	@NN private final BlockType type;
-	@NN private final ChirotatedImageGroup img;
-	@NN private final Side main;
-	@NN protected final PipeTunnel tunnelM;
-	@NN protected final PipeTunnel tunnelS; 
-	@Override
-	public BlockType type() {
-		return type;
-	}
-
 	/*
 	 * Chirotation: El
 	 * Main side: U
@@ -73,17 +62,27 @@ public class JoiningPlayerPipe extends AbstractPlayerPipe {
 		tunnelS.path.endX = oxc + x;
 		tunnelS.path.endY = oyc + y;
 	}
-
+	
+	//Contents
+	@NN private final Side main;
+	@NN protected final PipeTunnel tunnelM;
+	@NN protected final PipeTunnel tunnelS; 
+	
+	//Block methods
+	@NN private final BlockType type;
+	@Override
+	public BlockType type() {
+		return type;
+	}
+	@NN private final ChirotatedImageGroup img;
 	@Override
 	public ChirotatedImageGroup getImage() {
 		return img;
 	}
-
 	@Override
 	public BlockEntry blockCopy() {
 		double mainLen = tunnelM.path.length;
 		JoiningPlayerPipe copy = new JoiningPlayerPipe(mainLen, main, img, type);
 		return copy;
 	}
-
 }

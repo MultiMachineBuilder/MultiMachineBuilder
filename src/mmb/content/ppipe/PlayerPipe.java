@@ -14,16 +14,7 @@ import mmb.engine.rotate.Side;
  *
  */
 public class PlayerPipe extends AbstractPlayerPipe {
-	@NN private final BlockType type;
-	@NN private final ChirotatedImageGroup img;
-	@NN private final Side from;
-	@NN private final Side to;
-	@NN protected final PipeTunnel tunnel; 
-	@Override
-	public BlockType type() {
-		return type;
-	}
-
+	//Constructors
 	/**
 	 * Creates a player pipe
 	 * @param type block type
@@ -41,7 +32,6 @@ public class PlayerPipe extends AbstractPlayerPipe {
 		tunnel = new TunnelHelper(from, to);
 		tunnel.path.length = length;
 	}
-	
 	/*
 	 * from = U
 	 * to = D
@@ -49,7 +39,6 @@ public class PlayerPipe extends AbstractPlayerPipe {
 	 * Find from side
 	 * 
 	 */
-
 	@Override
 	protected void initConnections(int x, int y) {
 		sides.reset();
@@ -66,12 +55,23 @@ public class PlayerPipe extends AbstractPlayerPipe {
 		tunnel.path.endX = ox2 + x;
 		tunnel.path.endY = oy2 + y;
 	}
-
+	
+	//Contents
+	@NN private final Side from;
+	@NN private final Side to;
+	@NN protected final PipeTunnel tunnel; 
+	
+	//Block methods	
+	@NN private final BlockType type;
+	@Override
+	public BlockType type() {
+		return type;
+	}
+	@NN private final ChirotatedImageGroup img;
 	@Override
 	public ChirotatedImageGroup getImage() {
 		return img;
 	}
-
 	@Override
 	public BlockEntry blockCopy() {
 		PlayerPipe copy = new PlayerPipe(type, img, from, to, tunnel.path.length);

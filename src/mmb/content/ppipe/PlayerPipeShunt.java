@@ -3,6 +3,9 @@
  */
 package mmb.content.ppipe;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
@@ -16,24 +19,7 @@ import mmb.engine.worlds.world.WorldUtils;
  *
  */
 public class PlayerPipeShunt extends AbstractPlayerPipe {
-	private boolean toggle;
-	/**
-	 * @return the toggle
-	 */
-	public boolean isToggle() {
-		return toggle;
-	}
-	/**
-	 * @param toggle the toggle to set
-	 */
-	public void setToggle(boolean toggle) {
-		if(this.toggle == toggle) return;
-		this.toggle = toggle;
-		initConnections(posX(), posY());
-	}
-	
-	private boolean state;
-
+	//Constructors
 	/**
 	 * Creates a player pipe which combines two pipes into one. It has connections (R → D of length 0.8) and ({@code mainDir} → D of length {@code mainLen})
 	 * @param mainLen length of main branch
@@ -48,17 +34,6 @@ public class PlayerPipeShunt extends AbstractPlayerPipe {
 		tunnelS = new TunnelHelper(Side.R, Side.D);
 		tunnelS.path.length = 0.8;
 	}
-	@NN private final BlockType type;
-	@NN private static final ChirotatedImageGroup img0 = ChirotatedImageGroup.create("machine/switch straight.png");
-	@NN private static final ChirotatedImageGroup img1 = ChirotatedImageGroup.create("machine/switch turn.png");
-	@NN private final Side main;
-	@NN protected final PipeTunnel tunnelM;
-	@NN protected final PipeTunnel tunnelS; 
-	@Override
-	public BlockType type() {
-		return type;
-	}
-
 	/*
 	 * Chirotation: El
 	 * Main side: U
@@ -93,25 +68,62 @@ public class PlayerPipeShunt extends AbstractPlayerPipe {
 		tunnelS.path.endX = oxc + x;
 		tunnelS.path.endY = oyc + y;
 	}
-
+	
+	//Contents
+	private boolean toggle;
+	/** @return the toggle */
+	public boolean isToggle() {
+		return toggle;
+	}
+	/**
+	 * @param toggle the toggle to set
+	 */
+	public void setToggle(boolean toggle) {
+		if(this.toggle == toggle) return;
+		this.toggle = toggle;
+		initConnections(posX(), posY());
+	}
+	
+	private boolean state;
+	
+	@NN private final Side main;
+	@NN protected final PipeTunnel tunnelM;
+	@NN protected final PipeTunnel tunnelS; 
+	
+	//Block methods
+	@NN private final BlockType type;
+	@Override
+	public BlockType type() {
+		return type;
+	}
+	@NN private static final ChirotatedImageGroup img0 = ChirotatedImageGroup.create("machine/switch straight.png");
+	@NN private static final ChirotatedImageGroup img1 = ChirotatedImageGroup.create("machine/switch turn.png");
 	@Override
 	public ChirotatedImageGroup getImage() {
 		boolean dir = toggle ^ state;
 		return dir?img0:img1;
 	}
-
 	@Override
 	public BlockEntry blockCopy() {
 		double mainLen = tunnelM.path.length;
 		PlayerPipeShunt copy = new PlayerPipeShunt(mainLen, main, type);
 		return copy;
 	}
-	
 	@Override
 	public void onTick(MapProxy map) {
 		boolean oldState = state;
 		state = WorldUtils.hasIncomingSignal(this);
 		if(state != oldState) initConnections(posX(), posY());
 	}
-
+	
+	//Serialization
+	@Override
+	protected void save1(ObjectNode node) {
+		node.put("toggle", toggle);
+	}
+	@Override
+	protected void load1(ObjectNode node) {
+		JsonNode value = node.get("toggle");
+		if(value != null) toggle = value.asBoolean();
+	}
 }
