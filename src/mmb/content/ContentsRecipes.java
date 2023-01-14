@@ -366,6 +366,11 @@ public class ContentsRecipes {
 		stone, null, stone,
 		null,  stone, null
 		}, 3, 3, aim); //Aimer
+		crafting.addRecipeGrid(new ItemEntry[]{
+		null,  stone, stone,
+		stone, null,  null,
+		stone, null,  null
+		}, 3, 3, configExtractors); //Configure dropped item extractors
 		
 	}
 	private static void _chest() {

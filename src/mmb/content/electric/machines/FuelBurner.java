@@ -36,14 +36,14 @@ public class FuelBurner {
 	public void cycle(){
 		for(ItemRecord ir: inv) {
 			if(ir.amount() == 0) continue; //The item record is empty
-			double fv = fuels.getOrDefault(ir.item(), Double.NaN)*mul; //Fuel energy in joules
-			if(Double.isNaN(fv)) continue; //The item is not a fuel
-			double remain = bat.remain();
-			double fv2 = fv/bat.voltage.volts; //Fuel energy in coulombs
-			if(remain < fv2) return; //There is not enough room for the fuel
+			double fuelEnergy = fuels.getOrDefault(ir.item(), Double.NaN)*mul; //Fuel energy in joules
+			if(Double.isNaN(fuelEnergy)) continue; //The item is not a fuel
+			double remainCharge = bat.remain();
+			double fuelCharge = fuelEnergy/bat.voltage.volts; //Fuel energy in coulombs
+			if(remainCharge < fuelCharge) return; //There is not enough room for the fuel
 			int extract = ir.extract(1);
 			if(extract == 0) continue; //The extraction failed
-			bat.stored += fv2;
+			bat.stored += fuelCharge;
 		}
 	}
 	

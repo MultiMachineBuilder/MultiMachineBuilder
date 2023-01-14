@@ -291,6 +291,7 @@ public class Materials {
 		//Furnace fuels
 		CraftingGroups.furnaceFuels.put(Materials.coal.base, 10_000_000);
 		CraftingGroups.furnaceFuels.put(ContentsBlocks.plank, 500_000);
+		CraftingGroups.furnaceFuels.put(ContentsBlocks.logs, 8000_000);
 	}
 	/**
 	 * Creates a famiily of alloying recipes for the given material
