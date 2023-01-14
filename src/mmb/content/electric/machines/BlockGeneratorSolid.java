@@ -70,13 +70,13 @@ public class BlockGeneratorSolid extends BlockEntityRotary implements BlockActiv
 		BufferedImage tmp = Textures.get("machine/turbogen.png");
 		mapper.setTo(VoltageTier.V2.c);
 		turboimg = op.filter(tmp, null);
-		turbotex0 = RotatedImageGroup.create(img);
+		turbotex0 = RotatedImageGroup.create(turboimg);
 		mapper.setTo(VoltageTier.V3.c);
 		turboimg1 = op.filter(tmp, null);
-		turbotex1 = RotatedImageGroup.create(img1);
+		turbotex1 = RotatedImageGroup.create(turboimg1);
 		mapper.setTo(VoltageTier.V4.c);
 		turboimg2 = op.filter(tmp, null);
-		turbotex2 = RotatedImageGroup.create(img2);
+		turbotex2 = RotatedImageGroup.create(turboimg2);
 	}
 		
 	//Block definition
