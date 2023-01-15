@@ -46,7 +46,8 @@ public class ListenableInt extends DataValueInt {
 	}
 	@Override
 	public void set(int newValue) {
-		for(IntConsumer c: listeners) c.accept(newValue);
+		if(getInt() == newValue) return;
 		super.set(newValue);
+		for(IntConsumer c: listeners) c.accept(newValue);
 	}	
 }

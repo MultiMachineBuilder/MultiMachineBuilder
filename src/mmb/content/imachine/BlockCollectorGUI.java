@@ -12,6 +12,7 @@ import static mmb.engine.settings.GlobalSettings.$res;
 import java.awt.Color;
 import javax.swing.JSpinner;
 
+import mmb.menu.databind.IntVarSpinnerModel;
 import mmb.menu.world.inv.InventoryController;
 import mmb.menu.world.inv.MoveItems;
 import mmb.menu.world.window.GUITab;
@@ -27,6 +28,8 @@ public class BlockCollectorGUI extends GUITab {
 	private static final long serialVersionUID = 2506447463267036557L;
 	
 	private final transient ToItemUnifiedCollector coll;
+	private final transient IntVarSpinnerModel spinnerModel;
+	
 	/**
 	 * Creates an item collector GUI
 	 * @param collector item collector
@@ -34,19 +37,15 @@ public class BlockCollectorGUI extends GUITab {
 	 */
 	public BlockCollectorGUI(BlockCollector collector, WorldWindow window) {
 		coll = collector;
+		spinnerModel = new IntVarSpinnerModel(collector.period);
+		
 		setLayout(new MigLayout("", "[][][grow]", "[][grow][]"));
 		
 		JLabel lblPeriod = new JLabel($res("colperiod"));
 		add(lblPeriod, "cell 1 0");
 		
-		JSpinner spinner = new JSpinner();
-		spinner.addChangeListener(e -> {
-			Integer value = (Integer) spinner.getValue();
-			if(value == null) return;
-			collector.setPeriod(value.intValue());
-		});
+		JSpinner spinner = new JSpinner(spinnerModel);
 		add(spinner, "cell 2 0,growx");
-		
 		
 		InventoryController playerInv = new InventoryController();
 		playerInv.setTitle($res("player"));
@@ -69,5 +68,6 @@ public class BlockCollectorGUI extends GUITab {
 	@Override
 	public void close(WorldWindow window) {
 		coll.destroyTab(this);
+		spinnerModel.close();
 	}
 }

@@ -13,6 +13,7 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.cgui.BlockActivateListener;
 import mmb.content.ContentsBlocks;
+import mmb.data.variables.ListenableInt;
 import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
@@ -31,17 +32,18 @@ import mmb.menu.world.window.WorldWindow;
  * @author oskar
  */
 public class BlockCollector extends BlockEntityData implements BlockActivateListener, ToItemUnifiedCollector {
+	//Constructors
+	/** Creates a dropped item collector */
+	public BlockCollector() {
+		period.add(value -> {
+			if(value < 1) period.set(value);
+		});
+	}
+	
 	//Timing
 	private int timer = 0;
-	private int period = 10;
-	/** @return current collection period*/
-	public int getPeriod() {
-		return period;
-	}
-	/** @param period new collection period. Clamped above 0*/
-	public void setPeriod(int period) {
-		this.period = clamp(1, period, Integer.MAX_VALUE);
-	}
+	/** Time between collections in ticks */
+	@NN public final ListenableInt period = new ListenableInt(10);
 	
 	//Inventory
 	/** The inventory, in which collected items go */
@@ -108,7 +110,7 @@ public class BlockCollector extends BlockEntityData implements BlockActivateList
 	@Override
 	public void onTick(MapProxy map) {
 		timer++;
-		if(timer < period) return;
+		if(timer < period.getInt()) return;
 		timer = 0;
 		for(int i = 0, x = posX(); i < rangeX; i++, x++) {
 			for(int j = 0, y = posY(); j < rangeY; j++, y++) {
@@ -149,7 +151,8 @@ public class BlockCollector extends BlockEntityData implements BlockActivateList
 		inv0.load(data.get("inv"));
 		rangeX = data.get("rangeX").asInt(4);
 		rangeY = data.get("rangeY").asInt(4);
-		period = JsonTool.getInt(data, "period", 10);
+		int period0 = JsonTool.getInt(data, "period", 10);
+		period.set(period0);
 		timer = JsonTool.getInt(data, "timer", 0);
 	}
 	@Override
@@ -157,7 +160,7 @@ public class BlockCollector extends BlockEntityData implements BlockActivateList
 		node.set("inv", inv0.save());
 		node.put("rangeX", rangeX);
 		node.put("rangeY", rangeY);
-		node.put("period", period);
+		node.put("period", period.getInt());
 		node.put("timer", timer);
 	}
 	
