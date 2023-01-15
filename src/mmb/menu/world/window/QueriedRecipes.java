@@ -41,7 +41,7 @@ public class QueriedRecipes extends GUITab {
 		JButton btnNewButton = new JButton(GlobalSettings.$res("exit"));
 		btnNewButton.setBackground(Color.RED);
 		btnNewButton.addActionListener(e -> window.closeWindow(this));
-		setLayout(new MigLayout("", "[450px]", "[13px][266px][21px]"));
+		setLayout(new MigLayout("", "[450px,grow]", "[13px][266px,grow][21px]"));
 		add(btnNewButton, "flowx,cell 0 2,growx,aligny top");
 		
 		JScrollPane scrollPane = new JScrollPane();

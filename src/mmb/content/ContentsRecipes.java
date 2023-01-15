@@ -580,9 +580,9 @@ public class ContentsRecipes {
 		
 		//Crusher VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
-		copper.base, Electronics.circuit1,  iron.base,
-		stone,   wireCopper.medium, stone,
-		iron.base,   Electronics.resistors_, copper.base,
+		copper.base, Electronics.circuit1, iron.base,
+		stone,       wireCopper.medium,    stone,
+		iron.base,   motor.items.get(1),   copper.base,
 		}, 3, 3, bcrusher.get(1)); 
 		
 		//Cluster Mill VLV

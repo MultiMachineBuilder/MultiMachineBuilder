@@ -3,6 +3,7 @@
  */
 package mmb.menu.components;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.util.function.Function;
 
@@ -23,6 +24,14 @@ public class CellRendererGettingCellRenderer<E> implements ListCellRenderer<E> {
 	public Component getListCellRendererComponent(JList<? extends E> list, E value, int index, boolean isSelected,
 			boolean cellHasFocus) {
 		ListCellRenderer<E> renderer = getter.apply(value);
-		return renderer.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+		Component c = renderer.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+		if(isSelected) {
+			c.setBackground(list.getSelectionBackground());
+			c.setForeground(list.getSelectionForeground());
+		}else {
+			c.setBackground(new Color(204, 204, 204));
+			c.setForeground(list.getForeground());
+		}
+		return c;
 	}
 }
