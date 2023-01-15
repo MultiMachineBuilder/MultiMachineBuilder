@@ -623,6 +623,28 @@ public class TabInventory extends JPanel {
 			}
 		};
 	}
+	@NN public static RecipeQuery alone(Set<@NN Recipe> recipes) {
+		return new RecipeQuery() {
+			@Override
+			public String name() {
+				return "Selected recipe";
+			}
+
+			@Override
+			public boolean filter(Recipe<?> recipe) {
+				return true;
+			}
+			@Override
+			public @Nil Set<@NN Recipe> phase1() {
+				return recipes;
+			}
+
+			@Override
+			public boolean phase2(Recipe<?> recipe) {
+				return true;
+			}
+		};
+	}
 	
 	private ItemEntry findSourceItem() {
 		ItemRecord irecord = craftGUI.inventoryController.getSelectedValue();
