@@ -120,7 +120,7 @@ public class ModularChests {
 		if(settings != null && reader.level() == ExtractionLevel.RANDOM) {
 			Inventories.transferStackVolumeLimited(reader, writer, settings, stacking, maxVolume); //Extract filtered
 		}else {
-			ItemEntry ient = Inventories.transferFirst(reader, writer); //Extract sequentially
+			Inventories.transferFirst(reader, writer); //Extract sequentially
 		}
 	}
 	

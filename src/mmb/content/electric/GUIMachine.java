@@ -89,7 +89,7 @@ public class GUIMachine extends GUITab implements Refreshable{
 		if(cats != null){
 			JButton removeCatalyst = new JButton("< CAT");
 			removeCatalyst.addActionListener(e -> {
-				Inventories.transfer(cats, window.getPlayer().inv);
+				Inventories.transferAll(cats, window.getPlayer().inv);
 				invPlayer.refresh();
 			});
 		

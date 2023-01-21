@@ -29,9 +29,6 @@ import mmb.engine.json.JsonTool;
  *
  */
 public class SingleStackedInventory implements SaveInventory{
-	//Debug
-	private static final Debugger debug = new Debugger("STACK INVENTORY");
-	
 	//Inventory definition
 	private double capacity = 2;
 	private int storedAmount;
@@ -143,7 +140,6 @@ public class SingleStackedInventory implements SaveInventory{
 	@Override
 	public int insert(ItemEntry ent, int amount) {
 		int amt = insertibleRemain(amount, ent);
-		debug.printl("Amount: "+amt);
 		if(storedItem == null) {
 			storedItem = ent;
 		}

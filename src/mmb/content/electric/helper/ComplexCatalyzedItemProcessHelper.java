@@ -12,7 +12,9 @@ import com.google.common.util.concurrent.Runnables;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.Battery;
+import mmb.content.electric.GUIMachine;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.CycleResult;
 import mmb.engine.craft.RecipeOutput;
@@ -29,7 +31,7 @@ import mmb.engine.item.ItemEntry;
  * @author oskar
  *
  */
-public class ComplexCatalyzedItemProcessHelper {
+public class ComplexCatalyzedItemProcessHelper implements Helper<ComplexCatalyzedRecipe> {
 	@NN private final ComplexCatRecipeGroup recipes;
 	@NN private final Inventory input;
 	@NN private final Inventory output;
@@ -60,6 +62,7 @@ public class ComplexCatalyzedItemProcessHelper {
 		this.volt = volt;
 		this.selector = selector;
 	}
+	@Override
 	public void save(ObjectNode node) {
 		SimpleInventory intermediateInv = new SimpleInventory();
 		intermediateInv.setCapacity(999);
@@ -72,7 +75,10 @@ public class ComplexCatalyzedItemProcessHelper {
 		node.put("remain", progress);
 		node.put("energy", currRequired);
 	}
+	@Override
 	public void load(JsonNode data) {
+		if(data == null) return;
+		
 		//Load the recipe
 		JsonNode itemUnderWay = data.get("smelt");
 		debug.printl("IUW data:"+itemUnderWay);
@@ -91,6 +97,7 @@ public class ComplexCatalyzedItemProcessHelper {
 		if(remainNode != null) progress = remainNode.asDouble();
 	}
 	
+	@Override
 	public CycleResult cycle() {
 		CycleResult result = internals();
 		if(refreshable != null) refreshable.refreshProgress(progress/currRequired, lastKnown);
@@ -177,5 +184,13 @@ public class ComplexCatalyzedItemProcessHelper {
 		progress = helper.progress;
 		currRequired = helper.currRequired;
 		rout = helper.rout;
+	}
+	@Override
+	public ComplexCatalyzedRecipe currentRecipe() {
+		return lastKnown;
+	}
+	@Override
+	public void setRefreshable(@Nil GUIMachine tab) {
+		refreshable = tab;
 	}
 }

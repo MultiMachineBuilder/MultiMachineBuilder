@@ -48,7 +48,7 @@ public class Nuker extends SkeletalBlockMachine {
 				nuked.setContents(null);
 			}else {
 				//Invalid fuel
-				Inventories.transfer(nuked, outItems);
+				Inventories.transferAll(nuked, outItems);
 			}
 		}
 		

@@ -85,7 +85,7 @@ public class MoveItems extends JPanel {
 			int itype = left.getInvType().ordinal();
 			JButton btnAllL = new JButton("<< "+ALL);
 			btnAllL.addActionListener(e -> {
-				Inventories.transfer(right.getInv(), left.getInv());
+				Inventories.transferAll(right.getInv(), left.getInv());
 				left.refresh();
 				right.refresh();
 			});
@@ -207,7 +207,7 @@ public class MoveItems extends JPanel {
 					
 			JButton btnAllR = new JButton(ALL+" >>");
 			btnAllR.addActionListener(e -> {
-				Inventories.transfer(left.getInv(), right.getInv());
+				Inventories.transferAll(left.getInv(), right.getInv());
 				left.refresh();
 				right.refresh();
 			});layout.setConstraints(btnAllR, constraints);

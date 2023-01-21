@@ -9,12 +9,15 @@ import com.google.common.util.concurrent.Runnables;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.Battery;
+import mmb.content.electric.GUIMachine;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.CycleResult;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.Refreshable;
 import mmb.engine.craft.SimpleItemList;
+import mmb.engine.craft.rgroups.ComplexCatRecipeGroup.ComplexCatalyzedRecipe;
 import mmb.engine.craft.rgroups.ComplexRecipeGroup;
 import mmb.engine.craft.rgroups.ComplexRecipeGroup.ComplexRecipe;
 import mmb.engine.debug.Debugger;
@@ -26,7 +29,7 @@ import mmb.engine.item.ItemEntry;
  * @author oskar
  *
  */
-public class ComplexItemProcessHelper {
+public class ComplexItemProcessHelper implements Helper<ComplexRecipe> {
 	@NN private final ComplexRecipeGroup recipes;
 	@NN private final Inventory input;
 	@NN private final Inventory output;
@@ -54,6 +57,7 @@ public class ComplexItemProcessHelper {
 		this.elec = elec;
 		this.volt = volt;
 	}
+	@Override
 	public void save(ObjectNode node) {
 		SimpleInventory intermediateInv = new SimpleInventory();
 		intermediateInv.setCapacity(999);
@@ -66,8 +70,9 @@ public class ComplexItemProcessHelper {
 		node.put("remain", progress);
 		node.put("energy", currRequired);
 	}
+	@Override
 	public void load(JsonNode data) {
-		//Load the recipe
+		if(data == null) return;
 		JsonNode itemUnderWay = data.get("smelt");
 		debug.printl("IUW data:"+itemUnderWay);
 		SimpleInventory intermediateInv = new SimpleInventory();
@@ -85,6 +90,7 @@ public class ComplexItemProcessHelper {
 		if(remainNode != null) progress = remainNode.asDouble();
 	}
 	
+	@Override
 	public CycleResult cycle() {
 		CycleResult result = internals();
 		if(refreshable != null) refreshable.refreshProgress(progress/currRequired, lastKnown);
@@ -164,5 +170,13 @@ public class ComplexItemProcessHelper {
 		progress = helper.progress;
 		currRequired = helper.currRequired;
 		rout = helper.rout;
+	}
+	@Override
+	public ComplexRecipe currentRecipe() {
+		return lastKnown;
+	}
+	@Override
+	public void setRefreshable(@Nil GUIMachine tab) {
+		refreshable = tab;
 	}
 }

@@ -113,7 +113,7 @@ public abstract class AbstractBasePipe extends BlockEntityChirotable {
 	//Serialization
 	@Override
 	protected void save1(ObjectNode node) {
-		node.set("items", JsonTool.saveArray(i -> ItemEntry.saveItem(i.getContents()), items));
+		node.set("items", JsonTool.saveArray(i -> ItemEntry.saveItem(i==null?null:i.getContents()), items));
 	}
 	@Override
 	protected void load1(ObjectNode node) {

@@ -4,6 +4,7 @@
 package mmb.content.modular.chest;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
@@ -12,6 +13,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import mmb.NN;
 import mmb.Nil;
 import mmb.content.modular.BlockCore;
+import mmb.content.modular.gui.ModuleConfigHandler;
 import mmb.content.modular.part.PartEntity;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.SimpleItemList;
@@ -20,6 +22,7 @@ import mmb.engine.inv.SaveInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.texture.Textures;
 import mmb.menu.world.inv.AbstractInventoryController;
+import mmb.menu.world.inv.InventoryController;
 
 /**
  * A chest core
@@ -148,5 +151,16 @@ public abstract class ChestCore<Tinv extends SaveInventory> extends PartEntity i
 		if(other instanceof ChestCore) {
 			return inventory.equals(((ChestCore<?>)other).inventory);
 		} return false;
+	}
+
+	
+	@Override
+	public @Nil ModuleConfigHandler<ChestCore<Tinv>, ?> mch() {
+		return new ModuleConfigHandler<ChestCore<Tinv>, ChestCoreAccess>() {
+			@Override
+			public @NN ChestCoreAccess newComponent(InventoryController invctrl, ChestCore<Tinv> core) {
+				return new ChestCoreAccess(invctrl, core);
+			}			
+		};
 	}
 }

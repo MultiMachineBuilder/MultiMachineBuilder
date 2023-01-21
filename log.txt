@@ -8229,3 +8229,207 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found save: The longest player pipe ever.mworld
 (SELECT A SAVE) Found save: The smallest all in one quarry system.mworld
 (SELECT A SAVE) Found 24 saves
+(WORLD TEST) 1761 items
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@39f11854
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(WORLD TEST) Number of zoom levels: 48
+(WORLD TEST) Scrollbar max: 57
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Parsed file
+(COMPLEX RECIPE RPOCESSOR) IUW data:[999.0,["mmb.stone","mmb.stone",32]]
+(ITEMS) Attempting to load a non-data item
+(COMPLEX RECIPE RPOCESSOR) IUW after load:Volume: 0.64
+Capacity: 999.0
+Size: 1
+   32 � Block Stone(mmb.stone)
+
+(STN data layer @null) Embarkment: [0,0]
+(STN data layer @null) Disembarkment: [-5,-6]
+(STN data layer @null) Embarkment: [-5,-6]
+(ITEMS) Attempting to load a non-data item
+(STN data layer @null) Embarkment: [0,0]
+(STN data layer @null) Disembarkment: [-3,-6]
+(STN data layer @null) Embarkment: [-3,-6]
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(STN data layer @null) Embarkment: [0,0]
+(STN data layer @null) Disembarkment: [-4,-4]
+(STN data layer @null) Embarkment: [-4,-4]
+(STN data layer @null) Embarkment: [0,0]
+(STN data layer @null) Disembarkment: [-10,-3]
+(STN data layer @null) Embarkment: [-10,-3]
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(DATA LAYERS) Loading world data layer: STN
+(ITEMS) Invalid item: Infinity
+(INVENTORIES) Unsupported null item
+(MAP anonymous) Became anonymous
+(SELECT A SAVE) Loaded
+(WORLD - IDLE) Exiting
+(WORLDS) Opening a new world
+(STN-inventory) Index rebuild
+(TOOL-STANDARD) Running BlockActivateListener for: [-3,-7]
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(STN data layer @null) Embarkment: [-2,-7]
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL-STANDARD) Running BlockActivateListener for: [-10,-3]
+(WORLD TEST) Exiting the world
+(WORLD - ) Saving main BlockMap
+(DATA LAYERS) Saving world data layer: STN
+(WORLD TEST) Saving the world
+(WORLD TEST) Saved the world
+(WORLD - main null) Exiting
+(MAP anonymous) Destroying
+(MAP anonymous) Shutdown
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
+(SETTINGS) Resetting a setting country with value US
+(SETTINGS) Resetting a setting sortItems with value true
+(SETTINGS) Resetting a setting dumpBundles with value true
+(SETTINGS) Resetting a setting fullscreen with value false
+(SETTINGS) Resetting a setting logExcessiveBlockTime with value false
+(SETTINGS) Resetting a setting swingDPI with value false
+(SETTINGS) Resetting a setting scale with value 1.0
+(SETTINGS) Resetting a setting lang with value en
+(SETTINGS) Resetting a setting circleAccuracy with value 32
+(SETTINGS) Saving a setting country with value US
+(SETTINGS) Saving a setting sortItems with value true
+(SETTINGS) Saving a setting dumpBundles with value true
+(SETTINGS) Saving a setting fullscreen with value false
+(SETTINGS) Saving a setting logExcessiveBlockTime with value false
+(SETTINGS) Saving a setting swingDPI with value false
+(SETTINGS) Saving a setting scale with value 1.0
+(SETTINGS) Saving a setting lang with value en
+(SETTINGS) Saving a setting nativeScale with value false
+(SETTINGS) Saving a setting circleAccuracy with value 32
+(SETTINGS) Saved settings file

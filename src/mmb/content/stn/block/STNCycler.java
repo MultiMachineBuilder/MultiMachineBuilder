@@ -3,6 +3,8 @@
  */
 package mmb.content.stn.block;
 
+import java.awt.Graphics;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -105,13 +107,13 @@ public abstract class STNCycler extends STNBaseMachine implements BlockActivateL
 
 	protected abstract void runCycle(@Nil ItemEntry item, InventoryWriter writer, InventoryReader reader);
 
+	//Serialization
 	@Override
 	protected void save1(ObjectNode node) {
 		node.set("selection", ItemEntry.saveItem(selection.get()));
 		node.set("upgrade", ItemEntry.saveItem(speedupgrade.getContents()));
 		node.put("control", isControlled.getValue());
 	}
-
 	@Override
 	protected void load1(ObjectNode node) {
 		selection.set(ItemEntry.loadFromJson(node.get("selection")));
@@ -123,4 +125,15 @@ public abstract class STNCycler extends STNBaseMachine implements BlockActivateL
 		isControlled.setValue(result);
 	}
 
+	
+	//Preview
+	@Override
+	public void render(int x, int y, Graphics g, int ss) {
+		super.render(x, y, g, ss);
+		
+		ItemEntry item = selection.get();
+		if(item != null) {
+			item.render(g, x + ss/4, y + ss/4, ss/2, ss/2);
+		}
+	}
 }

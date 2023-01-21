@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.util.Objects;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.NN;
 import mmb.Nil;
@@ -19,13 +20,18 @@ import mmb.content.modular.part.PartEntity;
 import mmb.content.modular.part.PartEntityType;
 import mmb.content.modular.part.PartEntry;
 import mmb.content.modular.part.PartType;
+import mmb.data.variables.ListenableInt;
+import mmb.data.variables.ListenableValue;
 import mmb.engine.MMBUtils;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
+import mmb.engine.debug.Debugger;
 import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
+import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
+import mmb.engine.json.JsonTool;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.settings.GlobalSettings;
@@ -175,7 +181,7 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 				.title(trType + " " + EXPORTER)
 				.volumed(0.01)
 				.finish("modchest.export."+id);
-		petExport.factory(() -> new MoverModule(petExport, null, null, 1));
+		petExport.factory(() -> new MoverModule(petExport));
 				
 		
 		//Create the importer
@@ -183,44 +189,42 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 				.title(trType + " " + IMPORTER)
 				.volumed(0.01)
 				.finish("modchest.import."+id);
-		petImport.factory(() -> new MoverModule(petImport, null, null, 1));
+		petImport.factory(() -> new MoverModule(petImport));
 		
 		String[] chesttags = {"modular", "module"};
 		Items.tagsItems(chesttags, petImport, petExport);
 		return new MoverPair(petImport, petExport);
 	}
-	
-	//Constructor
-	/**
-	 * Creates an item mover
-	 * @param type part type
-	 * @param settings settings
-	 * @param upgrade 
-	 * @param stacking 
-	 */
-	public MoverModule(MoverDef type, @Nil ItemEntry settings, @Nil SpeedUpgrade upgrade, int stacking) {
+		
+	public MoverModule(MoverDef type) {
 		this.type = type;
-		this.settings = settings;
-		this.upgrade = upgrade;
-		this.stacking = stacking;
 	}
 
 	//Part definition
 	@NN private final MoverDef type;
-	@Nil private ItemEntry settings;
+	@NN public final ListenableValue<@Nil ItemEntry> settings = new ListenableValue<>(null);
 	/** The current upgrade */
-	@Nil public final SpeedUpgrade upgrade;
+	@NN public final SingleItemInventory upgrade = new SingleItemInventory();
 	/** The current stack value */
-	public final int stacking;
+	@NN public final ListenableInt stacking = new ListenableInt(0);
+	/** Time between extractions in ticks */
+	@NN public final ListenableInt period = new ListenableInt(0);
+	private int counter = 0;
 	
 	//Part atributes
 	/** @return current settings item */
 	public ItemEntry settings() {
-		return settings;
+		return settings.get();
 	}
 	@Override
 	public PartEntry partClone() {
-		return this;
+		MoverModule copy = new MoverModule(type);
+		copy.settings.set(settings.get());
+		copy.period.set(period.getInt());
+		copy.stacking.set(stacking.getInt());
+		copy.upgrade.set(upgrade);
+		copy.counter = counter;
+		return copy;
 	}
 	@Override
 	public PartType type() {
@@ -242,36 +246,9 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 	}
 	@NN private static final ModuleConfigHandler<BlockModuleUniversal, ?> mch = MMBUtils.thisIsAReallyLongNameUnsafeCastNN(new MMMCH());
 	private static class MMMCH implements ModuleConfigHandler<MoverModule, MoverModuleSetup>{
-
 		@Override
-		public MoverModuleSetup newComponent(InventoryController invctrl) {
-			return new MoverModuleSetup(invctrl);
-		}
-
-		@Override
-		public MoverModule elementFromGUI(MoverModuleSetup gui, MoverModule oldElement) throws Exception {
-			MoverDef type = oldElement.type;
-			ItemEntry settings = gui.settings.getSelection();
-			Integer stacking = (Integer) gui.stacker.getValue();
-			SpeedUpgrade upgrade = oldElement.upgrade;
-			return new MoverModule(type, settings, upgrade, stacking);
-		}
-
-		@Override
-		public void loadGUI(MoverModule element, MoverModuleSetup gui) {
-			gui.settings.setSelection(element.settings);
-			gui.stacker.setValue(element.stacking);
-		}
-
-		@Override
-		public MoverModule replaceUpgradesWithinItem(MoverModule element, @Nil ItemEntry upgrade) {
-			if(!(upgrade instanceof SpeedUpgrade)) return null;
-			return new MoverModule(element.type, element.settings, (SpeedUpgrade) upgrade, element.stacking);
-		}
-
-		@Override
-		public ItemEntry upgrades(MoverModule element) {
-			return element.upgrade;
+		public MoverModuleSetup newComponent(InventoryController invctrl, MoverModule module) {
+			return new MoverModuleSetup(invctrl, module);
 		}
 	}
 	
@@ -290,26 +267,50 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 	//Serialization
 	@Override
 	public JsonNode save() {
-		return ItemEntry.saveItem(settings);
+		ObjectNode node = JsonTool.newObjectNode();
+		node.set("items", ItemEntry.saveItem(settings.get()));
+		node.put("stack", stacking.getInt());
+		node.put("time", period.getInt());
+		node.put("count", counter);
+		node.set("upgrade", ItemEntry.saveItem(upgrade.getContents()));
+		return node;
 	}
 	@Override
 	public void load(@Nil JsonNode data) {
-		settings = ItemEntry.loadFromJson(data);
+		if(data == null) return;
+		if(data.isArray()) {
+			settings.set(ItemEntry.loadFromJson(data));
+		}else {
+			JsonNode settingNode = data.get("items");
+			settings.set(ItemEntry.loadFromJson(settingNode));
+			JsonNode stack1 = data.get("stack");
+			if(stack1 != null) stacking.set(stack1.asInt());
+			JsonNode time1 = data.get("time");
+			if(time1 != null) period.set(time1.asInt());
+			JsonNode count1 = data.get("time");
+			if(count1 != null) counter = count1.asInt();
+			JsonNode upgrade1 = data.get("upgrade");
+			upgrade.setContents(ItemEntry.loadFromJson(upgrade1));
+		}
 	}
 	
 	//Run
 	@Override
 	public void run(ModularBlock<?, BlockModuleUniversal, ?, ?> block, Side storedSide, Side realSide) {
+		counter++;
+		if(counter < period.getInt()) return;
+		counter = 0;
+		
 		if(type.direction) {
-			//export 
-			InventoryReader ir = block.i_out(realSide);
-			InventoryWriter iw = block.owner().getAtSide(realSide, block.posX(), block.posY()).getInput(realSide.negate());
-			type.handler.moveItems(ir, iw, settings, stacking, 0.2 * speedup());
-		}else {
 			//import
 			InventoryReader ir = block.owner().getAtSide(realSide, block.posX(), block.posY()).getOutput(realSide.negate());
 			InventoryWriter iw = block.i_in(realSide);
-			type.handler.moveItems(ir, iw, settings, stacking, 0.2 * speedup());
+			type.handler.moveItems(ir, iw, settings.get(), stacking.getInt(), 0.2 * speedup());
+		}else {
+			//export 
+			InventoryReader ir = block.i_out(realSide);
+			InventoryWriter iw = block.owner().getAtSide(realSide, block.posX(), block.posY()).getInput(realSide.negate());
+			type.handler.moveItems(ir, iw, settings.get(), stacking.getInt(), 0.2 * speedup());
 		}
 	}
 }

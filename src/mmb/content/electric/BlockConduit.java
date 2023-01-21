@@ -61,7 +61,7 @@ public class BlockConduit extends BlockEntityData {
 	//Block methods
 	@Override
 	public void onTick(MapProxy map) {
-		Electricity.equatePPs(this, map, tf, 0.9);
+		Electricity.equatePPs(this, map, tf, 0.99);
 	}
 	@Override
 	public BlockType type() {

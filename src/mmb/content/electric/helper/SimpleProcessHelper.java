@@ -11,6 +11,7 @@ import com.google.common.util.concurrent.Runnables;
 import mmb.NN;
 import mmb.Nil;
 import mmb.content.electric.Battery;
+import mmb.content.electric.GUIMachine;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.CycleResult;
 import mmb.engine.craft.Refreshable;
@@ -26,7 +27,7 @@ import mmb.engine.item.ItemEntry;
  * @author oskar
  * A class to help make simple item processors
  */
-public class SimpleProcessHelper{
+public class SimpleProcessHelper implements Helper<SimpleRecipe<?>>{
 	@NN private final SimpleRecipeGroup<?> recipes;
 	@NN private final Inventory input;
 	@NN private final Inventory output;
@@ -73,6 +74,7 @@ public class SimpleProcessHelper{
 		this.catalysts = catalysts;
 	}
 	
+	@Override
 	public void save(ObjectNode node) {
 		JsonNode smeltData = null;
 		if(underway != null) smeltData = ItemEntry.saveItem(underway.inputs().item());
@@ -83,7 +85,9 @@ public class SimpleProcessHelper{
 			else node.set("catalyst", ItemEntry.saveItem(underway.catalyst()));
 		}
 	}
+	@Override
 	public void load(JsonNode data) {
+		if(data == null) return;
 		JsonNode itemUnderWay = data.get("smelt");
 		ItemEntry item = ItemEntry.loadFromJson(itemUnderWay);
 		JsonNode catalystUnderWay = data.get("catalyst");
@@ -98,6 +102,7 @@ public class SimpleProcessHelper{
 		if(remainNode != null) progress = remainNode.asDouble();
 	}
 	
+	@Override
 	public CycleResult cycle() {
 		CycleResult result = internals();
 		if(refreshable != null) refreshable.refreshProgress(progress/currRequired, underway);
@@ -180,5 +185,13 @@ public class SimpleProcessHelper{
 		currRequired = helper.currRequired;
 		underway = helper.underway;
 		voltRequired = helper.voltRequired;
+	}
+	@Override
+	public SimpleRecipe<?> currentRecipe() {
+		return underway;
+	}
+	@Override
+	public void setRefreshable(@Nil GUIMachine tab) {
+		refreshable = tab;
 	}
 }

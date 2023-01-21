@@ -8,8 +8,10 @@ import java.util.function.Predicate;
 import mmb.Nil;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryReader.ExtractOpportunity;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
+import monniasza.collects.Collects;
 
 /**
  * A set of utilities for working with inventories. <br>
@@ -87,19 +89,27 @@ public class Inventories {
 	 * @param src source inventory
 	 * @param tgt target target inventory
 	 */
-	public static void transfer(Inventory src, Inventory tgt) {
-		for(ItemRecord rec: src) {
-			transferRecord(rec, tgt, Integer.MAX_VALUE);
-		}
+	public static void transferAll(Inventory src, Inventory tgt) {
+		transferAll(src, tgt.createWriter());
 	}
 	/**
 	 * Transfer entire source inventory to the target inventory
 	 * @param src source inventory
 	 * @param tgt inventory writer
 	 */
-	public static void transfer(Inventory src, InventoryWriter tgt) {
-		for(ItemRecord rec: src) {
+	public static void transferAll(Inventory src, InventoryWriter tgt) {
+		transferAll(src.createReader(), tgt);
+		/*for(ItemRecord rec: src) {
 			transferRecord(rec, tgt, Integer.MAX_VALUE);
+		}*/
+	}
+	public static void transferAll(InventoryReader src, InventoryWriter tgt) {
+		for(ExtractOpportunity eo: Collects.iter(src.extracterator())) {
+			ItemEntry item = eo.item;
+			if(item == null) return;
+			int amount0 = eo.toextract(Integer.MAX_VALUE);
+			int amount1 = tgt.insert(item, amount0);
+			eo.extract(amount1);
 		}
 	}
 	

@@ -40,7 +40,14 @@ public class ContentsRecipes {
 		//Crafting ingredients
 		crafting.addRecipe(logs, plank, 16); // wood → planks
 		splitter.add(logs, plank, 16, VoltageTier.V1, 1000);
+		
+		//Crafting tables
 		crafting.addRecipeGrid(plank, 2, 2, Crafting.types.get(0), 1); //4*wood plank → crafting table 1
+		crafting.addRecipeGrid(new ItemEntry[]{
+		Crafting.types.get(0), steel.frame,        Crafting.types.get(0),
+		steel.frame,           robot.items.get(1), steel.frame,
+		Crafting.types.get(0), steel.frame,        Crafting.types.get(0)
+		}, 3, 3, Crafting.types.get(1));
 		
 		smelting.add(rudimentary.base, wireRudimentary.medium, VoltageTier.V1, 80_000);
 		smelting.add(logs, Materials.coal.base, VoltageTier.V1, 50_000);
@@ -844,7 +851,7 @@ public class ContentsRecipes {
 			new RandomChance(0.05, zinc.ore),
 			new RandomChance(0.05, alu.ore),
 			new RandomChance(0.05, lead.ore),
-			new RandomChance(0.05, redstone.cluster)
+			new RandomChance(0.2, redstone.ore)
 		));
 		
 		//Tier 2: +silver, uranium, chrome, quartz, ender, glowstone
