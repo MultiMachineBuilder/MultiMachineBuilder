@@ -10,7 +10,7 @@ import javax.swing.JCheckBox;
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
 import mmb.NN;
 import mmb.Nil;
-import mmb.data.variables.ListenerBooleanVariable;
+import mmb.data.variables.ListenableBoolean;
 
 /**
  * @author oskar
@@ -28,9 +28,9 @@ public class BoundCheckBox extends JCheckBox {
 		valueChangeUnderway = false;
 	}
 	
-	private transient ListenerBooleanVariable bvar;
+	private transient ListenableBoolean bvar;
 	@NN private transient BooleanConsumer update = this::setSelected;
-	public void setVariable(@Nil ListenerBooleanVariable var) {
+	public void setVariable(@Nil ListenableBoolean var) {
 		if(var != null) setSelected(var.getValue());
 		if(bvar != null) bvar.remove(update);
 		bvar = var;

@@ -3,10 +3,18 @@
  */
 package mmb.engine.craft.rgroups;
 
+import java.util.Set;
+
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.SetMultimap;
+
 import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.rgroups.ComplexCatRecipeGroup.ComplexCatalyzedRecipe;
+import mmb.engine.craft.singles.MultiRecipeGroup;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.ComplexRecipeView;
 import monniasza.collects.Identifiable;
@@ -15,7 +23,8 @@ import monniasza.collects.Identifiable;
  * @author oskar
  * A group of recipes with a complex input
  */
-public class ComplexRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN RecipeOutput, @NN ComplexRecipeGroup.ComplexRecipe>{
+public class ComplexRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN RecipeOutput, @NN ComplexRecipeGroup.ComplexRecipe>
+implements MultiRecipeGroup<@NN ComplexRecipeGroup.ComplexRecipe>{
 	/**
 	 * The minimum amount of ingredients
 	 */
@@ -88,6 +97,9 @@ public class ComplexRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN Recip
 		if(in.getContents().size() <= 0) throw new IllegalArgumentException("The recipe must have at least 1 input");
 		@NN ComplexRecipe recipe = new ComplexRecipe(energy, voltage, in, out, luck);
 		insert(recipe);
+		for(ItemEntry item: in.items()) {
+			index0.put(item, recipe);
+		}
 		return recipe;
 	}
 	/**
@@ -129,5 +141,16 @@ public class ComplexRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN Recip
 	@Override
 	public ComplexRecipeView createView() {
 		return new ComplexRecipeView();
+	}
+	
+	//Recipe lookup
+	@NN public final SetMultimap<ItemEntry, ComplexRecipe> index0 = HashMultimap.create();
+	@Override
+	public Set<ComplexRecipe> findPlausible(ItemEntry in) {
+		return index0.get(in);
+	}
+	@Override
+	public int minIngredients() {
+		return minIngredients;
 	}
 }

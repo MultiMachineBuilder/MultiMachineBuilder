@@ -11,12 +11,13 @@ import mmb.Nil;
 import mmb.cgui.BlockActivateListener;
 import mmb.content.electric.Battery;
 import mmb.content.electric.Electricity;
-import mmb.content.electric.GUIMachine;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.helper.Helper;
+import mmb.data.variables.ListenableBoolean;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
 import mmb.engine.block.BlockEntityRotary;
 import mmb.engine.block.BlockEntry;
+import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventories;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.io.InventoryReader;
@@ -29,6 +30,7 @@ import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
+//FIXME items disappear on craft
 /**
  * @author oskar
  * A class with many common utilities for machines
@@ -53,8 +55,28 @@ public abstract class ProcessorAbstractBlock extends BlockEntityRotary implement
 	@NN public final Battery elec;
 	/** The block type */
 	@NN protected final ElectroMachineType type;
-		protected boolean pass;
-		protected boolean autoExtract;
+	
+	/** Should unsupported items be passed on?*/
+	@NN public final ListenableBoolean pass = new ListenableBoolean();
+	@Override
+	public boolean isPass() {
+		return pass.getValue();
+	}
+	@Override
+	public void setPass(boolean pass) {
+		this.pass.setValue(pass);
+	}
+	
+	/** Should items be auto-extracted?*/
+	@NN public final ListenableBoolean autoExtract = new ListenableBoolean();
+	@Override
+	public boolean isAutoExtract() {
+		return autoExtract.getValue();
+	}
+	@Override
+	public void setAutoExtract(boolean autoExtract) {
+		this.autoExtract.setValue(autoExtract);
+	}
 		
 	//Block methods
 	/**
@@ -66,8 +88,8 @@ public abstract class ProcessorAbstractBlock extends BlockEntityRotary implement
 	@Override
 	public final BlockEntry blockCopy() {
 		ProcessorAbstractBlock copy = copy0();
-		copy.autoExtract = autoExtract;
-		copy.pass = pass;
+		copy.autoExtract.setValue(autoExtract.getValue());
+		copy.pass.setValue(pass.getValue());
 		copy.in.set(in);
 		copy.out0.set(out0);
 		copy.elec.set(elec);
@@ -105,6 +127,10 @@ public abstract class ProcessorAbstractBlock extends BlockEntityRotary implement
 		helper().setRefreshable(tab);
 		tab.refreshProgress(0, helper().currentRecipe());
 	}
+	@SuppressWarnings("javadoc") //internal use only
+	public void close(GUIMachine tbb) {
+		if(tab == tbb) tab = null;
+	}
 	
 	//Machine methods
 	@Override
@@ -129,7 +155,14 @@ public abstract class ProcessorAbstractBlock extends BlockEntityRotary implement
 	public String machineName() {
 		return recipes().title();
 	}
-		
+	/**
+	 * @apiNote This method may be overridden if catalysts are supported
+	 * @return the item catalyst inventory, or {@code null} if catalysts are unsupported
+	 */
+	@Nil public SingleItemInventory catalyst() {
+		return null;
+	}
+	
 	//Serialization
 	@Override
 	protected void save1(ObjectNode node) {
@@ -138,8 +171,8 @@ public abstract class ProcessorAbstractBlock extends BlockEntityRotary implement
 		node.set("energy", bat);
 		node.set("in", in.save());
 		node.set("out", out0.save());
-		node.put("pass", pass);
-		node.put("autoex", autoExtract);
+		node.put("pass", pass.getValue());
+		node.put("autoex", autoExtract.getValue());
 	}
 	@Override
 	protected void load1(ObjectNode node) {
@@ -151,67 +184,21 @@ public abstract class ProcessorAbstractBlock extends BlockEntityRotary implement
 		out0.load(node.get("out"));
 		out0.setCapacity(2);
 		JsonNode passNode = node.get("pass");
-		if(passNode != null) pass = passNode.asBoolean();
+		if(passNode != null) pass.setValue(passNode.asBoolean());
 		JsonNode autoNode = node.get("autoex");
-		if(autoNode != null) autoExtract = autoNode.asBoolean();
+		if(autoNode != null) autoExtract.setValue(autoNode.asBoolean());
 	}
 	
-	
-	@SuppressWarnings("javadoc") //internal use only
-	public void close(GUIMachine tbb) {
-		if(tab == tbb) tab = null;
-	}
-
-	
-
-	/**
-	 * @return the pass
-	 */
-	@Override
-	public boolean isPass() {
-		return pass;
-	}
-	/**
-	 * @param pass the pass to set
-	 */
-	@Override
-	public void setPass(boolean pass) {
-		this.pass = pass;
-	}
-
-	/**
-	 * @return the autoExtract
-	 */
-	@Override
-	public boolean isAutoExtract() {
-		return autoExtract;
-	}
-	/**
-	 * @param autoExtract the autoExtract to set
-	 */
-	@Override
-	public void setAutoExtract(boolean autoExtract) {
-		this.autoExtract = autoExtract;
-	}
-	
-	/**
-	 * @apiNote This method may be overridden if catalysts are supported
-	 * @return the item catalyst inventory, or {@code null} if catalysts are unsupported
-	 */
-	@Nil public SingleItemInventory catalyst() {
-		return null;
-	}
-
 	@Override
 	public final void onTick(MapProxy proxy) {
 		elec.capacity = 400;
 		elec.maxPower = 200;
-		if(autoExtract) {
+		if(autoExtract.getValue()) {
 			InventoryWriter writer = getAtSide(getRotation().R()).getInput(getRotation().L());
-			Inventories.transferAll(out, writer);
+			Inventories.transferAll(out, writer); //FIXME stuck
 		}
 		//Pass on items
-		if(pass && Math.random() < 0.1) { //10% chance to pass on unsupported items
+		if(pass.getValue() && Math.random() < 0.1) { //10% chance to pass on unsupported items
 			//Pass on items
 			Inventories.transfer(in, out0, r -> !recipes().supportedItems().contains(r.item()));
 			if(tab != null) {

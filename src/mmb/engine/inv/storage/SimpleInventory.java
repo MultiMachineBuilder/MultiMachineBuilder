@@ -174,7 +174,10 @@ public class SimpleInventory implements SaveInventory{
 	public int bulkInsert(RecipeOutput ent, int amount) {
 		int max = insertibleRemainBulk(amount, ent);
 		for(Entry<@NN ItemEntry> entry: ent.getContents().object2IntEntrySet()) {
-			insert(entry.getKey(), entry.getIntValue()*max);
+			int count = entry.getIntValue()*max;
+			ItemEntry item = entry.getKey();
+			int insert = insert(item, count);
+			debug.printl("Inserted "+insert+" of "+item+", expected "+ count);
 		}
 		return max;
 	}
@@ -263,8 +266,8 @@ public class SimpleInventory implements SaveInventory{
 		writer.writeln("Capacity: "+capacity);
 		writer.writeln("Size: "+contents.size());
 		writer.indentRight();
-		for(ItemRecord record: this) {
-			writer.writeln(record.amount()+" � "+record.item());
+		for(ItemRecord irecord: this) {
+			writer.writeln(irecord.amount()+" � "+irecord.item());
 		}
 		return writer.toString();
 	}

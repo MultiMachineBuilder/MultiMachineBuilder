@@ -7,8 +7,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.Nil;
-import mmb.content.electric.GUIMachine;
 import mmb.content.electric.machines.CycleResult;
+import mmb.content.electric.machines.GUIMachine;
 import mmb.engine.craft.Recipe;
 
 /**

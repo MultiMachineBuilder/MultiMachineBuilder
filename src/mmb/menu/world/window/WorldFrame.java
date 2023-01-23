@@ -27,7 +27,7 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.content.ppipe.Direction;
 import mmb.content.ppipe.PipeTunnelEntry;
-import mmb.data.variables.ListenerBooleanVariable;
+import mmb.data.variables.ListenableBoolean;
 import mmb.engine.CatchingEvent;
 import mmb.engine.Vector2iconst;
 import mmb.engine.block.BlockEntry;
@@ -61,7 +61,7 @@ public class WorldFrame extends JComponent {
 	@NN private transient Debugger debug = new Debugger("WORLD - anonymous");
 	@NN private static Debugger sdebug = new Debugger("WORLDS");
 	/** The global boolean variable controlling debug display */
-	@NN public static final ListenerBooleanVariable DEBUG_DISPLAY = new ListenerBooleanVariable();
+	@NN public static final ListenableBoolean DEBUG_DISPLAY = new ListenableBoolean();
 	
 	//Frames Per Second
 	/** This variable holds current framerate */

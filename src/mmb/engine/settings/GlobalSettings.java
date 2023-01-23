@@ -13,7 +13,7 @@ import mmb.NN;
 import mmb.data.variables.ListenableDouble;
 import mmb.data.variables.ListenableInt;
 import mmb.data.variables.ListenableValue;
-import mmb.data.variables.ListenerBooleanVariable;
+import mmb.data.variables.ListenableBoolean;
 import mmb.engine.MutableResourceBundle;
 import mmb.engine.debug.Debugger;
 import monniasza.collects.Collects;
@@ -27,23 +27,23 @@ public class GlobalSettings {
 	@NN private static final Debugger debug = new Debugger("SETTINGS LIST");
 	
 	/** Is the game full screen? */
-	public static final ListenerBooleanVariable fullScreen = new ListenerBooleanVariable();
+	public static final ListenableBoolean fullScreen = new ListenableBoolean();
 	/** The country used for translation */
 	@NN public static final ListenableValue<String> country = new ListenableValue<>("US");
 	/** The game's UI language */
 	@NN public static final ListenableValue<String> lang = new ListenableValue<>("en");
 	/** Should blocks be logged for execution time? */
-	@NN public static final ListenerBooleanVariable logExcessiveTime = new ListenerBooleanVariable();
+	@NN public static final ListenableBoolean logExcessiveTime = new ListenableBoolean();
 	/** Should the game use native scaling */
-	@NN public static final ListenerBooleanVariable sysscale = new ListenerBooleanVariable();
+	@NN public static final ListenableBoolean sysscale = new ListenableBoolean();
 	/** Should items be sorted in inventory lists? */
-	@NN public static final ListenerBooleanVariable sortItems = new ListenerBooleanVariable();
+	@NN public static final ListenableBoolean sortItems = new ListenableBoolean();
 	/** The accuracy of circles rendered using OpenGL*/
 	@NN public static final ListenableInt circleAccuracy = new ListenableInt(32);
 	/** The UI scale mutiplier*/
 	@NN public static final ListenableDouble uiScale = new ListenableDouble(1);
 	/** Should all modded resource bundles be dumped? */
-	@NN public static final ListenerBooleanVariable dumpBundles = new ListenerBooleanVariable();
+	@NN public static final ListenableBoolean dumpBundles = new ListenableBoolean();
 	
 	/** @return the locale object for current language and country */
 	public static Locale locale() {

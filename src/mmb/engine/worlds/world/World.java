@@ -35,6 +35,7 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.cgui.BlockActivateListener;
 import mmb.engine.GameEvents;
+import mmb.engine.UnitFormatter;
 import mmb.engine.Vector2iconst;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.block.BlockEntry;
@@ -331,6 +332,7 @@ public class World implements Identifiable<String>, Indexable{
 			}
 			//Run every block entity
 			for(BlockEntity ent: _blockents) {
+				//debug.printl("Running "+ent.type()+" @ "+UnitFormatter.formatPoint(ent.posX(), ent.posY()));
 				try {
 					long start = System.nanoTime();
 					ent.onTick(proxy);

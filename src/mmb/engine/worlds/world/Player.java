@@ -21,7 +21,7 @@ import io.vavr.Tuple2;
 import mmb.NN;
 import mmb.Nil;
 import mmb.beans.Saver;
-import mmb.data.variables.ListenerBooleanVariable;
+import mmb.data.variables.ListenableBoolean;
 import mmb.engine.CatchingEvent;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.ItemRecord;
@@ -55,7 +55,7 @@ public class Player implements Saver{
 	}
 	
 	@NN public final ListenableSimpleInventory inv = new ListenableSimpleInventory(debug);
-	@NN public final ListenerBooleanVariable creative = new ListenerBooleanVariable();
+	@NN public final ListenableBoolean creative = new ListenableBoolean();
 	@NN public final World world;
 	public boolean isCreative() {
 		return creative.getValue();

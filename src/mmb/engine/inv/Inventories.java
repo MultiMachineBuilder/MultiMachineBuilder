@@ -7,6 +7,7 @@ import java.util.function.Predicate;
 
 import mmb.Nil;
 import mmb.engine.craft.RecipeOutput;
+import mmb.engine.debug.Debugger;
 import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryReader.ExtractOpportunity;
 import mmb.engine.inv.io.InventoryWriter;
@@ -99,17 +100,27 @@ public class Inventories {
 	 */
 	public static void transferAll(Inventory src, InventoryWriter tgt) {
 		transferAll(src.createReader(), tgt);
-		/*for(ItemRecord rec: src) {
-			transferRecord(rec, tgt, Integer.MAX_VALUE);
-		}*/
 	}
 	public static void transferAll(InventoryReader src, InventoryWriter tgt) {
-		for(ExtractOpportunity eo: Collects.iter(src.extracterator())) {
-			ItemEntry item = eo.item;
-			if(item == null) return;
-			int amount0 = eo.toextract(Integer.MAX_VALUE);
-			int amount1 = tgt.insert(item, amount0);
-			eo.extract(amount1);
+		while(true) {
+			if(src.hasCurrent()) {
+				ItemEntry item = src.currentItem();
+				if(item == null) continue;
+				int amount0 = src.toBeExtracted(Integer.MAX_VALUE);
+				int amount1 = tgt.insert(item, amount0);
+				src.extract(amount1);
+				if(amount1 == 0) {
+					if(src.hasNext()) {
+						src.next();
+					}else {
+						return;
+					}
+				}
+			}else if(src.hasNext()) {
+				src.next();
+			}else {
+				return;
+			}
 		}
 	}
 	

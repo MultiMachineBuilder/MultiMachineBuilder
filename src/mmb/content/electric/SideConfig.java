@@ -12,7 +12,7 @@ import com.google.common.collect.Iterators;
 import mmb.NN;
 import mmb.Nil;
 import mmb.beans.Saver;
-import mmb.data.variables.ListenerBooleanVariable;
+import mmb.data.variables.ListenableBoolean;
 import mmb.engine.MMBUtils;
 import mmb.engine.json.JsonTool;
 import mmb.engine.rotate.Side;
@@ -53,13 +53,13 @@ Cloneable, Iterable<mmb.content.electric.SideConfig.SideBoolean>, Saver{
 		R.setValue(cfg.R.getValue());
 	}
 	/** Upper side of this config */
-	public final ListenerBooleanVariable U = new ListenerBooleanVariable();
+	public final ListenableBoolean U = new ListenableBoolean();
 	/** Lower side of this config */
-	public final ListenerBooleanVariable D = new ListenerBooleanVariable();
+	public final ListenableBoolean D = new ListenableBoolean();
 	/** Left side of this config */
-	public final ListenerBooleanVariable L = new ListenerBooleanVariable();
+	public final ListenableBoolean L = new ListenableBoolean();
 	/** Right side of this config */
-	public final ListenerBooleanVariable R = new ListenerBooleanVariable();
+	public final ListenableBoolean R = new ListenableBoolean();
 	
 	@Override
 	/**

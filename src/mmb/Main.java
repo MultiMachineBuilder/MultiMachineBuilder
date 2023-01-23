@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import mmb.content.rawmats.Materials;
 import mmb.engine.MMBUtils;
 import mmb.engine.debug.Debugger;
 import mmb.engine.settings.GlobalSettings;
@@ -28,8 +29,6 @@ public class Main extends JFrame {
 	private static final Debugger debug = new Debugger("MAIN");
 	
 	private final JPanel contentPane;
-	
-	
 
 	/** Create the frame. */
 	public Main() {
@@ -133,6 +132,12 @@ public class Main extends JFrame {
 					
 					//localized welcome
 					debug.printl(GlobalSettings.$res("hello"));
+					
+					//FIXME the steel cluster is replaced with alu ingot on insert
+					debug.printl("Steel cluster ID: "+Materials.steel.cluster.id());
+					debug.printl("Steel cluster HC: "+Materials.steel.cluster.hashCode());
+					debug.printl("Alu ingot ID: "+Materials.alu.base.id());
+					debug.printl("Alu ingot HC: "+Materials.alu.base.hashCode());
 					
 					//create main menu
 					MainMenu.create();

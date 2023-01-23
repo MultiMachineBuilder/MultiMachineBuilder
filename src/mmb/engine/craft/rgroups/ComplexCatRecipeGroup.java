@@ -3,12 +3,18 @@
  */
 package mmb.engine.craft.rgroups;
 
+import java.util.Set;
+
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.SetMultimap;
+
 import io.vavr.Tuple2;
 import mmb.NN;
 import mmb.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
+import mmb.engine.craft.singles.MultiRecipeGroup;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.ComplexCatalyzedRecipeView;
 import mmb.menu.world.craft.RecipeView;
@@ -19,7 +25,8 @@ import monniasza.collects.Identifiable;
  * A group of recipes with a complex input and a catalyst
  */
 public class ComplexCatRecipeGroup extends
-AbstractRecipeGroupCatalyzed<@NN RecipeOutput, @NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>{
+AbstractRecipeGroupCatalyzed<@NN RecipeOutput, @NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>
+implements MultiRecipeGroup<@NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>{
 	/**
 	 * The minimum amount of ingredients
 	 */
@@ -97,8 +104,11 @@ AbstractRecipeGroupCatalyzed<@NN RecipeOutput, @NN ComplexCatRecipeGroup.Complex
 	public ComplexCatalyzedRecipe add(RecipeOutput in, RecipeOutput out, @Nil ItemEntry catalyst, VoltageTier voltage, double energy, Chance luck) {
 		if(in.getContents().size() < minIngredients) throw new IllegalArgumentException("The recipe must have at least "+minIngredients+" inputs");
 		if(in.getContents().size() == 0) throw new IllegalArgumentException("The recipe must have at least 1 input");
-		ComplexCatalyzedRecipe recipe = new ComplexCatalyzedRecipe(energy, voltage, in, out, catalyst, luck);
+		@NN ComplexCatalyzedRecipe recipe = new ComplexCatalyzedRecipe(energy, voltage, in, out, catalyst, luck);
 		insert(recipe);
+		for(ItemEntry item: in.items()) {
+			index0.put(item, recipe);
+		}
 		return recipe;
 	}
 	/**
@@ -145,5 +155,16 @@ AbstractRecipeGroupCatalyzed<@NN RecipeOutput, @NN ComplexCatRecipeGroup.Complex
 	@Override
 	public RecipeView<ComplexCatalyzedRecipe> createView() {
 		return new ComplexCatalyzedRecipeView();
+	}
+	
+	//Recipe lookup
+	@NN public final SetMultimap<ItemEntry, ComplexCatalyzedRecipe> index0 = HashMultimap.create();
+	@Override
+	public Set<ComplexCatalyzedRecipe> findPlausible(ItemEntry in) {
+		return index0.get(in);
+	}
+	@Override
+	public int minIngredients() {
+		return minIngredients;
 	}
 }

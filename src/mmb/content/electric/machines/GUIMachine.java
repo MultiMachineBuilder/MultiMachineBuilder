@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.electric;
+package mmb.content.electric.machines;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -18,7 +18,8 @@ import org.ainslec.picocog.PicoWriter;
 import io.github.parubok.text.multiline.MultilineLabel;
 import mmb.NN;
 import mmb.Nil;
-import mmb.content.electric.machines.ProcessorAbstractBlock;
+import mmb.content.electric.Electricity;
+import mmb.content.electric.MachineInfoTab;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.Refreshable;
 import mmb.engine.inv.Inventories;

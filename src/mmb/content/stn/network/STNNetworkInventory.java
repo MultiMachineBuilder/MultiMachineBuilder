@@ -153,8 +153,8 @@ public class STNNetworkInventory implements Inventory{
 	@NN private final Set<@NN Inventory> nodes0 = new DirtySet();
 	/** Inventories connected to the network */
 	@NN public final Set<@NN Inventory> nodes = Collections.unmodifiableSet(nodes0);
-	@NN private final Object2LongOpenHashMap<mmb.engine.item.ItemEntry> storageIndex = new Object2LongOpenHashMap<>();
-	@NN private final SetMultimap<mmb.engine.item.ItemEntry, @NN Inventory> itemInvIndex = HashMultimap.create();
+	@NN private final Object2LongOpenHashMap<ItemEntry> storageIndex = new Object2LongOpenHashMap<>();
+	@NN private final SetMultimap<ItemEntry, @NN Inventory> itemInvIndex = HashMultimap.create();
 	private double volume;
 	private double capacity;
 	private boolean dirty;
@@ -244,18 +244,16 @@ public class STNNetworkInventory implements Inventory{
 	private class STNNetworkItemNode implements ItemRecord{
 
 		@NN private final ItemEntry item;
-		private long cache = -1;
 		public STNNetworkItemNode(ItemEntry entry) {
 			item = entry;
 		}
 
 		@Override
 		public int amount() {
-			if(dirty || cache < 0) {
-				reindex();
-				cache = storageIndex.getLong(item);
-			}
-			return (int) Math.max(0, cache);
+			reindex();
+			long value = storageIndex.getLong(item);
+			if(value > Integer.MAX_VALUE) return Integer.MAX_VALUE;
+			return (int) value;
 		}
 
 		@Override

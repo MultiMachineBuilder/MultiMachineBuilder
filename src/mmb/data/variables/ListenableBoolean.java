@@ -12,7 +12,7 @@ import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
  * @author oskar
  *
  */
-public class ListenerBooleanVariable extends BooleanVariable{
+public class ListenableBoolean extends BooleanVariable{
 	private Set<BooleanConsumer> listeners = new HashSet<>();
 	
 	/**

@@ -1231,7 +1231,7 @@
 	at mmb.GameLoader.walkDirectory(GameLoader.java:353)
 	at mmb.GameLoader.walkDirectory(GameLoader.java:335)
 	at mmb.GameLoader.modloading(GameLoader.java:117)
-	at mmb.Main.lambda$1(Main.java:132)
+	at mmb.Main.lambda$1(Main.java:131)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
@@ -1259,7 +1259,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at mmb.GameLoader.walkDirectory(GameLoader.java:353)
 	at mmb.GameLoader.walkDirectory(GameLoader.java:335)
 	at mmb.GameLoader.modloading(GameLoader.java:117)
-	at mmb.Main.lambda$1(Main.java:132)
+	at mmb.Main.lambda$1(Main.java:131)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
@@ -8203,6 +8203,10 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (MAIN) State: Mods - Phase 3
 (MOD-LOADER) HOORAY, IT'S OVER!
 (MAIN) Hello!
+(MAIN) Steel cluster ID: fcluster.steel
+(MAIN) Steel cluster HC: 1374175793
+(MAIN) Alu ingot ID: ingot.alu
+(MAIN) Alu ingot HC: 2136448131
 (Main menu) MainMenu created
 (SELECT A SAVE) Found save: Agriculture test.mworld
 (SELECT A SAVE) Found save: Auto quarry.mworld
@@ -8231,7 +8235,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found 24 saves
 (WORLD TEST) 1761 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@39f11854
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@4f102096
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -8240,138 +8244,21 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Opened a file
 (SELECT A SAVE) Loaded a file
 (SELECT A SAVE) Parsed file
-(COMPLEX RECIPE RPOCESSOR) IUW data:[999.0,["mmb.stone","mmb.stone",32]]
 (ITEMS) Attempting to load a non-data item
-(COMPLEX RECIPE RPOCESSOR) IUW after load:Volume: 0.64
-Capacity: 999.0
-Size: 1
-   32 � Block Stone(mmb.stone)
-
-(STN data layer @null) Embarkment: [0,0]
-(STN data layer @null) Disembarkment: [-5,-6]
-(STN data layer @null) Embarkment: [-5,-6]
 (ITEMS) Attempting to load a non-data item
-(STN data layer @null) Embarkment: [0,0]
-(STN data layer @null) Disembarkment: [-3,-6]
-(STN data layer @null) Embarkment: [-3,-6]
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(STN data layer @null) Embarkment: [0,0]
-(STN data layer @null) Disembarkment: [-4,-4]
-(STN data layer @null) Embarkment: [-4,-4]
-(STN data layer @null) Embarkment: [0,0]
-(STN data layer @null) Disembarkment: [-10,-3]
-(STN data layer @null) Embarkment: [-10,-3]
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
+(BLOCK LOADER) Failed to load a block multi.speaker at [-13,1]
+(BLOCK LOADER) mmb.engine.NotFoundException: Could not find sound null
+	at mmb.engine.sound.Sounds.getSound(Sounds.java:49)
+	at mmb.content.media.Speaker.setSelection(Speaker.java:184)
+	at mmb.content.media.Speaker.load(Speaker.java:72)
+	at mmb.engine.block.BlockLoader.doLoadEnhanced(BlockLoader.java:67)
+	at mmb.engine.block.BlockLoader.load(BlockLoader.java:43)
+	at mmb.engine.worlds.world.World.load(World.java:198)
+	at mmb.engine.worlds.universe.Universe.load(Universe.java:120)
+	at mmb.PlayAWorld.fullPlay0(PlayAWorld.java:49)
+	at mmb.PlayAWorld.fullPlay(PlayAWorld.java:72)
+	at mmb.PlayAWorld.lambda$2(PlayAWorld.java:88)
+	at java.base/java.lang.Thread.run(Thread.java:829)
 (ITEMS) Attempting to load a non-data item
 (ITEMS) Attempting to load a non-data item
 (ITEMS) Attempting to load a non-data item
@@ -8383,26 +8270,6 @@ Size: 1
 (SELECT A SAVE) Loaded
 (WORLD - IDLE) Exiting
 (WORLDS) Opening a new world
-(STN-inventory) Index rebuild
-(TOOL-STANDARD) Running BlockActivateListener for: [-3,-7]
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(STN data layer @null) Embarkment: [-2,-7]
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL-STANDARD) Running BlockActivateListener for: [-10,-3]
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
 (DATA LAYERS) Saving world data layer: STN
@@ -8411,6 +8278,7 @@ Size: 1
 (WORLD - main null) Exiting
 (MAP anonymous) Destroying
 (MAP anonymous) Shutdown
+(INVENTORIES) Inserted 1 of Item Copper ingot(ingot.copper), expected 1
 (WORLDS) The given world is null, exiting
 (WORLD TEST) Exited the world
 (SETTINGS) Resetting a setting country with value US

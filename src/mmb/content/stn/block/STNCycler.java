@@ -15,7 +15,7 @@ import mmb.content.imachine.SpeedUpgrade;
 import mmb.content.stn.network.STNNetworkProcessing.STNRGroupTag;
 import mmb.data.variables.DataValue;
 import mmb.data.variables.ListenableValue;
-import mmb.data.variables.ListenerBooleanVariable;
+import mmb.data.variables.ListenableBoolean;
 import mmb.data.variables.Variable;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.inv.Inventories;
@@ -42,7 +42,7 @@ public abstract class STNCycler extends STNBaseMachine implements BlockActivateL
 	public final SingleItemInventory speedupgrade = new SingleItemInventory();
 	/** Should the pusher be signal controlled */
 	@NN
-	public final ListenerBooleanVariable isControlled = new ListenerBooleanVariable();
+	public final ListenableBoolean isControlled = new ListenableBoolean();
 	protected double counter = 0;
 	protected STNPusherGUI gui;
 

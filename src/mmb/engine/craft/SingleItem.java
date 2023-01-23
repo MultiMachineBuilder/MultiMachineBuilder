@@ -22,7 +22,9 @@ public interface SingleItem extends RecipeOutput {
 	default void produceResults(InventoryWriter tgt, int amount) {
 		tgt.insert(item(), amount*amount());
 	}
+	
 
+	
 	@Override
 	default void represent(PicoWriter out) {
 		out.write(amount() +"� "+item().title());

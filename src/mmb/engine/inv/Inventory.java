@@ -274,9 +274,7 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 
 			@Override
 			public int toBeExtracted(ItemEntry item, int amount) {
-				ItemRecord irecord = nget(item);
-				if(irecord == null) return 0;
-				return Math.min(irecord.amount(), amount);
+				return extractRemain(amount, item);
 			}
 
 			@Override
