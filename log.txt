@@ -95,6 +95,9 @@
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\brush.png
 (MOD-LOADER) Loading a texture brush.png
 (TEXTURES) Loading texture: brush.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\bug.png
+(MOD-LOADER) Loading a texture bug.png
+(TEXTURES) Loading texture: bug.png
 (MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\chem
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\chem\atom.png
 (MOD-LOADER) Loading a texture chem\atom.png
@@ -8235,7 +8238,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found 24 saves
 (WORLD TEST) 1761 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@4f102096
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@23f4ad0c
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -8244,23 +8247,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Opened a file
 (SELECT A SAVE) Loaded a file
 (SELECT A SAVE) Parsed file
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(BLOCK LOADER) Failed to load a block multi.speaker at [-13,1]
-(BLOCK LOADER) mmb.engine.NotFoundException: Could not find sound null
-	at mmb.engine.sound.Sounds.getSound(Sounds.java:49)
-	at mmb.content.media.Speaker.setSelection(Speaker.java:184)
-	at mmb.content.media.Speaker.load(Speaker.java:72)
-	at mmb.engine.block.BlockLoader.doLoadEnhanced(BlockLoader.java:67)
-	at mmb.engine.block.BlockLoader.load(BlockLoader.java:43)
-	at mmb.engine.worlds.world.World.load(World.java:198)
-	at mmb.engine.worlds.universe.Universe.load(Universe.java:120)
-	at mmb.PlayAWorld.fullPlay0(PlayAWorld.java:49)
-	at mmb.PlayAWorld.fullPlay(PlayAWorld.java:72)
-	at mmb.PlayAWorld.lambda$2(PlayAWorld.java:88)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
+(ITEM LISTS) Item list node is null
 (ITEMS) Attempting to load a non-data item
 (ITEMS) Attempting to load a non-data item
 (DATA LAYERS) Loading world data layer: STN
@@ -8270,6 +8257,24 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Loaded
 (WORLD - IDLE) Exiting
 (WORLDS) Opening a new world
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
 (DATA LAYERS) Saving world data layer: STN
@@ -8278,7 +8283,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (WORLD - main null) Exiting
 (MAP anonymous) Destroying
 (MAP anonymous) Shutdown
-(INVENTORIES) Inserted 1 of Item Copper ingot(ingot.copper), expected 1
 (WORLDS) The given world is null, exiting
 (WORLD TEST) Exited the world
 (SETTINGS) Resetting a setting country with value US

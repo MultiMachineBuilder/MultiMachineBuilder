@@ -87,9 +87,7 @@ public class STN {
 		.finish("stnb.framework");
 	
 	//The data layer
-	/**
-	 * The main data layer for STN
-	 */
+	/** The main data layer for STN */
 	@NN public static final IndexedDatalayerMap<@NN World, DataLayerSTN> STN_datalayer //NOSONAR this is a data layer
 	= DataLayers.createWorldDataLayerUsingNode("STN", DataLayerSTN::new);
 	

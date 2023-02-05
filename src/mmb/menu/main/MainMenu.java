@@ -24,6 +24,7 @@ import mmb.engine.settings.Settings;
 import mmb.engine.texture.Textures;
 import mmb.engine.window.FullScreen;
 import mmb.engine.window.MMBFrame;
+import mmb.menu.MenuUtils;
 import mmb.menu.components.BoundCheckBoxMenuItem;
 
 /**
@@ -35,6 +36,11 @@ public class MainMenu extends MMBFrame {
 	
 	//Debugging
 	private static final Debugger debug = new Debugger("Main menu");
+	
+	//Logos
+	public static final BufferedImage GEAR = Textures.get("gearlogo.png");
+	public static final BufferedImage DOLLAR = Textures.get("dollar.png");
+	public static final BufferedImage BUG = Textures.get("bug.png");
 	
 	//ToolKit API
 	/** The singleton instance of main menu*/
@@ -67,14 +73,11 @@ public class MainMenu extends MMBFrame {
 	private static final String refugeesEN = "https://www.gov.pl/web/mswia-en/information-for-refugees-from-ukraine";
 	private static final String refugeesUA = "http://www.ua.gov.pl/";
 	
-	//Logos
-	public static final BufferedImage GEAR = Textures.get("gearlogo.png");
-	public static final BufferedImage DOLLAR = Textures.get("dollar.png");
-	
 	private JButton btnExit;
 	private JLabel timerLBL;
 	private JButton TEST;
 	private JMenu mnUkraine;
+	private JMenuItem mnBug;
 	/**
 	 * Launch the application.
 	 */
@@ -142,6 +145,10 @@ public class MainMenu extends MMBFrame {
 		});
 		mnUkraine.add(btnRefugee1);
 		
+		mnBug = new JMenuItem(new ImageIcon(BUG));
+		mnBug.setToolTipText(GlobalSettings.$res("cgui-report"));
+		mnBug.setModel(MenuUtils.btnmBug);
+		mainMenuBar.add(mnBug);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
