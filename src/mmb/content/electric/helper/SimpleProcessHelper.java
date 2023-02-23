@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.util.concurrent.Runnables;
 
+import io.vavr.Tuple2;
 import mmb.NN;
 import mmb.Nil;
 import mmb.content.electric.Battery;
@@ -28,43 +29,9 @@ import mmb.engine.item.ItemEntry;
 /**
  * @author oskar
  * A class to help make simple item processors
+ * @param <Trecipe> type of recipes
  */
-public class SimpleProcessHelper implements Helper<SimpleRecipe<?>>{
-	//Connection with the block
-	@NN private final Inventory input;
-	@NN private final Inventory output;
-	/**  The inventory to source catalysts from */
-	public final SingleItemInventory catalysts;
-	
-	@NN private final Battery elec;
-	/** The object which is currently refreshed. It may be null */
-	public Refreshable refreshable;
-	@Override
-	public void setRefreshable(@Nil GUIMachine tab) {
-		refreshable = tab;
-	}
-	
-	//Process definition
-	@NN private final SimpleRecipeGroup<?> recipes;
-	@NN private final VoltageTier volt;
-	private final double speed;
-	
-	//Recipe info
-	/** The item which is currently smelted */
-	@Nil public SimpleRecipe<?> underway;
-	@Override
-	public SimpleRecipe<?> currentRecipe() {
-		return underway;
-	}
-	
-	//State info
-	/** Energy put into item to smelt it */
-	public double progress;
-	public ItemEntry catalyst() {
-		if(catalysts == null) return null;
-		return catalysts.getContents();
-	}
-	
+public class SimpleProcessHelper<Trecipe extends SimpleRecipe<@NN Trecipe>> extends Helper<@NN Trecipe, @NN SimpleRecipeGroup<@NN Trecipe>>{
 	//Constructor
 	/**
 	 * @param recipes list of recipes to use
@@ -72,19 +39,12 @@ public class SimpleProcessHelper implements Helper<SimpleRecipe<?>>{
 	 * @param output output inventory
 	 * @param speed processing current in joules per tick at ULV
 	 * @param elec the power source
-	 * @param catalysts inventory to source catalysts from. Set to null to remove catalyst support
+	 * @param selector inventory to source catalysts from. Set to null to remove catalyst support
 	 * @param volt voltage tier
 	 */
-	public SimpleProcessHelper(SimpleRecipeGroup<?> recipes, Inventory input, Inventory output,
-			double speed, Battery elec, @Nil SingleItemInventory catalysts, VoltageTier volt) {
-		super();
-		this.recipes = recipes;
-		this.input = input;
-		this.output = output;
-		this.speed = speed;
-		this.elec = elec;
-		this.volt = volt;
-		this.catalysts = catalysts;
+	public SimpleProcessHelper(SimpleRecipeGroup<Trecipe> recipes, Inventory input, Inventory output,
+			double speed, Battery elec, VoltageTier volt, @Nil SingleItemInventory selector) {
+		super(recipes, input, output, speed, elec, volt, selector);
 	}
 	
 	//Serialization
@@ -93,17 +53,27 @@ public class SimpleProcessHelper implements Helper<SimpleRecipe<?>>{
 		JsonNode smeltData = null;
 		if(underway != null) smeltData = ItemEntry.saveItem(underway.inputs().item());
 		node.set("smelt", smeltData);
+		
+		node.put("active", active);
 		node.set("remain", new DoubleNode(progress));
+		
 		if(catalysts != null) {
-			SimpleRecipe<?> uway0 = underway;
+			SimpleRecipe uway0 = underway;
 			node.set("catalyst", ItemEntry.saveItem(uway0==null?null:uway0.catalyst()));
 		}
 	}
+	
 	@Override
-	public void load(JsonNode data) {
+	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		JsonNode itemUnderWay = data.get("smelt");
 		ItemEntry item = ItemEntry.loadFromJson(itemUnderWay);
+		
+		JsonNode activeNode = data.get("active");
+		if(activeNode != null) active = activeNode.asBoolean();
+		JsonNode remainNode = data.get("remain");
+		if(remainNode != null) progress = remainNode.asDouble();
+		
 		JsonNode catalystUnderWay = data.get("catalyst");
 		ItemEntry catalyst = ItemEntry.loadFromJson(catalystUnderWay);
 		if(item == null) {
@@ -112,32 +82,22 @@ public class SimpleProcessHelper implements Helper<SimpleRecipe<?>>{
 			underway = recipes.findRecipe(catalyst, item);
 		}
 		
-		JsonNode remainNode = data.get("remain");
-		if(remainNode != null) progress = remainNode.asDouble();
+		
 	}
 	/**
-	 * @param helper
+	 * Sets this recipe helper state to the other's recipe helper state
+	 * @param helper the source helper
 	 */
-	public void set(SimpleProcessHelper helper) {
+	public void set(SimpleProcessHelper<Trecipe> helper) {
 		progress = helper.progress;
 		underway = helper.underway;
+		active  = helper.active;
 	}
-	
-	//Recipe handling
-	Debugger debug = new Debugger("SIMPLE PROCESS HELPER");
+
 	@Override
-	public CycleResult cycle() {
-		CycleResult result = internals();
-		double energy = 0;
-		if(underway != null) energy = underway.energy();
-		if(refreshable != null) refreshable.refreshProgress(progress/energy, underway);
-		return result;
-	}
-	public CycleResult internals() {
+	public @NN Tuple2<@Nil Trecipe, @NN CycleResult> findRecipes() {
 		CycleResult result = CycleResult.RUN;
-		
-		//Item collection check
-		SimpleRecipe<?> underway1 = underway;
+		@Nil Trecipe underway1 = underway;
 		if(underway1 == null) {
 			int hasAttempted = 0;
 			//Time to take a new item
@@ -152,7 +112,7 @@ public class SimpleProcessHelper implements Helper<SimpleRecipe<?>>{
 					continue loop;
 				}
 				if(hasAttempted == 0) hasAttempted = 1;
-				SimpleRecipe<?> candidate = recipes.findRecipe(catalyst(), ir.item());
+				@Nil Trecipe candidate = recipes.findRecipe(catalyst(), ir.item());
 				if(candidate == null) {
 					//Recipe does not exist
 					continue loop;
@@ -170,10 +130,8 @@ public class SimpleProcessHelper implements Helper<SimpleRecipe<?>>{
 				int extracted = ir.extract(candidate.inputs().amount());
 				if(extracted >= 1) {
 					//Extracted
-					progress = 0;
-					underway = candidate;
 					if(refreshable != null) refreshable.refreshInputs();
-					return CycleResult.WITHDRAW;
+					return new Tuple2<>(candidate, CycleResult.WITHDRAW);
 				}
 				//else item is not smeltable, do not take it
 			}
@@ -189,40 +147,6 @@ public class SimpleProcessHelper implements Helper<SimpleRecipe<?>>{
 				result = CycleResult.PARTIAL;
 			}
 		}
-		
-		//Main process
-		SimpleRecipe<?> recipe2 = underway;
-		if(progress < 0) {
-			progress = 0;
-		}
-		if(recipe2 != null && progress < recipe2.energy()){
-			//Continue smelting
-			result = CycleResult.RUN;
-			double amps = volt.speedMul * speed / volt.volts;
-			double extract = elec.extract(amps, volt, Runnables.doNothing());
-			elec.pressure -= (amps-extract)*volt.volts;
-			progress += volt.volts * extract;
-		}
-		
-		//Ejection check
-		SimpleRecipe<?> recipe3 = underway;
-		if(recipe3 != null && progress >= recipe3.energy()) {
-			//Time to eject an item
-			//Eject expected item
-			InventoryWriter writer = output.createWriter();
-			RecipeOutput iresults = recipe3.output();
-			boolean insert = writer.bulkInsert(iresults);
-			if(insert) {
-				progress -= recipe3.energy();
-				//Eject chanced outputs
-				recipe3.luck().produceResults(writer);
-				if(refreshable != null) refreshable.refreshOutputs();
-				result = CycleResult.OUTPUT;
-			}else {
-				debug.printl("Item insertion failed");
-			}
-		}
-		
-		return result;
+		return new Tuple2<>(null, result);
 	}
 }

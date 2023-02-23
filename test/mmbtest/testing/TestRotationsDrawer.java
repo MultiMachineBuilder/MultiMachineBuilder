@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.testing;
+package mmbtest.testing;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;

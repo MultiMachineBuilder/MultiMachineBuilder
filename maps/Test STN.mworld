@@ -10,7 +10,13 @@
     }, "mmb.grass", "mmb.grass", {
       "blocktype" : "stnb.framework",
       "side" : "N",
-      "moduleU" : [ "modchest.import.single", null ],
+      "moduleU" : [ "modchest.import.single", {
+        "items" : null,
+        "stack" : 0,
+        "time" : 0,
+        "count" : 0,
+        "upgrade" : null
+      } ],
       "moduleD" : null,
       "moduleL" : null,
       "moduleR" : null,

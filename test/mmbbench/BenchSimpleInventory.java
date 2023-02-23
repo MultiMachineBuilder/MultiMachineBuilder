@@ -10,9 +10,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.rainerhahnekamp.sneakythrow.Sneaky;
 
 import mmb.NN;
-import mmb.StandardTestReferences;
 import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.json.JsonTool;
+import mmbtest.StandardTestReferences;
 
 /**
  * A set of benchmarks for simple inventories

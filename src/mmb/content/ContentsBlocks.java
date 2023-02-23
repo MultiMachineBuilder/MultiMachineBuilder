@@ -566,7 +566,7 @@ public class ContentsBlocks {
 		return machinesSimpleCat(texture, group, id, 1);
 	}
 	@NN private static ElectricMachineGroup machinesSimpleCat(String texture, SimpleRecipeGroup<?> group, String id, double d) {
-		return new ElectricMachineGroup(Textures.get(texture), type -> new ProcessorSimpleCatalyzedBlock(type, group), id, d);
+		return new ElectricMachineGroup(Textures.get(texture), type -> new ProcessorSimpleCatalyzedBlock<>(type, group), id, d);
 	}
 	@NN private static ElectricMachineGroup machinesComplex(String texture, ComplexRecipeGroup group, String id) {
 		return new ElectricMachineGroup(Textures.get(texture), type -> new ProcessorComplexBlock(type, group), id);

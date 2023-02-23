@@ -47,7 +47,7 @@ public final class ModularChest extends BlockEntityData implements ModularBlock<
 	@NN private static Class<ChestCore<?>> cls1 = MMBUtils.classcast(ChestCore.class);
 	@NN private final CoreSlot<ModularChest, ChestCore<?>> core = new CoreSlot<>(this, cls1);
 	@Override
-	public Slot<ChestCore<?>> slotC() {
+	public @NN Slot<@Nil ChestCore<?>> slotC() {
 		return core;
 	}
 	

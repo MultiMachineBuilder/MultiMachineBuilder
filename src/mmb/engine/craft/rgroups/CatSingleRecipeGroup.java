@@ -33,7 +33,7 @@ implements SimpleRecipeGroup<CatSingleRecipeGroup.CatalyzedSimpleRecipe>{
 	 * @author oskar
 	 * A recipe with single input and a catlayst
 	 */
-	public class CatalyzedSimpleRecipe extends BaseElectricRecipe<CatalyzedSimpleRecipe> implements Identifiable<Tuple2<ItemEntry, ItemEntry>>, SimpleRecipe<CatalyzedSimpleRecipe>{
+	public class CatalyzedSimpleRecipe extends BaseElectricRecipe<CatalyzedSimpleRecipe> implements Identifiable<Tuple2<ItemEntry, ItemEntry>>, SimpleRecipe<@NN CatalyzedSimpleRecipe>{
 		/** The input item */
 		@NN public final ItemEntry input;
 		/** Required catalyst */

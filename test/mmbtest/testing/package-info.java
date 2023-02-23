@@ -5,5 +5,5 @@
  * @author oskar
  *
  */
-@mmb.NNByDefault
-package mmb.testing;
+@mmb.NNDefault
+package mmbtest.testing;

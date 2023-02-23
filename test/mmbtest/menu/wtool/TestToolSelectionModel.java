@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.wtool;
+package mmbtest.menu.wtool;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.fuzz;
+package mmbtest.fuzz;
 
 import com.code_intelligence.jazzer.api.FuzzedDataProvider;
 import com.fasterxml.jackson.databind.JsonNode;

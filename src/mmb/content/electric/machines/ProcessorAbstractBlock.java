@@ -150,7 +150,7 @@ public abstract class ProcessorAbstractBlock extends BlockEntityRotary implement
 		return elec;
 	}
 	/** @return the machine helper */
-	public abstract Helper<?> helper();
+	public abstract Helper<?, ?> helper();
 	@Override
 	public String machineName() {
 		return recipes().title();

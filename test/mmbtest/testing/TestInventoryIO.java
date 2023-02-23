@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.testing;
+package mmbtest.testing;
 
 import org.junit.jupiter.api.Test;
 

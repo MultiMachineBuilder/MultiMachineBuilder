@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.testing;
+package mmbtest.testing;
 
 import static org.junit.Assert.assertSame;
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,12 +12,12 @@ import java.awt.image.BufferedImage;
 import org.junit.jupiter.api.Test;
 
 import mmb.NN;
-import mmb.StandardTestReferences;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockType;
 import mmb.engine.item.Items;
 import mmb.engine.texture.BlockDrawer;
+import mmbtest.StandardTestReferences;
 
 /**
  * Test block reistration

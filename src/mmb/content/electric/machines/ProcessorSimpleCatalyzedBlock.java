@@ -7,20 +7,21 @@ import mmb.NN;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
 import mmb.content.electric.helper.Helper;
 import mmb.content.electric.helper.SimpleProcessHelper;
+import mmb.engine.craft.singles.SimpleRecipe;
 import mmb.engine.craft.singles.SimpleRecipeGroup;
 import mmb.engine.inv.storage.SingleItemInventory;
 
 /**
  * @author oskar
- * A machine capable of obtaining resources out of nothing
+ * @param <Trecipe> type of recipes
  */
-public class ProcessorSimpleCatalyzedBlock extends ProcessorAbstractBlock{
+public class ProcessorSimpleCatalyzedBlock<@NN Trecipe extends SimpleRecipe<Trecipe>> extends ProcessorAbstractBlock{
 	
 	//Constructor
-	public ProcessorSimpleCatalyzedBlock(ElectroMachineType type, SimpleRecipeGroup<?> group) {
+	public ProcessorSimpleCatalyzedBlock(ElectroMachineType type, SimpleRecipeGroup<Trecipe> group) {
 		super(type);
 		this.recipes = group;
-		helper = new SimpleProcessHelper(group, in, out0, 1000, elec, catalyst, type.volt);
+		helper = new SimpleProcessHelper<>(group, in, out0, 1000, elec, type.volt, catalyst);
 	}
 	
 	//Contents
@@ -37,9 +38,9 @@ public class ProcessorSimpleCatalyzedBlock extends ProcessorAbstractBlock{
 		return recipes;
 	}
 	
-	@NN private final SimpleProcessHelper helper;
+	@NN private final SimpleProcessHelper<Trecipe> helper;
 	@Override
-	public Helper<?> helper() {
+	public SimpleProcessHelper<Trecipe> helper() {
 		return helper;
 	}
 	

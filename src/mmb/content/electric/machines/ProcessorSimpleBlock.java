@@ -5,7 +5,6 @@ package mmb.content.electric.machines;
 
 import mmb.NN;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
-import mmb.content.electric.helper.Helper;
 import mmb.content.electric.helper.SimpleProcessHelper;
 import mmb.engine.craft.singles.SimpleRecipeGroup;
 
@@ -18,13 +17,13 @@ public class ProcessorSimpleBlock extends ProcessorAbstractBlock{
 	public ProcessorSimpleBlock(ElectroMachineType type, SimpleRecipeGroup<?> group) {
 		super(type);
 		this.recipes = group;
-		helper = new SimpleProcessHelper(group, in, out0, 1000, elec, null, type.volt);
+		helper = new SimpleProcessHelper(group, in, out0, 1000, elec, type.volt, null);
 	}
 	
 	//Contents
 	@NN private final SimpleProcessHelper helper;
 	@Override
-	public Helper<?> helper() {
+	public SimpleProcessHelper helper() {
 		return helper;
 	}
 	
@@ -40,4 +39,6 @@ public class ProcessorSimpleBlock extends ProcessorAbstractBlock{
 	protected ProcessorAbstractBlock copy0() {
 		return new ProcessorSimpleBlock(type, recipes);
 	}
+
+	
 }

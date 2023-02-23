@@ -12,6 +12,7 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import mmb.NN;
 import mmb.Nil;
 import mmb.engine.craft.RecipeOutput;
+import mmb.engine.debug.Debugger;
 import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
@@ -21,6 +22,7 @@ import mmb.engine.item.ItemEntry;
  * @author oskar
  */
 public interface Inventory extends Collection<@NN ItemRecord> {
+	static final Debugger debug0 = new Debugger("INVENTORIES0");
 	//Item records
 	/**
 	 * Returns an iterator over the item records in this inventory.
@@ -210,9 +212,12 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 	 */
 	public default int bulkExtract(RecipeOutput ent, int amount) {
 		int limit = extractRemainBulk(amount, ent);
+		debug0.printl("Extract attempt with "+limit+" of "+amount+" blocks");
 		if(limit == 0) return 0;
 		for(ItemStack stk: ent) {
-			extract(stk.item, stk.amount * amount);
+			int count = stk.amount * limit;
+			int ex = extract(stk.item, count);
+			debug0.printl("Extracted "+ex+" of "+stk.item+", expected "+ count);
 		}
 		return limit;
 	}

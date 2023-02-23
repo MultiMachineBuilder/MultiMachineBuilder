@@ -44,7 +44,7 @@ implements MultiRecipeGroup<@NN ComplexRecipeGroup.ComplexRecipe>{
 	 * A recipe with a complex input
 	 * @author oskar
 	 */
-	public class ComplexRecipe extends BaseElectricRecipe<ComplexRecipe> implements Identifiable<RecipeOutput>{
+	public class ComplexRecipe extends BaseElectricRecipe<@NN ComplexRecipe> implements Identifiable<RecipeOutput>{
 		/** The input item list */
 		@NN public final RecipeOutput input;
 		

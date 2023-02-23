@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb;
+package mmbtest;
 
 import static org.junit.jupiter.api.Assertions.*;
 

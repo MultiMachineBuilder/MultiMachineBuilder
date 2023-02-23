@@ -2,8 +2,8 @@
  * 
  */
 /**
- *
  * @author oskar
  *
  */
-package mmb.fuzz;
+@mmb.NNDefault
+package mmbtest;

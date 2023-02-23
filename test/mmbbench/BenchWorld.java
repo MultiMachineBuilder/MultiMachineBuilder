@@ -7,9 +7,9 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import mmb.StandardTestReferences;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.worlds.world.World;
+import mmbtest.StandardTestReferences;
 
 /**
  * Benchmarks for world

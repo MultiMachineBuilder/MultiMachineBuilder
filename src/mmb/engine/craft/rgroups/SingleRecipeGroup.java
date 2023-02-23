@@ -31,7 +31,7 @@ implements SimpleRecipeGroup<SingleRecipeGroup.SingleRecipe>{
 	 * A recipe with a single input item
 	 * @author oskar
 	 */
-	public class SingleRecipe extends BaseElectricRecipe<SingleRecipe> implements Identifiable<ItemEntry>, SimpleRecipe<SingleRecipe>{
+	public class SingleRecipe extends BaseElectricRecipe<SingleRecipe> implements Identifiable<ItemEntry>, SimpleRecipe<@NN SingleRecipe>{
 		/** The input item */
 		@NN public final ItemEntry input;
 		

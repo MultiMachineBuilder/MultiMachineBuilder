@@ -14,7 +14,7 @@ import mmb.engine.craft.RecipeOutput;
  * @param <T> type of the recipe
  * A shared implementation of electric recipes
  */
-public abstract class BaseElectricRecipe<T extends Recipe<T>> implements Recipe<T> {
+public abstract class BaseElectricRecipe<@NN T extends Recipe<T>> implements Recipe<T> {
 	/** Energy required for completion in joules */
 	public final double energy;
 	/** Voltage tier required for this recipe */
@@ -38,7 +38,6 @@ public abstract class BaseElectricRecipe<T extends Recipe<T>> implements Recipe<
 		this.luck = luck;
 	}
 
-	
 	@Override
 	public final RecipeOutput output() {
 		return output;

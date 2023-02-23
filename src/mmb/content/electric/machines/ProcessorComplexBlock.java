@@ -6,8 +6,8 @@ package mmb.content.electric.machines;
 import mmb.NN;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
 import mmb.content.electric.helper.ComplexProcessHelper;
-import mmb.content.electric.helper.Helper;
 import mmb.engine.craft.rgroups.ComplexRecipeGroup;
+import mmb.engine.craft.rgroups.ComplexRecipeGroup.ComplexRecipe;
 
 /**
  * @author oskar
@@ -23,7 +23,7 @@ public class ProcessorComplexBlock extends ProcessorAbstractBlock{
 	public ProcessorComplexBlock(ElectroMachineType type, ComplexRecipeGroup group) {
 		super(type);
 		this.group = group;
-		helper = new ComplexProcessHelper(group, in, out0, 1000, elec, type.volt, null);
+		helper = new ComplexProcessHelper<@NN ComplexRecipe>(group, in, out0, 1000, elec, type.volt, null);
 	}
 	
 	//Contents
@@ -32,9 +32,9 @@ public class ProcessorComplexBlock extends ProcessorAbstractBlock{
 	public ComplexRecipeGroup recipes() {
 		return group;
 	}
-	@NN private final ComplexProcessHelper helper;
+	@NN private final ComplexProcessHelper<@NN ComplexRecipe> helper;
 	@Override
-	public Helper<?> helper() {
+	public ComplexProcessHelper<@NN ComplexRecipe> helper() {
 		return helper;
 	}
 
@@ -45,6 +45,8 @@ public class ProcessorComplexBlock extends ProcessorAbstractBlock{
 		copy.helper.set(helper);
 		return copy;
 	}
+
+	
 
 	
 }
