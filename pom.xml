@@ -114,7 +114,7 @@
 				<!-- JAR packager's GAV -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.4.2</version>
+				<version>3.5.0</version>
 				
 				<!-- Configuration -->
 				<configuration>
