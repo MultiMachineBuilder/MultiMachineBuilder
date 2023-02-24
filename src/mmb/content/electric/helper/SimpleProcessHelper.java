@@ -31,7 +31,7 @@ import mmb.engine.item.ItemEntry;
  * A class to help make simple item processors
  * @param <Trecipe> type of recipes
  */
-public class SimpleProcessHelper<Trecipe extends SimpleRecipe<@NN Trecipe>> extends Helper<@NN Trecipe, @NN SimpleRecipeGroup<@NN Trecipe>>{
+public class SimpleProcessHelper<@NN Trecipe extends SimpleRecipe<@NN Trecipe>> extends Helper<@NN Trecipe, @NN SimpleRecipeGroup<@NN Trecipe>>{
 	//Constructor
 	/**
 	 * @param recipes list of recipes to use
@@ -125,27 +125,13 @@ public class SimpleProcessHelper<Trecipe extends SimpleRecipe<@NN Trecipe>> exte
 				if(candidate.voltTier().compareTo(volt) > 0) {
 					//The voltage tier is too high
 					continue loop;
-				}
-				//Item is smeltable, take it
-				int extracted = ir.extract(candidate.inputs().amount());
-				if(extracted >= 1) {
-					//Extracted
-					if(refreshable != null) refreshable.refreshInputs();
-					return new Tuple2<>(candidate, CycleResult.WITHDRAW);
-				}
+				}//Item is smeltable, get a recipe
+				return new Tuple2<>(candidate, CycleResult.WITHDRAW);
 				//else item is not smeltable, do not take it
 			}
 			if(hasAttempted == 2) result = CycleResult.PARTIAL;
 			else if(hasAttempted == 1) result = CycleResult.UNSUPPORTED;
 			else result = CycleResult.EMPTY;
-		}else {
-			boolean collect = input.bulkExtract(underway1.inputs(), 1) == 1;
-			if(collect) {
-				result = CycleResult.WITHDRAW;
-			}else {
-				underway = null;
-				result = CycleResult.PARTIAL;
-			}
 		}
 		return new Tuple2<>(null, result);
 	}

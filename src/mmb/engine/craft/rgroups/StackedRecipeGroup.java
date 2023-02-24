@@ -20,7 +20,7 @@ import monniasza.collects.Identifiable;
  * @author oskar
  */
 public class StackedRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemEntry, @NN StackedRecipeGroup.StackedRecipe>
-implements SimpleRecipeGroup<StackedRecipeGroup.StackedRecipe>{
+implements SimpleRecipeGroup<@NN StackedRecipeGroup.StackedRecipe>{
 	/**
 	 * Creates a list of stacked recipes
 	 * @param id group ID
@@ -32,7 +32,7 @@ implements SimpleRecipeGroup<StackedRecipeGroup.StackedRecipe>{
 	 * A recipe with a stacked input
 	 * @author oskar
 	 */
-	public class StackedRecipe extends BaseElectricRecipe<StackedRecipe> implements Identifiable<ItemEntry>, SimpleRecipe<StackedRecipe>{
+	public class StackedRecipe extends BaseElectricRecipe<@NN StackedRecipe> implements Identifiable<ItemEntry>, SimpleRecipe<@NN StackedRecipe>{
 		/** The input item stack */
 		@NN public final SingleItem input;
 		/**

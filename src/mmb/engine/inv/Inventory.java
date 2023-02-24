@@ -211,15 +211,15 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 	 * If inventory restricts extractions beyond blocking them all, the {@link #extractRemainBulk(int, RecipeOutput)} should be overridden
 	 */
 	public default int bulkExtract(RecipeOutput ent, int amount) {
-		int limit = extractRemainBulk(amount, ent);
-		debug0.printl("Extract attempt with "+limit+" of "+amount+" blocks");
-		if(limit == 0) return 0;
+		int actual = extractRemainBulk(amount, ent);
+		debug0.printl("Extract attempt with "+actual+" of "+amount+" blocks");
+		if(actual == 0) return 0;
 		for(ItemStack stk: ent) {
-			int count = stk.amount * limit;
+			int count = stk.amount * actual;
 			int ex = extract(stk.item, count);
 			debug0.printl("Extracted "+ex+" of "+stk.item+", expected "+ count);
 		}
-		return limit;
+		return actual;
 	}
 	/** 
 	 * Converts this inventory to an inventory reader
