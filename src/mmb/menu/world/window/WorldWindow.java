@@ -346,7 +346,7 @@ public class WorldWindow extends MMBFrame{
 		
 		lblTool.setText(tool);
 	}
-	private static Debugger debug = new Debugger("WORLD TEST");
+	@NN private static final Debugger debug = new Debugger("WORLD TEST");
 	
 	//menu
 	private JMenuBar menuBar;

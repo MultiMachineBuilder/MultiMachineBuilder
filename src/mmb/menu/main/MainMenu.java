@@ -33,8 +33,6 @@ import mmb.menu.components.BoundCheckBoxMenuItem;
  */
 public class MainMenu extends MMBFrame {
 	private static final long serialVersionUID = -7953512837841781519L;
-	
-	//Debugging
 	private static final Debugger debug = new Debugger("Main menu");
 	
 	//Logos
@@ -145,8 +143,7 @@ public class MainMenu extends MMBFrame {
 		});
 		mnUkraine.add(btnRefugee1);
 		
-		mnBug = new JMenuItem(new ImageIcon(BUG));
-		mnBug.setToolTipText(GlobalSettings.$res("cgui-report"));
+		mnBug = new JMenuItem(GlobalSettings.$res("cgui-report"), new ImageIcon(BUG));
 		mnBug.setModel(MenuUtils.btnmBug);
 		mainMenuBar.add(mnBug);
 		

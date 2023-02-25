@@ -6,23 +6,16 @@ package mmb.content.electric.helper;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.google.common.util.concurrent.Runnables;
-
 import io.vavr.Tuple2;
 import mmb.NN;
 import mmb.Nil;
 import mmb.content.electric.Battery;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.CycleResult;
-import mmb.content.electric.machines.GUIMachine;
-import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.Refreshable;
 import mmb.engine.craft.singles.SimpleRecipe;
 import mmb.engine.craft.singles.SimpleRecipeGroup;
-import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 
