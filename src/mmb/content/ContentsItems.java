@@ -58,6 +58,7 @@ public class ContentsItems {
 		.volumed(0.00125)
 		.finish("plant.rubber");
 	
+	/** A brittle and transparent material, used to make bottles and breweries*/
 	@NN public static final Item glass = new Item()
 		.title("#glass")
 		.texture("item/glass.png")
