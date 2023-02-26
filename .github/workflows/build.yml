@@ -41,7 +41,7 @@ jobs:
       - name: Import GPG Key
         uses: crazy-max/ghaction-import-gpg@v1
         env:
-          GPG_PRIVATE_KEY: ${{ MAVEN_GPG_PRIVATE_KEY }}
+          GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
       - name: Build and analyze
         env:
