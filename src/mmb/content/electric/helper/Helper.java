@@ -150,11 +150,9 @@ public abstract class Helper<@NN Trecipe extends Recipe<@NN Trecipe>, Tgroup ext
 			//Reuse the recipe
 			boolean collect = input.bulkExtract(underway1.inputs(), 1) == 1;
 			if(collect) {
-				debug.printl("Item collection success");
 				active = true;
 				result = CycleResult.WITHDRAW;
 			}else {
-				debug.printl("Item collection fail");
 				underway = null;
 				result = CycleResult.PARTIAL;
 			}
@@ -168,13 +166,11 @@ public abstract class Helper<@NN Trecipe extends Recipe<@NN Trecipe>, Tgroup ext
 			double extract = elec.extract(amps, volt, Runnables.doNothing());
 			elec.pressure -= (amps-extract)*volt.volts;
 			progress += volt.volts * extract;
-			debug.printl("Progress");
 		}
 		
 		//Ejection check
 		Recipe<?> underway3 = underway;
 		if(underway3 != null && progress >= underway3.energy()) {
-			debug.printl("Item insertion");
 			//Time to eject an item
 			//Eject expected item
 			InventoryWriter writer = output.createWriter();
@@ -187,9 +183,7 @@ public abstract class Helper<@NN Trecipe extends Recipe<@NN Trecipe>, Tgroup ext
 				if(refreshable != null) refreshable.refreshOutputs();
 				result = CycleResult.OUTPUT;
 				active = false;
-				debug.printl("Item insertion success");
 			}else {
-				debug.printl("Item insertion failed");
 			}
 		}
 		
