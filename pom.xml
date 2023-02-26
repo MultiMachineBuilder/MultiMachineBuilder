@@ -2,8 +2,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	 
 	<!-- GAV coordinates -->
-	<groupId>MMB</groupId>
-	<artifactId>MMB</artifactId>
+	<groupId>io.github.multimachinebuilder</groupId>
+	<artifactId>MultiMachineBuilder</artifactId>
 	<version>0.5</version>
   
 	<!-- About -->
@@ -33,10 +33,12 @@
 	<distributionManagement>
 		<snapshotRepository>
     		<id>ossrh</id>
+    		<name>Central Repository OSSRH</name>
     		<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
   		</snapshotRepository>
   		<repository>
             <id>ossrh</id>
+            <name>Central Repository OSSRH</name>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
 	</distributionManagement>
