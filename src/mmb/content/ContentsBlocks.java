@@ -5,6 +5,7 @@ package mmb.content;
 
 import java.awt.image.BufferedImage;
 
+import mmb.DeprecatedExtra;
 import mmb.NN;
 import mmb.content.agro.Agro;
 import mmb.content.electric.ElectricMachineGroup;
@@ -86,26 +87,32 @@ public class ContentsBlocks {
 			.texture("plank.png")
 			.title("#planks")
 			.finish("mmb.planks");
+	/** Hosts ores */
 	@NN public static final Block stone = new Block()
 			.texture("stone.png")
 			.title("#stone")
 			.finish("mmb.stone");
+	/** A basic ingredient of crops */
 	@NN public static final Block leaves = new Block()
 			.texture("block/leaves.png")
 			.title("#leaves")
 			.finish("mmb.leaves");
+	/** Decorative, unused */
 	@NN public static final Block asmtb = new Block()
 			.texture("crafting.png")
 			.title("#asmtb")
 			.finish("mmb.craft");
+	/** The main wood source */
 	@NN public static final Block logs = new Block()
 			.texture("log.png")
 			.title("#logs")
 			.finish("mmb.tree");
+	/** A very fine dust block, smeltable to glass */
 	@NN public static final Block sand = new Block()
 			.texture("block/sand.png")
 			.title("#sand")
 			.finish("mmb.sand");
+	/** A coarse grain block, grindable to sand */
 	@NN public static final Block gravel = new Block()
 			.texture("block/gravel.png")
 			.title("#gravel")
@@ -249,11 +256,17 @@ public class ContentsBlocks {
 			.finish("machines.rotator");
 
 	//Power generators
+	/** Basic ULV generator */
 	@NN public static final BlockEntityType COALGEN1 = coalgen(1, VoltageTier.V1, BlockGeneratorSolid.img, 1);
+	/** Basic VLV genertor */
 	@NN public static final BlockEntityType COALGEN2 = coalgen(1, VoltageTier.V2, BlockGeneratorSolid.img1, 2);
+	/** Basic LV gnerator */
 	@NN public static final BlockEntityType COALGEN3 = coalgen(1, VoltageTier.V3, BlockGeneratorSolid.img2, 3);
+	/** Advanced VLV generator*/
 	@NN public static final BlockEntityType TURBOGEN1 = coalgen(2, VoltageTier.V2, BlockGeneratorSolid.turboimg, 1);
+	/** Advanced LV generator */
 	@NN public static final BlockEntityType TURBOGEN2 = coalgen(2, VoltageTier.V3, BlockGeneratorSolid.turboimg1, 2);
+	/** Basic MV generator */
 	@NN public static final BlockEntityType TURBOGEN3 = coalgen(2, VoltageTier.V4, BlockGeneratorSolid.turboimg2, 3);
 	
 	//Electrical testing equipment
@@ -272,20 +285,6 @@ public class ContentsBlocks {
 			.factory(PowerLoad::new)
 			.texture("machine/power/load.png")
 			.finish("elec.load");
-	
-	//DEPRECATED old modular machines
-	/** @deprecated An old block for a furnace. Use {@link #efurnace}{@code .}{@link #ElectricMachineGroup.get(int) get}{@code (1)} instead */
-	@Deprecated(since="0.5", forRemoval=true) @NN public static final BlockEntityType old_EFURNACE = new BlockEntityType()
-			.title("#depr-furnace")
-			.factory(FurnacePlus::new)
-			.texture("machine/esmelter.png")
-			.finish("elec.furnace");
-	@Deprecated(since="0.6", forRemoval=true) @NN public static final BlockEntityType old_NUKEGEN = new BlockEntityType()
-			.title("#depr-nuker")
-			.factory(Nuker::new)
-			.texture("machine/power/nuke reactor.png")
-			.finish("nuke.generator");
-	
 	//Chests
 	/** Stores 6 m³ of items*/
 	@NN public static final BlockEntityType CHEST = chest(6, "machine/chest1.png", "chest.beginning", 1);
@@ -427,77 +426,155 @@ public class ContentsBlocks {
 	}
 	
 	//Liquids
+	/** The most basic fluid, used to make beer */
 	@NN public static final Block water = new Block()
 	.texture("liquid/water.png")
 	.title("#water")
 	.finish("liquid.water");
+	/** Currently unused */
 	@NN public static final Block lava = new Block()
 	.texture("liquid/lava.png")
 	.title("#lava")
 	.finish("liquid.lava");
+	/** A gas created by boiling water, currently unused */
 	@NN public static final Block steam = new Block()
 	.texture("liquid/steam.png")
 	.title("#steam")
 	.finish("liquid.steam");
+	/** Currently unused */
 	@NN public static final Block clay = new Block()
 	.texture("block/clay.png")
 	.title("#clay")
 	.finish("mmb.clay");
 	
 	//Non-electic processing machines
+	/** A basic, non-electric furnace capable of ULV recipes */
 	@NN public static final BlockEntityType FURNACE = new BlockEntityType()
 			.title("#furnace")
 			.factory(Furnace::new)
 			.texture(Furnace.TEXTURE_INERT)
 			.finish("industry.furnace");
-	@NN public static final BlockEntityType CYCLEASSEMBLY = new BlockEntityType()
-			.title("#cycleassembly")
-			.factory(CycleAssembler::new)
-			.texture("machine/cyclic assembler.png")
-			.finish("industry.cycle0");
-	@NN public static final Block PICKBUILDER = new Block()
-			.texture("machine/pickaxe workbench.png")
-			.title("#pickbuilder")
-			.finish("machines.pickbuilder");
-	@NN public static final BlockEntityType AUTOCRAFTER = new BlockEntityType()
-			.title("#autocraft1")
-			.factory(AutoCrafter::new)
-			.texture("machine/AutoCrafter 1.png")
-			.finish("industry.autocraft1");
 	
 	//Electrical processing machines
-	/** Electric furnace */
+	/** Smelts ores and dusts into materials */
 	@NN public static final ElectricMachineGroup efurnace = machinesSimple("machine/electrosmelter.png", CraftingGroups.smelting, "electrofurnace");
+	/** Recovers materials from parts and ores */
 	@NN public static final ElectricMachineGroup bcrusher = machinesSimple("machine/pulverizer.png", CraftingGroups.crusher, "crusher");
+	/** Mills nuggets, fragments and ingots into foils, sheets and panels respectively */
 	@NN public static final ElectricMachineGroup bcmill = machinesSimple("machine/cluster mill.png", CraftingGroups.clusterMill, "clustermill");
+	/** Mills nuggets, fragments, ingots and clusters into wires */
 	@NN public static final ElectricMachineGroup bwiremill = machinesSimple("machine/wiremill.png", CraftingGroups.wiremill, "wiremill");
+	/** Combines two or more metals */
 	@NN public static final ElectricMachineGroup balloyer = machinesComplex("machine/alloyer.png", CraftingGroups.alloyer, "alloyer");
+	/** Builds advanced machines and components from parts and materials */
 	@NN public static final ElectricMachineGroup bassembly = machinesComplexCat("machine/machinemaker.png", CraftingGroups.assembler, "assembler");
+	/** Splits coarse materials into fine materials */
 	@NN public static final ElectricMachineGroup bsplitter = machinesSimple("machine/splitter.png", CraftingGroups.splitter, "spllitter", 0.1);
+	/** Combines fine materials into coarse materials */
 	@NN public static final ElectricMachineGroup bsplicer = machinesSimple("machine/splicer.png", CraftingGroups.combiner, "splicer", 0.1);
+	/** Produces beer */
 	@NN public static final ElectricMachineGroup bbrewery = machinesComplex("machine/brewery.png", CraftingGroups.brewery, "brewery");
+	/** Produces rods and rings */
 	@NN public static final ElectricMachineGroup bextruder = machinesSimpleCat("machine/extruder.png", CraftingGroups.extruder, "extruder");
+	/** Produces IC dies and ICs */
 	@NN public static final ElectricMachineGroup binscriber = machinesSimpleCat("machine/inscriber.png", CraftingGroups.inscriber, "inscriber");
+	/** Produces sintwered carbides */
 	@NN public static final ElectricMachineGroup bsinterer = machinesComplex("machine/sinterer.png", CraftingGroups.sinterer, "sinterer");
+	/** Excavates the specified area up to a limit */
 	@NN public static final ElectricMachineGroup bdig = createDigger();
+	/** Transmits power to a specific receiver */
 	@NN public static final ElectricMachineGroup ptower = createTower();
+	/** Receives power from power towers */
 	@NN public static final ElectricMachineGroup prec = createReceiver();
+	/** Produces materials from resource beds and stone */
 	@NN public static final ElectricMachineGroup bquarry = machinesSimple("machine/quarry.png", CraftingGroups.quarry, "quarry");
+	/** Stores electricity */
 	@NN public static final ElectricMachineGroup bbattery = createBattery();
 	
 	//Player pipes
 	/** Straight player pipe */
 	@NN public static final BlockEntityType PPIPE_lin = ppipe(1, Side.U, Side.D, "machine/ppipe straight.png", "#ppipe-s", "playerpipe.straight");
+	/** Changes direction wich player is travelling */
 	@NN public static final BlockEntityType PPIPE_bend = ppipe(0.8, Side.R, Side.D, "machine/ppipe turn.png", "#ppipe-b", "playerpipe.bend");
+	/** Two independent perpendicular player pipes */
 	@NN public static final BlockEntityType PPIPE_lin2 = ppipe2(1, Side.U, Side.D, Side.L, Side.R, "machine/ppipe cross.png", "#ppipe-x", "playerpipe.straight2");
+	/** Two bend player pipes */
 	@NN public static final BlockEntityType PPIPE_bend2 = ppipe2(0.8, Side.R, Side.D, Side.L, Side.U, "machine/ppipe biturn.png", "#ppipe-z", "playerpipe.bend2");
+	/** Inputs players into player pipes */
 	@NN public static final BlockEntityType PPIPE_cap = new BlockEntityType()
 			.title("#ppipe-t")
 			.factory(PlayerPipeEntry::new)
 			.texture("machine/pipe exit.png")
 			.finish("playerpipe.end");
+	/** Joins a player pipe into a mainline */
 	@NN public static final BlockEntityType PPIPE_join = ppipea(1, Side.U, "machine/ppipe adjoin.png","#ppipe-l" ,"playerpipe.adj");
+	/** Joins two player pipes 180 degrees apart */
 	@NN public static final BlockEntityType PPIPE_join2 = ppipea(0.8, Side.L, "machine/ppipe adjoin2.png","#ppipe-y" ,"playerpipe.adj2");
+	
+	//DEPRECATED blocks
+	/** 
+	 * @deprecated This machine doesn't even have any purpose.
+	 * Use STN instead.
+	 * @replacementVer 0.5
+	 * @removal 0.6
+	 */
+	@DeprecatedExtra(replacementVer = "0.5", removal = "0.6")
+	@Deprecated(since="0.5", forRemoval=true)
+	@NN public static final BlockEntityType CYCLEASSEMBLY = new BlockEntityType()
+		.title("#depr-cycleassembly")
+		.factory(CycleAssembler::new)
+		.texture("machine/cyclic assembler.png")
+		.finish("industry.cycle0");
+	/**
+	 * @deprecated A block used formerly to create pickaxes, now useless.
+	 * Use '!!!' button to activate raw items instead
+	 * @replacementVer 0.5
+	 * @removal 0.6
+	 */
+	@DeprecatedExtra(replacementVer = "0.5", removal = "0.6")
+	@Deprecated(since="0.5", forRemoval=true)
+	@NN public static final Block PICKBUILDER = new Block()
+		.texture("machine/pickaxe workbench.png")
+		.title("#depr-pickbuilder")
+		.finish("machines.pickbuilder");
+	@DeprecatedExtra(replacementVer = "0.6", removal = "0.7")
+	@Deprecated(since="0.5", forRemoval=true)
+	/**
+	 * @deprecated An autocrafter, unobtainable in survival
+	 * @replacementVer 0.6
+	 * @removal 0.7
+	 */
+	@NN public static final BlockEntityType AUTOCRAFTER = new BlockEntityType()
+		.title("#depr-autocraft1")
+		.factory(AutoCrafter::new)
+		.texture("machine/AutoCrafter 1.png")
+		.finish("industry.autocraft1");
+	/**
+	 * @deprecated An old block for a furnace.
+	 * Use {@link #efurnace}{@code .}{@link #ElectricMachineGroup.get(int) get}{@code (1)} instead
+	 * @replacementVer 0.5-pre5
+	 * @removal 0.6
+	 */
+	@DeprecatedExtra(replacementVer = "0.5-pre5", removal = "0.6")
+	@Deprecated(since="0.5", forRemoval=true)
+	@NN public static final BlockEntityType old_EFURNACE = new BlockEntityType()
+		.title("#depr-furnace")
+		.factory(FurnacePlus::new)
+		.texture("machine/esmelter.png")
+		.finish("elec.furnace");
+	/**
+	 * @deprecated An old block for nuclear generator
+	 * A replacement is planned for 0.6
+	 * @replacementVer 0.6
+	 * @removal 0.7
+	 */
+	@DeprecatedExtra(replacementVer = "0.6", removal = "0.7")
+	@Deprecated(since="0.5", forRemoval=true)
+	@NN public static final BlockEntityType old_NUKEGEN = new BlockEntityType()
+		.title("#depr-nuker")
+		.factory(Nuker::new)
+		.texture("machine/power/nuke reactor.png")
+		.finish("nuke.generator");
 	
 	/** Initializes blocks */
 	public static void init() {
@@ -594,7 +671,6 @@ public class ContentsBlocks {
 		Items.tagItems("wireworld", ww_wire, ww_head, ww_tail, ww_chatter,
 				AND, OR, XOR, BUTTON, TOGGLE, YES, NOT, RANDOMCTRL, TRUE, RANDOM, ON, OFF, URANDOM, LAMP, SPEAKER, CLICKER, PLACER, ROTATOR);
 		Items.tagItems("player-pipe", PPIPE_lin, PPIPE_bend, PPIPE_lin2, PPIPE_bend2, PPIPE_join, PPIPE_join2, PPIPE_cap);
-		Items.tagItem("workbench", PICKBUILDER);
 		Items.tagItems("workbench", Crafting.types);
 		Items.tagItems("fluid", water, lava, steam);
 		Items.tagItems("special", Blocks.air, Blocks.grass);
@@ -608,5 +684,8 @@ public class ContentsBlocks {
 		Items.tagItems("machine-coalgen", COALGEN1, COALGEN2, COALGEN3);
 		Items.tagItems("machine-turbogen", TURBOGEN1, TURBOGEN2, TURBOGEN3);
 		Items.tagItems("imachine", PLACEITEMS, COLLECTOR, IMOVER);
+		
+		//Deprecation
+		Items.tagItems("deprecated", CYCLEASSEMBLY, PICKBUILDER, AUTOCRAFTER, old_EFURNACE, old_NUKEGEN);
 	}
 }
