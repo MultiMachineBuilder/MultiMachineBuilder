@@ -24,6 +24,7 @@ import mmb.engine.MMBUtils;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.NoSuchInventory;
+import mmb.engine.inv.SaveInventory;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
@@ -33,7 +34,8 @@ import mmb.engine.worlds.MapProxy;
  * @author oskar
  *
  */
-public class STNFramework extends STNBaseMachine implements ModularBlock<STNFramework, BlockModuleUniversal, ChestCore<?>, Object> {
+public class STNFramework extends STNBaseMachine implements
+ModularBlock<STNFramework, BlockModuleUniversal, ChestCore<? extends SaveInventory>, Object> {
 	@NN private static final RotatedImageGroup rig = RotatedImageGroup.create("stn/fw.png");
 	
 	//Basic stuff
@@ -63,8 +65,8 @@ public class STNFramework extends STNBaseMachine implements ModularBlock<STNFram
 	}
 
 	//Core
-	@NN private static Class<ChestCore<?>> cls1 = MMBUtils.classcast(ChestCore.class);
-	@NN private final CoreSlot<STNFramework, ChestCore<?>> core = new CoreSlot<>(this, cls1);
+	@NN private static Class<ChestCore<? extends SaveInventory>> cls1 = MMBUtils.classcast(ChestCore.class);
+	@NN private final CoreSlot<STNFramework, ChestCore<? extends SaveInventory>> core = new CoreSlot<>(this, cls1);
 	@Override
 	public Slot<ChestCore<?>> slotC() {
 		return core;
