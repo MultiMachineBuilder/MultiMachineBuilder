@@ -38,11 +38,11 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-      - name: Configure GPG Key
-        run: |
-          echo -n "$GPG_SIGNING_KEY" | base64 --decode | gpg --import
+      - name: Import GPG Key
+        uses: crazy-max/ghaction-import-gpg@v1
         env:
-          GPG_SIGNING_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          GPG_PRIVATE_KEY: ${{ MAVEN_GPG_PRIVATE_KEY }}
+          PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
       - name: Build and analyze
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
