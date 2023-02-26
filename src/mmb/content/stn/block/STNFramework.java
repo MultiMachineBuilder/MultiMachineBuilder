@@ -66,7 +66,7 @@ ModularBlock<STNFramework, BlockModuleUniversal, ChestCore<? extends SaveInvento
 
 	//Core
 	@NN private static Class<ChestCore<? extends SaveInventory>> cls1 = MMBUtils.classcast(ChestCore.class);
-	@NN private final CoreSlot<STNFramework, ChestCore<? extends SaveInventory>> core = new CoreSlot<>(this, cls1);
+	@NN private final CoreSlot<STNFramework, ChestCore<? extends SaveInventory>> core = new CoreSlot<>(that(), cls1);
 	@Override
 	public Slot<ChestCore<?>> slotC() {
 		return core;
@@ -77,7 +77,7 @@ ModularBlock<STNFramework, BlockModuleUniversal, ChestCore<? extends SaveInvento
 	public boolean isModular() {
 		return true;
 	}
-	@NN private final SidedSlotHelper<STNFramework, BlockModuleUniversal> ssh = new SidedSlotHelper<>(BlockModuleUniversal.class, this);
+	@NN private final SidedSlotHelper<STNFramework, BlockModuleUniversal> ssh = new SidedSlotHelper<>(BlockModuleUniversal.class, that());
 	@Override
 	public Slot<BlockModuleUniversal> slotInternal(Side s) {
 		return ssh.get(s);
@@ -110,7 +110,7 @@ ModularBlock<STNFramework, BlockModuleUniversal, ChestCore<? extends SaveInvento
 		ChestCore<?> c = core();
 		storage = c==null?null:c.inventory;
 		if(storage instanceof STNNetworkInventory) storage = null;
-		if(storage != old) network().revalidate(this);
+		if(storage != old) network().revalidate(that());
 	}
 	
 	//Inventory access

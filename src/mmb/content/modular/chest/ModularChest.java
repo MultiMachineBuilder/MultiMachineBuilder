@@ -47,7 +47,7 @@ ModularBlock<ModularChest, BlockModuleUniversal, ChestCore<? extends SaveInvento
 
 	//Core
 	@NN private static Class<ChestCore<? extends SaveInventory>> cls1 = MMBUtils.classcast(ChestCore.class);
-	@NN private final CoreSlot<ModularChest, ChestCore<? extends SaveInventory>> core = new CoreSlot<>(this, cls1);
+	@NN private final CoreSlot<ModularChest, ChestCore<? extends SaveInventory>> core = new CoreSlot<>(that(), cls1);
 	@Override
 	public @NN Slot<@Nil ChestCore<?>> slotC() {
 		return core;
@@ -58,7 +58,7 @@ ModularBlock<ModularChest, BlockModuleUniversal, ChestCore<? extends SaveInvento
 	public boolean isModular() {
 		return true;
 	}
-	@NN private final SidedSlotHelper<ModularChest, BlockModuleUniversal> ssh = new SidedSlotHelper<>(BlockModuleUniversal.class, this);
+	@NN private final SidedSlotHelper<ModularChest, BlockModuleUniversal> ssh = new SidedSlotHelper<>(BlockModuleUniversal.class, that());
 	@Override
 	public Slot<BlockModuleUniversal> slotInternal(Side s) {
 		return ssh.get(s);
