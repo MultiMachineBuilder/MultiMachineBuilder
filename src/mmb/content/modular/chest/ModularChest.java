@@ -28,7 +28,7 @@ import mmb.engine.worlds.MapProxy;
  * @author oskar
  */
 public final class ModularChest extends BlockEntityData implements
-ModularBlock<ModularChest, BlockModuleUniversal, ChestCore<? extends SaveInventory>, Object> {
+ModularBlock<ModularChest, BlockModuleUniversal, ChestCore, Object> {
 	//Basic stuff
 	@Override
 	public BlockType type() {
@@ -46,10 +46,10 @@ ModularBlock<ModularChest, BlockModuleUniversal, ChestCore<? extends SaveInvento
 	}
 
 	//Core
-	@NN private static Class<ChestCore<? extends SaveInventory>> cls1 = MMBUtils.classcast(ChestCore.class);
-	@NN private final CoreSlot<ModularChest, ChestCore<? extends SaveInventory>> core = new CoreSlot<>(this, cls1);
+	@NN private static Class<ChestCore> cls1 = MMBUtils.classcast(ChestCore.class);
+	@NN private final CoreSlot<ModularChest, ChestCore> core = new CoreSlot<>(this, cls1);
 	@Override
-	public @NN Slot<@Nil ChestCore<?>> slotC() {
+	public @NN Slot<@Nil ChestCore> slotC() {
 		return core;
 	}
 	
@@ -90,7 +90,7 @@ ModularBlock<ModularChest, BlockModuleUniversal, ChestCore<? extends SaveInvento
 	//Inventory access
 	@Override
 	public Inventory i_inv(Side s) {
-		ChestCore<?> c = core();
+		ChestCore c = core();
 		if(c == null) return NoSuchInventory.INSTANCE;
 		return c.inventory;
 	}

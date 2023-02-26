@@ -16,7 +16,7 @@ import mmb.menu.world.inv.InventoryController;
  * @author oskar
  *
  */
-public class DrawerChestCore extends ChestCore<SingleStackedInventory> {
+public class DrawerChestCore extends ChestCore {
 	@NN private final PartEntityType type;
 	/**
 	 * Creates a simple chest core (many different items)
@@ -31,7 +31,7 @@ public class DrawerChestCore extends ChestCore<SingleStackedInventory> {
 	@Override
 	public PartEntry partClone() {
 		DrawerChestCore copy = new DrawerChestCore(type, 0);
-		copy.inventory.set(inventory);
+		((SingleStackedInventory)copy.inventory).set((SingleStackedInventory)inventory);
 		return copy;
 	}
 
@@ -46,13 +46,13 @@ public class DrawerChestCore extends ChestCore<SingleStackedInventory> {
 	}
 
 	@Override
-	public ChestCore<SingleStackedInventory> makeEmpty() {
+	public ChestCore makeEmpty() {
 		return new DrawerChestCore(type, inventory.capacity());
 	}
 
 	@Override
 	public SingleItem getRenderItem() {
-		return inventory.getStack();
+		return ((SingleStackedInventory)inventory).getStack();
 	}
 
 }

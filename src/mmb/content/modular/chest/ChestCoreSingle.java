@@ -15,7 +15,7 @@ import mmb.menu.world.inv.InventoryController;
  * @author oskar
  *
  */
-public class ChestCoreSingle extends ChestCore<SingleItemInventory> {
+public class ChestCoreSingle extends ChestCore {
 	@NN private final PartEntityType type;
 	/**
 	 * Creates a simple chest core (many different items)
@@ -30,7 +30,7 @@ public class ChestCoreSingle extends ChestCore<SingleItemInventory> {
 	@Override
 	public PartEntry partClone() {
 		ChestCoreSingle copy = new ChestCoreSingle(type, 0);
-		copy.inventory.set(inventory);
+		((SingleItemInventory)copy.inventory).set((SingleItemInventory)inventory);
 		return copy;
 	}
 
@@ -45,13 +45,13 @@ public class ChestCoreSingle extends ChestCore<SingleItemInventory> {
 	}
 
 	@Override
-	public ChestCore<SingleItemInventory> makeEmpty() {
+	public ChestCore makeEmpty() {
 		return new ChestCoreSingle(type, inventory.capacity());
 	}
 
 	@Override
 	public SingleItem getRenderItem() {
-		return inventory.getContents();
+		return ((SingleItemInventory)inventory).getContents();
 	}
 
 }

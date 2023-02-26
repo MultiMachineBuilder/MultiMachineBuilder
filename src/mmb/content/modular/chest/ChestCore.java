@@ -27,11 +27,11 @@ import mmb.menu.world.inv.InventoryController;
 /**
  * A chest core
  * @author oskar
- * @param <Tinv> type of the inventory
+ * @param <SaveInventory> type of the inventory
  */
-public abstract class ChestCore<Tinv extends SaveInventory> extends PartEntity implements BlockCore<ChestCore<Tinv>>{
+public abstract class ChestCore extends PartEntity implements BlockCore<ChestCore>{
 	/** Base constructor for chest cores */
-	protected ChestCore(Tinv inventory) {
+	protected ChestCore(SaveInventory inventory) {
 		this.inventory = inventory;
 	}
 	
@@ -41,7 +41,7 @@ public abstract class ChestCore<Tinv extends SaveInventory> extends PartEntity i
 	}
 	
 	/** The inventory for the core*/
-	@NN public final Tinv inventory;
+	@NN public final SaveInventory inventory;
 
 	/**
 	 * Creates a new inventory controller
@@ -53,7 +53,7 @@ public abstract class ChestCore<Tinv extends SaveInventory> extends PartEntity i
 	 * Creates an empty chest core of the same type. Used by the {@link #returnToPlayer()}
 	 * @return an empty chest core of the same type
 	 */
-	public abstract @NN ChestCore<Tinv> makeEmpty();
+	public abstract @NN ChestCore makeEmpty();
 	
 	@Override
 	public void load(@Nil JsonNode data) {
@@ -149,16 +149,16 @@ public abstract class ChestCore<Tinv extends SaveInventory> extends PartEntity i
 	@Override
 	protected boolean equal0(PartEntity other) {
 		if(other instanceof ChestCore) {
-			return inventory.equals(((ChestCore<?>)other).inventory);
+			return inventory.equals(((ChestCore)other).inventory);
 		} return false;
 	}
 
 	
 	@Override
-	public @Nil ModuleConfigHandler<ChestCore<Tinv>, ?> mch() {
-		return new ModuleConfigHandler<ChestCore<Tinv>, ChestCoreAccess>() {
+	public @Nil ModuleConfigHandler<ChestCore, ?> mch() {
+		return new ModuleConfigHandler<ChestCore, ChestCoreAccess>() {
 			@Override
-			public @NN ChestCoreAccess newComponent(InventoryController invctrl, ChestCore<Tinv> core) {
+			public @NN ChestCoreAccess newComponent(InventoryController invctrl, ChestCore core) {
 				return new ChestCoreAccess(invctrl, core);
 			}			
 		};

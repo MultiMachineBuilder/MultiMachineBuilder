@@ -35,7 +35,7 @@ import mmb.engine.worlds.MapProxy;
  *
  */
 public class STNFramework extends STNBaseMachine implements
-ModularBlock<STNFramework, BlockModuleUniversal, ChestCore<? extends SaveInventory>, Object> {
+ModularBlock<STNFramework, BlockModuleUniversal, ChestCore, Object> {
 	@NN private static final RotatedImageGroup rig = RotatedImageGroup.create("stn/fw.png");
 	
 	//Basic stuff
@@ -65,10 +65,10 @@ ModularBlock<STNFramework, BlockModuleUniversal, ChestCore<? extends SaveInvento
 	}
 
 	//Core
-	@NN private static Class<ChestCore<? extends SaveInventory>> cls1 = MMBUtils.classcast(ChestCore.class);
-	@NN private final CoreSlot<STNFramework, ChestCore<? extends SaveInventory>> core = new CoreSlot<>(this, cls1);
+	@NN private static Class<ChestCore> cls1 = MMBUtils.classcast(ChestCore.class);
+	@NN private final CoreSlot<STNFramework, ChestCore> core = new CoreSlot<>(this, cls1);
 	@Override
-	public Slot<ChestCore<?>> slotC() {
+	public Slot<ChestCore> slotC() {
 		return core;
 	}
 	
@@ -107,7 +107,7 @@ ModularBlock<STNFramework, BlockModuleUniversal, ChestCore<? extends SaveInvento
 	public void onTick(MapProxy map) {
 		runAllModules(owner(), posX(), posY());
 		old = storage;
-		ChestCore<?> c = core();
+		ChestCore c = core();
 		storage = c==null?null:c.inventory;
 		if(storage instanceof STNNetworkInventory) storage = null;
 		if(storage != old) network().revalidate(this);
@@ -120,7 +120,7 @@ ModularBlock<STNFramework, BlockModuleUniversal, ChestCore<? extends SaveInvento
 	}
 	/** @return inventory of the used module */
 	@NN public Inventory inv() {
-		ChestCore<?> c = core();
+		ChestCore c = core();
 		if(c == null) return NoSuchInventory.INSTANCE;
 		return network().inv;
 	}

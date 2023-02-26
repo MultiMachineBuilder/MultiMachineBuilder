@@ -21,7 +21,7 @@ public class ChestCoreAccess extends JPanel implements SafeCloseable {
 	private static final long serialVersionUID = -1462133036548585770L;
 	@NN private final InventoryController invctrl2;
 
-	public ChestCoreAccess(InventoryController invctrl, ChestCore<?> core) {
+	public ChestCoreAccess(InventoryController invctrl, ChestCore core) {
 		setLayout(new BorderLayout(0, 0));
 		
 		invctrl2 = new InventoryController(core.inventory);

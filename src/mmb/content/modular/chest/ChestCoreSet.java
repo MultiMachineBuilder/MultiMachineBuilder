@@ -19,7 +19,7 @@ import mmb.menu.world.inv.InventoryController;
  * @author oskar
  *
  */
-public class ChestCoreSet extends ChestCore<SetInventory<ItemEntry>> {
+public class ChestCoreSet extends ChestCore {
 	@NN private final PartEntityType type;
 	/**
 	 * Creates a simple chest core (many different items)
@@ -34,7 +34,7 @@ public class ChestCoreSet extends ChestCore<SetInventory<ItemEntry>> {
 	@Override
 	public PartEntry partClone() {
 		ChestCoreSet copy = new ChestCoreSet(type, 0);
-		copy.inventory.setContents(inventory);
+		((SetInventory<ItemEntry>)copy.inventory).setContents((SetInventory<ItemEntry>)inventory);
 		return copy;
 	}
 
@@ -49,7 +49,7 @@ public class ChestCoreSet extends ChestCore<SetInventory<ItemEntry>> {
 	}
 
 	@Override
-	public ChestCore<SetInventory<ItemEntry>> makeEmpty() {
+	public ChestCore makeEmpty() {
 		return new ChestCoreSet(type, inventory.capacity());
 	}
 
