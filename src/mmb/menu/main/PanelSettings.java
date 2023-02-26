@@ -139,8 +139,8 @@ public class PanelSettings extends JPanel {
 			try {
 				double newScale = Double.parseDouble(s);
 				if(Double.isNaN(newScale)) throw new IllegalArgumentException("NaN");
-				if(newScale <= 0) throw new IllegalArgumentException("⩽0");
-				if(Double.isInfinite(newScale)) throw new IllegalArgumentException("∞");
+				if(newScale <= 0) throw new IllegalArgumentException("<=0");
+				if(Double.isInfinite(newScale)) throw new IllegalArgumentException("Infinite");
 			}catch(Exception ex) {
 				debug.pstm(ex, "Invalid scaling factor");
 				JOptionPane.showMessageDialog(new JFrame(), $res("cguis-scalerr")+s+" : "+ex.getClass()+": "+ex.getMessage(), $res("cguis-scale"),

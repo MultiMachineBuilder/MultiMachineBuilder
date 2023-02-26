@@ -76,46 +76,57 @@ public class ContentsItems {
 		.finish("item.glassp");
 	
 	//Tools
+	/** A short-life pickaxe given at beginning of the game */
 	@NN public static final PickaxeType pickVW = Pickaxe.create(120, 15, "item/wood pick.png", "#pick-b", "pick.weak");
+	/** The most basic pickaxe available in the game */
 	@NN public static final PickaxeType pickWood = Pickaxe.create(100, 100, "item/wood pick.png", "#pick-wood", "pick.wood");
+	/** An improved pickaxe available later */
 	@NN public static final PickaxeType pickRudimentary = Pickaxe.create(50, 400, "item/rudimentary pick.png", "#pick-rud", "pick.rudimentary");
+	/** Pick up or drop items */
 	@NN public static final Item bucket = new TooledItem(new DumpItems())
-			.title("#bucket")
-			.texture("dropItems.png")
-			.finish("mmb.bucket");
+		.title("#bucket")
+		.texture("dropItems.png")
+		.finish("mmb.bucket");
+	/** Configure resizable machines (dropped item extractors and diggers)*/
 	@NN public static final Item configExtractors= new TooledItem(new ConfigureDroppedItemExtractors())
-			.title("#cdie")
-			.texture("hoover.png")
-			.finish("mmb.cdie");
+		.title("#cdie")
+		.texture("hoover.png")
+		.finish("mmb.cdie");
+	/** Configure aimable machines (now only power towers*/
 	@NN public static final Item aim = new TooledItem(new ToolAim())
-			.title("#aim")
-			.texture("aim.png")
-			.finish("mmb.aim");
+		.title("#aim")
+		.texture("aim.png")
+		.finish("mmb.aim");
 	
 	//Crafting aids
+	/** Specifies a crafting recipe in an item form*/
 	@NN public static final ItemEntityType stencil = new ItemEntityType()
 			.title("#stencil")
 			.texture("item/stencil.png")
 			.volumed(0.001)
 			.factory(Stencil::new)
 			.finish("crafting.cstencil");
+	/** Lists items in an item form*/
 	@NN public static final ItemEntityType BOM = new ItemEntityType()
 			.title("#BOM")
 			.texture("item/list.png")
 			.volumed(0.001)
 			.factory(ItemBOM::new)
 			.finish("crafting.BOMItems");
+	/** Lists both inputs and outputs of a recipe*/
 	@NN public static final ItemEntityType pingredients = new ItemEntityType()
 			.title("#pingredients")
 			.texture("item/slist.png")
 			.volumed(0.001)
 			.factory(ItemPIngredients::new)
 			.finish("crafting.ingredients");
+	/** A basic writing material ,used to create stencils and BOMs*/
 	@NN public static final Item paper = new Item()
 			.title("#paper")
 			.texture("item/paper.png")
 			.volumed(0.001)
 			.finish("mmb.paper");
+	/** 64 generic purpose color codes*/
 	@NN public static final List<@NN Item> craftcodes = createCraftCodes(); //NOSONAR the returned list is immutable
 	@NN private static List<@NN Item> createCraftCodes(){
 		Item[] items = new Item[64];
