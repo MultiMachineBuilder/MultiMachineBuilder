@@ -210,6 +210,7 @@
 				        <groupId>org.sonarsource.scanner.maven</groupId>
 				        <artifactId>sonar-maven-plugin</artifactId>
 				        <version>3.9.1.2184</version>
+				        <phase>test</phase>
 			        </plugin>
 	        		
 	        		<!-- PGP signature -->
@@ -484,5 +485,7 @@
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
-	<description>A voxel game about building an industrial empire in a finite world</description>
+	<description>Dependency for the MultiMachineBuilder, a voxel game about building an industrial empire in a finite world.
+
+THIS RELEASE IS NOT PLAYABLE. To play the game, donwload from &gt;ITCH.IO LINK HERE&lt; or &gt;GH releases link here&lt;</description>
 </project>
