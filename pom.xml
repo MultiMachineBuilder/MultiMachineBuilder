@@ -277,21 +277,7 @@
 		<m2e.eea.annotationpath.jre>/Multi Machine Builder/lib/eclipse-null-eea-augments-2.4.0/libraries/java</m2e.eea.annotationpath.jre>
 		<m2e.eea.annotationpath.maven>/Multi Machine Builder/lib/eclipse-null-eea-augments-2.4.0/libraries/other</m2e.eea.annotationpath.maven>
 	</properties>
-	<dependencies>
-		<!-- Plugins -->
-		<dependency>
-		    <groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-source-plugin</artifactId>
-			<version>3.2.1</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-javadoc-plugin</artifactId>
-			<version>3.5.0</version>
-			<scope>compile</scope>
-		</dependency>
-		
+	<dependencies>		
 		<!-- Fuzzing -->
 		<dependency>
 		    <groupId>com.code-intelligence</groupId>
