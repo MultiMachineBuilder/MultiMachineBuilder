@@ -3,7 +3,7 @@
 	 
 	<!-- GAV coordinates -->
 	<groupId>io.github.multimachinebuilder</groupId>
-	<artifactId>MultiMachineBuilder</artifactId>
+	<artifactId>multimachinebuilder</artifactId>
 	<version>0.5</version>
   
 	<!-- About -->
@@ -114,7 +114,7 @@
 	<packaging>jar</packaging>
 	<repositories>
 		<repository>
-		    <id>maven-central</id>
+		    <id>ossrh</id>
 		    <name>Maven Central</name>
 		    <url>https://repo.maven.apache.org/maven2/</url>
 		</repository>
