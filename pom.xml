@@ -215,7 +215,7 @@
 				        		<id>sonarscan</id>
 				        		<phase>test</phase>
 				        		<goals>
-				        			<goal>verify</goal>
+				        			<goal>sonar</goal>
 				        		</goals>
 				        	</execution>
 				        </executions>
