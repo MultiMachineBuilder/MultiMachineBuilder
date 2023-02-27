@@ -104,7 +104,6 @@
         </testResources>
 		
 		<!-- Plugins -->
-		<pluginManagement>
 		<plugins>
 			<!-- Maven compiler -->
 			<plugin>
@@ -197,10 +196,7 @@
 					</execution>
 				</executions>
 		    </plugin>
-		    
-		    
 	  </plugins>
-	  </pluginManagement>
 	</build>
 	<profiles>
 	    <profile>
