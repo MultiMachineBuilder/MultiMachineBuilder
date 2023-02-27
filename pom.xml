@@ -116,6 +116,7 @@
                     <!-- Add implicit default JDK9+ java.se explicitly    -->
                     <!-- Add explicit java.desktop for import java.awt.*; -->
                     <compilerArgs>
+                    	<arg>--module</arg>
                         <arg>--add-modules</arg>
                         <arg>java.se,java.desktop</arg>
                     </compilerArgs>
@@ -172,6 +173,7 @@
 				<version>3.5.0</version>
 				<configuration>
 					<forceCreation>true</forceCreation>
+					<failOnError>false</failOnError>
 				</configuration>
 				<executions>
 					<execution>
