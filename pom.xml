@@ -484,4 +484,5 @@
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
+	<description>A voxel game about building an industrial empire in a finite world</description>
 </project>
