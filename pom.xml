@@ -112,10 +112,17 @@
 				<configuration>
 					<source>11</source>
 					<target>11</target>
+					<!-- JDK9+ Add Module MAGIC happens below...          -->
+                    <!-- Add implicit default JDK9+ java.se explicitly    -->
+                    <!-- Add explicit java.desktop for import java.awt.*; -->
+                    <compilerArgs>
+                        <arg>--add-modules</arg>
+                        <arg>java.se,java.desktop</arg>
+                    </compilerArgs>
 				</configuration>
 			</plugin>
 			
-			<!-- JAR assembler  NOT RUNNING -->
+			<!-- JAR assembler -->
 			<plugin>
 				<!-- JAR packager's GAV -->
 				<groupId>org.apache.maven.plugins</groupId>
