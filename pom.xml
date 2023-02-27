@@ -117,8 +117,7 @@
                     <!-- Add explicit java.desktop for import java.awt.*; -->
                     <compilerArgs>
                     	<arg>--module</arg>
-                        <arg>--add-modules</arg>
-                        <arg>java.se,java.desktop</arg>
+                        <arg>--add-modules java.se,java.desktop</arg>
                     </compilerArgs>
 				</configuration>
 			</plugin>
