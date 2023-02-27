@@ -112,13 +112,6 @@
 				<configuration>
 					<source>11</source>
 					<target>11</target>
-					<!-- JDK9+ Add Module MAGIC happens below...          -->
-                    <!-- Add implicit default JDK9+ java.se explicitly    -->
-                    <!-- Add explicit java.desktop for import java.awt.*; -->
-                    <compilerArgs>
-                    	<arg>--module</arg>
-                        <arg>--add-modules java.se,java.desktop</arg>
-                    </compilerArgs>
 				</configuration>
 			</plugin>
 			
