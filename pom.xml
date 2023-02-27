@@ -210,7 +210,16 @@
 				        <groupId>org.sonarsource.scanner.maven</groupId>
 				        <artifactId>sonar-maven-plugin</artifactId>
 				        <version>3.9.1.2184</version>
-				        <phase>test</phase>
+				        <executions>
+				        	<execution>
+				        		<id>sonarscan</id>
+				        		<phase>test</phase>
+				        		<goals>
+				        			<goal>verify</goal>
+				        		</goals>
+				        	</execution>
+				        </executions>
+				        
 			        </plugin>
 	        		
 	        		<!-- PGP signature -->
