@@ -43,6 +43,10 @@ jobs:
         env:
           GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+      - name: Provide Maven credentials
+        uses: InstaCode/maven-settings-xml-action@v9
+        with:
+         servers: '[{"id": "ossrh", "username": "${{ secrets.OSSRH_USERNAME }}", "password": "${{ secrets.OSSRH_TOKEN }}"}]'
       - name: Build and analyze
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
