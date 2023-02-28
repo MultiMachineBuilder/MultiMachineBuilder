@@ -7,8 +7,9 @@ import mmb.engine.block.BlockEntityDataless;
 import mmb.engine.rotate.Side;
 
 /**
+ * A base implementation for an uniform emitter block.
+ * Override the {@link #onTick(mmb.engine.worlds.MapProxy)} to set the state
  * @author oskar
- * Override the onTick method to run
  */
 public abstract class EmitBase extends BlockEntityDataless {
 	protected boolean state;

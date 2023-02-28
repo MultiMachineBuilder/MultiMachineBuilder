@@ -12,8 +12,9 @@ import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * A turned on toggle switch. Can be toggled manually or by a Block Clicking Claw.
  * @author oskar
- *
+ * @see OffToggle
  */
 public class OnToggle extends Block implements BlockActivateListener {
 	@Override

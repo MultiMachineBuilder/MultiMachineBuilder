@@ -12,8 +12,9 @@ import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 
 /**
+ * This block reads one signal, from the rear and processes it in a specific fashion, defined by this block's type,
+ * and outputs the result of computation forward
  * @author oskar
- * A skeletal implementation for a gate which reads two signals from DL and DR corners, and outputs them to U side
  */
 public class GateMono extends BlockEntityRotary{
 	protected boolean result;

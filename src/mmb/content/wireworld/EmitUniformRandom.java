@@ -8,8 +8,10 @@ import mmb.engine.block.BlockType;
 import mmb.engine.worlds.MapProxy;
 
 /**
+ * This block emits one random signal in all directions.
+ * The signal is always computed, so the block has additional overhead
+ * @see EmitRandom
  * @author oskar
- *
  */
 public class EmitUniformRandom extends EmitBase {
 	@Override

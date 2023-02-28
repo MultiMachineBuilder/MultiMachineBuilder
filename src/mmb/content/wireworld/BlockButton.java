@@ -14,8 +14,8 @@ import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * Emits a signal when clicked manually or by a Block Clicking Claw
  * @author oskar
- *
  */
 public class BlockButton extends BlockEntityDataless implements BlockActivateListener {
 	private int pressed;

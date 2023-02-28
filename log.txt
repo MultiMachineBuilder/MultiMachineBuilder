@@ -8225,7 +8225,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found save: lavivrus.mworld
 (SELECT A SAVE) Found save: main.mworld
 (SELECT A SAVE) Found save: Semi Auto Brewery.mworld
-(SELECT A SAVE) Found save: Sound ON Startup.mworld
+(SELECT A SAVE) Found save: Sound ON startup.mworld
 (SELECT A SAVE) Found save: Surv2.mworld
 (SELECT A SAVE) Found save: test binder.mworld
 (SELECT A SAVE) Found save: Test BPI.mworld
@@ -8242,7 +8242,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found 24 saves
 (WORLD TEST) 1761 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@2e7c38c
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@3f4f3319
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -8251,8 +8251,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Opened a file
 (SELECT A SAVE) Loaded a file
 (SELECT A SAVE) Parsed file
-(ITEM LISTS) Item list node is null
-(ITEMS) Attempting to load a non-data item
 (ITEMS) Attempting to load a non-data item
 (DATA LAYERS) Loading world data layer: STN
 (ITEMS) Invalid item: Infinity
@@ -8261,1668 +8259,164 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Loaded
 (WORLD - IDLE) Exiting
 (WORLDS) Opening a new world
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(PLAYER INVENTORY) Querying recipes
-(PLAYER INVENTORY) Query finished
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(PLAYER INVENTORY) Querying recipes
-(PLAYER INVENTORY) Query finished
-(PLAYER INVENTORY) Querying recipes
-(PLAYER INVENTORY) Query finished
-(PLAYER INVENTORY) Querying recipes
-(PLAYER INVENTORY) Query finished
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL LIST) Tool selected: Copy
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.Copy@24e74664
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: Copy
-(TOOL LIST) Tool selected: Copy
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.Copy@24e74664
-(TOOL SELECTOR) Reset tools
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL-COPY) Line
-(TOOL-COPY) Copy
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@2e7c38c
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: Copy
-(TOOL SELECTOR) New tool: standard
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@2e7c38c
-(TOOL SELECTOR) Reset tools
-(TOOL-STANDARD) Running BlockActivateListener for: [-10,-12]
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL-STANDARD) Running BlockActivateListener for: [-10,-12]
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(PROCESS HELPER) Progress
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(PROCESS HELPER) Progress
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(WORLD TEST) 1761 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@6c00c780
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(ITEM LISTS) Item list node is null
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(ITEMS) Invalid item: Infinity
-(INVENTORIES) Unsupported null item
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(PROCESS HELPER) Progress
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.ArrayIndexOutOfBoundsException: 3 >= 0
-	at java.base/java.util.Vector.elementAt(Vector.java:497)
-	at java.desktop/javax.swing.DefaultListModel.getElementAt(DefaultListModel.java:90)
-	at java.desktop/javax.swing.plaf.basic.BasicListUI.updateLayoutState(BasicListUI.java:1438)
-	at java.desktop/javax.swing.plaf.basic.BasicListUI.maybeUpdateLayoutState(BasicListUI.java:1389)
-	at java.desktop/javax.swing.plaf.basic.BasicListUI.getPreferredSize(BasicListUI.java:648)
-	at java.desktop/javax.swing.JComponent.getPreferredSize(JComponent.java:1680)
-	at java.desktop/javax.swing.ScrollPaneLayout.layoutContainer(ScrollPaneLayout.java:795)
-	at java.desktop/java.awt.Container.layout(Container.java:1537)
-	at java.desktop/java.awt.Container.doLayout(Container.java:1526)
-	at java.desktop/java.awt.Container.validateTree(Container.java:1722)
-	at java.desktop/java.awt.Container.validate(Container.java:1657)
-	at java.desktop/javax.swing.RepaintManager$3.run(RepaintManager.java:745)
-	at java.desktop/javax.swing.RepaintManager$3.run(RepaintManager.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/javax.swing.RepaintManager.validateInvalidComponents(RepaintManager.java:742)
-	at java.desktop/javax.swing.RepaintManager$ProcessingRunnable.run(RepaintManager.java:1889)
-	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(TOOL-STANDARD) Running BlockActivateListener for: [-10,-12]
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Item insertion
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item insertion success
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(PROCESS HELPER) Item collection success
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
-(PROCESS HELPER) Progress
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
+(ON LOAD SIGNAL PROVIDER) Signal provided
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
 (DATA LAYERS) Saving world data layer: STN
@@ -9931,7 +8425,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (WORLD - main null) Exiting
 (MAP anonymous) Destroying
 (MAP anonymous) Shutdown
-(PROCESS HELPER) Progress
+(ON LOAD SIGNAL PROVIDER) Signal provided
 (WORLDS) The given world is null, exiting
 (WORLD TEST) Exited the world
 (SETTINGS) Resetting a setting country with value US

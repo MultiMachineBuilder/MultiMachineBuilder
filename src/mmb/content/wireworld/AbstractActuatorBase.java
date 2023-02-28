@@ -10,13 +10,17 @@ import mmb.engine.block.BlockEntry;
 import mmb.engine.worlds.MapProxy;
 
 /**
+ * An abstract implementation of an actuator, which performs an action to a block situated just in front of it.
+ * The action is defined by the {@link #run(Point, BlockEntry, MapProxy)} method, which implements an action.
+ * This variant has no chirality
  * @author oskar
- * A skeletal implementation for a gate which reads two signals from DL and DR corners, and outputs them to U side
+ * @see AbstractChiralActuatorBase
+ * @see - when chirality is needed
  */
 public abstract class AbstractActuatorBase extends BlockEntityRotary{
 	/**
 	 * Invoked when actuator runs
-	 * @param p position of change
+	 * @param p position, where actuator performs an action
 	 * @param ent block to modify
 	 * @param proxy map proxy to use
 	 */

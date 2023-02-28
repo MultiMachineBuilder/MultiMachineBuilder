@@ -9,8 +9,8 @@ import mmb.engine.block.BlockType;
 import mmb.engine.worlds.MapProxy;
 
 /**
+ * Turns into a wire
  * @author oskar
- *
  */
 public class WWTail extends BlockEntityDataless{
 

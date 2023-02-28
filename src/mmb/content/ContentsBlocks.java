@@ -43,24 +43,24 @@ import mmb.content.ppipe.JoiningPlayerPipe;
 import mmb.content.ppipe.PlayerPipe;
 import mmb.content.ppipe.PlayerPipeEntry;
 import mmb.content.ppipe.TwinPlayerPipe;
-import mmb.content.wireworld.ActuatorClick;
-import mmb.content.wireworld.ActuatorPlaceBlock;
-import mmb.content.wireworld.ActuatorRotations;
 import mmb.content.wireworld.BlockButton;
 import mmb.content.wireworld.EmitTrue;
 import mmb.content.wireworld.EmitUniformRandom;
 import mmb.content.wireworld.Lamp;
 import mmb.content.wireworld.OffToggle;
 import mmb.content.wireworld.OnToggle;
-import mmb.content.wireworld.Randomizer;
-import mmb.content.wireworld.WWChatter;
+import mmb.content.wireworld.EmitRandom;
 import mmb.content.wireworld.WWHead;
 import mmb.content.wireworld.WWTail;
 import mmb.content.wireworld.WWWire;
 import mmb.content.wireworld.WorldLoadDetector;
-import mmb.content.wireworld.AbstractStateGate.StateGateType;
+import mmb.content.wireworld.GateState.StateGateType;
 import mmb.content.wireworld.GateBi.BiGateType;
 import mmb.content.wireworld.GateMono.MonoGateType;
+import mmb.content.wireworld.actuator.ActuatorClick;
+import mmb.content.wireworld.actuator.ActuatorPlaceBlock;
+import mmb.content.wireworld.actuator.ActuatorRotations;
+import mmb.content.wireworld.text.TextChatter;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.Blocks;
@@ -157,7 +157,7 @@ public class ContentsBlocks {
 			.texture("logic/true.png")
 			.finish("wireworld.true");
 	/** Generates a separate random signal for every neighbor */
-	@NN public static final Block RANDOM = new Randomizer()
+	@NN public static final Block RANDOM = new EmitRandom()
 			.texture("logic/random.png")
 			.title("#ww-rnd")
 			.finish("wireworld.random");
@@ -173,7 +173,7 @@ public class ContentsBlocks {
 	@NN public static final BlockEntityType ww_chatter = new BlockEntityType()
 		.texture("printer.png")
 		.title("#ww-chat")
-		.factory(WWChatter::new)
+		.factory(TextChatter::new)
 		.describe("A block which prints out its text, when activated by a signal")
 		.finish("wireworld.chatter");
 	/** This block displays the logic inputs to itself*/

@@ -10,8 +10,8 @@ import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 
 /**
+ * Emits a signal in all directions and then turns into a tail
  * @author oskar
- *
  */
 public class WWHead extends BlockEntityDataless{
 

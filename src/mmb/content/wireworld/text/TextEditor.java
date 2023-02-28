@@ -1,13 +1,12 @@
 /**
  * 
  */
-package mmb.menu.world;
+package mmb.content.wireworld.text;
 
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
 import mmb.NN;
-import mmb.content.wireworld.TextMessageProvider;
 import mmb.engine.block.BlockEntity;
 import mmb.menu.world.window.WorldWindow;
 
@@ -20,8 +19,11 @@ import java.awt.Color;
 import net.miginfocom.swing.MigLayout;
 
 /**
+ * Edits blocks with text message support.
+ * Click OK to save changes, or click Cancel to discard changes
  * @author oskar
- *
+ * @see TextMessageProvider
+ * @see TextChatter
  */
 public class TextEditor extends JPanel {
 	private static final long serialVersionUID = 109161698315300930L;
@@ -29,7 +31,7 @@ public class TextEditor extends JPanel {
 	private JTextPane textPane;
 	private JButton btnOk;
 	private JButton btnCancel;
-	@NN public final String title;
+	public final String title;
 	private final WorldWindow frame;
 
 	/**

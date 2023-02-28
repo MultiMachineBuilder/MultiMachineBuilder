@@ -1,12 +1,11 @@
 /**
  * 
  */
-package mmb.content.wireworld;
+package mmb.content.wireworld.text;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.NN;
 import mmb.Nil;
 import mmb.cgui.BlockActivateListener;
 import mmb.content.ContentsBlocks;
@@ -17,35 +16,36 @@ import mmb.engine.debug.Debugger;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
 import mmb.engine.worlds.world.WorldUtils;
-import mmb.menu.world.TextEditor;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * Prints a specified message when powered.
  * @author oskar
- *
+ * @see TextMessageProvider
+ * @see TextEditor
  */
-public class WWChatter extends BlockEntityData implements TextMessageProvider, BlockActivateListener {
-	@NN private static final Debugger debug = new Debugger("CHAT");
+public class TextChatter extends BlockEntityData implements TextMessageProvider, BlockActivateListener {
+	private static final Debugger debug = new Debugger("CHAT");
 	
 	//Constructors
 	/**
 	 * Creates a chetter with text
 	 * @param contents2 text to use
 	 */
-	public WWChatter(@Nil String contents2) {
+	public TextChatter(@Nil String contents2) {
 		contents = contents2;
 	}
 	/** Creates an empty chatter */
-	public WWChatter() {}
+	public TextChatter() {}
 	
 	//Contents
-	private String contents;
+	@Nil private String contents;
 	@Override
-	public String getMessage() {
+	@Nil public String getMessage() {
 		return contents;
 	}
 	@Override
-	public void setMessage(String msg) {
+	public void setMessage(@Nil String msg) {
 		contents = msg;
 	}
 	
@@ -56,7 +56,7 @@ public class WWChatter extends BlockEntityData implements TextMessageProvider, B
 	}
 	@Override
 	public BlockEntry blockCopy() {
-		return new WWChatter(contents);
+		return new TextChatter(contents);
 	}
 	@Override
 	public void onTick(MapProxy map) {

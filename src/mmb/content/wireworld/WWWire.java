@@ -10,8 +10,8 @@ import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.WorldUtils;
 
 /**
+ * Turns into a head when receiving 1 or 2 true signals
  * @author oskar
- *
  */
 public class WWWire extends BlockEntityDataless {
 

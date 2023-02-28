@@ -15,8 +15,8 @@ import mmb.engine.chance.Chance;
 import mmb.engine.worlds.MapProxy;
 
 /**
+ * A crop is a growable block, which every specified time it drops specified items
  * @author oskar
- * A crop is growable block, which after some time it drops specified items
  */
 public class Crop extends BlockEntityData {
 	//Constructors

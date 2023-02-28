@@ -1,11 +1,12 @@
 /**
  * 
  */
-package mmb.content.wireworld;
+package mmb.content.wireworld.actuator;
 
 import java.awt.Point;
 
 import mmb.content.ContentsBlocks;
+import mmb.content.wireworld.AbstractActuatorBase;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.rotate.RotatedImageGroup;

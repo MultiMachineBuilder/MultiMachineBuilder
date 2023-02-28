@@ -10,8 +10,8 @@ import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 
 /**
+ * Emits a signal once when a world is loaded
  * @author oskar
- *
  */
 public class WorldLoadDetector extends BlockEntityDataless{
 	private boolean signal = true;

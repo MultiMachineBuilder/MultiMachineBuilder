@@ -926,10 +926,17 @@
     "player" : {
       "inventory" : [ 128.0, [ "mmb.stone", "mmb.stone", 1 ], [ "playerpipe.bend", 1 ], [ "playerpipe.adj", 1 ], [ "mmb.tree", "mmb.tree", 1 ], [ "playerpipe.adj2", 1 ], [ "playerpipe.bend2", 1 ], [ "playerpipe.end", 1 ], [ "playerpipe.straight", 1 ], [ "playerpipe.straight2", 1 ], [ "mmb.grass", "mmb.grass", 1 ] ],
       "creative" : true,
-      "x" : -10.500000000000002,
-      "y" : 5.569999999999917,
+      "x" : -10.5,
+      "y" : 5.58439999999977,
       "alcohol1" : 0.0,
       "alcohol2" : 0.0
+    },
+    "STN" : {
+      "queue" : [ 128.0 ],
+      "processing" : {
+        "recipesProcessing" : { },
+        "recipesCrafting" : [ "Infinity" ]
+      }
     }
   },
   "maps" : { }

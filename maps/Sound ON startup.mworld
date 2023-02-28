@@ -10,12 +10,12 @@
       "mode" : "ONCE_WHEN_POWERED",
       "state" : false,
       "signal" : false,
-      "phase" : 2
+      "phase" : 0
     }, "mmb.grass", "mmb.grass", "mmb.grass" ],
     "drops" : [ ],
     "machines" : [ ],
     "player" : {
-      "inventory" : [ 128.0, [ "multi.speaker", 1 ], [ "wireworld.onload", "wireworld.onload", 1 ], [ "wireworld.lamp", 1 ] ],
+      "inventory" : [ 128.0, [ "multi.speaker", 1 ], [ "wireworld.onload", 1 ], [ "wireworld.lamp", 1 ] ],
       "creative" : true,
       "x" : 0.3,
       "y" : 1.3,

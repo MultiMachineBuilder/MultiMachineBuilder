@@ -14,14 +14,16 @@ import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 
 /**
+ * This block reads one signal and its state, from the rear and processes it in a specific fashion, defined by this block's type,
+ * and outputs the result of computation forward and saves it for later
  * @author oskar
  *
  */
-public class AbstractStateGate extends BlockEntityRotary{
+public class GateState extends BlockEntityRotary{
 	
 	public final StateGateType type;
 
-	public AbstractStateGate(StateGateType type) {
+	public GateState(StateGateType type) {
 		this.type = type;
 	}
 
@@ -53,7 +55,7 @@ public class AbstractStateGate extends BlockEntityRotary{
 			rigY = RotatedImageGroup.create(textureOn);
 			rigN = RotatedImageGroup.create(textureOff);
 			texture(textureStanding);
-			factory(() -> new AbstractStateGate(this));
+			factory(() -> new GateState(this));
 			this.gate = gate;
 		}
 	}
@@ -82,7 +84,7 @@ public class AbstractStateGate extends BlockEntityRotary{
 	}
 	@Override
 	public BlockEntry blockCopy() {
-		BlockEntity result = new AbstractStateGate(type);
+		BlockEntity result = new GateState(type);
 		result.setRotation(getRotation());
 		return result;
 	}

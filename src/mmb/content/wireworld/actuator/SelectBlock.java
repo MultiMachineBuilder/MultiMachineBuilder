@@ -1,11 +1,10 @@
 /**
  * 
  */
-package mmb.content.wireworld;
+package mmb.content.wireworld.actuator;
 
 import javax.swing.JPanel;
 
-import mmb.beans.BlockSetting;
 import mmb.engine.block.BlockType;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.window.WorldWindow;
@@ -19,8 +18,13 @@ import static mmb.engine.settings.GlobalSettings.$res;
 import java.awt.Color;
 
 /**
+ * A dialog box used by the creative block placer ({@link ActuatorPlaceBlock}).
+ * The block is selected from the current inventory selection of the player when OK is clicked,
+ * or unchanged when Cancel is clicked,
+ * or reset to nothing when Remove is clicked
  * @author oskar
- *
+ * @see ActuatorPlaceBlock
+ * @see BlockSetting
  */
 public class SelectBlock extends JPanel {
 	private static final long serialVersionUID = -5267127312725839315L;

@@ -13,8 +13,8 @@ import mmb.engine.texture.Textures;
 import mmb.engine.worlds.world.WorldUtils;
 
 /**
+ * Turns green when receiving any signal, or red else
  * @author oskar
- *
  */
 public class Lamp extends BlockEntityDataless {
 	private static final BlockDrawer on = BlockDrawer.ofImage(Textures.get("logic/on lamp.png"));

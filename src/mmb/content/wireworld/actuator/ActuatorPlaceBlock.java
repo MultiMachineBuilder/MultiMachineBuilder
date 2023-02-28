@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.wireworld;
+package mmb.content.wireworld.actuator;
 
 import java.awt.Point;
 
@@ -9,9 +9,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.NN;
 import mmb.Nil;
-import mmb.beans.BlockSetting;
 import mmb.cgui.BlockActivateListener;
 import mmb.content.ContentsBlocks;
+import mmb.content.wireworld.AbstractActuatorBase;
 import mmb.data.variables.ListenableValue;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
@@ -24,8 +24,11 @@ import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * Places unlimited blocks when powered.
+ * It may be configured by clicking on it by using a dialog box
  * @author oskar
- *
+ * @see SelectBlock
+ * @see BlockSetting
  */
 public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockActivateListener , BlockSetting{
 	private static final Debugger debug = new Debugger("ACTUATOR-PLACER");
