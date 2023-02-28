@@ -57,6 +57,7 @@ import mmb.content.wireworld.WWChatter;
 import mmb.content.wireworld.WWHead;
 import mmb.content.wireworld.WWTail;
 import mmb.content.wireworld.WWWire;
+import mmb.content.wireworld.WorldLoadDetector;
 import mmb.content.wireworld.AbstractStateGate.StateGateType;
 import mmb.content.wireworld.GateBi.BiGateType;
 import mmb.content.wireworld.GateMono.MonoGateType;
@@ -161,7 +162,8 @@ public class ContentsBlocks {
 			.title("#ww-rnd")
 			.finish("wireworld.random");
 	/** Generates a signal when the world is loaded */
-	@NN public static final Block ONLOAD = new Randomizer()
+	@NN public static final BlockEntityType ONLOAD = new BlockEntityType()
+			.factory(WorldLoadDetector::new)
 			.texture("logic/loadsensor.png")
 			.title("#ww-load")
 			.finish("wireworld.onload");
@@ -285,6 +287,7 @@ public class ContentsBlocks {
 			.factory(PowerLoad::new)
 			.texture("machine/power/load.png")
 			.finish("elec.load");
+	
 	//Chests
 	/** Stores 6 m³ of items*/
 	@NN public static final BlockEntityType CHEST = chest(6, "machine/chest1.png", "chest.beginning", 1);
