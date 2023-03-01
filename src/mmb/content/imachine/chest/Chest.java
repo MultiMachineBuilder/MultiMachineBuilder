@@ -12,9 +12,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.NN;
 import mmb.Nil;
-import mmb.beans.*;
 import mmb.cgui.BlockActivateListener;
-import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.java2d.MappedColorTexture;
@@ -23,8 +21,8 @@ import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * A basic chest
  * @author oskar
- *
  */
 public class Chest extends AbstractChest implements BlockActivateListener {
 	//Constructors
@@ -32,6 +30,7 @@ public class Chest extends AbstractChest implements BlockActivateListener {
 	 * Creates a chest
 	 * @param capacity capacity in cubic meters
 	 * @param type block type
+	 * @param texture chest inner texture
 	 */
 	public Chest(double capacity, BlockType type, BufferedImage texture) {
 		this.capacity = capacity;
@@ -42,7 +41,7 @@ public class Chest extends AbstractChest implements BlockActivateListener {
 	}
 	
 	//Contents
-	private Color c = Color.WHITE;
+	@NN private Color c = Color.WHITE;
 	@Override
 	public Color getColor() {
 		return c;
@@ -93,7 +92,6 @@ public class Chest extends AbstractChest implements BlockActivateListener {
 		else
 			setColor(Color.WHITE);
 	}
-	@SuppressWarnings("null")
 	@Override
 	protected void save1(ObjectNode node) {
 		ObjectNode on = node;

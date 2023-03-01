@@ -1,9 +1,10 @@
 /**
  * 
  */
-package mmb.content.imachine;
+package mmb.content.imachine.pipe;
 
 import mmb.NN;
+import mmb.content.imachine.pipe.AbstractBasePipe.Pusher;
 import mmb.data.variables.Variable;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;

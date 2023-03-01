@@ -8,8 +8,8 @@ import mmb.cgui.DestroyTab;
 import mmb.engine.inv.storage.SingleItemInventory;
 
 /**
- * @author oskar
  * Provides filtering settings for pipes and other machines
+ * @author oskar
  */
 public interface ControllableFilter extends DestroyTab{
 	/**

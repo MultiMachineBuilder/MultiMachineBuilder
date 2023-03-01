@@ -40,9 +40,14 @@ public class Hopper extends BlockEntityRotary implements ArbitraryChest, BlockAc
 		return ContentsBlocks.HOPPER;
 	}
 	
+	/** The type of this chest */
 	public final byte state;
 	/**
-	 * Creates a new hopper chest
+	 * Creates a new hopper chest.
+	 * The chest will insert items to outside if {@code state}&1
+	 * The chest will extract items from outside if {@code state}&2
+	 * @param state the type of this hopper/sucker chest. The allowed values are 1 for hopper, 2 for sucker and 3 for hopper-sucker
+	 * @throws IllegalArgumentException when the type is not supported
 	 */
 	public Hopper(byte state) {
 		this.state = state;

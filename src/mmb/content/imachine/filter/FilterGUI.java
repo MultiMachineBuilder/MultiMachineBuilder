@@ -22,17 +22,18 @@ import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * Configures filters in blocks which implement {@link ControllableFilter}
  * @author oskar
- *
  */
 public class FilterGUI extends GUITab {
+	private static final long serialVersionUID = 1L;
 	private final Box box;
 	private final InventoryController invctrl;
 	private final ControllableFilter filter;
 	/**
-	 * Creates
-	 * @param filter
-	 * @param window
+	 * Creates a filter configuration GUI
+	 * @param filter filter block
+	 * @param window world window
 	 */
 	public FilterGUI(ControllableFilter filter, WorldWindow window) {		
 		

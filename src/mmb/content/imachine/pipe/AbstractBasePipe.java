@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.imachine;
+package mmb.content.imachine.pipe;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -20,8 +20,8 @@ import mmb.engine.rotate.ChirotatedImageGroup;
 import mmb.engine.rotate.Side;
 
 /**
+ * An abstract base class for all item pipes
  * @author oskar
- * A base class for pipes.
  */
 public abstract class AbstractBasePipe extends BlockEntityChirotable {
 	//Constructors

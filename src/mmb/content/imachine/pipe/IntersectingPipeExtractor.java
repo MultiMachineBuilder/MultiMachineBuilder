@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.imachine;
+package mmb.content.imachine.pipe;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 

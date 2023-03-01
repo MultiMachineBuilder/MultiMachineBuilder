@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.imachine;
+package mmb.content.imachine.extractor;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -21,8 +21,8 @@ import mmb.menu.world.window.WorldWindow;
 import javax.swing.JLabel;
 
 /**
+ * Configures the dropped item extractor and allows items to be withdrawn
  * @author oskar
- *
  */
 public class BlockCollectorGUI extends GUITab {
 	private static final long serialVersionUID = 2506447463267036557L;

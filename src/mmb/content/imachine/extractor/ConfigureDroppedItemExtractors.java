@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.imachine;
+package mmb.content.imachine.extractor;
 
 import static mmb.engine.settings.GlobalSettings.$res;
 
@@ -20,8 +20,8 @@ import mmb.engine.texture.Textures;
 import mmb.menu.wtool.WindowTool;
 
 /**
+ * Sets the range of dropped item exractors
  * @author oskar
- *
  */
 public class ConfigureDroppedItemExtractors extends WindowTool {
 	/** Creates an extrector configurer */

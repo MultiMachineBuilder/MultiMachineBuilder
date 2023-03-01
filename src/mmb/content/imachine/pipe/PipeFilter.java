@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.imachine;
+package mmb.content.imachine.pipe;
 
 import static mmb.engine.settings.GlobalSettings.$res;
 
@@ -11,6 +11,7 @@ import mmb.cgui.BlockActivateListener;
 import mmb.content.imachine.filter.ControllableFilter;
 import mmb.content.imachine.filter.FilterGUI;
 import mmb.content.imachine.filter.ItemFilter;
+import mmb.content.imachine.pipe.AbstractBasePipe.Pusher;
 import mmb.data.variables.Variable;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;

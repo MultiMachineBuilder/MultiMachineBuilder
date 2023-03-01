@@ -1,14 +1,11 @@
 /**
  * 
  */
-package mmb.content.imachine;
+package mmb.content.imachine.pipe;
 
-import mmb.NN;
-import mmb.data.variables.Variable;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.storage.SingleItemInventory;
-import mmb.engine.item.ItemEntry;
 import mmb.engine.rotate.ChirotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
@@ -21,8 +18,8 @@ import mmb.engine.worlds.MapProxy;
  */
 public class DualPipe extends AbstractBasePipe {
 
-	@NN private final Side sideA, sideB;
-	@NN protected final Pusher invwA, invwB, invwC, invwD;
+	private final Side sideA, sideB;
+	protected final Pusher invwA, invwB, invwC, invwD;
 	/**
 	 * 
 	 * @param sideA side bound to uppper interface

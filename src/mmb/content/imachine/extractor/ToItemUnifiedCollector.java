@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.imachine;
+package mmb.content.imachine.extractor;
 
 import mmb.beans.Resizable;
 import mmb.cgui.DestroyTab;

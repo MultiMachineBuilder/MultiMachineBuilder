@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.imachine;
+package mmb.content.imachine.extractor;
 
 import java.util.Collection;
 import java.util.Iterator;
