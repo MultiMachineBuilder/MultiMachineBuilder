@@ -14,8 +14,8 @@ import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.RecipeView;
 
 /**
+ * An arbitrary recipe (crafting, single item, multi item, alcohol info etc...)
  * @author oskar
- * Represents a recipe
  * @param <T> the type of recipe
  */
 public interface Recipe<@NN T extends Recipe<T>>{
@@ -98,10 +98,20 @@ public interface Recipe<@NN T extends Recipe<T>>{
 		return rv;
 	}
 	
+	/**
+	 * Gets the output of potentially nullable recipe
+	 * @param recipe recipe to get output from
+	 * @return output of the recipe, or null if not found
+	 */
 	@NN public static RecipeOutput out(@Nil Recipe<?> recipe) {
 		if(recipe == null) return RecipeOutput.NONE;
 		return recipe.output();
 	}
+	/**
+	 * Gets the input of potentially nullable recipe
+	 * @param recipe recipe to get input from
+	 * @return input of the recipe, or null if not found
+	 */
 	@NN public static RecipeOutput in(@Nil Recipe<?> recipe) {
 		if(recipe == null) return RecipeOutput.NONE;
 		return recipe.inputs();

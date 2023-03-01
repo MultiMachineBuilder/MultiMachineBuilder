@@ -12,13 +12,12 @@ import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 
 /**
- *
+ * A set of crafting transactions
  * @author oskar
- *
  */
 public class Craftings {
 	private Craftings() {}
-	public static final Debugger debug = new Debugger("CRAFTING PROCESSOR");
+	private static final Debugger debug = new Debugger("CRAFTING PROCESSOR");
 	
 	/**
 	 * Performs a crafting transaction
@@ -70,10 +69,26 @@ public class Craftings {
 	public static int transact(RecipeOutput inItems, Inventory reader, RecipeOutput outItems, Inventory writer, int amount) {
 		return transact(inItems, reader.createReader(), outItems, writer.createWriter(), amount);
 }
-	
+	/**
+	 * Performs a crafting transaction
+	 * @param in input item stack
+	 * @param out a set of output items
+	 * @param from source inventory
+	 * @param to destination inventory
+	 * @return is the transaction successfull?
+	 */
 	public static boolean transact(SingleItem in, RecipeOutput out, Inventory from, Inventory to) {
 		return transact(in.item(), in.amount(), out, from, to);
 	}
+	/**
+	 * Performs a crafting transaction
+	 * @param entry input item
+	 * @param inAmount number of input items
+	 * @param out a set of output items
+	 * @param from source inventory
+	 * @param to destination inventory
+	 * @return is the transaction successfull?
+	 */
 	public static boolean transact(ItemEntry entry, int inAmount, RecipeOutput out, Inventory from, Inventory to) {
 		Objects.requireNonNull(from, "from is null");
 		if(from.get(entry).amount() < inAmount) return false;

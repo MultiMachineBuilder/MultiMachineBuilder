@@ -13,7 +13,7 @@ import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 
 /**
- * An item stack or item entry
+ * An item stack or an item entry
  * @author oskar
  */
 public interface SingleItem extends RecipeOutput {
@@ -22,8 +22,6 @@ public interface SingleItem extends RecipeOutput {
 	default void produceResults(InventoryWriter tgt, int amount) {
 		tgt.insert(item(), amount*amount());
 	}
-	
-
 	
 	@Override
 	default void represent(PicoWriter out) {

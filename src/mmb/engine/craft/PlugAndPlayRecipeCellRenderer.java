@@ -8,21 +8,27 @@ import java.awt.Component;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.menu.world.craft.RecipeView;
 
 /**
- * @author oskar
  * An implementation of cell renderer using a recipe view
+ * @author oskar
+ * @param <Tr> recipe type
+ * @param <Tv> view type
  */
-public class PlugAndPlayRecipeCellRenderer<Tr, Tv extends RecipeView<Tr>> implements ListCellRenderer<Tr> {
-
-	private final Tv view;
-	
+public class PlugAndPlayRecipeCellRenderer<@NN Tr, @NN Tv extends RecipeView<Tr>> implements ListCellRenderer<@NN Tr> {
+	@NN private final Tv view;
+	/**
+	 * Creates a recipe renderer
+	 * @param view recipe view
+	 */
 	public PlugAndPlayRecipeCellRenderer(Tv view) {
 		this.view = view;
 	}
 	@Override
-	public Component getListCellRendererComponent(JList<? extends Tr> list, Tr value, int index, boolean isSelected,
+	public Component getListCellRendererComponent(@Nil JList<? extends Tr> list, Tr value, int index, boolean isSelected,
 			boolean cellHasFocus) {
 		view.set(value);
 		return view;

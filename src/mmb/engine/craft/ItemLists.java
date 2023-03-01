@@ -29,8 +29,8 @@ import mmb.engine.json.JsonTool;
 import monniasza.collects.Collects;
 
 /**
+ * A set of utilites for loading, saving and processing item lists
  * @author oskar
- *
  */
 public class ItemLists {
 	private ItemLists() {}
@@ -85,7 +85,6 @@ public class ItemLists {
 		result.addAll(nodes); //write nodes from the queue to the result
 		return result;
 	}
-	
 	/**
 	 * @return a stream collector to an item list
 	 */

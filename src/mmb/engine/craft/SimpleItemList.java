@@ -19,10 +19,11 @@ import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 
 /**
+ * An arbitrary, multi-item item list
  * @author oskar
- * A mutable implementation of item list
  */
 public final class SimpleItemList implements RecipeOutput {
+	/** Item list with no items */
 	@NN public static final SimpleItemList EMPTY = new SimpleItemList();
 	
 	/**

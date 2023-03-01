@@ -7,28 +7,24 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimaps;
-import com.google.common.collect.SetMultimap;
 import com.google.common.collect.Sets;
 
 import mmb.NN;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.item.ItemEntry;
 import monniasza.collects.indexar.Database;
-import monniasza.collects.indexar.Index;
 import monniasza.collects.indexar.ManyToManyIndex;
 import monniasza.collects.indexar.OneToManyIndex;
 
 /**
+ * An utility class that keeps track of all known recipes, and allows to search them
  * @author oskar
- * An utility class that keeps track of all known recipes.
  */
 public class GlobalRecipeRegistrar {
 	private GlobalRecipeRegistrar() {}
 	
-	/** A full set of recipe groups */
 	private static final Set<RecipeGroup<?>> rgroups0 = new HashSet<>();
+	/** A full set of recipe groups */
 	public static final Set<RecipeGroup<?>> rgroups = Collections.unmodifiableSet(rgroups0);
 	/**
 	 * Adds a recipe. Should be used by recipe groups

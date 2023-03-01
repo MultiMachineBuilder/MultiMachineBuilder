@@ -14,10 +14,9 @@ import mmb.menu.world.craft.RecipeView;
 import monniasza.collects.Identifiable;
 
 /**
- * Stores recipes.
+ * Stores recipes of a single type (different ones don't mix)
  * @author oskar
  * @param <T> type of recipes
- * 
  */
 public interface RecipeGroup<@NN T extends Recipe<?>> extends Identifiable<String>, Titled{
 	/**@return a set with recipes*/

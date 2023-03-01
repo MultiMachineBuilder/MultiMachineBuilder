@@ -17,7 +17,6 @@ public interface Refreshable{
 	/** Refreshes the progress bar 
 	 * @param progress processing progress , where 0 is beginning and 1 is end
 	 * @param recipe item which is currently smelted
-	 * @param max energy required to complete the recipe
 	 */
 	public void refreshProgress(double progress, @Nil Recipe<?> recipe);
 }
