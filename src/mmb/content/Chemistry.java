@@ -14,8 +14,8 @@ import mmb.engine.java2d.ColorMapper;
 import mmb.engine.texture.Textures;
 
 /**
+ * Chemical elements
  * @author oskar
- *
  */
 public class Chemistry {
 	private Chemistry() {}

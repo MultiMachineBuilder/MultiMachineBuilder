@@ -4,7 +4,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import mmb.content.rawmats.Materials;
 import mmb.engine.MMBUtils;
 import mmb.engine.debug.Debugger;
 import mmb.engine.settings.GlobalSettings;
@@ -67,6 +66,10 @@ public class Main extends JFrame {
 		else System.exit(1);
 	}
 	@Nil private static Consumer<Throwable> errorHook;
+	/**
+	 * @discouraged DO NOT USE THIS METHOD
+	 * @param eh error hook
+	 */
 	public static void errorhook(Consumer<Throwable> eh) {
 		if(running && errorHook != null) throw new IllegalStateException("Debugging only");
 		errorHook = eh;
@@ -75,10 +78,18 @@ public class Main extends JFrame {
 	//Labels
 	private JLabel st1 = new JLabel("State 1");
 	private JLabel st2 = new JLabel("State 2");
+	/**
+	 * Sets the primary stste
+	 * @param str the state string
+	 */
 	public static void state1(String str) {
 		loader.st1.setText(str);
 		debug.printl("State: "+str);
 	}
+	/**
+	 * Sets the secondary state
+	 * @param str the state string
+	 */
 	public static void state2(String str) {
 		loader.st2.setText(str);
 	}
@@ -133,17 +144,11 @@ public class Main extends JFrame {
 					//localized welcome
 					debug.printl(GlobalSettings.$res("hello"));
 					
-					//FIXME the steel cluster is replaced with alu ingot on insert
-					debug.printl("Steel cluster ID: "+Materials.steel.cluster.id());
-					debug.printl("Steel cluster HC: "+Materials.steel.cluster.hashCode());
-					debug.printl("Alu ingot ID: "+Materials.alu.base.id());
-					debug.printl("Alu ingot HC: "+Materials.alu.base.hashCode());
-					
 					//create main menu
 					MainMenu.create();
 					loader.setVisible(false); //you can't see me!
 					loader.dispose(); //Destroy the JFrame object
-				}catch(Throwable e) {
+				}catch(Throwable e) { //NOSONAR log the game crash
 					debug.printerrl("FATAL ERROR WHILE LOADING");
 					Main.crash(e);
 				}
@@ -153,8 +158,13 @@ public class Main extends JFrame {
 		}
 	}
 	
+	/**
+	 * Called when an exception is left uncaught in any thread
+	 * @param thread thread, where exception was thrown
+	 * @param ex the exception itself
+	 */
 	public static void uncaughtException(Thread thread, Throwable ex) {
-		Debugger debug = new Debugger(thread.getName());
-		debug.pstm(ex, "A thread has thrown an exception");
+		Debugger debug1 = new Debugger(thread.getName());
+		debug1.pstm(ex, "A thread has thrown an exception");
 	}
 }

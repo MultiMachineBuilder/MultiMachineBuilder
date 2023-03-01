@@ -33,13 +33,13 @@ implements SimpleRecipeGroup<CatSingleRecipeGroup.CatalyzedSimpleRecipe>{
 	 * @author oskar
 	 * A recipe with single input and a catlayst
 	 */
-	public class CatalyzedSimpleRecipe extends BaseElectricRecipe<CatalyzedSimpleRecipe> implements Identifiable<Tuple2<ItemEntry, ItemEntry>>, SimpleRecipe<@NN CatalyzedSimpleRecipe>{
+	public class CatalyzedSimpleRecipe extends BaseElectricRecipe<@NN CatalyzedSimpleRecipe> implements Identifiable<Tuple2<@NN ItemEntry, ItemEntry>>, SimpleRecipe<@NN CatalyzedSimpleRecipe>{
 		/** The input item */
 		@NN public final ItemEntry input;
 		/** Required catalyst */
 		@Nil public final ItemEntry catalyst;
 		/** Item tuple */
-		@NN public final Tuple2<ItemEntry, ItemEntry> tuple;
+		@NN public final Tuple2<@NN ItemEntry, ItemEntry> tuple;
 		
 		/**
 		 * Creates a single catalyzed recipe
@@ -57,7 +57,7 @@ implements SimpleRecipeGroup<CatSingleRecipeGroup.CatalyzedSimpleRecipe>{
 			this.tuple = new Tuple2<>(input, catalyst);
 		}
 		@Override
-		public Tuple2<ItemEntry, ItemEntry> id() {
+		public @NN Tuple2<@NN ItemEntry, ItemEntry> id() {
 			return tuple;
 		}
 		@Override

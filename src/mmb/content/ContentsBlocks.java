@@ -7,7 +7,6 @@ import java.awt.image.BufferedImage;
 
 import mmb.DeprecatedExtra;
 import mmb.NN;
-import mmb.content.agro.Agro;
 import mmb.content.electric.ElectricMachineGroup;
 import mmb.content.electric.InfiniteGenerator;
 import mmb.content.electric.VoltageTier;
@@ -642,10 +641,10 @@ public class ContentsBlocks {
 	@NN private static ElectricMachineGroup machinesSimple(String texture, SimpleRecipeGroup<?> group, String id) {
 		return machinesSimple(texture, group, id, 1);
 	}
-	@NN private static ElectricMachineGroup machinesSimpleCat(String texture, SimpleRecipeGroup<?> group, String id) {
+	@NN private static ElectricMachineGroup machinesSimpleCat(String texture, SimpleRecipeGroup<@NN ?> group, String id) {
 		return machinesSimpleCat(texture, group, id, 1);
 	}
-	@NN private static ElectricMachineGroup machinesSimpleCat(String texture, SimpleRecipeGroup<?> group, String id, double d) {
+	@NN private static ElectricMachineGroup machinesSimpleCat(String texture, SimpleRecipeGroup<@NN ?> group, String id, double d) {
 		return new ElectricMachineGroup(Textures.get(texture), type -> new ProcessorSimpleCatalyzedBlock<>(type, group), id, d);
 	}
 	@NN private static ElectricMachineGroup machinesComplex(String texture, ComplexRecipeGroup group, String id) {

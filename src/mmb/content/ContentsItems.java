@@ -154,9 +154,13 @@ public class ContentsItems {
 	}
 	
 	//Machine parts
+	/** A machine part */
 	@NN public static final VoltagedItemGroup motor = new VoltagedItemGroup("parts/motor.png", "motor");
+	/** A machine part */
 	@NN public static final VoltagedItemGroup pump = new VoltagedItemGroup("parts/pump.png", "pump");
+	/** A machine part */
 	@NN public static final VoltagedItemGroup conveyor = new VoltagedItemGroup("parts/conveyor.png", "conveyor");
+	/** A machine part */
 	@NN public static final VoltagedItemGroup robot = new VoltagedItemGroup("parts/robot.png", "robot");
 	@NN public static final Item frame1 = new Item()
 		.title("#ind-frame1")
