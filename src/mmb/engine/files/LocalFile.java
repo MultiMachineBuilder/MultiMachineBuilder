@@ -9,20 +9,30 @@ import java.net.URL;
 import java.nio.file.Path;
 
 /**
+ * A local advanced file
  * @author oskar
- *
  */
 public class LocalFile implements AdvancedFile {
+	/** The file reference */
 	public final File file;
 	/**
-	 * 
+	 * Creates a file object
+	 * @param file file to use
 	 */
 	public LocalFile(File file) {
 		this.file = file;
 	}
+	/**
+	 * Creates a file object
+	 * @param path path to the file
+	 */
 	public LocalFile(Path path) {
 		file = path.toFile();
 	}
+	/**
+	 * Creates a file object
+	 * @param path path to the file
+	 */
 	public LocalFile(String path) {
 		file = new File(path);
 	}

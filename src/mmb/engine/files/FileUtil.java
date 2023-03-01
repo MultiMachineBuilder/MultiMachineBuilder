@@ -6,12 +6,14 @@ package mmb.engine.files;
 import java.io.File;
 import java.net.MalformedURLException;
 
+import mmb.NN;
+
 /**
  * @author oskar
  *
  */
 public class FileUtil {
-	public static AdvancedFile getFile(String path) throws MalformedURLException {
+	@NN public static AdvancedFile getFile(String path) throws MalformedURLException {
 		if(path.contains("://")) return new OnlineFile(path);
 		return new LocalFile(path);
 	}

@@ -14,8 +14,8 @@ import org.apache.commons.io.IOUtils;
 import mmb.NN;
 
 /**
+ * An online or local file
  * @author oskar
- *
  */
 public interface AdvancedFile {
 	/**
@@ -140,11 +140,21 @@ public interface AdvancedFile {
 	 */
 	boolean exists();
 	
+	/**
+	 * Copies this file somewhere else
+	 * @param file target file
+	 * @throws IOException when an I/O error occurs
+	 */
 	default void copyTo(AdvancedFile file) throws IOException {
 		try(OutputStream os = file.getOutputStream()){
 			copyTo(os);
 		}
 	}
+	/**
+	 * Copies this file to an output stream
+	 * @param stream target stream
+	 * @throws IOException when an I/O error occurs
+	 */
 	default void copyTo(OutputStream stream) throws IOException {
 		try(InputStream is = getInputStream()){
 			IOUtils.copy(is, stream);
@@ -154,6 +164,11 @@ public interface AdvancedFile {
 		}
 	}
 	
+	/**
+	 * Creates the file
+	 * @throws IOException if file is online
+	 * @throws FileNotFoundException when file fails to create
+	 */
 	public void create() throws IOException;
 
 	/**

@@ -36,10 +36,9 @@ public class Downloadable {
 	
 	/**
 	 * Downloads this file to a given directory
-	 * @param directory
+	 * @param directory directory to place the downloaded file in
 	 */
 	public void download(AdvancedFile directory) {
-		@SuppressWarnings("null")
 		@NN String fileName = download.substring(download.lastIndexOf('/')+1, download.length()-1);
 		String tgt = "mods/"+fileName;
 		try {
@@ -47,7 +46,7 @@ public class Downloadable {
 			AdvancedFile source = FileUtil.getFile(fileName);
 			
 			debug.printl("Opening "+tgt);
-			AdvancedFile target = FileUtil.getFile(tgt);
+			@NN AdvancedFile target = FileUtil.getFile(tgt);
 			
 			debug.printl("Downloading "+download);
 			source.copyTo(target);

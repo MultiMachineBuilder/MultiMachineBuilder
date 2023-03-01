@@ -15,8 +15,8 @@ import java.net.URL;
 import mmb.engine.debug.Debugger;
 
 /**
+ * An online advanced file
  * @author oskar
- *
  */
 public class OnlineFile implements AdvancedFile {
 	private File download = null;
@@ -54,15 +54,9 @@ public class OnlineFile implements AdvancedFile {
 	/* (non-Javadoc)
 	 * @see mmb.DATA.file.AdvancedFile#asFile()
 	 */
-	@SuppressWarnings("null")
 	@Override
 	public File asFile() throws IOException {
-		if(download == null) {
-			try(InputStream is = getInputStream()){
-				download = StreamUtil.stream2file(is);
-			}
-		}
-		return download;
+		throw new IOException("Not local");
 	}
 
 	/* (non-Javadoc)
