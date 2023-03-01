@@ -10,8 +10,8 @@ import mmb.engine.rotate.ChirotatedImageGroup;
 import mmb.engine.rotate.Side;
 
 /**
+ * Combines tow player pipes into one
  * @author oskar
- *
  */
 public class TwinPlayerPipe extends AbstractPlayerPipe {
 	//Constructors

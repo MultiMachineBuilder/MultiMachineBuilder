@@ -6,16 +6,20 @@ package mmb.content.ppipe;
 import mmb.NN;
 
 /**
+ * Defines which way player goes in aplyer pipe
  * @author oskar
  *
  */
 public enum Direction {
+	/** Forwards */
 	FWD(0, 1) {
 		@Override
 		public Direction reverse() {
 			return BWD;
 		}
-	},BWD(1, -1) {
+	}
+	/** Backwards*/
+	,BWD(1, -1) {
 		@Override
 		public Direction reverse() {
 			return FWD;

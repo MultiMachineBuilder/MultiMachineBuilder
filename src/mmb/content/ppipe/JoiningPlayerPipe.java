@@ -10,6 +10,7 @@ import mmb.engine.rotate.ChirotatedImageGroup;
 import mmb.engine.rotate.Side;
 
 /**
+ * Combines two player pipes into one
  * @author oskar
  */
 public class JoiningPlayerPipe extends AbstractPlayerPipe {

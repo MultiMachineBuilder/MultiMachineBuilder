@@ -5,7 +5,6 @@ package mmb.content.ppipe;
 
 import mmb.NN;
 import mmb.engine.block.BlockEntityChirotable;
-import mmb.engine.debug.Debugger;
 import mmb.engine.rotate.Side;
 import mmb.engine.rotate.Sided;
 import mmb.engine.worlds.world.World;

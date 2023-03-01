@@ -10,8 +10,8 @@ import mmb.engine.rotate.ChirotatedImageGroup;
 import mmb.engine.rotate.Side;
 
 /**
+ * Carries players to some location
  * @author oskar
- *
  */
 public class PlayerPipe extends AbstractPlayerPipe {
 	//Constructors

@@ -6,8 +6,9 @@ package mmb.content.ppipe;
 import org.joml.Vector2d;
 
 /**
+ * A straight line path, defines the animation of a player
  * @author oskar
- * A straight line path
+ * 
  */
 public class Path {
 	public double beginX;

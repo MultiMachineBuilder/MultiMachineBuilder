@@ -6,8 +6,8 @@ package mmb.content.ppipe;
 import mmb.NN;
 
 /**
+ * Defines connections of a plyer pipe
  * @author oskar
- *
  */
 public abstract class PipeTunnel {
 	/**

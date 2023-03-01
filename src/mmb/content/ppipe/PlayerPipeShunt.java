@@ -15,6 +15,7 @@ import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.WorldUtils;
 
 /**
+ * Diverts the player to a player pipe
  * @author oskar
  *
  */

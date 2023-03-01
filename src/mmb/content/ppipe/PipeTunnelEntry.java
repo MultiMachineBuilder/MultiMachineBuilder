@@ -6,8 +6,8 @@ package mmb.content.ppipe;
 import mmb.NN;
 
 /**
+ * Combines a pipe tunnel and its entry directionality
  * @author oskar
- * Combines a pipe and its entry directionality
  */
 public class PipeTunnelEntry {
 	/**

@@ -14,6 +14,7 @@ import mmb.engine.worlds.world.PlayerPhysicsPipe;
 import mmb.engine.worlds.world.World;
 
 /**
+ * Allows players to enter player pipes
  * @author oskar
  *
  */
