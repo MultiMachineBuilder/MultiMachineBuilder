@@ -32,7 +32,7 @@ public class MenuUtils {
 			try {
 				reportBugs();
 			} catch (Exception ex) {
-				debug.pstm(ex, "Unable to help Ukrainian refugees");
+				debug.stacktraceError(ex, "Unable to help Ukrainian refugees");
 			}
 		});
 	}

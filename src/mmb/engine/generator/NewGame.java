@@ -72,7 +72,7 @@ public class NewGame extends MMBFrame {
 			w = -2;
 			h = 0;
 			csize = 0;
-			debug.pstm(e2,
+			debug.stacktraceError(e2,
 					"Incorrect dimensions: "+txtWidth.getText()+
 					","+txtHeight.getText()+
 					", chunk size: "+txtcsize.getText()+
@@ -235,7 +235,7 @@ public class NewGame extends MMBFrame {
 			os.write(bin);
 			os.flush();
 		}catch (Exception e1) {
-			debug.pstm(e1, "Failed to write the new world.");
+			debug.stacktraceError(e1, "Failed to write the new world.");
 			dispose();
 			return;
 		}

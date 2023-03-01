@@ -38,7 +38,6 @@ public class Debugger {
 		}
 		
 	}
-	
 	private static PrintStream err() {
 		PrintStream out = System.err;
 		if(out == null) 
@@ -51,7 +50,7 @@ public class Debugger {
 			out = new PrintStream(logstream());
 		return out;
 	}
-	
+	/** Initializes debugging utils */
 	public static void init() {
 		if(initialized) return;
 		if(Main.isRunning()){ //suppress init if the game is not run
@@ -65,15 +64,33 @@ public class Debugger {
 			initialized = true;
 		}
 	}
-	
-	public void pstm(Throwable t, @Nil String s) {
-		printerrl(s);
-		pst(t);
+	/** @return is initialized? */
+	public static boolean isInitialized() {
+		return initialized;
 	}
-	public void pst(Throwable t) {
+	
+	//Logging methods
+	/**
+	 * Prints the stack trace and the error message
+	 * @param t exception
+	 * @param s error message
+	 */
+	public void stacktraceError(Throwable t, @Nil String s) {
+		printerrl(s);
+		stacktrace(t);
+	}
+	/**
+	 * Prints the stack trace
+	 * @param t exception
+	 */
+	public void stacktrace(Throwable t) {
 		printName();
 		t.printStackTrace(System.err);
 	}
+	/**
+	 * Prints a message without a newline
+	 * @param s message
+	 */
 	public void print(@Nil String s) {
 		printName();
 		out().print(s);
@@ -83,10 +100,33 @@ public class Debugger {
 		out().print(id);
 		out().print(") ");
 	}
+	/**
+	 * Prints a message with a newline
+	 * @param s message
+	 */
 	public void printl(@Nil String s) {
 		print(s);
 		out().print('\n');
 	}
+	/**
+	 * Prints an error message with a newline
+	 * @param s message
+	 */
+	public void printerr(@Nil String s) {
+		err().print('(');
+		err().print(id);
+		err().print(") ");
+		err().print(s);
+	}
+	/**
+	 * Prints an error message without a newline
+	 * @param s message
+	 */
+	public void printerrl(@Nil String s) {
+		printerr(s);
+		err().print('\n');
+	}	
+	
 	//Instance code
 	/** The debugger ID */
 	@NN public String id = "";
@@ -107,22 +147,5 @@ public class Debugger {
 		out().print(id);
 		out().print(')');
 		out().print(ch);
-	}
-
-	public void printerr(@Nil String s) {
-		err().print('(');
-		err().print(id);
-		err().print(") ");
-		err().print(s);
-	}
-	public void printerrl(@Nil String s) {
-		printerr(s);
-		err().print('\n');
-	}
-	/**
-	 * @return is initialized();
-	 */
-	public static boolean isInitialized() {
-		return initialized;
 	}
 }

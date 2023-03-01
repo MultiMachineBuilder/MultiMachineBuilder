@@ -55,7 +55,7 @@ public class Downloadable {
 			debug.print("Couldn't download ");
 			debug.print(download);
 			debug.print(" to ");
-			debug.pstm(e, tgt);
+			debug.stacktraceError(e, tgt);
 		}
 		
 	}

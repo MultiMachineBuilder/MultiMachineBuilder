@@ -62,7 +62,7 @@ public class GUIStacker extends JPanel {
 			try {
 				((AutoCloseable) last).close();
 			} catch (Exception e) {
-				debug.pstm(e, "Failed to properly close the component");
+				debug.stacktraceError(e, "Failed to properly close the component");
 			}
 		}
 		last = stack.pollFirst();

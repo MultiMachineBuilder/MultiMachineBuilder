@@ -58,13 +58,13 @@ public class Settings {
 				doTryLoad = false;
 			}
 		} catch (IOException e) {
-			debug.pstm(e, "Failed to create settings file");
+			debug.stacktraceError(e, "Failed to create settings file");
 			doTryLoad = false;
 		}
 		if(doTryLoad) try(InputStream in = new FileInputStream(settings)){
 			props.load(in);
 		} catch (Exception e) {
-			debug.pstm(e, "Failed to read settings file");
+			debug.stacktraceError(e, "Failed to read settings file");
 		}
 		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 			saveSettings(settings);
@@ -96,7 +96,7 @@ public class Settings {
 			out.flush();
 			debug.printl("Saved settings file");
 		} catch (Exception e) {
-			debug.pstm(e, "Failed to save settings");
+			debug.stacktraceError(e, "Failed to save settings");
 		}
 	}
 	

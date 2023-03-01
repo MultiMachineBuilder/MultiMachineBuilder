@@ -58,7 +58,7 @@ public class Main extends JFrame {
 	 * @throws SecurityException if run by a mod
 	 */
 	public static void crash(Throwable e) {
-		debug.pstm(e, "GAME HAS CRASHED");
+		debug.stacktraceError(e, "GAME HAS CRASHED");
 		if(errorHook != null) {
 			 errorHook.accept(e);
 			 MMBUtils.shoot(e);
@@ -165,6 +165,6 @@ public class Main extends JFrame {
 	 */
 	public static void uncaughtException(Thread thread, Throwable ex) {
 		Debugger debug1 = new Debugger(thread.getName());
-		debug1.pstm(ex, "A thread has thrown an exception");
+		debug1.stacktraceError(ex, "A thread has thrown an exception");
 	}
 }

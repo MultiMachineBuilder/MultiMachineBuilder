@@ -91,7 +91,7 @@ public class OnlineFile implements AdvancedFile {
 			uri = url.toURI();
 			return new OnlineFile(uri.getPath().endsWith("/") ? uri.resolve("..") : uri.resolve("."));
 		} catch (URISyntaxException|MalformedURLException e) {
-			debug.pstm(e, "Couldn't retrieve parent");
+			debug.stacktraceError(e, "Couldn't retrieve parent");
 			return null;
 		}
 	}

@@ -104,17 +104,17 @@ public class ModLoader {
 			}
 			data = IOUtils.toByteArray(in); //take in byte array and load data
 		}catch(IllegalArgumentException e) {
-			debug.pstm(e, "Make sure that \"" + name + "\" is not mistyped.");
+			debug.stacktraceError(e, "Make sure that \"" + name + "\" is not mistyped.");
 			modfile.state = ModfileState.NOEXIST;
 		}catch(IOException e) {
-			if(modfile.isOnline()) debug.pstm(e, "Failed to download the file " + file.name());
-			else debug.pstm(e, "Failed to read the file " + file.name());
+			if(modfile.isOnline()) debug.stacktraceError(e, "Failed to download the file " + file.name());
+			else debug.stacktraceError(e, "Failed to read the file " + file.name());
 			modfile.state = ModfileState.NOEXIST;
 		}catch(Exception e) {
-			debug.pstm(e, "Couldn't read " + name + " for unknown reasons");
+			debug.stacktraceError(e, "Couldn't read " + name + " for unknown reasons");
 			modfile.state = ModfileState.NOEXIST;
 		}catch(OutOfMemoryError e) {
-			debug.pstm(e, "The mod is too big to load");
+			debug.stacktraceError(e, "The mod is too big to load");
 			modfile.state = ModfileState.BLOATED;
 		}
 		
@@ -131,17 +131,17 @@ public class ModLoader {
 		try{
 			bcl.loadJarDataInBytes(data);
 		}catch (ClassFormatError e) {
-			debug.pstm(e, "Invalid class file");
+			debug.stacktraceError(e, "Invalid class file");
 			modfile.state = ModfileState.DEAD;
 		} catch(NoClassDefFoundError e) {
-			debug.pstm(e, "Missing dependencies");
+			debug.stacktraceError(e, "Missing dependencies");
 			modfile.state = ModfileState.DEAD;
 		} catch (IOException e) {
 			debug.printl("Couldn't open zip or jar file " + file.name());
-			debug.pst(e);
+			debug.stacktrace(e);
 			modfile.state = ModfileState.BROKEN;
 		} catch (Exception e) {
-			debug.pstm(e, "Couldn't process classfile(s). Please check if class file exists and works.");
+			debug.stacktraceError(e, "Couldn't process classfile(s). Please check if class file exists and works.");
 			modfile.state = ModfileState.DEAD;
 		}
 		
@@ -160,7 +160,7 @@ public class ModLoader {
 			}
 		}catch(Exception e) {
 			debug.printl("Couldn't open zip or jar file " + file.name());
-			debug.pst(e);
+			debug.stacktrace(e);
 			modfile.state = ModfileState.BROKEN;
 			return;
 		}

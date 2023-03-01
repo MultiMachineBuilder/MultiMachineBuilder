@@ -66,7 +66,7 @@ public class PanelMods extends JPanel {
 		btnNewButton.addActionListener(e -> {
 			try {Desktop.getDesktop().open(new File("mods/"));}
 			catch (IOException e1) {
-				debug.pstm(e1, "Couldn't find mods/ directory");
+				debug.stacktraceError(e1, "Couldn't find mods/ directory");
 			}
 		});
 		subPanelMods.add(btnNewButton, "cell 1 0");

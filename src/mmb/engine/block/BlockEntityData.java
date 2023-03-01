@@ -22,7 +22,7 @@ public abstract class BlockEntityData extends BlockEntity{
 		try {
 			save0(data);
 		} catch (Exception e) {
-			debug.pstm(e, "Failed to write JSON data");
+			debug.stacktraceError(e, "Failed to write JSON data");
 		}
 		return data;
 	}

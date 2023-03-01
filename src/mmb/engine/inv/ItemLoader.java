@@ -82,7 +82,7 @@ public class ItemLoader {
 							ent = type.create();
 							amt = a.get(1).asInt(-1);
 						}catch(Exception e) {
-							debug.pstm(e, "Failed to create "+id+" without data");
+							debug.stacktraceError(e, "Failed to create "+id+" without data");
 							continue loop;
 						}
 						break;
@@ -92,7 +92,7 @@ public class ItemLoader {
 							ent = type.loadItem(idata);
 							amt = a.get(2).asInt(-1);
 						}catch(Exception e) {
-							debug.pstm(e, "Failed to create "+id+" with data");
+							debug.stacktraceError(e, "Failed to create "+id+" with data");
 							continue loop;
 						}
 						break;

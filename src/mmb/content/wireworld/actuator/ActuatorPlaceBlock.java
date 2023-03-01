@@ -61,7 +61,7 @@ public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockAct
 		try {
 			proxy.place(block0, p);
 		}catch(Exception e) {
-			debug.pstm(e, "Failed to place a block");
+			debug.stacktraceError(e, "Failed to place a block");
 		}
 	}
 	@Override

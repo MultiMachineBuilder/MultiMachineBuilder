@@ -34,7 +34,7 @@ public class WorldProxy implements MapProxy{
 			try {
 				r.run();
 			}catch(Exception e) {
-				that.debug.pstm(e, "Failed to run the requested action");
+				that.debug.stacktraceError(e, "Failed to run the requested action");
 			}
 		}
 		visuals.apply(that);

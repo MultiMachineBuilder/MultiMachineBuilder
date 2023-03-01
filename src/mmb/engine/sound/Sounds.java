@@ -104,7 +104,7 @@ public class Sounds {
 				debug.printl("Unsupported format: "+ext);
 			}
 		}catch (IOException e) {
-			debug.pstm(e, "Failed to load "+ ext.toUpperCase() +" file "+name);
+			debug.stacktraceError(e, "Failed to load "+ ext.toUpperCase() +" file "+name);
 			throw e;
 		}catch (UnsupportedAudioFileException e) {
 			throw new IOException(e);

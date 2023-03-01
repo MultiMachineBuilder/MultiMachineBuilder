@@ -54,7 +54,7 @@ public class Textures {
 			}
 			return load(name, image);
 		} catch (IOException e) {
-			debug.pstm(e, "Failed to load "+name);
+			debug.stacktraceError(e, "Failed to load "+name);
 			throw e;
 		}
 	}

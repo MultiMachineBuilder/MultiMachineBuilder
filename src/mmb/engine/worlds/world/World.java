@@ -225,7 +225,7 @@ public class World implements Identifiable<String>, Indexable{
 				Machine machine = MachineModel.forID(type).initialize(x, y, machineData);
 				if(machine != null) world.placeMachine(machine);
 			} catch(Exception e) {
-				world.debug.pstm(e, "Failed to place a machine of type "+type+" at ["+x+","+y+"]");
+				world.debug.stacktraceError(e, "Failed to place a machine of type "+type+" at ["+x+","+y+"]");
 			}
 		}
 		
@@ -327,7 +327,7 @@ public class World implements Identifiable<String>, Indexable{
 				try {
 					m.onUpdate(proxy);
 				}catch(Exception e) {
-					debug.pstm(e, "Failed to run a machine");
+					debug.stacktraceError(e, "Failed to run a machine");
 				}
 			}
 			//Run every block entity
@@ -343,7 +343,7 @@ public class World implements Identifiable<String>, Indexable{
 							"] took exceptionally long to run");
 					}
 				}catch(Exception|StackOverflowError e){
-					debug.pstm(e, "Failed to run block entity at ["
+					debug.stacktraceError(e, "Failed to run block entity at ["
 						+ent.posX()+","+ent.posY()+"]");
 				}
 			}
@@ -354,7 +354,7 @@ public class World implements Identifiable<String>, Indexable{
 				dl.cycle();
 			}
 		}catch(Exception e) {
-			debug.pstm(e, "Failed to run the map");
+			debug.stacktraceError(e, "Failed to run the map");
 		}
 		//Run the player
 		player.onTick(this);
@@ -394,7 +394,7 @@ public class World implements Identifiable<String>, Indexable{
 			try {
 				ent.onShutdown(this);
 			} catch (Exception e) {
-				debug.pstm(e, "Failed to shut down block "+ent.type().id()+" at ["+ent.posX()+","+ent.posY()+"]");
+				debug.stacktraceError(e, "Failed to shut down block "+ent.type().id()+" at ["+ent.posX()+","+ent.posY()+"]");
 			}
 		}
 		//Shut down machines
@@ -402,7 +402,7 @@ public class World implements Identifiable<String>, Indexable{
 			try {
 				m.onShutdown();
 			}catch(Exception e) {
-				debug.pstm(e, "Failed to shut down machine "+m.id()+" at ["+m.posX()+","+m.posY()+"]");
+				debug.stacktraceError(e, "Failed to shut down machine "+m.id()+" at ["+m.posX()+","+m.posY()+"]");
 			}
 		}
 		if(timer.getState() == 1) timer.destroy();
@@ -416,7 +416,7 @@ public class World implements Identifiable<String>, Indexable{
 		try {
 			timer.join();
 		} catch (InterruptedException e) {
-			debug.pstm(e, "Interrupted!");
+			debug.stacktraceError(e, "Interrupted!");
 			Thread.currentThread().interrupt();
 		}
 		//while(!underTick) {Thread.yield();}
@@ -491,7 +491,7 @@ public class World implements Identifiable<String>, Indexable{
 				old0.onBreak(this, x, y);
 				_blockents.remove(old0);
 			} catch (Exception e) {
-				debug.pstm(e, "Failed to remove BlockEntity ["+x+","+y+"]");
+				debug.stacktraceError(e, "Failed to remove BlockEntity ["+x+","+y+"]");
 				return null;
 			}
 		}
@@ -502,7 +502,7 @@ public class World implements Identifiable<String>, Indexable{
 				new0.onPlace(this, x, y);
 				_blockents.add(new0);
 			}catch(Exception e) {
-				debug.pstm(e, "Failed to place BlockEntity ["+x+","+y+"]");
+				debug.stacktraceError(e, "Failed to place BlockEntity ["+x+","+y+"]");
 				entries.set(x-startX, y-startY, Blocks.grass);
 				return null;
 			}
@@ -540,7 +540,7 @@ public class World implements Identifiable<String>, Indexable{
 			BlockEntry blockent = type.createBlock();
 			return set(blockent, x, y);
 		}catch(Exception e) {
-			debug.pstm(e, "Failed to place a block at "+x+","+y);
+			debug.stacktraceError(e, "Failed to place a block at "+x+","+y);
 			return null;
 		}
 		
@@ -550,7 +550,7 @@ public class World implements Identifiable<String>, Indexable{
 			BlockEntry blockent = type.createBlock();
 			return set0(blockent, x, y);
 		}catch(Exception e) {
-			debug.pstm(e, "Failed to place a block at "+x+","+y);
+			debug.stacktraceError(e, "Failed to place a block at "+x+","+y);
 			return null;
 		}
 	}
@@ -628,7 +628,7 @@ public class World implements Identifiable<String>, Indexable{
 		try {
 			machine.onRemove();
 		}catch(Exception e) {
-			debug.pstm(e, "Failed to remove "+machine.id()+" at ["+posX+","+posY+"]");
+			debug.stacktraceError(e, "Failed to remove "+machine.id()+" at ["+posX+","+posY+"]");
 			return false;
 		}
 		
@@ -699,7 +699,7 @@ public class World implements Identifiable<String>, Indexable{
 				}
 			}
 		}catch(Exception e) {
-			debug.pstm(e, "Failed to place "+machine.id()+" at ["+posX+","+posY+"]");
+			debug.stacktraceError(e, "Failed to place "+machine.id()+" at ["+posX+","+posY+"]");
 			return null; //null indicates that machine was not placed
 		}
 		debug.printl("Placed machine");

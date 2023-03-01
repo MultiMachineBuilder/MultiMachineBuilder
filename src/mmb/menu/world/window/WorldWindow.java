@@ -110,7 +110,7 @@ public class WorldWindow extends MMBFrame{
 			}
 			debug.printl("Saved the world");
 		} catch (Exception e) {
-			debug.pstm(e, "Failed to write the new world.");
+			debug.stacktraceError(e, "Failed to write the new world.");
 		}
 	}
 	
@@ -383,7 +383,7 @@ public class WorldWindow extends MMBFrame{
 		try {
 			component.close(this);
 		} catch (Exception e) {
-			debug.pstm(e, "Failed to shut down the component");
+			debug.stacktraceError(e, "Failed to shut down the component");
 		}
 		pane.remove(component);
 	}

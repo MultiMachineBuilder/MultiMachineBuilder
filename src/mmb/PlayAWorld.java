@@ -51,10 +51,10 @@ public class PlayAWorld {
 			ww.setWorld(s, world);
 			fail = false;
 		}catch(Exception e) {
-			debug.pstm(e, "Failed to load the world");
+			debug.stacktraceError(e, "Failed to load the world");
 			MMBUtils.shoot(e);
 		}catch(OutOfMemoryError e) {
-			debug.pstm(e, "Ran out of memory while loading");
+			debug.stacktraceError(e, "Ran out of memory while loading");
 		}catch(Throwable e) {
 			debug.printerrl("Fatal error while world loading");
 			Main.crash(e);

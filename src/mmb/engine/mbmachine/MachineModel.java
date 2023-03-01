@@ -47,7 +47,7 @@ public class MachineModel extends Item implements Placer {
 			result.onPlace();
 			return result;
 		} catch (Exception e) {
-			debug.pstm(e, errorMessage);
+			debug.stacktraceError(e, errorMessage);
 			return null;
 		}
 	}
@@ -58,7 +58,7 @@ public class MachineModel extends Item implements Placer {
 			result.onStartup();
 			return result;
 		} catch (Exception e) {
-			debug.pstm(e, errorMessage);
+			debug.stacktraceError(e, errorMessage);
 			return null;
 		}
 	}
@@ -70,7 +70,7 @@ public class MachineModel extends Item implements Placer {
 			result.onDataLoaded();
 			return result;
 		} catch (Exception e) {
-			debug.pstm(e, errorMessage);
+			debug.stacktraceError(e, errorMessage);
 			return null;
 		}
 	}
@@ -83,7 +83,7 @@ public class MachineModel extends Item implements Placer {
 			result.onDataLoaded();
 			return result;
 		} catch (Exception e) {
-			debug.pstm(e, errorMessage);
+			debug.stacktraceError(e, errorMessage);
 			return null;
 		}
 	}

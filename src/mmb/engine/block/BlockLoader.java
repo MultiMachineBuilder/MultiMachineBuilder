@@ -67,7 +67,7 @@ public class BlockLoader{
 		try {
 			block.load(on);
 		}catch(Exception e) {
-			debug.pstm(e, "Failed to load a block "+blockName+" at ["+x+","+y+"]");
+			debug.stacktraceError(e, "Failed to load a block "+blockName+" at ["+x+","+y+"]");
 		}
 		return block;
 	}

@@ -54,11 +54,11 @@ public class FuzzWorldLoader {
 			univ.load(node);
 		}catch(Throwable e) {
 			if(e instanceof InterruptedException) {
-				debug.pstm(e, "INTERRUPTED!");
+				debug.stacktraceError(e, "INTERRUPTED!");
 				Thread.currentThread().interrupt();
 			}
 			if(crash != null) {
-				debug.pstm(e, "CRASH!");
+				debug.stacktraceError(e, "CRASH!");
 				MMBUtils.shoot(e);
 			}else {
 				//debug.pstm(e, "Test exception, noncrashing");

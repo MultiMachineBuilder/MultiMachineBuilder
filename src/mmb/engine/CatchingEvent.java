@@ -82,7 +82,7 @@ public class CatchingEvent<T> implements Event<T> {
         	try {
         		listener.accept(t);
         	}catch(Exception e) {
-        		debug.pstm(e, msg);
+        		debug.stacktraceError(e, msg);
         	}
         });
     }

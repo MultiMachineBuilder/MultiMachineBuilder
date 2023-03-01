@@ -121,7 +121,7 @@ class MachineGUI extends GUITab{
 			try {
 				((AutoCloseable) main).close();
 			} catch (Exception e) {
-				debug.pstm(e, "Failed to close machine GUI");
+				debug.stacktraceError(e, "Failed to close machine GUI");
 			}
 		machine.gui = null;
 	}

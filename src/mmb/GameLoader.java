@@ -96,7 +96,7 @@ public final class GameLoader {
 			try(InputStream i = new FileInputStream(f)) {
 				Textures.load(s, i);
 			} catch (Exception e) {
-				debug.pstm(e, "Failed to load a texture "+s);
+				debug.stacktraceError(e, "Failed to load a texture "+s);
 			}
 		});
 		walkDirectory(new File("texpacks/"), (s, f)->{
@@ -108,7 +108,7 @@ public final class GameLoader {
 					Textures.load(entry.getName(), stream);
 				}
 			} catch (Exception e) {
-				debug.pstm(e, "Failed to load a texture pack "+s);
+				debug.stacktraceError(e, "Failed to load a texture pack "+s);
 			}
 		});
 		
@@ -119,7 +119,7 @@ public final class GameLoader {
 			try(InputStream i = new FileInputStream(f)) {
 				Sounds.load(i, s);
 			} catch (Exception e) {
-				debug.pstm(e, "Failed to load a sound "+s);
+				debug.stacktraceError(e, "Failed to load a sound "+s);
 			}
 		});
 		debug.printl("Sounds: "+Sounds.sounds.keySet());
@@ -160,7 +160,7 @@ public final class GameLoader {
 			external.addAll(Arrays.asList(data.split("\n")));
 			external.remove(""); //Remove the empty line, which always appears if user does not have external mods
 		} catch (IOException e1) {
-			debug.pstm(e1, "Unable to load list of external mods");
+			debug.stacktraceError(e1, "Unable to load list of external mods");
 		}
 		
 		//Add missing 'mods' directory
@@ -172,7 +172,7 @@ public final class GameLoader {
 			try {
 				toLoad.add(ff.getAbsolutePath());
 			} catch (Exception e) {
-				debug.pstm(e, "Couldn't load file "+ s);
+				debug.stacktraceError(e, "Couldn't load file "+ s);
 			}
 		});
 		toLoad.addAll(external); //Add any external mods
@@ -185,7 +185,7 @@ public final class GameLoader {
 				ModLoader loader = ModLoader.load(FileUtil.getFile(p));
 				loaders.add(loader);
 			} catch (MalformedURLException e) {
-				debug.pstm(e, "The external mod has incorrect URL: "+p);
+				debug.stacktraceError(e, "The external mod has incorrect URL: "+p);
 			}
 		}
 		
@@ -224,7 +224,7 @@ public final class GameLoader {
 				ModInfo info = new ModInfo(mod);
 				Mods.mods.add(info);
 			} catch (Exception e) {
-				debug.pstm(e, "Failed to load a mod class "+modcls.getTypeName());
+				debug.stacktraceError(e, "Failed to load a mod class "+modcls.getTypeName());
 			}
 		}
 		
@@ -242,7 +242,7 @@ public final class GameLoader {
 				} catch (VirtualMachineError e) {
 					Main.crash(e);
 				} catch (Throwable e) {
-					debug.pstm(e, "Failed to run a mod " + ai.meta.name);
+					debug.stacktraceError(e, "Failed to run a mod " + ai.meta.name);
 					ai.state = ModState.DEAD;
 				}
 			}, Main::crash);
@@ -262,7 +262,7 @@ public final class GameLoader {
 				}catch(VirtualMachineError e){
 					Main.crash(e);
 				}catch(Throwable e){
-					debug.pstm(e, "Failed to run a mod "+ mod.meta.name);
+					debug.stacktraceError(e, "Failed to run a mod "+ mod.meta.name);
 					mod.state = ModState.DEAD;
 				}
 			}, Main::crash);
@@ -282,7 +282,7 @@ public final class GameLoader {
 				}catch(VirtualMachineError e){
 					Main.crash(e);
 				}catch(Throwable e){
-					debug.pstm(e, "Failed to run a mod "+ mod.meta.name);
+					debug.stacktraceError(e, "Failed to run a mod "+ mod.meta.name);
 					mod.state = ModState.DEAD;
 				}
 			}, Main::crash);
@@ -312,7 +312,7 @@ public final class GameLoader {
 					break;
 				}
 			} catch (Exception e) {
-				debug.pstm(e, "Unable to get metadata for " + ai1.meta.name);
+				debug.stacktraceError(e, "Unable to get metadata for " + ai1.meta.name);
 			}
 		}
 		
@@ -355,7 +355,7 @@ public final class GameLoader {
 			}
 			
 		} catch (IOException e) {
-			debug.pstm(e, "THIS MESSAGE INDICATES MALFUNCTION OF FILE PATH SYSTEM OR JAVA. Couldn't get path of the file");
+			debug.stacktraceError(e, "THIS MESSAGE INDICATES MALFUNCTION OF FILE PATH SYSTEM OR JAVA. Couldn't get path of the file");
 		}
 	}
 	

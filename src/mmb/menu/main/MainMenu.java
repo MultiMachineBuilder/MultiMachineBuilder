@@ -114,7 +114,7 @@ public class MainMenu extends MMBFrame {
 			try {
 				Desktop.getDesktop().browse(new URI(helpUA));
 			} catch (Exception ex) {
-				debug.pstm(ex, "Unable to help Ukrainian refugees");
+				debug.stacktraceError(ex, "Unable to help Ukrainian refugees");
 			}
 		});
 		
@@ -127,7 +127,7 @@ public class MainMenu extends MMBFrame {
 			try {
 				Desktop.getDesktop().browse(new URI(refugeesEN)); //An English-language site for Ukrainian refugees
 			} catch (Exception ex) {
-				debug.pstm(ex, "Unable to get help as a refugee");
+				debug.stacktraceError(ex, "Unable to get help as a refugee");
 			}
 		});
 		
@@ -138,7 +138,7 @@ public class MainMenu extends MMBFrame {
 			try {
 				Desktop.getDesktop().browse(new URI(refugeesUA)); //An Ukrainian-language site for Ukrainian refugees
 			} catch (Exception ex) {
-				debug.pstm(ex, GlobalSettings.$res("ua-refugee-error"));
+				debug.stacktraceError(ex, GlobalSettings.$res("ua-refugee-error"));
 			}
 		});
 		mnUkraine.add(btnRefugee1);
@@ -164,7 +164,7 @@ public class MainMenu extends MMBFrame {
 			try {
 				Desktop.getDesktop().browse(new URI(GITHUB));
 			} catch (Exception ex) {
-				debug.pstm(ex, "Unable to open GitHub");
+				debug.stacktraceError(ex, "Unable to open GitHub");
 			}
 		});
 		btnExit = new JButton($res("cgui-exit"));

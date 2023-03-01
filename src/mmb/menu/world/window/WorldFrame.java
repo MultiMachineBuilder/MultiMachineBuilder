@@ -560,7 +560,7 @@ public class WorldFrame extends JComponent {
 		try {
 			blockEntry.render(x, y, g, (int) Math.ceil(blockScale));
 		} catch (Exception e) {
-			debug.pstm(e, "Failed to render a "+blockEntry.type().title());
+			debug.stacktraceError(e, "Failed to render a "+blockEntry.type().title());
 		}
 	}
 

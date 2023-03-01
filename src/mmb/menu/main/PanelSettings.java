@@ -142,7 +142,7 @@ public class PanelSettings extends JPanel {
 				if(newScale <= 0) throw new IllegalArgumentException("<=0");
 				if(Double.isInfinite(newScale)) throw new IllegalArgumentException("Infinite");
 			}catch(Exception ex) {
-				debug.pstm(ex, "Invalid scaling factor");
+				debug.stacktraceError(ex, "Invalid scaling factor");
 				JOptionPane.showMessageDialog(new JFrame(), $res("cguis-scalerr")+s+" : "+ex.getClass()+": "+ex.getMessage(), $res("cguis-scale"),
 				        JOptionPane.ERROR_MESSAGE);
 				recovery.set(true);
@@ -183,7 +183,7 @@ public class PanelSettings extends JPanel {
 			}
 			
 		} catch (IOException e) {
-			debug.pstm(e, "THIS EXCEPTION INDICATES PROBLEM WITH FILE SYSTEM OR JAVA");
+			debug.stacktraceError(e, "THIS EXCEPTION INDICATES PROBLEM WITH FILE SYSTEM OR JAVA");
 		}
 		
 		textpane.setEnabled(true);
@@ -192,7 +192,7 @@ public class PanelSettings extends JPanel {
 		try(PrintWriter pw = new PrintWriter("ext.txt")) {
 			pw.print(textpane.getText());
 		} catch (IOException e) {
-			debug.pstm(e, "THIS EXCEPTION INDICATES PROBLEM WITH FILE SYSTEM OR JAVA");
+			debug.stacktraceError(e, "THIS EXCEPTION INDICATES PROBLEM WITH FILE SYSTEM OR JAVA");
 		}
 	}
 }

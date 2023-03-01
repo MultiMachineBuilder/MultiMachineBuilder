@@ -81,7 +81,7 @@ public class PanelSaves extends JPanel {
 				try {
 					Desktop.getDesktop().open(new File("maps/"));
 				} catch (IOException e) {
-					debug.pstm(e, "Failed to open maps/ directory");
+					debug.stacktraceError(e, "Failed to open maps/ directory");
 				}
 		});
 		subPanelSaves.add(btnMapsDir, "cell 3 0");
@@ -139,7 +139,7 @@ public class PanelSaves extends JPanel {
 			}
 			debug.printl("Found "+list.getItemCount()+" saves");
 		} catch (Exception e) {
-			debug.pstm(e, "THIS EXCEPTION SHOULD NOT HAPPEN");
+			debug.stacktraceError(e, "THIS EXCEPTION SHOULD NOT HAPPEN");
 		}
 	}
 	
