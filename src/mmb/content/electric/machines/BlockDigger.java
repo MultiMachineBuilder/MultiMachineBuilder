@@ -13,7 +13,7 @@ import mmb.content.electric.Battery;
 import mmb.content.electric.Electric;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
-import mmb.content.imachine.ToItemUnifiedCollector;
+import mmb.content.imachine.extractor.ToItemUnifiedCollector;
 import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
