@@ -8,8 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 
 import mmb.engine.UnitFormatter;
+import mmb.engine.craft.ItemStack;
 import mmb.engine.craft.rgroups.CatSingleRecipeGroup.CatalyzedSimpleRecipe;
-import mmb.engine.inv.ItemStack;
 import mmb.engine.item.ItemEntry;
 
 import java.awt.Color;

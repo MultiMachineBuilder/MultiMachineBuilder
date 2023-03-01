@@ -11,8 +11,8 @@ import mmb.engine.craft.SingleItem;
 import mmb.engine.item.ItemEntry;
 
 /**
+ * An abstraction over insertion of items
  * @author oskar
- * Pushes items into inventory
  */
 public interface InventoryWriter {
 	//Insertion
@@ -286,7 +286,6 @@ public interface InventoryWriter {
 
 		@Override
 		public int toInsert(ItemEntry item, int amount) {
-			// TODO Auto-generated method stub
 			return 0;
 		}
 	}

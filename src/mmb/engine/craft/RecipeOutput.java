@@ -21,7 +21,6 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.NN;
 import mmb.Nil;
 import mmb.engine.chance.Chance;
-import mmb.engine.inv.ItemStack;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.worlds.world.World;
@@ -32,9 +31,9 @@ import monniasza.collects.Collects;
  * All implementations of this interface must be immutable, and may have builders.
  * @author oskar
  */
-public interface RecipeOutput extends Chance, Iterable<@NN ItemStack>{
+public interface RecipeOutput extends Chance, Iterable<mmb.engine.craft.ItemStack>{
 	@Override
-	default boolean drop(@Nil InventoryWriter inv, @Nil World map, int x, int y) {
+	default boolean drop(@Nil InventoryWriter inv, @Nil World map, int x, int y) { //NOSONAR the items will always be dropped
 		if(map == null) {
 			if(inv == null) return false;
 			produceResults(inv, 1);
@@ -72,12 +71,7 @@ public interface RecipeOutput extends Chance, Iterable<@NN ItemStack>{
 	 * @return output volume
 	 */
 	public double outVolume();
-	public default double outVolume(int amount) {
-		return outVolume() * amount;
-	}
-	/**
-	 * @return contents of the item list as map.
-	 */
+	/** @return contents of the item list as map. */
 	@NN public Object2IntMap<@NN ItemEntry> getContents();
 	
 	/**
@@ -106,7 +100,7 @@ public interface RecipeOutput extends Chance, Iterable<@NN ItemStack>{
 	 * @param data item data to compare to
 	 * @return are contents of this item list equal to the map?
 	 */
-	public default boolean equiv(Map<@NN ItemEntry, Integer> data) {
+	public default boolean equiv(Map<@NN ItemEntry, @NN Integer> data) {
 		return getContents().equals(data);
 	}
 
@@ -263,7 +257,7 @@ public interface RecipeOutput extends Chance, Iterable<@NN ItemStack>{
 		return mul2entrystream(amount).collect(Collects.collectToIntMap(map));
 	}
 	@Override
-	default @NN Iterator<@NN ItemStack> iterator() {
+	default @NN Iterator<mmb.engine.craft.ItemStack> iterator() {
 		return Iterators.transform(getContents().object2IntEntrySet().iterator(), RecipeOutput::entry2stack);
 	}
 	

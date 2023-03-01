@@ -18,11 +18,11 @@ import com.google.common.collect.Iterators;
 import mmb.NN;
 import mmb.Nil;
 import mmb.engine.MMBUtils;
+import mmb.engine.craft.ItemStack;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
-import mmb.engine.inv.ItemStack;
 import mmb.engine.inv.SaveInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
@@ -46,7 +46,7 @@ import mmb.engine.json.JsonTool;
  * </ol> 
  * @param <T> type of items 
  */
-public class SetInventory<T extends ItemEntry> implements SaveInventory{
+public class SetInventory<@NN T extends ItemEntry> implements SaveInventory{
 	//Debug
 	@NN private static final Debugger debug = new Debugger("INVENTORIES");
 	
@@ -83,7 +83,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 	 * Creates an unrestricted set inventory (simplest)
 	 * @return a new set inventory
 	 */
-	@NN public static SetInventory<ItemEntry> create() {
+	@NN public static SetInventory<@NN ItemEntry> create() {
 		return new SetInventory<>(new HashSet<>(), null);
 	}
 	/**
@@ -91,7 +91,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 	 * @param set set to use
 	 * @return a new set inventory
 	 */
-	@NN public static SetInventory<ItemEntry> create(Set<ItemEntry> set) {
+	@NN public static SetInventory<@NN ItemEntry> create(Set<@NN ItemEntry> set) {
 		return new SetInventory<>(set, null);
 	}
 	/**
@@ -99,7 +99,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 	 * @param supplier set factory
 	 * @return a new set inventory
 	 */
-	@NN public static SetInventory<ItemEntry> create(Supplier<@NN Set<ItemEntry>> supplier) {
+	@NN public static SetInventory<@NN ItemEntry> create(Supplier<@NN Set<@NN ItemEntry>> supplier) {
 		return new SetInventory<>(supplier, null);
 	}
 
@@ -208,6 +208,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 		}
 		
 	}
+	@SuppressWarnings("null")
 	@Override
 	public @NN Iterator<@NN ItemRecord> iterator() {
 		return Iterators.transform(set.iterator(), this::get);
@@ -241,7 +242,7 @@ public class SetInventory<T extends ItemEntry> implements SaveInventory{
 	 * Directly sets the contents of the inventory (no capacity checks)
 	 * @param items contents to set
 	 */
-	public void setContents(Set<ItemEntry> items) {
+	public void setContents(Set<@NN ItemEntry> items) {
 		set.clear();
 		addAllUnvolumed(items);
 	}

@@ -14,7 +14,8 @@ import mmb.engine.worlds.world.World;
  */
 public class Dropper implements InventoryWriter, Positioned {
 	private final World map;
-	private int x, y;
+	private int x;
+	private int y;
 	/**
 	 * Creates a dropper
 	 * @param x X coordinate

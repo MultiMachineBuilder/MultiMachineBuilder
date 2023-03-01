@@ -20,9 +20,8 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.NN;
 import mmb.Nil;
 import mmb.engine.debug.Debugger;
-import mmb.engine.inv.ItemLoader;
-import mmb.engine.inv.ItemStack;
-import mmb.engine.inv.ItemLoader.ItemTarget;
+import mmb.engine.inv.InventoryLoader;
+import mmb.engine.inv.InventoryLoader.ItemTarget;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
@@ -47,7 +46,7 @@ public class ItemLists {
 		}else if(node.isArray()) {
 			SimpleItemList list = new SimpleItemList();
 			InventoryWriter writer = list.createWriter();
-			ItemLoader.load((ArrayNode)node, new ItemTarget() {
+			InventoryLoader.load((ArrayNode)node, new ItemTarget() {
 				@Override
 				public void addItem(ItemEntry ent, int amt) {
 					writer.insert(ent, amt);
@@ -88,30 +87,30 @@ public class ItemLists {
 	/**
 	 * @return a stream collector to an item list
 	 */
-	@NN public static Collector<@NN ItemStack, @NN List<@NN ItemStack>, @NN SimpleItemList> collectToItemList(){
+	@NN public static Collector<mmb.engine.craft.ItemStack, @NN List<mmb.engine.craft.ItemStack>, @NN SimpleItemList> collectToItemList(){
 		return new ILCollector();
 	}
 
 }
-class ILCollector implements Collector<@NN ItemStack, @NN List<@NN ItemStack>, @NN SimpleItemList>{
+class ILCollector implements Collector<mmb.engine.craft.ItemStack, @NN List<mmb.engine.craft.ItemStack>, @NN SimpleItemList>{
 
 	@Override
-	public @NN Supplier<@NN List<@NN ItemStack>> supplier() {
+	public @NN Supplier<@NN List<mmb.engine.craft.ItemStack>> supplier() {
 		return ArrayList::new;
 	}
 
 	@Override
-	public @NN BiConsumer<@NN List<@NN ItemStack>, @NN ItemStack> accumulator() {
+	public @NN BiConsumer<@NN List<mmb.engine.craft.ItemStack>, mmb.engine.craft.ItemStack> accumulator() {
 		return List::add;
 	}
 
 	@Override
-	public @NN BinaryOperator<@NN List<@NN ItemStack>> combiner() {
+	public @NN BinaryOperator<@NN List<mmb.engine.craft.ItemStack>> combiner() {
 		return Collects::inplaceAddLists;
 	}
 
 	@Override
-	public @NN Function<@NN List<@NN ItemStack>, @NN SimpleItemList> finisher() {
+	public @NN Function<@NN List<mmb.engine.craft.ItemStack>, @NN SimpleItemList> finisher() {
 		return SimpleItemList::new;
 	}
 

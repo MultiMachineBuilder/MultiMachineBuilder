@@ -1,17 +1,16 @@
 /**
  * 
  */
-package mmb.engine.inv;
+package mmb.engine.craft;
 
 import mmb.NN;
 import mmb.Nil;
-import mmb.engine.craft.SingleItem;
 import mmb.engine.item.ItemEntry;
 import monniasza.collects.Identifiable;
 
 /**
+ * Mutiple units of one item entry
  * @author oskar
- * An item entry is intended for use in inventories.
  */
 public final class ItemStack implements Identifiable<ItemEntry>, SingleItem{
 	@Override
@@ -61,13 +60,22 @@ public final class ItemStack implements Identifiable<ItemEntry>, SingleItem{
 		return true;
 	}
 	
+	/**
+	 * Checks equality of item types
+	 * @param other item stack to check
+	 * @return are item types equal?
+	 */
 	public boolean equalsType(SingleItem other) {
 		return equalsType(other.item());
 	}
-
-	public boolean equalsType(ItemEntry item) {
-		if(item == this.item) return true;
-		return item.equals(this.item);
+	/**
+	 * Checks equality of item types
+	 * @param item1 item to check
+	 * @return are item types equal?
+	 */
+	public boolean equalsType(ItemEntry item1) {
+		if(item1 == this.item) return true;
+		return item1.equals(this.item);
 	}
 
 	@Override

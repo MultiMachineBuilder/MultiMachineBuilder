@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
-import mmb.engine.inv.ItemStack;
+import mmb.engine.craft.ItemStack;
 
 public class ItemStackCellRenderer extends JLabel implements ListCellRenderer<ItemStack>{
 	public static final ItemStackCellRenderer instance = new ItemStackCellRenderer();

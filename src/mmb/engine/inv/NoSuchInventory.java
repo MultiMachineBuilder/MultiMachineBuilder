@@ -11,13 +11,15 @@ import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
 
 /**
+ * A non-existent inventory
  * @author oskar
- *
  */
 public class NoSuchInventory implements Inventory{
+	/** The only instance of this inventory*/
 	@NN public static final NoSuchInventory INSTANCE = new NoSuchInventory();
 	@NN private static final NoSuchItemRecord nsir = new NoSuchItemRecord(INSTANCE);
 	private NoSuchInventory() {}
+	
 	@SuppressWarnings("null")
 	@Override
 	public Iterator<ItemRecord> iterator() {

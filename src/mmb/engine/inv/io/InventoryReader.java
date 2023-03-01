@@ -12,8 +12,8 @@ import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
 
 /**
+ * An abstraction over extraction of items
  * @author oskar
- *
  */
 public interface InventoryReader {
 	/** An inventory reader without items */

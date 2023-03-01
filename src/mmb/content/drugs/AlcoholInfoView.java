@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 
 import mmb.content.drugs.AlcoholInfoGroup.AlcoholInfo;
-import mmb.engine.inv.ItemStack;
+import mmb.engine.craft.ItemStack;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.CRConstants;
 import mmb.menu.world.craft.ItemStackCellRenderer;

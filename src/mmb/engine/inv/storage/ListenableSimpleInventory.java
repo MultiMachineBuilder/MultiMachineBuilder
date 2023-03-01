@@ -6,9 +6,9 @@ package mmb.engine.inv.storage;
 import com.pploder.events.Event;
 
 import mmb.engine.CatchingEvent;
+import mmb.engine.craft.ItemStack;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
-import mmb.engine.inv.ItemStack;
 import mmb.engine.item.ItemEntry;
 
 /**
@@ -16,6 +16,10 @@ import mmb.engine.item.ItemEntry;
  *
  */
 public class ListenableSimpleInventory extends SimpleInventory implements ListenableInventory {
+	/**
+	 * Creates a listenable inventory
+	 * @param debug debugger
+	 */
 	public ListenableSimpleInventory(Debugger debug) {
 		super();
 		additions = new CatchingEvent<>(debug, "Failed to process addition event");
@@ -24,7 +28,11 @@ public class ListenableSimpleInventory extends SimpleInventory implements Listen
 		newItems = new CatchingEvent<>(debug, "Failed to process new item event");
 		removedItems = new CatchingEvent<>(debug, "Failed to process item removal event");
 	}
-
+	/**
+	 * Creates a listenable inventory from an inventory
+	 * @param debug debugger
+	 * @param inv source inventory
+	 */
 	public ListenableSimpleInventory(Debugger debug, Inventory inv) {
 		super(inv);
 		additions = new CatchingEvent<>(debug, "Failed to process addition event");

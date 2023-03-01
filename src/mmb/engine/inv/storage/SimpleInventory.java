@@ -13,16 +13,14 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.NN;
 import mmb.Nil;
-import mmb.beans.Saver;
-import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
+import mmb.engine.craft.ItemStack;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
-import mmb.engine.inv.ItemLoader;
+import mmb.engine.inv.InventoryLoader;
 import mmb.engine.inv.ItemRecord;
-import mmb.engine.inv.ItemStack;
 import mmb.engine.inv.SaveInventory;
-import mmb.engine.inv.ItemLoader.ItemTarget;
+import mmb.engine.inv.InventoryLoader.ItemTarget;
 import mmb.engine.item.ItemEntry;
 import monniasza.collects.Collects;
 import monniasza.collects.selfset.HashSelfSet;
@@ -37,7 +35,7 @@ public class SimpleInventory implements SaveInventory{
 	private static final Debugger debug = new Debugger("INVENTORIES");
 	
 	//Inventory definition
-	@NN private SelfSet<ItemEntry, Node> contents = HashSelfSet.createNonnull(Node.class);
+	@NN private SelfSet<@NN ItemEntry, @NN Node> contents = HashSelfSet.createNonnull(Node.class);
 	private double volume = 0;
 	private double capacity = 2;
 	
@@ -95,7 +93,7 @@ public class SimpleInventory implements SaveInventory{
 		}
 	}
 	@Override
-	public Iterator<ItemRecord> iterator() {
+	public Iterator<@NN ItemRecord> iterator() {
 		return Collects.downcastIterator(contents.iterator());
 	}
 	@Override
@@ -235,7 +233,7 @@ public class SimpleInventory implements SaveInventory{
 			debug.printl("Empty data array");
 			return;
 		}
-		ItemLoader.load(arr, new ItemTarget() {
+		InventoryLoader.load(arr, new ItemTarget() {
 			@Override
 			public void addItem(ItemEntry ent, int amt) {
 				Node existing = contents.get(ent); //get existing node if it exists
@@ -255,7 +253,7 @@ public class SimpleInventory implements SaveInventory{
 	}
 	@Override
 	public @NN JsonNode save() {
-		return ItemLoader.save(contents, capacity); //return the saved inventory
+		return InventoryLoader.save(contents, capacity); //return the saved inventory
 	}	
 
 	//Representation

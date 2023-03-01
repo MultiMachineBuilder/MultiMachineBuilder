@@ -2,6 +2,7 @@
  * 
  */
 /**
+ * Inventories and utilities
  * @author oskar
  *
  */

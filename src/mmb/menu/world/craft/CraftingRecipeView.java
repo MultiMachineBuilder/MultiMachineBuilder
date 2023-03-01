@@ -13,8 +13,8 @@ import javax.swing.JComponent;
 import monniasza.collects.grid.Grid;
 import javax.swing.JList;
 
+import mmb.engine.craft.ItemStack;
 import mmb.engine.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
-import mmb.engine.inv.ItemStack;
 import mmb.engine.item.ItemEntry;
 
 import java.awt.Color;

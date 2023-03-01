@@ -8,9 +8,9 @@ import javax.swing.ListCellRenderer;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.engine.craft.ItemStack;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.RecipeGroup;
-import mmb.engine.inv.ItemStack;
 
 import java.awt.Component;
 import java.awt.Dimension;

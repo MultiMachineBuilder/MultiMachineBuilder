@@ -83,7 +83,7 @@ public class STNNetworkInventory implements Inventory{
 	public int bulkInsert(RecipeOutput ent, int amount) {
 		reindex();
 		int remain = amount;
-		double attempts0 = 2 + (ent.outVolume(amount)/storageQueue.capacity());
+		double attempts0 = 2 + ((ent.outVolume()*amount)/storageQueue.capacity());
 		int attempts = (int) attempts0;
 		
 		for(int i = 0; i < attempts; i++) {

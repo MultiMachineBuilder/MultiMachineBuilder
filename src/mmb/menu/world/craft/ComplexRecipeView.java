@@ -11,8 +11,8 @@ import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
 import mmb.engine.UnitFormatter;
+import mmb.engine.craft.ItemStack;
 import mmb.engine.craft.rgroups.ComplexRecipeGroup.ComplexRecipe;
-import mmb.engine.inv.ItemStack;
 
 /**
  * Represents a recipe view for multi-item recipes

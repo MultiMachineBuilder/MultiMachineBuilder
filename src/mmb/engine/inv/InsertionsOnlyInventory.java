@@ -12,8 +12,8 @@ import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
 
 /**
+ * An inventory, which only allows insertions
  * @author oskar
- *
  */
 public class InsertionsOnlyInventory implements Inventory{
 	private final @NN Inventory inv;
@@ -72,6 +72,11 @@ public class InsertionsOnlyInventory implements Inventory{
 	public double volume() {
 		return inv.volume();
 	}
+	/**
+	 * Decorate an inventory, used by the inventories themselves
+	 * @param inv inventory to decorate
+	 * @return an insertion-only inventory
+	 */
 	@NN public static Inventory decorate(Inventory inv) {
 		if(!inv.canExtract()) return inv;
 		return new InsertionsOnlyInventory(inv);

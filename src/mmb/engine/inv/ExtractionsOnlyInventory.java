@@ -12,8 +12,8 @@ import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
 
 /**
- * @author oskar
  * An inventory, which only allows to extract items
+ * @author oskar
  */
 public class ExtractionsOnlyInventory implements Inventory {
 	@NN private final Inventory inv;
@@ -62,7 +62,7 @@ public class ExtractionsOnlyInventory implements Inventory {
 	}
 
 	@Override
-	public Iterator<ItemRecord> iterator() {
+	public Iterator<@NN ItemRecord> iterator() {
 		return Iterators.transform(inv.iterator(), ItemRecord::lockInsertions);
 	}
 
@@ -80,6 +80,11 @@ public class ExtractionsOnlyInventory implements Inventory {
 	public double volume() {
 		return inv.volume();
 	}
+	/**
+	 * Decorate an inventory, used by the inventories themselves
+	 * @param inv inventory to decorate
+	 * @return an extraction-only inventory
+	 */
 	@NN public static Inventory decorate(Inventory inv) {
 		if(!inv.canInsert()) return inv;
 		return new ExtractionsOnlyInventory(inv);

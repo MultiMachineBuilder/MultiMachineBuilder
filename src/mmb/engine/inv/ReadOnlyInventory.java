@@ -12,8 +12,8 @@ import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
 
 /**
+ * An inventory, which does not allow I/O
  * @author oskar
- *
  */
 public class ReadOnlyInventory implements Inventory {
 	private final Inventory inv;
@@ -84,6 +84,11 @@ public class ReadOnlyInventory implements Inventory {
 		super();
 		this.inv = inv;
 	}
+	/**
+	 * Decorates an inventory
+	 * @param inv inventory to decorate
+	 * @return a read only inventory
+	 */
 	public static @NN Inventory decorate(Inventory inv) {
 		if(inv.canExtract() && inv.canInsert()) return new ReadOnlyInventory(inv);
 		if(inv.canInsert()) return inv.lockInsertions();

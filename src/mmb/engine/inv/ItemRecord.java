@@ -4,6 +4,7 @@
 package mmb.engine.inv;
 
 import mmb.NN;
+import mmb.engine.craft.ItemStack;
 import mmb.engine.item.ItemEntry;
 import monniasza.collects.Identifiable;
 
@@ -11,7 +12,7 @@ import monniasza.collects.Identifiable;
  * @author oskar
  *
  */
-public interface ItemRecord extends Identifiable<ItemEntry> {
+public interface ItemRecord extends Identifiable<@NN ItemEntry> {
 	//Conversion
 	/** @return the UI string for this item record */
 	public default String toRecipeOutputString() {

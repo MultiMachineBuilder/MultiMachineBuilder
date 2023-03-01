@@ -7,17 +7,17 @@ import mmb.NN;
 import mmb.engine.item.ItemEntry;
 
 /**
+ * An item record, which allows only extraction
  * @author oskar
- *
  */
 public class ExtractionsOnlyItemRecord implements ItemRecord{
-	@NN private final ItemRecord record;
+	@NN private final ItemRecord irecord;
 	@NN private final Inventory inv;
 	/**
 	 * @param rec
 	 */
 	private ExtractionsOnlyItemRecord(ItemRecord rec, Inventory inv) {
-		record = rec;
+		irecord = rec;
 		this.inv = inv;
 	}
 	/**
@@ -30,13 +30,18 @@ public class ExtractionsOnlyItemRecord implements ItemRecord{
 		if(!rec.canInsert()) return rec;
 		return new ExtractionsOnlyItemRecord(rec, ExtractionsOnlyInventory.decorate(inv));
 	}
+	/**
+	 * Decorates an item record. Used internally  by item  record
+	 * @param rec item record to decorate
+	 * @return an extraction only item record
+	 */
 	@NN public static ItemRecord decorate(ItemRecord rec) {
 		if(rec instanceof ExtractionsOnlyItemRecord) return rec;
 		return new ExtractionsOnlyItemRecord(rec, ExtractionsOnlyInventory.decorate(rec.inventory()));
 	}
 	@Override
 	public int amount() {
-		return record.amount();
+		return irecord.amount();
 	}
 	@Override
 	public Inventory inventory() {
@@ -44,7 +49,7 @@ public class ExtractionsOnlyItemRecord implements ItemRecord{
 	}
 	@Override
 	public ItemEntry item() {
-		return record.item();
+		return irecord.item();
 	}
 	@Override
 	public int insert(int amount) {
@@ -52,6 +57,6 @@ public class ExtractionsOnlyItemRecord implements ItemRecord{
 	}
 	@Override
 	public int extract(int amount) {
-		return record.extract(amount);
+		return irecord.extract(amount);
 	}
 }

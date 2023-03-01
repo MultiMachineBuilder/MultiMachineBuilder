@@ -6,13 +6,11 @@ package mmb.engine.inv;
 import java.util.function.Predicate;
 
 import mmb.Nil;
+import mmb.engine.craft.ItemStack;
 import mmb.engine.craft.RecipeOutput;
-import mmb.engine.debug.Debugger;
 import mmb.engine.inv.io.InventoryReader;
-import mmb.engine.inv.io.InventoryReader.ExtractOpportunity;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
-import monniasza.collects.Collects;
 
 /**
  * A set of utilities for working with inventories. <br>
@@ -101,6 +99,11 @@ public class Inventories {
 	public static void transferAll(Inventory src, InventoryWriter tgt) {
 		transferAll(src.createReader(), tgt);
 	}
+	/**
+	 * Transfer entire source inventory to the target inventory
+	 * @param src inventory reader
+	 * @param tgt inventory writer
+	 */
 	public static void transferAll(InventoryReader src, InventoryWriter tgt) {
 		while(true) {
 			if(src.hasCurrent()) {

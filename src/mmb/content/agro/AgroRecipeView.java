@@ -12,7 +12,7 @@ import javax.swing.JList;
 
 import mmb.NN;
 import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
-import mmb.engine.inv.ItemStack;
+import mmb.engine.craft.ItemStack;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.CRConstants;
 import mmb.menu.world.craft.ItemStackCellRenderer;

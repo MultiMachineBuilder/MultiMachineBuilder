@@ -7,8 +7,8 @@ import mmb.NN;
 import mmb.engine.item.ItemEntry;
 
 /**
+ * A non-existent item record
  * @author oskar
- *
  */
 public class NoSuchItemRecord implements ItemRecord {
 	@NN private final Inventory inv;
@@ -40,6 +40,7 @@ public class NoSuchItemRecord implements ItemRecord {
 		return inv;
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public ItemEntry item() {
 		return null;

@@ -7,8 +7,8 @@ import java.util.Vector;
 import java.util.stream.Collectors;
 
 import mmb.NN;
+import mmb.engine.craft.ItemStack;
 import mmb.engine.craft.RecipeOutput;
-import mmb.engine.inv.ItemStack;
 
 /**
  * @author oskar

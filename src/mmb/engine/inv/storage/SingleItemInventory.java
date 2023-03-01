@@ -31,7 +31,7 @@ public class SingleItemInventory extends BaseSingleItemInventory {
 	 * Creates a single item inventory with a custom item variable
 	 * @param itemvar
 	 */
-	public SingleItemInventory(Variable<mmb.engine.item.ItemEntry> itemvar) {
+	public SingleItemInventory(Variable<@Nil ItemEntry> itemvar) {
 		this.itemvar = itemvar;
 	}
 	

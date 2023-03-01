@@ -21,10 +21,13 @@ import mmb.engine.json.JsonTool;
 import monniasza.collects.Collects;
 
 /**
+ * Loads and saves item record from/to JSON
  * @author oskar
  *
  */
-public class ItemLoader {
+public class InventoryLoader {
+	private InventoryLoader() {}
+	
 	/**
 	 * @author oskar
 	 * This interface provides encapsulation for item loading
@@ -43,7 +46,12 @@ public class ItemLoader {
 		public void setCapacity(double capacity);
 	}
 	
-	public static final Debugger debug = new Debugger("INVENTORY LOADER");
+	@NN private static final Debugger debug = new Debugger("INVENTORY LOADER");
+	/**
+	 * Loads a simple inventory
+	 * @param data item data
+	 * @param tgt inventory to load to
+	 */
 	public static void load(ArrayNode data, ItemTarget tgt) {
 		if(data.size() == 0) {
 			debug.printl("Empty data array");
@@ -113,7 +121,8 @@ public class ItemLoader {
 		}
 	}
 	/**
-	 * @param iter inventory
+	 * Saves an inventory
+	 * @param iter inventory contents
 	 * @param capacity inventory's capacity
 	 * @return the inventory representation in JSON
 	 */
@@ -135,7 +144,13 @@ public class ItemLoader {
 		result.addAll(nodes); //write nodes from the queue to the result
 		return result;
 	}
-	public static ArrayNode save(Iterator<? extends ItemRecord> iter, double capacity) {
+	/**
+	 * Saves an inventory
+	 * @param iter inventory contents
+	 * @param capacity inventory's capacity
+	 * @return the inventory representation in JSON
+	 */
+	public static ArrayNode save(Iterator<@NN ? extends ItemRecord> iter, double capacity) {
 		return save(Collects.iter(iter), capacity);
 	}
 }

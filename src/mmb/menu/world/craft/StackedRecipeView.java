@@ -15,9 +15,9 @@ import org.ainslec.picocog.PicoWriter;
 import io.github.parubok.text.multiline.MultilineLabel;
 import mmb.NN;
 import mmb.engine.UnitFormatter;
+import mmb.engine.craft.ItemStack;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.rgroups.StackedRecipeGroup.StackedRecipe;
-import mmb.engine.inv.ItemStack;
 import mmb.engine.item.ItemEntry;
 
 /**

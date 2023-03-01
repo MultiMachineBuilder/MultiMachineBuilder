@@ -11,6 +11,7 @@ import java.util.List;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import mmb.NN;
 import mmb.Nil;
+import mmb.engine.craft.ItemStack;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.io.InventoryReader;

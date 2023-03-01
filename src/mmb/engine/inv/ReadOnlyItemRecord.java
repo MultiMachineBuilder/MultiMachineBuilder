@@ -7,14 +7,15 @@ import mmb.NN;
 import mmb.engine.item.ItemEntry;
 
 /**
+ * An item record, which does not allow I/O
  * @author oskar
- *
  */
 public class ReadOnlyItemRecord implements ItemRecord{
 
 	/**
-	 * @param itemRecord
-	 * @return
+	 * Decorates an item record
+	 * @param itemRecord item record to decorate
+	 * @return a read-only item record
 	 */
 	public static @NN ItemRecord decorate(ItemRecord itemRecord) {
 		return new ReadOnlyItemRecord(itemRecord);
