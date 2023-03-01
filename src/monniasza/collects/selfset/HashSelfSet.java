@@ -15,16 +15,16 @@ import monniasza.collects.Identifiable;
  */
 public class HashSelfSet{
 	private HashSelfSet() {}
-	@NN public static <K, V extends Identifiable<K>> SelfSet<@Nil K, V> createNullable(Class<V> valclass){
+	@NN public static <@Nil K, V extends Identifiable<K>> SelfSet<@Nil K, V> createNullable(Class<V> valclass){
 		return createNullable(valclass, Identifiable::id);
 	}
-	@NN public static <K, V> SelfSet<@Nil K, V> createNullable(Class<V> valclass, Function<V, K> id){
+	@NN public static <@Nil K, V> SelfSet<@Nil K, V> createNullable(Class<V> valclass, Function<V, K> id){
 		return new BaseMapSelfSet<>(new HashMap<>(), true, valclass, id);
 	}
-	@NN public static <K, V extends Identifiable<K>> SelfSet<@NN K, V> createNonnull(Class<V> valclass){
+	@NN public static <@NN K, V extends Identifiable<K>> SelfSet<@NN K, V> createNonnull(Class<V> valclass){
 		return createNonnull(valclass, Identifiable::id);
 	}
-	@NN public static <K, V> SelfSet<@NN K, V> createNonnull(Class<V> valclass, Function<V, @NN K> id){
+	@NN public static <@NN K, V> SelfSet<@NN K, V> createNonnull(Class<V> valclass, Function<V, @NN K> id){
 		return new BaseMapSelfSet<>(new HashMap<>(), false, valclass, id);
 	}
 
