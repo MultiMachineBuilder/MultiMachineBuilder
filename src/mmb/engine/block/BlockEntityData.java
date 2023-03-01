@@ -10,8 +10,8 @@ import mmb.engine.debug.Debugger;
 import mmb.engine.json.JsonTool;
 
 /**
+ * A block entity with data support
  * @author oskar
- *
  */
 public abstract class BlockEntityData extends BlockEntity{
 	private static final Debugger debug = new Debugger("BLOCKS");

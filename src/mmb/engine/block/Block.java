@@ -20,7 +20,9 @@ import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
 /**
- * This class represents a building block.
+ * A basic building block with no data storage or tick support.
+ * Use this for simple building blocks
+ * Use {@link BlockEntity} and {@link BlockEntityType} for more advanced blocks
  * @author oskar
  */
 public class Block extends BlockBase implements BlockEntry{

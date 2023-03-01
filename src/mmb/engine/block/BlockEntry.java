@@ -27,9 +27,11 @@ import mmb.engine.worlds.world.Player;
 import mmb.engine.worlds.world.World;
 
 /**
+ * Arbitrary, placeable block.
+ * The block can be either a simple block or a block entity
  * @author oskar
- * The following methods can be overridden:
- * provideSignal - 
+ * @see Block
+ * @see BlockEntity
  */
 public interface BlockEntry extends Saver, Rotable, Chiral {	
 	/** @return the block type */

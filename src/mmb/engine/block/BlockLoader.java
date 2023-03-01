@@ -12,7 +12,8 @@ import mmb.engine.item.Items;
 import mmb.engine.worlds.world.World;
 
 /**
- * A class to help load blocks
+ * Loads blocks from JSON.
+ * To save a block, just call save() on the block
  * @author oskar
  */
 public class BlockLoader{
@@ -23,7 +24,7 @@ public class BlockLoader{
 	 * Loads a block
 	 * @param data block data node
 	 * @param x X coordinate of the block
-	 * @param y Y coordinaye of the block
+	 * @param y Y coordinate of the block
 	 * @param map world which holds the block
 	 * @return a loaded block
 	 */

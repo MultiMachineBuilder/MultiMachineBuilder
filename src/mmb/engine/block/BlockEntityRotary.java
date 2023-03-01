@@ -17,19 +17,15 @@ import mmb.engine.rotate.Rotation;
  *
  */
 public abstract class BlockEntityRotary extends BlockEntityData {
+	//Rendering
 	@Override
 	public void render(int x, int y, Graphics g, int ss) {
 		getImage().get(side).draw(this, x, y, g, ss);
 	}
+	/** @return this block's texture */
 	public abstract RotatedImageGroup getImage();
-	@SuppressWarnings({ "null", "unused" })
-	@Override
-	public final void load(JsonNode data) {
-		if(data == null) return;
-		side = Rotation.valueOf(data.get("side").asText());
-		if(side == null) side = Rotation.N;
-		load1((ObjectNode) data);
-	}
+	
+	//Rotation
 	@NN private Rotation side = Rotation.N;
 	@Override
 	public void setRotation(Rotation rotation) {
@@ -38,6 +34,20 @@ public abstract class BlockEntityRotary extends BlockEntityData {
 	@Override
 	public Rotation getRotation() {
 		return side;
+	}
+	@Override
+	public boolean isRotary() {
+		return true;
+	}
+	
+	//Serialization
+	@SuppressWarnings({ "null", "unused" })
+	@Override
+	public final void load(JsonNode data) {
+		if(data == null) return;
+		side = Rotation.valueOf(data.get("side").asText());
+		if(side == null) side = Rotation.N;
+		load1((ObjectNode) data);
 	}
 	@Override
 	protected final void save0(ObjectNode node) {
@@ -58,10 +68,5 @@ public abstract class BlockEntityRotary extends BlockEntityData {
 	 */
 	protected void load1(ObjectNode node) {
 		//optional
-	}
-	
-	@Override
-	public boolean isRotary() {
-		return true;
 	}
 }

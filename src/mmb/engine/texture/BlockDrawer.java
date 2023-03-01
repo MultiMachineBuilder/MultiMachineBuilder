@@ -10,31 +10,34 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import javax.swing.Icon;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
-
 import mmb.NN;
+import mmb.Nil;
 import mmb.engine.block.BlockEntry;
 
 /**
+ * Renders block and item textures
  * @author oskar
- *
  */
 public interface BlockDrawer {
 	/**
+	 * Draws this texture
 	 * @param ent block to be drawn, optional
 	 * @param x left X coordinate on the frame
 	 * @param y upper Y coordinate on the frame
 	 * @param g graphics context
+	 * @param w width
+	 * @param h height
 	 */
-	public void draw(@Nullable BlockEntry ent, int x, int y, @NonNull Graphics g, int w, int h);
+	public void draw(@Nil BlockEntry ent, int x, int y, Graphics g, int w, int h);
 	/**
+	 * Draws this texture
 	 * @param ent block to be drawn, optional
 	 * @param p upper left corner on the frame
 	 * @param g graphics context
-	 * @param sideSize
+	 * @param w width
+	 * @param h height
 	 */
-	public default void draw(@Nullable BlockEntry ent, Point p, Graphics g, int w, int h) {
+	public default void draw(@Nil BlockEntry ent, Point p, Graphics g, int w, int h) {
 		draw(ent, p.x, p.y, g, w, h);
 	}
 	/**
@@ -44,7 +47,7 @@ public interface BlockDrawer {
 	 * @param g graphics context
 	 * @param sideSize how big is each side
 	 */
-	public default void draw(@Nullable BlockEntry ent, int x, int y, Graphics g, int sideSize) {
+	public default void draw(@Nil BlockEntry ent, int x, int y, Graphics g, int sideSize) {
 		draw(ent, x, y, g, sideSize, sideSize);
 	}
 	/**
@@ -53,7 +56,7 @@ public interface BlockDrawer {
 	 * @param g graphics context
 	 * @param sideSize
 	 */
-	public default void draw(@Nullable BlockEntry ent, Point p, Graphics g, int sideSize) {
+	public default void draw(@Nil BlockEntry ent, Point p, Graphics g, int sideSize) {
 		draw(ent, p.x, p.y, g, sideSize, sideSize);
 	}
 	/**
@@ -100,7 +103,7 @@ public interface BlockDrawer {
 			}
 
 			@Override
-			public void paintIcon(Component c, @SuppressWarnings("null") @NonNull Graphics g, int x, int y) {
+			public void paintIcon(@Nil Component c, @SuppressWarnings("null") Graphics g, int x, int y) {
 				draw(null, x, y, g, 32);
 			}
 		};

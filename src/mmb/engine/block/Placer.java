@@ -13,10 +13,12 @@ import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * Places blocks. Currently used only by block types
  * @author oskar
  *
  */
 public interface Placer extends Titled {
+	/** @return preview icon */
 	public Icon getIcon();
 
 	/**
@@ -27,17 +29,40 @@ public interface Placer extends Titled {
 	 */
 	public BlockEntry place(int x, int y, World that);
 
+	/**
+	 * Invoked when selected
+	 * @param window world window
+	 */
 	public void openGUI(WorldWindow window);
+	/**
+	 * Invoked when deselected
+	 * @param window world window
+	 */
 	public void closeGUI(WorldWindow window);
 	
+	/**
+	 * Displays a block preview in the world
+	 * @param g graphics context
+	 * @param renderStartPos location of the preview
+	 * @param map world
+	 * @param targetLocation location of the block
+	 * @param side preview size
+	 */
 	public void preview(Graphics g, Point renderStartPos, World map, Point targetLocation, int side);
 	
 	@FunctionalInterface
 	/**
-	 * This is a functional interface for preview generation
+	 * This is a functional interface for preview generation.
+	 * Used only for multimachines now
 	 * @author oskar
 	 */
 	public static interface Previewer{
+		/**
+		 * @param g
+		 * @param renderStartPos
+		 * @param map
+		 * @param targetLocation
+		 */
 		public void draw(Graphics g, Point renderStartPos, World map, Point targetLocation);
 	}
 

@@ -21,17 +21,18 @@ import mmb.engine.rotate.Chirality.ChiralityListener;
 import mmb.engine.rotate.Rotation.RotationListener;
 
 /**
+ * A block entity with chirotation support
  * @author oskar
- *
+ * @see ChiralRotation
  */
 public abstract class BlockEntityChirotable extends BlockEntityData {
-	private static final Debugger debug = new Debugger("CHIROTABLE BLOCK");
+	@NN private static final Debugger debug = new Debugger("CHIROTABLE BLOCK");
 	@Override
 	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		JsonNode dirnode = data.get("dir");
 		boolean dir = (dirnode == null) ? false : dirnode.asBoolean();
-		Chirality chirality = dir ? Chirality.L : Chirality.R;
+		Chirality chirality1 = dir ? Chirality.L : Chirality.R;
 		Rotation rot = Rotation.N;
 		JsonNode rotnode = data.get("side");
 		if(rotnode != null) {
@@ -40,7 +41,7 @@ public abstract class BlockEntityChirotable extends BlockEntityData {
 				rot = Rotation.valueOf(str);
 			}
 		}
-		setChirotation(chirality, rot);
+		setChirotation(chirality1, rot);
 		load1((ObjectNode) data);
 	}
 
@@ -145,7 +146,4 @@ public abstract class BlockEntityChirotable extends BlockEntityData {
 	 * @return the texture of this block
 	 */
 	public abstract ChirotatedImageGroup getImage();
-	
-	
-
 }

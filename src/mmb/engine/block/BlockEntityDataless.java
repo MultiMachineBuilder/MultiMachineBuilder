@@ -9,8 +9,8 @@ import com.fasterxml.jackson.databind.node.TextNode;
 import mmb.Nil;
 
 /**
+ * A block entity that does not hold any data.
  * @author oskar
- * A definition for a block that does not hold any data.
  */
 public abstract class BlockEntityDataless extends BlockEntity implements Cloneable{
 	@Override

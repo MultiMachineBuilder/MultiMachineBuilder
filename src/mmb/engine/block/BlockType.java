@@ -11,8 +11,11 @@ import mmb.engine.item.ItemType;
 import mmb.engine.item.Items;
 
 /**
+ * Describes a block, and what the block is.
+ * Block entities have additional data
  * @author oskar
- *
+ * @see Block
+ * @see BlockEntityType
  */
 public interface BlockType extends Placer, ItemType {
 	/**
@@ -21,11 +24,20 @@ public interface BlockType extends Placer, ItemType {
 	 */
 	@NN public BlockEntry createBlock();
 	
+	/**
+	 * Registers a block with current ID
+	 * @throws IllegalStateException if ID is not set
+	 */
 	@SuppressWarnings({ "unused", "null" })
 	public default void register() {
 		if(leaveBehind() == null) setLeaveBehind(Blocks.grass); //NOSONAR
 		Items.register(this);
 	}
+	/**
+	 * Registers a block
+	 * @param id block ID
+	 * @throws IllegalStateException if ID is not set
+	 */
 	public default void register(String id) {
 		setID(id);
 		register();
@@ -44,7 +56,15 @@ public interface BlockType extends Placer, ItemType {
 		return getTexture().toIcon();
 	}
 	
+	/**
+	 * Gets the item drops of this block
+	 * @return items drops
+	 */
 	public Chance getDrop();
+	/**
+	 * Sets the item drops of this block
+	 * @param drop item drops
+	 */
 	public void setDrop(Chance drop);
 	
 	/**
