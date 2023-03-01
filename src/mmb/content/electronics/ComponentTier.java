@@ -14,8 +14,8 @@ import mmb.engine.item.Items;
 import monniasza.collects.Identifiable;
 
 /**
+ * Describes a component tier, used for electronics progression
  * @author oskar
- *
  */
 public class ComponentTier implements Titled, Identifiable<String>{
 	/** The color of the component's contacts */
@@ -24,6 +24,11 @@ public class ComponentTier implements Titled, Identifiable<String>{
 	@NN public final String tiername;
 	/** The ID used for item ID generation*/
 	@NN public final String id;
+	/**
+	 * Creates a component tier
+	 * @param c tier color. It is shown on its contacts
+	 * @param id tier ID
+	 */
 	public ComponentTier(Color c, String id) {
 		this.c= c;
 		this.id= id;

@@ -17,8 +17,8 @@ import mmb.engine.texture.Textures.Texture;
 import monniasza.collects.Identifiable;
 
 /**
+ * Generates a group of electronic components together with {@code ComponentTier}
  * @author oskar
- *
  */
 public class ComponentGenerator implements Titled, Identifiable<String>{
 	/** The color of the component's contacts */
@@ -27,6 +27,10 @@ public class ComponentGenerator implements Titled, Identifiable<String>{
 	@NN public final String pre;
 	/** The ID used for item ID generation*/
 	@NN public final String id;
+	/**
+	 * Creates a component generator
+	 * @param id component ID
+	 */
 	public ComponentGenerator(String id) {
 		this.tex = Textures.get1("item/adv "+id+".png");
 		this.id= id;

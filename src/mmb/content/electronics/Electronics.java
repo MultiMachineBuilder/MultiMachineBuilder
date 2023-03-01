@@ -46,8 +46,15 @@ import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
 
 /**
+ * Contains all electronic components.
+ * <br>The component variable is the component ID concatenated with the suffix
+ * <br>Tiers(tier - suffix): basic - _, {@link #enhanced} - 0,
+ * {@link #advanced} - 1, {@link #extreme} - 2,
+ * {@link #insane} - 3, {@link #ludicrous} - 4, {@link #ultimate} - 5
+ * 
+ * 
  * @author oskar
- * Contains all electronics components in Enhanced or higher tiers
+ * 
  */
 public class Electronics {
 	private Electronics() {}
@@ -56,10 +63,12 @@ public class Electronics {
 	}
 	
 	//Component index
-	@NN        static final SelfSet<String, ComponentTier> tiers0 = HashSelfSet.createNonnull(ComponentTier.class);
-	@NN public static final SelfSet<String, ComponentTier> tiers = Collects.unmodifiableSelfSet(tiers0);
-	@NN        static final SelfSet<String, ComponentGenerator> comptypes0 = HashSelfSet.createNonnull(ComponentGenerator.class);
-	@NN public static final SelfSet<String, ComponentGenerator> comptypes = Collects.unmodifiableSelfSet(comptypes0);
+	@NN        static final SelfSet<@NN String, @NN ComponentTier> tiers0 = HashSelfSet.createNonnull(ComponentTier.class);
+	/** List of all component tiers*/
+	@NN public static final SelfSet<@NN String, @NN ComponentTier> tiers = Collects.unmodifiableSelfSet(tiers0);
+	@NN        static final SelfSet<@NN String, @NN ComponentGenerator> comptypes0 = HashSelfSet.createNonnull(ComponentGenerator.class);
+	/** List of all component generators */
+	@NN public static final SelfSet<@NN String, @NN ComponentGenerator> comptypes = Collects.unmodifiableSelfSet(comptypes0);
 	
 	//Component tiers
 	@NN public static final ComponentTier enhanced = new ComponentTier(Materials.colorCopper, "enh");
