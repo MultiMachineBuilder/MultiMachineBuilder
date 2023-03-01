@@ -7,8 +7,9 @@ import mmb.engine.block.BlockEntity;
 import mmb.engine.worlds.world.World;
 
 /**
+ * Event info provided to {@link BlockEntityDemolitionListener BlockEntityDemolitionListeners}
  * @author oskar
- *
+ * @see BlockEntityDemolitionListener
  */
 public final class BlockEntityDemolitionEvent{
 	/** The X coordinate of the block entity */

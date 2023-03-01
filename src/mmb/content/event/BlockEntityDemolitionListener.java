@@ -6,8 +6,8 @@ package mmb.content.event;
 import java.util.EventListener;
 
 /**
+ * Invoked when a block entity is demolished 
  * @author oskar
- *
  */
 public interface BlockEntityDemolitionListener extends EventListener {
 	/**
