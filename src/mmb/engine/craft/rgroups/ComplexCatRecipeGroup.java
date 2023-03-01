@@ -14,13 +14,13 @@ import mmb.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.singles.MultiRecipeGroup;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.ComplexCatalyzedRecipeView;
 import mmb.menu.world.craft.RecipeView;
 import monniasza.collects.Identifiable;
 
 /**
+ * A multi-item, catalyzed recipe group
  * @author oskar
  * A group of recipes with a complex input and a catalyst
  */
@@ -46,7 +46,7 @@ implements MultiRecipeGroup<@NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>{
 	 * @author oskar
 	 * A recipe with a complex input and a catalyst
 	 */
-	public class ComplexCatalyzedRecipe extends BaseElectricRecipe<ComplexCatalyzedRecipe> implements Identifiable<@NN Tuple2<@NN RecipeOutput, @NN ItemEntry>>{
+	public class ComplexCatalyzedRecipe extends BaseElectricRecipe<@NN ComplexCatalyzedRecipe> implements Identifiable<@NN Tuple2<@NN RecipeOutput, @NN ItemEntry>>{
 		/** The input item list */
 		@NN public final RecipeOutput input;
 		/** Required catalyst */

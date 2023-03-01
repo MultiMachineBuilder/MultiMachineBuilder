@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft.singles;
+package mmb.engine.craft.rgroups;
 
 import mmb.NN;
 import mmb.Nil;

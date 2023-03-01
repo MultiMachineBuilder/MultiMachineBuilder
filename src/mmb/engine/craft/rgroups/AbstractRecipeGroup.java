@@ -17,8 +17,6 @@ import mmb.engine.craft.GlobalRecipeRegistrar;
 import mmb.engine.craft.PlugAndPlayRecipeCellRenderer;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.RecipeGroup;
-import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.rgroups.ComplexCatRecipeGroup.ComplexCatalyzedRecipe;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.settings.GlobalSettings;
 import mmb.menu.world.craft.RecipeList;
@@ -110,6 +108,11 @@ public abstract class AbstractRecipeGroup<@NN Tbackend, @NN Trecipe extends Reci
 	}
 	
 	//Backend conversion
+	/**
+	 * Gets the ID for a backend type
+	 * @param id items to identify
+	 * @return item ID
+	 */
 	public abstract Set<ItemEntry> items4id(Tbackend id);
 	
 }

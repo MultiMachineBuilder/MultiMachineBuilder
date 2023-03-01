@@ -10,9 +10,9 @@ import mmb.engine.craft.Recipe;
 import mmb.engine.craft.RecipeOutput;
 
 /**
+ * A shared implementation of electric recipes
  * @author oskar
  * @param <T> type of the recipe
- * A shared implementation of electric recipes
  */
 public abstract class BaseElectricRecipe<@NN T extends Recipe<T>> implements Recipe<T> {
 	/** Energy required for completion in joules */

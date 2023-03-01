@@ -9,14 +9,12 @@ import mmb.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.singles.SimpleRecipe;
-import mmb.engine.craft.singles.SimpleRecipeGroup;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.SimpleCatalyzedRecipeView;
 import monniasza.collects.Identifiable;
 
 /**
- * A group of recipes with single input and a catalyst
+ * A single-item, catalyzed recipe group
  * @author oskar
  */
 public class CatSingleRecipeGroup extends AbstractRecipeGroupCatalyzed<@NN ItemEntry, @NN CatSingleRecipeGroup.CatalyzedSimpleRecipe>

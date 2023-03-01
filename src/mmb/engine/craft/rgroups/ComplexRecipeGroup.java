@@ -9,19 +9,16 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.SetMultimap;
 
 import mmb.NN;
-import mmb.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.rgroups.ComplexCatRecipeGroup.ComplexCatalyzedRecipe;
-import mmb.engine.craft.singles.MultiRecipeGroup;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.ComplexRecipeView;
 import monniasza.collects.Identifiable;
 
 /**
+ * A multi-item, no catalyst recipe group
  * @author oskar
- * A group of recipes with a complex input
  */
 public class ComplexRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN RecipeOutput, @NN ComplexRecipeGroup.ComplexRecipe>
 implements MultiRecipeGroup<@NN ComplexRecipeGroup.ComplexRecipe>{
@@ -44,7 +41,7 @@ implements MultiRecipeGroup<@NN ComplexRecipeGroup.ComplexRecipe>{
 	 * A recipe with a complex input
 	 * @author oskar
 	 */
-	public class ComplexRecipe extends BaseElectricRecipe<@NN ComplexRecipe> implements Identifiable<RecipeOutput>{
+	public class ComplexRecipe extends BaseElectricRecipe<@NN ComplexRecipe> implements Identifiable<@NN RecipeOutput>{
 		/** The input item list */
 		@NN public final RecipeOutput input;
 		

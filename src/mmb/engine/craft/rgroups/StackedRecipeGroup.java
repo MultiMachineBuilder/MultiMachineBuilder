@@ -9,14 +9,12 @@ import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.SingleItem;
-import mmb.engine.craft.singles.SimpleRecipe;
-import mmb.engine.craft.singles.SimpleRecipeGroup;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.StackedRecipeView;
 import monniasza.collects.Identifiable;
 
 /**
- * A list of recipes with a stacked input
+ * A stacked-item, no catalyst recipe group
  * @author oskar
  */
 public class StackedRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemEntry, @NN StackedRecipeGroup.StackedRecipe>

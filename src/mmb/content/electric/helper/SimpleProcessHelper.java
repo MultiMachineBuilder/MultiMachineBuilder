@@ -12,8 +12,8 @@ import mmb.Nil;
 import mmb.content.electric.Battery;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.CycleResult;
-import mmb.engine.craft.singles.SimpleRecipe;
-import mmb.engine.craft.singles.SimpleRecipeGroup;
+import mmb.engine.craft.rgroups.SimpleRecipe;
+import mmb.engine.craft.rgroups.SimpleRecipeGroup;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.inv.storage.SingleItemInventory;
@@ -27,7 +27,7 @@ import mmb.engine.item.ItemEntry;
  * @see mmb.content.electric.machines.ProcessorSimpleBlock ProcessorSimpleBlock
  * @see ComplexProcessHelper
  */
-public class SimpleProcessHelper<@NN Trecipe extends SimpleRecipe<@NN Trecipe>> extends Helper<@NN Trecipe, @NN SimpleRecipeGroup<@NN Trecipe>>{
+public class SimpleProcessHelper<@NN Trecipe extends SimpleRecipe<@NN Trecipe>> extends Helper<@NN Trecipe, mmb.engine.craft.rgroups.SimpleRecipeGroup<@NN Trecipe>>{
 	//Constructor
 	/**
 	 * @param recipes list of recipes to use

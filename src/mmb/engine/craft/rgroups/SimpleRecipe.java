@@ -1,17 +1,16 @@
 /**
  * 
  */
-package mmb.engine.craft.singles;
+package mmb.engine.craft.rgroups;
 
 import mmb.NN;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.SingleItem;
-import mmb.engine.inv.Inventory;
 
 /**
+ * A recipe with single input
  * @author oskar
  * @param <T> type of the recipe
- * A recipe with single input
  */
 public interface SimpleRecipe<@NN T extends SimpleRecipe<T>> extends Recipe<T> {
 	@Override

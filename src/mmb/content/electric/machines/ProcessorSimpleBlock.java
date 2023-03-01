@@ -6,7 +6,7 @@ package mmb.content.electric.machines;
 import mmb.NN;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
 import mmb.content.electric.helper.SimpleProcessHelper;
-import mmb.engine.craft.singles.SimpleRecipeGroup;
+import mmb.engine.craft.rgroups.SimpleRecipeGroup;
 
 /**
  * Runs a stacked or single, no-catalyst recipe

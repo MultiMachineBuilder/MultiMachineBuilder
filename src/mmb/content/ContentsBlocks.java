@@ -65,7 +65,7 @@ import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.Blocks;
 import mmb.engine.craft.rgroups.ComplexCatRecipeGroup;
 import mmb.engine.craft.rgroups.ComplexRecipeGroup;
-import mmb.engine.craft.singles.SimpleRecipeGroup;
+import mmb.engine.craft.rgroups.SimpleRecipeGroup;
 import mmb.engine.item.Items;
 import mmb.engine.rotate.ChirotatedImageGroup;
 import mmb.engine.rotate.Side;
