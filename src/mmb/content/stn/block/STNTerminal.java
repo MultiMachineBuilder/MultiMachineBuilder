@@ -15,8 +15,8 @@ import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * Allows manual access to the STN
  * @author oskar
- *
  */
 public class STNTerminal extends STNBaseMachine implements BlockActivateListener {
 

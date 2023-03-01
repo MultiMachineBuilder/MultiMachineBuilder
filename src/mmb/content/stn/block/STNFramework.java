@@ -30,9 +30,11 @@ import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 
 /**
- *
+ * A modular STN block.
+ * Allows connection of modules to access the network, and connection of a chesst core to add storage capabilities to the network.
+ * The core accepts any chest core and is used as any other STN attached storage.
+ * The sides accept any basic module, and exhibit their behavior.
  * @author oskar
- *
  */
 public class STNFramework extends STNBaseMachine implements
 ModularBlock<STNFramework, BlockModuleUniversal, ChestCore, Object> {

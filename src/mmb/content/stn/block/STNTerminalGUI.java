@@ -19,8 +19,8 @@ import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * An UI to access the STN from a terminal
  * @author oskar
- *
  */
 public class STNTerminalGUI extends GUITab {
 	private static final long serialVersionUID = -2283860749818164470L;

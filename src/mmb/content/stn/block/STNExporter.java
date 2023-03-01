@@ -14,8 +14,10 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.rotate.RotatedImageGroup;
 
 /**
+ * Export items from STN to the outside. Items must be specified.
+ * Items can be restricted, and the quantity of items transferred may be limited.
+ * This block accepts speed upgrades
  * @author oskar
- *
  */
 public class STNExporter extends STNCycler{
 	@NN private static final RotatedImageGroup rig = RotatedImageGroup.create("stn/exporter.png");

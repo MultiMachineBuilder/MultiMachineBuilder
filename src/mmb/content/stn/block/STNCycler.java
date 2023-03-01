@@ -29,8 +29,8 @@ import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * A base class for STN importer and exporter
  * @author oskar
- *
  */
 public abstract class STNCycler extends STNBaseMachine implements BlockActivateListener{
 
@@ -46,21 +46,19 @@ public abstract class STNCycler extends STNBaseMachine implements BlockActivateL
 	protected double counter = 0;
 	protected STNPusherGUI gui;
 
+	//Storage and recipes not supported
 	@Override
 	public STNRGroupTag recipes() {
 		return null;
 	}
-
 	@Override
 	public Inventory storage() {
 		return null;
 	}
-
 	@Override
 	public STNRGroupTag oldrecipes() {
 		return null;
 	}
-
 	@Override
 	public Inventory oldstorage() {
 		return null;

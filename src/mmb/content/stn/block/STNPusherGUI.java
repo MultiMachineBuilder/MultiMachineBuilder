@@ -21,8 +21,8 @@ import java.awt.Color;
 import javax.swing.JButton;
 
 /**
+ * Allows to configure STN importers and exporters
  * @author oskar
- *
  */
 public class STNPusherGUI extends GUITab {
 	private static final long serialVersionUID = 1823899317802392491L;

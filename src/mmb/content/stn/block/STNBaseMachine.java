@@ -13,7 +13,7 @@ import mmb.engine.inv.Inventory;
 import mmb.engine.worlds.world.World;
 
 /**
- * Base class for all STN machines
+ * Base class for all STN machines.
  * @author oskar
  */
 public abstract class STNBaseMachine extends BlockEntityRotary {

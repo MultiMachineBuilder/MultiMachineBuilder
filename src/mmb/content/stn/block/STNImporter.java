@@ -15,8 +15,10 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.rotate.RotatedImageGroup;
 
 /**
+ * Imports items from the outside to the STN.
+ * Items can be restricted, and the quantity of items transferred may be limited.
+ * This block accepts speed upgrades
  * @author oskar
- *
  */
 public class STNImporter extends STNCycler{
 	@NN private static final RotatedImageGroup rig = RotatedImageGroup.create("stn/importer.png");

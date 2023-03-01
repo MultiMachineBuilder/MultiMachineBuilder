@@ -14,8 +14,8 @@ import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.worlds.MapProxy;
 
 /**
+ * Adds storage capabilities to the STN
  * @author oskar
- *
  */
 public class STNStorageAttachment extends STNBaseMachine {
 	@NN private static final RotatedImageGroup rig = RotatedImageGroup.create("stn/storage.png");
