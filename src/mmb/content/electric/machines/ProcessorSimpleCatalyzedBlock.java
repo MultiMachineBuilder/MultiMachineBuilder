@@ -12,6 +12,7 @@ import mmb.engine.craft.singles.SimpleRecipeGroup;
 import mmb.engine.inv.storage.SingleItemInventory;
 
 /**
+ * Runs a stacked or single, catalyzed recipe. The catalyst selects the recipe from the pool of valid recipes with the same item.
  * @author oskar
  * @param <Trecipe> type of recipes
  */

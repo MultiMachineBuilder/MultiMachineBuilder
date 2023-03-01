@@ -12,6 +12,8 @@ import mmb.content.rawmats.Materials;
 import mmb.content.rawmats.MetalGroup;
 
 /**
+ * An electrical voltage.
+ * There are 9 voltages, with ULV being the lowest and MAX being the highest
  * @author oskar
  * V1: rudimentary
  * V2: copper

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.electric;
+package mmb.content.electric.machines;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JProgressBar;
 
 import mmb.NN;
-import mmb.content.electric.machines.BlockBattery;
+import mmb.content.electric.Electricity;
 import mmb.menu.helper.MenuHelper;
 import mmb.menu.world.inv.InventoryController;
 import mmb.menu.world.inv.MoveItems;
@@ -20,6 +20,7 @@ import mmb.menu.world.window.WorldWindow;
 import java.awt.Color;
 
 /**
+ * GUI for the battery block
  * @author oskar
  *
  */
@@ -60,9 +61,7 @@ public class BatteryTab extends GUITab {
 		add(exit, "cell 1 3 2 3,growx");
 	}
 	
-	/**
-	 * Refreshes this GUI
-	 */
+	/** Refreshes this GUI */
 	public void refresh() {
 		Electricity.formatProgress(progressBar, battery.battery.stored, battery.battery.capacity);
 	}

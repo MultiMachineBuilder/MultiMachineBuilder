@@ -17,8 +17,8 @@ import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 
 /**
+ * Measures electrical power in a debug screen. Works at any voltage
  * @author oskar
- *
  */
 public class PowerMeter extends BlockEntityRotary {
 	@Override

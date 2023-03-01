@@ -31,8 +31,8 @@ import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * Burns solid fuels to generate electricity
  * @author oskar
- *
  */
 public class BlockGeneratorSolid extends BlockEntityRotary implements BlockActivateListener{
 	//Standard generator definitions

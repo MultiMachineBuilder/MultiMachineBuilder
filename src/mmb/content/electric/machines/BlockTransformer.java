@@ -23,8 +23,8 @@ import mmb.engine.texture.Textures;
 import mmb.engine.worlds.MapProxy;
 
 /**
+ * Increases and/or decreases voltage (both on systems with multi-voltage generation)
  * @author oskar
- * A transformer is a block which allows to change voltage
  */
 public class BlockTransformer extends BlockEntityRotary {
 

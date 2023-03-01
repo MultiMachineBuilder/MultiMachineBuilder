@@ -16,8 +16,8 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
 
 /**
+ * An item which stores electricity. Can be charged and discharged at batteries
  * @author oskar
- *
  */
 public class ItemBattery extends ItemEntityMutable implements Electric {
 	//Constructors

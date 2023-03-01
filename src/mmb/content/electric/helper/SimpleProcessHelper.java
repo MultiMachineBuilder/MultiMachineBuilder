@@ -20,9 +20,12 @@ import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 
 /**
+ * Implements the processing of a stacked or single catalyzed or uncatalyzed recipes in a machine.
  * @author oskar
- * A class to help make simple item processors
  * @param <Trecipe> type of recipes
+ * @see mmb.content.electric.machines.ProcessorSimpleCatalyzedBlock ProcessorSimpleCatalyzedBlock
+ * @see mmb.content.electric.machines.ProcessorSimpleBlock ProcessorSimpleBlock
+ * @see ComplexProcessHelper
  */
 public class SimpleProcessHelper<@NN Trecipe extends SimpleRecipe<@NN Trecipe>> extends Helper<@NN Trecipe, @NN SimpleRecipeGroup<@NN Trecipe>>{
 	//Constructor

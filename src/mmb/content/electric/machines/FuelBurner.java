@@ -10,8 +10,8 @@ import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 
 /**
+ * Burns fuels to generate energy
  * @author oskar
- * A helper class to help burn fuels
  */
 public class FuelBurner {
 	public final double mul;

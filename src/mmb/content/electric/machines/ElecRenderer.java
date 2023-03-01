@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.electric;
+package mmb.content.electric.machines;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -16,6 +16,8 @@ import org.joml.Vector4fc;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.content.electric.BlockConduit;
+import mmb.content.electric.Electricity;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.gl.GLHelper;
 import mmb.engine.gl.RenderCtx;

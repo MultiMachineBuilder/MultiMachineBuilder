@@ -6,14 +6,12 @@ package mmb.content.electric;
 import mmb.NN;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
 import mmb.engine.block.BlockEntityDataless;
-import mmb.engine.block.BlockEntityType;
-import mmb.engine.block.BlockType;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 
 /**
+ * Generates infinite electricity. Available in Creative only.
  * @author oskar
- *
  */
 public class InfiniteGenerator extends BlockEntityDataless {
 	//Block methods

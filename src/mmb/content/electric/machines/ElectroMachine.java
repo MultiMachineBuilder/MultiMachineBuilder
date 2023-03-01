@@ -11,8 +11,8 @@ import mmb.engine.craft.RecipeGroup;
 import mmb.engine.inv.Inventory;
 
 /**
+ * An interface to a single recipe machine
  * @author oskar
- * Provides an interface to a single recipe at once machine
  */
 public interface ElectroMachine extends Electric{
 	/**

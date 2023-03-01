@@ -23,8 +23,8 @@ import mmb.menu.world.window.WorldWindow;
 import javax.swing.JCheckBox;
 
 /**
+ * Allows to configure a digger and extract items from it
  * @author oskar
- *
  */
 public class GUIDigger extends GUITab {
 	private static final long serialVersionUID = 2506447463267036557L;

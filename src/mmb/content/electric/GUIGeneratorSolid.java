@@ -19,8 +19,8 @@ import java.awt.Color;
 import javax.swing.JButton;
 
 /**
+ * A GUI for the furnace and turbogenerators
  * @author oskar
- *
  */
 public class GUIGeneratorSolid extends GUITab {
 	private static final long serialVersionUID = 1680582237436697644L;

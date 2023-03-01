@@ -9,8 +9,8 @@ import mmb.content.electric.helper.SimpleProcessHelper;
 import mmb.engine.craft.singles.SimpleRecipeGroup;
 
 /**
+ * Runs a stacked or single, no-catalyst recipe
  * @author oskar
- * A machine capable of obtaining resources out of nothing
  */
 public class ProcessorSimpleBlock extends ProcessorAbstractBlock{
 	//Constructor

@@ -16,8 +16,8 @@ import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;
 
 /**
+ * Generates 9 items, one for each voltage
  * @author oskar
- * A  group of items by voltage
  */
 public class VoltagedItemGroup {
 	@NN public final List<@NN Item> items;

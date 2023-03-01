@@ -24,9 +24,12 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
 
 /**
+ * Implements the processing of a complex catalyzed or uncatalyzed recipes in a machine.
  * @author oskar
  * @param <Trecipe> type of recipes
- *
+ * @see mmb.content.electric.machines.ProcessorComplexCatalyzedBlock ProcessorComplexCatalyzedBlock
+ * @see mmb.content.electric.machines.ProcessorComplexCatalyzedBlock ProcessorComplexBlock
+ * @see SimpleProcessHelper
  */
 public class ComplexProcessHelper<@NN Trecipe extends Recipe<Trecipe>> extends Helper<@NN Trecipe, @NN MultiRecipeGroup<Trecipe>> {
 	//Constructor

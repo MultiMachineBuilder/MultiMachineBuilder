@@ -11,7 +11,6 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.cgui.BlockActivateListener;
 import mmb.content.electric.Battery;
-import mmb.content.electric.BatteryTab;
 import mmb.content.electric.Electric;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
@@ -26,8 +25,8 @@ import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * Stores electricity
  * @author oskar
- *
  */
 public final class BlockBattery extends BlockEntityRotary implements BlockActivateListener, Electric {
 	//Block definition

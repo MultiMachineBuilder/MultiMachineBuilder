@@ -15,8 +15,8 @@ import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 
 /**
+ * An electrical connection
  * @author oskar
- *
  */
 public interface Electricity {
 	/**

@@ -18,8 +18,8 @@ import mmb.engine.json.JsonTool;
 import mmb.engine.rotate.Side;
 
 /**
+ * A set of 4 boolean variables, one for each side
  * @author oskar
- *
  */
 public final class SideConfig implements
 Cloneable, Iterable<mmb.content.electric.SideConfig.SideBoolean>, Saver{

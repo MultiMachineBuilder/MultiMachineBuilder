@@ -31,8 +31,8 @@ import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * Allows the manual use of electric machines, and to extract and insert items to it
  * @author oskar
- *
  */
 public class GUIMachine extends GUITab implements Refreshable{
 	private static final long serialVersionUID = 3998363632338624337L;

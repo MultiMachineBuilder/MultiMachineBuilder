@@ -12,8 +12,8 @@ import mmb.content.electric.machines.ElectroMachine;
 import mmb.menu.world.craft.*;
 
 /**
+ * A GUI component which provides common machine information in the GUI
  * @author oskar
- *
  */
 public class MachineInfoTab extends Box {
 	private static final long serialVersionUID = -7855159998857476643L;

@@ -18,8 +18,8 @@ import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.settings.GlobalSettings;
 
 /**
+ * Provides 9 voltages of the same electrical item
  * @author oskar
- * A group of closely related electrical machines
  */
 public class ElectricMachineGroup {
 	@NN public final List<@NN ElectroMachineType> blocks;

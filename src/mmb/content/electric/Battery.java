@@ -14,7 +14,7 @@ import mmb.engine.block.BlockEntity;
 import mmb.engine.json.JsonTool;
 
 /**
- * An implementation of a battery
+ * An implementation of a battery. Used by almost all electric machines.
  * @author oskar
  */
 public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver{

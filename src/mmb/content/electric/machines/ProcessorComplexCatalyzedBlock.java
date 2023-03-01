@@ -11,8 +11,8 @@ import mmb.engine.craft.rgroups.ComplexCatRecipeGroup.ComplexCatalyzedRecipe;
 import mmb.engine.inv.storage.SingleItemInventory;
 
 /**
+ * Runs a complex, catalyzed recipe. The catalyst selects the recipe from the pool of valid recipes with the same items.
  * @author oskar
- *
  */
 public class ProcessorComplexCatalyzedBlock extends ProcessorAbstractBlock{
 	//Constructor

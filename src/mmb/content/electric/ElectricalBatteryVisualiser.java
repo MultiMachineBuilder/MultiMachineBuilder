@@ -8,8 +8,8 @@ import java.awt.Graphics;
 import javax.swing.JProgressBar;
 
 /**
+ * A progress bar, which visualizes it electric charge
  * @author oskar
- *
  */
 public class ElectricalBatteryVisualiser extends JProgressBar {
 	public ElectricalBatteryVisualiser() {

@@ -10,8 +10,8 @@ import mmb.engine.craft.rgroups.ComplexRecipeGroup;
 import mmb.engine.craft.rgroups.ComplexRecipeGroup.ComplexRecipe;
 
 /**
+ * Runs a complex, no-catalyst recipe
  * @author oskar
- *
  */
 public class ProcessorComplexBlock extends ProcessorAbstractBlock{	
 	//Constructor

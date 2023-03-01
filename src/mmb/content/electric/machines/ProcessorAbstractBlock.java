@@ -17,7 +17,6 @@ import mmb.data.variables.ListenableBoolean;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
 import mmb.engine.block.BlockEntityRotary;
 import mmb.engine.block.BlockEntry;
-import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventories;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.io.InventoryReader;
@@ -30,10 +29,9 @@ import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
-//FIXME items disappear on craft
 /**
+ * Abstract implementation of ALL electric processing machines
  * @author oskar
- * A class with many common utilities for machines
  */
 public abstract class ProcessorAbstractBlock extends BlockEntityRotary implements ElectroMachine, BlockActivateListener{
 	//Constructors

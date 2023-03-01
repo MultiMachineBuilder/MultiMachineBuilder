@@ -10,8 +10,8 @@ import mmb.menu.components.BoundCheckBox;
 import javax.swing.BoxLayout;
 
 /**
- * @author oskar
  * Configures sides of given side config. Remember to close, as it holds resources on given side config
+ * @author oskar
  */
 public class SideConfigCtrl extends JPanel implements AutoCloseable{
 	private static final long serialVersionUID = 5825304896794378584L;

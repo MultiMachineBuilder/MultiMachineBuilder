@@ -13,8 +13,9 @@ import mmb.engine.rotate.Side;
 import mmb.engine.worlds.world.World;
 
 /**
+ * Implements the load balancing and electricity transport capabilities of the power conduit
  * @author oskar
- * A class to help transfer electricity
+ * @see mmb.content.electric.BlockConduit power conduit
  */
 public class TransferHelper{
 	public int maxIters = 500;

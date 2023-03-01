@@ -6,8 +6,9 @@ package mmb.content.electric;
 import mmb.NN;
 
 /**
+ * An iterface bean which provides main electrical connection.
  * @author oskar
- * Allows blocks and items to provide the main electrical connection
+ * @see mmb.content.electric.machines.BlockPowerTower
  */
 public interface Electric {
 	/** @return the main electrical connection */
