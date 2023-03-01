@@ -13,12 +13,30 @@ import mmb.engine.worlds.world.World;
 import monniasza.collects.grid.Grid;
 
 /**
+ * An abstraction over world generators
  * @author oskar
- *
  */
 public interface Generator extends Titled{
+	/**
+	 * Generates a part of the world
+	 * @param map world
+	 * @param minX left X coordinate
+	 * @param minY upper Y coordinate
+	 * @param w width of the chunk
+	 * @param h height of the chunk
+	 * @return generated block grid
+	 */
 	@NN public Grid<BlockEntry> genChunk(World map, int minX, int minY, int w, int h);
+	/**
+	 * Sets the seed
+	 * @param seed world seed
+	 */
 	public void setSeed(long seed);
+	/**
+	 * Generates an entire world
+	 * @param map world to generate in
+	 * @param chunkSize chunk size
+	 */
 	default void generate(World map, int chunkSize) {
 		Debugger debug = new Debugger("WORLD GEN");
 		int chunkSize0 = chunkSize;

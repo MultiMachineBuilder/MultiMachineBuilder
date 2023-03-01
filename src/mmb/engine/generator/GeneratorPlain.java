@@ -5,6 +5,7 @@ package mmb.engine.generator;
 
 import static mmb.engine.settings.GlobalSettings.$res;
 
+import mmb.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.Blocks;
 import mmb.engine.worlds.world.World;
@@ -12,11 +13,11 @@ import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 
 /**
+ * A standard world generator for creative mode. It only generates grass
  * @author oskar
- *
  */
 public class GeneratorPlain implements Generator {
-	private final String name = $res("ngui-plain");
+	@NN private final String name = $res("ngui-plain");
 	@Override
 	public void generate(World map, int chunkSize) {
 		map.toGrid().fill(0, 0, map.sizeX, map.sizeY, Blocks.grass);

@@ -42,8 +42,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
+ * A world creation GUI
  * @author oskar
- *
  */
 @SuppressWarnings("serial")
 public class NewGame extends MMBFrame {

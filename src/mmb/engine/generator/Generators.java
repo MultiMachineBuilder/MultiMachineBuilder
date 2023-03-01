@@ -11,23 +11,20 @@ import mmb.NN;
 import monniasza.collects.Collects;
 
 /**
+ * A set of world generation utilities
  * @author oskar
- *
  */
 public class Generators {
 	private static boolean inited = false;
+	/** Initializes world generators */
 	public static void init() {
 		if(inited) return;
-		add(new GeneratorMultiBiome());
-		add(new GeneratorPlain());
+		generators.addElement(new GeneratorMultiBiome());
+		generators.addElement(new GeneratorPlain());
 		inited = true;
 	}
+	/** A list of the world generators */
 	@NN public static final DefaultListModel<Generator> generators = new DefaultListModel<>();
+	/** A list of the world generators */
 	@NN public static final List<Generator> generatorsList = Collects.toWritableList(generators);
-	public static void add(Generator g) {
-		generators.addElement(g);
-	}
-	public static void remove(Generator g) {
-		generators.removeElement(g);
-	}
 }

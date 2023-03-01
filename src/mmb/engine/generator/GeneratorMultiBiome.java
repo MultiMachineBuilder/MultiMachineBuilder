@@ -20,11 +20,11 @@ import java.awt.Rectangle;
 import java.util.Random;
 
 /**
+ * A standard survival-friendly generator
  * @author oskar
- *
  */
 public class GeneratorMultiBiome implements Generator {
-	private final String name = $res("ngui-biomes");
+	@NN private final String name = $res("ngui-biomes");
 	private final Debugger debug = new Debugger("WORLD GEN MULTIBIOME");
 	private static final Rectangle rect = new Rectangle(-1, -1, 2, 2);
 	private Rectangle chunk = new Rectangle();
