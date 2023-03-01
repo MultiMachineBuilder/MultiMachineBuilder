@@ -21,7 +21,8 @@ import mmb.menu.wtool.Tools;
 import mmb.menu.wtool.WindowToolModel;
 
 /**
- * The main class for alcoholic beverages
+ * The main class for alcoholic beverages.
+ * Theuy have intoxicating effects
  * +-----------------------------------------------------+
  * |REAL-LIFE ALCOHOL CONSUMPTION IS HARMFUL             |
  * |½ LITER OF BEER CONTAINS 25g OF ETHYL ALCOHOL        |

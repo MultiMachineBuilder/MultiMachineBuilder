@@ -19,7 +19,7 @@ import mmb.menu.world.craft.RecipeView;
 import mmb.menu.world.craft.VectorUtils;
 
 /**
- * Represents a recipe view for alcoholic beverages
+ * Displays information about a single alcoholic beverage
  * @author oskar
  */
 public class AlcoholInfoView extends RecipeView<AlcoholInfo> {

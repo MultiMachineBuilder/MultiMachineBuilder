@@ -9,8 +9,8 @@ import mmb.engine.item.Item;
 import mmb.menu.wtool.WindowTool;
 
 /**
+ * This item represents alcoholic beverages ingame
  * @author oskar
- * This item represents an AlcoPod, a fictional alcoholic beverage available in pods
  *  +-----------------------------------------------------+
  *  |REAL-LIFE ALCOHOL CONSUMPTION IS HARMFUL             |
  *  |½ LITER OF BEER CONTAINS 25g OF ETHYL ALCOHOL        |

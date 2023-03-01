@@ -14,8 +14,8 @@ import mmb.menu.world.craft.RecipeView;
 import monniasza.collects.Identifiable;
 
 /**
+ * Contains information about alcoholic beverages
  * @author oskar
- *
  */
 public class AlcoholInfoGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemEntry, @NN AlcoholInfoGroup.AlcoholInfo>{
 	/**

@@ -20,8 +20,8 @@ import mmb.engine.texture.Textures;
 import mmb.menu.wtool.WindowTool;
 
 /**
+ * An item tool associated with alcoholic beverages
  * @author oskar
- *
  */
 public class ToolAlcohol extends WindowTool {
 	private static final Debugger debug = new Debugger("ALCOHOL");
