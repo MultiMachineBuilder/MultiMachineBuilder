@@ -15,7 +15,6 @@ import mmb.content.electric.machines.ElecRenderer;
 import mmb.engine.UnitFormatter;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.item.Item;
-import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
@@ -23,8 +22,8 @@ import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
 
 /**
+ * Defines a set of 5 power cables with different power ratings, but with the same voltage
  * @author oskar
- *
  */
 public class WireGroup implements Identifiable<String> {
 	@NN public final BlockEntityType tiny;
@@ -100,5 +99,6 @@ public class WireGroup implements Identifiable<String> {
 		return id;
 	}
 	@NN private static final SelfSet<@NN String, @NN WireGroup> _index = HashSelfSet.createNonnull(WireGroup.class);
+	/** Set of all wire groups */
 	@NN public static final SelfSet<@NN String, @NN WireGroup> index = Collects.unmodifiableSelfSet(_index);
 }

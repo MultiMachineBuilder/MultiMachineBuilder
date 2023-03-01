@@ -15,8 +15,8 @@ import mmb.engine.item.Items;
 import mmb.engine.java2d.TexGen;
 
 /**
+ * An extension to a material group with an ore and a crop
  * @author oskar
- *
  */
 public class BaseMetalGroup extends MetalGroup{
 

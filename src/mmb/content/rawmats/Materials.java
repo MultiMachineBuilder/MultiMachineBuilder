@@ -294,7 +294,7 @@ public class Materials {
 		CraftingGroups.furnaceFuels.put(ContentsBlocks.logs, 8000_000);
 	}
 	/**
-	 * Creates a famiily of alloying recipes for the given material
+	 * Creates a family of alloying recipes for the given material
 	 * @param partA the material A
 	 * @param ratioA amount of material A per recipe
 	 * 
@@ -338,6 +338,14 @@ public class Materials {
 		CraftingGroups.alloyer.add(recs4, output, ratioOut, volt, energy);
 	}
 
+	/**
+	 * Alloys 3 or more metal groups
+	 * @param out output material group
+	 * @param ratioO amount of the output item per craft
+	 * @param volt required voltage tier
+	 * @param energy energy per craft for ingots
+	 * @param mats input material stacks with material and quantity per craft
+	 */
 	public static void alloying(MetalGroup out, int ratioO, VoltageTier volt, double energy, MaterialStack... mats) {
 		malloyingHelper(in -> in.nugget, mats, out, ratioO, volt, energy/16);
 		malloyingHelper(in -> in.frag, mats, out, ratioO, volt, energy/4);
@@ -345,7 +353,7 @@ public class Materials {
 		malloyingHelper(in -> in.cluster, mats, out, ratioO, volt, energy*4);
 		malloyingHelper(in -> in.block, mats, out, ratioO, volt, energy*16);
 	}
-	private static void malloyingHelper(Function<@NN MetalGroup, ItemEntry> selector, MaterialStack[] mat, MetalGroup out, int ratioO, VoltageTier volt, double energy) {
+	private static void malloyingHelper(Function<@NN MetalGroup, @NN ItemEntry> selector, MaterialStack[] mat, MetalGroup out, int ratioO, VoltageTier volt, double energy) {
 		Object2IntMap<ItemEntry> builder = new Object2IntOpenHashMap<>(mat.length);
 		for(int i = 0; i < mat.length; i++) {
 			builder.put(selector.apply(mat[i].material), mat[i].amount);

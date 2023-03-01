@@ -26,12 +26,11 @@ import mmb.engine.item.Items;
 import mmb.engine.java2d.TexGen;
 import mmb.engine.texture.Textures;
 
-import static mmb.content.ContentsItems.frame1;
 import static mmb.engine.settings.GlobalSettings.*;
 
 /**
+ * Defines an auto-generated material
  * @author oskar
- *
  */
 public class MetalGroup{
 	@NN public final Block block;
