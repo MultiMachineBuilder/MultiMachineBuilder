@@ -166,6 +166,8 @@
 				<configuration>
 					<forceCreation>true</forceCreation>
 					<failOnError>false</failOnError>
+					<charset>utf-8</charset>
+					<doclint>false</doclint>
 				</configuration>
 				<executions>
 					<execution>
