@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.electric.old;
+package mmb.content.old;
 
 import java.awt.Component;
 

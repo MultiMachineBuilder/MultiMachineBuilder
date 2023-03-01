@@ -1,11 +1,11 @@
 /**
  * 
  */
-package mmb.content.electric.old;
+package mmb.content.old;
 
 import javax.swing.JPanel;
 
-import mmb.content.electric.old.SkeletalBlockMachine.Update;
+import mmb.content.old.SkeletalBlockMachine.Update;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 

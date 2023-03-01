@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.machinemics.line;
+package mmb.content.old;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -26,6 +26,7 @@ import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 
 /**
+ * A manual autocrafterGUI
  * @author oskar
  *
  */

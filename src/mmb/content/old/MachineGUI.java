@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.electric.old;
+package mmb.content.old;
 
 import static mmb.engine.settings.GlobalSettings.$res;
 
@@ -22,7 +22,7 @@ import mmb.NN;
 import mmb.content.electric.ElectricalBatteryVisualiser;
 import mmb.content.electric.SideConfig;
 import mmb.content.electric.SideConfigCtrl;
-import mmb.content.electric.old.SkeletalBlockMachine.Update;
+import mmb.content.old.SkeletalBlockMachine.Update;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
 import mmb.menu.world.inv.InventoryController;

@@ -1,24 +1,23 @@
 /**
  * 
  */
-package mmb.content.machinemics.line;
+package mmb.content.old;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.IntNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
-import mmb.NN;
 import mmb.Nil;
 import mmb.cgui.BlockActivateListener;
 import mmb.content.ContentsBlocks;
 import mmb.content.ditems.Stencil;
+import mmb.content.machinemics.line.SkeletalBlockLinear;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
-import mmb.engine.debug.Debugger;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.rotate.RotatedImageGroup;
@@ -27,11 +26,10 @@ import mmb.menu.world.window.WorldWindow;
 import monniasza.collects.grid.Grid;
 
 /**
+ * Manual, unpowered autocrafter
  * @author oskar
- *
  */
 public class AutoCrafter extends SkeletalBlockLinear implements BlockActivateListener {
-	@NN private static final Debugger debug = new Debugger("AUTOCRAFTER MANUAL");
 	private static final RotatedImageGroup rig = RotatedImageGroup.create("machine/AutoCrafter 1.png");
 	private Stencil stencil;
 	ItemEntry toCraft;
