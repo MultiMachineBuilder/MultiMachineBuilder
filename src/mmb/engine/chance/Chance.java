@@ -15,8 +15,8 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.worlds.world.World;
 
 /**
+ * A potentially randomized item drop
  * @author oskar
- * Represents a processing result with random chance
  */
 public interface Chance {
 	/**

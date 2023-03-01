@@ -9,18 +9,22 @@ import java.util.Set;
 
 import org.ainslec.picocog.PicoWriter;
 
+import mmb.Nil;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.worlds.world.World;
 
 /**
+ * Random chanced item drop with else
  * @author oskar
- *
  */
 public class RandomOrElseChance implements Chance {
 	
+	/** The propability of item drop */
 	public final double chance;
+	/** The inner item drop */
 	public final Chance wrap;
+	/** The second item drop */
 	public final Chance other;
 
 	/**
@@ -37,7 +41,7 @@ public class RandomOrElseChance implements Chance {
 	}
 
 	@Override
-	public boolean drop(InventoryWriter inv, World map, int x, int y) {
+	public boolean drop(@Nil InventoryWriter inv, World map, int x, int y) {
 		if(Math.random() < chance) return wrap.drop(inv, map, x, y);
 		return other.drop(inv, map, x, y);
 	}

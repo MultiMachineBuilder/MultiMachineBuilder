@@ -14,8 +14,8 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.worlds.world.World;
 
 /**
+ * Combination of item drops
  * @author oskar
- *
  */
 public class ListChance implements Chance {
 	private final Chance[] chances;
