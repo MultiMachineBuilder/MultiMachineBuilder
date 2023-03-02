@@ -17,12 +17,14 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 import mmb.Main;
 import mmb.NN;
+import mmb.Nil;
 import mmb.engine.NotFoundException;
 import mmb.engine.debug.Debugger;
 import mmb.engine.files.AdvancedFile;
 import mmb.engine.mods.ModLoader;
 
 /**
+ * A set of sound utilites and a sound library
  * @author oskar
  *
  */
@@ -31,16 +33,20 @@ public class Sounds {
 	@NN private static final Debugger debug = new Debugger("SOUNDS");
 	
 	@NN private static final Map<String, Sound> sounds0 = new HashMap<>();
-	/** The list of all sounds */
+	/** The list of all loaded sounds */
 	@NN public static final Map<String, Sound> sounds = Collections.unmodifiableMap(sounds0);
+	/** A dummy audio format for an empty sound */
 	@NN public static final AudioFormat dummyAF = new AudioFormat(48000, 16, 1, false, false);
+	/** An empty sound */
 	@NN public static final Sound EMPTY = new Sound(new byte[0], dummyAF, 0);
 	
 	/**
-	 * @param name
-	 * @return
+	 * Gets a sound
+	 * @param name sound name
+	 * @return a sound
+	 * @throws NotFoundException when sound does not exist
 	 */
-	public static Sound getSound(String name) {
+	@NN public static Sound getSound(String name) {
 		if(!Main.isRunning()) return EMPTY;
 		Sound s = sounds0.get(name);
 		if(s == null) {
@@ -55,7 +61,13 @@ public class Sounds {
 		}
 		return s;
 	}
-	public static Sound ngetSound(String name) {
+	/**
+	 * Gets a sound or null
+	 * @param name sound name
+	 * @return a sound or null if not found
+	 * @throws NotFoundException when sound exists, but fails to load
+	 */
+	@Nil public static Sound ngetSound(String name) {
 		Sound s = sounds0.get(name);
 		if(s == null) {
 			//Cache miss, load classpath
@@ -112,6 +124,11 @@ public class Sounds {
 		if(loaded != null) load(loaded, name);
 		return loaded;
 	}
+	/**
+	 * Adds an existing sound to the audio library
+	 * @param sound sound to load
+	 * @param name sound name
+	 */
 	public static void load(Sound sound, String name) {
 		debug.printl("Loading a sound: "+name);
 		sounds0.put(name, sound);

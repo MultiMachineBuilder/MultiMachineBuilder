@@ -18,9 +18,9 @@ import org.apache.commons.io.IOUtils;
 import mmb.NN;
 
 /**
- * @author oskar
- * A sound with all required information to play back properly.
+ * Describes a sound with all required information to play back properly.
  * The class contains methods to read audio from a file and open a clip.
+ * @author oskar 
  */
 public class Sound {
 	/** Raw audio data */
