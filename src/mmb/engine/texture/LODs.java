@@ -10,13 +10,14 @@ import org.joml.Vector4f;
 import org.joml.Vector4i;
 
 /**
+ * LOD calculation
  * @author oskar
  *
  */
 public class LODs {
 	private LODs() {}
 	/**
-	 * Calulates a weighted color average for use in LODs
+	 * Calculates a weighted color average for use in LODs
 	 * @param img input image
 	 * @return calculated LOD color in sRGB
 	 */
@@ -58,7 +59,12 @@ public class LODs {
 		int b1 = b/w;
 		return r1*65536 + g1*256 + b1;
 	}
-	
+	/**
+	 * Calculates a weighted color average for use in LODs
+	 * @param img input image
+	 * @param vec destination
+	 * @return vec
+	 */
 	public static Vector4f calcLOD(BufferedImage img, Vector4f vec) {
 		int r=0;
 		int g=0;

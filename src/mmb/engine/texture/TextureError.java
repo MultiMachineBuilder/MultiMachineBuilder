@@ -4,8 +4,8 @@
 package mmb.engine.texture;
 
 /**
- * @author oskar
  * A fatal error thrown when there is not enough room for textures
+ * @author oskar
  */
 public class TextureError extends Error {
 	private static final long serialVersionUID = -63170535805769130L;

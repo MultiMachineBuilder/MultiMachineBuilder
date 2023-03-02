@@ -26,7 +26,7 @@ import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
 
 /**
- * The texture library uised by the MultiMachineBuilder
+ * The texture library used by the MultiMachineBuilder
  * @author oskar
  */
 public class Textures {

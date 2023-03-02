@@ -8,24 +8,25 @@ import java.awt.Graphics;
 
 import javax.swing.Icon;
 
-import org.joml.Vector2fc;
-import org.joml.Vector4f;
-import org.joml.Vector4fc;
-
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.block.BlockEntry;
-import mmb.engine.gl.GLHelper;
-import mmb.engine.gl.RenderCtx;
 
 /**
+ * A single color block drawer
  * @author oskar
- *
  */
 public class ColorDrawer implements BlockDrawer {
-	public final Color c;
-	private final ConstSolidIcon icon;
+	
+	/** The color of this block drawer */
+	@NN public final Color c;
+	@NN private final ConstSolidIcon icon;
 	public final float r, g, b, a;
+	
+	
 	/**
-	 * 
+	 * Creates a single color block drawer
+	 * @param c color
 	 */
 	public ColorDrawer(Color c) {
 		this.c = c;
@@ -37,11 +38,11 @@ public class ColorDrawer implements BlockDrawer {
 	}
 
 	@Override
-	public void draw(BlockEntry ent, int x, int y, Graphics g, int w, int h) {
-		Color old = g.getColor();
-		g.setColor(c);
-		g.fillRect(x, y, w, h);
-		g.setColor(old);
+	public void draw(@Nil BlockEntry ent, int x, int y, Graphics gr, int w, int h) {
+		Color old = gr.getColor();
+		gr.setColor(c);
+		gr.fillRect(x, y, w, h);
+		gr.setColor(old);
 	}
 
 	@Override

@@ -6,22 +6,22 @@ package mmb.engine.texture;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.util.Map;
-import java.util.Map.Entry;
-
 import mmb.NN;
 import mmb.Nil;
 import mmb.engine.debug.Debugger;
 import mmb.engine.texture.Textures.Texture;
 
 /**
- * @author oskar
  * A class to help make texture atlases
  * Based on <a href="https://blackpawn.com/texts/lightmaps/">https://blackpawn.com/texts/lightmaps/</a>
+ * @author oskar
  */
 public class TextureAtlas{
+	/** Maximum size of the texture atlas */
 	public static int MAX_SIZE = 8192;
+	/** The top level texture atlas node */
 	public TextureAtlasNode atlas;
+	/** The conainer image */
 	public BufferedImage image;
 	private static final Debugger debug = new Debugger("TEXTURE ATLAS");
 	/** Creates a texture atlas */
@@ -30,6 +30,12 @@ public class TextureAtlas{
 		atlas = new TextureAtlasNode();
 		atlas.rect.setBounds(0, 0, 256, 256);
 	}
+	/**
+	 * Inserts a texture into a texture atlas
+	 * @param img texture to insert
+	 * @param id texture ID
+	 * @return a texture object
+	 */
 	@NN public Texture insert(BufferedImage img, String id) {
 		while(true) {
 			TextureAtlasNode result = atlas.insert(img, id);
@@ -101,22 +107,19 @@ public class TextureAtlas{
 				img, id); //insertion successfull
 		}
 	}
-	public void insert(Map<@NN String, @NN BufferedImage> textures) {
-		for(Entry<@NN String, @NN BufferedImage> entry: textures.entrySet()) {
-			BufferedImage img = entry.getValue();
-			String id = entry.getKey();
-			insert(img, id);
-		}
-	}
 	
 	/**
 	 * A portion of the texture atlas
 	 * @author oskar
 	 */
 	public static class TextureAtlasNode {
+		/** Left/top texture node */
 		@Nil public TextureAtlasNode a;
+		/** Right/bottom texture node */
 		@Nil public TextureAtlasNode b;
+		/** Ths node's border */
 		public final Rectangle rect = new Rectangle();
+		/** This node's texture ID */
 		public @Nil String textureID;
 		public TextureAtlasNode insert(BufferedImage img, String id) {
 			TextureAtlasNode aa = a;
