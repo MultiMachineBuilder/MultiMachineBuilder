@@ -2,7 +2,7 @@
  * 
  */
 /**
- * A collection of windowing utilities
+ * A collection of windowing and full screen utilities
  * @author oskar
  */
 @javax.annotation.ParametersAreNonnullByDefault

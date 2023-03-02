@@ -11,19 +11,20 @@ import mmb.data.variables.ListenableBoolean;
 import mmb.engine.debug.Debugger;
 
 /**
+ * A set of full screen utilities
  * @author oskar
- *
  */
 public class FullScreen {
-	@NN public static final ListenableBoolean isFullScreen = new ListenableBoolean();
-	private static MMBFrame fullScreenFrame;
-	
 	private static Debugger debug = new Debugger("FullScreen");
 	
+	/** Is the game full screen? */
+	@NN public static final ListenableBoolean isFullScreen = new ListenableBoolean();
+	private static MMBFrame fullScreenFrame;
 	static GraphicsDevice device = GraphicsEnvironment
 	        .getLocalGraphicsEnvironment().getScreenDevices()[0];
 	
 	private static boolean isInitialized = false;
+	/** Initialized full screen capabilities */
 	public static void initialize() {
 		if(isInitialized) return;
 		debug.printl("Setting up FullScreen");
@@ -35,16 +36,20 @@ public class FullScreen {
 	}
 	
 	private FullScreen() {}
-	public static void setWindow(MMBFrame win) { //Stuck
+	/**
+	 * Sets the current full-screen window
+	 * @param win window to set
+	 */
+	public static void setWindow(MMBFrame win) {
 		if(fullScreenFrame != null) {
 			fullScreenFrame.undergoingScreenTransform = true;
-			fullScreenFrame.dispose(); //Dispose of the old frame GETS STUCK
+			fullScreenFrame.dispose();
 			fullScreenFrame.undergoingScreenTransform = false;
 		}
 		fullScreenFrame = win;
-		setFullScreen(isFullScreen.getValue()); //Create the new frame STUCK
+		setFullScreen(isFullScreen.getValue());
 	}
-	private static void setFullScreen(boolean fullScreen) { //internal update method
+	private static void setFullScreen(boolean fullScreen) {
 		if(fullScreenFrame == null) return;
 		fullScreenFrame.undergoingScreenTransform = true;
 		//windowed
@@ -55,7 +60,7 @@ public class FullScreen {
 			fullScreenFrame.setVisible(true);
 		}else{
 			device.setFullScreenWindow(null);
-			fullScreenFrame.dispose(); //STUCK
+			fullScreenFrame.dispose();
 			fullScreenFrame.setUndecorated(false);
 			fullScreenFrame.setVisible(true);
 		}

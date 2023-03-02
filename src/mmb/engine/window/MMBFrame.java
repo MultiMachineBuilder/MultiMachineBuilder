@@ -6,8 +6,8 @@ package mmb.engine.window;
 import javax.swing.JFrame;
 
 /**
- * @author oskar
  * An auxiliary frame class, which supports full screen control
+ * @author oskar
  */
 @SuppressWarnings("serial")
 public abstract class MMBFrame extends JFrame {
