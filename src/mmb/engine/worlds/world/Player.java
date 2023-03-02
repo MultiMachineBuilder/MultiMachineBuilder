@@ -54,21 +54,33 @@ public class Player implements Saver{
 		world = w;
 	}
 	
+	/** The item inventory of this player */
 	@NN public final ListenableSimpleInventory inv = new ListenableSimpleInventory(debug);
-	@NN public final ListenableBoolean creative = new ListenableBoolean();
+	/** The world where the player is located */
 	@NN public final World world;
+	
+	//Game mode
+	@NN public final ListenableBoolean creative = new ListenableBoolean();
+	/** @return is the player creative mode? */
 	public boolean isCreative() {
 		return creative.getValue();
 	}
+	/** @return is the player survival mode? */
 	public boolean isSurvival() {
 		return !isCreative();
 	}
+	/**
+	 * Sets whether creative mode is used
+	 * @param value should creative mode be used?
+	 */
 	public void setCreative(boolean value) {
 		creative.setValue(value);
 	}
 
+	/** Invoked when a player is saved */
 	public static final Event<Tuple2<Player, ObjectNode>> onPlayerSaved
 	= new CatchingEvent<>(sdebug, "Failed to save mod player data");
+	/** Invoked when a player is loaded */
 	public static final Event<Tuple2<Player, ObjectNode>> onPlayerLoaded
 	= new CatchingEvent<>(sdebug, "Failed to load mod player data");
 	
@@ -117,8 +129,10 @@ public class Player implements Saver{
 		return result;
 	}
 	
+	//Sound
 	private Clip clip = Sneaky.sneak(AudioSystem::getClip);
 	private Clip deathClip = Sneaky.sneak(AudioSystem::getClip);
+	
 	//Player physics
 	/**
 	 * The center position of the player
@@ -126,9 +140,11 @@ public class Player implements Saver{
 	@NN public final Vector2d pos = new Vector2d();
 	@NN private final Vector2d speedTrue0 = new Vector2d();
 	@NN public final Vector2dc speedTrue = speedTrue0;
+	/** The physical speed of the player */
 	@NN public final Vector2d speed = new Vector2d();
+	/** The player physics mode */
 	@NN public PlayerPhysics physics = new PlayerPhysicsNormal();
-	void onTick(World world) {
+	void onTick(World world1) {
 		alcohol();
 		blink();
 		if(!(Double.isFinite(pos.x) && Double.isFinite(pos.y))){
@@ -144,7 +160,7 @@ public class Player implements Saver{
 		
 		//Handle the physics model
 		Vector2d oldSpeed = new Vector2d(speed);
-		physics.onTick(world, this, ctrlX, ctrlY);
+		physics.onTick(world1, this, ctrlX, ctrlY);
 		double speedDiff = oldSpeed.distance(speed);
 		
 		//Play head smacked sound when deccelrating more than 36 km/h in one tick
@@ -162,15 +178,17 @@ public class Player implements Saver{
 		pos.set(posOld);
 	}
 	
+	/** The player control input */
 	public final Vector2d controls = new Vector2d();
+	/** The instantenous jitter */
 	public final Vector2d jitter = new Vector2d();
 
 	/**
 	 * Sets the control inputs
-	 * @param u
-	 * @param d
-	 * @param l
-	 * @param r
+	 * @param u move up
+	 * @param d move down
+	 * @param l move left
+	 * @param r move right
 	 */
 	public void setControls(boolean u, boolean d, boolean l, boolean r) {
 		controls.set(0);
@@ -332,8 +350,8 @@ public class Player implements Saver{
 		//log it
 		debug.printl("DEATH");
 	}
-	private void smack(Double speed) {
-		double speed0 = speed.doubleValue();
+	private void smack(Double speed1) {
+		double speed0 = speed1.doubleValue();
 		hurt((int)(speed0*speed0*5000));
 	}
 }

@@ -12,8 +12,8 @@ import mmb.content.ppipe.PipeTunnelEntry;
 import mmb.engine.debug.Debugger;
 
 /**
+ * Defines behavior of the player in pipes
  * @author oskar
- *
  */
 public class PlayerPhysicsPipe implements PlayerPhysics {
 	private static final Debugger debug = new Debugger("PLAYER IN PIPE");

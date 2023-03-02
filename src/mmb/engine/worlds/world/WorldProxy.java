@@ -15,11 +15,14 @@ import mmb.engine.visuals.Visual;
 import mmb.engine.worlds.MapProxy;
 
 /**
- * @author oskar
  * An implementation of {@code MapProxy} for the {@link World}
+ * @author oskar
  */
 public class WorldProxy implements MapProxy{
-
+	/**
+	 * Creates a map proxy
+	 * @param target world to use
+	 */
 	public WorldProxy(World target) {
 		that = target;
 	}

@@ -19,8 +19,8 @@ import mmb.engine.worlds.world.World;
 import monniasza.collects.datalayer.IndexedDatalayerMap;
 
 /**
+ * World and universe data layer utilities
  * @author oskar
- *
  */
 public class DataLayers {
 	private DataLayers() {}
@@ -36,10 +36,9 @@ public class DataLayers {
 		//init logic
 	}
 	
-	
 	//Map data layers
 	@SuppressWarnings("null")
-	@NN private static final Set<IndexedDatalayerMap<World, ? extends DataLayer<World>>> layersWorld0 =
+	@NN private static final Set<IndexedDatalayerMap<@NN World, ? extends DataLayer<World>>> layersWorld0 =
 		Collections.newSetFromMap(new IdentityHashMap<>());
 	/** An unmodifiable set of world data layers */
 	@NN public static final Set<IndexedDatalayerMap<@NN World, ? extends DataLayer<World>>> layersWorld =
@@ -50,8 +49,8 @@ public class DataLayers {
 	 * @param nodeName name of JSON node used
 	 * @param databinder the indexed data layer map
 	 */
-	public static <T extends DataLayer<World>> void registerWorldDataLayerUsingNode
-	(String nodeName, IndexedDatalayerMap<World, T> databinder){
+	public static <T extends DataLayer<@NN World>> void registerWorldDataLayerUsingNode
+	(String nodeName, IndexedDatalayerMap<@NN World, T> databinder){
 		debug.printl("New world data layer: "+nodeName);
 		boolean add = layersWorld0.add(databinder);
 		if(!add) throw new IllegalStateException("Data layer "+nodeName+" already exists");
@@ -88,10 +87,10 @@ public class DataLayers {
 	
 	//Universe data layers
 	@SuppressWarnings("null")
-	@NN private static final Set<IndexedDatalayerMap<Universe, ? extends DataLayer<Universe>>> layersUniverse0 =
+	@NN private static final Set<IndexedDatalayerMap<@NN Universe, ? extends DataLayer<Universe>>> layersUniverse0 =
 		Collections.newSetFromMap(new IdentityHashMap<>());
 	/** An unmodifiable set of universe data layers */
-	@NN public static final Set<IndexedDatalayerMap<Universe, ? extends DataLayer<Universe>>> layersUniverse =
+	@NN public static final Set<IndexedDatalayerMap<@NN Universe, ? extends DataLayer<Universe>>> layersUniverse =
 			Collections.unmodifiableSet(layersUniverse0);
 	/**
 	 * Sets up a world data layer for given JSON node

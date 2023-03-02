@@ -9,8 +9,8 @@ import mmb.engine.block.BlockEntry;
 import mmb.engine.rotate.Side;
 
 /**
+ * A set of world utilities
  * @author oskar
- *
  */
 public class WorldUtils {
 	private WorldUtils() {}
@@ -50,10 +50,11 @@ public class WorldUtils {
 		return result;
 	}
 	/**
+	 * Checks if there are incoming signals
 	 * @param x X coordiante
 	 * @param y Y coordinate
 	 * @param world the block map
-	 * @return
+	 * @return are there incoming signals
 	 */
 	public static boolean hasIncomingSignal(int x, int y, World world) {
 		if(provideSignal(world.get(x+1, y), Side.L)) return true;
@@ -62,6 +63,11 @@ public class WorldUtils {
 		if(provideSignal(world.get(x, y-1), Side.D)) return true;
 		return false;
 	}
+	/**
+	 * Checks if there are incoming signals
+	 * @param ent block to check
+	 * @return are there incoming signals
+	 */
 	public static boolean hasIncomingSignal(BlockEntity ent) {
 		return hasIncomingSignal(ent.posX(), ent.posY(), ent.owner());
 	}

@@ -25,9 +25,9 @@ public abstract class DataLayer<T> implements Identifiable<T>, Saver {
 		return world;
 	}
 	/** Invoked on start-up */
-	public void startup() {};
+	public void startup() {}
 	/** Invoked on shutdown */
-	public void shutdown() {};
+	public void shutdown() {}
 	/** Invoked on every tick */
-	public void cycle() {};
+	public void cycle() {}
 }

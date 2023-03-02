@@ -35,7 +35,6 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.cgui.BlockActivateListener;
 import mmb.engine.GameEvents;
-import mmb.engine.UnitFormatter;
 import mmb.engine.Vector2iconst;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.block.BlockEntry;
@@ -77,9 +76,9 @@ import monniasza.collects.grid.Grid;
  */
 public class World implements Identifiable<String>, Indexable{
 	//Allocator & data layers
-	@NN private static SimpleAllocator<World> allocator0 = new SimpleAllocator<>();
+	@NN private static SimpleAllocator<@NN World> allocator0 = new SimpleAllocator<>();
 	/** Allocator for world */
-	@NN public static final Allocator<World> allocator = allocator0.readonly();
+	@NN public static final Allocator<@NN World> allocator = allocator0.readonly();
 	private int ordinal; //ordinal, set to -1 to prevent abuse after universe dies
 	@Override
 	public int ordinal() {
@@ -137,7 +136,7 @@ public class World implements Identifiable<String>, Indexable{
 	 * @param startX starting X
 	 * @param startY starting Y
 	 */
-	public World(BlockEntry[][] entries, int startX, int startY) {
+	public World(BlockEntry @NN [] @NN [] entries, int startX, int startY) {
 		this.entries = new FixedGrid<>(entries);
 		this.startX = startX;
 		this.startY = startY;
@@ -452,11 +451,11 @@ public class World implements Identifiable<String>, Indexable{
 	}
 	
 	//Block entities
-	Set<BlockEntity> _blockents = new HashSet<>();
+	@NN Set<BlockEntity> _blockents = new HashSet<>();
 	/**
 	 * an unmodifiable {@link Set} of {@link BlockEntity}s on this {@code BlockMap}
 	 */
-	public final Set<BlockEntity> blockents = Collections.unmodifiableSet(_blockents);
+	@NN public final Set<BlockEntity> blockents = Collections.unmodifiableSet(_blockents);
 	
 	//Block array
 	private final Object blockLock = new Object();
@@ -852,7 +851,7 @@ public class World implements Identifiable<String>, Indexable{
 	 * @return the {@link Grid} representation of this block map
 	 */
 	@NN public Grid<@NN BlockEntry> toGrid() {
-		return new Grid<@NN BlockEntry>() {
+		return new Grid<>() {
 			@Override
 			public void set(int x, int y, BlockEntry data) {
 				World.this.set(data, x+startX, y+startY);
@@ -877,24 +876,48 @@ public class World implements Identifiable<String>, Indexable{
 	
 	//Visual objects
 	private AtomicReference<RTree<Visual, Geometry>> visuals = new AtomicReference<>(RTree.star().create());
+	/**
+	 * Adds a visual object
+	 * @param vis visual object to add
+	 */
 	public void addVisual(Visual vis) {
 		visuals.updateAndGet(v -> v.add(vis, vis.border()));
 	}
+	/**
+	 * Adds visual objects
+	 * @param vis visual objects to add
+	 */
 	public void addVisuals(Visual... vis) {
 		List<com.github.davidmoten.rtree2.Entry<Visual, Geometry>> list = visuals2list(vis);
 		visuals.updateAndGet(v -> v.add(list));
 	}
+	/**
+	 * Adds visual objects
+	 * @param vis visual objects to add
+	 */
 	public void addVisuals(Collection<Visual> vis) {
 		List<com.github.davidmoten.rtree2.Entry<Visual, Geometry>> list = visuals2list(vis);
 		visuals.updateAndGet(v -> v.add(list));
 	}
+	/**
+	 * Removes a visual object
+	 * @param vis visual object to remove
+	 */
 	public void removeVisual(Visual vis) {
 		visuals.updateAndGet(v -> v.delete(vis, vis.border()));
 	}
+	/**
+	 * Removes visual objects
+	 * @param vis visual objects to remove
+	 */
 	public void removeVisuals(Visual... vis) {
 		List<com.github.davidmoten.rtree2.Entry<Visual, Geometry>> list = visuals2list(vis);
 		visuals.updateAndGet(v -> v.delete(list));
 	}
+	/**
+	 * Removes visual objects
+	 * @param vis visual objects to remove
+	 */
 	public void removeVisuals(Collection<Visual> vis) {
 		List<com.github.davidmoten.rtree2.Entry<Visual, Geometry>> list = visuals2list(vis);
 		visuals.updateAndGet(v -> v.delete(list));

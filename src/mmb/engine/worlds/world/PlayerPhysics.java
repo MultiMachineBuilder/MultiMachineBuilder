@@ -4,8 +4,8 @@
 package mmb.engine.worlds.world;
 
 /**
+ * Defines how the player behaves to physical events
  * @author oskar
- *
  */
 public interface PlayerPhysics {
 	/**

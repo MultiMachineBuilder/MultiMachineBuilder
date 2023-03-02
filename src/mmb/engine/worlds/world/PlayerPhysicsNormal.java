@@ -6,8 +6,8 @@ package mmb.engine.worlds.world;
 import mmb.engine.block.BlockEntry;
 
 /**
+ * The standard player physics
  * @author oskar
- *
  */
 public class PlayerPhysicsNormal implements PlayerPhysics {
 	@Override
@@ -77,7 +77,6 @@ public class PlayerPhysicsNormal implements PlayerPhysics {
 		p.pos.x += p.speed.x * 0.02;
 		p.pos.y += p.speed.y * 0.02;
 	}
-
 	@Override
 	public String description() {
 		return "Normal";

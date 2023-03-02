@@ -12,8 +12,8 @@ import mmb.NN;
 import mmb.engine.visuals.Visual;
 
 /**
+ * A list of changes to visual objects
  * @author oskar
- * A class to help apply visuals
  */
 public class ModifyVisuals {	
 	@NN private List<@NN Visual> add = new ArrayList<>();

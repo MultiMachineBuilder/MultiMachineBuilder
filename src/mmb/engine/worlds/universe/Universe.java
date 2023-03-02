@@ -63,7 +63,7 @@ public class Universe implements Saver, Indexable{
 	 * If playing on the main world, the toolbar will display without square brackets:
 	 * Let's play
 	 */
-	public final SelfSet<String, World> maps = HashSelfSet.createNonnull(World.class);
+	public final SelfSet<String, @NN World> maps = HashSelfSet.createNonnull(World.class);
 	/** The main world */
 	@Nil private World main;
 	/** @return the main world */
@@ -91,12 +91,12 @@ public class Universe implements Saver, Indexable{
 	/**
 	 * Gets a map with given name.
 	 * If name is null, return a main map
-	 * @param name map name
+	 * @param name1 map name
 	 * @return map with given name
 	 */
-	public World getMap(@Nil String name) {
-		if(name == null) return main;
-		return maps.get(name);
+	public World getMap(@Nil String name1) {
+		if(name1 == null) return main;
+		return maps.get(name1);
 	}
 
 	//Serialization

@@ -8,8 +8,8 @@ import java.lang.Thread.UncaughtExceptionHandler;
 import mmb.NN;
 
 /**
+ * Handles ticking
  * @author oskar
- *
  */
 public class TaskLoop {
 	private final Thread thread;

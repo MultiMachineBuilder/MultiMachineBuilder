@@ -56,20 +56,40 @@ public interface MapProxy extends AutoCloseable{
 	
 	//Getters
 	/** Get a block in specific location.
+	 * @param x X coordinate
+	 * @param y Y coordinate
+	 * @return block at a given location
 	 * @throws ArrayIndexOutOfBoundsException if given location is out of bounds
 	 */
 	public BlockEntry get(int x, int y);
-	/** Get a block in specific location.
+	/** 
+	 * Get a block in specific location.
+	 * @param p block coordinates
+	 * @return block at a given location
 	 * @throws ArrayIndexOutOfBoundsException if given location is out of bounds
 	 */
 	public default BlockEntry get(Point p) {return get(p.x, p.y);}
+	/**
+	 * Get a block at a specific side
+	 * @param x X coordinate
+	 * @param y Y coordinate
+	 * @param s side to check
+	 * @return a block at a given side
+	 */
 	public default BlockEntry getAtSide(int x, int y, Side s) {
 		return get(s.offset(x, y));
 	}
 	
-	/** Checks if given location is in bounds */
+	/** Checks if given location is in bounds 
+	 * @param x X coordinate
+	 * @param y Y coordinate
+	 * @return is the block in bounds?
+	 * */
 	public boolean inBounds(int x, int y);
-	/** Checks if given location is in bounds */
+	/** Checks if given location is in bounds 
+	 * @param p coordinates
+	 * @return is the block in bounds?
+	 * */
 	public default boolean inBounds(Point p) {return inBounds(p.x, p.y);}
 	
 	/** @return Bounds of this map in form of a new {@link Rectangle} */
@@ -89,21 +109,47 @@ public interface MapProxy extends AutoCloseable{
 		return new Dimension(sizeX(), sizeY());
 	}
 	
-	/** Run given action when map proxy is closed */
+	/** 
+	 * Run given action when map proxy is closed 
+	 * @param r action to run
+	*/
 	public void later(Runnable r);
 	
 	/** @return associated block map*/
 	public World getMap();
 	
 	//Visuals
+	/** Adds a visual object 
+	 * @param vis visual object to add
+	 */
 	public void add(Visual vis);
+	/**
+	 * Adds visual objects
+	 * @param vis visual object to add
+	 */
 	public default void adds(Visual... vis) {
 		adds(Arrays.asList(vis));
 	}
+	/**
+	 * Adds visual objects
+	 * @param vis visual object to add
+	 */
 	public void adds(Collection<Visual> vis);
+	/**
+	 * Removes a visual object
+	 * @param vis visual object to remove
+	 */
 	public void remove(Visual vis);
+	/**
+	 * Removes visual objects
+	 * @param vis visual objects to remove
+	 */
 	public default void removes(Visual... vis) {
 		removes(Arrays.asList(vis));
 	}
+	/**
+	 * Removes visual objects
+	 * @param vis visual objects to remove
+	 */
 	public void removes(Collection<Visual> vis);
 }
