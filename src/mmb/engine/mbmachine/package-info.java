@@ -2,8 +2,8 @@
  * 
  */
 /**
+ * Multiblock machines. Now deprecated
  * @author oskar
- *
  */
 @javax.annotation.ParametersAreNonnullByDefault
 @mmb.DeprecatedExtra(removal = "0.6")

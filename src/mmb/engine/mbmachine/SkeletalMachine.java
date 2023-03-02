@@ -9,7 +9,6 @@ import mmb.engine.worlds.world.World;
 
 /**
  * @author oskar
- *
  */
 public abstract class SkeletalMachine implements Machine {
 	protected int x, y;
