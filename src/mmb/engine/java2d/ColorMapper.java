@@ -8,18 +8,35 @@ import java.awt.image.BufferedImage;
 import java.awt.image.LookupTable;
 
 /**
+ * Maps a single color from origin to destination
  * @author oskar
- *
  */
 public abstract class ColorMapper extends LookupTable {
-	public ColorMapper(int arg0, int arg1) {
-		super(arg0, arg1);
+	/**
+	 * Creates a color mapper
+	 * @param offset array offset of component array
+	 * @param numComponents number of color components
+	 */
+	protected ColorMapper(int offset, int numComponents) {
+		super(offset, numComponents);
 	}
+	/** @return source color array */
 	public abstract int[] getFrom();
+	/** @return destination color array */
 	public abstract int[] getTo();
+	/** @return source color*/
 	public abstract Color getFromColor();
+	/** @return destination color*/
 	public abstract Color getToColor();
+	/**
+	 * Sets the source color
+	 * @param c new source color
+	 */
 	public abstract void setFrom(Color c);
+	/**
+	 * Sets the destination color
+	 * @param c new source color
+	 */
 	public abstract void setTo(Color c);
 	
 	/**

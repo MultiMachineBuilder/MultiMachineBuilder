@@ -9,6 +9,7 @@ import java.util.Arrays;
 import mmb.Nil;
 
 /**
+ * 4-channel color mapper. Should not be created directly.
  * @author oskar constructor javadoc, getters and setters <br>
  * @author <a href="https://stackoverflow.com/users/1831987/vgr">VGR</a> original code
  * <br> from: <a href="https://stackoverflow.com/a/27464772/11654970">https://stackoverflow.com/a/27464772/11654970</a>

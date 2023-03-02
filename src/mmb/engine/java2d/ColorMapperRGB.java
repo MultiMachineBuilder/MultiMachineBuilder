@@ -9,8 +9,8 @@ import java.util.Arrays;
 import mmb.Nil;
 
 /**
+ * 3-channel color mapper. Should not be created directly.
  * @author oskar
- *
  */
 public class ColorMapperRGB extends ColorMapper {
 	private final int[] from;

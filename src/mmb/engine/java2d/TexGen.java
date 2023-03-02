@@ -15,12 +15,31 @@ import mmb.content.electric.VoltageTier;
 import mmb.engine.texture.Textures;
 
 /**
+ * Texture generation utilities
  * @author oskar
- *
  */
 public class TexGen {
+	private TexGen() {}
+	
 	/**
-	 * Generates a texture from a template.
+	 * Colormaps an input image to an output image
+	 * @param from source color
+	 * @param to destination color
+	 * @param src source image
+	 * @param dest destination image
+	 * @return dest, or a new image
+	 */
+	@NN public static BufferedImage colormap(Color from, Color to, BufferedImage src, @Nil BufferedImage dest) {
+		ColorMapper mapper = ColorMapper.ofType(src.getType(), from, to);
+		LookupOp lookup = new LookupOp(mapper, null);
+		BufferedImage result = dest;
+		if(result == null) result = new BufferedImage(src.getWidth(), src.getHeight(), src.getType());
+		lookup.filter(src, result);
+		return result;
+	}
+	
+	/**
+	 * Recolors a source image
 	 * @param color main color
 	 * @param src the source texture
 	 * @param dest destination image. If it is null, a new compatible image is constructed
@@ -36,18 +55,8 @@ public class TexGen {
 		
 		return result;
 	}
-	
-	@NN public static BufferedImage colormap(Color from, Color to, BufferedImage src, @Nil BufferedImage dest) {
-		ColorMapper mapper = ColorMapper.ofType(src.getType(), from, to);
-		LookupOp lookup = new LookupOp(mapper, null);
-		BufferedImage result = dest;
-		if(result == null) result = new BufferedImage(src.getWidth(), src.getHeight(), src.getType());
-		lookup.filter(src, result);
-		return result;
-	}
-	
 	/**
-	 * Generates a texture from a template.
+	 * Recolors a source image
 	 * @param r red component of main color
 	 * @param g green component of main color
 	 * @param b blue component of main color
@@ -58,9 +67,8 @@ public class TexGen {
 	@NN public static BufferedImage genTexture(int r, int g, int b, BufferedImage src, @Nil BufferedImage dest) {
 		return genTexture(new Color(r, g, b), src, dest);
 	}
-	
 	/**
-	 * Generates a texture from a template.
+	 * Recolors the source image and places it over a background
 	 * @param c color
 	 * @param src the source texture
 	 * @param bg the image, over which a recolored component is placed. This image is unchanged
@@ -78,14 +86,13 @@ public class TexGen {
 		gr.dispose();
 		return dest0;
 	}
-	
 	/**
-	 * Generates a texture from a template.
+	 * Recolors the source image and places it over a background
 	 * @param r red component of main color
 	 * @param g green component of main color
 	 * @param b blue component of main color
 	 * @param src the source texture
-	 * bg the image, over which a recolored component is placed. This image is unchanged
+	 * @param bg the image, over which a recolored component is placed. This image is unchanged
 	 * @param dest destination image. If it is null, a new compatible image is constructed
 	 * @return the generated texture
 	 */
@@ -93,8 +100,6 @@ public class TexGen {
 		return genTexture(new Color(r, g, b), src, bg, dest);
 	}
 
-	
-	
 	@NN public static final BufferedImage NUGGET = Textures.get("item/nugget.png");
 	@NN public static BufferedImage nugget(Color c) {
 		return genTexture(c, NUGGET, null);
@@ -111,7 +116,6 @@ public class TexGen {
 		return genTexture(c, TexGen.INGOT, null);
 	}
 
-	
 	@NN public static final BufferedImage OREOV = Textures.get("block/ore overlay.png");
 	
 	@NN public static final BufferedImage ORE = Textures.get("block/coal ore.png");
@@ -125,6 +129,7 @@ public class TexGen {
 	}
 	
 	/**
+	 * Generates a list of images for all voltage tiers of machines
 	 * @param src the source image
 	 * @return the list with generated machine textures, in order of increasing voltages
 	 */

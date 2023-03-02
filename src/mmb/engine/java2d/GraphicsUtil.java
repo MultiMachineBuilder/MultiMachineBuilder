@@ -7,8 +7,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 /**
+ * AWT graphics utilities
  * @author oskar
- *
  */
 public class GraphicsUtil {
 	private GraphicsUtil() {}

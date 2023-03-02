@@ -18,8 +18,8 @@ import mmb.engine.block.BlockEntry;
 import mmb.engine.texture.BlockDrawer;
 
 /**
+ * A block drawer, which colormaps a source texture.
  * @author oskar
- * A drawer which can have colors remapped;
  */
 public class MappedColorTexture implements BlockDrawer {
 

@@ -12,14 +12,15 @@ import java.util.Scanner;
 import mmb.Nil;
 
 /**
+ * String rendering utilities
  * @author oskar
  *
  */
 public class StringRenderer {
 	/**
 	 * @param bound color of bounds, may be null
-	 * @param bg
-	 * @param text
+	 * @param bg background color, may be null
+	 * @param text text to be drawn
 	 * @param string the text to draw
 	 * @param x X position of the box
 	 * @param y Y position of the box

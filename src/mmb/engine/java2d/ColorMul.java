@@ -10,13 +10,12 @@ import java.awt.image.LookupTable;
 import mmb.NN;
 
 /**
+ * A color multiplier. Used in material texture generation
  * @author oskar
- *
  */
 public abstract class ColorMul extends LookupTable {
 	protected ColorMul(int offset, int numComponents) {
 		super(offset, numComponents);
-		// TODO Auto-generated constructor stub
 	}
 	/** @return the current color */
 	@NN public abstract Color color();
@@ -24,9 +23,9 @@ public abstract class ColorMul extends LookupTable {
 	public abstract void setColor(Color c);
 	
 	/**
-	 * Creates a compatible color mapper.
+	 * Creates a compatible color multiplier.
 	 * @param type image type, in same form as from {@link BufferedImage}
-	 * @return a {@link ColorMapper} of appropriate type
+	 * @return a {@link ColorMul} of appropriate type
 	 * @throws IllegalArgumentException when image type is
 	 * {@code TYPE_CUSTOM}, {@code TYPE_BYTE_BINARY}, {@code TYPE_BYTE_GRAY}, {@code TYPE_USHORT_GRAY} or unknown 
 	 */

@@ -9,8 +9,8 @@ import mmb.NN;
 import mmb.Nil;
 
 /**
+ * 3-channel color multiplier. Should not be created directly
  * @author oskar
- *
  */
 public class ColorMulRGB extends ColorMul {
 	

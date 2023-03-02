@@ -9,8 +9,8 @@ import mmb.NN;
 import mmb.Nil;
 
 /**
+ * 4-channel color mutiplier. Should not be created directly.
  * @author oskar
- *
  */
 public class ColorMulRGBA extends ColorMul {
 	
