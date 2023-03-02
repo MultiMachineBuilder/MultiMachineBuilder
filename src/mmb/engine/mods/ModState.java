@@ -17,6 +17,7 @@ public enum ModState {
 	/** Indicates a mod which failed to load*/
 	DEAD($res("cguims-dead"));
 	
+	/** Display label of this mod state*/
 	public final String title;
 	ModState(String title){
 		this.title = title;

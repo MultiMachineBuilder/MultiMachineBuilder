@@ -1,9 +1,9 @@
 package mmb.engine.mods;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
+import mmb.NN;
 
 /**
- * Central class of each addon
+ * Central class of each addon. Runs when the mod is loaded
  * @author oskar
  * Interface should be implemented by classes only
  * Class must have implicit or explicit constructor with no inputs
@@ -11,7 +11,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
  */
 public interface AddonCentral {
 	/** @return a ModMetadata object with mod information */
-    @NonNull ModMetadata info();
+    @NN ModMetadata info();
     /** Place your init and translation code here */
 	void firstOpen(); //first open
 	/** Place an init call to your blocks/items class here and create content */

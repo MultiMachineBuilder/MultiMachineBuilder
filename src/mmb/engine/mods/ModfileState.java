@@ -6,8 +6,8 @@ package mmb.engine.mods;
 import static mmb.engine.settings.GlobalSettings.$res;
 
 /**
+ * Represents different types of modfiles
  * @author oskar
- *
  */
 public enum ModfileState {
 	/** Indicates a non-existent mod file */
@@ -29,6 +29,7 @@ public enum ModfileState {
 	/** Indicates a mod which contains code which failed to load*/
 	DEAD($res("cguims-dead"));
 	
+	/** Display label of this modfile state*/
 	public final String title;
 	ModfileState(String title){
 		this.title = title;

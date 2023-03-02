@@ -4,8 +4,8 @@
 package mmb.engine.mods;
 
 /**
+ * Thrown when mod loading stops prematurely
  * @author oskar
- *
  */
 public class PrematureHaltException extends RuntimeException {
 	public PrematureHaltException() {

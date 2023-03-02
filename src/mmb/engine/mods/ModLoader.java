@@ -17,16 +17,17 @@ import mmb.engine.debug.*;
 import mmb.engine.files.AdvancedFile;
 
 /**
+ * A class which loads a single file
  * @author oskar
- *
  */
 public class ModLoader {
+	/** The file to load*/
 	public final AdvancedFile file;
-	/**
-	 * This mod loader's loaded mod
-	 */
+	/** This mod loader's loaded modfile */
 	@NN public final Modfile modfile;
+	/** The path reference to the mod */
 	@NN public final String originalPath;
+	/** The display name of this mod loader */
 	@NN public final String name;
 	@NN private Thread runningOn;
 	/**
@@ -78,9 +79,7 @@ public class ModLoader {
 		runningOn.start();
 	}
 	
-	/**
-	 * Determine if file can be loaded
-	 */
+	/** Loads the file */
 	private void init() {
 		//Part -1: initialize
 		String debugName = AdvancedFile.dirName(file.name())[1];
@@ -171,8 +170,6 @@ public class ModLoader {
 		}
 	}
 	
-	/**
-	 * The class loader used to load mods
-	 */
+	/** The class loader used to load mods */
 	public static final ByteClassLoader bcl = new ByteClassLoader(ClassLoader.getSystemClassLoader());
 }
