@@ -2,7 +2,7 @@
  * 
  */
 /**
- * A set of setting utilities
+ * A set of setting and translation utilities
  * @author oskar
  */
 @javax.annotation.ParametersAreNonnullByDefault

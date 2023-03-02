@@ -48,6 +48,7 @@ public class Settings {
 	
 	//Initialization
 	private static boolean hasCreated = false;
+	/** Loads the game settings */
 	public static void loadSettings() {
 		boolean doTryLoad = true;
 		if(hasCreated) return;
@@ -147,11 +148,25 @@ public class Settings {
 	
 	//Setting modules
 	private static final Map<String, Setting> settingModules0 = new HashMap<>();
+	/** All defined settings */
 	public static final Map<String, Setting> settingModules = Collections.unmodifiableMap(settingModules0);
+	/**
+	 * Definition of a setting, with a default value, loader and saver
+	 * @author oskar
+	 */
 	public static class Setting{
+		/** Invoked when a setting is loaded */
 		public final Consumer<@NN String> onload;
+		/** Serializes the setting and returns a saved value */
 		public final Supplier<String> save;
+		/** Default value of the setting */
 		public final String defalt;
+		/**
+		 * Creates a setting
+		 * @param onload setting loader 
+		 * @param save setting serializer
+		 * @param defalt default value
+		 */
 		public Setting(Consumer<@NN String> onload, Supplier<String> save, String defalt) {
 			super();
 			this.onload = onload;
@@ -179,7 +194,12 @@ public class Settings {
 			else onload.accept(val);
 		}
 	}
-	
+	/**
+	 * Adds a string setting
+	 * @param name the name of a setting
+	 * @param defalt the default value of the property
+	 * @param variable a string variable
+	 */
 	public static void addSettingString(String name, String defalt, ListenableValue<String> variable) {
 		addSettingString(name, defalt, variable::set, variable::get);
 	}
@@ -226,8 +246,7 @@ public class Settings {
 	 * Adds a boolean setting
 	 * @param name the name of a setting
 	 * @param i the default value of the property
-	 * @param onload method which handles setting loading. The method
-	 * @param save method which provides strings for saving
+	 * @param variable a double variable
 	 */
 	public static void addSettingDbl(String name, double i, DataValueDouble variable) {
 		addSettingDbl(name, i, variable::set, variable::getDouble);
@@ -266,14 +285,10 @@ public class Settings {
 	 * @param <T> type of value 
 	 * @param name the name of a setting
 	 * @param defalt the default value of the property
-	 * @param onload method which handles setting loading. The method
-	 * @param save method which provides strings for saving
+	 * @param variable a variable
 	 * @param deser the function, which converts a string into a corresponding object
 	 */
 	public static <T> void addSettingExt(String name, T defalt, Variable<T> variable, Function<String, T> deser) {
 		addSettingExt(name, defalt, variable::set, variable::get, deser);
 	}
-	
-	//Shared settings
-	
 }

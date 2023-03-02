@@ -4,6 +4,7 @@
 package mmb.engine.settings;
 
 import java.util.Locale;
+import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 import javax.swing.JComponent;
@@ -19,8 +20,8 @@ import mmb.engine.debug.Debugger;
 import monniasza.collects.Collects;
 
 /**
+ * Game settings and trnaslation
  * @author oskar
- *
  */
 public class GlobalSettings {
 	private GlobalSettings() {}
@@ -45,12 +46,11 @@ public class GlobalSettings {
 	/** Should all modded resource bundles be dumped? */
 	@NN public static final ListenableBoolean dumpBundles = new ListenableBoolean();
 	
+	//localization
 	/** @return the locale object for current language and country */
-	public static Locale locale() {
+	@NN public static Locale locale() {
 		return new Locale(lang.get(), country.get());
 	}
-	
-	//localization
 	private static MutableResourceBundle bundle;
 	/**
 	 * @throws IllegalStateException if the bundle is not loaded
@@ -64,11 +64,17 @@ public class GlobalSettings {
 	 * Gets the translated string
 	 * @param s dictionary key
 	 * @return a translated string
+	 * @throws MissingResourceException when defined string is not present
 	 */
 	@NN public static String $res(String s) {
 		if(!Main.isRunning()) return s;
 		return bundle().getString(s);
 	}
+	/**
+	 * Gets the translated string or a placeholder 
+	 * @param s dictionary key
+	 * @return a translated string or a placeholder
+	 */
 	@NN public static String $res1(String s) {
 		if(bundle == null || !bundle.containsKey(s)) {
 			debug.printl("Missed translation: "+s);
@@ -76,11 +82,24 @@ public class GlobalSettings {
 		}
 		return bundle.getString(s);
 	}
+	/**
+	 * Converts a string template.
+	 * If a template begins with a '#', it is the looked up
+	 * @param s string template
+	 * @return a translated string
+	 * @throws MissingResourceException when defined string is a key is not present
+	 */
 	@NN public static String $str(String s) {
 		if(s.charAt(0) == '#')
 			return bundle().getString(s.substring(1));
 		return s;
 	}
+	/**
+	 * Converts a string template.
+	 * If a template begins with a '#', it is the looked up
+	 * @param s string template
+	 * @return a translated string or a placeholder
+	 */
 	@NN public static String $str1(String s) {
 		if(s.charAt(0) == '#')
 			return $res1(s.substring(1));
