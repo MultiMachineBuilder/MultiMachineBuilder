@@ -5,44 +5,32 @@ package mmb.engine.item;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.util.function.Supplier;
 
 import mmb.NN;
 import mmb.engine.texture.BlockDrawer;
 
 /**
+ * An item type for item entities.
+ * To create an item entity type specify the title, texture, factory and register the item entity type
  * @author oskar
- *
  */
 public class ItemEntityType extends ItemBase{
-	
-	private ItemEntityFactory factory;
-	/**
-	 * @author oskar
-	 * This interface is used to define lambda expressions that produce item entitiess
-	 */
-	@FunctionalInterface public interface ItemEntityFactory{
-		/**
-		 * Creates an ItemEntity
-		 * @return a new {@link ItemEntity}
-		 */
-		public ItemEntity create();
-	}
+	private Supplier<@NN ItemEntry> factory;
 	@Override
 	public ItemEntry create() {
-		return factory.create();
+		return factory.get();
 	}
-
 	/**
 	 * @return current item entity factory
 	 */
-	public ItemEntityFactory getFactory() {
+	public Supplier<@NN ItemEntry> getFactory() {
 		return factory;
 	}
-
 	/**
 	 * @param factory new item entity factory
 	 */
-	public void setFactory(ItemEntityFactory factory) {
+	public void setFactory(Supplier<@NN ItemEntry> factory) {
 		this.factory = factory;
 	}
 
@@ -126,14 +114,13 @@ public class ItemEntityType extends ItemBase{
 		setVolume(volume);
 		return this;
 	}
-
 	/**
 	 * Sets factory. This is a convenience chainable method
-	 * @param factory factory
+	 * @param factory1 factory
 	 * @return this
 	 */
-	public ItemEntityType factory(ItemEntityFactory factory) {
-		this.factory = factory;
+	public ItemEntityType factory(Supplier<@NN ItemEntry> factory1) {
+		this.factory = factory1;
 		return this;
 	}
 }

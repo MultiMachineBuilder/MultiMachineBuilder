@@ -6,7 +6,7 @@ package mmb.engine.item;
 import mmb.menu.wtool.WindowTool;
 
 /**
- * An item with assigned tool
+ * An item with an assigned tool
  * @author oskar
  */
 public class TooledItem extends Item{

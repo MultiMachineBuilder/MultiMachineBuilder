@@ -27,11 +27,12 @@ import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.json.JsonTool;
 import mmb.engine.texture.BlockDrawer;
 import mmb.engine.worlds.world.World;
+import mmb.menu.wtool.ToolStandard;
 import mmb.menu.wtool.WindowTool;
 
 /**
+ * Represents an item entity or a basic item in storage systems and information about them
  * @author oskar
- * An item entry representing a single unit of item
  */
 public interface ItemEntry extends Saver, SingleItem{
 	//Item properties
@@ -66,22 +67,28 @@ public interface ItemEntry extends Saver, SingleItem{
 		type().getTexture().draw(null, x, y, g, w, h);
 	}
 
+	/**
+	 * @return the window tool used by the item.
+	 * If null is returned, the tool will be {@link ToolStandard}
+	 */
 	public default WindowTool getTool() {
 		return null;
 	}
+	/**
+	 * Creates a block drawer for the item
+	 * @param item item to create a block  drawer for
+	 * @return a block drawer
+	 */
 	public static BlockDrawer drawer(ItemEntry item) {
 		return new BlockDrawer() {
-
 			@Override
 			public void draw(@Nil BlockEntry ent, int x, int y, Graphics g, int w, int h) {
 				item.render(g, x, y, w, h);
 			}
-
 			@Override
 			public Icon toIcon() {
 				return item.icon();
 			}
-
 			@Override
 			public int LOD() {
 				return 0;
@@ -165,6 +172,7 @@ public interface ItemEntry extends Saver, SingleItem{
 	
 	//Static serialization
 	/**
+	 * Saves an item to JSON
 	 * @param item the item to save
 	 * @return the JSON representation of this item entry
 	 */
@@ -178,7 +186,7 @@ public interface ItemEntry extends Saver, SingleItem{
 		return array;
 	}
 	/**
-	 * Loads a non-stackable item from the JSON data
+	 * Loads an item from the JSON data
 	 * @param data JSON data
 	 * @return item it if loaded successfully, or null if failed
 	 */
@@ -186,8 +194,9 @@ public interface ItemEntry extends Saver, SingleItem{
 		return loadFromJsonExpectType(data, null);
 	}
 	/**
-	 * Loads a non-stackable item from the JSON data, restricting the output type
+	 * Loads an item from the JSON data, restricting the output type
 	 * @param data JSON data
+	 * @param cls required type, or null if unrestricted
 	 * @return item it if loaded successfully, or null if failed
 	 */
 	@Nil public static <T extends ItemEntry> ItemEntry loadFromJsonExpectType(@Nil JsonNode data, @Nil Class<T> cls) {
@@ -211,5 +220,4 @@ public interface ItemEntry extends Saver, SingleItem{
 		}
 		return null;
 	}
-	
 }

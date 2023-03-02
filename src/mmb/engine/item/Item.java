@@ -6,18 +6,18 @@ package mmb.engine.item;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
-
 import com.fasterxml.jackson.databind.JsonNode;
 
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.debug.Debugger;
 import mmb.engine.texture.BlockDrawer;
 import monniasza.collects.Identifiable;
 
 /**
+ * A basic item.
+ * <br> To create an item, specify title, texture and register the item. Description and volume may also be specified
  * @author oskar
- *
  */
 public class Item extends ItemBase implements ItemEntry {
 	private static final Debugger debug = new Debugger("ITEMS");
@@ -31,7 +31,7 @@ public class Item extends ItemBase implements ItemEntry {
 		return id().hashCode();
 	}
 	@Override
-	public final boolean equals(@Nullable Object other) {
+	public final boolean equals(@Nil Object other) {
 		if(this == other) return true;
 		if(other == null) return false;
 		if(!(other instanceof Identifiable)) return false;
@@ -54,7 +54,7 @@ public class Item extends ItemBase implements ItemEntry {
 		return this;
 	}
 	@Override
-	public void load(@Nullable JsonNode node) {
+	public void load(@Nil JsonNode node) {
 		debug.printl("Attempting to load a non-data item");
 	}
 
@@ -64,7 +64,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	@NonNull public Item texture(String texture) {
+	@NN public Item texture(String texture) {
 		setTexture(texture);
 		return this;
 	}
@@ -74,7 +74,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	@NonNull public Item texture(BufferedImage texture) {
+	@NN public Item texture(BufferedImage texture) {
 		setTexture(texture);
 		return this;
 	}
@@ -84,7 +84,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	@NonNull public Item texture(Color texture) {
+	@NN public Item texture(Color texture) {
 		setTexture(BlockDrawer.ofColor(texture));
 		return this;
 	}
@@ -94,7 +94,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	@NonNull public Item texture(BlockDrawer texture) {
+	@NN public Item texture(BlockDrawer texture) {
 		setTexture(texture);
 		return this;
 	}
@@ -104,7 +104,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	@NonNull public Item title(String title) {
+	@NN public Item title(String title) {
 		setTitle(title);
 		return this;
 	}
@@ -114,7 +114,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	@NonNull public Item describe(String description) {
+	@NN public Item describe(String description) {
 		setDescription(description);
 		return this;
 	}
@@ -124,7 +124,7 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	@NonNull public Item finish(String id) {
+	@NN public Item finish(String id) {
 		register(id);
 		return this;
 	}
@@ -134,12 +134,8 @@ public class Item extends ItemBase implements ItemEntry {
 	 * @return this
 	 */
 	@Override
-	@NonNull public Item volumed(double volume) {
+	@NN public Item volumed(double volume) {
 		setVolume(volume);
 		return this;
-	}
-	
-	public int compare0(ItemEntry o) {
-		return 0;
 	}
 }

@@ -4,8 +4,8 @@
 package mmb.engine.item;
 
 /**
+ * A mutable item entity.
  * @author oskar
- *
  */
 public abstract class ItemEntityMutable extends ItemEntity{
 	@Override

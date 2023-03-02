@@ -8,8 +8,9 @@ import java.awt.image.BufferedImage;
 import mmb.engine.rotate.RotatedImageGroup;
 
 /**
+ * An item with 4 directions, used for part entity types.
+ * The items can't be rotated in inventories
  * @author oskar
- *
  */
 public class RotableItem extends Item implements RotableItemEntry {
 	private RotatedImageGroup rig;

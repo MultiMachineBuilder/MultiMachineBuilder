@@ -15,7 +15,7 @@ import mmb.NN;
 import mmb.engine.settings.GlobalSettings;
 
 /**
- * A simple item wrapper for ItemEntities
+ * A simple item wrapper for ItemEntities, allowing them to be used in recipes
  * @author oskar
  */
 public class ItemRaw extends Item {
@@ -37,6 +37,7 @@ public class ItemRaw extends Item {
 		}
 	}
 	
+	/** The wrapped item type */
 	@NN public final ItemEntityType iet;
 	private ItemRaw(ItemEntityType iet) {
 		this.iet = iet;

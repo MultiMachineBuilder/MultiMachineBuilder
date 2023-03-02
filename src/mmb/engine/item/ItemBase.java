@@ -16,8 +16,8 @@ import mmb.engine.texture.BlockDrawer;
 import mmb.engine.texture.Textures;
 
 /**
+ * Shared implementation of {@code Item} and {@code ItemEntityType}
  * @author oskar
- *
  */
 public abstract class ItemBase implements ItemType {
 

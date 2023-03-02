@@ -14,7 +14,6 @@ import com.google.common.collect.Multimaps;
 import com.google.common.collect.SetMultimap;
 
 import mmb.GameLoader;
-import mmb.Main;
 import mmb.NN;
 import mmb.Nil;
 import mmb.engine.debug.Debugger;
@@ -23,8 +22,8 @@ import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
 
 /**
+ * A set of item utilities
  * @author oskar
- *
  */
 public class Items {
 	private Items() {}
@@ -32,7 +31,11 @@ public class Items {
 	
 	//Registration
 	@NN private static final SelfSet<String, ItemType>     _items =      HashSelfSet.createNonnull(ItemType.class);
-	/** String to item lookup */
+	/**
+	 * String to item lookup.
+	 * Deprecation is not supported.
+	 * To find deprecated items, use {@link #get(String)}
+	 */
 	@NN public  static final SelfSet<String, ItemType>      items =      Collects.unmodifiableSelfSet(_items);	
 	/**
 	 * Registers a new item type
@@ -67,8 +70,8 @@ public class Items {
 	//Retrieval
 	/**
 	 * Get an item with following ID, or null if block with given ID is not found
-	 * @param name ID of the block
-	 * @return a block with given name, or null if not found
+	 * @param name item ID
+	 * @return an item with given name, or null if not found
 	 */
 	@Nil public static ItemType get(@Nil String name) {
 		if(name == null) return null;		
@@ -76,6 +79,13 @@ public class Items {
 		if(get == null) get = deprecator.get(name);
 		return get;
 	}
+	/**
+	 * Get an item with following ID with type restrictions, or null if block with given ID is not found
+	 * @param <T> generic restriction type
+	 * @param name item ID
+	 * @param cls item type restriction
+	 * @return an item with given name, or null if not found
+	 */
 	@Nil public static <T extends ItemType> T getExpectType(@Nil String name, Class<T> cls) {
 		ItemType item = get(name);
 		if(cls.isInstance(item)) return cls.cast(item);
@@ -89,32 +99,67 @@ public class Items {
 	@NN private static final HashMultimap<ItemType, String> _btags = HashMultimap.create();
 	/** Item to tags lookup */
 	@NN public  static final SetMultimap<ItemType, String>  btags = Multimaps.unmodifiableSetMultimap(_btags);
+	/**
+	 * Tags a single item
+	 * @param tag item tag
+	 * @param item item to be tagged
+	 */
 	public static void tagItem(String tag, ItemType item) {
 		debug.printl("Tagging "+item+" with "+tag);
 		_tags.put(tag, item);
 		_btags.put(item, tag);
 	}
-	public static void tagsItem(ItemType item, String... tags) {
-		tagsItem(item, Arrays.asList(tags));
+	/**
+	 * Tags a single ite with mutiple tags
+	 * @param item item to be tagged
+	 * @param tags1 item tags
+	 */
+	public static void tagsItem(ItemType item, String... tags1) {
+		tagsItem(item, Arrays.asList(tags1));
 	}
-	public static void tagsItem(ItemType item, Iterable<@NN String> tags) {
-		for(String tag: tags) {
+	/**
+	 * Tags a single ite with mutiple tags
+	 * @param item item to be tagged
+	 * @param tags1 item tags
+	 */
+	public static void tagsItem(ItemType item, Iterable<@NN String> tags1) {
+		for(String tag: tags1) {
 			tagItem(tag, item);
 		}
 	}
-	public static void tagItems(String tag, ItemType... items) {
-		tagItems(tag, Arrays.asList(items));
+	/**
+	 * Tags mutiple items with one tag
+	 * @param tag item tags
+	 * @param items1 items to be tagged
+	 */
+	public static void tagItems(String tag, ItemType... items1) {
+		tagItems(tag, Arrays.asList(items1));
 	}
-	public static void tagsItems(String[] tag, ItemType... items) {
-		tagsItems(tag, Arrays.asList(items));
+	/**
+	 * Tags each item with all given tags
+	 * @param tag item tags
+	 * @param items1 items to be tagged
+	 */
+	public static void tagsItems(String[] tag, ItemType... items1) {
+		tagsItems(tag, Arrays.asList(items1));
 	}
-	public static void tagItems(String tag, Iterable<@NN ? extends ItemType> items) {
-		for(ItemType item: items) {
+	/**
+	 * Tags mutiple items with one tag
+	 * @param tag item tags
+	 * @param items1 items to be tagged
+	 */
+	public static void tagItems(String tag, Iterable<@NN ? extends ItemType> items1) {
+		for(ItemType item: items1) {
 			tagItem(tag, item);
 		}
 	}
-	public static void tagsItems(String[] tag, Iterable<@NN ? extends ItemType> items) {
-		for(ItemType item: items) {
+	/**
+	 * Tags each item with all given tags
+	 * @param tag item tags
+	 * @param items1 items to be tagged
+	 */
+	public static void tagsItems(String[] tag, Iterable<@NN ? extends ItemType> items1) {
+		for(ItemType item: items1) {
 			tagsItem(item, tag);
 		}
 	}

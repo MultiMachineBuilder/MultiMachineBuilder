@@ -14,8 +14,10 @@ import mmb.engine.texture.BlockDrawer;
 import monniasza.collects.Identifiable;
 
 /**
+ * Describes the base type of an item or an item entity type, without any data.
+ * Simple items and item entity types are item types
+ * Simple items are also item entries
  * @author oskar
- *
  */
 public interface ItemType extends Titled, Identifiable<String>{
 	/**
@@ -59,8 +61,14 @@ public interface ItemType extends Titled, Identifiable<String>{
 	@Override
 	public String title();
 	
+	/**
+	 * Sets the texture
+	 * @param texture new texture
+	 */
 	public void setTexture(BlockDrawer texture);
+	/** @return current texture */
 	@NN public BlockDrawer getTexture();
+	/** @return current icon */
 	public default Icon getIcon() {
 		return getTexture().toIcon();
 	}
