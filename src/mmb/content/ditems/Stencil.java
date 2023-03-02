@@ -20,7 +20,7 @@ import mmb.engine.debug.Debugger;
 import mmb.engine.item.ItemEntity;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
-import mmb.engine.json.Save;
+import mmb.engine.json.JsonTool;
 import monniasza.collects.Collects;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
@@ -90,7 +90,7 @@ public class Stencil extends ItemEntity{
 	public void load(@Nil JsonNode array) {
 		if(array == null) return;
 		if(array.isArray()) {
-			Grid<@Nil ItemEntry> grid1 = Save.loadGrid(ItemEntry::loadFromJson, (ArrayNode)array);
+			Grid<@Nil ItemEntry> grid1 = JsonTool.loadGrid(ItemEntry::loadFromJson, (ArrayNode)array);
 			doReplaceTable(grid1);
 		}else{
 			debug.printl("Unsupported JsonNode: "+array.getNodeType());
@@ -98,7 +98,7 @@ public class Stencil extends ItemEntity{
 	}
 	@Override
 	public JsonNode save() {
-		return Save.saveGrid(ItemEntry::saveItem, grid);
+		return JsonTool.saveGrid(ItemEntry::saveItem, grid);
 	}
 	private void doReplaceTable(Grid<@Nil ItemEntry> items) {
 		Grid<@Nil ItemEntry> trim = items.trim();

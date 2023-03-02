@@ -16,7 +16,7 @@ import mmb.cgui.BlockActivateListener;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.java2d.MappedColorTexture;
-import mmb.engine.json.Save;
+import mmb.engine.json.JsonTool;
 import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
@@ -88,13 +88,13 @@ public class Chest extends AbstractChest implements BlockActivateListener {
 		ObjectNode on = node;
 		JsonNode cnode = on.get("color");
 		if(!(cnode == null || cnode.isMissingNode() || cnode.isNull()))
-			setColor(Save.loadColor(cnode));
+			setColor(JsonTool.loadColor(cnode));
 		else
 			setColor(Color.WHITE);
 	}
 	@Override
 	protected void save1(ObjectNode node) {
 		ObjectNode on = node;
-		on.set("color", Save.saveColor(c));
+		on.set("color", JsonTool.saveColor(c));
 	}
 }

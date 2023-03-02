@@ -22,7 +22,6 @@ import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.json.JsonTool;
-import mmb.engine.json.Save;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
@@ -148,13 +147,13 @@ public class Hopper extends BlockEntityRotary implements ArbitraryChest, BlockAc
 		ObjectNode on = data;
 		JsonNode cnode = on.get("color");
 		if(!(cnode == null || cnode.isMissingNode() || cnode.isNull()))
-			setColor(Save.loadColor(cnode));
+			setColor(JsonTool.loadColor(cnode));
 		else
 			setColor(Color.WHITE);
 	}
 	@Override
 	protected final void save1(ObjectNode node) {
 		node.set("inventory", inv.save());
-		node.set("color", Save.saveColor(c));
+		node.set("color", JsonTool.saveColor(c));
 	}
 }
