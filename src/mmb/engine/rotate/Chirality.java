@@ -9,8 +9,8 @@ import java.util.function.Consumer;
 import mmb.NN;
 
 /**
+ * Defines chirality (the direction of rotation, without the rotation)
  * @author oskar
- * This enum defines chirality
  */
 public enum Chirality {
 	/**
@@ -105,8 +105,8 @@ public enum Chirality {
 	 */
 	public abstract @NN Chirality reverse();
 	/**
+	 * Called when chirality changes
 	 * @author oskar
-	 * Represents a chirality listener, used in chiral blocks
 	 */
 	public static interface ChiralityListener extends EventListener, Consumer<Chirality>{
 		//unused

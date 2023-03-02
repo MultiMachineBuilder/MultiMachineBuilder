@@ -10,6 +10,7 @@ import mmb.engine.texture.BlockDrawer;
 import mmb.engine.texture.Textures;
 
 /**
+ * An image group with chirotation (4 rotation * 2 chiralities = 8 images)
  * @author oskar
  *
  */
@@ -33,7 +34,20 @@ public class ChirotatedImageGroup {
 		}
 	}
 
-	public BlockDrawer Ul, Dl, Ll, Rl, Ur, Dr, Lr, Rr;
+	public BlockDrawer Ul;
+	public BlockDrawer Dl;
+	public BlockDrawer Ll;
+	public BlockDrawer Rl;
+	public BlockDrawer Ur;
+	public BlockDrawer Dr;
+	public BlockDrawer Lr;
+	public BlockDrawer Rr;
+	
+	/**
+	 * Creates a chirotated image grouip out of an image
+	 * @param img image to transform
+	 * @return a chirotated image group
+	 */
 	@NN public static ChirotatedImageGroup create(BufferedImage img) {
 		ChirotatedImageGroup rig = new ChirotatedImageGroup();
 		rig.Ur = BlockDrawer.ofImage(img);
@@ -53,10 +67,15 @@ public class ChirotatedImageGroup {
 		rig.Ll = BlockDrawer.ofImage(progress);
 		return rig;
 	}
+	/**
+	 * Creates a chirotated image group
+	 * @param texture path to the texture
+	 * @return a chirotated image group
+	 */
 	@NN public static ChirotatedImageGroup create(String texture) {
 		return create(Textures.get(texture));
 	}
-	static BufferedImage flip(BufferedImage img) {
+	@NN static BufferedImage flip(BufferedImage img) {
 		BufferedImage result = new BufferedImage(32, 32, img.getType());
 		for(int i = 0; i < 32; i++) {
 			for(int j = 0; j < 32; j++) {

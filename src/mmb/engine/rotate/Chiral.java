@@ -4,8 +4,8 @@
 package mmb.engine.rotate;
 
 /**
+ * Adds chirality support to any object
  * @author oskar
- *
  */
 public interface Chiral {
 	/**

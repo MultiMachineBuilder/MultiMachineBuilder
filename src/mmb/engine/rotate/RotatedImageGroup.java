@@ -53,7 +53,7 @@ public class RotatedImageGroup {
 	@NN public static RotatedImageGroup create(String texture) {
 		return create(Textures.get(texture));
 	}
-	static BufferedImage rotate(BufferedImage img) {
+	@NN static BufferedImage rotate(BufferedImage img) {
 		int type = img.getType();
 		if(type == 0) type = 5;
 		BufferedImage result = new BufferedImage(32, 32, type);

@@ -8,10 +8,12 @@ import mmb.engine.gl.RenderCtx;
 import mmb.engine.texture.Textures.Texture;
 
 /**
+ * Combines chirality and rotation
  * @author oskar
  *
  */
 public enum ChiralRotation {
+	/** North rotation with anticlockwise chirality*/
 	Nl(Rotation.N, Chirality.L) {
 		@Override public Side U() {return Side.U;}
 		@Override public Side D() {return Side.D;}
@@ -35,6 +37,7 @@ public enum ChiralRotation {
 					r, g, b, a, 0, 0, x+w, y); //Nl
 		}
 	},
+	/** North rotation with clockwise chirality*/
 	Nr(Rotation.N, Chirality.R) {
 		@Override public Side U() {return Side.U;}
 		@Override public Side D() {return Side.D;}
@@ -58,6 +61,7 @@ public enum ChiralRotation {
 					r, g, b, a, 1, 0, x+w, y);
 		}
 	},
+	/** East rotation with anticlockwise chirality */
 	El(Rotation.E, Chirality.L) {
 		@Override public Side U() {return Side.R;}
 		@Override public Side D() {return Side.L;}
@@ -81,6 +85,7 @@ public enum ChiralRotation {
 					r, g, b, a, 0, 1, x+w, y); //El
 		}
 	},
+	/** East rotation with clockwise chirality */
 	Er(Rotation.E, Chirality.R) {
 		@Override public Side U() {return Side.R;}
 		@Override public Side D() {return Side.L;}
@@ -104,6 +109,7 @@ public enum ChiralRotation {
 					r, g, b, a, 0, 0, x+w, y); //Nl
 		}
 	},
+	/** South rotation with anticlockwise chirality*/
 	Sl(Rotation.S, Chirality.L) {
 		@Override public Side U() {return Side.D;}
 		@Override public Side D() {return Side.U;}
@@ -128,6 +134,7 @@ public enum ChiralRotation {
 		}
 		
 	},
+	/** South rotation with clockwise chirality */
 	Sr(Rotation.S, Chirality.R) {
 		@Override public Side U() {return Side.D;}
 		@Override public Side D() {return Side.U;}
@@ -152,6 +159,7 @@ public enum ChiralRotation {
 					r, g, b, a, 0, 1, x+w, y);
 		}
 	},
+	/** West rotation with anticlockwise chirality */
 	Wl(Rotation.W, Chirality.L) {
 		@Override public Side U() {return Side.L;}
 		@Override public Side D() {return Side.R;}
@@ -175,6 +183,7 @@ public enum ChiralRotation {
 					r, g, b, a, 1, 0, x+w, y); //Wl
 		}
 	},
+	/** West rotation with clockwise chirality */
 	Wr(Rotation.W, Chirality.R) {
 		@Override public Side U() {return Side.L;}
 		@Override public Side D() {return Side.R;}
@@ -199,7 +208,9 @@ public enum ChiralRotation {
 		}
 	};
 	
+	/** The rotation of this chirotation */
 	@NN public final Rotation rotation;
+	/** The chirality of this chirotation */
 	@NN public final Chirality chirality;
 	ChiralRotation(Rotation rotation, Chirality chirality) {
 		this.rotation = rotation;
@@ -275,6 +286,11 @@ public enum ChiralRotation {
 	@NN public ChiralRotation flipopposite() {
 		return of(rotation.opposite(), chirality.reverse());
 	}
+	/**
+	 * Applies the chirotation to the side
+	 * @param s side to apply to
+	 * @return transformed side
+	 */
 	@NN public Side apply(Side s) {
 		switch(s) {
 		case D:
@@ -303,7 +319,29 @@ public enum ChiralRotation {
 	 */
 	public abstract ChiralRotation negate();
 	
+	/**
+	 * Renders a colored OpenGL texture chirotated with specified chirotation
+	 * @param tex texture
+	 * @param x left X coordinate
+	 * @param y upper Y coordinate
+	 * @param w width
+	 * @param h height
+	 * @param r red color component
+	 * @param g green color component
+	 * @param b blue color component
+	 * @param a alpha color component
+	 * @param graphics graphics context
+	 */
 	public abstract void renderGL(Texture tex, float x, float y, float w, float h, float r, float g, float b, float a, RenderCtx graphics);
+	/**
+	 * Renders a colored OpenGL texture chirotated with specified chirotation
+	 * @param tex texture
+	 * @param x left X coordinate
+	 * @param y upper Y coordinate
+	 * @param w width
+	 * @param h height
+	 * @param graphics graphics context
+	 */
 	public void renderGL(Texture tex, float x, float y, float w, float h, RenderCtx graphics) {
 		renderGL(tex, x, y, w, h, 1, 1, 1, 1, graphics);
 	}

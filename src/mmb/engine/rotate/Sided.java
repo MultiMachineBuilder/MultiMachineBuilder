@@ -3,12 +3,16 @@
  */
 package mmb.engine.rotate;
 
+import mmb.Nil;
+
 /**
+ * Stores 8 values, one for each side and corner
  * @author oskar
  * @param <T> type of data
  *
  */
-public class Sided<T> {
+public class Sided<@Nil T> {
+	/** Side data */
 	public T u, d, l, r, ul, ur, dl, dr;
 	/**
 	 * Retrieves data at given side

@@ -11,13 +11,11 @@ import mmb.engine.gl.RenderCtx;
 import mmb.engine.texture.Textures.Texture;
 
 /**
+ * Represents an orientation
  * @author oskar
- *
  */
 public enum Rotation {
-	/**
-	 * The block faces north
-	 */
+	/** North rotation (default) */
 	N {
 		@Override public Side U() {return Side.U;}
 		@Override public Side D() {return Side.D;}
@@ -42,6 +40,8 @@ public enum Rotation {
 		@Override public Rotation flipNW() {return E;}
 		@Override public Rotation flipNE() {return W;}
 	},
+	/** East rotation */
+	/** East rotation */
 	E{
 		@Override public Side U() {return Side.R;}
 		@Override public Side D() {return Side.L;}
@@ -67,6 +67,7 @@ public enum Rotation {
 		@Override public Rotation flipNE() {return S;}
 		
 	},
+	/** South rotation */
 	S{
 		@Override public Side U() {return Side.D;}
 		@Override public Side D() {return Side.U;}
@@ -91,6 +92,7 @@ public enum Rotation {
 		@Override public Rotation flipNW() {return W;}
 		@Override public Rotation flipNE() {return E;}
 	},
+	/** West rotation */
 	W{
 		@Override public Side U() {return Side.L;}
 		@Override public Side D() {return Side.R;}
@@ -155,9 +157,31 @@ public enum Rotation {
 	@NN public abstract Rotation flipNW();
 	/**@return Mirrored on \ plane*/
 	@NN public abstract Rotation flipNE();
+	/**
+	 * Renders a colored OpenGL texture chirotated with specified chirotation
+	 * @param tex texture
+	 * @param x left X coordinate
+	 * @param y upper Y coordinate
+	 * @param w width
+	 * @param h height
+	 * @param r red color component
+	 * @param g green color component
+	 * @param b blue color component
+	 * @param a alpha color component
+	 * @param graphics graphics context
+	 */
 	public void renderGL(Texture tex, float x, float y, float w, float h, float r, float g, float b, float a, RenderCtx graphics) {
 		ChiralRotation.of(this, Chirality.R).renderGL(tex, x, y, w, h, r, g, b, a, graphics);
 	}
+	/**
+	 * Renders a colored OpenGL texture rotated with specified rotation
+	 * @param tex texture
+	 * @param x left X coordinate
+	 * @param y upper Y coordinate
+	 * @param w width
+	 * @param h height
+	 * @param graphics graphics context
+	 */
 	public void renderGL(Texture tex, float x, float y, float w, float h, RenderCtx graphics) {
 		renderGL(tex, x, y, w, h, 1, 1, 1, 1, graphics);
 	}
@@ -197,6 +221,10 @@ public enum Rotation {
 		}
 	}
 
+	/**
+	 * Called when orientation changes
+	 * @author oskar
+	 */
 	public static interface RotationListener extends EventListener, Consumer<Rotation>{
 		//unused
 	}
