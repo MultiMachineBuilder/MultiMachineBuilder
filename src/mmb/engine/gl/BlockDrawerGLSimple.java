@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.texture;
+package mmb.engine.gl;
 
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
@@ -9,8 +9,8 @@ import org.joml.Vector4fc;
 import mmb.NN;
 import mmb.Nil;
 import mmb.engine.block.BlockEntry;
-import mmb.engine.gl.RenderCtx;
 import mmb.engine.rotate.ChiralRotation;
+import mmb.engine.texture.Textures;
 import mmb.engine.texture.Textures.Texture;
 
 /**
