@@ -1,16 +1,20 @@
 /**
  * 
  */
-package mmb.menu.world.craft;
+package mmb.content.electric.recipes;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JList;
 
+import mmb.content.electric.recipes.CatSingleRecipeGroup.CatalyzedSimpleRecipe;
 import mmb.engine.UnitFormatter;
 import mmb.engine.craft.ItemStack;
-import mmb.engine.craft.rgroups.CatSingleRecipeGroup.CatalyzedSimpleRecipe;
 import mmb.engine.item.ItemEntry;
+import mmb.menu.world.craft.CRConstants;
+import mmb.menu.world.craft.ItemStackCellRenderer;
+import mmb.menu.world.craft.RecipeView;
+import mmb.menu.world.craft.VectorUtils;
 
 import java.awt.Color;
 
@@ -18,7 +22,7 @@ import java.awt.Color;
  * Represents a recipe view for single-item recipes
  * @author oskar
  */
-public class SimpleCatalyzedRecipeView extends RecipeView<CatalyzedSimpleRecipe>{
+public class CatSingleRecipeView extends RecipeView<CatalyzedSimpleRecipe>{
 	private static final long serialVersionUID = -2864705123116802475L;
 	private JLabel lblVolt;
 	private JLabel lblEnergy;
@@ -33,7 +37,7 @@ public class SimpleCatalyzedRecipeView extends RecipeView<CatalyzedSimpleRecipe>
 	/**
 	 * Creates a recipe view for single-item recipes
 	 */
-	public SimpleCatalyzedRecipeView() {
+	public CatSingleRecipeView() {
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][]"));
 		
 		lblMachine = new JLabel(CRConstants.MACHINE);

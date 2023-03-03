@@ -6,8 +6,8 @@ package mmb.content.electric.machines;
 import mmb.NN;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
 import mmb.content.electric.helper.ComplexProcessHelper;
-import mmb.engine.craft.rgroups.ComplexRecipeGroup;
-import mmb.engine.craft.rgroups.ComplexRecipeGroup.ComplexRecipe;
+import mmb.content.electric.recipes.ComplexRecipeGroup;
+import mmb.content.electric.recipes.ComplexRecipeGroup.ComplexRecipe;
 
 /**
  * Runs a complex, no-catalyst recipe

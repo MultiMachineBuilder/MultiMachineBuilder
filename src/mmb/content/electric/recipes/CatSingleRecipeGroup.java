@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft.rgroups;
+package mmb.content.electric.recipes;
 
 import io.vavr.Tuple2;
 import mmb.NN;
@@ -10,7 +10,6 @@ import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
-import mmb.menu.world.craft.SimpleCatalyzedRecipeView;
 import monniasza.collects.Identifiable;
 
 /**
@@ -31,13 +30,13 @@ implements SimpleRecipeGroup<CatSingleRecipeGroup.CatalyzedSimpleRecipe>{
 	 * @author oskar
 	 * A recipe with single input and a catlayst
 	 */
-	public class CatalyzedSimpleRecipe extends BaseElectricRecipe<@NN CatalyzedSimpleRecipe> implements Identifiable<Tuple2<@NN ItemEntry, ItemEntry>>, SimpleRecipe<@NN CatalyzedSimpleRecipe>{
+	public class CatalyzedSimpleRecipe extends AbstractElectricRecipe<@NN CatalyzedSimpleRecipe> implements Identifiable<Tuple2<@NN ItemEntry, ItemEntry>>, SimpleRecipe<@NN CatalyzedSimpleRecipe>{
 		/** The input item */
-		@NN public final ItemEntry input;
+		public final ItemEntry input;
 		/** Required catalyst */
 		@Nil public final ItemEntry catalyst;
 		/** Item tuple */
-		@NN public final Tuple2<@NN ItemEntry, ItemEntry> tuple;
+		public final Tuple2<@NN ItemEntry, ItemEntry> tuple;
 		
 		/**
 		 * Creates a single catalyzed recipe
@@ -63,7 +62,7 @@ implements SimpleRecipeGroup<CatSingleRecipeGroup.CatalyzedSimpleRecipe>{
 			return input;
 		}
 		@Override
-		public ItemEntry catalyst() {
+		public @Nil ItemEntry catalyst() {
 			return catalyst;
 		}
 		@Override
@@ -132,11 +131,11 @@ implements SimpleRecipeGroup<CatSingleRecipeGroup.CatalyzedSimpleRecipe>{
 	
 	//Others
 	@Override
-	public SimpleCatalyzedRecipeView createView() {
-		return new SimpleCatalyzedRecipeView();
+	public CatSingleRecipeView createView() {
+		return new CatSingleRecipeView();
 	}
 	@Override
-	public CatalyzedSimpleRecipe findRecipe(@Nil ItemEntry catalyst, ItemEntry in) {
+	public @Nil CatalyzedSimpleRecipe findRecipe(@Nil ItemEntry catalyst, ItemEntry in) {
 		return recipes().get(new Tuple2<>(in, catalyst));
 	}
 }

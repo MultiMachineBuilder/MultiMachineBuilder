@@ -5,10 +5,10 @@ package mmb.content.drugs;
 
 import mmb.NN;
 import mmb.content.electric.VoltageTier;
+import mmb.content.electric.recipes.AbstractRecipeGroupUncatalyzed;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.rgroups.AbstractRecipeGroupUncatalyzed;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.RecipeView;
 import monniasza.collects.Identifiable;

@@ -1,40 +1,45 @@
 /**
  * 
  */
-package mmb.menu.world.craft;
+package mmb.content.electric.recipes;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
-import javax.swing.JList;
-
 import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
+import mmb.content.electric.recipes.SingleRecipeGroup.SingleRecipe;
 import mmb.engine.UnitFormatter;
 import mmb.engine.craft.ItemStack;
-import mmb.engine.craft.rgroups.ComplexRecipeGroup.ComplexRecipe;
+import mmb.engine.item.ItemEntry;
+import mmb.menu.world.craft.CRConstants;
+import mmb.menu.world.craft.ItemStackCellRenderer;
+import mmb.menu.world.craft.RecipeView;
+import mmb.menu.world.craft.VectorUtils;
+
+import javax.swing.JList;
 
 /**
- * Represents a recipe view for multi-item recipes
+ * Represents a recipe view for single-item recipes with chanced output(s)
  * @author oskar
  */
-public class ComplexRecipeView extends RecipeView<ComplexRecipe> {
+public class SingleRecipeView extends RecipeView<SingleRecipe> {
 	private static final long serialVersionUID = -2864705123116802475L;
 	private JLabel lblVolt;
 	private JLabel lblEnergy;
 	private JLabel lblIncoming;
 	private JLabel lblOutgoing;
-	private JList<ItemStack> inList;
+	private JLabel lblIn;
 	private JList<ItemStack> outList;
 	private JLabel lblMachine;
 	private MultilineLabel lblMaybe;
 	
-	/** Creates recipe view for multi-item recipes */
-	public ComplexRecipeView() {
-		setLayout(new MigLayout("", "[grow][grow]", "[][][][fill]"));
+	/** Creates recipe view for single-item recipes with chanced output(s) */
+	public SingleRecipeView() {
+		setLayout(new MigLayout("", "[grow][grow]", "[][][][]"));
 		
 		lblMachine = new JLabel(CRConstants.MACHINE);
-		add(lblMachine, "cell 0 0");
+		add(lblMachine, "cell 0 0,growx");
 		
 		lblMaybe = new MultilineLabel(CRConstants.CHANCE);
 		lblMaybe.setPreferredViewportLineCount(9999);
@@ -52,24 +57,27 @@ public class ComplexRecipeView extends RecipeView<ComplexRecipe> {
 		lblOutgoing = new JLabel(CRConstants.OUT);
 		add(lblOutgoing, "cell 1 2,growx");
 		
+		lblIn = new JLabel();
+		add(lblIn, "cell 0 3,grow");
+		
 		outList = new JList<>();
 		outList.setCellRenderer(ItemStackCellRenderer.instance);
 		add(outList, "cell 1 3,growx,aligny center");
-		
-		inList = new JList<>();
-		inList.setCellRenderer(ItemStackCellRenderer.instance);
-		add(inList, "cell 0 3,growx,aligny center");
 	}
 	@Override
-	public void set(ComplexRecipe recipe) {
+	public void set(SingleRecipe recipe) {
 		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
 		lblEnergy.setText(CRConstants.ENERGY+UnitFormatter.formatEnergy(recipe.energy));
 		lblMachine.setText(CRConstants.MACHINE+recipe.group().title());
-		inList.setListData(VectorUtils.list2arr(recipe.input));
+		ItemEntry item = recipe.input;
+		lblIn.setIcon(item.icon());
+		lblIn.setText(item.title());
 		outList.setListData(VectorUtils.list2arr(recipe.output));
 		PicoWriter writer = new PicoWriter();
 		writer.writeln(CRConstants.CHANCE);
 		recipe.luck().represent(writer);
 		lblMaybe.setText(writer.toString());
 	}
+	
+	
 }

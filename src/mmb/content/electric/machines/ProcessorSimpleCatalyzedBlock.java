@@ -7,8 +7,8 @@ import mmb.NN;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
 import mmb.content.electric.helper.Helper;
 import mmb.content.electric.helper.SimpleProcessHelper;
-import mmb.engine.craft.rgroups.SimpleRecipe;
-import mmb.engine.craft.rgroups.SimpleRecipeGroup;
+import mmb.content.electric.recipes.SimpleRecipe;
+import mmb.content.electric.recipes.SimpleRecipeGroup;
 import mmb.engine.inv.storage.SingleItemInventory;
 
 /**

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft.rgroups;
+package mmb.content.electric.recipes;
 
 import mmb.NN;
 import mmb.content.electric.VoltageTier;
@@ -14,7 +14,7 @@ import mmb.engine.craft.RecipeOutput;
  * @author oskar
  * @param <T> type of the recipe
  */
-public abstract class BaseElectricRecipe<@NN T extends Recipe<T>> implements Recipe<T> {
+public abstract class AbstractElectricRecipe<@NN T extends Recipe<T>> implements Recipe<T> {
 	/** Energy required for completion in joules */
 	public final double energy;
 	/** Voltage tier required for this recipe */
@@ -31,7 +31,7 @@ public abstract class BaseElectricRecipe<@NN T extends Recipe<T>> implements Rec
 	 * @param output deterministic output of this recipe
 	 * @param luck randomized output of this recipe
 	 */
-	protected BaseElectricRecipe(double energy, VoltageTier voltage, RecipeOutput output, Chance luck) {
+	protected AbstractElectricRecipe(double energy, VoltageTier voltage, RecipeOutput output, Chance luck) {
 		this.energy = energy;
 		this.voltage = voltage;
 		this.output = output;

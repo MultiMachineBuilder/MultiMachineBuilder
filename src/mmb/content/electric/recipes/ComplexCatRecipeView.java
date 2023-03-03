@@ -1,10 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.craft;
-
-import java.util.Vector;
-import java.util.stream.Collectors;
+package mmb.content.electric.recipes;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
@@ -13,31 +10,34 @@ import javax.swing.JList;
 import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
-import mmb.NN;
+import mmb.content.electric.recipes.ComplexCatRecipeGroup.ComplexCatalyzedRecipe;
 import mmb.engine.UnitFormatter;
 import mmb.engine.craft.ItemStack;
-import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.rgroups.StackedRecipeGroup.StackedRecipe;
 import mmb.engine.item.ItemEntry;
+import mmb.menu.world.craft.CRConstants;
+import mmb.menu.world.craft.ItemStackCellRenderer;
+import mmb.menu.world.craft.RecipeView;
+import mmb.menu.world.craft.VectorUtils;
 
 /**
- * Represents a recipe view for stacked-item recipes 
  * @author oskar
  */
-public class StackedRecipeView extends RecipeView<StackedRecipe> {
+public class ComplexCatRecipeView extends RecipeView<ComplexCatalyzedRecipe> {
 	private static final long serialVersionUID = -2864705123116802475L;
 	private JLabel lblVolt;
 	private JLabel lblEnergy;
 	private JLabel lblIncoming;
 	private JLabel lblOutgoing;
-	private JLabel lblIn;
+	private JList<ItemStack> inList;
 	private JList<ItemStack> outList;
 	private JLabel lblMachine;
+	private JLabel lblCatalyst;
+	private JLabel catalyst;
 	private MultilineLabel lblMaybe;
 	
-	/** Creates a recipe view for stacked-item recipes */
-	public StackedRecipeView() {
-		setLayout(new MigLayout("", "[grow][grow]", "[][][][]"));
+	/** Creates recipe view for multi-item recipes with catalyst*/
+	public ComplexCatRecipeView() {
+		setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][fill]"));
 		
 		lblMachine = new JLabel(CRConstants.MACHINE);
 		add(lblMachine, "cell 0 0,growx");
@@ -55,45 +55,41 @@ public class StackedRecipeView extends RecipeView<StackedRecipe> {
 		lblIncoming = new JLabel(CRConstants.IN);
 		add(lblIncoming, "cell 0 2,growx");
 		
-		lblOutgoing = new JLabel(CRConstants.OUT);
-		add(lblOutgoing, "cell 1 2,growx");
+		lblCatalyst = new JLabel(CRConstants.CAT);
+		add(lblCatalyst, "cell 1 2,growx");
 		
-		lblIn = new JLabel();
-		add(lblIn, "cell 0 3,grow");
+		lblOutgoing = new JLabel(CRConstants.OUT);
+		add(lblOutgoing, "cell 2 2,growx");
+		
+		catalyst = new JLabel();
+		add(catalyst, "cell 1 3, grow");
 		
 		outList = new JList<>();
 		outList.setCellRenderer(ItemStackCellRenderer.instance);
-		add(outList, "cell 1 3,growx,aligny center");
+		add(outList, "cell 2 3,grow");
+		
+		inList = new JList<>();
+		inList.setCellRenderer(ItemStackCellRenderer.instance);
+		add(inList, "cell 0 3,grow");
+		inList.setMaximumSize(null); 
 	}
-	@Override public void set(StackedRecipe recipe) {
+	@Override public void set(ComplexCatalyzedRecipe recipe) {
 		lblVolt.setText(CRConstants.VOLT+recipe.voltage.name);
 		lblEnergy.setText(CRConstants.ENERGY+UnitFormatter.formatEnergy(recipe.energy));
 		lblMachine.setText(CRConstants.MACHINE+recipe.group().title());
-		ItemEntry item = recipe.item();
-		lblIn.setIcon(item.icon());
-		lblIn.setText(item.title() +" x "+recipe.amount());
+		inList.setListData(VectorUtils.list2arr(recipe.input));
 		outList.setListData(VectorUtils.list2arr(recipe.output));
+		ItemEntry catalyst0 = recipe.catalyst;
+		if(catalyst0 == null) {
+			catalyst.setText("none");
+			catalyst.setIcon(null);
+		}else {
+			catalyst.setText(catalyst0.title());
+			catalyst.setIcon(catalyst0.icon());
+		}
 		PicoWriter writer = new PicoWriter();
 		writer.writeln(CRConstants.CHANCE);
 		recipe.luck().represent(writer);
 		lblMaybe.setText(writer.toString());
-	}
-	
-	
-	@NN public static Vector<ItemStack> list2vector(RecipeOutput output){
-		return output
-				.getContents()
-				.object2IntEntrySet()
-				.stream()
-				.map(ent -> new ItemStack(ent.getKey(), ent.getIntValue()))
-				.collect(Collectors.toCollection(Vector::new));
-	}
-	@NN public static ItemStack[] list2arr(RecipeOutput output){
-		return output
-				.getContents()
-				.object2IntEntrySet()
-				.stream()
-				.map(entry -> new ItemStack(entry.getKey(), entry.getIntValue()))
-				.toArray(n -> new ItemStack[n]);
 	}
 }

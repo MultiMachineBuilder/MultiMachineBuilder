@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft.rgroups;
+package mmb.content.electric.recipes;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -35,10 +35,10 @@ import monniasza.collects.selfset.SelfSet;
  * @param <Trecipe> type of recipes
  */
 public abstract class AbstractRecipeGroup<@NN Tbackend, @NN Trecipe extends Recipe<@NN Trecipe>&Identifiable<Tbackend>> implements RecipeGroup<@NN Trecipe>{
-	@NN private final ListCellRenderer<Trecipe> cellRenderer;
+	private final ListCellRenderer<Trecipe> cellRenderer;
 	
-	@NN private final String title;
-	@NN private final String id;
+	private final String title;
+	private final String id;
 	/**
 	 * Create a recipe tab. Invoked once per recipe group
 	 * @return
@@ -74,17 +74,17 @@ public abstract class AbstractRecipeGroup<@NN Tbackend, @NN Trecipe extends Reci
 	
 	//Recipe listing backend
 	/** Type of recipes */
-	@NN public final Class<Trecipe> rtype;
-	@NN private final SelfSet<Tbackend, Trecipe> recipesBackend;
-	@NN private final SelfSet<Tbackend, Trecipe> recipesView;
+	public final Class<Trecipe> rtype;
+	private final SelfSet<Tbackend, Trecipe> recipesBackend;
+	private final SelfSet<Tbackend, Trecipe> recipesView;
 	@Override
 	public @NN SelfSet<Tbackend, Trecipe> recipes() {
 		return recipesView;
 	}
 	
 	//Supported items
-	@NN private final Set<ItemEntry> supportedBackend = new HashSet<>();
-	@NN private final Set<ItemEntry> supportedView = Collections.unmodifiableSet(supportedBackend);
+	private final Set<ItemEntry> supportedBackend = new HashSet<>();
+	private final Set<ItemEntry> supportedView = Collections.unmodifiableSet(supportedBackend);
 	@Override
 	public Set<? extends ItemEntry> supportedItems() {
 		return supportedView;

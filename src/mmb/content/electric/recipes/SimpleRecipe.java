@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft.rgroups;
+package mmb.content.electric.recipes;
 
 import mmb.NN;
 import mmb.engine.craft.Recipe;

@@ -13,10 +13,10 @@ import mmb.Nil;
 import mmb.content.electric.Battery;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.CycleResult;
+import mmb.content.electric.recipes.MultiRecipeGroup;
 import mmb.engine.craft.ItemLists;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.rgroups.MultiRecipeGroup;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.inv.storage.SingleItemInventory;
@@ -31,7 +31,7 @@ import mmb.engine.json.JsonTool;
  * @see mmb.content.electric.machines.ProcessorComplexCatalyzedBlock ProcessorComplexBlock
  * @see SimpleProcessHelper
  */
-public class ComplexProcessHelper<@NN Trecipe extends Recipe<Trecipe>> extends Helper<@NN Trecipe, mmb.engine.craft.rgroups.MultiRecipeGroup<Trecipe>> {
+public class ComplexProcessHelper<@NN Trecipe extends Recipe<Trecipe>> extends Helper<@NN Trecipe, mmb.content.electric.recipes.MultiRecipeGroup<Trecipe>> {
 	//Constructor
 	/**
 	 * @param recipes list of recipes to use

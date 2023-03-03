@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft.rgroups;
+package mmb.content.electric.recipes;
 
 import java.util.Set;
 
@@ -13,7 +13,6 @@ import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
-import mmb.menu.world.craft.ComplexRecipeView;
 import monniasza.collects.Identifiable;
 
 /**
@@ -41,7 +40,7 @@ implements MultiRecipeGroup<@NN ComplexRecipeGroup.ComplexRecipe>{
 	 * A recipe with a complex input
 	 * @author oskar
 	 */
-	public class ComplexRecipe extends BaseElectricRecipe<@NN ComplexRecipe> implements Identifiable<@NN RecipeOutput>{
+	public class ComplexRecipe extends AbstractElectricRecipe<@NN ComplexRecipe> implements Identifiable<@NN RecipeOutput>{
 		/** The input item list */
 		@NN public final RecipeOutput input;
 		

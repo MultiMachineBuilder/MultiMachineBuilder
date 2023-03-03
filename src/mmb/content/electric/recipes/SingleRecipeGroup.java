@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft.rgroups;
+package mmb.content.electric.recipes;
 
 import mmb.NN;
 import mmb.Nil;
@@ -9,7 +9,6 @@ import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
-import mmb.menu.world.craft.SingleRecipeView;
 import monniasza.collects.Identifiable;
 
 /**
@@ -29,7 +28,7 @@ implements SimpleRecipeGroup<SingleRecipeGroup.SingleRecipe>{
 	 * A recipe with a single input item
 	 * @author oskar
 	 */
-	public class SingleRecipe extends BaseElectricRecipe<@NN SingleRecipe> implements Identifiable<ItemEntry>, SimpleRecipe<@NN SingleRecipe>{
+	public class SingleRecipe extends AbstractElectricRecipe<@NN SingleRecipe> implements Identifiable<ItemEntry>, SimpleRecipe<@NN SingleRecipe>{
 		/** The input item */
 		@NN public final ItemEntry input;
 		

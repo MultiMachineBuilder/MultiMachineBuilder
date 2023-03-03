@@ -17,7 +17,7 @@ import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
+import mmb.engine.craft.CraftingRecipeGroup.CraftingRecipe;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.rotate.RotatedImageGroup;

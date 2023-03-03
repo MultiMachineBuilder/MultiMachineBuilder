@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft.rgroups;
+package mmb.content.electric.recipes;
 
 import java.util.Set;
 
@@ -15,7 +15,6 @@ import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
-import mmb.menu.world.craft.ComplexCatalyzedRecipeView;
 import mmb.menu.world.craft.RecipeView;
 import monniasza.collects.Identifiable;
 
@@ -46,7 +45,7 @@ implements MultiRecipeGroup<@NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>{
 	 * @author oskar
 	 * A recipe with a complex input and a catalyst
 	 */
-	public class ComplexCatalyzedRecipe extends BaseElectricRecipe<@NN ComplexCatalyzedRecipe> implements Identifiable<@NN Tuple2<@NN RecipeOutput, @NN ItemEntry>>{
+	public class ComplexCatalyzedRecipe extends AbstractElectricRecipe<@NN ComplexCatalyzedRecipe> implements Identifiable<@NN Tuple2<@NN RecipeOutput, @NN ItemEntry>>{
 		/** The input item list */
 		@NN public final RecipeOutput input;
 		/** Required catalyst */
@@ -154,7 +153,7 @@ implements MultiRecipeGroup<@NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>{
 	//Others
 	@Override
 	public RecipeView<ComplexCatalyzedRecipe> createView() {
-		return new ComplexCatalyzedRecipeView();
+		return new ComplexCatRecipeView();
 	}
 	
 	//Recipe lookup

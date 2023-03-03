@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft.rgroups;
+package mmb.engine.craft;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -12,11 +12,8 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.NN;
 import mmb.Nil;
 import mmb.content.electric.VoltageTier;
+import mmb.content.electric.recipes.AbstractRecipeGroup;
 import mmb.engine.chance.Chance;
-import mmb.engine.craft.ItemStack;
-import mmb.engine.craft.Recipe;
-import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.SimpleItemList;
 import mmb.engine.item.ItemEntry;
 import mmb.menu.world.craft.CraftingRecipeView;
 import monniasza.collects.Identifiable;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft.rgroups;
+package mmb.content.electric.recipes;
 
 import java.util.Set;
 
@@ -18,7 +18,8 @@ import monniasza.collects.Identifiable;
  * @param <Tlist> the item selection type
  * @param <Trecipe> type of recipes
  */
-public abstract class AbstractRecipeGroupCatalyzed<@NN Tlist extends RecipeOutput, @NN Trecipe extends Recipe<@NN Trecipe>&Identifiable<@NN Tuple2<Tlist, ItemEntry>>>
+public abstract class AbstractRecipeGroupCatalyzed<@NN Tlist extends RecipeOutput, 
+@NN Trecipe extends Recipe<@NN Trecipe>&Identifiable<@NN Tuple2<Tlist, ItemEntry>>>
 extends AbstractRecipeGroup<@NN Tuple2<Tlist, ItemEntry>, Trecipe> {
 	protected AbstractRecipeGroupCatalyzed(String id, Class<@NN Trecipe> rtype) {
 		super(id, rtype);

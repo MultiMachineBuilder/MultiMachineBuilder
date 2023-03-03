@@ -15,7 +15,7 @@ import mmb.content.ContentsItems;
 import mmb.content.CraftingGroups;
 import mmb.engine.craft.Recipe;
 import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
+import mmb.engine.craft.CraftingRecipeGroup.CraftingRecipe;
 import mmb.engine.debug.Debugger;
 import mmb.engine.item.ItemEntity;
 import mmb.engine.item.ItemEntry;

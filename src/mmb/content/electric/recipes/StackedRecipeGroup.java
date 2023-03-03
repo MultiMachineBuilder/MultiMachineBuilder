@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft.rgroups;
+package mmb.content.electric.recipes;
 
 import mmb.NN;
 import mmb.Nil;
@@ -10,7 +10,6 @@ import mmb.engine.chance.Chance;
 import mmb.engine.craft.RecipeOutput;
 import mmb.engine.craft.SingleItem;
 import mmb.engine.item.ItemEntry;
-import mmb.menu.world.craft.StackedRecipeView;
 import monniasza.collects.Identifiable;
 
 /**
@@ -30,7 +29,7 @@ implements SimpleRecipeGroup<@NN StackedRecipeGroup.StackedRecipe>{
 	 * A recipe with a stacked input
 	 * @author oskar
 	 */
-	public class StackedRecipe extends BaseElectricRecipe<@NN StackedRecipe> implements Identifiable<ItemEntry>, SimpleRecipe<@NN StackedRecipe>{
+	public class StackedRecipe extends AbstractElectricRecipe<@NN StackedRecipe> implements Identifiable<ItemEntry>, SimpleRecipe<@NN StackedRecipe>{
 		/** The input item stack */
 		@NN public final SingleItem input;
 		/**

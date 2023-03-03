@@ -6,8 +6,8 @@ package mmb.content.electric.machines;
 import mmb.NN;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
 import mmb.content.electric.helper.ComplexProcessHelper;
-import mmb.engine.craft.rgroups.ComplexCatRecipeGroup;
-import mmb.engine.craft.rgroups.ComplexCatRecipeGroup.ComplexCatalyzedRecipe;
+import mmb.content.electric.recipes.ComplexCatRecipeGroup;
+import mmb.content.electric.recipes.ComplexCatRecipeGroup.ComplexCatalyzedRecipe;
 import mmb.engine.inv.storage.SingleItemInventory;
 
 /**

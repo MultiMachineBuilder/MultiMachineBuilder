@@ -24,7 +24,7 @@ import mmb.engine.CatchingEvent;
 import mmb.engine.block.Blocks;
 import mmb.engine.craft.ItemLists;
 import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.rgroups.CraftingRecipeGroup.CraftingRecipe;
+import mmb.engine.craft.CraftingRecipeGroup.CraftingRecipe;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.storage.SetInventory;
 import mmb.engine.item.ItemEntry;
