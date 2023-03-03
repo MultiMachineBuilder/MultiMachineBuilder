@@ -9,7 +9,7 @@ import javax.swing.JButton;
 
 import mmb.content.stn.network.STNNetworkInventory;
 import mmb.engine.inv.Inventory;
-import mmb.menu.helper.MenuHelper;
+import mmb.menu.MenuHelper;
 import mmb.menu.world.inv.InventoryController;
 
 /**

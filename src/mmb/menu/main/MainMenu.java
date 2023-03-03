@@ -24,7 +24,7 @@ import mmb.engine.settings.Settings;
 import mmb.engine.texture.Textures;
 import mmb.engine.window.FullScreen;
 import mmb.engine.window.MMBFrame;
-import mmb.menu.MenuUtils;
+import mmb.menu.MenuHelper;
 import mmb.menu.components.BoundCheckBoxMenuItem;
 
 /**
@@ -144,7 +144,7 @@ public class MainMenu extends MMBFrame {
 		mnUkraine.add(btnRefugee1);
 		
 		mnBug = new JMenuItem(GlobalSettings.$res("cgui-report"), new ImageIcon(BUG));
-		mnBug.setModel(MenuUtils.btnmBug);
+		mnBug.setModel(MenuHelper.btnmBug);
 		mainMenuBar.add(mnBug);
 		
 		contentPane = new JPanel();

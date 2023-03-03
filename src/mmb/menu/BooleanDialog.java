@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.helper;
+package mmb.menu;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -15,8 +15,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
+ * Asks the user for a boolean value.
+ * The consumer receives false when window is closed
  * @author oskar
- *
  */
 public class BooleanDialog extends JDialog {
 	private static final long serialVersionUID = -548563009384514938L;

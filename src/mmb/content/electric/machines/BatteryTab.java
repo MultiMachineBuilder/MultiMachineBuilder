@@ -10,7 +10,7 @@ import javax.swing.JProgressBar;
 
 import mmb.NN;
 import mmb.content.electric.Electricity;
-import mmb.menu.helper.MenuHelper;
+import mmb.menu.MenuHelper;
 import mmb.menu.world.inv.InventoryController;
 import mmb.menu.world.inv.MoveItems;
 import mmb.menu.world.inv.SingleInventoryController;
