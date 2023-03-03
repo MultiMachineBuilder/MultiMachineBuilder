@@ -6,9 +6,9 @@ package mmb.engine;
 /**
  * A three-way consumer
  * @author oskar
- * @param <T1>
- * @param <T2>
- * @param <T3> 
+ * @param <T1> type of the first input
+ * @param <T2> type of the second input
+ * @param <T3> type of the third input
  */
 public interface Consumer3<T1, T2, T3> {
 	/**

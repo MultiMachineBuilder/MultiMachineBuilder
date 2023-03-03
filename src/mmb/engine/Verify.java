@@ -4,10 +4,12 @@
 package mmb.engine;
 
 /**
+ * Verifies correctness of values
  * @author oskar
- *
  */
 public class Verify {
+	private Verify() {}
+	
 	//Double tests - descending they become less stringent
 	/**
 	 * Requires that provided argument be a positive real number

@@ -20,10 +20,8 @@ import monniasza.collects.Collects;
  * @author oskar
  */
 public class MutableResourceBundle extends ResourceBundle {
-	
 	/** Creates an empty mutable resource bundle*/
 	public MutableResourceBundle() {}
-	
 	/** 
 	 * Creates a mutable resource bundle with contents of the input bundle
 	 * @param rb source bundle
@@ -42,22 +40,19 @@ public class MutableResourceBundle extends ResourceBundle {
 			map.put(key, rb.getObject(key));
 		}
 	}
-	
 	@Override
 	protected Object handleGetObject(@Nil String key) {
 		return map.get(key);
 	}
-
+	@SuppressWarnings("null")
 	@Override
 	public Enumeration<String> getKeys() {
 		return Iterators.asEnumeration(map.keySet().iterator());
 	}
-
 	@Override
 	public boolean containsKey(@Nil String key) {
 		return map.containsKey(key);
 	}
-
 	@Override
 	protected Set<String> handleKeySet() {
 		return map.keySet();

@@ -311,8 +311,10 @@ public class SetInventory<@NN T extends ItemEntry> implements SaveInventory{
 				}
 				@SuppressWarnings("unchecked")
 				T casted = (T) item; //item is already of the correct type
-				set.add(casted);
-				if(item != null) volume += item.volume();
+				if(item != null) {
+					set.add(casted);
+					volume += item.volume();
+				}
 			}
 		}
 	}

@@ -12,16 +12,26 @@ import org.joml.Vector2ic;
 import mmb.Nil;
 
 /**
+ * A reado-only 2-component integer vector
  * @author oskar
  *
  */
 public class Vector2iconst implements Vector2ic {
 	public final int x;
 	public final int y;
+	/**
+	 * Creates a vector
+	 * @param x X coordinate
+	 * @param y Y coordinate
+	 */
 	public Vector2iconst(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
+	/**
+	 * Creates a vector
+	 * @param vector source vector
+	 */
 	public Vector2iconst(Vector2ic vector) {
 		x = vector.x();
 		y = vector.y();

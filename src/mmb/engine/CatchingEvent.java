@@ -19,8 +19,7 @@ import mmb.engine.debug.Debugger;
  * @author oskar (catch exceptions, nullability)
  * @author Philipp Ploder (original implementation)
  * @param <T> The argument type to be passed to the listeners. (copied from {@link Event})
- * @version 1.0.0
- * @since 1.1.0
+ * @since MMB 0.5-pre5
  */
 @SuppressWarnings({"null"})
 public class CatchingEvent<T> implements Event<T> {

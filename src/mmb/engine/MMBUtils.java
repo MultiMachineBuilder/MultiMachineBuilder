@@ -9,6 +9,7 @@ import java.util.function.Supplier;
 import mmb.NN;
 
 /**
+ * A set of general-purpose game-wide utility methods
  * @author oskar
  *
  */
@@ -46,7 +47,7 @@ public class MMBUtils {
 	 * @throws ClassCastException randomly, when misused in various methods
 	 */
 	@SuppressWarnings("unchecked")
-	@NN public static <T, U> U thisIsAReallyLongNameUnsafeCastNN(T in) {
+	@NN public static <T, @NN U> U thisIsAReallyLongNameUnsafeCastNN(T in) {
 		return (U) in;
 	}	
 	
@@ -61,8 +62,9 @@ public class MMBUtils {
 	}
 	
 	//Lambda expressions
-	@NN private static final Consumer<?> nothing = v -> {};
+	@NN private static final Consumer<?> nothing = v -> {/*empty*/};
 	/**
+	 * Returns a consumer which does nothing
 	 * @param <T> type of the input
 	 * @return a consumer which does nothing.
 	 * @apiNote The returned consumers are the same object
@@ -82,8 +84,9 @@ public class MMBUtils {
 		return () -> action.accept(value);
 	}	
 	/**
+	 * Evaluates the input lazily
 	 * @param <T> type of values
-	 * @param sup
+	 * @param sup source of values
 	 * @return a lazily evaluated supplier
 	 */
 	public static <T> Supplier<T> lazy(Supplier<T> sup){
@@ -103,7 +106,7 @@ public class MMBUtils {
 	}
 	
 	//Undeclared throws
-	/**s
+	/**
 	 * Throws given exception without a declaration
 	 * @param t the exception to throw
 	 */

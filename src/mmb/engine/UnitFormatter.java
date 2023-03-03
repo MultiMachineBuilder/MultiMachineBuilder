@@ -4,11 +4,16 @@
 package mmb.engine;
 
 /**
+ * Formats units for display
  * @author oskar
  * A class constaining formatting utilities
  */
 public class UnitFormatter {
 	private UnitFormatter() {}
+	/** Formats energy in joules
+	 * @param energy energy to format
+	 * @return formatted string
+	 */
 	public static String formatEnergy(double energy) {
 		if(Double.isNaN(energy)) return "?";
 		if(energy == 0) return "0";
@@ -64,9 +69,19 @@ public class UnitFormatter {
 		//Yoctojoules
 		return (energy*1e24)+" yJ";
 	}
+	/**
+	 * Formats power in joules per tick to watts
+	 * @param energy power to format
+	 * @return formatted power
+	 */
 	public static String formatPower(double energy) {
 		return formatPowerWatts(energy*50);
 	}
+	/**
+	 * Formats power in watts
+	 * @param energy power to format
+	 * @return formatted power
+	 */
 	public static String formatPowerWatts(double energy) {
 		if(Double.isNaN(energy)) return "?";
 		if(energy == 0) return "0";
