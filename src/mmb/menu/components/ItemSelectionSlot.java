@@ -23,8 +23,8 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 /**
+ * Allows a selection of an item entry by the user
  * @author oskar
- *
  */
 public class ItemSelectionSlot extends JComponent implements AutoCloseable{
 	private static final long serialVersionUID = -5582224599293758548L;

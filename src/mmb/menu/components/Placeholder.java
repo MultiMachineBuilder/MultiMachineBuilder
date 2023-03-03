@@ -15,7 +15,8 @@ import mmb.content.modular.gui.SafeCloseable;
 import mmb.data.reactive.ListenableProperty;
 
 /**
- * A placeholder displays a component provided by a property
+ * A placeholder displays a component provided by a property.
+ * The displayed component is fully functional
  * @author oskar
  */
 public class Placeholder extends JComponent implements SafeCloseable {

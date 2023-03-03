@@ -13,8 +13,8 @@ import mmb.Nil;
 import mmb.data.variables.ListenableBoolean;
 
 /**
- * @author oskar
  * A checkbox which is connected to a variable
+ * @author oskar
  */
 public class BoundCheckBox extends JCheckBox {
 	private static final long serialVersionUID = -490812297506623203L;
@@ -45,34 +45,40 @@ public class BoundCheckBox extends JCheckBox {
 			valueChangeUnderway = false;
 		});
 	}
+	/** Creates a checkbox witout data */
 	public BoundCheckBox() {
 		super();
 		initialize();
 	}
+	/**
+	 * Creates a checkbox speciified by an {@code Action}
+	 * @param a specifies this checkbox
+	 */
 	public BoundCheckBox(Action a) {
 		super(a);
 		initialize();
 	}
-	public BoundCheckBox(Icon icon, boolean selected) {
-		super(icon, selected);
-		initialize();
-	}
+	/**
+	 * Creates a checkbox with an icon
+	 * @param icon icon to use
+	 */
 	public BoundCheckBox(Icon icon) {
 		super(icon);
 		initialize();
 	}
-	public BoundCheckBox(String text, boolean selected) {
-		super(text, selected);
-		initialize();
-	}
-	public BoundCheckBox(String text, Icon icon, boolean selected) {
-		super(text, icon, selected);
-		initialize();
-	}
+	/**
+	 * Creates a checkbox with an icon and a text
+	 * @param text text to use
+	 * @param icon icon to use
+	 */
 	public BoundCheckBox(String text, Icon icon) {
 		super(text, icon);
 		initialize();
 	}
+	/**
+	 * Creates a checkbox with a text
+	 * @param text text to use
+	 */
 	public BoundCheckBox(String text) {
 		super(text);
 		initialize();

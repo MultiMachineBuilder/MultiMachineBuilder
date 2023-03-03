@@ -14,8 +14,8 @@ import mmb.content.modular.gui.SafeCloseable;
 import mmb.data.variables.ListenableBoolean;
 
 /**
+ * A checkbox menu item which is connected to a variable
  * @author oskar
- *
  */
 public class BoundCheckBoxMenuItem extends JCheckBoxMenuItem implements SafeCloseable {
 	private static final long serialVersionUID = 6007934685540436786L;
@@ -30,6 +30,10 @@ public class BoundCheckBoxMenuItem extends JCheckBoxMenuItem implements SafeClos
 	}
 	private transient ListenableBoolean bvar;
 	@NN private transient BooleanConsumer update = this::setSelected;
+	/**
+	 * Sets the databinding for this check box menu item
+	 * @param var databinding to use
+	 */
 	public void setVariable(@Nil ListenableBoolean var) {
 		if(var != null) setSelected(var.getValue());
 		if(bvar != null) bvar.remove(update);
@@ -45,30 +49,41 @@ public class BoundCheckBoxMenuItem extends JCheckBoxMenuItem implements SafeClos
 			valueChangeUnderway = false;
 		});
 	}
+	
+	/** Creates an empty check box menu item */
 	public BoundCheckBoxMenuItem() {
 		super();
 		initialize();
 	}
+	/**
+	 * Creates a check box menu item specified by the {@code Action}
+	 * @param a specifies this check box menu item
+	 */
 	public BoundCheckBoxMenuItem(Action a) {
 		super(a);
 		initialize();
 	}
+	/**
+	 * Creates a check box menu item wit an icon
+	 * @param icon icon to use
+	 */
 	public BoundCheckBoxMenuItem(Icon icon) {
 		super(icon);
 		initialize();
 	}
-	public BoundCheckBoxMenuItem(String text, boolean b) {
-		super(text, b);
-		initialize();
-	}
-	public BoundCheckBoxMenuItem(String text, Icon icon, boolean b) {
-		super(text, icon, b);
-		initialize();
-	}
+	/**
+	 * Creates a check box menu item with an icon and a text
+	 * @param text text to use
+	 * @param icon icon to use
+	 */
 	public BoundCheckBoxMenuItem(String text, Icon icon) {
 		super(text, icon);
 		initialize();
 	}
+	/**
+	 * Creates a check box menu item with a text
+	 * @param text text to use
+	 */
 	public BoundCheckBoxMenuItem(String text) {
 		super(text);
 		initialize();
