@@ -14,8 +14,8 @@ import javax.swing.JMenuItem;
 import net.miginfocom.swing.MigLayout;
 
 /**
+ * The shop panel in the main menu (currently unused)
  * @author oskar
- *
  */
 public class PanelShop extends JPanel {
 	private static final long serialVersionUID = 5613201675920230934L;
@@ -34,9 +34,7 @@ public class PanelShop extends JPanel {
 	private JMenuItem reportMods;
 	private JMenuItem preparePolice;
 
-	/**
-	 * Create the panel.
-	 */
+	/** Create the panel. */
 	public PanelShop() {
 		setLayout(new BorderLayout(0, 0));
 		

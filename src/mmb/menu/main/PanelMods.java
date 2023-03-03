@@ -28,12 +28,13 @@ import java.io.File;
 import java.io.IOException;
 
 /**
+ * The mod panel in the main menu
  * @author oskar
- *
  */
 public class PanelMods extends JPanel {
 	private static final long serialVersionUID = -971992923441938268L;
 	private static Debugger debug = new Debugger("MODLIST");
+	/** The singleton instance of the mods panel */
 	public static final PanelMods INSTANCE = new PanelMods();
 	
 	private PanelMods() {

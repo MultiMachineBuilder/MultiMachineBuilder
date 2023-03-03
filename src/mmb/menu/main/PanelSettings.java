@@ -28,7 +28,6 @@ import io.github.parubok.text.multiline.MultilineLabel;
 import mmb.engine.debug.Debugger;
 import mmb.engine.settings.GlobalSettings;
 import mmb.menu.components.BoundCheckBox;
-import mmb.menu.components.BoundCheckBoxMenuItem;
 import mmb.menu.components.BoundCombo;
 
 import java.awt.Color;
@@ -36,11 +35,10 @@ import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
-import javax.swing.JCheckBox;
 
 /**
+ * The settings panel in the main menu
  * @author oskar
- *
  */
 public class PanelSettings extends JPanel {
 	private static final long serialVersionUID = 3525375553531357014L;
@@ -137,6 +135,7 @@ public class PanelSettings extends JPanel {
 			if(recovery.get()) return;
 			String s = fieldScale.getText();
 			try {
+				if(s == null) throw new IllegalArgumentException("invalid value");
 				double newScale = Double.parseDouble(s);
 				if(Double.isNaN(newScale)) throw new IllegalArgumentException("NaN");
 				if(newScale <= 0) throw new IllegalArgumentException("<=0");

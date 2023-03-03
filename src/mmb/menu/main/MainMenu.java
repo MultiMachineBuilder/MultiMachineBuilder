@@ -28,16 +28,19 @@ import mmb.menu.MenuHelper;
 import mmb.menu.components.BoundCheckBoxMenuItem;
 
 /**
- * @author oskar
  * A singleton main menu class
+ * @author oskar
  */
 public class MainMenu extends MMBFrame {
 	private static final long serialVersionUID = -7953512837841781519L;
 	private static final Debugger debug = new Debugger("Main menu");
 	
 	//Logos
+	/** The gear icon */
 	public static final BufferedImage GEAR = Textures.get("gearlogo.png");
+	/** The dollar icon */
 	public static final BufferedImage DOLLAR = Textures.get("dollar.png");
+	/** The bug report icon */
 	public static final BufferedImage BUG = Textures.get("bug.png");
 	
 	//ToolKit API
@@ -65,10 +68,14 @@ public class MainMenu extends MMBFrame {
 	private final JPanel contentPane;
 	
 	//Various webistes
-	public static final String GITHUB = "https://github.com/MultiMachineBuilder/MultiMachineBuilder";
+	/** The website for this game */
+	public static final String GITHUB = "https://multimachinebuilder.github.io";
+	/** Donate to help Ukrainian refugees */
 	private static final String helpUA = "https://good.od.ua/en/stopwar";
 	//https://www.gov.pl/web/mswia-pl/informacja-dla-uchodżców-z-ukrainy
+	/** English information for Ukrainian refugees */
 	private static final String refugeesEN = "https://www.gov.pl/web/mswia-en/information-for-refugees-from-ukraine";
+	/** Polish government services for Ukrainian refugees*/
 	private static final String refugeesUA = "http://www.ua.gov.pl/";
 	
 	private JButton btnExit;
@@ -76,9 +83,7 @@ public class MainMenu extends MMBFrame {
 	private JButton TEST;
 	private JMenu mnUkraine;
 	private JMenuItem mnBug;
-	/**
-	 * Launch the application.
-	 */
+	/** Launch the application. */
 	public static void create() {
 		Settings.addSettingBool("fullscreen", false, FullScreen.isFullScreen);		
 		FullScreen.setWindow(INSTANCE);

@@ -27,8 +27,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
+ * The saves panel in the main menu
  * @author oskar
- *
  */
 public class PanelSaves extends JPanel {
 	private static final long serialVersionUID = -873377369477463310L;

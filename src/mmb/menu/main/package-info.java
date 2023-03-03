@@ -2,6 +2,7 @@
  * 
  */
 /**
+ * Contains the main menu and all of its panels
  * @author oskar
  *
  */
