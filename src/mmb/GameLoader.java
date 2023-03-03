@@ -41,6 +41,7 @@ import mmb.engine.worlds.DataLayers;
 import mmb.menu.wtool.Tools;
 
 /**
+ * The main loading class
  * @author oskar
  *
  */
@@ -52,6 +53,10 @@ public final class GameLoader {
 	private static int stage = 0;
 	private static final Object stageLock = new Object();
 	private static List<Runnable> firstRuns = new ArrayList<>();
+	/**
+	 * Runs the task on the first run stage
+	 * @param run task to run
+	 */
 	public static void onFirstRun(Runnable run) {
 		synchronized(stageLock) {
 			if(stage < 1) {
@@ -62,6 +67,10 @@ public final class GameLoader {
 		}
 	}
 	private static List<Runnable> contents = new ArrayList<>();
+	/**
+	 * Runs the task on the content run stage
+	 * @param run task to run
+	 */
 	public static void onContentRun(Runnable run) {
 		synchronized(stageLock) {
 			if(stage < 2) {
@@ -72,6 +81,10 @@ public final class GameLoader {
 		}
 	}
 	private static List<Runnable> integRuns = new ArrayList<>();
+	/**
+	 * Runs the task on the integration stage
+	 * @param run task to run
+	 */
 	public static void onIntegRun(Runnable run) {
 		synchronized(stageLock) {
 			if(stage < 3) {
@@ -241,7 +254,7 @@ public final class GameLoader {
 					debug.printl("End 1st stage for " + ai.meta.name);
 				} catch (VirtualMachineError e) {
 					Main.crash(e);
-				} catch (Throwable e) {
+				} catch (Throwable e) {//NOSONAR handle exceptions by the mod, VME already handled
 					debug.stacktraceError(e, "Failed to run a mod " + ai.meta.name);
 					ai.state = ModState.DEAD;
 				}
@@ -261,7 +274,7 @@ public final class GameLoader {
 					debug.printl("End 2nd stage for " + mod.meta.name);
 				}catch(VirtualMachineError e){
 					Main.crash(e);
-				}catch(Throwable e){
+				}catch(Throwable e){//NOSONAR handle exceptions by the mod, VME already handled
 					debug.stacktraceError(e, "Failed to run a mod "+ mod.meta.name);
 					mod.state = ModState.DEAD;
 				}
@@ -281,7 +294,7 @@ public final class GameLoader {
 				debug.printl("End 3rd stage for " + mod.meta.name);
 				}catch(VirtualMachineError e){
 					Main.crash(e);
-				}catch(Throwable e){
+				}catch(Throwable e){//NOSONAR handle exceptions by the mod, VME already handled
 					debug.stacktraceError(e, "Failed to run a mod "+ mod.meta.name);
 					mod.state = ModState.DEAD;
 				}
@@ -364,12 +377,17 @@ public final class GameLoader {
 	 * @param folder root
 	 * @param results output
 	 */
-	@SuppressWarnings("null")
 	public static void walkDirectory(File folder, List<File> results) {
 		walkDirectory(folder, (s, f) -> results.add(f));
 	}
 
-	@SuppressWarnings("null")
+	/**
+	 * Runs all tasks in parallel
+	 * @param <T> data type of data
+	 * @param collect data source
+	 * @param cons task to perform on data
+	 * @param onInterrupt handles interrupts
+	 */
 	public static <T> void runAll(Iterable<T> collect, Consumer<T> cons, Consumer<InterruptedException> onInterrupt){
 		List<Thread> threads = new ArrayList<>();
 		for(T item: collect) {

@@ -3,7 +3,6 @@
  */
 package mmb.engine.mods;
 
-import java.time.Instant;
 import java.util.*;
 
 /**
@@ -14,7 +13,7 @@ public class ModMetadata {
 	/** Mod author */
 	public String author= "";
 	/** Mod release date */
-	public Date release = Date.from(Instant.now());
+	public Date release = null;
 	/** Mod description */
 	public String description = "";
 	/** Mod name */
