@@ -12,9 +12,9 @@ import mmb.content.modular.gui.SafeCloseable;
 import mmb.data.variables.ListenableInt;
 
 /**
- *
+ * A spinner model using a listenable integers as a variable.
+ * This model should be closed after use
  * @author oskar
- *
  */
 public class IntVarSpinnerModel extends SpinnerNumberModel implements SafeCloseable {
 	private static final long serialVersionUID = 2575894355881350617L;
@@ -23,20 +23,20 @@ public class IntVarSpinnerModel extends SpinnerNumberModel implements SafeClosea
 	
 	/**
 	 * Creates a spinner model for an int variable
-	 * @param variable
+	 * @param variable backing integer variable
 	 */
 	public IntVarSpinnerModel(ListenableInt variable) {
 		this(variable, 0, null, 1);
 	}
 	/**
 	 * Creates a spinner model for an int variable
-	 * @param variable
-	 * @param minimum 
-	 * @param maximum 
-	 * @param stepSize 
+	 * @param variable backing integer variable
+	 * @param minimum optional, minimum value
+	 * @param maximum optional, maximum value
+	 * @param stepSize increment by the buttons
 	 */
 	public IntVarSpinnerModel(ListenableInt variable, @Nil Integer minimum, @Nil Integer maximum, int stepSize) {
-		super(variable.get(), minimum, maximum, Integer.valueOf(stepSize));
+		super(Integer.valueOf(variable.getInt()), minimum, maximum, Integer.valueOf(stepSize));
 		this.variable = variable;
 		variable.add(handler);
 	}
