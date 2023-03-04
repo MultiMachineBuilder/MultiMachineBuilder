@@ -39,24 +39,14 @@ public class PlaceIncomingItems extends BlockEntityRotary {
 				BlockEntry newBlock = iplacer.place(getRotation().U().offset(posX(), posY()), owner());
 				if(newBlock != null) return 1;
 			}
-			return 0;
+			return 1;
 		}
 
 		@Override
 		public int bulkInsert(RecipeOutput block, int amount) {
-			if(block.items().size() > 1) return 0;
-			if(block.items().isEmpty()) return amount;
-			ItemEntry ent = InvUtils.onlyItem(block);
-			BlockEntry blk = getAtSide(getRotation().U());
-			if(!blk.isSurface()) return 0;
-			debug.printl("Item given");
-			if(ent instanceof Placer) {
-				debug.printl("Placer given, placing");
-				Placer iplacer = (Placer)ent;
-				BlockEntry newBlock = iplacer.place(getRotation().U().offset(posX(), posY()), owner());
-				if(newBlock != null) return 1;
-			}
-			return 0;
+			ItemEntry item = InvUtils.onlyItem(block);
+			if(item == null) return 0;
+			return insert(item, amount);
 		}
 
 		@Override
