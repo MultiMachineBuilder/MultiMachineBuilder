@@ -31,7 +31,7 @@ public enum SpeakerMode {
 	/** Plays the sound,
 	 * repeating while the speaker is powered,
 	 * starting when the speaker receives a signal,
-	 * but not interrupting the sound prematurely 
+	 * without interrupting the sound prematurely 
 	 */
 	REPEAT_WHEN_POWERED {
 		@Override
@@ -65,7 +65,7 @@ public enum SpeakerMode {
 	},
 	/** Plays the sound once,
 	 * starting when the speaker receives a signal,
-	 * but not interrupting the sound prematurely
+	 * without interrupting the sound prematurely
 	 */
 	ONCE_WHEN_POWERED {
 		@Override
