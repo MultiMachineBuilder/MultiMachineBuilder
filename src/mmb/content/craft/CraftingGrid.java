@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.inv;
+package mmb.content.craft;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;

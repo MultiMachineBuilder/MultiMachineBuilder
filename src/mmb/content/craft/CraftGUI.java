@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.inv;
+package mmb.content.craft;
 
 import org.ainslec.picocog.PicoWriter;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
@@ -9,19 +9,19 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.NN;
 import mmb.Nil;
 import mmb.content.CraftingGroups;
+import mmb.content.craft.CraftingRecipeGroup.CraftingRecipe;
 import mmb.content.ditems.Stencil;
-import mmb.content.machinemics.manual.Crafting;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemRaw;
-import mmb.engine.recipe.Craftings;
+import mmb.engine.recipe.RecipeUtil;
 import mmb.engine.recipe.ItemStack;
 import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.recipe.SimpleItemList;
-import mmb.engine.recipe.CraftingRecipeGroup.CraftingRecipe;
 import mmb.menu.Icons;
+import mmb.menu.world.inv.InventoryController;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 import net.miginfocom.swing.MigLayout;
@@ -63,7 +63,7 @@ public class CraftGUI extends GUITab {
 	 * @param window the window, which stores this GUI (optional)
 	 * @wbp.parser.constructor
 	 */
-	public CraftGUI(int size, @Nil Inventory inv, @Nil Crafting crafter, @Nil WorldWindow window) {
+	public CraftGUI(int size, @Nil Inventory inv, @Nil Crafter crafter, @Nil WorldWindow window) {
 		this(size, crafter, window, new InventoryController(inv));
 	}
 	/**
@@ -73,7 +73,7 @@ public class CraftGUI extends GUITab {
 	 * @param window the window, which stores this GUI (optional)
 	 * @param ctrl inventory controller, which will be used as a selector
 	 */
-	public CraftGUI(int size, @Nil Crafting crafter, @Nil WorldWindow window, InventoryController ctrl) {
+	public CraftGUI(int size, @Nil Crafter crafter, @Nil WorldWindow window, InventoryController ctrl) {
 		Object2IntMap<ItemEntry> ins = new Object2IntOpenHashMap<>();
 		AtomicReference<RecipeOutput> outs = new AtomicReference<>();
 		
@@ -136,7 +136,7 @@ public class CraftGUI extends GUITab {
 				Stencil newStencil = new Stencil(craftingGrid.items);
 				Inventory inv0 = inventoryController.getInv();
 				if(inv0 == null) return;
-				Craftings.transact(item, inv0, new ItemStack(newStencil, 1), inv0, 1);
+				RecipeUtil.transact(item, inv0, new ItemStack(newStencil, 1), inv0, 1);
 			}//else it is not a stencil
 		});
 		buttonbar.add(btnSave);
@@ -181,7 +181,7 @@ public class CraftGUI extends GUITab {
 			if(rout == null) return;
 			Inventory inv0 = inventoryController.getInv();
 			if(inv0 == null) return;
-			Craftings.transact(new SimpleItemList(ins),inv0, rout, inv0, 1);
+			RecipeUtil.transact(new SimpleItemList(ins),inv0, rout, inv0, 1);
 			inventoryController.refresh();
 		});
 		buttonbar.add(btnCraft);

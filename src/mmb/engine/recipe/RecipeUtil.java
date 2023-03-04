@@ -15,8 +15,8 @@ import mmb.engine.item.ItemEntry;
  * A set of crafting transactions
  * @author oskar
  */
-public class Craftings {
-	private Craftings() {}
+public class RecipeUtil {
+	private RecipeUtil() {}
 	private static final Debugger debug = new Debugger("CRAFTING PROCESSOR");
 	
 	/**

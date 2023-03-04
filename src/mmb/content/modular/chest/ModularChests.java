@@ -33,7 +33,7 @@ import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 import mmb.engine.java2d.TexGen;
-import mmb.engine.recipe.Craftings;
+import mmb.engine.recipe.RecipeUtil;
 import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.recipe.SimpleItemList;
 import mmb.engine.settings.GlobalSettings;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.recipe;
+package mmb.content.craft;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
@@ -14,8 +14,11 @@ import monniasza.collects.grid.Grid;
 import javax.swing.JList;
 
 import mmb.VectorUtils;
+import mmb.content.craft.CraftingRecipeGroup.CraftingRecipe;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.CraftingRecipeGroup.CraftingRecipe;
+import mmb.engine.recipe.CRConstants;
+import mmb.engine.recipe.ItemStack;
+import mmb.engine.recipe.RecipeView;
 import mmb.menu.world.ItemStackCellRenderer;
 
 import java.awt.Color;

@@ -6,6 +6,7 @@ package mmb.content;
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
 import mmb.NN;
+import mmb.content.craft.CraftingRecipeGroup;
 import mmb.content.electric.recipes.CatSingleRecipeGroup;
 import mmb.content.electric.recipes.ComplexCatRecipeGroup;
 import mmb.content.electric.recipes.ComplexRecipeGroup;
@@ -14,8 +15,7 @@ import mmb.content.electric.recipes.StackedRecipeGroup;
 import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemRaw;
-import mmb.engine.recipe.CraftingRecipeGroup;
-import mmb.engine.recipe.Craftings;
+import mmb.engine.recipe.RecipeUtil;
 
 /**
  * @author oskar
@@ -33,7 +33,7 @@ public class CraftingGroups {
 	 */
 	public static boolean activateItem(ItemRaw item, Inventory from, Inventory to) {
 		ItemEntry ient = item.iet.create();
-		return Craftings.transact(item, ient, from, to);
+		return RecipeUtil.transact(item, ient, from, to);
 	}
 	
 	//Recipes

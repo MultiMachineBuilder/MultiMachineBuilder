@@ -18,7 +18,6 @@ import mmb.Nil;
 import mmb.content.ContentsItems;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.VoltageTier;
-import mmb.content.machinemics.manual.Crafting;
 import mmb.engine.block.Block;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
@@ -273,9 +272,9 @@ public class MetalGroup{
 			//WireMill
 			CraftingGroups.wiremill.add(nugget, wire, volt, baseCost/32);
 					
-			Crafting.ingotNugget(base, nugget);
-			Crafting.ingotNugget(block, base);
-			Crafting.ingotNugget(dust, tinydust);
+			MetalGroup.ingotNugget(base, nugget);
+			MetalGroup.ingotNugget(block, base);
+			MetalGroup.ingotNugget(dust, tinydust);
 			
 			//Rod
 			CraftingGroups.extruder.add(frag, rod, ContentsItems.bearing1, volt, baseCost/8);
@@ -448,6 +447,10 @@ public class MetalGroup{
 		return "MetalGroup [" + id + "] " + t_basic;
 	}
 	
+	public static void ingotNugget(Item ingot, Item nugget) {
+		CraftingGroups.crafting.addRecipeGrid(nugget, 4, 4, ingot, 1);
+		CraftingGroups.crafting.addRecipeGrid(ingot, 1, 1, nugget, 16);
+	}
 	//Indexing
 	private static final Map<String, MetalGroup> byID0 = new HashMap<>();
 	public static final Map<String, MetalGroup> byID = Collections.unmodifiableMap(byID0);

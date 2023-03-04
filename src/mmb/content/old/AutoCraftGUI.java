@@ -15,11 +15,11 @@ import java.awt.Color;
 import javax.swing.JProgressBar;
 
 import mmb.NN;
+import mmb.content.craft.CraftGUI;
 import mmb.content.ditems.Stencil;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
-import mmb.menu.world.inv.CraftGUI;
 import mmb.menu.world.inv.InventoryController;
 import mmb.menu.world.inv.MoveItems;
 import mmb.menu.world.window.GUITab;

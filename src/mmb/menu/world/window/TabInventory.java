@@ -39,6 +39,7 @@ import javax.swing.JList;
 import io.github.parubok.text.multiline.MultilineLabel;
 import mmb.NN;
 import mmb.Nil;
+import mmb.content.craft.CraftGUI;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.CatchingEvent;
 import mmb.engine.block.Block;
@@ -57,7 +58,6 @@ import mmb.engine.recipe.Recipe;
 import mmb.engine.worlds.world.Player;
 import mmb.menu.components.BoundCheckBox;
 import mmb.menu.world.CreativeItemList;
-import mmb.menu.world.inv.CraftGUI;
 import mmb.menu.world.inv.InventoryController;
 
 /**

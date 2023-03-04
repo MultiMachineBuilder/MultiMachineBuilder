@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 
 import mmb.DeprecatedExtra;
 import mmb.NN;
+import mmb.content.craft.Crafter;
 import mmb.content.electric.ElectricMachineGroup;
 import mmb.content.electric.InfiniteGenerator;
 import mmb.content.electric.VoltageTier;
@@ -35,7 +36,6 @@ import mmb.content.imachine.pipe.Pipe;
 import mmb.content.imachine.pipe.PipeBinder;
 import mmb.content.imachine.pipe.PipeFilter;
 import mmb.content.machinemics.line.Furnace;
-import mmb.content.machinemics.manual.Crafting;
 import mmb.content.media.Speaker;
 import mmb.content.old.AutoCrafter;
 import mmb.content.old.CycleAssembler;
@@ -673,7 +673,7 @@ public class ContentsBlocks {
 		Items.tagItems("wireworld", ww_wire, ww_head, ww_tail, ww_chatter,
 				AND, OR, XOR, BUTTON, TOGGLE, YES, NOT, RANDOMCTRL, TRUE, RANDOM, ON, OFF, URANDOM, LAMP, SPEAKER, CLICKER, PLACER, ROTATOR);
 		Items.tagItems("player-pipe", PPIPE_lin, PPIPE_bend, PPIPE_lin2, PPIPE_bend2, PPIPE_join, PPIPE_join2, PPIPE_cap);
-		Items.tagItems("workbench", Crafting.types);
+		Items.tagItems("workbench", Crafter.types);
 		Items.tagItems("fluid", water, lava, steam);
 		Items.tagItems("special", Blocks.air, Blocks.grass);
 		Items.tagItems("basic", Blocks.air, Blocks.grass, plank, stone, leaves, logs, sand, gravel, clay, water);

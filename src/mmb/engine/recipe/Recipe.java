@@ -46,7 +46,7 @@ public interface Recipe<@NN T extends Recipe<T>>{
 	 * @return amount of recipes crafted
 	 */
 	public default int craft(Inventory src, Inventory tgt, int amount) {
-		return Craftings.transact(inputs(), src, output(), tgt, amount);
+		return RecipeUtil.transact(inputs(), src, output(), tgt, amount);
 	}
 	/**
 	 * Crafts at most one unit, within ingredient limits of {@code src} inventory and capacity limits of {@code tgt} inventory

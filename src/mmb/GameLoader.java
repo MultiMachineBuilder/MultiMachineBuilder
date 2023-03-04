@@ -15,11 +15,12 @@ import java.util.zip.ZipInputStream;
 import mmb.content.Chemistry;
 import mmb.content.ContentsBlocks;
 import mmb.content.ContentsItems;
+import mmb.content.ContentsRecipes;
 import mmb.content.agro.Agro;
+import mmb.content.craft.Crafter;
 import mmb.content.drugs.Alcohol;
 import mmb.content.electric.machines.BlockTransformer.TransformerData;
 import mmb.content.electronics.Electronics;
-import mmb.content.machinemics.manual.Crafting;
 import mmb.content.modular.chest.ModularChests;
 import mmb.content.old.Nuker;
 import mmb.content.rawmats.Materials;
@@ -157,7 +158,8 @@ public final class GameLoader {
 		Main.state1("Loading machines");
 		Chemistry.init();
 		STN.init();
-		Crafting.init();
+		Crafter.init();
+		ContentsRecipes.createRecipes();
 		Nuker.init();
 		Generators.init();
 		

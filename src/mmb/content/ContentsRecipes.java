@@ -9,10 +9,10 @@ import static mmb.content.CraftingGroups.*;
 import static mmb.content.rawmats.Materials.*;
 
 import mmb.content.agro.Agro;
+import mmb.content.craft.Crafter;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.BlockTransformer.TransformerData;
 import mmb.content.electronics.Electronics;
-import mmb.content.machinemics.manual.Crafting;
 import mmb.content.rawmats.Materials;
 import mmb.engine.chance.ListChance;
 import mmb.engine.chance.RandomChance;
@@ -42,12 +42,12 @@ public class ContentsRecipes {
 		splitter.add(logs, plank, 16, VoltageTier.V1, 1000);
 		
 		//Crafting tables
-		crafting.addRecipeGrid(plank, 2, 2, Crafting.types.get(0), 1); //4*wood plank → crafting table 1
+		crafting.addRecipeGrid(plank, 2, 2, Crafter.types.get(0), 1); //4*wood plank → crafting table 1
 		crafting.addRecipeGrid(new ItemEntry[]{
-		Crafting.types.get(0), steel.frame,        Crafting.types.get(0),
+		Crafter.types.get(0), steel.frame,        Crafter.types.get(0),
 		steel.frame,           robot.items.get(1), steel.frame,
-		Crafting.types.get(0), steel.frame,        Crafting.types.get(0)
-		}, 3, 3, Crafting.types.get(1));
+		Crafter.types.get(0), steel.frame,        Crafter.types.get(0)
+		}, 3, 3, Crafter.types.get(1));
 		
 		smelting.add(rudimentary.base, wireRudimentary.medium, VoltageTier.V1, 80_000);
 		smelting.add(logs, Materials.coal.base, VoltageTier.V1, 50_000);
