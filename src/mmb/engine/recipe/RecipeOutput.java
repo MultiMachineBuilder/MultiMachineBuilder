@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft;
+package mmb.engine.recipe;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -31,7 +31,7 @@ import monniasza.collects.Collects;
  * All implementations of this interface must be immutable, and may have builders.
  * @author oskar
  */
-public interface RecipeOutput extends Chance, Iterable<mmb.engine.craft.ItemStack>{
+public interface RecipeOutput extends Chance, Iterable<mmb.engine.recipe.ItemStack>{
 	@Override
 	default boolean drop(@Nil InventoryWriter inv, @Nil World map, int x, int y) { //NOSONAR the items will always be dropped
 		if(map == null) {
@@ -257,7 +257,7 @@ public interface RecipeOutput extends Chance, Iterable<mmb.engine.craft.ItemStac
 		return mul2entrystream(amount).collect(Collects.collectToIntMap(map));
 	}
 	@Override
-	default @NN Iterator<mmb.engine.craft.ItemStack> iterator() {
+	default @NN Iterator<mmb.engine.recipe.ItemStack> iterator() {
 		return Iterators.transform(getContents().object2IntEntrySet().iterator(), RecipeOutput::entry2stack);
 	}
 	

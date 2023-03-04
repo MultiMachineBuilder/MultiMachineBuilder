@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft;
+package mmb.engine.recipe;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -87,30 +87,30 @@ public class ItemLists {
 	/**
 	 * @return a stream collector to an item list
 	 */
-	@NN public static Collector<mmb.engine.craft.ItemStack, @NN List<mmb.engine.craft.ItemStack>, @NN SimpleItemList> collectToItemList(){
+	@NN public static Collector<mmb.engine.recipe.ItemStack, @NN List<mmb.engine.recipe.ItemStack>, @NN SimpleItemList> collectToItemList(){
 		return new ILCollector();
 	}
 
 }
-class ILCollector implements Collector<mmb.engine.craft.ItemStack, @NN List<mmb.engine.craft.ItemStack>, @NN SimpleItemList>{
+class ILCollector implements Collector<mmb.engine.recipe.ItemStack, @NN List<mmb.engine.recipe.ItemStack>, @NN SimpleItemList>{
 
 	@Override
-	public @NN Supplier<@NN List<mmb.engine.craft.ItemStack>> supplier() {
+	public @NN Supplier<@NN List<mmb.engine.recipe.ItemStack>> supplier() {
 		return ArrayList::new;
 	}
 
 	@Override
-	public @NN BiConsumer<@NN List<mmb.engine.craft.ItemStack>, mmb.engine.craft.ItemStack> accumulator() {
+	public @NN BiConsumer<@NN List<mmb.engine.recipe.ItemStack>, mmb.engine.recipe.ItemStack> accumulator() {
 		return List::add;
 	}
 
 	@Override
-	public @NN BinaryOperator<@NN List<mmb.engine.craft.ItemStack>> combiner() {
+	public @NN BinaryOperator<@NN List<mmb.engine.recipe.ItemStack>> combiner() {
 		return Collects::inplaceAddLists;
 	}
 
 	@Override
-	public @NN Function<@NN List<mmb.engine.craft.ItemStack>, @NN SimpleItemList> finisher() {
+	public @NN Function<@NN List<mmb.engine.recipe.ItemStack>, @NN SimpleItemList> finisher() {
 		return SimpleItemList::new;
 	}
 

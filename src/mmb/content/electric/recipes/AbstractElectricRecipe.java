@@ -6,8 +6,8 @@ package mmb.content.electric.recipes;
 import mmb.NN;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
-import mmb.engine.craft.Recipe;
-import mmb.engine.craft.RecipeOutput;
+import mmb.engine.recipe.Recipe;
+import mmb.engine.recipe.RecipeOutput;
 
 /**
  * A shared implementation of electric recipes
@@ -18,11 +18,11 @@ public abstract class AbstractElectricRecipe<@NN T extends Recipe<T>> implements
 	/** Energy required for completion in joules */
 	public final double energy;
 	/** Voltage tier required for this recipe */
-	@NN public final VoltageTier voltage;
+	public final VoltageTier voltage;
 	/** Deterministic output of this recipe */
-	@NN public final RecipeOutput output;
+	public final RecipeOutput output;
 	/** Randomized output of this recipe */
-	@NN public final Chance luck;
+	public final Chance luck;
 	
 	/**
 	 * Base constructor for recipes

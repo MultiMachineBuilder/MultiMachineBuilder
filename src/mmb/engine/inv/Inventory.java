@@ -11,12 +11,12 @@ import java.util.List;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import mmb.NN;
 import mmb.Nil;
-import mmb.engine.craft.ItemStack;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.ItemStack;
+import mmb.engine.recipe.RecipeOutput;
 
 /**
  * An inventory is an object, which allows players and machines to store items.

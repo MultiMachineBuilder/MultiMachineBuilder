@@ -11,7 +11,7 @@ import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
 
 import mmb.NN;
 import mmb.engine.chance.Chance;
-import mmb.engine.craft.RecipeOutput;
+import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.texture.BlockDrawer;
 
 /**

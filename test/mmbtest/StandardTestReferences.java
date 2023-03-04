@@ -12,7 +12,7 @@ import mmb.Nil;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockEntry;
-import mmb.engine.craft.SimpleItemList;
+import mmb.engine.recipe.SimpleItemList;
 import mmb.engine.texture.BlockDrawer;
 
 /**

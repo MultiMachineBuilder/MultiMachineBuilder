@@ -15,15 +15,15 @@ import mmb.content.electric.Battery;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.CycleResult;
 import mmb.content.electric.machines.GUIMachine;
-import mmb.engine.craft.Recipe;
-import mmb.engine.craft.RecipeGroup;
-import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.Refreshable;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.Recipe;
+import mmb.engine.recipe.RecipeGroup;
+import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.Refreshable;
 
 /**
  * Handles processing logic for autocrafting machines (for all types)

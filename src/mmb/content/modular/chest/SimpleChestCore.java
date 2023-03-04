@@ -6,10 +6,10 @@ package mmb.content.modular.chest;
 import mmb.NN;
 import mmb.content.modular.part.PartEntityType;
 import mmb.content.modular.part.PartEntry;
-import mmb.engine.craft.SingleItem;
 import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.item.ItemEntityType;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.SingleItem;
 import mmb.menu.world.inv.AbstractInventoryController;
 import mmb.menu.world.inv.InventoryController;
 

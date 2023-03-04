@@ -8,8 +8,8 @@ import java.awt.image.BufferedImage;
 
 import mmb.NN;
 import mmb.engine.chance.Chance;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.Item;
+import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.texture.BlockDrawer;
 
 /**

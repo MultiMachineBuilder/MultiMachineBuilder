@@ -4,8 +4,8 @@
 package mmb.engine.inv;
 
 import mmb.NN;
-import mmb.engine.craft.ItemStack;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.ItemStack;
 import monniasza.collects.Identifiable;
 
 /**

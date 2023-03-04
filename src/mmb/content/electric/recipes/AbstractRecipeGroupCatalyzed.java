@@ -7,9 +7,9 @@ import java.util.Set;
 
 import io.vavr.Tuple2;
 import mmb.NN;
-import mmb.engine.craft.Recipe;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.Recipe;
+import mmb.engine.recipe.RecipeOutput;
 import monniasza.collects.Identifiable;
 
 /**

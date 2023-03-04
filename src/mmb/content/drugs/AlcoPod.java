@@ -4,8 +4,8 @@
 package mmb.content.drugs;
 
 import mmb.NN;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.Item;
+import mmb.engine.recipe.RecipeOutput;
 import mmb.menu.wtool.WindowTool;
 
 /**

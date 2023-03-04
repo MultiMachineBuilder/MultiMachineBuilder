@@ -8,8 +8,8 @@ import java.util.NoSuchElementException;
 import java.util.function.Supplier;
 
 import mmb.NN;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.RecipeOutput;
 
 /**
  * An abstraction over extraction of items

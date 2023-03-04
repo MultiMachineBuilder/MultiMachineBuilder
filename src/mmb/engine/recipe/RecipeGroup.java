@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft;
+package mmb.engine.recipe;
 
 import java.util.Set;
 
@@ -10,7 +10,6 @@ import javax.swing.ListCellRenderer;
 import mmb.NN;
 import mmb.beans.Titled;
 import mmb.engine.item.ItemEntry;
-import mmb.menu.world.craft.RecipeView;
 import monniasza.collects.Identifiable;
 
 /**

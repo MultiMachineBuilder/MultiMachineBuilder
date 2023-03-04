@@ -9,12 +9,12 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.content.ContentsItems;
 import mmb.content.imachine.filter.ItemFilter;
-import mmb.engine.craft.ItemLists;
-import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.SimpleItemList;
 import mmb.engine.item.ItemEntity;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
+import mmb.engine.recipe.ItemLists;
+import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.SimpleItemList;
 
 /**
  * An item for Bill Of Materials, which contains a list of items.

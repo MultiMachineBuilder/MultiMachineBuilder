@@ -10,12 +10,12 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.NN;
 import mmb.engine.block.BlockEntityChirotable;
 import mmb.engine.block.BlockType;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
+import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.rotate.ChirotatedImageGroup;
 import mmb.engine.rotate.Side;
 

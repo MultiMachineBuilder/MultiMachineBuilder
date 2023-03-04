@@ -14,12 +14,12 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.beans.Saver;
 import mmb.engine.chance.Chance;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.debug.Debugger;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
 import mmb.engine.item.Items;
 import mmb.engine.json.JsonTool;
+import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.texture.BlockDrawer;
 
 /**

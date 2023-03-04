@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft;
+package mmb.engine.recipe;
 
 import mmb.Nil;
 

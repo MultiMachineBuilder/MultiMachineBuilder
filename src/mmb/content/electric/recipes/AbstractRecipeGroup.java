@@ -13,13 +13,13 @@ import javax.swing.ListCellRenderer;
 
 import io.vavr.Tuple2;
 import mmb.NN;
-import mmb.engine.craft.GlobalRecipeRegistrar;
-import mmb.engine.craft.PlugAndPlayRecipeCellRenderer;
-import mmb.engine.craft.Recipe;
-import mmb.engine.craft.RecipeGroup;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.GlobalRecipeRegistrar;
+import mmb.engine.recipe.PlugAndPlayRecipeCellRenderer;
+import mmb.engine.recipe.Recipe;
+import mmb.engine.recipe.RecipeGroup;
+import mmb.engine.recipe.RecipeList;
 import mmb.engine.settings.GlobalSettings;
-import mmb.menu.world.craft.RecipeList;
 import mmb.menu.world.window.TabRecipes;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;

@@ -6,7 +6,7 @@ package mmb.content.stn.planner;
 import java.util.Objects;
 
 import mmb.NN;
-import mmb.engine.craft.RecipeOutput;
+import mmb.engine.recipe.RecipeOutput;
 
 /**
  * @author oskar

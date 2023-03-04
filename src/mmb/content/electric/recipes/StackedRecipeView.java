@@ -14,15 +14,15 @@ import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
 import mmb.NN;
+import mmb.VectorUtils;
 import mmb.content.electric.recipes.StackedRecipeGroup.StackedRecipe;
 import mmb.engine.UnitFormatter;
-import mmb.engine.craft.ItemStack;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
-import mmb.menu.world.craft.CRConstants;
-import mmb.menu.world.craft.ItemStackCellRenderer;
-import mmb.menu.world.craft.RecipeView;
-import mmb.menu.world.craft.VectorUtils;
+import mmb.engine.recipe.CRConstants;
+import mmb.engine.recipe.ItemStack;
+import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.RecipeView;
+import mmb.menu.world.ItemStackCellRenderer;
 
 /**
  * Represents a recipe view for stacked-item recipes 

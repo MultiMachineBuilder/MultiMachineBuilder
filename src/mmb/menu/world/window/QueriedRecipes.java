@@ -12,7 +12,7 @@ import javax.swing.ListCellRenderer;
 import javax.swing.ListModel;
 
 import mmb.Nil;
-import mmb.engine.craft.Recipe;
+import mmb.engine.recipe.Recipe;
 import mmb.engine.settings.GlobalSettings;
 import mmb.menu.components.CellRendererGettingCellRenderer;
 import mmb.menu.world.window.TabInventory.RecipeQuery;

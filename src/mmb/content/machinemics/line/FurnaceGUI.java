@@ -17,8 +17,8 @@ import org.ainslec.picocog.PicoWriter;
 
 import mmb.NN;
 import mmb.Nil;
-import mmb.engine.craft.Recipe;
-import mmb.engine.craft.Refreshable;
+import mmb.engine.recipe.Recipe;
+import mmb.engine.recipe.Refreshable;
 import mmb.menu.world.inv.InventoryController;
 import mmb.menu.world.inv.InventoryOrchestrator;
 import mmb.menu.world.inv.MoveItems;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft;
+package mmb.engine.recipe;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -15,7 +15,6 @@ import mmb.content.electric.VoltageTier;
 import mmb.content.electric.recipes.AbstractRecipeGroup;
 import mmb.engine.chance.Chance;
 import mmb.engine.item.ItemEntry;
-import mmb.menu.world.craft.CraftingRecipeView;
 import monniasza.collects.Identifiable;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;

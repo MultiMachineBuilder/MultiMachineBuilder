@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.world.craft;
+package mmb.engine.recipe;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
@@ -13,14 +13,15 @@ import javax.swing.JComponent;
 import monniasza.collects.grid.Grid;
 import javax.swing.JList;
 
-import mmb.engine.craft.ItemStack;
-import mmb.engine.craft.CraftingRecipeGroup.CraftingRecipe;
+import mmb.VectorUtils;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.CraftingRecipeGroup.CraftingRecipe;
+import mmb.menu.world.ItemStackCellRenderer;
 
 import java.awt.Color;
 
 /**
- * Represents a recipe view for crafting recipes
+ * Displays a crafting recipe
  * @author oskar
  */
 public class CraftingRecipeView extends RecipeView<CraftingRecipe>{

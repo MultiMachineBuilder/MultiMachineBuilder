@@ -11,11 +11,11 @@ import mmb.content.electric.recipes.ComplexCatRecipeGroup;
 import mmb.content.electric.recipes.ComplexRecipeGroup;
 import mmb.content.electric.recipes.SingleRecipeGroup;
 import mmb.content.electric.recipes.StackedRecipeGroup;
-import mmb.engine.craft.CraftingRecipeGroup;
-import mmb.engine.craft.Craftings;
 import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemRaw;
+import mmb.engine.recipe.CraftingRecipeGroup;
+import mmb.engine.recipe.Craftings;
 
 /**
  * @author oskar

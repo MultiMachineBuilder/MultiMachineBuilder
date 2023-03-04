@@ -18,14 +18,14 @@ import com.google.common.collect.Iterators;
 import mmb.NN;
 import mmb.Nil;
 import mmb.engine.MMBUtils;
-import mmb.engine.craft.ItemStack;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.inv.SaveInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
+import mmb.engine.recipe.ItemStack;
+import mmb.engine.recipe.RecipeOutput;
 
 /**
  * @author oskar

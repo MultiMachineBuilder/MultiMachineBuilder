@@ -7,9 +7,9 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
-import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.SingleItem;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.SingleItem;
 import monniasza.collects.Identifiable;
 
 /**

@@ -1,16 +1,14 @@
 /**
  * 
  */
-package mmb.menu.world.craft;
+package mmb.engine.recipe;
 
 import javax.swing.JScrollPane;
 import javax.swing.ListCellRenderer;
 
 import mmb.NN;
 import mmb.Nil;
-import mmb.engine.craft.ItemStack;
-import mmb.engine.craft.Recipe;
-import mmb.engine.craft.RecipeGroup;
+import mmb.VectorUtils;
 
 import java.awt.Component;
 import java.awt.Dimension;

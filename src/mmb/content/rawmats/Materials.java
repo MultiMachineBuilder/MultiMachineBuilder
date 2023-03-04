@@ -13,13 +13,13 @@ import mmb.content.ContentsBlocks;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.VoltageTier;
 import mmb.content.rawmats.MetalGroup.MaterialStack;
-import mmb.engine.craft.ItemStack;
-import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.SimpleItemList;
 import mmb.engine.debug.Debugger;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
+import mmb.engine.recipe.ItemStack;
+import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.SimpleItemList;
 
 /**
  * A collection of base materials used for machine construction in MultiMachineBuilder

@@ -6,9 +6,9 @@ package mmb.engine.inv.io;
 import java.util.function.Predicate;
 
 import mmb.NN;
-import mmb.engine.craft.RecipeOutput;
-import mmb.engine.craft.SingleItem;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.SingleItem;
 
 /**
  * An abstraction over insertion of items

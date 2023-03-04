@@ -1,13 +1,13 @@
 /**
  * 
  */
-package mmb.menu.world.craft;
+package mmb.engine.recipe;
 
 import static mmb.engine.settings.GlobalSettings.*;
 
 /**
+ * Translated menu strings
  * @author oskar
- *
  */
 public class CRConstants {
 	private CRConstants() {}

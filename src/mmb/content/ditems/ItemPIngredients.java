@@ -8,10 +8,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 import mmb.NN;
 import mmb.Nil;
 import mmb.content.ContentsItems;
-import mmb.engine.craft.ProcessIngredients;
 import mmb.engine.item.ItemEntity;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
+import mmb.engine.recipe.ProcessIngredients;
 
 /**
  * Bill of Recipe Effects, a two-sided item list with separate set of inputs and outputs.

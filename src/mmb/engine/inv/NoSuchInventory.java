@@ -7,8 +7,8 @@ import java.util.Collections;
 import java.util.Iterator;
 
 import mmb.NN;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.RecipeOutput;
 
 /**
  * A non-existent inventory

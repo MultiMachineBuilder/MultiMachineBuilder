@@ -10,13 +10,13 @@ import static mmb.engine.settings.GlobalSettings.$res;
 import javax.swing.JLabel;
 import javax.swing.JList;
 
+import mmb.VectorUtils;
 import mmb.content.drugs.AlcoholInfoGroup.AlcoholInfo;
-import mmb.engine.craft.ItemStack;
 import mmb.engine.item.ItemEntry;
-import mmb.menu.world.craft.CRConstants;
-import mmb.menu.world.craft.ItemStackCellRenderer;
-import mmb.menu.world.craft.RecipeView;
-import mmb.menu.world.craft.VectorUtils;
+import mmb.engine.recipe.CRConstants;
+import mmb.engine.recipe.ItemStack;
+import mmb.engine.recipe.RecipeView;
+import mmb.menu.world.ItemStackCellRenderer;
 
 /**
  * Displays information about a single alcoholic beverage

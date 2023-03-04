@@ -4,9 +4,9 @@
 package mmb.engine.inv;
 
 import mmb.Nil;
-import mmb.engine.craft.ItemStack;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.ItemStack;
+import mmb.engine.recipe.RecipeOutput;
 import monniasza.collects.Collects;
 
 /**

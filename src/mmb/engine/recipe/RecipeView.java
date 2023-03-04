@@ -1,9 +1,11 @@
 /**
  * 
  */
-package mmb.menu.world.craft;
+package mmb.engine.recipe;
 
 import javax.swing.JPanel;
+
+import mmb.NN;
 
 /**
  * Represents an abstraction for recipe views
@@ -16,5 +18,5 @@ public abstract class RecipeView<T> extends JPanel {
 	 * Replaces information in this recipe view for given recipe
 	 * @param recipe recipe to use for this recipe view
 	 */
-	public abstract void set(T recipe);
+	public abstract void set(@NN T recipe);
 }

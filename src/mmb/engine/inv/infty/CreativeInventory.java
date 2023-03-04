@@ -8,12 +8,12 @@ import java.util.Iterator;
 import com.google.common.collect.Iterators;
 
 import mmb.NN;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
 import mmb.engine.item.Items;
+import mmb.engine.recipe.RecipeOutput;
 
 /**
  * An inventory with unlimited item withdrawals and shredding

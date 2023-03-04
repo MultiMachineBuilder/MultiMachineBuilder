@@ -13,9 +13,9 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
-import mmb.menu.world.craft.RecipeView;
+import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.RecipeView;
 import monniasza.collects.Identifiable;
 
 /**

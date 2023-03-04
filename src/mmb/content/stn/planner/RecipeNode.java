@@ -7,7 +7,7 @@ import java.util.Objects;
 
 import mmb.NN;
 import mmb.Nil;
-import mmb.engine.craft.RecipeOutput;
+import mmb.engine.recipe.RecipeOutput;
 
 /**
  * The recipe node.

@@ -31,7 +31,7 @@ public class ChestGui extends GUITab{
 	 * @param window world window
 	 */
 	public ChestGui(ArbitraryChest hopper, WorldWindow window) {
-		setLayout(new MigLayout("", "[300.00,grow][132.00,grow][300.00,grow]", "[grow][30.00]"));
+		setLayout(new MigLayout("", "[300.00,grow][132.00,grow][300.00,grow]", "[grow]"));
 		
 		Player p = window.getPlayer();
 		
@@ -41,19 +41,14 @@ public class ChestGui extends GUITab{
 			window.openAndShowWindow(gui, "Chest color");
 		});
 		
-		inventoryOrchestrator = new InventoryOrchestrator();
-		add(inventoryOrchestrator, "cell 0 1 3 1,growx");
-		
 		chestCtrl = new InventoryController();
 		chestCtrl.setInv(hopper.inv());
-		chestCtrl.setOrchestrator(inventoryOrchestrator);
 		chestCtrl.setTitle($res("chest"));
 		add(chestCtrl, "cell 2 0,grow");
 		
 		playerCtrl = new InventoryController();
 		playerCtrl.setTitle($res("player"));
 		playerCtrl.setInv(p.inv);
-		playerCtrl.setOrchestrator(inventoryOrchestrator);
 		add(playerCtrl, "cell 0 0,grow");
 		
 		close = new JButton($res("exit"));
@@ -69,7 +64,6 @@ public class ChestGui extends GUITab{
 	}
 	private static final long serialVersionUID = -3527290050616724746L;
 	@NN private InventoryController playerCtrl;
-	@NN private InventoryOrchestrator inventoryOrchestrator;
 	@NN private InventoryController chestCtrl;
 	@NN private JButton close;
 	@NN private JButton color;

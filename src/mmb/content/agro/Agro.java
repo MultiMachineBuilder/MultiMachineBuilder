@@ -18,10 +18,10 @@ import java.util.ResourceBundle;
 import mmb.NN;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityType;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
+import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;
 

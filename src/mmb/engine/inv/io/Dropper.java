@@ -4,8 +4,8 @@
 package mmb.engine.inv.io;
 
 import mmb.beans.Positioned;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.worlds.world.World;
 
 /**

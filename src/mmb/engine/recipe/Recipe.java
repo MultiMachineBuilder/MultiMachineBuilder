@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft;
+package mmb.engine.recipe;
 
 import java.awt.Component;
 
@@ -11,7 +11,6 @@ import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
-import mmb.menu.world.craft.RecipeView;
 
 /**
  * An arbitrary recipe (crafting, single item, multi item, alcohol info etc...)

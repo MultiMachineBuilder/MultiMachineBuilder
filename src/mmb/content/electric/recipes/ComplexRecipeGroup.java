@@ -9,10 +9,11 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.SetMultimap;
 
 import mmb.NN;
+import mmb.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.RecipeOutput;
 import monniasza.collects.Identifiable;
 
 /**
@@ -42,7 +43,7 @@ implements MultiRecipeGroup<@NN ComplexRecipeGroup.ComplexRecipe>{
 	 */
 	public class ComplexRecipe extends AbstractElectricRecipe<@NN ComplexRecipe> implements Identifiable<@NN RecipeOutput>{
 		/** The input item list */
-		@NN public final RecipeOutput input;
+		public final RecipeOutput input;
 		
 		/**
 		 * Creates a complex recipe
@@ -65,7 +66,7 @@ implements MultiRecipeGroup<@NN ComplexRecipeGroup.ComplexRecipe>{
 			return input;
 		}
 		@Override
-		public ItemEntry catalyst() {
+		public @Nil ItemEntry catalyst() {
 			return null;
 		}
 		@Override
@@ -140,9 +141,9 @@ implements MultiRecipeGroup<@NN ComplexRecipeGroup.ComplexRecipe>{
 	}
 	
 	//Recipe lookup
-	@NN public final SetMultimap<ItemEntry, ComplexRecipe> index0 = HashMultimap.create();
+	public final SetMultimap<ItemEntry, ComplexRecipe> index0 = HashMultimap.create();
 	@Override
-	public Set<ComplexRecipe> findPlausible(ItemEntry in) {
+	public @NN Set<@NN ComplexRecipe> findPlausible(ItemEntry in) {
 		return index0.get(in);
 	}
 	@Override

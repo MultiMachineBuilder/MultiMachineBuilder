@@ -1,14 +1,13 @@
 /**
  * 
  */
-package mmb.menu.world.craft;
+package mmb;
 
 import java.util.Vector;
 import java.util.stream.Collectors;
 
-import mmb.NN;
-import mmb.engine.craft.ItemStack;
-import mmb.engine.craft.RecipeOutput;
+import mmb.engine.recipe.ItemStack;
+import mmb.engine.recipe.RecipeOutput;
 
 /**
  * @author oskar

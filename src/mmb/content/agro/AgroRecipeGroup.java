@@ -4,23 +4,15 @@
 package mmb.content.agro;
 
 import java.util.Objects;
-import java.util.Set;
-
 import mmb.NN;
 import mmb.content.electric.VoltageTier;
-import mmb.content.electric.recipes.AbstractRecipeGroup;
 import mmb.content.electric.recipes.AbstractRecipeGroupUncatalyzed;
 import mmb.engine.chance.Chance;
-import mmb.engine.craft.GlobalRecipeRegistrar;
-import mmb.engine.craft.Recipe;
-import mmb.engine.craft.RecipeOutput;
-import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
-import mmb.menu.world.craft.RecipeView;
-import monniasza.collects.Collects;
+import mmb.engine.recipe.Recipe;
+import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.RecipeView;
 import monniasza.collects.Identifiable;
-import monniasza.collects.selfset.HashSelfSet;
-import monniasza.collects.selfset.SelfSet;
 
 /**
  * @author oskar

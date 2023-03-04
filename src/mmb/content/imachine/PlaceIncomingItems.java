@@ -11,11 +11,11 @@ import mmb.engine.block.BlockEntityRotary;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.block.Placer;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.InvUtils;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
 

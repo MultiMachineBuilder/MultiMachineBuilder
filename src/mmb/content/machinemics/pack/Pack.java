@@ -12,12 +12,12 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.NN;
 import mmb.Nil;
 import mmb.content.ContentsItems;
-import mmb.engine.craft.ItemLists;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntity;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
 import mmb.engine.json.JsonTool;
+import mmb.engine.recipe.ItemLists;
+import mmb.engine.recipe.RecipeOutput;
 
 /**
  * @author oskar

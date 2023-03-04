@@ -15,12 +15,12 @@ import com.google.common.collect.SetMultimap;
 import it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap;
 import mmb.NN;
 import mmb.Nil;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.RecipeOutput;
 
 /**
  * The implementation of the Storage component of the STN

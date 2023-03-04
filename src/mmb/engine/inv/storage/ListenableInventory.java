@@ -5,9 +5,9 @@ package mmb.engine.inv.storage;
 
 import com.pploder.events.Event;
 
-import mmb.engine.craft.ItemStack;
 import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.ItemStack;
 
 /**
  * @author oskar

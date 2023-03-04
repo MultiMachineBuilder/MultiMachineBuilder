@@ -9,7 +9,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 
 import mmb.content.electric.machines.ElectroMachine;
-import mmb.menu.world.craft.*;
+import mmb.engine.recipe.CRConstants;
 
 /**
  * A GUI component which provides common machine information in the GUI

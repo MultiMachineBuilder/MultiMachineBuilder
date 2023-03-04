@@ -14,8 +14,8 @@ import mmb.Nil;
 import mmb.content.ditems.Stencil;
 import mmb.content.stn.network.DataLayerSTN;
 import mmb.content.stn.network.STNNetworkProcessing.STNRGroupTag.STNPRecipe;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.RecipeOutput;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 
 /**

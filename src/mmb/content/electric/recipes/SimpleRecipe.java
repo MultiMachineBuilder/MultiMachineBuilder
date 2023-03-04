@@ -4,8 +4,8 @@
 package mmb.content.electric.recipes;
 
 import mmb.NN;
-import mmb.engine.craft.Recipe;
-import mmb.engine.craft.SingleItem;
+import mmb.engine.recipe.Recipe;
+import mmb.engine.recipe.SingleItem;
 
 /**
  * A recipe with single input

@@ -8,9 +8,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import mmb.NN;
 import mmb.Nil;
 import mmb.engine.chance.Chance;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
+import mmb.engine.recipe.RecipeOutput;
 
 /**
  *

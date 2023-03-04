@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.craft;
+package mmb.engine.recipe;
 
 import java.awt.Component;
 
@@ -10,7 +10,6 @@ import javax.swing.ListCellRenderer;
 
 import mmb.NN;
 import mmb.Nil;
-import mmb.menu.world.craft.RecipeView;
 
 /**
  * An implementation of cell renderer using a recipe view

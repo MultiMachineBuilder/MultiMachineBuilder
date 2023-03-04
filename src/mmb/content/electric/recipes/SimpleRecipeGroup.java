@@ -5,8 +5,8 @@ package mmb.content.electric.recipes;
 
 import mmb.NN;
 import mmb.Nil;
-import mmb.engine.craft.RecipeGroup;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.RecipeGroup;
 
 /**
  * @author oskar

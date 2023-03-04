@@ -7,9 +7,9 @@ import java.util.Set;
 
 import mmb.NN;
 import mmb.Nil;
-import mmb.engine.craft.Recipe;
-import mmb.engine.craft.RecipeGroup;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.Recipe;
+import mmb.engine.recipe.RecipeGroup;
 import monniasza.collects.Collects;
 
 /**

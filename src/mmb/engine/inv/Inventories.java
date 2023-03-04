@@ -6,11 +6,11 @@ package mmb.engine.inv;
 import java.util.function.Predicate;
 
 import mmb.Nil;
-import mmb.engine.craft.ItemStack;
-import mmb.engine.craft.RecipeOutput;
 import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.ItemStack;
+import mmb.engine.recipe.RecipeOutput;
 
 /**
  * A set of utilities for working with inventories. <br>
