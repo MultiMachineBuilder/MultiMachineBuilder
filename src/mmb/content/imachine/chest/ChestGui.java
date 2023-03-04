@@ -26,22 +26,22 @@ import java.awt.Color;
 public class ChestGui extends GUITab{
 	/**
 	 * Creates a chest GUI
-	 * @param hopper chest to use
+	 * @param chest chest to use
 	 * @param window world window
 	 */
-	public ChestGui(ArbitraryChest hopper, WorldWindow window) {
+	public ChestGui(ArbitraryChest chest, WorldWindow window) {
 		setLayout(new MigLayout("", "[300.00,grow][132.00,grow][300.00,grow]", "[grow]"));
 		
 		Player p = window.getPlayer();
 		
 		color = new JButton("Change color");
 		color.addActionListener(e -> {
-			ColorGUI gui = new ColorGUI(hopper.getColor(), hopper::setColor, window);
+			ColorGUI gui = new ColorGUI(chest.getColor(), chest::setColor, window);
 			window.openAndShowWindow(gui, "Chest color");
 		});
 		
 		chestCtrl = new InventoryController();
-		chestCtrl.setInv(hopper.inv());
+		chestCtrl.setInv(chest.inv());
 		chestCtrl.setTitle($res("chest"));
 		add(chestCtrl, "cell 2 0,grow");
 		
