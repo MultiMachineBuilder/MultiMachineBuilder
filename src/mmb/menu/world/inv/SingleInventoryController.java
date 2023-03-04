@@ -57,11 +57,6 @@ public class SingleInventoryController extends Box implements AbstractInventoryC
 	}
 
 	@Override
-	public InvType getInvType() {
-		return InvType.SINGLE;
-	}
-
-	@Override
 	public void refresh() {
 		ItemEntry item = inv.getContents();
 		if(item == null) {

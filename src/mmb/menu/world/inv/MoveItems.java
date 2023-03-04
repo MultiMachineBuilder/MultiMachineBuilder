@@ -82,7 +82,6 @@ public class MoveItems extends JPanel {
 		setLayout(layout);
 		//Moving left
 		if((i & LEFT) != 0) {
-			int itype = left.getInvType().ordinal();
 			JButton btnAllL = new JButton("<< "+ALL);
 			btnAllL.addActionListener(e -> {
 				Inventories.transferAll(right.getInv(), left.getInv());

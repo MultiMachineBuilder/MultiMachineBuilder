@@ -9,32 +9,16 @@ import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 
 /**
+ * An abstraction over inventory controllers
  * @author oskar
- *
  */
 public interface AbstractInventoryController {
+	/** @return current inventory*/
 	public Inventory getInv();
-	public InvType getInvType();
+	/** Refreshes currently displayed contents */
 	public void refresh();
-	/**
-	 * @return all sselected items
-	 */
+	/** @return all selected items */
 	public List<ItemRecord> getSelectedValuesList();
-	/**
-	 * @return selected item, or null if unselected
-	 */
+	/** @return selected item, or null if unselected */
 	public ItemRecord getSelectedValue();
-	/**
-	 * @author oskar
-	 * Returns the inventory control type
-	 */
-	public enum InvType{
-		/** Indicates an inventory with support for mutiple stacks */
-		SIMPLE,
-		/** Indicates an inventory with support for single stack of items */
-		SINGLESTACK,
-		/** Indicates an inventory with support for a single item*/
-		SINGLE;
-	}
-	
 }

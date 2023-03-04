@@ -200,10 +200,6 @@ public class InventoryController extends Box implements AbstractInventoryControl
 		configureButtons();
 		refresh();
 	}
-	@Override
-	public InvType getInvType() {
-		return InvType.SIMPLE;
-	}
 
 	private void configureButtons() {
 		boolean hasInv = inv != null;

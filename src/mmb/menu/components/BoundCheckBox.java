@@ -18,6 +18,7 @@ import mmb.data.variables.ListenableBoolean;
  */
 public class BoundCheckBox extends JCheckBox {
 	private static final long serialVersionUID = -490812297506623203L;
+	
 	private boolean valueChangeUnderway = false;
 	@Override
 	public void setSelected(boolean arg0) {
@@ -30,12 +31,21 @@ public class BoundCheckBox extends JCheckBox {
 	
 	private transient ListenableBoolean bvar;
 	@NN private transient BooleanConsumer update = this::setSelected;
+	/**
+	 * Sets the state variable
+	 * @param var new state variable
+	 */
 	public void setVariable(@Nil ListenableBoolean var) {
-		if(var != null) setSelected(var.getValue());
 		if(bvar != null) bvar.remove(update);
 		bvar = var;
+		if(var != null) setSelected(var.getValue());
 		if(bvar != null) bvar.add(update);
 	}
+	/** @return current state variable */
+	public ListenableBoolean getVariable() {
+		return bvar;
+	}
+	
 	private void initialize() {
 		setRolloverEnabled(false);
 		addChangeListener(e -> {
@@ -45,13 +55,13 @@ public class BoundCheckBox extends JCheckBox {
 			valueChangeUnderway = false;
 		});
 	}
-	/** Creates a checkbox witout data */
+	/** Creates a checkbox without data */
 	public BoundCheckBox() {
 		super();
 		initialize();
 	}
 	/**
-	 * Creates a checkbox speciified by an {@code Action}
+	 * Creates a checkbox specified by an {@code Action}
 	 * @param a specifies this checkbox
 	 */
 	public BoundCheckBox(Action a) {

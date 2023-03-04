@@ -28,17 +28,22 @@ public class BoundCheckBoxMenuItem extends JCheckBoxMenuItem implements SafeClos
 		if(bvar != null) bvar.setValue(isSelected());
 		valueChangeUnderway = false;
 	}
+	
 	private transient ListenableBoolean bvar;
 	@NN private transient BooleanConsumer update = this::setSelected;
 	/**
-	 * Sets the databinding for this check box menu item
-	 * @param var databinding to use
+	 * Sets the state variable
+	 * @param var new state variable
 	 */
 	public void setVariable(@Nil ListenableBoolean var) {
-		if(var != null) setSelected(var.getValue());
 		if(bvar != null) bvar.remove(update);
 		bvar = var;
+		if(var != null) setSelected(var.getValue());
 		if(bvar != null) bvar.add(update);
+	}
+	/** @return current state variable */
+	public ListenableBoolean getVariable() {
+		return bvar;
 	}
 	private void initialize() {
 		setRolloverEnabled(false);
