@@ -11,7 +11,6 @@ import mmb.NN;
 import mmb.engine.worlds.world.Player;
 import mmb.menu.world.ColorGUI;
 import mmb.menu.world.inv.InventoryController;
-import mmb.menu.world.inv.InventoryOrchestrator;
 import mmb.menu.world.inv.MoveItems;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;

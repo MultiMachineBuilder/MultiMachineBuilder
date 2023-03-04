@@ -41,7 +41,7 @@ public interface ItemEntry extends Saver, SingleItem{
 	/** @return type of this item entry */
 	@NN public ItemType type();
 	/** @return title of this item entry */
-	public default String title() {
+	@NN public default String title() {
 		return type().title();
 	}
 	/** @return description of this item entry */

@@ -10,6 +10,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
@@ -37,8 +38,8 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 
 /**
+ * Displays an inventory and allows selection of items for 
  * @author oskar
- *
  */
 public class InventoryController extends Box implements AbstractInventoryController {
 	private static final long serialVersionUID = -3804277344383315579L;
@@ -49,7 +50,6 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	private Inventory inv;
 	private JLabel label;
 	private JButton btnRefresh;
-	private InventoryOrchestrator orchestrator;
 	private JScrollPane scrollPane;
 	private JButton btnUnsel;
 	@NN public final Box ubox;
@@ -58,7 +58,7 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	public void refresh() {
 		int[] selection = getSelectedIndices();
 		if(inv == null) return;
-		List<ItemRecord> list = new ArrayList<>(inv);
+		List<@NN ItemRecord> list = new ArrayList<>(inv);
 		if(GlobalSettings.sortItems.getValue()) {
 			//Items should be sorted
 			list.sort((a, b) -> a.item().title().compareTo(b.item().title()));
@@ -107,11 +107,12 @@ public class InventoryController extends Box implements AbstractInventoryControl
 		ubox.add(btnUnsel);
 	}
 	/**
-	 * @param out
+	 * Creates an InventoryController with an inventory
+	 * @param inv inventory to use
 	 */
-	public InventoryController(@Nil Inventory out) {
+	public InventoryController(@Nil Inventory inv) {
 		this();
-		setInv(out);
+		setInv(inv);
 	}
 	/**
 	 * Creates an InventoryController which mirrors other InventoryController, while also being a different component
@@ -203,21 +204,6 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	public InvType getInvType() {
 		return InvType.SIMPLE;
 	}
-	
-	/**
-	 * @return the current inventory orchestrator
-	 */
-	public @Nil InventoryOrchestrator getOrchestrator() {
-		return orchestrator;
-	}
-	/**
-	 * Set the new inventory orchestrator
-	 * @param orchestrator new inventory orchestrator
-	 */
-	public void setOrchestrator(@Nil InventoryOrchestrator orchestrator) {
-		this.orchestrator = orchestrator;
-		configureButtons();
-	}
 
 	private void configureButtons() {
 		boolean hasInv = inv != null;
@@ -259,9 +245,14 @@ public class InventoryController extends Box implements AbstractInventoryControl
 		}
 	}
 
+	/** @return the display title of this inventory */
 	public String getTitle() {
 		return label.getText();
 	}
+	/**
+	 * Sets the display title of this inventory
+	 * @param title new display title
+	 */
 	public void setTitle(String title) {
 		label.setText(title);
 	}
@@ -302,7 +293,7 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	 * @see javax.swing.JList#getSelectionModel()
 	 */
 	@NN public ListSelectionModel getSelectionModel() {
-		return invlist.getSelectionModel();
+		return Objects.requireNonNull(invlist.getSelectionModel(), "Invalid selection model");
 	}
 	/**
 	 * @param selectionMode

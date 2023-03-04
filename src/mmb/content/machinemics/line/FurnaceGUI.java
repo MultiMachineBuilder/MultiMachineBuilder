@@ -20,7 +20,6 @@ import mmb.Nil;
 import mmb.engine.recipe.Recipe;
 import mmb.engine.recipe.Refreshable;
 import mmb.menu.world.inv.InventoryController;
-import mmb.menu.world.inv.InventoryOrchestrator;
 import mmb.menu.world.inv.MoveItems;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
@@ -35,7 +34,6 @@ public class FurnaceGUI extends GUITab implements Refreshable{
 	private static final long serialVersionUID = 82163446136100004L;
 	
 	@NN private InventoryController invPlayer;
-	@NN private InventoryOrchestrator inventoryOrchestrator;
 	@NN private MoveItems moveItemsInput;
 	@NN public final InventoryController invInput;
 	@NN private MoveItems moveItemsOutput;
@@ -98,10 +96,6 @@ public class FurnaceGUI extends GUITab implements Refreshable{
 		
 		moveItemsOutput = new MoveItems(invPlayer, invOutput, MoveItems.LEFT);
 		add(moveItemsOutput, "cell 1 4,grow");
-		
-		
-		inventoryOrchestrator = new InventoryOrchestrator();
-		add(inventoryOrchestrator, "cell 0 5 3 1,grow");
 		
 		smelt = new JProgressBar();
 		smelt.setStringPainted(true);
