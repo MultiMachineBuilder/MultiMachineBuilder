@@ -6,9 +6,9 @@ package mmb.content.electric;
 import com.google.common.util.concurrent.Runnables;
 
 import mmb.NN;
+import mmb.content.electric.Electricity.SettablePressure;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.block.BlockEntry;
-import mmb.engine.debug.Debugger;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.world.World;
 
@@ -17,24 +17,31 @@ import mmb.engine.worlds.world.World;
  * @author oskar
  * @see mmb.content.electric.BlockConduit power conduit
  */
-public class TransferHelper{
+public class TransferHelper implements SettablePressure{
 	public int maxIters = 500;
 	public static final double delta = 1e-8;
-	private final BlockEntity blockent;
-	/** Power limit in joules per tick*/
-	public double power;
-	public double pressure = 0;
-	public double pressureWt = 1;
-	public VoltageTier volt;
-	private static final Debugger debug = new Debugger("TRANSFER HELPER");
-	public TransferHelper(BlockEntity ent, double pwr, VoltageTier volt) {
+	@NN private final BlockEntity blockent;
+	/** Power limit in coulombs per tick*/
+	public final double power;
+	private double pressure = 0;
+	private final double pressureWt;
+	@NN private final VoltageTier volt;
+	/**
+	 * Creates a transfer helper
+	 * @param ent owner of this transfer helper
+	 * @param pwr maximum current in coulombs per tick
+	 * @param volt maximum voltage tier
+	 * @param pressureWt pressure weight
+	 */
+	public TransferHelper(BlockEntity ent, double pwr, VoltageTier volt, double pressureWt) {
 		this.blockent = ent;
 		power = pwr;
 		this.volt = volt;
+		this.pressureWt = pressureWt;
 	}
 
 	/**
-	 * Insert electricity recursively. Does not travel backwards
+	 * Insert or extracts electricity recursively. Does not travel backwards
 	 * @param map map with wires
 	 * @param x X coordinate
 	 * @param y Y coordinate
@@ -129,6 +136,7 @@ public class TransferHelper{
 		return _transfer(blockent.owner(), blockent.posX(), blockent.posY(), max, 0, volt, s, blow);
 	}
 	/**
+	 * Creates an access proxy
 	 * @param s side to which power goes
 	 * @return electricity proxy for this transfer helper
 	 */
@@ -147,7 +155,7 @@ public class TransferHelper{
 			@Override
 			public double extract(double amt, VoltageTier volt, Runnable blow) {
 				if(amt < 0) return 0;
-				return -transferSide(-Math.min(amt, power), volt, s, blow);
+				return -transferSide(-Math.max(amt, power), volt, s, blow);
 			}
 			@Override
 			public VoltageTier voltage() {
@@ -165,12 +173,42 @@ public class TransferHelper{
 	}
 
 	/**
-	 * @param tf
+	 * Replaces state of this transfer helper with the another one's
+	 * @param tf source of data
 	 */
 	public void set(TransferHelper tf) {
 		maxIters = tf.maxIters;
-		power = tf.power;
 		pressure = tf.pressure;
-		pressureWt = tf.pressureWt;
+	}
+
+	
+	@Override
+	public double insert(double amt, VoltageTier volt) {
+		return _transfer(blockent.owner(), blockent.posX(), blockent.posY(), amt, 0, volt, Side.U, Runnables.doNothing());
+	}
+
+	@Override
+	public double extract(double amt, VoltageTier volt, Runnable blow) {
+		return -_transfer(blockent.owner(), blockent.posX(), blockent.posY(), -amt, 0, volt, Side.U, Runnables.doNothing());
+	}
+
+	@Override
+	public @NN VoltageTier voltage() {
+		return volt;
+	}
+
+	@Override
+	public double pressure() {
+		return pressure;
+	}
+
+	@Override
+	public double pressureWeight() {
+		return pressureWt;
+	}
+
+	@Override
+	public void setPressure(double pressure) {
+		this.pressure = pressure;
 	}
 }
