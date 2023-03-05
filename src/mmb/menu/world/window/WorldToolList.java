@@ -14,7 +14,6 @@ import javax.swing.ListSelectionModel;
 
 import mmb.NN;
 import mmb.engine.debug.Debugger;
-import mmb.menu.wtool.ToolSelectionModel;
 import mmb.menu.wtool.Tools;
 import mmb.menu.wtool.WindowTool;
 import monniasza.collects.Collects;

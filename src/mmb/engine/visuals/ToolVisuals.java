@@ -8,7 +8,6 @@ import static mmb.engine.settings.GlobalSettings.$res;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
-import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
@@ -22,12 +21,11 @@ import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.texture.Textures;
 import mmb.menu.wtool.ToolPaint;
-import mmb.menu.wtool.ToolVisualsPanel;
 import mmb.menu.wtool.WindowTool;
 
 /**
+ * Edits visuals
  * @author oskar
- *
  */
 public class ToolVisuals extends WindowTool{
 	public ToolVisuals() {

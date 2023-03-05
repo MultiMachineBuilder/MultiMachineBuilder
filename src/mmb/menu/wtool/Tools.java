@@ -19,15 +19,18 @@ import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
 
 /**
+ * A set of tool utilities
  * @author oskar
  *
  */
 public class Tools {
+	private Tools() {}
 	private static final Debugger debug = new Debugger("TOOLS");
+	
 	/**
 	 * A list of all registered tools
 	 */
-	public static final SelfSet<String, WindowToolModel> toollist = HashSelfSet.createNonnull(WindowToolModel.class);
+	public static final SelfSet<@NN String, @NN WindowToolModel> toollist = HashSelfSet.createNonnull(WindowToolModel.class);
 	/**
 	 * A standard tool
 	 */

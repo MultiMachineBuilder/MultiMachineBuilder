@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.menu.wtool;
+package mmb.engine.visuals;
 
 import javax.swing.JPanel;
 

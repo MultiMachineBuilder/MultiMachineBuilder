@@ -22,15 +22,16 @@ import mmb.menu.world.window.WorldWindow;
 import monniasza.collects.Identifiable;
 
 /**
- * @author oskar
- * <br>The {@code Tool} interface describes a world tool, which applies its code to the world frame.
+ * <br>The {@code WindowTool} abstract class describes a world tool, which applies its code to the world frame.
  * <br>The tool supports {@link MouseListener}, {@link MouseMotionListener}, {@link MouseWheelListener} and {@link KeyListener},
  * <br>which are delegated from the world frame to the tool. Each registered tool is created once per created world window.
+ * <br>The tool handles events from the world window and performs appropriate actions.
  * 
  * Events:
  * windowClosed
  * selected
  * deselected
+ * @author oskar
  */
 public abstract class WindowTool implements
 MouseListener,
@@ -68,7 +69,7 @@ Titled{
 		//to be implemented by its user
 	}
 	
-	//Mouse isteners
+	//Mouse listeners
 	@Override
 	public void mouseWheelMoved(@SuppressWarnings("null") MouseWheelEvent e) {
 		//to be implemented by its user

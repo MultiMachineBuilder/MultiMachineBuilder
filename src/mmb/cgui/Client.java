@@ -3,7 +3,7 @@
  */
 package mmb.cgui;
 
-import mmb.menu.wtool.ToolSelectionModel;
+import mmb.menu.world.window.ToolSelectionModel;
 
 /**
  * A Client GUI-compliant player implementation

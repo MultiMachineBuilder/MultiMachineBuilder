@@ -39,7 +39,6 @@ import mmb.engine.worlds.world.World;
 import mmb.menu.components.BoundCheckBoxMenuItem;
 import mmb.menu.main.MainMenu;
 import mmb.menu.world.inv.InventoryController;
-import mmb.menu.wtool.ToolSelectionModel;
 import mmb.menu.wtool.ToolStandard;
 import mmb.menu.wtool.WindowTool;
 

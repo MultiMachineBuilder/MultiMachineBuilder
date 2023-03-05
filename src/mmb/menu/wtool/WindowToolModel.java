@@ -11,13 +11,14 @@ import javax.swing.Icon;
 import monniasza.collects.Identifiable;
 
 /**
+ * An abstract definition of a window tool
  * @author oskar
- *
  */
 public class WindowToolModel implements Identifiable<String> {
 	private Icon icon;
-	public final String id;
+	private final String id;
 	/**
+	 * Creates a window tool model
 	 * @param icon icon of the tool
 	 * @param instantiator the {@link Supplier} factory of the window tool
 	 * @param id the unique ID of the tool

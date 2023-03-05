@@ -48,6 +48,9 @@ public class ToolPaint extends WindowTool {
 		case KeyEvent.VK_X:
 			setColor(Color.WHITE);
 			window.redrawUIs();
+			break;
+		default:
+			break;
 		}
 	}
 	@Override

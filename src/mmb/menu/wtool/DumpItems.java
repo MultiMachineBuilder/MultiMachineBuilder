@@ -20,7 +20,9 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.texture.Textures;
 
 /**
+ * Item bucket tool
  * @author oskar
+ * @see mmb.content.ContentsItems#bucket
  */
 public class DumpItems extends WindowTool {
 	/** Creates a dump items tool */
@@ -59,6 +61,9 @@ public class DumpItems extends WindowTool {
 				int tf = window.getPlayer().inv.insert(item0, 1);
 				if(tf == 1) iter.remove();
 			}
+			break;
+		default:
+			break;
 		}
 		
 		

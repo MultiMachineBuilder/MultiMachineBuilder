@@ -12,7 +12,7 @@ import javax.swing.Icon;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import mmb.menu.wtool.ToolSelectionModel;
+import mmb.menu.world.window.ToolSelectionModel;
 import mmb.menu.wtool.WindowTool;
 
 /**

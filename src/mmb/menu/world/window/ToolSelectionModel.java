@@ -1,31 +1,41 @@
 /**
  * 
  */
-package mmb.menu.wtool;
+package mmb.menu.world.window;
 
+import mmb.NN;
 import mmb.Nil;
+import mmb.data.variables.ListenableValue;
 import mmb.engine.debug.Debugger;
 import mmb.engine.worlds.world.Player;
-import mmb.menu.world.window.WorldWindow;
+import mmb.menu.wtool.WindowTool;
 
 /**
+ * Handles tool selection in the world window
  * @author oskar
- *
  */
 public class ToolSelectionModel {
 	private WindowTool toolIL;
 	private WindowTool toolTL;
 	@Nil public final WorldWindow window;
 	private static final Debugger debug = new Debugger("TOOL SELECTOR");
+	/**
+	 * Creates a tool selection model
+	 * @param window world window
+	 */
 	public ToolSelectionModel(@Nil WorldWindow window) {
 		this.window = window;
+		tool.listenrem(this::toolRemoved);
+		tool.listenadd(this::toolAdded);
 	}
 
+	/** Invoked when an item is selected from an item list */
 	public void toolSelectedItemList(@Nil WindowTool tool) {
 		debug.printl("IL tool: "+tool);
 		toolIL = tool;
 		resetTools();
 	}
+	/** Invoked when an item is selected from a tool list */
 	public void toolSelectedToolList(@Nil WindowTool tool) {
 		debug.printl("TL tool: "+tool);
 		toolTL = tool;
@@ -39,7 +49,7 @@ public class ToolSelectionModel {
 			setTool(toolIL);
 		} else if(window0 != null) {
 			Player p = window0.getPlayer();
-			if(!(p == null || p.isCreative())) { //true
+			if(!(p == null || p.isCreative())) {
 				if(toolIL == null) {
 					setTool(window0.std);
 				}else {
@@ -52,27 +62,35 @@ public class ToolSelectionModel {
 			setTool(toolTL);
 		}
 	}
-
-	private WindowTool tool;
-	public void setTool(@Nil WindowTool newTool) {
-		if(tool == newTool) return;
-		if(tool != null) {
-			tool.deselected();
-			debug.printl("Old tool: " + tool.id());
+	private void toolRemoved(@Nil WindowTool t) {
+		if(t != null) {
+			t.deselected();
+			debug.printl("Old tool: " + t.id());
 		}else {
 			debug.printl("Old tool: null");
 		}
-		if(newTool != null) {
-			newTool.selected();
-			if(window != null) newTool.setWindow(window);
-			debug.printl("New tool: " + newTool.id());
+	}
+	private void toolAdded(@Nil WindowTool t) { //sets up the new tool
+		if(t != null) {
+			t.selected();
+			if(window != null) t.setWindow(window);
+			debug.printl("New tool: " + t.id());
 		}else {
 			debug.printl("New tool: null");
-			return;
 		}
-		tool = newTool;
 	}
+
+	/** The window tool currently used. Sets the tool directly */
+	@NN public final ListenableValue<@Nil WindowTool> tool = new ListenableValue<>(null);
+	/**
+	 * Directly sets the current tool
+	 * @param newTool tool to use
+	 */
+	public void setTool(@Nil WindowTool newTool) {
+		tool.set(newTool);
+	}
+	/** @return current window tool */
 	public WindowTool getTool() {
-		return tool;
+		return tool.get();
 	}
 }

@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 
 import org.joml.Vector2d;
 
+import mmb.NN;
 import mmb.cgui.BlockActivateListener;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.Placer;
@@ -25,8 +26,8 @@ import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
 /**
- * @author oskar
  * This class defines a standard tool, applicable to most items.
+ * @author oskar
  */
 public class ToolStandard extends WindowTool{
 	private static final Debugger debug = new Debugger("TOOL-STANDARD");
@@ -196,7 +197,7 @@ public class ToolStandard extends WindowTool{
 	public String description() { return descr; }
 	
 	//Icon
-	public static final Icon ICON_NORMAL = new ImageIcon(Textures.get("tool/normal.png"));
+	@NN public static final Icon ICON_NORMAL = new ImageIcon(Textures.get("tool/normal.png"));
 	@Override
 	public Icon getIcon() {
 		return ICON_NORMAL;

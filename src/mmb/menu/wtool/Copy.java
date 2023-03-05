@@ -23,6 +23,7 @@ import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 
 /**
+ * Creative mode copy tool
  * @author oskar
  */
 public class Copy extends WindowTool {
