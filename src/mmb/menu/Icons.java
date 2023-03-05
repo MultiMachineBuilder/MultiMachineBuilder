@@ -10,8 +10,8 @@ import mmb.NN;
 import mmb.engine.texture.Textures;
 
 /**
- * @author oskar
  * A collection of text and image icons for GUIs
+ * @author oskar
  */
 public class Icons {
 	private Icons() {}

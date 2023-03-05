@@ -14,7 +14,7 @@ import java.lang.annotation.Documented;
 @Retention(RUNTIME)
 @Target({TYPE, FIELD, METHOD, PARAMETER, LOCAL_VARIABLE, TYPE_PARAMETER, TYPE_USE, PACKAGE, MODULE})
 /**
- * Indicates that parameters won't accept null unless annotated with {@link Nil}
+ * Indicates that parameters in a given context won't accept null unless annotated with {@link Nil}
  * @author oskar
  */
 public @interface NNDefault {
