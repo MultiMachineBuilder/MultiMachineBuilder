@@ -1,13 +1,12 @@
 /**
  * 
  */
-package mmb;
+package mmb.engine.recipe;
 
 import java.util.Vector;
 import java.util.stream.Collectors;
 
-import mmb.engine.recipe.ItemStack;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.NN;
 
 /**
  * @author oskar

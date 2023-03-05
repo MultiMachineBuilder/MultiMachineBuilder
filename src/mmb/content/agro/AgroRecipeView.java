@@ -11,12 +11,12 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 
 import mmb.NN;
-import mmb.VectorUtils;
 import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.CRConstants;
 import mmb.engine.recipe.ItemStack;
 import mmb.engine.recipe.RecipeView;
+import mmb.engine.recipe.VectorUtils;
 import mmb.menu.world.ItemStackCellRenderer;
 
 /**

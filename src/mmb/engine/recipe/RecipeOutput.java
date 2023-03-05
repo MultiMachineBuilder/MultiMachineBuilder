@@ -31,7 +31,7 @@ import monniasza.collects.Collects;
  * All implementations of this interface must be immutable, and may have builders.
  * @author oskar
  */
-public interface RecipeOutput extends Chance, Iterable<mmb.engine.recipe.ItemStack>{
+public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	@Override
 	default boolean drop(@Nil InventoryWriter inv, @Nil World map, int x, int y) { //NOSONAR the items will always be dropped
 		if(map == null) {
@@ -112,7 +112,6 @@ public interface RecipeOutput extends Chance, Iterable<mmb.engine.recipe.ItemSta
 	 */
 	@Override
 	boolean equals(@Nil Object obj);
-
 	/**
 	 * The list's hash code is the hash code of their contents map as specified by {@link Map#hashCode()}
 	 * @return a hash code value for this item list.
@@ -257,7 +256,7 @@ public interface RecipeOutput extends Chance, Iterable<mmb.engine.recipe.ItemSta
 		return mul2entrystream(amount).collect(Collects.collectToIntMap(map));
 	}
 	@Override
-	default @NN Iterator<mmb.engine.recipe.ItemStack> iterator() {
+	default @NN Iterator<ItemStack> iterator() {
 		return Iterators.transform(getContents().object2IntEntrySet().iterator(), RecipeOutput::entry2stack);
 	}
 	

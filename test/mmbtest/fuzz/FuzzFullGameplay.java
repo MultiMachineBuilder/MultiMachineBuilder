@@ -17,11 +17,11 @@ import com.code_intelligence.jazzer.junit.FuzzTest;
 import com.rainerhahnekamp.sneakythrow.Sneaky;
 
 import mmb.Main;
-import mmb.PlayAWorld;
 import mmb.engine.MMBUtils;
 import mmb.engine.debug.Debugger;
 import mmb.engine.files.LocalFile;
 import mmb.engine.files.Save;
+import mmb.menu.main.PlayAWorld;
 import mmb.menu.world.window.WorldWindow;
 
 /**

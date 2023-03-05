@@ -13,12 +13,12 @@ import javax.swing.JComponent;
 import monniasza.collects.grid.Grid;
 import javax.swing.JList;
 
-import mmb.VectorUtils;
 import mmb.content.craft.CraftingRecipeGroup.CraftingRecipe;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.CRConstants;
 import mmb.engine.recipe.ItemStack;
 import mmb.engine.recipe.RecipeView;
+import mmb.engine.recipe.VectorUtils;
 import mmb.menu.world.ItemStackCellRenderer;
 
 import java.awt.Color;

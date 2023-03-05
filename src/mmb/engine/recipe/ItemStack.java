@@ -41,7 +41,7 @@ public final class ItemStack implements Identifiable<ItemEntry>, SingleItem{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + amount;
+		result = prime * result + (amount-1);
 		result = prime * result + item.hashCode();
 		return result;
 	}

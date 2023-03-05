@@ -1229,11 +1229,11 @@
 (MOD-LOADER) Failed to load a sound COPYRIGHT.txt
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at mmb.engine.sound.Sounds.load(Sounds.java:122)
-	at mmb.GameLoader.lambda$2(GameLoader.java:133)
-	at mmb.GameLoader.walkDirectory(GameLoader.java:360)
-	at mmb.GameLoader.walkDirectory(GameLoader.java:366)
-	at mmb.GameLoader.walkDirectory(GameLoader.java:348)
-	at mmb.GameLoader.modloading(GameLoader.java:130)
+	at mmb.GameLoader.lambda$2(GameLoader.java:134)
+	at mmb.GameLoader.walkDirectory(GameLoader.java:362)
+	at mmb.GameLoader.walkDirectory(GameLoader.java:368)
+	at mmb.GameLoader.walkDirectory(GameLoader.java:350)
+	at mmb.GameLoader.modloading(GameLoader.java:131)
 	at mmb.Main.lambda$1(Main.java:142)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
@@ -1257,11 +1257,11 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (MOD-LOADER) Failed to load a sound error.mp3
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
 	at mmb.engine.sound.Sounds.load(Sounds.java:122)
-	at mmb.GameLoader.lambda$2(GameLoader.java:133)
-	at mmb.GameLoader.walkDirectory(GameLoader.java:360)
-	at mmb.GameLoader.walkDirectory(GameLoader.java:366)
-	at mmb.GameLoader.walkDirectory(GameLoader.java:348)
-	at mmb.GameLoader.modloading(GameLoader.java:130)
+	at mmb.GameLoader.lambda$2(GameLoader.java:134)
+	at mmb.GameLoader.walkDirectory(GameLoader.java:362)
+	at mmb.GameLoader.walkDirectory(GameLoader.java:368)
+	at mmb.GameLoader.walkDirectory(GameLoader.java:350)
+	at mmb.GameLoader.modloading(GameLoader.java:131)
 	at mmb.Main.lambda$1(Main.java:142)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
@@ -8236,125 +8236,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found save: The longest player pipe ever.mworld
 (SELECT A SAVE) Found save: The smallest all in one quarry system.mworld
 (SELECT A SAVE) Found 24 saves
-(WORLD TEST) 1761 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@5cef9aa3
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(ITEM LISTS) Item list node is null
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(ITEMS) Invalid item: Infinity
-(INVENTORIES) Unsupported null item
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(TOOL-STANDARD) Running BlockActivateListener for: [-10,-12]
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
-(PROCESS HELPER) Item collection
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
-(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
 (SETTINGS) Resetting a setting country with value US
 (SETTINGS) Resetting a setting sortItems with value true
 (SETTINGS) Resetting a setting dumpBundles with value true

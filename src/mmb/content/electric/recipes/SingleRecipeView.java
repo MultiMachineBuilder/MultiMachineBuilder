@@ -8,13 +8,13 @@ import javax.swing.JLabel;
 import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
-import mmb.VectorUtils;
 import mmb.content.electric.recipes.SingleRecipeGroup.SingleRecipe;
 import mmb.engine.UnitFormatter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.CRConstants;
 import mmb.engine.recipe.ItemStack;
 import mmb.engine.recipe.RecipeView;
+import mmb.engine.recipe.VectorUtils;
 import mmb.menu.world.ItemStackCellRenderer;
 
 import javax.swing.JList;

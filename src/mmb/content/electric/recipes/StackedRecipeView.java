@@ -14,7 +14,6 @@ import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
 import mmb.NN;
-import mmb.VectorUtils;
 import mmb.content.electric.recipes.StackedRecipeGroup.StackedRecipe;
 import mmb.engine.UnitFormatter;
 import mmb.engine.item.ItemEntry;
@@ -22,6 +21,7 @@ import mmb.engine.recipe.CRConstants;
 import mmb.engine.recipe.ItemStack;
 import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.recipe.RecipeView;
+import mmb.engine.recipe.VectorUtils;
 import mmb.menu.world.ItemStackCellRenderer;
 
 /**

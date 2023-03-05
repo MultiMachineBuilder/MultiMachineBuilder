@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb;
+package mmb.menu.main;
 
 import java.awt.EventQueue;
 import java.io.InputStream;
@@ -13,13 +13,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.pploder.events.Event;
 import com.pploder.events.SimpleEvent;
 
+import mmb.Main;
+import mmb.NN;
+import mmb.Nil;
 import mmb.engine.MMBUtils;
 import mmb.engine.debug.Debugger;
 import mmb.engine.files.Save;
 import mmb.engine.json.JsonTool;
 import mmb.engine.window.FullScreen;
 import mmb.engine.worlds.universe.Universe;
-import mmb.menu.main.MainMenu;
 import mmb.menu.world.window.WorldWindow;
 
 /**

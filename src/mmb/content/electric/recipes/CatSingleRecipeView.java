@@ -7,13 +7,13 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JList;
 
-import mmb.VectorUtils;
 import mmb.content.electric.recipes.CatSingleRecipeGroup.CatalyzedSimpleRecipe;
 import mmb.engine.UnitFormatter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.CRConstants;
 import mmb.engine.recipe.ItemStack;
 import mmb.engine.recipe.RecipeView;
+import mmb.engine.recipe.VectorUtils;
 import mmb.menu.world.ItemStackCellRenderer;
 
 import java.awt.Color;

@@ -6,8 +6,8 @@ package mmb.engine.recipe;
 import mmb.Nil;
 
 /**
- * @author oskar
  * An object which is refreshed during processing
+ * @author oskar
  */
 public interface Refreshable{
 	/** Refreshes the input list */

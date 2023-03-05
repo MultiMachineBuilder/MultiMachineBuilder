@@ -14,7 +14,6 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 
-import mmb.PlayAWorld;
 import mmb.engine.debug.Debugger;
 import mmb.engine.files.AdvancedFile;
 import mmb.engine.files.LocalFile;

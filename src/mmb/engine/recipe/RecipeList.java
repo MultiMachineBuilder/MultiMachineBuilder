@@ -8,7 +8,6 @@ import javax.swing.ListCellRenderer;
 
 import mmb.NN;
 import mmb.Nil;
-import mmb.VectorUtils;
 
 import java.awt.Component;
 import java.awt.Dimension;

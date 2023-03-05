@@ -10,12 +10,12 @@ import static mmb.engine.settings.GlobalSettings.$res;
 import javax.swing.JLabel;
 import javax.swing.JList;
 
-import mmb.VectorUtils;
 import mmb.content.drugs.AlcoholInfoGroup.AlcoholInfo;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.CRConstants;
 import mmb.engine.recipe.ItemStack;
 import mmb.engine.recipe.RecipeView;
+import mmb.engine.recipe.VectorUtils;
 import mmb.menu.world.ItemStackCellRenderer;
 
 /**

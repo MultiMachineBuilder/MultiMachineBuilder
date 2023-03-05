@@ -35,7 +35,6 @@ public final class SimpleItemList implements RecipeOutput {
 	 * Creates an empty item list
 	 */
 	private SimpleItemList() {}
-			
 	/**
 	 * Creates an item list from a map
 	 * @param items item map to copy
@@ -43,7 +42,6 @@ public final class SimpleItemList implements RecipeOutput {
 	public SimpleItemList(Map<ItemEntry, Integer> items) {
 		data.putAll(items);
 	}
-	
 	/**
 	 * Creates an item list with one unit of the item
 	 * @param item the item in the new item list
@@ -51,7 +49,6 @@ public final class SimpleItemList implements RecipeOutput {
 	public SimpleItemList(ItemEntry item) {
 		data.put(item, 1);
 	}
-	
 	/**
 	 * Creates an item list with one unit of the item
 	 * @param item the item in the new item list
@@ -60,15 +57,13 @@ public final class SimpleItemList implements RecipeOutput {
 	public SimpleItemList(ItemEntry item, int amount) {
 		data.put(item, amount);
 	}
-	
 	/**
 	 * Creates an item list with items from the stack
 	 * @param stack item stack
 	 */
 	public SimpleItemList(SingleItem stack) {
 		data.put(stack.item(), stack.amount());
-	}
-	
+	}	
 	/**
 	 * Creates an item list with items from the stack
 	 * @param stacks item stacks
@@ -77,8 +72,7 @@ public final class SimpleItemList implements RecipeOutput {
 		for(SingleItem stack: stacks) {
 			data.put(stack.item(), stack.amount());
 		}
-	}
-	
+	}	
 	/**
 	 * Creates an item list with items from the stack
 	 * @param stacks item stacks
@@ -87,16 +81,14 @@ public final class SimpleItemList implements RecipeOutput {
 		for(SingleItem stack: stacks) {
 			data.put(stack.item(), stack.amount());
 		}
-	}
-	
+	}	
 	/**
 	 * Creates an item list with the given recipe output
 	 * @param out recipe output
 	 */
 	public SimpleItemList(RecipeOutput out) {
 		out.produceResults(createWriter());		
-	}
-	
+	}	
 	/**
 	 * Creates an item list with the given recipe output
 	 * @param out recipe output
@@ -104,8 +96,7 @@ public final class SimpleItemList implements RecipeOutput {
 	 */
 	public SimpleItemList(RecipeOutput out, int amount) {
 		out.produceResults(createWriter(), amount);		
-	}
-	
+	}	
 	/**
 	 * Creates an item list from an inventory
 	 * @param inv inventory to copy
@@ -115,7 +106,6 @@ public final class SimpleItemList implements RecipeOutput {
 			data.put(irecord.item(), irecord.amount());
 		}
 	}
-	
 	/**
 	 * Creates an item list with items
 	 * @param items items to use
@@ -125,28 +115,6 @@ public final class SimpleItemList implements RecipeOutput {
 			data.put(item, 1);
 		}
 	}
-
-	@SuppressWarnings("null")
-	@Override
-	public Object2IntMap<ItemEntry> getContents() {
-		return Object2IntMaps.unmodifiable(data);
-	}
-
-	@Override
-	public boolean contains(ItemEntry entry) {
-		return data.containsKey(entry);
-	}
-
-	@Override
-	public int get(ItemEntry entry) {
-		return data.getInt(entry);
-	}
-
-	@Override
-	public int getOrDefault(ItemEntry entry, int value) {
-		return data.getOrDefault(entry, value);
-	}
-	
 	/**
 	 * Creates an inventory writer which adds items into this item list
 	 * @return an inventory writer
@@ -160,7 +128,7 @@ public final class SimpleItemList implements RecipeOutput {
 			}
 			@Override
 			public int bulkInsert(RecipeOutput block, int amount) {
-				for(Entry<ItemEntry> ent: block.getContents().object2IntEntrySet()) {
+				for(Entry<@NN ItemEntry> ent: block.getContents().object2IntEntrySet()) {
 					insert(ent.getKey(), amount*ent.getIntValue());
 				}
 				return amount;
@@ -176,6 +144,29 @@ public final class SimpleItemList implements RecipeOutput {
 			}
 		};
 	}
+	
+	@SuppressWarnings("null")
+	@Override
+	public Object2IntMap<ItemEntry> getContents() {
+		return Object2IntMaps.unmodifiable(data);
+	}
+
+	@Override
+	public boolean contains(@Nil ItemEntry entry) {
+		return data.containsKey(entry);
+	}
+
+	@Override
+	public int get(ItemEntry entry) {
+		return data.getInt(entry);
+	}
+
+	@Override
+	public int getOrDefault(ItemEntry entry, int value) {
+		return data.getOrDefault(entry, value);
+	}
+	
+	
 
 	@Override
 	public void produceResults(InventoryWriter tgt, int amount) {
@@ -201,14 +192,13 @@ public final class SimpleItemList implements RecipeOutput {
 		return vol;
 	}
 	
+	//Equality
 	private Integer hash = null;
-
 	@Override
 	public int hashCode() {
 		if(hash == null) hash = Integer.valueOf(data.hashCode());
 		return hash.intValue();
 	}
-
 	@Override
 	public boolean equals(@Nil Object obj) {
 		if (this == obj)
