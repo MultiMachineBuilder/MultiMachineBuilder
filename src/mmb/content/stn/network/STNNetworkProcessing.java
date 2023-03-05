@@ -29,7 +29,6 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.ItemLists;
 import mmb.engine.recipe.RecipeOutput;
-import monniasza.collects.CollectionOps;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.indexar.Database;
@@ -412,6 +411,6 @@ public class STNNetworkProcessing implements Saver{
 	}
 	
 	public boolean isAllObtainable(Set<ItemEntry> entries, Object2IntMap<ItemEntry> inv, Object2IntMap<ItemEntry> queue) {
-		return CollectionOps.isAll(entries, item -> isEverObtainable(item, inv, queue));
+		return Collects.isAll(entries, item -> isEverObtainable(item, inv, queue));
 	}
 }

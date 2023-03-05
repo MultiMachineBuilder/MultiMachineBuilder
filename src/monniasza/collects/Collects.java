@@ -18,6 +18,7 @@ import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
 
@@ -353,17 +354,38 @@ public class Collects {
 	}
 	
 	//Lists
-	@NN public static <T> List<T> inplaceAddLists(List<T> list, Collection<T> collect){
+	/**
+	 * Adds the second input to the first one in-place
+	 * @param <T> type of elements
+	 * @param list list to add to
+	 * @param collect elements to be added
+	 * @return first input
+	 */
+	@NN public static <T> List<T> inplaceAddLists(List<T> list, Collection<? extends T> collect){
 		list.addAll(collect);
 		return list;
 	}
-	@NN public static <T> List<T> ooplaceAddLists(Collection<T> a, Collection<T> b, Supplier<List<T>> supplier){
+	/**
+	 * Adds two inputs out of place
+	 * @param <T>
+	 * @param a first half of the list
+	 * @param b second half of the list
+	 * @param supplier creates lists
+	 * @return a new list
+	 */
+	@NN public static <T> List<T> ooplaceAddLists(Collection<? extends T> a, Collection<? extends T> b, Supplier<List<T>> supplier){
 		List<T> list0 = supplier.get();
 		list0.addAll(a);
 		list0.addAll(b);
 		return list0;
 	}
-	@NN public static <T> BiFunction<@NN Collection<T>, @NN Collection<T>, List<T>> ooplaceListAdder(Supplier<List<T>> supplier){
+	/**
+	 * Creates an out-of-place list added
+	 * @param <T> type of values
+	 * @param supplier creates lists
+	 * @return a list addition function
+	 */
+	@NN public static <T> BiFunction<@NN Collection<? extends T>, @NN Collection<? extends T>, List<T>> ooplaceListAdder(Supplier<List<T>> supplier){
 		return (a, b) -> ooplaceAddLists(a, b, supplier);
 	}
 	
@@ -391,10 +413,25 @@ public class Collects {
 	@NN private static final Multiset<?> emptyMultiSet = new EmptyMultiSet();
 	
 	//Maps
+	/**
+	 * Creates an int-to-any map from a stream
+	 * @param <T> type of values
+	 * @param <M> type of maps
+	 * @param mapsup creates maps
+	 * @return an int/obj map collector
+	 */
 	@NN public static <T, M extends Object2IntMap<T>> Collector<Object2IntMap.Entry<T>, Object2IntMap<T>, M> collectToIntMap(Supplier<M> mapsup){
 		return new IntMapCollector<>(mapsup);
 	}
-	@NN public static <T, M extends Object2IntMap<T>> M inplaceAddIntMaps(M list, Object2IntMap<T> collect){
+	/**
+	 * Adds the second input to the first input
+	 * @param <T> type of values
+	 * @param <M> type of the modified map
+	 * @param list map to be modified
+	 * @param collect map to be added to the first input
+	 * @return first input
+	 */
+	@NN public static <T, @NN M extends Object2IntMap<T>> M inplaceAddIntMaps(M list, Object2IntMap<? extends T> collect){
 		list.putAll(collect);
 		return list;
 	}
@@ -431,6 +468,7 @@ public class Collects {
 		};
 	}
 	/**
+	 * Creates a dynamically-mapped view of a grid
 	 * @param <Tin> type of the input grid
 	 * @param <Tout> type of the output grid
 	 * @param forward forward mapper
@@ -440,7 +478,6 @@ public class Collects {
 	 */
 	public static <Tin, Tout> Grid<Tout> mapGrid(Function<? super Tin, ? extends Tout> forward, @Nil Function<? super Tout, ? extends Tin> backward, Grid<Tin> grid){
 		return new Grid<>() {
-			@SuppressWarnings("null")
 			@Override
 			public void set(int x, int y, Tout data) {
 				if(backward == null) throw new UnsupportedOperationException("no backwards function");
@@ -458,11 +495,9 @@ public class Collects {
 			public int height() {
 				return grid.height();
 			}
-			@SuppressWarnings("null")
 			@Override
 			public Iterator<Tout> iterator() {
 				Iterator<Tin> iter = grid.iterator();
-				//return Iterators.transform(iter, forward);
 				return new Iterator<>() {
 
 					@Override
@@ -484,7 +519,6 @@ public class Collects {
 		};
 	}
 
-
 	//Iteration
 	/**
 	 * Gets the first item using iteration
@@ -494,6 +528,32 @@ public class Collects {
 	 */
 	public static <T> T first(Iterable<T> c) {
 		return c.iterator().next();
+	}
+
+	//All/any boolean operations
+	/**
+	 * Checks if all values meet a predicate
+	 * @param <T> type of values
+	 * @param collection collection to test
+	 * @param predicate condition
+	 * @return do all items meet a criterion?
+	 */
+	public static <T> boolean isAll(Iterable<? extends T> collection, Predicate<T> predicate) {
+		for(T value: collection) 
+			if(!predicate.test(value)) return false;
+		return true;
+	}
+	/**
+	 * Checks if any value meets a predicate
+	 * @param <T> type of values
+	 * @param collection collection to test
+	 * @param predicate condition
+	 * @return does any items meet a criterion?
+	 */
+	public static <T> boolean isAny(Iterable<? extends T> collection, Predicate<T> predicate) {
+		for(T value: collection) 
+			if(predicate.test(value)) return true;
+		return false;
 	}
 }
 class IntMapCollector<T, M extends Object2IntMap<T>> implements Collector<Object2IntMap.Entry<T>, Object2IntMap<T>, M>{
@@ -570,7 +630,7 @@ class EmptyMultiSet implements Multiset<Object>{
 	}
 
 	@Override
-	public int add(Object element, int occurrences) {
+	public int add(@Nil Object element, int occurrences) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -590,12 +650,12 @@ class EmptyMultiSet implements Multiset<Object>{
 	}
 
 	@Override
-	public int setCount(Object element, int count) {
+	public int setCount(@Nil Object element, int count) {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public boolean setCount(Object element, int oldCount, int newCount) {
+	public boolean setCount(@Nil Object element, int oldCount, int newCount) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -663,7 +723,7 @@ class EmptySetMultimap implements SetMultimap<Object, Object>{
 	}
 
 	@Override
-	public boolean put(Object key, Object value) {
+	public boolean put(@Nil Object key, @Nil Object value) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -673,7 +733,7 @@ class EmptySetMultimap implements SetMultimap<Object, Object>{
 	}
 
 	@Override
-	public boolean putAll(Object key, Iterable<? extends Object> values) {
+	public boolean putAll(@Nil Object key, Iterable<? extends Object> values) {
 		throw new UnsupportedOperationException();
 	}
 

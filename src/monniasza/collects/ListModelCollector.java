@@ -18,11 +18,12 @@ import javax.swing.DefaultListModel;
 import mmb.NN;
 
 /**
+ * Collects a stream to a list
  * @author oskar
  * @param <T> type of values
  */
 public class ListModelCollector<T> implements Collector<T, List<T>, DefaultListModel<T>> {
-	
+	/** @return a list model collector */
 	@SuppressWarnings("unchecked")
 	/**
 	 * @param <T> type of values
@@ -42,11 +43,13 @@ public class ListModelCollector<T> implements Collector<T, List<T>, DefaultListM
 		return List::add;
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public BinaryOperator<List<T>> combiner() {
 		return Collects::inplaceAddLists;
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public Function<List<T>, DefaultListModel<T>> finisher() {
 		return Collects::newListModel;
