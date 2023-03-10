@@ -72,11 +72,24 @@ public class ContentsRecipes {
 		
 		_chest();
 		_tools();
-		_pipes();
+		_imachines();
 		_wireworld();
 		_mechparts();
 		_sinter();
 		_upgrade();	
+		
+		crafting.addRecipeGrid(new ItemEntry[]{
+		rudimentary.base, rudimentary.base, rudimentary.base,
+		wireRudimentary.medium, coal.base, wireRudimentary.medium,
+		rudimentary.base, rudimentary.base, rudimentary.base
+		}, 3, 3, LOAD);
+		crafting.addRecipeGrid(new ItemEntry[]{
+		rudimentary.base, rudimentary.base, rudimentary.base,
+		wireRudimentary.medium, iron.base, wireRudimentary.medium,
+		rudimentary.base, rudimentary.base, rudimentary.base
+		}, 3, 3, PMETER);
+		
+		
 		_craftrsULV(); //Electric machines - ULV
 		_craftrsVLV();
 		_craftrsLV();
@@ -279,7 +292,7 @@ public class ContentsRecipes {
 			rubber.ring.stack(1)
 		), pump.items.get(6).stack(2), null, VoltageTier.V6, 25600000);
 	}
-	private static void _pipes() {
+	private static void _imachines() {
 		//Pipes
 		crafting.addRecipe(new FixedGrid<>(3,
 		Materials.iron.base,  null, Materials.iron.base,
@@ -303,6 +316,28 @@ public class ContentsRecipes {
 		crafting.addRecipeGrid(new ItemEntry[]{
 			ContentsBlocks.ipipe_STRAIGHT, Materials.iron.nugget, ContentsBlocks.ipipe_ELBOW},
 		3, 1, ContentsBlocks.ipipe_TORIGHT, 1);
+		crafting.addRecipeGrid(new ItemEntry[]{
+		ipipe_STRAIGHT,
+		ipipe_STRAIGHT,
+		iron.gear,
+		}, 1, 3, IMOVER, 3);
+		crafting.addRecipeGrid(new ItemEntry[]{
+		ipipe_STRAIGHT,
+		IMOVER,
+		iron.gear,
+		}, 1, 3, ipipe_IPE, 1);
+		
+		//Item machines
+		crafting.addRecipeGrid(new ItemEntry[]{
+		iron.base, IMOVER, iron.base,
+		iron.base, CHEST, iron.base,
+		iron.base, ipipe_STRAIGHT, iron.base
+		}, 3, 3, COLLECTOR);
+		crafting.addRecipeGrid(new ItemEntry[]{
+		iron.base, CLICKER, iron.base,
+		iron.base, CHEST, iron.base,
+		iron.base, ipipe_STRAIGHT, iron.base
+		}, 3, 3, PLACEITEMS);
 	}
 	private static void _wireworld() {
 		//Actuator blocks
@@ -326,6 +361,7 @@ public class ContentsRecipes {
 		//WireWorld gates - 1 input
 		crafting.addRecipeGrid(ww_wire, 1, 2, YES); //YES
 		crafting.addRecipeGrid(new ItemEntry[]{ww_wire, YES}, 1, 2, NOT); //NOT
+		crafting.addRecipeGrid(new ItemEntry[]{AND, RANDOM}, 1, 2, RANDOMCTRL); //Random if
 		
 		//WireWorld signallers
 		crafting.addRecipeGrid(new ItemEntry[]{
@@ -334,15 +370,20 @@ public class ContentsRecipes {
 		Materials.silicon.base, ww_wire, Materials.silicon.base
 		}, 3, 3, TRUE, 4); //Always true
 		crafting.addRecipeGrid(new ItemEntry[]{
-		null,  null,  Materials.steel.base,
-		null,  Materials.steel.base, null,
-		Materials.steel.base, null,  null
-		}, 3, 3, RANDOM, 4); //Random
-		crafting.addRecipeGrid(new ItemEntry[]{
 		Materials.silicon.base, Materials.silicon.base, Materials.silicon.base,
 		Materials.silicon.base, ww_wire, Materials.silicon.base,
 		Materials.silicon.base, Materials.silicon.base, Materials.silicon.base
+		}, 3, 3, RANDOM, 4); //Random
+		crafting.addRecipeGrid(new ItemEntry[]{
+		Materials.silicon.base, Materials.silicon.base, Materials.silicon.base,
+		Materials.silicon.base, RANDOM, Materials.silicon.base,
+		Materials.silicon.base, Materials.silicon.base, Materials.silicon.base
 		}, 3, 3, URANDOM, 4); //Uniform random
+		crafting.addRecipeGrid(new ItemEntry[]{
+		URANDOM, TRUE, URANDOM,
+		TRUE, ww_wire, TRUE,
+		URANDOM, TRUE, URANDOM,
+		}, 3, 3, ONLOAD, 4); //World Load Detecttor
 		
 		//Speaker
 		crafting.addRecipeGrid(new ItemEntry[]{
@@ -427,6 +468,16 @@ public class ContentsRecipes {
 			enderium.base,  null,          enderium.base,
 			draconium.base, enderium.base, draconium.base
 		}, 3, 3, CHEST8);
+		//Mover chests
+		crafting.addRecipeGrid(new ItemEntry[]{
+		rudimentary.frame, CHEST1, stone,
+		}, 3, 1, HOPPER);
+		crafting.addRecipeGrid(new ItemEntry[]{
+		rudimentary.frame, CHEST1, gravel,
+		}, 3, 1, HOPPER_suck);
+		crafting.addRecipeGrid(new ItemEntry[]{
+		rudimentary.frame, CHEST1, sand,
+		}, 3, 1, HOPPER_both);
 	}
 	private static void _craftrsULV() {
 		//Coal Generator ULV
