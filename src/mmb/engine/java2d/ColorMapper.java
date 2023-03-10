@@ -7,6 +7,8 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.awt.image.LookupTable;
 
+import mmb.NN;
+
 /**
  * Maps a single color from origin to destination
  * @author oskar
@@ -48,7 +50,7 @@ public abstract class ColorMapper extends LookupTable {
 	 * @throws IllegalArgumentException when image type is
 	 * {@code TYPE_CUSTOM}, {@code TYPE_BYTE_BINARY}, {@code TYPE_BYTE_GRAY}, {@code TYPE_USHORT_GRAY} or unknown 
 	 */
-	public static ColorMapper ofType(int type, Color from, Color to) {
+	@NN public static ColorMapper ofType(int type, Color from, Color to) {
 		switch(type) {
 		case BufferedImage.TYPE_USHORT_555_RGB:
 		case BufferedImage.TYPE_USHORT_565_RGB:	

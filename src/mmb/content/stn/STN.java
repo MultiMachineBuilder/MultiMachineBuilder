@@ -7,8 +7,10 @@ import java.awt.Color;
 import java.util.ResourceBundle;
 
 import mmb.NN;
+import mmb.content.ContentsBlocks;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.VoltageTier;
+import mmb.content.modular.chest.ModularChests;
 import mmb.content.rawmats.Materials;
 import mmb.content.rawmats.MetalGroup;
 import mmb.content.stn.block.STNExporter;
@@ -23,6 +25,7 @@ import mmb.engine.item.ItemEntityType;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemRaw;
 import mmb.engine.item.Items;
+import mmb.engine.recipe.SimpleItemList;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.worlds.DataLayers;
 import mmb.engine.worlds.world.World;
@@ -100,13 +103,10 @@ public class STN {
 		
 		Items.tagItems("STN", STN_cabler, STN_storage, STN_terminal, STN_exporter, STN_importer, STN_fw);
 		
-		Materials.alloying(STN_a, 5, VoltageTier.V2, 800_000, 
-			Materials.iron.stack(1),
-			Materials.redstone.stack(1),
-			Materials.copper.stack(1),
-			Materials.lead.stack(1),
-			Materials.tin.stack(1));
-		Materials.alloying(STN_b, 4, VoltageTier.V2, 800_000, 
+		CraftingGroups.alloyer.add(new SimpleItemList(
+			Materials.iron.base, Materials.redstone.base, ModularChests.plug
+		), STN_a.base, 5, VoltageTier.V2, 20000);
+		Materials.alloying(STN_b, 4, VoltageTier.V3, 80000, 
 			Materials.silver.stack(1),
 			Materials.cobalt.stack(1),
 			Materials.glowstone.stack(1),
@@ -117,6 +117,23 @@ public class STN {
 		null, STN_a.rod, STN_a.frag,
 		STN_a.rod, null, null
 		}, 3, 3, ItemRaw.make(STN_cabler));
+		
+		//STN machine recipes
+		CraftingGroups.crafting.addRecipeGrid(new ItemEntry[]{
+		STN_a.base, ContentsBlocks.CHEST,
+		}, 2, 1, STN_terminal);
+		CraftingGroups.crafting.addRecipeGrid(new ItemEntry[]{
+		STN_a.base, ContentsBlocks.HOPPER,
+		}, 2, 1, STN_exporter);
+		CraftingGroups.crafting.addRecipeGrid(new ItemEntry[]{
+		STN_a.base, ContentsBlocks.HOPPER_suck,
+		}, 2, 1, STN_importer);
+		CraftingGroups.crafting.addRecipeGrid(new ItemEntry[]{
+		STN_a.base, ContentsBlocks.HOPPER_both,
+		}, 2, 1, STN_storage);
+		CraftingGroups.crafting.addRecipeGrid(new ItemEntry[]{
+		STN_a.base, ModularChests.chest,
+		}, 2, 1, STN_fw);
 	}
 	
 	

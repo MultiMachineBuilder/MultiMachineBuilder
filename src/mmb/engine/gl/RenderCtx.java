@@ -11,7 +11,6 @@ import org.joml.Vector4f;
 import org.joml.Vector4fc;
 
 import mmb.NN;
-import mmb.engine.texture.Textures;
 import mmb.engine.texture.Textures.Texture;
 
 /**
@@ -20,14 +19,6 @@ import mmb.engine.texture.Textures.Texture;
  */
 public abstract class RenderCtx implements AutoCloseable{
 	@NN private static final Vector4fc WHITE = new Vector4f(1, 0, 0, 0);
-	@NN private static final Texture PLAIN = Textures.get1("plain.png");
-	@NN private static final Vector2fc q1 = new Vector2f(0, 0);
-	@NN private static final Vector2fc q2 = new Vector2f(0, 1);
-	@NN private static final Vector2fc q3 = new Vector2f(1, 1);
-	@NN private static final Vector2fc q4 = new Vector2f(1, 0);
-
-	@NN private final Vector2f r2f1 = new Vector2f();
-	
 	//Z-index
 	/**
 	 * Sets the z-index, which is used for ordering elements.
@@ -403,7 +394,6 @@ public abstract class RenderCtx implements AutoCloseable{
 	 * @param maxIn maximum corner of the input
 	 * @param minOut minimum corner of the input
 	 * @param maxOut maximum corner of the input
-	 * @return new graphics context
 	 * 
 	 * See the source for a clear image
 	 * transform A-B to C-D
@@ -434,7 +424,6 @@ public abstract class RenderCtx implements AutoCloseable{
 	 * @param beginA the A vertex on the image
 	 * @param thirdA the B vertex on the image
 	 * @param secondA the C vertex on the image
-	 * @return new graphics context
 	 * 
 	 * See the source for a clear image
 	 * transform B-A-C to E-D-F
@@ -480,7 +469,6 @@ public abstract class RenderCtx implements AutoCloseable{
 	/**
 	 * Transforms using a matrix
 	 * @param mat transformation matrix
-	 * @return
 	 */
 	public void transform(Matrix2fc mat) {
 		transform(mat, new Vector2f());
@@ -496,7 +484,6 @@ public abstract class RenderCtx implements AutoCloseable{
 	/**
 	 * Transforms this context
 	 * @param tf transform to apply
-	 * @return new graphics context
 	 */
 	public void transform(Transform2 tf) {
 		transform(tf.mat, tf.offset);

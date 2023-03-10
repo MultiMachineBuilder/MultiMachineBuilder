@@ -28,6 +28,10 @@ import monniasza.collects.grid.Grid;
  *
  */
 public class CraftingRecipeGroup extends AbstractRecipeGroup<@NN Grid<ItemEntry>, @NN CraftingRecipeGroup.CraftingRecipe> {
+	/**
+	 * Creates a crafting recipe group
+	 * @param id recipe group ID
+	 */
 	public CraftingRecipeGroup(String id) {
 		super(id, CraftingRecipe.class);
 	}
@@ -47,13 +51,18 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup<@NN Grid<ItemEntry>
 	 */
 	public class CraftingRecipe implements Identifiable<Grid<ItemEntry>>, Recipe<@NN CraftingRecipe>{
 		/** The recipe group. Usually it is {@link mmb.content.CraftingGroups#crafting} */
-		@NN public final CraftingRecipeGroup group;
+		public final CraftingRecipeGroup group;
 		/** The item grid of the recipe */
-		@NN public final Grid<ItemEntry> grid;
+		public final Grid<ItemEntry> grid;
 		/** The outgoing items */
-		@NN public final RecipeOutput out;
+		public final RecipeOutput out;
 		/** The incoming items */
-		@NN public final RecipeOutput in;
+		public final RecipeOutput in;
+		/**
+		 * Creates a crafting recipe
+		 * @param grid recipe items
+		 * @param out item output
+		 */
 		public CraftingRecipe(Grid<ItemEntry> grid, RecipeOutput out) {
 			super();
 			group = CraftingRecipeGroup.this;
@@ -78,7 +87,7 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup<@NN Grid<ItemEntry>
 			return in;
 		}
 		@Override
-		public ItemEntry catalyst() {
+		public @Nil ItemEntry catalyst() {
 			return null;
 		}
 		@Override
@@ -109,10 +118,10 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup<@NN Grid<ItemEntry>
 	public CraftingRecipe addRecipe(ItemEntry in, ItemEntry out, int amount) {
 		return addRecipe(in, new ItemStack(out, amount));
 	}
-	public CraftingRecipe addRecipe(Grid<ItemEntry> in, ItemEntry out, int amount) {
+	public CraftingRecipe addRecipe(Grid<@Nil ItemEntry> in, ItemEntry out, int amount) {
 		return addRecipe(in, new ItemStack(out, amount));
 	}
-	public CraftingRecipe addRecipe(Grid<ItemEntry> in, RecipeOutput out) {
+	public CraftingRecipe addRecipe(Grid<@Nil ItemEntry> in, RecipeOutput out) {
 		@NN CraftingRecipe recipe = new CraftingRecipe(in, out);
 		insert(recipe);
 		return recipe;		

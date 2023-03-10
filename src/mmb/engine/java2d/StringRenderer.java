@@ -18,6 +18,7 @@ import mmb.Nil;
  */
 public class StringRenderer {
 	/**
+	 * Draws a multiline string with bounds
 	 * @param bound color of bounds, may be null
 	 * @param bg background color, may be null
 	 * @param text text to be drawn
@@ -60,10 +61,12 @@ public class StringRenderer {
 		renderMultilineString(string, x+margX, y+margY+fm.getAscent(), fm.getHeight(), g);
 	}
 	/**
-	 * @param s
-	 * @param x
-	 * @param y
+	 * Draws a multiline string
+	 * @param s string to render
+	 * @param x X coordinate of the string
+	 * @param y Y coordinate of the string
 	 * @param offset offset between lines
+	 * @param g graphics context
 	 */
 	public static void renderMultilineString(String s, int x, int y, int offset, Graphics g) {
 		try(Scanner scanner = new Scanner(s)){

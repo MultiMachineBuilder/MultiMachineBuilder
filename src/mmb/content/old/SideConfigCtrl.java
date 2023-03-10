@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.electric;
+package mmb.content.old;
 
 import javax.swing.JPanel;
 

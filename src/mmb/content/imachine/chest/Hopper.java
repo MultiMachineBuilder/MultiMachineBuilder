@@ -125,7 +125,6 @@ public class Hopper extends BlockEntityRotary implements ArbitraryChest, BlockAc
 	public Color getColor() {
 		return c;
 	}
-
 	@Override
 	public void setColor(Color c) {
 		this.c = c;

@@ -44,7 +44,9 @@ public class BlockDigger extends BlockEntityData implements ToItemUnifiedCollect
 	}
 	
 	//Electricity
+	/** Stores incoming electrical energy */
 	@NN public final Battery battery;
+	/** Stores energy to mine the next block */
 	@NN public final Battery hammer;
 	@Override
 	public Electricity getElectricalConnection(Side s) {
@@ -127,6 +129,7 @@ public class BlockDigger extends BlockEntityData implements ToItemUnifiedCollect
 	}
 	
 	//Block logic
+	/** Energy required to mine a block */
 	public static final double ENERGY_PER_BLOCK = 5000;
 	@Override
 	public void onTick(MapProxy map) {

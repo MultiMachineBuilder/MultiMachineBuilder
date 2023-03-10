@@ -12,6 +12,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import mmb.NN;
 import mmb.engine.debug.Debugger;
 
 /**
@@ -19,18 +20,33 @@ import mmb.engine.debug.Debugger;
  * @author oskar
  */
 public class OnlineFile implements AdvancedFile {
-	private File download = null;
 	private static final Debugger debug = new Debugger("FILES");
-	public final URL url;
+	/** File URL */
+	@NN public final URL url;
+	
 	/**
-	 * 
+	 * Creates an online file
+	 * @param l file URL
 	 */
 	public OnlineFile(URL l) {
 		url = l;
 	}
+	/**
+	 * Creates an online file
+	 * @param l file URI
+	 * @throws MalformedURLException If a protocol handler for the URL could not be found,
+	 * or if some other error occurred while constructing the URL
+	 */
+	@SuppressWarnings("null")
 	public OnlineFile(URI l) throws MalformedURLException {
 		url = l.toURL();
 	}
+	/**
+	 * Creates an online file
+	 * @param l file URL
+	 * @throws MalformedURLException if no protocol is specified, or an unknown protocol is found,
+	 * or spec is null, or the parsed URL fails to comply with the specific syntax of the associated protocol.
+	 */
 	public OnlineFile(String l) throws MalformedURLException {
 		url = new URL(l);
 	}
@@ -38,6 +54,7 @@ public class OnlineFile implements AdvancedFile {
 	/* (non-Javadoc)
 	 * @see mmb.DATA.file.AdvancedFile#getInputStream()
 	 */
+	@SuppressWarnings("null")
 	@Override
 	public InputStream getInputStream() throws IOException {
 		return url.openStream();

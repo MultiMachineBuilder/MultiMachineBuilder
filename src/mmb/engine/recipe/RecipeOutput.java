@@ -181,6 +181,11 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 		return getContents().keySet();
 	}
 	
+	/**
+	 * Prevents the output from becoming null
+	 * @param rout recipe output
+	 * @return an empty recipe output if null, or else the input recipe output
+	 */
 	@NN public static RecipeOutput orDefault(@Nil RecipeOutput rout) {
 		if(rout == null) return NONE;
 		return rout;
@@ -193,7 +198,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	 * @return sum of two recipe outputs
 	 */
 	public default SimpleItemList add(RecipeOutput rout) {
-		Object2IntOpenHashMap<ItemEntry> map = new Object2IntOpenHashMap<>(getContents());
+		Object2IntOpenHashMap<@NN ItemEntry> map = new Object2IntOpenHashMap<>(getContents());
 		for(ItemStack items: rout) 
 			map.addTo(items.item, items.amount);
 		return new SimpleItemList(map);
@@ -213,7 +218,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	 * @return sum of two recipe outputs
 	 */
 	public default SimpleItemList add(ItemEntry item, int amount) {
-		Object2IntOpenHashMap<ItemEntry> map = new Object2IntOpenHashMap<>(getContents());
+		Object2IntOpenHashMap<@NN ItemEntry> map = new Object2IntOpenHashMap<>(getContents());
 		map.addTo(item, amount);
 		return new SimpleItemList(map);
 	}
@@ -222,7 +227,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	 * @param amount mutiplier
 	 * @return product
 	 */
-	public default Stream<ItemStack> mul2stream(int amount) {
+	public default Stream<@NN ItemStack> mul2stream(int amount) {
 		return getContents()
 			.object2IntEntrySet()
 			.stream()
@@ -231,13 +236,13 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	/**
 	 * Mutiplies this recipe output into a map entry stack stream
 	 * @param amount mutiplier
-	 * @return product
+	 * @return product of the recipe output by the amount
 	 */
-	public default Stream<Object2IntMap.Entry<ItemEntry>> mul2entrystream(int amount) {
+	public default Stream<Object2IntMap.Entry<@NN ItemEntry>> mul2entrystream(int amount) {
 		return getContents()
 			.object2IntEntrySet()
 			.stream()
-			.map(entry -> new AbstractObject2IntMap.BasicEntry<ItemEntry>(entry.getKey(), entry.getIntValue()*amount));
+			.map(entry -> new AbstractObject2IntMap.BasicEntry<>(entry.getKey(), entry.getIntValue()*amount));
 	}
 	/**
 	 * Mutiplies this recipe output into an item list
@@ -249,12 +254,16 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	}
 	/**
 	 * Mutiplies this recipe output into a map
+	 * @param <M> type of the map
 	 * @param amount mutiplier
-	 * @return product
+	 * @param map produces maps
+	 * @return product of the recipe output by an amount
 	 */
+	@SuppressWarnings("null")
 	public default <M extends Object2IntMap<ItemEntry>> M mul2map(int amount, Supplier<M> map) {
 		return mul2entrystream(amount).collect(Collects.collectToIntMap(map));
 	}
+	@SuppressWarnings("null")
 	@Override
 	default @NN Iterator<ItemStack> iterator() {
 		return Iterators.transform(getContents().object2IntEntrySet().iterator(), RecipeOutput::entry2stack);

@@ -8,8 +8,6 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import com.fasterxml.jackson.databind.JsonNode;
-
 import mmb.beans.Saver;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
@@ -149,11 +147,6 @@ public interface Machine extends Saver{
 	 * 		</ul>
 	 * 	</li>
 	 * </ul>
-	 * @param obj object which requested placement:
-	 * 		<br>class name if GameObject item not provided
-	 * 		<br>player instance if placed by player
-	 * 		<br>WorldBehavior instance if placed by a WorldBehavior
-	 * 		<br>MapBehavior instance if placed by a MapBehavior
 	 */
 	public void onPlace();
 	/**
@@ -169,12 +162,6 @@ public interface Machine extends Saver{
 	 * 		</ul>
 	 * 	</li>
 	 * </ul>
-	 * @param obj object which requested placement:
-	 * 		<br>class name if GameObject item not provided
-	 * 		<br>player instance if mined by player
-	 * 		<br>WorldBehavior instance if mined by a WorldBehavior
-	 * 		<br>MapBehavior instance if mined by a MapBehavior
-	 * 		<br>null if mined by player in LSP
 	 */
 	public void onRemove();
 	/**    

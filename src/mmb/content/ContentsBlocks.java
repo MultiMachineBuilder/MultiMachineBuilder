@@ -117,7 +117,12 @@ public class ContentsBlocks {
 			.texture("block/gravel.png")
 			.title("#gravel")
 			.finish("mmb.gravel");
-
+	/** Currently unused */
+	@NN public static final Block clay = new Block()
+	.texture("block/clay.png")
+	.title("#clay")
+	.finish("mmb.clay");
+	
 	//WireWorld wires
 	/**
 	 * A WireWorld cell.
@@ -443,11 +448,6 @@ public class ContentsBlocks {
 	.texture("liquid/steam.png")
 	.title("#steam")
 	.finish("liquid.steam");
-	/** Currently unused */
-	@NN public static final Block clay = new Block()
-	.texture("block/clay.png")
-	.title("#clay")
-	.finish("mmb.clay");
 	
 	//Non-electic processing machines
 	/** A basic, non-electric furnace capable of ULV recipes */
@@ -480,7 +480,7 @@ public class ContentsBlocks {
 	@NN public static final ElectricMachineGroup bextruder = machinesSimpleCat("machine/extruder.png", CraftingGroups.extruder, "extruder");
 	/** Produces IC dies and ICs */
 	@NN public static final ElectricMachineGroup binscriber = machinesSimpleCat("machine/inscriber.png", CraftingGroups.inscriber, "inscriber");
-	/** Produces sintwered carbides */
+	/** Produces sintered carbides */
 	@NN public static final ElectricMachineGroup bsinterer = machinesComplex("machine/sinterer.png", CraftingGroups.sinterer, "sinterer");
 	/** Excavates the specified area up to a limit */
 	@NN public static final ElectricMachineGroup bdig = createDigger();
@@ -553,7 +553,7 @@ public class ContentsBlocks {
 		.finish("industry.autocraft1");
 	/**
 	 * @deprecated An old block for a furnace.
-	 * Use {@link #efurnace}{@code .}{@link #ElectricMachineGroup.get(int) get}{@code (1)} instead
+	 * Use {@link #efurnace}{@code .}{@link ElectricMachineGroup#get(int) get}{@code (1)} instead
 	 * @replacementVer 0.5-pre5
 	 * @removal 0.6
 	 */

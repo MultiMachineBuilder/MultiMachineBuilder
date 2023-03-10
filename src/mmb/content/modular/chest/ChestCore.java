@@ -27,7 +27,6 @@ import mmb.menu.world.inv.InventoryController;
 /**
  * A chest core
  * @author oskar
- * @param <SaveInventory> type of the inventory
  */
 public abstract class ChestCore extends PartEntity implements BlockCore<ChestCore>{
 	/** Base constructor for chest cores */
@@ -123,12 +122,12 @@ public abstract class ChestCore extends PartEntity implements BlockCore<ChestCor
 		}
 	}
 	
-	@NN private static final BufferedImage[] font;
+	@NN private static final BufferedImage @NN [] font;
 	static {
 		BufferedImage srcfont = Textures.get("nums.png");
 		int chwidth = 5;
 		int chheight = 9;
-		BufferedImage[] font0 = new BufferedImage[12]; 
+		@NN BufferedImage @NN [] font0 = new @NN BufferedImage @NN [12]; 
 		for(int i = 0; i < 6; i++) {
 			int x = i*chwidth;
 			font0[i] = srcfont.getSubimage(x, 0, chwidth, chheight);

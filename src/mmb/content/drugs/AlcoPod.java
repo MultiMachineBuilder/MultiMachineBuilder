@@ -20,7 +20,7 @@ import mmb.menu.wtool.WindowTool;
  *  +-----------------------------------------------------+
  */
 public class AlcoPod extends Item implements Intoxicating {
-	// Constructors
+	//Constructors
 	/**
 	 * Creates an alcoholic beverage
 	 * @param dose amount of alcohol per drink

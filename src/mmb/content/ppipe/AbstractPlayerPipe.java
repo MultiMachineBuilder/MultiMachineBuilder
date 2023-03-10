@@ -4,6 +4,7 @@
 package mmb.content.ppipe;
 
 import mmb.NN;
+import mmb.Nil;
 import mmb.engine.block.BlockEntityChirotable;
 import mmb.engine.rotate.Side;
 import mmb.engine.rotate.Sided;
@@ -36,7 +37,8 @@ public abstract class AbstractPlayerPipe extends BlockEntityChirotable {
 	public void onPlace(World map, int x, int y) {
 		initConnections(x, y);
 	}
-	public final Sided<PipeTunnelEntry> sides = new Sided<>();
+	/** List of all player pipe entrances */
+	public final Sided<@Nil PipeTunnelEntry> sides = new Sided<>();
 	@Override
 	public PipeTunnelEntry getPipeTunnel(Side s) {
 		return sides.get(getChirotation().negate().apply(s));

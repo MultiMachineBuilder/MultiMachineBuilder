@@ -12,7 +12,6 @@ import javax.swing.border.BevelBorder;
 
 import mmb.NN;
 import mmb.content.modular.gui.SafeCloseable;
-import mmb.data.variables.ListenableValue;
 import mmb.engine.settings.GlobalSettings;
 import mmb.menu.components.ItemSelectionSlot;
 import mmb.menu.databind.IntVarSpinnerModel;
@@ -21,9 +20,7 @@ import mmb.menu.world.inv.InventoryController;
 import java.awt.Color;
 import javax.swing.JSpinner;
 import mmb.menu.world.inv.SingleInventoryController;
-import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.menu.world.inv.MoveItems;
-import mmb.menu.world.inv.AbstractInventoryController;
 
 /**
  *
@@ -50,7 +47,8 @@ public class MoverModuleSetup extends JPanel implements SafeCloseable{
 
 	/**
 	 * Create the panel.
-	 * @param invctrl 
+	 * @param invctrl player inventory controller
+	 * @param module block module
 	 */
 	public MoverModuleSetup(InventoryController invctrl, MoverModule module) {
 		setLayout(new MigLayout("", "[grow][]", "[][][][][grow]"));

@@ -20,8 +20,6 @@ import net.miginfocom.swing.MigLayout;
 import io.github.parubok.text.multiline.MultilineLabel;
 import mmb.NN;
 import mmb.content.electric.ElectricalBatteryVisualiser;
-import mmb.content.electric.SideConfig;
-import mmb.content.electric.SideConfigCtrl;
 import mmb.content.old.SkeletalBlockMachine.Update;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;

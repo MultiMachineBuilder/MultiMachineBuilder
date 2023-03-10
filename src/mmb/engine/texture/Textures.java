@@ -15,7 +15,6 @@ import org.joml.Vector2fc;
 import org.joml.Vector2i;
 import org.joml.Vector4f;
 
-import mmb.Main;
 import mmb.NN;
 import mmb.Nil;
 import mmb.engine.NotFoundException;
@@ -34,7 +33,7 @@ public class Textures {
 	private static final Debugger debug = new Debugger("TEXTURES");
 	
 	//Raw data
-	private static final SelfSet<String, Texture> loadedTextures0 = HashSelfSet.createNonnull(Texture.class);
+	private static final SelfSet<@NN String, @NN Texture> loadedTextures0 = HashSelfSet.createNonnull(Texture.class);
 	private static final TextureAtlas atlas = new TextureAtlas();
 	
 	/**
@@ -108,7 +107,7 @@ public class Textures {
 	 * A texture used by MultiMachineBuilder
 	 * @author oskar
 	 */
-	public static class Texture implements Identifiable<String>{
+	public static class Texture implements Identifiable<@NN String>{
 		/** Left pixel X coordinate in texture atlas*/
 		public final int minx;
 		/** Upper pixel Y coordinate in texture atlas*/
@@ -165,7 +164,11 @@ public class Textures {
 		@NN public String id() {
 			return id;
 		}
-		/** @return level of detail color */
+		/**
+		 * Replaces the vector with a LOD color
+		 * @param vec vector to replace with a level of detail color
+		 * @return vec
+		 */
 		public Vector4f LOD(Vector4f vec) {
 			if(lod == null) lod = LODs.calcLOD(img, new Vector4f());
 			return lod.get(vec);

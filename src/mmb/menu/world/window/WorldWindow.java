@@ -64,9 +64,9 @@ import javax.swing.JProgressBar;
  *
  *
  * <h2>WINDOW TABS</h2>
- * {@link #openWindow(Component, String)} - opens a tab without going to it
- * {@link #openAndShowWindow(Component, String)} - opens a tab and shows it
- * {@link #closeWindow(Component)} - closes a tab
+ * {@link #openWindow(GUITab, String)} - opens a tab without going to it
+ * {@link #openAndShowWindow(GUITab, String)} - opens a tab and shows it
+ * {@link #closeWindow(GUITab)} - closes a tab
  */
 public class WorldWindow extends MMBFrame{
 	private static final long serialVersionUID = -3444481558687472298L;
@@ -156,10 +156,10 @@ public class WorldWindow extends MMBFrame{
 		});
 		
 		//root split pane
-			JSplitPane rootPane = new JSplitPane();
-			rootPane.setResizeWeight(1.0);
-			rootPane.setDividerLocation(0.8);
-			getContentPane().add(rootPane, BorderLayout.CENTER);
+			JSplitPane rootPane1 = new JSplitPane();
+			rootPane1.setResizeWeight(1.0);
+			rootPane1.setDividerLocation(0.8);
+			getContentPane().add(rootPane1, BorderLayout.CENTER);
 			//Viewport tabbed pane
 				pane = new JTabbedPane();
 				//[start] World pane
@@ -234,7 +234,7 @@ public class WorldWindow extends MMBFrame{
 					TabRecipes recipePane = new TabRecipes();
 					pane.addTab($res("wgui-recipes"), null, recipePane, null);
 				//[end]
-			rootPane.setLeftComponent(pane);
+			rootPane1.setLeftComponent(pane);
 
 			//tool panel
 				//editor split pane: placement/destruction GUI
@@ -242,7 +242,7 @@ public class WorldWindow extends MMBFrame{
 					toolEditorSplitPane.setDividerLocation(128);
 					toolEditorSplitPane.setResizeWeight(0.5);
 					toolEditorSplitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
-					rootPane.setRightComponent(toolEditorSplitPane);
+					rootPane1.setRightComponent(toolEditorSplitPane);
 					//Editor tabbed pane
 						dialogs = new JTabbedPane(SwingConstants.LEFT);
 						toolEditorSplitPane.setLeftComponent(dialogs);
@@ -498,9 +498,12 @@ public class WorldWindow extends MMBFrame{
 	}
 	
 	//Events
-	public static final Event<WorldWindow> wwindowOpen = new CatchingEvent<>(debug, "Failed to run world window opened event");
-	public        final Event<World> worldLoaded = new CatchingEvent<>(debug, "Failed to run world world loaded event");
-	public        final Event<World> worldLeft = new CatchingEvent<>(debug, "Failed to run world world left event");
+	/** Invoked when a world window is opened */
+	public static final Event<@NN WorldWindow> wwindowOpen = new CatchingEvent<>(debug, "Failed to run world window opened event");
+	/** Invoked when a world is loaded in this world window */
+	public        final Event<@NN World> worldLoaded = new CatchingEvent<>(debug, "Failed to run world world loaded event");
+	/** Invoked when a world is unloaded in this world window */
+	public        final Event<@NN World> worldLeft = new CatchingEvent<>(debug, "Failed to run world world left event");
 	private JProgressBar progressHP;
 
 	/** @return an item selected by the player */

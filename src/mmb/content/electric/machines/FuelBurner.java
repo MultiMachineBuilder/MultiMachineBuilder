@@ -14,14 +14,20 @@ import mmb.engine.item.ItemEntry;
  * @author oskar
  */
 public class FuelBurner {
+	/** Energy efficiency, 1 for the same energy as the original fuel */
 	public final double mul;
+	/** The items, from where fuel is consumed */
 	public final Inventory inv;
+	/** The target power storage */
 	public final Battery bat;
+	/** This fuel burner's fuel-to-energy map in joules */
 	public final Object2DoubleMap<ItemEntry> fuels;
+	
 	/**
 	 * @param mul efficiency multiplier (1 is equal to normal furnace efficiency)
 	 * @param inv the inventory to extract fuels from
 	 * @param bat the target power output
+	 * @param fuels fuel-to-energy map in joules
 	 */
 	public FuelBurner(double mul, Inventory inv, Battery bat, Object2DoubleMap<ItemEntry> fuels) {
 		super();
@@ -30,9 +36,7 @@ public class FuelBurner {
 		this.bat = bat;
 		this.fuels = fuels;
 	}
-	/**
-	 * Polls the inventory and burns any fuels within
-	 */
+	/** Polls the inventory and burns any fuels within */
 	public void cycle(){
 		for(ItemRecord ir: inv) {
 			if(ir.amount() == 0) continue; //The item record is empty

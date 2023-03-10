@@ -3,6 +3,7 @@
  */
 package mmb.content.imachine.filter;
 
+import mmb.NN;
 import mmb.Nil;
 import mmb.cgui.DestroyTab;
 import mmb.engine.inv.storage.SingleItemInventory;
@@ -24,6 +25,6 @@ public interface ControllableFilter extends DestroyTab{
 	 * otherwise the {@link FilterGUI} will fail with {@link IllegalStateException};
 	 * @return a list of filter titles
 	 */
-	@Nil public String[] getTitles();
+	@NN public String @Nil [] getTitles();
 	
 }

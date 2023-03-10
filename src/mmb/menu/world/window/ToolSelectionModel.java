@@ -17,6 +17,7 @@ import mmb.menu.wtool.WindowTool;
 public class ToolSelectionModel {
 	private WindowTool toolIL;
 	private WindowTool toolTL;
+	/** This tool selection model's world window */
 	@Nil public final WorldWindow window;
 	private static final Debugger debug = new Debugger("TOOL SELECTOR");
 	/**
@@ -29,16 +30,21 @@ public class ToolSelectionModel {
 		tool.listenadd(this::toolAdded);
 	}
 
-	/** Invoked when an item is selected from an item list */
-	public void toolSelectedItemList(@Nil WindowTool tool) {
-		debug.printl("IL tool: "+tool);
-		toolIL = tool;
+	/**
+	 * Invoked when an item is selected from an item list 
+	 * @param tool1 newly selected tool
+	 */
+	public void toolSelectedItemList(@Nil WindowTool tool1) {
+		debug.printl("IL tool: "+tool1);
+		toolIL = tool1;
 		resetTools();
 	}
-	/** Invoked when an item is selected from a tool list */
-	public void toolSelectedToolList(@Nil WindowTool tool) {
-		debug.printl("TL tool: "+tool);
-		toolTL = tool;
+	/** Invoked when an item is selected from a tool list
+	 * @param tool1 newly selected tool
+	 */
+	public void toolSelectedToolList(@Nil WindowTool tool1) {
+		debug.printl("TL tool: "+tool1);
+		toolTL = tool1;
 		resetTools();
 	}
 	

@@ -684,24 +684,6 @@
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\assembly 6.png
 (MOD-LOADER) Loading a texture machine\assembly 6.png
 (TEXTURES) Loading texture: machine/assembly 6.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\autoassembly 1.png
-(MOD-LOADER) Loading a texture machine\autoassembly 1.png
-(TEXTURES) Loading texture: machine/autoassembly 1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\autoassembly 2.png
-(MOD-LOADER) Loading a texture machine\autoassembly 2.png
-(TEXTURES) Loading texture: machine/autoassembly 2.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\autoassembly 3.png
-(MOD-LOADER) Loading a texture machine\autoassembly 3.png
-(TEXTURES) Loading texture: machine/autoassembly 3.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\autoassembly 4.png
-(MOD-LOADER) Loading a texture machine\autoassembly 4.png
-(TEXTURES) Loading texture: machine/autoassembly 4.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\autoassembly 5.png
-(MOD-LOADER) Loading a texture machine\autoassembly 5.png
-(TEXTURES) Loading texture: machine/autoassembly 5.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\autoassembly 6.png
-(MOD-LOADER) Loading a texture machine\autoassembly 6.png
-(TEXTURES) Loading texture: machine/autoassembly 6.png
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\AutoCrafter 1.png
 (MOD-LOADER) Loading a texture machine\AutoCrafter 1.png
 (TEXTURES) Loading texture: machine/AutoCrafter 1.png
@@ -867,9 +849,6 @@
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\pipe wye.png
 (MOD-LOADER) Loading a texture machine\pipe wye.png
 (TEXTURES) Loading texture: machine/pipe wye.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\pipes.png
-(MOD-LOADER) Loading a texture machine\pipes.png
-(TEXTURES) Loading texture: machine/pipes.png
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\placer.png
 (MOD-LOADER) Loading a texture machine\placer.png
 (TEXTURES) Loading texture: machine/placer.png
@@ -1088,13 +1067,6 @@
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\printer.png
 (MOD-LOADER) Loading a texture printer.png
 (TEXTURES) Loading texture: printer.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\road
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\road\road center.png
-(MOD-LOADER) Loading a texture road\road center.png
-(TEXTURES) Loading texture: road/road center.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\road\road connector.png
-(MOD-LOADER) Loading a texture road\road connector.png
-(TEXTURES) Loading texture: road/road connector.png
 (MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\special
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\special\invalid.png
 (MOD-LOADER) Loading a texture special\invalid.png
@@ -1329,6 +1301,8 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
  (no description)
 (ITEMS) Adding mmb.gravel with title Gravel and description:
  (no description)
+(ITEMS) Adding mmb.clay with title Clay and description:
+ (no description)
 (ITEMS) Adding wireworld.wire with title WireWorld cell and description:
  (no description)
 (ITEMS) Adding wireworld.head with title WireWorld head and description:
@@ -1485,8 +1459,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Adding liquid.lava with title Lava and description:
  (no description)
 (ITEMS) Adding liquid.steam with title Steam and description:
- (no description)
-(ITEMS) Adding mmb.clay with title Clay and description:
  (no description)
 (ITEMS) Adding industry.furnace with title Furnace and description:
  (no description)
@@ -7921,51 +7893,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item STN Exporter(stnb.exporter) with STN
 (ITEMS) Tagging Item STN Importer(stnb.importer) with STN
 (ITEMS) Tagging Item STN Framework(stnb.framework) with STN
-(ITEMS) Adding rawitem.stn.cabler with title STN cabler (raw) and description:
- Modifies hanging STN cables
-(ITEMS) Tagging ItemRaw Item STN cabler(stn.cabler) with STN
-(ITEMS) Tagging ItemRaw Item STN cabler(stn.cabler) with raw
-(ITEMS) Adding industry.transformer0 with title Transformer VLV/ULV and description:
- (no description)
-(ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with voltage-VLV
-(ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with voltage-ULV
-(ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with machine-transformer
-(ITEMS) Adding industry.transformer1 with title Transformer LV/VLV and description:
- (no description)
-(ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with voltage-LV
-(ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with voltage-VLV
-(ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with machine-transformer
-(ITEMS) Adding industry.transformer2 with title Transformer MV/LV and description:
- (no description)
-(ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with voltage-MV
-(ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with voltage-LV
-(ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with machine-transformer
-(ITEMS) Adding industry.transformer3 with title Transformer HV/MV and description:
- (no description)
-(ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with voltage-HV
-(ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with voltage-MV
-(ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with machine-transformer
-(ITEMS) Adding industry.transformer4 with title Transformer EV/HV and description:
- (no description)
-(ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with voltage-EV
-(ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with voltage-HV
-(ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with machine-transformer
-(ITEMS) Adding industry.transformer5 with title Transformer IV/EV and description:
- (no description)
-(ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with voltage-IV
-(ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with voltage-EV
-(ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with machine-transformer
-(ITEMS) Adding industry.transformer6 with title Transformer LuV/IV and description:
- (no description)
-(ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with voltage-LuV
-(ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with voltage-IV
-(ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with machine-transformer
-(ITEMS) Adding industry.transformer7 with title Transformer MAX/LuV and description:
- (no description)
-(ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with voltage-MAX
-(ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with voltage-LuV
-(ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with machine-transformer
-(FullScreen) Setting up FullScreen
 (ITEMS) Adding modchest.chest with title Modular Chest and description:
  (no description)
 (ITEMS) Adding modchest.plug with title Plug and description:
@@ -8138,6 +8065,51 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Modular Chest(modchest.chest) with modchest
 (ITEMS) Tagging Item Plug(modchest.plug) with modular
 (ITEMS) Tagging Item Plug(modchest.plug) with modchest
+(ITEMS) Adding rawitem.stn.cabler with title STN cabler (raw) and description:
+ Modifies hanging STN cables
+(ITEMS) Tagging ItemRaw Item STN cabler(stn.cabler) with STN
+(ITEMS) Tagging ItemRaw Item STN cabler(stn.cabler) with raw
+(ITEMS) Adding industry.transformer0 with title Transformer VLV/ULV and description:
+ (no description)
+(ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with voltage-VLV
+(ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with voltage-ULV
+(ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with machine-transformer
+(ITEMS) Adding industry.transformer1 with title Transformer LV/VLV and description:
+ (no description)
+(ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with voltage-LV
+(ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with voltage-VLV
+(ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with machine-transformer
+(ITEMS) Adding industry.transformer2 with title Transformer MV/LV and description:
+ (no description)
+(ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with voltage-MV
+(ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with voltage-LV
+(ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with machine-transformer
+(ITEMS) Adding industry.transformer3 with title Transformer HV/MV and description:
+ (no description)
+(ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with voltage-HV
+(ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with voltage-MV
+(ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with machine-transformer
+(ITEMS) Adding industry.transformer4 with title Transformer EV/HV and description:
+ (no description)
+(ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with voltage-EV
+(ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with voltage-HV
+(ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with machine-transformer
+(ITEMS) Adding industry.transformer5 with title Transformer IV/EV and description:
+ (no description)
+(ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with voltage-IV
+(ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with voltage-EV
+(ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with machine-transformer
+(ITEMS) Adding industry.transformer6 with title Transformer LuV/IV and description:
+ (no description)
+(ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with voltage-LuV
+(ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with voltage-IV
+(ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with machine-transformer
+(ITEMS) Adding industry.transformer7 with title Transformer MAX/LuV and description:
+ (no description)
+(ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with voltage-MAX
+(ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with voltage-LuV
+(ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with machine-transformer
+(FullScreen) Setting up FullScreen
 (MAIN) State: Looking for mods
 (MOD-LOADER) Added missing mods directory
 (MOD-LOADER) Walking: C:\Users\oskar\git\MultiMachineBuilder\mods
@@ -8236,6 +8208,979 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found save: The longest player pipe ever.mworld
 (SELECT A SAVE) Found save: The smallest all in one quarry system.mworld
 (SELECT A SAVE) Found 24 saves
+(WORLD TEST) 1761 items
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@7cf379b8
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(WORLD TEST) Number of zoom levels: 48
+(WORLD TEST) Scrollbar max: 57
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Parsed file
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEM LISTS) Item list node is null
+(ITEM LISTS) Item list node is null
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(DATA LAYERS) Loading world data layer: STN
+(ITEMS) Invalid item: Infinity
+(INVENTORIES) Unsupported null item
+(MAP anonymous) Became anonymous
+(SELECT A SAVE) Loaded
+(WORLD - IDLE) Exiting
+(WORLDS) Opening a new world
+(AWT-EventQueue-0) A thread has thrown an exception
+(AWT-EventQueue-0) java.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for length 10
+	at java.desktop/javax.swing.plaf.basic.BasicListUI.updateLayoutState(BasicListUI.java:1446)
+	at java.desktop/javax.swing.plaf.basic.BasicListUI.maybeUpdateLayoutState(BasicListUI.java:1389)
+	at java.desktop/javax.swing.plaf.basic.BasicListUI.getPreferredSize(BasicListUI.java:648)
+	at java.desktop/javax.swing.JComponent.getPreferredSize(JComponent.java:1680)
+	at java.desktop/javax.swing.ScrollPaneLayout.layoutContainer(ScrollPaneLayout.java:795)
+	at java.desktop/java.awt.Container.layout(Container.java:1537)
+	at java.desktop/java.awt.Container.doLayout(Container.java:1526)
+	at java.desktop/java.awt.Container.validateTree(Container.java:1722)
+	at java.desktop/java.awt.Container.validate(Container.java:1657)
+	at java.desktop/javax.swing.RepaintManager$3.run(RepaintManager.java:745)
+	at java.desktop/javax.swing.RepaintManager$3.run(RepaintManager.java:743)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.desktop/javax.swing.RepaintManager.validateInvalidComponents(RepaintManager.java:742)
+	at java.desktop/javax.swing.RepaintManager$ProcessingRunnable.run(RepaintManager.java:1889)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(WORLD TEST) Exiting the world
+(WORLD - ) Saving main BlockMap
+(DATA LAYERS) Saving world data layer: STN
+(WORLD TEST) Saving the world
+(WORLD TEST) Saved the world
+(WORLD - main null) Exiting
+(MAP anonymous) Destroying
+(MAP anonymous) Shutdown
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
+(WORLD TEST) 1761 items
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@48a21372
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(WORLD TEST) Number of zoom levels: 48
+(WORLD TEST) Scrollbar max: 57
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Parsed file
+(ITEM LISTS) Item list node is null
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(DATA LAYERS) Loading world data layer: STN
+(ITEMS) Invalid item: Infinity
+(INVENTORIES) Unsupported null item
+(MAP anonymous) Became anonymous
+(SELECT A SAVE) Loaded
+(WORLD - IDLE) Exiting
+(WORLDS) Opening a new world
+(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
+(PROCESS HELPER) Item collection
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
+(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
+(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
+(PROCESS HELPER) Item collection
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 1 of Item Iron cluster(fcluster.iron), expected 1
+(INVENTORIES0) Extracted 1 of Item Coal cluster(fcluster.coal), expected 1
+(INVENTORIES) Inserted 2 of Item Steel cluster(fcluster.steel), expected 2
+(PROCESS HELPER) Item collection
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(TOOL-STANDARD) Running BlockActivateListener for: [-10,-12]
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(WORLD TEST) Exiting the world
+(WORLD - ) Saving main BlockMap
+(DATA LAYERS) Saving world data layer: STN
+(WORLD TEST) Saving the world
+(WORLD TEST) Saved the world
+(WORLD - main null) Exiting
+(MAP anonymous) Destroying
+(MAP anonymous) Shutdown
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
 (SETTINGS) Resetting a setting country with value US
 (SETTINGS) Resetting a setting sortItems with value true
 (SETTINGS) Resetting a setting dumpBundles with value true

@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import mmb.NN;
+import mmb.engine.NotFoundException;
 import mmb.engine.item.Item;
 import mmb.engine.item.Items;
 import mmb.engine.java2d.TexGen;
@@ -20,7 +21,9 @@ import mmb.engine.texture.Textures;
  * @author oskar
  */
 public class VoltagedItemGroup {
+	/** All items in this group */
 	@NN public final List<@NN Item> items;
+	/** All item textures */
 	@NN public final List<@NN BufferedImage> images;
 	private static final VoltageTier[] volts = VoltageTier.values();
 	/**
@@ -46,8 +49,10 @@ public class VoltagedItemGroup {
 		}
 	}
 	/**
-	 * @param string
-	 * @param id
+	 * Creates a voltaged item group
+	 * @param texture texture name
+	 * @param id group ID
+	 * @throws NotFoundException when texture does not exist
 	 */
 	public VoltagedItemGroup(String texture, String id) {
 		this(Textures.get(texture), id);

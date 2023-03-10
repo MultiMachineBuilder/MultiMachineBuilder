@@ -58,22 +58,32 @@ public class BlockTransformer extends BlockEntityRotary {
 	 * This class contains information about transformer tiers
 	 */
 	public enum TransformerData{
+		/** ULV/VLV */
 		VLV(VoltageTier.V2, VoltageTier.V1),
+		/** LV/ULV */
 		 LV(VoltageTier.V3, VoltageTier.V2),
+		 /** MV/LV */
 		 MV(VoltageTier.V4, VoltageTier.V3),
+		 /** HV/MV */
 		 HV(VoltageTier.V5, VoltageTier.V4),
+		 /** EV/HV */
 		 EV(VoltageTier.V6, VoltageTier.V5),
+		 /** IV/EV */
 		 IV(VoltageTier.V7, VoltageTier.V6),
+		 /** LuV/IV */
 		LuV(VoltageTier.V8, VoltageTier.V7),
+		/** MAX/LuV */
 		MAX(VoltageTier.V9, VoltageTier.V8);
 		
+		/** The higher voltage of this transformer (three dots)*/
 		@NN public final VoltageTier high;
+		/** The lower voltage of this transformer (one dot) */
 		@NN public final VoltageTier low;
+		/** The associated voltage tier */
 		@NN public final BlockEntityType type;
+		/** The associated rotated image group */
 		@NN public final RotatedImageGroup image;
-		/**
-		 * Initializes the transformers
-		 */
+		/** Initializes the transformers */
 		public static void init() { /* used just for initialization */ }
 		TransformerData(VoltageTier high, VoltageTier low) {
 			this.high = high;
@@ -94,7 +104,7 @@ public class BlockTransformer extends BlockEntityRotary {
 	
 	//Electrical data
 	public double ppres;
-	/**1-up, 2-down, 3-right*/
+	
 	@NN private ElecLow elow = new ElecLow();
 	@NN private ElecHi ehigh = new ElecHi();
 	

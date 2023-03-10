@@ -12,7 +12,6 @@ import java.util.function.Function;
 
 import mmb.NN;
 import mmb.Nil;
-import monniasza.collects.Identifiable;
 
 /**
  * An basic map-based self-set
@@ -23,8 +22,8 @@ import monniasza.collects.Identifiable;
  */
 public class BaseMapSelfSet<K, V, M extends Map<K, V>> implements SelfSet<K, V>{
 	@NN private final M map;
-	public final boolean nullable;
-	@Nil public final Class<V> type;
+	private final boolean nullable;
+	@Nil private final Class<V> type;
 	@NN private final Function<V, K> fn;
 
 	/**
@@ -34,7 +33,7 @@ public class BaseMapSelfSet<K, V, M extends Map<K, V>> implements SelfSet<K, V>{
 	 * @param type
 	 * @param fn
 	 */
-	public BaseMapSelfSet(M map, boolean nullable, Class<V> type, Function<V, K> fn) {
+	public BaseMapSelfSet(@NN M map, boolean nullable, Class<V> type, Function<V, K> fn) {
 		this.map = map;
 		this.nullable = nullable;
 		this.type = type;
@@ -67,15 +66,15 @@ public class BaseMapSelfSet<K, V, M extends Map<K, V>> implements SelfSet<K, V>{
 	}
 
 	@Override
-	public boolean add(@SuppressWarnings("null") V e) {
+	public boolean add(V e) {
 		return map.put(id(e), e) == null;
 	}
 
 	@Override
 	public boolean containsAll(Collection<?> c) {
 		for(Object obj: c) {
-			if(!(c instanceof Identifiable)) return false;
-			Object id = ((Identifiable<?>)c).id();
+			if(!test(obj)) return false;
+			Object id = id(obj);
 			if(!map.containsKey(id)) return false;
 		}
 		return true;
@@ -145,6 +144,7 @@ public class BaseMapSelfSet<K, V, M extends Map<K, V>> implements SelfSet<K, V>{
 		return map.containsKey(key);
 	}
 
+	
 	@Override
 	public boolean test(@Nil Object o) {
 		if(o == null) return nullable;
@@ -152,22 +152,17 @@ public class BaseMapSelfSet<K, V, M extends Map<K, V>> implements SelfSet<K, V>{
 		if(cls == null) return true;
 		return cls.isInstance(o);
 	}
-
 	@SuppressWarnings("unchecked")
 	@Override
-	public K id(Object value) {
+	public K id(@Nil Object value) {
 		return fn.apply((V) value);
 	}
-
 	@Override
 	public boolean nullable() {
 		return nullable;
 	}
-
 	@Override
 	public Class<V> type() {
 		return type;
-	}
-	
-	
+	}	
 }

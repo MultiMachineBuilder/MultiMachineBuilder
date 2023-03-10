@@ -86,6 +86,7 @@ public class Tools {
 	/**
 	 * Creates a list of window tools, writing it to given generic collection
 	 * @param c input collection
+	 * @param window world window to use
 	 * @throws NullPointerException if {@code c} is null
 	 */
 	public static void createWindowTools(Collection<? super WindowTool> c, WorldWindow window) {

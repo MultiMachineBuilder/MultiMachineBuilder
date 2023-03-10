@@ -79,7 +79,7 @@ public interface SelfSet<K, V> extends Set<V>{
 	 * @param value
 	 * @return identifier for purposes of this self-set
 	 */
-	public K id(Object value);
+	public K id(@Nil Object value);
 	/**
 	 * @return is this self-set nullable?
 	 */

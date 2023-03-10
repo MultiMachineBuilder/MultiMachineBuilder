@@ -18,6 +18,7 @@ public interface ModuleConfigHandler<Telement, Tgui extends Component&SafeClosea
 	/**
 	 * Creates a new component to be placed by module editor
 	 * @param invctrl inventory controller to take selected items from
+	 * @param element source part
 	 * @return a new editor component
 	 */
 	@NN public Tgui newComponent(InventoryController invctrl, Telement element);

@@ -20,10 +20,13 @@ import mmb.engine.java2d.TexGen;
  */
 public class BaseMetalGroup extends MetalGroup{
 
+	/** The natural form of this material */
 	@NN public final Block ore;
+	/** The crop, a growable form of this material. Replaced with quarries. */
 	@NN public final BlockEntityType crop;
 	
 	/**
+	 * Creates a base metal group
 	 * @param c display color
 	 * @param id material ID
 	 * @param volt minimum voltage tier for recipes

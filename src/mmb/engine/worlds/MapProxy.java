@@ -23,35 +23,92 @@ import mmb.engine.worlds.world.World;
 public interface MapProxy extends AutoCloseable{
 	
 	//Immediate setters
-	/** Place the block immediately using survival rules, draining block's or player's inventory*/
+	/** 
+	 * Place the block immediately using survival rules, draining block's or player's inventory
+	 * @param block block to place
+	 * @param x X coordinate of the block
+	 * @param y Y coordinate of the block
+	 */
 	public void placeImmediately(BlockType block, int x, int y);
-	/** Place the block immediately using survival rules, draining block's or player's inventory*/
+	/** Place the block immediately using survival rules, draining block's or player's inventory
+	 * @param block block to place
+	 * @param p block coordinates
+	 */
 	public default void placeImmediately(BlockType block, Point p) {placeImmediately(block, p.x, p.y);}
 	
-	/** Place the block immediately using creative rules*/
+	/** Place the block immediately using creative rules
+	 * @param block block to place
+	 * @param x X coordinate of the block
+	 * @param y Y coordinate of the block
+	 */
 	public void placeImmediatelyCreative(BlockType block, int x, int y);
-	/** Place the block immediately using creative rules*/
+	/** 
+	 * Place the block immediately using creative rules
+	 * @param block block to place
+	 * @param p block coordinates
+	 */
 	public default void placeImmediatelyCreative(BlockType block, Point p) {placeImmediatelyCreative(block, p.x, p.y);}
 	
-	/** Place the block immediately using survival rules, draining specific inventory*/
+	/** 
+	 * Place the block immediately using survival rules, draining specific inventory
+	 * @param block block to place
+	 * @param x X coordinate of the block
+	 * @param y Y coordinate of the block
+	 * @param inv inventory to drain
+	 */
 	public void placeImmediately(BlockType block, int x, int y, Inventory inv);
-	/** Place the block immediately using survival rules, draining specific inventory*/
+	/** 
+	 * Place the block immediately using survival rules, draining specific inventory
+	 * @param block block to place
+	 * @param p block coordinates
+	 * @param inv inventory to drain
+	 */
 	public default void placeImmediately(BlockType block, Point p, Inventory inv) {placeImmediately(block, p.x, p.y, inv);}
 	
 	//Intermediate setters
-	/** Place the block when map updates using survival rules, draining block's or player's inventory*/
+	/** 
+	 * Place the block when map updates using survival rules, draining block's or player's inventory
+	 * @param block block to place
+	 * @param x X coordinate of the block
+	 * @param y Y coordinate of the block
+	 */
 	public void place(BlockType block, int x, int y);
-	/** Place the block when map updates using survival rules, draining block's or player's inventory*/
-	default public void place(BlockType block, Point p) {place(block, p.x, p.y);}
+	/** 
+	 * Place the block when map updates using survival rules, draining block's or player's inventory
+	 * @param block block to place
+	 * @param p block coordinates
+	 */
+	public default void place(BlockType block, Point p) {place(block, p.x, p.y);}
 	
-	/** Place the block when map updates using creative rules*/
+	/** 
+	 * Place the block when map updates using creative rules
+	 * @param block block to place
+	 * @param x X coordinate of the block
+	 * @param y Y coordinate of the block
+	 */
 	public void placeCreative(BlockType block, int x, int y);
-	/** Place the block when map updates using creative rules*/
-	default public void placeCreative(BlockType block, Point p) {placeCreative(block, p.x, p.y);}
+	/** 
+	 * Place the block when map updates using creative rules
+	 * Place the block immediately using creative rules
+	 * @param block block to place
+	 * @param p block coordinates
+	 */
+	public default void placeCreative(BlockType block, Point p) {placeCreative(block, p.x, p.y);}
 	
-	/** Place the block when map updates using survival rules, draining specific inventory*/
+	/** 
+	 * Place the block when map updates using survival rules, draining specific inventory
+	 * @param block block to place
+	 * @param x X coordinate of the block
+	 * @param y Y coordinate of the block
+	 * @param inv inventory to drain
+	 */
 	public void place(BlockType block, int x, int y, Inventory inv);
-	/** Place the block when map updates using survival rules, draining specific inventory*/
+	/** 
+	 * Place the block when map updates using survival rules, draining specific inventory
+	 * @param block block to place
+	 * @param p block coordinates
+	 * @param inv inventory to drain
+	 */
 	public default void place(BlockType block, Point p, Inventory inv) {place(block, p.x, p.y, inv);}
 	
 	//Getters

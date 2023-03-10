@@ -14,8 +14,7 @@ import mmb.engine.worlds.MapProxy;
  * The action is defined by the {@link #run(Point, BlockEntry, MapProxy)} method, which implements an action.
  * This variant has chirality
  * @author oskar
- * @see AbstractActuatorBase
- * @see - when chirality is not needed
+ * @see AbstractActuatorBase AbstractActuatorBase - when chirality is not needed
  */
 public abstract class AbstractChiralActuatorBase extends BlockEntityChirotable {
 	/**

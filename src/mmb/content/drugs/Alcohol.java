@@ -52,6 +52,7 @@ public class Alcohol {
 		.texture("alcohol/beer.png")
 		.volumed(0.004)
 		.finish("drugs.beer");
+	/** The window tool used by alcoholic beverages */
 	public static final WindowToolModel TOOL_ALCOHOL =
 		new WindowToolModel(ToolAlcohol.ICON, ToolAlcohol::new, "alcohol");
 	

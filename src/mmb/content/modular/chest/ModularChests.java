@@ -50,10 +50,6 @@ public class ModularChests {
 		//empty
 	}
 	
-	//Translation keys
-	@NN private static final String s_import = GlobalSettings.$res("modchest-import");
-	@NN private static final String s_export = GlobalSettings.$res("modchest-export");
-	
 	//The modular chest itself
 	/** The modular chest body */
 	@NN public static final BlockEntityType chest = new BlockEntityType()
@@ -110,6 +106,7 @@ public class ModularChests {
 	//Chest core - single item
 	@NN private static final ChestProductionParams paramsSingle
 	= new ChestProductionParams("modchest-coresingle", "modules/chest_single.png", ChestCoreSingle::new, "modchest.coreSingle");
+	/** A single-item chest core */
 	@NN public static final PartEntityType coreSingle = chestCore(paramsSingle, Color.RED, 6, 1);
 		
 	//Chest modules

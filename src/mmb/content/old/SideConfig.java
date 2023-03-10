@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.electric;
+package mmb.content.old;
 
 import java.util.Iterator;
 import java.util.function.Consumer;
@@ -22,7 +22,7 @@ import mmb.engine.rotate.Side;
  * @author oskar
  */
 public final class SideConfig implements
-Cloneable, Iterable<mmb.content.electric.SideConfig.SideBoolean>, Saver{
+Cloneable, Iterable<mmb.content.old.SideConfig.SideBoolean>, Saver{
 	/**
 	 * Creates a side config with all values set to false
 	 */
@@ -129,7 +129,7 @@ Cloneable, Iterable<mmb.content.electric.SideConfig.SideBoolean>, Saver{
 		@NN public static final SideBoolean F_DL = new SideBoolean(false, Side.DL);
 		@NN public static final SideBoolean F_DR = new SideBoolean(false, Side.DR);
 		@Override
-		public int compareTo(@SuppressWarnings("null") SideBoolean o) {
+		public int compareTo(SideBoolean o) {
 			return Integer.compare(index, o.index);
 		}
 		@Override
@@ -167,14 +167,14 @@ Cloneable, Iterable<mmb.content.electric.SideConfig.SideBoolean>, Saver{
 	}
 
 	@Override
-	public Iterator<mmb.content.electric.SideConfig.SideBoolean> iterator() {
+	public Iterator<SideBoolean> iterator() {
 		return Iterators.forArray(SideBoolean.of(U.getValue(), Side.U),
 				SideBoolean.of(D.getValue(), Side.D),
 				SideBoolean.of(L.getValue(), Side.L),
 				SideBoolean.of(R.getValue(), Side.R));
 	}
 	@Override
-	public void forEach(@SuppressWarnings("null") Consumer<? super SideBoolean> c) {
+	public void forEach(Consumer<? super SideBoolean> c) {
 		c.accept(SideBoolean.of(U.getValue(), Side.U));
 		c.accept(SideBoolean.of(D.getValue(), Side.D));
 		c.accept(SideBoolean.of(L.getValue(), Side.L));
@@ -225,7 +225,7 @@ Cloneable, Iterable<mmb.content.electric.SideConfig.SideBoolean>, Saver{
 		R.setValue(data.get(3).asBoolean());
 	}
 	/**
-	 * @param cfgInElec
+	 * @param cfg source side config
 	 */
 	public void set(SideConfig cfg) {
 		U.setValue(cfg.U.getValue());

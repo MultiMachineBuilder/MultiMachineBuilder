@@ -11,8 +11,6 @@ import mmb.cgui.BlockActivateListener;
 import mmb.content.imachine.filter.ControllableFilter;
 import mmb.content.imachine.filter.FilterGUI;
 import mmb.content.imachine.filter.ItemFilter;
-import mmb.content.imachine.pipe.AbstractBasePipe.Pusher;
-import mmb.data.variables.Variable;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.io.InventoryReader;
@@ -31,9 +29,9 @@ import mmb.menu.world.window.WorldWindow;
  * Represents a binding pipe. The binding side goes to UP
  */
 public class PipeFilter extends AbstractBasePipe implements BlockActivateListener, ControllableFilter{
-	protected final @NN Pusher toCommon;
-	protected final @NN Pusher toSide;
-	protected final @NN Pusher toMain;
+	protected final Pusher toCommon;
+	protected final Pusher toSide;
+	protected final Pusher toMain;
 	/**
 	 * The inventory which houses the item filter
 	 */
@@ -41,7 +39,6 @@ public class PipeFilter extends AbstractBasePipe implements BlockActivateListene
 	/**
 	 * Creates a filtering pipe.
 	 * @param type block type
-	 * @param binding binding side
 	 * @param rig texture
 	 */
 	public PipeFilter(BlockType type, ChirotatedImageGroup rig) {
@@ -88,19 +85,21 @@ public class PipeFilter extends AbstractBasePipe implements BlockActivateListene
 		return result;
 	}
 	
-	private FilterGUI gui;
+	@Nil private FilterGUI gui;
 	@Override
 	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
-		gui = new FilterGUI(this, window);
-		window.openAndShowWindow(gui, $res("wgui-filter"));
+		FilterGUI gui0 = new FilterGUI(this, window);
+		gui = gui0;
+		window.openAndShowWindow(gui0, $res("wgui-filter"));
 	}
 	@Override
 	public SingleItemInventory[] getFilters() {
 		return new SingleItemInventory[]{filter};
 	}
+	@SuppressWarnings("null")
 	@Override
-	public String[] getTitles() {
+	public @NN String @Nil [] getTitles() {
 		return null; //NOSONAR the method allows null
 	}
 	@Override

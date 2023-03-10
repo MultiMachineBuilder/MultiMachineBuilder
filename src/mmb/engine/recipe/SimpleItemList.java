@@ -29,7 +29,7 @@ public final class SimpleItemList implements RecipeOutput {
 	/**
 	 * The data array
 	 */
-	@NN private final Object2IntMap<ItemEntry> data = new Object2IntOpenHashMap<>();
+	@NN private final Object2IntMap<@NN ItemEntry> data = new Object2IntOpenHashMap<>();
 	
 	/**
 	 * Creates an empty item list
@@ -39,7 +39,7 @@ public final class SimpleItemList implements RecipeOutput {
 	 * Creates an item list from a map
 	 * @param items item map to copy
 	 */
-	public SimpleItemList(Map<ItemEntry, Integer> items) {
+	public SimpleItemList(Map<@NN ItemEntry, Integer> items) {
 		data.putAll(items);
 	}
 	/**

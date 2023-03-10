@@ -16,8 +16,8 @@ public class VectorUtils {
 	private VectorUtils() {}
 	/**
 	 * Converts an item list into an array
-	 * @param output
-	 * @return
+	 * @param output recipe output
+	 * @return a vector with given contents
 	 */
 	@NN public static Vector<ItemStack> list2vector(RecipeOutput output){
 		return output
@@ -25,9 +25,13 @@ public class VectorUtils {
 				.object2IntEntrySet()
 				.stream()
 				.map(ent -> new ItemStack(ent.getKey(), ent.getIntValue()))
-				.collect(Collectors.toCollection(() -> new Vector<ItemStack>()));
+				.collect(Collectors.toCollection(Vector::new));
 	}
-
+	/** 
+	 * Converts an item list into an array 
+	 * @param output recipe output
+	 * @return an array with given contents
+	 */
 	@NN public static ItemStack[] list2arr(RecipeOutput output){
 		return output
 				.getContents()
