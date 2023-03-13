@@ -88,7 +88,7 @@ public class PanelSettings extends JPanel {
 		panelLocale.add(lblLang, "cell 0 1");
 		
 		comboLang = new BoundCombo<>();
-		comboLang.setModel(new DefaultComboBoxModel<>(Locale.getISOLanguages()));
+		comboLang.setModel(new DefaultComboBoxModel<>(new String[] {"en", "pl"}));
 		comboLang.setVariable(GlobalSettings.lang);
 		panelLocale.add(comboLang, "cell 2 1,growx");
 		
