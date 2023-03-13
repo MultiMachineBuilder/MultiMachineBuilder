@@ -300,7 +300,7 @@ public class WorldWindow extends MMBFrame{
 					slideBlockScale.setOrientation(Adjustable.HORIZONTAL);
 					mnNewMenu.add(slideBlockScale);
 					
-					checkBindCameraPlayer = new JCheckBoxMenuItem("Camera is bound to the player");
+					checkBindCameraPlayer = new JCheckBoxMenuItem($res("wgui-bound"));
 					menuBar.add(checkBindCameraPlayer);
 					
 		//Framerate
@@ -315,19 +315,25 @@ public class WorldWindow extends MMBFrame{
 			}
 		}, 0, 1000);
 	}
+
+	private static final String str_spd = $res("wgui-kmh");
+	private static final String str_spdtrue = $res("wgui-kmhtrue");
+	private static final String str_spdphys = $res("wgui-kmhphys");
 	private void updateTitle(String s) {
 		//Update the status
 		if(getPlayer() != null) {
-			StringBuilder status = new StringBuilder("Press Q to stop here. Speed: ");
+			StringBuilder status = new StringBuilder(str_spd+" ");
 			double speedMPST = getPlayer().speedTrue.length();
 			status.append(speedMPST * 3.6);
-			status.append(" km/h true");
+			status.append(" ");
+			status.append(str_spdtrue);
 			lblStatus.setText(status.toString());
 			
 			status.append(", ");
 			double speedMPSP = getPlayer().speed.length();
 			status.append(speedMPSP * 3.6);
-			status.append(" km/h physical ");
+			status.append(" ");
+			status.append(str_spdphys);
 			
 			status.append(getPlayer().physics.description());
 			lblStatus.setText(status.toString());

@@ -351,7 +351,7 @@ public class WorldFrame extends JComponent {
 	
 	//Graphics
 	@NN public final transient Event<StringBuilder> informators =
-			new CatchingEvent<>(debug, "Failed to process render task");
+			new CatchingEvent<>(debug, "Failed to process info task");
 	@Override
 	public void paint(@Nil Graphics g) {
 		resetMouseoverBlock();
@@ -496,11 +496,9 @@ public class WorldFrame extends JComponent {
 		}
 		g.drawImage(img, pul.x, pul.y, pdr.x-pul.x, pdr.y-pul.y, null);
 		
-		//Draw pointer
+		//Pointer
 		int x = (int)((mouseover.x+pos.x)*blockScale);
 		int y = (int)((mouseover.y+pos.y)*blockScale);
-		
-		//Pointer
 		int framesize = (int)Math.ceil(blockScale)-1;
 		thickframe(x, y, framesize, framesize, Color.RED, g);
 		

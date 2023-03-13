@@ -174,9 +174,8 @@ public class TabInventory extends JPanel {
 	 */
 	public TabInventory(WorldWindow window) {
 		this.window = window;
-		setLayout(new MigLayout("", "[:400.00:400.00,grow,fill][][grow]", "[20px,grow]"));
-		InventoryController ctrl = new InventoryController();
-		craftGUI = new CraftGUI(2, null, null, ctrl);
+		setLayout(new MigLayout("", "[:400.00:400.00,grow,fill][]", "[20px,grow]"));
+		craftGUI = new CraftGUI(2, null, null, null);
 		timer = new Timer(0, e -> craftGUI.inventoryController.refresh());
 		add(craftGUI, "cell 1 0,growy");
 		
@@ -304,7 +303,7 @@ public class TabInventory extends JPanel {
 		
 		//Crafting		
 		craftingsPanel = new JPanel();
-		add(craftingsPanel, "cell 2 0,grow");
+		craftGUI.box.add(craftingsPanel);
 		craftingsPanel.setLayout(new BoxLayout(craftingsPanel, BoxLayout.Y_AXIS));
 		
 		//Find recipes
@@ -364,12 +363,12 @@ public class TabInventory extends JPanel {
 		});
 		craftingsPanel.add(btnCraftWith);
 		
-		JButton btnCraftAll = new JButton("ALL recipes");
+		JButton btnCraftAll = new JButton($res("wguicf-all"));
 		btnCraftAll.setBackground(Color.GRAY);
 		btnCraftAll.addActionListener(e -> queryRecipes(all()));
 		craftingsPanel.add(btnCraftAll);
 		
-		checkUseCIL = new JCheckBox("Use the creative item list");
+		checkUseCIL = new JCheckBox($res("wguicf-cil"));
 		checkUseCIL.setSelected(true);
 		craftingsPanel.add(checkUseCIL);
 		

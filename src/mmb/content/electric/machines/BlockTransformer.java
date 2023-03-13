@@ -19,6 +19,7 @@ import mmb.engine.item.Items;
 import mmb.engine.java2d.ColorMapper;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
+import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;
 import mmb.engine.worlds.MapProxy;
 
@@ -94,7 +95,7 @@ public class BlockTransformer extends BlockEntityRotary {
 			op2.filter(img, img);
 			this.image = RotatedImageGroup.create(img);
 			this.type = new BlockEntityType()
-					.title("Transformer "+high.name+"/"+low.name)
+					.title(GlobalSettings.$res("machine-transformer")+" "+high.name+"/"+low.name)
 					.factory(() -> new BlockTransformer(this))
 					.texture(image.U)
 					.finish("industry.transformer"+low.ordinal());

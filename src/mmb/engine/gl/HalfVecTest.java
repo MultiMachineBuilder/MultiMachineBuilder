@@ -36,9 +36,7 @@ import mmb.engine.texture.Textures.Texture;
  */
 public class HalfVecTest{
 
-	/**
-	 * Launch the application.
-	 */
+	/** Launch the application. */
 	public static void run() {
 		//Init GLFW
 		if(!glfwInit()) 

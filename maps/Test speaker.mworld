@@ -6,11 +6,11 @@
     "startY" : -3,
     "world" : [ "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "multi.speaker",
-      "sound" : "minecxraft.wav",
+      "sound" : "377157__pfranzen__smashing-head-on-wall.ogg",
       "mode" : "ONCE_WHEN_POWERED",
       "state" : false,
       "signal" : false,
-      "phase" : 3
+      "phase" : 0
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.button", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass" ],
     "drops" : [ ],
     "machines" : [ ],

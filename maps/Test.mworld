@@ -391,7 +391,7 @@
       "remain" : 13531.168065396603,
       "active" : false,
       "recipe" : null,
-      "energy" : [ 200.0, 400.0, 400.0, 6.402121472441164, 1.0 ],
+      "energy" : [ 200.0, 400.0, 400.0, 8.088158749656754, 1.0 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -436,10 +436,10 @@
     "drops" : [ ],
     "machines" : [ ],
     "player" : {
-      "inventory" : [ 128.0, [ "industry.preceiver0", 1 ], [ "machineparts.motor1", 1 ], [ "machineparts.motor0", 1 ], [ "industry.processor2", 1 ], [ "industry.splicer0", 1 ], [ "industry.spllitter1", 1 ], [ "crafting.6", "crafting.6", 1 ], [ "elec.load", 2 ], [ "block.copper", "block.copper", 1 ], [ "elecwire.medium.silver", 1 ], [ "industry.ptower0", 1 ], [ "fcluster.steel", 200 ], [ "industry.infinigen0", 1 ], [ "industry.infinigen1", 1 ], [ "industry.alloyer1", 1 ], [ "industry.infinigen2", 1 ], [ "industry.alloyer2", 1 ] ],
+      "inventory" : [ 128.0, [ "industry.preceiver0", 1 ], [ "machineparts.motor1", 1 ], [ "machineparts.motor0", 1 ], [ "drugs.beer", 1 ], [ "industry.processor2", 1 ], [ "industry.splicer0", 1 ], [ "industry.spllitter1", 1 ], [ "crafting.6", "crafting.6", 1 ], [ "elec.load", 2 ], [ "block.copper", "block.copper", 1 ], [ "elecwire.medium.silver", 1 ], [ "industry.ptower0", 1 ], [ "fcluster.steel", 200 ], [ "industry.infinigen0", 1 ], [ "industry.infinigen1", 1 ], [ "industry.alloyer1", 1 ], [ "industry.infinigen2", 1 ], [ "industry.alloyer2", 1 ] ],
       "creative" : true,
-      "x" : -3.5,
-      "y" : -0.7000000000000001,
+      "x" : 0.22698429166269068,
+      "y" : 0.6755560751495169,
       "alcohol1" : 0.0,
       "alcohol2" : 0.0
     },

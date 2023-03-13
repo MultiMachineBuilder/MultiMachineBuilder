@@ -80,7 +80,7 @@ public class WireGroup implements Identifiable<String> {
 		return b.title(title)
 				.factory(() -> new BlockConduit(b, pwr, volt))
 				.texture(texture)
-				.describe("Power: "+UnitFormatter.formatPower(pwr))
+				.describe($res("machine-power")+" "+UnitFormatter.formatPower(pwr))
 				.finish(id);
 	}
 	private void gridCombo(Item smaller, Item larger, double scale) {
