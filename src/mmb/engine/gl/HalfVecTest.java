@@ -55,7 +55,7 @@ public class HalfVecTest{
 		SimpleCtx ctx = new SimpleCtx();
 		Texture texChiral = Textures.get1("example rotation.png");
 		Texture frame = Textures.get1("item/frame 1.png");
-		Texture beer = Textures.get1("item/beer.png");
+		Texture beer = Textures.get1("alcohol/beer.png");
 		Texture pipeline = Textures.get1("pipeline.png");
 		Texture machinius = Textures.get1("player/Machinius The Engineer.png");
 		ctx.setup();

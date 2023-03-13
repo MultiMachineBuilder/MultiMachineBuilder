@@ -54,9 +54,9 @@ public class RandomOrElseChance implements Chance {
 
 	@Override
 	public void represent(PicoWriter out) {
-		out.write((chance*100)+"% chance with else [");
+		out.write((chance*100)+str_CHANCELSE);
 		wrap.represent(out);
-		out.write("] else [");
+		out.write(str_ELSE);
 		other.represent(out);
 		out.write("]");
 	}

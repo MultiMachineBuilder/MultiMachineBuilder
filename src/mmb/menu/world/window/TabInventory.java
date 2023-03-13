@@ -476,7 +476,7 @@ public class TabInventory extends JPanel {
 	}
 	private void queryRecipes(RecipeQuery query) {
 		debug.printl("Querying recipes");
-		window.openAndShowWindow(new QueriedRecipes(query, window), "Recipe search: "+query.name());
+		window.openAndShowWindow(new QueriedRecipes(query, window), $res("wguicf-search")+" "+query.name());
 		debug.printl("Query finished");
 	}
 	
@@ -487,7 +487,7 @@ public class TabInventory extends JPanel {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
-				return "All recipes";
+				return $res("wguicq-all");
 			}
 
 			@Override
@@ -513,7 +513,7 @@ public class TabInventory extends JPanel {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
-				return "Recipes which consume: "+item.title();
+				return $res("wguicq-consuming")+" "+item.title();
 			}
 
 			@Override
@@ -536,7 +536,7 @@ public class TabInventory extends JPanel {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
-				return "Recipes which produce: "+item.title();
+				return $res("wguicq-producing")+" "+item.title();
 			}
 
 			@Override
@@ -559,7 +559,7 @@ public class TabInventory extends JPanel {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
-				return "Recipes which may produce: "+item.title();
+				return $res("wguicq-gambling")+" "+item.title();
 			}
 
 			@Override
@@ -582,7 +582,7 @@ public class TabInventory extends JPanel {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
-				return "Recipes which catalyze: "+item.title();
+				return $res("wguicq-catalysing")+" "+item.title();
 			}
 
 			@Override
@@ -626,7 +626,7 @@ public class TabInventory extends JPanel {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
-				return "Selected recipe";
+				return $res("wguicq-alone");
 			}
 
 			@Override

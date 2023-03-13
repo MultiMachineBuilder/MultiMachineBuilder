@@ -95,6 +95,7 @@
 (SETTINGS LIST) ww-N=NOT
 (SETTINGS LIST) modchest-coredrawer=Drawer Chest Core
 (SETTINGS LIST) matname-zinc=Zinc
+(SETTINGS LIST) chance-random=% chance [
 (SETTINGS LIST) matname2-cobalt=Cobalt
 (SETTINGS LIST) tier-ext=Extreme
 (SETTINGS LIST) ww-Y=YES
@@ -152,9 +153,11 @@ Webpages and websites won't work.
 (SETTINGS LIST) matname1-vibrant=Vibrant alloy
 (SETTINGS LIST) matname2-steel=Steel
 (SETTINGS LIST) ww-rot=Block Rotator
+(SETTINGS LIST) wguicq-consuming=Recipes which consume:
 (SETTINGS LIST) matname1-crystal=Crystalline
 (SETTINGS LIST) wguicf-prod=PRODUCE given item
 (SETTINGS LIST) ipipe-extractor=Item Mover
+(SETTINGS LIST) wguicq-alone=Selected recipe
 (SETTINGS LIST) matname-uranium=Uranium
 (SETTINGS LIST) nodescr=(no description)
 (SETTINGS LIST) matname1-steel=Steel
@@ -225,6 +228,7 @@ Webpages and websites won't work.
 (SETTINGS LIST) ipipe-cross=Item Pipe - crossover
 (SETTINGS LIST) mattype-ring=ring
 (SETTINGS LIST) co2=Carbon Dioxide
+(SETTINGS LIST) wguicq-gambling=Recipes which may produce:
 (SETTINGS LIST) matname2-silicon=Silicon
 (SETTINGS LIST) cguiw-new=New world
 (SETTINGS LIST) air=Air
@@ -248,9 +252,9 @@ Webpages and websites won't work.
 (SETTINGS LIST) speedup=Speed Upgrade
 (SETTINGS LIST) machine-clustermill=Cluster Mill
 (SETTINGS LIST) component-wafer=Silicon Wafer
-(SETTINGS LIST) matname-bronze=Bronze
-(SETTINGS LIST) wgui-recipes=Recipes
 (SETTINGS LIST) wguic-exit-d="Closes this crafting GUI, discarding any selections."
+(SETTINGS LIST) wgui-recipes=Recipes
+(SETTINGS LIST) matname-bronze=Bronze
 (SETTINGS LIST) ccode=Color Code
 (SETTINGS LIST) matname1-HSS=High Speed Steel
 (SETTINGS LIST) wguit-way=Obtainable
@@ -398,6 +402,7 @@ Webpages and websites won't work.
 (SETTINGS LIST) matname-tin=Tin
 (SETTINGS LIST) matname2-signalum=Signalum
 (SETTINGS LIST) matname2-stainless=Stainless steel
+(SETTINGS LIST) wguicq-catalysing=Recipes which catalyze:
 (SETTINGS LIST) wguit-ins=Consumable
 (SETTINGS LIST) wguim-cat=CATALYST
 (SETTINGS LIST) matname1-rubber=Rubber
@@ -525,6 +530,7 @@ Webpages and websites won't work.
 (SETTINGS LIST) mattype-ingot=ingot
 (SETTINGS LIST) matname1-stellar=Stellarine
 (SETTINGS LIST) ipipe-ipe=Intersecting Pipe Mover
+(SETTINGS LIST) chance-else=] else [
 (SETTINGS LIST) wguic-exit=Exit
 (SETTINGS LIST) matname2-silver=Silver
 (SETTINGS LIST) component-transistor=Transistor
@@ -543,6 +549,7 @@ Webpages and websites won't work.
 (SETTINGS LIST) mattype-wire2=small power cable
 (SETTINGS LIST) matname-chrome=Chrome
 (SETTINGS LIST) mattype-wire1=tiny power cable
+(SETTINGS LIST) wguicq-all=All recipes
 (SETTINGS LIST) matname-copper=Copper
 (SETTINGS LIST) mattype-wire5=huge power cable
 (SETTINGS LIST) mattype-wire4=large power cable
@@ -552,6 +559,7 @@ Webpages and websites won't work.
 (SETTINGS LIST) cguims-dis=Disabled
 (SETTINGS LIST) cguims-bloat=Too big
 (SETTINGS LIST) planks=Wooden planks
+(SETTINGS LIST) wguicq-producing=Recipes which produce:
 (SETTINGS LIST) cguims-dir=Directory
 (SETTINGS LIST) ww-load=World Load Detector
 (SETTINGS LIST) matname-enderium=Enderium
@@ -601,6 +609,7 @@ Webpages and websites won't work.
 (SETTINGS LIST) cguim-state=State
 (SETTINGS LIST) matname2-iron=Iron
 (SETTINGS LIST) matname1-nichrome=Nichrome
+(SETTINGS LIST) wguicf-search=Recipe search:
 (SETTINGS LIST) wguim-one=One
 (SETTINGS LIST) wguit-noins=Unconsumable
 (SETTINGS LIST) cgui-report=Report a bug
@@ -623,6 +632,7 @@ Webpages and websites won't work.
 (SETTINGS LIST) ipack1=Simple Item Package
 (SETTINGS LIST) wguicf-mac=use given MACHINE(s)
 (SETTINGS LIST) cgui-refugeedonate=HELP UKRAINIAN REFUGEES
+(SETTINGS LIST) chance-randomelse=% chance with else [
 (SETTINGS LIST) wgui-refresh=Refresh
 (SETTINGS LIST) matname1-silver=Silver
 (SETTINGS LIST) wguit-notags=No tags
@@ -8840,7 +8850,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found 24 saves
 (WORLD TEST) 1761 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@2b87f0d1
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@42765c35
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -8860,46 +8870,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Loaded
 (WORLD - IDLE) Exiting
 (WORLDS) Opening a new world
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.ArrayIndexOutOfBoundsException: 16 >= 0
-	at java.base/java.util.Vector.elementAt(Vector.java:497)
-	at java.desktop/javax.swing.DefaultListModel.getElementAt(DefaultListModel.java:90)
-	at java.desktop/javax.swing.plaf.basic.BasicListUI.updateLayoutState(BasicListUI.java:1438)
-	at java.desktop/javax.swing.plaf.basic.BasicListUI.maybeUpdateLayoutState(BasicListUI.java:1389)
-	at java.desktop/javax.swing.plaf.basic.BasicListUI.paintImpl(BasicListUI.java:325)
-	at java.desktop/javax.swing.plaf.basic.BasicListUI.paint(BasicListUI.java:301)
-	at java.desktop/javax.swing.plaf.ComponentUI.update(ComponentUI.java:161)
-	at java.desktop/javax.swing.JComponent.paintComponent(JComponent.java:797)
-	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1074)
-	at java.desktop/javax.swing.JComponent.paintToOffscreen(JComponent.java:5255)
-	at java.desktop/javax.swing.RepaintManager$PaintManager.paintDoubleBufferedImpl(RepaintManager.java:1643)
-	at java.desktop/javax.swing.RepaintManager$PaintManager.paintDoubleBuffered(RepaintManager.java:1618)
-	at java.desktop/javax.swing.RepaintManager$PaintManager.paint(RepaintManager.java:1556)
-	at java.desktop/javax.swing.RepaintManager.paint(RepaintManager.java:1323)
-	at java.desktop/javax.swing.JComponent._paintImmediately(JComponent.java:5203)
-	at java.desktop/javax.swing.JComponent.paintImmediately(JComponent.java:5013)
-	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:865)
-	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:848)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:848)
-	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:823)
-	at java.desktop/javax.swing.RepaintManager.prePaintDirtyRegions(RepaintManager.java:772)
-	at java.desktop/javax.swing.RepaintManager$ProcessingRunnable.run(RepaintManager.java:1890)
-	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(TOOL-STANDARD) Running BlockActivateListener for: [-3,0]
 (TOOL SELECTOR) IL tool: null
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: standard
@@ -8908,8 +8878,386 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: standard
 (TOOL SELECTOR) New tool: standard
-(PLAYER INVENTORY) Querying recipes
-(PLAYER INVENTORY) Query finished
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium)]
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 1 of Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium), expected 1
+(INVENTORIES) Inserted 16 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 16
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 1 of Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium), expected 1
+(INVENTORIES) Inserted 16 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 16
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 1 of Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium), expected 1
+(INVENTORIES) Inserted 16 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 16
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 1 of Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium), expected 1
+(INVENTORIES) Inserted 16 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 16
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium)]
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 瑩湹⁤畳琀(minidust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 0
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium)]
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 獭慬氠摵獴(mdust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(TOOL SELECTOR) IL tool: mmb.content.drugs.ToolAlcohol@e81fadf
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: mmb.content.drugs.ToolAlcohol@e81fadf
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium)]
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item 䅷慫敮敤⁄牡捯湩畭 摵獴(dust.adraconium), expected 4
+(INVENTORIES) Inserted 1 of Item 䅷慫敮敤⁄牡捯湩畭 污牧攠摵獴(ldust.adraconium), expected 1
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Item 䅷慫敮敤⁄牡捯湩畭 污牧攠摵獴(ldust.adraconium), expected 0
 (TOOL SELECTOR) IL tool: null
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: standard
@@ -8926,22 +9274,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: standard
 (TOOL SELECTOR) New tool: standard
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
-(PLAYER INVENTORY) Querying recipes
-(PLAYER INVENTORY) Query finished
-(PLAYER INVENTORY) Querying recipes
-(PLAYER INVENTORY) Query finished
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
 (DATA LAYERS) Saving world data layer: STN

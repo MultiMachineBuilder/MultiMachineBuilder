@@ -16,8 +16,7 @@ import mmb.engine.worlds.world.World;
  * Random chanced item drop
  * @author oskar
  */
-public class RandomChance implements Chance {
-	
+public class RandomChance implements Chance {	
 	/** The propability of item drop */
 	public final double chance;
 	/** The inner item drop */
@@ -47,7 +46,7 @@ public class RandomChance implements Chance {
 
 	@Override
 	public void represent(PicoWriter out) {
-		out.write((chance*100)+"% chance [");
+		out.write((chance*100)+str_CHANCE);
 		wrap.represent(out);
 		out.write("]");
 	}

@@ -53,7 +53,7 @@ public class QueriedRecipes extends GUITab {
 		//Populate the list
 		ListModel<Recipe<?>> model = Collects.newListModel(query.eligible());
 
-		JLabel lblNewLabel = new JLabel("["+model.getSize()+"]Filter: "+query.name());
+		JLabel lblNewLabel = new JLabel("["+model.getSize()+"] "+GlobalSettings.$res("wgui-filter")+": "+query.name());
 		add(lblNewLabel, "cell 0 0,growx,aligny top");
 		list.setCellRenderer(new CellRendererGettingCellRenderer<>(QueriedRecipes::getcellrend));
 		list.setModel(model);

@@ -12,6 +12,7 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.settings.GlobalSettings;
 import mmb.engine.worlds.world.World;
 
 /**
@@ -19,6 +20,11 @@ import mmb.engine.worlds.world.World;
  * @author oskar
  */
 public interface Chance {
+	//Translation
+	@NN static final String str_CHANCE = GlobalSettings.$res("chance-random");
+	@NN static final String str_CHANCELSE = GlobalSettings.$res("chance-randomelse");
+	@NN static final String str_ELSE = GlobalSettings.$res("chance-else");
+	
 	/**
 	 * Drops an item
 	 * @param inv inventory, to which item will be dropped. If it is null, the items are dropped into world
