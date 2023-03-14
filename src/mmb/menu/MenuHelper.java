@@ -20,6 +20,7 @@ import mmb.Nil;
 import mmb.content.stn.block.STNPusherGUI;
 import mmb.engine.debug.Debugger;
 import mmb.engine.settings.GlobalSettings;
+import mmb.menu.main.MainMenu;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 
@@ -72,7 +73,9 @@ public class MenuHelper {
 	
 	private static final Debugger debug = new Debugger("MENU CENTRAL");
 	
+	//Shared button models
 	@NN public static final ButtonModel btnmBug;
+	@NN public static final ButtonModel btnmWeb;
 	
 	static {
 		btnmBug = new DefaultButtonModel();
@@ -80,6 +83,16 @@ public class MenuHelper {
 		btnmBug.addActionListener(e -> {
 			try {
 				reportBugs();
+			} catch (Exception ex) {
+				debug.stacktraceError(ex, "Unable to help Ukrainian refugees");
+			}
+		});
+		
+		btnmWeb = new DefaultButtonModel();
+		btnmWeb.setActionCommand("openWebsite");
+		btnmWeb.addActionListener(e -> {
+			try {
+				Desktop.getDesktop().browse(new URI(MainMenu.GITHUB));
 			} catch (Exception ex) {
 				debug.stacktraceError(ex, "Unable to help Ukrainian refugees");
 			}

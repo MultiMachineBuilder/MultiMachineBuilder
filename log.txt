@@ -482,7 +482,7 @@ Webpages and websites won't work.
 (SETTINGS LIST) matname2-tin=Tin
 (SETTINGS LIST) wgui-scale=vv Block scale vv
 (SETTINGS LIST) elec-meter=Power meter
-(SETTINGS LIST) wgui-main=To main menu
+(SETTINGS LIST) wgui-main=Go back
 (SETTINGS LIST) ind-ind1=Basic Inductor
 (SETTINGS LIST) matname-silicopper=Silicopper
 (SETTINGS LIST) matname1-glowstone=Glowstone
@@ -1808,6 +1808,9 @@ Webpages and websites won't work.
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\UIs\red signpost.png
 (MOD-LOADER) Loading a texture UIs\red signpost.png
 (TEXTURES) Loading texture: UIs/red signpost.png
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\UIs\web.png
+(MOD-LOADER) Loading a texture UIs\web.png
+(TEXTURES) Loading texture: UIs/web.png
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\UIs\yellow signpost.png
 (MOD-LOADER) Loading a texture UIs\yellow signpost.png
 (TEXTURES) Loading texture: UIs/yellow signpost.png

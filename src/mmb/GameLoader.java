@@ -37,8 +37,8 @@ import mmb.engine.mods.ModState;
 import mmb.engine.mods.Mods;
 import mmb.engine.sound.Sounds;
 import mmb.engine.texture.Textures;
-import mmb.engine.window.FullScreen;
 import mmb.engine.worlds.DataLayers;
+import mmb.menu.FullScreen;
 import mmb.menu.wtool.Tools;
 
 /**

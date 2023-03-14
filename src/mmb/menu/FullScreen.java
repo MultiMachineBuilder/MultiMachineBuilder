@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.window;
+package mmb.menu;
 
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;

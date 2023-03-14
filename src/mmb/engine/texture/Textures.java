@@ -15,6 +15,7 @@ import org.joml.Vector2fc;
 import org.joml.Vector2i;
 import org.joml.Vector4f;
 
+import mmb.Main;
 import mmb.NN;
 import mmb.Nil;
 import mmb.engine.NotFoundException;
@@ -31,6 +32,7 @@ import monniasza.collects.selfset.SelfSet;
 public class Textures {
 	private Textures() {}
 	private static final Debugger debug = new Debugger("TEXTURES");
+	@NN private static final BufferedImage DUMMY = new BufferedImage(1, 1, BufferedImage.TYPE_3BYTE_BGR);
 	
 	//Raw data
 	private static final SelfSet<@NN String, @NN Texture> loadedTextures0 = HashSelfSet.createNonnull(Texture.class);
@@ -79,6 +81,7 @@ public class Textures {
 	 * @throws NotFoundException if texture is not found
 	 */
 	@NN public static BufferedImage get(String name) {
+		if(!Main.isRunning()) return DUMMY;
 		return get1(name).img;
 	}
 	/**
@@ -89,6 +92,7 @@ public class Textures {
 	 * @throws NotFoundException if texture is not found
 	 */
 	@NN public static Texture get1(String name) {
+		if(!Main.isRunning()) return null;
 		Texture result = loadedTextures0.get(name);
 		if(result == null) {
 			//Cache miss, load classpath

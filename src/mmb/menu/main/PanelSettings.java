@@ -74,7 +74,7 @@ public class PanelSettings extends JPanel {
 		
 		panelLocale = new JPanel();
 		tabbedPane.addTab($res("cguis-lang"), null, panelLocale, null);
-		panelLocale.setLayout(new MigLayout("", "[][][grow]", "[][][][]"));
+		panelLocale.setLayout(new MigLayout("", "[][grow]", "[][][][]"));
 		Locale[] locales = Locale.getAvailableLocales();
 		Arrays.sort(locales, 
 				(a, b) -> a.toString().compareTo(b.toString()));
@@ -82,7 +82,7 @@ public class PanelSettings extends JPanel {
 		lblMustRestart = new JLabel($res("cguis-restart"));
 		lblMustRestart.setOpaque(true);
 		lblMustRestart.setBackground(Color.ORANGE);
-		panelLocale.add(lblMustRestart, "cell 0 0 3 1,growx");
+		panelLocale.add(lblMustRestart, "cell 0 0 2 1,growx");
 		
 		lblLang = new JLabel($res("cguis-lang")+':');
 		panelLocale.add(lblLang, "cell 0 1");
@@ -90,7 +90,7 @@ public class PanelSettings extends JPanel {
 		comboLang = new BoundCombo<>();
 		comboLang.setModel(new DefaultComboBoxModel<>(new String[] {"en", "pl"}));
 		comboLang.setVariable(GlobalSettings.lang);
-		panelLocale.add(comboLang, "cell 2 1,growx");
+		panelLocale.add(comboLang, "cell 1 1,growx");
 		
 		lblCont = new JLabel($res("cguis-cont")+':');
 		panelLocale.add(lblCont, "cell 0 2");
@@ -98,12 +98,12 @@ public class PanelSettings extends JPanel {
 		comboCountry = new BoundCombo<>();
 		comboCountry.setModel(new DefaultComboBoxModel<>(Locale.getISOCountries()));
 		comboCountry.setVariable(GlobalSettings.country);
-		panelLocale.add(comboCountry, "cell 2 2,growx");
+		panelLocale.add(comboCountry, "cell 1 2,growx");
 		
 		lblNoSuchSelDefaultCont = new JLabel($res("cguis-nosuch"));
 		lblNoSuchSelDefaultCont.setBackground(Color.YELLOW);
 		lblNoSuchSelDefaultCont.setOpaque(true);
-		panelLocale.add(lblNoSuchSelDefaultCont, "cell 0 3 3 1,growx");
+		panelLocale.add(lblNoSuchSelDefaultCont, "cell 0 3 2 1,growx");
 		
 		panelUI = new JPanel();
 		tabbedPane.addTab($res("cguis-ui"), null, panelUI, null);

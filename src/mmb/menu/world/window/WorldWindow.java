@@ -31,11 +31,11 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.Recipe;
-import mmb.engine.window.FullScreen;
-import mmb.engine.window.MMBFrame;
 import mmb.engine.worlds.universe.Universe;
 import mmb.engine.worlds.world.Player;
 import mmb.engine.worlds.world.World;
+import mmb.menu.FullScreen;
+import mmb.menu.MMBFrame;
 import mmb.menu.components.BoundCheckBoxMenuItem;
 import mmb.menu.main.MainMenu;
 import mmb.menu.world.inv.InventoryController;
@@ -123,9 +123,9 @@ public class WorldWindow extends MMBFrame{
 	public WorldWindow() {
 		debug.printl(Items.items.size()+" items");
 		setTitle("Test");
-		setBounds(100, 100, 824, 445);
+		setBounds(100, 100, 950, 445);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setIconImage(MainMenu.GEAR);
+		setIconImage(MMBFrame.GEAR);
 		addWindowListener(new WindowAdapter() {
 			boolean iconified = false;
 			boolean open = false;
@@ -246,62 +246,44 @@ public class WorldWindow extends MMBFrame{
 					//Editor tabbed pane
 						dialogs = new JTabbedPane(SwingConstants.LEFT);
 						toolEditorSplitPane.setLeftComponent(dialogs);
-		//Menu bar
-		menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
-			//Menu
-				JMenu mnNewMenu = new JMenu($res("wgui-game"));
-				menuBar.add(mnNewMenu);
-				//Full screen
-					BoundCheckBoxMenuItem mntmFullScreen = new BoundCheckBoxMenuItem();
-					mntmFullScreen.setText($res("wgui-fulls"));
-					mntmFullScreen.setBackground(Color.YELLOW);
-					mntmFullScreen.setVariable(FullScreen.isFullScreen);
-					mnNewMenu.add(mntmFullScreen);
-				//To main menu
-					JMenuItem mntmMMenu = new JMenuItem($res("wgui-main"));
-					mntmMMenu.setBackground(Color.ORANGE);
-					mntmMMenu.addActionListener(e -> dispose());
-					mnNewMenu.add(mntmMMenu);
-				//To desktop
-					JMenuItem mntmExitDesktop = new JMenuItem($res("wgui-dtp"));
-					mntmExitDesktop.setBackground(Color.RED);
-					mntmExitDesktop.addActionListener(e -> {
-						dispose();
-						System.exit(0);
-					});
-					mnNewMenu.add(mntmExitDesktop);
-				//Debug display
-					BoundCheckBoxMenuItem cDebugDisplay = new BoundCheckBoxMenuItem();
-					cDebugDisplay.setText($res("wgui-debug"));
-					cDebugDisplay.setVariable(WorldFrame.DEBUG_DISPLAY);
-					mnNewMenu.add(cDebugDisplay);
 					
 					String scale = $res("wgui-scale");
 					
-					BoundCheckBoxMenuItem cSortItems = new BoundCheckBoxMenuItem();
+					/*BoundCheckBoxMenuItem cSortItems = new BoundCheckBoxMenuItem();
 					cSortItems.setText($res("wgui-sortis"));
 					cSortItems.setVariable(WorldFrame.DEBUG_DISPLAY);
-					mnNewMenu.add(cSortItems);
-					
-					JLabel lblBlockScale = new JLabel(scale+" 32");
-					mnNewMenu.add(lblBlockScale);
-					
-					JScrollBar slideBlockScale = new JScrollBar();
-					slideBlockScale.setValue(27);
-					slideBlockScale.setMaximum(WorldFrame.zoomlevels.size()+9); //strangely, the value goes up to only 37
+					mnNewMenu.add(cSortItems);*/
 					debug.printl("Number of zoom levels: "+WorldFrame.zoomlevels.size()); //48
-					debug.printl("Scrollbar max: "+slideBlockScale.getMaximum()); //48
-					slideBlockScale.addAdjustmentListener(e -> {
-						worldFrame.setZoom(e.getValue());
-						lblBlockScale.setText(scale+" "+worldFrame.getBlockScale());
-						debug.printl("Scale: "+e.getValue());
-					});
-					slideBlockScale.setOrientation(Adjustable.HORIZONTAL);
-					mnNewMenu.add(slideBlockScale);
 					
-					checkBindCameraPlayer = new JCheckBoxMenuItem($res("wgui-bound"));
-					menuBar.add(checkBindCameraPlayer);
+					
+					//Menu bar
+						//Menu
+							JMenu mnNewMenu1 = new JMenu($res("wgui-game"));
+							menuBar.add(mnNewMenu);
+							menuBar.add(mnNewMenu1);
+							checkBindCameraPlayer = new JCheckBoxMenuItem($res("wgui-bound"));
+							menuBar.add(checkBindCameraPlayer);
+							
+							//Debug display
+								BoundCheckBoxMenuItem cDebugDisplay = new BoundCheckBoxMenuItem();
+								cDebugDisplay.setText($res("wgui-debug"));
+								cDebugDisplay.setVariable(WorldFrame.DEBUG_DISPLAY);
+								mnNewMenu1.add(cDebugDisplay);
+								
+								JLabel lblBlockScale = new JLabel(scale+" 32");
+								mnNewMenu1.add(lblBlockScale);
+								
+								JScrollBar slideBlockScale = new JScrollBar();
+								slideBlockScale.setValue(27);
+								slideBlockScale.setMaximum(WorldFrame.zoomlevels.size()+9); //strangely, the value goes up to only 37
+								debug.printl("Scrollbar max: "+slideBlockScale.getMaximum()); //48
+								slideBlockScale.addAdjustmentListener(e -> {
+									worldFrame.setZoom(e.getValue());
+									lblBlockScale.setText(scale+" "+worldFrame.getBlockScale());
+									debug.printl("Scale: "+e.getValue());
+								});
+								slideBlockScale.setOrientation(Adjustable.HORIZONTAL);
+								mnNewMenu1.add(slideBlockScale);
 					
 		//Framerate
 		fpsCounter.scheduleAtFixedRate(new TimerTask() {
@@ -352,15 +334,6 @@ public class WorldWindow extends MMBFrame{
 		lblTool.setText(tool);
 	}
 	@NN private static final Debugger debug = new Debugger("WORLD TEST");
-	
-	//menu
-	private JMenuBar menuBar;
-	public void addMenu(Component comp) {
-		menuBar.add(comp);
-	}
-	public void removeMenu(Component comp) {
-		menuBar.remove(comp);
-	}
 	
 	//dialogs [BROKEN]
 	private JTabbedPane dialogs;

@@ -19,7 +19,7 @@ import mmb.engine.files.AdvancedFile;
 import mmb.engine.files.LocalFile;
 import mmb.engine.files.Save;
 import mmb.engine.generator.NewGame;
-import mmb.engine.window.FullScreen;
+import mmb.menu.FullScreen;
 import net.miginfocom.swing.MigLayout;
 import java.io.File;
 import java.io.IOException;

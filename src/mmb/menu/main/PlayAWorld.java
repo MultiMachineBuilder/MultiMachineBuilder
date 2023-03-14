@@ -20,8 +20,8 @@ import mmb.engine.MMBUtils;
 import mmb.engine.debug.Debugger;
 import mmb.engine.files.Save;
 import mmb.engine.json.JsonTool;
-import mmb.engine.window.FullScreen;
 import mmb.engine.worlds.universe.Universe;
+import mmb.menu.FullScreen;
 import mmb.menu.world.window.WorldWindow;
 
 /**

@@ -11,7 +11,6 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TimerTask;
 import java.awt.Desktop;
-import java.awt.image.BufferedImage;
 import java.awt.BorderLayout;
 import javax.swing.border.EmptyBorder;
 
@@ -21,9 +20,8 @@ import mmb.engine.gl.HalfVecTest;
 import mmb.engine.mods.Mods;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.settings.Settings;
-import mmb.engine.texture.Textures;
-import mmb.engine.window.FullScreen;
-import mmb.engine.window.MMBFrame;
+import mmb.menu.FullScreen;
+import mmb.menu.MMBFrame;
 import mmb.menu.MenuHelper;
 import mmb.menu.components.BoundCheckBoxMenuItem;
 
@@ -34,14 +32,6 @@ import mmb.menu.components.BoundCheckBoxMenuItem;
 public class MainMenu extends MMBFrame {
 	private static final long serialVersionUID = -7953512837841781519L;
 	private static final Debugger debug = new Debugger("Main menu");
-	
-	//Logos
-	/** The gear icon */
-	public static final BufferedImage GEAR = Textures.get("gearlogo.png");
-	/** The dollar icon */
-	public static final BufferedImage DOLLAR = Textures.get("dollar.png");
-	/** The bug report icon */
-	public static final BufferedImage BUG = Textures.get("bug.png");
 	
 	//ToolKit API
 	/** The singleton instance of main menu*/
@@ -59,30 +49,25 @@ public class MainMenu extends MMBFrame {
 	 * @param menu {@link JMenu} to add
 	 */
 	public void addToolBarEntry(JMenu menu) {
-		mainMenuBar.add(menu);
+		menuBar.add(menu);
 	}
-	protected JMenuBar mainMenuBar;
 	protected JTabbedPane tabbedPane;
-	BoundCheckBoxMenuItem stngFullScreen;
+	
 	
 	private final JPanel contentPane;
 	
 	//Various webistes
 	/** The website for this game */
 	public static final String GITHUB = "https://multimachinebuilder.github.io";
-	/** Donate to help Ukrainian refugees */
-	private static final String helpUA = "https://good.od.ua/en/stopwar";
-	//https://www.gov.pl/web/mswia-pl/informacja-dla-uchodżców-z-ukrainy
-	/** English information for Ukrainian refugees */
-	private static final String refugeesEN = "https://www.gov.pl/web/mswia-en/information-for-refugees-from-ukraine";
-	/** Polish government services for Ukrainian refugees*/
-	private static final String refugeesUA = "http://www.ua.gov.pl/";
+	
 	
 	private JButton btnExit;
 	private JLabel timerLBL;
 	private JButton TEST;
-	private JMenu mnUkraine;
-	private JMenuItem mnBug;
+	
+	
+	
+	
 	/** Launch the application. */
 	public static void create() {
 		Settings.addSettingBool("fullscreen", false, FullScreen.isFullScreen);		
@@ -94,63 +79,10 @@ public class MainMenu extends MMBFrame {
 		setTitle("MultiMachineBuilder - "+Mods.mods.size()+" mods");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
-		setIconImage(GEAR);
+		setIconImage(MMBFrame.GEAR);
 		
-		mainMenuBar = new JMenuBar();
-		setJMenuBar(mainMenuBar);
-		
-		JMenu mnNewMenu = new JMenu($res("cgui-win"));
-		mainMenuBar.add(mnNewMenu);
-		
-		stngFullScreen = new BoundCheckBoxMenuItem("FullScreen");
-		stngFullScreen.setVariable(FullScreen.isFullScreen);
-		mnNewMenu.add(stngFullScreen);
-		
-		mnUkraine = new JMenu();
-		mnUkraine.setBackground(new Color(30, 144, 255));
-		mnUkraine.setIcon(new ImageIcon(Textures.get("ukraine.png")));
-		mainMenuBar.add(mnUkraine);
-		
-		JMenuItem btnUkraine = new JMenuItem($res("cgui-refugeedonate"));
-		mnUkraine.add(btnUkraine);
-		Icon ua0 = new ImageIcon(Textures.get("ukraine.png"));
-		btnUkraine.setIcon(ua0);
-		btnUkraine.addActionListener(e -> {
-			try {
-				Desktop.getDesktop().browse(new URI(helpUA));
-			} catch (Exception ex) {
-				debug.stacktraceError(ex, "Unable to help Ukrainian refugees");
-			}
-		});
-		
-		//This button is for English speakers. It leads to a site for refugees.
-		JMenuItem btnRefugee = new JMenuItem($res("cgui-refugeehelp"));
-		Icon ua1 = new ImageIcon(Textures.get("ukraine1.png"));
-		btnRefugee.setIcon(ua1);
-		mnUkraine.add(btnRefugee);
-		btnRefugee.addActionListener(e -> {
-			try {
-				Desktop.getDesktop().browse(new URI(refugeesEN)); //An English-language site for Ukrainian refugees
-			} catch (Exception ex) {
-				debug.stacktraceError(ex, "Unable to get help as a refugee");
-			}
-		});
-		
-		//This button is for Ukrainian speakers. It means the same thing as the English one
-		JMenuItem btnRefugee1 = new JMenuItem(GlobalSettings.$res("ua-refugees"));
-		btnRefugee1.setIcon(ua1);
-		btnRefugee1.addActionListener(e -> {
-			try {
-				Desktop.getDesktop().browse(new URI(refugeesUA)); //An Ukrainian-language site for Ukrainian refugees
-			} catch (Exception ex) {
-				debug.stacktraceError(ex, GlobalSettings.$res("ua-refugee-error"));
-			}
-		});
-		mnUkraine.add(btnRefugee1);
-		
-		mnBug = new JMenuItem(GlobalSettings.$res("cgui-report"), new ImageIcon(BUG));
-		mnBug.setModel(MenuHelper.btnmBug);
-		mainMenuBar.add(mnBug);
+		setJMenuBar(menuBar);
+		menuBar.add(mnNewMenu);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -164,14 +96,9 @@ public class MainMenu extends MMBFrame {
 		
 		JButton btnWebsite = new JButton($res("cgui-website"));
 		btnWebsite.setToolTipText("Open this game's website");
+		btnWebsite.setModel(MenuHelper.btnmWeb);
 		aside.add(btnWebsite);
-		btnWebsite.addActionListener(e ->{
-			try {
-				Desktop.getDesktop().browse(new URI(GITHUB));
-			} catch (Exception ex) {
-				debug.stacktraceError(ex, "Unable to open GitHub");
-			}
-		});
+		
 		btnExit = new JButton($res("cgui-exit"));
 		btnExit.setBackground(Color.RED);
 		btnExit.setToolTipText("Exit the game");
