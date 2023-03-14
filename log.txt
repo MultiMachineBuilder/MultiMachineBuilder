@@ -68,7 +68,6 @@
 (SETTINGS LIST) matname1-coal=Coal
 (SETTINGS LIST) cguims-empty=Empty
 (SETTINGS LIST) mattype-sheet=sheet
-(SETTINGS LIST) ch4=Methane
 (SETTINGS LIST) component-diode=Diode
 (SETTINGS LIST) matname1-alu=Aluminum
 (SETTINGS LIST) modchest-coresimple=Basic Chest Core
@@ -141,7 +140,6 @@ Webpages and websites won't work.
 (SETTINGS LIST) cguiw-play=Play
 (SETTINGS LIST) component-ai=AI
 (SETTINGS LIST) matname1-copper=Copper
-(SETTINGS LIST) h2=Hydrogen
 (SETTINGS LIST) wguit-noway=Unobtainable
 (SETTINGS LIST) matname2-alnico=Alnico
 (SETTINGS LIST) machine-power=Power:
@@ -189,7 +187,6 @@ Webpages and websites won't work.
 (SETTINGS LIST) cgui-settings=Settings
 (SETTINGS LIST) pick-rud=Rudimentary pickaxe
 (SETTINGS LIST) matname-redstone=Redstone
-(SETTINGS LIST) c2h6=Ethane
 (SETTINGS LIST) matname-alu=Aluminum
 (SETTINGS LIST) cgui-saves=Saves
 (SETTINGS LIST) matname1-gold=Gold
@@ -227,7 +224,6 @@ Webpages and websites won't work.
 (SETTINGS LIST) cgui-mods=Mods
 (SETTINGS LIST) ipipe-cross=Item Pipe - crossover
 (SETTINGS LIST) mattype-ring=ring
-(SETTINGS LIST) co2=Carbon Dioxide
 (SETTINGS LIST) wguicq-gambling=Recipes which may produce:
 (SETTINGS LIST) matname2-silicon=Silicon
 (SETTINGS LIST) cguiw-new=New world
@@ -264,7 +260,6 @@ Webpages and websites won't work.
 (SETTINGS LIST) url-bugs=https://forms.gle/ReT9NyCP1RA4qgpFA
 (SETTINGS LIST) toolstd=Standard Tool
 (SETTINGS LIST) ind-dio1=Basic Diode
-(SETTINGS LIST) n2=Nitrogen
 (SETTINGS LIST) mattype-frag=fragment
 (SETTINGS LIST) matname-energetic=Energetic Alloy
 (SETTINGS LIST) wgui-a1=Add one
@@ -286,7 +281,6 @@ Webpages and websites won't work.
 (SETTINGS LIST) ind-circ7=Ludicrous Circuit
 (SETTINGS LIST) void=Void
 (SETTINGS LIST) ind-circ8=Ultimate Circuit
-(SETTINGS LIST) o2=Oxygen
 (SETTINGS LIST) ind-circ9=Penultimate Circuit
 (SETTINGS LIST) matname2-redstone=Redstone
 (SETTINGS LIST) ppipe-b=Player Pipe - turn
@@ -736,16 +730,6 @@ Webpages and websites won't work.
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\bug.png
 (MOD-LOADER) Loading a texture bug.png
 (TEXTURES) Loading texture: bug.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\chem
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\chem\atom.png
-(MOD-LOADER) Loading a texture chem\atom.png
-(TEXTURES) Loading texture: chem/atom.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\chem\gas.png
-(MOD-LOADER) Loading a texture chem\gas.png
-(TEXTURES) Loading texture: chem/gas.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\chem\vial.png
-(MOD-LOADER) Loading a texture chem\vial.png
-(TEXTURES) Loading texture: chem/vial.png
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\chuckBlock.png
 (MOD-LOADER) Loading a texture chuckBlock.png
 (TEXTURES) Loading texture: chuckBlock.png
@@ -801,10 +785,6 @@ Webpages and websites won't work.
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\hoover.png
 (MOD-LOADER) Loading a texture hoover.png
 (TEXTURES) Loading texture: hoover.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\inventory
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\inventory\infinity.png
-(MOD-LOADER) Loading a texture inventory\infinity.png
-(TEXTURES) Loading texture: inventory/infinity.png
 (MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\item
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv ai.png
 (MOD-LOADER) Loading a texture item\adv ai.png
@@ -839,7 +819,6 @@ Webpages and websites won't work.
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv ic.png
 (MOD-LOADER) Loading a texture item\adv ic.png
 (TEXTURES) Loading texture: item/adv ic.png
-(TEXTURE ATLAS) Size: 512*256
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv inductor.png
 (MOD-LOADER) Loading a texture item\adv inductor.png
 (TEXTURES) Loading texture: item/adv inductor.png
@@ -852,6 +831,7 @@ Webpages and websites won't work.
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv ram.png
 (MOD-LOADER) Loading a texture item\adv ram.png
 (TEXTURES) Loading texture: item/adv ram.png
+(TEXTURE ATLAS) Size: 512*256
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv resistor.png
 (MOD-LOADER) Loading a texture item\adv resistor.png
 (TEXTURES) Loading texture: item/adv resistor.png
@@ -1032,7 +1012,6 @@ Webpages and websites won't work.
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\minidust.png
 (MOD-LOADER) Loading a texture item\minidust.png
 (TEXTURES) Loading texture: item/minidust.png
-(TEXTURE ATLAS) Size: 512*512
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\nugget.png
 (MOD-LOADER) Loading a texture item\nugget.png
 (TEXTURES) Loading texture: item/nugget.png
@@ -1045,6 +1024,7 @@ Webpages and websites won't work.
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\panel.png
 (MOD-LOADER) Loading a texture item\panel.png
 (TEXTURES) Loading texture: item/panel.png
+(TEXTURE ATLAS) Size: 512*512
 (MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\paper.png
 (MOD-LOADER) Loading a texture item\paper.png
 (TEXTURES) Loading texture: item/paper.png
@@ -8201,660 +8181,32 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Beer(drugs.beer) with alcohol
 (ITEMS) Tagging Item Beer bottle(drugs.beer0) with material-glass
 (MAIN) State: Loading machines
-(ITEMS) Adding chem.co2 with title Carbon Dioxide and description:
- (no description)
-(ITEMS) Tagging Item Carbon Dioxide(chem.co2) with chem
-(ITEMS) Adding chem.n2 with title Nitrogen and description:
- (no description)
-(ITEMS) Tagging Item Nitrogen(chem.n2) with chem
-(ITEMS) Adding chem.h2 with title Hydrogen and description:
- (no description)
-(ITEMS) Tagging Item Hydrogen(chem.h2) with chem
-(ITEMS) Adding chem.o2 with title Oxygen and description:
- (no description)
-(ITEMS) Tagging Item Oxygen(chem.o2) with chem
-(ITEMS) Adding chem.ch4 with title Methane and description:
- (no description)
-(ITEMS) Tagging Item Methane(chem.ch4) with chem
-(ITEMS) Adding chem.c2h6 with title Ethane and description:
- (no description)
-(ITEMS) Tagging Item Ethane(chem.c2h6) with chem
-(ITEMS) Tagging Block Air(mmb.air) with chem
-(ITEMS) Tagging Block Water(liquid.water) with chem
-(SETTINGS LIST) Garbling enabled: false
-(SETTINGS LIST) vvvv Resource bundle start mmb.content.stn.bundle vvv
-(SETTINGS LIST) matname1-stna=STN alloy A
-(SETTINGS LIST) matname-stnc=STN alloy C
-(SETTINGS LIST) matname1-stnd=STN alloy D
-(SETTINGS LIST) matname-stnd=STN alloy D
-(SETTINGS LIST) STN-storage=STN Storage Attachment
-(SETTINGS LIST) matname1-stnb=STN alloy B
-(SETTINGS LIST) matname1-stnc=STN alloy C
-(SETTINGS LIST) matname-stna=STN alloy A
-(SETTINGS LIST) stnm-reset=Re-inventorise
-(SETTINGS LIST) matname-stnb=STN alloy B
-(SETTINGS LIST) STN-importer=STN Importer
-(SETTINGS LIST) STN-cabler0=Modifies hanging STN cables
-(SETTINGS LIST) matname2-stnd=STN alloy D
-(SETTINGS LIST) matname2-stnc=STN alloy C
-(SETTINGS LIST) matname2-stnb=STN alloy B
-(SETTINGS LIST) STN-framework=STN Framework
-(SETTINGS LIST) matname2-stna=STN alloy A
-(SETTINGS LIST) STN-cabler=STN cabler
-(SETTINGS LIST) STN-terminal=STN Terminal
-(SETTINGS LIST) STN-exporter=STN Exporter
-(SETTINGS LIST) ^^^^ Resource bundle end ^^^
-(ITEMS) Adding block.stna with title STN alloy A block and description:
- (no description)
-(ITEMS) Adding fcluster.stna with title STN alloy A cluster and description:
- (no description)
-(ITEMS) Adding ingot.stna with title STN alloy A ingot and description:
- (no description)
-(ITEMS) Adding frag.stna with title STN alloy A fragment and description:
- (no description)
-(ITEMS) Adding nugget.stna with title STN alloy A nugget and description:
- (no description)
-(ITEMS) Adding wirespool.stna with title STN alloy A wire spool and description:
- (no description)
-(ITEMS) Adding ldust.stna with title STN alloy A large dust and description:
- (no description)
-(ITEMS) Adding dust.stna with title STN alloy A dust and description:
- (no description)
-(ITEMS) Adding mdust.stna with title STN alloy A small dust and description:
- (no description)
-(ITEMS) Adding minidust.stna with title STN alloy A tiny dust and description:
- (no description)
-(ITEMS) Adding panel.stna with title STN alloy A plate and description:
- (no description)
-(ITEMS) Adding foil.stna with title STN alloy A foil and description:
- (no description)
-(ITEMS) Adding gear.stna with title STN alloy A gear and description:
- (no description)
-(ITEMS) Adding rod.stna with title STN alloy A rod and description:
- (no description)
-(ITEMS) Adding ring.stna with title STN alloy A ring and description:
- (no description)
-(ITEMS) Adding sheet.stna with title STN alloy A sheet and description:
- (no description)
-(ITEMS) Adding frame.stna with title STN alloy A frame and description:
- (no description)
-(ITEMS) Tagging Block STN alloy A block(block.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A cluster(fcluster.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A ingot(ingot.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A fragment(frag.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A nugget(nugget.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A wire spool(wirespool.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A large dust(ldust.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A dust(dust.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A small dust(mdust.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A tiny dust(minidust.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A plate(panel.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A foil(foil.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A gear(gear.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A rod(rod.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A ring(ring.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A sheet(sheet.stna) with material-stna
-(ITEMS) Tagging Item STN alloy A frame(frame.stna) with material-stna
-(ITEMS) Tagging Block STN alloy A block(block.stna) with shape-block
-(ITEMS) Tagging Item STN alloy A cluster(fcluster.stna) with shape-cluster
-(ITEMS) Tagging Item STN alloy A ingot(ingot.stna) with shape-base
-(ITEMS) Tagging Item STN alloy A fragment(frag.stna) with shape-frag
-(ITEMS) Tagging Item STN alloy A nugget(nugget.stna) with shape-nugget
-(ITEMS) Tagging Item STN alloy A wire spool(wirespool.stna) with shape-wire
-(ITEMS) Tagging Item STN alloy A large dust(ldust.stna) with shape-megadust
-(ITEMS) Tagging Item STN alloy A dust(dust.stna) with shape-dust
-(ITEMS) Tagging Item STN alloy A small dust(mdust.stna) with shape-smalldust
-(ITEMS) Tagging Item STN alloy A tiny dust(minidust.stna) with shape-tinydust
-(ITEMS) Tagging Item STN alloy A plate(panel.stna) with shape-panel
-(ITEMS) Tagging Item STN alloy A foil(foil.stna) with shape-foil
-(ITEMS) Tagging Item STN alloy A gear(gear.stna) with shape-gear
-(ITEMS) Tagging Item STN alloy A rod(rod.stna) with shape-rod
-(ITEMS) Tagging Item STN alloy A ring(ring.stna) with shape-ring
-(ITEMS) Tagging Item STN alloy A sheet(sheet.stna) with shape-sheet
-(ITEMS) Tagging Item STN alloy A frame(frame.stna) with shape-frame
-(ITEMS) Adding block.stnb with title STN alloy B block and description:
- (no description)
-(ITEMS) Adding fcluster.stnb with title STN alloy B cluster and description:
- (no description)
-(ITEMS) Adding ingot.stnb with title STN alloy B ingot and description:
- (no description)
-(ITEMS) Adding frag.stnb with title STN alloy B fragment and description:
- (no description)
-(ITEMS) Adding nugget.stnb with title STN alloy B nugget and description:
- (no description)
-(ITEMS) Adding wirespool.stnb with title STN alloy B wire spool and description:
- (no description)
-(ITEMS) Adding ldust.stnb with title STN alloy B large dust and description:
- (no description)
-(ITEMS) Adding dust.stnb with title STN alloy B dust and description:
- (no description)
-(ITEMS) Adding mdust.stnb with title STN alloy B small dust and description:
- (no description)
-(ITEMS) Adding minidust.stnb with title STN alloy B tiny dust and description:
- (no description)
-(ITEMS) Adding panel.stnb with title STN alloy B plate and description:
- (no description)
-(ITEMS) Adding foil.stnb with title STN alloy B foil and description:
- (no description)
-(ITEMS) Adding gear.stnb with title STN alloy B gear and description:
- (no description)
-(ITEMS) Adding rod.stnb with title STN alloy B rod and description:
- (no description)
-(ITEMS) Adding ring.stnb with title STN alloy B ring and description:
- (no description)
-(ITEMS) Adding sheet.stnb with title STN alloy B sheet and description:
- (no description)
-(ITEMS) Adding frame.stnb with title STN alloy B frame and description:
- (no description)
-(ITEMS) Tagging Block STN alloy B block(block.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B cluster(fcluster.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B ingot(ingot.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B fragment(frag.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B nugget(nugget.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B wire spool(wirespool.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B large dust(ldust.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B dust(dust.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B small dust(mdust.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B tiny dust(minidust.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B plate(panel.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B foil(foil.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B gear(gear.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B rod(rod.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B ring(ring.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B sheet(sheet.stnb) with material-stnb
-(ITEMS) Tagging Item STN alloy B frame(frame.stnb) with material-stnb
-(ITEMS) Tagging Block STN alloy B block(block.stnb) with shape-block
-(ITEMS) Tagging Item STN alloy B cluster(fcluster.stnb) with shape-cluster
-(ITEMS) Tagging Item STN alloy B ingot(ingot.stnb) with shape-base
-(ITEMS) Tagging Item STN alloy B fragment(frag.stnb) with shape-frag
-(ITEMS) Tagging Item STN alloy B nugget(nugget.stnb) with shape-nugget
-(ITEMS) Tagging Item STN alloy B wire spool(wirespool.stnb) with shape-wire
-(ITEMS) Tagging Item STN alloy B large dust(ldust.stnb) with shape-megadust
-(ITEMS) Tagging Item STN alloy B dust(dust.stnb) with shape-dust
-(ITEMS) Tagging Item STN alloy B small dust(mdust.stnb) with shape-smalldust
-(ITEMS) Tagging Item STN alloy B tiny dust(minidust.stnb) with shape-tinydust
-(ITEMS) Tagging Item STN alloy B plate(panel.stnb) with shape-panel
-(ITEMS) Tagging Item STN alloy B foil(foil.stnb) with shape-foil
-(ITEMS) Tagging Item STN alloy B gear(gear.stnb) with shape-gear
-(ITEMS) Tagging Item STN alloy B rod(rod.stnb) with shape-rod
-(ITEMS) Tagging Item STN alloy B ring(ring.stnb) with shape-ring
-(ITEMS) Tagging Item STN alloy B sheet(sheet.stnb) with shape-sheet
-(ITEMS) Tagging Item STN alloy B frame(frame.stnb) with shape-frame
-(ITEMS) Adding block.stnc with title STN alloy C block and description:
- (no description)
-(ITEMS) Adding fcluster.stnc with title STN alloy C cluster and description:
- (no description)
-(ITEMS) Adding ingot.stnc with title STN alloy C ingot and description:
- (no description)
-(ITEMS) Adding frag.stnc with title STN alloy C fragment and description:
- (no description)
-(ITEMS) Adding nugget.stnc with title STN alloy C nugget and description:
- (no description)
-(ITEMS) Adding wirespool.stnc with title STN alloy C wire spool and description:
- (no description)
-(ITEMS) Adding ldust.stnc with title STN alloy C large dust and description:
- (no description)
-(ITEMS) Adding dust.stnc with title STN alloy C dust and description:
- (no description)
-(ITEMS) Adding mdust.stnc with title STN alloy C small dust and description:
- (no description)
-(ITEMS) Adding minidust.stnc with title STN alloy C tiny dust and description:
- (no description)
-(ITEMS) Adding panel.stnc with title STN alloy C plate and description:
- (no description)
-(ITEMS) Adding foil.stnc with title STN alloy C foil and description:
- (no description)
-(ITEMS) Adding gear.stnc with title STN alloy C gear and description:
- (no description)
-(ITEMS) Adding rod.stnc with title STN alloy C rod and description:
- (no description)
-(ITEMS) Adding ring.stnc with title STN alloy C ring and description:
- (no description)
-(ITEMS) Adding sheet.stnc with title STN alloy C sheet and description:
- (no description)
-(ITEMS) Adding frame.stnc with title STN alloy C frame and description:
- (no description)
-(ITEMS) Tagging Block STN alloy C block(block.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C cluster(fcluster.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C ingot(ingot.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C fragment(frag.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C nugget(nugget.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C wire spool(wirespool.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C large dust(ldust.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C dust(dust.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C small dust(mdust.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C tiny dust(minidust.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C plate(panel.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C foil(foil.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C gear(gear.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C rod(rod.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C ring(ring.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C sheet(sheet.stnc) with material-stnc
-(ITEMS) Tagging Item STN alloy C frame(frame.stnc) with material-stnc
-(ITEMS) Tagging Block STN alloy C block(block.stnc) with shape-block
-(ITEMS) Tagging Item STN alloy C cluster(fcluster.stnc) with shape-cluster
-(ITEMS) Tagging Item STN alloy C ingot(ingot.stnc) with shape-base
-(ITEMS) Tagging Item STN alloy C fragment(frag.stnc) with shape-frag
-(ITEMS) Tagging Item STN alloy C nugget(nugget.stnc) with shape-nugget
-(ITEMS) Tagging Item STN alloy C wire spool(wirespool.stnc) with shape-wire
-(ITEMS) Tagging Item STN alloy C large dust(ldust.stnc) with shape-megadust
-(ITEMS) Tagging Item STN alloy C dust(dust.stnc) with shape-dust
-(ITEMS) Tagging Item STN alloy C small dust(mdust.stnc) with shape-smalldust
-(ITEMS) Tagging Item STN alloy C tiny dust(minidust.stnc) with shape-tinydust
-(ITEMS) Tagging Item STN alloy C plate(panel.stnc) with shape-panel
-(ITEMS) Tagging Item STN alloy C foil(foil.stnc) with shape-foil
-(ITEMS) Tagging Item STN alloy C gear(gear.stnc) with shape-gear
-(ITEMS) Tagging Item STN alloy C rod(rod.stnc) with shape-rod
-(ITEMS) Tagging Item STN alloy C ring(ring.stnc) with shape-ring
-(ITEMS) Tagging Item STN alloy C sheet(sheet.stnc) with shape-sheet
-(ITEMS) Tagging Item STN alloy C frame(frame.stnc) with shape-frame
-(ITEMS) Adding block.stnd with title STN alloy D block and description:
- (no description)
-(ITEMS) Adding fcluster.stnd with title STN alloy D cluster and description:
- (no description)
-(ITEMS) Adding ingot.stnd with title STN alloy D ingot and description:
- (no description)
-(ITEMS) Adding frag.stnd with title STN alloy D fragment and description:
- (no description)
-(ITEMS) Adding nugget.stnd with title STN alloy D nugget and description:
- (no description)
-(ITEMS) Adding wirespool.stnd with title STN alloy D wire spool and description:
- (no description)
-(ITEMS) Adding ldust.stnd with title STN alloy D large dust and description:
- (no description)
-(ITEMS) Adding dust.stnd with title STN alloy D dust and description:
- (no description)
-(ITEMS) Adding mdust.stnd with title STN alloy D small dust and description:
- (no description)
-(ITEMS) Adding minidust.stnd with title STN alloy D tiny dust and description:
- (no description)
-(ITEMS) Adding panel.stnd with title STN alloy D plate and description:
- (no description)
-(ITEMS) Adding foil.stnd with title STN alloy D foil and description:
- (no description)
-(ITEMS) Adding gear.stnd with title STN alloy D gear and description:
- (no description)
-(ITEMS) Adding rod.stnd with title STN alloy D rod and description:
- (no description)
-(ITEMS) Adding ring.stnd with title STN alloy D ring and description:
- (no description)
-(ITEMS) Adding sheet.stnd with title STN alloy D sheet and description:
- (no description)
-(ITEMS) Adding frame.stnd with title STN alloy D frame and description:
- (no description)
-(ITEMS) Tagging Block STN alloy D block(block.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D cluster(fcluster.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D ingot(ingot.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D fragment(frag.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D nugget(nugget.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D wire spool(wirespool.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D large dust(ldust.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D dust(dust.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D small dust(mdust.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D tiny dust(minidust.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D plate(panel.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D foil(foil.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D gear(gear.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D rod(rod.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D ring(ring.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D sheet(sheet.stnd) with material-stnd
-(ITEMS) Tagging Item STN alloy D frame(frame.stnd) with material-stnd
-(ITEMS) Tagging Block STN alloy D block(block.stnd) with shape-block
-(ITEMS) Tagging Item STN alloy D cluster(fcluster.stnd) with shape-cluster
-(ITEMS) Tagging Item STN alloy D ingot(ingot.stnd) with shape-base
-(ITEMS) Tagging Item STN alloy D fragment(frag.stnd) with shape-frag
-(ITEMS) Tagging Item STN alloy D nugget(nugget.stnd) with shape-nugget
-(ITEMS) Tagging Item STN alloy D wire spool(wirespool.stnd) with shape-wire
-(ITEMS) Tagging Item STN alloy D large dust(ldust.stnd) with shape-megadust
-(ITEMS) Tagging Item STN alloy D dust(dust.stnd) with shape-dust
-(ITEMS) Tagging Item STN alloy D small dust(mdust.stnd) with shape-smalldust
-(ITEMS) Tagging Item STN alloy D tiny dust(minidust.stnd) with shape-tinydust
-(ITEMS) Tagging Item STN alloy D plate(panel.stnd) with shape-panel
-(ITEMS) Tagging Item STN alloy D foil(foil.stnd) with shape-foil
-(ITEMS) Tagging Item STN alloy D gear(gear.stnd) with shape-gear
-(ITEMS) Tagging Item STN alloy D rod(rod.stnd) with shape-rod
-(ITEMS) Tagging Item STN alloy D ring(ring.stnd) with shape-ring
-(ITEMS) Tagging Item STN alloy D sheet(sheet.stnd) with shape-sheet
-(ITEMS) Tagging Item STN alloy D frame(frame.stnd) with shape-frame
-(ITEMS) Adding stn.cabler with title STN cabler and description:
- Modifies hanging STN cables
-(ITEMS) Adding stnb.storage with title STN Storage Attachment and description:
- (no description)
-(ITEMS) Adding stnb.terminal with title STN Terminal and description:
- (no description)
-(ITEMS) Adding stnb.exporter with title STN Exporter and description:
- (no description)
-(ITEMS) Adding stnb.importer with title STN Importer and description:
- (no description)
-(ITEMS) Adding stnb.framework with title STN Framework and description:
- (no description)
-(DATA LAYERS) New world data layer: STN
-(STN) Initing
-(ITEMS) Tagging Item STN cabler(stn.cabler) with STN
-(ITEMS) Tagging Item STN Storage Attachment(stnb.storage) with STN
-(ITEMS) Tagging Item STN Terminal(stnb.terminal) with STN
-(ITEMS) Tagging Item STN Exporter(stnb.exporter) with STN
-(ITEMS) Tagging Item STN Importer(stnb.importer) with STN
-(ITEMS) Tagging Item STN Framework(stnb.framework) with STN
-(ITEMS) Adding modchest.chest with title Modular Chest and description:
- (no description)
-(ITEMS) Adding modchest.plug with title Plug and description:
- (no description)
-(ITEMS) Adding modchest.coreSimple1 with title Basic Chest Core #1 and description:
- (no description)
-(ITEMS) Adding modchest.coreSimple2 with title Basic Chest Core #2 and description:
- (no description)
-(ITEMS) Adding modchest.coreSimple3 with title Basic Chest Core #3 and description:
- (no description)
-(ITEMS) Adding modchest.coreSimple4 with title Basic Chest Core #4 and description:
- (no description)
-(ITEMS) Adding modchest.coreSimple5 with title Basic Chest Core #5 and description:
- (no description)
-(ITEMS) Adding modchest.coreSimple6 with title Basic Chest Core #6 and description:
- (no description)
-(ITEMS) Adding modchest.coreSimple7 with title Basic Chest Core #7 and description:
- (no description)
-(ITEMS) Adding modchest.coreSimple8 with title Basic Chest Core #8 and description:
- (no description)
-(ITEMS) Adding modchest.coreSimple9 with title Basic Chest Core #9 and description:
- (no description)
-(ITEMS) Adding modchest.coreDrawer1 with title Drawer Chest Core #1 and description:
- (no description)
-(ITEMS) Adding modchest.coreDrawer2 with title Drawer Chest Core #2 and description:
- (no description)
-(ITEMS) Adding modchest.coreDrawer3 with title Drawer Chest Core #3 and description:
- (no description)
-(ITEMS) Adding modchest.coreDrawer4 with title Drawer Chest Core #4 and description:
- (no description)
-(ITEMS) Adding modchest.coreDrawer5 with title Drawer Chest Core #5 and description:
- (no description)
-(ITEMS) Adding modchest.coreDrawer6 with title Drawer Chest Core #6 and description:
- (no description)
-(ITEMS) Adding modchest.coreDrawer7 with title Drawer Chest Core #7 and description:
- (no description)
-(ITEMS) Adding modchest.coreDrawer8 with title Drawer Chest Core #8 and description:
- (no description)
-(ITEMS) Adding modchest.coreDrawer9 with title Drawer Chest Core #9 and description:
- (no description)
-(ITEMS) Adding modchest.coreSet1 with title Unique Chest Core #1 and description:
- (no description)
-(ITEMS) Adding modchest.coreSet2 with title Unique Chest Core #2 and description:
- (no description)
-(ITEMS) Adding modchest.coreSet3 with title Unique Chest Core #3 and description:
- (no description)
-(ITEMS) Adding modchest.coreSet4 with title Unique Chest Core #4 and description:
- (no description)
-(ITEMS) Adding modchest.coreSet5 with title Unique Chest Core #5 and description:
- (no description)
-(ITEMS) Adding modchest.coreSet6 with title Unique Chest Core #6 and description:
- (no description)
-(ITEMS) Adding modchest.coreSet7 with title Unique Chest Core #7 and description:
- (no description)
-(ITEMS) Adding modchest.coreSet8 with title Unique Chest Core #8 and description:
- (no description)
-(ITEMS) Adding modchest.coreSet9 with title Unique Chest Core #9 and description:
- (no description)
-(ITEMS) Adding modchest.coreSingle1 with title Single Item Chest Core #1 and description:
- (no description)
-(ITEMS) Adding modchest.export.single with title Single-item Exporter and description:
- (no description)
-(ITEMS) Adding modchest.import.single with title Single-item Importer and description:
- (no description)
-(ITEMS) Tagging Item Single-item Importer(modchest.import.single) with modular
-(ITEMS) Tagging Item Single-item Importer(modchest.import.single) with module
-(ITEMS) Tagging Item Single-item Exporter(modchest.export.single) with modular
-(ITEMS) Tagging Item Single-item Exporter(modchest.export.single) with module
-(ITEMS) Adding modchest.export.multi with title Multi-item Exporter and description:
- (no description)
-(ITEMS) Adding modchest.import.multi with title Multi-item Importer and description:
- (no description)
-(ITEMS) Tagging Item Multi-item Importer(modchest.import.multi) with modular
-(ITEMS) Tagging Item Multi-item Importer(modchest.import.multi) with module
-(ITEMS) Tagging Item Multi-item Exporter(modchest.export.multi) with modular
-(ITEMS) Tagging Item Multi-item Exporter(modchest.export.multi) with module
-(ITEMS) Adding modchest.export.bulk with title Bulk Exporter and description:
- (no description)
-(ITEMS) Adding modchest.import.bulk with title Bulk Importer and description:
- (no description)
-(ITEMS) Tagging Item Bulk Importer(modchest.import.bulk) with modular
-(ITEMS) Tagging Item Bulk Importer(modchest.import.bulk) with module
-(ITEMS) Tagging Item Bulk Exporter(modchest.export.bulk) with modular
-(ITEMS) Tagging Item Bulk Exporter(modchest.export.bulk) with module
-(ITEMS) Tagging Item Drawer Chest Core #1(modchest.coreDrawer1) with modular
-(ITEMS) Tagging Item Drawer Chest Core #1(modchest.coreDrawer1) with modchest
-(ITEMS) Tagging Item Drawer Chest Core #2(modchest.coreDrawer2) with modular
-(ITEMS) Tagging Item Drawer Chest Core #2(modchest.coreDrawer2) with modchest
-(ITEMS) Tagging Item Drawer Chest Core #3(modchest.coreDrawer3) with modular
-(ITEMS) Tagging Item Drawer Chest Core #3(modchest.coreDrawer3) with modchest
-(ITEMS) Tagging Item Drawer Chest Core #4(modchest.coreDrawer4) with modular
-(ITEMS) Tagging Item Drawer Chest Core #4(modchest.coreDrawer4) with modchest
-(ITEMS) Tagging Item Drawer Chest Core #5(modchest.coreDrawer5) with modular
-(ITEMS) Tagging Item Drawer Chest Core #5(modchest.coreDrawer5) with modchest
-(ITEMS) Tagging Item Drawer Chest Core #6(modchest.coreDrawer6) with modular
-(ITEMS) Tagging Item Drawer Chest Core #6(modchest.coreDrawer6) with modchest
-(ITEMS) Tagging Item Drawer Chest Core #7(modchest.coreDrawer7) with modular
-(ITEMS) Tagging Item Drawer Chest Core #7(modchest.coreDrawer7) with modchest
-(ITEMS) Tagging Item Drawer Chest Core #8(modchest.coreDrawer8) with modular
-(ITEMS) Tagging Item Drawer Chest Core #8(modchest.coreDrawer8) with modchest
-(ITEMS) Tagging Item Drawer Chest Core #9(modchest.coreDrawer9) with modular
-(ITEMS) Tagging Item Drawer Chest Core #9(modchest.coreDrawer9) with modchest
-(ITEMS) Tagging Item Basic Chest Core #1(modchest.coreSimple1) with modular
-(ITEMS) Tagging Item Basic Chest Core #1(modchest.coreSimple1) with modchest
-(ITEMS) Tagging Item Basic Chest Core #2(modchest.coreSimple2) with modular
-(ITEMS) Tagging Item Basic Chest Core #2(modchest.coreSimple2) with modchest
-(ITEMS) Tagging Item Basic Chest Core #3(modchest.coreSimple3) with modular
-(ITEMS) Tagging Item Basic Chest Core #3(modchest.coreSimple3) with modchest
-(ITEMS) Tagging Item Basic Chest Core #4(modchest.coreSimple4) with modular
-(ITEMS) Tagging Item Basic Chest Core #4(modchest.coreSimple4) with modchest
-(ITEMS) Tagging Item Basic Chest Core #5(modchest.coreSimple5) with modular
-(ITEMS) Tagging Item Basic Chest Core #5(modchest.coreSimple5) with modchest
-(ITEMS) Tagging Item Basic Chest Core #6(modchest.coreSimple6) with modular
-(ITEMS) Tagging Item Basic Chest Core #6(modchest.coreSimple6) with modchest
-(ITEMS) Tagging Item Basic Chest Core #7(modchest.coreSimple7) with modular
-(ITEMS) Tagging Item Basic Chest Core #7(modchest.coreSimple7) with modchest
-(ITEMS) Tagging Item Basic Chest Core #8(modchest.coreSimple8) with modular
-(ITEMS) Tagging Item Basic Chest Core #8(modchest.coreSimple8) with modchest
-(ITEMS) Tagging Item Basic Chest Core #9(modchest.coreSimple9) with modular
-(ITEMS) Tagging Item Basic Chest Core #9(modchest.coreSimple9) with modchest
-(ITEMS) Tagging Item Unique Chest Core #1(modchest.coreSet1) with modular
-(ITEMS) Tagging Item Unique Chest Core #1(modchest.coreSet1) with modchest
-(ITEMS) Tagging Item Unique Chest Core #2(modchest.coreSet2) with modular
-(ITEMS) Tagging Item Unique Chest Core #2(modchest.coreSet2) with modchest
-(ITEMS) Tagging Item Unique Chest Core #3(modchest.coreSet3) with modular
-(ITEMS) Tagging Item Unique Chest Core #3(modchest.coreSet3) with modchest
-(ITEMS) Tagging Item Unique Chest Core #4(modchest.coreSet4) with modular
-(ITEMS) Tagging Item Unique Chest Core #4(modchest.coreSet4) with modchest
-(ITEMS) Tagging Item Unique Chest Core #5(modchest.coreSet5) with modular
-(ITEMS) Tagging Item Unique Chest Core #5(modchest.coreSet5) with modchest
-(ITEMS) Tagging Item Unique Chest Core #6(modchest.coreSet6) with modular
-(ITEMS) Tagging Item Unique Chest Core #6(modchest.coreSet6) with modchest
-(ITEMS) Tagging Item Unique Chest Core #7(modchest.coreSet7) with modular
-(ITEMS) Tagging Item Unique Chest Core #7(modchest.coreSet7) with modchest
-(ITEMS) Tagging Item Unique Chest Core #8(modchest.coreSet8) with modular
-(ITEMS) Tagging Item Unique Chest Core #8(modchest.coreSet8) with modchest
-(ITEMS) Tagging Item Unique Chest Core #9(modchest.coreSet9) with modular
-(ITEMS) Tagging Item Unique Chest Core #9(modchest.coreSet9) with modchest
-(ITEMS) Tagging Item Single Item Chest Core #1(modchest.coreSingle1) with modular
-(ITEMS) Tagging Item Single Item Chest Core #1(modchest.coreSingle1) with modchest
-(ITEMS) Tagging Item Drawer Chest Core #1(modchest.coreDrawer1) with modchest-drawer
-(ITEMS) Tagging Item Drawer Chest Core #2(modchest.coreDrawer2) with modchest-drawer
-(ITEMS) Tagging Item Drawer Chest Core #3(modchest.coreDrawer3) with modchest-drawer
-(ITEMS) Tagging Item Drawer Chest Core #4(modchest.coreDrawer4) with modchest-drawer
-(ITEMS) Tagging Item Drawer Chest Core #5(modchest.coreDrawer5) with modchest-drawer
-(ITEMS) Tagging Item Drawer Chest Core #6(modchest.coreDrawer6) with modchest-drawer
-(ITEMS) Tagging Item Drawer Chest Core #7(modchest.coreDrawer7) with modchest-drawer
-(ITEMS) Tagging Item Drawer Chest Core #8(modchest.coreDrawer8) with modchest-drawer
-(ITEMS) Tagging Item Drawer Chest Core #9(modchest.coreDrawer9) with modchest-drawer
-(ITEMS) Tagging Item Basic Chest Core #1(modchest.coreSimple1) with modchest-simple
-(ITEMS) Tagging Item Basic Chest Core #2(modchest.coreSimple2) with modchest-simple
-(ITEMS) Tagging Item Basic Chest Core #3(modchest.coreSimple3) with modchest-simple
-(ITEMS) Tagging Item Basic Chest Core #4(modchest.coreSimple4) with modchest-simple
-(ITEMS) Tagging Item Basic Chest Core #5(modchest.coreSimple5) with modchest-simple
-(ITEMS) Tagging Item Basic Chest Core #6(modchest.coreSimple6) with modchest-simple
-(ITEMS) Tagging Item Basic Chest Core #7(modchest.coreSimple7) with modchest-simple
-(ITEMS) Tagging Item Basic Chest Core #8(modchest.coreSimple8) with modchest-simple
-(ITEMS) Tagging Item Basic Chest Core #9(modchest.coreSimple9) with modchest-simple
-(ITEMS) Tagging Item Unique Chest Core #1(modchest.coreSet1) with modchest-set
-(ITEMS) Tagging Item Unique Chest Core #2(modchest.coreSet2) with modchest-set
-(ITEMS) Tagging Item Unique Chest Core #3(modchest.coreSet3) with modchest-set
-(ITEMS) Tagging Item Unique Chest Core #4(modchest.coreSet4) with modchest-set
-(ITEMS) Tagging Item Unique Chest Core #5(modchest.coreSet5) with modchest-set
-(ITEMS) Tagging Item Unique Chest Core #6(modchest.coreSet6) with modchest-set
-(ITEMS) Tagging Item Unique Chest Core #7(modchest.coreSet7) with modchest-set
-(ITEMS) Tagging Item Unique Chest Core #8(modchest.coreSet8) with modchest-set
-(ITEMS) Tagging Item Unique Chest Core #9(modchest.coreSet9) with modchest-set
-(ITEMS) Tagging Item Single Item Chest Core #1(modchest.coreSingle1) with modchest-single
-(ITEMS) Tagging Item Modular Chest(modchest.chest) with modular
-(ITEMS) Tagging Item Modular Chest(modchest.chest) with modchest
-(ITEMS) Tagging Item Plug(modchest.plug) with modular
-(ITEMS) Tagging Item Plug(modchest.plug) with modchest
-(ITEMS) Adding rawitem.stn.cabler with title STN cabler (raw) and description:
- Modifies hanging STN cables
-(ITEMS) Tagging ItemRaw Item STN cabler(stn.cabler) with STN
-(ITEMS) Tagging ItemRaw Item STN cabler(stn.cabler) with raw
-(ITEMS) Adding industry.transformer0 with title Transformer VLV/ULV and description:
- (no description)
-(ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with voltage-VLV
-(ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with voltage-ULV
-(ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with machine-transformer
-(ITEMS) Adding industry.transformer1 with title Transformer LV/VLV and description:
- (no description)
-(ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with voltage-LV
-(ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with voltage-VLV
-(ITEMS) Tagging Item Transformer LV/VLV(industry.transformer1) with machine-transformer
-(ITEMS) Adding industry.transformer2 with title Transformer MV/LV and description:
- (no description)
-(ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with voltage-MV
-(ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with voltage-LV
-(ITEMS) Tagging Item Transformer MV/LV(industry.transformer2) with machine-transformer
-(ITEMS) Adding industry.transformer3 with title Transformer HV/MV and description:
- (no description)
-(ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with voltage-HV
-(ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with voltage-MV
-(ITEMS) Tagging Item Transformer HV/MV(industry.transformer3) with machine-transformer
-(ITEMS) Adding industry.transformer4 with title Transformer EV/HV and description:
- (no description)
-(ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with voltage-EV
-(ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with voltage-HV
-(ITEMS) Tagging Item Transformer EV/HV(industry.transformer4) with machine-transformer
-(ITEMS) Adding industry.transformer5 with title Transformer IV/EV and description:
- (no description)
-(ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with voltage-IV
-(ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with voltage-EV
-(ITEMS) Tagging Item Transformer IV/EV(industry.transformer5) with machine-transformer
-(ITEMS) Adding industry.transformer6 with title Transformer LuV/IV and description:
- (no description)
-(ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with voltage-LuV
-(ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with voltage-IV
-(ITEMS) Tagging Item Transformer LuV/IV(industry.transformer6) with machine-transformer
-(ITEMS) Adding industry.transformer7 with title Transformer MAX/LuV and description:
- (no description)
-(ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with voltage-MAX
-(ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with voltage-LuV
-(ITEMS) Tagging Item Transformer MAX/LuV(industry.transformer7) with machine-transformer
-(FullScreen) Setting up FullScreen
-(MAIN) State: Looking for mods
-(MOD-LOADER) Added missing mods directory
-(MOD-LOADER) Walking: C:\Users\oskar\git\MultiMachineBuilder\mods
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\mods
-(MAIN) State: Found 1 mod files
-(MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file C:\Users\oskar\git\MultiMachineBuilder\OpenGL is over 20 times faster than AWT.jar
-(MOD - OpenGL is over 20 times faster than AWT.jar) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie można odnaleźć określonego pliku)
-	at java.base/java.io.FileInputStream.open0(Native Method)
-	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
-	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
-	at mmb.engine.files.LocalFile.getInputStream(LocalFile.java:45)
-	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
-	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-(MAIN) State: Mods - Preparation 0
-(MAIN) State: Mods - Instantiation 0a
-(MAIN) State: Mods - Phase 1
-(MAIN) State: Mods - Phase 2
-(ITEMS) Adding rawitem.pick.weak with title Very weak pickaxe (raw) and description:
- (no description)
-(ITEMS) Tagging ItemRaw Item Very weak pickaxe(pick.weak) with tool
-(ITEMS) Tagging ItemRaw Item Very weak pickaxe(pick.weak) with raw
-(ITEMS) Adding rawitem.crafting.cstencil with title Crafting stencil (raw) and description:
- (no description)
-(ITEMS) Tagging ItemRaw Item Crafting stencil(crafting.cstencil) with raw
-(ITEMS) Adding rawitem.crafting.BOMItems with title Bill Of Materials (raw) and description:
- (no description)
-(ITEMS) Tagging ItemRaw Item Bill Of Materials(crafting.BOMItems) with raw
-(ITEMS) Adding rawitem.crafting.ingredients with title Bill Of Recipe Effects (raw) and description:
- (no description)
-(ITEMS) Tagging ItemRaw Item Bill Of Recipe Effects(crafting.ingredients) with raw
-(ITEMS) Adding rawitem.industry.bat1 with title Battery ULV (raw) and description:
- (no description)
-(ITEMS) Tagging ItemRaw Item Battery ULV(industry.bat1) with machine-battery
-(ITEMS) Tagging ItemRaw Item Battery ULV(industry.bat1) with voltage-ULV
-(ITEMS) Tagging ItemRaw Item Battery ULV(industry.bat1) with raw
-(ITEMS) Adding rawitem.industry.bat2 with title Battery VLV (raw) and description:
- (no description)
-(ITEMS) Tagging ItemRaw Item Battery VLV(industry.bat2) with machine-battery
-(ITEMS) Tagging ItemRaw Item Battery VLV(industry.bat2) with voltage-VLV
-(ITEMS) Tagging ItemRaw Item Battery VLV(industry.bat2) with raw
-(ITEMS) Adding rawitem.industry.bat3 with title Battery LV (raw) and description:
- (no description)
-(ITEMS) Tagging ItemRaw Item Battery LV(industry.bat3) with machine-battery
-(ITEMS) Tagging ItemRaw Item Battery LV(industry.bat3) with voltage-LV
-(ITEMS) Tagging ItemRaw Item Battery LV(industry.bat3) with raw
-(ITEMS) Adding rawitem.industry.bat4 with title Battery MV (raw) and description:
- (no description)
-(ITEMS) Tagging ItemRaw Item Battery MV(industry.bat4) with voltage-MV
-(ITEMS) Tagging ItemRaw Item Battery MV(industry.bat4) with machine-battery
-(ITEMS) Tagging ItemRaw Item Battery MV(industry.bat4) with raw
-(ITEMS) Adding rawitem.industry.bat5 with title Battery HV (raw) and description:
- (no description)
-(ITEMS) Tagging ItemRaw Item Battery HV(industry.bat5) with machine-battery
-(ITEMS) Tagging ItemRaw Item Battery HV(industry.bat5) with voltage-HV
-(ITEMS) Tagging ItemRaw Item Battery HV(industry.bat5) with raw
-(ITEMS) Adding rawitem.industry.bat6 with title Battery EV (raw) and description:
- (no description)
-(ITEMS) Tagging ItemRaw Item Battery EV(industry.bat6) with voltage-EV
-(ITEMS) Tagging ItemRaw Item Battery EV(industry.bat6) with machine-battery
-(ITEMS) Tagging ItemRaw Item Battery EV(industry.bat6) with raw
-(ITEMS) Adding rawitem.industry.bat7 with title Battery IV (raw) and description:
- (no description)
-(ITEMS) Tagging ItemRaw Item Battery IV(industry.bat7) with voltage-IV
-(ITEMS) Tagging ItemRaw Item Battery IV(industry.bat7) with machine-battery
-(ITEMS) Tagging ItemRaw Item Battery IV(industry.bat7) with raw
-(ITEMS) Adding rawitem.boxed.packItem with title Simple Item Package (raw) and description:
- (no description)
-(ITEMS) Tagging ItemRaw Item Simple Item Package(boxed.packItem) with raw
-(MAIN) State: Mods - Phase 3
-(MOD-LOADER) HOORAY, IT'S OVER!
-(MAIN) Hello!
-(Main menu) MainMenu created
-(SELECT A SAVE) Found save: Agriculture test.mworld
-(SELECT A SAVE) Found save: Auto quarry.mworld
-(SELECT A SAVE) Found save: Block Clicking Claw.mworld
-(SELECT A SAVE) Found save: Distrib2.mworld
-(SELECT A SAVE) Found save: Distributor.mworld
-(SELECT A SAVE) Found save: Example generator setup.mworld
-(SELECT A SAVE) Found save: fuzz seed.mworld
-(SELECT A SAVE) Found save: lavivrus.mworld
-(SELECT A SAVE) Found save: main.mworld
-(SELECT A SAVE) Found save: Semi Auto Brewery.mworld
-(SELECT A SAVE) Found save: Sound ON startup.mworld
-(SELECT A SAVE) Found save: Surv2.mworld
-(SELECT A SAVE) Found save: test binder.mworld
-(SELECT A SAVE) Found save: Test BPI.mworld
-(SELECT A SAVE) Found save: Test digger.mworld
-(SELECT A SAVE) Found save: Test electricity.mworld
-(SELECT A SAVE) Found save: Test pipes.mworld
-(SELECT A SAVE) Found save: Test player.mworld
-(SELECT A SAVE) Found save: Test speaker.mworld
-(SELECT A SAVE) Found save: Test STN.mworld
-(SELECT A SAVE) Found save: Test tube.mworld
-(SELECT A SAVE) Found save: Test.mworld
-(SELECT A SAVE) Found save: The longest player pipe ever.mworld
-(SELECT A SAVE) Found save: The smallest all in one quarry system.mworld
-(SELECT A SAVE) Found 24 saves
+(MAIN) FATAL ERROR WHILE LOADING
+(MAIN) GAME HAS CRASHED
+(MAIN) java.lang.ExceptionInInitializerError
+	at mmb.GameLoader.modloading(GameLoader.java:159)
+	at mmb.Main.lambda$1(Main.java:142)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Caused by: mmb.engine.NotFoundException: Could not find texture chem/gas.png
+	at mmb.engine.texture.Textures.get1(Textures.java:100)
+	at mmb.engine.texture.Textures.get(Textures.java:85)
+	at mmb.content.Chemistry.<clinit>(Chemistry.java:24)
+	... 15 more
 (SETTINGS) Resetting a setting country with value US
 (SETTINGS) Resetting a setting sortItems with value true
 (SETTINGS) Resetting a setting dumpBundles with value true
-(SETTINGS) Resetting a setting fullscreen with value false
 (SETTINGS) Resetting a setting logExcessiveBlockTime with value false
 (SETTINGS) Resetting a setting swingDPI with value false
 (SETTINGS) Resetting a setting scale with value 1.0

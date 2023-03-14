@@ -12,7 +12,6 @@ import java.util.function.Consumer;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import mmb.content.Chemistry;
 import mmb.content.ContentsBlocks;
 import mmb.content.ContentsItems;
 import mmb.content.ContentsRecipes;
@@ -156,7 +155,6 @@ public final class GameLoader {
 		//Load machines and more
 		Alcohol.init();
 		Main.state1("Loading machines");
-		Chemistry.init();
 		STN.init();
 		Crafter.init();
 		ContentsRecipes.createRecipes();

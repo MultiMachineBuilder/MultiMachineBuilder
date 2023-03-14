@@ -1,0 +1,25 @@
+MultiMachineBuider mod system
+
+Materials
+	
+Electricity:
+	Electricity Core
+		Description:
+			Provides basic implementations of machines and APIs for the machines
+	Electric Conduits
+		Description:
+			Provides over 40 types of conduits for various applications
+		Dependencies:
+			Electricity Core
+		Compatibility:
+			Base Materials
+			-40 types of conduits
+			Moar Materials
+			-60 types of conduits
+	Electric Machines
+		Description:
+			Prvides over 40 differeny machines
+		Dependencies:
+			Electric Conduits
+			Base Materials
+	
