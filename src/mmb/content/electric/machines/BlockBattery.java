@@ -80,7 +80,7 @@ public final class BlockBattery extends BlockEntityRotary implements BlockActiva
 
 	@Override
 	public void onTick(MapProxy map) {
-		Electricity.equatePPs(this, map, battery, 0.99);
+		Electricity.equatePPs(this, map, battery, 0.99, type.powermul * type.volt.volts);
 		//Extract the electricity
 		Electricity elec = getAtSide(getRotation().R()).getElectricalConnection(getRotation().L());
 		if(elec != null) battery.extractTo(elec);

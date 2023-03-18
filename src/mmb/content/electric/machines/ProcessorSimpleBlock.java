@@ -17,7 +17,7 @@ public class ProcessorSimpleBlock extends ProcessorAbstractBlock{
 	public ProcessorSimpleBlock(ElectroMachineType type, SimpleRecipeGroup<?> group) {
 		super(type);
 		this.recipes = group;
-		helper = new SimpleProcessHelper(group, in, out0, 1000, elec, type.volt, null);
+		helper = new SimpleProcessHelper<>(group, in, out0, type.powermul, elec, type.volt, null);
 	}
 	
 	//Contents

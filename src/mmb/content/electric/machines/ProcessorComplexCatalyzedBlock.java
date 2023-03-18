@@ -19,7 +19,7 @@ public class ProcessorComplexCatalyzedBlock extends ProcessorAbstractBlock{
 	public ProcessorComplexCatalyzedBlock(ElectroMachineType type, ComplexCatRecipeGroup group) {
 		super(type);
 		this.recipes = group;
-		helper = new ComplexProcessHelper<@NN ComplexCatalyzedRecipe>(group, in, out0, 1000, elec, type.volt, catalyst);
+		helper = new ComplexProcessHelper<>(group, in, out0, type.powermul, elec, type.volt, catalyst);
 	}
 
 	//Contents

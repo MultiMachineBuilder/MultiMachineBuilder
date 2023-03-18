@@ -36,7 +36,7 @@ public class WireGroup implements Identifiable<String> {
 	@NN public final VoltageTier volt;
 	@NN public final MetalGroup group;
 	/**
-	 * @param mul power of smallest wire in watts
+	 * @param mul power of smallest wire in joules per tick
 	 * @param group the imetal group
 	 * @param volt voltage tier
 	 */

@@ -639,10 +639,10 @@ public class ContentsBlocks {
 				.texture(image);
 	}
 	@NN private static ElectricMachineGroup machinesSimple(String texture, SimpleRecipeGroup<?> group, String id) {
-		return machinesSimple(texture, group, id, 1);
+		return machinesSimple(texture, group, id, 10);
 	}
 	@NN private static ElectricMachineGroup machinesSimpleCat(String texture, SimpleRecipeGroup<@NN ?> group, String id) {
-		return machinesSimpleCat(texture, group, id, 1);
+		return machinesSimpleCat(texture, group, id, 10);
 	}
 	@NN private static ElectricMachineGroup machinesSimpleCat(String texture, SimpleRecipeGroup<@NN ?> group, String id, double d) {
 		return new ElectricMachineGroup(Textures.get(texture), type -> new ProcessorSimpleCatalyzedBlock<>(type, group), id, d);

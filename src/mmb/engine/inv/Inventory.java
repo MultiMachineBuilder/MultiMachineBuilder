@@ -81,6 +81,7 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 	 * @return how many items can be inserted
 	 */
 	public default int insertibleRemain(int amount, double ivolume) {
+		if(ivolume == 0) return amount;
 		double tvolume = ivolume * amount;
 		tvolume = Math.min(iremainVolume(), tvolume) / ivolume;
 		return (int) Math.floor(tvolume);

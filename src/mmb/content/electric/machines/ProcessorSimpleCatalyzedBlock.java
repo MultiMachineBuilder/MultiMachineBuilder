@@ -22,7 +22,7 @@ public class ProcessorSimpleCatalyzedBlock<@NN Trecipe extends SimpleRecipe<Trec
 	public ProcessorSimpleCatalyzedBlock(ElectroMachineType type, SimpleRecipeGroup<Trecipe> group) {
 		super(type);
 		this.recipes = group;
-		helper = new SimpleProcessHelper<>(group, in, out0, 1000, elec, type.volt, catalyst);
+		helper = new SimpleProcessHelper<>(group, in, out0, type.powermul, elec, type.volt, catalyst);
 	}
 	
 	//Contents

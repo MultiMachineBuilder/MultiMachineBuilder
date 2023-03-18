@@ -37,7 +37,7 @@ public class ComplexProcessHelper<@NN Trecipe extends Recipe<Trecipe>> extends H
 	 * @param recipes list of recipes to use
 	 * @param input input inventory
 	 * @param output output inventory
-	 * @param speed processing current in joules per tick at ULV
+	 * @param speed processing current in coulombs per tick
 	 * @param elec the power source
 	 * @param selector inventory to source catalysts from. Set to null to remove catalyst support
 	 * @param volt voltage tier

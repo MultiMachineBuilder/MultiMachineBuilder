@@ -35,8 +35,8 @@ public class BlockDigger extends BlockEntityData implements ToItemUnifiedCollect
 	//Constructors
 	public BlockDigger(ElectroMachineType type) {
 		this.type = type;
-		battery = new Battery(type.volt.speedMul*2/type.volt.volts, 5000, this, type.volt);
-		hammer = new Battery(Double.POSITIVE_INFINITY, 500, this, type.volt);
+		battery = new Battery(0.2, 500, this, type.volt);
+		hammer = new Battery(Double.POSITIVE_INFINITY, ENERGY_PER_BLOCK/type.volt.volts, this, type.volt);
 		range = (type.volt.ordinal()+1)*32;
 		inv0 = new SimpleInventory();
 		inv0.setCapacity(range*(double)range);
@@ -130,7 +130,7 @@ public class BlockDigger extends BlockEntityData implements ToItemUnifiedCollect
 	
 	//Block logic
 	/** Energy required to mine a block */
-	public static final double ENERGY_PER_BLOCK = 5000;
+	public static final double ENERGY_PER_BLOCK = 2000;
 	@Override
 	public void onTick(MapProxy map) {
 		if(gui != null) gui.refreshEnergy();
@@ -172,7 +172,7 @@ public class BlockDigger extends BlockEntityData implements ToItemUnifiedCollect
 			owner().place(block.type().leaveBehind(), ox, oy);
 			drop.drop(writer0, owner(), ox, oy);
 		}
-		Electricity.equatePPs(this, map, battery, 0.9);
+		Electricity.equatePPs(this, map, battery, 0.9, type.powermul * type.volt.volts);
 	}	
 	
 	//GUI

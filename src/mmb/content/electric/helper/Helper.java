@@ -152,6 +152,7 @@ public abstract class Helper<@NN Trecipe extends Recipe<@NN Trecipe>, Tgroup ext
 			if(collect) {
 				active = true;
 				result = CycleResult.WITHDRAW;
+				if(refreshable != null) refreshable.refreshInputs();
 			}else {
 				underway = null;
 				result = CycleResult.PARTIAL;
@@ -162,9 +163,8 @@ public abstract class Helper<@NN Trecipe extends Recipe<@NN Trecipe>, Tgroup ext
 		@Nil Trecipe underway2 = underway;
 		if(underway2 != null && progress < underway2.energy()) {
 			//Continue smelting
-			double amps = volt.speedMul * speed / volt.volts;
+			double amps = speed;
 			double extract = elec.extract(amps, volt, Runnables.doNothing());
-			elec.pressure -= (amps-extract)*volt.volts;
 			progress += volt.volts * extract;
 		}
 		
@@ -183,8 +183,8 @@ public abstract class Helper<@NN Trecipe extends Recipe<@NN Trecipe>, Tgroup ext
 				if(refreshable != null) refreshable.refreshOutputs();
 				result = CycleResult.OUTPUT;
 				active = false;
-			}else {
 			}
+			if(refreshable != null) refreshable.refreshOutputs();
 		}
 		
 		//Refresh

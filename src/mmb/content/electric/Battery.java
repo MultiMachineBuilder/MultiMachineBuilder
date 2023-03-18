@@ -27,7 +27,7 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 	/** Current power pressure in joules */
 	public double pressure = 0;
 	/** Current power pressure weight */
-	public double pressureWt = 1;
+	public double pressureWt;
 	@Nil private final BlockEntity blow;
 	/** The voltage tier of this battery */
 	@NN public VoltageTier voltage;
@@ -46,6 +46,7 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 		this.capacity = capacity;
 		this.blow = blow;
 		this.voltage = voltage;
+		this.pressureWt = capacity*voltage.volts;
 	}
 	/**
 	 * Creates a copy of the battery
@@ -57,6 +58,7 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 		stored = bat.stored;
 		blow = bat.blow;
 		voltage = bat.voltage;
+		pressureWt = bat.pressureWt;
 	}
 
 	//Electricity methods
@@ -67,12 +69,9 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 		if(cmp != 0) return 0;
 		if(amt < 0) return 0;
 		double max = Math.min(amt, Math.min(maxPower, remain()));
-		if(pressure < 0) {
-			pressure += amt;
-			if(pressure > 0) pressure = 0;
+		if(amt > max) {
+			pressure += (amt-max)*volt.volts;
 		}
-		double dpressure = amt - max;
-		pressure += dpressure;
 		this.stored += max;
 		return max;
 	}
@@ -84,12 +83,9 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 		if(volt != voltage) return 0;
 		if(amt < 0) return 0;
 		double max = Math.min(amt, Math.min(maxPower, this.stored));
-		if(pressure > 0) {
-			pressure -= amt;
-			if(pressure < 0) pressure = 0;
+		if(amt > max) {
+			pressure -= (amt-max)*volt.volts;
 		}
-		double dpressure = amt - max;
-		pressure -= dpressure;
 		this.stored -= max;
 		return max;
 	}
@@ -113,10 +109,7 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 		maxPower = data.get(0).asDouble();
 		capacity = data.get(1).asDouble();
 		stored = data.get(2).asDouble();
-		if(data.size() >= 5) {
-			pressure = data.get(3).asDouble();
-			pressureWt = data.get(4).asDouble();
-		}
+		if(data.size() > 3) pressure = data.get(3).asDouble();
 	}
 	@Override
 	public JsonNode save() {

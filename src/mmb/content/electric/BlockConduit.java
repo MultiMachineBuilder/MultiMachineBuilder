@@ -26,7 +26,7 @@ public class BlockConduit extends BlockEntityData {
 	 * @param volt maximum voltage
 	 */
 	public BlockConduit(BlockType type, double cap, VoltageTier volt) {
-		tf = new TransferHelper(this, cap, volt, cap*100);
+		tf = new TransferHelper(this, cap, volt, cap*volt.volts);
 		this.type = type;
 		this.volt = volt;
 		u = tf.proxy(Side.D);
@@ -46,9 +46,7 @@ public class BlockConduit extends BlockEntityData {
 	@NN public final VoltageTier volt;
 	
 	//Conduit methods
-	/**
-	 * @return maximum power in coulombs per tick
-	 */
+	/** @return maximum power in coulombs per tick */
 	public double condCapacity() {
 		return tf.power;
 	}
@@ -60,7 +58,7 @@ public class BlockConduit extends BlockEntityData {
 	//Block methods
 	@Override
 	public void onTick(MapProxy map) {
-		Electricity.equatePPs(this, map, tf, 0.99);
+		Electricity.equatePPs(this, map, tf, 1, 0);
 	}
 	@Override
 	public BlockType type() {
@@ -91,10 +89,12 @@ public class BlockConduit extends BlockEntityData {
 	//Serialization
 	@Override
 	public void load(@Nil JsonNode data) {
-		//unused
+		if(data == null) return;
+		JsonNode nodePPres = data.get("ppres");
+		if(nodePPres != null) tf.setPressure(nodePPres.asDouble());
 	}
 	@Override
 	protected void save0(ObjectNode node) {
-		//unused
+		node.put("ppres", tf.pressure());
 	}
 }

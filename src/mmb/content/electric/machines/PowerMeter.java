@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import mmb.content.ContentsBlocks;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.VoltageTier;
+import mmb.engine.UnitFormatter;
 import mmb.engine.block.BlockEntityRotary;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
@@ -21,18 +22,19 @@ import mmb.engine.worlds.MapProxy;
  * @author oskar
  */
 public class PowerMeter extends BlockEntityRotary {
-	@Override
-	public void debug(StringBuilder sb) {
-		sb.append(label).append('\n');
-	}
-
+	//Contents
+	private double counter;
+	private String label;
 	private final Electricity IN = new Electricity() {
+		private Electricity getelecR() {
+			return owner().getAtSide(getRotation().R(), posX(), posY()).getElectricalConnection(getRotation().L());
+		}
 		@Override
 		public double insert(double amt, VoltageTier volt) {
-			Electricity elec = getelec();
+			Electricity elec = getelecR();
 			if(elec == null) return 0;
 			double tfd = elec.insert(amt, volt);
-			moved += tfd * volt.volts;
+			counter += tfd * volt.volts;
 			return tfd;
 		}
 		@Override
@@ -41,13 +43,13 @@ public class PowerMeter extends BlockEntityRotary {
 		}
 		@Override
 		public double pressure() {
-			Electricity elec = getelec();
+			Electricity elec = getelecR();
 			if(elec == null) return 0;
 			return elec.pressure();
 		}
 		@Override
 		public double pressureWeight() {
-			Electricity elec = getelec();
+			Electricity elec = getelecR();
 			if(elec == null) return 0;
 			return elec.pressure();
 		}
@@ -57,16 +59,19 @@ public class PowerMeter extends BlockEntityRotary {
 		}
 	};
 	private final Electricity OUT = new Electricity() {
+		private Electricity getelecL() {
+			return owner().getAtSide(getRotation().L(), posX(), posY()).getElectricalConnection(getRotation().R());
+		}
 		@Override
 		public double insert(double amt, VoltageTier volt) {
 			return 0;
 		}
 		@Override
 		public double extract(double amt, VoltageTier volt, Runnable blow) {
-			Electricity elec = getelec();
+			Electricity elec = getelecL();
 			if(elec == null) return 0;
 			double ex = elec.extract(amt, volt, blow);
-			moved += ex*volt.volts;
+			counter += ex*volt.volts;
 			return ex;
 		}
 
@@ -77,85 +82,51 @@ public class PowerMeter extends BlockEntityRotary {
 
 		@Override
 		public double pressure() {
-			Electricity elec = getelec();
+			Electricity elec = getelecL();
 			if(elec == null) return 0;
 			return elec.pressure();
 		}
 
 		@Override
 		public double pressureWeight() {
-			Electricity elec = getelec();
+			Electricity elec = getelecL();
 			if(elec == null) return 0;
 			return elec.pressureWeight();
 		}
 		
 	};
-	private Electricity getelec() {
-		return owner().getAtSide(getRotation().L(), posX(), posY()).getElectricalConnection(getRotation().R());
-	}
 	@Override
 	public Electricity getElectricalConnection(Side s) {
 		if(s == getRotation().L()) return IN;
 		if(s == getRotation().R()) return OUT;
 		return null;
 	}
-
-	private static final RotatedImageGroup rig = RotatedImageGroup.create("machine/power/pmeter.png");
 	
-	private double moved;
-	private String label;
-	@Override
-	public void onTick(MapProxy map) {
-		//Measure power throughput
-		label = formatOut(moved * 50);
-		moved = 0;
-	}
-
+	//Block methods
 	@Override
 	public BlockType type() {
 		return ContentsBlocks.PMETER;
 	}
-
+	private static final RotatedImageGroup rig = RotatedImageGroup.create("machine/power/pmeter.png");
 	@Override
 	public RotatedImageGroup getImage() {
 		return rig;
 	}
-
+	@Override
+	public void debug(StringBuilder sb) {
+		sb.append(label).append('\n');
+	}
+	@Override
+	public void onTick(MapProxy map) {
+		//Measure power throughput
+		label = UnitFormatter.formatPower(counter);
+		counter = 0;
+	}
 	@Override
 	public void render(int x, int y, Graphics g, int side) {
 		super.render(x, y, g, side);
 		g.setColor(Color.BLACK);
 		g.drawString(label, x+4, y+20);
-	}
-
-	public static String formatOut(double pwr) {
-		if(pwr > 9_999_999) {
-			//Megawatts
-			return ((int)(pwr / 10_000)) / 100.0 + "㎿";
-		}
-		if(pwr > 9999.999) {
-			//Kilowatts
-			return ((int)(pwr / 10)) / 100.0 + "㎾";
-		}
-		if(pwr > 9.999999) {
-			//Watts
-			return ((int)(pwr * 100)) / 100.0 + "W";
-		}
-		if(pwr > 9.999999) {
-			//MiliWatts
-			return ((int)(pwr * 100_000)) / 100.0 + "㎽";
-		}
-		if(pwr > 9.999999) {
-			//MicroWatts
-			return ((int)(pwr * 100_000)) / 100.0 + "㎼";
-		}
-		if(pwr > 9.999999) {
-			//NanoWatts
-			return ((int)(pwr * 100_000_000)) / 100.0 + "㎻";
-		}
-			//PicoWatts
-			return ((int)(pwr * 100_000_000_000.0)) / 100.0 + "㎺";
-		
 	}
 	@Override
 	public BlockEntry blockCopy() {

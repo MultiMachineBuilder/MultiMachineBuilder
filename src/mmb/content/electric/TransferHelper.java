@@ -7,8 +7,10 @@ import com.google.common.util.concurrent.Runnables;
 
 import mmb.NN;
 import mmb.content.electric.Electricity.SettablePressure;
+import mmb.engine.UnitFormatter;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.block.BlockEntry;
+import mmb.engine.debug.Debugger;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.world.World;
 
@@ -18,6 +20,8 @@ import mmb.engine.worlds.world.World;
  * @see mmb.content.electric.BlockConduit power conduit
  */
 public class TransferHelper implements SettablePressure{
+	private static final Debugger debug = new Debugger("CONDUITS");
+	
 	public int maxIters = 500;
 	public static final double delta = 1e-8;
 	@NN private final BlockEntity blockent;
@@ -47,12 +51,12 @@ public class TransferHelper implements SettablePressure{
 	 * @param y Y coordinate
 	 * @param amount amount to insert in coulombs
 	 * @param iters current number of iterations
-	 * @param volt voltage tier
+	 * @param volt1 voltage tier
 	 * @param s insertion side
 	 * @param blow when extracting, runs when element is overvoltaged
 	 * @return amount transferred
 	 */
-	public double _transfer(World map, int x, int y, double amount, int iters, VoltageTier volt, Side s, Runnable blow) {
+	public double _transfer(World map, int x, int y, double amount, int iters, VoltageTier volt1, Side s, Runnable blow) {
 		if(iters > maxIters) return 0; //Iteration limit reached
 		BlockEntry here = map.get(x, y);
 		
@@ -61,52 +65,56 @@ public class TransferHelper implements SettablePressure{
 			BlockConduit cond = (BlockConduit)here;
 			
 			//Check voltage
-			if(cond.volt.compareTo(volt) < 0) {
+			if(cond.volt.compareTo(volt1) < 0) { //cond.volt < volt1
 				cond.blow(); //The conduit was overvoltaged
 				return 0;
 			}
 			
 			double sgn = Math.signum(amount);
-			double max = sgn*Math.min(sgn*amount, cond.condCapacity()/volt.volts); //The power limited by conduit
+			double capacity = 100*cond.condCapacity();
+			double max = sgn*Math.min(sgn*amount, capacity); //The power limited by conduit, in coulombs
 			double pressure0 = cond.getTransfer().pressure;
 			
-			double pdiffU = 0, pdiffD = 0, pdiffL = 0, pdiffR = 0;
-			double pu = Double.NaN, pd = Double.NaN, pl = Double.NaN, pr = Double.NaN; 
+			double pdiffU = 0;
+			double pdiffD = 0;
+			double pdiffL = 0;
+			double pdiffR = 0;
+			
 			//Get power connections
 			//Move up Y-
 			Electricity eu = map.get(x, y-1).getElectricalConnection(Side.D);
 			if(eu != null) {
-				pu = eu.pressure();
+				double pu = eu.pressure();
 				pdiffU = sgn*(pressure0 - pu);
 			}
 			//Move down Y+
 			Electricity ed = map.get(x, y+1).getElectricalConnection(Side.U);
 			if(ed != null) {
-				pd = ed.pressure();
+				double pd = ed.pressure();
 				pdiffD = sgn*(pressure0 - pd);
 			}
 			//Move left X-
 			Electricity el = map.get(x-1, y).getElectricalConnection(Side.R);
 			if(el != null) {
-				pl = el.pressure();
+				double pl = el.pressure();
 				pdiffL = sgn*(pressure0 - pl);
 			}
 			//Move right X+
 			Electricity er = map.get(x+1, y).getElectricalConnection(Side.L);
 			if(er != null) {
-				pr = er.pressure();
+				double pr = er.pressure();
 				pdiffR = sgn*(pressure0 - pr);
 			}
 			
 			//Cap the values
-			if(pdiffU < 0) pdiffU = 0;
-			if(pdiffD < 0) pdiffD = 0;
-			if(pdiffL < 0) pdiffL = 0;
-			if(pdiffR < 0) pdiffR = 0;
+			if(pdiffU*sgn < 0) pdiffU = 0;
+			if(pdiffD*sgn < 0) pdiffD = 0;
+			if(pdiffL*sgn < 0) pdiffL = 0;
+			if(pdiffR*sgn < 0) pdiffR = 0;
 			
 			//Calculate shares
 			double sum = pdiffU+pdiffD+pdiffL+pdiffR;
-			if(sum == 0) return 0; //Sum is always 0
+			if(sum == 0) return 0;
 			double shareU = pdiffU/sum;
 			double totalU = shareU*max;
 			double shareD = pdiffD/sum;
@@ -118,22 +126,26 @@ public class TransferHelper implements SettablePressure{
 			
 			//Transfer
 			double transferSum = 0;
-			if(shareU > delta) transferSum += _transfer(map, x, y-1, totalU, iters+1, volt, Side.D, blow);
-			if(shareD > delta) transferSum += _transfer(map, x, y+1, totalD, iters+1, volt, Side.U, blow);
-			if(shareL > delta) transferSum += _transfer(map, x-1, y, totalL, iters+1, volt, Side.R, blow);
-			if(shareR > delta) transferSum += _transfer(map, x+1, y, totalR, iters+1, volt, Side.L, blow);
+			if(shareU > delta) transferSum += _transfer(map, x, y-1, totalU, iters+1, volt1, Side.D, blow);
+			if(shareD > delta) transferSum += _transfer(map, x, y+1, totalD, iters+1, volt1, Side.U, blow);
+			if(shareL > delta) transferSum += _transfer(map, x-1, y, totalL, iters+1, volt1, Side.R, blow);
+			if(shareR > delta) transferSum += _transfer(map, x+1, y, totalR, iters+1, volt1, Side.L, blow);
 			double remaining = max-transferSum;
 			cond.getTransfer().pressure += remaining;
 			return transferSum;
 		}
+		/*if(amount > delta) 
+			debug.printl("Inserting "+amount+" coulombs at "+UnitFormatter.formatPoint(x, y)+" from "+s+" into "+here.type());
+		*/
+		
 		//Not a conduit, do not continue
 		Electricity elec = here.getElectricalConnection(s);
 		if(elec == null) return 0;
-		return elec.transfer(amount, volt, blow);
+		return elec.transfer(amount, volt1, blow);
 	}
-	public double transferSide(double amt, VoltageTier volt, Side s, Runnable blow) {
+	public double transferSide(double amt, VoltageTier volt1, Side s, Runnable blow) {
 		double max = Math.min(power, Math.max(-power, amt));
-		return _transfer(blockent.owner(), blockent.posX(), blockent.posY(), max, 0, volt, s, blow);
+		return _transfer(blockent.owner(), blockent.posX(), blockent.posY(), max, 0, volt1, s, blow);
 	}
 	/**
 	 * Creates an access proxy
@@ -181,15 +193,14 @@ public class TransferHelper implements SettablePressure{
 		pressure = tf.pressure;
 	}
 
-	
 	@Override
-	public double insert(double amt, VoltageTier volt) {
-		return _transfer(blockent.owner(), blockent.posX(), blockent.posY(), amt, 0, volt, Side.U, Runnables.doNothing());
+	public double insert(double amt, VoltageTier volt1) {
+		return _transfer(blockent.owner(), blockent.posX(), blockent.posY(), amt, 0, volt1, Side.U, Runnables.doNothing());
 	}
 
 	@Override
-	public double extract(double amt, VoltageTier volt, Runnable blow) {
-		return -_transfer(blockent.owner(), blockent.posX(), blockent.posY(), -amt, 0, volt, Side.U, Runnables.doNothing());
+	public double extract(double amt, VoltageTier volt1, Runnable blow) {
+		return -_transfer(blockent.owner(), blockent.posX(), blockent.posY(), -amt, 0, volt1, Side.U, Runnables.doNothing());
 	}
 
 	@Override

@@ -138,7 +138,7 @@ public class Materials {
 	/** Enhanced resistive material, used in VLV machines and advanced components*/
 	@NN public static final BaseMetalGroup nickel =   new BaseMetalGroup(colorNickel, "nickel", VoltageTier.V1, 120_000, 1, false);
 	/** A basic signalling material, used in STN and Energetic Alloy*/
-	@NN public static final BaseMetalGroup redstone = new BaseMetalGroup(colorRedstone, "redstone", VoltageTier.V1, 80_000, 15, true);
+	@NN public static final BaseMetalGroup redstone = new BaseMetalGroup(colorRedstone, "redstone", VoltageTier.V1, 80_000, 3, true);
 	
 	//Tier 3 materials
 	/** A highly conductive material, used in LV cables */

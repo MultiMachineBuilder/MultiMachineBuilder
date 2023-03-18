@@ -150,7 +150,7 @@ public class BlockTransformer extends BlockEntityRotary {
 
 		@Override
 		public double pressureWeight() {
-			return 1;
+			return type.high.volts * 100;
 		}
 
 		@Override
@@ -197,14 +197,14 @@ public class BlockTransformer extends BlockEntityRotary {
 
 		@Override
 		public double pressureWeight() {
-			return 1;
+			return type.high.volts * 100;
 		}
 	}
 	
 
 	@Override
 	public void onTick(MapProxy map) {
-		Electricity.equatePPs(this, map, elow, 0.99);
+		Electricity.equatePPs(this, map, elow, 0.99, 0);
 	}
 
 	@Override

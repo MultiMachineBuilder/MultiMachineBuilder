@@ -1,0 +1,160 @@
+How much energy does coal cost to make?
+
+Coal finishing:
+Coal = CoalDust + 25'000
+
+Coal refining:
+6 CoalDust = CoalOre + 25'000
+
+Quarry:
+20% chance to obtain a coal ore
+20% chance to obtain a rudimentary ore
+FROM A PIECE OF STONE (ignoring others)
+(20% CoalOre)+(20% RudOre) = Stone + 25'000
+
+Stone production (for the quarry):
+32 Stone = Stone + RudNugget + 80'000
+
+Rudimentary second cut:
+4 RudNugget = RudFrag + 781.25
+
+Rudimentary first cut:
+4 RudFrag = RudIngot + 3125
+
+Rudimentary finishing:
+RudIngot = RudDust + 25'000
+
+Rudimentary refining:
+6 RudDust = RudOre + 25'000
+
+============================================================
+With equation system solver:
+a: Coal
+b: CoalDust
+c: CoalOre
+d: Stone
+e: RudNugget
+f: RudFrag
+g: RudIngot
+h: RudDust
+i: RudOre
+
+a\:=\:b+25000,\:6b\:=\:c+25000,\:0.2c+0.2i=d+25000,\:32d=d+e+80000,\:4e=f+781.25,\:4f=g+3125,\:g=h+25000,\:6h=i+25000
+
+Summing up:
+A: Coal = CoalDust + 25'000
+B: 6 CoalDust = CoalOre + 25'000
+C: (20% CoalOre)+(20% RudOre) = Stone + 25'000
+D: 32 Stone = Stone + RudNugget + 80'000
+E: 4 RudNugget = RudFrag + 781.25
+F: 4 RudFrag = RudIngot + 3125
+G: RudIngot = RudDust + 25'000
+H: 6 RudDust = RudOre + 25'000
+
+Collapse the rudimentary processing E and F:
+I: 16 RudNugget = 4 RudFrag + 3125
+F: 4 RudFrag = RudIngot + 3125
+J: 16 RudNugget == RudIngot + 3125 + 3125 = RudIngot + 6250
+
+Collapse the rudimentary processing G and H:
+K: 6 RudIngot = 6 RudDust + 150'000
+H: 6 RudDust = RudOre + 25'000
+L: 6 RudIngot == RudOre + 25'000 + 150'000 = RudOre + 175'000
+
+Collapse the rudimentary processing J and L:
+M: 96 RudNugget = 6 RudIngot + 37'500
+L: 6 RudIngot == RudOre + 175'000
+N: 96 RudNugget == RudOre + 175'000 + 37'500 
+                 = RudOre + 212'500
+N1: RudOre = 96 RudNugget - 212'500
+
+Collapse the coal processing A and B:
+O: 6 Coal = 6 CoalDust + 150'000
+B: 6 CoalDust = CoalOre + 25'000
+P: 6 Coal == CoalOre + 25'000 + 150'000 = CoalOre + 175'000
+P1: CoalOre = 6 Coal - 175'000
+
+Calculate the cost of rudimentary nugget
+N: 96 RudNugget = RudOre + 212'500
+
+Calculate the cost of stone:
+D: 32 Stone = Stone + RudNugget + 80'000
+Q: 31 Stone = RudNugget + 80'000
+R: 2'796 Stone = 96 RudNugget + 768'000
+
+Merge stone processing and rudimentary processing:
+R: 2'796 Stone = 96 RudNugget + 768'000
+N: 96 RudNugget = RudOre + 212'500
+
+Merge rudimentary, coal and the quarry
+C: (20% CoalOre)+(20% RudOre) = Stone + 25'000
+S: CoalOre + RudOre = 5 Stone + 125'000
+N1: RudOre = 96 RudNugget - 212'500
+P1: CoalOre = 6 Coal - 175'000
+T = (6 Coal - 175'000)+(96 RudNugget - 212'500) == 5 Stone + 125'000
+  =  6 Coal + 96 RudNugget - 175'000 - 212'500        
+T1:  6 Coal + 96 RudNugget - 387'500            == 5 Stone + 125'000
+     6 Coal + 96 RudNugget = 5 Stone + 512'500
+    
+Solve the equation system 1 (RudNugget vs Stone)
+R:  2'796 Stone = 96 RudNugget + 768'000
+R1: 96 RudNugget = 2'796 Stone - 768'000
+T1: 6 Coal + 96 RudNugget = 5 Stone + 512'500
+U:  6 Coal + 2'796 Stone - 768'000 = 5 Stone + 512'500
+    6 Coal + 2'791 Stone = 1'280'500
+
+Solve the equation system 2 (Stone vs Coal)
+P: 6 Coal = CoalOre + 175'000
+U: 6 Coal + 2'791 Stone = 1'280'500
+V: CoalOre + 175'000 + 2'791 Stone = 1'280'500
+   CoalOre + 2'791 Stone           = 1'105'500
+V1: 2'791 Stone = 1'105'500 - CoalOre
+U1: 2'791 Stone = 1'280'500 - 6 Coal
+U2: 6 Coal = 1'280'500 - 2'791 Stone
+
+Solve the equation system 3 (RudNugget => Stone vs CoalOre => Stone)
+R:  2'796 Stone = 96 RudNugget + 768'000
+U1: 2'791 Stone = 1'280'500 - 6 Coal
+R2: 7'803'636 Stone = 2'143'488'000 + 267'936 RudNugget
+V2: 7'803'636 Stone = 3'580'278'000 - 16'746 Coal
+W:  2'143'488'000 + 267'936 RudNugget = 3'580'278'000 - 16'746 Coal
+W1: 16'746 Coal + 2'143'488'000 + 267'936 RudNugget = 3'580'278'000
+    16'746 Coal + 267'936 RudNugget = 1'436'790'000
+W2: divide W1 by gcd(16'746, 267'936, 1'436'790'000) = GCD=6
+    2 791 Coal + 44'656 RudNugget = 239'465'000
+
+Three way equations:
+W2: 2 791 Coal + 44'656 RudNugget = 239'465'000
+Q: 31 Stone = RudNugget + 80'000
+U2: 6 Coal = 1'280'500 - 2'791 Stone
+
+Combine W2 and Q:
+W2: 2'791 Coal + 44'656 RudNugget = 239'465'000
+Q: 31'Stone = RudNugget + 80'000
+Q1: 1'384'336 Stone = 44'656 RudNugget + 3'572'480'000
+Q2: 44'656 RudNugget = 1 384 336 Stone - 3'572'480'000
+X: 2'791 Coal + 1'384'336 Stone - 3'572'480'000 = 239'465'000
+X2: 2'791 Coal + 1'384'336 Stone = 3'811'945'000
+
+Solve equations X2 and U2 with the method of opposite coefficients
+X2: 2'791 Coal +1'384'336 Stone = 3'811'945'000
+U2: 6 Coal = 1'280'500 - 2'791 Stone
+U3: -6 Coal -2'791 Stone = -1'280'500
+
+Z1: X2 * 6
+Z2: U3 * 2791
+Z1:  16'746 Coal +1'384'336 Stone = 22'871'670'000
+Z2: -16'746 Coal -7'789'681 Stone = -1'012'875'500
+===================================================
+                 -6'405`345 Stone = 21'858'794'500
+1 Stone(eff) ~= -3413 joules
+Note: the effective price of stone is negative, because more stone is produced than necessary.
+It is compensated by more expensive coal
+
+Coal:
+6 Coal (eff) = 1'280'500 - 2'791 Stone
+6 Coal (eff) = 1'280'500 - (2'791 * -3413 joules) = 10`806`183 JOULES
+
+Total cost of 1 coal (real):
+
+6 Coal + 2'791 Stone = 1'280'500

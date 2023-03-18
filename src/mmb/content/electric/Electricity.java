@@ -36,7 +36,9 @@ public interface Electricity {
 	 */
 	public double extract(double amt, VoltageTier volt, Runnable blow);
 	/**
-	 * Inserts or extracts electricity
+	 * Inserts or extracts electricity.
+	 * If amount is positive, electricity is inserted.
+	 * If amount is negative, electricity is extracted
 	 * @param amt amount to transfer
 	 * @param volt voltage tier
 	 * @param blow runs when expected voltage is lower than voltage of this electricity.
@@ -305,36 +307,33 @@ public interface Electricity {
 	 * @param proxy the map proxy to schedule calculations
 	 * @param bat battery to balance
 	 * @param mul retention multiplier. Lower values mean faster leakage
+	 * @param suction persistent power vacuum on the block
 	 */
-	public static void equatePPs(BlockEntity block, MapProxy proxy, SettablePressure bat, double mul){
-		proxy.later(() -> {
-			double weight = bat.pressureWeight(); //the initial weight sum is current weight
-			double sum = weight * bat.pressure(); //the initial sum is current power pressure volume
-			Electricity uu = block.getAtSide(Side.U).getElectricalConnection(Side.D);
-			if(uu != null) {
-				weight += uu.pressureWeight();
-				sum += uu.pressure() * uu.pressureWeight();
-			}
-			Electricity dd = block.getAtSide(Side.D).getElectricalConnection(Side.U);
-			if(dd != null) {
-				weight += dd.pressureWeight();
-				sum += dd.pressure() * dd.pressureWeight();
-			}
-			Electricity ll = block.getAtSide(Side.L).getElectricalConnection(Side.R);
-			if(ll != null) {
-				weight += ll.pressureWeight();
-				sum += ll.pressure() * ll.pressureWeight();
-			}
-			Electricity rr = block.getAtSide(Side.R).getElectricalConnection(Side.L);
-			if(rr != null) {
-				weight += rr.pressureWeight();
-				sum += rr.pressure() * rr.pressureWeight();
-			}
-			double newPressure = (mul * sum) / weight;
-			
-			if(Double.isNaN(newPressure)) bat.setPressure(0);
-			else bat.setPressure(newPressure);
-		});
+	public static void equatePPs(BlockEntity block, MapProxy proxy, SettablePressure bat, double mul, double suction){
+		double weight = bat.pressureWeight(); //the initial weight sum is current weight
+		double sum = weight * bat.pressure(); //the initial sum is current power pressure volume
+		Electricity uu = block.getAtSide(Side.U).getElectricalConnection(Side.D);
+		if(uu != null) {
+			weight += uu.pressureWeight();
+			sum += uu.pressure() * uu.pressureWeight();
+		}
+		Electricity dd = block.getAtSide(Side.D).getElectricalConnection(Side.U);
+		if(dd != null) {
+			weight += dd.pressureWeight();
+			sum += dd.pressure() * dd.pressureWeight();
+		}
+		Electricity ll = block.getAtSide(Side.L).getElectricalConnection(Side.R);
+		if(ll != null) {
+			weight += ll.pressureWeight();
+			sum += ll.pressure() * ll.pressureWeight();
+		}
+		Electricity rr = block.getAtSide(Side.R).getElectricalConnection(Side.L);
+		if(rr != null) {
+			weight += rr.pressureWeight();
+			sum += rr.pressure() * rr.pressureWeight();
+		}
+		double newPressure = ((mul * sum) / weight)-suction;
+		if(!Double.isNaN(newPressure)) proxy.later(() -> bat.setPressure(newPressure));
 	}
 	/**
 	 * Makes sure that electricity is non-null

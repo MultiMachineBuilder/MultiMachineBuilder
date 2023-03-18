@@ -488,7 +488,7 @@ public class ContentsRecipes {
 		}, 3, 3, COALGEN1);
 		
 		//Electric furnace ULV
-		ItemEntry efurnace0 = efurnace.get(0);
+		ItemEntry efurnace0 = efurnace.blocks.get(0);
 		crafting.addRecipeGrid(new ItemEntry[]{
 		rudimentary.base,       coal.base, rudimentary.base,
 		wireRudimentary.medium, FURNACE,   wireRudimentary.medium,
@@ -500,31 +500,31 @@ public class ContentsRecipes {
 		stone,                  wireRudimentary.medium, stone,
 		wireRudimentary.medium, FURNACE,                wireRudimentary.medium,
 		stone,                  wireRudimentary.medium, stone,
-		}, 3, 3, bcrusher.get(0)); 
+		}, 3, 3, bcrusher.blocks.get(0)); 
 		
 		//Alloyer ULV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		stone,     wireRudimentary.medium, stone,
 		efurnace0, FURNACE,                efurnace0,
 		stone,     wireRudimentary.medium, stone,
-		}, 3, 3, balloyer.get(0)); 
+		}, 3, 3, balloyer.blocks.get(0)); 
 		
 		//Cluster Mill ULV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(0),                  wireRudimentary.medium, motor.items.get(0),
 		wireRudimentary.medium,  rudimentary.gear,       wireRudimentary.medium,
 		motor.items.get(0),                  wireRudimentary.medium, motor.items.get(0),
-		}, 3, 3, bcmill.get(0)); 
+		}, 3, 3, bcmill.blocks.get(0)); 
 		
 		//Wiremill ULV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(0),    motor.items.get(0),                 motor.items.get(0),
 		rudimentary.gear, rudimentary.panel,     rudimentary.gear,
 		motor.items.get(0),    wireRudimentary.medium, motor.items.get(0),
-		}, 3, 3, bwiremill.get(0)); 
+		}, 3, 3, bwiremill.blocks.get(0)); 
 		
-		Item splitter = bsplitter.get(0);
-		Item splicer = bsplicer.get(0);
+		Item splitter = bsplitter.blocks.get(0);
+		Item splicer = bsplicer.blocks.get(0);
 		//Material Splitter ULV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(0),    rudimentary.gear,       motor.items.get(0),
@@ -544,60 +544,60 @@ public class ContentsRecipes {
 		motor.items.get(0),    iron.gear, motor.items.get(0),
 		iron.wire, stone, iron.wire,
 		motor.items.get(0),    iron.gear, motor.items.get(0),
-		}, 3, 3, bquarry.get(0)); 
+		}, 3, 3, bquarry.blocks.get(0)); 
 		
 		crafting.addRecipeGrid(new ItemEntry[]{
 		splitter,         robot.items.get(0), splicer,
 		rudimentary.wire, Electronics.circuit0,           rudimentary.wire,
 		splicer,          rudimentary.panel,  splitter,
-		}, 3, 3, bassembly.get(0)); //Machine Assembler ULV
+		}, 3, 3, bassembly.blocks.get(0)); //Machine Assembler ULV
 		
 		crafting.addRecipeGrid(new ItemEntry[]{
 		rudimentary.panel, glassp,     rudimentary.panel,
 		rudimentary.panel, rudimentary.panel, rudimentary.panel,
 		coal.base,  Agro.seeds,      wireRudimentary.medium,
-		}, 3, 3, bbrewery.get(0)); //Brewery ULV
+		}, 3, 3, bbrewery.blocks.get(0)); //Brewery ULV
 		
 		crafting.addRecipeGrid(new ItemEntry[]{
 		null,       motor.items.get(0),     rudimentary.base,
 		rudimentary.panel, rudimentary.panel, rudimentary.panel,
 		rudimentary.panel, rudimentary.panel, rudimentary.panel,
-		}, 3, 3, bdig.get(0));//Digger ULV
+		}, 3, 3, bdig.blocks.get(0));//Digger ULV
 		
 		//Battery ULV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		rudimentary.base, glass, rudimentary.base,
 		lead.panel,       paper, lead.panel,
 		lead.panel,       paper, lead.panel,
-		}, 3, 3, bbattery.get(0));
+		}, 3, 3, bbattery.blocks.get(0));
 		
 		//Extruder ULV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(0),            rudimentary.gear,  rudimentary.panel,
 		rudimentary.panel, rudimentary.panel, rudimentary.panel,
 		rudimentary.panel, rudimentary.panel, rudimentary.panel,
-		}, 3, 3, bextruder.get(0));
+		}, 3, 3, bextruder.blocks.get(0));
 		
 		//Power Receiver ULV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		rudimentary.wire, rudimentary.wire,  rudimentary.wire,
 		rudimentary.wire, rudimentary.base, rudimentary.wire,
 		rudimentary.wire, rudimentary.wire, rudimentary.wire,
-		}, 3, 3, prec.get(0));
+		}, 3, 3, prec.blocks.get(0));
 		
 		//Power Tower ULV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		wireRudimentary.medium, wireRudimentary.medium,  wireRudimentary.medium,
-		wireRudimentary.medium, prec.get(0),             wireRudimentary.medium,
+		wireRudimentary.medium, prec.blocks.get(0),             wireRudimentary.medium,
 		wireRudimentary.medium, wireRudimentary.medium,  wireRudimentary.medium,
-		}, 3, 3, ptower.get(0));
+		}, 3, 3, ptower.blocks.get(0));
 		
 		//Inscriber ULV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(0),            rudimentary.gear,  rudimentary.panel,
 		rudimentary.panel, null,              null,
 		motor.items.get(0),            rudimentary.gear,  rudimentary.panel,
-		}, 3, 3, binscriber.get(0));
+		}, 3, 3, binscriber.blocks.get(0));
 	}
 	private static void _craftrsVLV() {
 		//Coal Generator VLV
@@ -622,7 +622,7 @@ public class ContentsRecipes {
 		}, 3, 3, TransformerData.VLV.type); 
 		
 		//Electric Furnace VLV
-		ItemEntry efurnace1 = efurnace.get(1);
+		ItemEntry efurnace1 = efurnace.blocks.get(1);
 		crafting.addRecipeGrid(new ItemEntry[]{
 		nickel.base, Electronics.resistors_, iron.base,
 		nickel.wire, FURNACE,   nickel.wire,
@@ -634,105 +634,105 @@ public class ContentsRecipes {
 		nickel.base, Electronics.circuit1,  iron.base,
 		efurnace1,   efurnace1, efurnace1,
 		iron.base,   Electronics.resistors_, nickel.base,
-		}, 3, 3, balloyer.get(1)); 
+		}, 3, 3, balloyer.blocks.get(1)); 
 		
 		//Crusher VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		copper.base, Electronics.circuit1, iron.base,
 		stone,       wireCopper.medium,    stone,
 		iron.base,   motor.items.get(1),   copper.base,
-		}, 3, 3, bcrusher.get(1)); 
+		}, 3, 3, bcrusher.blocks.get(1)); 
 		
 		//Cluster Mill VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(1),    Electronics.circuit1,   motor.items.get(1),
 		iron.gear, iron.panel, iron.gear,
 		motor.items.get(1),    Electronics.circuit1,   motor.items.get(1),
-		}, 3, 3, bcmill.get(1));
+		}, 3, 3, bcmill.blocks.get(1));
 		
 		//WireMill VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(1),      Electronics.circuit1,   bearing1,
 		iron.gear,   iron.panel, iron.gear,
 		bearing1, Electronics.circuit1,   motor.items.get(1),
-		}, 3, 3, bwiremill.get(1));
+		}, 3, 3, bwiremill.blocks.get(1));
 		
 		//Quarry VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(1),    iron.gear, motor.items.get(1),
 		iron.wire,             stone,     iron.wire,
 		motor.items.get(1),    iron.gear, motor.items.get(1),
-		}, 3, 3, bquarry.get(1)); 
+		}, 3, 3, bquarry.blocks.get(1)); 
 		
 		//Machine Assembler VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
-		bsplitter.get(1), robot.items.get(1),     bcmill.get(1),
+		bsplitter.blocks.get(1), robot.items.get(1),     bcmill.blocks.get(1),
 		iron.ring,        Electronics.circuit1,               iron.ring,
-		bsplicer.get(1),  wireRudimentium.medium, balloyer.get(1),
-		}, 3, 3, bassembly.get(1)); 
+		bsplicer.blocks.get(1),  wireRudimentium.medium, balloyer.blocks.get(1),
+		}, 3, 3, bassembly.blocks.get(1)); 
 		
 		//Digger VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		null,       motor.items.get(1), iron.base,
 		iron.panel, Electronics.circuit1,           iron.panel,
 		iron.panel, iron.panel,         iron.panel,
-		}, 3, 3, bdig.get(1));
+		}, 3, 3, bdig.blocks.get(1));
 		
 		//Splitter VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(1), iron.gear, motor.items.get(1),
 		iron.wire,          iron.wire, iron.wire,
 		motor.items.get(1), Electronics.circuit1,  motor.items.get(1),
-		}, 3, 3, bsplitter.get(1)); 
+		}, 3, 3, bsplitter.blocks.get(1)); 
 		
 		//Splicer VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(1), iron.gear,   motor.items.get(1),
 		iron.wire,          iron.nugget, iron.wire,
 		motor.items.get(1), Electronics.circuit1,    motor.items.get(1),
-		}, 3, 3, bsplicer.get(1)); 
+		}, 3, 3, bsplicer.blocks.get(1)); 
 		
 		//Battery VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		rudimentium.base, glass, rudimentium.base,
 		nickel.panel,     paper, nickel.panel,
 		nickel.panel,     paper, nickel.panel,
-		}, 3, 3, bbattery.get(1));
+		}, 3, 3, bbattery.blocks.get(1));
 		
 		//Extruder VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(1), iron.gear,  iron.panel,
 		iron.panel,         iron.panel, iron.panel,
 		iron.panel,         Electronics.circuit1,   iron.panel,
-		}, 3, 3, bextruder.get(1));
+		}, 3, 3, bextruder.blocks.get(1));
 		
 		//Power Receiver VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		copper.wire, copper.wire, copper.wire,
 		copper.wire, iron.base,   copper.wire,
 		copper.wire, copper.wire, copper.wire,
-		}, 3, 3, prec.get(1));
+		}, 3, 3, prec.blocks.get(1));
 		
 		//Power Tower VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		wireCopper.medium, wireCopper.medium, wireCopper.medium,
-		wireCopper.medium, prec.get(1),       wireCopper.medium,
+		wireCopper.medium, prec.blocks.get(1),       wireCopper.medium,
 		wireCopper.medium, wireCopper.medium, wireCopper.medium,
-		}, 3, 3, ptower.get(1));
+		}, 3, 3, ptower.blocks.get(1));
 		
 		//Inscriber VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(1), iron.gear,  iron.panel,
 		iron.panel,         null,       null,
 		motor.items.get(1), iron.gear,  iron.panel,
-		}, 3, 3, binscriber.get(1));
+		}, 3, 3, binscriber.blocks.get(1));
 		
 		//Brewery VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		iron.panel,  glassp,     iron.panel,
 		iron.panel,  iron.panel, iron.panel,
 		nickel.base, Agro.seeds,      wireCopper.medium,
-		}, 3, 3, bbrewery.get(1));
+		}, 3, 3, bbrewery.blocks.get(1));
 	}
 	private static void _craftrsLV() {
 		//Turbo Generator LV
@@ -756,7 +756,7 @@ public class ContentsRecipes {
 		null,              steel.base, wireCopper.medium,
 		}, 3, 3, TransformerData.LV.type); 
 		
-		ItemEntry efurnace1 = efurnace.get(2);
+		ItemEntry efurnace1 = efurnace.blocks.get(2);
 		crafting.addRecipeGrid(new ItemEntry[]{
 		nichrome.base, Electronics.resistors_,  steel.base,
 		nickel.wire,   steel.frame, nickel.wire,
@@ -768,113 +768,113 @@ public class ContentsRecipes {
 		silver.base,  glass,   silver.base,
 		nickel.frame, PE.foil, lead.panel,
 		lead.panel,   PE.foil, nickel.frame,
-		}, 3, 3, bbattery.get(2));
+		}, 3, 3, bbattery.blocks.get(2));
 		
 		//Alloyer LV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		nichrome.base,  Electronics.circuit2, steel.base,
 		efurnace1, efurnace1, efurnace1,
 		steel.base, steel.frame, nichrome.base,
-		}, 3, 3, balloyer.get(2));
+		}, 3, 3, balloyer.blocks.get(2));
 		
 		//Crusher LV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		steel.base,  Electronics.circuit2,          steel.base,
 		cobalt.gear, wireSilver.medium, cobalt.gear,
 		steel.base,  Electronics.resistors_,         steel.base,
-		}, 3, 3, bcrusher.get(2)); 
+		}, 3, 3, bcrusher.blocks.get(2)); 
 		
 		//Cluster Mill LV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(2),  Electronics.circuit2,    motor.items.get(2),
 		steel.gear,          steel.panel, steel.gear,
 		motor.items.get(2),  Electronics.circuit2,    motor.items.get(2),
-		}, 3, 3, bcmill.get(2));
+		}, 3, 3, bcmill.blocks.get(2));
 		
 		//WireMill VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(2), Electronics.circuit2,    steel.ring,
 		steel.gear,         steel.panel, steel.gear,
 		steel.ring,         Electronics.circuit1,    motor.items.get(2),
-		}, 3, 3, bwiremill.get(2));
+		}, 3, 3, bwiremill.blocks.get(2));
 		
 		//Quarry VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(2), steel.gear, motor.items.get(2),
 		steel.wire,         Electronics.circuit2,   steel.wire,
 		motor.items.get(2), steel.gear, motor.items.get(2),
-		}, 3, 3, bquarry.get(2));
+		}, 3, 3, bquarry.blocks.get(2));
 		
 		//Splitter LV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(2), steel.gear, motor.items.get(2),
 		steel.wire,         steel.wire, steel.wire,
 		motor.items.get(2), Electronics.circuit2,   motor.items.get(2),
-		}, 3, 3, bsplitter.get(2));
+		}, 3, 3, bsplitter.blocks.get(2));
 		
 		//Splicer LV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(2), steel.gear,   motor.items.get(2),
 		steel.wire,         steel.nugget, steel.wire,
 		motor.items.get(2), Electronics.circuit2,     motor.items.get(2),
-		}, 3, 3, bsplicer.get(2));
+		}, 3, 3, bsplicer.blocks.get(2));
 		
 		//Machine Assembler LV
 		crafting.addRecipeGrid(new ItemEntry[]{
-		bsplitter.get(2),   bsplicer.get(2), bcmill.get(2),     bcrusher.get(2),
+		bsplitter.blocks.get(2),   bsplicer.blocks.get(2), bcmill.blocks.get(2),     bcrusher.blocks.get(2),
 		robot.items.get(2), nichrome.wire,   nichrome.wire,     robot.items.get(2),
 		steel.frame,        steel.panel,     steel.panel,       steel.frame,
-		bsplicer.get(2),    balloyer.get(2), binscriber.get(2), bquarry.get(2)
-		}, 4, 4, bassembly.get(2));
+		bsplicer.blocks.get(2),    balloyer.blocks.get(2), binscriber.blocks.get(2), bquarry.blocks.get(2)
+		}, 4, 4, bassembly.blocks.get(2));
 		
 		//Digger LV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		null,        motor.items.get(2), steel.base,
 		steel.panel, Electronics.circuit2,           steel.panel,
 		steel.panel, steel.panel,        steel.panel,
-		}, 3, 3, bdig.get(2));
+		}, 3, 3, bdig.blocks.get(2));
 		
 		//Power Receiver VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		silver.wire, silver.wire, silver.wire,
 		silver.wire, steel.base,  silver.wire,
 		silver.wire, silver.wire, silver.wire,
-		}, 3, 3, prec.get(2));
+		}, 3, 3, prec.blocks.get(2));
 		
 		//Power Tower VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		wireSilver.medium, wireSilver.medium, wireSilver.medium,
-		wireSilver.medium, prec.get(2),       wireSilver.medium,
+		wireSilver.medium, prec.blocks.get(2),       wireSilver.medium,
 		wireSilver.medium, wireSilver.medium, wireSilver.medium,
-		}, 3, 3, ptower.get(2));
+		}, 3, 3, ptower.blocks.get(2));
 		
 		//Inscriber VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(2),  steel.gear,  steel.panel,
 		steel.panel,         null,        null,
 		motor.items.get(2),  steel.gear,  steel.panel,
-		}, 3, 3, binscriber.get(2));
+		}, 3, 3, binscriber.blocks.get(2));
 		
 		//Brewery VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		steel.panel,   glassp,      steel.panel,
 		steel.panel,   steel.panel, steel.panel,
 		nichrome.base, Agro.seeds,       wireSilver.medium,
-		}, 3, 3, bbrewery.get(2));
+		}, 3, 3, bbrewery.blocks.get(2));
 		
 		//Extruder VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(2), steel.gear,  steel.panel,
 		steel.panel,        steel.panel, steel.panel,
 		steel.panel,        Electronics.circuit2,    steel.panel,
-		}, 3, 3, bextruder.get(2));
+		}, 3, 3, bextruder.blocks.get(2));
 		
 		//Sinterer VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(2), steel.panel, steel.panel,
 		silver.ring,        coal.wire,   steel.panel,
 		motor.items.get(2), Electronics.circuit2,    steel.panel,
-		}, 3, 3, bsinterer.get(2));
+		}, 3, 3, bsinterer.blocks.get(2));
 	}
 	private static void _craftrsMV() {
 		//Transformer MV/LV

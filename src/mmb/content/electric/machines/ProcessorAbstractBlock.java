@@ -35,10 +35,13 @@ import mmb.menu.world.window.WorldWindow;
  */
 public abstract class ProcessorAbstractBlock extends BlockEntityRotary implements ElectroMachine, BlockActivateListener{
 	//Constructors
-	/** Constructs base components of a machine */
+	/**
+	 * Constructs base components of a machine
+	 * @param type block type
+	 */
 	protected ProcessorAbstractBlock(ElectroMachineType type) {
 		super();
-		elec = new Battery(200, 400, this, type.volt);
+		elec = new Battery(20, 400, this, type.volt);
 		this.type = type;
 	}
 	
@@ -193,7 +196,7 @@ public abstract class ProcessorAbstractBlock extends BlockEntityRotary implement
 		elec.maxPower = 200;
 		if(autoExtract.getValue()) {
 			InventoryWriter writer = getAtSide(getRotation().R()).getInput(getRotation().L());
-			Inventories.transferAll(out, writer); //FIXME stuck
+			Inventories.transferAll(out, writer);
 		}
 		//Pass on items
 		if(pass.getValue() && Math.random() < 0.1) { //10% chance to pass on unsupported items
@@ -204,7 +207,7 @@ public abstract class ProcessorAbstractBlock extends BlockEntityRotary implement
 				tab.refreshOutputs();
 			}
 		}
-		Electricity.equatePPs(this, proxy, elec, 0.9);
+		Electricity.equatePPs(this, proxy, elec, 0.9, type.powermul * type.volt.volts);
 		helper().cycle();
 		onTick0(proxy);
 	}

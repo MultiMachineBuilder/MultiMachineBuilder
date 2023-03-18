@@ -23,7 +23,7 @@ public class ProcessorComplexBlock extends ProcessorAbstractBlock{
 	public ProcessorComplexBlock(ElectroMachineType type, ComplexRecipeGroup group) {
 		super(type);
 		this.group = group;
-		helper = new ComplexProcessHelper<@NN ComplexRecipe>(group, in, out0, 1000, elec, type.volt, null);
+		helper = new ComplexProcessHelper<@NN ComplexRecipe>(group, in, out0, type.powermul, elec, type.volt, null);
 	}
 	
 	//Contents

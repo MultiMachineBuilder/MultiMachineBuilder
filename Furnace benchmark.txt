@@ -1,0 +1,3 @@
+Smelt 100 pieces of coal
+VLV: 22.3s
+ULV: 50s

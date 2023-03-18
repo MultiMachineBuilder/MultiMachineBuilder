@@ -102,10 +102,9 @@ public class BlockGeneratorSolid extends BlockEntityRotary implements BlockActiv
 		this.volt = volt;
 		this.type = type;
 		this.mul = mul;
-		fuel = new Battery(0, 0, this, volt);
-		buffer = new Battery(0, 0, this, volt);
-		fuel.maxPower = Double.POSITIVE_INFINITY;
-		buffer.maxPower = volt.speedMul*10_000/volt.volts;
+		fuel = new Battery(Double.POSITIVE_INFINITY, 0, this, volt);
+		fuel.pressureWt = 1;
+		buffer = new Battery(200.0*mul, 0, this, volt);
 		this.burner = new FuelBurner(1.5+volt.ordinal(), inv, fuel, CraftingGroups.furnaceFuels);
 		resetBuffer();
 	}
@@ -121,7 +120,7 @@ public class BlockGeneratorSolid extends BlockEntityRotary implements BlockActiv
 	public void onTick(MapProxy map) {
 		burner.cycle();
 		fuel.extractTo(buffer);
-		Electricity.equatePPs(this, map, buffer, 0.999);
+		Electricity.equatePPs(this, map, buffer, 0.999, -mul * volt.volts);
 		Electricity to = getAtSide(getRotation().U()).getElectricalConnection(getRotation().D());
 		if(to != null) buffer.extractTo(to);
 		if(tab != null) tab.refresh();
@@ -204,9 +203,9 @@ public class BlockGeneratorSolid extends BlockEntityRotary implements BlockActiv
 		buffer.voltage = volt;
 		buffer.maxPower = 50.0*mul;
 		buffer.capacity = 10_000;
-		buffer.pressureWt = volt.volts;
+		buffer.pressureWt = buffer.maxPower * buffer.voltage.volts;
 		fuel.voltage = volt;
-		fuel.maxPower = 20.0*mul;
+		fuel.maxPower = Double.POSITIVE_INFINITY;
 		fuel.capacity = 500_000;
 	}
 }

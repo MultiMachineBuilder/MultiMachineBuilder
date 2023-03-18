@@ -102,8 +102,8 @@
     "player" : {
       "inventory" : [ 128.0, [ "playerpipe.bend", 1 ], [ "playerpipe.end", 1 ], [ "playerpipe.straight", 1 ] ],
       "creative" : true,
-      "x" : -0.5,
-      "y" : -3.3796000000000554,
+      "x" : -8.5,
+      "y" : -3.4400000000000537,
       "alcohol1" : 0.0,
       "alcohol2" : 0.0
     },
