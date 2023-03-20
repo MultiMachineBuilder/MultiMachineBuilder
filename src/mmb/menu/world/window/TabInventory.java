@@ -646,11 +646,15 @@ public class TabInventory extends JPanel {
 	}
 	
 	private ItemEntry findSourceItem() {
+		boolean check = checkUseCIL.isSelected();
+		if(check) {
+			ItemType type = creativeItemList.getSelectedValue();
+			if(type == null) return null;
+			return type.create();
+		}
 		ItemRecord irecord = craftGUI.inventoryController.getSelectedValue();
-		if(irecord != null) return irecord.item();
-		ItemType type = creativeItemList.getSelectedValue();
-		if(type == null) return null;
-		return type.create();
+		if(irecord == null) return null;
+		return irecord.item();
 	}
 	
 	public void dispose() {
