@@ -10,6 +10,7 @@ import javax.swing.JProgressBar;
 
 import mmb.NN;
 import mmb.content.electric.Electricity;
+import mmb.engine.settings.GlobalSettings;
 import mmb.menu.MenuHelper;
 import mmb.menu.world.inv.InventoryController;
 import mmb.menu.world.inv.MoveItems;
@@ -41,12 +42,14 @@ public class BatteryTab extends GUITab {
 		add(inventoryController, "cell 0 0 1 4,grow");
 		
 		SingleInventoryController sicCharger = new SingleInventoryController(battery.charger);
+		sicCharger.setTitle(GlobalSettings.$res("wguim-charge"));
 		add(sicCharger, "cell 2 0,growy");
 		
 		MoveItems moveCharger = new MoveItems(inventoryController, sicCharger);
 		add(moveCharger, "cell 1 0,grow");
 		
 		SingleInventoryController sicDischarger = new SingleInventoryController(battery.discharger);
+		sicDischarger.setTitle(GlobalSettings.$res("wguim-discharge"));
 		add(sicDischarger, "cell 2 1,growy");
 		
 		MoveItems moveDischarger = new MoveItems(inventoryController, sicDischarger);
