@@ -67,13 +67,23 @@ public interface Electricity {
 	/**
 	 * Sets the progress bar to display the amount of electricity in a container
 	 * @param bar the progress bar
-	 * @param value the current amount of electricity
-	 * @param max the maximum amount of electricity
+	 * @param value the current amount of electricity in joules
+	 * @param max the maximum amount of electricity in joules
 	 */
 	static void formatProgress(JProgressBar bar, double value, double max) {
 		bar.setString(UnitFormatter.formatEnergy(value)+"/"+UnitFormatter.formatEnergy(max));
 		bar.setValue((int) value);
 		bar.setMaximum((int)max);
+	}
+	/**
+	 * Sets the progress bar to display the amount of electricity in a container
+	 * @param bar the progress bar
+	 * @param value the current amount of electricity in coulombs
+	 * @param max the maximum amount of electricity in coulombs
+	 * @param volt voltage tier
+	 */
+	static void formatProgress(JProgressBar bar, double value, double max, VoltageTier volt) {
+		formatProgress(bar, value*volt.volts, max*volt.volts);
 	}
 
 	/** Does nothing. Used to make wires look good and in {@link #optional(Electricity)}; */

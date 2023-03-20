@@ -26,7 +26,7 @@ public class BlockConduit extends BlockEntityData {
 	 * @param volt maximum voltage
 	 */
 	public BlockConduit(BlockType type, double cap, VoltageTier volt) {
-		tf = new TransferHelper(this, cap, volt, cap*volt.volts);
+		tf = new TransferHelper(this, cap, volt, 1);
 		this.type = type;
 		this.volt = volt;
 		u = tf.proxy(Side.D);

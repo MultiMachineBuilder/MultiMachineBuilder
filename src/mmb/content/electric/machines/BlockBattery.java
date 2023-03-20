@@ -44,7 +44,7 @@ public final class BlockBattery extends BlockEntityRotary implements BlockActiva
 	 */
 	public BlockBattery(ElectroMachineType type) {
 		this.type = type;
-		this.battery = new Battery(type.powermul * 1000, type.powermul * 400_000, this, type.volt);
+		this.battery = new Battery(type.powermul * 100, type.powermul * 4000, this, type.volt);
 	}
 	
 	//GUI
@@ -80,16 +80,22 @@ public final class BlockBattery extends BlockEntityRotary implements BlockActiva
 
 	@Override
 	public void onTick(MapProxy map) {
-		Electricity.equatePPs(this, map, battery, 0.99, type.powermul * type.volt.volts);
+		Electricity.equatePPs(this, map, battery, 0.99, 0);
+		
+		//Update the progress bar
+		if(tab != null) tab.refresh();
+		
 		//Extract the electricity
 		Electricity elec = getAtSide(getRotation().R()).getElectricalConnection(getRotation().L());
 		if(elec != null) battery.extractTo(elec);
+		
 		//Charge the item
 		ItemEntry itemCharge = charger.getContents();
 		if(itemCharge instanceof Electric) {
 			Electricity elec1 = ((Electric) itemCharge).getElectricity();
 			battery.extractTo(elec1);
 		}
+		
 		//Discharge the item
 		ItemEntry itemDischarge = discharger.getContents();
 		if(itemDischarge instanceof Electric) {

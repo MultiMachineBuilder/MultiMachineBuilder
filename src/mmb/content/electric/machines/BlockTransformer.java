@@ -150,7 +150,7 @@ public class BlockTransformer extends BlockEntityRotary {
 
 		@Override
 		public double pressureWeight() {
-			return type.high.volts * 100;
+			return 1;
 		}
 
 		@Override
@@ -197,7 +197,7 @@ public class BlockTransformer extends BlockEntityRotary {
 
 		@Override
 		public double pressureWeight() {
-			return type.high.volts * 100;
+			return 1;
 		}
 	}
 	

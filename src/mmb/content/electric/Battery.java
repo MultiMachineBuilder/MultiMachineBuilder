@@ -46,7 +46,7 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 		this.capacity = capacity;
 		this.blow = blow;
 		this.voltage = voltage;
-		this.pressureWt = capacity*voltage.volts;
+		this.pressureWt = 2;
 	}
 	/**
 	 * Creates a copy of the battery
@@ -106,14 +106,22 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 	@Override
 	public void load(@Nil JsonNode data) {
 		if(data == null || data.isEmpty()) return;
-		maxPower = data.get(0).asDouble();
-		capacity = data.get(1).asDouble();
-		stored = data.get(2).asDouble();
-		if(data.size() > 3) pressure = data.get(3).asDouble();
+		if(data.size() == 2) {
+			//Format 3: energy/pressure. Resistant to misuse
+			stored = data.get(0).asDouble();
+			pressure = data.get(1).asDouble();
+		}else{
+			//Format 1: power/capacity/energy
+			stored = data.get(2).asDouble();
+			if(data.size() > 3)
+				//Format 2: power/capacity/energy/pressure
+				pressure = data.get(3).asDouble();
+			
+		}
 	}
 	@Override
 	public JsonNode save() {
-		return JsonTool.newArrayNode().add(maxPower).add(capacity).add(stored).add(pressure).add(pressureWt);
+		return JsonTool.newArrayNode().add(stored).add(pressure);
 	}
 	
 	//Battery get methods

@@ -230,6 +230,8 @@ public class ContentsItems {
 		Items.tagItems("agro", Agro.yeast, Agro.hops, Agro.seeds);
 		Items.tagItems("material-glass", glass, glassp);
 		Items.tagItems("machine-battery", bat1, bat2, bat3, bat4, bat5, bat6, bat7);
+		Items.tagItems("craftaid", stencil, BOM, pingredients);
+		Items.tagItems("shape-shard", sdraconium, sadraconium, schaotium, scrystal, sstellar, sunobtainium);
 		Items.tagItem("voltage-ULV", bat1);
 		Items.tagItem("voltage-VLV", bat2);
 		Items.tagItem("voltage-LV", bat3);
@@ -238,6 +240,7 @@ public class ContentsItems {
 		Items.tagItem("voltage-EV", bat6);
 		Items.tagItem("voltage-IV", bat7);
 		Items.tagItems("resrcbed", resrc1, resrc2, resrc3, resrc4, resrc5, resrc6, resrc7);
+		
 		Items.deprecate("industry.motor1", motor.items.get(0));
 		Items.deprecate("industry.motor2", motor.items.get(1));
 		Items.deprecate("pickHead.wood", ItemRaw.make(pickWood));
