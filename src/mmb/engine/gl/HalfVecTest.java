@@ -3,6 +3,7 @@
  */
 package mmb.engine.gl;
 
+import static mmb.engine.settings.GlobalSettings.$res;
 import static org.lwjgl.glfw.GLFW.glfwCreateWindow;
 import static org.lwjgl.glfw.GLFW.glfwGetPrimaryMonitor;
 import static org.lwjgl.glfw.GLFW.glfwGetVideoMode;
@@ -38,6 +39,8 @@ public class HalfVecTest{
 
 	/** Launch the application. */
 	public static void run() {
+		String title = $res("AprilFoolsGarblerPrank2");
+		
 		//Init GLFW
 		if(!glfwInit()) 
 			throw new IllegalStateException("GLFW not initialized");
@@ -76,7 +79,7 @@ public class HalfVecTest{
 			time = time3;
 			frames++;
 			if(time2 > 1000_000_000) {
-				glfwSetWindowTitle(window, "HalfVec test "+frames);
+				glfwSetWindowTitle(window, title+" "+frames);
 				frames = 0;
 				time2 -= 1000_000_000;
 			}

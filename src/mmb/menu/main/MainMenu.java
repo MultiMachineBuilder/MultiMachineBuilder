@@ -63,7 +63,7 @@ public class MainMenu extends MMBFrame {
 	
 	private JButton btnExit;
 	private JLabel timerLBL;
-	private JButton TEST;
+	private JButton prank;
 	
 	
 	
@@ -105,12 +105,14 @@ public class MainMenu extends MMBFrame {
 		btnExit.addActionListener(e -> System.exit(0));
 		aside.add(btnExit);
 		
-		TEST = new JButton("TEST");
-		TEST.addActionListener(e -> {
+		prank = new JButton($res("AprilFoolsGarblerTooltip"));
+		prank.setToolTipText($res("AprilFoolsGarblerPrank"));
+		prank.addActionListener(e -> {
+			garbler.setValue(true);
 			Thread thread = new Thread(HalfVecTest::run);
 			thread.start();
 		});
-		aside.add(TEST);
+		aside.add(prank);
 		
 		timerLBL = new JLabel("Current time goes here");
 		timerLBL.setToolTipText("The current time");
