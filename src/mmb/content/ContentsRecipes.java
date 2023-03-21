@@ -49,6 +49,17 @@ public class ContentsRecipes {
 		Crafter.types.get(0), steel.frame,        Crafter.types.get(0)
 		}, 3, 3, Crafter.types.get(1));
 		
+		//Crafting aids
+		crafting.addRecipeGrid(new ItemEntry[]{
+		paper, stone
+		}, 2, 1, ItemRaw.make(stencil));
+		crafting.addRecipeGrid(new ItemEntry[]{
+		stone, paper
+		}, 2, 1, ItemRaw.make(BOM));
+		crafting.addRecipeGrid(new ItemEntry[]{
+		paper, ItemRaw.make(BOM)
+		}, 2, 1, ItemRaw.make(pingredients));
+		
 		smelting.add(rudimentary.base, wireRudimentary.medium, VoltageTier.V1, 80_000);
 		smelting.add(logs, Materials.coal.base, VoltageTier.V1, 50_000);
 		
