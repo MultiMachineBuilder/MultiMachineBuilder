@@ -232,14 +232,15 @@ public class Materials {
 	@NN public static final WireGroup wireUnobtainium = new WireGroup(65536_000, unobtainium, VoltageTier.V9);
 	
 	//Alloyed wires
-	@NN public static final WireGroup wireRudimentium = new WireGroup(      8_000, rudimentium, VoltageTier.V2);
-	@NN public static final WireGroup wireEnergetic   = new WireGroup(    128_000,   energetic, VoltageTier.V4);
-	@NN public static final WireGroup wireVibrant     = new WireGroup(    512_000,     vibrant, VoltageTier.V5);
-	@NN public static final WireGroup wireSignalum    = new WireGroup(    512_000,    signalum, VoltageTier.V5);
-	@NN public static final WireGroup wireEnderium    = new WireGroup(   2048_000,    enderium, VoltageTier.V6);
-	@NN public static final WireGroup wireDraconium   = new WireGroup(   8192_000,   draconium, VoltageTier.V7);
-	@NN public static final WireGroup wireADraconium  = new WireGroup( 32_768_000,  adraconium, VoltageTier.V8);
-	@NN public static final WireGroup wireChaotium    = new WireGroup(131_072_000,    chaotium, VoltageTier.V9);
+	@NN public static final WireGroup wireRudimentium  = new WireGroup(      8_000,  rudimentium, VoltageTier.V2);
+	@NN public static final WireGroup wireElectrosteel = new WireGroup(     32_000, electrosteel, VoltageTier.V3);
+	@NN public static final WireGroup wireEnergetic    = new WireGroup(    128_000,    energetic, VoltageTier.V4);
+	@NN public static final WireGroup wireVibrant      = new WireGroup(    512_000,      vibrant, VoltageTier.V5);
+	@NN public static final WireGroup wireSignalum     = new WireGroup(    512_000,     signalum, VoltageTier.V5);
+	@NN public static final WireGroup wireEnderium     = new WireGroup(   2048_000,     enderium, VoltageTier.V6);
+	@NN public static final WireGroup wireDraconium    = new WireGroup(   8192_000,    draconium, VoltageTier.V7);
+	@NN public static final WireGroup wireADraconium   = new WireGroup( 32_768_000,   adraconium, VoltageTier.V8);
+	@NN public static final WireGroup wireChaotium     = new WireGroup(131_072_000,     chaotium, VoltageTier.V9);
 
 	static {
 		//Deprecation
