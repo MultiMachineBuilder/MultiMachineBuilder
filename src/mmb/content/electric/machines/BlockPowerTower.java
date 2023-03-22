@@ -48,10 +48,10 @@ public class BlockPowerTower extends BlockEntityRotary implements Electric, Bloc
 	public BlockEntry blockCopy() {
 		return new BlockPowerTower(type);
 	}
-	public static final RotatedImageGroup rig = RotatedImageGroup.create("machine/ptower.png");
+	
 	@Override
 	public RotatedImageGroup getImage() {
-		return rig;
+		return type.rig;
 	}
 	@Override
 	public Electricity getElectricalConnection(Side s) {
