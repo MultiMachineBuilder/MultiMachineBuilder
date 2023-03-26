@@ -1,4 +1,5 @@
-# WIP
+The collaborators should work directly on master
+
 ## New functinality
 * New functionality must have a separate issue
 * Be tracked with a milestone
