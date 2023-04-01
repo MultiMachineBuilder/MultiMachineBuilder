@@ -48,7 +48,6 @@ public class BlockPowerReceiver extends BlockEntityRotary implements Electric {
 	public @Nil Electricity getElectricalConnection(Side s) {
 		return Electricity.NONE;
 	}
-	
 
 	@Override
 	public RotatedImageGroup getImage() {

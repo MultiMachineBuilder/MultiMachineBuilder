@@ -6,7 +6,7 @@
 (SETTINGS LIST) cancel=Cancel
 (SETTINGS LIST) matname1-tungstenC=Tungsten Carbide
 (SETTINGS LIST) component-rtx=RTX
-(SETTINGS LIST) AprilFoolsGarblerTooltip=SPECIAL OFFER
+(SETTINGS LIST) AprilFoolsGarblerTooltip=<html>SPECIAL OFFER<br>Hover to see<br>more info</html>
 (SETTINGS LIST) matname1-unamide=Unamide
 (SETTINGS LIST) matname2-nickel=Nickel
 (SETTINGS LIST) matname2-adraconium=Awakened Draconium
@@ -8763,7 +8763,9 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (MOD-LOADER) Added missing mods directory
 (MOD-LOADER) Walking: C:\Users\oskar\git\MultiMachineBuilder\mods
 (MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\mods
-(MAIN) State: Found 1 mod files
+(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\mods\HelloWorld 0.5.jar
+(MAIN) State: Found 2 mod files
+(MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\git\MultiMachineBuilder\mods\HelloWorld 0.5.jar
 (MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file C:\Users\oskar\git\MultiMachineBuilder\OpenGL is over 20 times faster than AWT.jar
 (MOD - OpenGL is over 20 times faster than AWT.jar) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie można odnaleźć określonego pliku)
 	at java.base/java.io.FileInputStream.open0(Native Method)
@@ -8773,10 +8775,39 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+(MOD - HelloWorld 0.5.jar) entry: META-INF/MANIFEST.MF
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
+(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
+(MOD - HelloWorld 0.5.jar) entry: textures/hw/mini rainbow.png
+(MOD - HelloWorld 0.5.jar) entry: textures/hw/notepad.png
+(MOD - HelloWorld 0.5.jar) entry: textures/hw/rainbow.png
+(MOD - HelloWorld 0.5.jar) entry: .project
+(MOD - HelloWorld 0.5.jar) entry: .classpath
+(MOD - HelloWorld 0.5.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
+(MOD - HelloWorld 0.5.jar) entry: pom.xml
 (MAIN) State: Mods - Preparation 0
+(MOD-LOADER) Mod class: mmbmods.monniasza.helloworld.package-info
+(MOD-LOADER) Mod class: mmbmods.monniasza.helloworld.HWBlock
+(MOD-LOADER) Mod class: mmbmods.monniasza.helloworld.HelloWorld
+(MOD-LOADER) Mod class: mmbmods.monniasza.helloworld.HWMachine
 (MAIN) State: Mods - Instantiation 0a
+(TEXTURES) Loading texture: hw/rainbow.png
+(HW) Hello, world!
 (MAIN) State: Mods - Phase 1
+(MOD-LOADER) Start 1st stage for Hello, world!
+(MOD-LOADER) End 1st stage for Hello, world!
 (MAIN) State: Mods - Phase 2
+(MOD-LOADER) Start 2nd stage for Hello, world!
+(ITEMS) Adding mmb.multimachine.hw.HelloWorldMachine with title hw.HelloWorldMachine and description:
+ (no description)
+(TEXTURES) Loading texture: hw/mini rainbow.png
+(HW) Successfully created Rainbow Machine
+(TEXTURES) Loading texture: hw/notepad.png
+(ITEMS) Adding wireworld.hw with title Hello, world! and description:
+ (no description)
+(MOD-LOADER) End 2nd stage for Hello, world!
 (ITEMS) Adding rawitem.pick.weak with title Very weak pickaxe (raw) and description:
  (no description)
 (ITEMS) Tagging ItemRaw Item Very weak pickaxe(pick.weak) with tool
@@ -8820,6 +8851,16 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
  (no description)
 (ITEMS) Tagging ItemRaw Item Simple Item Package(boxed.packItem) with raw
 (MAIN) State: Mods - Phase 3
+(MOD-LOADER) Start 3rd stage for Hello, world!
+(HW) Successfully created Rainbow Machine
+(ITEMS) Adding wireworld.hw with title Hello, world! and description:
+ (no description)
+(MOD-LOADER) End 3rd stage for Hello, world!
+(MOD-LOADER) ===MOD INFORMATION FOR Hello, world!===
+(MOD-LOADER) Enabled
+(MOD-LOADER) RELEASED AT UNKNOWN DATE
+(MOD-LOADER) MADE BY Monniasza
+(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) HOORAY, IT'S OVER!
 (MAIN) Hello!
 (Main menu) MainMenu created
@@ -8834,7 +8875,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found save: README.mworld
 (SELECT A SAVE) Found save: Semi Auto Brewery.mworld
 (SELECT A SAVE) Found save: Sound ON startup.mworld
-(SELECT A SAVE) Found save: Surv2 — kopia.mworld
 (SELECT A SAVE) Found save: Surv2.mworld
 (SELECT A SAVE) Found save: test binder.mworld
 (SELECT A SAVE) Found save: Test BPI.mworld
@@ -8849,48 +8889,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found save: The longest player pipe ever.mworld
 (SELECT A SAVE) Found save: The smallest all in one quarry system.mworld
 (SELECT A SAVE) Found save: Trailer.mworld
-(SELECT A SAVE) Found 26 saves
-(WORLD TEST) 1760 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@7b170d32
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(ITEM LISTS) Item list node is null
-(ITEM LISTS) Item list node is null
-(ITEM LISTS) Item list node is null
-(ITEM LISTS) Item list node is null
-(ITEM LISTS) Item list node is null
-(ITEM LISTS) Item list node is null
-(ITEM LISTS) Item list node is null
-(ITEM LISTS) Item list node is null
-(ITEM LISTS) Item list node is null
-(ITEM LISTS) Item list node is null
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(ITEMS) Invalid item: Infinity
-(INVENTORIES) Unsupported null item
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
+(SELECT A SAVE) Found 25 saves
 (SETTINGS) Resetting a setting country with value US
 (SETTINGS) Resetting a setting sortItems with value true
 (SETTINGS) Resetting a setting dumpBundles with value true

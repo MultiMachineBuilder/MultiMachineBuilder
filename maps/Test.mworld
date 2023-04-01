@@ -11,589 +11,589 @@
       "tgtY" : -2
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "industry.infinigen0", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "industry.infinigen2", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1799865569125105E7
+      "ppres" : 5111870.477486383
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1799086041137865E7
+      "ppres" : 5096203.002875679
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1797146321758606E7
+      "ppres" : 5065009.424043174
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1794065706922656E7
+      "ppres" : 5034239.735708238
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1789879369013399E7
+      "ppres" : 5003892.1600731015
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1784634111008393E7
+      "ppres" : 4973964.262840574
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1778386967717567E7
+      "ppres" : 4944452.959915665
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1771203552230148E7
+      "ppres" : 4915501.192523676
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1763159397256827E7
+      "ppres" : 4886957.925304647
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1754331655182876E7
+      "ppres" : 4858818.170339269
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1744797168474158E7
+      "ppres" : 4831076.334053554
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1734640158866799E7
+      "ppres" : 4803726.232345366
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1723940954928337E7
+      "ppres" : 4776761.10722324
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1712774461420117E7
+      "ppres" : 4750173.6448852895
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1701215239822408E7
+      "ppres" : 4723955.9951602565
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1689336466724379E7
+      "ppres" : 4698099.792227453
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1677202779148253E7
+      "ppres" : 4672596.176527597
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1664869759590672E7
+      "ppres" : 4647435.8177722525
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1652390043932674E7
+      "ppres" : 4622608.93895586
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1639813268371427E7
+      "ppres" : 4598105.341271218
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1627179822869547E7
+      "ppres" : 4574061.096470229
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1388536081855273E7
+      "ppres" : 4145135.3919578604
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1399483750452965E7
+      "ppres" : 4164936.053059773
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1410539440645523E7
+      "ppres" : 4184942.7022138075
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1421704469508877E7
+      "ppres" : 4205168.176392449
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.143297684002957E7
+      "ppres" : 4225478.764972104
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1444360752727663E7
+      "ppres" : 4245887.533914468
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1455857005854547E7
+      "ppres" : 4266407.636874799
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1467462928950017E7
+      "ppres" : 4287052.292045006
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1479178674788846E7
+      "ppres" : 4307834.758142597
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1491003936479114E7
+      "ppres" : 4328768.3096058
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1502937804442108E7
+      "ppres" : 4349866.211060555
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1514978587200264E7
+      "ppres" : 4371141.691130441
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.152712676163075E7
+      "ppres" : 4392607.915665564
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1539375157497352E7
+      "ppres" : 4414277.960471279
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1551718191976538E7
+      "ppres" : 4436311.45026562
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1564151504134795E7
+      "ppres" : 4458574.518552358
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1576661990170067E7
+      "ppres" : 4481079.7915031435
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1589240062643945E7
+      "ppres" : 4503839.692944958
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1601866431991788E7
+      "ppres" : 4526866.4159548255
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1614521132820005E7
+      "ppres" : 4550318.561163638
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1377691831980815E7
+      "ppres" : 4125528.021283285
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1366949511991687E7
+      "ppres" : 4105954.7353880065
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1356310762620753E7
+      "ppres" : 4086403.184286134
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1345770816100692E7
+      "ppres" : 4066861.224128654
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1335328053970963E7
+      "ppres" : 4047316.9332064856
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1324980842447454E7
+      "ppres" : 4027758.6268239096
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1314727536611533E7
+      "ppres" : 4008174.871033521
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1304566483095445E7
+      "ppres" : 3988554.4952291474
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1294499192408694E7
+      "ppres" : 3968886.603598311
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1284520790544003E7
+      "ppres" : 3949307.252084317
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1274629569222761E7
+      "ppres" : 3929659.445466574
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1264823815778166E7
+      "ppres" : 3910079.824218601
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.12551018134258E7
+      "ppres" : 3890411.9927606042
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1245461841228371E7
+      "ppres" : 3870793.2041765973
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1235905344629565E7
+      "ppres" : 3851067.686376756
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1226427385997348E7
+      "ppres" : 3831226.6581382155
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.121702936517468E7
+      "ppres" : 3811261.6654137033
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1207706300275354E7
+      "ppres" : 3791164.5833464754
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1198456378507413E7
+      "ppres" : 3770927.617386189
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1189277787049348E7
+      "ppres" : 3750543.303545887
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1180168714568404E7
+      "ppres" : 3730004.507842001
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1171127352546586E7
+      "ppres" : 3709304.424960581
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1001888279563015E7
+      "ppres" : 3258961.7321260367
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1009942009433936E7
+      "ppres" : 3283116.580718408
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1018027533135405E7
+      "ppres" : 3307182.3507164144
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1026146563028887E7
+      "ppres" : 3331013.7328138365
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1034300837094804E7
+      "ppres" : 3354612.291589219
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.104249211741545E7
+      "ppres" : 3378126.473346872
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1050722188275538E7
+      "ppres" : 3401558.2684932076
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1058992853933264E7
+      "ppres" : 3424909.8860210464
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1067305936128194E7
+      "ppres" : 3448037.0946722305
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1075666442190455E7
+      "ppres" : 3470942.5761520774
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1084073013192542E7
+      "ppres" : 3493629.2661233637
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1092530642149555E7
+      "ppres" : 3516100.3617059835
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.110104112330521E7
+      "ppres" : 3538359.328804055
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1109603051657297E7
+      "ppres" : 3560409.9092241335
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1118218201893406E7
+      "ppres" : 3582256.1275465167
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1126888358146468E7
+      "ppres" : 3603902.297710148
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1135615314332519E7
+      "ppres" : 3625353.029270166
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1144400874206431E7
+      "ppres" : 3646613.2332859333
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1153246851079369E7
+      "ppres" : 3667688.1277962667
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.1162155067165032E7
+      "ppres" : 3688583.24283766
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.09938646578776E7
+      "ppres" : 3234716.6348478063
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.098586948610703E7
+      "ppres" : 3210380.298289524
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0977901133571396E7
+      "ppres" : 3185805.2370435596
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0969961167760042E7
+      "ppres" : 3160990.8087923075
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0962044804662935E7
+      "ppres" : 3135936.5402000523
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0954150458034791E7
+      "ppres" : 3110642.1195659623
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0946279739247806E7
+      "ppres" : 3085254.056250213
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0938427907746634E7
+      "ppres" : 3059625.6614810564
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0930596591265537E7
+      "ppres" : 3033757.0535518774
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0922784236802077E7
+      "ppres" : 3007648.4844151805
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0914989282263815E7
+      "ppres" : 2981300.3330818233
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0907206987311598E7
+      "ppres" : 2954713.0991863813
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0899435813955514E7
+      "ppres" : 2927887.396721776
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0891674257507307E7
+      "ppres" : 2900823.9479452004
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0883920847661348E7
+      "ppres" : 2873523.57745624
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0876174148876261E7
+      "ppres" : 2846133.8730907175
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0868432760061301E7
+      "ppres" : 2818509.1682267245
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0860698484402394E7
+      "ppres" : 2790650.548501361
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0852966778771617E7
+      "ppres" : 2762559.1799353478
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0845239472757628E7
+      "ppres" : 2734236.3038649294
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0837512047622537E7
+      "ppres" : 2705683.2320337505
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.082978635584336E7
+      "ppres" : 2676901.341840546
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0673198320448242E7
+      "ppres" : 2067133.349684301
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0681186303817416E7
+      "ppres" : 2099264.6320508677
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0689151204319276E7
+      "ppres" : 2131201.433156544
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0697097071205687E7
+      "ppres" : 2163088.5994606013
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0705021604752457E7
+      "ppres" : 2194777.628258908
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0712925705897018E7
+      "ppres" : 2226266.682407139
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0720810305683812E7
+      "ppres" : 2257553.926352972
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0728676365166774E7
+      "ppres" : 2288637.528881852
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0736528045795022E7
+      "ppres" : 2319662.332578726
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0744363159683164E7
+      "ppres" : 2350479.8446059977
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0752182718955778E7
+      "ppres" : 2381088.2518011373
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0759987765040718E7
+      "ppres" : 2411485.757097149
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0767779368568884E7
+      "ppres" : 2441670.5826722686
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0775558629115568E7
+      "ppres" : 2471640.973189454
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.078332984559991E7
+      "ppres" : 2501395.199130082
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.079109096673255E7
+      "ppres" : 2530931.5602265783
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0798843140677165E7
+      "ppres" : 2560395.0556424814
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.080658754476608E7
+      "ppres" : 2589784.0421461295
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0814325385885732E7
+      "ppres" : 2618950.237880998
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.08220579007214E7
+      "ppres" : 2648038.738381662
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0665186405296467E7
+      "ppres" : 2034809.400018574
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0657152909666829E7
+      "ppres" : 2002294.5883268777
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0649093835515743E7
+      "ppres" : 1969737.3754356094
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0641011555546971E7
+      "ppres" : 1936992.8632707316
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0632902093114285E7
+      "ppres" : 1904062.8047088655
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.06247646715991E7
+      "ppres" : 1870948.9347330027
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0616601713910459E7
+      "ppres" : 1837799.634939484
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0608409291785132E7
+      "ppres" : 1804469.9193509398
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0600186672727006E7
+      "ppres" : 1770961.444536619
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0591933144573258E7
+      "ppres" : 1737275.8410412346
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0583648006929412E7
+      "ppres" : 1703414.7115265548
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0575330556447275E7
+      "ppres" : 1669379.6289840657
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0566983233172897E7
+      "ppres" : 1635318.8016644493
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0558602031719409E7
+      "ppres" : 1601087.0593236664
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0550185987704711E7
+      "ppres" : 1566685.8637884427
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.054173390699251E7
+      "ppres" : 1532263.3074871048
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0533247379196541E7
+      "ppres" : 1497674.0999485317
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0524720984605772E7
+      "ppres" : 1462919.5786287577
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0516154641889932E7
+      "ppres" : 1428001.04106785
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0507540326278692E7
+      "ppres" : 1392919.7437825396
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.049887078362131E7
+      "ppres" : 1357676.9012539466
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0490135135044828E7
+      "ppres" : 1322273.6850133308
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 9951993.739002207
+      "ppres" : 583399.5669932351
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0047232435480595E7
+      "ppres" : 621687.7432766652
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0123919279608209E7
+      "ppres" : 659829.4113688321
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0185446701379905E7
+      "ppres" : 697824.2913022079
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0234756276912993E7
+      "ppres" : 735672.0657511401
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.027434164907091E7
+      "ppres" : 773372.3786177635
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0306288046803862E7
+      "ppres" : 810924.833732746
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.033231155084922E7
+      "ppres" : 848328.9936730298
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0353793780609004E7
+      "ppres" : 885584.3786983375
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0371837149266183E7
+      "ppres" : 922690.4658078518
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.038730938322199E7
+      "ppres" : 959646.6879181006
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0400875446997114E7
+      "ppres" : 996599.0998063162
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0413044363332743E7
+      "ppres" : 1033400.3654170377
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0424201699289016E7
+      "ppres" : 1070049.7695322244
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0434630755456518E7
+      "ppres" : 1106546.550804227
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0444535404054336E7
+      "ppres" : 1142889.9015534762
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0454064974326687E7
+      "ppres" : 1179078.9676863148
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0463325773173815E7
+      "ppres" : 1215112.8487316982
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0472392523707628E7
+      "ppres" : 1250990.597995227
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1.0481317108433777E7
+      "ppres" : 1286711.2228287216
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 9834351.386751058
+      "ppres" : 544965.1266543479
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 9690036.601388043
+      "ppres" : 506384.6321998951
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 9514411.35472438
+      "ppres" : 467804.9277593848
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 9302573.471939942
+      "ppres" : 429079.4813810096
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 9049486.880438374
+      "ppres" : 390355.06574412534
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 8750153.378301134
+      "ppres" : 351631.7480915431
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 8399823.517331302
+      "ppres" : 312909.55902080593
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 7994224.934716318
+      "ppres" : 274041.8280832788
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 7529833.7251670845
+      "ppres" : 235175.19823182034
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 7004128.18207189
+      "ppres" : 196309.61611108607
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 6415856.526932505
+      "ppres" : 157298.33454120246
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 5765265.260055892
+      "ppres" : 118141.26054499975
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 5054284.5978417015
+      "ppres" : 78838.29131458928
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 4286652.09497462
+      "ppres" : 39389.31686954126
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 3467945.143130488
+      "ppres" : -205.7772438197256
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 2605529.0136949574
+      "ppres" : -39947.107219070036
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1708397.977782879
+      "ppres" : -79834.78822951102
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 786926.0149196567
+      "ppres" : -119868.9316485048
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : -147483.39043115955
+      "ppres" : -160000.75337656713
     }, {
       "blocktype" : "elec.meter",
       "side" : "N"
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : -147784.7446807358
+      "ppres" : -160000.5022485892
     }, {
       "blocktype" : "industry.alloyer2",
       "side" : "N",
       "remain" : 0.0,
       "active" : false,
       "recipe" : null,
-      "energy" : [ 400.0, -150212.97918384225 ],
+      "energy" : [ 400.0, -160000.3766855412 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0, [ "fcluster.steel", 400 ] ],
       "pass" : false,
       "autoex" : false
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "industry.infinigen2", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 2.0479801470095042E7
+      "ppres" : 2.3337686605021775E7
     }, {
       "blocktype" : "industry.alloyer2",
       "side" : "N",
       "remain" : 0.0,
       "active" : false,
       "recipe" : null,
-      "energy" : [ 400.0, 1.5319851076517098E7 ],
+      "energy" : [ 400.0, 2.0987917944519598E7 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -622,7 +622,7 @@
       "autoex" : false
     }, "mmb.grass", "industry.infinigen1", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "industry.infinigen1", "mmb.grass", {
       "blocktype" : "elecwire.medium.rudimentium",
-      "ppres" : -112.08763662425126
+      "ppres" : 904966.7711598765
     }, "mmb.grass", "mmb.grass", "crafting.6", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "industry.spllitter1",
       "side" : "N",
@@ -640,7 +640,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 20.0,
-      "energy" : [ 400.0, -140.87887296182612 ],
+      "energy" : [ 400.0, 816830.0940438887 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,

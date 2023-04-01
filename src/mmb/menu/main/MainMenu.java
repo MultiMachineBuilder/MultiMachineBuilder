@@ -60,13 +60,9 @@ public class MainMenu extends MMBFrame {
 	/** The website for this game */
 	public static final String GITHUB = "https://multimachinebuilder.github.io";
 	
-	
 	private JButton btnExit;
 	private JLabel timerLBL;
 	private JButton prank;
-	
-	
-	
 	
 	/** Launch the application. */
 	public static void create() {
@@ -106,6 +102,7 @@ public class MainMenu extends MMBFrame {
 		aside.add(btnExit);
 		
 		prank = new JButton($res("AprilFoolsGarblerTooltip"));
+		prank.setBackground(Color.YELLOW);
 		prank.setToolTipText($res("AprilFoolsGarblerPrank"));
 		prank.addActionListener(e -> {
 			garbler.setValue(true);

@@ -9,8 +9,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
-
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.NN;
@@ -27,13 +25,13 @@ import mmb.menu.world.window.WorldWindow;
  */
 public class MachineModel extends Item implements Placer {
 	private static final Debugger debug = new Debugger("MACHINES");
-	public final Class<@NonNull ? extends Machine> machineClass;
+	public final Class<@NN ? extends Machine> machineClass;
 	private final String errorMessage;
 	
 	public Previewer preview = (a, b, c, d) -> {/*unused*/};
 	
 	@SuppressWarnings("unchecked")
-	private MachineModel(Class<@NonNull ? extends Machine> machineClass, String name) {
+	private MachineModel(Class<@NN ? extends Machine> machineClass, String name) {
 		models.put((Class<? extends MachineModel>) machineClass, this);
 		models2.put(name, this);
 		this.machineClass = machineClass;

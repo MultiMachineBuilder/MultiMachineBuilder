@@ -663,9 +663,9 @@ public class ContentsRecipes {
 		
 		//WireMill VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
-		motor.items.get(1),      Electronics.circuit1,   bearing1,
-		iron.gear,   iron.panel, iron.gear,
-		bearing1, Electronics.circuit1,   motor.items.get(1),
+		motor.items.get(1), Electronics.circuit1, iron.ring,
+		iron.gear,          iron.panel,           iron.gear,
+		iron.ring,          Electronics.circuit1, motor.items.get(1),
 		}, 3, 3, bwiremill.blocks.get(1));
 		
 		//Quarry VLV
@@ -726,9 +726,9 @@ public class ContentsRecipes {
 		
 		//Power Tower VLV
 		crafting.addRecipeGrid(new ItemEntry[]{
-		wireCopper.medium, wireCopper.medium, wireCopper.medium,
-		wireCopper.medium, prec.blocks.get(1),       wireCopper.medium,
-		wireCopper.medium, wireCopper.medium, wireCopper.medium,
+		wireCopper.medium, wireCopper.medium,  wireCopper.medium,
+		wireCopper.medium, prec.blocks.get(1), wireCopper.medium,
+		wireCopper.medium, wireCopper.medium,  wireCopper.medium,
 		}, 3, 3, ptower.blocks.get(1));
 		
 		//Inscriber VLV
@@ -845,42 +845,42 @@ public class ContentsRecipes {
 		steel.panel, steel.panel,        steel.panel,
 		}, 3, 3, bdig.blocks.get(2));
 		
-		//Power Receiver VLV
+		//Power Receiver LV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		silver.wire, silver.wire, silver.wire,
 		silver.wire, steel.base,  silver.wire,
 		silver.wire, silver.wire, silver.wire,
 		}, 3, 3, prec.blocks.get(2));
 		
-		//Power Tower VLV
+		//Power Tower LV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		wireSilver.medium, wireSilver.medium, wireSilver.medium,
 		wireSilver.medium, prec.blocks.get(2),       wireSilver.medium,
 		wireSilver.medium, wireSilver.medium, wireSilver.medium,
 		}, 3, 3, ptower.blocks.get(2));
 		
-		//Inscriber VLV
+		//Inscriber LV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(2),  steel.gear,  steel.panel,
 		steel.panel,         null,        null,
 		motor.items.get(2),  steel.gear,  steel.panel,
 		}, 3, 3, binscriber.blocks.get(2));
 		
-		//Brewery VLV
+		//Brewery LV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		steel.panel,   glassp,      steel.panel,
 		steel.panel,   steel.panel, steel.panel,
 		nichrome.base, Agro.seeds,       wireSilver.medium,
 		}, 3, 3, bbrewery.blocks.get(2));
 		
-		//Extruder VLV
+		//Extruder LV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(2), steel.gear,  steel.panel,
 		steel.panel,        steel.panel, steel.panel,
 		steel.panel,        Electronics.circuit2,    steel.panel,
 		}, 3, 3, bextruder.blocks.get(2));
 		
-		//Sinterer VLV
+		//Sinterer LV
 		crafting.addRecipeGrid(new ItemEntry[]{
 		motor.items.get(2), steel.panel, steel.panel,
 		silver.ring,        coal.wire,   steel.panel,

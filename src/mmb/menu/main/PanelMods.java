@@ -4,6 +4,7 @@
 package mmb.menu.main;
 
 import java.util.Date;
+import java.util.Objects;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -98,7 +99,7 @@ public class PanelMods extends JPanel {
 		String descr = "This file is corrupt.";
 		String author = UNKNOWN;
 		if(mod.state == ModState.ENABLE) {
-			release = mod.meta.release.toString();
+			release = Objects.toString(mod.meta.release);
 			descr = mod.meta.description;
 			author = mod.meta.author;
 		}else {
