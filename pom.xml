@@ -58,7 +58,6 @@
 	</ciManagement>
 	
 	<!-- Build params -->
-	
 	<packaging>jar</packaging>
 	<repositories>
 		<repository>
