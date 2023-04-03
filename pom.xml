@@ -451,7 +451,7 @@
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-opengl</artifactId>
-			<version>3.3.1</version>
+			<version>3.3.2</version>
 		</dependency>
 		<!-- LWJGL natives -->
 		<dependency>
