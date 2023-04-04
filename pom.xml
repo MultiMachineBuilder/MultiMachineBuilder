@@ -458,7 +458,7 @@
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl</artifactId>
 			<classifier>${lwjgl.natives}</classifier>
-			<version>3.3.1</version>
+			<version>3.3.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
