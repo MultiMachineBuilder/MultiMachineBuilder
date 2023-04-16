@@ -1,5 +1,40 @@
 # MultiMachineBuilder [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
-Multi Machine Builder is a computer game written in Java that lets you build machines.
+**MultiMachineBuilder - a voxel game about building an industrial empire in a finite world**
+![[∞]](https://multimachinebuilder.github.io/assets/images/banner.png)
+
+[Download now](https://github.com/MultiMachineBuilder/MultiMachineBuilder/releases) |
+[itch.io](https://monniasza.itch.io/multimachinebuilder) |
+[Get started]((https://multimachinebuilder.github.io/setup.html) |
+[Contribute to this site](https://github.com/MultiMachineBuilder/MultiMachineBuilder.github.io) |
+[Wiki](https://github.com/MultiMachineBuilder/MultiMachineBuilder/wiki) |
+[YouTube](https://www.youtube.com/channel/UCHDT5lQd4zG2rdZnntzgitA) |
+[Announcement thread](https://itch.io/t/2756901/multimachinebuilder-dev-05)
+
+Features:
+* Realistic, volumetric inventories
+* Naturally generated resources
+* Self sustaining resource generation
+* Advanced indexing system with tag and criterion support for items and recipes
+* Excellent mod support
+* List of recipes by type
+* Use mods without downloading them
+* ...and more in future
+
+Content:
+* Selection of over 1760 different items, including 466 blocks
+* 61 materials, including 24 naturally generated ones
+* 19 different machines
+* Hundreds of parts
+* 9 voltages, 3 currently available for machines and 1 for power transmission only
+* 17 material form factors
+* 21 types of machines
+* 13 wire materials
+* 6 different generators across 4 voltages
+
+### Copyright
+![](https://multimachinebuilder.github.io/assets/images/logo16.png)™ 
+The game is released under the terms of GNU General Public License v3. <br>
+The website is released under the terms of ![CC BY 4.0](https://i.creativecommons.org/l/by/4.0/88x31.png)
 
 ## Repository and contribution tips
 * Suggest new features in the issues
