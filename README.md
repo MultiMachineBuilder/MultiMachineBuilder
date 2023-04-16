@@ -4,7 +4,7 @@
 
 [Download now](https://github.com/MultiMachineBuilder/MultiMachineBuilder/releases) |
 [itch.io](https://monniasza.itch.io/multimachinebuilder) |
-[Get started]((https://multimachinebuilder.github.io/setup.html) |
+[Get started](https://multimachinebuilder.github.io/setup.html) |
 [Contribute to this site](https://github.com/MultiMachineBuilder/MultiMachineBuilder.github.io) |
 [Wiki](https://github.com/MultiMachineBuilder/MultiMachineBuilder/wiki) |
 [YouTube](https://www.youtube.com/channel/UCHDT5lQd4zG2rdZnntzgitA) |
