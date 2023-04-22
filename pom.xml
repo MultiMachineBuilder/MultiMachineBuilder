@@ -322,7 +322,7 @@
 		<dependency>
 			<groupId>com.miglayout</groupId>
 			<artifactId>miglayout-swing</artifactId>
-			<version>11.0</version>
+			<version>11.1</version>
 		</dependency>
 		<dependency>
 	   		<groupId>io.github.parubok</groupId>
@@ -441,36 +441,36 @@
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl</artifactId>
-			<version>3.3.1</version>
+			<version>3.3.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-glfw</artifactId>
-			<version>3.3.1</version>
+			<version>3.3.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-opengl</artifactId>
-			<version>3.3.1</version>
+			<version>3.3.2</version>
 		</dependency>
 		<!-- LWJGL natives -->
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl</artifactId>
 			<classifier>${lwjgl.natives}</classifier>
-			<version>3.3.1</version>
+			<version>3.3.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-glfw</artifactId>
 			<classifier>${lwjgl.natives}</classifier>
-			<version>3.3.1</version>
+			<version>3.3.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl-opengl</artifactId>
 			<classifier>${lwjgl.natives}</classifier>
-			<version>3.3.1</version>
+			<version>3.3.2</version>
 		</dependency>
 
 		<!-- JOML -->
