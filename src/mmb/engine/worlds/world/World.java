@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -169,18 +170,49 @@ public class World implements Identifiable<String>, Indexable{
 	
 	//Serialization
 	/**
+	 * Indicates a malformed world
+	 * @author oskar
+	 */
+	public static class WorldLoadException extends RuntimeException{
+		private static final long serialVersionUID = -3479151473029171459L;
+		public WorldLoadException() {
+			super();
+		}
+		public WorldLoadException(String message, Throwable cause) {
+			super(message, cause);
+		}
+		public WorldLoadException(String message) {
+			super(message);
+		}
+		public WorldLoadException(Throwable cause) {
+			super(cause);
+		}
+	}
+	/**
 	 * Loads a world from JSON
 	 * @param json JSON data to load
 	 * @return a world from JSON file
+	 * @throws WorldLoadException when world misses critical information
 	 * @throws NullPointerException if JSON data is null
 	 */
-	public static World load(JsonNode json) {
+	public static World load(JsonNode json) throws WorldLoadException {
 		Objects.requireNonNull(json, "World is loaded with null"); //unlikely to occur
+		
 		//Dimensions
-		int sizeX = json.get("sizeX").asInt();
-		int sizeY = json.get("sizeY").asInt();
-		int startX = json.get("startX").asInt();
-		int startY = json.get("startY").asInt();
+		JsonNode _sizeX = json.get("sizeX");
+		JsonNode _sizeY = json.get("sizeY");
+		JsonNode _startX = json.get("startX");
+		JsonNode _startY = json.get("startY");
+		//Verify dimensions
+		if(_sizeX == null) throw new WorldLoadException("No X size");
+		if(_sizeY == null) throw new WorldLoadException("No Y size");
+		if(_startX == null) throw new WorldLoadException("No X start pos");
+		if(_startY == null) throw new WorldLoadException("No Y start pos");
+		//Set dimensions
+		int sizeX = _sizeX.asInt();
+		int sizeY = _sizeY.asInt();
+		int startX = _startX.asInt();
+		int startY = _startY.asInt();
 		int endX = sizeX + startX;
 		int endY = sizeY + startY;
 		
@@ -189,6 +221,7 @@ public class World implements Identifiable<String>, Indexable{
 		
 		//Blocks
 		ArrayNode worldArray = (ArrayNode) json.get("world");
+		if(worldArray == null) throw new WorldLoadException("No world array");
 		Iterator<JsonNode> iter = worldArray.elements();
 		for(int y = startY; y < endY; y++) {
 			for(int x = startX; x < endX; x++) {

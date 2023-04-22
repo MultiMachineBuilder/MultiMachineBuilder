@@ -3,8 +3,11 @@
  */
 package mmbtest.fuzz;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import com.code_intelligence.jazzer.api.FuzzedDataProvider;
 import com.code_intelligence.jazzer.junit.FuzzTest;
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.Main;
@@ -12,6 +15,7 @@ import mmb.engine.MMBUtils;
 import mmb.engine.debug.Debugger;
 import mmb.engine.json.JsonTool;
 import mmb.engine.worlds.universe.Universe;
+import mmb.engine.worlds.world.World.WorldLoadException;
 
 /**
  *
@@ -39,19 +43,21 @@ public class FuzzWorldLoader {
 			}
 			
 			JsonNode node;
-			boolean method = true;
+			boolean method = false;
 			if(method) {
 				node = Fuzzhelper.generateJsonNode(fdp);
-				debug.printl("JSON data: ");
+				//debug.printl("JSON data: ");
 				debug.printl(JsonTool.save(node));
 			}else {
 				String s = fdp.consumeRemainingAsString();
 				node = JsonTool.parse(s);
-				debug.printl("JSON data: ");
-				debug.printl(s);
+				//debug.printl("JSON data: ");
+				//debug.printl(s);
 			}
 			Universe univ = new Universe();
 			univ.load(node);
+		}catch(JsonParseException | WorldLoadException e){
+			//debug.stacktraceError(e, "Test exception, noncrashing");
 		}catch(Throwable e) {
 			if(e instanceof InterruptedException) {
 				debug.stacktraceError(e, "INTERRUPTED!");
@@ -60,8 +66,9 @@ public class FuzzWorldLoader {
 			if(crash != null) {
 				debug.stacktraceError(e, "CRASH!");
 				MMBUtils.shoot(e);
-			}else {
-				//debug.pstm(e, "Test exception, noncrashing");
+			}else{
+				debug.stacktraceError(e, "FAIL!");
+				fail(e);
 			}
 		}
 	}

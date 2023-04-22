@@ -67,7 +67,7 @@ public class Main extends JFrame {
 	}
 	@Nil private static Consumer<Throwable> errorHook;
 	/**
-	 * @discouraged DO NOT USE THIS METHOD
+	 * @discouraged DO NOT USE THIS METHOD EXCEPT IN TESTS
 	 * @param eh error hook
 	 */
 	public static void errorhook(Consumer<Throwable> eh) {
