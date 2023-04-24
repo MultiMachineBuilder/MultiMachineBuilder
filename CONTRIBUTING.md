@@ -7,10 +7,13 @@
 ## IDE setup
 0. Import the project (#How to contribute)
 1. Download and install Eclipse with JDT
-2. Create a Personal Access Token for your account with only full repository access.
-3. Provide your username, and PAT instead of a password.
+2. Install listed plugins
+3. Create a Personal Access Token for your account with only full repository access.
+4. Provide your username, and PAT instead of a password.
 Store the credentials in Secure Store, because PAT won't appear ever again
-4. Ask me at the organization's email for guidance to link your SonarLint to the SonarCloud
+5. Access SonarCloud using GitHub
+6. Create a SonarCloud token and use it in the SonarLint
+7. Sync SonarLint to the MultiMachineBuilder project
 
 ## How to contribute
 1. Fork the project and create a draft pull request from your fork to the main repo.
