@@ -2,7 +2,7 @@
 * SonarLint
 * WindowBuilder
 * ResourceBundle editor
-* [Eclipse Maven integration (M2E extension) for null analysis](https://github.com/lastnpe/eclipse-external-annotations-m2e-plugin)
+* [Eclipse Maven integration (M2E extension) for null analysis (OPEN THIS IN THE BROWSER, DON'T COPY AND PASTE INTO ECLLIPSE)](https://github.com/lastnpe/eclipse-external-annotations-m2e-plugin)
 
 ## IDE setup
 0. Import the project (#How to contribute)
