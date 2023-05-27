@@ -41,7 +41,7 @@ Store the credentials in Secure Store, because PAT won't appear ever again
 * Must be located in a 'Future plans' project.
 
 ## Bug reports
-* Bugs must be reporteds using an issue tempolate
+* Bugs must be reporteds using an issue template
 * All fields must be filled out properly
 
 ## Bug fixes
@@ -52,7 +52,7 @@ Store the credentials in Secure Store, because PAT won't appear ever again
 * Pull requests must meet coding guidelines outlined in the SonarCloud project
 
 ## Feature requests
-* Feature requests may be backed by a discussion (or converted from it), or the may be created using an issue template
+* Feature requests may be backed by a discussion (or converted from it), or may be created using an issue template
 * Feature requests must have described new functionality
 * Alternatives must be described as well
 
