@@ -192,7 +192,11 @@ public class ToolStandard extends WindowTool{
 	private static final String descr2 = $res("toolstd-2");
 	private static final String descr3 = $res("toolstd-3");
 	private static final String descr4 = $res("toolstd-4");
-	private static final String descr = descr1+'\n'+descr2+'\n'+descr3+'\n'+descr4;
+	private static final String descr5 = $res("toolstd-5");
+	private static final String descr6 = $res("toolstd-6");
+	private static final String descr7 = $res("toolstd-7");
+	private static final String descr8 = $res("toolstd-8");
+	private static final String descr = descr1+'\n'+descr2+'\n'+descr3+'\n'+descr4+'\n'+descr5+'\n'+descr6+'\n'+descr7+'\n'+descr8;
 	@Override
 	public String description() { return descr; }
 	
