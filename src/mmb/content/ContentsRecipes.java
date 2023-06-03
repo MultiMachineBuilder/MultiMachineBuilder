@@ -415,6 +415,7 @@ public class ContentsRecipes {
 		Materials.rudimentary.nugget, Materials.rudimentary.base,   Materials.rudimentary.nugget,
 		null,                         Materials.rudimentary.nugget, null,
 		null,                         Materials.rudimentary.nugget, null), ItemRaw.make(pickRudimentary), 1);
+		
 		crafting.addRecipeGrid(new ItemEntry[]{
 		stone, null, stone,
 		stone, null, stone,

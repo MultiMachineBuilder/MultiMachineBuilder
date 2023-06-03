@@ -62,7 +62,6 @@ public class MainMenu extends MMBFrame {
 	
 	private JButton btnExit;
 	private JLabel timerLBL;
-	private JButton prank;
 	
 	/** Launch the application. */
 	public static void create() {
@@ -100,16 +99,6 @@ public class MainMenu extends MMBFrame {
 		btnExit.setToolTipText("Exit the game");
 		btnExit.addActionListener(e -> System.exit(0));
 		aside.add(btnExit);
-		
-		prank = new JButton($res("AprilFoolsGarblerTooltip"));
-		prank.setBackground(Color.YELLOW);
-		prank.setToolTipText($res("AprilFoolsGarblerPrank"));
-		prank.addActionListener(e -> {
-			garbler.setValue(true);
-			Thread thread = new Thread(HalfVecTest::run);
-			thread.start();
-		});
-		aside.add(prank);
 		
 		timerLBL = new JLabel("Current time goes here");
 		timerLBL.setToolTipText("The current time");

@@ -56,8 +56,6 @@ public class GlobalSettings {
 	@NN public static final ListenableDouble uiScale = new ListenableDouble(1);
 	/** Should all modded resource bundles be dumped? */
 	@NN public static final ListenableBoolean dumpBundles = new ListenableBoolean();
-	/** Should the text be garbled? */
-	@NN public static final ListenableBoolean garbler = new ListenableBoolean();
 	
 	//localization
 	/** @return the locale object for current language and country */
@@ -130,7 +128,6 @@ public class GlobalSettings {
 		Settings.addSettingBool("swingDPI", false, sysscale);
 		Settings.addSettingBool("sortItems", true, sortItems);
 		Settings.addSettingBool("dumpBundles", false, dumpBundles);
-		Settings.addSettingBool("garble", false, garbler);
 		Settings.addSettingDbl("scale", 1, uiScale);
 		Settings.addSettingInt("circleAccuracy", 32, circleAccuracy);
 		hasInited = 1;
@@ -144,11 +141,7 @@ public class GlobalSettings {
 		Locale.setDefault(locale);
 		ResourceBundle actualBundle;
 		bundle = new MutableResourceBundle();
-		if(garbler.getValue()) {
-			actualBundle = ResourceBundle.getBundle("mmb/bundle", new UTF8Control());
-		}else {
-			actualBundle = ResourceBundle.getBundle("mmb/bundle");
-		}
+		actualBundle = ResourceBundle.getBundle("mmb/bundle");
 		injectResources(actualBundle);
 		hasInited = 2;
 	}
@@ -160,18 +153,7 @@ public class GlobalSettings {
 	 */
 	public static void injectResources(ResourceBundle src) {
 		Map<String, String> map2 = new HashMap<>();
-		boolean b = garbler.getValue();
-		debug.printl("Garbling enabled: "+b);
-		if(b) {
-			for(String key: Collects.iter(src.getKeys())) {
-				String value = src.getObject(key).toString();
-				value = Garbler.garbleString(value);
-				map2.put(key, value);
-			}
-			bundle.map.putAll(map2);
-		}else {
-			bundle.add(src);
-		}
+		bundle.add(src);
 		if(dumpBundles.getValue()) dumpBundle(src);
 	}
 	public static void dumpBundle(ResourceBundle src) {
@@ -181,41 +163,5 @@ public class GlobalSettings {
 			debug.printl(key+"="+value);
 		}
 		debug.printl("^^^^ Resource bundle end ^^^");
-	}
-	
-	/** Workaround for a garbled text from resource bundles */
-	public static class UTF8Control extends Control {
-	    @Override
-		public ResourceBundle newBundle
-	        (String baseName, Locale locale, String format, ClassLoader loader, boolean reload)
-	            throws IllegalAccessException, InstantiationException, IOException
-	    {
-	        // The below is a copy of the default implementation.
-	        String bundleName = toBundleName(baseName, locale);
-	        String resourceName = toResourceName(bundleName, "properties");
-	        ResourceBundle bundle = null;
-	        InputStream stream = null;
-	        if (reload) {
-	            URL url = loader.getResource(resourceName);
-	            if (url != null) {
-	                URLConnection connection = url.openConnection();
-	                if (connection != null) {
-	                    connection.setUseCaches(false);
-	                    stream = connection.getInputStream();
-	                }
-	            }
-	        } else {
-	            stream = loader.getResourceAsStream(resourceName);
-	        }
-	        if (stream != null) {
-	            try {
-	                // Only this line is changed to make it to read properties files as UTF-8.
-	                bundle = new PropertyResourceBundle(new InputStreamReader(stream, "UTF-8"));
-	            } finally {
-	                stream.close();
-	            }
-	        }
-	        return bundle;
-	    }
 	}
 }
