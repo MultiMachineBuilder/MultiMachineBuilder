@@ -152,8 +152,8 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<!-- JUnit 5 requires Surefire version 3.1.0 or higher -->
-				<version>3.1.0</version>
+				<!-- JUnit 5 requires Surefire version 3.1.2 or higher -->
+				<version>3.1.2</version>
 	 		</plugin>
 	 		
 	 		<!-- Javadoc -->
@@ -286,7 +286,7 @@
 		<dependency>
 		    <groupId>com.code-intelligence</groupId>
 		    <artifactId>jazzer-junit</artifactId>
-		    <version>0.17.0</version>
+		    <version>0.17.1</version>
 		</dependency>
 	
 		<!-- Null analysis -->
@@ -410,7 +410,7 @@
 		<dependency>
 	  		<groupId>commons-io</groupId>
 	  		<artifactId>commons-io</artifactId>
-	  		<version>2.12.0</version>
+	  		<version>2.13.0</version>
 		</dependency>
 		<dependency>
 	 		<groupId>org.apache.commons</groupId>
