@@ -31,6 +31,7 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.Recipe;
+import mmb.engine.settings.GlobalSettings;
 import mmb.engine.worlds.universe.Universe;
 import mmb.engine.worlds.world.Player;
 import mmb.engine.worlds.world.World;
@@ -390,6 +391,10 @@ public class WorldWindow extends MMBFrame{
 		panelPlayerInv.setPlayer(worldFrame.getMap().player);
 		progressHP.setModel(worldFrame.getMap().player.playerHP);
 		scrollablePlacementList.setInv(worldFrame.getMap().player.inv);
+		panelPlayerInv.lblGamemode.setText(
+			worldFrame.getMap().player.creative.getValue() ? 
+			GlobalSettings.$res("wgui-creamode") 
+		  : GlobalSettings.$res("wgui-survival"));
 	}
 	/** @return a world which is currently played */
 	public Universe getWorld() {

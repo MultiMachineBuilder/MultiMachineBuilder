@@ -40,6 +40,7 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JCheckBox;
 
 /**
  * A world creation GUI
@@ -87,6 +88,7 @@ public class NewGame extends MMBFrame {
 		}
 	}
 	private static final Random r = new Random();
+	private JCheckBox checkCreative;
 	/**
 	 * Create the dialog.
 	 */
@@ -161,6 +163,10 @@ public class NewGame extends MMBFrame {
 		
 			JButton okButton = new JButton($res("ok"));
 			okButton.addActionListener(e -> save());
+			
+			checkCreative = new JCheckBox($res("wgui-creamode"));
+			buttonPane.add(checkCreative);
+			
 			okButton.setActionCommand("OK");
 			buttonPane.add(okButton);
 			getRootPane().setDefaultButton(okButton);
@@ -216,6 +222,7 @@ public class NewGame extends MMBFrame {
 		inv.insert(ContentsBlocks.logs, 2);
 		inv.insert(ContentsItems.pickVW.create(), 1);
 		inv.insert(ContentsItems.bucket, 1);
+		main.player.creative.setValue(checkCreative.isSelected());
 		
 		//Create and set up the world
 		Universe world = new Universe();
