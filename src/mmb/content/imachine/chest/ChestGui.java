@@ -47,7 +47,7 @@ public class ChestGui extends GUITab{
 		
 		playerCtrl = new InventoryController();
 		playerCtrl.setTitle($res("player"));
-		playerCtrl.setInv(p.inv);
+		window.playerInventory(chestCtrl);
 		add(playerCtrl, "cell 0 0,grow");
 		
 		close = new JButton($res("exit"));

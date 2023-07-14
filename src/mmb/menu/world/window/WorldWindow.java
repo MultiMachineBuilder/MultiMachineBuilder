@@ -250,12 +250,7 @@ public class WorldWindow extends MMBFrame{
 					
 					String scale = $res("wgui-scale");
 					
-					/*BoundCheckBoxMenuItem cSortItems = new BoundCheckBoxMenuItem();
-					cSortItems.setText($res("wgui-sortis"));
-					cSortItems.setVariable(WorldFrame.DEBUG_DISPLAY);
-					mnNewMenu.add(cSortItems);*/
 					debug.printl("Number of zoom levels: "+WorldFrame.zoomlevels.size()); //48
-					
 					
 					//Menu bar
 						//Menu
@@ -371,7 +366,8 @@ public class WorldWindow extends MMBFrame{
 	private WorldToolList toolList;
 	
 	public final JSplitPane toolEditorSplitPane;
-	private TabInventory panelPlayerInv;
+	/** Player inventory panel */
+	public final TabInventory panelPlayerInv;
 	private JScrollPane scrollistPane;
 	/**
 	 * Sets the placement GUI

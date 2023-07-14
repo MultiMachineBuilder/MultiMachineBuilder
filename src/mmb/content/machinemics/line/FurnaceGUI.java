@@ -69,9 +69,8 @@ public class FurnaceGUI extends GUITab implements Refreshable{
 			verticalBox.add(lblRecipeWarn);
 		add(verticalBox, "flowx,cell 2 0,growx");
 		
-		
-		
-		invPlayer = new InventoryController(window.getPlayer().inv);
+		invPlayer = new InventoryController();
+		window.playerInventory(invPlayer);
 		invPlayer.setTitle($res("player"));
 		add(invPlayer, "flowx,cell 0 0 1 5,grow");
 		

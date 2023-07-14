@@ -41,7 +41,8 @@ public class FilterGUI extends GUITab {
 		setLayout(new MigLayout("", "[258px][]", "[155px][]"));
 		
 		//1st column: player inventory
-		invctrl = new InventoryController(window.getPlayer().inv);
+		invctrl = new InventoryController();
+		window.playerInventory(invctrl);
 		add(invctrl, "cell 0 0,alignx left,aligny top");
 		
 		//2nd column: filters

@@ -25,6 +25,6 @@ public interface ControllableFilter extends DestroyTab{
 	 * otherwise the {@link FilterGUI} will fail with {@link IllegalStateException};
 	 * @return a list of filter titles
 	 */
-	@NN public String @Nil [] getTitles();
+	public @Nil String @NN [] getTitles();
 	
 }

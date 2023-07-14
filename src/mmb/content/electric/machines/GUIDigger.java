@@ -60,7 +60,7 @@ public class GUIDigger extends GUITab {
 		
 		InventoryController playerInv = new InventoryController();
 		playerInv.setTitle($res("player"));
-		playerInv.setInv(window.getPlayer().inv);
+		window.playerInventory(playerInv);
 		add(playerInv, "cell 0 2,grow");
 		
 		collectorInv = new InventoryController();

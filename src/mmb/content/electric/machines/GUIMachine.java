@@ -56,7 +56,8 @@ public class GUIMachine extends GUITab implements Refreshable{
 		this.furnace = machine;
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][][][][grow]"));
 		
-		InventoryController invPlayer = new InventoryController(window.getPlayer().inv);
+		InventoryController invPlayer = new InventoryController();
+		window.playerInventory(invPlayer);
 		add(invPlayer, "cell 0 0 1 6,grow");
 		
 		MachineInfoTab machineInfoTab = new MachineInfoTab(machine);

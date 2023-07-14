@@ -30,13 +30,17 @@ import java.awt.Color;
  *
  */
 public class ModularChestGUI extends GUITab implements SafeCloseable{
+	/**
+	 * Creates a modular chest GUI
+	 * @param window world window
+	 * @param mblock modular chest
+	 */
 	public ModularChestGUI(WorldWindow window, ModularBlock<?, ?, ?, ?> mblock) {
 		this.mblock = mblock;
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][grow]"));
 		
 		invctrl = window.playerInventory();
 		add(invctrl, "cell 0 0 1 3,grow");
-		
 		
 		add(mcgL = createSlot(mblock.slot(Side.L)), "cell 1 1,grow");
 		add(mcgR = createSlot(mblock.slot(Side.R)), "cell 2 1,grow");

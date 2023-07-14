@@ -76,8 +76,14 @@ public class TabInventory extends JPanel {
 	public final WorldWindow window;
 	
 	//Tag selectors (tagsels)
+	/**
+	 * Filters items by tags or properties
+	 * @author oskar
+	 */
 	public static interface Tagsel{
+		/** @return all matching items */
 		@NN public DefaultListModel<ItemType> eligible();
+		/** @return Display title in tag selection list */
 		@NN public String title();
 	}
 	

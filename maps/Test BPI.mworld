@@ -18,14 +18,21 @@
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass" ],
     "drops" : [ ],
     "machines" : [ ],
-    "data" : { },
     "player" : {
       "inventory" : [ 128.0 ],
       "creative" : true,
       "x" : -0.30000000000000004,
-      "y" : 0.30000000000000004
+      "y" : 0.30000000000000004,
+      "alcohol1" : 0.0,
+      "alcohol2" : 0.0
+    },
+    "STN" : {
+      "queue" : [ 128.0 ],
+      "processing" : {
+        "recipesProcessing" : { },
+        "recipesCrafting" : [ "Infinity" ]
+      }
     }
   },
-  "data" : { },
   "maps" : { }
 }

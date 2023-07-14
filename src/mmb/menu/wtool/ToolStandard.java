@@ -123,6 +123,8 @@ public class ToolStandard extends WindowTool{
 				//In survival
 				int extracted = irecord.extract(1);
 				if(extracted == 0) return;
+				window.panelPlayerInv.craftGUI.inventoryController.refresh();
+				//refresh the inventory
 			}
 			 ((Placer)item).place(x, y, map);
 		}
