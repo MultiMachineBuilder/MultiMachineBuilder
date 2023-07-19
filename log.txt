@@ -38,6 +38,10 @@
 (SETTINGS LIST) toolstd-2=Ctrl+LMB to turn ⥀, Ctrl+RMB to turn ⥁, Shift+LMB to reverse chirality
 (SETTINGS LIST) matname2-diamide=Diamide
 (SETTINGS LIST) toolstd-3=Shift+LMB to place, Shift+MMB to go to the mouse pointer, Shift+RB to mine
+(SETTINGS LIST) toolstd-5=Alt+LMB to drop a single item,
+(SETTINGS LIST) toolstd-6=Alt+Ctrl+LMB to drop a single item stack,
+(SETTINGS LIST) toolstd-7=Alt+RMB to pick up a single item
+(SETTINGS LIST) toolstd-8=Alt+Ctrl+RMB to pick up all items
 (SETTINGS LIST) matname-silicarbide=Silicon Carbide
 (SETTINGS LIST) matname1-alnico=Alnico
 (SETTINGS LIST) wguicf-cons=CONSUMES given item
