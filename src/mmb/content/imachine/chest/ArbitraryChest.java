@@ -7,7 +7,7 @@ import mmb.beans.Colorable;
 import mmb.engine.inv.Inventory;
 
 /**
- * An iterface to chests, even more abstract than {@link AbstractChest}
+ * An interface to chests, even more abstract than {@link AbstractChest}
  * @author oskar
  */
 public interface ArbitraryChest extends Colorable {

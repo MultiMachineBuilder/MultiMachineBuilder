@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.engine.Vector2iconst;
 import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
@@ -62,7 +63,8 @@ public class Crop extends BlockEntityData {
 	}
 	@Override
 	public void onTick(MapProxy map) {
-		progress++;
+		if(owner().drops.get(new Vector2iconst(posX(), posY())).isEmpty())
+			progress++;
 		if(progress >= time) {
 			drop.drop(null, owner(), posX(), posY());
 			progress -= time;
@@ -83,7 +85,7 @@ public class Crop extends BlockEntityData {
 		if(progNode != null) progress = progNode.asInt();
 	}
 	@Override
-	protected void save0(@NN ObjectNode node) {
+	protected void save0(ObjectNode node) {
 		node.put("progress", progress);
 	}
 }

@@ -314,8 +314,8 @@
     "player" : {
       "inventory" : [ 128.0, [ "block.steel", "block.steel", 1 ], [ "playerpipe.bend", 1 ], [ "playerpipe.adj", 1 ], [ "block.rudimentary", "block.rudimentary", 1 ], [ "playerpipe.straight2", 1 ], [ "mmb.grass", "mmb.grass", 1 ], [ "block.duranium", "block.duranium", 1 ], [ "block.copper", "block.copper", 1 ], [ "block.cobalt", "block.cobalt", 1 ], [ "playerpipe.adj2", 1 ], [ "playerpipe.end", 1 ], [ "playerpipe.bend2", 1 ], [ "block.crystal", "block.crystal", 1 ], [ "playerpipe.straight", 1 ] ],
       "creative" : true,
-      "x" : 6.576800000000006,
-      "y" : 3.5,
+      "x" : 6.526400000000002,
+      "y" : 3.5616000000000096,
       "alcohol1" : 0.0,
       "alcohol2" : 0.0
     },

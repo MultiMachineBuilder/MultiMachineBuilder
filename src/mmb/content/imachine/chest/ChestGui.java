@@ -32,8 +32,6 @@ public class ChestGui extends GUITab{
 	public ChestGui(ArbitraryChest chest, WorldWindow window) {
 		setLayout(new MigLayout("", "[300.00,grow][132.00,grow][300.00,grow]", "[grow]"));
 		
-		Player p = window.getPlayer();
-		
 		color = new JButton("Change color");
 		color.addActionListener(e -> {
 			ColorGUI gui = new ColorGUI(chest.getColor(), chest::setColor, window);
@@ -47,7 +45,7 @@ public class ChestGui extends GUITab{
 		
 		playerCtrl = new InventoryController();
 		playerCtrl.setTitle($res("player"));
-		window.playerInventory(chestCtrl);
+		window.playerInventory(playerCtrl);
 		add(playerCtrl, "cell 0 0,grow");
 		
 		close = new JButton($res("exit"));

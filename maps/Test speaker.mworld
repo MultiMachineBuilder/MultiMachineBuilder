@@ -6,7 +6,7 @@
     "startY" : -3,
     "world" : [ "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "multi.speaker",
-      "sound" : "377157__pfranzen__smashing-head-on-wall.ogg",
+      "sound" : "warn .wav",
       "mode" : "ONCE_WHEN_POWERED",
       "state" : false,
       "signal" : false,
