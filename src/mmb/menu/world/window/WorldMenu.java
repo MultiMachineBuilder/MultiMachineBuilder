@@ -21,6 +21,11 @@ public class WorldMenu extends JPopupMenu {
 	private JMenuItem mntmMine;
 	private JMenuItem mntmCCW;
 	private JMenuItem mntmCW;
+	private JMenuItem mntmDropASingItem;
+	private JMenuItem mntmDropASingItemStack;
+	private JMenuItem mntmPickUpSingItem;
+	private JMenuItem mntmPickUpAllItem;
+
 	private static final Debugger debug = new Debugger("WORLD MENU");
 	private JMenuItem mntmNewMenuItem_1;
 	private JMenuItem mntmOpposite;
@@ -62,12 +67,39 @@ public class WorldMenu extends JPopupMenu {
 			add(mntmMine);
 		}
 		
-		
 		mntmNewMenuItem_1 = new JMenuItem("Place (Shift+LMB)");
 		mntmNewMenuItem_1.addActionListener(e -> {
 			ToolStandard.placeBlock(mouseoverX, mouseoverY, map, frame.window);
 		});
 		add(mntmNewMenuItem_1);
+
+		mntmDropASingItem = new JMenuItem("DropASingItem (Alt+LMB)");
+		mntmGoHere.addActionListener(e ->{
+			frame.perspective.x = -mouseoverX;
+			frame.perspective.y = -mouseoverY;
+		});
+		add(mntmDropASingItem);
+
+		mntmDropASingItemStack = new JMenuItem("DropASingItemStack (Alt+Ctrl+LMB)");
+		mntmGoHere.addActionListener(e ->{
+			frame.perspective.x = -mouseoverX;
+			frame.perspective.y = -mouseoverY;
+		});
+		add(mntmDropASingItemStack);
+
+		mntmPickUpSingItem = new JMenuItem("PickUpSingItem (Alt+RMB)");
+		mntmGoHere.addActionListener(e ->{
+			frame.perspective.x = -mouseoverX;
+			frame.perspective.y = -mouseoverY;
+		});
+		add(mntmPickUpSingItem);
+
+		mntmPickUpAllItem = new JMenuItem("PickUpAllItem (Alt+Ctrl+RMB)");
+		mntmGoHere.addActionListener(e ->{
+			frame.perspective.x = -mouseoverX;
+			frame.perspective.y = -mouseoverY;
+		});
+		add(mntmPickUpAllItem);
 		
 		
 		mntmCCW = new JMenuItem("Turn CCW (Ctrl+LMB)");
