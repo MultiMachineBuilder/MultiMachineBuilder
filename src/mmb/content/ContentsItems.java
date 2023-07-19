@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import mmb.DeprecatedExtra;
 import mmb.NN;
 import mmb.content.agro.Agro;
 import mmb.content.aim.ToolAim;
@@ -34,7 +35,6 @@ import mmb.engine.java2d.ColorMapper;
 import mmb.engine.java2d.TexGen;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;
-import mmb.menu.wtool.DumpItems;
 
 /**
  * @author oskar
@@ -83,11 +83,7 @@ public class ContentsItems {
 	@NN public static final PickaxeType pickWood = Pickaxe.create(100, 100, "item/wood pick.png", "#pick-wood", "pick.wood");
 	/** An improved pickaxe available later */
 	@NN public static final PickaxeType pickRudimentary = Pickaxe.create(50, 400, "item/rudimentary pick.png", "#pick-rud", "pick.rudimentary");
-	/** Pick up or drop items */
-	@NN public static final Item bucket = new TooledItem(new DumpItems())
-		.title("#bucket")
-		.texture("dropItems.png")
-		.finish("mmb.bucket");
+	
 	/** Configure resizable machines (dropped item extractors and diggers)*/
 	@NN public static final Item configExtractors= new TooledItem(new ConfigureDroppedItemExtractors())
 		.title("#cdie")
@@ -224,6 +220,17 @@ public class ContentsItems {
 		.volumed(0.001)
 		.factory(Pack::new)
 		.finish("boxed.packItem");
+	
+	//Deprecated items
+	/** Pick up or drop items */
+	@DeprecatedExtra(replacementVer="0.5.1", removal="0.6")
+	@Deprecated(since="0.5.1", forRemoval=true)
+	/**@deprecated Replaced by extra keybinds in the standard tool */
+	@NN public static final Item bucket = new Item()
+		.title("#depr-bucket")
+		.texture("dropItems.png")
+		.finish("mmb.bucket");
+	
 	static {
 		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, bucket, configExtractors, aim);
 		Items.tagItems("craftcode", craftcodes);
@@ -240,6 +247,7 @@ public class ContentsItems {
 		Items.tagItem("voltage-EV", bat6);
 		Items.tagItem("voltage-IV", bat7);
 		Items.tagItems("resrcbed", resrc1, resrc2, resrc3, resrc4, resrc5, resrc6, resrc7);
+		Items.tagItem("deprecated", bucket);
 		
 		Items.deprecate("industry.motor1", motor.items.get(0));
 		Items.deprecate("industry.motor2", motor.items.get(1));

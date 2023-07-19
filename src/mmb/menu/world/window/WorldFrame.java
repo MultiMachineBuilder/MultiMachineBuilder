@@ -602,7 +602,7 @@ public class WorldFrame extends JComponent {
 	public void showPopup(MouseEvent e) {
 		if(map == null) return;
 		if(map.inBounds(mouseover)) {
-			WorldMenu menu = new WorldMenu(map.get(mouseover), this);
+			WorldPopup menu = new WorldPopup(map.get(mouseover), this);
 			menu.show(this, e.getX(), e.getY());
 		}
 	}

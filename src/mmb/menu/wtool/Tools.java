@@ -42,8 +42,6 @@ public class Tools {
 			new WindowToolModel(Copy.icon, Copy::new, "copy");
 	public static final WindowToolModel TOOL_PICKERS =
 			new WindowToolModel(ConfigureDroppedItemExtractors.icon, ConfigureDroppedItemExtractors::new, "droppedItems");
-	public static final WindowToolModel TOOL_DUMP =
-			new WindowToolModel(DumpItems.icon, DumpItems::new, "dumpItems");
 	public static final WindowToolModel TOOL_PICKAXE =
 			new WindowToolModel(ToolPickaxe.icon, ToolPickaxe::new, "pickaxe");
 	public static final WindowToolModel TOOL_VISUALS =
@@ -52,16 +50,13 @@ public class Tools {
 			new WindowToolModel(ToolAim.icon, ToolAim::new, "aim");
 
 	private static boolean initialized = false;
-	/**
-	 * Initializes tool list
-	 */
+	/** Initializes tool list */
 	public static void init() {
 		if(initialized) return;
 		toollist.add(TOOL_STANDARD);
 		toollist.add(TOOL_PAINT);
 		toollist.add(TOOL_COPY);
 		toollist.add(TOOL_PICKERS);
-		toollist.add(TOOL_DUMP);
 		toollist.add(TOOL_PICKAXE);
 		toollist.add(TOOL_VISUALS);
 		

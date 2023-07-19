@@ -23,6 +23,7 @@ import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.texture.Textures;
 import mmb.engine.worlds.world.World;
+import mmb.menu.world.window.WorldPopup;
 import mmb.menu.world.window.WorldWindow;
 
 /**
@@ -75,19 +76,60 @@ public class ToolStandard extends WindowTool{
 	private int bx, by;
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if(frame.ctrlPressed()) {
-			mousePressedCtrl(e);
-			return;
-		}
-		if(frame.shiftPressed()) {
-			mousePressedShift(e);
-			return;
-		}
 		int mx = e.getX();
 		int my = e.getY();
 		Vector2d mouseover = frame.worldAt(mx, my, new Vector2d());
 		int x = (int) Math.floor(mouseover.x);
 		int y = (int) Math.floor(mouseover.y);
+		int b = e.getButton();
+		
+		if(frame.altPressed()) {
+			if(frame.ctrlPressed()) 
+				mousePressedAltCtrl(b, x, y);
+			else mousePressedAlt(b, x, y);
+		}else if(frame.ctrlPressed()) 
+			mousePressedCtrl(b, x, y);
+		else if(frame.shiftPressed()) 
+			mousePressedShift(b, x, y);
+		else mousePressedPlain(e, mouseover.x, mouseover.y);
+	}
+	
+	private void mousePressedAlt(int b, int x, int y) {
+		switch(b) {
+		case 0:
+			break;
+		case 1: //LMB
+			WorldPopup.dropItems(frame.window, x, y, 1);
+			break;
+		case 3: //RMB
+			WorldPopup.pickupItems(frame.window, x, y, true);
+			break;
+		case 2: //MMB
+			break;
+		default:
+			break;
+		}
+	}
+	private void mousePressedAltCtrl(int b, int x, int y) {
+		switch(b) {
+		case 0:
+			break;
+		case 1: //LMB
+			WorldPopup.dropItems(frame.window, x, y, Integer.MAX_VALUE);
+			break;
+		case 3: //RMB
+			WorldPopup.pickupItems(frame.window, x, y, false);
+			break;
+		case 2: //MMB
+			break;
+		default:
+			break;
+		}
+	}
+	private void mousePressedPlain(MouseEvent e, double x0, double y0) {
+		int x = (int) Math.floor(x0);
+		int y = (int) Math.floor(y0);
+		
 		switch(e.getButton()) {
 		case 0:
 			break;
@@ -97,7 +139,7 @@ public class ToolStandard extends WindowTool{
 			if(!map.inBounds(x, y)) break;
 			BlockEntry ent = map.get(x, y);
 			if(ent instanceof BlockActivateListener) {
-				((BlockActivateListener) ent).click(x, y, map, window, mouseover.x - x, mouseover.y - y);
+				((BlockActivateListener) ent).click(x, y, map, window, x0 - x, y0 - y);
 				debug.printl("Running BlockActivateListener for: ["+x+","+y+"]");
 			}else {
 				placeBlock(x, y, map, window);
@@ -112,28 +154,9 @@ public class ToolStandard extends WindowTool{
 			break;
 		}
 	}
-	public static void placeBlock(int x, int y, World map, WorldWindow window) {
-		//Place the block
-		ItemRecord irecord = window.getPlacer().getSelectedValue();
-		if(irecord == null) return;
-		ItemEntry item = irecord.item();
-		if(item instanceof Placer) {
-			//If in survival, consume items
-			if(window.getPlayer().isSurvival()) {
-				//In survival
-				int extracted = irecord.extract(1);
-				if(extracted == 0) return;
-				window.panelPlayerInv.craftGUI.inventoryController.refresh();
-				//refresh the inventory
-			}
-			 ((Placer)item).place(x, y, map);
-		}
-	}
-	private void mousePressedCtrl(MouseEvent e) {
-		int x = frame.getMouseoverBlockX();
-		int y = frame.getMouseoverBlockY();
+	private void mousePressedCtrl(int b, int x, int y) {
 		BlockEntry block = frame.getMap().get(x, y);
-		switch(e.getButton()) {
+		switch(b) {
 		case 1: //LMB
 			//Turn CCW
 			block.ccw();
@@ -146,13 +169,14 @@ public class ToolStandard extends WindowTool{
 		case 3: //RMB
 			//Turn CW
 			block.cw();
+			break;
+		default:
+			break;
 		}
 	}
-	private void mousePressedShift(MouseEvent e) {
-		int x = frame.getMouseoverBlockX();
-		int y = frame.getMouseoverBlockY();
+	private void mousePressedShift(int b, int x, int y) {
 		World map = frame.getMap();
-		switch(e.getButton()) {
+		switch(b) {
 		case 1: //LMB
 			placeBlock(x, y, map, window);
 			break;
@@ -174,12 +198,33 @@ public class ToolStandard extends WindowTool{
 			}
 			BlockEntry block = frame.getMap().get(x, y);
 			block.type().leaveBehind().place(x, y, map);
+			break;
+		default:
+			break;
 		}
 	}
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		bx = frame.getMouseoverBlockX();
 		by = frame.getMouseoverBlockY();
+	}
+	
+	public static void placeBlock(int x, int y, World map, WorldWindow window) {
+		//Place the block
+		ItemRecord irecord = window.getPlacer().getSelectedValue();
+		if(irecord == null) return;
+		ItemEntry item = irecord.item();
+		if(item instanceof Placer) {
+			//If in survival, consume items
+			if(window.getPlayer().isSurvival()) {
+				//In survival
+				int extracted = irecord.extract(1);
+				if(extracted == 0) return;
+				window.panelPlayerInv.craftGUI.inventoryController.refresh();
+				//refresh the inventory
+			}
+			 ((Placer)item).place(x, y, map);
+		}
 	}
 	
 	//Title
