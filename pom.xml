@@ -327,7 +327,7 @@
 		<dependency>
 	   		<groupId>io.github.parubok</groupId>
 	   		<artifactId>multiline-label</artifactId>
-	   		<version>1.18</version>
+	   		<version>1.19</version>
 		</dependency>
 		
 		<!-- Audio -->
