@@ -139,7 +139,7 @@ public class MainMenu extends MMBFrame {
 	
 	private void check4updates() {
 		JMenuItem jmi = null;
-		final String updateServer = "https://github.com/MultiMachineBuilder/MultiMachineBuilder/blob/master/version.txt";
+		final String updateServer = "https://github.com/MultiMachineBuilder/MultiMachineBuilder/blob/master/version.txt?raw=true";
 		final String getupdates = "https://github.com/MultiMachineBuilder/MultiMachineBuilder/releases";
 		int[] version = {0, 5, 1};
 		String newversion = "";
