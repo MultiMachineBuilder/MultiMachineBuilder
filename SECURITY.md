@@ -9,4 +9,4 @@
 
 ## Reporting a Vulnerability
 Report all vulnerabilities directly in the repo [here](https://github.com/MultiMachineBuilder/MultiMachineBuilder/security/advisories/new) (recommended)
-or at monniasza.machines@onet.pl
+or at monniasza@onet.pl
