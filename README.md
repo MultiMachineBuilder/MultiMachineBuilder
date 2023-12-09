@@ -5,10 +5,11 @@
 [Download now](https://github.com/MultiMachineBuilder/MultiMachineBuilder/releases) |
 [itch.io](https://monniasza.itch.io/multimachinebuilder) |
 [Get started](https://multimachinebuilder.github.io/setup.html) |
-[Contribute to this site](https://github.com/MultiMachineBuilder/MultiMachineBuilder.github.io) |
+[Contribute to the game](https://github.com/MultiMachineBuilder/MultiMachineBuilder/blob/master/CONTRIBUTING.md) |
 [Wiki](https://github.com/MultiMachineBuilder/MultiMachineBuilder/wiki) |
 [YouTube](https://www.youtube.com/channel/UCHDT5lQd4zG2rdZnntzgitA) |
-[Announcement thread](https://itch.io/t/2756901/multimachinebuilder-dev-05)
+[Announcement thread](https://itch.io/t/2756901/multimachinebuilder-dev-05) |
+[Contribute to this site](https://github.com/MultiMachineBuilder/MultiMachineBuilder.github.io) 
 
 Features:
 * Realistic, volumetric inventories
