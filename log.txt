@@ -8806,6 +8806,15 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
  (no description)
 (ITEMS) Tagging ItemRaw Item Bill Of Recipe Effects(crafting.ingredients) with craftaid
 (ITEMS) Tagging ItemRaw Item Bill Of Recipe Effects(crafting.ingredients) with raw
+(ITEMS) Adding rawitem.pick.stone with title Stone pickaxe (raw) and description:
+ (no description)
+(ITEMS) Tagging ItemRaw Item Stone pickaxe(pick.stone) with raw
+(ITEMS) Adding rawitem.pick.steel with title Steel pickaxe (raw) and description:
+ (no description)
+(ITEMS) Tagging ItemRaw Item Steel pickaxe(pick.steel) with raw
+(ITEMS) Adding rawitem.pick.stainless with title Stainless pickaxe (raw) and description:
+ (no description)
+(ITEMS) Tagging ItemRaw Item Stainless pickaxe(pick.stainless) with raw
 (ITEMS) Adding industry.transformer0 with title Transformer VLV/ULV and description:
  (no description)
 (ITEMS) Tagging Item Transformer VLV/ULV(industry.transformer0) with voltage-VLV
@@ -8869,18 +8878,9 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
  (no description)
 (ITEMS) Tagging ItemRaw Item Very weak pickaxe(pick.weak) with tool
 (ITEMS) Tagging ItemRaw Item Very weak pickaxe(pick.weak) with raw
-(ITEMS) Adding rawitem.pick.stone with title Stone pickaxe (raw) and description:
- (no description)
-(ITEMS) Tagging ItemRaw Item Stone pickaxe(pick.stone) with raw
 (ITEMS) Adding rawitem.pick.iron with title Iron pickaxe (raw) and description:
  (no description)
 (ITEMS) Tagging ItemRaw Item Iron pickaxe(pick.iron) with raw
-(ITEMS) Adding rawitem.pick.steel with title Steel pickaxe (raw) and description:
- (no description)
-(ITEMS) Tagging ItemRaw Item Steel pickaxe(pick.steel) with raw
-(ITEMS) Adding rawitem.pick.stainless with title Stainless pickaxe (raw) and description:
- (no description)
-(ITEMS) Tagging ItemRaw Item Stainless pickaxe(pick.stainless) with raw
 (ITEMS) Adding rawitem.industry.bat1 with title Battery ULV (raw) and description:
  (no description)
 (ITEMS) Tagging ItemRaw Item Battery ULV(industry.bat1) with machine-battery
@@ -8955,41 +8955,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (Main menu) You have the current version
 (WORLD TEST) 1768 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@2b47cd7a
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(ITEM LISTS) Item list node is null
-(ITEM LISTS) Item list node is null
-(ITEM LISTS) Item list node is null
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(ITEMS) Invalid item: Infinity
-(INVENTORIES) Unsupported null item
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
-(WORLD TEST) 1768 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@63ac9b9a
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@3be9d764
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -9006,14 +8972,563 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Loaded
 (WORLD - IDLE) Exiting
 (WORLDS) Opening a new world
-(TOOL SELECTOR) IL tool: mmb.content.pickaxe.ToolPickaxe@5365cac5
+(TOOL SELECTOR) IL tool: mmb.content.pickaxe.ToolPickaxe@2687e871
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: standard
 (TOOL SELECTOR) New tool: standard
-(TOOL SELECTOR) IL tool: mmb.content.pickaxe.ToolPickaxe@5365cac5
+(TOOL SELECTOR) IL tool: mmb.content.pickaxe.ToolPickaxe@2687e871
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: standard
 (TOOL SELECTOR) New tool: standard
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(CRAFTING GUI) Running the crafing
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item Steel nugget(nugget.steel)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item Steel nugget(nugget.steel)]
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL-STANDARD) Running BlockActivateListener for: [-7,-2]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Block Wooden log(mmb.tree)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Block Wooden log(mmb.tree)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Block Wooden log(mmb.tree)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Block Wooden log(mmb.tree)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=Item Steel ingot(ingot.steel)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=Item Steel ingot(ingot.steel)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item Steel nugget(nugget.steel)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item Steel nugget(nugget.steel)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=Item Steel nugget(nugget.steel)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=Item Steel nugget(nugget.steel)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=Item Steel nugget(nugget.steel)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=Item Steel nugget(nugget.steel)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=Item Steel nugget(nugget.steel)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=Item Steel nugget(nugget.steel)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=2, newEntry=null]
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: mmb.content.pickaxe.ToolPickaxe@3dafda56
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=Item Stainless steel ingot(ingot.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=Item Stainless steel ingot(ingot.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=2, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=2, newEntry=null]
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=Item Stainless steel ingot(ingot.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=Item Stainless steel ingot(ingot.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=null]
+(TOOL-STANDARD) Running BlockActivateListener for: [-7,-2]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=Item Stainless steel ingot(ingot.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=Item Stainless steel ingot(ingot.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=2, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=2, y=0, newEntry=Item Stainless steel nugget(nugget.stainless)]
+(CRAFTING GUI) Running the crafing
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 4 of Item Stainless steel nugget(nugget.stainless), expected 4
+(INVENTORIES0) Extracted 1 of Item Stainless steel ingot(ingot.stainless), expected 1
+(INVENTORIES) Inserted 1 of ItemRaw Item Stainless pickaxe(pick.stainless), expected 1
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
 (DATA LAYERS) Saving world data layer: STN
