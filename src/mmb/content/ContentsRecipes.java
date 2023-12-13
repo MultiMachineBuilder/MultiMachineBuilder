@@ -430,7 +430,7 @@ public class ContentsRecipes {
 				Materials.iron.nugget,			Materials.iron.base,			Materials.iron.nugget,
 				null,							Materials.iron.nugget,			null,
 				null,							Materials.iron.nugget,			null), 
-				ItemRaw.make(pickSteel));
+				ItemRaw.make(pickIron));
 		
 		crafting.addRecipe(new FixedGrid<>(3,
 				Materials.steel.nugget,			Materials.steel.base,			Materials.steel.nugget,
