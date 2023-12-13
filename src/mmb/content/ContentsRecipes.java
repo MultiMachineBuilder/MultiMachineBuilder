@@ -407,30 +407,58 @@ public class ContentsRecipes {
 			logs.stack(2)
 		));//pickaxe builder is deprecated - ingredient recovery recipe
 		
+		
 		crafting.addRecipe(new FixedGrid<>(3,
-		plank, logs,  plank,
-		null,  plank, null,
-		null,  plank, null), ItemRaw.make(pickWood), 1);
+				plank,	logs,	plank,
+				null,	plank,	null,
+				null,	plank,	null),
+				ItemRaw.make(pickWood), 1);
+		
 		crafting.addRecipe(new FixedGrid<>(3,
-		Materials.rudimentary.nugget, Materials.rudimentary.base,   Materials.rudimentary.nugget,
-		null,                         Materials.rudimentary.nugget, null,
-		null,                         Materials.rudimentary.nugget, null), ItemRaw.make(pickRudimentary), 1);
+				stone,	stone,	stone,
+				null,	stone,	null,
+				null,	stone,	null),
+				ItemRaw.make(pickStone), 1);
+		
+		crafting.addRecipe(new FixedGrid<>(3,
+				Materials.rudimentary.nugget,	Materials.rudimentary.base,		Materials.rudimentary.nugget,
+				null,							Materials.rudimentary.nugget,	null,
+				null,							Materials.rudimentary.nugget,	null),
+				ItemRaw.make(pickRudimentary), 1);
+		
+		crafting.addRecipe(new FixedGrid<>(3,
+				Materials.iron.nugget,			Materials.iron.base,			Materials.iron.nugget,
+				null,							Materials.iron.nugget,			null,
+				null,							Materials.iron.nugget,			null), 
+				ItemRaw.make(pickSteel));
+		
+		crafting.addRecipe(new FixedGrid<>(3,
+				Materials.steel.nugget,			Materials.steel.base,			Materials.steel.nugget,
+				null,							Materials.steel.nugget,			null,
+				null,							Materials.steel.nugget,			null), 
+				ItemRaw.make(pickSteel));
+		
+		crafting.addRecipe(new FixedGrid<>(3,
+				Materials.stainless.nugget,		Materials.stainless.base,		Materials.stainless.nugget,
+				null,							Materials.stainless.nugget,		null,
+				null,							Materials.stainless.nugget,		null), 
+				ItemRaw.make(pickStainless));
 		
 		crafting.addRecipeGrid(new ItemEntry[]{
-		stone, null, stone,
-		stone, null, stone,
-		null,  stone, null
-		}, 3, 3, bucket); //Item bucket
+				stone,	null,	stone,
+				stone,	null,	stone,
+				null,	stone,	null
+				}, 3, 3, bucket); //Item bucket
 		crafting.addRecipeGrid(new ItemEntry[]{
-		null,  stone, null,
-		stone, null, stone,
-		null,  stone, null
-		}, 3, 3, aim); //Aimer
+				null,	stone,	null,
+				stone,	null,	stone,
+				null,	stone,	null
+				}, 3, 3, aim); //Aimer
 		crafting.addRecipeGrid(new ItemEntry[]{
-		null,  stone, stone,
-		stone, null,  null,
-		stone, null,  null
-		}, 3, 3, configExtractors); //Configure dropped item extractors
+				null,	stone,	stone,
+				stone,	null,	null,
+				stone,	null,	null
+				}, 3, 3, configExtractors); //Configure dropped item extractors
 		
 	}
 	private static void _chest() {
