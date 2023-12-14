@@ -18,13 +18,13 @@ public class ToolSelectionModel {
 	private WindowTool toolIL;
 	private WindowTool toolTL;
 	/** This tool selection model's world window */
-	@Nil public final WorldWindow window;
+	@NN public final WorldWindow window;
 	private static final Debugger debug = new Debugger("TOOL SELECTOR");
 	/**
 	 * Creates a tool selection model
 	 * @param window world window
 	 */
-	public ToolSelectionModel(@Nil WorldWindow window) {
+	public ToolSelectionModel(WorldWindow window) {
 		this.window = window;
 		tool.listenrem(this::toolRemoved);
 		tool.listenadd(this::toolAdded);
@@ -53,19 +53,17 @@ public class ToolSelectionModel {
 		WorldWindow window0 = window;
 		if(toolTL == null) {
 			setTool(toolIL);
-		} else if(window0 != null) {
+		}else{
 			Player p = window0.getPlayer();
 			if(!(p == null || p.isCreative())) {
 				if(toolIL == null) {
 					setTool(window0.std);
-				}else {
+				}else{
 					setTool(toolIL);
 				}
-			}else {
+			}else{
 				setTool(toolTL);
 			}
-		}else {
-			setTool(toolTL);
 		}
 	}
 	private void toolRemoved(@Nil WindowTool t) {
@@ -79,7 +77,7 @@ public class ToolSelectionModel {
 	private void toolAdded(@Nil WindowTool t) { //sets up the new tool
 		if(t != null) {
 			t.selected();
-			if(window != null) t.setWindow(window);
+			t.setWindow(window);
 			debug.printl("New tool: " + t.id());
 		}else {
 			debug.printl("New tool: null");

@@ -90,7 +90,7 @@ public class MainMenu extends MMBFrame {
 		setIconImage(MMBFrame.GEAR);
 		
 		setJMenuBar(menuBar);
-		menuBar.add(mnNewMenu);
+		menuBar.add(mnWindow);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

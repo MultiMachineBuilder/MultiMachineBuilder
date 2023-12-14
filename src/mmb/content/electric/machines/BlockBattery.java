@@ -40,7 +40,7 @@ public final class BlockBattery extends BlockEntityRotary implements BlockActiva
 	
 	/**
 	 * Creates a new battery block
-	 * @param type
+	 * @param type this battery's type
 	 */
 	public BlockBattery(ElectroMachineType type) {
 		this.type = type;

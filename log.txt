@@ -1,5 +1,5 @@
-(MAIN) RAM avaliable: 4259315712
-(MAIN) Java version is: 17.0.6
+(MAIN) RAM avaliable: 4131389440
+(MAIN) Java version is: 17.0.9
 (SETTINGS LIST) Language: en
 (SETTINGS LIST) vvvv Resource bundle start mmb/bundle vvv
 (SETTINGS LIST) cancel=Cancel
@@ -648,1278 +648,1242 @@ Webpages and websites won't work.
 (SETTINGS LIST) ^^^^ Resource bundle end ^^^
 (MAIN) Scale: 1.0
 (MAIN) State: Loading textures
-(MOD-LOADER) Walking: C:\Users\oskar\git\MultiMachineBuilder\textures
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\aim.png
-(MOD-LOADER) Loading a texture aim.png
-(TEXTURES) Loading texture: aim.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\alcohol
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\alcohol\beer empty.png
-(MOD-LOADER) Loading a texture alcohol\beer empty.png
-(TEXTURES) Loading texture: alcohol/beer empty.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\alcohol\beer.png
-(MOD-LOADER) Loading a texture alcohol\beer.png
-(TEXTURES) Loading texture: alcohol/beer.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\arrow.png
-(MOD-LOADER) Loading a texture arrow.png
-(TEXTURES) Loading texture: arrow.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\base
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\base\axe.png
-(MOD-LOADER) Loading a texture base\axe.png
-(TEXTURES) Loading texture: base/axe.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\base\block base.png
-(MOD-LOADER) Loading a texture base\block base.png
-(TEXTURES) Loading texture: base/block base.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\base\dust.png
-(MOD-LOADER) Loading a texture base\dust.png
-(TEXTURES) Loading texture: base/dust.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\base\gear.png
-(MOD-LOADER) Loading a texture base\gear.png
-(TEXTURES) Loading texture: base/gear.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\base\ingot.png
-(MOD-LOADER) Loading a texture base\ingot.png
-(TEXTURES) Loading texture: base/ingot.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\base\ore base.png
-(MOD-LOADER) Loading a texture base\ore base.png
-(TEXTURES) Loading texture: base/ore base.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\base\pickaxe.png
-(MOD-LOADER) Loading a texture base\pickaxe.png
-(TEXTURES) Loading texture: base/pickaxe.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\base\rod.png
-(MOD-LOADER) Loading a texture base\rod.png
-(TEXTURES) Loading texture: base/rod.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\base\Texture Generator.ods
-(MOD-LOADER) Loading a texture base\Texture Generator.ods
-(TEXTURES) Failed to load base\Texture Generator.ods
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\block
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\block\block.png
-(MOD-LOADER) Loading a texture block\block.png
-(TEXTURES) Loading texture: block/block.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\block\clay.png
-(MOD-LOADER) Loading a texture block\clay.png
-(TEXTURES) Loading texture: block/clay.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\block\coal crop.png
-(MOD-LOADER) Loading a texture block\coal crop.png
-(TEXTURES) Loading texture: block/coal crop.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\block\coal ore.png
-(MOD-LOADER) Loading a texture block\coal ore.png
-(TEXTURES) Loading texture: block/coal ore.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\block\cropfield.png
-(MOD-LOADER) Loading a texture block\cropfield.png
-(TEXTURES) Loading texture: block/cropfield.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\block\frame.png
-(MOD-LOADER) Loading a texture block\frame.png
-(TEXTURES) Loading texture: block/frame.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\block\framesolid.png
-(MOD-LOADER) Loading a texture block\framesolid.png
-(TEXTURES) Loading texture: block/framesolid.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\block\gravel.png
-(MOD-LOADER) Loading a texture block\gravel.png
-(TEXTURES) Loading texture: block/gravel.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\block\leaves.png
-(MOD-LOADER) Loading a texture block\leaves.png
-(TEXTURES) Loading texture: block/leaves.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\block\message.png
-(MOD-LOADER) Loading a texture block\message.png
-(TEXTURES) Loading texture: block/message.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\block\metal.png
-(MOD-LOADER) Loading a texture block\metal.png
-(TEXTURES) Loading texture: block/metal.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\block\ore overlay.png
-(MOD-LOADER) Loading a texture block\ore overlay.png
-(TEXTURES) Loading texture: block/ore overlay.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\block\sand.png
-(MOD-LOADER) Loading a texture block\sand.png
-(TEXTURES) Loading texture: block/sand.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\block\tree.png
-(MOD-LOADER) Loading a texture block\tree.png
-(TEXTURES) Loading texture: block/tree.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\Blocks.tsx
-(MOD-LOADER) Loading a texture Blocks.tsx
-(TEXTURES) Failed to load Blocks.tsx
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\brush.png
-(MOD-LOADER) Loading a texture brush.png
-(TEXTURES) Loading texture: brush.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\bug.png
-(MOD-LOADER) Loading a texture bug.png
-(TEXTURES) Loading texture: bug.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\chuckBlock.png
-(MOD-LOADER) Loading a texture chuckBlock.png
-(TEXTURES) Loading texture: chuckBlock.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\container.png
-(MOD-LOADER) Loading a texture container.png
-(TEXTURES) Loading texture: container.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\copy.png
-(MOD-LOADER) Loading a texture copy.png
-(TEXTURES) Loading texture: copy.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\crafting.png
-(MOD-LOADER) Loading a texture crafting.png
-(TEXTURES) Loading texture: crafting.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\dollar.png
-(MOD-LOADER) Loading a texture dollar.png
-(TEXTURES) Loading texture: dollar.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\dropItems.png
-(MOD-LOADER) Loading a texture dropItems.png
-(TEXTURES) Loading texture: dropItems.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\example rotation.png
-(MOD-LOADER) Loading a texture example rotation.png
-(TEXTURES) Loading texture: example rotation.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\gearlogo.png
+(MOD-LOADER) Walking: /home/oskar/git/MultiMachineBuilder/textures
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/gearlogo.png
 (MOD-LOADER) Loading a texture gearlogo.png
 (TEXTURES) Loading texture: gearlogo.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\grass.png
-(MOD-LOADER) Loading a texture grass.png
-(TEXTURES) Loading texture: grass.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\highway
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\highway\exit.png
-(MOD-LOADER) Loading a texture highway\exit.png
-(TEXTURES) Loading texture: highway/exit.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\highway\hway sig.png
-(MOD-LOADER) Loading a texture highway\hway sig.png
-(TEXTURES) Loading texture: highway/hway sig.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\highway\hway sign.png
-(MOD-LOADER) Loading a texture highway\hway sign.png
-(TEXTURES) Loading texture: highway/hway sign.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\highway\merge.png
-(MOD-LOADER) Loading a texture highway\merge.png
-(TEXTURES) Loading texture: highway/merge.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\highway\reduce.png
-(MOD-LOADER) Loading a texture highway\reduce.png
-(TEXTURES) Loading texture: highway/reduce.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\highway\symexit.png
-(MOD-LOADER) Loading a texture highway\symexit.png
-(TEXTURES) Loading texture: highway/symexit.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\highway\symmerge.png
-(MOD-LOADER) Loading a texture highway\symmerge.png
-(TEXTURES) Loading texture: highway/symmerge.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\highway\widen.png
-(MOD-LOADER) Loading a texture highway\widen.png
-(TEXTURES) Loading texture: highway/widen.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\hoover.png
-(MOD-LOADER) Loading a texture hoover.png
-(TEXTURES) Loading texture: hoover.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\item
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv ai.png
-(MOD-LOADER) Loading a texture item\adv ai.png
-(TEXTURES) Loading texture: item/adv ai.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv bhole.png
-(MOD-LOADER) Loading a texture item\adv bhole.png
-(TEXTURES) Loading texture: item/adv bhole.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv brain.png
-(MOD-LOADER) Loading a texture item\adv brain.png
-(TEXTURES) Loading texture: item/adv brain.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv brainbreaker.png
-(MOD-LOADER) Loading a texture item\adv brainbreaker.png
-(TEXTURES) Loading texture: item/adv brainbreaker.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv capacitor.png
-(MOD-LOADER) Loading a texture item\adv capacitor.png
-(TEXTURES) Loading texture: item/adv capacitor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv ceritor.png
-(MOD-LOADER) Loading a texture item\adv ceritor.png
-(TEXTURES) Loading texture: item/adv ceritor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv cpu.png
-(MOD-LOADER) Loading a texture item\adv cpu.png
-(TEXTURES) Loading texture: item/adv cpu.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv die.png
-(MOD-LOADER) Loading a texture item\adv die.png
-(TEXTURES) Loading texture: item/adv die.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv diode.png
-(MOD-LOADER) Loading a texture item\adv diode.png
-(TEXTURES) Loading texture: item/adv diode.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv gpu.png
-(MOD-LOADER) Loading a texture item\adv gpu.png
-(TEXTURES) Loading texture: item/adv gpu.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv ic.png
-(MOD-LOADER) Loading a texture item\adv ic.png
-(TEXTURES) Loading texture: item/adv ic.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv inductor.png
-(MOD-LOADER) Loading a texture item\adv inductor.png
-(TEXTURES) Loading texture: item/adv inductor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv neuristor.png
-(MOD-LOADER) Loading a texture item\adv neuristor.png
-(TEXTURES) Loading texture: item/adv neuristor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv neuron.png
-(MOD-LOADER) Loading a texture item\adv neuron.png
-(TEXTURES) Loading texture: item/adv neuron.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv ram.png
-(MOD-LOADER) Loading a texture item\adv ram.png
-(TEXTURES) Loading texture: item/adv ram.png
-(TEXTURE ATLAS) Size: 512*256
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv resistor.png
-(MOD-LOADER) Loading a texture item\adv resistor.png
-(TEXTURES) Loading texture: item/adv resistor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv rtx.png
-(MOD-LOADER) Loading a texture item\adv rtx.png
-(TEXTURES) Loading texture: item/adv rtx.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv subcA.png
-(MOD-LOADER) Loading a texture item\adv subcA.png
-(TEXTURES) Loading texture: item/adv subcA.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv subcB.png
-(MOD-LOADER) Loading a texture item\adv subcB.png
-(TEXTURES) Loading texture: item/adv subcB.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv subcC.png
-(MOD-LOADER) Loading a texture item\adv subcC.png
-(TEXTURES) Loading texture: item/adv subcC.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv subcD.png
-(MOD-LOADER) Loading a texture item\adv subcD.png
-(TEXTURES) Loading texture: item/adv subcD.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv subsA.png
-(MOD-LOADER) Loading a texture item\adv subsA.png
-(TEXTURES) Loading texture: item/adv subsA.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv subsB.png
-(MOD-LOADER) Loading a texture item\adv subsB.png
-(TEXTURES) Loading texture: item/adv subsB.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv subsC.png
-(MOD-LOADER) Loading a texture item\adv subsC.png
-(TEXTURES) Loading texture: item/adv subsC.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv subsD.png
-(MOD-LOADER) Loading a texture item\adv subsD.png
-(TEXTURES) Loading texture: item/adv subsD.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv transistor.png
-(MOD-LOADER) Loading a texture item\adv transistor.png
-(TEXTURES) Loading texture: item/adv transistor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\adv wafer.png
-(MOD-LOADER) Loading a texture item\adv wafer.png
-(TEXTURES) Loading texture: item/adv wafer.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\battery 1.png
-(MOD-LOADER) Loading a texture item\battery 1.png
-(TEXTURES) Loading texture: item/battery 1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\battery 2.png
-(MOD-LOADER) Loading a texture item\battery 2.png
-(TEXTURES) Loading texture: item/battery 2.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\battery 3.png
-(MOD-LOADER) Loading a texture item\battery 3.png
-(TEXTURES) Loading texture: item/battery 3.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\battery 4.png
-(MOD-LOADER) Loading a texture item\battery 4.png
-(TEXTURES) Loading texture: item/battery 4.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\battery 5.png
-(MOD-LOADER) Loading a texture item\battery 5.png
-(TEXTURES) Loading texture: item/battery 5.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\battery 6.png
-(MOD-LOADER) Loading a texture item\battery 6.png
-(TEXTURES) Loading texture: item/battery 6.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\battery 7.png
-(MOD-LOADER) Loading a texture item\battery 7.png
-(TEXTURES) Loading texture: item/battery 7.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\battery.png
-(MOD-LOADER) Loading a texture item\battery.png
-(TEXTURES) Loading texture: item/battery.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\capacitor.png
-(MOD-LOADER) Loading a texture item\capacitor.png
-(TEXTURES) Loading texture: item/capacitor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\circuit 0.png
-(MOD-LOADER) Loading a texture item\circuit 0.png
-(TEXTURES) Loading texture: item/circuit 0.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\circuit 1.png
-(MOD-LOADER) Loading a texture item\circuit 1.png
-(TEXTURES) Loading texture: item/circuit 1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\circuit 2.png
-(MOD-LOADER) Loading a texture item\circuit 2.png
-(TEXTURES) Loading texture: item/circuit 2.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\circuit 3.png
-(MOD-LOADER) Loading a texture item\circuit 3.png
-(TEXTURES) Loading texture: item/circuit 3.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\circuit 4.png
-(MOD-LOADER) Loading a texture item\circuit 4.png
-(TEXTURES) Loading texture: item/circuit 4.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\circuit 5.png
-(MOD-LOADER) Loading a texture item\circuit 5.png
-(TEXTURES) Loading texture: item/circuit 5.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\circuit 6.png
-(MOD-LOADER) Loading a texture item\circuit 6.png
-(TEXTURES) Loading texture: item/circuit 6.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\circuit 7.png
-(MOD-LOADER) Loading a texture item\circuit 7.png
-(TEXTURES) Loading texture: item/circuit 7.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\circuit 8.png
-(MOD-LOADER) Loading a texture item\circuit 8.png
-(TEXTURES) Loading texture: item/circuit 8.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\circuit 9.png
-(MOD-LOADER) Loading a texture item\circuit 9.png
-(TEXTURES) Loading texture: item/circuit 9.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\cluster.png
-(MOD-LOADER) Loading a texture item\cluster.png
-(TEXTURES) Loading texture: item/cluster.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\component code.png
-(MOD-LOADER) Loading a texture item\component code.png
-(TEXTURES) Loading texture: item/component code.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\control rod.png
-(MOD-LOADER) Loading a texture item\control rod.png
-(TEXTURES) Loading texture: item/control rod.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\coolant rod.png
-(MOD-LOADER) Loading a texture item\coolant rod.png
-(TEXTURES) Loading texture: item/coolant rod.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\copper pick head.png
-(MOD-LOADER) Loading a texture item\copper pick head.png
-(TEXTURES) Loading texture: item/copper pick head.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\copper pick.png
-(MOD-LOADER) Loading a texture item\copper pick.png
-(TEXTURES) Loading texture: item/copper pick.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\depleted rod.png
-(MOD-LOADER) Loading a texture item\depleted rod.png
-(TEXTURES) Loading texture: item/depleted rod.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\depleted uranium ingot.png
-(MOD-LOADER) Loading a texture item\depleted uranium ingot.png
-(TEXTURES) Loading texture: item/depleted uranium ingot.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\diamond.png
-(MOD-LOADER) Loading a texture item\diamond.png
-(TEXTURES) Loading texture: item/diamond.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\diode.png
-(MOD-LOADER) Loading a texture item\diode.png
-(TEXTURES) Loading texture: item/diode.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\dust.png
-(MOD-LOADER) Loading a texture item\dust.png
-(TEXTURES) Loading texture: item/dust.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\filter entry.png
-(MOD-LOADER) Loading a texture item\filter entry.png
-(TEXTURES) Loading texture: item/filter entry.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\filter type.png
-(MOD-LOADER) Loading a texture item\filter type.png
-(TEXTURES) Loading texture: item/filter type.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\foil.png
-(MOD-LOADER) Loading a texture item\foil.png
-(TEXTURES) Loading texture: item/foil.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\fragment.png
-(MOD-LOADER) Loading a texture item\fragment.png
-(TEXTURES) Loading texture: item/fragment.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\frame 1.png
-(MOD-LOADER) Loading a texture item\frame 1.png
-(TEXTURES) Loading texture: item/frame 1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\gear.png
-(MOD-LOADER) Loading a texture item\gear.png
-(TEXTURES) Loading texture: item/gear.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\gem.png
-(MOD-LOADER) Loading a texture item\gem.png
-(TEXTURES) Loading texture: item/gem.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\glass panel.png
-(MOD-LOADER) Loading a texture item\glass panel.png
-(TEXTURES) Loading texture: item/glass panel.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\glass.png
-(MOD-LOADER) Loading a texture item\glass.png
-(TEXTURES) Loading texture: item/glass.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\heat rod.png
-(MOD-LOADER) Loading a texture item\heat rod.png
-(TEXTURES) Loading texture: item/heat rod.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\hops.png
-(MOD-LOADER) Loading a texture item\hops.png
-(TEXTURES) Loading texture: item/hops.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\IC.png
-(MOD-LOADER) Loading a texture item\IC.png
-(TEXTURES) Loading texture: item/IC.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\inductor.png
-(MOD-LOADER) Loading a texture item\inductor.png
-(TEXTURES) Loading texture: item/inductor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\ingot.png
-(MOD-LOADER) Loading a texture item\ingot.png
-(TEXTURES) Loading texture: item/ingot.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\ldust.png
-(MOD-LOADER) Loading a texture item\ldust.png
-(TEXTURES) Loading texture: item/ldust.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\lisc.png
-(MOD-LOADER) Loading a texture item\lisc.png
-(TEXTURES) Loading texture: item/lisc.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\list.png
-(MOD-LOADER) Loading a texture item\list.png
-(TEXTURES) Loading texture: item/list.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\minidust.png
-(MOD-LOADER) Loading a texture item\minidust.png
-(TEXTURES) Loading texture: item/minidust.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\nugget.png
-(MOD-LOADER) Loading a texture item\nugget.png
-(TEXTURES) Loading texture: item/nugget.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\package code.png
-(MOD-LOADER) Loading a texture item\package code.png
-(TEXTURES) Loading texture: item/package code.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\package.png
-(MOD-LOADER) Loading a texture item\package.png
-(TEXTURES) Loading texture: item/package.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\panel.png
-(MOD-LOADER) Loading a texture item\panel.png
-(TEXTURES) Loading texture: item/panel.png
-(TEXTURE ATLAS) Size: 512*512
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\paper.png
-(MOD-LOADER) Loading a texture item\paper.png
-(TEXTURES) Loading texture: item/paper.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\quantum pick.png
-(MOD-LOADER) Loading a texture item\quantum pick.png
-(TEXTURES) Loading texture: item/quantum pick.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\resistor array.png
-(MOD-LOADER) Loading a texture item\resistor array.png
-(TEXTURES) Loading texture: item/resistor array.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\resistor.png
-(MOD-LOADER) Loading a texture item\resistor.png
-(TEXTURES) Loading texture: item/resistor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\resrcbed.png
-(MOD-LOADER) Loading a texture item\resrcbed.png
-(TEXTURES) Loading texture: item/resrcbed.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\ring 1.png
-(MOD-LOADER) Loading a texture item\ring 1.png
-(TEXTURES) Loading texture: item/ring 1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\rod.png
-(MOD-LOADER) Loading a texture item\rod.png
-(TEXTURES) Loading texture: item/rod.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\rubber.png
-(MOD-LOADER) Loading a texture item\rubber.png
-(TEXTURES) Loading texture: item/rubber.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\rudimentary pick head.png
-(MOD-LOADER) Loading a texture item\rudimentary pick head.png
-(TEXTURES) Loading texture: item/rudimentary pick head.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\rudimentary pick.png
-(MOD-LOADER) Loading a texture item\rudimentary pick.png
-(TEXTURES) Loading texture: item/rudimentary pick.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\seeds.png
-(MOD-LOADER) Loading a texture item\seeds.png
-(TEXTURES) Loading texture: item/seeds.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\shard.png
-(MOD-LOADER) Loading a texture item\shard.png
-(TEXTURES) Loading texture: item/shard.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\sheet.png
-(MOD-LOADER) Loading a texture item\sheet.png
-(TEXTURES) Loading texture: item/sheet.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\silicon ingot.png
-(MOD-LOADER) Loading a texture item\silicon ingot.png
-(TEXTURES) Loading texture: item/silicon ingot.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\silicon nugget.png
-(MOD-LOADER) Loading a texture item\silicon nugget.png
-(TEXTURES) Loading texture: item/silicon nugget.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\slist.png
-(MOD-LOADER) Loading a texture item\slist.png
-(TEXTURES) Loading texture: item/slist.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\smalldust.png
-(MOD-LOADER) Loading a texture item\smalldust.png
-(TEXTURES) Loading texture: item/smalldust.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\speed.png
-(MOD-LOADER) Loading a texture item\speed.png
-(TEXTURES) Loading texture: item/speed.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\stainless pick head.png
-(MOD-LOADER) Loading a texture item\stainless pick head.png
-(TEXTURES) Loading texture: item/stainless pick head.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\stainless pick.png
-(MOD-LOADER) Loading a texture item\stainless pick.png
-(TEXTURES) Loading texture: item/stainless pick.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\stainless wire.png
-(MOD-LOADER) Loading a texture item\stainless wire.png
-(TEXTURES) Loading texture: item/stainless wire.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\steel pick head.png
-(MOD-LOADER) Loading a texture item\steel pick head.png
-(TEXTURES) Loading texture: item/steel pick head.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\steel rod.png
-(MOD-LOADER) Loading a texture item\steel rod.png
-(TEXTURES) Loading texture: item/steel rod.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\stencil.png
-(MOD-LOADER) Loading a texture item\stencil.png
-(TEXTURES) Loading texture: item/stencil.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\stone pick head.png
-(MOD-LOADER) Loading a texture item\stone pick head.png
-(TEXTURES) Loading texture: item/stone pick head.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\substrate 0.png
-(MOD-LOADER) Loading a texture item\substrate 0.png
-(TEXTURES) Loading texture: item/substrate 0.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\substrate 1.png
-(MOD-LOADER) Loading a texture item\substrate 1.png
-(TEXTURES) Loading texture: item/substrate 1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\substrate 2.png
-(MOD-LOADER) Loading a texture item\substrate 2.png
-(TEXTURES) Loading texture: item/substrate 2.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\substrate 3.png
-(MOD-LOADER) Loading a texture item\substrate 3.png
-(TEXTURES) Loading texture: item/substrate 3.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\substrate 4.png
-(MOD-LOADER) Loading a texture item\substrate 4.png
-(TEXTURES) Loading texture: item/substrate 4.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\substrate 5.png
-(MOD-LOADER) Loading a texture item\substrate 5.png
-(TEXTURES) Loading texture: item/substrate 5.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\substrate 6.png
-(MOD-LOADER) Loading a texture item\substrate 6.png
-(TEXTURES) Loading texture: item/substrate 6.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\substrate 7.png
-(MOD-LOADER) Loading a texture item\substrate 7.png
-(TEXTURES) Loading texture: item/substrate 7.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\substrate 8.png
-(MOD-LOADER) Loading a texture item\substrate 8.png
-(TEXTURES) Loading texture: item/substrate 8.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\substrate 9.png
-(MOD-LOADER) Loading a texture item\substrate 9.png
-(TEXTURES) Loading texture: item/substrate 9.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\transistor.png
-(MOD-LOADER) Loading a texture item\transistor.png
-(TEXTURES) Loading texture: item/transistor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\uranium rod.png
-(MOD-LOADER) Loading a texture item\uranium rod.png
-(TEXTURES) Loading texture: item/uranium rod.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\wire overlay.png
-(MOD-LOADER) Loading a texture item\wire overlay.png
-(TEXTURES) Loading texture: item/wire overlay.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\wire spool.png
-(MOD-LOADER) Loading a texture item\wire spool.png
-(TEXTURES) Loading texture: item/wire spool.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\wood pick head.png
-(MOD-LOADER) Loading a texture item\wood pick head.png
-(TEXTURES) Loading texture: item/wood pick head.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\wood pick.png
-(MOD-LOADER) Loading a texture item\wood pick.png
-(TEXTURES) Loading texture: item/wood pick.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\item\yeast.png
-(MOD-LOADER) Loading a texture item\yeast.png
-(TEXTURES) Loading texture: item/yeast.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\liquid
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\liquid\alcohol.png
-(MOD-LOADER) Loading a texture liquid\alcohol.png
-(TEXTURES) Loading texture: liquid/alcohol.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\liquid\fuel.png
-(MOD-LOADER) Loading a texture liquid\fuel.png
-(TEXTURES) Loading texture: liquid/fuel.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\liquid\lava.png
-(MOD-LOADER) Loading a texture liquid\lava.png
-(TEXTURES) Loading texture: liquid/lava.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\liquid\oxygen.png
-(MOD-LOADER) Loading a texture liquid\oxygen.png
-(TEXTURES) Loading texture: liquid/oxygen.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\liquid\plasma.png
-(MOD-LOADER) Loading a texture liquid\plasma.png
-(TEXTURES) Loading texture: liquid/plasma.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\liquid\smoke.png
-(MOD-LOADER) Loading a texture liquid\smoke.png
-(TEXTURES) Loading texture: liquid/smoke.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\liquid\steam.png
-(MOD-LOADER) Loading a texture liquid\steam.png
-(TEXTURES) Loading texture: liquid/steam.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\liquid\water.png
-(MOD-LOADER) Loading a texture liquid\water.png
-(TEXTURES) Loading texture: liquid/water.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\log.png
-(MOD-LOADER) Loading a texture log.png
-(TEXTURES) Loading texture: log.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\logic
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\8-bit wires.png
-(MOD-LOADER) Loading a texture logic\8-bit wires.png
-(TEXTURES) Loading texture: logic/8-bit wires.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\AND.png
-(MOD-LOADER) Loading a texture logic\AND.png
-(TEXTURES) Loading texture: logic/AND.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\button.png
-(MOD-LOADER) Loading a texture logic\button.png
-(TEXTURES) Loading texture: logic/button.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\drandom.png
-(MOD-LOADER) Loading a texture logic\drandom.png
-(TEXTURES) Loading texture: logic/drandom.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\head.png
-(MOD-LOADER) Loading a texture logic\head.png
-(TEXTURES) Loading texture: logic/head.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\LNetwork attachment.png
-(MOD-LOADER) Loading a texture logic\LNetwork attachment.png
-(TEXTURES) Loading texture: logic/LNetwork attachment.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\loadsensor.png
-(MOD-LOADER) Loading a texture logic\loadsensor.png
-(TEXTURES) Loading texture: logic/loadsensor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\logic gates.png
-(MOD-LOADER) Loading a texture logic\logic gates.png
-(TEXTURES) Loading texture: logic/logic gates.png
-(TEXTURE ATLAS) Size: 1024*512
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\NOT.png
-(MOD-LOADER) Loading a texture logic\NOT.png
-(TEXTURES) Loading texture: logic/NOT.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\off lamp.png
-(MOD-LOADER) Loading a texture logic\off lamp.png
-(TEXTURES) Loading texture: logic/off lamp.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\off.png
-(MOD-LOADER) Loading a texture logic\off.png
-(TEXTURES) Loading texture: logic/off.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\on lamp.png
-(MOD-LOADER) Loading a texture logic\on lamp.png
-(TEXTURES) Loading texture: logic/on lamp.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\on.png
-(MOD-LOADER) Loading a texture logic\on.png
-(TEXTURES) Loading texture: logic/on.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\OR.png
-(MOD-LOADER) Loading a texture logic\OR.png
-(TEXTURES) Loading texture: logic/OR.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\random.png
-(MOD-LOADER) Loading a texture logic\random.png
-(TEXTURES) Loading texture: logic/random.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\randomctrl.png
-(MOD-LOADER) Loading a texture logic\randomctrl.png
-(TEXTURES) Loading texture: logic/randomctrl.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\tail.png
-(MOD-LOADER) Loading a texture logic\tail.png
-(TEXTURES) Loading texture: logic/tail.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\toggle inert.png
-(MOD-LOADER) Loading a texture logic\toggle inert.png
-(TEXTURES) Loading texture: logic/toggle inert.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\toggle off.png
-(MOD-LOADER) Loading a texture logic\toggle off.png
-(TEXTURES) Loading texture: logic/toggle off.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\toggle on.png
-(MOD-LOADER) Loading a texture logic\toggle on.png
-(TEXTURES) Loading texture: logic/toggle on.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\true.png
-(MOD-LOADER) Loading a texture logic\true.png
-(TEXTURES) Loading texture: logic/true.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\urandom.png
-(MOD-LOADER) Loading a texture logic\urandom.png
-(TEXTURES) Loading texture: logic/urandom.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\wire  45deg.png
-(MOD-LOADER) Loading a texture logic\wire  45deg.png
-(TEXTURES) Loading texture: logic/wire  45deg.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\wire 2bend.png
-(MOD-LOADER) Loading a texture logic\wire 2bend.png
-(TEXTURES) Loading texture: logic/wire 2bend.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\wire bend.png
-(MOD-LOADER) Loading a texture logic\wire bend.png
-(TEXTURES) Loading texture: logic/wire bend.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\wire cross.png
-(MOD-LOADER) Loading a texture logic\wire cross.png
-(TEXTURES) Loading texture: logic/wire cross.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\wire diagonal cross.png
-(MOD-LOADER) Loading a texture logic\wire diagonal cross.png
-(TEXTURES) Loading texture: logic/wire diagonal cross.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\wire diagonal.png
-(MOD-LOADER) Loading a texture logic\wire diagonal.png
-(TEXTURES) Loading texture: logic/wire diagonal.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\wire.png
-(MOD-LOADER) Loading a texture logic\wire.png
-(TEXTURES) Loading texture: logic/wire.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\XOR.png
-(MOD-LOADER) Loading a texture logic\XOR.png
-(TEXTURES) Loading texture: logic/XOR.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\logic\YES.png
-(MOD-LOADER) Loading a texture logic\YES.png
-(TEXTURES) Loading texture: logic/YES.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\machine
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\3-way merger.png
-(MOD-LOADER) Loading a texture machine\3-way merger.png
-(TEXTURES) Loading texture: machine/3-way merger.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\3-way shuffler.png
-(MOD-LOADER) Loading a texture machine\3-way shuffler.png
-(TEXTURES) Loading texture: machine/3-way shuffler.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\alloyer.png
-(MOD-LOADER) Loading a texture machine\alloyer.png
-(TEXTURES) Loading texture: machine/alloyer.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\assembly 1.png
-(MOD-LOADER) Loading a texture machine\assembly 1.png
-(TEXTURES) Loading texture: machine/assembly 1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\assembly 2.png
-(MOD-LOADER) Loading a texture machine\assembly 2.png
-(TEXTURES) Loading texture: machine/assembly 2.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\assembly 3.png
-(MOD-LOADER) Loading a texture machine\assembly 3.png
-(TEXTURES) Loading texture: machine/assembly 3.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\assembly 4.png
-(MOD-LOADER) Loading a texture machine\assembly 4.png
-(TEXTURES) Loading texture: machine/assembly 4.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\assembly 5.png
-(MOD-LOADER) Loading a texture machine\assembly 5.png
-(TEXTURES) Loading texture: machine/assembly 5.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\assembly 6.png
-(MOD-LOADER) Loading a texture machine\assembly 6.png
-(TEXTURES) Loading texture: machine/assembly 6.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\AutoCrafter 1.png
-(MOD-LOADER) Loading a texture machine\AutoCrafter 1.png
-(TEXTURES) Loading texture: machine/AutoCrafter 1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\batbuf.png
-(MOD-LOADER) Loading a texture machine\batbuf.png
-(TEXTURES) Loading texture: machine/batbuf.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\battery.png
-(MOD-LOADER) Loading a texture machine\battery.png
-(TEXTURES) Loading texture: machine/battery.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\block BP interface.png
-(MOD-LOADER) Loading a texture machine\block BP interface.png
-(TEXTURES) Loading texture: machine/block BP interface.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\block break interface.png
-(MOD-LOADER) Loading a texture machine\block break interface.png
-(TEXTURES) Loading texture: machine/block break interface.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\block place interface.png
-(MOD-LOADER) Loading a texture machine\block place interface.png
-(TEXTURES) Loading texture: machine/block place interface.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\brewery.png
-(MOD-LOADER) Loading a texture machine\brewery.png
-(TEXTURES) Loading texture: machine/brewery.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\CCW.png
-(MOD-LOADER) Loading a texture machine\CCW.png
-(TEXTURES) Loading texture: machine/CCW.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\chest middle.png
-(MOD-LOADER) Loading a texture machine\chest middle.png
-(TEXTURES) Loading texture: machine/chest middle.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\chest1.png
-(MOD-LOADER) Loading a texture machine\chest1.png
-(TEXTURES) Loading texture: machine/chest1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\chest2.png
-(MOD-LOADER) Loading a texture machine\chest2.png
-(TEXTURES) Loading texture: machine/chest2.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\chest3.png
-(MOD-LOADER) Loading a texture machine\chest3.png
-(TEXTURES) Loading texture: machine/chest3.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\chest4.png
-(MOD-LOADER) Loading a texture machine\chest4.png
-(TEXTURES) Loading texture: machine/chest4.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\chest5.png
-(MOD-LOADER) Loading a texture machine\chest5.png
-(TEXTURES) Loading texture: machine/chest5.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\chest6.png
-(MOD-LOADER) Loading a texture machine\chest6.png
-(TEXTURES) Loading texture: machine/chest6.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\chest7.png
-(MOD-LOADER) Loading a texture machine\chest7.png
-(TEXTURES) Loading texture: machine/chest7.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\chest8.png
-(MOD-LOADER) Loading a texture machine\chest8.png
-(TEXTURES) Loading texture: machine/chest8.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\chest9.png
-(MOD-LOADER) Loading a texture machine\chest9.png
-(TEXTURES) Loading texture: machine/chest9.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\claw.png
-(MOD-LOADER) Loading a texture machine\claw.png
-(TEXTURES) Loading texture: machine/claw.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\cluster mill.png
-(MOD-LOADER) Loading a texture machine\cluster mill.png
-(TEXTURES) Loading texture: machine/cluster mill.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\coalgen.png
-(MOD-LOADER) Loading a texture machine\coalgen.png
-(TEXTURES) Loading texture: machine/coalgen.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\CW.png
-(MOD-LOADER) Loading a texture machine\CW.png
-(TEXTURES) Loading texture: machine/CW.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\cyclic assembler.png
-(MOD-LOADER) Loading a texture machine\cyclic assembler.png
-(TEXTURES) Loading texture: machine/cyclic assembler.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\digger.png
-(MOD-LOADER) Loading a texture machine\digger.png
-(TEXTURES) Loading texture: machine/digger.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\dropped item interface.png
-(MOD-LOADER) Loading a texture machine\dropped item interface.png
-(TEXTURES) Loading texture: machine/dropped item interface.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\electrosmelter.png
-(MOD-LOADER) Loading a texture machine\electrosmelter.png
-(TEXTURES) Loading texture: machine/electrosmelter.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\esmelter.png
-(MOD-LOADER) Loading a texture machine\esmelter.png
-(TEXTURES) Loading texture: machine/esmelter.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\extruder.png
-(MOD-LOADER) Loading a texture machine\extruder.png
-(TEXTURES) Loading texture: machine/extruder.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\filter pipe 2.png
-(MOD-LOADER) Loading a texture machine\filter pipe 2.png
-(TEXTURES) Loading texture: machine/filter pipe 2.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\filter pipe.png
-(MOD-LOADER) Loading a texture machine\filter pipe.png
-(TEXTURES) Loading texture: machine/filter pipe.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\filter shunt pipe.png
-(MOD-LOADER) Loading a texture machine\filter shunt pipe.png
-(TEXTURES) Loading texture: machine/filter shunt pipe.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\hopper.png
-(MOD-LOADER) Loading a texture machine\hopper.png
-(TEXTURES) Loading texture: machine/hopper.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\hops.png
-(MOD-LOADER) Loading a texture machine\hops.png
-(TEXTURES) Loading texture: machine/hops.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\ifilter elbow.png
-(MOD-LOADER) Loading a texture machine\ifilter elbow.png
-(TEXTURES) Loading texture: machine/ifilter elbow.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\ifilter.png
-(MOD-LOADER) Loading a texture machine\ifilter.png
-(TEXTURES) Loading texture: machine/ifilter.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\imover intersected.png
-(MOD-LOADER) Loading a texture machine\imover intersected.png
-(TEXTURES) Loading texture: machine/imover intersected.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\imover.png
-(MOD-LOADER) Loading a texture machine\imover.png
-(TEXTURES) Loading texture: machine/imover.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\imoverL.png
-(MOD-LOADER) Loading a texture machine\imoverL.png
-(TEXTURES) Loading texture: machine/imoverL.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\imoverR.png
-(MOD-LOADER) Loading a texture machine\imoverR.png
-(TEXTURES) Loading texture: machine/imoverR.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\inscriber.png
-(MOD-LOADER) Loading a texture machine\inscriber.png
-(TEXTURES) Loading texture: machine/inscriber.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\item package.png
-(MOD-LOADER) Loading a texture machine\item package.png
-(TEXTURES) Loading texture: machine/item package.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\ivacuum.png
-(MOD-LOADER) Loading a texture machine\ivacuum.png
-(TEXTURES) Loading texture: machine/ivacuum.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\machinemaker.png
-(MOD-LOADER) Loading a texture machine\machinemaker.png
-(TEXTURES) Loading texture: machine/machinemaker.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\pickaxe workbench.png
-(MOD-LOADER) Loading a texture machine\pickaxe workbench.png
-(TEXTURES) Loading texture: machine/pickaxe workbench.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\pipe 3-section.png
-(MOD-LOADER) Loading a texture machine\pipe 3-section.png
-(TEXTURES) Loading texture: machine/pipe 3-section.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\pipe 4-section.png
-(MOD-LOADER) Loading a texture machine\pipe 4-section.png
-(TEXTURES) Loading texture: machine/pipe 4-section.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\pipe biturn.png
-(MOD-LOADER) Loading a texture machine\pipe biturn.png
-(TEXTURES) Loading texture: machine/pipe biturn.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\pipe bridged.png
-(MOD-LOADER) Loading a texture machine\pipe bridged.png
-(TEXTURES) Loading texture: machine/pipe bridged.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\pipe elbow.png
-(MOD-LOADER) Loading a texture machine\pipe elbow.png
-(TEXTURES) Loading texture: machine/pipe elbow.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\pipe exit.png
-(MOD-LOADER) Loading a texture machine\pipe exit.png
-(TEXTURES) Loading texture: machine/pipe exit.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\pipe merge left.png
-(MOD-LOADER) Loading a texture machine\pipe merge left.png
-(TEXTURES) Loading texture: machine/pipe merge left.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\pipe merge right.png
-(MOD-LOADER) Loading a texture machine\pipe merge right.png
-(TEXTURES) Loading texture: machine/pipe merge right.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\pipe oneway.png
-(MOD-LOADER) Loading a texture machine\pipe oneway.png
-(TEXTURES) Loading texture: machine/pipe oneway.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\pipe straight.png
-(MOD-LOADER) Loading a texture machine\pipe straight.png
-(TEXTURES) Loading texture: machine/pipe straight.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\pipe wye.png
-(MOD-LOADER) Loading a texture machine\pipe wye.png
-(TEXTURES) Loading texture: machine/pipe wye.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\placer.png
-(MOD-LOADER) Loading a texture machine\placer.png
-(TEXTURES) Loading texture: machine/placer.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\huge center.png
-(MOD-LOADER) Loading a texture machine\power\huge center.png
-(TEXTURES) Loading texture: machine/power/huge center.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\huge connector.png
-(MOD-LOADER) Loading a texture machine\power\huge connector.png
-(TEXTURES) Loading texture: machine/power/huge connector.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\huge wire.png
-(MOD-LOADER) Loading a texture machine\power\huge wire.png
-(TEXTURES) Loading texture: machine/power/huge wire.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\infinity.png
-(MOD-LOADER) Loading a texture machine\power\infinity.png
-(TEXTURES) Loading texture: machine/power/infinity.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\large center.png
-(MOD-LOADER) Loading a texture machine\power\large center.png
-(TEXTURES) Loading texture: machine/power/large center.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\large connector.png
-(MOD-LOADER) Loading a texture machine\power\large connector.png
-(TEXTURES) Loading texture: machine/power/large connector.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\large wire.png
-(MOD-LOADER) Loading a texture machine\power\large wire.png
-(TEXTURES) Loading texture: machine/power/large wire.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\load.png
-(MOD-LOADER) Loading a texture machine\power\load.png
-(TEXTURES) Loading texture: machine/power/load.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\medium center.png
-(MOD-LOADER) Loading a texture machine\power\medium center.png
-(TEXTURES) Loading texture: machine/power/medium center.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\medium connector.png
-(MOD-LOADER) Loading a texture machine\power\medium connector.png
-(TEXTURES) Loading texture: machine/power/medium connector.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\medium wire.png
-(MOD-LOADER) Loading a texture machine\power\medium wire.png
-(TEXTURES) Loading texture: machine/power/medium wire.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\nuke reactor.png
-(MOD-LOADER) Loading a texture machine\power\nuke reactor.png
-(TEXTURES) Loading texture: machine/power/nuke reactor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\pmeter.png
-(MOD-LOADER) Loading a texture machine\power\pmeter.png
-(TEXTURES) Loading texture: machine/power/pmeter.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\small center.png
-(MOD-LOADER) Loading a texture machine\power\small center.png
-(TEXTURES) Loading texture: machine/power/small center.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\small connector.png
-(MOD-LOADER) Loading a texture machine\power\small connector.png
-(TEXTURES) Loading texture: machine/power/small connector.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\small wire.png
-(MOD-LOADER) Loading a texture machine\power\small wire.png
-(TEXTURES) Loading texture: machine/power/small wire.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\tiny center.png
-(MOD-LOADER) Loading a texture machine\power\tiny center.png
-(TEXTURES) Loading texture: machine/power/tiny center.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\tiny connector.png
-(MOD-LOADER) Loading a texture machine\power\tiny connector.png
-(TEXTURES) Loading texture: machine/power/tiny connector.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\power\tiny wire.png
-(MOD-LOADER) Loading a texture machine\power\tiny wire.png
-(TEXTURES) Loading texture: machine/power/tiny wire.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\ppipe adjoin.png
-(MOD-LOADER) Loading a texture machine\ppipe adjoin.png
-(TEXTURES) Loading texture: machine/ppipe adjoin.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\ppipe adjoin2.png
-(MOD-LOADER) Loading a texture machine\ppipe adjoin2.png
-(TEXTURES) Loading texture: machine/ppipe adjoin2.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\ppipe biturn.png
-(MOD-LOADER) Loading a texture machine\ppipe biturn.png
-(TEXTURES) Loading texture: machine/ppipe biturn.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\ppipe cross.png
-(MOD-LOADER) Loading a texture machine\ppipe cross.png
-(TEXTURES) Loading texture: machine/ppipe cross.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\ppipe straight.png
-(MOD-LOADER) Loading a texture machine\ppipe straight.png
-(TEXTURES) Loading texture: machine/ppipe straight.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\ppipe turn.png
-(MOD-LOADER) Loading a texture machine\ppipe turn.png
-(TEXTURES) Loading texture: machine/ppipe turn.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\preceiver.png
-(MOD-LOADER) Loading a texture machine\preceiver.png
-(TEXTURES) Loading texture: machine/preceiver.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\ptower.png
-(MOD-LOADER) Loading a texture machine\ptower.png
-(TEXTURES) Loading texture: machine/ptower.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\pulverizer.png
-(MOD-LOADER) Loading a texture machine\pulverizer.png
-(TEXTURES) Loading texture: machine/pulverizer.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\quarry.png
-(MOD-LOADER) Loading a texture machine\quarry.png
-(TEXTURES) Loading texture: machine/quarry.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\sinterer.png
-(MOD-LOADER) Loading a texture machine\sinterer.png
-(TEXTURES) Loading texture: machine/sinterer.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\smelter active.png
-(MOD-LOADER) Loading a texture machine\smelter active.png
-(TEXTURES) Loading texture: machine/smelter active.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\smelter inert 2.png
-(MOD-LOADER) Loading a texture machine\smelter inert 2.png
-(TEXTURES) Loading texture: machine/smelter inert 2.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\smelter inert.png
-(MOD-LOADER) Loading a texture machine\smelter inert.png
-(TEXTURES) Loading texture: machine/smelter inert.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\speaker 1.png
-(MOD-LOADER) Loading a texture machine\speaker 1.png
-(TEXTURES) Loading texture: machine/speaker 1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\speaker 2.png
-(MOD-LOADER) Loading a texture machine\speaker 2.png
-(TEXTURES) Loading texture: machine/speaker 2.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\speaker 3.png
-(MOD-LOADER) Loading a texture machine\speaker 3.png
-(TEXTURES) Loading texture: machine/speaker 3.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\splicer.png
-(MOD-LOADER) Loading a texture machine\splicer.png
-(TEXTURES) Loading texture: machine/splicer.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\splitter.png
-(MOD-LOADER) Loading a texture machine\splitter.png
-(TEXTURES) Loading texture: machine/splitter.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\sucker.png
-(MOD-LOADER) Loading a texture machine\sucker.png
-(TEXTURES) Loading texture: machine/sucker.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\switch straight.png
-(MOD-LOADER) Loading a texture machine\switch straight.png
-(TEXTURES) Loading texture: machine/switch straight.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\switch turn.png
-(MOD-LOADER) Loading a texture machine\switch turn.png
-(TEXTURES) Loading texture: machine/switch turn.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\transferrer.png
-(MOD-LOADER) Loading a texture machine\transferrer.png
-(TEXTURES) Loading texture: machine/transferrer.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\transformer.png
-(MOD-LOADER) Loading a texture machine\transformer.png
-(TEXTURES) Loading texture: machine/transformer.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\turbogen.png
-(MOD-LOADER) Loading a texture machine\turbogen.png
-(TEXTURES) Loading texture: machine/turbogen.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\vacuum.png
-(MOD-LOADER) Loading a texture machine\vacuum.png
-(TEXTURES) Loading texture: machine/vacuum.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\water well.png
-(MOD-LOADER) Loading a texture machine\water well.png
-(TEXTURES) Loading texture: machine/water well.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\machine\wiremill.png
-(MOD-LOADER) Loading a texture machine\wiremill.png
-(TEXTURES) Loading texture: machine/wiremill.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\Machines.tsx
-(MOD-LOADER) Loading a texture Machines.tsx
-(TEXTURES) Failed to load Machines.tsx
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\mine.png
-(MOD-LOADER) Loading a texture mine.png
-(TEXTURES) Loading texture: mine.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\modules
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\modules\chest_body.png
-(MOD-LOADER) Loading a texture modules\chest_body.png
-(TEXTURES) Loading texture: modules/chest_body.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\modules\chest_drawer.png
-(MOD-LOADER) Loading a texture modules\chest_drawer.png
-(TEXTURES) Loading texture: modules/chest_drawer.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\modules\chest_single.png
-(MOD-LOADER) Loading a texture modules\chest_single.png
-(TEXTURES) Loading texture: modules/chest_single.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\modules\chest_std.png
-(MOD-LOADER) Loading a texture modules\chest_std.png
-(TEXTURES) Loading texture: modules/chest_std.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\modules\chest_unique.png
-(MOD-LOADER) Loading a texture modules\chest_unique.png
-(TEXTURES) Loading texture: modules/chest_unique.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\modules\mover.png
-(MOD-LOADER) Loading a texture modules\mover.png
-(TEXTURES) Loading texture: modules/mover.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\modules\plug.png
-(MOD-LOADER) Loading a texture modules\plug.png
-(TEXTURES) Loading texture: modules/plug.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\nums.png
-(MOD-LOADER) Loading a texture nums.png
-(TEXTURES) Loading texture: nums.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\parts
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\parts\conveyor.png
-(MOD-LOADER) Loading a texture parts\conveyor.png
-(TEXTURES) Loading texture: parts/conveyor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\parts\motor.png
-(MOD-LOADER) Loading a texture parts\motor.png
-(TEXTURES) Loading texture: parts/motor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\parts\pump.png
-(MOD-LOADER) Loading a texture parts\pump.png
-(TEXTURES) Loading texture: parts/pump.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\parts\robot.png
-(MOD-LOADER) Loading a texture parts\robot.png
-(TEXTURES) Loading texture: parts/robot.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\pipeline.png
-(MOD-LOADER) Loading a texture pipeline.png
-(TEXTURES) Loading texture: pipeline.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\place.png
-(MOD-LOADER) Loading a texture place.png
-(TEXTURES) Loading texture: place.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\plain.png
-(MOD-LOADER) Loading a texture plain.png
-(TEXTURES) Loading texture: plain.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\plank.png
-(MOD-LOADER) Loading a texture plank.png
-(TEXTURES) Loading texture: plank.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\player
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\player\Machinius The Engineer.png
-(MOD-LOADER) Loading a texture player\Machinius The Engineer.png
-(TEXTURES) Loading texture: player/Machinius The Engineer.png
-(TEXTURE ATLAS) Size: 1024*1024
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\player\pchar.png
-(MOD-LOADER) Loading a texture player\pchar.png
-(TEXTURES) Loading texture: player/pchar.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\player\pchar1.png
-(MOD-LOADER) Loading a texture player\pchar1.png
-(TEXTURES) Loading texture: player/pchar1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\player\pchar2.png
-(MOD-LOADER) Loading a texture player\pchar2.png
-(TEXTURES) Loading texture: player/pchar2.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\printer.png
-(MOD-LOADER) Loading a texture printer.png
-(TEXTURES) Loading texture: printer.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\signet
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\and.png
-(MOD-LOADER) Loading a texture signet\and.png
-(TEXTURES) Loading texture: signet/and.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\bend0.png
-(MOD-LOADER) Loading a texture signet\bend0.png
-(TEXTURES) Loading texture: signet/bend0.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\bend1.png
-(MOD-LOADER) Loading a texture signet\bend1.png
-(TEXTURES) Loading texture: signet/bend1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\cross0.png
-(MOD-LOADER) Loading a texture signet\cross0.png
-(TEXTURES) Loading texture: signet/cross0.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\cross1.png
-(MOD-LOADER) Loading a texture signet\cross1.png
-(TEXTURES) Loading texture: signet/cross1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\end0.png
-(MOD-LOADER) Loading a texture signet\end0.png
-(TEXTURES) Loading texture: signet/end0.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\end1.png
-(MOD-LOADER) Loading a texture signet\end1.png
-(TEXTURES) Loading texture: signet/end1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\horizontal0.png
-(MOD-LOADER) Loading a texture signet\horizontal0.png
-(TEXTURES) Loading texture: signet/horizontal0.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\horizontal1.png
-(MOD-LOADER) Loading a texture signet\horizontal1.png
-(TEXTURES) Loading texture: signet/horizontal1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\maj.png
-(MOD-LOADER) Loading a texture signet\maj.png
-(TEXTURES) Loading texture: signet/maj.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\nand.png
-(MOD-LOADER) Loading a texture signet\nand.png
-(TEXTURES) Loading texture: signet/nand.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\nmaj.png
-(MOD-LOADER) Loading a texture signet\nmaj.png
-(TEXTURES) Loading texture: signet/nmaj.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\nor.png
-(MOD-LOADER) Loading a texture signet\nor.png
-(TEXTURES) Loading texture: signet/nor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\or.png
-(MOD-LOADER) Loading a texture signet\or.png
-(TEXTURES) Loading texture: signet/or.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\top0.png
-(MOD-LOADER) Loading a texture signet\top0.png
-(TEXTURES) Loading texture: signet/top0.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\top1.png
-(MOD-LOADER) Loading a texture signet\top1.png
-(TEXTURES) Loading texture: signet/top1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\torch0.png
-(MOD-LOADER) Loading a texture signet\torch0.png
-(TEXTURES) Loading texture: signet/torch0.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\torch1.png
-(MOD-LOADER) Loading a texture signet\torch1.png
-(TEXTURES) Loading texture: signet/torch1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\xnor.png
-(MOD-LOADER) Loading a texture signet\xnor.png
-(TEXTURES) Loading texture: signet/xnor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\signet\xor.png
-(MOD-LOADER) Loading a texture signet\xor.png
-(TEXTURES) Loading texture: signet/xor.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\special
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\special\invalid.png
-(MOD-LOADER) Loading a texture special\invalid.png
-(TEXTURES) Loading texture: special/invalid.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\spider.png
-(MOD-LOADER) Loading a texture spider.png
-(TEXTURES) Loading texture: spider.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\stn
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\access.png
-(MOD-LOADER) Loading a texture stn\access.png
-(TEXTURES) Loading texture: stn/access.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\accessu.png
-(MOD-LOADER) Loading a texture stn\accessu.png
-(TEXTURES) Loading texture: stn/accessu.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\attachment_export.png
-(MOD-LOADER) Loading a texture stn\attachment_export.png
-(TEXTURES) Loading texture: stn/attachment_export.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\attachment_import.png
-(MOD-LOADER) Loading a texture stn\attachment_import.png
-(TEXTURES) Loading texture: stn/attachment_import.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\attachment_processor.png
-(MOD-LOADER) Loading a texture stn\attachment_processor.png
-(TEXTURES) Loading texture: stn/attachment_processor.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\attachment_products.png
-(MOD-LOADER) Loading a texture stn\attachment_products.png
-(TEXTURES) Loading texture: stn/attachment_products.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\attachment_storage.png
-(MOD-LOADER) Loading a texture stn\attachment_storage.png
-(TEXTURES) Loading texture: stn/attachment_storage.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\cable core.png
-(MOD-LOADER) Loading a texture stn\cable core.png
-(TEXTURES) Loading texture: stn/cable core.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\cable leg.png
-(MOD-LOADER) Loading a texture stn\cable leg.png
-(TEXTURES) Loading texture: stn/cable leg.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\cable.png
-(MOD-LOADER) Loading a texture stn\cable.png
-(TEXTURES) Loading texture: stn/cable.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\cabler.png
-(MOD-LOADER) Loading a texture stn\cabler.png
-(TEXTURES) Loading texture: stn/cabler.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\capoff.png
-(MOD-LOADER) Loading a texture stn\capoff.png
-(TEXTURES) Loading texture: stn/capoff.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\exporter.png
-(MOD-LOADER) Loading a texture stn\exporter.png
-(TEXTURES) Loading texture: stn/exporter.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\fw.png
-(MOD-LOADER) Loading a texture stn\fw.png
-(TEXTURES) Loading texture: stn/fw.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\importer.png
-(MOD-LOADER) Loading a texture stn\importer.png
-(TEXTURES) Loading texture: stn/importer.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\processhelper.png
-(MOD-LOADER) Loading a texture stn\processhelper.png
-(TEXTURES) Loading texture: stn/processhelper.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\reset.png
-(MOD-LOADER) Loading a texture stn\reset.png
-(TEXTURES) Loading texture: stn/reset.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\storage.png
-(MOD-LOADER) Loading a texture stn\storage.png
-(TEXTURES) Loading texture: stn/storage.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stn\terminal.png
-(MOD-LOADER) Loading a texture stn\terminal.png
-(TEXTURES) Loading texture: stn/terminal.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\stone.png
-(MOD-LOADER) Loading a texture stone.png
-(TEXTURES) Loading texture: stone.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\textedit.png
-(MOD-LOADER) Loading a texture textedit.png
-(TEXTURES) Loading texture: textedit.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\tool
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\tool\normal.png
-(MOD-LOADER) Loading a texture tool\normal.png
-(TEXTURES) Loading texture: tool/normal.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\tool\paint.png
-(MOD-LOADER) Loading a texture tool\paint.png
-(TEXTURES) Loading texture: tool/paint.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\tool\wrench.png
-(MOD-LOADER) Loading a texture tool\wrench.png
-(TEXTURES) Loading texture: tool/wrench.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\tools.png
-(MOD-LOADER) Loading a texture tools.png
-(TEXTURES) Loading texture: tools.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\UAvsRU.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/aim.png
+(MOD-LOADER) Loading a texture aim.png
+(TEXTURES) Loading texture: aim.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/UAvsRU.png
 (MOD-LOADER) Loading a texture UAvsRU.png
 (TEXTURES) Loading texture: UAvsRU.png
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\textures\UIs
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\UIs\blue signpost.png
-(MOD-LOADER) Loading a texture UIs\blue signpost.png
-(TEXTURES) Loading texture: UIs/blue signpost.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\UIs\dropoff.png
-(MOD-LOADER) Loading a texture UIs\dropoff.png
-(TEXTURES) Loading texture: UIs/dropoff.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\UIs\green signpost.png
-(MOD-LOADER) Loading a texture UIs\green signpost.png
-(TEXTURES) Loading texture: UIs/green signpost.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\UIs\orange signpost.png
-(MOD-LOADER) Loading a texture UIs\orange signpost.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/player
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/player/Machinius The Engineer.png
+(MOD-LOADER) Loading a texture player/Machinius The Engineer.png
+(TEXTURES) Loading texture: player/Machinius The Engineer.png
+(TEXTURE ATLAS) Size: 512*256
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/player/pchar1.png
+(MOD-LOADER) Loading a texture player/pchar1.png
+(TEXTURES) Loading texture: player/pchar1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/player/pchar2.png
+(MOD-LOADER) Loading a texture player/pchar2.png
+(TEXTURES) Loading texture: player/pchar2.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/player/pchar.png
+(MOD-LOADER) Loading a texture player/pchar.png
+(TEXTURES) Loading texture: player/pchar.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/block
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/block/message.png
+(MOD-LOADER) Loading a texture block/message.png
+(TEXTURES) Loading texture: block/message.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/block/gravel.png
+(MOD-LOADER) Loading a texture block/gravel.png
+(TEXTURES) Loading texture: block/gravel.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/block/coal crop.png
+(MOD-LOADER) Loading a texture block/coal crop.png
+(TEXTURES) Loading texture: block/coal crop.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/block/clay.png
+(MOD-LOADER) Loading a texture block/clay.png
+(TEXTURES) Loading texture: block/clay.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/block/block.png
+(MOD-LOADER) Loading a texture block/block.png
+(TEXTURES) Loading texture: block/block.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/block/framesolid.png
+(MOD-LOADER) Loading a texture block/framesolid.png
+(TEXTURES) Loading texture: block/framesolid.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/block/frame.png
+(MOD-LOADER) Loading a texture block/frame.png
+(TEXTURES) Loading texture: block/frame.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/block/coal ore.png
+(MOD-LOADER) Loading a texture block/coal ore.png
+(TEXTURES) Loading texture: block/coal ore.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/block/ore overlay.png
+(MOD-LOADER) Loading a texture block/ore overlay.png
+(TEXTURES) Loading texture: block/ore overlay.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/block/tree.png
+(MOD-LOADER) Loading a texture block/tree.png
+(TEXTURES) Loading texture: block/tree.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/block/leaves.png
+(MOD-LOADER) Loading a texture block/leaves.png
+(TEXTURES) Loading texture: block/leaves.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/block/metal.png
+(MOD-LOADER) Loading a texture block/metal.png
+(TEXTURES) Loading texture: block/metal.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/block/cropfield.png
+(MOD-LOADER) Loading a texture block/cropfield.png
+(TEXTURES) Loading texture: block/cropfield.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/block/sand.png
+(MOD-LOADER) Loading a texture block/sand.png
+(TEXTURES) Loading texture: block/sand.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/hoover.png
+(MOD-LOADER) Loading a texture hoover.png
+(TEXTURES) Loading texture: hoover.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/dollar.png
+(MOD-LOADER) Loading a texture dollar.png
+(TEXTURES) Loading texture: dollar.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/UIs
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/UIs/orange signpost.png
+(MOD-LOADER) Loading a texture UIs/orange signpost.png
 (TEXTURES) Loading texture: UIs/orange signpost.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\UIs\red signpost.png
-(MOD-LOADER) Loading a texture UIs\red signpost.png
-(TEXTURES) Loading texture: UIs/red signpost.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\UIs\web.png
-(MOD-LOADER) Loading a texture UIs\web.png
-(TEXTURES) Loading texture: UIs/web.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\UIs\yellow signpost.png
-(MOD-LOADER) Loading a texture UIs\yellow signpost.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/UIs/dropoff.png
+(MOD-LOADER) Loading a texture UIs/dropoff.png
+(TEXTURES) Loading texture: UIs/dropoff.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/UIs/yellow signpost.png
+(MOD-LOADER) Loading a texture UIs/yellow signpost.png
 (TEXTURES) Loading texture: UIs/yellow signpost.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\ukraine.png
-(MOD-LOADER) Loading a texture ukraine.png
-(TEXTURES) Loading texture: ukraine.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\ukraine1.png
-(MOD-LOADER) Loading a texture ukraine1.png
-(TEXTURES) Loading texture: ukraine1.png
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\textures\visuals.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/UIs/green signpost.png
+(MOD-LOADER) Loading a texture UIs/green signpost.png
+(TEXTURES) Loading texture: UIs/green signpost.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/UIs/red signpost.png
+(MOD-LOADER) Loading a texture UIs/red signpost.png
+(TEXTURES) Loading texture: UIs/red signpost.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/UIs/blue signpost.png
+(MOD-LOADER) Loading a texture UIs/blue signpost.png
+(TEXTURES) Loading texture: UIs/blue signpost.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/UIs/web.png
+(MOD-LOADER) Loading a texture UIs/web.png
+(TEXTURES) Loading texture: UIs/web.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/example rotation.png
+(MOD-LOADER) Loading a texture example rotation.png
+(TEXTURES) Loading texture: example rotation.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/liquid
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/liquid/water.png
+(MOD-LOADER) Loading a texture liquid/water.png
+(TEXTURES) Loading texture: liquid/water.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/liquid/steam.png
+(MOD-LOADER) Loading a texture liquid/steam.png
+(TEXTURES) Loading texture: liquid/steam.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/liquid/plasma.png
+(MOD-LOADER) Loading a texture liquid/plasma.png
+(TEXTURES) Loading texture: liquid/plasma.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/liquid/alcohol.png
+(MOD-LOADER) Loading a texture liquid/alcohol.png
+(TEXTURES) Loading texture: liquid/alcohol.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/liquid/lava.png
+(MOD-LOADER) Loading a texture liquid/lava.png
+(TEXTURES) Loading texture: liquid/lava.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/liquid/smoke.png
+(MOD-LOADER) Loading a texture liquid/smoke.png
+(TEXTURES) Loading texture: liquid/smoke.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/liquid/oxygen.png
+(MOD-LOADER) Loading a texture liquid/oxygen.png
+(TEXTURES) Loading texture: liquid/oxygen.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/liquid/fuel.png
+(MOD-LOADER) Loading a texture liquid/fuel.png
+(TEXTURES) Loading texture: liquid/fuel.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/special
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/special/invalid.png
+(MOD-LOADER) Loading a texture special/invalid.png
+(TEXTURES) Loading texture: special/invalid.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/visuals.png
 (MOD-LOADER) Loading a texture visuals.png
 (TEXTURES) Loading texture: visuals.png
-(MOD-LOADER) Walking: C:\Users\oskar\git\MultiMachineBuilder\texpacks
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\texpacks
-(MOD-LOADER) Path length check fail: 48 out of 47
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/Machines.tsx
+(MOD-LOADER) Loading a texture Machines.tsx
+(TEXTURES) Failed to load Machines.tsx
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/spider.png
+(MOD-LOADER) Loading a texture spider.png
+(TEXTURES) Loading texture: spider.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/printer.png
+(MOD-LOADER) Loading a texture printer.png
+(TEXTURES) Loading texture: printer.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/tools.png
+(MOD-LOADER) Loading a texture tools.png
+(TEXTURES) Loading texture: tools.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/grass.png
+(MOD-LOADER) Loading a texture grass.png
+(TEXTURES) Loading texture: grass.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/dropItems.png
+(MOD-LOADER) Loading a texture dropItems.png
+(TEXTURES) Loading texture: dropItems.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/nums.png
+(MOD-LOADER) Loading a texture nums.png
+(TEXTURES) Loading texture: nums.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/alcohol
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/alcohol/beer empty.png
+(MOD-LOADER) Loading a texture alcohol/beer empty.png
+(TEXTURES) Loading texture: alcohol/beer empty.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/alcohol/beer.png
+(MOD-LOADER) Loading a texture alcohol/beer.png
+(TEXTURES) Loading texture: alcohol/beer.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/signet
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/maj.png
+(MOD-LOADER) Loading a texture signet/maj.png
+(TEXTURES) Loading texture: signet/maj.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/nmaj.png
+(MOD-LOADER) Loading a texture signet/nmaj.png
+(TEXTURES) Loading texture: signet/nmaj.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/or.png
+(MOD-LOADER) Loading a texture signet/or.png
+(TEXTURES) Loading texture: signet/or.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/nor.png
+(MOD-LOADER) Loading a texture signet/nor.png
+(TEXTURES) Loading texture: signet/nor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/nand.png
+(MOD-LOADER) Loading a texture signet/nand.png
+(TEXTURES) Loading texture: signet/nand.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/top0.png
+(MOD-LOADER) Loading a texture signet/top0.png
+(TEXTURES) Loading texture: signet/top0.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/and.png
+(MOD-LOADER) Loading a texture signet/and.png
+(TEXTURES) Loading texture: signet/and.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/torch1.png
+(MOD-LOADER) Loading a texture signet/torch1.png
+(TEXTURES) Loading texture: signet/torch1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/torch0.png
+(MOD-LOADER) Loading a texture signet/torch0.png
+(TEXTURES) Loading texture: signet/torch0.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/xor.png
+(MOD-LOADER) Loading a texture signet/xor.png
+(TEXTURES) Loading texture: signet/xor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/horizontal0.png
+(MOD-LOADER) Loading a texture signet/horizontal0.png
+(TEXTURES) Loading texture: signet/horizontal0.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/horizontal1.png
+(MOD-LOADER) Loading a texture signet/horizontal1.png
+(TEXTURES) Loading texture: signet/horizontal1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/bend1.png
+(MOD-LOADER) Loading a texture signet/bend1.png
+(TEXTURES) Loading texture: signet/bend1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/xnor.png
+(MOD-LOADER) Loading a texture signet/xnor.png
+(TEXTURES) Loading texture: signet/xnor.png
+(TEXTURE ATLAS) Size: 512*512
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/cross0.png
+(MOD-LOADER) Loading a texture signet/cross0.png
+(TEXTURES) Loading texture: signet/cross0.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/cross1.png
+(MOD-LOADER) Loading a texture signet/cross1.png
+(TEXTURES) Loading texture: signet/cross1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/end1.png
+(MOD-LOADER) Loading a texture signet/end1.png
+(TEXTURES) Loading texture: signet/end1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/bend0.png
+(MOD-LOADER) Loading a texture signet/bend0.png
+(TEXTURES) Loading texture: signet/bend0.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/top1.png
+(MOD-LOADER) Loading a texture signet/top1.png
+(TEXTURES) Loading texture: signet/top1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/signet/end0.png
+(MOD-LOADER) Loading a texture signet/end0.png
+(TEXTURES) Loading texture: signet/end0.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/arrow.png
+(MOD-LOADER) Loading a texture arrow.png
+(TEXTURES) Loading texture: arrow.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/Blocks.tsx
+(MOD-LOADER) Loading a texture Blocks.tsx
+(TEXTURES) Failed to load Blocks.tsx
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/parts
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/parts/pump.png
+(MOD-LOADER) Loading a texture parts/pump.png
+(TEXTURES) Loading texture: parts/pump.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/parts/motor.png
+(MOD-LOADER) Loading a texture parts/motor.png
+(TEXTURES) Loading texture: parts/motor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/parts/conveyor.png
+(MOD-LOADER) Loading a texture parts/conveyor.png
+(TEXTURES) Loading texture: parts/conveyor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/parts/robot.png
+(MOD-LOADER) Loading a texture parts/robot.png
+(TEXTURES) Loading texture: parts/robot.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/machine
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/preceiver.png
+(MOD-LOADER) Loading a texture machine/preceiver.png
+(TEXTURES) Loading texture: machine/preceiver.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/smelter inert 2.png
+(MOD-LOADER) Loading a texture machine/smelter inert 2.png
+(TEXTURES) Loading texture: machine/smelter inert 2.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/imoverR.png
+(MOD-LOADER) Loading a texture machine/imoverR.png
+(TEXTURES) Loading texture: machine/imoverR.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/ppipe adjoin2.png
+(MOD-LOADER) Loading a texture machine/ppipe adjoin2.png
+(TEXTURES) Loading texture: machine/ppipe adjoin2.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/assembly 5.png
+(MOD-LOADER) Loading a texture machine/assembly 5.png
+(TEXTURES) Loading texture: machine/assembly 5.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/ivacuum.png
+(MOD-LOADER) Loading a texture machine/ivacuum.png
+(TEXTURES) Loading texture: machine/ivacuum.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/3-way merger.png
+(MOD-LOADER) Loading a texture machine/3-way merger.png
+(TEXTURES) Loading texture: machine/3-way merger.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/ppipe turn.png
+(MOD-LOADER) Loading a texture machine/ppipe turn.png
+(TEXTURES) Loading texture: machine/ppipe turn.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/pipe elbow.png
+(MOD-LOADER) Loading a texture machine/pipe elbow.png
+(TEXTURES) Loading texture: machine/pipe elbow.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/chest2.png
+(MOD-LOADER) Loading a texture machine/chest2.png
+(TEXTURES) Loading texture: machine/chest2.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/alloyer.png
+(MOD-LOADER) Loading a texture machine/alloyer.png
+(TEXTURES) Loading texture: machine/alloyer.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/ptower.png
+(MOD-LOADER) Loading a texture machine/ptower.png
+(TEXTURES) Loading texture: machine/ptower.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/filter pipe.png
+(MOD-LOADER) Loading a texture machine/filter pipe.png
+(TEXTURES) Loading texture: machine/filter pipe.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/esmelter.png
+(MOD-LOADER) Loading a texture machine/esmelter.png
+(TEXTURES) Loading texture: machine/esmelter.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/chest8.png
+(MOD-LOADER) Loading a texture machine/chest8.png
+(TEXTURES) Loading texture: machine/chest8.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/block break interface.png
+(MOD-LOADER) Loading a texture machine/block break interface.png
+(TEXTURES) Loading texture: machine/block break interface.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/ifilter.png
+(MOD-LOADER) Loading a texture machine/ifilter.png
+(TEXTURES) Loading texture: machine/ifilter.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/assembly 1.png
+(MOD-LOADER) Loading a texture machine/assembly 1.png
+(TEXTURES) Loading texture: machine/assembly 1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/battery.png
+(MOD-LOADER) Loading a texture machine/battery.png
+(TEXTURES) Loading texture: machine/battery.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/transformer.png
+(MOD-LOADER) Loading a texture machine/transformer.png
+(TEXTURES) Loading texture: machine/transformer.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/speaker 3.png
+(MOD-LOADER) Loading a texture machine/speaker 3.png
+(TEXTURES) Loading texture: machine/speaker 3.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/chest7.png
+(MOD-LOADER) Loading a texture machine/chest7.png
+(TEXTURES) Loading texture: machine/chest7.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/cyclic assembler.png
+(MOD-LOADER) Loading a texture machine/cyclic assembler.png
+(TEXTURES) Loading texture: machine/cyclic assembler.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/ifilter elbow.png
+(MOD-LOADER) Loading a texture machine/ifilter elbow.png
+(TEXTURES) Loading texture: machine/ifilter elbow.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/ppipe biturn.png
+(MOD-LOADER) Loading a texture machine/ppipe biturn.png
+(TEXTURES) Loading texture: machine/ppipe biturn.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/chest3.png
+(MOD-LOADER) Loading a texture machine/chest3.png
+(TEXTURES) Loading texture: machine/chest3.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/batbuf.png
+(MOD-LOADER) Loading a texture machine/batbuf.png
+(TEXTURES) Loading texture: machine/batbuf.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/smelter inert.png
+(MOD-LOADER) Loading a texture machine/smelter inert.png
+(TEXTURES) Loading texture: machine/smelter inert.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/block place interface.png
+(MOD-LOADER) Loading a texture machine/block place interface.png
+(TEXTURES) Loading texture: machine/block place interface.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/pipe wye.png
+(MOD-LOADER) Loading a texture machine/pipe wye.png
+(TEXTURES) Loading texture: machine/pipe wye.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/ppipe adjoin.png
+(MOD-LOADER) Loading a texture machine/ppipe adjoin.png
+(TEXTURES) Loading texture: machine/ppipe adjoin.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/pulverizer.png
+(MOD-LOADER) Loading a texture machine/pulverizer.png
+(TEXTURES) Loading texture: machine/pulverizer.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/transferrer.png
+(MOD-LOADER) Loading a texture machine/transferrer.png
+(TEXTURES) Loading texture: machine/transferrer.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/chest9.png
+(MOD-LOADER) Loading a texture machine/chest9.png
+(TEXTURES) Loading texture: machine/chest9.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/pickaxe workbench.png
+(MOD-LOADER) Loading a texture machine/pickaxe workbench.png
+(TEXTURES) Loading texture: machine/pickaxe workbench.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/pipe oneway.png
+(MOD-LOADER) Loading a texture machine/pipe oneway.png
+(TEXTURES) Loading texture: machine/pipe oneway.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/speaker 1.png
+(MOD-LOADER) Loading a texture machine/speaker 1.png
+(TEXTURES) Loading texture: machine/speaker 1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/chest5.png
+(MOD-LOADER) Loading a texture machine/chest5.png
+(TEXTURES) Loading texture: machine/chest5.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/pipe 4-section.png
+(MOD-LOADER) Loading a texture machine/pipe 4-section.png
+(TEXTURES) Loading texture: machine/pipe 4-section.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/sucker.png
+(MOD-LOADER) Loading a texture machine/sucker.png
+(TEXTURES) Loading texture: machine/sucker.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/imover.png
+(MOD-LOADER) Loading a texture machine/imover.png
+(TEXTURES) Loading texture: machine/imover.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/CW.png
+(MOD-LOADER) Loading a texture machine/CW.png
+(TEXTURES) Loading texture: machine/CW.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/chest1.png
+(MOD-LOADER) Loading a texture machine/chest1.png
+(TEXTURES) Loading texture: machine/chest1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/splitter.png
+(MOD-LOADER) Loading a texture machine/splitter.png
+(TEXTURES) Loading texture: machine/splitter.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/digger.png
+(MOD-LOADER) Loading a texture machine/digger.png
+(TEXTURES) Loading texture: machine/digger.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/claw.png
+(MOD-LOADER) Loading a texture machine/claw.png
+(TEXTURES) Loading texture: machine/claw.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/item package.png
+(MOD-LOADER) Loading a texture machine/item package.png
+(TEXTURES) Loading texture: machine/item package.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/coalgen.png
+(MOD-LOADER) Loading a texture machine/coalgen.png
+(TEXTURES) Loading texture: machine/coalgen.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/pipe biturn.png
+(MOD-LOADER) Loading a texture machine/pipe biturn.png
+(TEXTURES) Loading texture: machine/pipe biturn.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/chest middle.png
+(MOD-LOADER) Loading a texture machine/chest middle.png
+(TEXTURES) Loading texture: machine/chest middle.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/pipe 3-section.png
+(MOD-LOADER) Loading a texture machine/pipe 3-section.png
+(TEXTURES) Loading texture: machine/pipe 3-section.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/turbogen.png
+(MOD-LOADER) Loading a texture machine/turbogen.png
+(TEXTURES) Loading texture: machine/turbogen.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/brewery.png
+(MOD-LOADER) Loading a texture machine/brewery.png
+(TEXTURES) Loading texture: machine/brewery.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/pipe merge right.png
+(MOD-LOADER) Loading a texture machine/pipe merge right.png
+(TEXTURES) Loading texture: machine/pipe merge right.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/filter shunt pipe.png
+(MOD-LOADER) Loading a texture machine/filter shunt pipe.png
+(TEXTURES) Loading texture: machine/filter shunt pipe.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/cluster mill.png
+(MOD-LOADER) Loading a texture machine/cluster mill.png
+(TEXTURES) Loading texture: machine/cluster mill.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/pipe exit.png
+(MOD-LOADER) Loading a texture machine/pipe exit.png
+(TEXTURES) Loading texture: machine/pipe exit.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/chest6.png
+(MOD-LOADER) Loading a texture machine/chest6.png
+(TEXTURES) Loading texture: machine/chest6.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/imover intersected.png
+(MOD-LOADER) Loading a texture machine/imover intersected.png
+(TEXTURES) Loading texture: machine/imover intersected.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/pipe straight.png
+(MOD-LOADER) Loading a texture machine/pipe straight.png
+(TEXTURES) Loading texture: machine/pipe straight.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/pipe merge left.png
+(MOD-LOADER) Loading a texture machine/pipe merge left.png
+(TEXTURES) Loading texture: machine/pipe merge left.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/assembly 2.png
+(MOD-LOADER) Loading a texture machine/assembly 2.png
+(TEXTURES) Loading texture: machine/assembly 2.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/wiremill.png
+(MOD-LOADER) Loading a texture machine/wiremill.png
+(TEXTURES) Loading texture: machine/wiremill.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/machinemaker.png
+(MOD-LOADER) Loading a texture machine/machinemaker.png
+(TEXTURES) Loading texture: machine/machinemaker.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/switch turn.png
+(MOD-LOADER) Loading a texture machine/switch turn.png
+(TEXTURES) Loading texture: machine/switch turn.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/chest4.png
+(MOD-LOADER) Loading a texture machine/chest4.png
+(TEXTURES) Loading texture: machine/chest4.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/splicer.png
+(MOD-LOADER) Loading a texture machine/splicer.png
+(TEXTURES) Loading texture: machine/splicer.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/electrosmelter.png
+(MOD-LOADER) Loading a texture machine/electrosmelter.png
+(TEXTURES) Loading texture: machine/electrosmelter.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/AutoCrafter 1.png
+(MOD-LOADER) Loading a texture machine/AutoCrafter 1.png
+(TEXTURES) Loading texture: machine/AutoCrafter 1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/dropped item interface.png
+(MOD-LOADER) Loading a texture machine/dropped item interface.png
+(TEXTURES) Loading texture: machine/dropped item interface.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/ppipe straight.png
+(MOD-LOADER) Loading a texture machine/ppipe straight.png
+(TEXTURES) Loading texture: machine/ppipe straight.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/block BP interface.png
+(MOD-LOADER) Loading a texture machine/block BP interface.png
+(TEXTURES) Loading texture: machine/block BP interface.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/imoverL.png
+(MOD-LOADER) Loading a texture machine/imoverL.png
+(TEXTURES) Loading texture: machine/imoverL.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/hopper.png
+(MOD-LOADER) Loading a texture machine/hopper.png
+(TEXTURES) Loading texture: machine/hopper.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/filter pipe 2.png
+(MOD-LOADER) Loading a texture machine/filter pipe 2.png
+(TEXTURES) Loading texture: machine/filter pipe 2.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/assembly 6.png
+(MOD-LOADER) Loading a texture machine/assembly 6.png
+(TEXTURES) Loading texture: machine/assembly 6.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/assembly 4.png
+(MOD-LOADER) Loading a texture machine/assembly 4.png
+(TEXTURES) Loading texture: machine/assembly 4.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/machine/power
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/huge wire.png
+(MOD-LOADER) Loading a texture machine/power/huge wire.png
+(TEXTURES) Loading texture: machine/power/huge wire.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/small connector.png
+(MOD-LOADER) Loading a texture machine/power/small connector.png
+(TEXTURES) Loading texture: machine/power/small connector.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/large wire.png
+(MOD-LOADER) Loading a texture machine/power/large wire.png
+(TEXTURES) Loading texture: machine/power/large wire.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/medium wire.png
+(MOD-LOADER) Loading a texture machine/power/medium wire.png
+(TEXTURES) Loading texture: machine/power/medium wire.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/infinity.png
+(MOD-LOADER) Loading a texture machine/power/infinity.png
+(TEXTURES) Loading texture: machine/power/infinity.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/tiny center.png
+(MOD-LOADER) Loading a texture machine/power/tiny center.png
+(TEXTURES) Loading texture: machine/power/tiny center.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/large center.png
+(MOD-LOADER) Loading a texture machine/power/large center.png
+(TEXTURES) Loading texture: machine/power/large center.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/load.png
+(MOD-LOADER) Loading a texture machine/power/load.png
+(TEXTURES) Loading texture: machine/power/load.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/small wire.png
+(MOD-LOADER) Loading a texture machine/power/small wire.png
+(TEXTURES) Loading texture: machine/power/small wire.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/huge connector.png
+(MOD-LOADER) Loading a texture machine/power/huge connector.png
+(TEXTURES) Loading texture: machine/power/huge connector.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/small center.png
+(MOD-LOADER) Loading a texture machine/power/small center.png
+(TEXTURES) Loading texture: machine/power/small center.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/pmeter.png
+(MOD-LOADER) Loading a texture machine/power/pmeter.png
+(TEXTURES) Loading texture: machine/power/pmeter.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/tiny connector.png
+(MOD-LOADER) Loading a texture machine/power/tiny connector.png
+(TEXTURES) Loading texture: machine/power/tiny connector.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/huge center.png
+(MOD-LOADER) Loading a texture machine/power/huge center.png
+(TEXTURES) Loading texture: machine/power/huge center.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/nuke reactor.png
+(MOD-LOADER) Loading a texture machine/power/nuke reactor.png
+(TEXTURES) Loading texture: machine/power/nuke reactor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/large connector.png
+(MOD-LOADER) Loading a texture machine/power/large connector.png
+(TEXTURES) Loading texture: machine/power/large connector.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/medium center.png
+(MOD-LOADER) Loading a texture machine/power/medium center.png
+(TEXTURES) Loading texture: machine/power/medium center.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/tiny wire.png
+(MOD-LOADER) Loading a texture machine/power/tiny wire.png
+(TEXTURES) Loading texture: machine/power/tiny wire.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/power/medium connector.png
+(MOD-LOADER) Loading a texture machine/power/medium connector.png
+(TEXTURES) Loading texture: machine/power/medium connector.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/assembly 3.png
+(MOD-LOADER) Loading a texture machine/assembly 3.png
+(TEXTURES) Loading texture: machine/assembly 3.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/sinterer.png
+(MOD-LOADER) Loading a texture machine/sinterer.png
+(TEXTURES) Loading texture: machine/sinterer.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/switch straight.png
+(MOD-LOADER) Loading a texture machine/switch straight.png
+(TEXTURES) Loading texture: machine/switch straight.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/speaker 2.png
+(MOD-LOADER) Loading a texture machine/speaker 2.png
+(TEXTURES) Loading texture: machine/speaker 2.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/inscriber.png
+(MOD-LOADER) Loading a texture machine/inscriber.png
+(TEXTURES) Loading texture: machine/inscriber.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/hops.png
+(MOD-LOADER) Loading a texture machine/hops.png
+(TEXTURES) Loading texture: machine/hops.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/vacuum.png
+(MOD-LOADER) Loading a texture machine/vacuum.png
+(TEXTURES) Loading texture: machine/vacuum.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/quarry.png
+(MOD-LOADER) Loading a texture machine/quarry.png
+(TEXTURES) Loading texture: machine/quarry.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/smelter active.png
+(MOD-LOADER) Loading a texture machine/smelter active.png
+(TEXTURES) Loading texture: machine/smelter active.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/3-way shuffler.png
+(MOD-LOADER) Loading a texture machine/3-way shuffler.png
+(TEXTURES) Loading texture: machine/3-way shuffler.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/water well.png
+(MOD-LOADER) Loading a texture machine/water well.png
+(TEXTURES) Loading texture: machine/water well.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/CCW.png
+(MOD-LOADER) Loading a texture machine/CCW.png
+(TEXTURES) Loading texture: machine/CCW.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/ppipe cross.png
+(MOD-LOADER) Loading a texture machine/ppipe cross.png
+(TEXTURES) Loading texture: machine/ppipe cross.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/pipe bridged.png
+(MOD-LOADER) Loading a texture machine/pipe bridged.png
+(TEXTURES) Loading texture: machine/pipe bridged.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/extruder.png
+(MOD-LOADER) Loading a texture machine/extruder.png
+(TEXTURES) Loading texture: machine/extruder.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/placer.png
+(MOD-LOADER) Loading a texture machine/placer.png
+(TEXTURES) Loading texture: machine/placer.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/item
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv subsD.png
+(MOD-LOADER) Loading a texture item/adv subsD.png
+(TEXTURES) Loading texture: item/adv subsD.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/IC.png
+(MOD-LOADER) Loading a texture item/IC.png
+(TEXTURES) Loading texture: item/IC.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/filter type.png
+(MOD-LOADER) Loading a texture item/filter type.png
+(TEXTURES) Loading texture: item/filter type.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/circuit 7.png
+(MOD-LOADER) Loading a texture item/circuit 7.png
+(TEXTURES) Loading texture: item/circuit 7.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv subcA.png
+(MOD-LOADER) Loading a texture item/adv subcA.png
+(TEXTURES) Loading texture: item/adv subcA.png
+(TEXTURE ATLAS) Size: 1024*512
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/minidust.png
+(MOD-LOADER) Loading a texture item/minidust.png
+(TEXTURES) Loading texture: item/minidust.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/stainless wire.png
+(MOD-LOADER) Loading a texture item/stainless wire.png
+(TEXTURES) Loading texture: item/stainless wire.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/substrate 1.png
+(MOD-LOADER) Loading a texture item/substrate 1.png
+(TEXTURES) Loading texture: item/substrate 1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv ic.png
+(MOD-LOADER) Loading a texture item/adv ic.png
+(TEXTURES) Loading texture: item/adv ic.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/rod.png
+(MOD-LOADER) Loading a texture item/rod.png
+(TEXTURES) Loading texture: item/rod.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/ldust.png
+(MOD-LOADER) Loading a texture item/ldust.png
+(TEXTURES) Loading texture: item/ldust.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/substrate 7.png
+(MOD-LOADER) Loading a texture item/substrate 7.png
+(TEXTURES) Loading texture: item/substrate 7.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv diode.png
+(MOD-LOADER) Loading a texture item/adv diode.png
+(TEXTURES) Loading texture: item/adv diode.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/diode.png
+(MOD-LOADER) Loading a texture item/diode.png
+(TEXTURES) Loading texture: item/diode.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/rudimentary pick.png
+(MOD-LOADER) Loading a texture item/rudimentary pick.png
+(TEXTURES) Loading texture: item/rudimentary pick.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/rudimentary pick head.png
+(MOD-LOADER) Loading a texture item/rudimentary pick head.png
+(TEXTURES) Loading texture: item/rudimentary pick head.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv gpu.png
+(MOD-LOADER) Loading a texture item/adv gpu.png
+(TEXTURES) Loading texture: item/adv gpu.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/lisc.png
+(MOD-LOADER) Loading a texture item/lisc.png
+(TEXTURES) Loading texture: item/lisc.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/filter entry.png
+(MOD-LOADER) Loading a texture item/filter entry.png
+(TEXTURES) Loading texture: item/filter entry.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv bhole.png
+(MOD-LOADER) Loading a texture item/adv bhole.png
+(TEXTURES) Loading texture: item/adv bhole.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv resistor.png
+(MOD-LOADER) Loading a texture item/adv resistor.png
+(TEXTURES) Loading texture: item/adv resistor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/steel rod.png
+(MOD-LOADER) Loading a texture item/steel rod.png
+(TEXTURES) Loading texture: item/steel rod.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/smalldust.png
+(MOD-LOADER) Loading a texture item/smalldust.png
+(TEXTURES) Loading texture: item/smalldust.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/package code.png
+(MOD-LOADER) Loading a texture item/package code.png
+(TEXTURES) Loading texture: item/package code.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/copper pick.png
+(MOD-LOADER) Loading a texture item/copper pick.png
+(TEXTURES) Loading texture: item/copper pick.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv subcB.png
+(MOD-LOADER) Loading a texture item/adv subcB.png
+(TEXTURES) Loading texture: item/adv subcB.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/list.png
+(MOD-LOADER) Loading a texture item/list.png
+(TEXTURES) Loading texture: item/list.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/speed.png
+(MOD-LOADER) Loading a texture item/speed.png
+(TEXTURES) Loading texture: item/speed.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/fragment.png
+(MOD-LOADER) Loading a texture item/fragment.png
+(TEXTURES) Loading texture: item/fragment.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv subsB.png
+(MOD-LOADER) Loading a texture item/adv subsB.png
+(TEXTURES) Loading texture: item/adv subsB.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/battery.png
+(MOD-LOADER) Loading a texture item/battery.png
+(TEXTURES) Loading texture: item/battery.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/diamond.png
+(MOD-LOADER) Loading a texture item/diamond.png
+(TEXTURES) Loading texture: item/diamond.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/component code.png
+(MOD-LOADER) Loading a texture item/component code.png
+(TEXTURES) Loading texture: item/component code.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/glass panel.png
+(MOD-LOADER) Loading a texture item/glass panel.png
+(TEXTURES) Loading texture: item/glass panel.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv brain.png
+(MOD-LOADER) Loading a texture item/adv brain.png
+(TEXTURES) Loading texture: item/adv brain.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/gear.png
+(MOD-LOADER) Loading a texture item/gear.png
+(TEXTURES) Loading texture: item/gear.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/circuit 6.png
+(MOD-LOADER) Loading a texture item/circuit 6.png
+(TEXTURES) Loading texture: item/circuit 6.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/circuit 8.png
+(MOD-LOADER) Loading a texture item/circuit 8.png
+(TEXTURES) Loading texture: item/circuit 8.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/circuit 5.png
+(MOD-LOADER) Loading a texture item/circuit 5.png
+(TEXTURES) Loading texture: item/circuit 5.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/package.png
+(MOD-LOADER) Loading a texture item/package.png
+(TEXTURES) Loading texture: item/package.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/substrate 0.png
+(MOD-LOADER) Loading a texture item/substrate 0.png
+(TEXTURES) Loading texture: item/substrate 0.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv ram.png
+(MOD-LOADER) Loading a texture item/adv ram.png
+(TEXTURES) Loading texture: item/adv ram.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv transistor.png
+(MOD-LOADER) Loading a texture item/adv transistor.png
+(TEXTURES) Loading texture: item/adv transistor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv inductor.png
+(MOD-LOADER) Loading a texture item/adv inductor.png
+(TEXTURES) Loading texture: item/adv inductor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/substrate 5.png
+(MOD-LOADER) Loading a texture item/substrate 5.png
+(TEXTURES) Loading texture: item/substrate 5.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv neuron.png
+(MOD-LOADER) Loading a texture item/adv neuron.png
+(TEXTURES) Loading texture: item/adv neuron.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/wood pick head.png
+(MOD-LOADER) Loading a texture item/wood pick head.png
+(TEXTURES) Loading texture: item/wood pick head.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/foil.png
+(MOD-LOADER) Loading a texture item/foil.png
+(TEXTURES) Loading texture: item/foil.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/sheet.png
+(MOD-LOADER) Loading a texture item/sheet.png
+(TEXTURES) Loading texture: item/sheet.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/silicon ingot.png
+(MOD-LOADER) Loading a texture item/silicon ingot.png
+(TEXTURES) Loading texture: item/silicon ingot.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/stencil.png
+(MOD-LOADER) Loading a texture item/stencil.png
+(TEXTURES) Loading texture: item/stencil.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/wire spool.png
+(MOD-LOADER) Loading a texture item/wire spool.png
+(TEXTURES) Loading texture: item/wire spool.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/stone pick head.png
+(MOD-LOADER) Loading a texture item/stone pick head.png
+(TEXTURES) Loading texture: item/stone pick head.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv rtx.png
+(MOD-LOADER) Loading a texture item/adv rtx.png
+(TEXTURES) Loading texture: item/adv rtx.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/resistor.png
+(MOD-LOADER) Loading a texture item/resistor.png
+(TEXTURES) Loading texture: item/resistor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/glass.png
+(MOD-LOADER) Loading a texture item/glass.png
+(TEXTURES) Loading texture: item/glass.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/battery 5.png
+(MOD-LOADER) Loading a texture item/battery 5.png
+(TEXTURES) Loading texture: item/battery 5.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/substrate 4.png
+(MOD-LOADER) Loading a texture item/substrate 4.png
+(TEXTURES) Loading texture: item/substrate 4.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv neuristor.png
+(MOD-LOADER) Loading a texture item/adv neuristor.png
+(TEXTURES) Loading texture: item/adv neuristor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/substrate 6.png
+(MOD-LOADER) Loading a texture item/substrate 6.png
+(TEXTURES) Loading texture: item/substrate 6.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/substrate 3.png
+(MOD-LOADER) Loading a texture item/substrate 3.png
+(TEXTURES) Loading texture: item/substrate 3.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv cpu.png
+(MOD-LOADER) Loading a texture item/adv cpu.png
+(TEXTURES) Loading texture: item/adv cpu.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/coolant rod.png
+(MOD-LOADER) Loading a texture item/coolant rod.png
+(TEXTURES) Loading texture: item/coolant rod.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/depleted rod.png
+(MOD-LOADER) Loading a texture item/depleted rod.png
+(TEXTURES) Loading texture: item/depleted rod.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/inductor.png
+(MOD-LOADER) Loading a texture item/inductor.png
+(TEXTURES) Loading texture: item/inductor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/depleted uranium ingot.png
+(MOD-LOADER) Loading a texture item/depleted uranium ingot.png
+(TEXTURES) Loading texture: item/depleted uranium ingot.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/wood pick.png
+(MOD-LOADER) Loading a texture item/wood pick.png
+(TEXTURES) Loading texture: item/wood pick.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/heat rod.png
+(MOD-LOADER) Loading a texture item/heat rod.png
+(TEXTURES) Loading texture: item/heat rod.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/copper pick head.png
+(MOD-LOADER) Loading a texture item/copper pick head.png
+(TEXTURES) Loading texture: item/copper pick head.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/resistor array.png
+(MOD-LOADER) Loading a texture item/resistor array.png
+(TEXTURES) Loading texture: item/resistor array.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/battery 1.png
+(MOD-LOADER) Loading a texture item/battery 1.png
+(TEXTURES) Loading texture: item/battery 1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/seeds.png
+(MOD-LOADER) Loading a texture item/seeds.png
+(TEXTURES) Loading texture: item/seeds.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/circuit 9.png
+(MOD-LOADER) Loading a texture item/circuit 9.png
+(TEXTURES) Loading texture: item/circuit 9.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/battery 2.png
+(MOD-LOADER) Loading a texture item/battery 2.png
+(TEXTURES) Loading texture: item/battery 2.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/transistor.png
+(MOD-LOADER) Loading a texture item/transistor.png
+(TEXTURES) Loading texture: item/transistor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/frame 1.png
+(MOD-LOADER) Loading a texture item/frame 1.png
+(TEXTURES) Loading texture: item/frame 1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv ai.png
+(MOD-LOADER) Loading a texture item/adv ai.png
+(TEXTURES) Loading texture: item/adv ai.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/silicon nugget.png
+(MOD-LOADER) Loading a texture item/silicon nugget.png
+(TEXTURES) Loading texture: item/silicon nugget.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/gem.png
+(MOD-LOADER) Loading a texture item/gem.png
+(TEXTURES) Loading texture: item/gem.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/yeast.png
+(MOD-LOADER) Loading a texture item/yeast.png
+(TEXTURES) Loading texture: item/yeast.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv subcC.png
+(MOD-LOADER) Loading a texture item/adv subcC.png
+(TEXTURES) Loading texture: item/adv subcC.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/stainless pick.png
+(MOD-LOADER) Loading a texture item/stainless pick.png
+(TEXTURES) Loading texture: item/stainless pick.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/substrate 2.png
+(MOD-LOADER) Loading a texture item/substrate 2.png
+(TEXTURES) Loading texture: item/substrate 2.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/quantum pick.png
+(MOD-LOADER) Loading a texture item/quantum pick.png
+(TEXTURES) Loading texture: item/quantum pick.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/uranium rod.png
+(MOD-LOADER) Loading a texture item/uranium rod.png
+(TEXTURES) Loading texture: item/uranium rod.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/substrate 9.png
+(MOD-LOADER) Loading a texture item/substrate 9.png
+(TEXTURES) Loading texture: item/substrate 9.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/rubber.png
+(MOD-LOADER) Loading a texture item/rubber.png
+(TEXTURES) Loading texture: item/rubber.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/battery 6.png
+(MOD-LOADER) Loading a texture item/battery 6.png
+(TEXTURES) Loading texture: item/battery 6.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/dust.png
+(MOD-LOADER) Loading a texture item/dust.png
+(TEXTURES) Loading texture: item/dust.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/battery 3.png
+(MOD-LOADER) Loading a texture item/battery 3.png
+(TEXTURES) Loading texture: item/battery 3.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv brainbreaker.png
+(MOD-LOADER) Loading a texture item/adv brainbreaker.png
+(TEXTURES) Loading texture: item/adv brainbreaker.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/capacitor.png
+(MOD-LOADER) Loading a texture item/capacitor.png
+(TEXTURES) Loading texture: item/capacitor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/battery 7.png
+(MOD-LOADER) Loading a texture item/battery 7.png
+(TEXTURES) Loading texture: item/battery 7.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/circuit 2.png
+(MOD-LOADER) Loading a texture item/circuit 2.png
+(TEXTURES) Loading texture: item/circuit 2.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/steel pick head.png
+(MOD-LOADER) Loading a texture item/steel pick head.png
+(TEXTURES) Loading texture: item/steel pick head.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv wafer.png
+(MOD-LOADER) Loading a texture item/adv wafer.png
+(TEXTURES) Loading texture: item/adv wafer.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/shard.png
+(MOD-LOADER) Loading a texture item/shard.png
+(TEXTURES) Loading texture: item/shard.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/circuit 3.png
+(MOD-LOADER) Loading a texture item/circuit 3.png
+(TEXTURES) Loading texture: item/circuit 3.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/slist.png
+(MOD-LOADER) Loading a texture item/slist.png
+(TEXTURES) Loading texture: item/slist.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv capacitor.png
+(MOD-LOADER) Loading a texture item/adv capacitor.png
+(TEXTURES) Loading texture: item/adv capacitor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv subsA.png
+(MOD-LOADER) Loading a texture item/adv subsA.png
+(TEXTURES) Loading texture: item/adv subsA.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/wire overlay.png
+(MOD-LOADER) Loading a texture item/wire overlay.png
+(TEXTURES) Loading texture: item/wire overlay.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/circuit 4.png
+(MOD-LOADER) Loading a texture item/circuit 4.png
+(TEXTURES) Loading texture: item/circuit 4.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/circuit 1.png
+(MOD-LOADER) Loading a texture item/circuit 1.png
+(TEXTURES) Loading texture: item/circuit 1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/battery 4.png
+(MOD-LOADER) Loading a texture item/battery 4.png
+(TEXTURES) Loading texture: item/battery 4.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv subcD.png
+(MOD-LOADER) Loading a texture item/adv subcD.png
+(TEXTURES) Loading texture: item/adv subcD.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv subsC.png
+(MOD-LOADER) Loading a texture item/adv subsC.png
+(TEXTURES) Loading texture: item/adv subsC.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/nugget.png
+(MOD-LOADER) Loading a texture item/nugget.png
+(TEXTURES) Loading texture: item/nugget.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv ceritor.png
+(MOD-LOADER) Loading a texture item/adv ceritor.png
+(TEXTURES) Loading texture: item/adv ceritor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/paper.png
+(MOD-LOADER) Loading a texture item/paper.png
+(TEXTURES) Loading texture: item/paper.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/substrate 8.png
+(MOD-LOADER) Loading a texture item/substrate 8.png
+(TEXTURES) Loading texture: item/substrate 8.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/hops.png
+(MOD-LOADER) Loading a texture item/hops.png
+(TEXTURES) Loading texture: item/hops.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/resrcbed.png
+(MOD-LOADER) Loading a texture item/resrcbed.png
+(TEXTURES) Loading texture: item/resrcbed.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/ring 1.png
+(MOD-LOADER) Loading a texture item/ring 1.png
+(TEXTURES) Loading texture: item/ring 1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/circuit 0.png
+(MOD-LOADER) Loading a texture item/circuit 0.png
+(TEXTURES) Loading texture: item/circuit 0.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/panel.png
+(MOD-LOADER) Loading a texture item/panel.png
+(TEXTURES) Loading texture: item/panel.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/cluster.png
+(MOD-LOADER) Loading a texture item/cluster.png
+(TEXTURES) Loading texture: item/cluster.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/stainless pick head.png
+(MOD-LOADER) Loading a texture item/stainless pick head.png
+(TEXTURES) Loading texture: item/stainless pick head.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/control rod.png
+(MOD-LOADER) Loading a texture item/control rod.png
+(TEXTURES) Loading texture: item/control rod.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv die.png
+(MOD-LOADER) Loading a texture item/adv die.png
+(TEXTURES) Loading texture: item/adv die.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/ingot.png
+(MOD-LOADER) Loading a texture item/ingot.png
+(TEXTURES) Loading texture: item/ingot.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/pipeline.png
+(MOD-LOADER) Loading a texture pipeline.png
+(TEXTURES) Loading texture: pipeline.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/ukraine.png
+(MOD-LOADER) Loading a texture ukraine.png
+(TEXTURES) Loading texture: ukraine.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/container.png
+(MOD-LOADER) Loading a texture container.png
+(TEXTURES) Loading texture: container.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/modules
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/modules/chest_body.png
+(MOD-LOADER) Loading a texture modules/chest_body.png
+(TEXTURES) Loading texture: modules/chest_body.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/modules/chest_unique.png
+(MOD-LOADER) Loading a texture modules/chest_unique.png
+(TEXTURES) Loading texture: modules/chest_unique.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/modules/chest_std.png
+(MOD-LOADER) Loading a texture modules/chest_std.png
+(TEXTURES) Loading texture: modules/chest_std.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/modules/chest_single.png
+(MOD-LOADER) Loading a texture modules/chest_single.png
+(TEXTURES) Loading texture: modules/chest_single.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/modules/mover.png
+(MOD-LOADER) Loading a texture modules/mover.png
+(TEXTURES) Loading texture: modules/mover.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/modules/chest_drawer.png
+(MOD-LOADER) Loading a texture modules/chest_drawer.png
+(TEXTURES) Loading texture: modules/chest_drawer.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/modules/plug.png
+(MOD-LOADER) Loading a texture modules/plug.png
+(TEXTURES) Loading texture: modules/plug.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/place.png
+(MOD-LOADER) Loading a texture place.png
+(TEXTURES) Loading texture: place.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/logic
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/drandom.png
+(MOD-LOADER) Loading a texture logic/drandom.png
+(TEXTURES) Loading texture: logic/drandom.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/toggle off.png
+(MOD-LOADER) Loading a texture logic/toggle off.png
+(TEXTURES) Loading texture: logic/toggle off.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/off.png
+(MOD-LOADER) Loading a texture logic/off.png
+(TEXTURES) Loading texture: logic/off.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/wire.png
+(MOD-LOADER) Loading a texture logic/wire.png
+(TEXTURES) Loading texture: logic/wire.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/wire cross.png
+(MOD-LOADER) Loading a texture logic/wire cross.png
+(TEXTURES) Loading texture: logic/wire cross.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/XOR.png
+(MOD-LOADER) Loading a texture logic/XOR.png
+(TEXTURES) Loading texture: logic/XOR.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/randomctrl.png
+(MOD-LOADER) Loading a texture logic/randomctrl.png
+(TEXTURES) Loading texture: logic/randomctrl.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/random.png
+(MOD-LOADER) Loading a texture logic/random.png
+(TEXTURES) Loading texture: logic/random.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/wire  45deg.png
+(MOD-LOADER) Loading a texture logic/wire  45deg.png
+(TEXTURES) Loading texture: logic/wire  45deg.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/wire bend.png
+(MOD-LOADER) Loading a texture logic/wire bend.png
+(TEXTURES) Loading texture: logic/wire bend.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/wire diagonal.png
+(MOD-LOADER) Loading a texture logic/wire diagonal.png
+(TEXTURES) Loading texture: logic/wire diagonal.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/toggle on.png
+(MOD-LOADER) Loading a texture logic/toggle on.png
+(TEXTURES) Loading texture: logic/toggle on.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/button.png
+(MOD-LOADER) Loading a texture logic/button.png
+(TEXTURES) Loading texture: logic/button.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/YES.png
+(MOD-LOADER) Loading a texture logic/YES.png
+(TEXTURES) Loading texture: logic/YES.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/wire 2bend.png
+(MOD-LOADER) Loading a texture logic/wire 2bend.png
+(TEXTURES) Loading texture: logic/wire 2bend.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/wire diagonal cross.png
+(MOD-LOADER) Loading a texture logic/wire diagonal cross.png
+(TEXTURES) Loading texture: logic/wire diagonal cross.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/off lamp.png
+(MOD-LOADER) Loading a texture logic/off lamp.png
+(TEXTURES) Loading texture: logic/off lamp.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/head.png
+(MOD-LOADER) Loading a texture logic/head.png
+(TEXTURES) Loading texture: logic/head.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/8-bit wires.png
+(MOD-LOADER) Loading a texture logic/8-bit wires.png
+(TEXTURES) Loading texture: logic/8-bit wires.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/on.png
+(MOD-LOADER) Loading a texture logic/on.png
+(TEXTURES) Loading texture: logic/on.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/on lamp.png
+(MOD-LOADER) Loading a texture logic/on lamp.png
+(TEXTURES) Loading texture: logic/on lamp.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/logic gates.png
+(MOD-LOADER) Loading a texture logic/logic gates.png
+(TEXTURES) Loading texture: logic/logic gates.png
+(TEXTURE ATLAS) Size: 1024*1024
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/tail.png
+(MOD-LOADER) Loading a texture logic/tail.png
+(TEXTURES) Loading texture: logic/tail.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/OR.png
+(MOD-LOADER) Loading a texture logic/OR.png
+(TEXTURES) Loading texture: logic/OR.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/urandom.png
+(MOD-LOADER) Loading a texture logic/urandom.png
+(TEXTURES) Loading texture: logic/urandom.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/loadsensor.png
+(MOD-LOADER) Loading a texture logic/loadsensor.png
+(TEXTURES) Loading texture: logic/loadsensor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/LNetwork attachment.png
+(MOD-LOADER) Loading a texture logic/LNetwork attachment.png
+(TEXTURES) Loading texture: logic/LNetwork attachment.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/NOT.png
+(MOD-LOADER) Loading a texture logic/NOT.png
+(TEXTURES) Loading texture: logic/NOT.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/AND.png
+(MOD-LOADER) Loading a texture logic/AND.png
+(TEXTURES) Loading texture: logic/AND.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/true.png
+(MOD-LOADER) Loading a texture logic/true.png
+(TEXTURES) Loading texture: logic/true.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/logic/toggle inert.png
+(MOD-LOADER) Loading a texture logic/toggle inert.png
+(TEXTURES) Loading texture: logic/toggle inert.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/stn
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/reset.png
+(MOD-LOADER) Loading a texture stn/reset.png
+(TEXTURES) Loading texture: stn/reset.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/cable leg.png
+(MOD-LOADER) Loading a texture stn/cable leg.png
+(TEXTURES) Loading texture: stn/cable leg.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/attachment_products.png
+(MOD-LOADER) Loading a texture stn/attachment_products.png
+(TEXTURES) Loading texture: stn/attachment_products.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/cable core.png
+(MOD-LOADER) Loading a texture stn/cable core.png
+(TEXTURES) Loading texture: stn/cable core.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/cable.png
+(MOD-LOADER) Loading a texture stn/cable.png
+(TEXTURES) Loading texture: stn/cable.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/attachment_import.png
+(MOD-LOADER) Loading a texture stn/attachment_import.png
+(TEXTURES) Loading texture: stn/attachment_import.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/cabler.png
+(MOD-LOADER) Loading a texture stn/cabler.png
+(TEXTURES) Loading texture: stn/cabler.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/access.png
+(MOD-LOADER) Loading a texture stn/access.png
+(TEXTURES) Loading texture: stn/access.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/storage.png
+(MOD-LOADER) Loading a texture stn/storage.png
+(TEXTURES) Loading texture: stn/storage.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/terminal.png
+(MOD-LOADER) Loading a texture stn/terminal.png
+(TEXTURES) Loading texture: stn/terminal.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/exporter.png
+(MOD-LOADER) Loading a texture stn/exporter.png
+(TEXTURES) Loading texture: stn/exporter.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/processhelper.png
+(MOD-LOADER) Loading a texture stn/processhelper.png
+(TEXTURES) Loading texture: stn/processhelper.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/accessu.png
+(MOD-LOADER) Loading a texture stn/accessu.png
+(TEXTURES) Loading texture: stn/accessu.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/capoff.png
+(MOD-LOADER) Loading a texture stn/capoff.png
+(TEXTURES) Loading texture: stn/capoff.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/importer.png
+(MOD-LOADER) Loading a texture stn/importer.png
+(TEXTURES) Loading texture: stn/importer.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/attachment_storage.png
+(MOD-LOADER) Loading a texture stn/attachment_storage.png
+(TEXTURES) Loading texture: stn/attachment_storage.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/attachment_export.png
+(MOD-LOADER) Loading a texture stn/attachment_export.png
+(TEXTURES) Loading texture: stn/attachment_export.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/attachment_processor.png
+(MOD-LOADER) Loading a texture stn/attachment_processor.png
+(TEXTURES) Loading texture: stn/attachment_processor.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stn/fw.png
+(MOD-LOADER) Loading a texture stn/fw.png
+(TEXTURES) Loading texture: stn/fw.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/base
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/base/rod.png
+(MOD-LOADER) Loading a texture base/rod.png
+(TEXTURES) Loading texture: base/rod.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/base/gear.png
+(MOD-LOADER) Loading a texture base/gear.png
+(TEXTURES) Loading texture: base/gear.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/base/block base.png
+(MOD-LOADER) Loading a texture base/block base.png
+(TEXTURES) Loading texture: base/block base.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/base/axe.png
+(MOD-LOADER) Loading a texture base/axe.png
+(TEXTURES) Loading texture: base/axe.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/base/Texture Generator.ods
+(MOD-LOADER) Loading a texture base/Texture Generator.ods
+(TEXTURES) Failed to load base/Texture Generator.ods
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/base/ore base.png
+(MOD-LOADER) Loading a texture base/ore base.png
+(TEXTURES) Loading texture: base/ore base.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/base/dust.png
+(MOD-LOADER) Loading a texture base/dust.png
+(TEXTURES) Loading texture: base/dust.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/base/pickaxe.png
+(MOD-LOADER) Loading a texture base/pickaxe.png
+(TEXTURES) Loading texture: base/pickaxe.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/base/ingot.png
+(MOD-LOADER) Loading a texture base/ingot.png
+(TEXTURES) Loading texture: base/ingot.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/brush.png
+(MOD-LOADER) Loading a texture brush.png
+(TEXTURES) Loading texture: brush.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/plank.png
+(MOD-LOADER) Loading a texture plank.png
+(TEXTURES) Loading texture: plank.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/bug.png
+(MOD-LOADER) Loading a texture bug.png
+(TEXTURES) Loading texture: bug.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/stone.png
+(MOD-LOADER) Loading a texture stone.png
+(TEXTURES) Loading texture: stone.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/log.png
+(MOD-LOADER) Loading a texture log.png
+(TEXTURES) Loading texture: log.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/textedit.png
+(MOD-LOADER) Loading a texture textedit.png
+(TEXTURES) Loading texture: textedit.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/tool
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/tool/wrench.png
+(MOD-LOADER) Loading a texture tool/wrench.png
+(TEXTURES) Loading texture: tool/wrench.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/tool/normal.png
+(MOD-LOADER) Loading a texture tool/normal.png
+(TEXTURES) Loading texture: tool/normal.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/tool/paint.png
+(MOD-LOADER) Loading a texture tool/paint.png
+(TEXTURES) Loading texture: tool/paint.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/plain.png
+(MOD-LOADER) Loading a texture plain.png
+(TEXTURES) Loading texture: plain.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/copy.png
+(MOD-LOADER) Loading a texture copy.png
+(TEXTURES) Loading texture: copy.png
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/textures/highway
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/highway/symexit.png
+(MOD-LOADER) Loading a texture highway/symexit.png
+(TEXTURES) Loading texture: highway/symexit.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/highway/hway sig.png
+(MOD-LOADER) Loading a texture highway/hway sig.png
+(TEXTURES) Loading texture: highway/hway sig.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/highway/reduce.png
+(MOD-LOADER) Loading a texture highway/reduce.png
+(TEXTURES) Loading texture: highway/reduce.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/highway/widen.png
+(MOD-LOADER) Loading a texture highway/widen.png
+(TEXTURES) Loading texture: highway/widen.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/highway/hway sign.png
+(MOD-LOADER) Loading a texture highway/hway sign.png
+(TEXTURES) Loading texture: highway/hway sign.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/highway/symmerge.png
+(MOD-LOADER) Loading a texture highway/symmerge.png
+(TEXTURES) Loading texture: highway/symmerge.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/highway/merge.png
+(MOD-LOADER) Loading a texture highway/merge.png
+(TEXTURES) Loading texture: highway/merge.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/highway/exit.png
+(MOD-LOADER) Loading a texture highway/exit.png
+(TEXTURES) Loading texture: highway/exit.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/crafting.png
+(MOD-LOADER) Loading a texture crafting.png
+(TEXTURES) Loading texture: crafting.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/chuckBlock.png
+(MOD-LOADER) Loading a texture chuckBlock.png
+(TEXTURES) Loading texture: chuckBlock.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/ukraine1.png
+(MOD-LOADER) Loading a texture ukraine1.png
+(TEXTURES) Loading texture: ukraine1.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/mine.png
+(MOD-LOADER) Loading a texture mine.png
+(TEXTURES) Loading texture: mine.png
+(MOD-LOADER) Walking: /home/oskar/git/MultiMachineBuilder/texpacks
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/texpacks
+(MOD-LOADER) Path length check fail: 45 out of 44
 (MAIN) State: Loading sounds
-(MOD-LOADER) Walking: C:\Users\oskar\git\MultiMachineBuilder\sound
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\sound
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\220203__gameaudio__casual-death-loose.wav
-(MOD-LOADER) Loading a sound 220203__gameaudio__casual-death-loose.wav
-(SOUNDS) Loading a sound: 220203__gameaudio__casual-death-loose.wav
-(SOUNDS) Loading a sound: 220203__gameaudio__casual-death-loose.wav
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\377157__pfranzen__smashing-head-on-wall.ogg
-(MOD-LOADER) Loading a sound 377157__pfranzen__smashing-head-on-wall.ogg
-(SOUNDS) Loading a sound: 377157__pfranzen__smashing-head-on-wall.ogg
-(SOUNDS) Loading a sound: 377157__pfranzen__smashing-head-on-wall.ogg
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\COPYRIGHT.txt
-(MOD-LOADER) Loading a sound COPYRIGHT.txt
-(MOD-LOADER) Failed to load a sound COPYRIGHT.txt
-(MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
-	at mmb.engine.sound.Sounds.load(Sounds.java:122)
-	at mmb.GameLoader.lambda$2(GameLoader.java:133)
-	at mmb.GameLoader.walkDirectory(GameLoader.java:360)
-	at mmb.GameLoader.walkDirectory(GameLoader.java:366)
-	at mmb.GameLoader.walkDirectory(GameLoader.java:348)
-	at mmb.GameLoader.modloading(GameLoader.java:130)
-	at mmb.Main.lambda$1(Main.java:142)
-	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:771)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:722)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:716)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:741)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
-	at java.desktop/javax.sound.sampled.AudioSystem.getAudioInputStream(AudioSystem.java:1014)
-	at mmb.engine.sound.Sounds.load(Sounds.java:95)
-	... 19 more
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\error.mp3
+(MOD-LOADER) Walking: /home/oskar/git/MultiMachineBuilder/sound
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/sound
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/sound/error.mp3
 (MOD-LOADER) Loading a sound error.mp3
 (MOD-LOADER) Failed to load a sound error.mp3
 (MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
@@ -1929,14 +1893,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at mmb.GameLoader.walkDirectory(GameLoader.java:366)
 	at mmb.GameLoader.walkDirectory(GameLoader.java:348)
 	at mmb.GameLoader.modloading(GameLoader.java:130)
-	at mmb.Main.lambda$1(Main.java:142)
+	at mmb.Main.lambda$1(Main.java:141)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:771)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:722)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:716)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
 	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:741)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
@@ -1947,14 +1911,50 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at java.desktop/javax.sound.sampled.AudioSystem.getAudioInputStream(AudioSystem.java:1014)
 	at mmb.engine.sound.Sounds.load(Sounds.java:95)
 	... 19 more
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\minecxraft.wav
-(MOD-LOADER) Loading a sound minecxraft.wav
-(SOUNDS) Loading a sound: minecxraft.wav
-(SOUNDS) Loading a sound: minecxraft.wav
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\sound\warn .wav
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/sound/COPYRIGHT.txt
+(MOD-LOADER) Loading a sound COPYRIGHT.txt
+(MOD-LOADER) Failed to load a sound COPYRIGHT.txt
+(MOD-LOADER) java.io.IOException: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
+	at mmb.engine.sound.Sounds.load(Sounds.java:122)
+	at mmb.GameLoader.lambda$2(GameLoader.java:133)
+	at mmb.GameLoader.walkDirectory(GameLoader.java:360)
+	at mmb.GameLoader.walkDirectory(GameLoader.java:366)
+	at mmb.GameLoader.walkDirectory(GameLoader.java:348)
+	at mmb.GameLoader.modloading(GameLoader.java:130)
+	at mmb.Main.lambda$1(Main.java:141)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsupported format
+	at java.desktop/javax.sound.sampled.AudioSystem.getAudioInputStream(AudioSystem.java:1014)
+	at mmb.engine.sound.Sounds.load(Sounds.java:95)
+	... 19 more
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/sound/220203__gameaudio__casual-death-loose.wav
+(MOD-LOADER) Loading a sound 220203__gameaudio__casual-death-loose.wav
+(SOUNDS) Loading a sound: 220203__gameaudio__casual-death-loose.wav
+(SOUNDS) Loading a sound: 220203__gameaudio__casual-death-loose.wav
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/sound/377157__pfranzen__smashing-head-on-wall.ogg
+(MOD-LOADER) Loading a sound 377157__pfranzen__smashing-head-on-wall.ogg
+(SOUNDS) Loading a sound: 377157__pfranzen__smashing-head-on-wall.ogg
+(SOUNDS) Loading a sound: 377157__pfranzen__smashing-head-on-wall.ogg
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/sound/warn .wav
 (MOD-LOADER) Loading a sound warn .wav
 (SOUNDS) Loading a sound: warn .wav
 (SOUNDS) Loading a sound: warn .wav
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/sound/minecxraft.wav
+(MOD-LOADER) Loading a sound minecxraft.wav
+(SOUNDS) Loading a sound: minecxraft.wav
+(SOUNDS) Loading a sound: minecxraft.wav
 (MOD-LOADER) Sounds: [minecxraft.wav, 220203__gameaudio__casual-death-loose.wav, 377157__pfranzen__smashing-head-on-wall.ogg, warn .wav]
 (SETTINGS LIST) vvvv Resource bundle start mmb.content.agro.bundle vvv
 (SETTINGS LIST) seconds=seconds
@@ -8828,53 +8828,22 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (FullScreen) Setting up FullScreen
 (MAIN) State: Looking for mods
 (MOD-LOADER) Added missing mods directory
-(MOD-LOADER) Walking: C:\Users\oskar\git\MultiMachineBuilder\mods
-(MOD-LOADER) Directory: C:\Users\oskar\git\MultiMachineBuilder\mods
-(MOD-LOADER) File: C:\Users\oskar\git\MultiMachineBuilder\mods\HelloWorld 0.5.jar
-(MAIN) State: Found 2 mod files
-(MOD - HelloWorld 0.5.jar) Opening a modfile: C:\Users\oskar\git\MultiMachineBuilder\mods\HelloWorld 0.5.jar
-(MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file C:\Users\oskar\git\MultiMachineBuilder\OpenGL is over 20 times faster than AWT.jar
-(MOD - OpenGL is over 20 times faster than AWT.jar) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie można odnaleźć określonego pliku)
+(MOD-LOADER) Walking: /home/oskar/git/MultiMachineBuilder/mods
+(MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/mods
+(MAIN) State: Found 1 mod files
+(MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home/oskar/git/MultiMachineBuilder/OpenGL is over 20 times faster than AWT.jar
+(MOD - OpenGL is over 20 times faster than AWT.jar) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie ma takiego pliku ani katalogu)
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
 	at mmb.engine.files.LocalFile.getInputStream(LocalFile.java:45)
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-(MOD - HelloWorld 0.5.jar) entry: META-INF/MANIFEST.MF
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWMachine.class
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HWBlock.class
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/HelloWorld.class
-(MOD - HelloWorld 0.5.jar) entry: mmbmods/monniasza/helloworld/package-info.class
-(MOD - HelloWorld 0.5.jar) entry: textures/hw/mini rainbow.png
-(MOD - HelloWorld 0.5.jar) entry: textures/hw/notepad.png
-(MOD - HelloWorld 0.5.jar) entry: textures/hw/rainbow.png
-(MOD - HelloWorld 0.5.jar) entry: .project
-(MOD - HelloWorld 0.5.jar) entry: .classpath
-(MOD - HelloWorld 0.5.jar) entry: SyncToy_693d8211-d709-43cf-8e62-af73b7075c14.dat
-(MOD - HelloWorld 0.5.jar) entry: pom.xml
+	at java.base/java.lang.Thread.run(Thread.java:840)
 (MAIN) State: Mods - Preparation 0
-(MOD-LOADER) Mod class: mmbmods.monniasza.helloworld.package-info
-(MOD-LOADER) Mod class: mmbmods.monniasza.helloworld.HWBlock
-(MOD-LOADER) Mod class: mmbmods.monniasza.helloworld.HelloWorld
-(MOD-LOADER) Mod class: mmbmods.monniasza.helloworld.HWMachine
 (MAIN) State: Mods - Instantiation 0a
-(TEXTURES) Loading texture: hw/rainbow.png
-(HW) Hello, world!
 (MAIN) State: Mods - Phase 1
-(MOD-LOADER) Start 1st stage for Hello, world!
-(MOD-LOADER) End 1st stage for Hello, world!
 (MAIN) State: Mods - Phase 2
-(MOD-LOADER) Start 2nd stage for Hello, world!
-(ITEMS) Adding mmb.multimachine.hw.HelloWorldMachine with title hw.HelloWorldMachine and description:
- (no description)
-(TEXTURES) Loading texture: hw/mini rainbow.png
-(HW) Successfully created Rainbow Machine
-(TEXTURES) Loading texture: hw/notepad.png
-(ITEMS) Adding wireworld.hw with title Hello, world! and description:
- (no description)
-(MOD-LOADER) End 2nd stage for Hello, world!
 (ITEMS) Adding rawitem.pick.weak with title Very weak pickaxe (raw) and description:
  (no description)
 (ITEMS) Tagging ItemRaw Item Very weak pickaxe(pick.weak) with tool
@@ -8918,48 +8887,105 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
  (no description)
 (ITEMS) Tagging ItemRaw Item Simple Item Package(boxed.packItem) with raw
 (MAIN) State: Mods - Phase 3
-(MOD-LOADER) Start 3rd stage for Hello, world!
-(HW) Successfully created Rainbow Machine
-(ITEMS) Adding wireworld.hw with title Hello, world! and description:
- (no description)
-(MOD-LOADER) End 3rd stage for Hello, world!
-(MOD-LOADER) ===MOD INFORMATION FOR Hello, world!===
-(MOD-LOADER) Enabled
-(MOD-LOADER) RELEASED AT UNKNOWN DATE
-(MOD-LOADER) MADE BY Monniasza
-(MOD-LOADER) DESCRIPTION: Hello, World in Machine Builder
 (MOD-LOADER) HOORAY, IT'S OVER!
 (MAIN) Hello!
 (Main menu) MainMenu created
 (Main menu) Connecting to update server: https://github.com/MultiMachineBuilder/MultiMachineBuilder/blob/master/version.txt?raw=true
-(SELECT A SAVE) Found save: Agriculture test.mworld
-(SELECT A SAVE) Found save: Auto quarry.mworld
-(SELECT A SAVE) Found save: Block Clicking Claw.mworld
-(SELECT A SAVE) Found save: Distrib2.mworld
-(SELECT A SAVE) Found save: Distributor.mworld
-(SELECT A SAVE) Found save: Example generator setup.mworld
-(SELECT A SAVE) Found save: fuzz seed.mworld
-(SELECT A SAVE) Found save: main.mworld
-(SELECT A SAVE) Found save: README.mworld
 (SELECT A SAVE) Found save: Semi Auto Brewery.mworld
 (SELECT A SAVE) Found save: Sound ON startup.mworld
-(SELECT A SAVE) Found save: Surv2.mworld
-(SELECT A SAVE) Found save: test binder.mworld
-(SELECT A SAVE) Found save: Test BPI.mworld
-(SELECT A SAVE) Found save: Test digger.mworld
 (SELECT A SAVE) Found save: Test electricity.mworld
-(SELECT A SAVE) Found save: Test pipes.mworld
-(SELECT A SAVE) Found save: Test player.mworld
-(SELECT A SAVE) Found save: Test speaker.mworld
+(SELECT A SAVE) Found save: main.mworld
+(SELECT A SAVE) Found save: fuzz seed.mworld
+(SELECT A SAVE) Found save: Test digger.mworld
+(SELECT A SAVE) Found save: Example generator setup.mworld
+(SELECT A SAVE) Found save: Block Clicking Claw.mworld
 (SELECT A SAVE) Found save: Test STN.mworld
-(SELECT A SAVE) Found save: Test tube.mworld
+(SELECT A SAVE) Found save: Test speaker.mworld
+(SELECT A SAVE) Found save: Distributor.mworld
 (SELECT A SAVE) Found save: Test.mworld
-(SELECT A SAVE) Found save: The longest player pipe ever.mworld
+(SELECT A SAVE) Found save: Surv2.mworld
 (SELECT A SAVE) Found save: The smallest all in one quarry system.mworld
+(SELECT A SAVE) Found save: test binder.mworld
+(SELECT A SAVE) Found save: XiaomiADBFastbootTools.mworld
+(SELECT A SAVE) Found save: Distrib2.mworld
 (SELECT A SAVE) Found save: Trailer.mworld
-(SELECT A SAVE) Found 25 saves
+(SELECT A SAVE) Found save: Test tube.mworld
+(SELECT A SAVE) Found save: Test BPI.mworld
+(SELECT A SAVE) Found save: Test pipes.mworld
+(SELECT A SAVE) Found save: Auto quarry.mworld
+(SELECT A SAVE) Found save: The longest player pipe ever.mworld
+(SELECT A SAVE) Found save: README.mworld
+(SELECT A SAVE) Found save: Agriculture test.mworld
+(SELECT A SAVE) Found save: Test player.mworld
+(SELECT A SAVE) Found 26 saves
 (Main menu) Current version: 0.5.1
 (Main menu) You have the current version
+(WORLD TEST) 1760 items
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@271f880d
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(WORLD TEST) Number of zoom levels: 48
+(WORLD TEST) Scrollbar max: 57
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Parsed file
+(DATA LAYERS) Loading world data layer: STN
+(MAP anonymous) Became anonymous
+(SELECT A SAVE) Loaded
+(WORLD - IDLE) Exiting
+(WORLDS) Opening a new world
+(WORLD TEST) Exiting the world
+(WORLD - ) Saving main BlockMap
+(DATA LAYERS) Saving world data layer: STN
+(WORLD TEST) Saving the world
+(WORLD TEST) Saved the world
+(WORLD - main null) Exiting
+(MAP anonymous) Destroying
+(MAP anonymous) Shutdown
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
+(WORLD TEST) 1760 items
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@53bc83ce
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(WORLD TEST) Number of zoom levels: 48
+(WORLD TEST) Scrollbar max: 57
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Parsed file
+(ITEMS) Attempting to load a non-data item
+(DATA LAYERS) Loading world data layer: STN
+(ITEMS) Invalid item: Infinity
+(INVENTORIES) Unsupported null item
+(MAP anonymous) Became anonymous
+(SELECT A SAVE) Loaded
+(WORLD - IDLE) Exiting
+(WORLDS) Opening a new world
+(TOOL-STANDARD) Running BlockActivateListener for: [0,0]
+(TOOL-STANDARD) Running BlockActivateListener for: [0,0]
+(TOOL-STANDARD) Running BlockActivateListener for: [0,0]
+(TOOL-STANDARD) Running BlockActivateListener for: [0,0]
+(TOOL-STANDARD) Running BlockActivateListener for: [0,0]
+(TOOL-STANDARD) Running BlockActivateListener for: [0,0]
+(TOOL-STANDARD) Running BlockActivateListener for: [0,0]
+(TOOL-STANDARD) Running BlockActivateListener for: [0,0]
+(TOOL-STANDARD) Running BlockActivateListener for: [0,0]
+(SPEAKER GUI) Existing mode: ONCE_WHEN_POWERED
+(TOOL-STANDARD) Running BlockActivateListener for: [0,-1]
+(WORLD TEST) Exiting the world
+(WORLD - ) Saving main BlockMap
+(DATA LAYERS) Saving world data layer: STN
+(WORLD TEST) Saving the world
+(WORLD TEST) Saved the world
+(WORLD - main null) Exiting
+(MAP anonymous) Destroying
+(MAP anonymous) Shutdown
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
 (SETTINGS) Resetting a setting country with value US
 (SETTINGS) Resetting a setting sortItems with value true
 (SETTINGS) Resetting a setting dumpBundles with value true

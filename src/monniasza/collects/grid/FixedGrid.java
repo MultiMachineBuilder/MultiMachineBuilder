@@ -43,8 +43,10 @@ public class FixedGrid<T> implements Grid<T> {
 	}
 	
 	/**
+	 * Creates a new fixed-size grid
 	 * @param w width
 	 * @param h height
+	 * @throws NegativeArraySizeException when any dimension is negative
 	 */
 	public FixedGrid(int w, int h) {
 		arr = new Object[w][h];
@@ -62,6 +64,7 @@ public class FixedGrid<T> implements Grid<T> {
 	 * @param data data to be written
 	 * @throws NullPointerException if {@code data} is null
 	 * @throws IllegalArgumentException if {@code data}'s size is less than {@code w} × {@code h}
+	 * @throws NegativeArraySizeException when any dimension is negative
 	 */
 	@SafeVarargs
 	public FixedGrid(int w, int h, T... data) {
@@ -83,6 +86,7 @@ public class FixedGrid<T> implements Grid<T> {
 	 * @param data data to be written
 	 * @throws NullPointerException if {@code data} is null
 	 * @throws IllegalArgumentException if {@code data}'s size is less than {@code s}²
+	 * @throws NegativeArraySizeException when the dimension is negative
 	 */
 	@SafeVarargs
 	public FixedGrid(int s, T... data) {

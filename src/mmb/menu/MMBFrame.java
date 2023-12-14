@@ -40,25 +40,25 @@ public abstract class MMBFrame extends JFrame {
 	
 	protected MMBFrame() {
 		setJMenuBar(menuBar);
-		mnNewMenu = new JMenu($res("cgui-win"));
+		mnWindow = new JMenu($res("cgui-win"));
 		
 		//Report a bug
 		mnBug = new JMenuItem(GlobalSettings.$res("cgui-report"), new ImageIcon(BUG));
 		mnBug.setBackground(new Color(255, 255, 0));
-		mnNewMenu.add(mnBug);
+		mnWindow.add(mnBug);
 		mnBug.setModel(MenuHelper.btnmBug);
 		
 		//Full screen toggle
 		stngFullScreen = new BoundCheckBoxMenuItem($res("wgui-fulls"));
 		stngFullScreen.setBackground(new Color(192, 192, 192));
 		stngFullScreen.setVariable(FullScreen.isFullScreen);
-		mnNewMenu.add(stngFullScreen);
+		mnWindow.add(stngFullScreen);
 		
 		//To main menu
 		JMenuItem mntmMMenu = new JMenuItem($res("wgui-main"));
 		mntmMMenu.setBackground(Color.ORANGE);
 		mntmMMenu.addActionListener(e -> dispose());
-		mnNewMenu.add(mntmMMenu);
+		mnWindow.add(mntmMMenu);
 		//To desktop
 		JMenuItem mntmExitDesktop = new JMenuItem($res("wgui-dtp"));
 		mntmExitDesktop.setBackground(Color.RED);
@@ -66,7 +66,7 @@ public abstract class MMBFrame extends JFrame {
 			dispose();
 			System.exit(0);
 		});
-		mnNewMenu.add(mntmExitDesktop);
+		mnWindow.add(mntmExitDesktop);
 		
 		//Ukrainian flags
 		Icon ua0 = new ImageIcon(Textures.get("ukraine.png"));
@@ -74,7 +74,7 @@ public abstract class MMBFrame extends JFrame {
 		
 		//Donate to help Ukraine
 		JMenuItem btnUkraine = new JMenuItem($res("cgui-refugeedonate"));
-		mnNewMenu.add(btnUkraine);
+		mnWindow.add(btnUkraine);
 		btnUkraine.setIcon(ua0);
 		btnUkraine.addActionListener(e -> {
 			try {
@@ -86,7 +86,7 @@ public abstract class MMBFrame extends JFrame {
 		
 		//This button is for English speakers. It leads to a site for refugees.
 		JMenuItem btnRefugee = new JMenuItem($res("cgui-refugeehelp"));
-		mnNewMenu.add(btnRefugee);
+		mnWindow.add(btnRefugee);
 		btnRefugee.setIcon(ua1);
 		btnRefugee.addActionListener(e -> {
 			try {
@@ -98,7 +98,7 @@ public abstract class MMBFrame extends JFrame {
 		
 		//This button is for Ukrainian speakers. It means the same thing as the English one
 		JMenuItem btnRefugee1 = new JMenuItem(GlobalSettings.$res("ua-refugees"));
-		mnNewMenu.add(btnRefugee1);
+		mnWindow.add(btnRefugee1);
 		btnRefugee1.setIcon(ua1);
 		btnRefugee1.addActionListener(e -> {
 			try {
@@ -117,7 +117,7 @@ public abstract class MMBFrame extends JFrame {
 		menuBar.remove(comp);
 	}
 	@NN protected final JMenuBar menuBar = new JMenuBar();
-	@NN protected final JMenu mnNewMenu;
+	@NN protected final JMenu mnWindow;
 	private JMenuItem mnBug;
 	/** Donate to help Ukrainian refugees */
 	private static final String helpUA = "https://good.od.ua/en/stopwar";

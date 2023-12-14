@@ -163,7 +163,7 @@ public class Player implements Saver{
 		physics.onTick(world1, this, ctrlX, ctrlY);
 		double speedDiff = oldSpeed.distance(speed);
 		
-		//Play head smacked sound when deccelrating more than 36 km/h in one tick
+		//Play head smacked sound when deccelerating more than 36 km/h in one tick
 		if(speedDiff > 10) {
 			clip.setFramePosition(0);
 			clip.start();

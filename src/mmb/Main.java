@@ -55,7 +55,6 @@ public class Main extends JFrame {
 	/**
 	 * Crashes the game to the desktop
 	 * @param e throwable, which caused the crash
-	 * @throws SecurityException if run by a mod
 	 */
 	public static void crash(Throwable e) {
 		debug.stacktraceError(e, "GAME HAS CRASHED");
