@@ -7,7 +7,6 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -95,13 +94,12 @@ public class World implements Identifiable<String>, Indexable{
 	
 	//Naming
 	private String name;
-	/**
-	 * @return this world's name
-	 */
+	/** @return this world's name */
 	public String getName() {
 		return name;
 	}
 	/**
+	 * Renames the world
 	 * @param name new name
 	 */
 	public void setName(@Nil String name) {
@@ -170,7 +168,7 @@ public class World implements Identifiable<String>, Indexable{
 	
 	//Serialization
 	/**
-	 * Indicates a malformed world
+	 * Thrown when a malformed world is loaded
 	 * @author oskar
 	 */
 	public static class WorldLoadException extends RuntimeException{
@@ -451,7 +449,6 @@ public class World implements Identifiable<String>, Indexable{
 			debug.stacktraceError(e, "Interrupted!");
 			Thread.currentThread().interrupt();
 		}
-		//while(!underTick) {Thread.yield();}
 	}
 		
 	//Player actions
@@ -469,9 +466,7 @@ public class World implements Identifiable<String>, Indexable{
 		}
 		return result;
 	}
-	/**
-	 * The player object for this world
-	 */
+	/** The player object for this world */
 	@NN public final Player player = new Player(this);
 	
 	//Map proxy
@@ -485,9 +480,7 @@ public class World implements Identifiable<String>, Indexable{
 	
 	//Block entities
 	@NN Set<BlockEntity> _blockents = new HashSet<>();
-	/**
-	 * an unmodifiable {@link Set} of {@link BlockEntity}s on this {@code BlockMap}
-	 */
+	/** an unmodifiable {@link Set} of {@link BlockEntity}s on this {@code BlockMap} */
 	@NN public final Set<BlockEntity> blockents = Collections.unmodifiableSet(_blockents);
 	
 	//Block array
@@ -498,13 +491,13 @@ public class World implements Identifiable<String>, Indexable{
 	 * @param x X coordinate
 	 * @param y Y coordinate
 	 * @return a block at given location, or null if absent
-	 * @throws IndexOutOfBoundsException if the coordinates are out of bounds
 	 */
 	@NN public BlockEntry get(int x, int y) {
 		if(!inBounds(x, y)) return Blocks.blockVoid;
 		return entries.get(x-startX, y-startY);
 	}
 	/**
+	 * Gets block off a given location, in given direction
 	 * @param s side, from which to get
 	 * @param x X coordinate
 	 * @param y Y coordinate
@@ -548,7 +541,7 @@ public class World implements Identifiable<String>, Indexable{
 		return b;
 	}
 	/**
-	 * Places a block of given type
+	 * Places given block
 	 * @param b a block entry to place
 	 * @param x X coordinate
 	 * @param y Y coordinate

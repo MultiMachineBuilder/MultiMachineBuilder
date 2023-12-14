@@ -112,15 +112,11 @@ Titled{
 	public void windowClosed(WorldWindow window1, WorldFrame frame1) {
 		//to be implemented by its user
 	}
-	/**
-	 * Invoked when tool is selected
-	 */
+	/** Invoked when tool is selected */
 	public void selected() {
 		//to be implemented by its user
 	}
-	/**
-	 * Invoked when tool is deselected
-	 */
+	/** Invoked when tool is deselected */
 	public void deselected() {
 		//to be implemented by its user
 	}
