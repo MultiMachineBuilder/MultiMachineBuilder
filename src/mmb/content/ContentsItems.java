@@ -82,7 +82,15 @@ public class ContentsItems {
 	/** The most basic pickaxe available in the game */
 	@NN public static final PickaxeType pickWood = Pickaxe.create(100, 100, "item/wood pick.png", "#pick-wood", "pick.wood");
 	/** An improved pickaxe available later */
-	@NN public static final PickaxeType pickRudimentary = Pickaxe.create(50, 400, "item/rudimentary pick.png", "#pick-rud", "pick.rudimentary");
+	@NN public static final PickaxeType pickRudimentary = Pickaxe.create(50, 200, "item/rudimentary pick.png", "#pick-rud", "pick.rudimentary");
+	/** An improved pickaxe made of stone */
+	@NN public static final PickaxeType pickStone = Pickaxe.create(50, 150, "item/stone pick.png", "#pick-stone", "pick.stone");
+	/** A mid-tier pickaxe */
+	@NN public static final PickaxeType pickIron = Pickaxe.create(32, 250, "item/iron pick.png", "#pick-iron", "pick.iron");
+	/** An advanced pickaxe */
+	@NN public static final PickaxeType pickSteel = Pickaxe.create(20, 350, "item/steel pick.png", "#pick-steel", "pick.steel");
+	/** The definitive pickaxe */
+	@NN public static final PickaxeType pickStainless = Pickaxe.create(14, 600, "item/stainless pick.png", "#pick-stainless", "pick.stainless");
 	
 	/** Configure resizable machines (dropped item extractors and diggers)*/
 	@NN public static final Item configExtractors= new TooledItem(new ConfigureDroppedItemExtractors())
@@ -232,7 +240,7 @@ public class ContentsItems {
 		.finish("mmb.bucket");
 	
 	static {
-		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, bucket, configExtractors, aim);
+		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, pickStone, pickIron, pickSteel, pickStainless, bucket, configExtractors, aim);
 		Items.tagItems("craftcode", craftcodes);
 		Items.tagItems("agro", Agro.yeast, Agro.hops, Agro.seeds);
 		Items.tagItems("material-glass", glass, glassp);

@@ -551,6 +551,15 @@
   <tile id="184">
    <image width="32" height="32" source="textures/item/uranium nugget.png"/>
   </tile>
+  <tile id="185">
+   <image width="32" height="32" source="textures/item/stone pick.png"/>
+  </tile>
+  <tile id="186">
+   <image width="32" height="32" source="textures/item/iron pick.png"/>
+  </tile>
+  <tile id="187">
+   <image width="32" height="32" source="textures/item/steel pick.png"/>
+  </tile>
  </tileset>
  <layer id="1" name="Warstwa Kafelków 1" width="100" height="100">
   <data encoding="csv">

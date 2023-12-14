@@ -49,6 +49,7 @@ public class Pickaxe extends ItemEntityMutable {
 		copy.uses = uses;
 		return copy;
 	}
+	
 	@NN private final PickaxeType type;
 	@Override
 	public PickaxeType type() {
@@ -61,6 +62,7 @@ public class Pickaxe extends ItemEntityMutable {
 		if(data == null) return;
 		uses = data.asInt();
 	}
+	
 	@Override
 	public JsonNode save() {
 		return new IntNode(uses);
