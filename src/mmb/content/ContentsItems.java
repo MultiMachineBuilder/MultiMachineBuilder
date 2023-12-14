@@ -240,7 +240,7 @@ public class ContentsItems {
 		.finish("mmb.bucket");
 	
 	static {
-		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, bucket, configExtractors, aim);
+		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, pickStone, pickIron, pickSteel, pickStainless, bucket, configExtractors, aim);
 		Items.tagItems("craftcode", craftcodes);
 		Items.tagItems("agro", Agro.yeast, Agro.hops, Agro.seeds);
 		Items.tagItems("material-glass", glass, glassp);
