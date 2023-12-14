@@ -421,27 +421,27 @@ public class ContentsRecipes {
 				ItemRaw.make(pickStone), 1);
 		
 		crafting.addRecipe(new FixedGrid<>(3,
-				Materials.rudimentary.nugget,	Materials.rudimentary.base,		Materials.rudimentary.nugget,
-				null,							Materials.rudimentary.nugget,	null,
-				null,							Materials.rudimentary.nugget,	null),
+				Materials.rudimentary.nugget,	Materials.rudimentary.base,	Materials.rudimentary.nugget,
+				null,				Materials.rudimentary.nugget,	null,
+				null,				Materials.rudimentary.nugget,	null),
 				ItemRaw.make(pickRudimentary), 1);
 		
 		crafting.addRecipe(new FixedGrid<>(3,
-				Materials.iron.nugget,			Materials.iron.base,			Materials.iron.nugget,
-				null,							Materials.iron.nugget,			null,
-				null,							Materials.iron.nugget,			null), 
+				Materials.iron.nugget,		Materials.iron.base,		Materials.iron.nugget,
+				null,				Materials.iron.nugget,		null,
+				null,				Materials.iron.nugget,		null), 
 				ItemRaw.make(pickIron));
 		
 		crafting.addRecipe(new FixedGrid<>(3,
-				Materials.steel.nugget,			Materials.steel.base,			Materials.steel.nugget,
-				null,							Materials.steel.nugget,			null,
-				null,							Materials.steel.nugget,			null), 
+				Materials.steel.nugget,		Materials.steel.base,		Materials.steel.nugget,
+				null,				Materials.steel.nugget,		null,
+				null,				Materials.steel.nugget,		null), 
 				ItemRaw.make(pickSteel));
 		
 		crafting.addRecipe(new FixedGrid<>(3,
-				Materials.stainless.nugget,		Materials.stainless.base,		Materials.stainless.nugget,
-				null,							Materials.stainless.nugget,		null,
-				null,							Materials.stainless.nugget,		null), 
+				Materials.stainless.nugget,	Materials.stainless.base,	Materials.stainless.nugget,
+				null,				Materials.stainless.nugget,	null,
+				null,				Materials.stainless.nugget,	null), 
 				ItemRaw.make(pickStainless));
 		
 		crafting.addRecipeGrid(new ItemEntry[]{
