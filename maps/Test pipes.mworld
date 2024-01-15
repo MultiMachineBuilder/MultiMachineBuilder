@@ -4,7 +4,7 @@
     "sizeY" : 17,
     "startX" : -8,
     "startY" : -8,
-    "world" : [ "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.wire", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.true", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+    "world" : [ "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.tail", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "wireworld.true", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "chest.beginning",
       "inventory" : [ 6.0, [ "mmb.tree", "mmb.tree", 97 ] ],
       "color" : [ 255, 255, 255, 255 ]
@@ -12,15 +12,16 @@
       "blocktype" : "pipe.toright",
       "side" : "S",
       "dir" : false,
-      "items" : [ [ "mmb.tree", "mmb.tree" ], null, [ "mmb.tree", "mmb.tree" ] ]
+      "items" : [ null, null, null ]
     }, "mmb.grass", "mmb.grass", {
       "blocktype" : "industry.furnace",
       "side" : "N",
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "smelt" : null,
+      "active" : false,
       "remain" : 0.0,
-      "energy" : [ 20000.0, 120000.0, 0.0, 0.0, 1.0 ]
+      "energy" : [ 0.0, 0.0 ]
     }, {
       "blocktype" : "pipe.L",
       "side" : "N",
@@ -61,8 +62,9 @@
       "in" : [ 2.0 ],
       "out" : [ 2.0, [ "gem.coal", 1 ], [ "ingot.gold", 1 ] ],
       "smelt" : null,
+      "active" : false,
       "remain" : 0.0,
-      "energy" : [ 20000.0, 120000.0, 0.0, 0.0, 1.0 ]
+      "energy" : [ 0.0, 0.0 ]
     }, "mmb.grass", {
       "blocktype" : "industry.placeitems",
       "side" : "N"
@@ -120,7 +122,7 @@
       "blocktype" : "pipe.toright",
       "side" : "N",
       "dir" : false,
-      "items" : [ "gem.coal", null, null ]
+      "items" : [ null, null, null ]
     }, {
       "blocktype" : "pipe.toleft",
       "side" : "W",
@@ -160,7 +162,7 @@
       "blocktype" : "pipe.L",
       "side" : "W",
       "dir" : false,
-      "items" : [ null, [ "mmb.tree", "mmb.tree" ] ]
+      "items" : [ null, null ]
     }, {
       "blocktype" : "pipe.IPE",
       "side" : "N",
@@ -212,64 +214,72 @@
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "smelt" : null,
+      "active" : false,
       "remain" : 0.0,
-      "energy" : [ 20000.0, 120000.0, 0.0, 0.0, 1.0 ]
+      "energy" : [ 0.0, 0.0 ]
     }, {
       "blocktype" : "industry.furnace",
       "side" : "N",
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "smelt" : null,
+      "active" : false,
       "remain" : 0.0,
-      "energy" : [ 20000.0, 120000.0, 0.0, 0.0, 1.0 ]
+      "energy" : [ 0.0, 0.0 ]
     }, {
       "blocktype" : "industry.furnace",
       "side" : "N",
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "smelt" : null,
+      "active" : false,
       "remain" : 0.0,
-      "energy" : [ 20000.0, 120000.0, 0.0, 0.0, 1.0 ]
+      "energy" : [ 0.0, 0.0 ]
     }, {
       "blocktype" : "industry.furnace",
       "side" : "N",
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "smelt" : null,
+      "active" : false,
       "remain" : 0.0,
-      "energy" : [ 20000.0, 120000.0, 0.0, 0.0, 1.0 ]
+      "energy" : [ 0.0, 0.0 ]
     }, {
       "blocktype" : "industry.furnace",
       "side" : "N",
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "smelt" : null,
+      "active" : false,
       "remain" : 0.0,
-      "energy" : [ 20000.0, 120000.0, 0.0, 0.0, 1.0 ]
+      "energy" : [ 0.0, 0.0 ]
     }, {
       "blocktype" : "industry.furnace",
       "side" : "N",
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "smelt" : null,
+      "active" : false,
       "remain" : 0.0,
-      "energy" : [ 20000.0, 120000.0, 0.0, 0.0, 1.0 ]
+      "energy" : [ 0.0, 0.0 ]
     }, {
       "blocktype" : "industry.furnace",
       "side" : "N",
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "smelt" : null,
+      "active" : false,
       "remain" : 0.0,
-      "energy" : [ 20000.0, 120000.0, 0.0, 0.0, 1.0 ]
+      "energy" : [ 0.0, 0.0 ]
     }, {
       "blocktype" : "industry.furnace",
       "side" : "N",
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "smelt" : null,
+      "active" : false,
       "remain" : 0.0,
-      "energy" : [ 20000.0, 120000.0, 0.0, 0.0, 1.0 ]
+      "energy" : [ 0.0, 0.0 ]
     }, {
       "blocktype" : "pipe.I",
       "side" : "W",
@@ -323,14 +333,21 @@
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass" ],
     "drops" : [ [ -7, -4, [ "mmb.tree", "mmb.tree" ] ], [ -7, -4, [ "mmb.tree", "mmb.tree" ] ], [ -7, -4, [ "mmb.tree", "mmb.tree" ] ], [ -7, -4, [ "mmb.tree", "mmb.tree" ] ], [ -7, -4, [ "mmb.tree", "mmb.tree" ] ], [ -7, -4, [ "mmb.tree", "mmb.tree" ] ], [ -7, -4, [ "mmb.tree", "mmb.tree" ] ], [ -7, -4, [ "mmb.tree", "mmb.tree" ] ], [ -7, -4, [ "mmb.tree", "mmb.tree" ] ], [ -7, -4, [ "mmb.tree", "mmb.tree" ] ], [ -7, -4, [ "mmb.tree", "mmb.tree" ] ], [ -7, -4, [ "mmb.tree", "mmb.tree" ] ] ],
     "machines" : [ ],
-    "data" : { },
     "player" : {
       "inventory" : [ 128.0, [ "gem.coal", 12 ], [ "ingot.gold", 6 ], [ "ingot.silicon", 2 ] ],
       "creative" : true,
       "x" : 0.0,
-      "y" : 0.30000000000000004
+      "y" : 0.30000000000000004,
+      "alcohol1" : 0.0,
+      "alcohol2" : 0.0
+    },
+    "STN" : {
+      "queue" : [ 128.0 ],
+      "processing" : {
+        "recipesProcessing" : { },
+        "recipesCrafting" : [ "Infinity" ]
+      }
     }
   },
-  "data" : { },
   "maps" : { }
 }
