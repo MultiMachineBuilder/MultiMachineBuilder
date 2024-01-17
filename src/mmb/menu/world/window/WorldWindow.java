@@ -175,8 +175,8 @@ public class WorldWindow extends MMBFrame{
 					pane.addTab($res("wgui-recipes"), null, recipePane, null);
 				//[end]
 				//[start] Dialog pane
-					Component prueba = new JTabbedPane(SwingConstants.LEFT);
-					pane.addTab("Dialog", prueba);
+					//Component prueba = new JTabbedPane(SwingConstants.LEFT);
+					//pane.addTab("Dialog", prueba);
 				//[end]
 			getContentPane().add(pane, BorderLayout.CENTER);
 					
