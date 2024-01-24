@@ -74,6 +74,6 @@ public class SelectBlock extends JPanel {
 	}
 
 	private void close() {
-		window.closeDialogWindow(this);
+		window.closeWindow(this);
 	}
 }

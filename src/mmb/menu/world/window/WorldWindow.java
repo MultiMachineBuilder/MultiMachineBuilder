@@ -264,10 +264,10 @@ public class WorldWindow extends MMBFrame{
 	
 	//dialogs [BROKEN]
 	private JTabbedPane dialogs;
-	public void openDialogWindow(Component comp, String s) {
+	public void openAndShowWindow(Component comp, String s) {
 		dialogs.add(s, comp);
 	}
-	public void closeDialogWindow(Component comp) {
+	public void closeWindow(Component comp) {
 		dialogs.remove(comp);
 	}
 	

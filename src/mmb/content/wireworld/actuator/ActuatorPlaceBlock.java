@@ -67,7 +67,7 @@ public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockAct
 	@Override
 	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
-		window.openDialogWindow(new SelectBlock(this, window), "["+posX()+","+posY()+"]");
+		window.openAndShowWindow(new SelectBlock(this, window), "["+posX()+","+posY()+"]");
 	}
 	@Override
 	public BlockEntry blockCopy() {

@@ -65,6 +65,6 @@ public class TextEditor extends JPanel {
 		add(btnCancel, "cell 0 2,growx,aligny center");
 	}
 	private void remove() {
-		frame.closeDialogWindow(this);
+		frame.closeWindow(this);
 	}
 }
