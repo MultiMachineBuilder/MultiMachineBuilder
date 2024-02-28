@@ -107,7 +107,7 @@
 			<!-- Maven compiler -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.11.0</version>
+				<version>3.12.1</version>
 				<configuration>
 					<source>11</source>
 					<target>11</target>
@@ -152,8 +152,8 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<!-- JUnit 5 requires Surefire version 3.2.3 or higher -->
-				<version>3.2.3</version>
+				<!-- JUnit 5 requires Surefire version 3.2.5 or higher -->
+				<version>3.2.5</version>
 	 		</plugin>
 	 		
 	 		<!-- Javadoc -->
@@ -305,7 +305,7 @@
 		<dependency>
 		  <groupId>it.unimi.dsi</groupId>
 		  <artifactId>fastutil</artifactId>
-		  <version>8.5.12</version>
+		  <version>8.5.13</version>
 		</dependency>
 		<dependency>
 		  <groupId>com.github.davidmoten</groupId>
@@ -327,7 +327,7 @@
 		<dependency>
 	   		<groupId>io.github.parubok</groupId>
 	   		<artifactId>multiline-label</artifactId>
-	   		<version>1.19</version>
+	   		<version>1.20</version>
 		</dependency>
 		
 		<!-- Audio -->
@@ -361,7 +361,7 @@
 		<dependency>
 	 		<groupId>com.google.guava</groupId>
 	 		<artifactId>guava</artifactId>
-	 		<version>32.1.3-jre</version>
+	 		<version>33.0.0-jre</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.google.guava</groupId>
@@ -388,12 +388,12 @@
 		<dependency>
 		  	<groupId>com.fasterxml.jackson.core</groupId>
 		  	<artifactId>jackson-core</artifactId>
-		  	<version>2.16.0</version>
+		  	<version>2.16.1</version>
 		</dependency>
 		<dependency>
 		  	<groupId>com.fasterxml.jackson.core</groupId>
 		  	<artifactId>jackson-annotations</artifactId>
-		  	<version>2.16.0</version>
+		  	<version>2.16.1</version>
 		</dependency>
 		
 		<!-- Apache Commons -->
@@ -405,7 +405,7 @@
 		<dependency>
 	 		<groupId>org.apache.commons</groupId>
 	 		<artifactId>commons-compress</artifactId>
-	 		<version>1.25.0</version>
+	 		<version>1.26.0</version>
 		</dependency>
 		<dependency>
 	  		<groupId>commons-io</groupId>
@@ -433,7 +433,7 @@
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-engine</artifactId>
-		    <version>5.10.1</version>
+		    <version>5.10.2</version>
 		    <scope>test</scope>
 		</dependency>
 		
@@ -495,7 +495,7 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
-			<version>5.10.1</version>
+			<version>5.10.2</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
