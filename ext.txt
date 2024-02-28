@@ -1,1 +1,5 @@
 OpenGL is over 20 times faster than AWT.jar
+/home/oskar/Pobrane/Dice - 3762849.zip
+/home/oskar/Pobrane/banner.png
+/root/whatever
+//home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
