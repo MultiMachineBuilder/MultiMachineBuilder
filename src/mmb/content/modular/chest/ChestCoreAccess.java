@@ -10,7 +10,6 @@ import mmb.content.modular.gui.SafeCloseable;
 import mmb.menu.world.inv.InventoryController;
 import java.awt.BorderLayout;
 import mmb.menu.world.inv.MoveItems;
-import mmb.menu.world.inv.AbstractInventoryController;
 
 /**
  *
@@ -32,6 +31,7 @@ public class ChestCoreAccess extends JPanel implements SafeCloseable {
 	}
 	
 	@Override
-	public void close() {}
-
+	public void close() {
+		//unused
+	}
 }
