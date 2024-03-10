@@ -147,8 +147,6 @@ public class WorldWindow extends MMBFrame{
 		
 		//root split pane
 				pane = new JTabbedPane();
-				
-				
 				worldtab = new TabWorld(this);
 				std = worldtab.std;
 				selModel = worldtab.selModel;
@@ -173,10 +171,6 @@ public class WorldWindow extends MMBFrame{
 				//[start] Recipe pane
 					TabRecipes recipePane = new TabRecipes();
 					pane.addTab($res("wgui-recipes"), null, recipePane, null);
-				//[end]
-				//[start] Dialog pane
-					//Component prueba = new JTabbedPane(SwingConstants.LEFT);
-					//pane.addTab("Dialog", prueba);
 				//[end]
 			getContentPane().add(pane, BorderLayout.CENTER);
 					
@@ -262,14 +256,7 @@ public class WorldWindow extends MMBFrame{
 	}
 	@NN private static final Debugger debug = new Debugger("WORLD TEST");
 	
-	//dialogs [BROKEN]
-	private JTabbedPane dialogs;
-	public void openAndShowWindow(Component comp, String s) {
-		dialogs.add(s, comp);
-	}
-	public void closeWindow(Component comp) {
-		dialogs.remove(comp);
-	}
+	
 	
 	//World tab elements
 	//tool list
@@ -302,6 +289,7 @@ public class WorldWindow extends MMBFrame{
 		pane.add(s, comp);
 		pane.setSelectedComponent(comp);
 	}
+	
 	/**
 	 * Closes a tab. Its destroyTab() method is called to dispose of resources
 	 * @param component

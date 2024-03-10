@@ -130,7 +130,7 @@ public class BlockCollector extends BlockEntityData implements BlockActivateList
 			}
 		}
 	}
-	BlockCollectorGUI gui;
+	@Nil BlockCollectorGUI gui;
 	@Override
 	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;

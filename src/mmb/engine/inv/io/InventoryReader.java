@@ -139,7 +139,7 @@ public interface InventoryReader {
 	/**
 	 * An extraction opportunity.
 	 * Used in extracterators.
-	 * @apiNote The extraction opportunity becomes invalid after getting a next one.
+	 * @apiNote These extraction opportunities become invalid after getting a next one.
 	 * Use permanent extraction opportunities if later access is needed
 	 * @author oskar
 	 */
