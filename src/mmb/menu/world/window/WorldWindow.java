@@ -47,6 +47,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import javax.swing.JMenu;
+import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.JCheckBoxMenuItem;
@@ -145,18 +146,12 @@ public class WorldWindow extends MMBFrame{
 		});
 		
 		//root split pane
-			JSplitPane rootPane1 = new JSplitPane();
-			rootPane1.setResizeWeight(1.0);
-			rootPane1.setDividerLocation(0.8);
-			getContentPane().add(rootPane1, BorderLayout.CENTER);
-			//Viewport tabbed pane
 				pane = new JTabbedPane();
-				
-				
 				worldtab = new TabWorld(this);
 				std = worldtab.std;
 				selModel = worldtab.selModel;
 				invModel = worldtab.invModel;
+				this.toolEditorSplitPane = new JSplitPane();
 				toolModel = worldtab.toolModel;
 				worldFrame = worldtab.worldFrame;
 				lblTool = worldtab.lblTool;
@@ -177,18 +172,7 @@ public class WorldWindow extends MMBFrame{
 					TabRecipes recipePane = new TabRecipes();
 					pane.addTab($res("wgui-recipes"), null, recipePane, null);
 				//[end]
-			rootPane1.setLeftComponent(pane);
-
-			//tool panel
-				//editor split pane: placement/destruction GUI
-					toolEditorSplitPane = new JSplitPane();
-					toolEditorSplitPane.setDividerLocation(128);
-					toolEditorSplitPane.setResizeWeight(0.5);
-					toolEditorSplitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
-					rootPane1.setRightComponent(toolEditorSplitPane);
-					//Editor tabbed pane
-						dialogs = new JTabbedPane(SwingConstants.LEFT);
-						toolEditorSplitPane.setLeftComponent(dialogs);
+			getContentPane().add(pane, BorderLayout.CENTER);
 					
 					String scale = $res("wgui-scale");
 					
@@ -272,14 +256,7 @@ public class WorldWindow extends MMBFrame{
 	}
 	@NN private static final Debugger debug = new Debugger("WORLD TEST");
 	
-	//dialogs [BROKEN]
-	private JTabbedPane dialogs;
-	public void openDialogWindow(Component comp, String s) {
-		dialogs.add(s, comp);
-	}
-	public void closeDialogWindow(Component comp) {
-		dialogs.remove(comp);
-	}
+	
 	
 	//World tab elements
 	//tool list
@@ -312,6 +289,7 @@ public class WorldWindow extends MMBFrame{
 		pane.add(s, comp);
 		pane.setSelectedComponent(comp);
 	}
+	
 	/**
 	 * Closes a tab. Its destroyTab() method is called to dispose of resources
 	 * @param component

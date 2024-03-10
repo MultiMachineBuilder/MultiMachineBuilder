@@ -3,10 +3,9 @@
  */
 package mmb.content.wireworld.actuator;
 
-import javax.swing.JPanel;
-
 import mmb.engine.block.BlockType;
 import mmb.engine.item.ItemEntry;
+import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 
 import javax.swing.JLabel;
@@ -26,7 +25,7 @@ import java.awt.Color;
  * @see ActuatorPlaceBlock
  * @see BlockSetting
  */
-public class SelectBlock extends JPanel {
+public class SelectBlock extends GUITab {
 	private static final long serialVersionUID = -5267127312725839315L;
 	
 	private JLabel lblNewLabel;
@@ -46,7 +45,7 @@ public class SelectBlock extends JPanel {
 		
 		btnCancel = new JButton($res("cancel"));
 		btnCancel.setBackground(Color.RED);
-		btnCancel.addActionListener(e -> close());
+		btnCancel.addActionListener(e -> window.closeWindow(this));
 		add(btnCancel);
 		
 		btnOK = new JButton($res("ok"));
@@ -55,7 +54,7 @@ public class SelectBlock extends JPanel {
 			ItemEntry item = window.getPlacer().getSelectedItem();
 			if(item instanceof BlockType)
 				setting.setBlockSetting((BlockType) item);
-			close();
+			window.closeWindow(this);
 		});
 		add(btnOK);
 		
@@ -63,7 +62,7 @@ public class SelectBlock extends JPanel {
 		btnRemove.setBackground(Color.YELLOW);
 		btnRemove.addActionListener(e ->{
 			setting.setBlockSetting(null);
-			close();
+			window.closeWindow(this);
 		});
 		add(btnRemove);
 		
@@ -73,7 +72,8 @@ public class SelectBlock extends JPanel {
 		add(lblType);
 	}
 
-	private void close() {
-		window.closeDialogWindow(this);
+	@Override
+	public void close(WorldWindow window) {
+		//nothing
 	}
 }

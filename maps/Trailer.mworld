@@ -24,52 +24,52 @@
       "energy" : [ 0.0, 0.0 ]
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.leaves", "mmb.leaves", "mmb.leaves", "mmb.leaves", "mmb.leaves", "mmb.grass", {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : -3858.834966129454
+      "ppres" : -3858.845930774971
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : -3858.8349661294537
+      "ppres" : -3858.8444692578823
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : -4607.366645968235
+      "ppres" : -4607.375498544088
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : -6095.443024014943
+      "ppres" : -6095.451550800231
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : -6944.809966597444
+      "ppres" : -6944.81834050569
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : -6968.930396690952
+      "ppres" : -6968.938676486131
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : -5973.480671615579
+      "ppres" : -5973.488637453893
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : -3176.210836332848
+      "ppres" : -3176.217258278472
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : -2073.7717677255087
+      "ppres" : -2073.7833979713414
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : 1985.0567028878534
+      "ppres" : 1985.0411447134434
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : 9674.909385548994
+      "ppres" : 9674.890239785367
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : 22838.3358228581
+      "ppres" : 22838.313311334703
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : 43827.72465985998
+      "ppres" : 43827.699427164785
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : 72062.87250071074
+      "ppres" : 72062.84710902433
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : 86029.76055857142
+      "ppres" : 86029.74531390866
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : 99996.64861643343
+      "ppres" : 99996.64653371208
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.grass", {
       "blocktype" : "industry.preceiver0",
       "side" : "N"
@@ -79,7 +79,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, -3484.5691262100618 ],
+      "energy" : [ 0.0, -3484.576637525706 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -90,7 +90,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, -4237.594296864271 ],
+      "energy" : [ 0.0, -4237.601503517204 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -101,7 +101,7 @@
       "remain" : 0.0,
       "active" : false,
       "recipe" : null,
-      "energy" : [ 0.0, -6414.797741747046 ],
+      "energy" : [ 0.0, -6414.804743369171 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -113,7 +113,7 @@
       "active" : false,
       "remain" : 0.0,
       "catalyst" : null,
-      "energy" : [ 0.0, -7357.433222841939 ],
+      "energy" : [ 0.0, -7357.440141162115 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -125,7 +125,7 @@
       "active" : false,
       "remain" : 0.0,
       "catalyst" : null,
-      "energy" : [ 0.0, -7478.715474275386 ],
+      "energy" : [ 0.0, -7478.722438198612 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -136,7 +136,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, -6874.3907267192535 ],
+      "energy" : [ 0.0, -6874.397919723342 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -147,7 +147,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, -5505.006289327989 ],
+      "energy" : [ 0.0, -5505.014170509164 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -158,7 +158,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, -3551.9664687284967 ],
+      "energy" : [ 0.0, -3551.9766691549144 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -169,7 +169,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, 169.5445968640056 ],
+      "energy" : [ 0.0, 169.5316476970604 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -180,7 +180,7 @@
       "remain" : 0.0,
       "active" : false,
       "recipe" : null,
-      "energy" : [ 0.0, 6938.122508225087 ],
+      "energy" : [ 0.0, 6938.106676374313 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -191,7 +191,7 @@
       "remain" : 0.0,
       "active" : false,
       "recipe" : null,
-      "energy" : [ 0.0, 18925.35462301184 ],
+      "energy" : [ 0.0, 18925.335813665188 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -202,7 +202,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, 40204.8451579358 ],
+      "energy" : [ 0.0, 40204.82313966267 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -212,16 +212,16 @@
       "side" : "W",
       "charge" : null,
       "discharge" : null,
-      "battery" : [ 0.0, 79197.00239220628 ]
+      "battery" : [ 0.0, 79196.97632306545 ]
     }, "mmb.grass", {
       "blocktype" : "elec.coalgen1",
       "side" : "N",
       "in" : [ 2.0 ],
       "energy" : [ 0.0, 0.0 ],
-      "out" : [ 0.0, 99999.44199404572 ]
+      "out" : [ 0.0, 99999.43991625267 ]
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : 169115.26507904386
+      "ppres" : 169115.23989815573
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.planks", "mmb.planks", "mmb.planks", "mmb.planks", "mmb.planks", "mmb.grass", {
       "blocktype" : "industry.ptower1",
       "side" : "N",
@@ -241,52 +241,52 @@
       "side" : "W"
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.planks", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.planks", "mmb.grass", {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : -14716.69725416126
+      "ppres" : -14716.697993691845
     }, {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : -14716.697254161258
+      "ppres" : -14716.69788897984
     }, {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : -17537.86301505047
+      "ppres" : -17537.86359430227
     }, {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : -23063.045398098246
+      "ppres" : -23063.045935647613
     }, {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : -25657.24982799277
+      "ppres" : -25657.25032813819
     }, {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : -24391.398999569785
+      "ppres" : -24391.399461591016
     }, {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : -18340.61721742012
+      "ppres" : -18340.617628921387
     }, {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : -4896.9179201477245
+      "ppres" : -4896.918223465785
     }, {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : 13264.980270584847
+      "ppres" : 13264.979751246467
     }, {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : 48091.617457412765
+      "ppres" : 48091.61676624322
     }, {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : 108449.95923649622
+      "ppres" : 108449.9583439881
     }, {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : 208449.52644807895
+      "ppres" : 208449.52522662777
     }, {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : 361257.85622012755
+      "ppres" : 361257.8542323633
     }, {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : 539362.6125067812
+      "ppres" : 539362.6081578676
     }, {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : 666651.4030761108
+      "ppres" : 666651.40245343
     }, {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : 666254.8263847635
+      "ppres" : 666254.8257621828
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.planks", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.planks", "mmb.grass", {
       "blocktype" : "industry.preceiver1",
       "side" : "N"
@@ -296,7 +296,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, -13306.114373716646 ],
+      "energy" : [ 0.0, -13306.114871591755 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -307,7 +307,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, -16185.854703971183 ],
+      "energy" : [ 0.0, -16185.855173742517 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -318,7 +318,7 @@
       "remain" : 0.0,
       "active" : false,
       "recipe" : null,
-      "energy" : [ 0.0, -24528.534374674866 ],
+      "energy" : [ 0.0, -24528.534814921677 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -330,7 +330,7 @@
       "active" : false,
       "remain" : 0.0,
       "catalyst" : null,
-      "energy" : [ 0.0, -27587.277457151522 ],
+      "energy" : [ 0.0, -27587.277869220135 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -342,7 +342,7 @@
       "active" : false,
       "remain" : 0.0,
       "catalyst" : null,
-      "energy" : [ 0.0, -26783.86447643312 ],
+      "energy" : [ 0.0, -26783.86486323014 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -353,7 +353,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, -22037.07597498148 ],
+      "energy" : [ 0.0, -22037.076343375364 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -364,7 +364,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, -12152.935287025517 ],
+      "energy" : [ 0.0, -12152.935658765895 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -375,7 +375,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, 4932.610772537204 ],
+      "energy" : [ 0.0, 4932.610317645496 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -386,7 +386,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, 35325.76516128506 ],
+      "energy" : [ 0.0, 35325.76459632992 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -397,7 +397,7 @@
       "remain" : 0.0,
       "active" : false,
       "recipe" : null,
-      "energy" : [ 0.0, 88629.34652024668 ],
+      "energy" : [ 0.0, 88629.34582945312 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -408,7 +408,7 @@
       "remain" : 0.0,
       "active" : false,
       "recipe" : null,
-      "energy" : [ 0.0, 182045.1451678462 ],
+      "energy" : [ 0.0, 182045.1443461674 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -419,7 +419,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, 348609.64296282537 ],
+      "energy" : [ 0.0, 348609.6420668915 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -429,22 +429,22 @@
       "side" : "W",
       "charge" : null,
       "discharge" : null,
-      "battery" : [ 0.0, 659976.0063924746 ]
+      "battery" : [ 0.0, 659976.0057760079 ]
     }, {
       "blocktype" : "elec.turbogen1",
       "side" : "N",
       "in" : [ 2.0 ],
       "energy" : [ 0.0, 0.0 ],
-      "out" : [ 0.0, 666654.5952102924 ]
+      "out" : [ 0.0, 666654.5945883349 ]
     }, {
       "blocktype" : "elec.coalgen2",
       "side" : "N",
       "in" : [ 2.0 ],
       "energy" : [ 0.0, 0.0 ],
-      "out" : [ 0.0, 666254.8065559289 ]
+      "out" : [ 0.0, 666254.8059339713 ]
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.planks", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.planks", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.medium.copper",
-      "ppres" : 956740.2400610654
+      "ppres" : 956740.2395474168
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.planks", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.planks", "mmb.grass", {
       "blocktype" : "industry.ptower2",
       "side" : "N",
@@ -473,62 +473,62 @@
       "energy" : [ 0.0, 0.0 ]
     }, "mmb.planks", {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : -116095.15586738473
+      "ppres" : -116095.15903508585
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : -94142.73380107654
+      "ppres" : -94142.73670609148
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : -72190.31173476802
+      "ppres" : -72190.31377807181
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : -76238.4498436851
+      "ppres" : -76238.45148330221
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : -95389.24240707829
+      "ppres" : -95389.24376591461
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : -104322.54669426505
+      "ppres" : -104322.54780822135
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : -98453.84308224154
+      "ppres" : -98453.84396018452
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : -73741.94169919525
+      "ppres" : -73741.94232981115
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : -19578.981159734492
+      "ppres" : -19578.981479544047
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 53476.1742644012
+      "ppres" : 53476.1739218805
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 193348.76645988197
+      "ppres" : 193348.7661609296
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 435797.20123877126
+      "ppres" : 435797.20100080606
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 838083.2779629845
+      "ppres" : 838083.277788971
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 1455824.1606506226
+      "ppres" : 1455824.1605325271
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 2190775.0143537587
+      "ppres" : 2190775.0142544964
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 2667051.7690626765
+      "ppres" : 2667051.7690414465
     }, {
       "blocktype" : "elecwire.medium.silver",
-      "ppres" : 2665454.9868337726
+      "ppres" : 2665454.986812542
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.planks", "mmb.planks", "mmb.planks", "mmb.planks", "mmb.planks", {
       "blocktype" : "industry.sinterer2",
       "side" : "N",
       "remain" : 0.0,
       "active" : false,
       "recipe" : null,
-      "energy" : [ 0.0, -127071.36690053868 ],
+      "energy" : [ 0.0, -127071.36976597244 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -542,7 +542,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, -59190.0316471549 ],
+      "energy" : [ 0.0, -59190.03310761445 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -553,7 +553,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, -68687.12261644655 ],
+      "energy" : [ 0.0, -68687.12390893495 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -564,7 +564,7 @@
       "remain" : 0.0,
       "active" : false,
       "recipe" : null,
-      "energy" : [ 0.0, -100497.98654518079 ],
+      "energy" : [ 0.0, -100497.98764795285 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -576,7 +576,7 @@
       "active" : false,
       "remain" : 0.0,
       "catalyst" : null,
-      "energy" : [ 0.0, -111723.55064386898 ],
+      "energy" : [ 0.0, -111723.55155702637 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -588,7 +588,7 @@
       "active" : false,
       "remain" : 0.0,
       "catalyst" : null,
-      "energy" : [ 0.0, -107875.44196775103 ],
+      "energy" : [ 0.0, -107875.44269560711 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -599,7 +599,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, -88467.47127739938 ],
+      "energy" : [ 0.0, -88467.47182711835 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -610,7 +610,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, -48604.05976180043 ],
+      "energy" : [ 0.0, -48604.060153935585 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -621,7 +621,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, 20067.45587874049 ],
+      "energy" : [ 0.0, 20067.45556545999 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -632,7 +632,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, 142060.84516819983 ],
+      "energy" : [ 0.0, 142060.84491516955 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -643,7 +643,7 @@
       "remain" : 0.0,
       "active" : false,
       "recipe" : null,
-      "energy" : [ 0.0, 355878.3802661474 ],
+      "energy" : [ 0.0, 355878.3800697727 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -654,7 +654,7 @@
       "remain" : 0.0,
       "active" : false,
       "recipe" : null,
-      "energy" : [ 0.0, 730355.8749813364 ],
+      "energy" : [ 0.0, 730355.8748413639 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -665,7 +665,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 0.0, 1397219.1751429776 ],
+      "energy" : [ 0.0, 1397219.1750599921 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -675,19 +675,19 @@
       "side" : "W",
       "charge" : null,
       "discharge" : null,
-      "battery" : [ 0.0, 2640365.2173287766 ]
+      "battery" : [ 0.0, 2640365.2173077576 ]
     }, {
       "blocktype" : "elec.turbogen2",
       "side" : "N",
       "in" : [ 2.0 ],
       "energy" : [ 0.0, 0.0 ],
-      "out" : [ 0.0, 2667054.7557723564 ]
+      "out" : [ 0.0, 2667054.755751148 ]
     }, {
       "blocktype" : "elec.coalgen3",
       "side" : "N",
       "in" : [ 2.0 ],
       "energy" : [ 0.0, 0.0 ],
-      "out" : [ 0.0, 2665454.9668740677 ]
+      "out" : [ 0.0, 2665454.966852859 ]
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass" ],
     "drops" : [ ],
     "machines" : [ ],

@@ -7,7 +7,6 @@ import java.awt.Point;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.NN;
 import mmb.Nil;
 import mmb.cgui.BlockActivateListener;
 import mmb.content.ContentsBlocks;
@@ -67,7 +66,7 @@ public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockAct
 	@Override
 	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
-		window.openDialogWindow(new SelectBlock(this, window), "["+posX()+","+posY()+"]");
+		window.openAndShowWindow(new SelectBlock(this, window), "["+posX()+","+posY()+"]");
 	}
 	@Override
 	public BlockEntry blockCopy() {
@@ -78,9 +77,9 @@ public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockAct
 	}
 	
 	//Block settings
-	@NN private static final ListenableValue<@Nil BlockType> bsetting = new ListenableValue<>(null);
+	private static final ListenableValue<@Nil BlockType> bsetting = new ListenableValue<>(null);
 	@Override
-	public ListenableValue<BlockType> getBlockVariable() {
+	public ListenableValue<@Nil BlockType> getBlockVariable() {
 		return bsetting;
 	}
 	

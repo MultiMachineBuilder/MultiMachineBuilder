@@ -3,12 +3,10 @@
  */
 package mmb.content.wireworld.text;
 
-import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
-import mmb.NN;
 import mmb.engine.block.BlockEntity;
-import mmb.menu.world.window.WorldWindow;
+import mmb.menu.world.window.*;
 
 import javax.swing.JButton;
 import java.awt.Component;
@@ -25,7 +23,7 @@ import net.miginfocom.swing.MigLayout;
  * @see TextMessageProvider
  * @see TextChatter
  */
-public class TextEditor extends JPanel {
+public class TextEditor extends GUITab {
 	private static final long serialVersionUID = 109161698315300930L;
 	
 	private JTextPane textPane;
@@ -52,19 +50,21 @@ public class TextEditor extends JPanel {
 		btnOk = new JButton($res("ok"));
 		btnOk.addActionListener(e -> {
 			sv.setMessage(textPane.getText());
-			remove();
+			frame.closeWindow(this);
 		});
 		btnOk.setBackground(Color.GREEN);
 		btnOk.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(btnOk, "cell 0 1,growx,aligny center");
 		
 		btnCancel = new JButton($res("cancel"));
-		btnCancel.addActionListener(e -> remove());
+		btnCancel.addActionListener(e -> frame.closeWindow(this));
 		btnCancel.setBackground(Color.RED);
 		btnCancel.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(btnCancel, "cell 0 2,growx,aligny center");
 	}
-	private void remove() {
-		frame.closeDialogWindow(this);
+
+	@Override
+	public void close(WorldWindow window) {
+		//unused
 	}
 }

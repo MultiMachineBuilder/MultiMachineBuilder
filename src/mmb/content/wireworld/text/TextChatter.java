@@ -68,7 +68,7 @@ public class TextChatter extends BlockEntityData implements TextMessageProvider,
 	public void click(int blockX, int blockY, World map, @Nil WorldWindow window, double partX, double partY) {
 		if(window == null) return;
 		TextEditor editor = new TextEditor(this, this, window);
-		window.openDialogWindow(editor, editor.title);
+		window.openAndShowWindow(editor, editor.title);
 	}
 	
 	//Serialization

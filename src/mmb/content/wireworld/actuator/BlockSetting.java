@@ -19,7 +19,7 @@ public interface BlockSetting {
 	/** @return the variable used to set block settings */
 	public ListenableValue<@Nil BlockType> getBlockVariable();
 	/** @return currently selected block */
-	public default BlockType blockSetting() {
+	public default @Nil BlockType blockSetting() {
 		return getBlockVariable().get();
 	}
 	/**
