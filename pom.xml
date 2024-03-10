@@ -305,7 +305,7 @@
 		<dependency>
 		  <groupId>it.unimi.dsi</groupId>
 		  <artifactId>fastutil</artifactId>
-		  <version>8.5.12</version>
+		  <version>8.5.13</version>
 		</dependency>
 		<dependency>
 		  <groupId>com.github.davidmoten</groupId>
@@ -327,7 +327,7 @@
 		<dependency>
 	   		<groupId>io.github.parubok</groupId>
 	   		<artifactId>multiline-label</artifactId>
-	   		<version>1.19</version>
+	   		<version>1.20</version>
 		</dependency>
 		
 		<!-- Audio -->
@@ -405,7 +405,7 @@
 		<dependency>
 	 		<groupId>org.apache.commons</groupId>
 	 		<artifactId>commons-compress</artifactId>
-	 		<version>1.25.0</version>
+	 		<version>1.26.0</version>
 		</dependency>
 		<dependency>
 	  		<groupId>commons-io</groupId>
@@ -433,7 +433,7 @@
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-engine</artifactId>
-		    <version>5.10.1</version>
+		    <version>5.10.2</version>
 		    <scope>test</scope>
 		</dependency>
 		
@@ -495,7 +495,7 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
-			<version>5.10.1</version>
+			<version>5.10.2</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>

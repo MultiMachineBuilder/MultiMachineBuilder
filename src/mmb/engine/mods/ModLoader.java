@@ -103,8 +103,13 @@ public class ModLoader {
 			}
 			data = IOUtils.toByteArray(in); //take in byte array and load data
 		}catch(IllegalArgumentException e) {
-			debug.stacktraceError(e, "Make sure that \"" + name + "\" is not mistyped.");
-			modfile.state = ModfileState.NOEXIST;
+			if("Cannot read more than 2 147 483 647 into a byte array".equals(e.getMessage())) {
+				debug.stacktraceError(e, "The mod is too big to load");
+				modfile.state = ModfileState.BLOATED;
+			}else {
+				debug.stacktraceError(e, "Make sure that \"" + name + "\" is not mistyped.");
+				modfile.state = ModfileState.NOEXIST;
+			}
 		}catch(IOException e) {
 			if(modfile.isOnline()) debug.stacktraceError(e, "Failed to download the file " + file.name());
 			else debug.stacktraceError(e, "Failed to read the file " + file.name());

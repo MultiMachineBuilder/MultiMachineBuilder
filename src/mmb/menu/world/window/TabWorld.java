@@ -1,7 +1,5 @@
 package mmb.menu.world.window;
 
-import static mmb.engine.settings.GlobalSettings.$res;
-
 import java.awt.Color;
 
 import javax.swing.DefaultListModel;
@@ -15,7 +13,6 @@ import javax.swing.ListSelectionModel;
 import io.github.parubok.text.multiline.MultilineLabel;
 import mmb.NN;
 import mmb.engine.inv.ItemRecord;
-import mmb.menu.world.window.WorldWindow.ScrollablePlacementList;
 import mmb.menu.wtool.ToolStandard;
 import mmb.menu.wtool.WindowTool;
 import net.miginfocom.swing.MigLayout;
