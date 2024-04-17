@@ -16,6 +16,7 @@ import mmb.engine.inv.ItemRecord;
 import mmb.menu.wtool.ToolStandard;
 import mmb.menu.wtool.WindowTool;
 import net.miginfocom.swing.MigLayout;
+import mmb.menu.components.Drag;
 
 public class TabWorld extends JSplitPane {
 	private static final long serialVersionUID = 3769240753970370607L;
@@ -37,27 +38,35 @@ public class TabWorld extends JSplitPane {
 	public final MultilineLabel lblTool;
 	/** The tool selection. Changes to the model are reflected in the window and vice versa */
 	@NN public final transient ToolSelectionModel toolModel;
+	private Drag drag;
 
 	TabWorld(WorldWindow ww){
 		ToolStandard std1 = null;
 		this.setDividerLocation(320);
 		//[start] The world frame panel
 			JPanel worldFramePanel = new JPanel();
-			worldFramePanel.setLayout(new MigLayout("", "[101px,grow,center]", "[80px,grow][][][]"));
+			worldFramePanel.setLayout(new MigLayout("", "[27.00][101px,grow,center]", "[80px,grow][][][]"));
 			this.setRightComponent(worldFramePanel);
 			
 			worldFrame = new WorldFrame(ww);
 			worldFrame.setBackground(Color.GRAY);
 			worldFrame.titleChange.addListener(ww::updateTitle);
-			worldFramePanel.add(worldFrame, "cell 0 0,grow");
+			worldFramePanel.add(worldFrame, "cell 0 0 2 1,grow");
 			
 			progressHP = new JProgressBar();
-			worldFramePanel.add(progressHP, "cell 0 1,growx");
+			worldFramePanel.add(progressHP, "cell 1 1,growx");
+			
+			drag = new Drag();
+			drag.dragged.addListener(offset -> {
+				double posmul = worldFrame.getBlockScale();
+				worldFrame.perspective.add(offset.x() * -8 / posmul, offset.y() * -8 / posmul);
+			});
+			worldFramePanel.add(drag, "cell 0 1 1 2,grow");
 			
 			lblStatus = new JLabel("STATUSBAR");
 			lblStatus.setOpaque(true);
 			lblStatus.setBackground(new Color(65, 105, 225));
-			worldFramePanel.add(lblStatus, "cell 0 2,growx");
+			worldFramePanel.add(lblStatus, "cell 1 2,growx");
 		//[end]
 		//[start] Scrollable Placement List Pane
 			JSplitPane scrollistBipane = new JSplitPane();
@@ -97,7 +106,7 @@ public class TabWorld extends JSplitPane {
 		worldFrame.setPlacer(scrollablePlacementList);
 		
 		lblTool = new MultilineLabel("Tool description goes here");
-		worldFramePanel.add(lblTool, "cell 0 3,grow");
+		worldFramePanel.add(lblTool, "cell 0 3 2 1,grow");
 		lblTool.setForeground(Color.WHITE);
 		lblTool.setBackground(Color.BLUE);
 		lblTool.setOpaque(true);

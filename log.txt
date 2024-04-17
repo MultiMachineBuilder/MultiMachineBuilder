@@ -1826,6 +1826,9 @@ Strony nie zadziałają.
 (MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/plank.png
 (MOD-LOADER) Loading a texture plank.png
 (TEXTURES) Loading texture: plank.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/move.png
+(MOD-LOADER) Loading a texture move.png
+(TEXTURES) Loading texture: move.png
 (MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/bug.png
 (MOD-LOADER) Loading a texture bug.png
 (TEXTURES) Loading texture: bug.png
@@ -8875,6 +8878,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (MAIN) State: Found 5 mod files
 (MOD - banner.png) Opening a modfile: /home/oskar/Pobrane/banner.png
 (MOD - Dice - 3762849.zip) Opening a modfile: /home/oskar/Pobrane/Dice - 3762849.zip
+(MOD - FILE230607-075624F.MOV) Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
 (MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home/oskar/git/MultiMachineBuilder/OpenGL is over 20 times faster than AWT.jar
 (MOD - OpenGL is over 20 times faster than AWT.jar) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie ma takiego pliku ani katalogu)
 	at java.base/java.io.FileInputStream.open0(Native Method)
@@ -8893,7 +8897,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-(MOD - FILE230607-075624F.MOV) Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
 (MOD - banner.png) Couldn't open zip or jar file /home/oskar/Pobrane/banner.png
 (MOD - banner.png) java.util.zip.ZipException: Cannot find zip signature within the first 4096 bytes
 	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.readFirstLocalFileHeader(ZipArchiveInputStream.java:1040)
@@ -9004,6 +9007,36 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found save: Agriculture test.mworld
 (SELECT A SAVE) Found save: Test player.mworld
 (SELECT A SAVE) Found 27 saves
+(Main menu) Current version: 0.5.1
+(Main menu) You have the current version
+(WORLD TEST) 1768 items
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@bdad208
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(WORLD TEST) Number of zoom levels: 48
+(WORLD TEST) Scrollbar max: 57
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Parsed file
+(DATA LAYERS) Loading world data layer: STN
+(ITEMS) Invalid item: Infinity
+(INVENTORIES) Unsupported null item
+(MAP anonymous) Became anonymous
+(SELECT A SAVE) Loaded
+(WORLD - IDLE) Exiting
+(WORLDS) Opening a new world
+(WORLD TEST) Exiting the world
+(WORLD - ) Saving main BlockMap
+(DATA LAYERS) Saving world data layer: STN
+(WORLD TEST) Saving the world
+(WORLD TEST) Saved the world
+(WORLD - main null) Exiting
+(MAP anonymous) Destroying
+(MAP anonymous) Shutdown
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
 (SETTINGS) Resetting a setting country with value PL
 (SETTINGS) Resetting a setting sortItems with value true
 (SETTINGS) Resetting a setting dumpBundles with value true
