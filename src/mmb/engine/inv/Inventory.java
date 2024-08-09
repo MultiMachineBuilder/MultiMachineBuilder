@@ -3,10 +3,9 @@
  */
 package mmb.engine.inv;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
+import java.util.NoSuchElementException;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import mmb.NN;
@@ -43,7 +42,7 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 	@NN public ItemRecord get(ItemEntry entry);
 	/**
 	 * Get the item record under given item type
-	 * @param entry
+	 * @param entry item to get item record for
 	 * @return the item record with given type, or null if not found
 	 * @throws NullPointerException if {@code entry} is null
 	 */
@@ -54,11 +53,10 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 	}
 	@Override
 	default <T> T[] toArray(T[] arr) {
-		List<ItemRecord> list = new ArrayList<>();
-		for(ItemRecord irecord: this) {
-			list.add(irecord);
-		}
-		return list.toArray(arr);
+		int i = 0;
+		for(ItemRecord irecord: this) 
+			arr[i++] = (T) irecord;
+		return arr;
 	}
 	
 	//Insertion calculation
@@ -237,13 +235,13 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 			
 			@Override
 			public int currentAmount() {
-				if(current == null) return 0;
+				if(current == null) throw new NoSuchElementException();
 				return current.amount();
 			}
 
 			@Override
 			public ItemEntry currentItem() {
-				if(current == null) return null;
+				if(current == null) throw new NoSuchElementException();
 				return current.item();
 			}
 
@@ -266,12 +264,6 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 			@Override
 			public boolean hasNext() {
 				return records.hasNext();
-			}
-
-			@Override
-			public boolean hasCurrent() {
-				if(current == null) return false;
-				return current.amount() > 0;
 			}
 
 			@Override
@@ -328,7 +320,7 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 	/** @return capacity of given inventory */
 	public double capacity();
 	@Override
-	default boolean add(@NN ItemRecord arg0) {
+	default boolean add(ItemRecord arg0) {
 		return insert(arg0.item(), arg0.amount()) != 0;
 	}
 	@Override
@@ -440,5 +432,4 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 			map.put(irecord.item(), irecord.amount());
 		}
 	}
-	
 }

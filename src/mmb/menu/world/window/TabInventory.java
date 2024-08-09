@@ -180,7 +180,7 @@ public class TabInventory extends JPanel {
 	 */
 	public TabInventory(WorldWindow window) {
 		this.window = window;
-		setLayout(new MigLayout("", "[:400.00:400.00,grow,fill][]", "[20px,grow]"));
+		setLayout(new MigLayout("", "[400.00,fill][]", "[20px,grow]"));
 		craftGUI = new CraftGUI(2, null, null, null);
 		timer = new Timer(0, e -> craftGUI.inventoryController.refresh());
 		add(craftGUI, "cell 1 0,growy");
@@ -237,7 +237,7 @@ public class TabInventory extends JPanel {
 			removeItems(amt);
 		});
 		btnRemoveN.setBackground(new Color(204, 0, 0));
-		panel.add(btnRemoveN, "cell 1 3");
+		panel.add(btnRemoveN, "cell 1 3,growx");
 		
 		JButton btnREmoveAll = new JButton($res("wgui-ra"));
 		btnREmoveAll.addActionListener(e -> removeItems(Integer.MAX_VALUE));

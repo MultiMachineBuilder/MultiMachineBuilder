@@ -28,7 +28,7 @@ public class TabWorld extends JSplitPane {
 	/** The world frame */
 	public final WorldFrame worldFrame;
 	/** The scrollable placement list */
-	public final WorldWindow.ScrollablePlacementList scrollablePlacementList;
+	@NN public final WorldWindow.ScrollablePlacementList scrollablePlacementList;
 	public final JScrollPane scrollistPane;
 	public final ListSelectionModel selModel;
 	public final DefaultListModel<ItemRecord> invModel;

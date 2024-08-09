@@ -49,11 +49,6 @@ public interface InventoryReader {
 		}
 
 		@Override
-		public boolean hasCurrent() {
-			return false;
-		}
-
-		@Override
 		public ExtractionLevel level() {
 			return ExtractionLevel.RANDOM;
 		}
@@ -117,23 +112,17 @@ public interface InventoryReader {
 	/** @return are there any more items? */
 	public boolean hasNext();
 	/**
-	 * @implNote Example implementation:
-	 * <br>If this returns true, extract items
-	 * <br>Else if there are more items, go to the next item and continue from beginning
-	 * <br>Else stop.
-	 * @return are there any items here?
-	 */
-	public boolean hasCurrent();
-	/**
 	 * Gets current amount of items avaliable in current item record
 	 * @return current number of items
+	 * @throws NoSuchElementException before calling next()
 	 */
 	public int currentAmount();
 	/**
 	 * @implNote Call before extraction to check items
 	 * @return the currently active item
+	 * @throws NoSuchElementException before calling next()
 	 */
-	public ItemEntry currentItem();
+	@NN public ItemEntry currentItem();
 	
 	//Extracteration - temporary	
 	/**
@@ -202,15 +191,12 @@ public interface InventoryReader {
 		return new Iterator<>() {
 			@Override
 			public boolean hasNext() {
-				return InventoryReader.this.hasCurrent() ||  InventoryReader.this.hasNext();
+				return InventoryReader.this.hasNext();
 			}
 
 			@Override
 			public T next() {
-				while(!InventoryReader.this.hasCurrent()) {
-					if(!InventoryReader.this.hasNext()) throw new NoSuchElementException();
-					InventoryReader.this.next();
-				}
+				InventoryReader.this.next();
 				return sup.get();
 			}
 		};

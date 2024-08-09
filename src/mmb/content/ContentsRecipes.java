@@ -402,10 +402,11 @@ public class ContentsRecipes {
 		}, 3, 1, SPEAKER);
 	}
 	private static void _tools() {
-		crafting.addRecipeGrid(PICKBUILDER, 1, 1, new SimpleItemList(
+		crafting.addRecipe(PICKBUILDER, new SimpleItemList(
 			plank.stack(2),
 			logs.stack(2)
-		));//pickaxe builder is deprecated - ingredient recovery recipe
+		)); //pickaxe builder is deprecated - ingredient recovery recipe
+		crafting.addRecipe(bucket, stone.stack(5)); //item bucket is deprecated - ingredient recovery recipe
 		
 		
 		crafting.addRecipe(new FixedGrid<>(3,
@@ -443,12 +444,6 @@ public class ContentsRecipes {
 				null,				Materials.stainless.nugget,	null,
 				null,				Materials.stainless.nugget,	null), 
 				ItemRaw.make(pickStainless));
-		
-		crafting.addRecipeGrid(new ItemEntry[]{
-				stone,	null,	stone,
-				stone,	null,	stone,
-				null,	stone,	null
-				}, 3, 3, bucket); //Item bucket
 		crafting.addRecipeGrid(new ItemEntry[]{
 				null,	stone,	null,
 				stone,	null,	stone,

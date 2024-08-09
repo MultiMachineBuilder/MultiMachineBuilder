@@ -12,6 +12,7 @@ import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityRotary;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
+import mmb.engine.inv.Inventories;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.inv.io.InventoryReader;
@@ -30,8 +31,8 @@ import mmb.engine.worlds.MapProxy;
  */
 public class ItemTransporter extends BlockEntityRotary {
 
-	@NN public static final BufferedImage TEXTURE = Textures.get("machine/imover.png");
-	@NN public static final RotatedImageGroup RTEXTURE = RotatedImageGroup.create(TEXTURE);
+	public static final BufferedImage TEXTURE = Textures.get("machine/imover.png");
+	public static final RotatedImageGroup RTEXTURE = RotatedImageGroup.create(TEXTURE);
 	
 	@Override
 	public BlockType type() {
@@ -48,7 +49,7 @@ public class ItemTransporter extends BlockEntityRotary {
 		moveItems(posX(), posY(), map, getRotation(), inv);
 	}
 	
-	@NN private SingleItemInventory inv = new SingleItemInventory();
+	private SingleItemInventory inv = new SingleItemInventory();
 	@Override
 	protected void save1(ObjectNode node) {
 		node.set("tmp", ItemEntry.saveItem(inv.getContents()));
@@ -67,34 +68,9 @@ public class ItemTransporter extends BlockEntityRotary {
 		InventoryWriter dst = map.getAtSide(x, y, u).getInput(d);
 		
 		//Stage 1: Input -> buffer
-		while(src.hasCurrent() || src.hasNext()) {
-			if(!buffer.isEmpty()) break; //If there are items, break out
-			//Try moving the items to a buffer
-			if(src.hasCurrent()) {
-				ItemEntry toextract = src.currentItem();
-				if(toextract.volume() > buffer.remainVolume()) {
-					src.next();
-					continue;
-				}
-				int moved = src.extract(1);
-				if(moved == 1) {
-					buffer.insert(toextract, moved);
-					break;
-				}
-				
-			}else if(src.hasNext()) {
-				src.next();
-			}
-		}
+		Inventories.transferAll(src, buffer);
 		//Stage 2: Buffer -> output
-		for(ItemRecord record: buffer) {
-			int moved = dst.insert(record.item());
-			if(moved == 1) {
-				record.extract(1);
-				return;
-			}
-		}
-		return;
+		Inventories.transferAll(buffer, dst);
 	}
 
 	@Override

@@ -88,7 +88,7 @@
       "outItemCfg" : [ true, false, false, false ]
     }, {
       "blocktype" : "elec.furnace",
-      "inElec" : [ 20000.0, 1.4183424061709302E7 ],
+      "inElec" : [ 20000.0, 2.4648945342632826E7 ],
       "inElecCfg" : [ false, true, false, false ],
       "inItem" : [ 2.0 ],
       "inItemCfg" : [ true, false, false, false ],
@@ -96,10 +96,10 @@
       "outItemCfg" : [ true, false, false, false ]
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "industry.infinigen0", {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : 2.2098816910927504E7
+      "ppres" : 2.472457284054239E7
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : 1.681583360362821E7
+      "ppres" : 2.4673949487335507E7
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "industry.furnace",
       "side" : "N",
