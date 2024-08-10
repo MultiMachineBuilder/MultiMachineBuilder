@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.generator;
+package mmb.menu.newgame;
 
 import static mmb.engine.settings.GlobalSettings.$res;
 
@@ -18,6 +18,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import mmb.content.ContentsBlocks;
 import mmb.content.ContentsItems;
 import mmb.engine.debug.Debugger;
+import mmb.engine.generator.Generator;
+import mmb.engine.generator.Generators;
 import mmb.engine.inv.Inventory;
 import mmb.engine.json.JsonTool;
 import mmb.engine.worlds.universe.Universe;
@@ -110,7 +112,7 @@ public class NewGame extends MMBFrame {
 			contentPanel.add(lblHeight, "cell 0 0,alignx trailing");
 		
 			txtHeight = new JTextField();
-			txtHeight.setText("Height");
+			txtHeight.setText("300");
 			contentPanel.add(txtHeight, "cell 1 0,growx");
 			txtHeight.setColumns(10);
 		
@@ -118,7 +120,7 @@ public class NewGame extends MMBFrame {
 			contentPanel.add(lblWidth, "cell 0 1,alignx trailing");
 		
 			txtWidth = new JTextField();
-			txtWidth.setText("Width");
+			txtWidth.setText("300");
 			contentPanel.add(txtWidth, "cell 1 1,growx");
 			txtWidth.setColumns(10);
 		

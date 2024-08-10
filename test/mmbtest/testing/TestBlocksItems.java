@@ -11,7 +11,6 @@ import java.awt.image.BufferedImage;
 
 import org.junit.jupiter.api.Test;
 
-import mmb.NN;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockType;
@@ -46,7 +45,7 @@ class TestBlocksItems {
 		assertEquals(correct, Items.getExpectType("test", BlockType.class), "Block was not properly added");
 	}
 	
-	@NN private static final Block blk = new Block();
+	private static final Block blk = new Block();
 	
 	@Test
 	void testWontTakeNullTitle() {

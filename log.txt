@@ -1,5 +1,5 @@
 (MAIN) RAM avaliable: 4131389440
-(MAIN) Java version is: 11.0.23
+(MAIN) Java version is: 11.0.24
 (SETTINGS LIST) Language: pl
 (SETTINGS LIST) vvvv Resource bundle start mmb/bundle vvv
 (SETTINGS LIST) cancel=Anuluj
@@ -8,7 +8,7 @@
 (SETTINGS LIST) matname2-nickel=Niklowy
 (SETTINGS LIST) matname2-adraconium=Awakened Draconiowy
 (SETTINGS LIST) wgui-unsel=Odznacz
-(SETTINGS LIST) wguim-opsel=Jeden na wyb�r
+(SETTINGS LIST) wguim-opsel=Jeden na wybï¿½r
 (SETTINGS LIST) component-ceritor=cerytor
 (SETTINGS LIST) matname2-duranium=Duraniowy
 (SETTINGS LIST) cdie-select=Wybierz DR narożnik obszaru zbierania za pomocą lewego przycisku, lub kliknij prawy przycisk, aby anulować. Pomarańczowa ramka wskazuje obszar oddziaływania
@@ -27,27 +27,27 @@
 (SETTINGS LIST) wguim-nosmelt=Brak przetwarzania
 (SETTINGS LIST) wguir-in=Składniki:
 (SETTINGS LIST) matname2-copper=Miedziany
-(SETTINGS LIST) descr-chest2=m� przedmiot�w
+(SETTINGS LIST) descr-chest2=mï¿½ przedmiotï¿½w
 (SETTINGS LIST) matname1-silicon=Krzem
 (SETTINGS LIST) descr-chest1=Przechowuje
-(SETTINGS LIST) toolstd-8=Alt+Ctrl+RMB, aby podnieść stos przedmiotów
-(SETTINGS LIST) toolstd-6=Alt+Ctrl+LMB, aby postawić stos przedmiotów,
-(SETTINGS LIST) toolstd-7=Alt+RMB, aby podnieść jeden przedmiot,
+(SETTINGS LIST) toolstd-8=Alt+Ctrl+RMB, aby podnieÅÄ stos przedmiotÃ³w
+(SETTINGS LIST) toolstd-6=Alt+Ctrl+LMB, aby postawiÄ stos przedmiotÃ³w,
+(SETTINGS LIST) toolstd-7=Alt+RMB, aby podnieÅÄ jeden przedmiot,
 (SETTINGS LIST) ipipe-filter=Rura z filtrem
 (SETTINGS LIST) toolstd-4=I, aby odbić od |, J, aby odbić od \, K abyy odbić od ― i L, aby odbić od /";
-(SETTINGS LIST) toolstd-5=Alt+LMB, aby postawić przedmiot,
-(SETTINGS LIST) toolstd-2=Ctrl+LMB, aby obr�cić ⥀, Ctrl+RMB, aby obr�cić ⥁, Shift+LMB aby odwr�cić chiralność
+(SETTINGS LIST) toolstd-5=Alt+LMB, aby postawiÄ przedmiot,
+(SETTINGS LIST) toolstd-2=Ctrl+LMB, aby obrï¿½cić ⥀, Ctrl+RMB, aby obrï¿½cić ⥁, Shift+LMB aby odwrï¿½cić chiralność
 (SETTINGS LIST) matname2-diamide=diamidowy
-(SETTINGS LIST) toolstd-3=Shift+LMB, aby postawić blok, Shift+MMB, aby p�jść do wskażnika, Shift+RMB, aby wydobyć
+(SETTINGS LIST) toolstd-3=Shift+LMB, aby postawić blok, Shift+MMB, aby pï¿½jść do wskażnika, Shift+RMB, aby wydobyć
 (SETTINGS LIST) matname-silicarbide=z węglika krzemu
 (SETTINGS LIST) wguicf-cons=ZUŻYWAJĄ przedmiot
 (SETTINGS LIST) matname-crystal=z krystalitu
-(SETTINGS LIST) paint-descr=Wciśnij X, żeby zmienić kolor, lub wciśnij X, aby przywr�cić kolor biały.
+(SETTINGS LIST) paint-descr=Wciśnij X, żeby zmienić kolor, lub wciśnij X, aby przywrï¿½cić kolor biały.
 (SETTINGS LIST) matname1-brass=Mosiądz
 (SETTINGS LIST) matname-lumium=z lumium
 (SETTINGS LIST) matname2-PVC=polichlorowy
 (SETTINGS LIST) matname-gold=ze złota
-(SETTINGS LIST) ngui-title=Utw�rz nowy świat
+(SETTINGS LIST) ngui-title=Utwórz nowy świat
 (SETTINGS LIST) machine-crusher=Rozdrabniacz
 (SETTINGS LIST) grass=Trawa
 (SETTINGS LIST) wguit-nochance=Nielosowalne
@@ -109,14 +109,14 @@
 (SETTINGS LIST) matname-rudimentium=z rudimentium
 (SETTINGS LIST) matname1-PTFE=PTFE
 (SETTINGS LIST) pick-b=Kilof na start
-(SETTINGS LIST) wguicf-alone2=Tw�j wybrany przepis osobno
+(SETTINGS LIST) wguicf-alone2=Twï¿½j wybrany przepis osobno
 (SETTINGS LIST) wguicf-chan=MOGĄ WYPRODUKOWAĆ przedmiot
 (SETTINGS LIST) modblocks-stacker=Liczebnosć
 (SETTINGS LIST) matname1-rudimentary=Rudyment
 (SETTINGS LIST) ww-off=Wyłącznik
 (SETTINGS LIST) sand=Piasek
 (SETTINGS LIST) cguis-modhelp=Modyfikacje z zewnątrz
-Dodawaj tylko modyfikacje ze zaufanych źr�dełs.
+Dodawaj tylko modyfikacje ze zaufanych źrï¿½dełs.
 Modyfikacje tutaj muszą być plikem do pobrania bądź lokalnym.
 Strony nie zadziałają.
 (SETTINGS LIST) aim-descr=Wybierz namierzalny block za pomocą elwego przycisku
@@ -133,7 +133,7 @@ Strony nie zadziałają.
 (SETTINGS LIST) ind-sub3=Rozbudowany podkład
 (SETTINGS LIST) multi-nosoundsel=(nie wybrano dźwięku)
 (SETTINGS LIST) ind-sub2=Rozszerzony podkład
-(SETTINGS LIST) cguim-dir=Otw�rz folder z modyfikacjami
+(SETTINGS LIST) cguim-dir=Otwï¿½rz folder z modyfikacjami
 (SETTINGS LIST) ind-sub5=Ekstremalny podkład
 (SETTINGS LIST) ind-sub4=Zaawansowany podkład
 (SETTINGS LIST) modchest-export=eksporter
@@ -142,7 +142,7 @@ Strony nie zadziałają.
 (SETTINGS LIST) matname1-copper=Miedź
 (SETTINGS LIST) wguit-noway=Nieotrzymywalne
 (SETTINGS LIST) machine-power=Moc:
-(SETTINGS LIST) collector=Zbieracz porzuconych przedmiot�w
+(SETTINGS LIST) collector=Zbieracz porzuconych przedmiotï¿½w
 (SETTINGS LIST) remove=Usuń
 (SETTINGS LIST) ind-ic1=Podstawowy układ
 (SETTINGS LIST) shard-chaotic=Odłam chaotyczny
@@ -157,7 +157,7 @@ Strony nie zadziałają.
 (SETTINGS LIST) nodescr=(brak opisu)
 (SETTINGS LIST) matname1-steel=Stal
 (SETTINGS LIST) ww-placer=Nieskończony postawiacz blok�w
-(SETTINGS LIST) wguim-craftaid=Panel rzemieślniczy do tworzenia przepis�w:
+(SETTINGS LIST) wguim-craftaid=Panel rzemieślniczy do tworzenia przepisï¿½w:
 (SETTINGS LIST) depr-nuker=zzz NIEAKTUALNE Reaktor jądrowy (zamień to na Prądnicę jądrową 1, do usunięcia w 0.6)
 (SETTINGS LIST) ww-t=Ogon WireWorld
 (SETTINGS LIST) multi-play=▶ Odtwarzaj
@@ -172,7 +172,7 @@ Strony nie zadziałają.
 (SETTINGS LIST) ipipe-right=Rura - złącz z prawej
 (SETTINGS LIST) matname-alnico=z alniko
 (SETTINGS LIST) wgui-icount=Przedmioty do dod/usuń
-(SETTINGS LIST) wguim-insstencil=Wł�ż szablon →
+(SETTINGS LIST) wguim-insstencil=Włï¿½ż szablon →
 (SETTINGS LIST) cguis-debug=Debugowanie
 (SETTINGS LIST) component-subsD=podsystem D
 (SETTINGS LIST) matname2-unobtainium=Unobtainiowy
@@ -191,9 +191,9 @@ Strony nie zadziałają.
 (SETTINGS LIST) cdie=Skonfiguruj zbieracze porzuconych przedmiotï¿½w
 (SETTINGS LIST) matname2-nichrome=Niklochromowy
 (SETTINGS LIST) matname1-silicopper=Krzemiedż
-(SETTINGS LIST) ngui-w=Szerokość
+(SETTINGS LIST) ngui-w=Szerokość (bloki od środka W/E)
 (SETTINGS LIST) ind-resa1=Podstawowa sieć rezystorï¿½w
-(SETTINGS LIST) cguis-scale=Wsp�łczynnik skalowania
+(SETTINGS LIST) cguis-scale=Wspï¿½łczynnik skalowania
 (SETTINGS LIST) modchest-chest=Skrzynia modularna
 (SETTINGS LIST) matname-glowstone=z jasnogłazu
 (SETTINGS LIST) wguit-block=Bloki
@@ -205,7 +205,7 @@ Strony nie zadziałają.
 (SETTINGS LIST) gravel=Żwir
 (SETTINGS LIST) ngui-g=Generator świata
 (SETTINGS LIST) exit=Wyjdź
-(SETTINGS LIST) ngui-c=Rozmiar fragment�w
+(SETTINGS LIST) ngui-c=Rozmiar fragmentów
 (SETTINGS LIST) component-subsB=podsystem B
 (SETTINGS LIST) ngui-n=Nazwa
 (SETTINGS LIST) component-subsA=podsystem A
@@ -213,7 +213,7 @@ Strony nie zadziałają.
 (SETTINGS LIST) hello=Cześć!
 (SETTINGS LIST) wgui-creamode=Tryb kreatywny
 (SETTINGS LIST) matname2-enderium=Enderiowy
-(SETTINGS LIST) ngui-h=Wyskokość
+(SETTINGS LIST) ngui-h=Wyskokość (bloki od środka N/S)
 (SETTINGS LIST) CoL=Zawieś grę
 (SETTINGS LIST) aim=Namierzanie
 (SETTINGS LIST) cgui-mods=Modyfikacje
@@ -262,7 +262,7 @@ Strony nie zadziałają.
 (SETTINGS LIST) glassp=Szyba
 (SETTINGS LIST) matname-rubber=z gumy
 (SETTINGS LIST) matname1-cobalt=Kobalt
-(SETTINGS LIST) visuals-5=Punkty i linie korzystają tylko z koloru krawędzi. Kołą i prostokąty wykorzystują oba kolory. Obrazy nie wykorzystują kolor�w
+(SETTINGS LIST) visuals-5=Punkty i linie korzystają tylko z koloru krawędzi. Kołą i prostokąty wykorzystują oba kolory. Obrazy nie wykorzystują kolorï¿½w
 (SETTINGS LIST) visuals-4=Punkty wykorzystują tylko pierwszą pozycję
 (SETTINGS LIST) visuals-3=Z-punkt, X-linia, C-koło, V-prostokąt, B-obraz
 (SETTINGS LIST) visuals-2=J-pierwsza pozycja, K-druga pozycja
@@ -283,10 +283,10 @@ Strony nie zadziałają.
 (SETTINGS LIST) multi-begin=⏮ Na początek
 (SETTINGS LIST) matname-signalum=ze signalum
 (SETTINGS LIST) matname-platinum=z platyny
-(SETTINGS LIST) wgui-results=wynik�w
+(SETTINGS LIST) wgui-results=wynikï¿½w
 (SETTINGS LIST) machine-infinigen=Wieczna prądnica
 (SETTINGS LIST) matname1-iron=Żelazo
-(SETTINGS LIST) cguis-scalerr=Nieprawidłowy wsp�łczynnik skalowania
+(SETTINGS LIST) cguis-scalerr=Nieprawidłowy wspï¿½łczynnik skalowania
 (SETTINGS LIST) ind-circ0=Prymitywny obwï¿½d
 (SETTINGS LIST) ind-circ1=Podstawowy obwï¿½d
 (SETTINGS LIST) ind-circ2=Rozszerzony obwï¿½d
@@ -319,7 +319,7 @@ Strony nie zadziałają.
 (SETTINGS LIST) upd-noserver=Błędny serwer aktualizacji: 
 (SETTINGS LIST) machine-coalgen=Prądnica piecowa
 (SETTINGS LIST) rawitem=(surowy)
-(SETTINGS LIST) wguim-sel=Wyb�r
+(SETTINGS LIST) wguim-sel=Wybï¿½r
 (SETTINGS LIST) component-motor=Silnik
 (SETTINGS LIST) matname1-signalum=Signalum
 (SETTINGS LIST) machine-battery=Bateria
@@ -335,7 +335,7 @@ Strony nie zadziałają.
 (SETTINGS LIST) wguim-in=Składniki
 (SETTINGS LIST) matname2-chrome=Chromowy
 (SETTINGS LIST) matname2-omnamide=omnamidowy
-(SETTINGS LIST) multi-resume=▷ Wzn�w
+(SETTINGS LIST) multi-resume=▷ Wznï¿½w
 (SETTINGS LIST) paint=Pędzel malarski
 (SETTINGS LIST) machine-brewery=Browar
 (SETTINGS LIST) wguim-charge=Ńadowarka
@@ -344,7 +344,7 @@ Strony nie zadziałają.
 (SETTINGS LIST) machine-splicer=Zespalacz
 (SETTINGS LIST) wguim-hammer=Młot:
 (SETTINGS LIST) matname-HSS=ze stali szybkotnącej
-(SETTINGS LIST) cguis-dumpbundles=Zrzucaj związki zasob�w
+(SETTINGS LIST) cguis-dumpbundles=Zrzucaj związki zasobï¿½w
 (SETTINGS LIST) matname-diamond=z diamentu
 (SETTINGS LIST) wgui-dtp=Wyłącz grę
 (SETTINGS LIST) matname2-tungsten=Wolframowy
@@ -360,14 +360,14 @@ Strony nie zadziałają.
 (SETTINGS LIST) mattype-foil=Folia
 (SETTINGS LIST) wguim-n=# pierwszego
 (SETTINGS LIST) machine-sinterer=Fabryka węglik�w spiekanych
-(SETTINGS LIST) wguim-nsel=# na wyb�r
+(SETTINGS LIST) wguim-nsel=# na wybï¿½r
 (SETTINGS LIST) upd-future=Twoja wersja jest zbyt nowa
 (SETTINGS LIST) matname-duranium=z duranium
 (SETTINGS LIST) battery=Bateria
 (SETTINGS LIST) component-neuristor=neurystor
 (SETTINGS LIST) clay=Glina
 (SETTINGS LIST) visuals-selecting=Confirm the position with [L]
-(SETTINGS LIST) wgui-ra=Opr�żnij
+(SETTINGS LIST) wgui-ra=Oprï¿½żnij
 (SETTINGS LIST) mattype-smalldust=Mały pył
 (SETTINGS LIST) wgui-sortis=Sortuj przedmioty
 (SETTINGS LIST) matname1-enderium=Enderium
@@ -382,7 +382,7 @@ Strony nie zadziałają.
 (SETTINGS LIST) ind-frame1=Prymitywna klatka do maszyn
 (SETTINGS LIST) wguicf-cil=Use the creative item list
 (SETTINGS LIST) ww-ur=Losownica jednorodna
-(SETTINGS LIST) cguims-media=Pakiet medi�w
+(SETTINGS LIST) cguims-media=Pakiet mediï¿½w
 (SETTINGS LIST) cguiw-refresh=Odśwież
 (SETTINGS LIST) matname-tin=z cyny
 (SETTINGS LIST) matname2-signalum=Signaliowy
@@ -447,7 +447,7 @@ Strony nie zadziałają.
 (SETTINGS LIST) shard-adraconic=Wzbudzony odłam draconiowy
 (SETTINGS LIST) wguit-items=Przedmioty
 (SETTINGS LIST) chest-both=Wrzutniossak
-(SETTINGS LIST) tcopy-2=Wybierz miejsce do wkejenia za pomocą LMB, lub wciśnij RMB, aby usunąć wyb�r
+(SETTINGS LIST) tcopy-2=Wybierz miejsce do wkejenia za pomocą LMB, lub wciśnij RMB, aby usunąć wybï¿½r
 (SETTINGS LIST) modchest-coresingle=Jednoprzedmiotowy wkład do skrzyni
 (SETTINGS LIST) tcopy-1=Wybierz drugi narożnik, Wciśnij LMB, aby skopiować, wciśnij MMB, aby wyciąć, lub wciśnij RMB, aby anulować
 (SETTINGS LIST) upd-malform=Błędne dane wersji: 
@@ -494,7 +494,7 @@ Strony nie zadziałają.
 (SETTINGS LIST) component-subcD=podukład D
 (SETTINGS LIST) ind-mot1=Prymitywny silnik
 (SETTINGS LIST) component-subcC=podukład C
-(SETTINGS LIST) wguicf-head=Wyszukaj przepis�w, kt�re:
+(SETTINGS LIST) wguicf-head=Wyszukaj przepisï¿½w, ktï¿½re:
 (SETTINGS LIST) wguim-smelt=Przetwarzanie:
 (SETTINGS LIST) matname2-coal=Węglowy
 (SETTINGS LIST) matname1-draconium=Draconium
@@ -542,7 +542,7 @@ Strony nie zadziałają.
 (SETTINGS LIST) cguims-dis=Nieaktywny
 (SETTINGS LIST) cguims-bloat=Too big
 (SETTINGS LIST) planks=Deski
-(SETTINGS LIST) cguims-dir=Folder plik�w
+(SETTINGS LIST) cguims-dir=Folder plikï¿½w
 (SETTINGS LIST) ww-load=Wykrywacz ładowania świata
 (SETTINGS LIST) matname-enderium=z enderium
 (SETTINGS LIST) matname-chaotium=z Chaotium
@@ -562,9 +562,9 @@ Strony nie zadziałają.
 (SETTINGS LIST) matname2-iridium=Irydowy
 (SETTINGS LIST) wguic-clear=Wyczyść
 (SETTINGS LIST) wguic-s2g=Szablon > Siatka
-(SETTINGS LIST) cgui-refugeehelp=Dla uchodźc�w z Ukrainy
+(SETTINGS LIST) cgui-refugeehelp=Dla uchodźcï¿½w z Ukrainy
 (SETTINGS LIST) component-brain=mï¿½zg
-(SETTINGS LIST) cguims-none=Brak plik�w
+(SETTINGS LIST) cguims-none=Brak plikï¿½w
 (SETTINGS LIST) matname2-electrosteel=Elektrostalowy
 (SETTINGS LIST) mattype-tinydust=Mikropył
 (SETTINGS LIST) wguit-all=Wszystkie
@@ -577,7 +577,7 @@ Strony nie zadziałają.
 (SETTINGS LIST) wguit-sitem=Proste przedmioty
 (SETTINGS LIST) matname2-rudimentary=Rudymentowy
 (SETTINGS LIST) wguic-craft=<<Zbuduj do ekwipunku
-(SETTINGS LIST) placeitems=Stawiacz blok�w i przedmiot�w
+(SETTINGS LIST) placeitems=Stawiacz blokï¿½w i przedmiotï¿½w
 (SETTINGS LIST) multi-stop=◼ Zatrzymaj
 (SETTINGS LIST) water=Woda
 (SETTINGS LIST) wgui-titledesc=Tytuły malejąco
@@ -612,10 +612,10 @@ Strony nie zadziałają.
 (SETTINGS LIST) cguims-bad=Uszkodzony
 (SETTINGS LIST) ipack1=Postawowy pakiet przedmiotï¿½w
 (SETTINGS LIST) wguicf-mac=korzystają z MASZYNY
-(SETTINGS LIST) cgui-refugeedonate=WPŁAĆ DAROWIZNĘ NA RZECZ UCHODŹC�W Z UKRAINY
+(SETTINGS LIST) cgui-refugeedonate=WPŁAĆ DAROWIZNĘ NA RZECZ UCHODŹCï¿½W Z UKRAINY
 (SETTINGS LIST) wgui-refresh=Odśwież
 (SETTINGS LIST) matname1-silver=Srebro
-(SETTINGS LIST) wguit-notags=Bez znacznik�w
+(SETTINGS LIST) wguit-notags=Bez znacznikï¿½w
 (SETTINGS LIST) ww-rctr=Losuj jeżeli
 (SETTINGS LIST) cguims-nonet=Brak Internetu
 (SETTINGS LIST) component-rtx=RTX
@@ -2145,9 +2145,9 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
  (brak opisu)
 (ITEMS) Adding itemsystem.mover with title Wyciągacz przedmiot�w and description:
  (brak opisu)
-(ITEMS) Adding industry.placeitems with title Stawiacz blok�w i przedmiot�w and description:
+(ITEMS) Adding industry.placeitems with title Stawiacz blokï¿½w i przedmiotï¿½w and description:
  (brak opisu)
-(ITEMS) Adding industry.collector with title Zbieracz porzuconych przedmiot�w and description:
+(ITEMS) Adding industry.collector with title Zbieracz porzuconych przedmiotï¿½w and description:
  (brak opisu)
 (ITEMS) Adding pipe.I with title Rura - prosta and description:
  A pipe which is straight.
@@ -2897,8 +2897,8 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Turboprądnica 1(elec.turbogen1) with machine-turbogen
 (ITEMS) Tagging Item Turboprądnica 2(elec.turbogen2) with machine-turbogen
 (ITEMS) Tagging Item Turboprądnica 3(elec.turbogen3) with machine-turbogen
-(ITEMS) Tagging Item Stawiacz blok�w i przedmiot�w(industry.placeitems) with imachine
-(ITEMS) Tagging Item Zbieracz porzuconych przedmiot�w(industry.collector) with imachine
+(ITEMS) Tagging Item Stawiacz blokï¿½w i przedmiotï¿½w(industry.placeitems) with imachine
+(ITEMS) Tagging Item Zbieracz porzuconych przedmiotï¿½w(industry.collector) with imachine
 (ITEMS) Tagging Item Wyciągacz przedmiot�w(itemsystem.mover) with imachine
 (ITEMS) Tagging Item zzz NIEAKTUALNE Konstruktor cykliczny (zamiast tego użyj STN-a, do usunięcia w 0.6)(industry.cycle0) with deprecated
 (ITEMS) Tagging Block zzz NIEAKTUALNE Warsztat kilofów (scraftuj to samo, aby odzyskać składniki)(machines.pickbuilder) with deprecated
@@ -8876,6 +8876,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (MOD-LOADER) Walking: /home/oskar/git/MultiMachineBuilder/mods
 (MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/mods
 (MAIN) State: Found 5 mod files
+(MOD - banner.png) Opening a modfile: /home/oskar/Pobrane/banner.png
 (MOD - Dice - 3762849.zip) Opening a modfile: /home/oskar/Pobrane/Dice - 3762849.zip
 (MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home/oskar/git/MultiMachineBuilder/OpenGL is over 20 times faster than AWT.jar
 (MOD - OpenGL is over 20 times faster than AWT.jar) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie ma takiego pliku ani katalogu)
@@ -8886,21 +8887,20 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-(MOD - banner.png) Opening a modfile: /home/oskar/Pobrane/banner.png
-(MOD - whatever) Failed to read the file /root/whatever
+(MOD - FILE230607-075624F.MOV) (MOD - whatever) Failed to read the file /root/whatever
+Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
 (MOD - whatever) java.io.FileNotFoundException: /root/whatever (Brak dostępu)
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
 	at mmb.engine.files.LocalFile.getInputStream(LocalFile.java:45)
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
-(MOD - FILE230607-075624F.MOV) 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
+	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
 (MOD - banner.png) Couldn't open zip or jar file /home/oskar/Pobrane/banner.png
 (MOD - banner.png) java.util.zip.ZipException: Cannot find zip signature within the first 4096 bytes
-	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.readFirstLocalFileHeader(ZipArchiveInputStream.java:1040)
-	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.getNextZipEntry(ZipArchiveInputStream.java:660)
+	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.readFirstLocalFileHeader(ZipArchiveInputStream.java:1039)
+	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.getNextZipEntry(ZipArchiveInputStream.java:662)
 	at org.apache.commons.compress.archivers.jar.JarArchiveInputStream.getNextJarEntry(JarArchiveInputStream.java:79)
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:157)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
@@ -9009,1017 +9009,6 @@ Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
 (SELECT A SAVE) Found 27 saves
 (Main menu) Current version: 0.5.1
 (Main menu) You have the current version
-(WORLD TEST) 1768 items
-(TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@6879e0b8
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: null
-(TOOL SELECTOR) New tool: standard
-(WORLD TEST) Number of zoom levels: 48
-(WORLD TEST) Scrollbar max: 57
-(SELECT A SAVE) Opened a file
-(SELECT A SAVE) Loaded a file
-(SELECT A SAVE) Parsed file
-(ITEM LISTS) Item list node is null
-(ITEM LISTS) Item list node is null
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
-(DATA LAYERS) Loading world data layer: STN
-(ITEMS) Invalid item: Infinity
-(INVENTORIES) Unsupported null item
-(MAP anonymous) Became anonymous
-(SELECT A SAVE) Loaded
-(WORLD - IDLE) Exiting
-(WORLDS) Opening a new world
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.menu.world.window.WorldWindow.scrollScrollist(WorldWindow.java:346)
-	at mmb.menu.world.window.WorldFrame$Listener.mouseWheelMoved(WorldFrame.java:221)
-	at java.desktop/java.awt.Component.processMouseWheelEvent(Component.java:6723)
-	at java.desktop/java.awt.Component.processEvent(Component.java:6407)
-	at java.desktop/java.awt.Container.processEvent(Container.java:2263)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4918)
-	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4576)
-	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4488)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2307)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.menu.world.window.WorldWindow.scrollScrollist(WorldWindow.java:346)
-	at mmb.menu.world.window.WorldFrame$Listener.mouseWheelMoved(WorldFrame.java:221)
-	at java.desktop/java.awt.Component.processMouseWheelEvent(Component.java:6723)
-	at java.desktop/java.awt.Component.processEvent(Component.java:6407)
-	at java.desktop/java.awt.Container.processEvent(Container.java:2263)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4918)
-	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4576)
-	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4488)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2307)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.menu.world.window.WorldWindow.scrollScrollist(WorldWindow.java:346)
-	at mmb.menu.world.window.WorldFrame$Listener.mouseWheelMoved(WorldFrame.java:221)
-	at java.desktop/java.awt.Component.processMouseWheelEvent(Component.java:6723)
-	at java.desktop/java.awt.Component.processEvent(Component.java:6407)
-	at java.desktop/java.awt.Container.processEvent(Container.java:2263)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4918)
-	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4576)
-	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4488)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2307)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.menu.world.window.WorldWindow.scrollScrollist(WorldWindow.java:346)
-	at mmb.menu.world.window.WorldFrame$Listener.mouseWheelMoved(WorldFrame.java:221)
-	at java.desktop/java.awt.Component.processMouseWheelEvent(Component.java:6723)
-	at java.desktop/java.awt.Component.processEvent(Component.java:6407)
-	at java.desktop/java.awt.Container.processEvent(Container.java:2263)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4918)
-	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4576)
-	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4488)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2307)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.menu.world.window.WorldWindow.scrollScrollist(WorldWindow.java:346)
-	at mmb.menu.world.window.WorldFrame$Listener.mouseWheelMoved(WorldFrame.java:221)
-	at java.desktop/java.awt.Component.processMouseWheelEvent(Component.java:6723)
-	at java.desktop/java.awt.Component.processEvent(Component.java:6407)
-	at java.desktop/java.awt.Container.processEvent(Container.java:2263)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4918)
-	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4576)
-	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4488)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2307)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.menu.world.window.WorldWindow.scrollScrollist(WorldWindow.java:346)
-	at mmb.menu.world.window.WorldFrame$Listener.mouseWheelMoved(WorldFrame.java:221)
-	at java.desktop/java.awt.Component.processMouseWheelEvent(Component.java:6723)
-	at java.desktop/java.awt.Component.processEvent(Component.java:6407)
-	at java.desktop/java.awt.Container.processEvent(Container.java:2263)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4918)
-	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4576)
-	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4488)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2307)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.NullPointerException
-	at mmb.menu.world.window.WorldWindow.scrollScrollist(WorldWindow.java:346)
-	at mmb.menu.world.window.WorldFrame$Listener.mouseWheelMoved(WorldFrame.java:221)
-	at java.desktop/java.awt.Component.processMouseWheelEvent(Component.java:6723)
-	at java.desktop/java.awt.Component.processEvent(Component.java:6407)
-	at java.desktop/java.awt.Container.processEvent(Container.java:2263)
-	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4918)
-	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4576)
-	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4488)
-	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2307)
-	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
-	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
-	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
-	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
-	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
-	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
-	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
-	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
-(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item zzz NIEAKTUALNE Wiadro na przedmioty (scraftuj to samo, aby odzyskać składniki)(mmb.bucket)]
-(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Item zzz NIEAKTUALNE Wiadro na przedmioty (scraftuj to samo, aby odzyskać składniki)(mmb.bucket)]
-(CRAFTING GUI) Running the crafing
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Item zzz NIEAKTUALNE Wiadro na przedmioty (scraftuj to samo, aby odzyskać składniki)(mmb.bucket), expected 1
-(INVENTORIES) Inserted 5 of Block Skała(mmb.stone), expected 5
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
-(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
-(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=null]
-(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
-(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=1, newEntry=null]
-(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
-(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=0, newEntry=null]
-(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
-(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=1, y=1, newEntry=null]
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
-(PLAYER INVENTORY) Querying recipes
-(PLAYER INVENTORY) Query finished
-(PLAYER INVENTORY) Querying recipes
-(PLAYER INVENTORY) Query finished
-(STN data layer @null) Rebuild
-(STN-inventory) Index rebuild
-(WORLD TEST) Exiting the world
-(WORLD - ) Saving main BlockMap
-(DATA LAYERS) Saving world data layer: STN
-(WORLD TEST) Saving the world
-(WORLD TEST) Saved the world
-(WORLD - main null) Exiting
-(MAP anonymous) Destroying
-(MAP anonymous) Shutdown
-(WORLDS) The given world is null, exiting
-(WORLD TEST) Exited the world
 (SETTINGS) Resetting a setting country with value PL
 (SETTINGS) Resetting a setting sortItems with value true
 (SETTINGS) Resetting a setting dumpBundles with value true
