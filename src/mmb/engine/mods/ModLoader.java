@@ -123,10 +123,7 @@ public class ModLoader {
 		}
 		
 		//Part 1a: check for empty byte arrays
-		if(data == null) {
-			return;
-		}
-		if(data.length == 0) {
+		if(data == null || data.length == 0) {
 			modfile.state = ModfileState.EMPTY;
 			return;
 		}

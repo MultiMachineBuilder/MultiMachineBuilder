@@ -1,4 +1,4 @@
-(MAIN) RAM avaliable: 4131389440
+(MAIN) RAM avaliable: 4133486592
 (MAIN) Java version is: 11.0.24
 (SETTINGS LIST) Language: pl
 (SETTINGS LIST) vvvv Resource bundle start mmb/bundle vvv
@@ -8887,8 +8887,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-(MOD - FILE230607-075624F.MOV) (MOD - whatever) Failed to read the file /root/whatever
-Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
+(MOD - whatever) Failed to read the file /root/whatever
 (MOD - whatever) java.io.FileNotFoundException: /root/whatever (Brak dostępu)
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
@@ -8897,12 +8896,13 @@ Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+(MOD - FILE230607-075624F.MOV) Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
 (MOD - banner.png) Couldn't open zip or jar file /home/oskar/Pobrane/banner.png
 (MOD - banner.png) java.util.zip.ZipException: Cannot find zip signature within the first 4096 bytes
 	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.readFirstLocalFileHeader(ZipArchiveInputStream.java:1039)
 	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.getNextZipEntry(ZipArchiveInputStream.java:662)
 	at org.apache.commons.compress.archivers.jar.JarArchiveInputStream.getNextJarEntry(JarArchiveInputStream.java:79)
-	at mmb.engine.mods.ModLoader.init(ModLoader.java:157)
+	at mmb.engine.mods.ModLoader.init(ModLoader.java:154)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 (MOD - Dice - 3762849.zip) entry: files/

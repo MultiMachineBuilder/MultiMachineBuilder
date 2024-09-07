@@ -17,7 +17,7 @@
 	<developers>
 	    <developer>
 	      <name>Monniasza</name>
-	      <email>monniasza.machines@onet.pl</email>
+	      <email>monniasza@onet.pl</email>
 	      <organization>MultiMachineBuilder team</organization>
 	      <organizationUrl>https://github.com/MultiMachineBuilder</organizationUrl>
 	    </developer>
@@ -154,6 +154,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<!-- JUnit 5 requires Surefire version 3.3.1 or higher -->
 				<version>3.3.1</version>
+				
 	 		</plugin>
 	 		
 	 		<!-- Javadoc -->
@@ -287,6 +288,8 @@
 		    <groupId>com.code-intelligence</groupId>
 		    <artifactId>jazzer-junit</artifactId>
 		    <version>0.22.1</version>
+		    <scope>test</scope>
+		    
 		</dependency>
 	
 		<!-- Null analysis -->
@@ -423,12 +426,12 @@
 	        <version>v1.1.0</version>
 	    </dependency>
 		
-		<!-- https://mvnrepository.com/artifact/org.eluder.juniter/juniter -->
+		
 		<dependency>
-			<groupId>org.eluder.juniter</groupId>
-			<artifactId>juniter</artifactId>
-			<version>1.1.2</version>
-			<type>pom</type>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.10.3</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
@@ -439,9 +442,15 @@
 		<dependency>
 	        <groupId>org.junit.jupiter</groupId>
 	        <artifactId>junit-jupiter-api</artifactId>
-	        <version>5.10.0</version>
+	        <version>5.10.3</version>
 	        <scope>test</scope>
 	    </dependency>
+	    <dependency>
+		    <groupId>org.junit.platform</groupId>
+		    <artifactId>junit-platform-commons</artifactId>
+		    <version>1.10.3</version>
+		    <scope>test</scope>
+		</dependency>
 		
 		<!-- LWJGL -->
 		<dependency>
@@ -459,6 +468,7 @@
 			<artifactId>lwjgl-opengl</artifactId>
 			<version>3.3.2</version>
 		</dependency>
+		
 		<!-- LWJGL natives -->
 		<dependency>
 			<groupId>org.lwjgl</groupId>
@@ -491,18 +501,6 @@
 			<groupId>io.github.micwan88</groupId>
 			<artifactId>helperclass4j</artifactId>
 			<version>2.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.13.2</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<version>5.10.3</version>
-			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 	<description>Dependency for the MultiMachineBuilder, a voxel game about building an industrial empire in a finite world.
