@@ -164,7 +164,6 @@
 				<configuration>
 					<forceCreation>true</forceCreation>
 					<failOnError>false</failOnError>
-					<charset>utf-8</charset>
 					<doclint>none</doclint>
 				</configuration>
 				<executions>
@@ -187,21 +186,13 @@
 					<forceCreation>true</forceCreation>
 				</configuration>
 				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<phase>package</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>attach-test-sources</id>
-						<phase>package</phase>
-						<goals>
-							<goal>test-jar</goal>
-						</goals>
-					</execution>
-				</executions>
+	                <execution>
+	                    <id>attach-sources</id>
+	                    <goals>
+	                        <goal>jar</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
 		    </plugin>
 	  </plugins>
 	</build>
