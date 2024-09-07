@@ -197,6 +197,51 @@
 	                </execution>
 	            </executions>
 		    </plugin>
+		    
+		    <!-- Ant packaging of complete game -->
+		    <plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-antrun-plugin</artifactId>
+			    <version>1.8</version>
+			    <executions>
+			        <execution>
+			            <id>gamedir</id>
+			            <phase>package</phase>
+			            <goals>
+			                <goal>run</goal>
+			            </goals>
+			            <configuration>
+			                <target>
+			                    <mkdir dir="${mmb.packingdir}/mods"/>
+			                    <mkdir dir="${mmb.packingdir}/maps"/>
+			                    <copy todir = "${mmb.packingdir}/natives">
+									<fileset dir="${basedir}/natives"/>
+								</copy>
+								<copy todir = "${mmb.packingdir}/sound">
+									<fileset dir="${basedir}/sound"/>
+								</copy>
+								<copy todir = "${mmb.packingdir}/textures">
+									<fileset dir="${basedir}/textures"/>
+								</copy>
+								<copy todir="${mmb.packingdir}/">
+								    <fileset dir="${project.build.directory}">
+								        <include name="multimachinebuilder*.jar"/>
+								    </fileset>
+								</copy>
+								<echo message="" file="${mmb.packingdir}/log.txt"/>
+								<echo message="" file="${mmb.packingdir}/ext.txt"/>
+								<echo message="" file="${mmb.packingdir}/settings.properties"/>
+								<echo file="${mmb.packingdir}/MultiMachineBuilder.sh">
+									#!/bin/bash
+									java -jar ${mmb.jarfile} $@
+								</echo>
+								<echo message="javaw ${mmb.jarfile} $@" file="${mmb.packingdir}/MultiMachineBuilder.bat"/>
+								<zip destfile="${project.build.directory}/MultiMachineBuilder ${version} Ready2Go.zip" basedir="${mmb.packingdir}"/>
+			                </target>
+			            </configuration>
+			        </execution>
+			    </executions>
+			</plugin>
 	  </plugins>
 	</build>
 	<profiles>
@@ -258,11 +303,15 @@
 			        		<autoReleaseAfterClose>false</autoReleaseAfterClose>
 			      		</configuration>
 			    	</plugin>
+			    	
+			    	<!-- GitHub Artifact -->
 	        	</plugins>
 	        </build>
 	    </profile>
 	</profiles>
 	<properties>
+		<mmb.packingdir>${project.build.directory}/MultiMachineBuilder</mmb.packingdir>
+		<mmb.jarfile>multimachinebuilder-${version}.jar</mmb.jarfile>
 		<!-- LWJGL -->
 		<lwjgl.version>3.3.1</lwjgl.version>
 		<joml.version>1.10.5</joml.version>
