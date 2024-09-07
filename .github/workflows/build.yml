@@ -60,10 +60,10 @@ jobs:
       - name: Upload the jars
         uses: actions/upload-artifact@v4
         with:
-          name: source.jar
+          name: Sources
           path: target/multimachinebuilder-*.jar
       - name: Upload the ready2go zip
         uses: actions/upload-artifact@v4
         with:
-          name: source.jar
+          name: Ready2Go
           path: target/MultiMachineBuilder * Ready2Go.zip
