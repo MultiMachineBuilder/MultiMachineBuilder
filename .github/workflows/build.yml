@@ -57,3 +57,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn --batch-mode clean deploy -P actions
+      - name: Upload the jars
+        uses: actions/upload-artifact@v4
+        with:
+          name: source.jar
+          path: target/multimachinebuilder-*.jar
+      - name: Upload the ready2go zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: source.jar
+          path: target/MultiMachineBuilder * Ready2Go.zip
