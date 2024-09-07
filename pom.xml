@@ -189,6 +189,7 @@
 	                <execution>
 	                    <id>attach-sources</id>
 	                    <phase>package</phase>
+	                    <inherited>true</inherited>
 	                    <goals>
 	                        <goal>jar-no-fork</goal>
 	                        <goal>test-jar-no-fork</goal>
