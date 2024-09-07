@@ -152,16 +152,21 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
+<<<<<<< HEAD
 				<!-- JUnit 5 requires Surefire version 3.3.1 or higher -->
 				<version>3.3.1</version>
 				
+=======
+				<!-- JUnit 5 requires Surefire version 3.5.0 or higher -->
+				<version>3.5.0</version>
+>>>>>>> refs/remotes/origin/master
 	 		</plugin>
 	 		
 	 		<!-- Javadoc -->
 	 		<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.8.0</version>
+				<version>3.10.0</version>
 				<configuration>
 					<forceCreation>true</forceCreation>
 					<failOnError>false</failOnError>
@@ -227,7 +232,7 @@
 				    <plugin>
 		                  <groupId>org.apache.maven.plugins</groupId>
 		                  <artifactId>maven-gpg-plugin</artifactId>
-		                  <version>3.2.4</version>
+		                  <version>3.2.5</version>
 		                  <executions>
 		                      <execution>
 		                          <id>sign-artifacts</id>
@@ -325,7 +330,7 @@
 		<dependency>
 			<groupId>com.miglayout</groupId>
 			<artifactId>miglayout-swing</artifactId>
-			<version>11.4</version>
+			<version>11.4.2</version>
 		</dependency>
 		<dependency>
 	   		<groupId>io.github.parubok</groupId>
@@ -364,7 +369,7 @@
 		<dependency>
 	 		<groupId>com.google.guava</groupId>
 	 		<artifactId>guava</artifactId>
-	 		<version>33.2.1-jre</version>
+	 		<version>33.3.0-jre</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.google.guava</groupId>
@@ -403,12 +408,12 @@
 		<dependency>
 	 		<groupId>org.apache.commons</groupId>
 	 		<artifactId>commons-lang3</artifactId>
-	 		<version>3.16.0</version>
+	 		<version>3.17.0</version>
 		</dependency>
 		<dependency>
 	 		<groupId>org.apache.commons</groupId>
 	 		<artifactId>commons-compress</artifactId>
-	 		<version>1.27.0</version>
+	 		<version>1.27.1</version>
 		</dependency>
 		<dependency>
 	  		<groupId>commons-io</groupId>
@@ -436,13 +441,17 @@
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-engine</artifactId>
-		    <version>5.10.3</version>
+		    <version>5.11.0</version>
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
 	        <groupId>org.junit.jupiter</groupId>
 	        <artifactId>junit-jupiter-api</artifactId>
+<<<<<<< HEAD
 	        <version>5.10.3</version>
+=======
+	        <version>5.11.0</version>
+>>>>>>> refs/remotes/origin/master
 	        <scope>test</scope>
 	    </dependency>
 	    <dependency>
@@ -502,6 +511,21 @@
 			<artifactId>helperclass4j</artifactId>
 			<version>2.0.1</version>
 		</dependency>
+<<<<<<< HEAD
+=======
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.11.0</version>
+			<scope>compile</scope>
+		</dependency>
+>>>>>>> refs/remotes/origin/master
 	</dependencies>
 	<description>Dependency for the MultiMachineBuilder, a voxel game about building an industrial empire in a finite world.
 
