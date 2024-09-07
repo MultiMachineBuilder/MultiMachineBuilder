@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-            java-version: 1.8
+            java-version: 11
             server-id: ossrh
             fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
             server-username: MAVEN_USERNAME
