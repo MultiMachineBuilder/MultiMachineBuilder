@@ -116,8 +116,8 @@
 (SETTINGS LIST) ww-off=Wyłącznik
 (SETTINGS LIST) sand=Piasek
 (SETTINGS LIST) cguis-modhelp=Modyfikacje z zewnątrz
-Dodawaj tylko modyfikacje ze zaufanych źrï¿½dełs.
-Modyfikacje tutaj muszą być plikem do pobrania bądź lokalnym.
+Dodawaj tylko modyfikacje ze zaufanych źródeł.
+Modyfikacje tutaj muszą być bezpośrednim linkiem do pobrania (bez strony, pobiera tylko plik) bądź lokalnym plikiem.
 Strony nie zadziałają.
 (SETTINGS LIST) aim-descr=Wybierz namierzalny block za pomocą elwego przycisku
 (SETTINGS LIST) cgui-refugeehelpURL=refugeesEN
@@ -8878,25 +8878,25 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (MAIN) State: Found 5 mod files
 (MOD - banner.png) Opening a modfile: /home/oskar/Pobrane/banner.png
 (MOD - Dice - 3762849.zip) Opening a modfile: /home/oskar/Pobrane/Dice - 3762849.zip
-(MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home/oskar/git/MultiMachineBuilder/OpenGL is over 20 times faster than AWT.jar
-(MOD - OpenGL is over 20 times faster than AWT.jar) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie ma takiego pliku ani katalogu)
-	at java.base/java.io.FileInputStream.open0(Native Method)
-	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
-	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
-	at mmb.engine.files.LocalFile.getInputStream(LocalFile.java:45)
-	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
-	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-(MOD - whatever) Failed to read the file /root/whatever
-(MOD - whatever) java.io.FileNotFoundException: /root/whatever (Brak dostępu)
-	at java.base/java.io.FileInputStream.open0(Native Method)
-	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
-	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
-	at mmb.engine.files.LocalFile.getInputStream(LocalFile.java:45)
-	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
-	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
-	at java.base/java.lang.Thread.run(Thread.java:829)
 (MOD - FILE230607-075624F.MOV) Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
+(MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home/oskar/git/MultiMachineBuilder/OpenGL is over 20 times faster than AWT.jar
+(MOD - whatever) Failed to read the file /root/whatever
+(MOD - OpenGL is over 20 times faster than AWT.jar) (MOD - whatever) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie ma takiego pliku ani katalogu)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at mmb.engine.files.LocalFile.getInputStream(LocalFile.java:45)
+	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
+	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: /root/whatever (Brak dostępu)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at mmb.engine.files.LocalFile.getInputStream(LocalFile.java:45)
+	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
+	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
+	at java.base/java.lang.Thread.run(Thread.java:829)
 (MOD - banner.png) Couldn't open zip or jar file /home/oskar/Pobrane/banner.png
 (MOD - banner.png) java.util.zip.ZipException: Cannot find zip signature within the first 4096 bytes
 	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.readFirstLocalFileHeader(ZipArchiveInputStream.java:1039)
