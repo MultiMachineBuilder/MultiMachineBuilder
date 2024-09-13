@@ -6,4 +6,4 @@
  * @author oskar
  */
 @javax.annotation.ParametersAreNonnullByDefault
-package mmb.engine.inv.infty;
+package mmb.engine.inv.special;

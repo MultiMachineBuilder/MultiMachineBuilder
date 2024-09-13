@@ -170,6 +170,7 @@ Modyfikacje tutaj muszą być lokalnymi ściażkami lub linkami do plików *.jar
 (SETTINGS LIST) machine-turbogen=Turboprądnica
 (SETTINGS LIST) ipipe-right=Rura - złącz z prawej
 (SETTINGS LIST) matname-alnico=z alniko
+(SETTINGS LIST) trashcan=Śmietnik
 (SETTINGS LIST) wgui-icount=Przedmioty do dod/usuń
 (SETTINGS LIST) wguim-insstencil=Włï¿½ż szablon →
 (SETTINGS LIST) cguis-debug=Debugowanie
@@ -1194,6 +1195,9 @@ Modyfikacje tutaj muszą być lokalnymi ściażkami lub linkami do plików *.jar
 (MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/speaker 2.png
 (MOD-LOADER) Loading a texture machine/speaker 2.png
 (TEXTURES) Loading texture: machine/speaker 2.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/trash.png
+(MOD-LOADER) Loading a texture machine/trash.png
+(TEXTURES) Loading texture: machine/trash.png
 (MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/inscriber.png
 (MOD-LOADER) Loading a texture machine/inscriber.png
 (TEXTURES) Loading texture: machine/inscriber.png
@@ -1243,10 +1247,10 @@ Modyfikacje tutaj muszą być lokalnymi ściażkami lub linkami do plików *.jar
 (MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/circuit 7.png
 (MOD-LOADER) Loading a texture item/circuit 7.png
 (TEXTURES) Loading texture: item/circuit 7.png
+(TEXTURE ATLAS) Size: 1024*512
 (MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/adv subcA.png
 (MOD-LOADER) Loading a texture item/adv subcA.png
 (TEXTURES) Loading texture: item/adv subcA.png
-(TEXTURE ATLAS) Size: 1024*512
 (MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/item/minidust.png
 (MOD-LOADER) Loading a texture item/minidust.png
 (TEXTURES) Loading texture: item/minidust.png
@@ -2148,6 +2152,8 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
  (brak opisu)
 (ITEMS) Adding industry.collector with title Zbieracz porzuconych przedmiotï¿½w and description:
  (brak opisu)
+(ITEMS) Adding imachine.trash with title Śmietnik and description:
+ (brak opisu)
 (ITEMS) Adding pipe.I with title Rura - prosta and description:
  A pipe which is straight.
 (ITEMS) Adding pipe.L with title Rura - zakręt and description:
@@ -2899,6 +2905,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Stawiacz blokï¿½w i przedmiotï¿½w(industry.placeitems) with imachine
 (ITEMS) Tagging Item Zbieracz porzuconych przedmiotï¿½w(industry.collector) with imachine
 (ITEMS) Tagging Item Wyciągacz przedmiot�w(itemsystem.mover) with imachine
+(ITEMS) Tagging Block Śmietnik(imachine.trash) with imachine
 (ITEMS) Tagging Item zzz NIEAKTUALNE Konstruktor cykliczny (zamiast tego użyj STN-a, do usunięcia w 0.6)(industry.cycle0) with deprecated
 (ITEMS) Tagging Block zzz NIEAKTUALNE Warsztat kilofów (scraftuj to samo, aby odzyskać składniki)(machines.pickbuilder) with deprecated
 (ITEMS) Tagging Item zzz NIEAKTUALNE Auto-konstruktor 3X3 (planowany zamiennik w 0.6, likwidacja w 0.7)(industry.autocraft1) with deprecated
@@ -8876,17 +8883,6 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/mods
 (MAIN) State: Found 5 mod files
 (MOD - banner.png) Opening a modfile: /home/oskar/Pobrane/banner.png
-(MOD - Dice - 3762849.zip) Opening a modfile: /home/oskar/Pobrane/Dice - 3762849.zip
-(MOD - FILE230607-075624F.MOV) Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
-(MOD - whatever) Failed to read the file /root/whatever
-(MOD - whatever) java.io.FileNotFoundException: /root/whatever (Brak dostępu)
-	at java.base/java.io.FileInputStream.open0(Native Method)
-	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
-	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
-	at mmb.engine.files.LocalFile.getInputStream(LocalFile.java:45)
-	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
-	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
-	at java.base/java.lang.Thread.run(Thread.java:829)
 (MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home/oskar/git/MultiMachineBuilder/OpenGL is over 20 times faster than AWT.jar
 (MOD - OpenGL is over 20 times faster than AWT.jar) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie ma takiego pliku ani katalogu)
 	at java.base/java.io.FileInputStream.open0(Native Method)
@@ -8896,6 +8892,17 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+(MOD - Dice - 3762849.zip) Opening a modfile: /home/oskar/Pobrane/Dice - 3762849.zip
+(MOD - whatever) Failed to read the file /root/whatever
+(MOD - whatever) java.io.FileNotFoundException: /root/whatever (Brak dostępu)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at mmb.engine.files.LocalFile.getInputStream(LocalFile.java:45)
+	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
+	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+(MOD - FILE230607-075624F.MOV) Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
 (MOD - banner.png) Couldn't open zip or jar file /home/oskar/Pobrane/banner.png
 (MOD - banner.png) java.util.zip.ZipException: Cannot find zip signature within the first 4096 bytes
 	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.readFirstLocalFileHeader(ZipArchiveInputStream.java:1039)
@@ -9006,8 +9013,82 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found save: Agriculture test.mworld
 (SELECT A SAVE) Found save: Test player.mworld
 (SELECT A SAVE) Found 27 saves
-(Main menu) Current version: 0.5.1
-(Main menu) Your version is too new
+(Main menu) Current version: 0.5.2
+(Main menu) You have the current version
+(WORLD TEST) 1769 items
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@2ebd6953
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(WORLD TEST) Number of zoom levels: 48
+(WORLD TEST) Scrollbar max: 57
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Parsed file
+(ITEM LISTS) Item list node is null
+(ITEM LISTS) Item list node is null
+(ITEM LISTS) Item list node is null
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(DATA LAYERS) Loading world data layer: STN
+(ITEMS) Invalid item: Infinity
+(INVENTORIES) Unsupported null item
+(MAP anonymous) Became anonymous
+(SELECT A SAVE) Loaded
+(WORLD - IDLE) Exiting
+(WORLDS) Opening a new world
+(TOOL-STANDARD) Running BlockActivateListener for: [5,-1]
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(WORLD TEST) Exiting the world
+(WORLD - ) Saving main BlockMap
+(DATA LAYERS) Saving world data layer: STN
+(WORLD TEST) Saving the world
+(WORLD TEST) Saved the world
+(WORLD - main null) Exiting
+(MAP anonymous) Destroying
+(MAP anonymous) Shutdown
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
 (SETTINGS) Resetting a setting country with value PL
 (SETTINGS) Resetting a setting sortItems with value true
 (SETTINGS) Resetting a setting dumpBundles with value true

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.inv.infty;
+package mmb.engine.inv.special;
 
 import java.util.Iterator;
 

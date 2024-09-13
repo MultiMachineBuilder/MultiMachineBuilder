@@ -25,78 +25,78 @@
       "blocktype" : "elec.turbogen1",
       "side" : "S",
       "in" : [ 2.0, [ "gem.coal", 1 ] ],
-      "energy" : [ 454879.4858977923, -8.227774554253186E13 ],
-      "out" : [ 10000.0, 1.8176607907830707E11 ]
+      "energy" : [ 454879.4858977923, -8.241202596676908E13 ],
+      "out" : [ 10000.0, 1.817684466231343E11 ]
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.stone", "crafting.1", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.tree", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.leaves", "mmb.planks", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.planks", "mmb.tree", "mmb.planks", "mmb.tree", "mmb.leaves", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.planks", "mmb.tree", "mmb.planks", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.planks", "mmb.tree", "mmb.tree", "mmb.planks", "mmb.planks", "mmb.tree", "mmb.stone", "mmb.stone", "mmb.stone", "ore.coal", "mmb.stone", "mmb.stone", "mmb.stone", "ore.lead", "ore.tin", "mmb.stone", "ore.coal", "ore.rudimentary", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "ore.nickel", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "ore.tin", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.planks", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.planks", "mmb.tree", "mmb.leaves", "mmb.tree", "mmb.planks", "mmb.planks", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.planks", "mmb.planks", "mmb.planks", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.planks", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.planks", "mmb.planks", "mmb.leaves", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.stone", "ore.silicon", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "ore.uranium", "ore.lead", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "ore.silver", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "ore.silver", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "ore.coal", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.small.rudimentium",
-      "ppres" : 1.817650932580122E11
+      "ppres" : 1.8194931934089243E11
     }, {
       "blocktype" : "elecwire.small.rudimentium",
-      "ppres" : 1.8176509324702148E11
+      "ppres" : 1.8194932386760464E11
     }, {
       "blocktype" : "elecwire.small.rudimentium",
-      "ppres" : 1.8176509321957767E11
+      "ppres" : 1.8194933517080518E11
     }, {
       "blocktype" : "elecwire.small.rudimentium",
-      "ppres" : 1.817650931757631E11
+      "ppres" : 1.819493532165851E11
     }, {
       "blocktype" : "elecwire.medium.rudimentium",
-      "ppres" : 1.8176509311570917E11
+      "ppres" : 1.8194937795080765E11
     }, {
       "blocktype" : "elecwire.medium.rudimentium",
-      "ppres" : 1.8176509303959607E11
+      "ppres" : 1.8194940919927142E11
     }, {
       "blocktype" : "elecwire.medium.rudimentium",
-      "ppres" : 1.423233334297875E11
+      "ppres" : 1.4246765385651663E11
     }, {
       "blocktype" : "elecwire.medium.rudimentium",
-      "ppres" : 1.0288157380752974E11
+      "ppres" : 1.0298590334115443E11
     }, {
       "blocktype" : "elecwire.small.rudimentium",
-      "ppres" : 6.3439813876241875E10
+      "ppres" : 6.350415624499787E10
     }, {
       "blocktype" : "elecwire.small.rudimentium",
-      "ppres" : 2.3998053939370003E10
+      "ppres" : 2.4022411148702587E10
     }, {
       "blocktype" : "elecwire.small.rudimentium",
-      "ppres" : 1.1010711078230465E10
+      "ppres" : 1.1021890202810238E10
     }, {
       "blocktype" : "elecwire.medium.rudimentium",
-      "ppres" : 5.746523179660886E9
+      "ppres" : 5.752362841161168E9
     }, {
       "blocktype" : "elecwire.medium.rudimentium",
-      "ppres" : 3.2216880130109053E9
+      "ppres" : 3.224975121713876E9
     }, {
       "blocktype" : "elecwire.medium.rudimentium",
-      "ppres" : 1.8965758972815673E9
+      "ppres" : 1.8985260144408145E9
     }, {
       "blocktype" : "elecwire.medium.rudimentium",
-      "ppres" : 1.1916271519428792E9
+      "ppres" : 1.1928734074982197E9
     }, {
       "blocktype" : "elecwire.medium.rudimentium",
-      "ppres" : 8.437194691283442E8
+      "ppres" : 8.446367895765431E8
     }, {
       "blocktype" : "elecwire.medium.rudimentium",
-      "ppres" : 6.943357810983508E8
+      "ppres" : 6.951574233325155E8
     }, {
       "blocktype" : "industry.transformer0",
       "side" : "N"
     }, {
       "blocktype" : "elecwire.large.rudimentary",
-      "ppres" : 3.253206901546933E8
+      "ppres" : 3.260839156785074E8
     }, {
       "blocktype" : "elecwire.large.rudimentary",
-      "ppres" : 1.484174896282398E8
+      "ppres" : 1.4916137546614385E8
     }, {
       "blocktype" : "elecwire.large.rudimentary",
-      "ppres" : 9.980181820947112E7
+      "ppres" : 1.0054027901652016E8
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.stone", "mmb.stone", "mmb.grass", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.planks", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.tree", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.planks", "mmb.tree", "mmb.leaves", "mmb.planks", "mmb.tree", "mmb.planks", "mmb.tree", "mmb.tree", "mmb.planks", "mmb.tree", "mmb.tree", "mmb.leaves", "mmb.planks", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.planks", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.planks", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "ore.lead", "ore.silver", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "ore.cobalt", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "ore.cobalt", "mmb.stone", "mmb.planks", "mmb.planks", "mmb.tree", "mmb.tree", "mmb.planks", "mmb.tree", "mmb.leaves", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.leaves", "mmb.planks", "mmb.tree", "mmb.planks", "mmb.planks", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.planks", "mmb.planks", "mmb.tree", "mmb.planks", "mmb.leaves", "mmb.tree", "mmb.tree", "mmb.tree", "mmb.planks", "mmb.planks", "mmb.tree", "mmb.tree", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.stone", "ore.coal", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "ore.iron", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "mmb.stone", "ore.silicon", "mmb.stone", "mmb.stone", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "industry.quarry1",
       "side" : "N",
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 400.0, 1.0770845399736248E10 ],
+      "energy" : [ 400.0, 1.078177949375716E10 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -107,7 +107,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 400.0, 7.149125121475333E9 ],
+      "energy" : [ 400.0, 7.156385271662715E9 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -118,7 +118,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 19.51671445761167,
-      "energy" : [ 400.0, 4.376842744585706E9 ],
+      "energy" : [ 400.0, 4.381293196052537E9 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -130,7 +130,7 @@
       "active" : false,
       "remain" : 0.0,
       "catalyst" : null,
-      "energy" : [ 400.0, 2.621826487309922E9 ],
+      "energy" : [ 400.0, 2.6245035753768516E9 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -141,7 +141,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 134.2881026295363,
-      "energy" : [ 400.0, 1.5864942119438934E9 ],
+      "energy" : [ 400.0, 1.5881262443230522E9 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -152,7 +152,7 @@
       "smelt" : null,
       "active" : false,
       "remain" : 172.26031645799958,
-      "energy" : [ 400.0, 1.0131066205908935E9 ],
+      "energy" : [ 400.0, 1.0141642346834145E9 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -163,7 +163,7 @@
       "remain" : 795.0898677200457,
       "active" : false,
       "recipe" : null,
-      "energy" : [ 400.0, 7.444565277659447E8 ],
+      "energy" : [ 400.0, 7.452567459336971E8 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -173,14 +173,14 @@
       "side" : "W",
       "charge" : null,
       "discharge" : null,
-      "battery" : [ 40000.0, 7.157013916365222E8 ]
+      "battery" : [ 40000.0, 7.164947553668742E8 ]
     }, "mmb.grass", "mmb.grass", {
       "blocktype" : "industry.quarry0",
       "side" : "N",
       "smelt" : null,
       "active" : false,
       "remain" : 0.0,
-      "energy" : [ 400.0, 8.415661652734867E7 ],
+      "energy" : [ 400.0, 8.489355014956027E7 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -191,7 +191,7 @@
       "remain" : 0.0,
       "active" : false,
       "recipe" : null,
-      "energy" : [ 400.0, 7.540579567170216E7 ],
+      "energy" : [ 400.0, 7.614154651042397E7 ],
       "in" : [ 2.0 ],
       "out" : [ 2.0 ],
       "pass" : false,
@@ -200,7 +200,7 @@
     "drops" : [ ],
     "machines" : [ ],
     "player" : {
-      "inventory" : [ 128.0, [ "crop.hops", 1 ], [ "industry.splicer0", 1 ], [ "elecwire.medium.rudimentary", 111 ], [ "drugs.beer0", 10 ], [ "crop.water", 4 ], [ "modchest.plug", 14 ], [ "crop.tree", 1 ], [ "pipe.I", 20 ], [ "mmb.stone", "mmb.stone", 3338 ], [ "pipe.L", 16 ], [ "pick.rudimentary", 53, 1 ], [ "elecwire.large.rudimentary", 2 ], [ "mmb.aim", 1 ], [ "industry.preceiver0", 1 ], [ "wireworld.wire", 48 ], [ "elec.coalgen1", 1 ], [ "chest.advanced", 1 ], [ "industry.spllitter0", 1 ], [ "industry.furnace", 9 ], [ "industry.brewery0", 1 ], [ "industry.electrofurnace0", 1 ], [ "industry.wiremill0", 1 ], [ "ore.tungsten", "ore.tungsten", 19 ], [ "chest.beginning", 4 ], [ "mmb.cdie", 2 ], [ "ore.iridium", "ore.iridium", 18 ], [ "elecwire.medium.copper", 2 ], [ "industry.crusher0", 1 ], [ "rawitem.pick.rudimentary", 2 ], [ "industry.ptower0", 1 ], [ "elecwire.tiny.rudimentary", 76 ], [ "crop.seeds", 1 ], [ "industry.clustermill0", 1 ] ],
+      "inventory" : [ 128.0, [ "crop.hops", 1 ], [ "industry.splicer0", 1 ], [ "elecwire.medium.rudimentary", 111 ], [ "drugs.beer0", 10 ], [ "crop.water", 4 ], [ "modchest.plug", 14 ], [ "crop.tree", 1 ], [ "pipe.I", 20 ], [ "pick.rudimentary", 53, 1 ], [ "mmb.stone", "mmb.stone", 3338 ], [ "pipe.L", 16 ], [ "elecwire.large.rudimentary", 2 ], [ "mmb.aim", 1 ], [ "industry.preceiver0", 1 ], [ "wireworld.wire", 48 ], [ "elec.coalgen1", 1 ], [ "chest.advanced", 1 ], [ "industry.spllitter0", 1 ], [ "industry.furnace", 9 ], [ "industry.brewery0", 1 ], [ "industry.electrofurnace0", 1 ], [ "industry.wiremill0", 1 ], [ "ore.tungsten", "ore.tungsten", 19 ], [ "chest.beginning", 4 ], [ "mmb.cdie", 2 ], [ "ore.iridium", "ore.iridium", 18 ], [ "elecwire.medium.copper", 2 ], [ "industry.crusher0", 1 ], [ "rawitem.pick.rudimentary", 2 ], [ "industry.ptower0", 1 ], [ "elecwire.tiny.rudimentary", 76 ], [ "crop.seeds", 1 ], [ "industry.clustermill0", 1 ] ],
       "creative" : false,
       "x" : -8.401371424017182,
       "y" : -21.699999721755614,

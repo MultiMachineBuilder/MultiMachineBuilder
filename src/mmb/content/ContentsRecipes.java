@@ -513,6 +513,12 @@ public class ContentsRecipes {
 		crafting.addRecipeGrid(new ItemEntry[]{
 		rudimentary.frame, CHEST1, sand,
 		}, 3, 1, HOPPER_both);
+		//Trash can
+		crafting.addRecipeGrid(new ItemEntry[]{
+			rudimentary.base, null, rudimentary.base,
+			rudimentary.base, null, rudimentary.base,
+			rudimentary.base, null, rudimentary.base,
+		}, 3, 3, TRASH);
 	}
 	private static void _craftrsULV() {
 		//Coal Generator ULV

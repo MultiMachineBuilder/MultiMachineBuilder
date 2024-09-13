@@ -26,6 +26,7 @@ import mmb.content.electric.recipes.ComplexCatRecipeGroup;
 import mmb.content.electric.recipes.ComplexRecipeGroup;
 import mmb.content.electric.recipes.SimpleRecipeGroup;
 import mmb.content.imachine.PlaceIncomingItems;
+import mmb.content.imachine.TrashCan;
 import mmb.content.imachine.chest.Chest;
 import mmb.content.imachine.chest.Hopper;
 import mmb.content.imachine.extractor.BlockCollector;
@@ -347,6 +348,10 @@ public class ContentsBlocks {
 			.factory(BlockCollector::new)
 			.texture("machine/vacuum.png")
 			.finish("industry.collector");
+	@NN public static final Block TRASH = new TrashCan()
+			.texture("machine/trash.png")
+			.title("#trashcan")
+			.finish("imachine.trash");
 	
 	//Item pipes
 	/** Represets a straight pipe */
@@ -685,7 +690,7 @@ public class ContentsBlocks {
 		Items.tagItem("voltage-MV", TURBOGEN3);
 		Items.tagItems("machine-coalgen", COALGEN1, COALGEN2, COALGEN3);
 		Items.tagItems("machine-turbogen", TURBOGEN1, TURBOGEN2, TURBOGEN3);
-		Items.tagItems("imachine", PLACEITEMS, COLLECTOR, IMOVER);
+		Items.tagItems("imachine", PLACEITEMS, COLLECTOR, IMOVER, TRASH);
 		
 		//Deprecation
 		Items.tagItems("deprecated", CYCLEASSEMBLY, PICKBUILDER, AUTOCRAFTER, old_EFURNACE, old_NUKEGEN);
