@@ -117,7 +117,7 @@
 (SETTINGS LIST) sand=Piasek
 (SETTINGS LIST) cguis-modhelp=Modyfikacje z zewnątrz
 Dodawaj tylko modyfikacje ze zaufanych źródeł.
-Modyfikacje tutaj muszą być lokalnymi ściażkami lub linkami do plików JAR
+Modyfikacje tutaj muszą być lokalnymi ściażkami lub linkami do plików *.jar
 (SETTINGS LIST) aim-descr=Wybierz namierzalny block za pomocą elwego przycisku
 (SETTINGS LIST) cgui-refugeehelpURL=refugeesEN
 (SETTINGS LIST) matname1-quartz=Kwarc
@@ -9007,7 +9007,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found save: Test player.mworld
 (SELECT A SAVE) Found 27 saves
 (Main menu) Current version: 0.5.1
-(Main menu) You have the current version
+(Main menu) Your version is too new
 (SETTINGS) Resetting a setting country with value PL
 (SETTINGS) Resetting a setting sortItems with value true
 (SETTINGS) Resetting a setting dumpBundles with value true
