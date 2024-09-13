@@ -231,7 +231,7 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 	@NN public default InventoryReader createReader() {
 		return new InventoryReader() {
 			private final Iterator<ItemRecord> records = iterator();
-			private ItemRecord current = records.hasNext() ? records.next() : null;
+			private ItemRecord current = null;
 			
 			@Override
 			public int currentAmount() {
