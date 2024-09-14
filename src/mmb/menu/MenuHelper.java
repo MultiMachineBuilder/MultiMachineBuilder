@@ -107,4 +107,16 @@ public class MenuHelper {
 		String url = GlobalSettings.$res("url-bugs");
 		Desktop.getDesktop().browse(new URI(url));
 	}
+	/**
+	 * Converts a string to HTML
+	 * @param string string to convert
+	 * @return the converted string
+	 */
+	public static String htmlescape(String string) {
+		String result = string.replace("&", "&amp;");
+		result = result.replace("<", "&lt;");
+		result = result.replace("<", "&gt;");
+		result = result.replace("\n", "<br>");
+		return "<html>" + result + "</html>";
+	}
 }

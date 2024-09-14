@@ -17,7 +17,7 @@ import mmb.data.reactive.ListenableProperty;
 public class ListenableValue<T> extends DataValue<T> implements ListenableProperty<T>{
 	/**
 	 * Creates a new listenable variable
-	 * @param data
+	 * @param data initial value
 	 */
 	public ListenableValue(T data) {
 		super(data);

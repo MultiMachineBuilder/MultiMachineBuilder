@@ -8,7 +8,6 @@ import javax.swing.ListSelectionModel;
 
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -29,11 +28,13 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.data.variables.Variable;
 import mmb.engine.MMBUtils;
+import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.settings.GlobalSettings;
 import mmb.menu.Icons;
+import mmb.menu.components.MultilineImageLabel;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -47,12 +48,13 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	
 	private final JList<ItemRecord> invlist;
 	@NN private DefaultListModel<ItemRecord> model0 = new DefaultListModel<>();
-	
-	private Inventory inv;
+	/** Inventory to which this inventory controller is linked */
+	private transient Inventory inv;
 	private JLabel label;
 	private JButton btnRefresh;
 	private JScrollPane scrollPane;
 	private JButton btnUnsel;
+	/** Box at the top of this inventory controller */
 	@NN public final Box ubox;
 
 	@Override
@@ -207,19 +209,20 @@ public class InventoryController extends Box implements AbstractInventoryControl
 		btnRefresh.setEnabled(hasInv);
 	}
 
-	private static class CellRenderer extends JLabel implements ListCellRenderer<ItemRecord>{
+	private static class CellRenderer extends MultilineImageLabel implements ListCellRenderer<ItemRecord>{
 		private static final long serialVersionUID = -3535344904857285958L;
 		private final Dimension PRESENT = new Dimension(275, 32);
 		private final Dimension ABSENT = new Dimension();
+		private static final Debugger debug = new Debugger("INVENTORY CELL RENDERER");
 		@Override
 		public Component getListCellRendererComponent(
 			@SuppressWarnings("null") JList<? extends ItemRecord> list,
-			@SuppressWarnings("null") ItemRecord itemType,
+			@SuppressWarnings("null") ItemRecord irecord,
 			int index,
 			boolean isSelected,
 			boolean cellHasFocus
 		){
-			int amount = itemType.amount();
+			int amount = irecord.amount();
 			if(amount == 0) {
 				setPreferredSize(ABSENT);
 				setMinimumSize(ABSENT);
@@ -228,8 +231,10 @@ public class InventoryController extends Box implements AbstractInventoryControl
 				setMinimumSize(PRESENT);
 			}
 			setOpaque(true);
-			setIcon(itemType.item().icon());
-			setText(itemType.id().title() + " � " + itemType.amount());
+			setIcon(irecord.item().icon());
+			String newText = irecord.item().title() + " * " + irecord.amount();
+			debug.printl(newText);
+			setText(newText);
 			
 			if (isSelected) {
 			    setBackground(list.getSelectionBackground());

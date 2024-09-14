@@ -8890,18 +8890,9 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (MOD-LOADER) Directory: /home/oskar/git/MultiMachineBuilder/mods
 (MAIN) State: Found 5 mod files
 (MOD - banner.png) Opening a modfile: /home/oskar/Pobrane/banner.png
-(MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home/oskar/git/MultiMachineBuilder/OpenGL is over 20 times faster than AWT.jar
-(MOD - OpenGL is over 20 times faster than AWT.jar) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie ma takiego pliku ani katalogu)
-	at java.base/java.io.FileInputStream.open0(Native Method)
-	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
-	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
-	at mmb.engine.files.LocalFile.getInputStream(LocalFile.java:45)
-	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
-	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
-	at java.base/java.lang.Thread.run(Thread.java:829)
 (MOD - Dice - 3762849.zip) Opening a modfile: /home/oskar/Pobrane/Dice - 3762849.zip
-(MOD - FILE230607-075624F.MOV) Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
-(MOD - whatever) Failed to read the file /root/whatever
+(MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home/oskar/git/MultiMachineBuilder/OpenGL is over 20 times faster than AWT.jar
+(MOD - OpenGL is over 20 times faster than AWT.jar) (MOD - whatever) Failed to read the file /root/whatever
 (MOD - whatever) java.io.FileNotFoundException: /root/whatever (Brak dostępu)
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
@@ -8910,6 +8901,15 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie ma takiego pliku ani katalogu)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at mmb.engine.files.LocalFile.getInputStream(LocalFile.java:45)
+	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
+	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+(MOD - FILE230607-075624F.MOV) Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
 (MOD - banner.png) Couldn't open zip or jar file /home/oskar/Pobrane/banner.png
 (MOD - banner.png) java.util.zip.ZipException: Cannot find zip signature within the first 4096 bytes
 	at org.apache.commons.compress.archivers.zip.ZipArchiveInputStream.readFirstLocalFileHeader(ZipArchiveInputStream.java:1039)
@@ -9024,7 +9024,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (Main menu) You have the current version
 (WORLD TEST) 1770 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@4ff698f4
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@4a31553
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -9036,6 +9036,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEM LISTS) Item list node is null
 (ITEM LISTS) Item list node is null
 (ITEM LISTS) Item list node is null
+(INVENTORY LOADER) Empty data array
 (ITEMS) Attempting to load a non-data item
 (ITEMS) Attempting to load a non-data item
 (DATA LAYERS) Loading world data layer: STN
@@ -9045,25 +9046,41 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Loaded
 (WORLD - IDLE) Exiting
 (WORLDS) Opening a new world
+(INVENTORY CELL RENDERER) Lista materiałï¿½w
+ * 1
+(INVENTORY CELL RENDERER) Miernik prądu * 1
+(INVENTORY CELL RENDERER) Lista materiałï¿½w
+ * 1
+(INVENTORY CELL RENDERER) Miernik prądu * 1
+(INVENTORY CELL RENDERER) Obciążenie elektryczne * 1
+(INVENTORY CELL RENDERER) Odbiornik prądu ULV * 1
+(INVENTORY CELL RENDERER) Rozcinacz VLV * 1
+(INVENTORY CELL RENDERER) Rozszerzony obwï¿½d * 1
+(INVENTORY CELL RENDERER) Skrzynia #1 * 1
+(INVENTORY CELL RENDERER) Stapiacz LV * 1
+(INVENTORY CELL RENDERER) Stapiacz VLV * 1
 (AWT-EventQueue-0) A thread has thrown an exception
-(AWT-EventQueue-0) java.lang.ArrayIndexOutOfBoundsException: 2 >= 0
-	at java.base/java.util.Vector.elementAt(Vector.java:497)
-	at java.desktop/javax.swing.DefaultListModel.getElementAt(DefaultListModel.java:90)
-	at java.desktop/javax.swing.plaf.basic.BasicListUI.updateLayoutState(BasicListUI.java:1438)
+(AWT-EventQueue-0) java.lang.ArrayIndexOutOfBoundsException: Index 8 out of bounds for length 8
+	at java.desktop/javax.swing.plaf.basic.BasicListUI.updateLayoutState(BasicListUI.java:1446)
 	at java.desktop/javax.swing.plaf.basic.BasicListUI.maybeUpdateLayoutState(BasicListUI.java:1389)
-	at java.desktop/javax.swing.plaf.basic.BasicListUI.getPreferredSize(BasicListUI.java:648)
-	at java.desktop/javax.swing.JComponent.getPreferredSize(JComponent.java:1680)
-	at java.desktop/javax.swing.ScrollPaneLayout.layoutContainer(ScrollPaneLayout.java:795)
-	at java.desktop/java.awt.Container.layout(Container.java:1537)
-	at java.desktop/java.awt.Container.doLayout(Container.java:1526)
-	at java.desktop/java.awt.Container.validateTree(Container.java:1722)
-	at java.desktop/java.awt.Container.validate(Container.java:1657)
-	at java.desktop/javax.swing.RepaintManager$3.run(RepaintManager.java:745)
-	at java.desktop/javax.swing.RepaintManager$3.run(RepaintManager.java:743)
+	at java.desktop/javax.swing.plaf.basic.BasicListUI.paintImpl(BasicListUI.java:325)
+	at java.desktop/javax.swing.plaf.basic.BasicListUI.paint(BasicListUI.java:301)
+	at java.desktop/javax.swing.plaf.ComponentUI.update(ComponentUI.java:161)
+	at java.desktop/javax.swing.JComponent.paintComponent(JComponent.java:797)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1074)
+	at java.desktop/javax.swing.JComponent.paintToOffscreen(JComponent.java:5255)
+	at java.desktop/javax.swing.BufferStrategyPaintManager.paint(BufferStrategyPaintManager.java:255)
+	at java.desktop/javax.swing.RepaintManager.paint(RepaintManager.java:1323)
+	at java.desktop/javax.swing.JComponent._paintImmediately(JComponent.java:5203)
+	at java.desktop/javax.swing.JComponent.paintImmediately(JComponent.java:5013)
+	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:865)
+	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:848)
 	at java.base/java.security.AccessController.doPrivileged(Native Method)
 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
-	at java.desktop/javax.swing.RepaintManager.validateInvalidComponents(RepaintManager.java:742)
-	at java.desktop/javax.swing.RepaintManager$ProcessingRunnable.run(RepaintManager.java:1889)
+	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:848)
+	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:823)
+	at java.desktop/javax.swing.RepaintManager.prePaintDirtyRegions(RepaintManager.java:772)
+	at java.desktop/javax.swing.RepaintManager$ProcessingRunnable.run(RepaintManager.java:1890)
 	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
@@ -9077,14 +9094,50 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
+(INVENTORY CELL RENDERER) Lista materiałï¿½w
+ * 1
+(INVENTORY CELL RENDERER) Miernik prądu * 1
+(INVENTORY CELL RENDERER) Obciążenie elektryczne * 1
+(INVENTORY CELL RENDERER) Odbiornik prądu ULV * 1
+(INVENTORY CELL RENDERER) Rozcinacz VLV * 1
+(INVENTORY CELL RENDERER) Rozszerzony obwï¿½d * 1
+(INVENTORY CELL RENDERER) Skrzynia #1 * 1
+(INVENTORY CELL RENDERER) Stapiacz LV * 1
+(INVENTORY CELL RENDERER) Stapiacz VLV * 1
+(INVENTORY CELL RENDERER) St�ł rzemieślniczy 6 * 1
+(INVENTORY CELL RENDERER) Warsztat list materiałów * 1
+(INVENTORY CELL RENDERER) Wieczna prądnica LV * 1
+(INVENTORY CELL RENDERER) Wieczna prądnica ULV * 1
+(INVENTORY CELL RENDERER) Wieczna prądnica VLV * 1
+(INVENTORY CELL RENDERER) Wieża energetyczna ULV * 1
+(INVENTORY CELL RENDERER) Wyciągacz przedmiot�w * 1
+(INVENTORY CELL RENDERER) Zespalacz ULV * 1
+(INVENTORY CELL RENDERER) Śmietnik * 1
+(INVENTORY CELL RENDERER) Lista materiałï¿½w
+ * 1
+(INVENTORY CELL RENDERER) Miernik prądu * 1
+(INVENTORY CELL RENDERER) Obciążenie elektryczne * 1
+(INVENTORY CELL RENDERER) Odbiornik prądu ULV * 1
+(INVENTORY CELL RENDERER) Rozcinacz VLV * 1
+(INVENTORY CELL RENDERER) Rozszerzony obwï¿½d * 1
+(INVENTORY CELL RENDERER) Skrzynia #1 * 1
+(INVENTORY CELL RENDERER) Stapiacz LV * 1
+(INVENTORY CELL RENDERER) Stapiacz VLV * 1
+(INVENTORY CELL RENDERER) St�ł rzemieślniczy 6 * 1
+(INVENTORY CELL RENDERER) Warsztat list materiałów * 1
+(INVENTORY CELL RENDERER) Wieczna prądnica LV * 1
+(INVENTORY CELL RENDERER) Wieczna prądnica ULV * 1
+(INVENTORY CELL RENDERER) Wieczna prądnica VLV * 1
+(INVENTORY CELL RENDERER) Wieża energetyczna ULV * 1
+(INVENTORY CELL RENDERER) Wyciągacz przedmiot�w * 1
+(INVENTORY CELL RENDERER) Zespalacz ULV * 1
+(INVENTORY CELL RENDERER) Śmietnik * 1
+(INVENTORY CELL RENDERER) Lista materiałï¿½w
+ * 1
+(INVENTORY CELL RENDERER) Miernik prądu * 1
+(INVENTORY CELL RENDERER) Obciążenie elektryczne * 1
+(INVENTORY CELL RENDERER) Odbiornik prądu ULV * 1
+(INVENTORY CELL RENDERER) Rozcinacz VLV * 1
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
 (DATA LAYERS) Saving world data layer: STN
