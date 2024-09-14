@@ -13,12 +13,15 @@ import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.Inventory;
+import mmb.engine.inv.io.InventoryReader;
+import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.recipe.RecipeUtil;
+import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
@@ -114,4 +117,16 @@ public class Crafter extends BlockEntityData implements BlockActivateListener{
 	public void setTimer(int timer) {
 		this.timer = timer;
 	}
+
+	@Override
+	public InventoryReader getOutput(Side s) {
+		return output.createReader();
+	}
+
+	@Override
+	public InventoryWriter getInput(Side s) {
+		return incoming.createWriter();
+	}
+	
+	
 }
