@@ -5,6 +5,7 @@ package mmb.menu.world.inv;
 
 import java.awt.Component;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
@@ -76,7 +77,7 @@ public class InventoryList extends JList<ItemRecord> {
 		public Component getListCellRendererComponent(@SuppressWarnings("null") JList<? extends ItemRecord> list, ItemRecord itemType, int index,
 		boolean isSelected, boolean cellHasFocus) {
 			setIcon(itemType.id().icon());
-			setText(itemType.id().title() + " � " + itemType.amount());
+			setText(itemType.id().title() + " * " + itemType.amount());
 			
 			if (isSelected) {
 			    setBackground(list.getSelectionBackground());
@@ -88,4 +89,7 @@ public class InventoryList extends JList<ItemRecord> {
 			return this;
 		}
 	}
+
+	
+	
 }

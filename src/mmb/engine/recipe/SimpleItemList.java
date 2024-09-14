@@ -206,5 +206,4 @@ public final class SimpleItemList implements RecipeOutput {
 		represent(writer);
 		return writer.toString();
 	}
-	
 }

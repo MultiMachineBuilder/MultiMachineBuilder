@@ -17,6 +17,8 @@ import mmb.engine.recipe.ItemLists;
 import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.recipe.SimpleItemList;
 
+import static mmb.engine.settings.GlobalSettings.$res;
+
 /**
  * An item for Bill Of Materials, which contains a list of items.
  * The Bill of Materials can also be used as an item filter
@@ -24,6 +26,9 @@ import mmb.engine.recipe.SimpleItemList;
  */
 public final class ItemBOM extends ItemFilter {
 	private static final Debugger debug = new Debugger("BOM");
+	private static final String EMPTY = "\n" + $res("empty");
+	private static final String WITH1 = "\n" + $res("withings1") + " ";
+	private static final String WITH2 = " " + $res("withings2");
 	//Constructors
 	/**
 	 * Creates an empty Bill of Materials
@@ -59,13 +64,12 @@ public final class ItemBOM extends ItemFilter {
 	}
 	@Override
 	public String description() {
-		return items.toString();
+		return items.prettyPrint();
 	}
 	@Override
 	public String title() {
 		String superTitle = super.title();
-		return items.getContents().isEmpty() ? superTitle : superTitle + "\n"+description();
-		
+		return items.getContents().isEmpty() ? superTitle+EMPTY : superTitle+WITH1+items.getContents().size()+WITH2;
 	}
 	//Item methods
 	@Override

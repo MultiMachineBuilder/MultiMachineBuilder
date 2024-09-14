@@ -15,6 +15,7 @@ import java.util.Objects;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JPanel;
 import javax.swing.JButton;
 
 import static mmb.engine.settings.GlobalSettings.$res;
@@ -35,16 +36,15 @@ import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.settings.GlobalSettings;
 import mmb.menu.Icons;
-import mmb.menu.components.MultilineImageLabel;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import net.miginfocom.swing.MigLayout;
 
 /**
  * Displays an inventory and allows selection of items for 
  * @author oskar
  */
-public class InventoryController extends Box implements AbstractInventoryController {
+public class InventoryController extends JPanel implements AbstractInventoryController {
 	private static final long serialVersionUID = -3804277344383315579L;
 	
 	private final JList<ItemRecord> invlist;
@@ -57,6 +57,8 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	private JButton btnUnsel;
 	/** Box at the top of this inventory controller */
 	@NN public final Box ubox;
+	private final MultilineLabel description;
+	private static final String SELECT = $res("pleaseselitem");
 
 	@Override
 	public void refresh() {
@@ -77,19 +79,19 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	/**
 	 * Create the panel.
 	 */
-	public InventoryController() {
-		super(BoxLayout.Y_AXIS);
-		
+	public InventoryController() {		
+		setLayout(new MigLayout("", "[144px,grow]", "[center][grow][]"));
 		ubox = Box.createHorizontalBox();
-		add(ubox, "cell 0 0,growx");
+		add(ubox, "cell 0 0,growx,aligny center");
 		
 		scrollPane = new JScrollPane();
-		add(scrollPane);
+		add(scrollPane, "cell 0 1,grow");
 		
 		invlist = new JList<>();
 		scrollPane.setViewportView(invlist);
 		invlist.setModel(model0);
 		invlist.setCellRenderer(new CellRenderer());
+		
 		
 		//Upper box
 		label = new JLabel($res("wgui-inv"));
@@ -109,6 +111,21 @@ public class InventoryController extends Box implements AbstractInventoryControl
 		});
 		btnUnsel.setBackground(Color.BLUE);
 		ubox.add(btnUnsel);
+		
+		description = new MultilineLabel();
+		
+		description.setBackground(new Color(0, 191, 255));
+		description.setText(SELECT);
+		invlist.addListSelectionListener(lse -> {
+			ItemRecord record = invlist.getSelectedValue();
+			if(record == null) {
+				description.setText(SELECT);
+				return;
+			}
+			String s = record.item().description();
+			description.setText(s==null?"":s);
+		});
+		add(description, "cell 0 2,grow");
 	}
 	/**
 	 * Creates an InventoryController with an inventory

@@ -279,4 +279,19 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	public static ItemStack entry2stack(Entry<@NN ItemEntry> entry){
 		return new ItemStack(entry.getKey(), entry.getIntValue());
 	}
+	
+	/**
+	 * @return pretty-printed item list
+	 */
+	public @NN default String prettyPrint() {
+		Object2IntMap<ItemEntry> contents = getContents();
+		int i = 0;
+		StringBuilder sb = new StringBuilder();
+		for(Entry<ItemEntry> ir: contents.object2IntEntrySet()) {
+			if(i > 0) sb.append("\n");
+			i++;
+			sb.append(ItemStack.toString(ir));
+		}
+		return sb.toString();
+	}
 }
