@@ -4,7 +4,7 @@
 	<!-- GAV coordinates -->
 	<groupId>io.github.multimachinebuilder</groupId>
 	<artifactId>multimachinebuilder</artifactId>
-	<version>0.5.2</version>
+	<version>0.6</version>
   
 	<!-- About -->
 	<name>Multi Machine Builder</name>

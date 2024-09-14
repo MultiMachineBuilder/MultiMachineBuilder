@@ -141,7 +141,7 @@ public class MainMenu extends MMBFrame {
 		JMenuItem jmi = null;
 		final String updateServer = "https://github.com/MultiMachineBuilder/MultiMachineBuilder/blob/master/version.txt?raw=true";
 		final String getupdates = "https://github.com/MultiMachineBuilder/MultiMachineBuilder/releases";
-		int[] version = {0, 5, 2};
+		int[] version = {0, 6};
 		String newversion = "";
 		
 		
@@ -157,8 +157,6 @@ public class MainMenu extends MMBFrame {
 				//Parse the version
 				for(int i = 0; i < newversion0.length; i++) 
 					newversion1[i] = Integer.parseInt(newversion0[i]);
-				
-				int shorter = Math.min(newversion1.length, version.length);
 				
 				//Compare the verions
 				int cmp = Arrays.compare(newversion1, version);

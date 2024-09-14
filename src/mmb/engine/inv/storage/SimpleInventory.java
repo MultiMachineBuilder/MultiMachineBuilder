@@ -94,7 +94,8 @@ public class SimpleInventory implements SaveInventory{
 	}
 	@Override
 	public Iterator<@NN ItemRecord> iterator() {
-		return Collects.downcastIterator(contents.iterator());
+		Iterator<Node> iter = contents.iterator();
+		return Collects.downcastIterator(iter);
 	}
 	@Override
 	public ItemRecord get(ItemEntry entry) {
