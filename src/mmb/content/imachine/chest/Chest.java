@@ -31,6 +31,7 @@ public class Chest extends AbstractChest implements BlockActivateListener {
 	 * @param capacity capacity in cubic meters
 	 * @param type block type
 	 * @param texture chest inner texture
+	 * @wbp.parser.entryPoint
 	 */
 	public Chest(double capacity, BlockType type, BufferedImage texture) {
 		this.capacity = capacity;

@@ -27,6 +27,7 @@ import mmb.content.electric.recipes.ComplexRecipeGroup;
 import mmb.content.electric.recipes.SimpleRecipeGroup;
 import mmb.content.imachine.PlaceIncomingItems;
 import mmb.content.imachine.TrashCan;
+import mmb.content.imachine.bom.BOMFactory;
 import mmb.content.imachine.chest.Chest;
 import mmb.content.imachine.chest.Hopper;
 import mmb.content.imachine.extractor.BlockCollector;
@@ -352,6 +353,11 @@ public class ContentsBlocks {
 			.texture("machine/trash.png")
 			.title("#trashcan")
 			.finish("imachine.trash");
+	@NN public static final BlockEntityType BOMMAKER = new BlockEntityType()
+			.title("#bommaker")
+			.factory(BOMFactory::new)
+			.texture("machine/BOMer.png")
+			.finish("imachine.bom");
 	
 	//Item pipes
 	/** Represets a straight pipe */
