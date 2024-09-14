@@ -68,7 +68,7 @@ public class ItemLists {
 	 * @return saved recipe output
 	 */
 	public static JsonNode save(RecipeOutput list) {
-		Queue<JsonNode> nodes = new ArrayDeque<>(); //prepare the queue
+		ArrayNode result = JsonTool.newArrayNode();
 		for(Entry<ItemEntry> n: list.getContents().object2IntEntrySet()) { //write items
 			if(n.getIntValue() == 0) continue;
 			JsonNode data = n.getKey().save();
@@ -77,11 +77,8 @@ public class ItemLists {
 			if(data != null) //if data is present...
 				ent.add(data); //...add data to a item node
 			ent.add(n.getIntValue()); //write the amount
-			
-			nodes.add(ent); //write the item node to the list
+			result.add(ent); //write the item node to the list
 		}
-		ArrayNode result = JsonTool.newArrayNode();
-		result.addAll(nodes); //write nodes from the queue to the result
 		return result;
 	}
 	/**

@@ -123,7 +123,7 @@ public final class SimpleItemList implements RecipeOutput {
 		return new InventoryWriter() {
 			@Override
 			public int insert(ItemEntry ent, int amount) {
-				data.put(ent, get(ent));
+				data.put(ent, amount);
 				return amount;
 			}
 			@Override

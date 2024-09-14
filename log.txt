@@ -8892,8 +8892,8 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (MOD - banner.png) Opening a modfile: /home/oskar/Pobrane/banner.png
 (MOD - Dice - 3762849.zip) Opening a modfile: /home/oskar/Pobrane/Dice - 3762849.zip
 (MOD - FILE230607-075624F.MOV) Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
-(MOD - whatever) Failed to read the file /root/whatever
-(MOD - whatever) java.io.FileNotFoundException: /root/whatever (Brak dostępu)
+((MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home/oskar/git/MultiMachineBuilder/OpenGL is over 20 times faster than AWT.jar
+(MOD - OpenGL is over 20 times faster than AWT.jar) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie ma takiego pliku ani katalogu)
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
@@ -8901,8 +8901,8 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-(MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home/oskar/git/MultiMachineBuilder/OpenGL is over 20 times faster than AWT.jar
-(MOD - OpenGL is over 20 times faster than AWT.jar) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie ma takiego pliku ani katalogu)
+MOD - whatever) Failed to read the file /root/whatever
+(MOD - whatever) java.io.FileNotFoundException: /root/whatever (Brak dostępu)
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
@@ -9024,7 +9024,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (Main menu) You have the current version
 (WORLD TEST) 1770 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@4f50ef1d
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@3c261844
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -9051,6 +9051,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (BOM MAKER) Type: crafting.BOMItems
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
+(BOM) Saving: [ [ "machineparts.motor0", 1 ], [ "machineparts.motor1", 1 ] ]
 (DATA LAYERS) Saving world data layer: STN
 (WORLD TEST) Saving the world
 (WORLD TEST) Saved the world
@@ -9061,7 +9062,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (WORLD TEST) Exited the world
 (WORLD TEST) 1770 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@693c7c44
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@466599d5
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -9083,16 +9084,9 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Loaded
 (WORLD - IDLE) Exiting
 (WORLDS) Opening a new world
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
+(BOM) Saving: [ [ "machineparts.motor0", 1 ], [ "machineparts.motor1", 1 ] ]
 (DATA LAYERS) Saving world data layer: STN
 (WORLD TEST) Saving the world
 (WORLD TEST) Saved the world
@@ -9103,7 +9097,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (WORLD TEST) Exited the world
 (WORLD TEST) 1770 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@9591868
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@1427a219
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -9115,8 +9109,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEM LISTS) Item list node is null
 (ITEM LISTS) Item list node is null
 (ITEM LISTS) Item list node is null
-(BOM) Loading: [ ]
-(INVENTORY LOADER) Empty data array
+(BOM) Loading: [ [ "machineparts.motor0", 1 ], [ "machineparts.motor1", 1 ] ]
 (ITEMS) Attempting to load a non-data item
 (ITEMS) Attempting to load a non-data item
 (DATA LAYERS) Loading world data layer: STN
@@ -9128,6 +9121,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (WORLDS) Opening a new world
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
+(BOM) Saving: [ [ "machineparts.motor0", 1 ], [ "machineparts.motor1", 1 ] ]
 (DATA LAYERS) Saving world data layer: STN
 (WORLD TEST) Saving the world
 (WORLD TEST) Saved the world

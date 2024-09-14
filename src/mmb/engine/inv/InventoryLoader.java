@@ -57,67 +57,67 @@ public class InventoryLoader {
 			debug.printl("Empty data array");
 			return;
 		}
-		loop:
-		for(JsonNode node: data) {
-			if(node.isNumber()) {//number: capacity	
-				//This node is a number, use it as capacity
-				NumericNode number = (NumericNode) node; //convert to a correct type
-				double cap = number.asDouble(-1);
-				if(cap < 0) {
-					debug.printl("Invalid or missing volume: "+cap);
-				}else {
-					tgt.setCapacity(cap);
-				}
+		for(JsonNode node: data) loadOneInvRow(node, tgt);
+	}
+	private static void loadOneInvRow(JsonNode node, ItemTarget tgt) {
+		if(node.isNumber()) {//number: capacity	
+			//This node is a number, use it as capacity
+			NumericNode number = (NumericNode) node; //convert to a correct type
+			double cap = number.asDouble(-1);
+			if(cap < 0) {
+				debug.printl("Invalid or missing volume: "+cap);
+			}else {
+				tgt.setCapacity(cap);
 			}
-			else if(node.isArray()) {//array: item
-				ArrayNode a = (ArrayNode) node;
-				ItemEntry ent = null;
-				
-				//Get the type
-				String id = a.get(0).asText();
-				ItemType type = Items.get(id);
-				if(type == null) { //unsupported item
-					debug.printl("Unsupported item: "+id);
-					continue loop;
-				}
-				
-				int amt = -1;
-				int size = a.size();
-				switch(size) {
-					case 2: //2 items: [type, amount]
-						//A plain item
-						try {
-							ent = type.create();
-							amt = a.get(1).asInt(-1);
-						}catch(Exception e) {
-							debug.stacktraceError(e, "Failed to create "+id+" without data");
-							continue loop;
-						}
-						break;
-					case 3: //3 items: [type, info, amount]
-						try {
-							JsonNode idata = a.get(1);
-							ent = type.loadItem(idata);
-							amt = a.get(2).asInt(-1);
-						}catch(Exception e) {
-							debug.stacktraceError(e, "Failed to create "+id+" with data");
-							continue loop;
-						}
-						break;
-					default:
-						debug.printl("Invalid array size: "+size);
-						continue loop;
-				}
-				if(amt < 0) { //invalid amount
-					debug.printl("Invalid amount: "+ amt);
-					continue loop;
-				}
-				//Success
-				tgt.addItem(ent, amt);
+		} else if(node.isArray()) {//array: item
+			ArrayNode a = (ArrayNode) node;
+			ItemEntry ent = null;
+			
+			//Get the type
+			String id = a.get(0).asText();
+			ItemType type = Items.get(id);
+			if(type == null) { //unsupported item
+				debug.printl("Unsupported item: "+id);
+				return;
 			}
-			else{ //any other type(text, null, object, very big numbers, boolean,)
-				debug.printl("Unsupported JsonNode in inventory: "+node.getNodeType());
+			
+			int amt = -1;
+			int size = a.size();
+			switch(size) {
+				case 2: //2 items: [type, amount]
+					//A plain item
+					try {
+						ent = type.create();
+						amt = a.get(1).asInt(-1);
+					}catch(Exception e) {
+						debug.stacktraceError(e, "Failed to create "+id+" without data");
+						return;
+					}
+					break;
+				case 3: //3 items: [type, info, amount]
+					try {
+						JsonNode idata = a.get(1);
+						ent = type.loadItem(idata);
+						amt = a.get(2).asInt(-1);
+					}catch(Exception e) {
+						debug.stacktraceError(e, "Failed to create "+id+" with data");
+						return;
+					}
+					break;
+				default:
+					debug.printl("Invalid array size: "+size);
+					return;
 			}
+			
+			if(amt < 0) { //invalid amount
+				debug.printl("Invalid amount: "+ amt);
+				return;
+			}
+			
+			//Success
+			tgt.addItem(ent, amt);
+		}else{ //any other type(text, null, object, very big numbers, boolean,)
+			debug.printl("Unsupported JsonNode in inventory: "+node.getNodeType());
 		}
 	}
 	/**

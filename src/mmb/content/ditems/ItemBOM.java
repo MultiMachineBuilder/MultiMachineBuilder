@@ -93,12 +93,17 @@ public final class ItemBOM extends ItemFilter {
 		debug.printl("Loading: " + (data == null ? "null" : data.toPrettyString()));
 		if(data == null) return;
 		SimpleItemList list0 = ItemLists.read(data);
-		if(list0 == null) list0 = SimpleItemList.EMPTY;
+		if(list0 == null) {
+			debug.printl("Items are null");
+			list0 = SimpleItemList.EMPTY;
+		}
 		items = list0;	
 	}
 	@Override
 	public JsonNode save() {
-		return ItemLists.save(items);
+		JsonNode data = ItemLists.save(items);
+		debug.printl("Saving: " + data.toPrettyString());
+		return data;
 	}
 
 	//Item filter
