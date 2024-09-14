@@ -98,11 +98,11 @@ class CrafterGUI extends GUITab {
 	private InventoryController invOut;
 	private InventoryController invIn;
 	private JProgressBar progressBar;
-	/**
-	 * 
-	 */
+
 	public void refresh() {
 		progressBar.setValue(crafter.getTimer());
+		invIn.refresh();
+		invOut.refresh();
 	}
 	public InventoryController getInvOut() {
 		return invOut;

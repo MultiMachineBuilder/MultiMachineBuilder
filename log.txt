@@ -8923,8 +8923,9 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (MAIN) State: Found 5 mod files
 (MOD - banner.png) Opening a modfile: /home/oskar/Pobrane/banner.png
 (MOD - Dice - 3762849.zip) Opening a modfile: /home/oskar/Pobrane/Dice - 3762849.zip
-((MOD - whatever) Failed to read the file /root/whatever
-(MOD - whatever) java.io.FileNotFoundException: /root/whatever (Brak dostępu)
+(MOD - FILE230607-075624F.MOV) Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
+(MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home/oskar/git/MultiMachineBuilder/OpenGL is over 20 times faster than AWT.jar
+(MOD - OpenGL is over 20 times faster than AWT.jar) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie ma takiego pliku ani katalogu)
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
@@ -8932,9 +8933,8 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home/oskar/git/MultiMachineBuilder/OpenGL is over 20 times faster than AWT.jar
-(MOD - OpenGL is over 20 times faster than AWT.jar(MOD - FILE230607-075624F.MOV) Opening a modfile: /home/oskar/SynologyDrive/Wideo/FILE230607-075624F.MOV
-) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nie ma takiego pliku ani katalogu)
+(MOD - whatever) Failed to read the file /root/whatever
+(MOD - whatever) java.io.FileNotFoundException: /root/whatever (Brak dostępu)
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
@@ -9056,7 +9056,7 @@ MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home
 (Main menu) You have the current version
 (WORLD TEST) 1774 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@16b2ae26
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@1758776a
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -9067,6 +9067,8 @@ MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home
 (SELECT A SAVE) Parsed file
 (ITEM LISTS) Item list node is null
 (ITEM LISTS) Item list node is null
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
 (ITEM LISTS) Item list node is null
 (BOM) Loading: [ [ "machineparts.motor0", 1 ], [ "machineparts.motor1", 1 ] ]
 (ITEMS) Attempting to load a non-data item
@@ -9078,14 +9080,79 @@ MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home
 (SELECT A SAVE) Loaded
 (WORLD - IDLE) Exiting
 (WORLDS) Opening a new world
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
 (TOOL-STANDARD) Running BlockActivateListener for: [-6,-7]
-(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Block Kłoda(mmb.tree)]
-(CRAFTING GUI) Recipe state changed: ItemGridStateChangedEvent [x=0, y=0, newEntry=Block Kłoda(mmb.tree)]
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of mmb.content.ditems.Stencil@3f, expected 1
-(INVENTORIES) Inserted 1 of mmb.content.ditems.Stencil@6ae0efc6, expected 1
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
@@ -9106,10 +9173,44 @@ MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file /home
 (INVENTORIES0) Extract attempt with 1 of 1 blocks
 (INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
 (INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
+(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
+(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
+(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
+(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
+(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
+(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
 (BOM) Saving: [ [ "machineparts.motor0", 1 ], [ "machineparts.motor1", 1 ] ]

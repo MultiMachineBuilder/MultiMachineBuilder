@@ -95,6 +95,7 @@ public class Crafter extends BlockEntityData implements BlockActivateListener{
 		RecipeOutput inputs = s.in();
 		RecipeOutput output1 = s.out();
 		RecipeUtil.transact(inputs, incoming, output1, outgoing, 1);
+		if(gui != null) gui.refresh();
 	}
 
 	public SingleItemInventory getStencil() {
