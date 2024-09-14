@@ -55,7 +55,16 @@ public final class ItemBOM extends ItemFilter {
 	@NN public RecipeOutput contents() {
 		return items;
 	}
-	
+	@Override
+	public String description() {
+		return items.toString();
+	}
+	@Override
+	public String title() {
+		String superTitle = super.title();
+		return superTitle + '\n' + description();
+		
+	}
 	//Item methods
 	@Override
 	public ItemEntry itemClone() {

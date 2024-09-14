@@ -3,6 +3,9 @@
  */
 package mmb.engine.recipe;
 
+import org.ainslec.picocog.PicoWriter;
+
+import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.NN;
 import mmb.Nil;
 import mmb.engine.item.ItemEntry;
@@ -15,7 +18,7 @@ import monniasza.collects.Identifiable;
 public final class ItemStack implements Identifiable<ItemEntry>, SingleItem{
 	@Override
 	public String toString() {
-		return "ItemStack " + item + " � " + amount;
+		return "ItemStack " + item + " * " + amount;
 	}
 
 	/**
@@ -91,5 +94,9 @@ public final class ItemStack implements Identifiable<ItemEntry>, SingleItem{
 	@Override
 	public int amount() {
 		return amount;
+	}
+
+	public static String toString(Entry<ItemEntry> entry) {
+		return entry.getKey() + " * " + entry.getIntValue();
 	}
 }

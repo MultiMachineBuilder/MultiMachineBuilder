@@ -16,14 +16,14 @@ public abstract class ItemEntity implements ItemEntry{
 	protected abstract boolean equal0(ItemEntity other);
 	@Override
 	public final int hashCode() {
-		return 31*super.hashCode() + hash0();
+		return hash0();
 	}
 	@Override
 	public final boolean equals(@Nil Object obj) {
 		if(this == obj) return true;
 		if(obj == null) return false;
 		if(getClass() != obj.getClass()) return false;
-		return super.equals(obj);
+		return equal0((ItemEntity) obj);
 	}
 	
 	@Override public abstract @Nil JsonNode save(); //NOSONAR undefaulted to force item entities to do their save logic

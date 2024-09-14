@@ -8,6 +8,7 @@ import javax.swing.ListSelectionModel;
 
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -318,6 +319,5 @@ public class InventoryController extends Box implements AbstractInventoryControl
 	 */
 	public void removeListSelectionListener(ListSelectionListener listener) {
 		invlist.removeListSelectionListener(listener);
-	}
-		
+	}	
 }

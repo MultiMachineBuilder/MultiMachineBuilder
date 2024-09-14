@@ -51,7 +51,9 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	 * @param amount number of items
 	 */
 	@Override
-	public void produceResults(InventoryWriter tgt, int amount);
+	public default void produceResults(InventoryWriter tgt, int amount) {
+		for(Entry<ItemEntry> ent : getContents().object2IntEntrySet()) tgt.insert(ent.getKey(), ent.getIntValue());
+	}
 	/**
 	 * Produces one unit of recipe output
 	 * @param tgt

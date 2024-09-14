@@ -3,6 +3,8 @@
  */
 package mmb.engine.recipe;
 
+import java.util.Objects;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
@@ -62,4 +64,21 @@ public class ProcessIngredients{
 		if(x == null) return null;
 		return x.save();
 	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(input, output);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ProcessIngredients other = (ProcessIngredients) obj;
+		return Objects.equals(input, other.input) && Objects.equals(output, other.output);
+	}
+	
+	
 }

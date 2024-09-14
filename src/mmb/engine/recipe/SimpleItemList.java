@@ -165,19 +165,12 @@ public final class SimpleItemList implements RecipeOutput {
 	public int getOrDefault(ItemEntry entry, int value) {
 		return data.getOrDefault(entry, value);
 	}
-	
-	
-
-	@Override
-	public void produceResults(InventoryWriter tgt, int amount) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void represent(PicoWriter out) {
-		// TODO Auto-generated method stub
-		
+		for(Entry<ItemEntry> entry: data.object2IntEntrySet()) {
+			out.writeln(ItemStack.toString(entry));
+		}
 	}
 
 	private double vol = -1;
@@ -206,6 +199,12 @@ public final class SimpleItemList implements RecipeOutput {
 		if (obj instanceof RecipeOutput)
 			return data.equals(((RecipeOutput) obj).getContents());
 		return false;
+	}
+	@Override
+	public @NN String toString() {
+		PicoWriter writer = new PicoWriter();
+		represent(writer);
+		return writer.toString();
 	}
 	
 }
