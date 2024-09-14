@@ -44,20 +44,29 @@ public class ChirotatedImageGroup {
 	public BlockDrawer Rr;
 	
 	/**
-	 * Creates a chirotated image grouip out of an image
+	 * Creates a Chirotated Image Group out of an image
 	 * @param img image to transform
 	 * @return a chirotated image group
 	 */
 	@NN public static ChirotatedImageGroup create(BufferedImage img) {
+		return create(img, flip(img));
+	}
+	/**
+	 * Creates a Chirotated Image Group out of an image
+	 * @param cw clockwise variant of the image
+	 * @param ccw counter-clockwise variant of the image
+	 * @return a chirotated image group
+	 */
+	@NN public static ChirotatedImageGroup create(BufferedImage cw, BufferedImage ccw) {
 		ChirotatedImageGroup rig = new ChirotatedImageGroup();
-		rig.Ur = BlockDrawer.ofImage(img);
-		BufferedImage progress = RotatedImageGroup.rotate(img);
+		rig.Ur = BlockDrawer.ofImage(cw);
+		BufferedImage progress = RotatedImageGroup.rotate(cw);
 		rig.Rr = BlockDrawer.ofImage(progress);
 		progress = RotatedImageGroup.rotate(progress);
 		rig.Dr = BlockDrawer.ofImage(progress);
 		progress = RotatedImageGroup.rotate(progress);
 		rig.Lr = BlockDrawer.ofImage(progress);
-		progress = flip(img);
+		progress = ccw;
 		rig.Ul = BlockDrawer.ofImage(progress);
 		progress = RotatedImageGroup.rotate(progress);
 		rig.Rl = BlockDrawer.ofImage(progress);
@@ -74,6 +83,15 @@ public class ChirotatedImageGroup {
 	 */
 	@NN public static ChirotatedImageGroup create(String texture) {
 		return create(Textures.get(texture));
+	}
+	/**
+	 * Creates a chirotated image group
+	 * @param cw clockwise texture
+	 * @param ccw counter-clockwise texture
+	 * @return a chirotated image group
+	 */
+	@NN public static ChirotatedImageGroup create(String cw, String ccw) {
+		return create(Textures.get(cw), Textures.get(ccw));
 	}
 	@NN static BufferedImage flip(BufferedImage img) {
 		BufferedImage result = new BufferedImage(32, 32, img.getType());

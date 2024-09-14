@@ -472,6 +472,12 @@ public class ContentsBlocks {
 	@NN public static final BlockEntityType AUTOCRAFTER2 = createAutoCrafter(2, 16);
 	@NN public static final BlockEntityType AUTOCRAFTER3 = createAutoCrafter(3, 4);
 	@NN public static final BlockEntityType AUTOCRAFTER4 = createAutoCrafter(4, 1);
+	/** The Timed Ingredient Packet Dispatcher */
+	@NN public static final BlockEntityType TIPD = new BlockEntityType()
+			.title("#TIPD")
+			.factory(mmb.content.imachine.tipd.TIPD::new)
+			.texture("machine/rationer.png")
+			.finish("industry.TIPD");
 	
 	private static BlockEntityType createAutoCrafter(int index, int delay) {
 		BlockEntityType result = new BlockEntityType();
@@ -711,7 +717,7 @@ public class ContentsBlocks {
 		Items.tagItem("voltage-MV", TURBOGEN3);
 		Items.tagItems("machine-coalgen", COALGEN1, COALGEN2, COALGEN3);
 		Items.tagItems("machine-turbogen", TURBOGEN1, TURBOGEN2, TURBOGEN3);
-		Items.tagItems("imachine", PLACEITEMS, COLLECTOR, IMOVER, TRASH, BOMMAKER, AUTOCRAFTER1, AUTOCRAFTER2, AUTOCRAFTER3, AUTOCRAFTER4);
+		Items.tagItems("imachine", PLACEITEMS, COLLECTOR, IMOVER, TRASH, BOMMAKER, AUTOCRAFTER1, AUTOCRAFTER2, AUTOCRAFTER3, AUTOCRAFTER4, TIPD);
 		
 		//Deprecation
 		Items.tagItems("deprecated", CYCLEASSEMBLY, PICKBUILDER, old_AUTOCRAFTER, old_EFURNACE, old_NUKEGEN);

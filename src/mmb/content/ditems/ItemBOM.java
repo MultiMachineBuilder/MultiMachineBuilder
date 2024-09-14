@@ -59,7 +59,7 @@ public final class ItemBOM extends ItemFilter {
 	/**
 	 * @return the item list for this Bill Of Materials. The returned item list is immutable
 	 */
-	@NN public RecipeOutput contents() {
+	@NN public SimpleItemList contents() {
 		return items;
 	}
 	@Override

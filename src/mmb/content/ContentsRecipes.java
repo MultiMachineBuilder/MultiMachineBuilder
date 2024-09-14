@@ -546,6 +546,11 @@ public class ContentsRecipes {
 			rudimentary.base, ManCrafter.types.get(0), rudimentary.base,
 			rudimentary.base, rudimentary.base, rudimentary.base,
 		}, 3, 3, AUTOCRAFTER4);*/
+		crafting.addRecipeGrid(new ItemEntry[]{
+			rudimentary.base, IMOVER, rudimentary.base,
+			CHEST, ManCrafter.types.get(0), IMOVER,
+			iron.base, ItemRaw.make(BOM), iron.base
+		}, 3, 3, TIPD);
 	}
 	private static void _craftrsULV() {
 		//Coal Generator ULV

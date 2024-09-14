@@ -214,6 +214,7 @@ Modyfikacje tutaj muszą być lokalnymi ściażkami lub linkami do plików *.jar
 (SETTINGS LIST) ngui-n=Nazwa
 (SETTINGS LIST) component-subsA=podsystem A
 (SETTINGS LIST) cguis-restart=Żeby zmiany języka zadziałały, należy zrestartować grę
+(SETTINGS LIST) interval=Interwał
 (SETTINGS LIST) hello=Cześć!
 (SETTINGS LIST) wgui-creamode=Tryb kreatywny
 (SETTINGS LIST) matname2-enderium=Enderiowy
@@ -277,6 +278,7 @@ Modyfikacje tutaj muszą być lokalnymi ściażkami lub linkami do plików *.jar
 (SETTINGS LIST) ind-circ6=Niesamowity obwï¿½d
 (SETTINGS LIST) BOM=Lista materiałï¿½w
 (SETTINGS LIST) ind-circ7=Wyjątkowy obwï¿½d
+(SETTINGS LIST) maxpackets=Max pakiety na cykl
 (SETTINGS LIST) void=Pr�żnia
 (SETTINGS LIST) ind-circ8=Zaszczytny obwï¿½d
 (SETTINGS LIST) ind-circ9=Maksymalny obwï¿½d
@@ -422,6 +424,7 @@ Modyfikacje tutaj muszą być lokalnymi ściażkami lub linkami do plików *.jar
 (SETTINGS LIST) matname1-PE=Polietylen
 (SETTINGS LIST) matname-lead=z ołowiu
 (SETTINGS LIST) matname1-silicarbide=Węglik krzemu
+(SETTINGS LIST) imargin=Margines składników (razy specyfikacja)
 (SETTINGS LIST) matname2-chaotium=Chaotiowy
 (SETTINGS LIST) tier-ins=Niesamowity
 (SETTINGS LIST) bommaker=Warsztat list materiałów
@@ -490,6 +493,7 @@ Modyfikacje tutaj muszą być lokalnymi ściażkami lub linkami do plików *.jar
 (SETTINGS LIST) multi-pause=⏸ Pauza
 (SETTINGS LIST) matname1-unobtainium=Unobtainium
 (SETTINGS LIST) component-robot=Ramię robotyczne
+(SETTINGS LIST) TIPD=Zegarowy dyspozytor pakietów składników 
 (SETTINGS LIST) machine-pickaxe=TO NIE JEST GRUPA PRZEPIS�W Kilofy
 (SETTINGS LIST) rrubber=Kauczuk
 (SETTINGS LIST) mattype-wire=Drut
@@ -1002,6 +1006,9 @@ Modyfikacje tutaj muszą być lokalnymi ściażkami lub linkami do plików *.jar
 (MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/pipe wye.png
 (MOD-LOADER) Loading a texture machine/pipe wye.png
 (TEXTURES) Loading texture: machine/pipe wye.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/rationer backwards.png
+(MOD-LOADER) Loading a texture machine/rationer backwards.png
+(TEXTURES) Loading texture: machine/rationer backwards.png
 (MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/ppipe adjoin.png
 (MOD-LOADER) Loading a texture machine/ppipe adjoin.png
 (TEXTURES) Loading texture: machine/ppipe adjoin.png
@@ -1240,6 +1247,9 @@ Modyfikacje tutaj muszą być lokalnymi ściażkami lub linkami do plików *.jar
 (MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/water well.png
 (MOD-LOADER) Loading a texture machine/water well.png
 (TEXTURES) Loading texture: machine/water well.png
+(MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/rationer.png
+(MOD-LOADER) Loading a texture machine/rationer.png
+(TEXTURES) Loading texture: machine/rationer.png
 (MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/CCW.png
 (MOD-LOADER) Loading a texture machine/CCW.png
 (TEXTURES) Loading texture: machine/CCW.png
@@ -1249,13 +1259,13 @@ Modyfikacje tutaj muszą być lokalnymi ściażkami lub linkami do plików *.jar
 (MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/autocraft3.png
 (MOD-LOADER) Loading a texture machine/autocraft3.png
 (TEXTURES) Loading texture: machine/autocraft3.png
+(TEXTURE ATLAS) Size: 1024*512
 (MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/pipe bridged.png
 (MOD-LOADER) Loading a texture machine/pipe bridged.png
 (TEXTURES) Loading texture: machine/pipe bridged.png
 (MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/extruder.png
 (MOD-LOADER) Loading a texture machine/extruder.png
 (TEXTURES) Loading texture: machine/extruder.png
-(TEXTURE ATLAS) Size: 1024*512
 (MOD-LOADER) File: /home/oskar/git/MultiMachineBuilder/textures/machine/placer.png
 (MOD-LOADER) Loading a texture machine/placer.png
 (TEXTURES) Loading texture: machine/placer.png
@@ -2212,6 +2222,8 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
  Składa co 4 ticków
 (ITEMS) Adding industry.autocrafter4 with title Autokonstruktor 4 and description:
  Składa co 1 ticków
+(ITEMS) Adding industry.TIPD with title Zegarowy dyspozytor pakietów składników  and description:
+ (brak opisu)
 (ITEMS) Adding industry.electrofurnace0 with title Piec ULV and description:
  (brak opisu)
 (ITEMS) Adding industry.electrofurnace1 with title Piec VLV and description:
@@ -2945,6 +2957,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEMS) Tagging Item Autokonstruktor 2(industry.autocrafter2) with imachine
 (ITEMS) Tagging Item Autokonstruktor 3(industry.autocrafter3) with imachine
 (ITEMS) Tagging Item Autokonstruktor 4(industry.autocrafter4) with imachine
+(ITEMS) Tagging Item Zegarowy dyspozytor pakietów składników (industry.TIPD) with imachine
 (ITEMS) Tagging Item zzz NIEAKTUALNE Konstruktor cykliczny (zamiast tego użyj STN-a, do usunięcia w 0.6)(industry.cycle0) with deprecated
 (ITEMS) Tagging Block zzz NIEAKTUALNE Warsztat kilofów (scraftuj to samo, aby odzyskać składniki)(machines.pickbuilder) with deprecated
 (ITEMS) Tagging Item zzz NIEAKTUALNE Auto-konstruktor 3X3 (planowany zamiennik w 0.6, likwidacja w 0.7)(industry.autocraft1) with deprecated
@@ -9054,9 +9067,9 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (SELECT A SAVE) Found 27 saves
 (Main menu) Current version: 0.5.2
 (Main menu) You have the current version
-(WORLD TEST) 1774 items
+(WORLD TEST) 1775 items
 (TOOL LIST) Tool selected: standard
-(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@1758776a
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@11a599a4
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: null
 (TOOL SELECTOR) New tool: standard
@@ -9068,11 +9081,8 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (ITEM LISTS) Item list node is null
 (ITEM LISTS) Item list node is null
 (ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
 (ITEM LISTS) Item list node is null
-(BOM) Loading: [ [ "machineparts.motor0", 1 ], [ "machineparts.motor1", 1 ] ]
-(ITEMS) Attempting to load a non-data item
-(ITEMS) Attempting to load a non-data item
+(BOM) Loading: [ [ "sheet.chaotium", 1 ], [ "sheet.adraconium", 1 ] ]
 (DATA LAYERS) Loading world data layer: STN
 (ITEMS) Invalid item: Infinity
 (INVENTORIES) Unsupported null item
@@ -9082,9 +9092,14 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (WORLDS) Opening a new world
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
-(TOOL-STANDARD) Running BlockActivateListener for: [-6,-7]
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(TOOL-STANDARD) Running BlockActivateListener for: [4,-3]
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(BOM MAKER) Type: crafting.BOMItems
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
@@ -9099,14 +9114,8 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: standard
 (TOOL SELECTOR) New tool: standard
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
-(TOOL SELECTOR) IL tool: null
-(TOOL SELECTOR) Reset tools
-(TOOL SELECTOR) Old tool: standard
-(TOOL SELECTOR) New tool: standard
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
 (TOOL SELECTOR) IL tool: null
 (TOOL SELECTOR) Reset tools
 (TOOL SELECTOR) Old tool: standard
@@ -9117,6 +9126,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(TOOL-STANDARD) Running BlockActivateListener for: [4,-3]
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
@@ -9125,18 +9135,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
-(INVENTORIES0) Extract attempt with 0 of 1 blocks
-(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
-(INVENTORIES0) Extract attempt with 0 of 1 blocks
-(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
-(INVENTORIES0) Extract attempt with 0 of 1 blocks
-(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
-(INVENTORIES0) Extract attempt with 0 of 1 blocks
-(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
-(INVENTORIES0) Extract attempt with 0 of 1 blocks
-(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
-(INVENTORIES0) Extract attempt with 0 of 1 blocks
-(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(TOOL-STANDARD) Running BlockActivateListener for: [16,-5]
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
@@ -9155,65 +9154,163 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (TOOL SELECTOR) New tool: standard
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
-(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
-(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
-(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
-(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
-(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
-(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
-(INVENTORIES0) Extract attempt with 0 of 0 blocks
-(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
-(INVENTORIES0) Extract attempt with 0 of 0 blocks
-(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
-(INVENTORIES0) Extract attempt with 0 of 0 blocks
-(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
-(INVENTORIES0) Extract attempt with 0 of 0 blocks
-(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
-(INVENTORIES0) Extract attempt with 0 of 0 blocks
-(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
-(INVENTORIES0) Extract attempt with 0 of 0 blocks
-(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
-(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
-(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
-(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
-(INVENTORIES0) Extract attempt with 1 of 1 blocks
-(INVENTORIES0) Extracted 1 of Block Kłoda(mmb.tree), expected 1
-(INVENTORIES) Inserted 16 of Block Deski(mmb.planks), expected 16
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
 (INVENTORIES0) Extract attempt with 0 of 1 blocks
 (INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(TOOL-STANDARD) Running BlockActivateListener for: [16,-5]
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 1 of Item Arkusz z Chaotium(sheet.chaotium), expected 1
+(INVENTORIES) Inserted 1 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 1
+(INVENTORIES0) Extract attempt with 1 of 1 blocks
+(INVENTORIES0) Extracted 1 of Item Arkusz z Chaotium(sheet.chaotium), expected 1
+(INVENTORIES0) Extracted 1 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 1
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL-STANDARD) Running BlockActivateListener for: [17,-5]
 (STN data layer @null) Rebuild
 (STN-inventory) Index rebuild
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(TOOL-STANDARD) Running BlockActivateListener for: [16,-6]
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(TOOL-STANDARD) Running BlockActivateListener for: [17,-5]
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
+(INVENTORIES0) Extract attempt with 0 of 1 blocks
+(INVENTORIES) Inserted 0 of Block Deski(mmb.planks), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Chaotium(sheet.chaotium), expected 0
+(INVENTORIES) Inserted 0 of Item Arkusz z Awakened Draconium(sheet.adraconium), expected 0
+(INVENTORIES0) Extract attempt with 0 of 0 blocks
 (WORLD TEST) Exiting the world
 (WORLD - ) Saving main BlockMap
-(BOM) Saving: [ [ "machineparts.motor0", 1 ], [ "machineparts.motor1", 1 ] ]
+(BOM) Saving: [ [ "sheet.chaotium", 1 ], [ "sheet.adraconium", 1 ] ]
 (DATA LAYERS) Saving world data layer: STN
 (WORLD TEST) Saving the world
 (WORLD TEST) Saved the world

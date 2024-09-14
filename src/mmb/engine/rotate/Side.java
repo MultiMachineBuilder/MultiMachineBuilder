@@ -103,4 +103,9 @@ public enum Side {
 	public final int blockOffsetX;
 	/** Vertical block offset (from base coordinates) */
 	public final int blockOffsetY;
+
+	@NN
+	public Side transform(ChiralRotation chirotation) {
+		return chirotation.apply(this);
+	}
 }
