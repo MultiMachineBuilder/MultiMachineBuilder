@@ -24,6 +24,7 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.event.ListSelectionListener;
 
+import io.github.parubok.text.multiline.MultilineLabel;
 import mmb.NN;
 import mmb.Nil;
 import mmb.data.variables.Variable;
@@ -209,11 +210,20 @@ public class InventoryController extends Box implements AbstractInventoryControl
 		btnRefresh.setEnabled(hasInv);
 	}
 
-	private static class CellRenderer extends MultilineImageLabel implements ListCellRenderer<ItemRecord>{
+	private static class CellRenderer extends Box implements ListCellRenderer<ItemRecord>{
+		public CellRenderer() {
+			super(BoxLayout.X_AXIS);
+			add(image);
+			add(label);
+		}
+
 		private static final long serialVersionUID = -3535344904857285958L;
 		private final Dimension PRESENT = new Dimension(275, 32);
 		private final Dimension ABSENT = new Dimension();
 		private static final Debugger debug = new Debugger("INVENTORY CELL RENDERER");
+		private final JLabel image = new JLabel();
+		private final MultilineLabel label = new MultilineLabel();
+		
 		@Override
 		public Component getListCellRendererComponent(
 			@SuppressWarnings("null") JList<? extends ItemRecord> list,
@@ -226,22 +236,26 @@ public class InventoryController extends Box implements AbstractInventoryControl
 			if(amount == 0) {
 				setPreferredSize(ABSENT);
 				setMinimumSize(ABSENT);
+				image.setIcon(null);
+				label.setText("");
 			}else {
 				setPreferredSize(PRESENT);
 				setMinimumSize(PRESENT);
+				setOpaque(true);
+				image.setIcon(irecord.item().icon());
+				label.setText(irecord.item().title() + " * " + irecord.amount());
 			}
-			setOpaque(true);
-			setIcon(irecord.item().icon());
-			String newText = irecord.item().title() + " * " + irecord.amount();
-			debug.printl(newText);
-			setText(newText);
 			
 			if (isSelected) {
 			    setBackground(list.getSelectionBackground());
 			    setForeground(list.getSelectionForeground());
+			    label.setBackground(list.getSelectionBackground());
+			    label.setForeground(list.getSelectionForeground());
 			} else {
 			    setBackground(list.getBackground());
 			    setForeground(list.getForeground());
+			    label.setBackground(list.getBackground());
+			    label.setForeground(list.getForeground());
 			}
 			return this;
 		}

@@ -9,6 +9,7 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.content.ContentsItems;
 import mmb.content.imachine.filter.ItemFilter;
+import mmb.engine.debug.Debugger;
 import mmb.engine.item.ItemEntity;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
@@ -21,7 +22,8 @@ import mmb.engine.recipe.SimpleItemList;
  * The Bill of Materials can also be used as an item filter
  * @author oskar
  */
-public final class ItemBOM extends ItemFilter {	
+public final class ItemBOM extends ItemFilter {
+	private static final Debugger debug = new Debugger("BOM");
 	//Constructors
 	/**
 	 * Creates an empty Bill of Materials
@@ -62,7 +64,7 @@ public final class ItemBOM extends ItemFilter {
 	@Override
 	public String title() {
 		String superTitle = super.title();
-		return superTitle + '\n' + description();
+		return items.getContents().isEmpty() ? superTitle : superTitle + "\n"+description();
 		
 	}
 	//Item methods
@@ -88,6 +90,7 @@ public final class ItemBOM extends ItemFilter {
 	//Serialization
 	@Override
 	public void load(@Nil JsonNode data) {
+		debug.printl("Loading: " + (data == null ? "null" : data.toPrettyString()));
 		if(data == null) return;
 		SimpleItemList list0 = ItemLists.read(data);
 		if(list0 == null) list0 = SimpleItemList.EMPTY;
