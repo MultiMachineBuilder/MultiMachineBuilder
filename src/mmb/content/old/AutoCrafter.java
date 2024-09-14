@@ -37,7 +37,7 @@ public class AutoCrafter extends SkeletalBlockLinear implements BlockActivateLis
 	
 	@Override
 	public BlockType type() {
-		return ContentsBlocks.AUTOCRAFTER;
+		return ContentsBlocks.old_AUTOCRAFTER;
 	}
 
 	@Override

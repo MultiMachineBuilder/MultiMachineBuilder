@@ -16,7 +16,7 @@ import mmb.content.ContentsBlocks;
 import mmb.content.ContentsItems;
 import mmb.content.ContentsRecipes;
 import mmb.content.agro.Agro;
-import mmb.content.craft.Crafter;
+import mmb.content.craft.ManCrafter;
 import mmb.content.drugs.Alcohol;
 import mmb.content.electric.machines.BlockTransformer.TransformerData;
 import mmb.content.electronics.Electronics;
@@ -156,7 +156,7 @@ public final class GameLoader {
 		Alcohol.init();
 		Main.state1("Loading machines");
 		STN.init();
-		Crafter.init();
+		ManCrafter.init();
 		ContentsRecipes.createRecipes();
 		Nuker.init();
 		Generators.init();

@@ -47,7 +47,7 @@ public class JsonTool {
 	 * @param node object node to get from
 	 * @return an existing object node if found, else a new object node
 	 */
-	@NN public static ObjectNode requestObject(String name, ObjectNode node) {
+	@NN public static ObjectNode requestObject(String name, JsonNode node) {
 		JsonNode result = node.get(name);
 		if(result instanceof ObjectNode) {
 			return (ObjectNode) result;
@@ -60,12 +60,25 @@ public class JsonTool {
 	 * @param node object node to get from
 	 * @return an existing array node if found, else a new array node
 	 */
-	@NN public static ArrayNode requestArray(String name, ObjectNode node) {
+	@NN public static ArrayNode requestArray(String name, JsonNode node) {
 		JsonNode result = node.get(name);
 		if(result instanceof ArrayNode) {
 			return (ArrayNode) result;
 		}
 		return newArrayNode();
+	}
+	
+	/**
+	 * Gets an integer from a JSON node
+	 * @param name object node key
+	 * @param node object node to get from
+	 * @param i default return value
+	 * @return an integer if found, else the default return value
+	 */
+	public static int requestInt(JsonNode node, String name, int i) {
+		JsonNode result = node.get(name);
+		if(result == null) return i;
+		return result.asInt(i);
 	}
 	
 	/** Default JSON object writer */
@@ -240,4 +253,6 @@ public class JsonTool {
 		int a = node.get(3).asInt(255);
 		return new Color(r, g, b, a);
 	}
+
+	
 }

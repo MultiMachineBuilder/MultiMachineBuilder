@@ -20,12 +20,12 @@ import mmb.menu.world.window.WorldWindow;
  * A crafting table
  * @author oskar
  */
-public class Crafter extends Block implements BlockActivateListener {
+public class ManCrafter extends Block implements BlockActivateListener {
 	/** The size of this crafting table */
 	public final int size;
 	/** The tier of the crafting table */
 	public final int tier;
-	private Crafter(int tier) {
+	private ManCrafter(int tier) {
 		size = sizes.getInt(tier);
 		this.tier = tier;
 	}
@@ -55,7 +55,7 @@ public class Crafter extends Block implements BlockActivateListener {
 		String idName = "crafting."+increased;
 		String title = GlobalSettings.$res("machine-crafter")+" "+increased;
 		
-		Block type = new Crafter(tier);
+		Block type = new ManCrafter(tier);
 		type.title(title);
 		type.texture(textureName);
 		type.register(idName);

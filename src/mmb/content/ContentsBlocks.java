@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 
 import mmb.DeprecatedExtra;
 import mmb.NN;
-import mmb.content.craft.Crafter;
+import mmb.content.craft.ManCrafter;
 import mmb.content.electric.ElectricMachineGroup;
 import mmb.content.electric.InfiniteGenerator;
 import mmb.content.electric.VoltageTier;
@@ -30,6 +30,7 @@ import mmb.content.imachine.TrashCan;
 import mmb.content.imachine.bom.BOMFactory;
 import mmb.content.imachine.chest.Chest;
 import mmb.content.imachine.chest.Hopper;
+import mmb.content.imachine.craft.Crafter;
 import mmb.content.imachine.extractor.BlockCollector;
 import mmb.content.imachine.pipe.DualPipe;
 import mmb.content.imachine.pipe.IntersectingPipeExtractor;
@@ -467,6 +468,20 @@ public class ContentsBlocks {
 			.factory(Furnace::new)
 			.texture(Furnace.TEXTURE_INERT)
 			.finish("industry.furnace");
+	@NN public static final BlockEntityType AUTOCRAFTER1 = createAutoCrafter(1, 64);
+	@NN public static final BlockEntityType AUTOCRAFTER2 = createAutoCrafter(2, 16);
+	@NN public static final BlockEntityType AUTOCRAFTER3 = createAutoCrafter(3, 4);
+	@NN public static final BlockEntityType AUTOCRAFTER4 = createAutoCrafter(4, 1);
+	
+	private static BlockEntityType createAutoCrafter(int index, int delay) {
+		BlockEntityType result = new BlockEntityType();
+		result	.title(GlobalSettings.$res("autocrafter")+" "+index)
+				.factory(() -> new Crafter(delay, result))
+				.texture("machine/autocraft"+index+".png")
+				.describe(GlobalSettings.$res("craftevery")+" "+delay+" "+GlobalSettings.$res("ticks"))
+				.finish("industry.autocrafter"+index);
+		return result;
+	}
 	
 	//Electrical processing machines
 	/** Smelts ores and dusts into materials */
@@ -542,7 +557,7 @@ public class ContentsBlocks {
 	 * @deprecated A block used formerly to create pickaxes, now useless.
 	 * Use '!!!' button to activate raw items instead
 	 * @replacementVer 0.5
-	 * @removal 0.6
+	 * @removal 0.7
 	 */
 	@DeprecatedExtra(replacementVer = "0.5", removal = "0.6")
 	@Deprecated(since="0.5", forRemoval=true)
@@ -550,14 +565,14 @@ public class ContentsBlocks {
 		.texture("machine/pickaxe workbench.png")
 		.title("#depr-pickbuilder")
 		.finish("machines.pickbuilder");
-	@DeprecatedExtra(replacementVer = "0.6", removal = "0.7")
-	@Deprecated(since="0.5", forRemoval=true)
 	/**
 	 * @deprecated An autocrafter, unobtainable in survival
 	 * @replacementVer 0.6
 	 * @removal 0.7
 	 */
-	@NN public static final BlockEntityType AUTOCRAFTER = new BlockEntityType()
+	@DeprecatedExtra(replacementVer = "0.6", removal = "0.7")
+	@Deprecated(since="0.5", forRemoval=true)
+	@NN public static final BlockEntityType old_AUTOCRAFTER = new BlockEntityType()
 		.title("#depr-autocraft1")
 		.factory(AutoCrafter::new)
 		.texture("machine/AutoCrafter 1.png")
@@ -684,7 +699,7 @@ public class ContentsBlocks {
 		Items.tagItems("wireworld", ww_wire, ww_head, ww_tail, ww_chatter,
 				AND, OR, XOR, BUTTON, TOGGLE, YES, NOT, RANDOMCTRL, TRUE, RANDOM, ON, OFF, URANDOM, LAMP, SPEAKER, CLICKER, PLACER, ROTATOR);
 		Items.tagItems("player-pipe", PPIPE_lin, PPIPE_bend, PPIPE_lin2, PPIPE_bend2, PPIPE_join, PPIPE_join2, PPIPE_cap);
-		Items.tagItems("workbench", Crafter.types);
+		Items.tagItems("workbench", ManCrafter.types);
 		Items.tagItems("fluid", water, lava, steam);
 		Items.tagItems("special", Blocks.air, Blocks.grass);
 		Items.tagItems("basic", Blocks.air, Blocks.grass, plank, stone, leaves, logs, sand, gravel, clay, water);
@@ -696,9 +711,9 @@ public class ContentsBlocks {
 		Items.tagItem("voltage-MV", TURBOGEN3);
 		Items.tagItems("machine-coalgen", COALGEN1, COALGEN2, COALGEN3);
 		Items.tagItems("machine-turbogen", TURBOGEN1, TURBOGEN2, TURBOGEN3);
-		Items.tagItems("imachine", PLACEITEMS, COLLECTOR, IMOVER, TRASH);
+		Items.tagItems("imachine", PLACEITEMS, COLLECTOR, IMOVER, TRASH, BOMMAKER, AUTOCRAFTER1, AUTOCRAFTER2, AUTOCRAFTER3, AUTOCRAFTER4);
 		
 		//Deprecation
-		Items.tagItems("deprecated", CYCLEASSEMBLY, PICKBUILDER, AUTOCRAFTER, old_EFURNACE, old_NUKEGEN);
+		Items.tagItems("deprecated", CYCLEASSEMBLY, PICKBUILDER, old_AUTOCRAFTER, old_EFURNACE, old_NUKEGEN);
 	}
 }

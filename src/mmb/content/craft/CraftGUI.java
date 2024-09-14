@@ -70,19 +70,19 @@ public class CraftGUI extends GUITab {
 	 * @param window the window, which stores this GUI (optional)
 	 * @wbp.parser.constructor
 	 */
-	public CraftGUI(int size, @Nil Inventory inv, @Nil Crafter crafter, @Nil WorldWindow window) {
+	public CraftGUI(int size, @Nil Inventory inv, @Nil ManCrafter crafter, @Nil WorldWindow window) {
 		Object2IntMap<ItemEntry> ins = new Object2IntOpenHashMap<>();
 		AtomicReference<RecipeOutput> outs = new AtomicReference<>();
 		DefaultListModel<ItemStack> listmodel = new DefaultListModel<>();
 		
-		setLayout(new MigLayout("", "[][grow][]", "[][][grow]"));
+		setLayout(new MigLayout("", "[grow][][]", "[][][grow]"));
 		Grid<@Nil ItemEntry> contents = new FixedGrid<>(size, size);
 		
 		box = new Box(BoxLayout.Y_AXIS);
 		add(box, "cell 1 2 2 2,grow");
 		
 		inventoryController = new InventoryController(inv);	
-		add(inventoryController, "cell 0 0 1 3,alignx left,growy");
+		add(inventoryController, "cell 0 0 1 3,grow");
 		
 		craftingGrid = new CraftingGrid(size);
 		add(craftingGrid, "cell 2 0,grow");

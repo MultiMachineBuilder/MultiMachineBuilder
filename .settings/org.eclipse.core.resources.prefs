@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
-encoding//src/mmb/content/craft/Crafter.java=UTF-8
+encoding//src/mmb/content/craft/ManCrafter.java=UTF-8
 encoding//src/mmb/content/electric/machines/PowerMeter.java=UTF-8
+encoding//src/mmb/content/imachine/craft/CrafterGUI.java=UTF-8
 encoding//src/mmb/content/old/AutoCraftGUI.java=UTF-8
 encoding//src/mmb/content/ppipe/AbstractPlayerPipe.java=UTF-8
 encoding//src/mmb/content/ppipe/JoiningPlayerPipe.java=UTF-8

@@ -9,7 +9,7 @@ import static mmb.content.CraftingGroups.*;
 import static mmb.content.rawmats.Materials.*;
 
 import mmb.content.agro.Agro;
-import mmb.content.craft.Crafter;
+import mmb.content.craft.ManCrafter;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.BlockTransformer.TransformerData;
 import mmb.content.electronics.Electronics;
@@ -42,12 +42,12 @@ public class ContentsRecipes {
 		splitter.add(logs, plank, 16, VoltageTier.V1, 1000);
 		
 		//Crafting tables
-		crafting.addRecipeGrid(plank, 2, 2, Crafter.types.get(0), 1); //4*wood plank → crafting table 1
+		crafting.addRecipeGrid(plank, 2, 2, ManCrafter.types.get(0), 1); //4*wood plank → crafting table 1
 		crafting.addRecipeGrid(new ItemEntry[]{
-		Crafter.types.get(0), steel.frame,        Crafter.types.get(0),
+		ManCrafter.types.get(0), steel.frame,        ManCrafter.types.get(0),
 		steel.frame,           robot.items.get(1), steel.frame,
-		Crafter.types.get(0), steel.frame,        Crafter.types.get(0)
-		}, 3, 3, Crafter.types.get(1));
+		ManCrafter.types.get(0), steel.frame,        ManCrafter.types.get(0)
+		}, 3, 3, ManCrafter.types.get(1));
 		
 		//Crafting aids
 		crafting.addRecipeGrid(new ItemEntry[]{
@@ -519,6 +519,33 @@ public class ContentsRecipes {
 			rudimentary.base, null, rudimentary.base,
 			rudimentary.base, null, rudimentary.base,
 		}, 3, 3, TRASH);
+		//BOM Workbench
+		crafting.addRecipeGrid(new ItemEntry[]{
+			rudimentary.base, iron.base, rudimentary.base,
+			rudimentary.base, ItemRaw.make(BOM), rudimentary.base,
+			rudimentary.base, iron.base, rudimentary.base,
+		}, 3, 3, BOMMAKER);
+		//Autocrafters
+		crafting.addRecipeGrid(new ItemEntry[]{
+			rudimentary.base, rudimentary.base, rudimentary.base,
+			rudimentary.base, ManCrafter.types.get(0), rudimentary.base,
+			rudimentary.base, rudimentary.base, rudimentary.base,
+		}, 3, 3, AUTOCRAFTER1);
+		crafting.addRecipeGrid(new ItemEntry[]{
+			steel.base, iron.base, steel.base,
+			iron.base, ManCrafter.types.get(0), iron.base,
+			steel.base, iron.base, steel.base,
+		}, 3, 3, AUTOCRAFTER2);
+		crafting.addRecipeGrid(new ItemEntry[]{
+			titanium.base, stainless.base, titanium.base,
+			stainless.base, ManCrafter.types.get(0), stainless.base,
+			titanium.base, stainless.base, titanium.base,
+		}, 3, 3, AUTOCRAFTER3);
+		/*crafting.addRecipeGrid(new ItemEntry[]{
+			rudimentary.base, rudimentary.base, rudimentary.base,
+			rudimentary.base, ManCrafter.types.get(0), rudimentary.base,
+			rudimentary.base, rudimentary.base, rudimentary.base,
+		}, 3, 3, AUTOCRAFTER4);*/
 	}
 	private static void _craftrsULV() {
 		//Coal Generator ULV
