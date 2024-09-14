@@ -103,7 +103,7 @@ public final class SimpleItemList implements RecipeOutput {
 	 */
 	public SimpleItemList(Inventory inv) {
 		for(ItemRecord irecord: inv) {
-			data.put(irecord.item(), irecord.amount());
+			if(irecord.amount() > 0) data.put(irecord.item(), irecord.amount());
 		}
 	}
 	/**
