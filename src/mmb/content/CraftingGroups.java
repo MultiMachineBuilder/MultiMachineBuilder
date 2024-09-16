@@ -12,10 +12,10 @@ import mmb.content.electric.recipes.ComplexCatRecipeGroup;
 import mmb.content.electric.recipes.ComplexRecipeGroup;
 import mmb.content.electric.recipes.SingleRecipeGroup;
 import mmb.content.electric.recipes.StackedRecipeGroup;
+import mmb.engine.inv.Inventories;
 import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemRaw;
-import mmb.engine.recipe.RecipeUtil;
 
 /**
  * @author oskar
@@ -33,7 +33,7 @@ public class CraftingGroups {
 	 */
 	public static boolean activateItem(ItemRaw item, Inventory from, Inventory to) {
 		ItemEntry ient = item.iet.create();
-		return RecipeUtil.transact(item, ient, from, to);
+		return Inventories.transact(item, ient, from, to);
 	}
 	
 	//Recipes

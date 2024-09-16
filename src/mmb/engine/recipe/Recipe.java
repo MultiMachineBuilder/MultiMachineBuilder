@@ -9,6 +9,7 @@ import mmb.NN;
 import mmb.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
+import mmb.engine.inv.Inventories;
 import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
 
@@ -46,7 +47,7 @@ public interface Recipe<@NN T extends Recipe<T>>{
 	 * @return amount of recipes crafted
 	 */
 	public default int craft(Inventory src, Inventory tgt, int amount) {
-		return RecipeUtil.transact(inputs(), src, output(), tgt, amount);
+		return Inventories.transact(inputs(), src, output(), tgt, amount);
 	}
 	/**
 	 * Crafts at most one unit, within ingredient limits of {@code src} inventory and capacity limits of {@code tgt} inventory

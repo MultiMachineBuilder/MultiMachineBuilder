@@ -12,11 +12,11 @@ import mmb.content.CraftingGroups;
 import mmb.content.craft.CraftingRecipeGroup.CraftingRecipe;
 import mmb.content.ditems.Stencil;
 import mmb.engine.debug.Debugger;
+import mmb.engine.inv.Inventories;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemRaw;
-import mmb.engine.recipe.RecipeUtil;
 import mmb.engine.recipe.ItemStack;
 import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.recipe.SimpleItemList;
@@ -141,7 +141,7 @@ public class CraftGUI extends GUITab {
 				Stencil newStencil = new Stencil(craftingGrid.items);
 				Inventory inv0 = inventoryController.getInv();
 				if(inv0 == null) return;
-				RecipeUtil.transact(item, inv0, new ItemStack(newStencil, 1), inv0, 1);
+				Inventories.transact(item, inv0, new ItemStack(newStencil, 1), inv0, 1);
 			}//else it is not a stencil
 		});
 		
@@ -186,7 +186,7 @@ public class CraftGUI extends GUITab {
 			if(rout == null) return;
 			Inventory inv0 = inventoryController.getInv();
 			if(inv0 == null) return;
-			RecipeUtil.transact(new SimpleItemList(ins),inv0, rout, inv0, 1);
+			Inventories.transact(new SimpleItemList(ins),inv0, rout, inv0, 1);
 			inventoryController.refresh();
 		});
 		

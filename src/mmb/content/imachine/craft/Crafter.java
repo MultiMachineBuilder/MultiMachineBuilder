@@ -12,6 +12,7 @@ import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
+import mmb.engine.inv.Inventories;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
@@ -20,7 +21,6 @@ import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.RecipeOutput;
-import mmb.engine.recipe.RecipeUtil;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
@@ -94,7 +94,7 @@ public class Crafter extends BlockEntityData implements BlockActivateListener{
 		Stencil s = (Stencil) item;
 		RecipeOutput inputs = s.in();
 		RecipeOutput output1 = s.out();
-		RecipeUtil.transact(inputs, incoming, output1, outgoing, 1);
+		Inventories.transact(inputs, incoming, output1, outgoing, 1);
 		if(gui != null) gui.refresh();
 	}
 

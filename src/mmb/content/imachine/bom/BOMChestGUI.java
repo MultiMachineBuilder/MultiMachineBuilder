@@ -11,11 +11,11 @@ import mmb.Nil;
 import mmb.content.ContentsItems;
 import mmb.content.ditems.ItemBOM;
 import mmb.engine.debug.Debugger;
+import mmb.engine.inv.Inventories;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.RecipeOutput;
-import mmb.engine.recipe.RecipeUtil;
 import mmb.engine.recipe.SimpleItemList;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
@@ -78,7 +78,7 @@ public class BOMChestGUI extends GUITab {
 		ItemEntry item = irecord.item();
 		debug.printl("Type: "+item.type().id());		
 		if(irecord.amount() < 1 || item.type() != ContentsItems.BOM) return;
-		RecipeUtil.transact(item, bom, inv, inv);
+		Inventories.transact(item, bom, inv, inv);
 	}
 
 	@Override
