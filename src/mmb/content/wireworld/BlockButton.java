@@ -4,7 +4,7 @@
 package mmb.content.wireworld;
 
 import mmb.Nil;
-import mmb.cgui.BlockActivateListener;
+import mmb.beans.BlockActivateListener;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityDataless;
 import mmb.engine.block.BlockType;

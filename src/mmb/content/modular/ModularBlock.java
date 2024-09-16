@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.NN;
 import mmb.Nil;
-import mmb.cgui.BlockActivateListener;
+import mmb.beans.BlockActivateListener;
 import mmb.content.electric.Electricity;
 import mmb.content.modular.chest.BlockModuleUniversal;
 import mmb.content.modular.gui.ModularChestGUI;

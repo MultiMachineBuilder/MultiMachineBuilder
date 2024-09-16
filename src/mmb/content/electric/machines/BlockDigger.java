@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.NN;
 import mmb.Nil;
-import mmb.cgui.BlockActivateListener;
+import mmb.beans.BlockActivateListener;
 import mmb.content.electric.Battery;
 import mmb.content.electric.Electric;
 import mmb.content.electric.Electricity;

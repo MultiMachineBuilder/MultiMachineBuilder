@@ -10,7 +10,7 @@ import java.util.List;
 import it.unimi.dsi.fastutil.ints.IntList;
 import mmb.NN;
 import mmb.Nil;
-import mmb.cgui.BlockActivateListener;
+import mmb.beans.BlockActivateListener;
 import mmb.engine.block.Block;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.worlds.world.World;

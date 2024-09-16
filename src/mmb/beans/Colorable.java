@@ -26,7 +26,7 @@ public interface Colorable {
 	/**
 	 * @return this object's color as a variable object
 	 */
-	@NN public default Variable<Color> getColorVariable(){
+	@NN public default Variable<@NN Color> getColorVariable(){
 		return Variable.delegate(this::getColor, this::setColor);
 	}
 }

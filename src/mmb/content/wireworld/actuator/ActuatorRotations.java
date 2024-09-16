@@ -6,7 +6,7 @@ package mmb.content.wireworld.actuator;
 import java.awt.Point;
 
 import mmb.Nil;
-import mmb.cgui.BlockActivateListener;
+import mmb.beans.BlockActivateListener;
 import mmb.content.ContentsBlocks;
 import mmb.content.wireworld.AbstractChiralActuatorBase;
 import mmb.engine.block.BlockEntry;

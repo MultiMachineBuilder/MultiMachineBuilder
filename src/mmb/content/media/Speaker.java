@@ -13,7 +13,7 @@ import com.rainerhahnekamp.sneakythrow.Sneaky;
 
 import mmb.NN;
 import mmb.Nil;
-import mmb.cgui.BlockActivateListener;
+import mmb.beans.BlockActivateListener;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntry;

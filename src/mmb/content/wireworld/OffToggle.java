@@ -4,7 +4,7 @@
 package mmb.content.wireworld;
 
 import mmb.Nil;
-import mmb.cgui.BlockActivateListener;
+import mmb.beans.BlockActivateListener;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.Block;
 import mmb.engine.rotate.Side;

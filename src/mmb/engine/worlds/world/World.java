@@ -31,7 +31,7 @@ import io.vavr.Tuple2;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import mmb.NN;
 import mmb.Nil;
-import mmb.cgui.BlockActivateListener;
+import mmb.beans.BlockActivateListener;
 import mmb.engine.GameEvents;
 import mmb.engine.Vector2iconst;
 import mmb.engine.block.BlockEntity;

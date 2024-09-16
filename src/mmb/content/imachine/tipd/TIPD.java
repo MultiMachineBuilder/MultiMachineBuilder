@@ -7,7 +7,7 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.NN;
 import mmb.Nil;
-import mmb.cgui.BlockActivateListener;
+import mmb.beans.BlockActivateListener;
 import mmb.content.ContentsBlocks;
 import mmb.content.ditems.ItemBOM;
 import mmb.data.variables.ListenableInt;

@@ -7,7 +7,7 @@ import static mmb.engine.settings.GlobalSettings.$res;
 
 import mmb.NN;
 import mmb.Nil;
-import mmb.cgui.BlockActivateListener;
+import mmb.beans.BlockActivateListener;
 import mmb.content.imachine.filter.ControllableFilter;
 import mmb.content.imachine.filter.FilterGUI;
 import mmb.content.imachine.filter.ItemFilter;

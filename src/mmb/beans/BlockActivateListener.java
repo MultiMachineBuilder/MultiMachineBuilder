@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.cgui;
+package mmb.beans;
 
 import mmb.Nil;
 import mmb.engine.worlds.world.World;
