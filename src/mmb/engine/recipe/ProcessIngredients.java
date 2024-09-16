@@ -25,8 +25,8 @@ public class ProcessIngredients{
 	@NN public final RecipeOutput output;
 	/**
 	 * Creates a list of processing ingredients
-	 * @param input
-	 * @param output
+	 * @param input input ingredients
+	 * @param output output ingredients
 	 */
 	public ProcessIngredients(RecipeOutput input, RecipeOutput output) {
 		this.input = input;

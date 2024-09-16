@@ -114,6 +114,11 @@ public class Inventories {
 			src.extract(moved);
 		}
 	}
+	/**
+	 * Transfer entire source inventory to the target inventory
+	 * @param src inventory reader
+	 * @param buffer target inventory
+	 */
 	public static void transferAll(InventoryReader src, Inventory buffer) {
 		transferAll(src, buffer.createWriter());
 	}

@@ -1,5 +1,0 @@
-Proper mod should have:
-MMB.info
-Config class which implements mmb.config.ModConfigs
-World loader which implemens mmb.saves.ModWorldLoader
-World saver which implements mmb.saves.ModWorldSaver
