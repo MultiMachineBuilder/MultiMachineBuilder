@@ -17,7 +17,12 @@ import mmb.engine.worlds.world.World;
  * This class represents a block entity types
  * <br> All block types can be used as simple items too.
  */
-public class BlockEntityType extends BlockBase{	
+public class BlockEntityType extends BlockBase{
+	/** Creates a Block Entity Type*/
+	public BlockEntityType() {
+		setVolume(0.02);
+	}
+	
 	@Override
 	public BlockEntry place(int x, int y, World map) {
 		return map.place(this, x, y);

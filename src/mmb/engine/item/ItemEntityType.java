@@ -16,6 +16,11 @@ import mmb.engine.texture.BlockDrawer;
  * @author oskar
  */
 public class ItemEntityType extends ItemBase{
+	/** Creates a new Item Entity Type */
+	public ItemEntityType() {
+		setVolume(0.002);
+	}
+	
 	private Supplier<@NN ItemEntry> factory;
 	@Override
 	public ItemEntry create() {

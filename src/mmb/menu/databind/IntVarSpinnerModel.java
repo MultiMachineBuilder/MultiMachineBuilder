@@ -12,7 +12,7 @@ import mmb.content.modular.gui.SafeCloseable;
 import mmb.data.variables.ListenableInt;
 
 /**
- * A spinner model using a listenable integers as a variable.
+ * A spinner model using listenable integers as a variable.
  * This model should be closed after use
  * @author oskar
  */

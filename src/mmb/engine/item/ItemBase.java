@@ -21,7 +21,7 @@ import mmb.engine.texture.Textures;
  */
 public abstract class ItemBase implements ItemType {
 
-	private double volume = 0.02;
+	private double volume = 0.0002;
 	@Override
 	public double volume() {
 		return volume;

@@ -26,6 +26,11 @@ import mmb.menu.world.window.WorldWindow;
  * @author oskar
  */
 public class Block extends BlockBase implements BlockEntry{
+	/** Creates a building block */
+	public Block() {
+		setVolume(0.002);
+	}
+	
 	@Override
 	public String toString() {
 		return "Block " + title() + "(" + id() + ")";
