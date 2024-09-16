@@ -10,11 +10,9 @@ import java.awt.image.BufferedImage;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.Map.Entry;
@@ -47,8 +45,6 @@ import mmb.engine.inv.io.Dropper;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
-import mmb.engine.mbmachine.Machine;
-import mmb.engine.mbmachine.MachineModel;
 import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.rotate.Side;
 import mmb.engine.settings.GlobalSettings;
@@ -233,7 +229,7 @@ public class World implements Identifiable<String>, Indexable{
 		}
 		
 		//Dropped items
-		ArrayNode drops = JsonTool.requestArray("drops", (ObjectNode) json);
+		ArrayNode drops = JsonTool.requestArray("drops", json);
 		for(JsonNode drop: drops) {
 			int x = drop.get(0).asInt();
 			int y = drop.get(1).asInt();
@@ -242,25 +238,8 @@ public class World implements Identifiable<String>, Indexable{
 			world.dropItem(item, x, y);
 		}
 		
-		//Machines
-		ArrayNode machines = (ArrayNode) json.get("machines");
-		for(JsonNode machineNode: machines) {
-			ArrayNode aMachine = (ArrayNode) machineNode;
-			String type = aMachine.get(0).asText();
-			int x = aMachine.get(1).asInt();
-			int y = aMachine.get(2).asInt();
-			JsonNode machineData  = aMachine.get(3);
-			if(type == null || machineData == null) continue;
-			try {
-				Machine machine = MachineModel.forID(type).initialize(x, y, machineData);
-				if(machine != null) world.placeMachine(machine);
-			} catch(Exception e) {
-				world.debug.stacktraceError(e, "Failed to place a machine of type "+type+" at ["+x+","+y+"]");
-			}
-		}
-		
 		//Player data
-		world.player.load(JsonTool.requestObject("player", (ObjectNode) json));
+		world.player.load(JsonTool.requestObject("player", json));
 		
 		//After loading process
 		GameEvents.onWorldLoad.trigger(new Tuple2<>(world, (ObjectNode) json));
@@ -319,19 +298,6 @@ public class World implements Identifiable<String>, Indexable{
 				dropsNode.add(array);
 			}
 			master.set("drops", dropsNode);
-			
-			//Machines
-			ArrayNode machineArrayNode = JsonTool.newArrayNode();
-			for(Machine m: world.machines0) {
-				ArrayNode array = JsonTool.newArrayNode();
-				//format: [id, x, y, data]
-				array.add(m.id());
-				array.add(m.posX());
-				array.add(m.posY());
-				array.add(m.save());
-				machineArrayNode.add(array);
-			}
-			master.set("machines", machineArrayNode);
 						
 			//Player
 			master.set("player", world.player.save());
@@ -352,17 +318,8 @@ public class World implements Identifiable<String>, Indexable{
 		tps.count();
 		//Set up the proxy
 		try(MapProxy proxy = createProxy()){
-			//Run every machine
-			for(Machine m: machines0) {
-				try {
-					m.onUpdate(proxy);
-				}catch(Exception e) {
-					debug.stacktraceError(e, "Failed to run a machine");
-				}
-			}
 			//Run every block entity
 			for(BlockEntity ent: _blockents) {
-				//debug.printl("Running "+ent.type()+" @ "+UnitFormatter.formatPoint(ent.posX(), ent.posY()));
 				try {
 					long start = System.nanoTime();
 					ent.onTick(proxy);
@@ -425,14 +382,6 @@ public class World implements Identifiable<String>, Indexable{
 				ent.onShutdown(this);
 			} catch (Exception e) {
 				debug.stacktraceError(e, "Failed to shut down block "+ent.type().id()+" at ["+ent.posX()+","+ent.posY()+"]");
-			}
-		}
-		//Shut down machines
-		for(Machine m: machines) {
-			try {
-				m.onShutdown();
-			}catch(Exception e) {
-				debug.stacktraceError(e, "Failed to shut down machine "+m.id()+" at ["+m.posX()+","+m.posY()+"]");
 			}
 		}
 		if(timer.getState() == 1) timer.destroy();
@@ -636,141 +585,6 @@ public class World implements Identifiable<String>, Indexable{
 		return y < endY;
 	}
 
-	//TO BE REMOVED IN 0.6 machines
-	/**
-	 * Remove the machine at given location
-	 * @param p location
-	 * @return was machine removed?
-	 */
-	public boolean removeMachine(Point p) {
-		Machine machine = machinesPoints.get(p);
-		if(machine == null) return false;
-		//Calculate coordinates
-		int posX = machine.posX();
-		int posY = machine.posY();
-		int mendX = posX + machine.sizeX();
-		int mendY = posY + machine.sizeY();
-		try {
-			machine.onRemove();
-		}catch(Exception e) {
-			debug.stacktraceError(e, "Failed to remove "+machine.id()+" at ["+posX+","+posY+"]");
-			return false;
-		}
-		
-		//Remove
-		for(int x = posX; x < mendX; x++) {
-			for(int y = posY; y < mendY; y++) {
-				Point pt = new Point(x, y);
-				machinesPoints.remove(pt);
-			}
-		}
-		machines0.remove(machine);
-		return true;
-	}
-	/**
-	 * Remove the machine at given location
-	 * @param x X coordinate
-	 * @param y Y coordinate
-	 * @return was machine removed?
-	 */
-	public boolean removeMachine(int x, int y) {
-		return removeMachine(new Point(x, y));
-	}
-	/**
-	 * Place the machine, using the machine model, with default properties
-	 * @param m machine model which creates the machine
-	 * @param x X coordinate
-	 * @param y Y coordinate
-	 * @return newly placed machine, or null if placement failed
-	 */
-	public Machine placeMachine(MachineModel m, int x, int y) {
-		Machine machine = m.place();
-		if(machine == null) return null;
-		machine.setPos(x, y);
-		return placeMachine(machine);
-	}
-	/**
-	 * Places a machine which is already located
-	 * @param machine machine to place
-	 * @return placed machine
-	 */
-	public Machine placeMachine(Machine machine) {
-		return placeMachine(machine, false);
-	}
-	/**
-	 * 
-	 * @param machine machine to place
-	 * @param setup if true, call onLoad. Else call onPlace
-	 * @return newly placed machine, or null if placement failed
-	 */
-	public Machine placeMachine(Machine machine, boolean setup) {
-		machine.setMap(this);
-		int posX = machine.posX();
-		int posY= machine.posY();
-		int mendX = posX + machine.sizeX();
-		int mendY = posY + machine.sizeY();
-		try {
-			if(!setup) machine.onPlace();
-			//When successfull, place
-			for(int x = posX; x < mendX; x++) {
-				for(int y = posY; y < mendY; y++) {
-					Point pt = new Point(x, y);
-					Machine old = machinesPoints.put(pt, machine);
-					if(old != null) {
-						//Overwriting existing machine, do not place the machine
-						machinesPoints.put(pt, old);
-						return null;
-					}
-				}
-			}
-		}catch(Exception e) {
-			debug.stacktraceError(e, "Failed to place "+machine.id()+" at ["+posX+","+posY+"]");
-			return null; //null indicates that machine was not placed
-		}
-		debug.printl("Placed machine");
-		machines0.add(machine);
-		return machine;
-	}
-	/**
-	 * @param x X coordinate
-	 * @param y Y coordinate
-	 * @return machine, or null if not found
-	 */
-	@Nil
-	public Machine getMachine(int x, int y) {
-		return getMachine(new Point(x, y));
-	}
-	/**
-	 * Gets machine at given location
-	 * @param p point to check
-	 * @return machine at given point, or null if none
-	 */
-	@Nil
-	public Machine getMachine(Point p) {
-		return machinesPoints.get(p);
-	}
-	/**
-	 * Place the machine, using the machine model, with default properties
-	 * @param m machine model which creates the machine
-	 * @param p position
-	 * @return newly placed machine, or null if placement failed
-	 */
-	public Machine placeMachine(MachineModel m, Point p) {
-		return placeMachine(m, p.x, p.y);
-	}
-	/**
-	 * @param machine machine to be placed
-	 * @return newly placed machine, or null if placement failed
-	 */
-	public Machine placeMachineLoaded(Machine machine) {
-		return placeMachine(machine, true);
-	}
-	
-	Set<Machine> machines0 = new HashSet<>();
-	/** The immutable set of all machines */
-	public final Set<Machine> machines = Collections.unmodifiableSet(machines0);
-	Map<Point, Machine> machinesPoints = new HashMap<>();
-	
 	//Dropped items
 	/**
 	 * @param item item to be dropped

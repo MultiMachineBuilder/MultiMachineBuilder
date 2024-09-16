@@ -56,10 +56,6 @@ public class WorldPopup extends JPopupMenu {
 		if(frame.getPlayer().isCreative()){
 			mntmMine = new JMenuItem("Mine (Shift+RMB)");
 			mntmMine.addActionListener(e -> {
-				if(map.removeMachine(mouseoverX, mouseoverY)) {
-					debug.printl("Removed machine");
-					return;
-				}
 				//Drop if needed
 				if(frame.getPlayer().isSurvival()) {
 					//The player is survival, requires pickaxe

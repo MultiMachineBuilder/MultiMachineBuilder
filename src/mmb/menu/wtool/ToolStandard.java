@@ -186,12 +186,7 @@ public class ToolStandard extends WindowTool{
 			frame.perspective.y = -y;
 			break;
 		case 3: //RMB
-			//Mine
-			if(map.removeMachine(x, y)) {
-				debug.printl("Removed machine");
-				return;
-			}
-			//Drop if needed
+			//Mine and drop if needed
 			if(frame.getPlayer().isSurvival()) {
 				//The player is survival, requires pickaxe
 				return;

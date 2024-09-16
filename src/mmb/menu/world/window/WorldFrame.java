@@ -36,7 +36,6 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
 import mmb.engine.item.Items;
 import mmb.engine.java2d.StringRenderer;
-import mmb.engine.mbmachine.Machine;
 import mmb.engine.rotate.Side;
 import mmb.engine.texture.Textures;
 import mmb.engine.visuals.Visual;
@@ -452,16 +451,6 @@ public class WorldFrame extends JComponent {
 			blockPositionOnScreen(x, y, pt);
 			if(entry.getValue() != null)
 				entry.getValue().render(g, pt.x+div4x, pt.y+div4y, div2x, div2y);
-		}
-		
-		//Draw machines
-		for(Machine mc: map.machines) {
-			int x = (int)((mc.posX()+pos.x)*blockScale);
-			int y = (int)((mc.posY()+pos.y)*blockScale);
-			int w = mc.sizeX();
-			int h = mc.sizeY();
-			@NN Graphics g2 = g.create(x, y, (int)Math.ceil(w*blockScale), (int)Math.ceil(h*blockScale));
-			mc.render(g2);
 		}
 		
 		//Render visual objects
