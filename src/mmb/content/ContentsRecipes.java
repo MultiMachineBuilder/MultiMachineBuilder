@@ -401,14 +401,7 @@ public class ContentsRecipes {
 			Electronics.inductor_, Materials.iron.frag, paper
 		}, 3, 1, SPEAKER);
 	}
-	private static void _tools() {
-		crafting.addRecipe(PICKBUILDER, new SimpleItemList(
-			plank.stack(2),
-			logs.stack(2)
-		)); //pickaxe builder is deprecated - ingredient recovery recipe
-		crafting.addRecipe(bucket, stone.stack(5)); //item bucket is deprecated - ingredient recovery recipe
-		
-		
+	private static void _tools() {			
 		crafting.addRecipe(new FixedGrid<>(3,
 				plank,	logs,	plank,
 				null,	plank,	null,

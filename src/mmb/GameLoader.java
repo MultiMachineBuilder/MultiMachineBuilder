@@ -21,7 +21,6 @@ import mmb.content.drugs.Alcohol;
 import mmb.content.electric.machines.BlockTransformer.TransformerData;
 import mmb.content.electronics.Electronics;
 import mmb.content.modular.chest.ModularChests;
-import mmb.content.old.Nuker;
 import mmb.content.rawmats.Materials;
 import mmb.content.stn.STN;
 import mmb.engine.MMBUtils;
@@ -158,7 +157,6 @@ public final class GameLoader {
 		STN.init();
 		ManCrafter.init();
 		ContentsRecipes.createRecipes();
-		Nuker.init();
 		Generators.init();
 		
 		FullScreen.initialize();

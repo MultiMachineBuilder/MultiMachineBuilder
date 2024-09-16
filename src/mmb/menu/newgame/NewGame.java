@@ -223,7 +223,6 @@ public class NewGame extends MMBFrame {
 		Inventory inv = main.player.inv;
 		inv.insert(ContentsBlocks.logs, 2);
 		inv.insert(ContentsItems.pickVW.create(), 1);
-		inv.insert(ContentsItems.bucket, 1);
 		main.player.creative.setValue(checkCreative.isSelected());
 		
 		//Create and set up the world

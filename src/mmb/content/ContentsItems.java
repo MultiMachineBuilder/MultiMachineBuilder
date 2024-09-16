@@ -230,17 +230,10 @@ public class ContentsItems {
 		.finish("boxed.packItem");
 	
 	//Deprecated items
-	/** Pick up or drop items */
-	@DeprecatedExtra(replacementVer="0.5.1", removal="0.6")
-	@Deprecated(since="0.5.1", forRemoval=true)
-	/**@deprecated Replaced by extra keybinds in the standard tool */
-	@NN public static final Item bucket = new Item()
-		.title("#depr-bucket")
-		.texture("dropItems.png")
-		.finish("mmb.bucket");
+	//empty
 	
 	static {
-		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, pickStone, pickIron, pickSteel, pickStainless, bucket, configExtractors, aim);
+		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, pickStone, pickIron, pickSteel, pickStainless, configExtractors, aim);
 		Items.tagItems("craftcode", craftcodes);
 		Items.tagItems("agro", Agro.yeast, Agro.hops, Agro.seeds);
 		Items.tagItems("material-glass", glass, glassp);
@@ -255,7 +248,6 @@ public class ContentsItems {
 		Items.tagItem("voltage-EV", bat6);
 		Items.tagItem("voltage-IV", bat7);
 		Items.tagItems("resrcbed", resrc1, resrc2, resrc3, resrc4, resrc5, resrc6, resrc7);
-		Items.tagItem("deprecated", bucket);
 		
 		Items.deprecate("industry.motor1", motor.items.get(0));
 		Items.deprecate("industry.motor2", motor.items.get(1));

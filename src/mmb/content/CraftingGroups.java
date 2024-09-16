@@ -21,7 +21,7 @@ import mmb.engine.recipe.RecipeUtil;
  * @author oskar
  * Contains crafting utilities and recipe groups
  */
-public class CraftingGroups {
+public class CraftingGroups {	
 	/**
 	 * Activates an item
 	 * (replaces the selected raw item with a new item entity,

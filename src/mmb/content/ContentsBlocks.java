@@ -5,7 +5,6 @@ package mmb.content;
 
 import java.awt.image.BufferedImage;
 
-import mmb.DeprecatedExtra;
 import mmb.NN;
 import mmb.content.craft.ManCrafter;
 import mmb.content.electric.ElectricMachineGroup;
@@ -40,10 +39,6 @@ import mmb.content.imachine.pipe.PipeBinder;
 import mmb.content.imachine.pipe.PipeFilter;
 import mmb.content.machinemics.line.Furnace;
 import mmb.content.media.Speaker;
-import mmb.content.old.AutoCrafter;
-import mmb.content.old.CycleAssembler;
-import mmb.content.old.FurnacePlus;
-import mmb.content.old.Nuker;
 import mmb.content.ppipe.JoiningPlayerPipe;
 import mmb.content.ppipe.PlayerPipe;
 import mmb.content.ppipe.PlayerPipeEntry;
@@ -479,7 +474,7 @@ public class ContentsBlocks {
 			.texture("machine/rationer.png")
 			.finish("industry.TIPD");
 	
-	private static BlockEntityType createAutoCrafter(int index, int delay) {
+	@NN private static BlockEntityType createAutoCrafter(int index, int delay) {
 		BlockEntityType result = new BlockEntityType();
 		result	.title(GlobalSettings.$res("autocrafter")+" "+index)
 				.factory(() -> new Crafter(delay, result))
@@ -546,69 +541,7 @@ public class ContentsBlocks {
 	@NN public static final BlockEntityType PPIPE_join2 = ppipea(0.8, Side.L, "machine/ppipe adjoin2.png","#ppipe-y" ,"playerpipe.adj2");
 	
 	//DEPRECATED blocks
-	/** 
-	 * @deprecated This machine doesn't even have any purpose.
-	 * Use STN instead.
-	 * @replacementVer 0.5
-	 * @removal 0.6
-	 */
-	@DeprecatedExtra(replacementVer = "0.5", removal = "0.6")
-	@Deprecated(since="0.5", forRemoval=true)
-	@NN public static final BlockEntityType CYCLEASSEMBLY = new BlockEntityType()
-		.title("#depr-cycleassembly")
-		.factory(CycleAssembler::new)
-		.texture("machine/cyclic assembler.png")
-		.finish("industry.cycle0");
-	/**
-	 * @deprecated A block used formerly to create pickaxes, now useless.
-	 * Use '!!!' button to activate raw items instead
-	 * @replacementVer 0.5
-	 * @removal 0.7
-	 */
-	@DeprecatedExtra(replacementVer = "0.5", removal = "0.6")
-	@Deprecated(since="0.5", forRemoval=true)
-	@NN public static final Block PICKBUILDER = new Block()
-		.texture("machine/pickaxe workbench.png")
-		.title("#depr-pickbuilder")
-		.finish("machines.pickbuilder");
-	/**
-	 * @deprecated An autocrafter, unobtainable in survival
-	 * @replacementVer 0.6
-	 * @removal 0.7
-	 */
-	@DeprecatedExtra(replacementVer = "0.6", removal = "0.7")
-	@Deprecated(since="0.5", forRemoval=true)
-	@NN public static final BlockEntityType old_AUTOCRAFTER = new BlockEntityType()
-		.title("#depr-autocraft1")
-		.factory(AutoCrafter::new)
-		.texture("machine/AutoCrafter 1.png")
-		.finish("industry.autocraft1");
-	/**
-	 * @deprecated An old block for a furnace.
-	 * Use {@link #efurnace}{@code .}{@link ElectricMachineGroup#get(int) get}{@code (1)} instead
-	 * @replacementVer 0.5-pre5
-	 * @removal 0.6
-	 */
-	@DeprecatedExtra(replacementVer = "0.5-pre5", removal = "0.6")
-	@Deprecated(since="0.5", forRemoval=true)
-	@NN public static final BlockEntityType old_EFURNACE = new BlockEntityType()
-		.title("#depr-furnace")
-		.factory(FurnacePlus::new)
-		.texture("machine/esmelter.png")
-		.finish("elec.furnace");
-	/**
-	 * @deprecated An old block for nuclear generator
-	 * A replacement is planned for 0.6
-	 * @replacementVer 0.6
-	 * @removal 0.7
-	 */
-	@DeprecatedExtra(replacementVer = "0.6", removal = "0.7")
-	@Deprecated(since="0.5", forRemoval=true)
-	@NN public static final BlockEntityType old_NUKEGEN = new BlockEntityType()
-		.title("#depr-nuker")
-		.factory(Nuker::new)
-		.texture("machine/power/nuke reactor.png")
-		.finish("nuke.generator");
+	//empty
 	
 	/** Initializes blocks */
 	public static void init() {
@@ -718,8 +651,5 @@ public class ContentsBlocks {
 		Items.tagItems("machine-coalgen", COALGEN1, COALGEN2, COALGEN3);
 		Items.tagItems("machine-turbogen", TURBOGEN1, TURBOGEN2, TURBOGEN3);
 		Items.tagItems("imachine", PLACEITEMS, COLLECTOR, IMOVER, TRASH, BOMMAKER, AUTOCRAFTER1, AUTOCRAFTER2, AUTOCRAFTER3, AUTOCRAFTER4, TIPD);
-		
-		//Deprecation
-		Items.tagItems("deprecated", CYCLEASSEMBLY, PICKBUILDER, old_AUTOCRAFTER, old_EFURNACE, old_NUKEGEN);
 	}
 }
