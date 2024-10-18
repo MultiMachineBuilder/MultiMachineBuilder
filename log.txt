@@ -598,6 +598,7 @@ Any mods here must be either local file paths or URLs to *.jar files
 (SETTINGS LIST) matname1-diamide=Diamide
 (SETTINGS LIST) matname-adraconium=Awakened Draconium
 (SETTINGS LIST) matname1-neodymium=Neodymium
+
 (SETTINGS LIST) modblocks-upgrade=Upgrade:
 (SETTINGS LIST) ind-tra1=Basic Transistor
 (SETTINGS LIST) matname2-iridium=Iridium
