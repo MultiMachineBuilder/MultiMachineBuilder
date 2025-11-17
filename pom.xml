@@ -335,7 +335,7 @@
 		<dependency>
 		    <groupId>com.code-intelligence</groupId>
 		    <artifactId>jazzer-junit</artifactId>
-		    <version>0.26.0</version>
+		    <version>0.26.2</version>
 		    <scope>test</scope>
 		    
 		</dependency>
