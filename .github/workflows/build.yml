@@ -43,7 +43,6 @@ jobs:
         uses: crazy-max/ghaction-import-gpg@v1
         env:
           GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
-          PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
       - name: Provide Maven credentials
         uses: InstaCode/maven-settings-xml-action@v9
         with:
