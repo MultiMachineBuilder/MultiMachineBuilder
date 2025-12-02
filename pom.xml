@@ -346,6 +346,17 @@
 		  <artifactId>eea-all</artifactId>
 		  <version>2.4.0</version>
 		</dependency>
+		<dependency>
+		  <groupId>com.google.code.findbugs</groupId>
+		  <artifactId>jsr305</artifactId>
+		  <version>3.0.2</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.checkerframework</groupId>
+		  <artifactId>checker-qual</artifactId>
+		  <version>3.52.0</version>
+		</dependency>
+		
 		
 		<!-- Collections -->
 		<dependency>

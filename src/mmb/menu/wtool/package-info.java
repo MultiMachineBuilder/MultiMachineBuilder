@@ -6,5 +6,5 @@
  * @author oskar
  *
  */
-@javax.annotation.ParametersAreNonnullByDefault
+@mmb.NNDefault
 package mmb.menu.wtool;

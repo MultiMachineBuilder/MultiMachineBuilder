@@ -12,6 +12,8 @@ import javax.swing.border.BevelBorder;
 
 import mmb.NN;
 import mmb.Nil;
+import mmb.content.modular.BlockCore;
+import mmb.content.modular.BlockModule;
 import mmb.content.modular.BlockModuleOrCore;
 import mmb.content.modular.ModularBlock;
 import mmb.content.modular.Slot;
@@ -29,13 +31,16 @@ import java.awt.Color;
  * @author oskar
  *
  */
-public class ModularChestGUI extends GUITab implements SafeCloseable{
+public class ModularChestGUI
+	<Tmodule extends BlockModule<Tmodule>,
+	Tcore extends BlockCore<Tcore>
+	> extends GUITab implements SafeCloseable{
 	/**
 	 * Creates a modular chest GUI
 	 * @param window world window
 	 * @param mblock modular chest
 	 */
-	public ModularChestGUI(WorldWindow window, ModularBlock<?, ?, ?, ?> mblock) {
+	public ModularChestGUI(WorldWindow window, ModularBlock<?, Tmodule, Tcore, ?> mblock) {
 		this.mblock = mblock;
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][grow]"));
 		

@@ -76,7 +76,7 @@ public interface ModularBlock<
 		if(window == null) return;
 		boolean result = replaceHelper(window.selectedItem(), window.getPlayer().inv, partX, partY);
 		if(!result) {
-			ModularChestGUI tab = createGUI(window);
+			ModularChestGUI<Tmodule, Tcore> tab = createGUI(window);
 			boolean open =  openTab(tab);
 			if(open) {
 				window.openAndShowWindow(tab, type().title());
@@ -169,15 +169,15 @@ public interface ModularBlock<
 	 * @param window world window to use
 	 * @return an additional GUI
 	 */
-	public default ModularChestGUI createGUI(WorldWindow window) {
-		return new ModularChestGUI(window, this);
+	public default ModularChestGUI<Tmodule, Tcore> createGUI(WorldWindow window) {
+		return new ModularChestGUI<Tmodule, Tcore>(window, this);
 	}
 	/**
 	 * Invoked when the tab is opened
 	 * @param tab tab to open
 	 * @return is the tab already open?
 	 */
-	public boolean openTab(ModularChestGUI tab);
+	public boolean openTab(ModularChestGUI<Tmodule, Tcore> tab);
 	
 	//Provision of internal access points to modules
 	/**
