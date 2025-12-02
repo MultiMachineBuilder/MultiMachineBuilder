@@ -126,7 +126,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.7.1</version>
+				<version>3.8.0</version>
 				
 				<!-- Configuration -->
 				<configuration>
@@ -181,7 +181,7 @@
 		    <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>3.3.1</version>
+				<version>3.4.0</version>
 				<configuration>
 					<forceCreation>true</forceCreation>
 				</configuration>
@@ -335,7 +335,7 @@
 		<dependency>
 		    <groupId>com.code-intelligence</groupId>
 		    <artifactId>jazzer-junit</artifactId>
-		    <version>0.26.2</version>
+		    <version>0.28.0</version>
 		    <scope>test</scope>
 		    
 		</dependency>
