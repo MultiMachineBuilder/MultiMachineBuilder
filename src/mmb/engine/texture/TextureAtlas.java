@@ -6,8 +6,9 @@ package mmb.engine.texture;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import mmb.NN;
-import mmb.Nil;
+
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.debug.Debugger;
 import mmb.engine.texture.Textures.Texture;
 

@@ -5,8 +5,8 @@ package monniasza.collects.selfset;
 
 import java.util.Set;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 
 /**
  * @author oskar

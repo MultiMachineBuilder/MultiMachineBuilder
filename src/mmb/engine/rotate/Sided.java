@@ -3,7 +3,7 @@
  */
 package mmb.engine.rotate;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 
 /**
  * Stores 8 values, one for each side and corner

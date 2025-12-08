@@ -5,5 +5,5 @@
  * Item pipes and item extractors
  * @author oskar
  */
-@mmb.NNDefault
+@mmb.annotations.NNDefault
 package mmb.content.imachine.pipe;

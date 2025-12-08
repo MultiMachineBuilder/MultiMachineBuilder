@@ -10,7 +10,7 @@ import java.util.function.Function;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.GameEvents;
 import mmb.engine.debug.Debugger;
 import mmb.engine.worlds.universe.Universe;

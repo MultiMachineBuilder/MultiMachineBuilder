@@ -7,7 +7,7 @@ import java.awt.Point;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.beans.BlockActivateListener;
 import mmb.content.ContentsBlocks;
 import mmb.content.wireworld.AbstractActuatorBase;

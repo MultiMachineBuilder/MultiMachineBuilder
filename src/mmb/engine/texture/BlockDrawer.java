@@ -10,8 +10,8 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import javax.swing.Icon;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.block.BlockEntry;
 
 /**

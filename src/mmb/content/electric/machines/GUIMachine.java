@@ -16,8 +16,8 @@ import javax.swing.JProgressBar;
 import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.MachineInfoTab;
 import mmb.engine.inv.Inventories;

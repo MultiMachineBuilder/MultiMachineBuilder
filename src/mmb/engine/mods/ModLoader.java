@@ -11,7 +11,7 @@ import org.apache.commons.compress.archivers.jar.JarArchiveInputStream;
 import org.apache.commons.io.IOUtils;
 
 import io.github.micwan88.helperclass4j.ByteClassLoader;
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.MMBUtils;
 import mmb.engine.debug.*;
 import mmb.engine.files.AdvancedFile;

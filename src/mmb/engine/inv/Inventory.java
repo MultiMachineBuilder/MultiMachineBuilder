@@ -8,8 +8,8 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;

@@ -5,8 +5,8 @@ package mmb.content.modular.gui;
 
 import java.awt.Component;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.modular.BlockModuleOrCore;
 import mmb.content.modular.Slot;
 import mmb.data.reactive.Reactor;

@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 import com.google.common.collect.Iterators;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.RecipeOutput;
 

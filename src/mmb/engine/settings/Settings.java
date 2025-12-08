@@ -24,8 +24,8 @@ import java.util.function.IntSupplier;
 import java.util.function.Supplier;
 
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.data.variables.BooleanVariable;
 import mmb.data.variables.DataValueDouble;
 import mmb.data.variables.DataValueInt;

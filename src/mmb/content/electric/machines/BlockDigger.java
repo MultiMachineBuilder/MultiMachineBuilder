@@ -6,8 +6,8 @@ package mmb.content.electric.machines;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.beans.BlockActivateListener;
 import mmb.content.electric.Battery;
 import mmb.content.electric.Electric;

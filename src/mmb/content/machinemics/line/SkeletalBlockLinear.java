@@ -6,7 +6,7 @@ package mmb.content.machinemics.line;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.block.BlockEntityRotary;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.inv.Inventories;

@@ -8,8 +8,8 @@ import java.util.Set;
 
 import org.ainslec.picocog.PicoWriter;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.settings.GlobalSettings;

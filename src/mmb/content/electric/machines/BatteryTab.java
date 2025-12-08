@@ -8,7 +8,7 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
 import javax.swing.JProgressBar;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.electric.Electricity;
 import mmb.engine.settings.GlobalSettings;
 import mmb.menu.MenuHelper;

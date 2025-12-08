@@ -3,7 +3,7 @@
  */
 package mmb.content.imachine.pipe;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.imachine.pipe.AbstractBasePipe.Pusher;
 import mmb.data.variables.Variable;
 import mmb.engine.block.BlockEntry;

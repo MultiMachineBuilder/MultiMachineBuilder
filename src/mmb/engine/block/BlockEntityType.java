@@ -7,7 +7,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.function.Supplier;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.chance.Chance;
 import mmb.engine.texture.BlockDrawer;
 import mmb.engine.worlds.world.World;

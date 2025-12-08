@@ -9,7 +9,7 @@ import java.util.Set;
 
 import org.ainslec.picocog.PicoWriter;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.worlds.world.World;

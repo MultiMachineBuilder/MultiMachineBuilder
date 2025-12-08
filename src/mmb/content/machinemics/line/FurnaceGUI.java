@@ -15,8 +15,8 @@ import javax.swing.JProgressBar;
 
 import org.ainslec.picocog.PicoWriter;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.recipe.Recipe;
 import mmb.engine.recipe.Refreshable;
 import mmb.menu.world.inv.InventoryController;

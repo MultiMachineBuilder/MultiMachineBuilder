@@ -6,7 +6,7 @@ package mmb.engine.files;
 import java.io.File;
 import java.net.MalformedURLException;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * @author oskar

@@ -16,8 +16,8 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 import mmb.Main;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.NotFoundException;
 import mmb.engine.debug.Debugger;
 import mmb.engine.files.AdvancedFile;

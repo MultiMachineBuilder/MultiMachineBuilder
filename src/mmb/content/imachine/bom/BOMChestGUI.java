@@ -6,8 +6,8 @@ import java.awt.Color;
 
 import javax.swing.JButton;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.ContentsItems;
 import mmb.content.ditems.ItemBOM;
 import mmb.engine.debug.Debugger;

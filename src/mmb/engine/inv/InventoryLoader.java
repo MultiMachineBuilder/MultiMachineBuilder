@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.NumericNode;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.debug.Debugger;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;

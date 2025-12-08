@@ -5,7 +5,7 @@ package mmb.engine.worlds.world;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * Handles ticking

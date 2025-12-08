@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.apache.commons.csv.CSVRecord;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.debug.Debugger;
 
 /**

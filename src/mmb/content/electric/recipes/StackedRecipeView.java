@@ -13,7 +13,7 @@ import javax.swing.JList;
 import org.ainslec.picocog.PicoWriter;
 
 import io.github.parubok.text.multiline.MultilineLabel;
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.electric.recipes.StackedRecipeGroup.StackedRecipe;
 import mmb.engine.UnitFormatter;
 import mmb.engine.item.ItemEntry;

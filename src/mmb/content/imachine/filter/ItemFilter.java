@@ -5,7 +5,7 @@ package mmb.content.imachine.filter;
 
 import java.util.function.Predicate;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntity;
 import mmb.engine.item.ItemEntry;
 

@@ -6,8 +6,8 @@ package mmb.engine.recipe;
 import org.ainslec.picocog.PicoWriter;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
 import monniasza.collects.Identifiable;
 

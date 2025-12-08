@@ -11,7 +11,7 @@ import javax.swing.JSplitPane;
 import javax.swing.ListSelectionModel;
 
 import io.github.parubok.text.multiline.MultilineLabel;
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.inv.ItemRecord;
 import mmb.menu.wtool.ToolStandard;
 import mmb.menu.wtool.WindowTool;

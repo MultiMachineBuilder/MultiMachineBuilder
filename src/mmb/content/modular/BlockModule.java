@@ -3,8 +3,8 @@
  */
 package mmb.content.modular;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.electric.Electricity;
 import mmb.content.modular.gui.ModuleConfigHandler;
 import mmb.content.modular.part.RotablePartEntry;

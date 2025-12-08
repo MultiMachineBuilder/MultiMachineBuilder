@@ -3,8 +3,8 @@
  */
 package mmb.engine.block;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.beans.Positioned;
 import mmb.engine.worlds.world.World;
 

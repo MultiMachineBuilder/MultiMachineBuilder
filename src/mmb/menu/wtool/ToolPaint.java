@@ -15,7 +15,7 @@ import java.util.function.Consumer;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.beans.Colorable;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.java2d.MappedColorTexture;

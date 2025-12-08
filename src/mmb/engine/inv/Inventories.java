@@ -6,7 +6,7 @@ package mmb.engine.inv;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;

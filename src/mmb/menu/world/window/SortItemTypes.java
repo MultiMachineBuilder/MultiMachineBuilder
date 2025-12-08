@@ -7,7 +7,7 @@ import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.util.Comparator;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.item.ItemType;
 
 /**

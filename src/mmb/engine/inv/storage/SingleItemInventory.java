@@ -3,8 +3,8 @@
  */
 package mmb.engine.inv.storage;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.data.variables.DataValue;
 import mmb.data.variables.Variable;
 import mmb.engine.item.ItemEntry;

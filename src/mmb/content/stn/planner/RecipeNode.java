@@ -5,8 +5,8 @@ package mmb.content.stn.planner;
 
 import java.util.Objects;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.recipe.RecipeOutput;
 
 /**

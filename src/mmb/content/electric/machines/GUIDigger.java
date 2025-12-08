@@ -13,7 +13,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.electric.Electricity;
 import mmb.menu.world.inv.InventoryController;
 import mmb.menu.world.inv.MoveItems;

@@ -3,7 +3,7 @@
  */
 package mmb.engine.inv;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemStack;
 import mmb.engine.recipe.RecipeOutput;

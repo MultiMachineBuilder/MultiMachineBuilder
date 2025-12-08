@@ -6,8 +6,8 @@ package mmb.content.stn.network;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.stn.block.STNBaseMachine;
 import mmb.content.stn.network.STNNetworkProcessing.STNRGroupTag;
 import mmb.engine.UnitFormatter;

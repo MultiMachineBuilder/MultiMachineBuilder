@@ -14,7 +14,7 @@ import java.awt.Color;
 
 import javax.swing.JProgressBar;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.craft.CraftGUI;
 import mmb.content.ditems.Stencil;
 import mmb.engine.inv.Inventory;

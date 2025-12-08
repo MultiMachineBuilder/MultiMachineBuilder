@@ -9,7 +9,7 @@ import java.awt.Graphics;
 import com.github.davidmoten.rtree2.geometry.Geometries;
 import com.github.davidmoten.rtree2.geometry.Point;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.menu.world.window.WorldFrame;
 
 /**

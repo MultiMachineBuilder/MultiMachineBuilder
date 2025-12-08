@@ -8,4 +8,4 @@
 @NNDefault
 package mmb.content.agro;
 
-import mmb.NNDefault;
+import mmb.annotations.NNDefault;

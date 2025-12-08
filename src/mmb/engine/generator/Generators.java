@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.swing.DefaultListModel;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import monniasza.collects.Collects;
 
 /**

@@ -6,8 +6,8 @@ package mmb.content.electric;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.util.concurrent.Runnables;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.beans.Saver;
 import mmb.content.electric.Electricity.SettablePressure;
 import mmb.engine.block.BlockEntity;

@@ -7,8 +7,8 @@ import javax.swing.Icon;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.beans.Titled;
 import mmb.engine.texture.BlockDrawer;
 import monniasza.collects.Identifiable;

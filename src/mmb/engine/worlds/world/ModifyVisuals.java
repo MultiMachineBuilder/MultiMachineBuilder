@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.visuals.Visual;
 
 /**

@@ -5,7 +5,7 @@ package mmb.engine.generator;
 
 import static mmb.engine.settings.GlobalSettings.$res;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.Blocks;
 import mmb.engine.worlds.world.World;

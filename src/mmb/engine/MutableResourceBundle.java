@@ -11,8 +11,8 @@ import java.util.Set;
 
 import com.google.common.collect.Iterators;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import monniasza.collects.Collects;
 
 /**

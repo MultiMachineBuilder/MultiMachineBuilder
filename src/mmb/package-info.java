@@ -7,3 +7,5 @@
  */
 @NNDefault
 package mmb;
+
+import mmb.annotations.NNDefault;

@@ -9,7 +9,7 @@ import static mmb.content.CraftingGroups.*;
 
 import java.util.ResourceBundle;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.agro.Agro;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.item.Item;

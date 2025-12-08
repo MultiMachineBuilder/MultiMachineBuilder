@@ -5,5 +5,5 @@
  * Data binding support for Vareax variables with Swing components
  * @author oskar
  */
-@mmb.NNDefault
+@mmb.annotations.NNDefault
 package mmb.menu.databind;

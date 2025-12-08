@@ -6,7 +6,7 @@ package mmb.engine;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * A set of general-purpose game-wide utility methods

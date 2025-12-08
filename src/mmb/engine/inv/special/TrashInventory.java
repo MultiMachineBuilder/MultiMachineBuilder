@@ -3,8 +3,8 @@ package mmb.engine.inv.special;
 import java.util.Collections;
 import java.util.Iterator;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.inv.NoSuchInventory;

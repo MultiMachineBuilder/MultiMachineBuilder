@@ -14,8 +14,8 @@ import javax.swing.ImageIcon;
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.electric.BlockConduit;
 import mmb.content.electric.Electricity;
 import mmb.engine.block.BlockEntry;

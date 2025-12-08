@@ -3,8 +3,8 @@
  */
 package mmb.menu.world.window;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.data.variables.ListenableValue;
 import mmb.engine.debug.Debugger;
 import mmb.engine.worlds.world.Player;

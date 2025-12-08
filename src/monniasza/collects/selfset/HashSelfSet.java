@@ -6,8 +6,8 @@ package monniasza.collects.selfset;
 import java.util.HashMap;
 import java.util.function.Function;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import monniasza.collects.Identifiable;
 
 /**

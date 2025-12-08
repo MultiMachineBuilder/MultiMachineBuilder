@@ -3,8 +3,8 @@
  */
 package mmb.content.electric.machines;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.electric.Electric;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;

@@ -18,7 +18,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.debug.Debugger;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;

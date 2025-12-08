@@ -3,7 +3,7 @@
  */
 package mmb.content.electric.recipes;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.recipe.Recipe;
 import mmb.engine.recipe.SingleItem;
 

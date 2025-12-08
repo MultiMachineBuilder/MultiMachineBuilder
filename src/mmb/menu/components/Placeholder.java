@@ -9,8 +9,8 @@ import java.util.function.Consumer;
 
 import javax.swing.JComponent;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.modular.gui.SafeCloseable;
 import mmb.data.reactive.ListenableProperty;
 

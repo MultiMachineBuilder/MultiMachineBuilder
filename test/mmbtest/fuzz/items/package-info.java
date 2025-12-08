@@ -5,5 +5,5 @@
  * Fuzz tests for various items
  * @author oskar
  */
-@mmb.NNDefault
+@mmb.annotations.NNDefault
 package mmbtest.fuzz.items;

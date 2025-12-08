@@ -7,7 +7,7 @@ import static mmb.engine.settings.GlobalSettings.$res;
 
 import java.awt.Color;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.beans.Titled;
 import mmb.engine.item.Item;
 import mmb.engine.item.Items;

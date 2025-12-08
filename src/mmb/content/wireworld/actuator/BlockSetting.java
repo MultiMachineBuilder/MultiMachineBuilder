@@ -3,7 +3,7 @@
  */
 package mmb.content.wireworld.actuator;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.data.variables.ListenableValue;
 import mmb.engine.block.BlockType;
 

@@ -3,7 +3,7 @@
  */
 package mmb.content.ppipe;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * Combines a pipe tunnel and its entry directionality

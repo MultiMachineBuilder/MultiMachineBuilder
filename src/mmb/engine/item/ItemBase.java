@@ -9,7 +9,7 @@ import java.util.Objects;
 
 import javax.swing.Icon;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.Verify;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.BlockDrawer;

@@ -7,7 +7,7 @@ import com.code_intelligence.jazzer.api.FuzzedDataProvider;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.*;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.json.JsonTool;
 
 /**

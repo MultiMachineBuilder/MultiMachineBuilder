@@ -1,8 +1,7 @@
 package mmb.menu.world.inv;
 
-/**
- * A compact item slot. Shows the quantity and the item in a compact way
- */
+import javax.swing.JComponent;
+
 public class CompactItemSlot extends JComponent{
 	
 }

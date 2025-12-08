@@ -3,7 +3,7 @@
  */
 package mmb.content.imachine;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;

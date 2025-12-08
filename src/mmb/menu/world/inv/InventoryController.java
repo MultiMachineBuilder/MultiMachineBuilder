@@ -26,8 +26,8 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ListSelectionListener;
 
 import io.github.parubok.text.multiline.MultilineLabel;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.data.variables.Variable;
 import mmb.engine.MMBUtils;
 import mmb.engine.debug.Debugger;

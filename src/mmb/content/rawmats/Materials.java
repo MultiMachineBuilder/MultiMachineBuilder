@@ -8,7 +8,7 @@ import java.util.function.Function;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.ContentsBlocks;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.VoltageTier;

@@ -9,7 +9,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.awt.image.LookupOp;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.beans.Titled;
 import mmb.engine.java2d.ColorMapper;
 import mmb.engine.texture.Textures;

@@ -6,7 +6,7 @@ package mmb.menu;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.data.variables.ListenableBoolean;
 import mmb.engine.debug.Debugger;
 

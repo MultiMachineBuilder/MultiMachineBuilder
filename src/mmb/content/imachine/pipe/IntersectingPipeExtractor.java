@@ -5,7 +5,7 @@ package mmb.content.imachine.pipe;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.storage.SingleItemInventory;

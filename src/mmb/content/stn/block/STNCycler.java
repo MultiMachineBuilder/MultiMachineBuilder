@@ -8,8 +8,8 @@ import java.awt.Graphics;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.beans.BlockActivateListener;
 import mmb.content.imachine.SpeedUpgrade;
 import mmb.content.stn.network.STNNetworkProcessing.STNRGroupTag;

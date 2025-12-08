@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.NotFoundException;
 import mmb.engine.item.Item;
 import mmb.engine.item.Items;

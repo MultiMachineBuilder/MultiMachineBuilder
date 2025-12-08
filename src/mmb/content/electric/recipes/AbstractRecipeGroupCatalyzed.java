@@ -6,7 +6,7 @@ package mmb.content.electric.recipes;
 import java.util.Set;
 
 import io.vavr.Tuple2;
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.Recipe;
 import mmb.engine.recipe.RecipeOutput;

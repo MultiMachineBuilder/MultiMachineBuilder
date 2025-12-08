@@ -6,7 +6,8 @@ package mmb.content.electric;
 import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.function.Function;
-import mmb.NN;
+
+import mmb.annotations.NN;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.item.Items;

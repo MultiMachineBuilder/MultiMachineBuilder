@@ -13,7 +13,7 @@ import javax.swing.BoxLayout;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.menu.world.inv.InventoryController;
 import mmb.menu.world.inv.MoveItems;

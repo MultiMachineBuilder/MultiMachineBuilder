@@ -3,7 +3,7 @@
  */
 package mmb.content.ppipe;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * Defines which way player goes in aplyer pipe

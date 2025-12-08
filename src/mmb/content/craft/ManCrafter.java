@@ -8,8 +8,8 @@ import java.util.Collections;
 import java.util.List;
 
 import it.unimi.dsi.fastutil.ints.IntList;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.beans.BlockActivateListener;
 import mmb.engine.block.Block;
 import mmb.engine.settings.GlobalSettings;

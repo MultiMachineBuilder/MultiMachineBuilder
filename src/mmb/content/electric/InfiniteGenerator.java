@@ -3,7 +3,7 @@
  */
 package mmb.content.electric;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
 import mmb.engine.block.BlockEntityDataless;
 import mmb.engine.rotate.Side;

@@ -9,7 +9,7 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.JButton;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.stn.STNInventoryController;
 import mmb.menu.MenuHelper;
 import mmb.menu.world.inv.AbstractInventoryController;

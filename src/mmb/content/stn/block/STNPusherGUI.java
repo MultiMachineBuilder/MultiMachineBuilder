@@ -7,7 +7,7 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.border.BevelBorder;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.settings.GlobalSettings;
 import mmb.menu.MenuHelper;
 import mmb.menu.components.ItemSelectionSlot;

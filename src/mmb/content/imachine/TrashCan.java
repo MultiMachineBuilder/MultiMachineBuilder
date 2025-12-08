@@ -1,6 +1,6 @@
 package mmb.content.imachine;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.block.Block;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.special.TrashInventory;

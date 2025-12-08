@@ -3,7 +3,7 @@
  */
 package mmb.content.ppipe;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.debug.Debugger;

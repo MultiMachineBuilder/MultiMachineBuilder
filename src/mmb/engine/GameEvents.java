@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.pploder.events.Event;
 
 import io.vavr.Tuple2;
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.debug.Debugger;
 import mmb.engine.worlds.universe.Universe;
 import mmb.engine.worlds.world.World;

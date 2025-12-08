@@ -6,7 +6,7 @@ package mmb.engine.inv;
 import java.util.Collections;
 import java.util.Iterator;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.RecipeOutput;
 

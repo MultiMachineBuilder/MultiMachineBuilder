@@ -5,7 +5,7 @@ package mmb.engine.generator;
 
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.beans.Titled;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.debug.Debugger;

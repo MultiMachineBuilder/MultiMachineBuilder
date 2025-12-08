@@ -9,8 +9,8 @@ import java.util.Set;
 import java.util.function.Function;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.ditems.Stencil;
 import mmb.content.stn.network.DataLayerSTN;
 import mmb.content.stn.network.STNNetworkProcessing.STNRGroupTag.STNPRecipe;

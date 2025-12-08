@@ -11,8 +11,8 @@ import java.awt.image.BufferedImage;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.chance.Chance;
 import mmb.engine.texture.BlockDrawer;
 import mmb.engine.worlds.world.Player;

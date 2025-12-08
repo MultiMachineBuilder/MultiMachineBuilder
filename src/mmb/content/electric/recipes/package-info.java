@@ -5,5 +5,5 @@
  * Contains electric recipe groups and their helpers
  * @author oskar
  */
-@mmb.NNDefault
+@mmb.annotations.NNDefault
 package mmb.content.electric.recipes;

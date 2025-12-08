@@ -15,7 +15,7 @@ import javax.sound.sampled.Mixer.Info;
 
 import org.apache.commons.io.IOUtils;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * Describes a sound with all required information to play back properly.

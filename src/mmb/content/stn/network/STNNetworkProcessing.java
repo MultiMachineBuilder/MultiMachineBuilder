@@ -13,8 +13,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.pploder.events.Event;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.beans.Saver;
 import mmb.content.ContentsBlocks;
 import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;

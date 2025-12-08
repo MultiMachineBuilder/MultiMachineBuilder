@@ -4,7 +4,8 @@
 package mmb.content.agro;
 
 import java.util.Objects;
-import mmb.NN;
+
+import mmb.annotations.NN;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.recipes.AbstractRecipeGroupUncatalyzed;
 import mmb.engine.chance.Chance;

@@ -5,5 +5,5 @@
  * Crafting tables, recipes and utilities
  * @author oskar
  */
-@mmb.NNDefault
+@mmb.annotations.NNDefault
 package mmb.content.craft;

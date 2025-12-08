@@ -12,6 +12,7 @@ import java.util.function.Consumer;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import mmb.annotations.NN;
 import mmb.content.ContentsBlocks;
 import mmb.content.ContentsItems;
 import mmb.content.ContentsRecipes;

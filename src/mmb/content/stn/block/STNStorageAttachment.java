@@ -3,8 +3,8 @@
  */
 package mmb.content.stn.block;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.stn.STN;
 import mmb.content.stn.network.STNNetworkInventory;
 import mmb.content.stn.network.STNNetworkProcessing.STNRGroupTag;

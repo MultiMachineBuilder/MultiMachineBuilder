@@ -13,8 +13,8 @@ import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListModel;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import monniasza.collects.ReadOnlyListModel;

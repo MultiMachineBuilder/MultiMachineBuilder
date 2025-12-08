@@ -9,7 +9,7 @@ import java.util.Set;
 
 import com.google.common.collect.Sets;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.item.ItemEntry;
 import monniasza.collects.indexar.Database;

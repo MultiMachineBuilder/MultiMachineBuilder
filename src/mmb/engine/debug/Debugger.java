@@ -6,8 +6,8 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 
 import mmb.Main;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.MMBUtils;
 
 /**

@@ -7,7 +7,7 @@ import java.awt.Color;
 import java.util.List;
 import java.util.function.Supplier;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.rawmats.Materials;
 import mmb.content.rawmats.MetalGroup;
 

@@ -5,7 +5,7 @@ package mmb.engine.rotate;
 
 import java.awt.Point;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * Describes a side or a corner of a block

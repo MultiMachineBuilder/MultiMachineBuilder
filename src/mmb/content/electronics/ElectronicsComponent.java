@@ -3,7 +3,7 @@
  */
 package mmb.content.electronics;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.item.Item;
 
 /**

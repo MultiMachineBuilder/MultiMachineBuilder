@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;

@@ -15,7 +15,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import org.joml.Vector2d;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;

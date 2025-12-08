@@ -3,7 +3,7 @@
  */
 package mmb.content.modular.chest;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.modular.part.PartEntityType;
 import mmb.content.modular.part.PartEntry;
 import mmb.engine.inv.storage.SingleStackedInventory;

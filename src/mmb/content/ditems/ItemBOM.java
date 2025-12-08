@@ -5,8 +5,8 @@ package mmb.content.ditems;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.ContentsItems;
 import mmb.content.imachine.filter.ItemFilter;
 import mmb.engine.debug.Debugger;

@@ -3,7 +3,7 @@
  */
 package mmb.engine.generator;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.ContentsBlocks;
 import mmb.content.rawmats.Materials;
 import mmb.engine.block.Block;

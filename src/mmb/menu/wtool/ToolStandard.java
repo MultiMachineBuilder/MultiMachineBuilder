@@ -14,7 +14,7 @@ import javax.swing.ImageIcon;
 
 import org.joml.Vector2d;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.beans.BlockActivateListener;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.Placer;

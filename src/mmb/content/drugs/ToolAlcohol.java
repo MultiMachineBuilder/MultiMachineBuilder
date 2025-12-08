@@ -11,7 +11,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.chance.Chance;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.ItemRecord;

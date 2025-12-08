@@ -11,7 +11,7 @@ import java.util.zip.ZipInputStream;
 
 import org.apache.commons.io.IOUtils;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * An online or local file

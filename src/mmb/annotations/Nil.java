@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb;
+package mmb.annotations;
 
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
@@ -12,11 +12,11 @@ import java.lang.annotation.Documented;
 
 @Documented
 @Retention(RUNTIME)
-@Target({TYPE, FIELD, METHOD, PARAMETER, LOCAL_VARIABLE, TYPE_PARAMETER, TYPE_USE, PACKAGE, MODULE})
+@Target({TYPE, FIELD, METHOD, PARAMETER, LOCAL_VARIABLE, TYPE_PARAMETER, TYPE_USE})
 /**
- * Indicates that parameters in a given context won't accept null unless annotated with {@link Nil}
+ * Indicates that annotated element may take on {@code null}
  * @author oskar
  */
-public @interface NNDefault {
+public @interface Nil {
 	//empty
 }

@@ -12,7 +12,7 @@ import org.joml.Vector4fc;
 
 import it.unimi.dsi.fastutil.floats.FloatCollection;
 import it.unimi.dsi.fastutil.floats.FloatIterator;
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * @author oskar

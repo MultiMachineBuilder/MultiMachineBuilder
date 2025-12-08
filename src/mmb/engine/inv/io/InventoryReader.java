@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.function.Supplier;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.RecipeOutput;
 

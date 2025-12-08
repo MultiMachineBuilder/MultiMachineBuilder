@@ -3,7 +3,7 @@
  */
 package mmb.content.wireworld.text;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 
 /**
  * A bean interface used by the chatter.

@@ -5,7 +5,7 @@ package mmb.engine.inv.io;
 
 import java.util.function.Predicate;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.recipe.SingleItem;

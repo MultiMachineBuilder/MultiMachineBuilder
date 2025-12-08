@@ -6,7 +6,7 @@ package mmb.menu;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.texture.Textures;
 
 /**

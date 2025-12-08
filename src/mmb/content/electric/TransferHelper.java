@@ -5,7 +5,7 @@ package mmb.content.electric;
 
 import com.google.common.util.concurrent.Runnables;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.electric.Electricity.SettablePressure;
 import mmb.engine.UnitFormatter;
 import mmb.engine.block.BlockEntity;

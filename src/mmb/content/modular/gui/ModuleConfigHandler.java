@@ -5,7 +5,7 @@ package mmb.content.modular.gui;
 
 import java.awt.Component;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.menu.world.inv.InventoryController;
 
 /**

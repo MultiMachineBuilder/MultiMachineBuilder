@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.block.BlockEntityChirotable;
 import mmb.engine.block.BlockType;
 import mmb.engine.inv.io.InventoryReader;

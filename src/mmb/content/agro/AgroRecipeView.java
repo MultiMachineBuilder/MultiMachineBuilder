@@ -10,7 +10,7 @@ import static mmb.engine.settings.GlobalSettings.$res;
 import javax.swing.JLabel;
 import javax.swing.JList;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.agro.AgroRecipeGroup.AgroProcessingRecipe;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.CRConstants;

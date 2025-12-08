@@ -5,8 +5,8 @@ package mmb.engine.java2d;
 
 import java.awt.Color;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 
 /**
  * 4-channel color mutiplier. Should not be created directly.

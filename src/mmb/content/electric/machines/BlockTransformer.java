@@ -7,7 +7,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.awt.image.LookupOp;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.Electricity.SettablePressure;

@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 import com.google.common.collect.Iterators;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;

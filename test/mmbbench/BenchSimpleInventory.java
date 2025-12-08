@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.rainerhahnekamp.sneakythrow.Sneaky;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.json.JsonTool;
 import mmbtest.StandardTestReferences;

@@ -12,8 +12,8 @@ import java.awt.image.LookupOp;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.texture.BlockDrawer;
 

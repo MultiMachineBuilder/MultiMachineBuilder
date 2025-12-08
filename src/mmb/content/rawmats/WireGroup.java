@@ -7,7 +7,7 @@ import static mmb.engine.settings.GlobalSettings.*;
 
 import javax.swing.Icon;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.BlockConduit;
 import mmb.content.electric.VoltageTier;

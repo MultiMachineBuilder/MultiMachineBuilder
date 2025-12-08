@@ -5,7 +5,7 @@ package mmb.beans;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 
 /**
  * Represents an object which can be saved

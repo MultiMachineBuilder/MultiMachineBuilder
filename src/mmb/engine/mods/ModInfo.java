@@ -3,7 +3,7 @@
  */
 package mmb.engine.mods;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * Contains information about a mod

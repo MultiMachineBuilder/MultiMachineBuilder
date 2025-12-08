@@ -8,8 +8,8 @@ import java.util.NoSuchElementException;
 
 import com.google.common.collect.Iterators;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 
 /**
  * @author oskar

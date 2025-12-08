@@ -15,7 +15,7 @@ import java.util.stream.Collector;
 
 import javax.swing.DefaultListModel;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * Collects a stream to a list

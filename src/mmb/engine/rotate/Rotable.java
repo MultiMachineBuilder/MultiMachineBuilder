@@ -3,7 +3,7 @@
  */
 package mmb.engine.rotate;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * Adds rotation support to any object

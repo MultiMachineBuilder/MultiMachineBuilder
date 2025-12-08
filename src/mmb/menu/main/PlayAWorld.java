@@ -14,8 +14,8 @@ import com.pploder.events.Event;
 import com.pploder.events.SimpleEvent;
 
 import mmb.Main;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.MMBUtils;
 import mmb.engine.debug.Debugger;
 import mmb.engine.files.Save;

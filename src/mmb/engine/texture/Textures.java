@@ -16,8 +16,8 @@ import org.joml.Vector2i;
 import org.joml.Vector4f;
 
 import mmb.Main;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.NotFoundException;
 import mmb.engine.debug.Debugger;
 import mmb.engine.mods.ModLoader;

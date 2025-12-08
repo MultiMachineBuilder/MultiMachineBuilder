@@ -3,8 +3,8 @@
  */
 package mmb.content.imachine.filter;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.cgui.DestroyTab;
 import mmb.engine.inv.storage.SingleItemInventory;
 

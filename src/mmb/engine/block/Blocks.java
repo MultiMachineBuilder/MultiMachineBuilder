@@ -6,7 +6,7 @@ package mmb.engine.block;
 import java.awt.Color;
 
 import mmb.Main;
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.debug.Debugger;
 
 /**

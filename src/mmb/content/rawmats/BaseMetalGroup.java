@@ -5,7 +5,7 @@ package mmb.content.rawmats;
 
 import java.awt.Color;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.CraftingGroups;
 import mmb.content.agro.Agro;
 import mmb.content.electric.VoltageTier;

@@ -11,8 +11,8 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.google.common.collect.Iterators;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.MMBUtils;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;

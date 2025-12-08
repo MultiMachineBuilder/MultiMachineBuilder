@@ -3,8 +3,8 @@
  */
 package mmb.content.ppipe;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.block.BlockEntityChirotable;
 import mmb.engine.rotate.Side;
 import mmb.engine.rotate.Sided;

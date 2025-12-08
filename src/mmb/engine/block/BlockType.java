@@ -5,7 +5,7 @@ package mmb.engine.block;
 
 import javax.swing.Icon;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.chance.Chance;
 import mmb.engine.item.ItemType;
 import mmb.engine.item.Items;

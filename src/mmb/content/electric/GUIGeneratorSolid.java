@@ -8,7 +8,7 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.electric.machines.BlockGeneratorSolid;
 import mmb.menu.world.inv.InventoryController;
 import mmb.menu.world.inv.MoveItems;

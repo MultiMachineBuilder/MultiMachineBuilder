@@ -5,7 +5,7 @@ package mmb.content.modular.chest;
 
 import javax.swing.JPanel;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.modular.gui.SafeCloseable;
 import mmb.menu.world.inv.InventoryController;
 import java.awt.BorderLayout;

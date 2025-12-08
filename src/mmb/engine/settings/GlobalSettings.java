@@ -20,7 +20,7 @@ import java.util.ResourceBundle.Control;
 import javax.swing.JComponent;
 
 import mmb.Main;
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.data.variables.ListenableDouble;
 import mmb.data.variables.ListenableInt;
 import mmb.data.variables.ListenableValue;

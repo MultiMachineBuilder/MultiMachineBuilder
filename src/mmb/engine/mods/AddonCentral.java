@@ -1,6 +1,6 @@
 package mmb.engine.mods;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * Central class of each addon. Runs when the mod is loaded

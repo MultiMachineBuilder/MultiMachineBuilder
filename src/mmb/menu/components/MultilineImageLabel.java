@@ -3,7 +3,7 @@ package mmb.menu.components;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.menu.MenuHelper;
 
 public class MultilineImageLabel extends JLabel {

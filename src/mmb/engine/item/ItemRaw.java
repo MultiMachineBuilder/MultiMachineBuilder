@@ -11,7 +11,7 @@ import com.google.common.cache.LoadingCache;
 import com.google.common.util.concurrent.ExecutionError;
 import com.google.common.util.concurrent.UncheckedExecutionException;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.settings.GlobalSettings;
 
 /**

@@ -12,7 +12,7 @@ import javax.swing.JComponent;
 import javax.swing.ListCellRenderer;
 
 import io.vavr.Tuple2;
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.GlobalRecipeRegistrar;
 import mmb.engine.recipe.PlugAndPlayRecipeCellRenderer;

@@ -10,7 +10,7 @@ import org.joml.Vector2fc;
 import org.joml.Vector4f;
 import org.joml.Vector4fc;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.texture.Textures.Texture;
 
 /**

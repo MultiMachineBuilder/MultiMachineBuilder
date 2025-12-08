@@ -5,7 +5,7 @@ package mmb.engine.rotate;
 
 import java.awt.image.BufferedImage;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.texture.BlockDrawer;
 import mmb.engine.texture.Textures;
 

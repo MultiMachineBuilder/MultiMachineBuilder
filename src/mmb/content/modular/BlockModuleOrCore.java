@@ -3,7 +3,7 @@
  */
 package mmb.content.modular;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.content.modular.gui.ModuleConfigHandler;
 import mmb.content.modular.part.PartEntry;
 

@@ -9,7 +9,7 @@ import java.awt.Graphics;
 
 import javax.swing.Icon;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 
 /**
  * A solid color icon

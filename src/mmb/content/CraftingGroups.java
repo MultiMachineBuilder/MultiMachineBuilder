@@ -5,7 +5,7 @@ package mmb.content;
 
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.craft.CraftingRecipeGroup;
 import mmb.content.electric.recipes.CatSingleRecipeGroup;
 import mmb.content.electric.recipes.ComplexCatRecipeGroup;

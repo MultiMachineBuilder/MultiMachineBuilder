@@ -3,8 +3,8 @@
  */
 package mmb.content.modular;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.modular.BlockModule.BlockModuleParams;
 import mmb.data.variables.ListenableValue;
 import mmb.engine.debug.Debugger;

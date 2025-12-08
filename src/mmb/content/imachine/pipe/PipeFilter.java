@@ -5,8 +5,8 @@ package mmb.content.imachine.pipe;
 
 import static mmb.engine.settings.GlobalSettings.$res;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.beans.BlockActivateListener;
 import mmb.content.imachine.filter.ControllableFilter;
 import mmb.content.imachine.filter.FilterGUI;

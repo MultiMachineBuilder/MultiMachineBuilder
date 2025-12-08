@@ -5,7 +5,7 @@ package mmb.content;
 
 import java.awt.image.BufferedImage;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.craft.ManCrafter;
 import mmb.content.electric.ElectricMachineGroup;
 import mmb.content.electric.InfiniteGenerator;

@@ -14,7 +14,7 @@ import java.awt.Point;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.chance.Chance;
 import mmb.engine.inv.ItemRecord;

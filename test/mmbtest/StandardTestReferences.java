@@ -8,7 +8,7 @@ import java.awt.Graphics;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockEntry;

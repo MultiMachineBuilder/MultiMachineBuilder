@@ -18,8 +18,8 @@ import com.pploder.events.Event;
 import com.rainerhahnekamp.sneakythrow.Sneaky;
 
 import io.vavr.Tuple2;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.beans.Saver;
 import mmb.data.variables.ListenableBoolean;
 import mmb.engine.CatchingEvent;

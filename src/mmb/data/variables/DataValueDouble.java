@@ -3,7 +3,7 @@
  */
 package mmb.data.variables;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * @author oskar

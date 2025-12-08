@@ -6,8 +6,8 @@ package mmb.content.modular.chest;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.content.ContentsItems;
 import mmb.content.CraftingGroups;

@@ -25,7 +25,7 @@ import org.joml.Math;
 
 import com.google.common.base.Strings;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.debug.Debugger;
 import mmb.engine.files.AdvancedFile;
 import mmb.engine.files.FileUtil;

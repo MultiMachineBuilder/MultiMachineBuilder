@@ -13,8 +13,8 @@ import com.google.common.collect.Iterators;
 import com.google.common.collect.SetMultimap;
 
 import it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;

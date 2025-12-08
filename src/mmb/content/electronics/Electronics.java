@@ -33,7 +33,7 @@ import static mmb.content.rawmats.Materials.wireRudimentary;
 
 import java.awt.Color;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.agro.Agro;
 import mmb.content.electric.VoltageTier;
 import mmb.content.rawmats.Materials;

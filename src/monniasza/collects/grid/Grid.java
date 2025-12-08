@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * A grid contains data arranged in a regular grid.

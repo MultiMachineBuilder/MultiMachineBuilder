@@ -3,7 +3,7 @@
  */
 package mmb.engine.worlds.world;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.block.BlockType;
 import mmb.engine.worlds.MapProxy;
 

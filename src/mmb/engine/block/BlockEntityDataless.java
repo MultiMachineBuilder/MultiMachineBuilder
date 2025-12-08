@@ -6,7 +6,7 @@ package mmb.engine.block;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 
 /**
  * A block entity that does not hold any data.

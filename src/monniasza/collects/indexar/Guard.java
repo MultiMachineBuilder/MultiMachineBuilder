@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 import com.google.common.collect.SetMultimap;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import monniasza.collects.Collects;
 
 /**

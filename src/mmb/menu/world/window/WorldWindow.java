@@ -18,8 +18,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.pploder.events.Event;
 
 import io.github.parubok.text.multiline.MultilineLabel;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.data.variables.ListenableValue;
 import mmb.engine.CatchingEvent;
 import mmb.engine.debug.Debugger;

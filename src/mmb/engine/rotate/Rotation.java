@@ -6,7 +6,7 @@ package mmb.engine.rotate;
 import java.util.EventListener;
 import java.util.function.Consumer;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.gl.RenderCtx;
 import mmb.engine.texture.Textures.Texture;
 

@@ -3,7 +3,7 @@
  */
 package mmb.engine.recipe;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 
 /**
  * An object which is refreshed during processing

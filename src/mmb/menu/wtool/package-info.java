@@ -6,5 +6,5 @@
  * @author oskar
  *
  */
-@mmb.NNDefault
+@mmb.annotations.NNDefault
 package mmb.menu.wtool;

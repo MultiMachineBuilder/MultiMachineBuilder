@@ -27,7 +27,7 @@ import static org.lwjgl.opengl.GL30.*;
 import it.unimi.dsi.fastutil.floats.FloatArrayList;
 import it.unimi.dsi.fastutil.floats.FloatIterator;
 import it.unimi.dsi.fastutil.floats.FloatList;
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.debug.Debugger;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;

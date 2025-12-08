@@ -8,8 +8,8 @@ import java.awt.Graphics;
 
 import javax.swing.Icon;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.block.BlockEntry;
 
 /**

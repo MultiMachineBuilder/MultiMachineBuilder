@@ -3,7 +3,7 @@
  */
 package mmb.content.electric.machines;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
 import mmb.content.electric.helper.Helper;
 import mmb.content.electric.helper.SimpleProcessHelper;

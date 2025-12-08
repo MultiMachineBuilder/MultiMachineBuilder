@@ -7,7 +7,7 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.JButton;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.worlds.world.Player;
 import mmb.menu.world.ColorGUI;
 import mmb.menu.world.inv.InventoryController;

@@ -5,8 +5,8 @@ package mmb.content.modular.part;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.chance.Chance;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;

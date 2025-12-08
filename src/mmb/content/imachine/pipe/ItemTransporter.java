@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityRotary;
 import mmb.engine.block.BlockEntry;

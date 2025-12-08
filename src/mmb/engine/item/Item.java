@@ -8,8 +8,8 @@ import java.awt.image.BufferedImage;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.debug.Debugger;
 import mmb.engine.texture.BlockDrawer;
 import monniasza.collects.Identifiable;

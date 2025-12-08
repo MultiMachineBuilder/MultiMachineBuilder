@@ -3,7 +3,7 @@
  */
 package mmb.engine.rotate;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.gl.RenderCtx;
 import mmb.engine.texture.Textures.Texture;
 

@@ -6,7 +6,7 @@ package mmb.engine.recipe;
 import java.util.Vector;
 import java.util.stream.Collectors;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * @author oskar

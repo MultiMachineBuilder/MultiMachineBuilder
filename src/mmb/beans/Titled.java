@@ -3,7 +3,7 @@
  */
 package mmb.beans;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * @author oskar

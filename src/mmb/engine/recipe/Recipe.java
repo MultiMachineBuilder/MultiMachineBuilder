@@ -5,8 +5,8 @@ package mmb.engine.recipe;
 
 import java.awt.Component;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.inv.Inventories;

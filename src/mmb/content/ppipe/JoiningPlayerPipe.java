@@ -3,7 +3,7 @@
  */
 package mmb.content.ppipe;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.rotate.ChirotatedImageGroup;

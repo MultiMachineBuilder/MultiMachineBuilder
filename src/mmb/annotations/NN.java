@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb;
+package mmb.annotations;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.LOCAL_VARIABLE;

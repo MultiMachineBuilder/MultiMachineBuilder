@@ -14,8 +14,8 @@ import com.google.common.collect.Multimaps;
 import com.google.common.collect.SetMultimap;
 
 import mmb.GameLoader;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.debug.Debugger;
 import monniasza.collects.Collects;
 import monniasza.collects.selfset.HashSelfSet;

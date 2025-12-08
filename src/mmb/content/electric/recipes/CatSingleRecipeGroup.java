@@ -4,8 +4,8 @@
 package mmb.content.electric.recipes;
 
 import io.vavr.Tuple2;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.item.ItemEntry;

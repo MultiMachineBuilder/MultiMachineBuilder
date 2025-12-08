@@ -7,7 +7,7 @@ import java.util.Set;
 
 import javax.swing.ListCellRenderer;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.beans.Titled;
 import mmb.engine.item.ItemEntry;
 import monniasza.collects.Identifiable;

@@ -3,7 +3,7 @@
  */
 package mmb.engine.visuals;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.engine.worlds.world.World;
 
 /**

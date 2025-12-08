@@ -8,8 +8,8 @@ import javax.swing.Icon;
 import javax.swing.JCheckBox;
 
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.data.variables.ListenableBoolean;
 
 /**

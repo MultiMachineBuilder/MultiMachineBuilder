@@ -15,7 +15,7 @@ import static mmb.content.rawmats.Materials.iron;
 import java.awt.image.BufferedImage;
 import java.util.ResourceBundle;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.item.Item;

@@ -5,7 +5,7 @@ package mmb.engine.item;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 
 /**
  * An item, whcih holds additional information

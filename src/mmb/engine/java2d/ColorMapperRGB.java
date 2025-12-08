@@ -6,7 +6,7 @@ package mmb.engine.java2d;
 import java.awt.Color;
 import java.util.Arrays;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 
 /**
  * 3-channel color mapper. Should not be created directly.

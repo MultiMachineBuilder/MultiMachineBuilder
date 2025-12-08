@@ -9,7 +9,7 @@ import java.nio.IntBuffer;
 import org.joml.Vector2i;
 import org.joml.Vector2ic;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 
 /**
  * A reado-only 2-component integer vector

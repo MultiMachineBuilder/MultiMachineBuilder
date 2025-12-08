@@ -3,7 +3,7 @@
  */
 package mmb.content.electric.recipes;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.recipe.Recipe;

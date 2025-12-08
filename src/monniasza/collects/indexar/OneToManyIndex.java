@@ -9,7 +9,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.SetMultimap;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * An index, where property is a single value and may repeat between objects

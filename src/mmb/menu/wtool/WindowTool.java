@@ -15,7 +15,7 @@ import java.awt.event.MouseWheelListener;
 
 import javax.swing.Icon;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.beans.Titled;
 import mmb.menu.world.window.WorldFrame;
 import mmb.menu.world.window.WorldWindow;

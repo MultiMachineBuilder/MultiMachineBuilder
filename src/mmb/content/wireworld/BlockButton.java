@@ -3,7 +3,7 @@
  */
 package mmb.content.wireworld;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.beans.BlockActivateListener;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityDataless;

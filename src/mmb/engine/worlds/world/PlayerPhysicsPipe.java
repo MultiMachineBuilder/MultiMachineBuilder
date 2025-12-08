@@ -5,7 +5,7 @@ package mmb.engine.worlds.world;
 
 import org.joml.Vector2d;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.ppipe.Direction;
 import mmb.content.ppipe.PipeTunnel;
 import mmb.content.ppipe.PipeTunnelEntry;

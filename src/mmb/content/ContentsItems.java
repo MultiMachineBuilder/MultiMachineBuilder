@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 import mmb.DeprecatedExtra;
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.agro.Agro;
 import mmb.content.aim.ToolAim;
 import mmb.content.ditems.ItemBOM;

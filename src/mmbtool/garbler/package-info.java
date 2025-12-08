@@ -9,4 +9,4 @@
 @NNDefault
 package mmbtool.garbler;
 
-import mmb.NNDefault;
+import mmb.annotations.NNDefault;

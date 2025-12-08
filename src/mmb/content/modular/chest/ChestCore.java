@@ -10,8 +10,8 @@ import java.awt.image.BufferedImage;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.modular.BlockCore;
 import mmb.content.modular.gui.ModuleConfigHandler;
 import mmb.content.modular.part.PartEntity;

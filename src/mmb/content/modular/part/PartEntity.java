@@ -3,7 +3,7 @@
  */
 package mmb.content.modular.part;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 
 /**
  *

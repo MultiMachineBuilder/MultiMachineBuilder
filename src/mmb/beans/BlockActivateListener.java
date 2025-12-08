@@ -3,7 +3,7 @@
  */
 package mmb.beans;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 

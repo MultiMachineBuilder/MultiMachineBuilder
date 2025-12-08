@@ -10,8 +10,8 @@ import java.util.Objects;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.imachine.SpeedUpgrade;
 import mmb.content.modular.ModularBlock;
 import mmb.content.modular.chest.BlockModuleUniversal;

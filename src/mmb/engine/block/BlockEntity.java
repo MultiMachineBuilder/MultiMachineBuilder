@@ -5,8 +5,8 @@ package mmb.engine.block;
 
 import java.awt.Point;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.event.BlockEntityDemolitionEvent;
 import mmb.engine.CatchingEvent;
 import mmb.engine.debug.Debugger;

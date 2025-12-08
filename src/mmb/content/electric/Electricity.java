@@ -7,8 +7,8 @@ import java.util.function.Supplier;
 
 import javax.swing.JProgressBar;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.UnitFormatter;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.rotate.Side;

@@ -5,8 +5,8 @@ package mmb.engine.java2d;
 
 import java.awt.Color;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 
 /**
  * 3-channel color multiplier. Should not be created directly

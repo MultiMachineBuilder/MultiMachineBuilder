@@ -11,8 +11,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import io.vavr.Tuple2;
 import mmb.Main;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.beans.Saver;
 import mmb.engine.GameEvents;
 import mmb.engine.debug.Debugger;

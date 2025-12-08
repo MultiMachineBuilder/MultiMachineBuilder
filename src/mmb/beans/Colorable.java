@@ -5,7 +5,7 @@ package mmb.beans;
 
 import java.awt.Color;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.data.variables.Variable;
 
 /**

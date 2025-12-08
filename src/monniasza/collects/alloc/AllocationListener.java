@@ -5,7 +5,7 @@ package monniasza.collects.alloc;
 
 import java.util.EventListener;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 
 /**
  * @author oskar

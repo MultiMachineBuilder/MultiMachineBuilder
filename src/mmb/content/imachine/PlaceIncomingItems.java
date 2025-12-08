@@ -3,8 +3,8 @@
  */
 package mmb.content.imachine;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.ContentsBlocks;
 import mmb.engine.MMBUtils;
 import mmb.engine.block.BlockEntityRotary;

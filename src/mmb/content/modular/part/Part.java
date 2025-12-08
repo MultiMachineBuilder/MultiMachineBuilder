@@ -6,7 +6,7 @@ package mmb.content.modular.part;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.chance.Chance;
 import mmb.engine.recipe.RecipeOutput;
 import mmb.engine.texture.BlockDrawer;

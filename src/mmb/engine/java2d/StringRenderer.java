@@ -9,7 +9,7 @@ import java.awt.Graphics;
 import java.util.Objects;
 import java.util.Scanner;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 
 /**
  * String rendering utilities

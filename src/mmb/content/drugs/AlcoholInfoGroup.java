@@ -3,7 +3,7 @@
  */
 package mmb.content.drugs;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.recipes.AbstractRecipeGroupUncatalyzed;
 import mmb.engine.chance.Chance;

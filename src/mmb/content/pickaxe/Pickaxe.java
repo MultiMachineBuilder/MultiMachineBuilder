@@ -9,8 +9,8 @@ import java.awt.Color;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.IntNode;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntityMutable;
 import mmb.engine.item.ItemEntityType;
 import mmb.engine.item.ItemEntry;

@@ -7,8 +7,8 @@ import java.awt.Graphics;
 
 import org.joml.Vector2d;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.beans.Saver;
 import mmb.content.electric.Electricity;
 import mmb.content.ppipe.PipeTunnelEntry;

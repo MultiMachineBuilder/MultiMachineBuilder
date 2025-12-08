@@ -5,7 +5,7 @@ package mmb.engine.visuals;
 
 import javax.swing.JPanel;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.JCheckBox;

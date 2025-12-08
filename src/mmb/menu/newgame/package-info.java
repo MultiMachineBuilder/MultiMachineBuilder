@@ -4,5 +4,5 @@
 /**
  * Contains tools to create a new save
  */
-@mmb.NNDefault
+@mmb.annotations.NNDefault
 package mmb.menu.newgame;

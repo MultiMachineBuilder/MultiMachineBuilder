@@ -9,8 +9,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.util.concurrent.Runnables;
 
 import io.vavr.Tuple2;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.electric.Battery;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.CycleResult;

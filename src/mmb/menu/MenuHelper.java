@@ -15,8 +15,8 @@ import javax.swing.DefaultButtonModel;
 import javax.swing.JButton;
 
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.stn.block.STNPusherGUI;
 import mmb.engine.debug.Debugger;
 import mmb.engine.settings.GlobalSettings;

@@ -7,8 +7,8 @@ import java.util.function.Consumer;
 
 import javax.swing.JComboBox;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.data.variables.ListenableValue;
 
 /**

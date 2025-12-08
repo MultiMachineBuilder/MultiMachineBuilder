@@ -13,8 +13,8 @@ import java.util.NavigableMap;
 import java.util.TreeMap;
 
 import mmb.GameLoader;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.ContentsItems;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.VoltageTier;

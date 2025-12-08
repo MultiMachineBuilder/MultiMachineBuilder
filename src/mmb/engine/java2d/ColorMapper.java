@@ -7,7 +7,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.awt.image.LookupTable;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * Maps a single color from origin to destination

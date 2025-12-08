@@ -8,7 +8,7 @@ import java.awt.Graphics;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Rotation;
 

@@ -23,8 +23,8 @@ import com.github.davidmoten.rtree2.geometry.Geometry;
 import com.pploder.events.Event;
 
 import it.unimi.dsi.fastutil.doubles.DoubleList;
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.ppipe.Direction;
 import mmb.content.ppipe.PipeTunnelEntry;
 import mmb.data.variables.ListenableBoolean;

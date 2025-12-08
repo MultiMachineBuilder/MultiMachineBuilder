@@ -3,7 +3,7 @@
  */
 package mmb.content.electric;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * An iterface bean which provides main electrical connection.

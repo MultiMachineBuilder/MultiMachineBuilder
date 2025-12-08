@@ -7,8 +7,8 @@ import java.awt.Graphics;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.pickaxe.Pickaxe;
 import mmb.engine.item.ItemEntityMutable;
 import mmb.engine.item.ItemEntityType;

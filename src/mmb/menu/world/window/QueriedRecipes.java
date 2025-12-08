@@ -11,7 +11,7 @@ import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListModel;
 
-import mmb.Nil;
+import mmb.annotations.Nil;
 import mmb.engine.recipe.Recipe;
 import mmb.engine.settings.GlobalSettings;
 import mmb.menu.components.CellRendererGettingCellRenderer;

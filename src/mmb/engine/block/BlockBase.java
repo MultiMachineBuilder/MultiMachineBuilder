@@ -9,7 +9,7 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.Objects;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.chance.Chance;
 import mmb.engine.item.Item;
 import mmb.engine.item.Items;

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * @author oskar

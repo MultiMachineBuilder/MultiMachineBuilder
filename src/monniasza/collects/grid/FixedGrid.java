@@ -7,8 +7,8 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Objects;
 
-import mmb.NN;
-import mmb.Nil;
+import mmb.annotations.NN;
+import mmb.annotations.Nil;
 
 /**
  * @author oskar

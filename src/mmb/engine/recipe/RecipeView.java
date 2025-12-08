@@ -5,7 +5,7 @@ package mmb.engine.recipe;
 
 import javax.swing.JPanel;
 
-import mmb.NN;
+import mmb.annotations.NN;
 
 /**
  * Represents an abstraction for recipe views

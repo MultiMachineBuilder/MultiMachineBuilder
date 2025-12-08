@@ -15,7 +15,7 @@ import org.joml.Vector2ic;
 import com.pploder.events.Event;
 import com.pploder.events.SimpleEvent;
 
-import mmb.NN;
+import mmb.annotations.NN;
 import mmb.engine.Vector2iconst;
 import mmb.engine.texture.Textures;
 
