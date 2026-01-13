@@ -335,7 +335,7 @@
 		<dependency>
 		    <groupId>com.code-intelligence</groupId>
 		    <artifactId>jazzer-junit</artifactId>
-		    <version>0.28.0</version>
+		    <version>0.29.1</version>
 		    <scope>test</scope>
 		    
 		</dependency>
@@ -354,7 +354,7 @@
 		<dependency>
 		  <groupId>org.checkerframework</groupId>
 		  <artifactId>checker-qual</artifactId>
-		  <version>3.52.1</version>
+		  <version>3.53.0</version>
 		</dependency>
 		
 		
@@ -489,25 +489,25 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
-			<version>6.0.1</version>
+			<version>6.0.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-engine</artifactId>
-		    <version>6.0.1</version>
+		    <version>6.0.2</version>
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
 	        <groupId>org.junit.jupiter</groupId>
 	        <artifactId>junit-jupiter-api</artifactId>
-	        <version>6.0.1</version>
+	        <version>6.0.2</version>
 	        <scope>test</scope>
 	    </dependency>
 	    <dependency>
 		    <groupId>org.junit.platform</groupId>
 		    <artifactId>junit-platform-commons</artifactId>
-		    <version>6.0.1</version>
+		    <version>6.0.2</version>
 		    <scope>test</scope>
 		</dependency>
 		
