@@ -36,7 +36,7 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import monniasza.collects.grid.Grid;
 import monniasza.collects.selfset.SelfSet;
 

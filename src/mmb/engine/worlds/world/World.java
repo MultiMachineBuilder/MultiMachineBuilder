@@ -45,7 +45,7 @@ import mmb.engine.inv.io.Dropper;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.rotate.Side;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.visuals.Visual;
@@ -610,7 +610,7 @@ public class World implements Identifiable<String>, Indexable{
 	 * @param x X coordinate of the item
 	 * @param y Y coordinate of the item
 	 */
-	public void dropItems(RecipeOutput item, int x, int y) {
+	public void dropItems(ItemList item, int x, int y) {
 		dropItems(item, 1, x, y);
 	}
 	/**
@@ -619,7 +619,7 @@ public class World implements Identifiable<String>, Indexable{
 	 * @param x X coordinate of the item
 	 * @param y Y coordinate of the item
 	 */
-	public void dropItems(RecipeOutput item, int amount, int x, int y) {
+	public void dropItems(ItemList item, int amount, int x, int y) {
 		for(Object2IntMap.Entry<ItemEntry> entry: item.getContents().object2IntEntrySet()) {
 			Collection<ItemEntry> list = getDrops(x, y);
 			int amt2 = amount*entry.getIntValue();

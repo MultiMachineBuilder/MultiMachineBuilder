@@ -9,7 +9,7 @@ import io.vavr.Tuple2;
 import mmb.annotations.NN;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.Recipe;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import monniasza.collects.Identifiable;
 
 /**
@@ -18,7 +18,7 @@ import monniasza.collects.Identifiable;
  * @param <Tlist> the item selection type
  * @param <Trecipe> type of recipes
  */
-public abstract class AbstractRecipeGroupCatalyzed<@NN Tlist extends RecipeOutput, 
+public abstract class AbstractRecipeGroupCatalyzed<@NN Tlist extends ItemList, 
 @NN Trecipe extends Recipe<@NN Trecipe>&Identifiable<@NN Tuple2<Tlist, ItemEntry>>>
 extends AbstractRecipeGroup<@NN Tuple2<Tlist, ItemEntry>, Trecipe> {
 	protected AbstractRecipeGroupCatalyzed(String id, Class<@NN Trecipe> rtype) {

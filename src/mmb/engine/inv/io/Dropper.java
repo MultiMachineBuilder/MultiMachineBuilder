@@ -5,7 +5,7 @@ package mmb.engine.inv.io;
 
 import mmb.beans.Positioned;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.worlds.world.World;
 
 /**
@@ -55,13 +55,13 @@ public class Dropper implements InventoryWriter, Positioned {
 	}
 
 	@Override
-	public int bulkInsert(RecipeOutput block, int amount) {
+	public int bulkInsert(ItemList block, int amount) {
 		map.dropItems(block, amount, x, y);
 		return amount; //always accepts
 	}
 
 	@Override
-	public int toInsertBulk(RecipeOutput block, int amount) {
+	public int toInsertBulk(ItemList block, int amount) {
 		return amount;
 	}
 

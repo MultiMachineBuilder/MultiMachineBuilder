@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 import mmb.annotations.NN;
 import mmb.engine.chance.Chance;
 import mmb.engine.item.Item;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.texture.BlockDrawer;
 
 /**
@@ -34,18 +34,18 @@ public abstract class PartBase extends Item implements PartType {
 	}
 
 	//RTP
-	@NN private RecipeOutput rtp = this;
+	@NN private ItemList rtp = this;
 	/**
 	 * Sets the Return to Player
 	 * @param newrtp new return to player
 	 * @return this
 	 */
-	public PartBase rtp(RecipeOutput newrtp) {
+	public PartBase rtp(ItemList newrtp) {
 		rtp = newrtp;
 		return this;
 	}
 	@Override
-	public RecipeOutput returnToPlayer() {
+	public ItemList returnToPlayer() {
 		return rtp;
 	}
 	

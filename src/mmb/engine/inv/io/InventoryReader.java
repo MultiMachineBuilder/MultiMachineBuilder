@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 
 import mmb.annotations.NN;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 
 /**
  * An abstraction over extraction of items
@@ -60,7 +60,7 @@ public interface InventoryReader {
 		}
 
 		@Override
-		public int toBeExtractedBulk(RecipeOutput item, int amount) {
+		public int toBeExtractedBulk(ItemList item, int amount) {
 			return 0;
 		}
 
@@ -70,7 +70,7 @@ public interface InventoryReader {
 		}
 
 		@Override
-		public int extractBulk(RecipeOutput block, int amount) {
+		public int extractBulk(ItemList block, int amount) {
 			return 0;
 		}
 	};
@@ -98,9 +98,9 @@ public interface InventoryReader {
 	 * @throws IllegalArgumentException when negative units are extracted.
 	 * @return number of units extracted
 	 * @implNote The implementation is suitable for most inventories.
-	 * If inventory restricts extractions beyond blocking them all, the {@link #toBeExtractedBulk(RecipeOutput, int)} should be overridden
+	 * If inventory restricts extractions beyond blocking them all, the {@link #toBeExtractedBulk(ItemList, int)} should be overridden
 	 */
-	public int extractBulk(RecipeOutput block, int amount);
+	public int extractBulk(ItemList block, int amount);
 	
 	//Iteration methods
 	/**
@@ -298,5 +298,5 @@ public interface InventoryReader {
 	 * @return amount of items, which would be extracted by extract(int)
 	 * @throws UnsupportedOperationException if this reader does not support random access
 	 */
-	public int toBeExtractedBulk(RecipeOutput item, int amount);
+	public int toBeExtractedBulk(ItemList item, int amount);
 }

@@ -19,7 +19,7 @@ import mmb.engine.UnitFormatter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.CRConstants;
 import mmb.engine.recipe.ItemStack;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.RecipeView;
 import mmb.engine.recipe.VectorUtils;
 import mmb.menu.world.ItemStackCellRenderer;
@@ -84,7 +84,7 @@ public class StackedRecipeView extends RecipeView<StackedRecipe> {
 	}
 	
 	
-	@NN public static Vector<ItemStack> list2vector(RecipeOutput output){
+	@NN public static Vector<ItemStack> list2vector(ItemList output){
 		return output
 				.getContents()
 				.object2IntEntrySet()
@@ -92,7 +92,7 @@ public class StackedRecipeView extends RecipeView<StackedRecipe> {
 				.map(ent -> new ItemStack(ent.getKey(), ent.getIntValue()))
 				.collect(Collectors.toCollection(Vector::new));
 	}
-	@NN public static ItemStack[] list2arr(RecipeOutput output){
+	@NN public static ItemStack[] list2arr(ItemList output){
 		return output
 				.getContents()
 				.object2IntEntrySet()

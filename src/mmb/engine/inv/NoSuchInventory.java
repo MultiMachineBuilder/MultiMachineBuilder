@@ -8,7 +8,7 @@ import java.util.Iterator;
 
 import mmb.annotations.NN;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 
 /**
  * A non-existent inventory
@@ -70,7 +70,7 @@ public class NoSuchInventory implements Inventory{
 		return 0;
 	}
 	@Override
-	public int bulkInsert(RecipeOutput ent, int amount) {
+	public int bulkInsert(ItemList ent, int amount) {
 		return 0;
 	}
 	@Override
@@ -78,7 +78,7 @@ public class NoSuchInventory implements Inventory{
 		return false;
 	}
 	@Override
-	public int insertibleRemainBulk(int amount, RecipeOutput ent) {
+	public int insertibleRemainBulk(int amount, ItemList ent) {
 		return 0;
 	}
 }

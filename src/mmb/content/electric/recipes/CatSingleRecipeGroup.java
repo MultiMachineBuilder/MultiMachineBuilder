@@ -9,7 +9,7 @@ import mmb.annotations.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import monniasza.collects.Identifiable;
 
 /**
@@ -47,7 +47,7 @@ implements SimpleRecipeGroup<CatSingleRecipeGroup.CatalyzedSimpleRecipe>{
 		 * @param catalyst required catalyst
 		 * @param luck randomized output of this recipe
 		 */
-		public CatalyzedSimpleRecipe(double energy, VoltageTier voltage, ItemEntry input, @Nil ItemEntry catalyst, RecipeOutput output, Chance luck) {
+		public CatalyzedSimpleRecipe(double energy, VoltageTier voltage, ItemEntry input, @Nil ItemEntry catalyst, ItemList output, Chance luck) {
 			super(energy, voltage, output, luck);
 			this.input = input;
 			this.catalyst = catalyst;
@@ -86,7 +86,7 @@ implements SimpleRecipeGroup<CatSingleRecipeGroup.CatalyzedSimpleRecipe>{
 	 * @param luck random chanced items
 	 * @return a new recipe
 	 */
-	public CatalyzedSimpleRecipe add(ItemEntry in, RecipeOutput out, @Nil ItemEntry catalyst, VoltageTier voltage, double energy, Chance luck) {
+	public CatalyzedSimpleRecipe add(ItemEntry in, ItemList out, @Nil ItemEntry catalyst, VoltageTier voltage, double energy, Chance luck) {
 		@NN CatalyzedSimpleRecipe recipe = new CatalyzedSimpleRecipe(energy, voltage, in, catalyst, out, luck);
 		insert(recipe);
 		return recipe;
@@ -113,7 +113,7 @@ implements SimpleRecipeGroup<CatSingleRecipeGroup.CatalyzedSimpleRecipe>{
 	 * @param energy energy consumed by this recipe
 	 * @return a new recipe
 	 */
-	public CatalyzedSimpleRecipe add(ItemEntry in, RecipeOutput out, @Nil ItemEntry catalyst, VoltageTier voltage, double energy) {
+	public CatalyzedSimpleRecipe add(ItemEntry in, ItemList out, @Nil ItemEntry catalyst, VoltageTier voltage, double energy) {
 		return add(in, out, catalyst, voltage, energy, Chance.NONE);
 	}
 	/**

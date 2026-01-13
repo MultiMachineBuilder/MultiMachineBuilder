@@ -21,7 +21,7 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.ItemLists;
 import mmb.engine.recipe.Recipe;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 
 /**
  * Implements the processing of a complex catalyzed or uncatalyzed recipes in a machine.
@@ -78,7 +78,7 @@ public class ComplexProcessHelper<@NN Trecipe extends Recipe<Trecipe>> extends H
 		underway = null;
 		if(recipenode != null) {
 			ItemEntry catalyst = ItemEntry.loadFromJson(recipenode.get(0));
-			RecipeOutput inputs = ItemLists.read(recipenode.get(1));
+			ItemList inputs = ItemLists.read(recipenode.get(1));
 			if(inputs != null) underway = recipes.findExact(inputs.items(), catalyst);
 		}
 	}

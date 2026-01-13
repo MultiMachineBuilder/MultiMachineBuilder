@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 import mmb.annotations.NN;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.SingleItem;
 
 /**
@@ -36,13 +36,13 @@ public interface InventoryWriter {
 	 * @param amount number of units
 	 * @return inserted number of units
 	 */
-	public int bulkInsert(RecipeOutput block, int amount);
+	public int bulkInsert(ItemList block, int amount);
 	/**
 	 * Inserts items, keeping the block whole
 	 * @param block the indivisible insertion unit
 	 * @return inserted number of units
 	 */
-	public default boolean bulkInsert(RecipeOutput block) {
+	public default boolean bulkInsert(ItemList block) {
 		return bulkInsert(block, 1) == 1;
 	}	
 
@@ -53,7 +53,7 @@ public interface InventoryWriter {
 	 * @param amount number of insertion units
 	 * @return how many units can be inserted
 	 */
-	public int toInsertBulk(RecipeOutput block, int amount);
+	public int toInsertBulk(ItemList block, int amount);
 	/**
 	 * Checks insertability of the items
 	 * @param item item to insert
@@ -70,11 +70,11 @@ public interface InventoryWriter {
 			return 0;
 		}
 		@Override
-		public int bulkInsert(RecipeOutput block, int amount) {
+		public int bulkInsert(ItemList block, int amount) {
 			return 0;
 		}
 		@Override
-		public int toInsertBulk(RecipeOutput outItems, int amount) {
+		public int toInsertBulk(ItemList outItems, int amount) {
 			return 0;
 		}
 		@Override
@@ -109,11 +109,11 @@ public interface InventoryWriter {
 			return ifFalse.insert(ent, amount);
 		}
 		@Override
-		public int bulkInsert(RecipeOutput block, int amount) {
+		public int bulkInsert(ItemList block, int amount) {
 			return 0;
 		}
 		@Override
-		public int toInsertBulk(RecipeOutput outItems, int amount) {
+		public int toInsertBulk(ItemList outItems, int amount) {
 			return 0;
 		}
 		@Override
@@ -146,13 +146,13 @@ public interface InventoryWriter {
 			return 0;
 		}
 		@Override
-		public int bulkInsert(RecipeOutput block, int amount) {
+		public int bulkInsert(ItemList block, int amount) {
 			for(ItemEntry item: block.items()) 
 				if(!filter.test(item)) return 0;
 			return writer.bulkInsert(block, amount);
 		}
 		@Override
-		public int toInsertBulk(RecipeOutput block, int amount) {
+		public int toInsertBulk(ItemList block, int amount) {
 			for(ItemEntry item: block.items()) 
 				if(!filter.test(item)) return 0;
 			return writer.toInsertBulk(block, amount);
@@ -195,7 +195,7 @@ public interface InventoryWriter {
 		}
 
 		@Override
-		public int bulkInsert(RecipeOutput block, int amount) {
+		public int bulkInsert(ItemList block, int amount) {
 			int writeFirst = first.bulkInsert(block, amount);
 			if(writeFirst == amount) {
 				return amount; //all accepted
@@ -206,7 +206,7 @@ public interface InventoryWriter {
 		}
 
 		@Override
-		public int toInsertBulk(RecipeOutput block, int amount) {
+		public int toInsertBulk(ItemList block, int amount) {
 			int writeFirst = first.toInsertBulk(block, amount);
 			if(writeFirst == amount) {
 				return amount; //all accepted
@@ -264,7 +264,7 @@ public interface InventoryWriter {
 		}
 
 		@Override
-		public int bulkInsert(RecipeOutput block, int amount) {
+		public int bulkInsert(ItemList block, int amount) {
 			next();
 			int remaining = amount;
 			int transferred = 0;
@@ -280,7 +280,7 @@ public interface InventoryWriter {
 		}
 
 		@Override
-		public int toInsertBulk(RecipeOutput outItems, int amount) {
+		public int toInsertBulk(ItemList outItems, int amount) {
 			return 0;
 		}
 

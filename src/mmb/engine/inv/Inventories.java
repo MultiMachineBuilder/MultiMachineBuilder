@@ -11,7 +11,7 @@ import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemStack;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.SingleItem;
 
 /**
@@ -383,7 +383,7 @@ public class Inventories {
 	 * @param amount number of units to transfer
 	 * @throws UnsupportedOperationException when the inventory reader does not support random access
 	 */
-	public static void transferMulti(InventoryReader reader, InventoryWriter writer, RecipeOutput items, int amount) {
+	public static void transferMulti(InventoryReader reader, InventoryWriter writer, ItemList items, int amount) {
 		for(ItemStack stk: items) transferStack(reader, writer, stk.item, stk.amount);
 	}
 	/**
@@ -396,7 +396,7 @@ public class Inventories {
 	 * @return number of units transferred
 	 * @throws UnsupportedOperationException when the inventory reader does not support random access
 	 */
-	public static int transferMultiVolumeLimited(InventoryReader reader, InventoryWriter writer, RecipeOutput items, int amount, double maxvol) {
+	public static int transferMultiVolumeLimited(InventoryReader reader, InventoryWriter writer, ItemList items, int amount, double maxvol) {
 		double outvol = items.outVolume();
 		if(outvol == 0) return 0;
 		double voltomove = outvol*amount;
@@ -417,7 +417,7 @@ public class Inventories {
 	 * @return number of units transferred
 	 * @throws UnsupportedOperationException when the inventory reader does not support random access
 	 */
-	public static int transferBulk(InventoryReader reader, InventoryWriter writer, RecipeOutput items, int amount) {
+	public static int transferBulk(InventoryReader reader, InventoryWriter writer, ItemList items, int amount) {
 		int tomove = reader.toBeExtractedBulk(items, amount);
 		int moved = writer.bulkInsert(items, tomove);
 		return reader.extractBulk(items, moved);
@@ -432,7 +432,7 @@ public class Inventories {
 	 * @return number of units transferred
 	 * @throws UnsupportedOperationException when the inventory reader does not support random access
 	 */
-	public static int transferBulkVolumeLimited(InventoryReader reader, InventoryWriter writer, RecipeOutput items, int amount, double maxvol) {
+	public static int transferBulkVolumeLimited(InventoryReader reader, InventoryWriter writer, ItemList items, int amount, double maxvol) {
 		double outvol = items.outVolume();
 		if(outvol == 0) return 0;
 		double voltomove = outvol*amount;
@@ -451,7 +451,7 @@ public class Inventories {
 	 * @param amount number of transactions to perform
 	 * @return number of crafting transactions
 	 */
-	public static int transact(RecipeOutput inItems, InventoryReader reader, RecipeOutput outItems, InventoryWriter writer, int amount) {
+	public static int transact(ItemList inItems, InventoryReader reader, ItemList outItems, InventoryWriter writer, int amount) {
 		int transactable = writer.toInsertBulk(outItems, amount);
 		int moved = reader.extractBulk(inItems, transactable);
 		return writer.bulkInsert(outItems, moved);
@@ -466,7 +466,7 @@ public class Inventories {
 	 * @param amount number of transactions to perform
 	 * @return number of crafting transactions
 	 */
-	public static int transact(RecipeOutput inItems, Inventory reader, RecipeOutput outItems, InventoryWriter writer, int amount) {
+	public static int transact(ItemList inItems, Inventory reader, ItemList outItems, InventoryWriter writer, int amount) {
 		return transact(inItems, reader.createReader(), outItems, writer, amount);
 	}
 
@@ -479,7 +479,7 @@ public class Inventories {
 	 * @param amount number of transactions to perform
 	 * @return number of crafting transactions
 	 */
-	public static int transact(RecipeOutput inItems, InventoryReader reader, RecipeOutput outItems, Inventory writer, int amount) {
+	public static int transact(ItemList inItems, InventoryReader reader, ItemList outItems, Inventory writer, int amount) {
 		return transact(inItems, reader, outItems, writer.createWriter(), amount);
 	}
 
@@ -492,7 +492,7 @@ public class Inventories {
 		 * @param amount number of transactions to perform
 		 * @return number of crafting transactions
 		 */
-		public static int transact(RecipeOutput inItems, Inventory reader, RecipeOutput outItems, Inventory writer, int amount) {
+		public static int transact(ItemList inItems, Inventory reader, ItemList outItems, Inventory writer, int amount) {
 			return transact(inItems, reader.createReader(), outItems, writer.createWriter(), amount);
 	}
 
@@ -504,7 +504,7 @@ public class Inventories {
 	 * @param to destination inventory
 	 * @return is the transaction successfull?
 	 */
-	public static boolean transact(SingleItem in, RecipeOutput out, Inventory from, Inventory to) {
+	public static boolean transact(SingleItem in, ItemList out, Inventory from, Inventory to) {
 		return Inventories.transact(in.item(), in.amount(), out, from, to);
 	}
 
@@ -517,7 +517,7 @@ public class Inventories {
 	 * @param to destination inventory
 	 * @return is the transaction successfull?
 	 */
-	public static boolean transact(ItemEntry entry, int inAmount, RecipeOutput out, Inventory from, Inventory to) {
+	public static boolean transact(ItemEntry entry, int inAmount, ItemList out, Inventory from, Inventory to) {
 		Objects.requireNonNull(from, "from is null");
 		if(from.get(entry).amount() < inAmount) return false;
 		//Calculate capacity

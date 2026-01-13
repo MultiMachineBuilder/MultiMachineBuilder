@@ -9,7 +9,7 @@ import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.inv.NoSuchInventory;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 
 /** Destroys all incoming items */
 public class TrashInventory implements Inventory {
@@ -33,7 +33,7 @@ public class TrashInventory implements Inventory {
 	}
 
 	@Override
-	public int insertibleRemainBulk(int amount, RecipeOutput ent) {
+	public int insertibleRemainBulk(int amount, ItemList ent) {
 		return amount;
 	}
 
@@ -68,7 +68,7 @@ public class TrashInventory implements Inventory {
 	}
 
 	@Override
-	public int bulkInsert(RecipeOutput ent, int amount) {
+	public int bulkInsert(ItemList ent, int amount) {
 		return amount;
 	}
 

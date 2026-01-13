@@ -31,7 +31,7 @@ import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 import mmb.engine.json.JsonTool;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.settings.GlobalSettings;
@@ -149,7 +149,7 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 			setVolume(volume);
 			return this;
 		}
-		@Override public MoverDef rtp(RecipeOutput rtp) {
+		@Override public MoverDef rtp(ItemList rtp) {
 			super.rtp(rtp);
 			return this;
 		}

@@ -28,8 +28,8 @@ public class CreativeItemList extends JList<ItemType> {
 	public CreativeItemList() {
 		setModel(model);
 		setToolTipText("");
-	}	@NN public static final DefaultListModel<ItemType> model = new DefaultListModel<>();
-	@NN public static final List<ItemType> list = Collects.toWritableList(model);
+	}	public static final DefaultListModel<ItemType> model = new DefaultListModel<>();
+	public static final List<ItemType> list = Collects.toWritableList(model);
 	static {
 		list.addAll(Items.items);
 		Collections.sort(list, (l, r) -> l.title().compareTo(r.title()));

@@ -7,7 +7,7 @@ import mmb.annotations.NN;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.recipe.Recipe;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 
 /**
  * A shared implementation of electric recipes
@@ -20,7 +20,7 @@ public abstract class AbstractElectricRecipe<@NN T extends Recipe<T>> implements
 	/** Voltage tier required for this recipe */
 	public final VoltageTier voltage;
 	/** Deterministic output of this recipe */
-	public final RecipeOutput output;
+	public final ItemList output;
 	/** Randomized output of this recipe */
 	public final Chance luck;
 	
@@ -31,7 +31,7 @@ public abstract class AbstractElectricRecipe<@NN T extends Recipe<T>> implements
 	 * @param output deterministic output of this recipe
 	 * @param luck randomized output of this recipe
 	 */
-	protected AbstractElectricRecipe(double energy, VoltageTier voltage, RecipeOutput output, Chance luck) {
+	protected AbstractElectricRecipe(double energy, VoltageTier voltage, ItemList output, Chance luck) {
 		this.energy = energy;
 		this.voltage = voltage;
 		this.output = output;
@@ -39,7 +39,7 @@ public abstract class AbstractElectricRecipe<@NN T extends Recipe<T>> implements
 	}
 
 	@Override
-	public final RecipeOutput output() {
+	public final ItemList output() {
 		return output;
 	}
 

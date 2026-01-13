@@ -19,7 +19,7 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
 import mmb.engine.item.Items;
 import mmb.engine.json.JsonTool;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.texture.BlockDrawer;
 
 /**
@@ -48,7 +48,7 @@ public interface PartEntry extends Saver{
 		return type().dropItems();
 	}
 	/** @return items returned to the player */
-	@NN public default RecipeOutput returnToPlayer() {
+	@NN public default ItemList returnToPlayer() {
 		return type().returnToPlayer();
 	}
 	

@@ -7,7 +7,7 @@ import java.util.Objects;
 
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 
 /**
  * The recipe node.
@@ -57,11 +57,11 @@ public final class RecipeNode {
 		/**
 		 * @return items consumed per operation
 		 */
-		public RecipeOutput inputs();
+		public ItemList inputs();
 		/**
 		 * @return items produced per operation
 		 */
-		public RecipeOutput outputs();
+		public ItemList outputs();
 		/**
 		 * Gets the remaining items to source
 		 * @return remaining items, or -1 if unlimited

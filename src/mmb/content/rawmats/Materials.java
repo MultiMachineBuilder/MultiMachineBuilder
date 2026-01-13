@@ -18,7 +18,7 @@ import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 import mmb.engine.recipe.ItemStack;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.SimpleItemList;
 
 /**
@@ -219,6 +219,7 @@ public class Materials {
 	
 	//Tier 10 materials
 	@NN public static final MetalGroup chaotium = new MetalGroup(colorChaotium, "chaotium", VoltageTier.V8, 400_000_000, false);
+	//@NN public static final MetalGroup superconductor = new MetalGroup(colorChaotium, "chaotium", VoltageTier.V8, 400_000_000, false);
 	
 	//Simple wires
 	@NN public static final WireGroup wireRudimentary = new WireGroup(    1_000, rudimentary, VoltageTier.V1);
@@ -320,7 +321,7 @@ public class Materials {
 		ItemStack blokA = new ItemStack(partA.block, ratioA);
 		ItemStack blokB = new ItemStack(partB.block, ratioB);
 		double energyl = energy*16;
-		RecipeOutput recl = new SimpleItemList(blokA, blokB);
+		ItemList recl = new SimpleItemList(blokA, blokB);
 		CraftingGroups.alloyer.add(recl, out.block, ratioO, volt, energyl);
 	}
 	
@@ -329,13 +330,13 @@ public class Materials {
 		ItemStack itemStackB1 = new ItemStack(itemB1, ratioB);
 		ItemStack itemStackA2 = new ItemStack(itemA2, ratioA);
 		ItemStack itemStackB2 = new ItemStack(itemB2, ratioB);
-		RecipeOutput recs1 = new SimpleItemList(itemStackA1, itemStackB1);
+		ItemList recs1 = new SimpleItemList(itemStackA1, itemStackB1);
 		CraftingGroups.alloyer.add(recs1, output, ratioOut, volt, energy);
-		RecipeOutput recs2 = new SimpleItemList(itemStackA1, itemStackB2);
+		ItemList recs2 = new SimpleItemList(itemStackA1, itemStackB2);
 		CraftingGroups.alloyer.add(recs2, output, ratioOut, volt, energy);
-		RecipeOutput recs3 = new SimpleItemList(itemStackA2, itemStackB1);
+		ItemList recs3 = new SimpleItemList(itemStackA2, itemStackB1);
 		CraftingGroups.alloyer.add(recs3, output, ratioOut, volt, energy);
-		RecipeOutput recs4 = new SimpleItemList(itemStackA2, itemStackB2);
+		ItemList recs4 = new SimpleItemList(itemStackA2, itemStackB2);
 		CraftingGroups.alloyer.add(recs4, output, ratioOut, volt, energy);
 	}
 
@@ -359,7 +360,7 @@ public class Materials {
 		for(int i = 0; i < mat.length; i++) {
 			builder.put(selector.apply(mat[i].material), mat[i].amount);
 		}
-		RecipeOutput in = new SimpleItemList(builder);
+		ItemList in = new SimpleItemList(builder);
 		CraftingGroups.alloyer.add(in, selector.apply(out), ratioO, volt, energy);
 	}
 	/*

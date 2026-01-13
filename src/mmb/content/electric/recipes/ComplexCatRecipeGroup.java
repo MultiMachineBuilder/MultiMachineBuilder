@@ -14,7 +14,7 @@ import mmb.annotations.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.RecipeView;
 import monniasza.collects.Identifiable;
 
@@ -24,7 +24,7 @@ import monniasza.collects.Identifiable;
  * A group of recipes with a complex input and a catalyst
  */
 public class ComplexCatRecipeGroup extends
-AbstractRecipeGroupCatalyzed<@NN RecipeOutput, @NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>
+AbstractRecipeGroupCatalyzed<@NN ItemList, @NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>
 implements MultiRecipeGroup<@NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>{
 	/**
 	 * The minimum amount of ingredients
@@ -45,13 +45,13 @@ implements MultiRecipeGroup<@NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>{
 	 * @author oskar
 	 * A recipe with a complex input and a catalyst
 	 */
-	public class ComplexCatalyzedRecipe extends AbstractElectricRecipe<@NN ComplexCatalyzedRecipe> implements Identifiable<@NN Tuple2<@NN RecipeOutput, @NN ItemEntry>>{
+	public class ComplexCatalyzedRecipe extends AbstractElectricRecipe<@NN ComplexCatalyzedRecipe> implements Identifiable<@NN Tuple2<@NN ItemList, @NN ItemEntry>>{
 		/** The input item list */
-		@NN public final RecipeOutput input;
+		@NN public final ItemList input;
 		/** Required catalyst */
 		@Nil public final ItemEntry catalyst;
 		/** Item tuple */
-		@NN private final Tuple2<@NN RecipeOutput, @NN ItemEntry> id;
+		@NN private final Tuple2<@NN ItemList, @NN ItemEntry> id;
 		
 		/**
 		 * Creates a complex catalyzed recipe
@@ -62,18 +62,18 @@ implements MultiRecipeGroup<@NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>{
 		 * @param catalyst required catalyst
 		 * @param luck randomized output of this recipe
 		 */
-		public ComplexCatalyzedRecipe(double energy, VoltageTier voltage, RecipeOutput in, RecipeOutput output, @Nil ItemEntry catalyst, Chance luck) {
+		public ComplexCatalyzedRecipe(double energy, VoltageTier voltage, ItemList in, ItemList output, @Nil ItemEntry catalyst, Chance luck) {
 			super(energy, voltage, output, luck);
 			this.input = in;
 			this.id = new Tuple2<>(input, catalyst);
 			this.catalyst = catalyst;
 		}
 		@Override
-		public @NN Tuple2<@NN RecipeOutput, @NN ItemEntry> id() {
+		public @NN Tuple2<@NN ItemList, @NN ItemEntry> id() {
 			return id;
 		}
 		@Override
-		public RecipeOutput inputs() {
+		public ItemList inputs() {
 			return input;
 		}
 		@Override
@@ -100,7 +100,7 @@ implements MultiRecipeGroup<@NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>{
 	 * @param luck random chanced items
 	 * @return a new recipe
 	 */
-	public ComplexCatalyzedRecipe add(RecipeOutput in, RecipeOutput out, @Nil ItemEntry catalyst, VoltageTier voltage, double energy, Chance luck) {
+	public ComplexCatalyzedRecipe add(ItemList in, ItemList out, @Nil ItemEntry catalyst, VoltageTier voltage, double energy, Chance luck) {
 		if(in.getContents().size() < minIngredients) throw new IllegalArgumentException("The recipe must have at least "+minIngredients+" inputs");
 		if(in.getContents().size() == 0) throw new IllegalArgumentException("The recipe must have at least 1 input");
 		@NN ComplexCatalyzedRecipe recipe = new ComplexCatalyzedRecipe(energy, voltage, in, out, catalyst, luck);
@@ -121,7 +121,7 @@ implements MultiRecipeGroup<@NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>{
 	 * @param luck random chanced items
 	 * @return a new recipe
 	 */
-	public ComplexCatalyzedRecipe add(RecipeOutput in, ItemEntry out, @Nil ItemEntry catalyst, int amount, VoltageTier voltage, double energy, Chance luck) {
+	public ComplexCatalyzedRecipe add(ItemList in, ItemEntry out, @Nil ItemEntry catalyst, int amount, VoltageTier voltage, double energy, Chance luck) {
 		return add(in, out.stack(amount), catalyst, voltage, energy, luck);
 	}
 	/**
@@ -133,7 +133,7 @@ implements MultiRecipeGroup<@NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>{
 	 * @param energy energy consumed by this recipe
 	 * @return a new recipe
 	 */
-	public ComplexCatalyzedRecipe add(RecipeOutput in, RecipeOutput out, @Nil ItemEntry catalyst, VoltageTier voltage, double energy) {
+	public ComplexCatalyzedRecipe add(ItemList in, ItemList out, @Nil ItemEntry catalyst, VoltageTier voltage, double energy) {
 		return add(in, out, catalyst, voltage, energy, Chance.NONE);
 	}
 	/**
@@ -146,7 +146,7 @@ implements MultiRecipeGroup<@NN ComplexCatRecipeGroup.ComplexCatalyzedRecipe>{
 	 * @param energy energy consumed by this recipe
 	 * @return a new recipe
 	 */
-	public ComplexCatalyzedRecipe add(RecipeOutput in, ItemEntry out, @Nil ItemEntry catalyst, int amount, VoltageTier voltage, double energy) {
+	public ComplexCatalyzedRecipe add(ItemList in, ItemEntry out, @Nil ItemEntry catalyst, int amount, VoltageTier voltage, double energy) {
 		return add(in, out.stack(amount), catalyst, voltage, energy, Chance.NONE);
 	}
 	

@@ -17,7 +17,7 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.ItemLists;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 
 /**
  * @author oskar
@@ -33,7 +33,7 @@ public class Pack extends ItemEntity {
 	 * Creates an item pack with item(s)
 	 * @param ilist contents
 	 */
-	public Pack(RecipeOutput ilist) {
+	public Pack(ItemList ilist) {
 		super();
 		contents = ilist;
 		recalc();
@@ -42,7 +42,7 @@ public class Pack extends ItemEntity {
 	//Contents
 	private double volumeInner = 0;
 	private double volumeOuter = 0.001;
-	@NN private RecipeOutput contents = RecipeOutput.NONE;
+	@NN private ItemList contents = ItemList.NONE;
 	private void recalc() {
 		volumeInner = 0;
 		for(Entry<ItemEntry> ent : contents.getContents().object2IntEntrySet()) {
@@ -55,7 +55,7 @@ public class Pack extends ItemEntity {
 	public double volume() {
 		return volumeOuter;
 	}
-	@NN public RecipeOutput contents() {
+	@NN public ItemList contents() {
 		return contents;
 	}
 	
@@ -96,9 +96,9 @@ public class Pack extends ItemEntity {
 	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		JsonNode ilist = data.get("contents");
-		RecipeOutput contents0 = ItemLists.read(ilist);
+		ItemList contents0 = ItemLists.read(ilist);
 		if(contents0 == null) {
-			contents = RecipeOutput.NONE;
+			contents = ItemList.NONE;
 		}else {
 			contents = contents0;
 		}

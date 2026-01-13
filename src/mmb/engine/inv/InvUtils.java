@@ -6,7 +6,7 @@ package mmb.engine.inv;
 import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemStack;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import monniasza.collects.Collects;
 
 /**
@@ -21,7 +21,7 @@ public class InvUtils {
 	 * @param rout recipe output
 	 * @return an item entry or null
 	 */
-	public static @Nil ItemEntry onlyItem(RecipeOutput rout) {
+	public static @Nil ItemEntry onlyItem(ItemList rout) {
 		if(rout.items().size() != 1) return null;
 		ItemStack entry = Collects.first(rout);
 		if(entry.amount > 1) return null;
@@ -33,7 +33,7 @@ public class InvUtils {
 	 * @param rout recipe output
 	 * @return an item stack
 	 */
-	public static @Nil ItemStack onlyItemStack(RecipeOutput rout) {
+	public static @Nil ItemStack onlyItemStack(ItemList rout) {
 		if(rout.items().size() != 1) return null;
 		ItemStack entry = Collects.first(rout);
 		if(entry.amount == 0) return null;
@@ -45,7 +45,7 @@ public class InvUtils {
 	 * @return an item entry or null
 	 * @param amount maximum amount
 	 */
-	public static @Nil ItemStack onlyItemStackUpTo(RecipeOutput rout, int amount) {
+	public static @Nil ItemStack onlyItemStackUpTo(ItemList rout, int amount) {
 		if(rout.items().size() != 1) return null;
 		ItemStack entry = Collects.first(rout);
 		if(entry.amount > amount) return null;

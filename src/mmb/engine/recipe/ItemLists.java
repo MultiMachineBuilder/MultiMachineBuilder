@@ -67,7 +67,7 @@ public class ItemLists {
 	 * @param list recipe output to save
 	 * @return saved recipe output
 	 */
-	public static JsonNode save(RecipeOutput list) {
+	public static JsonNode save(ItemList list) {
 		ArrayNode result = JsonTool.newArrayNode();
 		for(Entry<ItemEntry> n: list.getContents().object2IntEntrySet()) { //write items
 			if(n.getIntValue() == 0) continue;

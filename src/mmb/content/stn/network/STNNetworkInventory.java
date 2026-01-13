@@ -20,7 +20,7 @@ import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 
 /**
  * The implementation of the Storage component of the STN
@@ -80,7 +80,7 @@ public class STNNetworkInventory implements Inventory{
 	}
 
 	@Override
-	public int bulkInsert(RecipeOutput ent, int amount) {
+	public int bulkInsert(ItemList ent, int amount) {
 		reindex();
 		int remain = amount;
 		double attempts0 = 2 + ((ent.outVolume()*amount)/storageQueue.capacity());
@@ -283,7 +283,7 @@ public class STNNetworkInventory implements Inventory{
 	}
 
 	@Override
-	public int insertibleRemainBulk(int amount, RecipeOutput ent) {
+	public int insertibleRemainBulk(int amount, ItemList ent) {
 		return storageQueue.insertibleRemainBulk(amount, ent);
 	}
 }

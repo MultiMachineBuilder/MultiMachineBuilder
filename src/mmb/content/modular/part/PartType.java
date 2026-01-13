@@ -10,7 +10,7 @@ import mmb.annotations.Nil;
 import mmb.engine.chance.Chance;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 
 /**
  *
@@ -53,7 +53,7 @@ public interface PartType extends ItemType, ItemEntry {
 	/** @return items dropped when module is removed */
 	@NN public Chance dropItems();
 	/** @return items returned to the player */
-	@NN public RecipeOutput returnToPlayer();
+	@NN public ItemList returnToPlayer();
 	
 	
 }

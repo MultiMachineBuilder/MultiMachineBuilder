@@ -21,7 +21,7 @@ import mmb.engine.inv.ItemRecord;
 import mmb.engine.inv.SaveInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import monniasza.collects.Collects;
 
 /**
@@ -104,7 +104,7 @@ public abstract class BaseSingleItemInventory implements SaveInventory{
 		return 1;
 	}
 	@Override
-	public int insertibleRemainBulk(int amount, RecipeOutput block) {
+	public int insertibleRemainBulk(int amount, ItemList block) {
 		if(block.items().size() > 1) return 0;
 		if(block.items().isEmpty()) return 0;
 		for(Entry<ItemEntry> entry: block.getContents().object2IntEntrySet()) {
@@ -159,7 +159,7 @@ public abstract class BaseSingleItemInventory implements SaveInventory{
 		return 0;
 	}
 	@Override
-	public int bulkInsert(RecipeOutput block, int amount) {
+	public int bulkInsert(ItemList block, int amount) {
 		int insertible = insertibleRemainBulk(amount, block);
 		if(insertible == 0) return 0;
 		setContents(Collects.first(block.items()));

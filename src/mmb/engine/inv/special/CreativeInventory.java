@@ -13,7 +13,7 @@ import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
 import mmb.engine.item.Items;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 
 /**
  * An inventory with unlimited item withdrawals and shredding
@@ -112,11 +112,11 @@ public class CreativeInventory implements Inventory {
 		return amount;
 	}
 	@Override
-	public int extractRemainBulk(int amount, RecipeOutput ent) {
+	public int extractRemainBulk(int amount, ItemList ent) {
 		return amount;
 	}
 	@Override
-	public int bulkExtract(RecipeOutput ent, int amount) {
+	public int bulkExtract(ItemList ent, int amount) {
 		return amount;
 	}
 	
@@ -126,11 +126,11 @@ public class CreativeInventory implements Inventory {
 		return true;
 	}
 	@Override
-	public int bulkInsert(RecipeOutput ent, int amount) {
+	public int bulkInsert(ItemList ent, int amount) {
 		return 0;
 	}
 	@Override
-	public int insertibleRemainBulk(int amount, RecipeOutput ent) {
+	public int insertibleRemainBulk(int amount, ItemList ent) {
 		return amount;
 	}
 	@Override

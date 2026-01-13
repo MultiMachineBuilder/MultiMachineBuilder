@@ -20,7 +20,7 @@ import mmb.engine.chance.RandomOrElseChance;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemRaw;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.SimpleItemList;
 import monniasza.collects.grid.FixedGrid;
 
@@ -957,7 +957,7 @@ public class ContentsRecipes {
 	
 	private static void quarry() {
 		//Tier 1: rudimentary, coal, copper, iron, silicon, nickel, tin, zinc, aluminum, lead, redstone
-		quarry.add(stone, RecipeOutput.NONE, VoltageTier.V1, 20000, new ListChance(
+		quarry.add(stone, ItemList.NONE, VoltageTier.V1, 20000, new ListChance(
 			new RandomChance(0.2, rudimentary.ore),
 			new RandomChance(0.2, coal.ore),
 			new RandomChance(0.04, copper.ore),
@@ -1046,7 +1046,7 @@ public class ContentsRecipes {
 		alloyer.add(new SimpleItemList(stone, rudimentary.nugget), stone, 32, VoltageTier.V1, 80000);
 		
 		//sifting seeds sometimes gives yeast
-		quarry.add(Agro.seeds, RecipeOutput.NONE, VoltageTier.V1, 40000, new RandomOrElseChance(0.05, Agro.yeast, Agro.seeds));
+		quarry.add(Agro.seeds, ItemList.NONE, VoltageTier.V1, 40000, new RandomOrElseChance(0.05, Agro.yeast, Agro.seeds));
 	}
 	private static void _upgrade() {
 		crafting.addRecipeGrid(new ItemEntry[]{

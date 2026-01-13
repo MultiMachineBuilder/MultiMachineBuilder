@@ -8,7 +8,7 @@ import mmb.annotations.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import monniasza.collects.Identifiable;
 
 /**
@@ -40,7 +40,7 @@ implements SimpleRecipeGroup<SingleRecipeGroup.SingleRecipe>{
 		 * @param output deterministic output of this recipe
 		 * @param luck randomized output of this recipe
 		 */
-		public SingleRecipe(double energy, VoltageTier voltage, ItemEntry input, RecipeOutput output, Chance luck) {
+		public SingleRecipe(double energy, VoltageTier voltage, ItemEntry input, ItemList output, Chance luck) {
 			super(energy, voltage, output, luck);
 			this.input = input;
 		}
@@ -76,7 +76,7 @@ implements SimpleRecipeGroup<SingleRecipeGroup.SingleRecipe>{
 	 * @param luck random chanced items
 	 * @return new recipe
 	 */
-	public SingleRecipe add(ItemEntry in, RecipeOutput out, VoltageTier voltage, double energy, Chance luck) {
+	public SingleRecipe add(ItemEntry in, ItemList out, VoltageTier voltage, double energy, Chance luck) {
 		@NN SingleRecipe recipe = new SingleRecipe(energy, voltage, in, out, luck);
 		insert(recipe);
 		return recipe;
@@ -101,7 +101,7 @@ implements SimpleRecipeGroup<SingleRecipeGroup.SingleRecipe>{
 	 * @param energy energy consumed by this recipe
 	 * @return new recipe
 	 */
-	public SingleRecipe add(ItemEntry in, RecipeOutput out, VoltageTier voltage, double energy) {
+	public SingleRecipe add(ItemEntry in, ItemList out, VoltageTier voltage, double energy) {
 		return add(in, out, voltage, energy, Chance.NONE);
 	}
 	/**

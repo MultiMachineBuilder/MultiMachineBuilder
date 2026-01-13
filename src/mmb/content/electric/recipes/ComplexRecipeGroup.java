@@ -13,14 +13,14 @@ import mmb.annotations.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import monniasza.collects.Identifiable;
 
 /**
  * A multi-item, no catalyst recipe group
  * @author oskar
  */
-public class ComplexRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN RecipeOutput, @NN ComplexRecipeGroup.ComplexRecipe>
+public class ComplexRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemList, @NN ComplexRecipeGroup.ComplexRecipe>
 implements MultiRecipeGroup<@NN ComplexRecipeGroup.ComplexRecipe>{
 	/**
 	 * The minimum amount of ingredients
@@ -41,9 +41,9 @@ implements MultiRecipeGroup<@NN ComplexRecipeGroup.ComplexRecipe>{
 	 * A recipe with a complex input
 	 * @author oskar
 	 */
-	public class ComplexRecipe extends AbstractElectricRecipe<@NN ComplexRecipe> implements Identifiable<@NN RecipeOutput>{
+	public class ComplexRecipe extends AbstractElectricRecipe<@NN ComplexRecipe> implements Identifiable<@NN ItemList>{
 		/** The input item list */
-		public final RecipeOutput input;
+		public final ItemList input;
 		
 		/**
 		 * Creates a complex recipe
@@ -53,16 +53,16 @@ implements MultiRecipeGroup<@NN ComplexRecipeGroup.ComplexRecipe>{
 		 * @param output deterministic output of this recipe
 		 * @param luck randomized output of this recipe
 		 */
-		public ComplexRecipe(double energy, VoltageTier voltage, RecipeOutput in, RecipeOutput output, Chance luck) {
+		public ComplexRecipe(double energy, VoltageTier voltage, ItemList in, ItemList output, Chance luck) {
 			super(energy, voltage, output, luck);
 			this.input = in;
 		}
 		@Override
-		public RecipeOutput id() {
+		public ItemList id() {
 			return input;
 		}
 		@Override
-		public RecipeOutput inputs() {
+		public ItemList inputs() {
 			return input;
 		}
 		@Override
@@ -89,7 +89,7 @@ implements MultiRecipeGroup<@NN ComplexRecipeGroup.ComplexRecipe>{
 	 * @param luck random chanced items
 	 * @return new recipe
 	 */
-	public ComplexRecipe add(RecipeOutput in, RecipeOutput out, VoltageTier voltage, double energy, Chance luck) {
+	public ComplexRecipe add(ItemList in, ItemList out, VoltageTier voltage, double energy, Chance luck) {
 		if(in.getContents().size() < minIngredients) throw new IllegalArgumentException("The recipe must have at least "+minIngredients+" inputs");
 		if(in.getContents().size() <= 0) throw new IllegalArgumentException("The recipe must have at least 1 input");
 		@NN ComplexRecipe recipe = new ComplexRecipe(energy, voltage, in, out, luck);
@@ -108,7 +108,7 @@ implements MultiRecipeGroup<@NN ComplexRecipeGroup.ComplexRecipe>{
 	 * @param luck random chanced items
 	 * @return new recipe
 	 */
-	public ComplexRecipe add(RecipeOutput in, ItemEntry out, int amount, VoltageTier voltage, double energy, Chance luck) {
+	public ComplexRecipe add(ItemList in, ItemEntry out, int amount, VoltageTier voltage, double energy, Chance luck) {
 		return add(in, out.stack(amount), voltage, energy, luck);
 	}
 	/**
@@ -119,7 +119,7 @@ implements MultiRecipeGroup<@NN ComplexRecipeGroup.ComplexRecipe>{
 	 * @param energy energy consumed by this recipe
 	 * @return new recipe
 	 */
-	public ComplexRecipe add(RecipeOutput in, RecipeOutput out, VoltageTier voltage, double energy) {
+	public ComplexRecipe add(ItemList in, ItemList out, VoltageTier voltage, double energy) {
 		return add(in, out, voltage, energy, Chance.NONE);
 	}
 	/**
@@ -130,7 +130,7 @@ implements MultiRecipeGroup<@NN ComplexRecipeGroup.ComplexRecipe>{
 	 * @param energy energy consumed by this recipe
 	 * @return new recipe
 	 */
-	public ComplexRecipe add(RecipeOutput in, ItemEntry out, int amount, VoltageTier voltage, double energy) {
+	public ComplexRecipe add(ItemList in, ItemEntry out, int amount, VoltageTier voltage, double energy) {
 		return add(in, out.stack(amount), voltage, energy, Chance.NONE);
 	}
 

@@ -15,7 +15,7 @@ import mmb.content.ditems.Stencil;
 import mmb.content.stn.network.DataLayerSTN;
 import mmb.content.stn.network.STNNetworkProcessing.STNRGroupTag.STNPRecipe;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 
 /**
@@ -109,7 +109,7 @@ public class STNPlanner {
 	 * @throws ArithmeticException if there are growing cycles which involve planned items
 	 * @throws IllegalStateException if there are additional required items (if planning logic fails)
 	 */
-	public Phase1 plan1(RecipeOutput items) {
+	public Phase1 plan1(ItemList items) {
 		//Results
 		Object2IntOpenHashMap<@NN STNPRecipe> processRecipes = new Object2IntOpenHashMap<>();
 		Object2IntOpenHashMap<@NN Stencil> craftRecipes = new Object2IntOpenHashMap<>();
@@ -217,7 +217,7 @@ public class STNPlanner {
 		}
 		return null;
 	}
-	private static <T> Set<ItemEntry> planItems(RecipeOutput inputs, RecipeOutput outputs, ItemEntry plannedItem, int plannedAmount,
+	private static <T> Set<ItemEntry> planItems(ItemList inputs, ItemList outputs, ItemEntry plannedItem, int plannedAmount,
 			Object2IntOpenHashMap<ItemEntry> planMap, T recipe, Object2IntOpenHashMap<@NN T> recipesCounter, Queue<ItemEntry> queue) {
 		int unitOutputQuantity = outputs.get(plannedItem);
 		if(unitOutputQuantity <= 0) throw new InternalError("No such item: "+plannedItem);

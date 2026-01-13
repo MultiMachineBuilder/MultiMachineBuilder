@@ -21,7 +21,7 @@ import mmb.engine.inv.SaveInventory;
 import mmb.engine.inv.InventoryLoader.ItemTarget;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemStack;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import monniasza.collects.Collects;
 import monniasza.collects.selfset.HashSelfSet;
 import monniasza.collects.selfset.SelfSet;
@@ -148,7 +148,7 @@ public class SimpleInventory implements SaveInventory{
 		return volume;
 	}
 	@Override
-	public int insertibleRemainBulk(int amount, RecipeOutput ent) {
+	public int insertibleRemainBulk(int amount, ItemList ent) {
 		int tasksInVolume = insertibleRemain(amount, ent.outVolume());
 		return Math.min(amount, tasksInVolume);
 	}
@@ -170,7 +170,7 @@ public class SimpleInventory implements SaveInventory{
 		return node.extract(amount);
 	}
 	@Override
-	public int bulkInsert(RecipeOutput ent, int amount) {
+	public int bulkInsert(ItemList ent, int amount) {
 		int max = insertibleRemainBulk(amount, ent);
 		for(Entry<@NN ItemEntry> entry: ent.getContents().object2IntEntrySet()) {
 			int count = entry.getIntValue()*max;

@@ -18,17 +18,17 @@ import mmb.engine.json.JsonTool;
  */
 public class ProcessIngredients{
 	/** An empty list of processing ingredients*/
-	@NN public static final ProcessIngredients EMPTY = new ProcessIngredients(RecipeOutput.NONE, RecipeOutput.NONE);
+	@NN public static final ProcessIngredients EMPTY = new ProcessIngredients(ItemList.NONE, ItemList.NONE);
 	/** Input items */
-	@NN public final RecipeOutput input;
+	@NN public final ItemList input;
 	/** Output items */
-	@NN public final RecipeOutput output;
+	@NN public final ItemList output;
 	/**
 	 * Creates a list of processing ingredients
 	 * @param input input ingredients
 	 * @param output output ingredients
 	 */
-	public ProcessIngredients(RecipeOutput input, RecipeOutput output) {
+	public ProcessIngredients(ItemList input, ItemList output) {
 		this.input = input;
 		this.output = output;
 	}
@@ -49,9 +49,9 @@ public class ProcessIngredients{
 	 */
 	@Nil public static ProcessIngredients read(@Nil JsonNode data) {
 		if(data == null) return null;
-		RecipeOutput a = ItemLists.read(data.get(0));
+		ItemList a = ItemLists.read(data.get(0));
 		if(a == null) return null;
-		RecipeOutput b = ItemLists.read(data.get(1));
+		ItemList b = ItemLists.read(data.get(1));
 		if(b == null) return null;
 		return new ProcessIngredients(a, b);
 	}

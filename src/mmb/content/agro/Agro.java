@@ -21,7 +21,7 @@ import mmb.engine.block.BlockEntityType;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;
 
@@ -115,7 +115,7 @@ public class Agro {
 	 * @param id block ID
 	 * @return the crop block entity type
 	 */
-	@NN public static BlockEntityType crop(int duration, RecipeOutput cropDrop, String title, BufferedImage texture, String id) {
+	@NN public static BlockEntityType crop(int duration, ItemList cropDrop, String title, BufferedImage texture, String id) {
 		BlockEntityType result = new BlockEntityType().title(title).texture(texture).finish(id);
 		crops.add(result, cropDrop, duration);
 		return result.factory(() -> new Crop(result, duration, cropDrop));

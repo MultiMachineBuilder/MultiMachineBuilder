@@ -15,7 +15,7 @@ import mmb.engine.inv.Inventories;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.SimpleItemList;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
@@ -67,7 +67,7 @@ public class BOMChestGUI extends GUITab {
 	}
 
 	private void make() {
-		RecipeOutput items = new SimpleItemList(factory.inv);
+		ItemList items = new SimpleItemList(factory.inv);
 		ItemEntry bom = new ItemBOM(items);
 		Inventory inv = window.playerInventory().getInv();
 		ItemRecord irecord = playerInv.getSelectedValue(); //this returns null

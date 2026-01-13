@@ -28,7 +28,7 @@ import mmb.engine.inv.storage.SetInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.ItemLists;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import monniasza.collects.Collects;
 import monniasza.collects.Identifiable;
 import monniasza.collects.indexar.Database;
@@ -105,13 +105,13 @@ public class STNNetworkProcessing implements Saver{
 		 */
 		public class STNPRecipe{
 			/** The ingredients required to craft the recipe*/
-			@NN public final RecipeOutput in;
+			@NN public final ItemList in;
 			/** The results of this recipe */
-			@NN public final RecipeOutput out;
+			@NN public final ItemList out;
 			/** The recipe counter (unique ID) */
 			public final int count;
 			
-			STNPRecipe(RecipeOutput in, RecipeOutput out, int count){
+			STNPRecipe(ItemList in, ItemList out, int count){
 				this.in = in;
 				this.out = out;
 				this.count = count;
@@ -172,11 +172,11 @@ public class STNNetworkProcessing implements Saver{
 		 * @param out outgoing items
 		 * @return a new recipe
 		 */
-		public STNPRecipe produceRecipe(RecipeOutput in, RecipeOutput out) {
+		public STNPRecipe produceRecipe(ItemList in, ItemList out) {
 			return produceRecipe(in, out, rgrouprcounter++);
 		}
 		//like its smaller cousin, but takes an ID for (de)serialization purposes
-		STNPRecipe produceRecipe(RecipeOutput in, RecipeOutput out, int count) {
+		STNPRecipe produceRecipe(ItemList in, ItemList out, int count) {
 			STNPRecipe recipe = new STNPRecipe(in, out, count);
 			recipeProduced.trigger(recipe);
 			precipeProduced.trigger(recipe);
@@ -237,8 +237,8 @@ public class STNNetworkProcessing implements Saver{
 				JsonNode nodeIn = nodeArray.get(0);
 				JsonNode nodeOut = nodeArray.get(1);
 				
-				RecipeOutput in = ItemLists.read(nodeIn);
-				RecipeOutput out = ItemLists.read(nodeOut);
+				ItemList in = ItemLists.read(nodeIn);
+				ItemList out = ItemLists.read(nodeOut);
 				int id = Integer.parseInt(numberString, 16);
 				
 				produceRecipe(in, out, id);

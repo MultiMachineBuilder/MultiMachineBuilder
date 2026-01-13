@@ -15,7 +15,7 @@ import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.rotate.ChirotatedImageGroup;
 import mmb.engine.rotate.Side;
 
@@ -158,11 +158,11 @@ public abstract class AbstractBasePipe extends BlockEntityChirotable {
 			return from.insert(ent, amount);
 		}
 		@Override
-		public int bulkInsert(RecipeOutput block, int amount) {
+		public int bulkInsert(ItemList block, int amount) {
 			return from.bulkInsert(block, amount);
 		}
 		@Override
-		public int toInsertBulk(RecipeOutput block, int amount) {
+		public int toInsertBulk(ItemList block, int amount) {
 			return from.insertibleRemainBulk(amount, block);
 		}
 		@Override

@@ -26,7 +26,7 @@ import mmb.engine.inv.NoSuchInventory;
 import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.rotate.ChiralRotation;
 import mmb.engine.rotate.Rotation;
 import mmb.engine.rotate.Side;
@@ -137,7 +137,7 @@ public interface ModularBlock<
 		//Removal
 		Tmc already = slot.get();
 		if(already != null) {
-			RecipeOutput toinsert = already.returnToPlayer();
+			ItemList toinsert = already.returnToPlayer();
 			boolean insert = inv.bulkInsert(toinsert, 1) == 1;
 			if(insert) slot.set(null);
 			Chance drop = already.dropItems();

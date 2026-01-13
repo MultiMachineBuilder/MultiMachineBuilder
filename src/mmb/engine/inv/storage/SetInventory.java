@@ -25,7 +25,7 @@ import mmb.engine.inv.SaveInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.ItemStack;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 
 /**
  * @author oskar
@@ -112,7 +112,7 @@ public class SetInventory<@NN T extends ItemEntry> implements SaveInventory{
 		return 1;
 	}
 	@Override
-	public int insertibleRemainBulk(int amount, RecipeOutput ent) {
+	public int insertibleRemainBulk(int amount, ItemList ent) {
 		if(amount <= 0) return 0;
 		//Test the volume
 		if(remainVolume() < ent.outVolume()) return 0;
@@ -162,7 +162,7 @@ public class SetInventory<@NN T extends ItemEntry> implements SaveInventory{
 		return MMBUtils.bool2int(remove);
 	}
 	@Override
-	public int bulkInsert(RecipeOutput ent, int amount) {
+	public int bulkInsert(ItemList ent, int amount) {
 		int canInsert = insertibleRemainBulk(amount, ent);
 		if(canInsert == 0) return 0;
 		for(ItemStack entry: ent) {

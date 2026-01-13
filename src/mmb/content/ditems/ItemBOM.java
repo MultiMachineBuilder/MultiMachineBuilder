@@ -14,7 +14,7 @@ import mmb.engine.item.ItemEntity;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
 import mmb.engine.recipe.ItemLists;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.SimpleItemList;
 
 import static mmb.engine.settings.GlobalSettings.$res;
@@ -47,7 +47,7 @@ public final class ItemBOM extends ItemFilter {
 	 * Creates a Bill of Materials with items (generic)
 	 * @param items items to use
 	 */
-	public ItemBOM(RecipeOutput items) {
+	public ItemBOM(ItemList items) {
 		if(items instanceof SimpleItemList) 
 			this.items = (SimpleItemList) items;
 		else

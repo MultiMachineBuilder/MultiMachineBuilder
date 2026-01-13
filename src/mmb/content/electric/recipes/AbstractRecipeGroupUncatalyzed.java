@@ -8,7 +8,7 @@ import java.util.Set;
 import mmb.annotations.NN;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.Recipe;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import monniasza.collects.Identifiable;
 
 /**
@@ -17,7 +17,7 @@ import monniasza.collects.Identifiable;
  * @param <Tlist> the item selection type
  * @param <Trecipe> type of recipes
  */
-public abstract class AbstractRecipeGroupUncatalyzed<@NN Tlist extends RecipeOutput, @NN Trecipe extends Recipe<@NN Trecipe>&Identifiable<Tlist>>
+public abstract class AbstractRecipeGroupUncatalyzed<@NN Tlist extends ItemList, @NN Trecipe extends Recipe<@NN Trecipe>&Identifiable<Tlist>>
 extends AbstractRecipeGroup<Tlist, Trecipe> {
 	protected AbstractRecipeGroupUncatalyzed(String id, Class<@NN Trecipe> rtype) {
 		super(id, rtype);

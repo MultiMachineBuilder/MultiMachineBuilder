@@ -16,7 +16,7 @@ import mmb.engine.item.ItemEntry;
  * An item stack or an item entry
  * @author oskar
  */
-public interface SingleItem extends RecipeOutput {
+public interface SingleItem extends ItemList {
 
 	@Override
 	default void produceResults(InventoryWriter tgt, int amount) {

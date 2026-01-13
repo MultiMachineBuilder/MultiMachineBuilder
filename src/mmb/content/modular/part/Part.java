@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 
 import mmb.annotations.NN;
 import mmb.engine.chance.Chance;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.texture.BlockDrawer;
 
 /**
@@ -71,7 +71,7 @@ public class Part extends PartBase implements PartEntry{
 		setVolume(volume);
 		return this;
 	}
-	@Override public Part rtp(RecipeOutput rtp) {
+	@Override public Part rtp(ItemList rtp) {
 		super.rtp(rtp);
 		return this;
 	}

@@ -61,12 +61,12 @@ public interface Recipe<@NN T extends Recipe<T>>{
 	
 	//CONTENTS
 	/** @return the recipe output of a single craft */
-	@NN public RecipeOutput output();
+	@NN public ItemList output();
 	/**
 	 * @return the required input items
 	 * @implNote the returned value should be read only
 	 */
-	@NN public RecipeOutput inputs();
+	@NN public ItemList inputs();
 	/** @return the catalyst. If the method returns {@code null}, it means there is no catalyst */
 	@Nil public ItemEntry catalyst();
 	/**
@@ -103,8 +103,8 @@ public interface Recipe<@NN T extends Recipe<T>>{
 	 * @param recipe recipe to get output from
 	 * @return output of the recipe, or null if not found
 	 */
-	@NN public static RecipeOutput out(@Nil Recipe<?> recipe) {
-		if(recipe == null) return RecipeOutput.NONE;
+	@NN public static ItemList out(@Nil Recipe<?> recipe) {
+		if(recipe == null) return ItemList.NONE;
 		return recipe.output();
 	}
 	/**
@@ -112,8 +112,8 @@ public interface Recipe<@NN T extends Recipe<T>>{
 	 * @param recipe recipe to get input from
 	 * @return input of the recipe, or null if not found
 	 */
-	@NN public static RecipeOutput in(@Nil Recipe<?> recipe) {
-		if(recipe == null) return RecipeOutput.NONE;
+	@NN public static ItemList in(@Nil Recipe<?> recipe) {
+		if(recipe == null) return ItemList.NONE;
 		return recipe.inputs();
 	}
 }

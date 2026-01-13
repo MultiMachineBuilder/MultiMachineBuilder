@@ -48,15 +48,15 @@ public class InventoryController extends JPanel implements AbstractInventoryCont
 	private static final long serialVersionUID = -3804277344383315579L;
 	
 	private final JList<ItemRecord> invlist;
-	@NN private DefaultListModel<ItemRecord> model0 = new DefaultListModel<>();
+	private DefaultListModel<ItemRecord> model0 = new DefaultListModel<>();
 	/** Inventory to which this inventory controller is linked */
-	private transient Inventory inv;
+	@Nil private transient Inventory inv;
 	private JLabel label;
 	private JButton btnRefresh;
 	private JScrollPane scrollPane;
 	private JButton btnUnsel;
 	/** Box at the top of this inventory controller */
-	@NN public final Box ubox;
+	public final Box ubox;
 	private final MultilineLabel description;
 	private static final String SELECT = $res("pleaseselitem");
 
@@ -167,7 +167,7 @@ public class InventoryController extends JPanel implements AbstractInventoryCont
 		return invlist.getSelectedValue();
 	}
 	/** @return item selection variable for item selection slots */
-	@NN public Variable<ItemEntry> itemSelection(){
+	public Variable<ItemEntry> itemSelection(){
 		return Variable.delegate(this::getSelectedItem, MMBUtils.doNothing());
 	}
 	/** @return a selected item */
@@ -304,7 +304,7 @@ public class InventoryController extends JPanel implements AbstractInventoryCont
 	/**
 	 * @return the model
 	 */
-	@NN public DefaultListModel<ItemRecord> getModel() {
+	public DefaultListModel<ItemRecord> getModel() {
 		return model0;
 	}
 	/**
@@ -325,7 +325,7 @@ public class InventoryController extends JPanel implements AbstractInventoryCont
 	 * @return current selection model
 	 * @see javax.swing.JList#getSelectionModel()
 	 */
-	@NN public ListSelectionModel getSelectionModel() {
+	public ListSelectionModel getSelectionModel() {
 		return Objects.requireNonNull(invlist.getSelectionModel(), "Invalid selection model");
 	}
 	/**

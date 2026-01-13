@@ -5,7 +5,7 @@ package mmb.content.drugs;
 
 import mmb.annotations.NN;
 import mmb.engine.item.Item;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.menu.wtool.WindowTool;
 
 /**
@@ -26,7 +26,7 @@ public class AlcoPod extends Item implements Intoxicating {
 	 * @param dose amount of alcohol per drink
 	 * @param drop items left after use
 	 */
-	public AlcoPod(double dose, RecipeOutput drop) {
+	public AlcoPod(double dose, ItemList drop) {
 		super();
 		this.dose = dose;
 		this.drop = drop;
@@ -34,13 +34,13 @@ public class AlcoPod extends Item implements Intoxicating {
 	
 	//Contents
 	private final double dose;
-	@NN private final RecipeOutput drop;
+	@NN private final ItemList drop;
 	@Override
 	public double alcoholicity() {
 		return dose;
 	}
 	@Override
-	public RecipeOutput postdrink() {
+	public ItemList postdrink() {
 		return drop;
 	}
 	@Override

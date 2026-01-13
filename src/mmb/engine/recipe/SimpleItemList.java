@@ -22,7 +22,7 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
  * An arbitrary, multi-item item list
  * @author oskar
  */
-public final class SimpleItemList implements RecipeOutput {
+public final class SimpleItemList implements ItemList {
 	/** Item list with no items */
 	@NN public static final SimpleItemList EMPTY = new SimpleItemList();
 	
@@ -86,7 +86,7 @@ public final class SimpleItemList implements RecipeOutput {
 	 * Creates an item list with the given recipe output
 	 * @param out recipe output
 	 */
-	public SimpleItemList(RecipeOutput out) {
+	public SimpleItemList(ItemList out) {
 		out.produceResults(createWriter());		
 	}	
 	/**
@@ -94,7 +94,7 @@ public final class SimpleItemList implements RecipeOutput {
 	 * @param out recipe output
 	 * @param amount amount of given recipe output
 	 */
-	public SimpleItemList(RecipeOutput out, int amount) {
+	public SimpleItemList(ItemList out, int amount) {
 		out.produceResults(createWriter(), amount);		
 	}	
 	/**
@@ -127,14 +127,14 @@ public final class SimpleItemList implements RecipeOutput {
 				return amount;
 			}
 			@Override
-			public int bulkInsert(RecipeOutput block, int amount) {
+			public int bulkInsert(ItemList block, int amount) {
 				for(Entry<@NN ItemEntry> ent: block.getContents().object2IntEntrySet()) {
 					insert(ent.getKey(), amount*ent.getIntValue());
 				}
 				return amount;
 			}
 			@Override
-			public int toInsertBulk(RecipeOutput block, int amount) {
+			public int toInsertBulk(ItemList block, int amount) {
 				return amount;
 			}
 
@@ -196,8 +196,8 @@ public final class SimpleItemList implements RecipeOutput {
 	public boolean equals(@Nil Object obj) {
 		if (this == obj)
 			return true;
-		if (obj instanceof RecipeOutput)
-			return data.equals(((RecipeOutput) obj).getContents());
+		if (obj instanceof ItemList)
+			return data.equals(((ItemList) obj).getContents());
 		return false;
 	}
 	@Override

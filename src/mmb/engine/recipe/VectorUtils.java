@@ -19,7 +19,7 @@ public class VectorUtils {
 	 * @param output recipe output
 	 * @return a vector with given contents
 	 */
-	@NN public static Vector<ItemStack> list2vector(RecipeOutput output){
+	@NN public static Vector<ItemStack> list2vector(ItemList output){
 		return output
 				.getContents()
 				.object2IntEntrySet()
@@ -32,7 +32,7 @@ public class VectorUtils {
 	 * @param output recipe output
 	 * @return an array with given contents
 	 */
-	@NN public static ItemStack[] list2arr(RecipeOutput output){
+	@NN public static ItemStack[] list2arr(ItemList output){
 		return output
 				.getContents()
 				.object2IntEntrySet()

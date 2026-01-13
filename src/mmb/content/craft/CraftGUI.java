@@ -18,7 +18,7 @@ import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemRaw;
 import mmb.engine.recipe.ItemStack;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.SimpleItemList;
 import mmb.engine.settings.GlobalSettings;
 import mmb.menu.Icons;
@@ -72,7 +72,7 @@ public class CraftGUI extends GUITab {
 	 */
 	public CraftGUI(int size, @Nil Inventory inv, @Nil ManCrafter crafter, @Nil WorldWindow window) {
 		Object2IntMap<ItemEntry> ins = new Object2IntOpenHashMap<>();
-		AtomicReference<RecipeOutput> outs = new AtomicReference<>();
+		AtomicReference<ItemList> outs = new AtomicReference<>();
 		DefaultListModel<ItemStack> listmodel = new DefaultListModel<>();
 		
 		setLayout(new MigLayout("", "[grow][][]", "[][][grow]"));
@@ -92,7 +92,7 @@ public class CraftGUI extends GUITab {
 			contents.set(e.x, e.y, e.newEntry);
 			CraftingRecipe recipe = CraftingGroups.crafting.findRecipe(contents);
 			outs.set(recipe == null ? null: recipe.out);  //Find new item to be crafted
-			RecipeOutput rout = outs.get();
+			ItemList rout = outs.get();
 			ins.clear();
 			listmodel.clear();
 			if(rout == null) {
@@ -182,7 +182,7 @@ public class CraftGUI extends GUITab {
 		btnCraft.setToolTipText($res("wguic-craft"));
 		btnCraft.addActionListener(e -> {
 			debug.printl("Running the crafing");
-			RecipeOutput rout = outs.get();
+			ItemList rout = outs.get();
 			if(rout == null) return;
 			Inventory inv0 = inventoryController.getInv();
 			if(inv0 == null) return;

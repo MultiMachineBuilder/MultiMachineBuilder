@@ -20,7 +20,7 @@ import mmb.engine.inv.SaveInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.ItemStack;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 
 /**
  * @author oskar
@@ -96,7 +96,7 @@ public class SingleStackedInventory implements SaveInventory{
 
 	//Item calculation
 	@Override
-	public int insertibleRemainBulk(int amount, RecipeOutput block) {
+	public int insertibleRemainBulk(int amount, ItemList block) {
 		if(block.items().size() > 1) return 0;
 		if(block.items().isEmpty()) return 0;
 		for(Entry<ItemEntry> entry: block.getContents().object2IntEntrySet()) {
@@ -156,7 +156,7 @@ public class SingleStackedInventory implements SaveInventory{
 		return 0;
 	}
 	@Override
-	public int bulkInsert(RecipeOutput block, int amount) {
+	public int bulkInsert(ItemList block, int amount) {
 		if(block.items().size() > 1) return 0;
 		if(block.items().isEmpty()) return amount;
 		for(Entry<ItemEntry> entry: block.getContents().object2IntEntrySet()) {

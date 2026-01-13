@@ -11,7 +11,7 @@ import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
 
 import mmb.annotations.NN;
 import mmb.engine.chance.Chance;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.texture.BlockDrawer;
 
 /**
@@ -84,7 +84,7 @@ public class PartEntityType extends PartBase{
 		setVolume(volume);
 		return this;
 	}
-	@Override public PartEntityType rtp(RecipeOutput rtp) {
+	@Override public PartEntityType rtp(ItemList rtp) {
 		super.rtp(rtp);
 		return this;
 	}

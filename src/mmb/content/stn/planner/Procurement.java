@@ -6,7 +6,7 @@ package mmb.content.stn.planner;
 import java.util.Objects;
 
 import mmb.annotations.NN;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 
 /**
  * @author oskar
@@ -36,7 +36,7 @@ public class Procurement {
 		/**
 		 * @return items produced per operation
 		 */
-		public RecipeOutput outputs();
+		public ItemList outputs();
 		/**
 		 * Gets the remaining items to source
 		 * @return remaining items, or -1 if unlimited

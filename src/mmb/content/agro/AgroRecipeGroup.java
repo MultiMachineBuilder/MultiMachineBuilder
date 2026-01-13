@@ -11,7 +11,7 @@ import mmb.content.electric.recipes.AbstractRecipeGroupUncatalyzed;
 import mmb.engine.chance.Chance;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.Recipe;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.RecipeView;
 import monniasza.collects.Identifiable;
 
@@ -36,7 +36,7 @@ public class AgroRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemEntr
 		/** The input crop */
 		@NN public final ItemEntry input;
 		/** The crop's output */		
-		@NN public final RecipeOutput output;
+		@NN public final ItemList output;
 		/** Duration between drops in ticks */
 		         public final int duration;
 		
@@ -46,7 +46,7 @@ public class AgroRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemEntr
 		 * @param output output items
 		 * @param duration duration in ticks between drops
 		 */
-		public AgroProcessingRecipe(ItemEntry input, RecipeOutput output, int duration) {
+		public AgroProcessingRecipe(ItemEntry input, ItemList output, int duration) {
 			Objects.requireNonNull(input, "input crop is null");
 			Objects.requireNonNull(output, "output is null");
 			this.input = input;
@@ -58,11 +58,11 @@ public class AgroRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemEntr
 			return input;
 		}		
 		@Override
-		public RecipeOutput output() {
+		public ItemList output() {
 			return output;
 		}
 		@Override
-		public RecipeOutput inputs() {
+		public ItemList inputs() {
 			return input;
 		}
 		@Override
@@ -99,7 +99,7 @@ public class AgroRecipeGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemEntr
 	 * @param duration time between successive drops
 	 * @return the recipe
 	 */
-	public AgroProcessingRecipe add(ItemEntry in, RecipeOutput out, int duration) {
+	public AgroProcessingRecipe add(ItemEntry in, ItemList out, int duration) {
 		AgroProcessingRecipe recipe = new AgroProcessingRecipe(in, out, duration);
 		insert(recipe);
 		return recipe;

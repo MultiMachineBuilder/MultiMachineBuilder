@@ -17,7 +17,7 @@ import mmb.engine.chance.Chance;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemStack;
 import mmb.engine.recipe.Recipe;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.SimpleItemList;
 import monniasza.collects.Identifiable;
 import monniasza.collects.grid.FixedGrid;
@@ -55,20 +55,20 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup<@NN Grid<ItemEntry>
 		/** The item grid of the recipe */
 		public final Grid<ItemEntry> grid;
 		/** The outgoing items */
-		public final RecipeOutput out;
+		public final ItemList out;
 		/** The incoming items */
-		public final RecipeOutput in;
+		public final ItemList in;
 		/**
 		 * Creates a crafting recipe
 		 * @param grid recipe items
 		 * @param out item output
 		 */
-		public CraftingRecipe(Grid<ItemEntry> grid, RecipeOutput out) {
+		public CraftingRecipe(Grid<ItemEntry> grid, ItemList out) {
 			super();
 			group = CraftingRecipeGroup.this;
 			Object2IntMap<ItemEntry> map = new Object2IntOpenHashMap<>();
 			for(ItemEntry entry: grid) {
-				if(entry != null) map.compute(entry, (item, amt) -> amt == null?1:amt+1);
+				if(entry != null) map.computeInt(entry, (item, amt) -> amt == null?1:amt+1);
 			}
 			in = new SimpleItemList(map);
 			this.grid = grid;
@@ -79,11 +79,11 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup<@NN Grid<ItemEntry>
 			return grid;
 		}
 		@Override
-		public RecipeOutput output() {
+		public ItemList output() {
 			return out;
 		}
 		@Override
-		public RecipeOutput inputs() {
+		public ItemList inputs() {
 			return in;
 		}
 		@Override
@@ -112,7 +112,7 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup<@NN Grid<ItemEntry>
 		}
 	}
 	
-	public CraftingRecipe addRecipe(ItemEntry in, RecipeOutput out) {
+	public CraftingRecipe addRecipe(ItemEntry in, ItemList out) {
 		return addRecipe(new FixedGrid<>(1, in), out);
 	}
 	public CraftingRecipe addRecipe(ItemEntry in, ItemEntry out, int amount) {
@@ -121,18 +121,18 @@ public class CraftingRecipeGroup extends AbstractRecipeGroup<@NN Grid<ItemEntry>
 	public CraftingRecipe addRecipe(Grid<@Nil ItemEntry> in, ItemEntry out, int amount) {
 		return addRecipe(in, new ItemStack(out, amount));
 	}
-	public CraftingRecipe addRecipe(Grid<@Nil ItemEntry> in, RecipeOutput out) {
+	public CraftingRecipe addRecipe(Grid<@Nil ItemEntry> in, ItemList out) {
 		@NN CraftingRecipe recipe = new CraftingRecipe(in, out);
 		insert(recipe);
 		return recipe;		
 	}
-	public CraftingRecipe addRecipeGrid(ItemEntry in, int w, int h, RecipeOutput out) {
+	public CraftingRecipe addRecipeGrid(ItemEntry in, int w, int h, ItemList out) {
 		return addRecipe(FixedGrid.fill(w, h, in), out);
 	}
 	public CraftingRecipe addRecipeGrid(ItemEntry in, int w, int h, ItemEntry out, int amount) {
 		return addRecipe(FixedGrid.fill(w, h, in), out, amount);
 	}
-	public CraftingRecipe addRecipeGrid(ItemEntry[] in, int w, int h, RecipeOutput out) {
+	public CraftingRecipe addRecipeGrid(ItemEntry[] in, int w, int h, ItemList out) {
 		return addRecipe(new FixedGrid<>(w, h, in), out);
 	}
 	public CraftingRecipe addRecipeGrid(ItemEntry[] in, int w, int h, ItemEntry out, int amount) {

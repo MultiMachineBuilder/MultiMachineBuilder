@@ -15,7 +15,7 @@ import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemStack;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 
 /**
  * An inventory is an object, which allows players and machines to store items.
@@ -101,7 +101,7 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 	 * @param ent insertion unit to check
 	 * @return number of units that may be inserted. May vary by inventory
 	 */
-	public int insertibleRemainBulk(int amount, RecipeOutput ent);
+	public int insertibleRemainBulk(int amount, ItemList ent);
 	
 	//Extraction calculation
 	/**
@@ -129,7 +129,7 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 	 * @implNote The implementation is suitable for most inventories.
 	 * If inventory restricts extractions beyond blocking them all, this method should be overridden
 	 */
-	public default int extractRemainBulk(int amount, RecipeOutput ent) {
+	public default int extractRemainBulk(int amount, ItemList ent) {
 		int maxUnits = amount;
 		for(ItemStack stk: ent) {
 			int largerAmount = stk.amount * maxUnits;
@@ -199,7 +199,7 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 	 * @throws IllegalArgumentException when negative units are inserted.
 	 * @return number of units inserted
 	 */
-	public int bulkInsert(RecipeOutput ent, int amount);
+	public int bulkInsert(ItemList ent, int amount);
 	/**
 	 * Extract units from an inventory, without breaking up the units
 	 * The inventory may impose restrictions on the extraction, so users should check beforehand
@@ -208,9 +208,9 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 	 * @throws IllegalArgumentException when negative units are extracted.
 	 * @return number of units extracted
 	 * @implNote The implementation is suitable for most inventories.
-	 * If inventory restricts extractions beyond blocking them all, the {@link #extractRemainBulk(int, RecipeOutput)} should be overridden
+	 * If inventory restricts extractions beyond blocking them all, the {@link #extractRemainBulk(int, ItemList)} should be overridden
 	 */
-	public default int bulkExtract(RecipeOutput ent, int amount) {
+	public default int bulkExtract(ItemList ent, int amount) {
 		int actual = extractRemainBulk(amount, ent);
 		debug0.printl("Extract attempt with "+actual+" of "+amount+" blocks");
 		if(actual == 0) return 0;
@@ -277,12 +277,12 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 			}
 
 			@Override
-			public int toBeExtractedBulk(RecipeOutput item, int amount) {
+			public int toBeExtractedBulk(ItemList item, int amount) {
 				return extractRemainBulk(amount, item);
 			}
 
 			@Override
-			public int extractBulk(RecipeOutput block, int amount) {
+			public int extractBulk(ItemList block, int amount) {
 				return Inventory.this.bulkExtract(block, amount);
 			}
 		};
@@ -300,12 +300,12 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 			}
 
 			@Override
-			public int bulkInsert(RecipeOutput block, int amount) {
+			public int bulkInsert(ItemList block, int amount) {
 				return Inventory.this.bulkInsert(block, amount);
 			}
 
 			@Override
-			public int toInsertBulk(RecipeOutput block, int amount) {
+			public int toInsertBulk(ItemList block, int amount) {
 				return insertibleRemainBulk(amount, block);
 			}
 
@@ -401,7 +401,7 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 	 * @param amount maximum reported amount
 	 * @return amount of {@code sub} ins {@code main}
 	 */
-	public static int howManyTimesThisContainsThat(Inventory main, RecipeOutput sub, int amount) {
+	public static int howManyTimesThisContainsThat(Inventory main, ItemList sub, int amount) {
 		int result = amount;
 		for(ItemStack irecord: sub) {
 			int small = irecord.amount; //the sub contains null records
@@ -420,7 +420,7 @@ public interface Inventory extends Collection<@NN ItemRecord> {
 	 * @param sub copies to count
 	 * @return amount of {@code sub} ins {@code main}
 	 */
-	public static int howManyTimesThisContainsThat(Inventory main, RecipeOutput sub) {
+	public static int howManyTimesThisContainsThat(Inventory main, ItemList sub) {
 		return howManyTimesThisContainsThat(main, sub, Integer.MAX_VALUE);
 	}
 	/**

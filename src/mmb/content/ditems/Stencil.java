@@ -20,7 +20,7 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.Recipe;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import monniasza.collects.Collects;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
@@ -112,7 +112,7 @@ public class Stencil extends ItemEntity{
 			title = "Crafting stencil - invalid";
 			return;
 		}
-		RecipeOutput results = recipe.out;
+		ItemList results = recipe.out;
 		PicoWriter writer = new PicoWriter();
 		writer.write("Crafting stencil - ");
 		results.represent(writer);
@@ -130,11 +130,11 @@ public class Stencil extends ItemEntity{
 		return recipe0;
 	}
 	/** @return items consumed by the recipe */
-	@NN public RecipeOutput in() {
+	@NN public ItemList in() {
 		return Recipe.in(recipe());
 	}
 	/** @return items produced by the recipe */
-	@NN public RecipeOutput out() {
+	@NN public ItemList out() {
 		return Recipe.out(recipe());
 	}
 }

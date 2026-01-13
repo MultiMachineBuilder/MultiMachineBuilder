@@ -31,7 +31,7 @@ import monniasza.collects.Collects;
  * All implementations of this interface must be immutable, and may have builders.
  * @author oskar
  */
-public interface RecipeOutput extends Chance, Iterable<ItemStack>{
+public interface ItemList extends Chance, Iterable<ItemStack>{
 	@Override
 	default boolean drop(@Nil InventoryWriter inv, @Nil World map, int x, int y) { //NOSONAR the items will always be dropped
 		if(map == null) {
@@ -121,8 +121,8 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	@Override
 	int hashCode();
 
-	/** Represents a recipe output that does nothing */
-	@NN public static final RecipeOutput NONE = new RecipeOutput() {
+	/** The empty item list */
+	@NN public static final ItemList NONE = new ItemList() {
 
 		@Override
 		public void produceResults(InventoryWriter tgt, int amount) {
@@ -163,8 +163,8 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 		@Override
 		public boolean equals(@Nil Object obj) {
 			if(obj == this) return true;
-			if(obj instanceof RecipeOutput) {
-				RecipeOutput other = (RecipeOutput) obj;
+			if(obj instanceof ItemList) {
+				ItemList other = (ItemList) obj;
 				return other.getContents().isEmpty();
 			}
 			return false;
@@ -188,7 +188,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	 * @param rout recipe output
 	 * @return an empty recipe output if null, or else the input recipe output
 	 */
-	@NN public static RecipeOutput orDefault(@Nil RecipeOutput rout) {
+	@NN public static ItemList orDefault(@Nil ItemList rout) {
 		if(rout == null) return NONE;
 		return rout;
 	}
@@ -199,7 +199,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	 * @param rout the ingredient in the sum
 	 * @return sum of two recipe outputs
 	 */
-	public default SimpleItemList add(RecipeOutput rout) {
+	public default SimpleItemList add(ItemList rout) {
 		Object2IntOpenHashMap<@NN ItemEntry> map = new Object2IntOpenHashMap<>(getContents());
 		for(ItemStack items: rout) 
 			map.addTo(items.item, items.amount);
@@ -268,7 +268,7 @@ public interface RecipeOutput extends Chance, Iterable<ItemStack>{
 	@SuppressWarnings("null")
 	@Override
 	default @NN Iterator<ItemStack> iterator() {
-		return Iterators.transform(getContents().object2IntEntrySet().iterator(), RecipeOutput::entry2stack);
+		return Iterators.transform(getContents().object2IntEntrySet().iterator(), ItemList::entry2stack);
 	}
 	
 	/**

@@ -9,7 +9,7 @@ import com.google.common.collect.Iterators;
 
 import mmb.annotations.NN;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 
 /**
  * An inventory, which only allows insertions
@@ -105,7 +105,7 @@ public class InsertionsOnlyInventory implements Inventory{
 	}
 
 	@Override
-	public int bulkInsert(RecipeOutput ent, int amount) {
+	public int bulkInsert(ItemList ent, int amount) {
 		return inv.bulkInsert(ent, amount);
 	}
 
@@ -115,7 +115,7 @@ public class InsertionsOnlyInventory implements Inventory{
 	}
 
 	@Override
-	public int insertibleRemainBulk(int amount, RecipeOutput ent) {
+	public int insertibleRemainBulk(int amount, ItemList ent) {
 		return inv.insertibleRemainBulk(amount, ent);
 	}
 }

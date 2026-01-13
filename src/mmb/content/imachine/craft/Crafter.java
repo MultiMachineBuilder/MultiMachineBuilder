@@ -20,7 +20,7 @@ import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
@@ -92,8 +92,8 @@ public class Crafter extends BlockEntityData implements BlockActivateListener{
 		if(item == null) return;
 		if (!(item instanceof Stencil)) return;
 		Stencil s = (Stencil) item;
-		RecipeOutput inputs = s.in();
-		RecipeOutput output1 = s.out();
+		ItemList inputs = s.in();
+		ItemList output1 = s.out();
 		Inventories.transact(inputs, incoming, output1, outgoing, 1);
 		if(gui != null) gui.refresh();
 	}

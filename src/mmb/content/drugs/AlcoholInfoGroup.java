@@ -9,7 +9,7 @@ import mmb.content.electric.recipes.AbstractRecipeGroupUncatalyzed;
 import mmb.engine.chance.Chance;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.Recipe;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.RecipeView;
 import monniasza.collects.Identifiable;
 
@@ -34,7 +34,7 @@ public class AlcoholInfoGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemEnt
 		/** The alcoholic beverage*/
 		@NN public final ItemEntry input;
 		/** The packaging for the alcoholic beverage*/
-		@NN public final RecipeOutput output;
+		@NN public final ItemList output;
 		/** Amount of alcohol in one serving*/
 		public final double dose;
 		/**
@@ -43,7 +43,7 @@ public class AlcoholInfoGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemEnt
 		 * @param output the packaging for the alcoholic beverage
 		 * @param dose amount of alcohol in one serving
 		 */
-		public AlcoholInfo(ItemEntry input, RecipeOutput output, double dose) {
+		public AlcoholInfo(ItemEntry input, ItemList output, double dose) {
 			this.input = input;
 			this.output = output;
 			this.dose = dose;
@@ -53,11 +53,11 @@ public class AlcoholInfoGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemEnt
 			return input;
 		}
 		@Override
-		public RecipeOutput output() {
+		public ItemList output() {
 			return output;
 		}
 		@Override
-		public RecipeOutput inputs() {
+		public ItemList inputs() {
 			return input;
 		}
 		@Override
@@ -95,7 +95,7 @@ public class AlcoholInfoGroup extends AbstractRecipeGroupUncatalyzed<@NN ItemEnt
 	 * @param dose time between successive drops
 	 * @return the recipe
 	 */
-	public AlcoholInfo add(ItemEntry in, RecipeOutput out, double dose) {
+	public AlcoholInfo add(ItemEntry in, ItemList out, double dose) {
 		@NN AlcoholInfo recipe = new AlcoholInfo(in, out, dose);
 		insert(recipe);
 		return recipe;

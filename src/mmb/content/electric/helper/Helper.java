@@ -22,7 +22,7 @@ import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.Recipe;
 import mmb.engine.recipe.RecipeGroup;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.Refreshable;
 
 /**
@@ -174,7 +174,7 @@ public abstract class Helper<@NN Trecipe extends Recipe<@NN Trecipe>, Tgroup ext
 			//Time to eject an item
 			//Eject expected item
 			InventoryWriter writer = output.createWriter();
-			RecipeOutput iresults = underway3.output();
+			ItemList iresults = underway3.output();
 			boolean insert = writer.bulkInsert(iresults);
 			if(insert) {
 				progress -= underway3.energy();

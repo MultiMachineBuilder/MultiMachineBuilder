@@ -15,7 +15,7 @@ import mmb.engine.debug.Debugger;
 import mmb.engine.inv.InvUtils;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
 
@@ -43,14 +43,14 @@ public class PlaceIncomingItems extends BlockEntityRotary {
 		}
 
 		@Override
-		public int bulkInsert(RecipeOutput block, int amount) {
+		public int bulkInsert(ItemList block, int amount) {
 			ItemEntry item = InvUtils.onlyItem(block);
 			if(item == null) return 0;
 			return insert(item, amount);
 		}
 
 		@Override
-		public int toInsertBulk(RecipeOutput block, int amount) {
+		public int toInsertBulk(ItemList block, int amount) {
 			return toInsert(InvUtils.onlyItem(block), amount);
 		}
 

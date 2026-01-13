@@ -46,60 +46,18 @@
     }, {
       "blocktype" : "elecwire.large.rudimentary",
       "ppres" : 0.0
-    }, "mmb.grass", "mmb.grass", "mmb.grass", {
-      "blocktype" : "industry.cycle0",
-      "side" : "N"
-    }, {
-      "blocktype" : "industry.cycle0",
-      "side" : "N"
-    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "elecwire.tiny.rudimentary",
       "ppres" : 0.0
     }, "mmb.grass", {
       "blocktype" : "elecwire.medium.rudimentary",
       "ppres" : 0.0
-    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
-      "blocktype" : "nuke.generator",
-      "fuel" : null,
-      "energy" : 1.99998E9,
-      "inElec" : [ 0.0, 0.0 ],
-      "inElecCfg" : [ true, false, false, false ],
-      "outElec" : [ 20000.0, 2.2414E8 ],
-      "outElecCfg" : [ true, false, false, false ],
-      "inItem" : [ 2.0 ],
-      "inItemCfg" : [ false, false, false, false ],
-      "outItem" : [ 2.0 ],
-      "outItemCfg" : [ false, false, false, false ]
-    }, "mmb.grass", "mmb.grass", {
-      "blocktype" : "elec.furnace",
-      "inElec" : [ 0.0, 0.0 ],
-      "inElecCfg" : [ true, false, false, false ],
-      "inItem" : [ 2.0 ],
-      "inItemCfg" : [ false, false, false, false ],
-      "outItem" : [ 2.0 ],
-      "outItemCfg" : [ false, false, false, false ]
-    }, "mmb.grass", "mmb.grass", "mmb.grass", {
-      "blocktype" : "elec.furnace",
-      "inElec" : [ 0.0, 2.474998730464153E7 ],
-      "inElecCfg" : [ false, true, false, false ],
-      "inItem" : [ 2.0 ],
-      "inItemCfg" : [ true, false, false, false ],
-      "outItem" : [ 2.0 ],
-      "outItemCfg" : [ true, false, false, false ]
-    }, {
-      "blocktype" : "elec.furnace",
-      "inElec" : [ 20000.0, 2.4648945342632826E7 ],
-      "inElecCfg" : [ false, true, false, false ],
-      "inItem" : [ 2.0 ],
-      "inItemCfg" : [ true, false, false, false ],
-      "outItem" : [ 2.0 ],
-      "outItemCfg" : [ true, false, false, false ]
-    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "industry.infinigen0", {
+    }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "industry.infinigen0", {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : 2.472457284054239E7
+      "ppres" : 2.4699261163938947E7
     }, {
       "blocktype" : "elecwire.medium.rudimentary",
-      "ppres" : 2.4673949487335507E7
+      "ppres" : 2.4699261163938947E7
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", {
       "blocktype" : "industry.furnace",
       "side" : "N",
@@ -207,7 +165,6 @@
       "ppres" : 0.0
     }, "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "industry.infinigen0", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass", "mmb.grass" ],
     "drops" : [ ],
-    "machines" : [ ],
     "player" : {
       "inventory" : [ 128.0, [ "elecwire.tiny.silver", 1 ], [ "elecwire.large.gold", 1 ], [ "elec.meter", 1 ], [ "elecwire.large.copper", 1 ], [ "elecwire.tiny.unobtainium", 1 ], [ "elecwire.large.stellar", 1 ], [ "elecwire.tiny.crystal", 1 ], [ "elecwire.medium.rudimentary", 1 ], [ "elecwire.small.gold", 1 ], [ "elecwire.large.platinum", 1 ], [ "elecwire.small.copper", 1 ], [ "elecwire.tiny.gold", 1 ], [ "elec.load", 1 ], [ "elecwire.small.unobtainium", 1 ], [ "elecwire.tiny.platinum", 1 ], [ "elecwire.medium.iridium", 1 ], [ "elecwire.large.silver", 1 ], [ "elecwire.tiny.iridium", 1 ], [ "elecwire.small.platinum", 1 ], [ "elecwire.large.rudimentary", 1 ], [ "elecwire.large.crystal", 1 ], [ "elecwire.tiny.stellar", 1 ], [ "elecwire.medium.crystal", 1 ], [ "elecwire.medium.gold", 1 ], [ "elecwire.small.crystal", 1 ], [ "elecwire.large.iridium", 1 ], [ "elecwire.medium.unobtainium", 1 ], [ "elecwire.medium.platinum", 1 ], [ "elecwire.medium.stellar", 1 ], [ "elecwire.medium.copper", 1 ], [ "elecwire.small.rudimentary", 1 ], [ "elecwire.medium.silver", 1 ], [ "elecwire.small.stellar", 1 ], [ "elecwire.tiny.rudimentary", 1 ], [ "elecwire.small.iridium", 1 ], [ "elecwire.large.unobtainium", 1 ], [ "elecwire.small.silver", 1 ], [ "elecwire.tiny.copper", 1 ] ],
       "creative" : true,

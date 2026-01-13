@@ -30,7 +30,7 @@ import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 import mmb.engine.java2d.TexGen;
-import mmb.engine.recipe.RecipeOutput;
+import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.SimpleItemList;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;
@@ -123,7 +123,7 @@ public class ModularChests {
 	static void moverImplMulti(InventoryReader reader, InventoryWriter writer, @Nil ItemEntry settings, int stacking, double maxVolume) {
 		if(settings instanceof ItemBOM && reader.level() == ExtractionLevel.RANDOM) {
 			ItemBOM bom = (ItemBOM) settings;
-			RecipeOutput items = bom.contents();
+			ItemList items = bom.contents();
 			Inventories.transferMultiVolumeLimited(reader, writer, items, stacking, maxVolume);
 		}
 	}
@@ -134,7 +134,7 @@ public class ModularChests {
 	static void moverImplBulk(InventoryReader reader, InventoryWriter writer, @Nil ItemEntry settings, int stacking, double maxVolume) {
 		if(settings instanceof ItemBOM && reader.level() == ExtractionLevel.RANDOM) {
 			ItemBOM bom = (ItemBOM) settings;
-			RecipeOutput items = bom.contents();
+			ItemList items = bom.contents();
 			Inventories.transferBulkVolumeLimited(reader, writer, items, stacking, maxVolume);
 		}
 	}
