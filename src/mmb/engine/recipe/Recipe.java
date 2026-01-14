@@ -62,10 +62,8 @@ public interface Recipe<@NN T extends Recipe<T>>{
 	//CONTENTS
 	/** @return the recipe output of a single craft */
 	@NN public ItemList output();
-	/**
-	 * @return the required input items
-	 * @implNote the returned value should be read only
-	 */
+	/** @return the required input items
+	 * @implNote the returned value should be read only */
 	@NN public ItemList inputs();
 	/** @return the catalyst. If the method returns {@code null}, it means there is no catalyst */
 	@Nil public ItemEntry catalyst();
@@ -74,9 +72,9 @@ public interface Recipe<@NN T extends Recipe<T>>{
 	 * @throws UnsupportedOperationException if the implementation is a stencil, or something similar (optional operation)
 	 */
 	@NN public RecipeGroup<T> group();
-	/**
-	 * @return randomly chanced items
-	 */
+	
+	//TODO remove the old chanced output system
+	/** @return randomly chanced items */
 	@NN public Chance luck();
 	/**
 	 * @return amount of electricity required for the recipe

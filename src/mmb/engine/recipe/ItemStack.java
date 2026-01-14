@@ -21,13 +21,9 @@ public final class ItemStack implements Identifiable<ItemEntry>, SingleItem{
 		return "ItemStack " + item + " * " + amount;
 	}
 
-	/**
-	 * An item stored in the inventory
-	 */
+	/** An item described by this item stack */
 	@NN public final ItemEntry item;
-	/**
-	 * Number of items in the entry
-	 */
+	/** Number of items in the entry */
 	public final int amount;
 	
 	/**

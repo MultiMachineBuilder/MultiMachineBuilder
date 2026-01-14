@@ -3,14 +3,17 @@ package mmb.engine.recipe2;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
 
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.content.electric.VoltageTier;
+import mmb.engine.item.ItemEntry;
 
 /** A collection of recipe outputs with chances, min voltages and buffs. */
 public class RecipeOutput {
 	public final List<OutputRow> rows;
+	public final Set<ItemEntry> items;
 	
 	/** Empty recipe output with no rows */
 	public RecipeOutput EMPTY = new RecipeOutput();
@@ -23,14 +26,15 @@ public class RecipeOutput {
 			if(row == null) throw new NullPointerException("Row #"+i+" is null");
 		}
 		this.rows = List.copyOf(rows);
+		this.items = createItemsSetFromList();
 	}
 	/** Creates a new recipe output from a collection of rows */
 	public RecipeOutput(@NN OutputRow @NN ... rows) {
-		Objects.requireNonNull(rows, "rows is null");
-		for(int i = 0; i < rows.length; i++) {
-			if(rows[i] == null) throw new NullPointerException("Row #"+i+" is null");
-		}
-		this.rows = List.of(rows);
+		this(List.of(Objects.requireNonNull(rows, "rows is null")));
+	}
+	
+	private Set<ItemEntry> createItemsSetFromList(){
+		return rows.stream().map(x -> x.item()).collect(Collectors.toUnmodifiableSet());
 	}
 	
 	//OPERATIONS

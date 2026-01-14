@@ -15,7 +15,6 @@ import static mmb.content.rawmats.Materials.iron;
 import java.awt.image.BufferedImage;
 import java.util.ResourceBundle;
 
-import mmb.annotations.NN;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.item.Item;
@@ -39,23 +38,23 @@ public class Agro {
 	
 	//Recipes
 	/** Crop outputs */
-	@NN public static final AgroRecipeGroup crops = new AgroRecipeGroup("agrorecipes");
+	public static final AgroRecipeGroup crops = new AgroRecipeGroup("agrorecipes");
 	
 	//Crop putputs
 	/** Yeast, used to make beer */
-	@NN public static final Item yeast = new Item()
+	public static final Item yeast = new Item()
 		.title("#yeast")
 		.texture("item/yeast.png")
 		.volumed(0.001)
 		.finish("item.yeast");
 	/** Hops, used to make beer */
-	@NN public static final Item hops = new Item()
+	public static final Item hops = new Item()
 		.title("#hops")
 		.texture("item/hops.png")
 		.volumed(0.001)
 		.finish("item.hops");
 	/** Seeds, used to make beer */
-	@NN public static final Item seeds = new Item()
+	public static final Item seeds = new Item()
 		.title("#seeds")
 		.texture("item/seeds.png")
 		.volumed(0.002)
@@ -63,16 +62,16 @@ public class Agro {
 	
 	//Crops
 	/** Tree, produces wood logs */
-	@NN public static final BlockEntityType AGRO_TREE =
+	public static final BlockEntityType AGRO_TREE =
 		Agro.crop(1500, ContentsBlocks.logs, "#machine-tree", Textures.get("block/tree.png"), "crop.tree");
 	/** Water well, produces water */
-	@NN public static final BlockEntityType AGRO_WATER =
+	public static final BlockEntityType AGRO_WATER =
 		Agro.crop(1000, ContentsBlocks.water, "#machine-water", Textures.get("machine/water well.png"), "crop.water");
 	/** Crop field, produces seeds */
-	@NN public static final BlockEntityType AGRO_SEEDS =
+	public static final BlockEntityType AGRO_SEEDS =
 		Agro.crop(1000, seeds, "#machine-seeds", Textures.get("block/cropfield.png"), "crop.seeds");
 	/** Hop field, produces hops */
-	@NN public static final BlockEntityType AGRO_HOPS =
+	public static final BlockEntityType AGRO_HOPS =
 		Agro.crop(1000, hops, "#machine-hops", Textures.get("machine/hops.png"), "crop.hops");
 	
 	private static boolean inited = false;
@@ -115,7 +114,7 @@ public class Agro {
 	 * @param id block ID
 	 * @return the crop block entity type
 	 */
-	@NN public static BlockEntityType crop(int duration, ItemList cropDrop, String title, BufferedImage texture, String id) {
+	public static BlockEntityType crop(int duration, ItemList cropDrop, String title, BufferedImage texture, String id) {
 		BlockEntityType result = new BlockEntityType().title(title).texture(texture).finish(id);
 		crops.add(result, cropDrop, duration);
 		return result.factory(() -> new Crop(result, duration, cropDrop));
