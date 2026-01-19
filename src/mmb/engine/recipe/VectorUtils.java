@@ -7,6 +7,8 @@ import java.util.Vector;
 import java.util.stream.Collectors;
 
 import mmb.annotations.NN;
+import mmb.engine.recipe2.OutputRow;
+import mmb.engine.recipe2.RecipeOutput;
 
 /**
  * @author oskar
@@ -40,5 +42,10 @@ public class VectorUtils {
 				.map(entry -> new ItemStack(entry.getKey(), entry.getIntValue()))
 				.toArray(n -> new ItemStack[n]);
 	}
-
+	@NN public static OutputRow[] list2arr(RecipeOutput output){
+		return output
+				.rows
+				.stream()
+				.toArray(n -> new OutputRow[n]);
+	}
 }

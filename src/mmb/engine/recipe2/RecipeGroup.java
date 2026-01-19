@@ -8,6 +8,7 @@ import java.util.function.Consumer;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.RecipeView;
 import monniasza.collects.indexar.Database;
 import monniasza.collects.indexar.ManyToManyIndex;
 import monniasza.collects.indexar.OneToManyIndex;
@@ -30,7 +31,12 @@ public abstract class RecipeGroup<@NN Trecipe extends Recipe<Tconfig>, Tconfig, 
 	
 	public record ConfigItemPair<Tconfig>(Tconfig config, Set<ItemEntry> items) {}
 	
-	public RecipeGroup(Class<Trecipe> recipeClass) {
+	/**
+	 * Abstract constructor for use in recipe groups
+	 * @param recipeClass Java class of recipes
+	 * @param id the ID of the recipe group for indexing
+	 */
+	public RecipeGroup(Class<Trecipe> recipeClass, String id) {
 		database = new Database<>(recipeClass);
 		recipeKeyIndex = new OneToOneIndex<>(x -> findID(x));
 		database.addIndex(recipeKeyIndex);
@@ -46,6 +52,7 @@ public abstract class RecipeGroup<@NN Trecipe extends Recipe<Tconfig>, Tconfig, 
 		database.addIndex(configItemIndex);
 	}
 	public abstract Tkey findID(Trecipe recipe);
+	public abstract RecipeView<Trecipe> getRecipeViewComponent();
 	
 	public Set<Trecipe> findRecipes(@Nil Tconfig machineConfig, Set<@NN ItemEntry> requiredItems, boolean exact){
 		//Find all candidate sets

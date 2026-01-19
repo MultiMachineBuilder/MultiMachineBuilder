@@ -40,7 +40,7 @@ public class Agro {
 	/** Crop outputs */
 	public static final AgroRecipeGroup crops = new AgroRecipeGroup("agrorecipes");
 	
-	//Crop putputs
+	//Crop outputs
 	/** Yeast, used to make beer */
 	public static final Item yeast = new Item()
 		.title("#yeast")

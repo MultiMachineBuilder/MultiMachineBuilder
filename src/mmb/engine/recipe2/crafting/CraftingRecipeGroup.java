@@ -6,13 +6,14 @@ import java.util.function.Consumer;
 import mmb.annotations.NN;
 import mmb.content.ditems.Stencil;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.RecipeView;
 import mmb.engine.recipe2.CraftingRecipeData;
 import mmb.engine.recipe2.RecipeGroup;
 import monniasza.collects.grid.Grid;
 
 public class CraftingRecipeGroup extends RecipeGroup<CraftingRecipeData, Grid<ItemEntry>, Grid<ItemEntry>>{
-	public CraftingRecipeGroup() {
-		super(CraftingRecipeData.class);
+	public CraftingRecipeGroup(String id) {
+		super(CraftingRecipeData.class, id);
 	}
 
 	@Override
@@ -28,5 +29,11 @@ public class CraftingRecipeGroup extends RecipeGroup<CraftingRecipeData, Grid<It
 			var hit = recipeKeyIndex.map.get(grid);
 			if(hit != null) onRecipeHit.accept(hit);
 		}
+	}
+
+	@Override
+	public RecipeView<@NN CraftingRecipeData> getRecipeViewComponent() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

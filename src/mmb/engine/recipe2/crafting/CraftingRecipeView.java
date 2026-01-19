@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.craft;
+package mmb.engine.recipe2.crafting;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
@@ -13,14 +13,15 @@ import javax.swing.JComponent;
 import monniasza.collects.grid.Grid;
 import javax.swing.JList;
 
-import mmb.annotations.Nil;
-import mmb.content.craft.CraftingRecipeGroup.CraftingRecipe;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.CRConstants;
 import mmb.engine.recipe.ItemStack;
 import mmb.engine.recipe.RecipeView;
 import mmb.engine.recipe.VectorUtils;
+import mmb.engine.recipe2.CraftingRecipeData;
+import mmb.engine.recipe2.OutputRow;
 import mmb.menu.world.ItemStackCellRenderer;
+import mmb.menu.world.OutputRowCellRenderer;
 
 import java.awt.Color;
 
@@ -28,10 +29,10 @@ import java.awt.Color;
  * Displays a crafting recipe
  * @author oskar
  */
-public class CraftingRecipeView extends RecipeView<CraftingRecipe>{
+public class CraftingRecipeView extends RecipeView<CraftingRecipeData>{
 	private static final long serialVersionUID = 5070877744489415798L;
 	private ItemGrid grid;
-	private JList<ItemStack> out;
+	private JList<OutputRow> out;
 	private JList<ItemStack> in;
 	/** Creates recipe view for crafting recipes */
 	public CraftingRecipeView() {
@@ -55,14 +56,14 @@ public class CraftingRecipeView extends RecipeView<CraftingRecipe>{
 		add(in, "cell 1 1,grow");
 		
 		out = new JList<>();
-		out.setCellRenderer(ItemStackCellRenderer.instance);
+		out.setCellRenderer(OutputRowCellRenderer.instance);
 		add(out, "cell 2 1,grow");
 	}
 	@Override
-	public void set(CraftingRecipe recipe) {
-		grid.setGrid(recipe.grid);
+	public void set(CraftingRecipeData recipe) {
+		grid.setGrid(recipe.items);
 		out.setListData(VectorUtils.list2arr(recipe.out));
-		in.setListData(VectorUtils.list2arr(recipe.in));
+		in.setListData(VectorUtils.list2arr(recipe.itemCounts));
 	}
 	/**
 	 * @author oskar
@@ -70,12 +71,17 @@ public class CraftingRecipeView extends RecipeView<CraftingRecipe>{
 	 */
 	public static class ItemGrid extends JComponent{
 		private static final long serialVersionUID = 952344490217533557L;
-		@Nil private transient Grid<ItemEntry> grid;
-
-		@Nil public Grid<ItemEntry> getGrid() {
+		private transient Grid<ItemEntry> grid;
+		/**
+		 * @return the grid
+		 */
+		public Grid<ItemEntry> getGrid() {
 			return grid;
 		}
-		public void setGrid(@Nil Grid<ItemEntry> grid) {
+		/**
+		 * @param grid the grid to set
+		 */
+		public void setGrid(Grid<ItemEntry> grid) {
 			this.grid = grid;
 		}
 		@Override
@@ -90,7 +96,6 @@ public class CraftingRecipeView extends RecipeView<CraftingRecipe>{
 		}
 		@Override
 		public Dimension getPreferredSize() {
-			if(grid == null) return new Dimension();
 			return new Dimension(grid.width() * 32, grid.height() * 32);
 		}
 	}
