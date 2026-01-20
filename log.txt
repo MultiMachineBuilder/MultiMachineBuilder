@@ -8939,8 +8939,18 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (MOD-LOADER) Walking: C:\Users\Oskar\SynologyDrive\eclipse\MultiMachineBuilder\mods
 (MOD-LOADER) Directory: C:\Users\Oskar\SynologyDrive\eclipse\MultiMachineBuilder\mods
 (MAIN) State: Found 5 mod files
+(MOD - whatever) Failed to read the file C:\root\whatever
+(MOD - whatever) (MOD - banner.png) Failed to read the file C:\home\oskar\Pobrane\banner.png
+(MOD - banner.png) java.io.FileNotFoundException: \home\oskar\Pobrane\banner.png (System nie może odnaleźć określonej ścieżki)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
+	at mmb.engine.files.LocalFile.getInputStream(LocalFile.java:45)
+	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
+	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
 (MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file C:\Users\Oskar\SynologyDrive\eclipse\MultiMachineBuilder\OpenGL is over 20 times faster than AWT.jar
-((MOD - whateverMOD - OpenGL is over 20 times faster than AWT.jar) ) Failed to read the file C:\root\whateverjava.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nazwa pliku, nazwa katalogu lub składnia etykiety woluminu jest niepoprawna)
+(MOD - OpenGL is over 20 times faster than AWT.jar) java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nazwa pliku, nazwa katalogu lub składnia etykiety woluminu jest niepoprawna)
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
@@ -8948,26 +8958,16 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-(MOD - banner.png) (MOD - Dice - 3762849.zip) Failed to read the file C:\home\oskar\Pobrane\Dice - 3762849.zip
+java.io.FileNotFoundException: \root\whatever (System nie może odnaleźć określonej ścieżki)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
+	at mmb.engine.files.LocalFile.getInputStream(LocalFile.java:45)
+	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
+	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+(MOD - Dice - 3762849.zip) Failed to read the file C:\home\oskar\Pobrane\Dice - 3762849.zip
 (MOD - Dice - 3762849.zip) java.io.FileNotFoundException: \home\oskar\Pobrane\Dice - 3762849.zip (System nie może odnaleźć określonej ścieżki)
-	at java.base/java.io.FileInputStream.open0(Native Method)
-	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
-	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
-	at mmb.engine.files.LocalFile.getInputStream(LocalFile.java:45)
-	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
-	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-
-(MOD - whatever) Failed to read the file C:\home\oskar\Pobrane\banner.png
-(MOD - banner.png) java.io.FileNotFoundException: \root\whatever (System nie może odnaleźć określonej ścieżki)
-	at java.base/java.io.FileInputStream.open0(Native Method)
-	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
-	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
-	at mmb.engine.files.LocalFile.getInputStream(LocalFile.java:45)
-	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
-	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-java.io.FileNotFoundException: \home\oskar\Pobrane\banner.png (System nie może odnaleźć określonej ścieżki)
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
@@ -9063,6 +9063,66 @@ java.io.FileNotFoundException: \home\oskar\Pobrane\banner.png (System nie może
 (SELECT A SAVE) Found save: Trailer.mworld
 (SELECT A SAVE) Found save: XiaomiADBFastbootTools.mworld
 (SELECT A SAVE) Found 27 saves
+(Main menu) Current version: 0.6
+(Main menu) You have the current version
+(WORLD TEST) 1769 items
+(TOOL LIST) Tool selected: standard
+(TOOL SELECTOR) TL tool: mmb.menu.wtool.ToolStandard@5653743
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: null
+(TOOL SELECTOR) New tool: standard
+(WORLD TEST) Number of zoom levels: 48
+(WORLD TEST) Scrollbar max: 57
+(SELECT A SAVE) Opened a file
+(SELECT A SAVE) Loaded a file
+(SELECT A SAVE) Parsed file
+(ITEMS) Attempting to load a non-data item
+(ITEM LISTS) Item list node is null
+(ITEM LISTS) Item list node is null
+(ITEM LISTS) Item list node is null
+(ITEM LISTS) Item list node is null
+(ITEM LISTS) Item list node is null
+(ITEM LISTS) Item list node is null
+(ITEM LISTS) Item list node is null
+(ITEM LISTS) Item list node is null
+(ITEM LISTS) Item list node is null
+(ITEM LISTS) Item list node is null
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(ITEMS) Attempting to load a non-data item
+(DATA LAYERS) Loading world data layer: STN
+(ITEMS) Invalid item: Infinity
+(INVENTORIES) Unsupported null item
+(MAP anonymous) Became anonymous
+(SELECT A SAVE) Loaded
+(WORLD - IDLE) Exiting
+(WORLDS) Opening a new world
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(TOOL SELECTOR) IL tool: null
+(TOOL SELECTOR) Reset tools
+(TOOL SELECTOR) Old tool: standard
+(TOOL SELECTOR) New tool: standard
+(STN data layer @null) Rebuild
+(STN-inventory) Index rebuild
+(PLAYER INVENTORY) Querying recipes
+(PLAYER INVENTORY) Query finished
+(WORLD TEST) Exiting the world
+(WORLD - ) Saving main BlockMap
+(DATA LAYERS) Saving world data layer: STN
+(WORLD TEST) Saving the world
+(WORLD TEST) Saved the world
+(WORLD - main null) Exiting
+(MAP anonymous) Destroying
+(MAP anonymous) Shutdown
+(WORLDS) The given world is null, exiting
+(WORLD TEST) Exited the world
 (SETTINGS) Resetting a setting country with value PL
 (SETTINGS) Resetting a setting sortItems with value true
 (SETTINGS) Resetting a setting dumpBundles with value true
