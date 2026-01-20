@@ -59,14 +59,20 @@ public final class VoltageTier implements Comparable<VoltageTier>{
 	/**
 	 * Adds a voltage tier
 	 * @param voltage new voltage tier
+	 * @return voltage tier object
 	 * @throws NullPointerException when {@code voltage} is null
 	 * @throws AlreadyExistsException when a voltage with the same ordinal or short ID exists
 	 */
-	public static void addVoltageTier(VoltageTier voltage) {
+	public static VoltageTier addVoltageTier(VoltageTier voltage) {
 		Objects.requireNonNull(voltage, "voltage is null");
 		if(stringLookup.containsKey(voltage.id)) throw new AlreadyExistsException("A voltage of id " + voltage.id + " already exists");
 		if(ordinalLookup.containsKey(voltage.ordinal)) throw new AlreadyExistsException("A voltage of ordinal " + voltage.ordinal + " already exists");
-		stringLookup.put(voltage.id, voltage);
-		ordinalLookup.put(voltage.ordinal, voltage);
+		internalStringLookup.put(voltage.id, voltage);
+		internalOrdinalLookup.put(voltage.ordinal, voltage);
+		return voltage;
 	}
+	
+	//Special values
+	public static final VoltageTier MIN = addVoltageTier(new VoltageTier(Integer.MIN_VALUE, "MIN", "Minimum Voltage"));
+	public static final VoltageTier MAX = addVoltageTier(new VoltageTier(Integer.MAX_VALUE, "MAX", "Maximum Voltage"));
 }

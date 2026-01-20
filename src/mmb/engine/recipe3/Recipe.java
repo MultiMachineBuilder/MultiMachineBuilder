@@ -1,15 +1,12 @@
 package mmb.engine.recipe3;
 
-import java.util.List;
-import java.util.function.Function;
-
-public record Recipe(
-	List<RecipeInput> inputs,
-	RecipeOutput outputsRaw,
-	Function<RecipeRunContext, RecipeOutput> outputFunction,
-	boolean shapeless,
-	VoltageTier minVoltage,
-	VoltageTier maxVoltage,
-	double energyIn,
-	double energyOut
-) {}
+public class Recipe {
+	public final FlattenedRecipeGroup group;
+	public final RecipeSpec recipe;
+	       final FlattenedRecipe flattened;
+	Recipe(FlattenedRecipeGroup group, RecipeSpec spec){
+		this.flattened = FlattenedRecipe.flatten(spec);
+		this.recipe = spec;
+		this.group = group;
+	}
+}

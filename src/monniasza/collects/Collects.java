@@ -37,6 +37,8 @@ import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
+import mmb.engine.recipe3.BadElementException;
+import mmb.engine.recipe3.OutputRow;
 import monniasza.collects.grid.Grid;
 import monniasza.collects.selfset.SelfSet;
 
@@ -554,6 +556,55 @@ public class Collects {
 		for(T value: collection) 
 			if(predicate.test(value)) return true;
 		return false;
+	}
+	
+	//Validation
+	/**
+	 * Enforces that the collection is not null or empty
+	 * @param collection collection to check
+	 * @param name name to show in errors
+	 * @throws NullPointerException if the collection is null
+	 * @throws NoSuchElementException when the collection is empty
+	 */
+	public static void requireNotEmpty(@Nil Collection<?> collection, String name) {
+		if(collection == null) throw new NullPointerException(name + " is null");
+		if(collection.isEmpty()) throw new NoSuchElementException(name + " is empty");
+	}
+	/**
+	 * Enforces that the collection is not null or empty
+	 * @param collection collection to check
+	 * @param name name to show in errors
+	 * @throws NullPointerException if the collection is null
+	 * @throws NoSuchElementException when the collection is empty
+	 */
+	public static void requireNotEmpty(@Nil Map<?, ?> collection, String name) {
+		if(collection == null) throw new NullPointerException(name + " is null");
+		if(collection.isEmpty()) throw new NoSuchElementException(name + " is empty");
+	}
+	/**
+	 * Requires that the collection is non-null, not empty and does not contain null values
+	 * @param collection collection to check
+	 * @param name name to show in errors
+	 * @throws NullPointerException if the collection is null
+	 * @throws NoSuchElementException when the collection is empty
+	 * @throws BadElementException when the colleciton contains null
+	 */
+	public static void requireContents(Collection<?> collection, String name) {
+		requireNotEmpty(collection, name);
+		rejectNullElements(collection, name);
+	}
+	/**
+	 * Requires that the collection is non-null, not empty and does not contain null values
+	 * @param collection collection to check
+	 * @param name name to show in errors
+	 * @throws BadElementException when the colleciton contains null
+	 */
+	public static void rejectNullElements(Iterable<?> collection, String name) {
+		int i = 0;
+		for(var element: collection) {
+			if(element == null) throw new BadElementException(name + " contains null @ " + i);
+			i++;
+		}
 	}
 }
 class IntMapCollector<T, M extends Object2IntMap<T>> implements Collector<Object2IntMap.Entry<T>, Object2IntMap<T>, M>{

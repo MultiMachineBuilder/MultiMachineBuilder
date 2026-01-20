@@ -9,6 +9,7 @@ import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.item.ItemEntry;
+import monniasza.collects.Collects;
 
 /** A collection of recipe outputs with chances, min voltages and buffs. */
 public class RecipeOutput {
@@ -16,15 +17,11 @@ public class RecipeOutput {
 	public final Set<ItemEntry> items;
 	
 	/** Empty recipe output with no rows */
-	public RecipeOutput EMPTY = new RecipeOutput();
+	public static RecipeOutput EMPTY = new RecipeOutput();
 	
 	/** Creates a new recipe output from a collection of rows */
 	public RecipeOutput(Collection<@NN OutputRow> rows) {
 		Objects.requireNonNull(rows, "rows is null");
-		int i = 0;
-		for(var row: rows) {
-			if(row == null) throw new NullPointerException("Row #"+i+" is null");
-		}
 		this.rows = List.copyOf(rows);
 		this.items = createItemsSetFromList();
 	}
