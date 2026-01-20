@@ -3,8 +3,6 @@ package mmb.engine.recipe3;
 import java.util.List;
 import java.util.function.Function;
 
-import mmb.engine.recipe2.RecipeOutput;
-
 public record Recipe(
 	List<RecipeInput> inputs,
 	RecipeOutput outputsRaw,

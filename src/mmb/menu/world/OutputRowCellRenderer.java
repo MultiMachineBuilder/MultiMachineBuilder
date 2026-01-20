@@ -6,7 +6,7 @@ package mmb.menu.world;
 import javax.swing.Icon;
 
 import mmb.annotations.Nil;
-import mmb.engine.recipe2.OutputRow;
+import mmb.engine.recipe3.OutputRow;
 
 /**
  * Displays an item stack

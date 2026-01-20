@@ -7,8 +7,8 @@ import java.util.Vector;
 import java.util.stream.Collectors;
 
 import mmb.annotations.NN;
-import mmb.engine.recipe2.OutputRow;
-import mmb.engine.recipe2.RecipeOutput;
+import mmb.engine.recipe3.OutputRow;
+import mmb.engine.recipe3.RecipeOutput;
 
 /**
  * @author oskar

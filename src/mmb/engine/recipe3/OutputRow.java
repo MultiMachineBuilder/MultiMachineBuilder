@@ -1,4 +1,4 @@
-package mmb.engine.recipe2;
+package mmb.engine.recipe3;
 
 import mmb.annotations.Nil;
 import mmb.content.electric.VoltageTier;
