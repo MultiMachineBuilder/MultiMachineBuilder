@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 import mmb.annotations.NN;
+import mmb.engine.texture.BlockDrawer;
 
 /** 
  * An item group. Used to define a set of items that can be substituted for each other in a recipe.
@@ -50,4 +51,8 @@ public class Group {
 	 * Their ordinals are semantically meaningful and must not be reordered.
 	 */
 	public static final Group ANY = of("any");
+	
+	//Properties
+	public String title;
+	public BlockDrawer icon;
 }

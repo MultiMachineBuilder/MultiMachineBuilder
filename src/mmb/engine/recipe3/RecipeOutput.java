@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
-import mmb.content.electric.VoltageTier;
 import mmb.engine.item.ItemEntry;
 import monniasza.collects.Collects;
 

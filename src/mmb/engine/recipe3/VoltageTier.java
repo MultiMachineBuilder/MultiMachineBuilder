@@ -1,5 +1,6 @@
 package mmb.engine.recipe3;
 
+import java.awt.Color;
 import java.util.*;
 
 import mmb.AlreadyExistsException;
@@ -11,6 +12,8 @@ public final class VoltageTier implements Comparable<VoltageTier>{
 	public final double volts;
 	public final String id;
 	public final String name;
+	public final Color color;
+	
 	/**
 	 * Creates a new representation of a voltage tier.
 	 * @param ordinal the voltage index
@@ -25,6 +28,7 @@ public final class VoltageTier implements Comparable<VoltageTier>{
 		this.name = GlobalSettings.$str1(name);
 		this.id=id;
 		this.volts=25 * Math.pow(4, ordinal);
+		this.color = new Color(192, 192, 192, 255);
 	}
 	@Override
 	public int compareTo(VoltageTier o) {

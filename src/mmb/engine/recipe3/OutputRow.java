@@ -1,7 +1,6 @@
 package mmb.engine.recipe3;
 
 import mmb.annotations.Nil;
-import mmb.content.electric.VoltageTier;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.SingleItem;
 
@@ -23,10 +22,10 @@ public record OutputRow(
     LinearFunction chanceBuff
 ){
 	public OutputRow(SingleItem item) {
-		this(item.item(), item.amount(), 1, VoltageTier.V1, LinearFunction.IDENTITY, LinearFunction.IDENTITY);
+		this(item.item(), item.amount(), 1, VoltageTier.MIN, LinearFunction.IDENTITY, LinearFunction.IDENTITY);
 	}
 	public OutputRow(ItemEntry item, double amount) {
-		this(item, amount, 1, VoltageTier.V1, LinearFunction.IDENTITY, LinearFunction.IDENTITY);
+		this(item, amount, 1, VoltageTier.MIN, LinearFunction.IDENTITY, LinearFunction.IDENTITY);
 	}
 	
 	/**
@@ -35,7 +34,7 @@ public record OutputRow(
 	 * @return the output row with buffs applied
 	 */
 	public @Nil OutputRow applyVoltageBuffs(VoltageTier voltage) {
-		int voltageDifference = minVoltage.ordinal() - voltage.ordinal();
+		int voltageDifference = minVoltage.ordinal - voltage.ordinal;
 		if(voltageDifference < 0) return null; //Rejected
 		double amount = this.amount;
 		double chance = this.chance;

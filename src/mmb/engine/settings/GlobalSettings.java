@@ -57,6 +57,21 @@ public class GlobalSettings {
 	/** Should all modded resource bundles be dumped? */
 	@NN public static final ListenableBoolean dumpBundles = new ListenableBoolean();
 	
+	//Unit display settings
+	/** Number of decimal digits for storage rounding eg. 2 -> 0.15 sl*/
+	@NN public static final ListenableInt storageRoundingAccuracy = new ListenableInt(2);
+	/** Number of decimal digits for fluid amount rounding eg. 3 -> 1.135 cu*/
+	@NN public static final ListenableInt fluidRoundingAccuracy = new ListenableInt(3);
+	/** Number of decimal digits for energy amount rounding eg. 3 -> 1.024YJ*/
+	@NN public static final ListenableInt energyRoundingAccuracy = new ListenableInt(3);
+	/** Number of decimal digits for data amount rounding eg. 3 -> 931.017GiB*/
+	@NN public static final ListenableInt dataRoundingAccuracy = new ListenableInt(3);
+	/** Number of decimal digits for time rounding eg. 2 -> 1.66min*/
+	@NN public static final ListenableInt timeRoundingAccuracy = new ListenableInt(2);
+	/** Number of decimal digits for quantity rounding eg. 3 -> 131.072M*/
+	@NN public static final ListenableInt quantityRoundingAccuracy = new ListenableInt(3);
+	
+	
 	//localization
 	/** @return the locale object for current language and country */
 	@NN public static Locale locale() {

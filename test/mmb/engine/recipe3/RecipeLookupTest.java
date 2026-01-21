@@ -15,6 +15,12 @@ class RecipeLookupTest {
 		ulv = new VoltageTier(1, "ulv", "Ultra Low Voltage");
 		VoltageTier.addVoltageTier(ulv);
 	}
+	
+	public static int NUMBER_GROUPS = 0;
+	public static FlattenedRecipeGroup newRecipeGroup() {
+		String groupName = Integer.toString(NUMBER_GROUPS++);
+		return new FlattenedRecipeGroup(true, groupName, groupName);
+	}
 
     @Test
     void testSingleSlotAny() {
@@ -29,7 +35,7 @@ class RecipeLookupTest {
                 ulv,
                 10, 5
         );
-        FlattenedRecipeGroup group = new FlattenedRecipeGroup();
+        FlattenedRecipeGroup group = newRecipeGroup();
         Recipe recipe = group.addRecipe(spec);
 
         // Machine slot has the same item
@@ -55,7 +61,7 @@ class RecipeLookupTest {
                 10, 5
         );
 
-        FlattenedRecipeGroup group = new FlattenedRecipeGroup();
+        FlattenedRecipeGroup group = newRecipeGroup();
         Recipe recipe = group.addRecipe(spec);
 
         // Machine contains prohibited item tin
@@ -83,7 +89,7 @@ class RecipeLookupTest {
                 10, 5
         );
 
-        FlattenedRecipeGroup group = new FlattenedRecipeGroup();
+        FlattenedRecipeGroup group = newRecipeGroup();
         Recipe recipe = group.addRecipe(spec);
 
         // Swapped slots should not match shaped recipe
@@ -110,7 +116,7 @@ class RecipeLookupTest {
                 10, 5
         );
 
-        FlattenedRecipeGroup group = new FlattenedRecipeGroup();
+        FlattenedRecipeGroup group = newRecipeGroup();
         Recipe recipe = group.addRecipe(spec);
 
         // Swapped slots should match shapeless recipe
@@ -137,7 +143,7 @@ class RecipeLookupTest {
                 0, 0
         );
 
-        FlattenedRecipeGroup group = new FlattenedRecipeGroup();
+        FlattenedRecipeGroup group = newRecipeGroup();
         Recipe recipe = group.addRecipe(spec);
 
         List<Set<Group>> machineContents = List.of(

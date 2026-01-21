@@ -2,12 +2,32 @@ package mmb.engine.recipe3;
 
 import java.util.*;
 import it.unimi.dsi.fastutil.ints.*;
+import mmb.engine.settings.GlobalSettings;
 
 /**
  * A performant recipe group with flattened recipes
  */
 public class FlattenedRecipeGroup {
-    private final List<Recipe> internalRecipes = new ArrayList<>();
+	/** Are the recipes in this group crafting? */
+	public final boolean isCrafting;
+	/** Unique group identifier */
+	public final String id;
+	/** User-readable name */
+	public final String name;
+	/**
+	 * Creates a new recipe group
+	 * @param isCrafting is the group crafting?
+	 * @param id unique group ID
+	 * @param name visible name of the group
+	 */
+    public FlattenedRecipeGroup(boolean isCrafting, String id, String name) {
+		super();
+		this.isCrafting = isCrafting;
+		this.id = id;
+		this.name = GlobalSettings.$res1(name);
+	}
+
+	private final List<Recipe> internalRecipes = new ArrayList<>();
     /** Collection of all recipes */
     public final List<Recipe> recipes = Collections.unmodifiableList(internalRecipes);
 
