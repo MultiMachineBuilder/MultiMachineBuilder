@@ -9,4 +9,4 @@ public class Recipe {
 		this.recipe = spec;
 		this.group = group;
 	}
-}
+} 

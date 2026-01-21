@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  */
 public class SlotGridPanel<T> extends JPanel {
 
-    public record SlotData(Icon icon, Color borderColor, boolean convex) {}
+    public record SlotData(Icon icon, Color borderColor, boolean convex, String tooltip) {}
 
     private List<T> items = List.of();
     private final Function<T, SlotData> converter;
@@ -90,10 +90,10 @@ public class SlotGridPanel<T> extends JPanel {
                     data = converter.apply(item);
                     // Darken center slot
                     if (x == center.x && y == center.y) {
-                        data = new SlotData(data.icon(), data.borderColor.darker(), data.convex());
+                        data = new SlotData(data.icon(), data.borderColor.darker(), data.convex(), data.tooltip());
                     }
                 } else {
-                    data = new SlotData(null, Color.DARK_GRAY, false);
+                    data = new SlotData(null, Color.DARK_GRAY, false, "");
                 }
                 add(new SlotComponent(data.icon(), data.borderColor(), data.convex()));
             }

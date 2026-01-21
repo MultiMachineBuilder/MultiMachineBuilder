@@ -14,7 +14,7 @@ public class TestShapedSlotGridPanel {
                 // Just use a colored square icon
                 Icon icon = new ColorIcon(item.equals("Iron") ? Color.LIGHT_GRAY : Color.ORANGE);
                 Color border = item.equals("Prohibited") ? Color.RED : Color.BLACK;
-                return new SlotGridPanel.SlotData(icon, border, false);
+                return new SlotGridPanel.SlotData(icon, border, false, "");
             }, true, 3);
 
             panel.setItems(List.of("Iron", "Copper", "Tin", "Prohibited", "Iron", "Copper", "Tin", "Prohibited"));

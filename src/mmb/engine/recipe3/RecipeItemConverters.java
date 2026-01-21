@@ -19,7 +19,7 @@ public final class RecipeItemConverters {
         else color = Color.GRAY; // normal consumed
 
         Icon icon = getIconForGroup(input.group());
-        return new SlotGridPanel.SlotData(icon, color, false); 
+        return new SlotGridPanel.SlotData(icon, color, false, input.group().title); 
     }
 
     /**
@@ -29,7 +29,7 @@ public final class RecipeItemConverters {
         Icon icon = output.item().icon();
         Color color = voltageColor(output.minVoltage());
         boolean convex = output.chance() < 1;
-        return new SlotGridPanel.SlotData(icon, color, convex); 
+        return new SlotGridPanel.SlotData(icon, color, convex, output.tooltip()); 
     }
 
     /** Dummy placeholder: fetch icon for a group */

@@ -130,6 +130,7 @@ public class MainMenu extends MMBFrame {
 		tabbedPane.addTab($res("cgui-saves"), null, PanelSaves.INSTANCE, null);
 		tabbedPane.addTab($res("cgui-mods"), null, PanelMods.INSTANCE, null);
 		tabbedPane.addTab($res("cgui-settings"), null, new PanelSettings(), null);
+		tabbedPane.addTab("Recipe Panel Test", new PanelTestRecipeView());
 		
 		//Check for updates
 		Thread thread = new Thread(this::check4updates);

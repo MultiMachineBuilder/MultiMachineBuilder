@@ -14,7 +14,7 @@ public class TestShapelessSlotGridPanel {
                 Icon icon = new ColorIcon(item.equals("Catalyst") ? Color.GREEN : Color.GRAY);
                 Color border = Color.BLACK;
                 boolean convex = item.equals("Uncertain");
-                return new SlotGridPanel.SlotData(icon, border, convex);
+                return new SlotGridPanel.SlotData(icon, border, convex, "");
             }, false, 4);
 
             panel.setItems(List.of("Iron", "Copper", "Catalyst", "Uncertain", "Tin", "Copper"));

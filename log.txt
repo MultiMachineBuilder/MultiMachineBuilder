@@ -8939,8 +8939,10 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 (MOD-LOADER) Walking: C:\Users\Oskar\SynologyDrive\eclipse\MultiMachineBuilder\mods
 (MOD-LOADER) Directory: C:\Users\Oskar\SynologyDrive\eclipse\MultiMachineBuilder\mods
 (MAIN) State: Found 5 mod files
-(MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file C:\Users\Oskar\SynologyDrive\eclipse\MultiMachineBuilder\OpenGL is over 20 times faster than AWT.jar
-(MOD - OpenGL is over 20 times faster than AWT.jar) (java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nazwa pliku, nazwa katalogu lub składnia etykiety woluminu jest niepoprawna)
+(MOD - whatever) (MOD - OpenGL is over 20 times faster than AWT.jar) Failed to read the file C:\Users\Oskar\SynologyDrive\eclipse\MultiMachineBuilder\OpenGL is over 20 times faster than AWT.jar
+Failed to read the file C:\root\whatever
+(MOD - OpenGL is over 20 times faster than AWT.jar) ((MOD - Dice - 3762849.zip) (MOD - banner.pngMOD - whatever) ) Failed to read the file C:\home\oskar\Pobrane\banner.png
+(MOD - banner.png) java.io.FileNotFoundException: \home\oskar\Pobrane\banner.png (System nie może odnaleźć określonej ścieżki)
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
@@ -8948,10 +8950,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-(MOD - whatever) Failed to read the file C:\root\whatever
-(MOD - whatever) (MOD - banner.png) Failed to read the file C:\home\oskar\Pobrane\banner.png
-(MOD - banner.pngMOD - Dice - 3762849.zip) ) Failed to read the file C:\home\oskar\Pobrane\Dice - 3762849.zip
-(MOD - Dice - 3762849.zip) java.io.FileNotFoundException: \root\whatever (System nie może odnaleźć określonej ścieżki)
+java.io.FileNotFoundException: OpenGL is over 20 times faster than AWT.jar (Nazwa pliku, nazwa katalogu lub składnia etykiety woluminu jest niepoprawna)
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
@@ -8959,7 +8958,7 @@ Caused by: javax.sound.sampled.UnsupportedAudioFileException: Stream of unsuppor
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-java.io.FileNotFoundException: \home\oskar\Pobrane\Dice - 3762849.zip (System nie może odnaleźć określonej ścieżki)
+java.io.FileNotFoundException: \root\whatever (System nie może odnaleźć określonej ścieżki)
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
@@ -8967,7 +8966,8 @@ java.io.FileNotFoundException: \home\oskar\Pobrane\Dice - 3762849.zip (System n
 	at mmb.engine.mods.ModLoader.init(ModLoader.java:97)
 	at mmb.engine.mods.ModLoader.lambda$0(ModLoader.java:78)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-java.io.FileNotFoundException: \home\oskar\Pobrane\banner.png (System nie może odnaleźć określonej ścieżki)
+Failed to read the file C:\home\oskar\Pobrane\Dice - 3762849.zip
+(MOD - Dice - 3762849.zip) java.io.FileNotFoundException: \home\oskar\Pobrane\Dice - 3762849.zip (System nie może odnaleźć określonej ścieżki)
 	at java.base/java.io.FileInputStream.open0(Native Method)
 	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
