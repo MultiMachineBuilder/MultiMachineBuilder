@@ -21,7 +21,7 @@ public class InfiniteGenerator extends BlockEntityDataless {
 	}
 
 	@Override
-	public ElectroMachineType type() {
+	public ElectroMachineType itemType() {
 		return type;
 	}
 

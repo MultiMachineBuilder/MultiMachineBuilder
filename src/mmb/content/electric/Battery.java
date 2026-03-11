@@ -159,7 +159,7 @@ public class Battery implements SettablePressure, Comparable<@NN Battery>, Saver
 	private void blow() {
 		final BlockEntity blow2 = blow;
 		if (blow2 != null) 
-			blow2.owner().place(blow2.type().leaveBehind(), blow2.posX(), blow2.posY());
+			blow2.owner().place(blow2.itemType().leaveBehind(), blow2.posX(), blow2.posY());
 	}
 	/**
 	 * Move energy somewhere else

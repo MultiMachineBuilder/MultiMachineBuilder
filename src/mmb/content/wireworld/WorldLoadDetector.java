@@ -17,7 +17,7 @@ public class WorldLoadDetector extends BlockEntityDataless{
 	private boolean signal = true;
 	private boolean hasrun = false;
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.ONLOAD;
 	}
 

@@ -72,7 +72,7 @@ public class JoiningPlayerPipe extends AbstractPlayerPipe {
 	//Block methods
 	@NN private final BlockType type;
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return type;
 	}
 	@NN private final ChirotatedImageGroup img;

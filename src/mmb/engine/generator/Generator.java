@@ -6,7 +6,7 @@ package mmb.engine.generator;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
 import mmb.annotations.NN;
-import mmb.beans.Titled;
+import mmb.beans.ITitle;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.debug.Debugger;
 import mmb.engine.worlds.world.World;
@@ -16,7 +16,7 @@ import monniasza.collects.grid.Grid;
  * An abstraction over world generators
  * @author oskar
  */
-public interface Generator extends Titled{
+public interface Generator extends ITitle{
 	/**
 	 * Generates a part of the world
 	 * @param map world

@@ -43,7 +43,7 @@ public class Pipe extends AbstractBasePipe {
 
 	@Override
 	public BlockEntry blockCopy() {
-		Pipe result = new Pipe(sideA, sideB, type(), getImage());
+		Pipe result = new Pipe(sideA, sideB, itemType(), getImage());
 		System.arraycopy(items, 0, result.items, 0, 2);
 		return result;
 	}

@@ -18,7 +18,7 @@ public abstract class BlockEntityData extends BlockEntity{
 	@Override
 	public final JsonNode save() {
 		ObjectNode data = JsonTool.newObjectNode();
-		data.put("blocktype", type().id());
+		data.put("blocktype", itemType().id());
 		try {
 			save0(data);
 		} catch (Exception e) {

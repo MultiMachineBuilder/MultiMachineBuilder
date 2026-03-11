@@ -3,12 +3,18 @@
  */
 package mmb.content.wireworld;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
+import mmb.PropertyExtension;
+import mmb.annotations.Nil;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.block.BlockEntityRotary;
-import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
+import mmb.engine.texture.TextureDrawer;
+import mmb.engine.texture.Textures;
 import mmb.engine.worlds.MapProxy;
 
 /**
@@ -37,13 +43,14 @@ public final class GateBi extends BlockEntityRotary{
 	 * @author oskar
 	 * The block type for block entity
 	 */
-	public static class BiGateType extends BlockEntityType{
+	public static class BiGateType extends BlockType{
 		public final BiBool gate;
 		public final RotatedImageGroup rig;
-		public BiGateType(String texture, BiBool gate) {
+		public BiGateType(String id, String texture, BiBool gate, PropertyExtension... props) {
+			super(id, props);
 			this.rig = RotatedImageGroup.create(texture);
-			texture(texture);
-			factory(() -> new GateBi(this));
+			setTexture(new TextureDrawer(Textures.get(texture)));
+			setBlockFactory(json -> GateBi.load(this, json));
 			this.gate = gate;
 		}
 	}
@@ -52,6 +59,11 @@ public final class GateBi extends BlockEntityRotary{
 	public boolean provideSignal(Side s) {
 		return (s == getRotation().U()) && result;
 	}
+	public static GateBi load(BiGateType biGateType, @Nil JsonNode json) {
+		GateBi result = new GateBi(biGateType);
+		result.loadRotation(json);
+		return result;
+	}
 	@Override
 	public void onTick(MapProxy map) {
 		boolean a = owner().getAtSide(getRotation().DL(), posX(), posY()).provideSignal(getRotation().DL());
@@ -59,7 +71,7 @@ public final class GateBi extends BlockEntityRotary{
 		result = type.gate.run(a, b);
 	}
 	@Override
-	public BiGateType type() {
+	public BiGateType itemType() {
 		return type;
 	}
 	@Override

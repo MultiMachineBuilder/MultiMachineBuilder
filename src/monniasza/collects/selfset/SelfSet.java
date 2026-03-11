@@ -7,10 +7,12 @@ import java.util.Set;
 
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
+import monniasza.collects.Identifiable;
 
 /**
- * @author oskar
- * A SelfSet is a set, which uses object's identifiers to locate given object within a set
+ * The SelfSet is a collection of unique elements where each element is identified either by its {@link Identifiable#id() id()} function, or by a function specified in the constructor.
+ * Items must have distinct identifiers, since they are considered equal here if they share the identifier.
+ * Also, the SelfSet is reified because objects can be identified if the ID method supports the type.
  * @param <K> the key type
  * @param <V> the value type
  */
@@ -48,7 +50,6 @@ public interface SelfSet<K, V> extends Set<V>{
 	
 	public boolean containsKey(@Nil Object key);
 
-	@SuppressWarnings({"unchecked"})
 	@Override
 	/**
 	 * Checks if given self-set contains given key
@@ -56,17 +57,16 @@ public interface SelfSet<K, V> extends Set<V>{
 	 */
 	default boolean contains(@Nil Object arg0) {
 		if(arg0 == null) return containsKey(null);
-		return test(arg0) && containsKey(id((V)arg0));
+		return test(arg0) && containsKey(id(arg0));
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	/**
 	 * Removes given value from the self-set.
 	 * The input must be of type <V>, because it is casted to {@link Identifiable} internally
 	 */
 	default boolean remove(@Nil Object arg0) {
-		return test(arg0) && removeKey(id((V)arg0));
+		return test(arg0) && removeKey(id(arg0));
 	}
 	
 	/**

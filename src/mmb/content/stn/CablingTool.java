@@ -92,7 +92,7 @@ public final class CablingTool extends ItemEntityMutable {
 		return result;
 	}
 	@Override
-	public ItemType type() {
+	public ItemType itemType() {
 		return STN.STN_cabler;
 	}
 }

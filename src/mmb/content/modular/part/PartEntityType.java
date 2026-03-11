@@ -21,7 +21,7 @@ import mmb.engine.texture.BlockDrawer;
  */
 public class PartEntityType extends PartBase{
 	@Override
-	public PartEntityType type() {
+	public PartEntityType itemType() {
 		return this;
 	}
 	

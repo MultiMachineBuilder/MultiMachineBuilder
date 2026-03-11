@@ -33,23 +33,23 @@ public interface PartEntry extends Saver{
 	
 	//Type
 	/** @return the part type */
-	@NN public PartType type();
+	@NN public PartType itemType();
 	/**
 	 * @param type block type to check
 	 * @return does given type match actual type?
 	 */
 	public default boolean typeof(PartType type) {
-		return type == type();
+		return type == itemType();
 	}
 	
 	//Drop & RTP
 	/** @return items dropped when module is removed */
 	@NN public default Chance dropItems() {
-		return type().dropItems();
+		return itemType().dropItems();
 	}
 	/** @return items returned to the player */
 	@NN public default ItemList returnToPlayer() {
-		return type().returnToPlayer();
+		return itemType().returnToPlayer();
 	}
 	
 	//Rendering
@@ -61,7 +61,7 @@ public interface PartEntry extends Saver{
 	 * @param side side size
 	 */
 	public default void render(int x, int y, Graphics g, int side) {
-		BlockDrawer drawer = type().getTexture();
+		BlockDrawer drawer = itemType().texture;
 		drawer.draw(null, x, y, g, side);
 	}
 	
@@ -73,9 +73,9 @@ public interface PartEntry extends Saver{
 	public static JsonNode savePart(@Nil PartEntry item) {
 		if(item == null) return NullNode.instance;
 		JsonNode save = item.save();
-		if(save == null) return new TextNode(item.type().id());
+		if(save == null) return new TextNode(item.itemType().id());
 		ArrayNode array = JsonTool.newArrayNode();
-		array.add(item.type().id());
+		array.add(item.itemType().id());
 		array.add(save);
 		return array;
 	}
@@ -104,7 +104,7 @@ public interface PartEntry extends Saver{
 				new Debugger("BLOCK PARTS").printl("Invalid part: "+id);
 				return null;
 			}
-			return item.createPart();
+			return item.partFactory.createPart(null, TODO);
 		}
 		return null;
 	}

@@ -6,6 +6,7 @@ package mmb.content.modular.chest;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
+import mmb.PropertyExtension;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.content.ContentsBlocks;
@@ -22,6 +23,7 @@ import mmb.content.modular.universal.MoverModule.MoverPair;
 import mmb.content.rawmats.Materials;
 import mmb.content.rawmats.MetalGroup;
 import mmb.engine.block.BlockEntityType;
+import mmb.engine.block.BlockType;
 import mmb.engine.inv.Inventories;
 import mmb.engine.inv.io.InventoryReader;
 import mmb.engine.inv.io.InventoryWriter;
@@ -48,11 +50,11 @@ public class ModularChests {
 	
 	//The modular chest itself
 	/** The modular chest body */
-	@NN public static final BlockEntityType chest = new BlockEntityType()
-		.texture("modules/chest_body.png")
-		.title("#modchest-chest")
-		.factory(ModularChest::new)
-		.finish("modchest.chest");
+	@NN public static final BlockType chest = new BlockType("modchest.chest",
+		PropertyExtension.setTextureAsset("modules/chest_body.png"),
+		PropertyExtension.translateTitle("#modchest-chest"),
+		PropertyExtension.setBlockFactory(json -> ModularChest.load(json))
+	);
 	
 	//Modules
 	/** Plug, blocks all traffic */

@@ -6,6 +6,7 @@ package mmb.content.stn;
 import java.awt.Color;
 import java.util.ResourceBundle;
 
+import mmb.PropertyExtension;
 import mmb.annotations.NN;
 import mmb.content.ContentsBlocks;
 import mmb.content.CraftingGroups;
@@ -20,6 +21,7 @@ import mmb.content.stn.block.STNStorageAttachment;
 import mmb.content.stn.block.STNTerminal;
 import mmb.content.stn.network.DataLayerSTN;
 import mmb.engine.block.BlockEntityType;
+import mmb.engine.block.BlockType;
 import mmb.engine.debug.Debugger;
 import mmb.engine.item.ItemEntityType;
 import mmb.engine.item.ItemEntry;
@@ -59,31 +61,31 @@ public class STN {
 	
 	//Blocks
 	/** STN Storage Connector */
-	@NN public  static final BlockEntityType STN_storage = new BlockEntityType()
-		.texture("stn/storage.png")
-		.title("#STN-storage")
-		.factory(STNStorageAttachment::new)
-		.finish("stnb.storage");
+	@NN public static final BlockType STN_storage = new BlockType("stnb.storage",
+		PropertyExtension.setBlockFactory(json -> STNStorageAttachment.load(json)),
+		PropertyExtension.translateTitle("#STN-storage"),
+		PropertyExtension.setTextureAsset("stn/storage.png")
+	);
 	/** STN Terminal */
-	@NN public static final BlockEntityType STN_terminal = new BlockEntityType()
+	@NN public static final BlockType STN_terminal = new BlockType()
 		.texture("stn/terminal.png")
 		.title("#STN-terminal")
 		.factory(STNTerminal::new)
 		.finish("stnb.terminal");
 	/** STN Exporter */
-	@NN public static final BlockEntityType STN_exporter = new BlockEntityType()
+	@NN public static final BlockType STN_exporter = new BlockType()
 		.texture("stn/exporter.png")
 		.title("#STN-exporter")
 		.factory(STNExporter::new)
 		.finish("stnb.exporter");
 	/** STN Importer */
-	@NN public static final BlockEntityType STN_importer= new BlockEntityType()
+	@NN public static final BlockType STN_importer= new BlockType()
 		.texture("stn/importer.png")
 		.title("#STN-importer")
 		.factory(STNImporter::new)
 		.finish("stnb.importer");
 	/** STN Framework */
-	@NN public static final BlockEntityType STN_fw= new BlockEntityType()
+	@NN public static final BlockType STN_fw= new BlockType()
 		.texture("stn/fw.png")
 		.title("#STN-framework")
 		.factory(STNFramework::new)

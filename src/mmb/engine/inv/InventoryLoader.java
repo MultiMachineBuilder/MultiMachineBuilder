@@ -133,7 +133,7 @@ public class InventoryLoader {
 			if(n.amount() == 0) continue; //empty entry, skip
 			JsonNode data = n.item().save();
 			ArrayNode ent = JsonTool.newArrayNode(); //prepare the item node
-			ent.add(n.item().type().id()); //write the type
+			ent.add(n.item().itemType().id()); //write the type
 			if(data != null) //if data is present...
 				ent.add(data); //...add data to a item node
 			ent.add(n.amount()); //write the amount

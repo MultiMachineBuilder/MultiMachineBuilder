@@ -16,7 +16,7 @@ import mmb.engine.worlds.MapProxy;
 public class WWHead extends BlockEntityDataless{
 
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.ww_head;
 	}
 

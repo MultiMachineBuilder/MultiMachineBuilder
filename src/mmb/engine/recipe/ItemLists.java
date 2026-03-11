@@ -73,7 +73,7 @@ public class ItemLists {
 			if(n.getIntValue() == 0) continue;
 			JsonNode data = n.getKey().save();
 			ArrayNode ent = JsonTool.newArrayNode(); //prepare the item node
-			ent.add(n.getKey().type().id()); //write the type
+			ent.add(n.getKey().itemType().id()); //write the type
 			if(data != null) //if data is present...
 				ent.add(data); //...add data to a item node
 			ent.add(n.getIntValue()); //write the amount

@@ -3,6 +3,7 @@
  */
 package mmb.content.wireworld;
 
+import mmb.PropertyExtension;
 import mmb.annotations.Nil;
 import mmb.beans.BlockActivateListener;
 import mmb.content.ContentsBlocks;
@@ -17,6 +18,10 @@ import mmb.menu.world.window.WorldWindow;
  * @see OnToggle
  */
 public class OffToggle extends Block implements BlockActivateListener {
+	public OffToggle(String id, PropertyExtension... properties) {
+		super(id, properties);
+	}
+
 	@Override
 	public boolean provideSignal(Side s) {
 		return false;

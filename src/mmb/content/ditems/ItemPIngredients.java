@@ -18,11 +18,10 @@ import mmb.engine.recipe.ProcessIngredients;
  * @author oskar
  */
 public final class ItemPIngredients extends ItemEntity {
+	/** Bill of Recipe Effects with no items */
+	public static final ItemPIngredients EMPTY = new ItemPIngredients(ProcessIngredients.EMPTY);
+	
 	//Constructors
-	/** Creates an empty Bill of Recipe Effects*/
-	public ItemPIngredients() {
-		//empty
-	}
 	/**
 	 * Creates a bill of Recipe Effects with items
 	 * @param items recipe input/output
@@ -37,10 +36,8 @@ public final class ItemPIngredients extends ItemEntity {
 	}
 
 	//Contents
-	@NN private ProcessIngredients items = ProcessIngredients.EMPTY;
-	/**
-	 * @return the item list for this Bill Of Materials. The returned item list is immutable
-	 */
+	@NN private final ProcessIngredients items;
+	/** @return the item list for this Bill Of Materials. The returned item list is immutable */
 	@NN public ProcessIngredients contents() {
 		return items;
 	}
@@ -57,17 +54,16 @@ public final class ItemPIngredients extends ItemEntity {
 		return false;
 	}
 	@Override
-	public ItemType type() {
+	public ItemType itemType() {
 		return ContentsItems.pingredients;
 	}
 	
 	//Serialization
-	@Override
-	public void load(@Nil JsonNode data) {
-		if(data == null) return;
+	public static ItemPIngredients load(@Nil JsonNode data) {
+		if(data == null) return EMPTY;
 		ProcessIngredients list0 = ProcessIngredients.read(data);
 		if(list0 == null) list0 = ProcessIngredients.EMPTY;
-		items = list0;	
+		return new ItemPIngredients(list0);
 	}
 	@Override
 	public JsonNode save() {

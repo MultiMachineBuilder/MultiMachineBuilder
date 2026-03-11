@@ -96,7 +96,7 @@ public class BlockCollector extends BlockEntityData implements BlockActivateList
 		return inv;
 	}
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.COLLECTOR;
 	}
 	@Override

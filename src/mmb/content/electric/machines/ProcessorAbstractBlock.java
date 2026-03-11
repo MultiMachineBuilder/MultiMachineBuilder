@@ -97,7 +97,7 @@ public abstract class ProcessorAbstractBlock extends BlockEntityRotary implement
 		return copy;
 	}
 	@Override
-	public ElectroMachineType type() {
+	public ElectroMachineType itemType() {
 		return type;
 	}
 	@Override

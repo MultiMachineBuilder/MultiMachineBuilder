@@ -21,7 +21,7 @@ public class STNStorageAttachment extends STNBaseMachine {
 	@NN private static final RotatedImageGroup rig = RotatedImageGroup.create("stn/storage.png");
 
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return STN.STN_storage;
 	}
 

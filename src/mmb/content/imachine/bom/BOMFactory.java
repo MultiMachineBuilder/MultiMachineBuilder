@@ -24,7 +24,7 @@ public class BOMFactory extends BlockEntityData implements BlockActivateListener
 	}
 
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.BOMMAKER;
 	}
 
@@ -35,11 +35,13 @@ public class BOMFactory extends BlockEntityData implements BlockActivateListener
 		return copy;
 	}
 
-	@Override
-	public void load(@Nil JsonNode data) {
-		if(data == null) return;
-		inv.load(JsonTool.requestArray("inventory", (ObjectNode) data));
-		inv.setCapacity(2);
+	
+	public static BOMFactory load(@Nil JsonNode data) {
+		var result = new BOMFactory();
+		if(data == null) return result;
+		result.inv.load(JsonTool.requestArray("inventory", data));
+		result.inv.setCapacity(2);
+		return result;
 	}
 
 	@Override

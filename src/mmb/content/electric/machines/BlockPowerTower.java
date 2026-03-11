@@ -40,7 +40,7 @@ public class BlockPowerTower extends BlockEntityRotary implements Electric, Bloc
 		elec = Electricity.limitCurrent(Electricity.circuitBreaker(Electricity.dynamicElectricity(this::obtain), type.volt, this), 100 * type.powermul);
 	}
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return type;
 	}
 

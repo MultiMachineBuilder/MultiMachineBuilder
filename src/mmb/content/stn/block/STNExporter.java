@@ -23,7 +23,7 @@ public class STNExporter extends STNCycler{
 	@NN private static final RotatedImageGroup rig = RotatedImageGroup.create("stn/exporter.png");
 	
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return STN.STN_exporter;
 	}
 

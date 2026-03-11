@@ -16,8 +16,8 @@ import org.joml.Vector4fc;
 
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
-import mmb.content.electric.BlockConduit;
 import mmb.content.electric.Electricity;
+import mmb.content.electric.cable.BlockConduit;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.gl.GLHelper;
 import mmb.engine.gl.RenderCtx;

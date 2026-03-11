@@ -31,7 +31,7 @@ public final class ModularChest extends BlockEntityData implements
 ModularBlock<ModularChest, BlockModuleUniversal, ChestCore, Object> {
 	//Basic stuff
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ModularChests.chest;
 	}
 	@Override
@@ -109,9 +109,10 @@ ModularBlock<ModularChest, BlockModuleUniversal, ChestCore, Object> {
 	}
 	
 	//Serialization
-	@Override
-	public void load(@Nil JsonNode data) {
-		loadModularHelper(data);
+	public static ModularChest load(@Nil JsonNode data) {
+		ModularChest chest = new ModularChest();
+		chest.loadModularHelper(data);
+		return chest;
 	}
 	@Override
 	protected void save0(ObjectNode node) {

@@ -49,11 +49,11 @@ public class BlockLoader{
 	}
 	private static BlockEntry doLoadBasic(String text) {
 		BlockType type = Items.getExpectType(text, BlockType.class);
-				if(type == null) {
-					debug.printl("Unknown block type: \""+text+"\"");
-					return Blocks.grass;
-				}
-		return type.createBlock();
+		if(type == null) {
+			debug.printl("Unknown block type: \""+text+"\"");
+			return Blocks.grass;
+		}
+		return type.createBlock(null);
 	}
 	private static BlockEntry doLoadEnhanced(ObjectNode on, int x, int y) {
 		//find block type
@@ -63,12 +63,7 @@ public class BlockLoader{
 			debug.printl("Block type "+blockName+" was not found");
 			return null;
 		}
-		BlockEntry block = typ.createBlock();
-		try {
-			block.load(on);
-		}catch(Exception e) {
-			debug.stacktraceError(e, "Failed to load a block "+blockName+" at ["+x+","+y+"]");
-		}
+		BlockEntry block = typ.createBlock(on);
 		return block;
 	}
 }

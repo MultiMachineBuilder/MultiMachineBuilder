@@ -6,8 +6,12 @@ package mmb.engine.block;
 import java.awt.Color;
 
 import mmb.Main;
+import mmb.PropertyExtension;
 import mmb.annotations.NN;
 import mmb.engine.debug.Debugger;
+import mmb.engine.texture.ColorDrawer;
+import mmb.engine.texture.TextureDrawer;
+import mmb.engine.texture.Textures;
 
 /**
  * A minimum set of blocks required for the game to work.
@@ -28,12 +32,12 @@ public class Blocks {
 	@NN
 	private static Block createAir() {
 		debug.printl("Creating blocks");
-		Block result = new Block();
-		result.texture(Color.CYAN)
-		.leaveBehind(result)
-		.title("#air")
-		.finish("mmb.air");
-		result.setSurface(true);
+		Block result = new Block("mmb.air",
+			PropertyExtension.setTexture(new ColorDrawer(Color.CYAN)),
+			PropertyExtension.translateTitle("#air"),
+			PropertyExtension.setSurface(true)
+		);
+		result.setLeaveBehind(result);
 		return result;
 	}
 	/** The basic building block of any world */
@@ -42,21 +46,21 @@ public class Blocks {
 	private static Block createGrass() {
 		if(!Main.isRunning()) return air;
 		
-		Block result = new Block();
-		result.texture("grass.png")
-		.leaveBehind(air)
-		.title("#grass")
-		.describe("A default block in the world")
-		.finish("mmb.grass");
-		result.setSurface(true);
+		Block result = new Block("mmb.grass",
+			PropertyExtension.setTexture(new TextureDrawer(Textures.get("grass.png"))),
+			PropertyExtension.translateTitle("#grass"),
+			PropertyExtension.setTitle("A default block in the world"),
+			PropertyExtension.setSurface(true),
+			PropertyExtension.setLeaveBehind(air)
+		);
 		return result;
 	}
 	/** A placeholder block used when the world access is out of bounds*/
 	@NN public static final Block blockVoid = 
-		new Block()
-		.texture(Color.DARK_GRAY)
-		.title("#void")
-		.finish("mmb.void");
+		new Block("mmb.void", 
+			PropertyExtension.setTexture(new ColorDrawer(Color.DARK_GRAY)),
+			PropertyExtension.translateTitle("#void")
+		);
 	
 	/** Initializes blocks */
 	public static void init() {

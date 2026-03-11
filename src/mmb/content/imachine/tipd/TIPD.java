@@ -48,7 +48,7 @@ public class TIPD extends BlockEntityChirotable implements BlockActivateListener
 	public int timer = 0;
 	
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.TIPD;
 	}
 

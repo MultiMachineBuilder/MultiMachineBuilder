@@ -35,7 +35,7 @@ import mmb.menu.world.window.WorldWindow;
 public class Hopper extends BlockEntityRotary implements ArbitraryChest, BlockActivateListener {
 	
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.HOPPER;
 	}
 	

@@ -43,7 +43,7 @@ public class IntersectingPipeExtractor extends Pipe {
 
 	@Override
 	public BlockEntry blockCopy() {
-		IntersectingPipeExtractor result = new IntersectingPipeExtractor(sideA, sideB, type(), getImage());
+		IntersectingPipeExtractor result = new IntersectingPipeExtractor(sideA, sideB, itemType(), getImage());
 		System.arraycopy(items, 0, result.items, 0, 2);
 		result.inv.setContents(inv.getContents());
 		return result;

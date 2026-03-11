@@ -5,6 +5,7 @@ package mmb.engine.item;
 
 import java.awt.Component;
 import java.awt.Graphics;
+import java.util.Set;
 
 import javax.swing.Icon;
 
@@ -16,6 +17,7 @@ import com.fasterxml.jackson.databind.node.TextNode;
 
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
+import mmb.beans.IWindowTool;
 import mmb.beans.Saver;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.chance.Chance;
@@ -27,26 +29,27 @@ import mmb.engine.recipe.ItemStack;
 import mmb.engine.recipe.SingleItem;
 import mmb.engine.texture.BlockDrawer;
 import mmb.engine.worlds.world.World;
-import mmb.menu.wtool.ToolStandard;
 import mmb.menu.wtool.WindowTool;
 
 /**
  * Represents an item entity or a basic item in storage systems and information about them
  * @author oskar
  */
-public interface ItemEntry extends Saver, SingleItem{
+public interface ItemEntry extends Saver, SingleItem, IWindowTool{
 	//Item properties
 	/** @return the volume of this item entry */
-	public double volume();
+	public default double volume() {
+		return itemType().volume;
+	}
 	/** @return type of this item entry */
-	@NN public ItemType type();
+	@NN public ItemType itemType();
 	/** @return title of this item entry */
 	@NN public default String title() {
-		return type().title();
+		return itemType().title();
 	}
 	/** @return description of this item entry */
 	public default String description() {
-		return type().description();
+		return itemType().getDescription();
 	}
 	
 	//Item operations
@@ -64,15 +67,7 @@ public interface ItemEntry extends Saver, SingleItem{
 	 * @param h height
 	 */
 	public default void render(Graphics g, int x, int y, int w, int h) {
-		type().getTexture().draw(null, x, y, g, w, h);
-	}
-
-	/**
-	 * @return the window tool used by the item.
-	 * If null is returned, the tool will be {@link ToolStandard}
-	 */
-	public default WindowTool getTool() {
-		return null;
+		itemType().getTexture().draw(null, x, y, g, w, h);
 	}
 	/**
 	 * Creates a block drawer for the item
@@ -150,6 +145,11 @@ public interface ItemEntry extends Saver, SingleItem{
 		out.write(title());
 	}
 	
+	/** Gets all groups for this item entry*/
+	public default ItemGroups getGroups() {
+		return new ItemGroups(itemType(), Set.of());
+	}
+	
 	//Inventory management
 	/**
 	 * Invoked when the item changes inventories
@@ -179,9 +179,9 @@ public interface ItemEntry extends Saver, SingleItem{
 	public static JsonNode saveItem(@Nil ItemEntry item) {
 		if(item == null) return NullNode.instance;
 		JsonNode save = item.save();
-		if(save == null) return new TextNode(item.type().id());
+		if(save == null) return new TextNode(item.itemType().id());
 		ArrayNode array = JsonTool.newArrayNode();
-		array.add(item.type().id());
+		array.add(item.itemType().id());
 		array.add(save);
 		return array;
 	}
@@ -191,15 +191,6 @@ public interface ItemEntry extends Saver, SingleItem{
 	 * @return item it if loaded successfully, or null if failed
 	 */
 	@Nil public static ItemEntry loadFromJson(@Nil JsonNode data) {
-		return loadFromJsonExpectType(data, null);
-	}
-	/**
-	 * Loads an item from the JSON data, restricting the output type
-	 * @param data JSON data
-	 * @param cls required type, or null if unrestricted
-	 * @return item it if loaded successfully, or null if failed
-	 */
-	@Nil public static <T extends ItemEntry> ItemEntry loadFromJsonExpectType(@Nil JsonNode data, @Nil Class<T> cls) {
 		if(data == null) return null;
 		if(data.isNull()) return null;
 		if(data.isArray()) {
@@ -207,7 +198,7 @@ public interface ItemEntry extends Saver, SingleItem{
 			JsonNode idata = data.get(1);
 			ItemType type = Items.get(id);
 			if(type == null) return null;
-			return type.<T>loadItemExpectType(idata, cls);
+			return type.createItem(idata);
 		}
 		if(data.isTextual()) {
 			String text = data.asText();
@@ -216,8 +207,31 @@ public interface ItemEntry extends Saver, SingleItem{
 				new Debugger("ITEMS").printl("Invalid item: "+text);
 				return null;
 			}
-			return item.create();
+			return item.createItem(null);
 		}
 		return null;
 	}
+	/**
+	 * Loads an item from the JSON data, restricting the output type
+	 * @param data JSON data
+	 * @param cls required type, or null if unrestricted
+	 * @return item it if loaded successfully, or null if failed
+	 */
+	@Nil public static <T extends ItemEntry> ItemEntry loadFromJsonExpectType(@Nil JsonNode data, @Nil Class<T> cls) {
+		ItemEntry item = loadFromJson(data);
+		if(cls == null) return item;
+		if(cls.isInstance(item)) return cls.cast(item);
+		return null;
+	}
+	
+	@Override
+	default WindowTool getWindowTool() {
+		return itemType().getWindowTool();
+	}
+	@Override
+	default void setWindowTool(WindowTool tool) {
+		throw new UnsupportedOperationException("This item entry does not support window tool setting");
+	}
+	
+	
 }

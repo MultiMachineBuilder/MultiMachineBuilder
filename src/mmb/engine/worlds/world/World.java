@@ -381,7 +381,7 @@ public class World implements Identifiable<String>, Indexable{
 			try {
 				ent.onShutdown(this);
 			} catch (Exception e) {
-				debug.stacktraceError(e, "Failed to shut down block "+ent.type().id()+" at ["+ent.posX()+","+ent.posY()+"]");
+				debug.stacktraceError(e, "Failed to shut down block "+ent.itemType().id()+" at ["+ent.posX()+","+ent.posY()+"]");
 			}
 		}
 		if(timer.getState() == 1) timer.destroy();
@@ -486,7 +486,7 @@ public class World implements Identifiable<String>, Indexable{
 		old.resetMap(null, 0, 0);
 		b.resetMap(this, x, y);
 		entries.set(x-startX, y-startY, b);
-		LODs.setRGB(x-startX, y-startY, b.type().getTexture().LOD());
+		LODs.setRGB(x-startX, y-startY, b.itemType().getTexture().LOD());
 		return b;
 	}
 	/**

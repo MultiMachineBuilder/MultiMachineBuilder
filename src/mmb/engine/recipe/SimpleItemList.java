@@ -26,9 +26,7 @@ public final class SimpleItemList implements ItemList {
 	/** Item list with no items */
 	@NN public static final SimpleItemList EMPTY = new SimpleItemList();
 	
-	/**
-	 * The data array
-	 */
+	/** The data array */
 	@NN private final Object2IntMap<@NN ItemEntry> data = new Object2IntOpenHashMap<>();
 	
 	/**

@@ -42,7 +42,7 @@ public class Verify {
 		if(!Double.isFinite(dbl)) throw new IllegalArgumentException("Infinity");
 	}
 	/**
-	 * Requires that provided argument be real number
+	 * Requires that provided argument be a real number
 	 * @param dbl value to test
 	 * @throws IllegalArgumentException if value is NaN
 	 */

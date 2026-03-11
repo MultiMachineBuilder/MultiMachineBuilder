@@ -6,7 +6,6 @@ package mmb.content.agro;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.Vector2iconst;
 import mmb.engine.block.BlockEntityData;
@@ -24,21 +23,16 @@ public class Crop extends BlockEntityData {
 	/**
 	 * Creates a crop block
 	 * @param type block type
-	 * @param time time between drops in ticks
-	 * @param drop item(s) to drop
 	 */
-	public Crop(BlockType type, int time, Chance drop) {
+	public Crop(CropType type) {
 		super();
 		this.type = type;
-		this.time = time;
-		this.drop = drop;
 	}
 	
 	//Contents
-	@NN private BlockType type;
-	@NN private Chance drop;
+	private final CropType type;
+	
 	private int progress;
-	private int time;
 	/** @return time elapsed since last drop */
 	public int getProgress() {
 		return progress;
@@ -47,42 +41,36 @@ public class Crop extends BlockEntityData {
 	public void setProgress(int progress) {
 		this.progress = progress;
 	}
-	/** @return time between successive drops */
-	public int getTime() {
-		return time;
-	}
-	/** @param time new time between successive drops */
-	public void setTime(int time) {
-		this.time = time;
-	}
 	
 	//Block methods
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return type;
 	}
 	@Override
 	public void onTick(MapProxy map) {
 		if(owner().drops.get(new Vector2iconst(posX(), posY())).isEmpty())
 			progress++;
-		if(progress >= time) {
-			drop.drop(null, owner(), posX(), posY());
-			progress -= time;
+		if(progress >= type.time) {
+			var dropper = map.getMap().createDropper(posX(), posY());
+			type.drops.produceOutputs(dropper, 1);
+			progress -= type.time;
 		}
 	}
 	@Override
 	public BlockEntry blockCopy() {
-		Crop copy = new Crop(type, time, drop);
+		Crop copy = new Crop(type);
 		copy.progress = progress;
 		return copy;
 	}
 	
 	//Serialization
-	@Override
-	public void load(@Nil JsonNode data) {
-		if(data == null) return;
+	public static Crop load(CropType blockType, int time, Chance cropDrop, @Nil JsonNode data) {
+		Crop crop = new Crop(blockType);
+		if(data == null) return crop;
 		JsonNode progNode = data.get("progress");
-		if(progNode != null) progress = progNode.asInt();
+		if(progNode != null) crop.progress = progNode.asInt();
+		return crop;
 	}
 	@Override
 	protected void save0(ObjectNode node) {

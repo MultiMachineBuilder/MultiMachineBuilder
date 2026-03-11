@@ -10,9 +10,10 @@ import mmb.content.CraftingGroups;
 import mmb.content.agro.Agro;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.block.Block;
-import mmb.engine.block.BlockEntityType;
+import mmb.engine.block.BlockType;
 import mmb.engine.item.Items;
 import mmb.engine.java2d.TexGen;
+import mmb.engine.texture.TextureDrawer;
 
 /**
  * An extension to a material group with an ore and a crop
@@ -23,7 +24,7 @@ public class BaseMetalGroup extends MetalGroup{
 	/** The natural form of this material */
 	@NN public final Block ore;
 	/** The crop, a growable form of this material. Replaced with quarries. */
-	@NN public final BlockEntityType crop;
+	@NN public final BlockType crop;
 	
 	/**
 	 * Creates a base metal group
@@ -36,10 +37,9 @@ public class BaseMetalGroup extends MetalGroup{
 	 */
 	public BaseMetalGroup(Color c, String id, VoltageTier volt, double baseEnergy, int orePerSmelt, boolean isGem) {
 		super(c, id, volt, baseEnergy, isGem);
-		ore = new Block()
-		.texture(TexGen.genOre(c))
-		.title(materialConcatenateShort("mattype-ore"))
-		.finish("ore."+id);
+		ore = new Block("ore."+id);
+		ore.setTexture(new TextureDrawer(TexGen.genOre(c)));
+		ore.setTitle(materialConcatenateShort("mattype-ore"));
 		crop = Agro.crop(1500, ore, materialConcatenateShort("mattype-crop"), TexGen.genCrop(c), "crop."+id);
 		
 		//Recipes

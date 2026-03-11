@@ -80,7 +80,7 @@ public class PipeFilter extends AbstractBasePipe implements BlockActivateListene
 	}
 	@Override
 	public BlockEntry blockCopy() {
-		PipeFilter result = new PipeFilter(type(), getImage());
+		PipeFilter result = new PipeFilter(itemType(), getImage());
 		System.arraycopy(items, 0, result.items, 0, 3);
 		return result;
 	}

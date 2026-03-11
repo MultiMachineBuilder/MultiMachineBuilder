@@ -16,7 +16,7 @@ import java.awt.event.MouseWheelListener;
 import javax.swing.Icon;
 
 import mmb.annotations.NN;
-import mmb.beans.Titled;
+import mmb.beans.ITitle;
 import mmb.menu.world.window.WorldFrame;
 import mmb.menu.world.window.WorldWindow;
 import monniasza.collects.Identifiable;
@@ -39,7 +39,7 @@ MouseMotionListener,
 MouseWheelListener,
 KeyListener,
 Identifiable<String>,
-Titled{	
+ITitle{	
 	//Declaration
 	/** Tool ID */
 	@NN public final String id;

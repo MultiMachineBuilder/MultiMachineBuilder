@@ -25,7 +25,8 @@ public class ManCrafter extends Block implements BlockActivateListener {
 	public final int size;
 	/** The tier of the crafting table */
 	public final int tier;
-	private ManCrafter(int tier) {
+	private ManCrafter(String id, int tier) {
+		super(id);
 		size = sizes.getInt(tier);
 		this.tier = tier;
 	}
@@ -55,10 +56,9 @@ public class ManCrafter extends Block implements BlockActivateListener {
 		String idName = "crafting."+increased;
 		String title = GlobalSettings.$res("machine-crafter")+" "+increased;
 		
-		Block type = new ManCrafter(tier);
-		type.title(title);
-		type.texture(textureName);
-		type.register(idName);
+		Block type = new ManCrafter(idName, tier);
+		type.setTitle(title);
+		type.setTextureAsset(textureName);
 		return type;
 	}
 	

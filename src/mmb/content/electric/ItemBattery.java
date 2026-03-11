@@ -39,7 +39,7 @@ public class ItemBattery extends ItemEntityMutable implements Electric {
 	//Item methods
 	@NN private ItemEntityType type;
 	@Override
-	public ItemType type() {
+	public ItemType itemType() {
 		return type;
 	}
 	@Override

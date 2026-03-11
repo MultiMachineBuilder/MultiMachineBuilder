@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Rotation;
 
@@ -41,13 +42,10 @@ public abstract class BlockEntityRotary extends BlockEntityData {
 	}
 	
 	//Serialization
-	@SuppressWarnings({ "null", "unused" })
-	@Override
-	public final void load(JsonNode data) {
+	public final void loadRotation(@Nil JsonNode data) {
 		if(data == null) return;
 		side = Rotation.valueOf(data.get("side").asText());
 		if(side == null) side = Rotation.N;
-		load1((ObjectNode) data);
 	}
 	@Override
 	protected final void save0(ObjectNode node) {
@@ -60,13 +58,6 @@ public abstract class BlockEntityRotary extends BlockEntityData {
 	 * @param node node, to which data can be saved
 	 */
 	protected void save1(ObjectNode node) {
-		//optional
-	}
-	/**
-	 * Additional function used to save additional data
-	 * @param node node, to which data can be loaded
-	 */
-	protected void load1(ObjectNode node) {
 		//optional
 	}
 }

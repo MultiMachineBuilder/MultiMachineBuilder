@@ -62,7 +62,7 @@ public class WorldPopup extends JPopupMenu {
 					return;
 				}
 				block
-				.type()
+				.itemType()
 				.leaveBehind()
 				.place(mouseoverX, mouseoverY, map);
 			});

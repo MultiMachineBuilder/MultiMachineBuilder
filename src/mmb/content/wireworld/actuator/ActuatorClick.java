@@ -21,7 +21,7 @@ public class ActuatorClick extends AbstractActuatorBase {
 	private static final RotatedImageGroup texture = RotatedImageGroup.create(Textures.get("machine/claw.png"));
 	
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.CLICKER;
 	}
 

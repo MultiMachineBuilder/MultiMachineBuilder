@@ -8,7 +8,7 @@ import java.awt.Point;
 
 import javax.swing.Icon;
 
-import mmb.beans.Titled;
+import mmb.beans.ITitle;
 import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
 
@@ -17,7 +17,7 @@ import mmb.menu.world.window.WorldWindow;
  * @author oskar
  *
  */
-public interface Placer extends Titled {
+public interface Placer extends ITitle {
 	/** @return preview icon */
 	public Icon getIcon();
 

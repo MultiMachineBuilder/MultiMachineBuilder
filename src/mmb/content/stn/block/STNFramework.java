@@ -42,7 +42,7 @@ ModularBlock<STNFramework, BlockModuleUniversal, ChestCore, Object> {
 	
 	//Basic stuff
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return STN.STN_fw;
 	}
 	@Override

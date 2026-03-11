@@ -56,7 +56,7 @@ public class Speaker extends BlockEntityData implements BlockActivateListener {
 	}
 	
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.SPEAKER;
 	}
 
@@ -65,19 +65,20 @@ public class Speaker extends BlockEntityData implements BlockActivateListener {
 		return new Speaker();
 	}
 
-	@Override
-	public void load(@Nil JsonNode data) {
-		if(data == null) return;
+	public static Speaker load(@Nil JsonNode data) {
+		Speaker result = new Speaker();
+		if(data == null) return result;
 		JsonNode nsound = data.get("sound");
-		if(nsound != null) setSelection(nsound.asText());
+		if(nsound != null) result.setSelection(nsound.asText());
 		JsonNode nmode = data.get("mode");
-		if(nmode != null) setMode(SpeakerMode.valueOf(nmode.asText()));
+		if(nmode != null) result.setMode(SpeakerMode.valueOf(nmode.asText()));
 		JsonNode nstate = data.get("state");
-		if(nstate != null) playbackRequested = nstate.asBoolean();
+		if(nstate != null) result.playbackRequested = nstate.asBoolean();
 		JsonNode nsignal = data.get("signal");
-		if(nsignal != null) hasAlreadyGotSignal = nsignal.asBoolean();
+		if(nsignal != null) result.hasAlreadyGotSignal = nsignal.asBoolean();
 		JsonNode nphase = data.get("phase");
-		if(nphase != null) phase = nphase.asInt();
+		if(nphase != null) result.phase = nphase.asInt();
+		return result;
 	}
 
 	@Override
@@ -289,7 +290,7 @@ public class Speaker extends BlockEntityData implements BlockActivateListener {
 			//Clicked by a Block Clicking Claw
 		}else {
 			//Clicked by a player
-			window.openAndShowWindow(new SpeakerGUI(this, window), type().title());
+			window.openAndShowWindow(new SpeakerGUI(this, window), itemType().title());
 		}
 	}
 

@@ -8,7 +8,7 @@ import java.util.Set;
 import javax.swing.ListCellRenderer;
 
 import mmb.annotations.NN;
-import mmb.beans.Titled;
+import mmb.beans.ITitle;
 import mmb.engine.item.ItemEntry;
 import monniasza.collects.Identifiable;
 
@@ -17,7 +17,7 @@ import monniasza.collects.Identifiable;
  * @author oskar
  * @param <T> type of recipes
  */
-public interface RecipeGroup<@NN T extends Recipe<?>> extends Identifiable<String>, Titled{
+public interface RecipeGroup<@NN T extends Recipe<?>> extends Identifiable<String>, ITitle{
 	/**@return a set with recipes*/
 	@NN public Set<@NN T> recipes();
 	/** @return a set with all supported items */

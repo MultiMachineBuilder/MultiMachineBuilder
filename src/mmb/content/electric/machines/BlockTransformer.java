@@ -7,12 +7,14 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.awt.image.LookupOp;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.Electricity.SettablePressure;
 import mmb.engine.block.BlockEntityRotary;
-import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.item.Items;
@@ -20,6 +22,7 @@ import mmb.engine.java2d.ColorMapper;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.settings.GlobalSettings;
+import mmb.engine.texture.TextureDrawer;
 import mmb.engine.texture.Textures;
 import mmb.engine.worlds.MapProxy;
 
@@ -35,7 +38,7 @@ public class BlockTransformer extends BlockEntityRotary {
 	}
 
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return type.type;
 	}
 
@@ -81,7 +84,7 @@ public class BlockTransformer extends BlockEntityRotary {
 		/** The lower voltage of this transformer (one dot) */
 		@NN public final VoltageTier low;
 		/** The associated voltage tier */
-		@NN public final BlockEntityType type;
+		@NN public final BlockType type;
 		/** The associated rotated image group */
 		@NN public final RotatedImageGroup image;
 		/** Initializes the transformers */
@@ -94,11 +97,11 @@ public class BlockTransformer extends BlockEntityRotary {
 			BufferedImage img = op.filter(src0, null);
 			op2.filter(img, img);
 			this.image = RotatedImageGroup.create(img);
-			this.type = new BlockEntityType()
-					.title(GlobalSettings.$res("machine-transformer")+" "+high.name+"/"+low.name)
-					.factory(() -> new BlockTransformer(this))
-					.texture(image.U)
-					.finish("industry.transformer"+low.ordinal());
+			String id = "industry.transformer"+low.ordinal();
+			this.type = new BlockType(id);
+			type.setTitle(GlobalSettings.$res("machine-transformer")+" "+high.name+"/"+low.name);
+			type.setBlockFactory(json -> BlockTransformer.load(this, json));
+			type.setTexture(image.U);
 			Items.tagsItem(type, "voltage-"+high.name, "voltage-"+low.name, "machine-transformer");
 		}
 	}
@@ -217,6 +220,12 @@ public class BlockTransformer extends BlockEntityRotary {
 		default:
 			return null;
 		}
+	}
+	
+	public static BlockTransformer load(TransformerData td, @Nil JsonNode json) {
+		BlockTransformer result = new BlockTransformer(td);
+		result.loadRotation(json);
+		return result;
 	}
 
 }

@@ -29,20 +29,10 @@ public final class ItemBOM extends ItemFilter {
 	private static final String EMPTY = "\n" + $res("empty");
 	private static final String WITH1 = "\n" + $res("withings1") + " ";
 	private static final String WITH2 = " " + $res("withings2");
+	
+	/** Bill of Materials with no ingredients*/
+	public static final ItemBOM EMPTY_BOM = new ItemBOM(SimpleItemList.EMPTY);
 	//Constructors
-	/**
-	 * Creates an empty Bill of Materials
-	 */
-	public ItemBOM() {
-		//empty
-	}
-	/**
-	 * Creates a Bill of Materials with items (optimized)
-	 * @param items items to use
-	 */
-	public ItemBOM(SimpleItemList items) {
-		this.items = items;
-	}
 	/**
 	 * Creates a Bill of Materials with items (generic)
 	 * @param items items to use
@@ -55,7 +45,7 @@ public final class ItemBOM extends ItemFilter {
 	}
 	
 	//Contents
-	@NN private SimpleItemList items = SimpleItemList.EMPTY;
+	@NN private final SimpleItemList items;
 	/**
 	 * @return the item list for this Bill Of Materials. The returned item list is immutable
 	 */
@@ -87,21 +77,19 @@ public final class ItemBOM extends ItemFilter {
 		return false;
 	}
 	@Override
-	public ItemType type() {
+	public ItemType itemType() {
 		return ContentsItems.BOM;
 	}
 	
 	//Serialization
-	@Override
-	public void load(@Nil JsonNode data) {
-		debug.printl("Loading: " + (data == null ? "null" : data.toPrettyString()));
-		if(data == null) return;
+	public static ItemBOM load(@Nil JsonNode data) {
+		if(data == null) return EMPTY_BOM;
 		SimpleItemList list0 = ItemLists.read(data);
 		if(list0 == null) {
 			debug.printl("Items are null");
 			list0 = SimpleItemList.EMPTY;
 		}
-		items = list0;	
+		return new ItemBOM(list0);
 	}
 	@Override
 	public JsonNode save() {

@@ -3,12 +3,15 @@
  */
 package mmb.content.wireworld;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.PropertyExtension;
+import mmb.annotations.Nil;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.block.BlockEntityRotary;
-import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
@@ -47,15 +50,16 @@ public class GateState extends BlockEntityRotary{
 	 * @author oskar
 	 * The block type for block entity
 	 */
-	public static class StateGateType extends BlockEntityType{
+	public static class StateGateType extends BlockType{
 		public final StatefulBool gate;
 		public final RotatedImageGroup rigY;
 		public final RotatedImageGroup rigN;
-		public StateGateType(String textureOn, String textureOff, String textureStanding, StatefulBool gate) {
+		public StateGateType(String id, String textureOn, String textureOff, String textureStanding, StatefulBool gate, PropertyExtension... props) {
+			super(id, props);
 			rigY = RotatedImageGroup.create(textureOn);
 			rigN = RotatedImageGroup.create(textureOff);
-			texture(textureStanding);
-			factory(() -> new GateState(this));
+			setTextureAsset(textureStanding);
+			setBlockFactory(json -> GateState.load1(this, json));
 			this.gate = gate;
 		}
 	}
@@ -65,9 +69,12 @@ public class GateState extends BlockEntityRotary{
 		node.put("state", state);
 	}
 
-	@Override
-	protected final void load1(ObjectNode node) {
-		state = node.get("state").asBoolean();
+	protected static GateState load1(StateGateType type, @Nil JsonNode node) {
+		GateState gate = new GateState(type);
+		if(node == null) return gate;
+		gate.loadRotation(node);
+		gate.state = node.get("state").asBoolean();
+		return gate;
 	}
 	
 	@Override
@@ -79,7 +86,7 @@ public class GateState extends BlockEntityRotary{
 	}
 	
 	@Override
-	public StateGateType type() {
+	public StateGateType itemType() {
 		return type;
 	}
 	@Override

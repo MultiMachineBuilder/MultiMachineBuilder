@@ -62,7 +62,7 @@ public class DualPipe extends AbstractBasePipe {
 
 	@Override
 	public BlockEntry blockCopy() {
-		DualPipe result = new DualPipe(sideA, sideB, type(), getImage());
+		DualPipe result = new DualPipe(sideA, sideB, itemType(), getImage());
 		System.arraycopy(items, 0, result.items, 0, 4);
 		return result;
 	}

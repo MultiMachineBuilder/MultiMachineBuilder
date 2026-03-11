@@ -21,7 +21,7 @@ public class Lamp extends BlockEntityDataless {
 	private static final BlockDrawer off = BlockDrawer.ofImage(Textures.get("logic/off lamp.png"));
 
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.LAMP;
 	}
 

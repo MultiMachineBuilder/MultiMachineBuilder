@@ -76,8 +76,8 @@ public class BOMChestGUI extends GUITab {
 			return;
 		}
 		ItemEntry item = irecord.item();
-		debug.printl("Type: "+item.type().id());		
-		if(irecord.amount() < 1 || item.type() != ContentsItems.BOM) return;
+		debug.printl("Type: "+item.itemType().id());		
+		if(irecord.amount() < 1 || item.itemType() != ContentsItems.BOM) return;
 		Inventories.transact(item, bom, inv, inv);
 	}
 

@@ -10,6 +10,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.PropertyExtension;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.content.imachine.SpeedUpgrade;
@@ -82,7 +83,7 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 	 * A provider for a mover
 	 * @author oskar
 	 */
-	public static class MoverDef extends PartEntityType{
+	public static class MoverDef extends PartType{
 		/** The tick handler for the mover */
 		@NN public final ItemMoverHandle handler;
 		/** false - import, true-export */
@@ -93,69 +94,27 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 		/**
 		 * Creates a mover type
 		 * @param handler I/O handler
+		 * @param id the mover ID (not the item ID)
 		 * @param direction direction of motion
 		 * @param rig texture of this mover
+		 * @param properties additional properties beyond those added in the constructor
 		 */
 		public MoverDef(
-				ItemMoverHandle handler,
-				boolean direction, RotatedImageGroup rig) {
+				ItemMoverHandle handler, String id,
+				boolean direction, RotatedImageGroup rig, PropertyExtension... properties) {
+			super(generateID(id, direction), properties);
 			this.handler = handler;
 			this.direction = direction;
 			this.rig = rig;
-			setTexture(rig.U);
+			texture = rig.U;
 		}
 		/** Constant to declare an importing mover */
 		public static final boolean IMPORT = false;
 		/** Constant to declare an exporting mover */
 		public static final boolean EXPORT = false;
-
-		@Override
-		public MoverDef texture(String texture) {
-			setTexture(texture);
-			return this;
-		}
-		@Override
-		public MoverDef texture(BufferedImage texture) {
-			setTexture(texture);
-			return this;
-		}
-		@Override
-		public MoverDef texture(Color texture) {
-			setTexture(BlockDrawer.ofColor(texture));
-			return this;
-		}
-		@Override
-		public MoverDef texture(BlockDrawer texture) {
-			setTexture(texture);
-			return this;
-		}
-		@Override
-		public MoverDef title(String title) {
-			setTitle(title);
-			return this;
-		}
-		@Override
-		public MoverDef describe(String description) {
-			setDescription(description);
-			return this;
-		}
-		@Override
-		public MoverDef finish(String id) {
-			register(id);
-			return this;
-		}
-		@Override
-		@NN public MoverDef volumed(double volume) {
-			setVolume(volume);
-			return this;
-		}
-		@Override public MoverDef rtp(ItemList rtp) {
-			super.rtp(rtp);
-			return this;
-		}
-		@Override public MoverDef drop(Chance chance) {
-			super.drop(chance);
-			return this;
+		
+		@NN private static String generateID(String base, boolean direction) {
+			return "modchest."+(direction ? "export." : "import.") + base;
 		}
 	}
 	
@@ -177,8 +136,11 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 		String trType = GlobalSettings.$str1(title);
 		
 		//Create the exporter
-		MoverDef petExport = new MoverDef(handle, MoverDef.EXPORT, rigExport)
-				.title(trType + " " + EXPORTER)
+		String titleExport = trType + " " + EXPORTER;
+		MoverDef petExport = new MoverDef(handle, MoverDef.EXPORT, rigExport);
+		petExport.setPartFactory((data, factory) -> new MoverModule()
+		
+				.title()
 				.volumed(0.01)
 				.finish("modchest.export."+id);
 		petExport.factory(() -> new MoverModule(petExport));
@@ -198,6 +160,10 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 		
 	public MoverModule(MoverDef type) {
 		this.type = type;
+	}
+	public MoverModule(MoverDef type, @Nil JsonNode data) {
+		this.type = type;
+		load(data);
 	}
 
 	//Part definition
@@ -227,7 +193,7 @@ public class MoverModule extends PartEntity implements BlockModuleUniversal {
 		return copy;
 	}
 	@Override
-	public PartType type() {
+	public PartType partType() {
 		return type;
 	}
 	@Override

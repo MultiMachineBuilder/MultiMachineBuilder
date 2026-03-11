@@ -16,9 +16,4 @@ public interface Saver {
 	 * @return the saved data
 	 */
 	public @Nil JsonNode save();
-	/**
-	 * Loads the following data object.
-	 * @param data
-	 */
-	public void load(@Nil JsonNode data);
 }

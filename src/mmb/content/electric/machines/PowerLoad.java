@@ -91,7 +91,7 @@ public class PowerLoad extends BlockEntityData implements BlockActivateListener 
 	
 	//Block methods
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.LOAD;
 	}
 	@Override

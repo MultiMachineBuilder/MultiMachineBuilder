@@ -3,6 +3,7 @@
  */
 package mmb.content.wireworld;
 
+import mmb.PropertyExtension;
 import mmb.engine.block.Block;
 import mmb.engine.rotate.Side;
 
@@ -13,6 +14,9 @@ import mmb.engine.rotate.Side;
  * @see EmitUniformRandom
  */
 public class EmitRandom extends Block {
+	public EmitRandom(String id, PropertyExtension... properties) {
+		super(id, properties);
+	}
 
 	@Override
 	public boolean provideSignal(Side s) {

@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.LookupOp;
 
 import mmb.annotations.NN;
-import mmb.beans.Titled;
+import mmb.beans.ITitle;
 import mmb.engine.java2d.ColorMapper;
 import mmb.engine.texture.Textures;
 import mmb.engine.texture.Textures.Texture;
@@ -20,7 +20,7 @@ import monniasza.collects.Identifiable;
  * Generates a group of electronic components together with {@code ComponentTier}
  * @author oskar
  */
-public class ComponentGenerator implements Titled, Identifiable<String>{
+public class ComponentGenerator implements ITitle, Identifiable<String>{
 	/** The color of the component's contacts */
 	@NN public final Texture tex;
 	/** The prefix for component titles */

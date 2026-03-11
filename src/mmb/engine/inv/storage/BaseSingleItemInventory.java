@@ -199,7 +199,6 @@ public abstract class BaseSingleItemInventory implements SaveInventory{
 		ArrayNode array = JsonTool.newArrayNode();
 		return array.add(capacity()).add(ItemEntry.saveItem(getContents()));
 	}
-	@Override
 	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		JsonNode nodeCapacity = data.get(0);

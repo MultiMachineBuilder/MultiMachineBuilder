@@ -106,7 +106,7 @@ public abstract class AbstractBasePipe extends BlockEntityChirotable {
 	}
 
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return type;
 	}
 	

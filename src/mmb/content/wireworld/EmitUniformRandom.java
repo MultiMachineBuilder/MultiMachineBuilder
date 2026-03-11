@@ -15,7 +15,7 @@ import mmb.engine.worlds.MapProxy;
  */
 public class EmitUniformRandom extends EmitBase {
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.URANDOM;
 	}
 

@@ -3,10 +3,14 @@
  */
 package mmb.content.wireworld;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
+import mmb.PropertyExtension;
+import mmb.annotations.Nil;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.block.BlockEntityRotary;
-import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
@@ -32,13 +36,14 @@ public class GateMono extends BlockEntityRotary{
 	 * @author oskar
 	 * The block type for block entity
 	 */
-	public static class MonoGateType extends BlockEntityType{
+	public static class MonoGateType extends BlockType{
 		public final MonoBool gate;
 		public final RotatedImageGroup rig;
-		public MonoGateType(String texture, MonoBool gate) {
+		public MonoGateType(String id, String texture, MonoBool gate, PropertyExtension... props) {
+			super(id, props);
 			this.rig = RotatedImageGroup.create(texture);
-			texture(texture);
-			factory(() -> new GateMono(this));
+			setTexture(this.rig.U);
+			setBlockFactory(json -> GateMono.load(this, json));
 			this.gate = gate;
 		}
 	}
@@ -46,13 +51,18 @@ public class GateMono extends BlockEntityRotary{
 	public boolean provideSignal(Side s) {
 		return (s == getRotation().U()) && result;
 	}
+	public static GateMono load(MonoGateType monoGateType, @Nil JsonNode json) {
+		GateMono result = new GateMono(monoGateType);
+		result.loadRotation(json);
+		return result;
+	}
 	@Override
 	public void onTick(MapProxy map) {
 		boolean a = owner().getAtSide(getRotation().D(), posX(), posY()).provideSignal(getRotation().U());
 		result = type.gate.run(a);
 	}
 	@Override
-	public MonoGateType type() {
+	public MonoGateType itemType() {
 		return type;
 	}
 	public GateMono(MonoGateType type) {

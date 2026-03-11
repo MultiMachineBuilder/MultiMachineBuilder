@@ -175,7 +175,7 @@ public class BlockGeneratorSolid extends BlockEntityRotary implements BlockActiv
 		}
 	}
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return type;
 	}
 

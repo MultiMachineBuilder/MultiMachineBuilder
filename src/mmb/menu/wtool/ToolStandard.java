@@ -192,7 +192,7 @@ public class ToolStandard extends WindowTool{
 				return;
 			}
 			BlockEntry block = frame.getMap().get(x, y);
-			block.type().leaveBehind().place(x, y, map);
+			block.itemType().leaveBehind().place(x, y, map);
 			break;
 		default:
 			break;

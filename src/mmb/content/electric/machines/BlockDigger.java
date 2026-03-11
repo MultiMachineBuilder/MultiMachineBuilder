@@ -104,7 +104,7 @@ public class BlockDigger extends BlockEntityData implements ToItemUnifiedCollect
 	//Block methods
 	@NN private final ElectroMachineType type;
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return type;
 	}
 	@Override
@@ -168,8 +168,8 @@ public class BlockDigger extends BlockEntityData implements ToItemUnifiedCollect
 			hammer.stored -= reqcharge;
 			
 			//Mine the block
-			Chance drop = block.type().getDrop();
-			owner().place(block.type().leaveBehind(), ox, oy);
+			Chance drop = block.itemType().getDrop();
+			owner().place(block.itemType().leaveBehind(), ox, oy);
 			drop.drop(writer0, owner(), ox, oy);
 		}
 		Electricity.equatePPs(this, map, battery, 0.9, type.powermul * type.volt.volts);

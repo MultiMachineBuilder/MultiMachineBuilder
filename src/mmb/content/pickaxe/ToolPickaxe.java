@@ -59,7 +59,7 @@ public class ToolPickaxe extends WindowTool {
 			long time = toMine;
 			final Pickaxe pick2 = pick;
 			if (pick2 != null) 
-				time = 20_000_000L * pick2.type().getTime();
+				time = 20_000_000L * pick2.itemType().getTime();
 			lastPressedTime = now;
 			sincePress += elapsed;
 			if(sincePress > time) { //block should be mined
@@ -83,7 +83,7 @@ public class ToolPickaxe extends WindowTool {
 				pick = (Pickaxe) entry;
 				int uses = pick.getUses();
 				pick.setUses(uses+1);
-				if(uses > pick.type().getDurability()) {
+				if(uses > pick.itemType().getDurability()) {
 					//Break the pickaxe
 					record.extract(Integer.MAX_VALUE);
 					pressed = false;
@@ -93,11 +93,11 @@ public class ToolPickaxe extends WindowTool {
 			}
 		}
 		//Mine the block
-		Chance drop = block1.type().getDrop();
-		frame.getMap().place(block1.type().leaveBehind(), block.x, block.y);
+		Chance drop = block1.itemType().getDrop();
+		frame.getMap().place(block1.itemType().leaveBehind(), block.x, block.y);
 		drop.drop(window.getPlayer().inv.createWriter(), frame.getMap(), block.x, block.y);
 		
-		if(record != null && pick != null && pick.getUses() > pick.type().getDurability()) {
+		if(record != null && pick != null && pick.getUses() > pick.itemType().getDurability()) {
 			//Break the pickaxe
 			record.extract(Integer.MAX_VALUE);
 		}

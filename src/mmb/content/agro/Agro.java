@@ -15,13 +15,15 @@ import static mmb.content.rawmats.Materials.iron;
 import java.awt.image.BufferedImage;
 import java.util.ResourceBundle;
 
+import mmb.PropertyExtension;
 import mmb.content.ContentsBlocks;
-import mmb.engine.block.BlockEntityType;
+import mmb.engine.block.BlockType;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 import mmb.engine.recipe.ItemList;
 import mmb.engine.settings.GlobalSettings;
+import mmb.engine.texture.TextureDrawer;
 import mmb.engine.texture.Textures;
 
 /**
@@ -42,36 +44,33 @@ public class Agro {
 	
 	//Crop outputs
 	/** Yeast, used to make beer */
-	public static final Item yeast = new Item()
-		.title("#yeast")
-		.texture("item/yeast.png")
-		.volumed(0.001)
-		.finish("item.yeast");
+	public static final Item yeast = new Item("item.yeast",
+		PropertyExtension.translateTitle("#yeast"),
+		PropertyExtension.setTextureAsset("item/yeast.png")
+	);
 	/** Hops, used to make beer */
-	public static final Item hops = new Item()
-		.title("#hops")
-		.texture("item/hops.png")
-		.volumed(0.001)
-		.finish("item.hops");
+	public static final Item hops = new Item("item.hops",
+		PropertyExtension.translateTitle("#hops"),
+		PropertyExtension.setTextureAsset("item/hops.png")
+	);
 	/** Seeds, used to make beer */
-	public static final Item seeds = new Item()
-		.title("#seeds")
-		.texture("item/seeds.png")
-		.volumed(0.002)
-		.finish("item.seeds");
+	public static final Item seeds = new Item("item.seeds",
+		PropertyExtension.translateTitle("#seeds"),
+		PropertyExtension.setTextureAsset("item/seeds.png")
+	);
 	
 	//Crops
 	/** Tree, produces wood logs */
-	public static final BlockEntityType AGRO_TREE =
+	public static final BlockType AGRO_TREE =
 		Agro.crop(1500, ContentsBlocks.logs, "#machine-tree", Textures.get("block/tree.png"), "crop.tree");
 	/** Water well, produces water */
-	public static final BlockEntityType AGRO_WATER =
+	public static final BlockType AGRO_WATER =
 		Agro.crop(1000, ContentsBlocks.water, "#machine-water", Textures.get("machine/water well.png"), "crop.water");
 	/** Crop field, produces seeds */
-	public static final BlockEntityType AGRO_SEEDS =
+	public static final BlockType AGRO_SEEDS =
 		Agro.crop(1000, seeds, "#machine-seeds", Textures.get("block/cropfield.png"), "crop.seeds");
 	/** Hop field, produces hops */
-	public static final BlockEntityType AGRO_HOPS =
+	public static final BlockType AGRO_HOPS =
 		Agro.crop(1000, hops, "#machine-hops", Textures.get("machine/hops.png"), "crop.hops");
 	
 	private static boolean inited = false;
@@ -114,9 +113,14 @@ public class Agro {
 	 * @param id block ID
 	 * @return the crop block entity type
 	 */
-	public static BlockEntityType crop(int duration, ItemList cropDrop, String title, BufferedImage texture, String id) {
-		BlockEntityType result = new BlockEntityType().title(title).texture(texture).finish(id);
+	public static CropType crop(int duration, ItemList cropDrop, String title, BufferedImage texture, String id) {
+		var result = new CropType(id);
+		result.drops = cropDrop.toRecipeOutput();
+		result.time = duration;
+		result.translateTitle(title);
+		result.setTexture(new TextureDrawer(texture));
 		crops.add(result, cropDrop, duration);
-		return result.factory(() -> new Crop(result, duration, cropDrop));
+		result.setBlockFactory((json) -> Crop.load(result, duration, cropDrop, json));
+		return result;
 	}
 }

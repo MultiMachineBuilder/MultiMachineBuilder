@@ -79,7 +79,7 @@ public class Pack extends ItemEntity {
 		return Objects.equals(contents, other.contents);
 	}
 	@Override
-	public ItemType type() {
+	public ItemType itemType() {
 		return ContentsItems.pack;
 	}
 	

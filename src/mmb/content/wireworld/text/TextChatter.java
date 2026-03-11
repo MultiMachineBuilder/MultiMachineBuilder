@@ -51,7 +51,7 @@ public class TextChatter extends BlockEntityData implements TextMessageProvider,
 	
 	//Block methods
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.ww_chatter;
 	}
 	@Override
@@ -72,10 +72,11 @@ public class TextChatter extends BlockEntityData implements TextMessageProvider,
 	}
 	
 	//Serialization
-	@Override
-	public void load(@Nil JsonNode data) {
-		if(data == null) return;
-		contents = data.get("value").asText();
+	public static TextChatter load(@Nil JsonNode data) {
+		TextChatter result = new TextChatter();
+		if(data == null) return result;
+		result.contents = data.get("value").asText();
+		return result;
 	}
 	@Override
 	protected void save0(ObjectNode node) {

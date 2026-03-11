@@ -94,7 +94,7 @@ public class PlayerPipeShunt extends AbstractPlayerPipe {
 	//Block methods
 	@NN private final BlockType type;
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return type;
 	}
 	@NN private static final ChirotatedImageGroup img0 = ChirotatedImageGroup.create("machine/switch straight.png");

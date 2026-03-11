@@ -8,7 +8,7 @@ import static mmb.engine.settings.GlobalSettings.$res;
 import java.awt.Color;
 
 import mmb.annotations.NN;
-import mmb.beans.Titled;
+import mmb.beans.ITitle;
 import mmb.engine.item.Item;
 import mmb.engine.item.Items;
 import monniasza.collects.Identifiable;
@@ -17,7 +17,7 @@ import monniasza.collects.Identifiable;
  * Describes a component tier, used for electronics progression
  * @author oskar
  */
-public class ComponentTier implements Titled, Identifiable<String>{
+public class ComponentTier implements ITitle, Identifiable<String>{
 	/** The color of the component's contacts */
 	@NN public final Color c;
 	/** The prefix for component titles */

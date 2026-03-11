@@ -15,7 +15,7 @@ import mmb.engine.worlds.MapProxy;
 public class WWTail extends BlockEntityDataless{
 
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.ww_tail;
 	}
 

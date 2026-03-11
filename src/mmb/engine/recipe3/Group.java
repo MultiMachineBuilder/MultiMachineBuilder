@@ -5,11 +5,12 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import mmb.annotations.NN;
 import mmb.engine.texture.BlockDrawer;
+import monniasza.collects.Identifiable;
 
 /** 
  * An item group. Used to define a set of items that can be substituted for each other in a recipe.
  */
-public class Group {
+public class Group implements Identifiable<String> {
 	private static int NEXT_ORDINAL = 0;
 	/** Group ordinal. Used for optimizations */
 	public final int ordinal;
@@ -20,6 +21,7 @@ public class Group {
 		this.id = id;
 		internalGroups.add(this);
 	}
+	
 	private static final List<@NN Group> internalGroups = new ArrayList<>();
 	/** Finds existing groups by their ordinals */
 	public static final List<@NN Group> groups = Collections.unmodifiableList(internalGroups);
@@ -35,6 +37,11 @@ public class Group {
 	public static Group of(String id) {
 		Objects.requireNonNull(id, "id is null");
 		return internalLookup.computeIfAbsent(id, x -> new Group(x));
+	}
+	
+	@Override
+	public String id() {
+		return id;
 	}
 	
 	/**
@@ -55,4 +62,6 @@ public class Group {
 	//Properties
 	public String title;
 	public BlockDrawer icon;
+	
+	
 }

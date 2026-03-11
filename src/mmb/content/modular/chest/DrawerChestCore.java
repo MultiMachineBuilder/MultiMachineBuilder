@@ -36,7 +36,7 @@ public class DrawerChestCore extends ChestCore {
 	}
 
 	@Override
-	public PartEntityType type() {
+	public PartEntityType itemType() {
 		return type;
 	}
 

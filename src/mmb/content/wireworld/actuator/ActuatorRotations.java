@@ -24,7 +24,7 @@ import mmb.menu.world.window.WorldWindow;
 public class ActuatorRotations extends AbstractChiralActuatorBase implements BlockActivateListener {
 	//Block methods
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.ROTATOR;
 	}
 	@Override

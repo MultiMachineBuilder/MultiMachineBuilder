@@ -26,7 +26,7 @@ public class CreativeInventory implements Inventory {
 		@NN private final ItemEntry item;
 
 		public CreativeWithdrawalItemRecord(ItemType item) {
-			this.item = item.create();
+			this.item = item.createItem(null);
 		}
 		public CreativeWithdrawalItemRecord(ItemEntry item) {
 			this.item = item;

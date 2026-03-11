@@ -21,7 +21,7 @@ public class BlockButton extends BlockEntityDataless implements BlockActivateLis
 	private int pressed;
 
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.BUTTON;
 	}
 

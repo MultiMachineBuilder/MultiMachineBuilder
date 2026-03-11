@@ -7,6 +7,7 @@ import com.google.common.util.concurrent.Runnables;
 
 import mmb.annotations.NN;
 import mmb.content.electric.Electricity.SettablePressure;
+import mmb.content.electric.cable.BlockConduit;
 import mmb.engine.UnitFormatter;
 import mmb.engine.block.BlockEntity;
 import mmb.engine.block.BlockEntry;
@@ -17,7 +18,7 @@ import mmb.engine.worlds.world.World;
 /**
  * Implements the load balancing and electricity transport capabilities of the power conduit
  * @author oskar
- * @see mmb.content.electric.BlockConduit power conduit
+ * @see mmb.content.electric.cable.BlockConduit power conduit
  */
 public class TransferHelper implements SettablePressure{
 	private static final Debugger debug = new Debugger("CONDUITS");
@@ -65,7 +66,7 @@ public class TransferHelper implements SettablePressure{
 			BlockConduit cond = (BlockConduit)here;
 			
 			//Check voltage
-			if(cond.volt.compareTo(volt1) < 0) { //cond.volt < volt1
+			if(cond.itemType().getVoltRating().compareTo(volt1) < 0) { //cond.volt < volt1
 				cond.blow(); //The conduit was overvoltaged
 				return 0;
 			}

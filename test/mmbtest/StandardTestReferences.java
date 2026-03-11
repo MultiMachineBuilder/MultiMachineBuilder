@@ -8,10 +8,11 @@ import java.awt.Graphics;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import mmb.PropertyExtension;
 import mmb.annotations.Nil;
 import mmb.engine.block.Block;
-import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockEntry;
+import mmb.engine.block.BlockType;
 import mmb.engine.recipe.SimpleItemList;
 import mmb.engine.texture.BlockDrawer;
 
@@ -39,11 +40,14 @@ public class StandardTestReferences {
 	};
 	public static final Block block = createBlock();
 	private static Block createBlock() {
-		Block blk = new Block()
-				.texture(drawer);
-		blk.leaveBehind(blk);
-		return blk.finish("THIS IS A TEST BLOCK DONT SAVE IT");
+		Block blk = new Block("THIS IS A TEST BLOCK DONT SAVE IT");
+		blk.setTexture(drawer);
+		blk.setLeaveBehind(blk);
+		return blk;
 	}
-	public static final BlockEntityType bet = new BlockEntityType().leaveBehind(block).factory(() -> block).finish("THIS IS A TEST BLOCKENT DONT SAVE IT");
+	public static final BlockType bet = new BlockType("THIS IS A TEST BLOCKENT DONT SAVE IT",
+		PropertyExtension.setLeaveBehind(block),
+		PropertyExtension.setBlockFactory(json -> block)
+	);
 	public static final SimpleItemList ilist = new SimpleItemList(bet, block);
 }

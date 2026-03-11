@@ -27,10 +27,9 @@ import mmb.content.pickaxe.Pickaxe;
 import mmb.content.pickaxe.Pickaxe.PickaxeType;
 import mmb.content.rawmats.Materials;
 import mmb.engine.item.Item;
-import mmb.engine.item.ItemEntityType;
+import mmb.engine.item.ItemType;
 import mmb.engine.item.ItemRaw;
 import mmb.engine.item.Items;
-import mmb.engine.item.TooledItem;
 import mmb.engine.java2d.ColorMapper;
 import mmb.engine.java2d.TexGen;
 import mmb.engine.settings.GlobalSettings;
@@ -105,21 +104,21 @@ public class ContentsItems {
 	
 	//Crafting aids
 	/** Specifies a crafting recipe in an item form*/
-	@NN public static final ItemEntityType stencil = new ItemEntityType()
+	@NN public static final ItemType stencil = new ItemType()
 			.title("#stencil")
 			.texture("item/stencil.png")
 			.volumed(0.001)
 			.factory(Stencil::new)
 			.finish("crafting.cstencil");
 	/** Lists items in an item form*/
-	@NN public static final ItemEntityType BOM = new ItemEntityType()
+	@NN public static final ItemType BOM = new ItemType()
 			.title("#BOM")
 			.texture("item/list.png")
 			.volumed(0.001)
 			.factory(ItemBOM::new)
 			.finish("crafting.BOMItems");
 	/** Lists both inputs and outputs of a recipe*/
-	@NN public static final ItemEntityType pingredients = new ItemEntityType()
+	@NN public static final ItemType pingredients = new ItemType()
 			.title("#pingredients")
 			.texture("item/slist.png")
 			.volumed(0.001)
@@ -183,13 +182,13 @@ public class ContentsItems {
 	
 	//Batteries
 	private static final String BATTERY = GlobalSettings.$res("battery");
-	@NN public static final ItemEntityType bat1 = battery(VoltageTier.V1);
-	@NN public static final ItemEntityType bat2 = battery(VoltageTier.V2);
-	@NN public static final ItemEntityType bat3 = battery(VoltageTier.V3);
-	@NN public static final ItemEntityType bat4 = battery(VoltageTier.V4);
-	@NN public static final ItemEntityType bat5 = battery(VoltageTier.V5);
-	@NN public static final ItemEntityType bat6 = battery(VoltageTier.V6);
-	@NN public static final ItemEntityType bat7 = battery(VoltageTier.V7);
+	@NN public static final ItemType bat1 = battery(VoltageTier.V1);
+	@NN public static final ItemType bat2 = battery(VoltageTier.V2);
+	@NN public static final ItemType bat3 = battery(VoltageTier.V3);
+	@NN public static final ItemType bat4 = battery(VoltageTier.V4);
+	@NN public static final ItemType bat5 = battery(VoltageTier.V5);
+	@NN public static final ItemType bat6 = battery(VoltageTier.V6);
+	@NN public static final ItemType bat7 = battery(VoltageTier.V7);
 	
 	//Resource beds
 	@NN public static final Item resrc1 = resrcbed(1, Color.RED);
@@ -222,7 +221,7 @@ public class ContentsItems {
 	@NN public static final Item speed19 = speed(17, new Color(  0,   0, 255), 716.8);
 	
 	//Packaged items
-	@NN public static final ItemEntityType pack = new ItemEntityType()
+	@NN public static final ItemType pack = new ItemType()
 		.title("#ipack1")
 		.texture("item/package.png")
 		.volumed(0.001)
@@ -256,8 +255,8 @@ public class ContentsItems {
 	}
 	
 	//Helper methods
-	@NN private static ItemEntityType battery(VoltageTier voltage) {
-		ItemEntityType type = new ItemEntityType();
+	@NN private static ItemType battery(VoltageTier voltage) {
+		ItemType type = new ItemType();
 		return type
 				.title(BATTERY+" "+voltage.name)
 				.texture("item/battery "+(voltage.ordinal()+1)+".png")

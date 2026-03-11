@@ -104,7 +104,7 @@ public class PowerMeter extends BlockEntityRotary {
 	
 	//Block methods
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.PMETER;
 	}
 	private static final RotatedImageGroup rig = RotatedImageGroup.create("machine/power/pmeter.png");

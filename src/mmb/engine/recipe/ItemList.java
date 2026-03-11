@@ -3,7 +3,9 @@
  */
 package mmb.engine.recipe;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Supplier;
@@ -23,6 +25,8 @@ import mmb.annotations.Nil;
 import mmb.engine.chance.Chance;
 import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe3.OutputRow;
+import mmb.engine.recipe3.RecipeOutput;
 import mmb.engine.worlds.world.World;
 import monniasza.collects.Collects;
 
@@ -293,5 +297,13 @@ public interface ItemList extends Chance, Iterable<ItemStack>{
 			sb.append(ItemStack.toString(ir));
 		}
 		return sb.toString();
+	}
+	
+	public default RecipeOutput toRecipeOutput() {
+		List<OutputRow> rout = new ArrayList<>();
+		for(ItemStack istack: this) {
+			rout.add(new OutputRow(istack));
+		}
+		return new RecipeOutput(rout);
 	}
 }

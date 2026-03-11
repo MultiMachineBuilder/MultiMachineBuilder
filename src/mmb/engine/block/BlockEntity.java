@@ -62,7 +62,7 @@ public abstract class BlockEntity implements SensitiveBlock{
 	/** @return texture */
 	//Rendering
 	public BlockDrawer getTexture() {
-		return type().getTexture();
+		return itemType().getTexture();
 	}
 		
 	//Containment
@@ -80,8 +80,8 @@ public abstract class BlockEntity implements SensitiveBlock{
 	 * @param type type to check
 	 * @return is given BlockEntity of given type?
 	 */
-	public boolean typeof(BlockEntityType type) {
-		return type() == type;
+	public boolean typeof(BlockType type) {
+		return itemType() == type;
 	}
 	/**
 	 * Invoked on every tick
@@ -126,7 +126,7 @@ public abstract class BlockEntity implements SensitiveBlock{
 	
 	/** Breaks this block entity */
 	public void blow() {
-		owner().set(type().leaveBehind().createBlock(), posX(), posY());
+		owner().set(itemType().leaveBehind().createBlock(null), posX(), posY());
 	}
 
 	//Events

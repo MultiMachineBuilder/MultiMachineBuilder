@@ -1,7 +1,14 @@
 package mmb.engine.recipe3;
 
+import java.util.Collection;
+import java.util.Objects;
+
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.ItemList;
+import mmb.engine.recipe.SimpleItemList;
 import mmb.engine.recipe.SingleItem;
 
 /**
@@ -78,5 +85,15 @@ public record OutputRow(
 	public static boolean isRejectable(@Nil OutputRow row) {
 		if(row == null) return true;
 		return row.isRejectable();
+	}
+	
+	public static ItemList compress(Collection<? extends OutputRow> list) {
+		Objects.requireNonNull(list, "list is null");
+		Object2IntMap<ItemEntry> builder = new Object2IntOpenHashMap<>();
+		for(var row: list) {
+			if(isRejectable(row)) continue;
+			builder.mergeInt(row.item(), (int)row.amount(), Integer::sum);
+		}
+		return new SimpleItemList(builder);
 	}
 }

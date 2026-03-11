@@ -35,13 +35,13 @@ import mmb.engine.worlds.world.World;
  */
 public interface BlockEntry extends Saver, Rotable, Chiral {	
 	/** @return the block type */
-	@NN public BlockType type();
+	@NN public BlockType itemType();
 	/**
 	 * @param type block type to check
 	 * @return does given type match actual type?
 	 */
 	public default boolean typeof(BlockType type) {
-		return type == type();
+		return type == itemType();
 	}
 	
 	//Block I/O
@@ -148,7 +148,7 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 	 * @param side side size
 	 */
 	public default void render(int x, int y, Graphics g, int side) {
-		BlockDrawer drawer = type().getTexture();
+		BlockDrawer drawer = itemType().getTexture();
 		drawer.draw(this, x, y, g, side);
 	}
 	
@@ -281,7 +281,7 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 	 * @return is this block entry surface?
 	 */
 	public default boolean isSurface() {
-		return type().isSurface();
+		return itemType().isSurface;
 	}
 	/**
 	 * @param x1

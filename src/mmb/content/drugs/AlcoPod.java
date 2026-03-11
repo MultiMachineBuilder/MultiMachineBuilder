@@ -3,6 +3,7 @@
  */
 package mmb.content.drugs;
 
+import mmb.PropertyExtension;
 import mmb.annotations.NN;
 import mmb.engine.item.Item;
 import mmb.engine.recipe.ItemList;
@@ -26,10 +27,11 @@ public class AlcoPod extends Item implements Intoxicating {
 	 * @param dose amount of alcohol per drink
 	 * @param drop items left after use
 	 */
-	public AlcoPod(double dose, ItemList drop) {
-		super();
+	public AlcoPod(String id, double dose, ItemList drop, PropertyExtension props) {
+		super(id, props);
 		this.dose = dose;
 		this.drop = drop;
+		Alcohol.alcohol.add(this, drop, dose);
 	}
 	
 	//Contents
@@ -42,10 +44,6 @@ public class AlcoPod extends Item implements Intoxicating {
 	@Override
 	public ItemList postdrink() {
 		return drop;
-	}
-	@Override
-	public void onregister() {
-		Alcohol.alcohol.add(this, drop, dose);
 	}
 	
 	//Tool methods

@@ -32,7 +32,7 @@ import mmb.menu.world.window.WorldWindow;
 public class Crafter extends BlockEntityData implements BlockActivateListener{
 	public final SingleItemInventory stencil = new SingleItemInventory();
 	public final int delay;
-	private final BlockEntityType type;
+	private final BlockType type;
 	private int timer = 0;
 	public final SimpleInventory incoming = new SimpleInventory();
 	protected final SimpleInventory outgoing = new SimpleInventory();
@@ -41,13 +41,13 @@ public class Crafter extends BlockEntityData implements BlockActivateListener{
 	/**
 	 * @param delay time between crafts in ticks 
 	 */
-	public Crafter(int delay, BlockEntityType type) {
+	public Crafter(int delay, BlockType type) {
 		this.delay = delay;
 		this.type = type;
 	}
 
 	@Override
-	public @NN BlockType type() {
+	public @NN BlockType itemType() {
 		return type;
 	}
 

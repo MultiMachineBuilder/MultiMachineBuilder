@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage;
 import org.junit.jupiter.api.Test;
 
 import mmb.engine.block.Block;
-import mmb.engine.block.BlockEntityType;
+import mmb.engine.block.BlockType;
 import mmb.engine.block.BlockType;
 import mmb.engine.item.Items;
 import mmb.engine.texture.BlockDrawer;
@@ -30,7 +30,7 @@ class TestBlocksItems {
 	
 	@Test
 	void testRegisterNoID() {
-		BlockEntityType nullID = new BlockEntityType();
+		BlockType nullID = new BlockType(null);
 		nullID.setLeaveBehind(nullID);
 		nullID.setTexture(StandardTestReferences.drawer);
 		assertThrows(NullPointerException.class, () -> Items.register(nullID), "Blocks with null ID should not be registerable");
@@ -38,10 +38,9 @@ class TestBlocksItems {
 	
 	@Test
 	void testRegisterCorrect() {
-		BlockEntityType correct = new BlockEntityType();
+		BlockType correct = new BlockType("test");
 		correct.setLeaveBehind(correct);
 		correct.setTexture(StandardTestReferences.drawer);
-		correct.register("test");
 		assertEquals(correct, Items.getExpectType("test", BlockType.class), "Block was not properly added");
 	}
 	

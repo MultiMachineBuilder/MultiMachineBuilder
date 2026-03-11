@@ -16,7 +16,7 @@ import mmb.engine.worlds.world.WorldUtils;
 public class WWWire extends BlockEntityDataless {
 
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.ww_wire;
 	}
 

@@ -62,7 +62,7 @@ public class PipeBinder extends AbstractBasePipe{
 	}
 	@Override
 	public BlockEntry blockCopy() {
-		PipeBinder result = new PipeBinder(type(), binding, getImage());
+		PipeBinder result = new PipeBinder(itemType(), binding, getImage());
 		System.arraycopy(items, 0, result.items, 0, 3);
 		return result;
 	}

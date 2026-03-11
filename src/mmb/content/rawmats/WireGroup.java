@@ -5,15 +5,14 @@ package mmb.content.rawmats;
 
 import static mmb.engine.settings.GlobalSettings.*;
 
-import javax.swing.Icon;
-
 import mmb.annotations.NN;
 import mmb.content.CraftingGroups;
-import mmb.content.electric.BlockConduit;
 import mmb.content.electric.VoltageTier;
+import mmb.content.electric.cable.BlockConduit;
+import mmb.content.electric.cable.ConduitType;
 import mmb.content.electric.machines.ElecRenderer;
 import mmb.engine.UnitFormatter;
-import mmb.engine.block.BlockEntityType;
+import mmb.engine.block.BlockType;
 import mmb.engine.item.Item;
 import mmb.engine.item.Items;
 import monniasza.collects.Collects;
@@ -26,11 +25,11 @@ import monniasza.collects.selfset.SelfSet;
  * @author oskar
  */
 public class WireGroup implements Identifiable<String> {
-	@NN public final BlockEntityType tiny;
-	@NN public final BlockEntityType small;
-	@NN public final BlockEntityType medium;
-	@NN public final BlockEntityType large;
-	@NN public final BlockEntityType huge;
+	@NN public final BlockType tiny;
+	@NN public final BlockType small;
+	@NN public final BlockType medium;
+	@NN public final BlockType large;
+	@NN public final BlockType huge;
 	@NN public final String id;
 	@NN public final String title;
 	@NN public final VoltageTier volt;
@@ -71,17 +70,15 @@ public class WireGroup implements Identifiable<String> {
 		Items.tagsItems(new String[]{"voltage-"+volt.name, "machine-wire"}, tiny, small, medium, large, huge);
 	}
 	//Various helper methods
-	@NN public static BlockEntityType conduit(String title, double pwr, ElecRenderer texture, String id, VoltageTier volt) {
-		BlockEntityType b = new BlockEntityType() {
-			@Override public Icon icon() {
-				return texture.icon;
-			}
-		};
-		return b.title(title)
-				.factory(() -> new BlockConduit(b, pwr, volt))
-				.texture(texture)
-				.describe($res("machine-power")+" "+UnitFormatter.formatPower(pwr))
-				.finish(id);
+	@NN public static BlockType conduit(String title, double pwr, ElecRenderer texture, String id, VoltageTier volt) {
+		var b = new ConduitType(id);
+		b.setPowerRating(pwr);
+		b.setVoltRating(volt);
+		b.translateTitle(title);
+		b.setBlockFactory(json -> BlockConduit.load(b, json));
+		b.setDescription($res("machine-power")+" "+UnitFormatter.formatPower(pwr));
+		b.setTexture(texture);
+		return b;
 	}
 	private void gridCombo(Item smaller, Item larger, double scale) {
 		CraftingGroups.crafting.addRecipeGrid(smaller, 1, 2, larger);

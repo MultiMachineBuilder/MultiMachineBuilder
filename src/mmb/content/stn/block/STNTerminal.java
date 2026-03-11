@@ -22,7 +22,7 @@ public class STNTerminal extends STNBaseMachine implements BlockActivateListener
 
 	@NN private static final RotatedImageGroup rig = RotatedImageGroup.create("stn/terminal.png");
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return STN.STN_terminal;
 	}
 

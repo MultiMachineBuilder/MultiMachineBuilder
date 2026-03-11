@@ -61,7 +61,7 @@ public class BlockConduit extends BlockEntityData {
 		Electricity.equatePPs(this, map, tf, 1, 0);
 	}
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return type;
 	}
 	@Override

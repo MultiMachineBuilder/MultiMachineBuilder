@@ -58,13 +58,13 @@ public final class BlockBattery extends BlockEntityRotary implements BlockActiva
 		if(window == null) return;
 		if(tab != null) return;
 		tab = new BatteryTab(this, window);
-		window.openAndShowWindow(tab, type().title());
+		window.openAndShowWindow(tab, itemType().title());
 		tab.refresh();
 	}
 	
 	//Block attributes
 	@Override
-	public ElectroMachineType type() {
+	public ElectroMachineType itemType() {
 		return type;
 	}
 	@Override

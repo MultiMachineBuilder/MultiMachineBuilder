@@ -23,7 +23,7 @@ public class BlockPowerReceiver extends BlockEntityRotary implements Electric {
 	@NN private final ElectroMachineType type;
 
 	@Override
-	public ElectroMachineType type() {
+	public ElectroMachineType itemType() {
 		return type;
 	}
 

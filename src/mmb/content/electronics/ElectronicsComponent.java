@@ -15,7 +15,8 @@ public class ElectronicsComponent extends Item {
 	@NN public final ComponentGenerator gen;
 	/** Component tier of this component */
 	@NN public final ComponentTier tier;
-	ElectronicsComponent(ComponentGenerator gen, ComponentTier tier){
+	ElectronicsComponent(String id, ComponentGenerator gen, ComponentTier tier){
+		super(id);
 		this.gen = gen;
 		this.tier = tier;
 	}

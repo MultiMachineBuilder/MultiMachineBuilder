@@ -35,7 +35,7 @@ public class ItemTransporter extends BlockEntityRotary {
 	public static final RotatedImageGroup RTEXTURE = RotatedImageGroup.create(TEXTURE);
 	
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.IMOVER;
 	}
 

@@ -505,7 +505,7 @@ public class WorldFrame extends JComponent {
 			//Get selected block
 			if(map.inBounds(mouseover)) {
 				BlockEntry block = map.get(mouseover);
-				sb.append("Selected block: ").append(block.type()).append(" ,is surface: ").append(block.isSurface()).append("\r\n");
+				sb.append("Selected block: ").append(block.itemType()).append(" ,is surface: ").append(block.isSurface()).append("\r\n");
 				sb.append("Pipe connections: ^");
 				printPipeTunnel(sb, block.getPipeTunnel(Side.U));
 				sb.append(" v");
@@ -547,7 +547,7 @@ public class WorldFrame extends JComponent {
 		try {
 			blockEntry.render(x, y, g, (int) Math.ceil(blockScale));
 		} catch (Exception e) {
-			debug.stacktraceError(e, "Failed to render a "+blockEntry.type().title());
+			debug.stacktraceError(e, "Failed to render a "+blockEntry.itemType().title());
 		}
 	}
 

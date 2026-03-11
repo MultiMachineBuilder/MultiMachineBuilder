@@ -7,13 +7,23 @@ import java.util.stream.Collectors;
 
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
+import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.recipe.ItemList;
 import monniasza.collects.Collects;
 
 /** A collection of recipe outputs with chances, min voltages and buffs. */
 public class RecipeOutput {
+	/** Collection of recipe outputs */
 	public final List<OutputRow> rows;
+	/** Set of unique items in this recipe output */
 	public final Set<ItemEntry> items;
+	/** Rows with no guarantees of creation */
+	public final List<OutputRow> chancedRows;
+	/** All guaranteed outputs */
+	public final ItemList certainRows;
+	/** The maximum space that the recipe output can take*/
+	public final ItemList maximumOutputs;
 	
 	/** Empty recipe output with no rows */
 	public static RecipeOutput EMPTY = new RecipeOutput();
@@ -23,6 +33,18 @@ public class RecipeOutput {
 		Objects.requireNonNull(rows, "rows is null");
 		this.rows = List.copyOf(rows);
 		this.items = createItemsSetFromList();
+		var certain = new ArrayList<OutputRow>();
+		var chance = new ArrayList<OutputRow>();
+		for(var row: rows){
+			if(row.chance() <= 0) continue;
+			if(row.chance() >= 1) 
+				certain.add(row);
+			else chance.add(row);
+		}
+		
+		this.chancedRows = List.copyOf(chance);
+		this.certainRows = OutputRow.compress(certain);
+		this.maximumOutputs = OutputRow.compress(rows);
 	}
 	/** Creates a new recipe output from a collection of rows */
 	public RecipeOutput(@NN OutputRow @NN ... rows) {
@@ -93,5 +115,17 @@ public class RecipeOutput {
 			if(result != null) transformedRows.add(result);
 		}
 		return new RecipeOutput(transformedRows);
+	}
+	
+	public void produceOutputs(InventoryWriter out, int amount) {
+		//First transfer the certain items
+		out.bulkInsert(certainRows, amount);
+		
+		//Then transfer the chances
+		for(var row: chancedRows) {
+			double roll = Math.random();
+			boolean test = roll < row.chance();
+			if(test) out.insert(row.item(), (int)row.amount());
+		}
 	}
 }

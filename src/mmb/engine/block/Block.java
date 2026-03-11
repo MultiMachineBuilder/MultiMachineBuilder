@@ -3,18 +3,14 @@
  */
 package mmb.engine.block;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
-import java.awt.image.BufferedImage;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
+import mmb.PropertyExtension;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
-import mmb.engine.chance.Chance;
-import mmb.engine.texture.BlockDrawer;
 import mmb.engine.worlds.world.Player;
 import mmb.engine.worlds.world.World;
 import mmb.menu.world.window.WorldWindow;
@@ -22,15 +18,21 @@ import mmb.menu.world.window.WorldWindow;
 /**
  * A basic building block with no data storage or tick support.
  * Use this for simple building blocks
- * Use {@link BlockEntity} and {@link BlockEntityType} for more advanced blocks
- * @author oskar
+ * Use {@link BlockEntity} and {@link BlockType} for more advanced blocks
+ * @author Monniasza
  */
-public class Block extends BlockBase implements BlockEntry{
-	/** Creates a building block */
-	public Block() {
-		setVolume(0.002);
-	}
+public class Block extends BlockType implements BlockEntry{
 	
+	/**
+	 * Creates a new basic building block type
+	 * @param id block ID
+	 * @param properties additional properties
+	 */
+	public Block(String id, PropertyExtension... properties) {
+		super(id, properties);
+		setBlockFactory(json -> this);
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public String toString() {
 		return "Block " + title() + "(" + id() + ")";
@@ -40,17 +42,13 @@ public class Block extends BlockBase implements BlockEntry{
 		return new TextNode(id());
 	}
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return this;
 	}
 	
 	@Override
 	public BlockEntry place(int x, int y, World map) {
 		return map.place(this, x, y);
-	}
-	@Override
-	public BlockEntry createBlock() {
-		return this;
 	}
 
 	//Placement GUI
@@ -67,58 +65,6 @@ public class Block extends BlockBase implements BlockEntry{
 	@Override
 	public void preview(Graphics g, Point renderStartPos, World map, Point targetLocation, int side) {
 		getTexture().draw(this, renderStartPos, g, side);
-	}
-
-	//Convienient setters
-	@Override
-	public Block texture(String texture) {
-		setTexture(texture);
-		return this;
-	}
-	@Override
-	public Block texture(BufferedImage texture) {
-		setTexture(texture);
-		return this;
-	}
-	@Override
-	public Block texture(Color texture) {
-		setTexture(BlockDrawer.ofColor(texture));
-		return this;
-	}
-	@Override
-	public Block texture(BlockDrawer texture) {
-		setTexture(texture);
-		return this;
-	}
-	@Override
-	public Block title(String title) {
-		setTitle(title);
-		return this;
-	}
-	@Override
-	public Block describe(String description) {
-		setDescription(description);
-		return this;
-	}
-	@Override
-	public Block drop(Chance drop) {
-		setDrop(drop);
-		return this;
-	}
-	@Override
-	public Block finish(String id) {
-		register(id);
-		return this;
-	}
-	@Override
-	public Block leaveBehind(BlockType block) {
-		setLeaveBehind(block);
-		return this;
-	}
-	@Override
-	@NN public Block volumed(double volume) {
-		setVolume(volume);
-		return this;
 	}
 	
 	//Surface block options
@@ -162,5 +108,10 @@ public class Block extends BlockBase implements BlockEntry{
 	@Override
 	public void resetMap(@Nil World map, int x, int y) {
 		//does nothing
+	}
+	
+	@Override
+	public double getTypeDefaultVolume() {
+		return 1.0 / 256;
 	}
 }

@@ -52,7 +52,7 @@ public class Pickaxe extends ItemEntityMutable {
 	
 	@NN private final PickaxeType type;
 	@Override
-	public PickaxeType type() {
+	public PickaxeType itemType() {
 		return type;
 	}
 	
@@ -83,7 +83,7 @@ public class Pickaxe extends ItemEntityMutable {
 	}
 	@Override
 	public String title() {
-		return type().title() + " ("+(type.durability-uses)+"/"+type.durability+")";
+		return itemType().title() + " ("+(type.durability-uses)+"/"+type.durability+")";
 	}
 	/**
 	 * Renders durability for a block. Used most by items, but still useful for blocks

@@ -38,13 +38,14 @@ public class ActuatorPlaceBlock extends AbstractActuatorBase implements BlockAct
 		if(block == null) node.put("place", "mmb.grass");
 		else node.put("place", block.id());
 	}
+	
 	@Override
 	protected void load1(ObjectNode node) {
 		setBlockSetting(Items.getExpectType(node.get("place").asText(null), BlockType.class));
 	}
 
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.PLACER;
 	}
 

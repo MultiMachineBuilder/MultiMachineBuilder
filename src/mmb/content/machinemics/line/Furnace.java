@@ -59,7 +59,7 @@ public class Furnace extends SkeletalBlockLinear implements BlockActivateListene
 	}
 
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.FURNACE;
 	}
 

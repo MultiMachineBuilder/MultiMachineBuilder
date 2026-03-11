@@ -3,6 +3,7 @@
  */
 package mmb.content.imachine;
 
+import mmb.PropertyExtension;
 import mmb.annotations.Nil;
 import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.Item;
@@ -20,7 +21,8 @@ public class SpeedUpgrade extends Item {
 	 * Creates a speed upgrade
 	 * @param speed speed mutiplier
 	 */
-	public SpeedUpgrade(double speed) {
+	public SpeedUpgrade(String id, double speed, PropertyExtension... properties) {
+		super(id, properties);
 		this.speed = speed;
 	}
 	

@@ -14,15 +14,11 @@ import mmb.annotations.Nil;
  */
 public abstract class BlockEntityDataless extends BlockEntity implements Cloneable{
 	@Override
-	public void load(@Nil JsonNode data) {
-		//unused
-	}
-	@Override
 	public final JsonNode save() {
-		return new TextNode(type().id());
+		return new TextNode(itemType().id());
 	}
 	@Override
 	public final BlockEntity blockCopy() {
-		return (BlockEntity) type().createBlock();
+		return (BlockEntity) itemType().createBlock(null);
 	}
 }

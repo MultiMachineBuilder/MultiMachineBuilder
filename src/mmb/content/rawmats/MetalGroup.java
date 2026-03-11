@@ -13,6 +13,7 @@ import java.util.NavigableMap;
 import java.util.TreeMap;
 
 import mmb.GameLoader;
+import mmb.PropertyExtension;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.content.ContentsItems;
@@ -87,11 +88,10 @@ public class MetalGroup{
 			t_nominative_short=t_nominative;
 		}
 		
-		block = new Block()
-		.texture(block(c))
-		.title(materialConcatenate("mattype-block"))
-		.volumed(0.0125)
-		.finish("block."+id);
+		block = new Block("block."+id,
+			PropertyExtension.setTextureImage(block(c)),
+			PropertyExtension.setTitle(materialConcatenate("mattype-block"))
+		);
 		cluster = new Item()
 		.title(materialConcatenate("mattype-cluster"))
 		.texture(cluster(c))

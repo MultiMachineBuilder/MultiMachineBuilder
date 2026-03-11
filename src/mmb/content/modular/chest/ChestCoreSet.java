@@ -39,7 +39,7 @@ public class ChestCoreSet extends ChestCore {
 	}
 
 	@Override
-	public PartEntityType type() {
+	public PartEntityType itemType() {
 		return type;
 	}
 

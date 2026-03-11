@@ -60,7 +60,7 @@ public class Chest extends AbstractChest implements BlockActivateListener {
 	@NN private final BufferedImage texture;
 	@NN private final MappedColorTexture mctexture;
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return type;
 	}
 	@Override

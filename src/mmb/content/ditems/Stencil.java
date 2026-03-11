@@ -30,21 +30,32 @@ import monniasza.collects.grid.Grid;
  * Represents a crafting grid recipe
  */
 public class Stencil extends ItemEntity{
+	public static final Stencil EMPTY = new Stencil(new FixedGrid<ItemEntry>(0));
 	private static final Debugger debug = new Debugger("STENCIL");
 	
 	//Constructors
-	/** Creates an empty stencil. */
-	public Stencil() {
-		//empty
-	}
-	/** @param items */
-	public Stencil(Grid<@Nil ItemEntry> items) {
-		this();
-		doReplaceTable(items);
+	public Stencil(Grid<@Nil ItemEntry> items) {		
+		//Initialization
+		Grid<@Nil ItemEntry> trim = items.trim();
+		grid = trim;
+		if(trim.size() == 0) {
+			title = "Crafting stencil - none";
+			return;
+		}
+		CraftingRecipe recipe = recipe();
+		if(recipe == null) {
+			title = "Crafting stencil - invalid";
+			return;
+		}
+		ItemList results = recipe.out;
+		PicoWriter writer = new PicoWriter();
+		writer.write("Crafting stencil - ");
+		results.represent(writer);
+		title = writer.toString();
 	}
 	
 	//Contents
-	@NN private Grid<@Nil ItemEntry> grid = new FixedGrid<>(0);
+	@NN private final Grid<@Nil ItemEntry> grid;
 	/** @return the unmodifiable item grid of this stencil*/
 	public Grid<@Nil ItemEntry> grid(){
 		return Collects.unmodifiableGrid(grid);
@@ -81,42 +92,23 @@ public class Stencil extends ItemEntity{
 		return this;
 	}
 	@Override
-	public ItemType type() {
+	public ItemType itemType() {
 		return ContentsItems.stencil;
 	}
 	
 	//Serialization
-	@Override
-	public void load(@Nil JsonNode array) {
-		if(array == null) return;
+	public static Stencil load(@Nil JsonNode array) {
+		if(array == null) return EMPTY;
 		if(array.isArray()) {
 			Grid<@Nil ItemEntry> grid1 = JsonTool.loadGrid(ItemEntry::loadFromJson, (ArrayNode)array);
-			doReplaceTable(grid1);
-		}else{
-			debug.printl("Unsupported JsonNode: "+array.getNodeType());
+			return new Stencil(grid1);
 		}
+		debug.printl("Unsupported JsonNode: "+array.getNodeType());
+		return EMPTY;
 	}
 	@Override
 	public JsonNode save() {
 		return JsonTool.saveGrid(ItemEntry::saveItem, grid);
-	}
-	private void doReplaceTable(Grid<@Nil ItemEntry> items) {
-		Grid<@Nil ItemEntry> trim = items.trim();
-		grid = trim;
-		if(trim.size() == 0) {
-			title = "Crafting stencil - none";
-			return;
-		}
-		CraftingRecipe recipe = recipe();
-		if(recipe == null) {
-			title = "Crafting stencil - invalid";
-			return;
-		}
-		ItemList results = recipe.out;
-		PicoWriter writer = new PicoWriter();
-		writer.write("Crafting stencil - ");
-		results.represent(writer);
-		title = writer.toString();
 	}
 
 	//Crafting methods

@@ -79,7 +79,7 @@ public interface ModularBlock<
 			ModularChestGUI<Tmodule, Tcore> tab = createGUI(window);
 			boolean open =  openTab(tab);
 			if(open) {
-				window.openAndShowWindow(tab, type().title());
+				window.openAndShowWindow(tab, itemType().title());
 			}else {
 				tab.close(window);
 			}

@@ -63,7 +63,7 @@ public class PlaceIncomingItems extends BlockEntityRotary {
 	};
 
 	@Override
-	public BlockType type() {
+	public BlockType itemType() {
 		return ContentsBlocks.PLACEITEMS;
 	}
 

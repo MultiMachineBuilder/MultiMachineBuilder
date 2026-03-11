@@ -27,8 +27,8 @@ import mmb.engine.rotate.Rotation.RotationListener;
  */
 public abstract class BlockEntityChirotable extends BlockEntityData {
 	@NN private static final Debugger debug = new Debugger("CHIROTABLE BLOCK");
-	@Override
-	public void load(@Nil JsonNode data) {
+	/* Loads chirality and rotation */
+	public void loadChirotation(@Nil JsonNode data) {
 		if(data == null) return;
 		JsonNode dirnode = data.get("dir");
 		boolean dir = (dirnode == null) ? false : dirnode.asBoolean();
@@ -42,7 +42,6 @@ public abstract class BlockEntityChirotable extends BlockEntityData {
 			}
 		}
 		setChirotation(chirality1, rot);
-		load1((ObjectNode) data);
 	}
 
 	//Chirality
@@ -128,13 +127,6 @@ public abstract class BlockEntityChirotable extends BlockEntityData {
 	 * @param node node, to which data can be saved
 	 */
 	protected void save1(ObjectNode node) {
-		//optional
-	}
-	/**
-	 * Additional function used to save additional data
-	 * @param node node, to which data can be loaded
-	 */
-	protected void load1(ObjectNode node) {
 		//optional
 	}
 	

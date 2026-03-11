@@ -30,6 +30,6 @@ public abstract class ItemEntity implements ItemEntry{
 	
 	@Override
 	public double volume() {
-		return type().volume();
+		return itemType().volume;
 	}
 }
