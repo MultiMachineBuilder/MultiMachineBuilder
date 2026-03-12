@@ -17,12 +17,12 @@ import mmb.content.electric.Electricity.SettablePressure;
 import mmb.engine.block.BlockEntityRotary;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
+import mmb.engine.blockdrawer.TextureDrawer;
 import mmb.engine.item.Items;
 import mmb.engine.java2d.ColorMapper;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.settings.GlobalSettings;
-import mmb.engine.texture.TextureDrawer;
 import mmb.engine.texture.Textures;
 import mmb.engine.worlds.MapProxy;
 

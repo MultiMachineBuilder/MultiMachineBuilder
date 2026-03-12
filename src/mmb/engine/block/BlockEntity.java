@@ -9,9 +9,9 @@ import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.content.event.BlockEntityDemolitionEvent;
 import mmb.engine.CatchingEvent;
+import mmb.engine.blockdrawer.BlockDrawer;
 import mmb.engine.debug.Debugger;
 import mmb.engine.rotate.Side;
-import mmb.engine.texture.BlockDrawer;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
 

@@ -13,8 +13,8 @@ import mmb.annotations.Nil;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
+import mmb.engine.blockdrawer.BlockDrawer;
 import mmb.engine.recipe.SimpleItemList;
-import mmb.engine.texture.BlockDrawer;
 
 /**
  *

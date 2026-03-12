@@ -8,9 +8,9 @@ import java.awt.Color;
 import mmb.Main;
 import mmb.PropertyExtension;
 import mmb.annotations.NN;
+import mmb.engine.blockdrawer.ColorDrawer;
+import mmb.engine.blockdrawer.TextureDrawer;
 import mmb.engine.debug.Debugger;
-import mmb.engine.texture.ColorDrawer;
-import mmb.engine.texture.TextureDrawer;
 import mmb.engine.texture.Textures;
 
 /**

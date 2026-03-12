@@ -43,22 +43,18 @@ import mmb.content.craft.CraftGUI;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.CatchingEvent;
 import mmb.engine.block.Block;
-import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockType;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.Item;
-import mmb.engine.item.ItemEntityType;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
 import mmb.engine.item.Items;
 import mmb.engine.recipe.GlobalRecipeRegistrar;
 import mmb.engine.recipe.Recipe;
 import mmb.engine.worlds.world.Player;
-import mmb.menu.components.BoundCheckBox;
 import mmb.menu.world.CreativeItemList;
-import mmb.menu.world.inv.InventoryController;
 
 /**
  * @author oskar
@@ -70,7 +66,7 @@ public class TabInventory extends JPanel {
 	private JScrollPane creativeScrollPane;
 	private CreativeItemList creativeItemList;
 	
-	@NN private static final Debugger debug = new Debugger("PLAYER INVENTORY");
+	private static final Debugger debug = new Debugger("PLAYER INVENTORY");
 	private Player player;
 	public final Event<Player> playerChanged = new CatchingEvent<>(debug, "Failed to process player changed event");
 	public final WorldWindow window;
@@ -82,9 +78,9 @@ public class TabInventory extends JPanel {
 	 */
 	public static interface Tagsel{
 		/** @return all matching items */
-		@NN public DefaultListModel<ItemType> eligible();
+		public DefaultListModel<ItemType> eligible();
 		/** @return Display title in tag selection list */
-		@NN public String title();
+		public String title();
 	}
 	
 	/**
@@ -92,7 +88,7 @@ public class TabInventory extends JPanel {
 	 * @author oskar
 	 */
 	public static class AllTagsel implements Tagsel{
-		@NN private static final String title = "1 "+$res("wguit-all");
+		private static final String title = "1 "+$res("wguit-all");
 		@Override
 		public DefaultListModel<ItemType> eligible() {
 			return CreativeItemList.model;
@@ -113,8 +109,8 @@ public class TabInventory extends JPanel {
 	 * @author oskar
 	 */
 	public static class FilterTagsel implements Tagsel{
-		@NN public final String tag;
-		@NN public final DefaultListModel<ItemType> set;
+		public final String tag;
+		public final DefaultListModel<ItemType> set;
 		public FilterTagsel(String s, Predicate<ItemType> filter) {
 			tag = "2 "+s;
 			set = new DefaultListModel<>();
@@ -141,8 +137,8 @@ public class TabInventory extends JPanel {
 	 */
 	public static class TaggedSel implements Tagsel{
 		/** The tag selection */
-		@NN public final String tag;
-		@NN public final DefaultListModel<ItemType> set;
+		public final String tag;
+		public final DefaultListModel<ItemType> set;
 		public TaggedSel(String s, Set<ItemType> set2) {
 			tag = "3 "+s;
 			set = new DefaultListModel<>();
@@ -253,7 +249,7 @@ public class TabInventory extends JPanel {
 		creativeItemList = new CreativeItemList();
 		creativeItemList.addListSelectionListener(e -> {
 			ItemType item = creativeItemList.getSelectedValue();
-			String s = (item==null)?null:item.description();
+			String s = (item==null)?null:item.getDescription();
 			multilineLabel.setText(s==null?"":s);
 		});
 		creativeScrollPane.setViewportView(creativeItemList);
@@ -266,8 +262,8 @@ public class TabInventory extends JPanel {
 		model.addElement(new AllTagsel());
 		model.addElement(new FilterTagsel($res("wguit-block"), i -> i instanceof BlockType));
 		model.addElement(new FilterTagsel($res("wguit-items"), i -> !(i instanceof BlockType)));
-		model.addElement(new FilterTagsel($res("wguit-bents"), i -> i instanceof BlockEntityType));
-		model.addElement(new FilterTagsel($res("wguit-ients"), i -> i instanceof ItemEntityType));
+		model.addElement(new FilterTagsel($res("wguit-bents"), i -> i instanceof BlockType && !(i instanceof Block)));
+		model.addElement(new FilterTagsel($res("wguit-ients"), i -> !(i instanceof Item)));
 		model.addElement(new FilterTagsel($res("wguit-sblk"),  i -> i instanceof Block));
 		model.addElement(new FilterTagsel($res("wguit-sitem"), i -> i instanceof Item && !(i instanceof BlockType)));
 		model.addElement(new FilterTagsel($res("wguit-notags"), i -> !Items.tags.containsValue(i)));
@@ -405,7 +401,7 @@ public class TabInventory extends JPanel {
 				debug.printl("Got null item");
 				continue;
 			}
-			inv.insert(item.create(), amount);
+			inv.insert(item.createItem(null), amount);
 		}
 		craftGUI.inventoryController.refresh();
 	}
@@ -463,7 +459,7 @@ public class TabInventory extends JPanel {
 		public boolean phase2(Recipe<?> recipe);
 		
 		/** @return all eligible items*/		
-		@NN public default Set<Recipe<?>> eligible(){
+		public default Set<Recipe<?>> eligible(){
 			Set<@NN Recipe> recipes = phase1();
 			Set<Recipe<?>> model = new HashSet<>();
 			if(recipes != null) for(Recipe<?> item: recipes) {
@@ -489,7 +485,7 @@ public class TabInventory extends JPanel {
 	/**
 	 * @return a recipe query, which accepts all recipes
 	 */
-	@NN public static RecipeQuery all() {
+	public static RecipeQuery all() {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
@@ -515,7 +511,7 @@ public class TabInventory extends JPanel {
 	 * @param item
 	 * @return a recipe query, which accepts recipes
 	 */
-	@NN public static RecipeQuery consuming(ItemEntry item) {
+	public static RecipeQuery consuming(ItemEntry item) {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
@@ -538,7 +534,7 @@ public class TabInventory extends JPanel {
 			}
 		};
 	}
-	@NN public static RecipeQuery producing(ItemEntry item) {
+	public static RecipeQuery producing(ItemEntry item) {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
@@ -561,7 +557,7 @@ public class TabInventory extends JPanel {
 			}
 		};
 	}
-	@NN public static RecipeQuery gambling(ItemEntry item) {
+	public static RecipeQuery gambling(ItemEntry item) {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
@@ -584,7 +580,7 @@ public class TabInventory extends JPanel {
 			}
 		};
 	}
-	@NN public static RecipeQuery catalysing(ItemEntry item) {
+	public static RecipeQuery catalysing(ItemEntry item) {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
@@ -606,7 +602,7 @@ public class TabInventory extends JPanel {
 			}
 		};
 	}
-	@NN public static RecipeQuery byVolt(VoltageTier item) {
+	public static RecipeQuery byVolt(VoltageTier item) {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
@@ -628,7 +624,7 @@ public class TabInventory extends JPanel {
 			}
 		};
 	}
-	@NN public static RecipeQuery alone(Set<@NN Recipe> recipes) {
+	public static RecipeQuery alone(Set<@NN Recipe> recipes) {
 		return new RecipeQuery() {
 			@Override
 			public String name() {
@@ -656,7 +652,7 @@ public class TabInventory extends JPanel {
 		if(check) {
 			ItemType type = creativeItemList.getSelectedValue();
 			if(type == null) return null;
-			return type.create();
+			return type.createItem(null);
 		}
 		ItemRecord irecord = craftGUI.inventoryController.getSelectedValue();
 		if(irecord == null) return null;

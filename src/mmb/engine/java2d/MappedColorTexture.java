@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.block.BlockEntry;
-import mmb.engine.texture.BlockDrawer;
+import mmb.engine.blockdrawer.BlockDrawer;
 
 /**
  * A block drawer, which colormaps a source texture.

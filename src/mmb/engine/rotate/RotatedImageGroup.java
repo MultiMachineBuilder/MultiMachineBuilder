@@ -6,14 +6,14 @@ package mmb.engine.rotate;
 import java.awt.image.BufferedImage;
 
 import mmb.annotations.NN;
-import mmb.engine.texture.BlockDrawer;
+import mmb.engine.blockdrawer.BlockDrawer;
 import mmb.engine.texture.Textures;
 
 /**
  * @author oskar
  *
  */
-public class RotatedImageGroup {
+@Deprecated public class RotatedImageGroup {
 	@NN public final BlockDrawer U, D, L ,R;
 	public RotatedImageGroup(BlockDrawer u, BlockDrawer d, BlockDrawer l, BlockDrawer r) {
 		U = u;

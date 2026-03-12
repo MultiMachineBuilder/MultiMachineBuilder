@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 import mmb.annotations.NN;
-import mmb.engine.texture.BlockDrawer;
+import mmb.engine.blockdrawer.BlockDrawer;
 import monniasza.collects.Identifiable;
 
 /** 

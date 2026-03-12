@@ -22,7 +22,7 @@ public class TextureAtlas{
 	public static int MAX_SIZE = 8192;
 	/** The top level texture atlas node */
 	public TextureAtlasNode atlas;
-	/** The conainer image */
+	/** The container image */
 	public BufferedImage image;
 	private static final Debugger debug = new Debugger("TEXTURE ATLAS");
 	/** Creates a texture atlas */
@@ -42,7 +42,8 @@ public class TextureAtlas{
 			TextureAtlasNode result = atlas.insert(img, id);
 			if(result == null) {
 				//Insertion failed
-				if(image.getWidth() >= MAX_SIZE && image.getHeight() >= MAX_SIZE) throw new TextureError("Ran out of the texture size limit!");
+				if(image.getWidth() >= MAX_SIZE && image.getHeight() >= MAX_SIZE)
+					throw new TextureError("Ran out of the texture size limit!");
 				if(image.getWidth() > image.getHeight()) {
 					int w = image.getWidth();
 					int h = image.getHeight()*2;

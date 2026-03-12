@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.texture;
+package mmb.engine.blockdrawer;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.block.BlockEntry;
+import mmb.engine.texture.LODs;
 
 /**
  * A basic textured block drawer

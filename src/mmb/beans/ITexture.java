@@ -1,7 +1,7 @@
 package mmb.beans;
 
-import mmb.engine.texture.BlockDrawer;
-import mmb.engine.texture.TextureDrawer;
+import mmb.engine.blockdrawer.BlockDrawer;
+import mmb.engine.blockdrawer.TextureDrawer;
 import mmb.engine.texture.Textures;
 
 /**

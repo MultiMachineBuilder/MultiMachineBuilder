@@ -12,6 +12,7 @@ import mmb.annotations.Nil;
 import mmb.beans.Saver;
 import mmb.content.electric.Electricity;
 import mmb.content.ppipe.PipeTunnelEntry;
+import mmb.engine.blockdrawer.BlockDrawer;
 import mmb.engine.inv.Inventory;
 import mmb.engine.inv.NoSuchInventory;
 import mmb.engine.inv.io.InventoryReader;
@@ -22,7 +23,6 @@ import mmb.engine.rotate.Chirality;
 import mmb.engine.rotate.Rotable;
 import mmb.engine.rotate.Rotation;
 import mmb.engine.rotate.Side;
-import mmb.engine.texture.BlockDrawer;
 import mmb.engine.worlds.world.Player;
 import mmb.engine.worlds.world.World;
 

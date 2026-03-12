@@ -18,12 +18,12 @@ import java.util.ResourceBundle;
 import mmb.PropertyExtension;
 import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockType;
+import mmb.engine.blockdrawer.TextureDrawer;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
 import mmb.engine.recipe.ItemList;
 import mmb.engine.settings.GlobalSettings;
-import mmb.engine.texture.TextureDrawer;
 import mmb.engine.texture.Textures;
 
 /**

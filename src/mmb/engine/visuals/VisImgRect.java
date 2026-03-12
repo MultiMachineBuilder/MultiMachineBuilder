@@ -10,7 +10,7 @@ import com.github.davidmoten.rtree2.geometry.Geometries;
 import com.github.davidmoten.rtree2.geometry.Rectangle;
 
 import mmb.annotations.Nil;
-import mmb.engine.texture.BlockDrawer;
+import mmb.engine.blockdrawer.BlockDrawer;
 import mmb.menu.world.window.WorldFrame;
 
 /**

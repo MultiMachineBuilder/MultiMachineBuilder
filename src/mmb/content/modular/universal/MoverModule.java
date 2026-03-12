@@ -24,6 +24,7 @@ import mmb.content.modular.part.PartType;
 import mmb.data.variables.ListenableInt;
 import mmb.data.variables.ListenableValue;
 import mmb.engine.MMBUtils;
+import mmb.engine.blockdrawer.BlockDrawer;
 import mmb.engine.chance.Chance;
 import mmb.engine.debug.Debugger;
 import mmb.engine.inv.io.InventoryReader;
@@ -36,7 +37,6 @@ import mmb.engine.recipe.ItemList;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.settings.GlobalSettings;
-import mmb.engine.texture.BlockDrawer;
 import mmb.menu.world.inv.InventoryController;
 
 /**

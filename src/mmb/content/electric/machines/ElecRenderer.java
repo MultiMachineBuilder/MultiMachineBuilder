@@ -19,12 +19,12 @@ import mmb.annotations.Nil;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.cable.BlockConduit;
 import mmb.engine.block.BlockEntry;
+import mmb.engine.blockdrawer.BlockDrawer;
 import mmb.engine.gl.GLHelper;
 import mmb.engine.gl.RenderCtx;
 import mmb.engine.java2d.ColorMapper;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
-import mmb.engine.texture.BlockDrawer;
 import mmb.engine.texture.Textures;
 import mmb.engine.texture.Textures.Texture;
 

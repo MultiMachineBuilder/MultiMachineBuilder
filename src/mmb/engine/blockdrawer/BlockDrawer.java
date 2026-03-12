@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.texture;
+package mmb.engine.blockdrawer;
 
 import java.awt.Color;
 import java.awt.Component;

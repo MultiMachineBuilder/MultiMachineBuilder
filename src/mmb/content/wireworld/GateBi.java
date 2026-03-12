@@ -11,9 +11,9 @@ import mmb.engine.block.BlockEntity;
 import mmb.engine.block.BlockEntityRotary;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
+import mmb.engine.blockdrawer.TextureDrawer;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
-import mmb.engine.texture.TextureDrawer;
 import mmb.engine.texture.Textures;
 import mmb.engine.worlds.MapProxy;
 

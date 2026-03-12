@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.engine.texture;
+package mmb.engine.blockdrawer;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -11,6 +11,7 @@ import javax.swing.Icon;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.block.BlockEntry;
+import mmb.engine.texture.ConstSolidIcon;
 
 /**
  * A single color block drawer

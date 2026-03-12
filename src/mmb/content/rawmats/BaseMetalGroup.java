@@ -11,9 +11,9 @@ import mmb.content.agro.Agro;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockType;
+import mmb.engine.blockdrawer.TextureDrawer;
 import mmb.engine.item.Items;
 import mmb.engine.java2d.TexGen;
-import mmb.engine.texture.TextureDrawer;
 
 /**
  * An extension to a material group with an ore and a crop

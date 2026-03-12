@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.node.TextNode;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.beans.Saver;
+import mmb.engine.blockdrawer.BlockDrawer;
 import mmb.engine.chance.Chance;
 import mmb.engine.debug.Debugger;
 import mmb.engine.item.ItemEntry;
@@ -20,7 +21,6 @@ import mmb.engine.item.ItemType;
 import mmb.engine.item.Items;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.ItemList;
-import mmb.engine.texture.BlockDrawer;
 
 /**
  *
@@ -45,11 +45,11 @@ public interface PartEntry extends Saver{
 	//Drop & RTP
 	/** @return items dropped when module is removed */
 	@NN public default Chance dropItems() {
-		return itemType().dropItems();
+		return itemType().drop();
 	}
 	/** @return items returned to the player */
 	@NN public default ItemList returnToPlayer() {
-		return itemType().returnToPlayer();
+		return itemType().returnToPlayer;
 	}
 	
 	//Rendering
@@ -61,7 +61,7 @@ public interface PartEntry extends Saver{
 	 * @param side side size
 	 */
 	public default void render(int x, int y, Graphics g, int side) {
-		BlockDrawer drawer = itemType().texture;
+		BlockDrawer drawer = itemType().getTexture();
 		drawer.draw(null, x, y, g, side);
 	}
 	
@@ -104,7 +104,7 @@ public interface PartEntry extends Saver{
 				new Debugger("BLOCK PARTS").printl("Invalid part: "+id);
 				return null;
 			}
-			return item.partFactory.createPart(null, TODO);
+			return item.createPart(data);
 		}
 		return null;
 	}

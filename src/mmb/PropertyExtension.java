@@ -11,12 +11,12 @@ import mmb.beans.ITitle;
 import mmb.beans.IWindowTool;
 import mmb.engine.block.BlockType;
 import mmb.engine.block.BlockType.BlockFactory;
+import mmb.engine.blockdrawer.BlockDrawer;
+import mmb.engine.blockdrawer.ColorDrawer;
+import mmb.engine.blockdrawer.TextureDrawer;
 import mmb.engine.chance.Chance;
 import mmb.engine.recipe.ItemList;
 import mmb.engine.settings.GlobalSettings;
-import mmb.engine.texture.BlockDrawer;
-import mmb.engine.texture.ColorDrawer;
-import mmb.engine.texture.TextureDrawer;
 import mmb.engine.texture.Textures;
 import mmb.menu.wtool.WindowTool;
 
