@@ -15,6 +15,7 @@ import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
 import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.item.ItemType;
 import mmb.engine.item.Items;
 import monniasza.collects.Collects;
@@ -51,7 +52,7 @@ public class CreativeItemList extends JList<ItemType> {
 		@Override
 		public Component getListCellRendererComponent(@SuppressWarnings("null") JList<? extends ItemType> list, ItemType itemType, int index,
 		boolean isSelected, boolean cellHasFocus) {
-			setIcon(itemType.getIcon());
+			setIcon(itemType.getTexture().toIcon());
 			setText(itemType.title());
 			
 			if (isSelected) {
@@ -65,10 +66,10 @@ public class CreativeItemList extends JList<ItemType> {
 		}
 	}
 	@Override
-	public String getToolTipText(@SuppressWarnings("null") MouseEvent event) {
+	@Nil public String getToolTipText(MouseEvent event) {
 		int index = locationToIndex(event.getPoint());
 		if(index > -1) {
-			String description = model.get(index).description();
+			String description = model.get(index).getDescription();
 			return description;
 		}
 		return null;

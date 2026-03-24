@@ -23,7 +23,6 @@ import com.github.davidmoten.rtree2.geometry.Geometry;
 import com.pploder.events.Event;
 
 import it.unimi.dsi.fastutil.doubles.DoubleList;
-import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.content.ppipe.Direction;
 import mmb.content.ppipe.PipeTunnelEntry;
@@ -57,14 +56,14 @@ public class WorldFrame extends JComponent {
 	private static final long serialVersionUID = 7346245653768692732L;
 	
 	//Debugging
-	@NN private transient Debugger debug = new Debugger("WORLD - anonymous");
-	@NN private static Debugger sdebug = new Debugger("WORLDS");
+	private transient Debugger debug = new Debugger("WORLD - anonymous");
+	private static Debugger sdebug = new Debugger("WORLDS");
 	/** The global boolean variable controlling debug display */
-	@NN public static final ListenableBoolean DEBUG_DISPLAY = new ListenableBoolean();
+	public static final ListenableBoolean DEBUG_DISPLAY = new ListenableBoolean();
 	
 	//Frames Per Second
 	/** This variable holds current framerate */
-	@NN public final FPSCounter fps = new FPSCounter();
+	public final FPSCounter fps = new FPSCounter();
 	
 	/** Create a new WorldFrame 
 	 * @param window the window, which contains the frame
@@ -119,9 +118,9 @@ public class WorldFrame extends JComponent {
 
 	//Events
 	/** Runs when title changes */
-	@NN public final transient Event<String> titleChange = new CatchingEvent<>(debug, "Failed to run a title listener");
+	public final transient Event<String> titleChange = new CatchingEvent<>(debug, "Failed to run a title listener");
 	/** Runs on each frame */
-	@NN public final transient Event<Graphics> redraw = new CatchingEvent<>(debug, "Failed to run a renderer");
+	public final transient Event<Graphics> redraw = new CatchingEvent<>(debug, "Failed to run a renderer");
 	
 	//Universe
 	private transient Universe world;
@@ -349,7 +348,7 @@ public class WorldFrame extends JComponent {
 	}
 	
 	//Graphics
-	@NN public final transient Event<StringBuilder> informators =
+	public final transient Event<StringBuilder> informators =
 			new CatchingEvent<>(debug, "Failed to process info task");
 	@Override
 	public void paint(@Nil Graphics g) {
@@ -559,7 +558,7 @@ public class WorldFrame extends JComponent {
 	public final Vector2d perspective = new Vector2d();
 	
 	//Activity
-	@NN private transient Timer timer = new Timer(20, e -> {
+	private transient Timer timer = new Timer(20, e -> {
 		repaint();
 		requestFocusInWindow();
 	});
@@ -598,10 +597,10 @@ public class WorldFrame extends JComponent {
 	
 	//Window reference
 	/** The reference to the world window */
-	@NN public final WorldWindow window;
+	public final WorldWindow window;
 	
 	//Mouse position
-	@NN private Point mousePosition = new Point();
+	private Point mousePosition = new Point();
 	private void setMousePosition(MouseEvent e) {
 		mousePosition.setLocation(e.getX(), e.getY());
 	}
@@ -624,9 +623,9 @@ public class WorldFrame extends JComponent {
 	}
 
 	//Mouseover block
-	@NN private final Point mouseover = new Point();
+	private final Point mouseover = new Point();
 	/** @return block position over which mouse is over*/
-	@NN public Point getMouseoverBlock() {
+	public Point getMouseoverBlock() {
 		return new Point(mouseover);
 	}
 	/** @return the block which is currently selected with the mouse */
@@ -655,7 +654,7 @@ public class WorldFrame extends JComponent {
 	 * @param y on-frame Y coordinate
 	 * @return the new point with block coordinates
 	 */
-	@NN public Point blockAt(int x, int y) {
+	public Point blockAt(int x, int y) {
 		return blockAt(x, y, new Point());
 	}
 	/**
@@ -664,7 +663,7 @@ public class WorldFrame extends JComponent {
 	 * @param tgt where to write data?
 	 * @return target point with written position
 	 */
-	@NN public Point blockAt(int x, int y, Point tgt) {
+	public Point blockAt(int x, int y, Point tgt) {
 		tgt.x = (int)Math.floor((x / blockScale)-pos.x);
 		tgt.y = (int)Math.floor((y / blockScale)-pos.y);
 		return tgt;
@@ -673,7 +672,7 @@ public class WorldFrame extends JComponent {
 	 * @param p on-frame position
 	 * @return the new point with block coordinates
 	 */
-	@NN public Point blockAt(Point p) {
+	public Point blockAt(Point p) {
 		return blockAt(p.x, p.y);
 	}
 	/**
@@ -681,7 +680,7 @@ public class WorldFrame extends JComponent {
 	 * @param tgt where to write data?
 	 * @return target point with written position
 	 */
-	@NN public Point blockAt(Point p, Point tgt) {
+	public Point blockAt(Point p, Point tgt) {
 		return blockAt(p.x, p.y, tgt);
 	}
 	
@@ -691,7 +690,7 @@ public class WorldFrame extends JComponent {
 	 * @param tgt where to write data?
 	 * @return target point with written position
 	 */
-	@NN public Vector2d worldAt(double x, double y, Vector2d tgt) {
+	public Vector2d worldAt(double x, double y, Vector2d tgt) {
 		tgt.x = (x / blockScale)-pos.x;
 		tgt.y = (y / blockScale)-pos.y;
 		return tgt;
@@ -702,21 +701,21 @@ public class WorldFrame extends JComponent {
 	 * @param y Y coordinate of the screen
 	 * @return point with on-screen block position of UL corner
 	 */
-	@NN public Point blockPositionOnScreen(int x, int y) {
+	public Point blockPositionOnScreen(int x, int y) {
 		int X = (int) ((x+pos.x)*blockScale);
 		int Y = (int) ((y+pos.y)*blockScale);
 		return new Point(X, Y);
 		
 	}
 	
-	@NN public Point blockPositionOnScreen(int x, int y, Point tgt) {
+	public Point blockPositionOnScreen(int x, int y, Point tgt) {
 		tgt.x = (int) ((x+pos.x)*blockScale);
 		tgt.y = (int) ((y+pos.y)*blockScale);
 		return tgt;
 		
 	}
 	
-	@NN public Point worldPositionOnScreen(double x, double y) {
+	public Point worldPositionOnScreen(double x, double y) {
 		int X = (int) ((x+pos.x)*blockScale);
 		int Y = (int) ((y+pos.y)*blockScale);
 		return new Point(X, Y);
@@ -787,7 +786,7 @@ public class WorldFrame extends JComponent {
 	/**
 	 * Zoom levels selectable with scroll wheel
 	 */
-	@NN public static final DoubleList zoomlevels =
+	public static final DoubleList zoomlevels =
 		DoubleList.of(   0.012, 0.016,  0.024,  0.032,  0.048,  0.064,  0.080, 0.096,
 				         0.120, 0.160,  0.240,  0.320,  0.480,  0.640,  0.800, 0.96,
 				         1.200, 1.600,  2.400,  3.200,  4.800,  6.400,  8.000, 9.6,
@@ -797,7 +796,7 @@ public class WorldFrame extends JComponent {
 	private int zoomsel = 27;
 	
 	//Player icon
-	@NN private static final BufferedImage playerface0 = Textures.get("player/pchar.png");
-	@NN private static final BufferedImage playerface1 = Textures.get("player/pchar1.png");
-	@NN private static final BufferedImage playerface2 = Textures.get("player/pchar2.png");
+	private static final BufferedImage playerface0 = Textures.get("player/pchar.png");
+	private static final BufferedImage playerface1 = Textures.get("player/pchar1.png");
+	private static final BufferedImage playerface2 = Textures.get("player/pchar2.png");
 }

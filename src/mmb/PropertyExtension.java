@@ -15,6 +15,8 @@ import mmb.engine.blockdrawer.BlockDrawer;
 import mmb.engine.blockdrawer.ColorDrawer;
 import mmb.engine.blockdrawer.TextureDrawer;
 import mmb.engine.chance.Chance;
+import mmb.engine.item.ItemFactory;
+import mmb.engine.item.ItemType;
 import mmb.engine.recipe.ItemList;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;
@@ -66,5 +68,8 @@ public interface PropertyExtension {
 	}
 	public static PropertyExtension setTextureImage(BufferedImage img) {
 		return setTexture(new TextureDrawer(img));
+	}
+	public static PropertyExtension setItemFactory(ItemFactory factory) {
+		return (object) -> ((ItemType)object).setItemFactory(factory);
 	}
 }

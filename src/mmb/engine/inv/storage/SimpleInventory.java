@@ -216,7 +216,6 @@ public class SimpleInventory implements SaveInventory{
 	}
 
 	//Serialization
-	@Override
 	public void load(@Nil JsonNode data) {	
 		if(data == null) return;
 		//Prepare

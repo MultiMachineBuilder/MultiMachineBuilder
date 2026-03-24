@@ -84,7 +84,6 @@ public class Player implements Saver{
 	public static final Event<Tuple2<Player, ObjectNode>> onPlayerLoaded
 	= new CatchingEvent<>(sdebug, "Failed to load mod player data");
 	
-	@Override
 	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		ObjectNode on = (ObjectNode) data;

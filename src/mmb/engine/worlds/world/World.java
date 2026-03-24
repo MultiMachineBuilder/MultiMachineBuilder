@@ -511,7 +511,7 @@ public class World implements Identifiable<String>, Indexable{
 	 */
 	public BlockEntry place(BlockType type, int x, int y) {
 		try {
-			BlockEntry blockent = type.createBlock();
+			BlockEntry blockent = type.createBlock(null);
 			return set(blockent, x, y);
 		}catch(Exception e) {
 			debug.stacktraceError(e, "Failed to place a block at "+x+","+y);
@@ -521,7 +521,7 @@ public class World implements Identifiable<String>, Indexable{
 	}
 	BlockEntry place0(BlockType type, int x, int y) {
 		try {
-			BlockEntry blockent = type.createBlock();
+			BlockEntry blockent = type.createBlock(null);
 			return set0(blockent, x, y);
 		}catch(Exception e) {
 			debug.stacktraceError(e, "Failed to place a block at "+x+","+y);

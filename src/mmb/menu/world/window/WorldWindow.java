@@ -362,7 +362,7 @@ public class WorldWindow extends MMBFrame{
 				if(irecord == null) {
 					tsmodel.toolSelectedItemList(null);
 				}else {
-					tsmodel.toolSelectedItemList(irecord.item().getTool());
+					tsmodel.toolSelectedItemList(irecord.item().getWindowTool());
 				}
 				
 			});

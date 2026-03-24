@@ -3,6 +3,9 @@
  */
 package mmb.engine.worlds.world;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
+import mmb.annotations.Nil;
 import mmb.beans.Saver;
 import monniasza.collects.Identifiable;
 
@@ -30,4 +33,6 @@ public abstract class DataLayer<T> implements Identifiable<T>, Saver {
 	public void shutdown() {}
 	/** Invoked on every tick */
 	public void cycle() {}
+	
+	public abstract void load(@Nil JsonNode node);
 }

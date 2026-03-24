@@ -292,7 +292,6 @@ public class SetInventory<@NN T extends ItemEntry> implements SaveInventory{
 			array.add(ItemEntry.saveItem(item));
 		return array;
 	}
-	@Override
 	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		for(JsonNode node: data) {

@@ -87,7 +87,7 @@ public class InventoryLoader {
 				case 2: //2 items: [type, amount]
 					//A plain item
 					try {
-						ent = type.create();
+						ent = type.createItem(null);
 						amt = a.get(1).asInt(-1);
 					}catch(Exception e) {
 						debug.stacktraceError(e, "Failed to create "+id+" without data");
@@ -97,7 +97,7 @@ public class InventoryLoader {
 				case 3: //3 items: [type, info, amount]
 					try {
 						JsonNode idata = a.get(1);
-						ent = type.loadItem(idata);
+						ent = type.createItem(idata);
 						amt = a.get(2).asInt(-1);
 					}catch(Exception e) {
 						debug.stacktraceError(e, "Failed to create "+id+" with data");

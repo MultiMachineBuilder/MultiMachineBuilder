@@ -7,12 +7,14 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import javax.swing.Icon;
 
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.block.BlockEntry;
+import mmb.engine.rotate.ChiralRotation;
 
 /**
  * Renders block and item textures
@@ -107,5 +109,21 @@ public interface BlockDrawer {
 				draw(null, x, y, g, 32);
 			}
 		};
+	}
+	
+	/**
+	 * Draws given texture with given transform
+	 * @param g graphics context
+	 * @param texture texture to draw
+	 * @param cx center X
+	 * @param cy center Y
+	 * @param scale side length
+	 * @param rotation chirotation
+	 */
+	public static void drawTransformed(Graphics g, BlockDrawer texture, int cx, int cy, int scale, ChiralRotation rotation) {
+		AffineTransform tf = rotation.createTransform();
+		TransformDrawer drawer = new TransformDrawer(texture, tf);
+		int offset = scale / 2;
+		drawer.draw(null, cx - offset, cy - offset, g, scale);
 	}
 }

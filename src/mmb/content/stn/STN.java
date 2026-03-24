@@ -26,6 +26,7 @@ import mmb.engine.debug.Debugger;
 import mmb.engine.item.ItemEntityType;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemRaw;
+import mmb.engine.item.ItemType;
 import mmb.engine.item.Items;
 import mmb.engine.recipe.SimpleItemList;
 import mmb.engine.settings.GlobalSettings;
@@ -52,12 +53,12 @@ public class STN {
 	
 	//Items
 	/** Allows to add or remove STN cables */
-	@NN public static final ItemEntityType STN_cabler = new ItemEntityType()
-		.title("#STN-cabler")
-		.texture("stn/cabler.png")
-		.describe("#STN-cabler0")
-		.factory(CablingTool::new)
-		.finish("stn.cabler");
+	@NN public static final ItemType STN_cabler = new ItemType("stn.cabler",
+		PropertyExtension.translateTitle("#STN-cabler"),
+		PropertyExtension.translateDescription("#STN-cabler0"),
+		PropertyExtension.setTextureAsset("stn/cabler.png"),
+		PropertyExtension.setItemFactory((json, type) -> CablingTool.load(json))
+	);
 	
 	//Blocks
 	/** STN Storage Connector */
@@ -67,11 +68,11 @@ public class STN {
 		PropertyExtension.setTextureAsset("stn/storage.png")
 	);
 	/** STN Terminal */
-	@NN public static final BlockType STN_terminal = new BlockType()
-		.texture("stn/terminal.png")
-		.title("#STN-terminal")
-		.factory(STNTerminal::new)
-		.finish("stnb.terminal");
+	@NN public static final BlockType STN_terminal = new BlockType("stnb.terminal",
+		PropertyExtension.setTextureAsset("stn/terminal.png"),
+		PropertyExtension.setBlockFactory(json -> STNTerminal.load(json)),
+		PropertyExtension.translateTitle("#STN-terminal")
+	);
 	/** STN Exporter */
 	@NN public static final BlockType STN_exporter = new BlockType()
 		.texture("stn/exporter.png")

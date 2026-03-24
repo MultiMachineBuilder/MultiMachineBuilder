@@ -241,7 +241,6 @@ public class SingleStackedInventory implements SaveInventory{
 		array.add(capacity).add(storedAmount).add(ItemEntry.saveItem(storedItem));
 		return array;
 	}
-	@Override
 	public void load(@Nil JsonNode data) {
 		if(data == null) return;
 		JsonNode capacity0 = data.get(0);

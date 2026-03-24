@@ -44,11 +44,12 @@ public final class CablingTool extends ItemEntityMutable {
 		return new CablingTool(this);
 	}
 
-	@Override
-	public void load(@Nil JsonNode data) {
-		if(data == null || !data.isObject()) return;
+	public static CablingTool load(@Nil JsonNode data) {
+		if(data == null || !data.isObject()) return new CablingTool();
+		CablingTool tool = new CablingTool();
 		JsonNode amtNode = data.get("amt");
-		if(amtNode != null) amt.set(amtNode.asDouble());
+		if(amtNode != null) tool.amt.set(amtNode.asDouble());
+		return tool;
 	}
 	@Override
 	public JsonNode save() {

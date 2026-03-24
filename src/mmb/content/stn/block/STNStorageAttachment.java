@@ -3,6 +3,8 @@
  */
 package mmb.content.stn.block;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.content.stn.STN;
@@ -62,5 +64,11 @@ public class STNStorageAttachment extends STNBaseMachine {
 	@Override
 	protected STNBaseMachine blockCopy0() {
 		return new STNStorageAttachment();
+	}
+	
+	public static STNStorageAttachment load(@Nil JsonNode json) {
+		STNStorageAttachment result = new STNStorageAttachment();
+		if(json == null) return result;
+		result.
 	}
 }

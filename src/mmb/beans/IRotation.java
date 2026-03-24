@@ -14,4 +14,6 @@ public interface IRotation {
 	 * @implSpec Do not throw {@link UnsupportedOperationException}, as this is used by wrenches without checking if the object supports rotations.
 	 */
 	public void setRotation(ChiralRotation rotation);
+	
+	public default boolean applyRotations() {return true;}
 }

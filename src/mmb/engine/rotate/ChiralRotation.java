@@ -3,6 +3,8 @@
  */
 package mmb.engine.rotate;
 
+import java.awt.geom.AffineTransform;
+
 import mmb.annotations.NN;
 import mmb.engine.gl.RenderCtx;
 import mmb.engine.texture.Textures.Texture;
@@ -344,5 +346,13 @@ public enum ChiralRotation {
 	 */
 	public void renderGL(Texture tex, float x, float y, float w, float h, RenderCtx graphics) {
 		renderGL(tex, x, y, w, h, 1, 1, 1, 1, graphics);
+	}
+	
+	public AffineTransform createTransform() {
+		int direction = rotation.ordinal();
+		boolean isReversed = chirality == Chirality.L;
+		AffineTransform tf = AffineTransform.getScaleInstance(isReversed ? -1 : 1, 1);
+		tf.quadrantRotate(direction);
+		return tf;		
 	}
 }

@@ -151,7 +151,7 @@ public interface ModularBlock<
 			ItemEntry selectedItem = selected.item();
 			if(selectedItem instanceof PartType) {
 				PartType pt = (PartType) selectedItem;
-				PartEntry part = pt.createPart();
+				PartEntry part = pt.createPart(null);
 				boolean replace = slot.setto(part);
 				if(replace) selected.extract(1);
 			}

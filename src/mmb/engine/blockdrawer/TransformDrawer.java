@@ -16,7 +16,7 @@ import mmb.engine.block.BlockEntry;
  */
 public class TransformDrawer implements BlockDrawer {
 	private final BlockDrawer inner;
-	private final AffineTransform transform;
+	private final AffineTransform transform = new AffineTransform();
 	/**
 	 * Creates an affine-transformed block drawer
 	 * @param inner block drawer to transform
@@ -25,7 +25,7 @@ public class TransformDrawer implements BlockDrawer {
 	public TransformDrawer(BlockDrawer inner, AffineTransform transform) {
 		super();
 		this.inner = inner;
-		this.transform = transform;
+		this.transform.setTransform(transform);
 	}
 
 	@Override

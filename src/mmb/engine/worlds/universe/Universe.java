@@ -101,7 +101,6 @@ public class Universe implements Saver, Indexable{
 
 	//Serialization
 	@SuppressWarnings("null")
-	@Override
 	public void load(@Nil JsonNode data) {
 		if(data instanceof ObjectNode) {
 			ObjectNode on = (ObjectNode)data;
