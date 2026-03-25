@@ -99,19 +99,6 @@ public class Player implements Saver{
 		JsonNode posY = on.get("y");
 		if(posY != null) pos.y = posY.asDouble();
 		
-		JsonNode alc1 = on.get("alcohol1");
-		if(alc1 != null) digestibleAlcohol = alc1.asDouble();
-		if(digestibleAlcohol < 0) {
-			debug.printl("Inavlid digestible alcohol, expected >=0, got "+digestibleAlcohol);
-			digestibleAlcohol = 0;
-		}
-		JsonNode alc2 = on.get("alcohol2");
-		if(alc2 != null) BAC = alc2.asDouble();
-		if(BAC < 0) {
-			debug.printl("Inavlid BAC, expected >=0, got "+BAC);
-			BAC = 0;
-		}
-		
 		onPlayerLoaded.trigger(new Tuple2<>(this, on));
 		debug = new Debugger("PLAYERS/"+world.getName());
 	}
@@ -123,8 +110,6 @@ public class Player implements Saver{
 		result.put("creative", creative.getValue());
 		result.put("x", pos.x);
 		result.put("y", pos.y);
-		result.put("alcohol1", digestibleAlcohol);
-		result.put("alcohol2", BAC);
 		return result;
 	}
 	
@@ -144,7 +129,7 @@ public class Player implements Saver{
 	/** The player physics mode */
 	@NN public PlayerPhysics physics = new PlayerPhysicsNormal();
 	void onTick(World world1) {
-		alcohol();
+		blinkspeed = 1;
 		blink();
 		if(!(Double.isFinite(pos.x) && Double.isFinite(pos.y))){
 			physics = new PlayerPhysicsNormal();
@@ -195,82 +180,6 @@ public class Player implements Saver{
 		if(d) controls.y++;
 		if(l) controls.x--;
 		if(r) controls.x++;
-	}
-
-	//Everything about alcohol
-	private double digestibleAlcohol;
-	/** @return the digestibleAlcohol amount of digestible alcohol remaining */
-	public double getDigestibleAlcohol() {
-		return digestibleAlcohol;
-	}
-	/** @param digestibleAlcohol set amount of alcohol that can be digested */
-	public void setDigestibleAlcohol(double digestibleAlcohol) {
-		this.digestibleAlcohol = digestibleAlcohol;
-	}
-	/**
-	 * Adds alcohol to the player
-	 * @param alcohol amount of alcohol
-	 */
-	public void drinkAlcohol(double alcohol) {
-		digestibleAlcohol += alcohol;
-	}
-	private double BAC;
-	/**  @return the BAC */
-	public double getBAC() {
-		return BAC;
-	}
-	/** @param BAC the BAC to set */
-	public void setBAC(double BAC) {
-		this.BAC = BAC;
-	}
-	private void alcohol() {
-		double rate = 0.002 + (digestibleAlcohol * 0.0002);
-		//Absorb the alcohol (0.1u/s)
-		if(digestibleAlcohol < rate) {
-			BAC += digestibleAlcohol;
-			digestibleAlcohol = 0;
-		}else {
-			BAC += rate;
-			digestibleAlcohol -= rate;
-		}
-		
-		//Apply effects of alcohol
-		//jitter
-		double jitterscale = BAC*BAC / 10;
-		double angle = 2*Math.PI*Math.random();
-		double magnitude = jitterscale*Math.random();
-		jitter.set(magnitude*Math.sin(angle), magnitude*Math.cos(angle));
-		
-		//blink speed
-		if(BAC < 0) {
-			BAC = 0;
-			blinkspeed = 1;
-		}else if(BAC < 4) {
-			double ex = BAC-2;
-			blinkspeed = 3-0.5*ex*ex;
-		}else if(BAC < 4.5) {
-			blinkspeed = 9-BAC*2;
-		}else {
-			blinkspeed = 0;
-		}
-		
-		//loss of control
-		if(BAC > 10)
-			controls.set(0);
-		
-		//damage by poisoning
-		if(BAC > 13) 
-			hurt((int)((BAC-13)*5000));
-		
-		//death by overdose
-		if(BAC > 15) playerHP.setValue(-1);
-		
-		//Metabolize alcohol (0.02u/s)
-		if(BAC < 0.0004) {
-			BAC = 0;
-		}else {
-			BAC -= 0.0004;
-		}
 	}
 	
 	//Blinking
@@ -338,8 +247,6 @@ public class Player implements Saver{
 		//reset certain values
 		pos.set(0);
 		speed.set(0);
-		BAC = 0;
-		digestibleAlcohol = 0;
 		playerHP.setValue(10000000);
 		
 		//play death sound

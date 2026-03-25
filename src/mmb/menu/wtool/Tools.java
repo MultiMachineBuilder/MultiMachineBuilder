@@ -8,8 +8,6 @@ import java.util.Objects;
 
 import mmb.annotations.NN;
 import mmb.content.aim.ToolAim;
-import mmb.content.drugs.Alcohol;
-import mmb.content.drugs.ToolAlcohol;
 import mmb.content.imachine.extractor.ConfigureDroppedItemExtractors;
 import mmb.content.pickaxe.ToolPickaxe;
 import mmb.engine.debug.Debugger;
