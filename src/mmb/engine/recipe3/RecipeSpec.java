@@ -13,7 +13,6 @@ import monniasza.collects.Collects;
  * @param outputFunction calculated the final outputs. Must be repeatable and not null.
  * @param shapeless is the recipe shapeless?
  * @param minVoltage minimum voltage tier to run recipe at. Must be <=maxVoltage and not null
- * @param maxVoltage maximum voltage tier to run recipe at. Must be >=minVoltage and not null
  * @param energyIn input energy expenditure over the course of the run in joules. Must be nonnegative.
  * @param energyOut energy awarded at the end of a run in joules. Must be nonnegative.
  */
@@ -24,7 +23,6 @@ public record RecipeSpec(
 	Function<RecipeRunContext, RecipeOutput> outputFunction,
 	boolean shapeless,
 	VoltageTier minVoltage,
-	VoltageTier maxVoltage,
 	double energyIn,
 	double energyOut
 ) {
@@ -36,7 +34,6 @@ public record RecipeSpec(
 	 * @param outputFunction calculated the final outputs. Must be repeatable and not null.
 	 * @param shapeless is the recipe shapeless?
 	 * @param minVoltage minimum voltage tier to run recipe at. Must be <=maxVoltage and not null
-	 * @param maxVoltage maximum voltage tier to run recipe at. Must be >=minVoltage and not null
 	 * @param energyIn input energy expenditure over the course of the run in joules. Must be nonnegative.
 	 * @param energyOut energy awarded at the end of a run in joules. Must be nonnegative.
 	 * @throws NullPointerException if inputs is {@code null}
@@ -63,8 +60,6 @@ public record RecipeSpec(
 		Objects.requireNonNull(outputsRaw, "outputsRaw is null");
 		Objects.requireNonNull(outputFunction, "outputFunction is null");
 		Objects.requireNonNull(minVoltage, "minVoltage is null");
-		Objects.requireNonNull(maxVoltage, "maxVoltage is null");
-		if(minVoltage.ordinal > maxVoltage.ordinal) throw new IllegalArgumentException("minVoltage > maxVoltage");
 		if(energyIn < 0) throw new IllegalArgumentException("energyIn < 0");
 		if(energyOut < 0) throw new IllegalArgumentException("energyOut < 0");
 	}
