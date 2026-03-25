@@ -212,4 +212,40 @@ class RecipeLookupTest {
 
         assertTrue(results.contains(recipe), "Processing groups should match extraneous items");
     }
+    
+    @Test
+    void testOtherRecipeNotReturned() {
+    	RecipeInput input1 = new RecipeInput(iron, 1, 1, 1);
+    	RecipeInput input2 = new RecipeInput(copper, 1, 1, 1);
+        RecipeSpec spec1 = new RecipeSpec(
+                List.of(input1),
+                Set.of(),
+                RecipeOutput.EMPTY,
+                ctx -> RecipeOutput.EMPTY,
+                false,
+                ulv,
+                10, 5
+        );
+        RecipeSpec spec2 = new RecipeSpec(
+                List.of(input2),
+                Set.of(),
+                RecipeOutput.EMPTY,
+                ctx -> RecipeOutput.EMPTY,
+                false,
+                ulv,
+                10, 5
+        );
+        FlattenedRecipeGroup group = newRecipeGroup();
+        Recipe recipe1 = group.addRecipe(spec1);
+        Recipe recipe2 = group.addRecipe(spec2);
+
+        // Machine slot has the same item
+        Set<Group> machineSlot = Set.of(iron, Group.ANY);
+        List<Set<Group>> machineContents = List.of(machineSlot);
+
+        Set<Recipe> results = RecipeLookup.lookup(group, machineContents);
+
+        assertTrue(results.contains(recipe1), "Recipe should match machine slot with iron");
+        assertFalse(results.contains(recipe2), "Recipe should not match machine slot with copper");
+    }
 }

@@ -65,7 +65,7 @@ public final class RecipeLookup {
         plausibleRecipes.removeIf(recipe -> {
         	FlattenedRecipe flattened = recipe.flattened;
             FlattenedSlot[] slots = flattened.slots();
-            if (slots.length != machineSlotGroups.size()) return true;
+            if (slots.length > machineSlotGroups.size()) return true;
 
             if(flattened.shapeless()) return false;
                         
