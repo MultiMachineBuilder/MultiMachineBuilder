@@ -209,7 +209,7 @@ public class ContentsBlocks {
 	);
 	/** This block toggles state when clicked by a player or Block Clicking Claw */
 	@NN public static final BlockType TOGGLE = new StateGateType("logic/toggle on.png","logic/toggle off.png","logic/toggle inert.png",(a,s) -> {
-		boolean s2 = s ^ a;
+		boolean s2 = side ^ a;
 		return (byte) (s2?3:0);
 	})
 		.title("#ww-tgl")

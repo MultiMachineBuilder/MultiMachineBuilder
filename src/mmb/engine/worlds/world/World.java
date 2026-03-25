@@ -52,6 +52,7 @@ import mmb.engine.visuals.Visual;
 import mmb.engine.worlds.DataLayers;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.universe.Universe;
+import mmb.handler.HandlerSystem;
 import mmb.menu.world.FPSCounter;
 import monniasza.collects.Identifiable;
 import monniasza.collects.alloc.Allocator;
