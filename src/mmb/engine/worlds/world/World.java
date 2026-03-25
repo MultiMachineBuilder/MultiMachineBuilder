@@ -714,6 +714,9 @@ public class World implements Identifiable<String>, Indexable{
 		};
 	}
 	
+	//Handler system
+	public final HandlerSystem handlers = new HandlerSystem(this);
+	
 	//Visual objects
 	private AtomicReference<RTree<Visual, Geometry>> visuals = new AtomicReference<>(RTree.star().create());
 	/**
