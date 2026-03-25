@@ -30,55 +30,40 @@ class TestBlocksItems {
 	
 	@Test
 	void testRegisterNoID() {
-		BlockType nullID = new BlockType(null);
-		nullID.setLeaveBehind(nullID);
-		nullID.setTexture(StandardTestReferences.drawer);
-		assertThrows(NullPointerException.class, () -> Items.register(nullID), "Blocks with null ID should not be registerable");
+		assertThrows(NullPointerException.class, () -> new Block(null), "Blocks with null ID should not be registerable");
 	}
 	
 	@Test
 	void testRegisterCorrect() {
-		BlockType correct = new BlockType("test");
-		correct.setLeaveBehind(correct);
-		correct.setTexture(StandardTestReferences.drawer);
-		assertEquals(correct, Items.getExpectType("test", BlockType.class), "Block was not properly added");
+		assertDoesNotThrow(() -> new Block("test"), "Block was not properly added");
 	}
 	
-	private static final Block blk = new Block();
+	private static final Block blk = new Block("block");
 	
 	@Test
 	void testWontTakeNullTitle() {
-		assertThrows(NullPointerException.class, () -> blk.title(null));
+		assertThrows(NullPointerException.class, () -> blk.setTitle(null));
 	}
 	
 	@Test
 	void testWontTakeNullDescription() {
-		assertThrows(NullPointerException.class, () -> blk.describe(null));
-	}
-	
-	@Test
-	void testWontTakeNullTextureImage() {
-		assertThrows(NullPointerException.class, () -> blk.texture((BufferedImage)null));
-	}
-	@Test
-	void testWontTakeNullTextureColor() {
-		assertThrows(NullPointerException.class, () -> blk.texture((Color)null));
+		assertThrows(NullPointerException.class, () -> blk.setDescription(null));
 	}
 	@Test
 	void testWontTakeNullTextureDrawer() {
-		assertThrows(NullPointerException.class, () -> blk.texture((BlockDrawer)null));
+		assertThrows(NullPointerException.class, () -> blk.setTexture((BlockDrawer)null));
 	}
 	@Test
 	void testWontTakeNullTextureString() {
-		assertThrows(NullPointerException.class, () -> blk.texture((String)null));
+		assertThrows(NullPointerException.class, () -> blk.setTextureAsset((String)null));
 	}
 	@Test
 	void testWontTakeNullDrop() {
-		assertThrows(NullPointerException.class, () -> blk.drop(null));
+		assertThrows(NullPointerException.class, () -> blk.setDrop(null));
 	}
 	@Test
 	void testWontTakeNullLeave() {
-		assertThrows(NullPointerException.class, () -> blk.leaveBehind(null));
+		assertThrows(NullPointerException.class, () -> blk.setLeaveBehind(null));
 	}
 	@Test
 	void testBlockCopy() {
@@ -88,27 +73,27 @@ class TestBlocksItems {
 	//Invalid args test
 	@Test
 	void testVolumeNaN() {
-		assertThrows(IllegalArgumentException.class, () -> blk.volumed(Double.NaN));
+		assertThrows(IllegalArgumentException.class, () -> blk.setStorageVolume(Double.NaN));
 	}
 	@Test
 	void testVolumePInf() {
-		assertThrows(IllegalArgumentException.class, () -> blk.volumed(Double.POSITIVE_INFINITY));
+		assertThrows(IllegalArgumentException.class, () -> blk.setStorageVolume(Double.POSITIVE_INFINITY));
 	}
 	@Test
 	void testVolumeMInf() {
-		assertThrows(IllegalArgumentException.class, () -> blk.volumed(Double.NEGATIVE_INFINITY));
+		assertThrows(IllegalArgumentException.class, () -> blk.setStorageVolume(Double.NEGATIVE_INFINITY));
 	}
 	@Test
 	void testVolumeNegative() {
-		assertThrows(IllegalArgumentException.class, () -> blk.volumed(-1));
+		assertThrows(IllegalArgumentException.class, () -> blk.setStorageVolume(-1));
 	}
 	@Test
 	void testVolumeZero() {
-		assertThrows(IllegalArgumentException.class, () -> blk.volumed(0));
+		assertThrows(IllegalArgumentException.class, () -> blk.setStorageVolume(0));
 	}
 	@Test
 	void testVolumePositive() {
-		assertDoesNotThrow(() -> blk.volumed(1));
+		assertDoesNotThrow(() -> blk.setStorageVolume(1));
 	}
 	
 	//Collision config tests

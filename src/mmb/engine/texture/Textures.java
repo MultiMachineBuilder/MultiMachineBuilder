@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
+import java.util.Objects;
 
 import javax.imageio.ImageIO;
 
@@ -81,6 +82,7 @@ public class Textures {
 	 * @throws NotFoundException if texture is not found
 	 */
 	@NN public static BufferedImage get(String name) {
+		Objects.requireNonNull(name, "name is null");
 		if(!Main.isRunning()) return DUMMY;
 		return get1(name).img;
 	}

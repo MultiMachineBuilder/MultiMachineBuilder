@@ -16,11 +16,13 @@ import mmb.PropertyExtension;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.beans.IDescription;
+import mmb.beans.IStorageVolume;
 import mmb.beans.ITexture;
 import mmb.beans.ITitle;
 import mmb.beans.IWindowTool;
 import mmb.content.modular.part.PartEntry;
 import mmb.content.modular.part.PartType.PartFactory;
+import mmb.engine.Verify;
 import mmb.engine.blockdrawer.BlockDrawer;
 import mmb.engine.recipe3.BadElementException;
 import mmb.engine.recipe3.Group;
@@ -35,7 +37,7 @@ import monniasza.collects.Identifiable;
  * Simple items are also item entries
  * @author oskar
  */
-public class ItemType implements ITitle, Identifiable<String>, IDescription, ITexture, IWindowTool{
+public class ItemType implements ITitle, Identifiable<String>, IDescription, ITexture, IWindowTool, IStorageVolume{
 	@NN private static final String NO_DESCRIPTION = GlobalSettings.$res("nodescr");
 	/** Placeholder for the title when the title has not been set. Chosen to bring attention to any potential bugs. Placed before the item ID*/
 	@NN public static final String INVALID_TITLE = "000 Unnamed Item ";
@@ -45,7 +47,6 @@ public class ItemType implements ITitle, Identifiable<String>, IDescription, ITe
 	@NN public final Group singletonGroup;
 	
 	@NN private String title;
-	    public double volume = 1.0/64;
 	@NN private String description = NO_DESCRIPTION;
 	@NN private BlockDrawer texture = BlockDrawer.ofColor(new Color(0, 0, 0, 0));
 	
@@ -79,12 +80,13 @@ public class ItemType implements ITitle, Identifiable<String>, IDescription, ITe
 	@SafeVarargs
 	public ItemType(String id, PropertyExtension... properties){
 		if(Items.items.get(id) != null) throw new AlreadyExistsException(id + " is already registred");
+		this.id = id;
+		singletonGroup = Group.of("item:"+id);
 		Items.register(this);
 		
 		Objects.requireNonNull(id, "id is null");
-		this.id = id;
+		
 		this.title = INVALID_TITLE + id;
-		singletonGroup = Group.of("item:"+id);
 
 		addGroup(singletonGroup);
 		addGroup(Group.ANY);
@@ -176,4 +178,18 @@ public class ItemType implements ITitle, Identifiable<String>, IDescription, ITe
 	public void setWindowTool(WindowTool tool) {
 		Objects.requireNonNull(tool, "tool is null");
 	}
+	
+
+    private double volume = getTypeDefaultVolume();
+	@Override
+	public double getStorageVolume() {
+		return volume;
+	}
+	@Override
+	public void setStorageVolume(double volume) {
+		Verify.requirePositive(volume);
+		this.volume = volume;
+	}
+	
+	
 }
