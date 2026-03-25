@@ -18,7 +18,6 @@ import mmb.content.ContentsItems;
 import mmb.content.ContentsRecipes;
 import mmb.content.agro.Agro;
 import mmb.content.craft.ManCrafter;
-import mmb.content.drugs.Alcohol;
 import mmb.content.electric.machines.BlockTransformer.TransformerData;
 import mmb.content.electronics.Electronics;
 import mmb.content.modular.chest.ModularChests;
@@ -153,7 +152,6 @@ public final class GameLoader {
 		//Load datalayers
 		DataLayers.init();
 		//Load machines and more
-		Alcohol.init();
 		Main.state1("Loading machines");
 		STN.init();
 		ManCrafter.init();
