@@ -21,21 +21,30 @@ public final class RecipeLookup {
 
         Set<Recipe> plausibleRecipes = new HashSet<>();
 
-        // Step 1: Collect plausible recipes by checking the group index
-        for (int slotIndex = 0; slotIndex < machineSlotGroups.size(); slotIndex++) {
-            Set<Group> itemGroups = machineSlotGroups.get(slotIndex);
+        // Step 1: collect plausible recipes differently depending on recipe group type
+        if (flattenedGroup.isCrafting) {
+            // Crafting-like matching: each occupied slot matters
+            for (int slotIndex = 0; slotIndex < machineSlotGroups.size(); slotIndex++) {
+                Set<Group> itemGroups = machineSlotGroups.get(slotIndex);
 
-            Set<Recipe> recipesForSlot = new HashSet<>();
-            for (Group group : itemGroups) {
-            	int groupOrdinal = group.ordinal;
-                recipesForSlot.addAll(flattenedGroup.findPlausible(groupOrdinal));
+                Set<Recipe> recipesForSlot = new HashSet<>();
+                for (Group group : itemGroups) {
+                    recipesForSlot.addAll(flattenedGroup.findPlausible(group.ordinal));
+                }
+
+                if (slotIndex == 0) {
+                    plausibleRecipes.addAll(recipesForSlot);
+                } else {
+                    plausibleRecipes.retainAll(recipesForSlot);
+                    if (plausibleRecipes.isEmpty()) return Collections.emptySet();
+                }
             }
-
-            if (slotIndex == 0) {
-                plausibleRecipes.addAll(recipesForSlot);
-            } else {
-                plausibleRecipes.retainAll(recipesForSlot);
-                if (plausibleRecipes.isEmpty()) return Collections.emptySet(); // early exit
+        } else {
+            // Processing-like matching: extra machine items are allowed
+            for (Set<Group> itemGroups : machineSlotGroups) {
+                for (Group group : itemGroups) {
+                    plausibleRecipes.addAll(flattenedGroup.findPlausible(group.ordinal));
+                }
             }
         }
 

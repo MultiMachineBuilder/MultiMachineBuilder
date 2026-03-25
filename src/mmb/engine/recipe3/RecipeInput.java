@@ -8,7 +8,9 @@ public record RecipeInput(
 	int maxAmount,
 	int consumedAmount
 ) {
+	/** Matches any input item */
 	public static final RecipeInput ANY = new RecipeInput(Group.ANY, 1, Integer.MAX_VALUE, 1);
+	/** Matches no input items */
 	public static final RecipeInput NONE = new RecipeInput(Group.NONE, 0, 0, 0);
 	/** 
 	 * Creates a recipe input

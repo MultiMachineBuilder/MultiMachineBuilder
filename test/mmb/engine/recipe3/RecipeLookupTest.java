@@ -21,6 +21,10 @@ class RecipeLookupTest {
 		String groupName = Integer.toString(NUMBER_GROUPS++);
 		return new FlattenedRecipeGroup(true, groupName, groupName);
 	}
+	public static FlattenedRecipeGroup newProcRecipeGroup() {
+		String groupName = Integer.toString(NUMBER_GROUPS++);
+		return new FlattenedRecipeGroup(false, groupName, groupName);
+	}
 
     @Test
     void testSingleSlotAny() {
@@ -31,7 +35,6 @@ class RecipeLookupTest {
                 RecipeOutput.EMPTY,
                 ctx -> RecipeOutput.EMPTY,
                 false,
-                ulv,
                 ulv,
                 10, 5
         );
@@ -56,7 +59,6 @@ class RecipeLookupTest {
                 RecipeOutput.EMPTY,
                 ctx -> RecipeOutput.EMPTY,
                 false,
-                ulv,
                 ulv,
                 10, 5
         );
@@ -85,7 +87,6 @@ class RecipeLookupTest {
                 ctx -> RecipeOutput.EMPTY,
                 false, // shaped recipe
                 ulv,
-                ulv,
                 10, 5
         );
 
@@ -111,7 +112,6 @@ class RecipeLookupTest {
                 RecipeOutput.EMPTY,
                 ctx -> RecipeOutput.EMPTY,
                 true, // shapeless
-                ulv,
                 ulv,
                 10, 5
         );
@@ -139,7 +139,6 @@ class RecipeLookupTest {
                 ctx -> RecipeOutput.EMPTY,
                 false,
                 ulv,
-                ulv,
                 0, 0
         );
 
@@ -154,5 +153,63 @@ class RecipeLookupTest {
         Set<Recipe> results = RecipeLookup.lookup(group, machineContents);
 
         assertTrue(results.contains(recipe), "ANY and NONE slots should match correctly");
+    }
+    
+    @Test
+    void testCraftingRecipeExtraItems() {
+    	RecipeInput slot1 = new RecipeInput(iron, 1, 1, 1);
+        RecipeInput slot2 = new RecipeInput(copper, 1, 1, 1);
+
+        RecipeSpec spec = new RecipeSpec(
+                List.of(slot1, slot2),
+                Set.of(),
+                RecipeOutput.EMPTY,
+                ctx -> RecipeOutput.EMPTY,
+                false,
+                ulv,
+                0, 0
+        );
+
+        FlattenedRecipeGroup group = newRecipeGroup();
+        Recipe recipe = group.addRecipe(spec);
+
+        List<Set<Group>> machineContents = List.of(
+                Set.of(iron),
+                Set.of(copper),
+                Set.of(tin)
+        );
+
+        Set<Recipe> results = RecipeLookup.lookup(group, machineContents);
+
+        assertFalse(results.contains(recipe), "Crafting groups should not match extraneous items");
+    }
+    
+    @Test
+    void testProcessingRecipeExtraItems() {
+    	RecipeInput slot1 = new RecipeInput(iron, 1, 1, 1);
+        RecipeInput slot2 = new RecipeInput(copper, 1, 1, 1);
+
+        RecipeSpec spec = new RecipeSpec(
+                List.of(slot1, slot2),
+                Set.of(),
+                RecipeOutput.EMPTY,
+                ctx -> RecipeOutput.EMPTY,
+                true,
+                ulv,
+                0, 0
+        );
+
+        FlattenedRecipeGroup group = newProcRecipeGroup();
+        Recipe recipe = group.addRecipe(spec);
+
+        List<Set<Group>> machineContents = List.of(
+                Set.of(iron),
+                Set.of(copper),
+                Set.of(tin)
+        );
+
+        Set<Recipe> results = RecipeLookup.lookup(group, machineContents);
+
+        assertTrue(results.contains(recipe), "Processing groups should match extraneous items");
     }
 }
