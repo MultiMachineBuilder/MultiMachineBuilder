@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -37,11 +38,19 @@ class HandlerSystemTest {
 	private HandlerKey keyA;
 	private HandlerKey keyB;
 
-	private TestCover c1;
-	private TestCover c2;
-	private TestCover c3;
-	private TestCover c4;
+	private static TestCover c1;
+	private static TestCover c2;
+	private static TestCover c3;
+	private static TestCover c4;
 
+	@BeforeAll
+	static void staticSetup() {
+		c1 = new TestCover("c1");
+		c2 = new TestCover("c2");
+		c3 = new TestCover("c3");
+		c4 = new TestCover("c4");
+	}
+	
 	@BeforeEach
 	void setUp() {
 		world = new World(3, 3, 0, 0);
@@ -49,11 +58,6 @@ class HandlerSystemTest {
 
 		keyA = key(1, 1);
 		keyB = key(2, 2);
-
-		c1 = new TestCover("c1");
-		c2 = new TestCover("c2");
-		c3 = new TestCover("c3");
-		c4 = new TestCover("c4");
 	}
 
 	// ------------------------------------------------------------
@@ -605,8 +609,8 @@ class HandlerSystemTest {
 			TestCover t2 = new TestCover("T2");
 
 			// source covers applied reversed
-			TestCover s1 = new TestCover("S1");
-			TestCover s2 = new TestCover("S2");
+			TestCover s1 = c1;
+			TestCover s2 = c2;
 
 			system.getCoverList(keyA).addAll(List.of(t1, t2));
 			system.getCoverList(keyB).addAll(List.of(s1, s2));
@@ -614,7 +618,7 @@ class HandlerSystemTest {
 			Object result = system.getHandler(keyA, keyB, handlerId);
 
 			assertEquals(
-				"FROM[S1](FROM[S2](TO[T2](TO[T1](RAW))))",
+				"FROM[c1](FROM[c2](TO[T2](TO[T1](RAW))))",
 				result
 			);
 		} finally {
@@ -635,13 +639,12 @@ class HandlerSystemTest {
 
 		try {
 			system.getCoverList(keyA).addAll(List.of(
-				new TestCover("T1"),
-				new TestCover("T2")
+				c1, c2
 			));
 
 			Object result = system.getHandler(keyA, null, handlerId);
 
-			assertEquals("TO[T2](TO[T1](RAW))", result);
+			assertEquals("TO[c2](TO[c1](RAW))", result);
 		} finally {
 			restoreGetter(assignment, previous);
 		}

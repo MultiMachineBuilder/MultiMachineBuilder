@@ -60,11 +60,11 @@ public final class HandlerSystem {
 	 * @throws NullPointerException when {@code id} is null
 	 * @returns a handler for a given target block, wrapped with covers from first the target, then from source
 	 */
-	public Object getHandler(HandlerKey target, @Nil HandlerKey source, String id) {
+	@Nil public Object getHandler(HandlerKey target, @Nil HandlerKey source, String id) {
 		Objects.requireNonNull(target, "target is null");
 		Objects.requireNonNull(id, "id is null");
 		
-		Object handler = null;
+		@Nil Object handler = null;
 		
 		//Get the raw handler
 		BlockEntry block = world.get(target.x(), target.y());
@@ -73,7 +73,7 @@ public final class HandlerSystem {
 		}else {
 			BlockType type = block.itemType();
 			HandlerGetter getter = HandlerSystems.handlerGetters.get(new HandlerAssignment(id, type));
-			handler = getter.getHandler(source, block);
+			if(getter != null) handler = getter.getHandler(target, block);
 		}
 		
 		//Wrap the target block with the covers
@@ -92,7 +92,6 @@ public final class HandlerSystem {
 		}
 		
 		return handler;
-		
 	}
 }
 
