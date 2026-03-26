@@ -68,13 +68,10 @@ public final class HandlerSystem {
 		
 		//Get the raw handler
 		BlockEntry block = world.get(target.x(), target.y());
-		if(block == null) {
-			handler = null;
-		}else {
-			BlockType type = block.itemType();
-			HandlerGetter getter = HandlerSystems.handlerGetters.get(new HandlerAssignment(id, type));
-			if(getter != null) handler = getter.getHandler(target, block);
-		}
+		BlockType type = block.itemType();
+		HandlerGetter getter = HandlerSystems.handlerGetters.get(new HandlerAssignment(id, type));
+		if(getter != null) handler = getter.getHandler(target, block);
+		
 		
 		//Wrap the target block with the covers
 		var coversTarget = getCoverList(target);
