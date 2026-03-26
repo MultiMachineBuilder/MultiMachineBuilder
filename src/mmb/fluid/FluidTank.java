@@ -51,7 +51,7 @@ public class FluidTank implements FluidHandler {
 	}
 	public void setFluid(Fluid fluid) {
 		FluidState oldContents = getTankContents();
-		if(fluid == null || fluid != this.fluid) this.locked = false;
+		if(fluid == null || !Objects.equals(fluid, this.fluid)) this.locked = false;
 		this.fluid = fluid;
 		fire(oldContents);
 	}
