@@ -7,11 +7,25 @@ import mmb.AlreadyExistsException;
 import mmb.annotations.Nil;
 import mmb.engine.settings.GlobalSettings;
 
+/**
+ * An energy and recipe tier. It determines which recipes can be run, the voltages in cables and the power distribution.
+ */
 public final class VoltageTier implements Comparable<VoltageTier>{
+	/** Number of voltage tiers above SLV, which is defined to be 0 */
 	public final int ordinal;
+	/** Voltage potential in volts. For SLV, it is 25 volts */
 	public final double volts;
+	/** Short name and identifier for voltage tier */
 	public final String id;
+	/**
+	 * Translated long name for the voltage tier
+	 * Example: ULV
+	 * Polish: Napięcie ultraniskie
+	 * English: Ultra Low Voltage
+	 * Monniaszan: Ultralow Voltag 
+	 */
 	public final String name;
+	/** Color for machine casing at given voltage */
 	public final Color color;
 	
 	/**
