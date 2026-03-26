@@ -39,7 +39,7 @@ public interface ItemEntry extends Saver, SingleItem, IWindowTool{
 	//Item properties
 	/** @return the volume of this item entry */
 	public default double volume() {
-		return itemType().volume;
+		return itemType().getStorageVolume();
 	}
 	/** @return type of this item entry */
 	@NN public ItemType itemType();

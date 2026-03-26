@@ -16,9 +16,11 @@ import org.junit.jupiter.api.Test;
 import mmb.content.modular.cover.Cover;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
+import mmb.engine.block.Blocks;
 import mmb.engine.item.Item;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.world.World;
+import mmbtest.StandardTestReferences;
 
 /**
  * Tests for HandlerSystem and HandlerMappedCoverList.
@@ -38,17 +40,17 @@ class HandlerSystemTest {
 	private HandlerKey keyA;
 	private HandlerKey keyB;
 
-	private static TestCover c1;
-	private static TestCover c2;
-	private static TestCover c3;
-	private static TestCover c4;
+	private static TestCover t1;
+	private static TestCover t2;
+	private static TestCover s1;
+	private static TestCover s2;
 
 	@BeforeAll
 	static void staticSetup() {
-		c1 = new TestCover("c1");
-		c2 = new TestCover("c2");
-		c3 = new TestCover("c3");
-		c4 = new TestCover("c4");
+		t1 = new TestCover("t1");
+		t2 = new TestCover("t2");
+		s1 = new TestCover("s1");
+		s2 = new TestCover("s2");
 	}
 	
 	@BeforeEach
@@ -58,6 +60,9 @@ class HandlerSystemTest {
 
 		keyA = key(1, 1);
 		keyB = key(2, 2);
+		
+		world.set(StandardTestReferences.block, keyA.x(), keyA.y());
+		world.set(Blocks.grass, keyB.x(), keyB.y());
 	}
 
 	// ------------------------------------------------------------
@@ -91,9 +96,9 @@ class HandlerSystemTest {
 
 		assertEquals(0, list.size());
 		assertTrue(list.isEmpty());
-		assertFalse(list.contains(c1));
-		assertEquals(-1, list.indexOf(c1));
-		assertEquals(-1, list.lastIndexOf(c1));
+		assertFalse(list.contains(t1));
+		assertEquals(-1, list.indexOf(t1));
+		assertEquals(-1, list.lastIndexOf(t1));
 		assertArrayEquals(new Object[0], list.toArray());
 		assertTrue(list.containsAll(List.of()));
 		assertFalse(system.map.containsKey(keyA));
@@ -103,9 +108,9 @@ class HandlerSystemTest {
 	void addCreatesBackingList() {
 		List<Cover> list = system.getCoverList(keyA);
 
-		list.add(c1);
+		list.add(t1);
 
-		assertEquals(List.of(c1), list);
+		assertEquals(List.of(t1), list);
 		assertTrue(system.map.containsKey(keyA));
 	}
 
@@ -116,27 +121,27 @@ class HandlerSystemTest {
 	@Test
 	void sizeGetIsEmptyContainsIndexOfLastIndexOfWork() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
-		list.add(c1);
+		list.add(t1);
+		list.add(t2);
+		list.add(t1);
 
 		assertEquals(3, list.size());
 		assertFalse(list.isEmpty());
 
-		assertSame(c1, list.get(0));
-		assertSame(c2, list.get(1));
-		assertSame(c1, list.get(2));
+		assertSame(t1, list.get(0));
+		assertSame(t2, list.get(1));
+		assertSame(t1, list.get(2));
 
-		assertTrue(list.contains(c1));
-		assertTrue(list.contains(c2));
-		assertFalse(list.contains(c3));
+		assertTrue(list.contains(t1));
+		assertTrue(list.contains(t2));
+		assertFalse(list.contains(s1));
 
-		assertEquals(0, list.indexOf(c1));
-		assertEquals(1, list.indexOf(c2));
-		assertEquals(2, list.lastIndexOf(c1));
-		assertEquals(1, list.lastIndexOf(c2));
-		assertEquals(-1, list.indexOf(c3));
-		assertEquals(-1, list.lastIndexOf(c3));
+		assertEquals(0, list.indexOf(t1));
+		assertEquals(1, list.indexOf(t2));
+		assertEquals(2, list.lastIndexOf(t1));
+		assertEquals(1, list.lastIndexOf(t2));
+		assertEquals(-1, list.indexOf(s1));
+		assertEquals(-1, list.lastIndexOf(s1));
 	}
 
 	@Test
@@ -148,47 +153,47 @@ class HandlerSystemTest {
 	@Test
 	void toArrayWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
+		list.add(t1);
+		list.add(t2);
 
 		Object[] arr = list.toArray();
-		assertArrayEquals(new Object[] { c1, c2 }, arr);
+		assertArrayEquals(new Object[] { t1, t2 }, arr);
 	}
 
 	@Test
 	void toArrayTypedWithSmallArrayWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
+		list.add(t1);
+		list.add(t2);
 
 		Cover[] arr = list.toArray(new Cover[0]);
-		assertArrayEquals(new Cover[] { c1, c2 }, arr);
+		assertArrayEquals(new Cover[] { t1, t2 }, arr);
 	}
 
 	@Test
 	void toArrayTypedWithLargeArrayNullTerminates() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
+		list.add(t1);
+		list.add(t2);
 
-		Cover[] arr = new Cover[] { c3, c4, c3, c4 };
+		Cover[] arr = new Cover[] { s1, s2, s1, s2 };
 		Cover[] out = list.toArray(arr);
 
 		assertSame(arr, out);
-		assertSame(c1, out[0]);
-		assertSame(c2, out[1]);
+		assertSame(t1, out[0]);
+		assertSame(t2, out[1]);
 		assertNull(out[2]);
 	}
 
 	@Test
 	void containsAllWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
-		list.add(c3);
+		list.add(t1);
+		list.add(t2);
+		list.add(s1);
 
-		assertTrue(list.containsAll(List.of(c1, c2)));
-		assertFalse(list.containsAll(List.of(c1, c4)));
+		assertTrue(list.containsAll(List.of(t1, t2)));
+		assertFalse(list.containsAll(List.of(t1, s2)));
 	}
 
 	// ------------------------------------------------------------
@@ -198,42 +203,42 @@ class HandlerSystemTest {
 	@Test
 	void addAtIndexWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c3);
+		list.add(t1);
+		list.add(s1);
 
-		list.add(1, c2);
+		list.add(1, t2);
 
-		assertEquals(List.of(c1, c2, c3), list);
+		assertEquals(List.of(t1, t2, s1), list);
 	}
 
 	@Test
 	void addAtInvalidIndexThrows() {
 		List<Cover> list = system.getCoverList(keyA);
 
-		assertThrows(IndexOutOfBoundsException.class, () -> list.add(1, c1));
-		assertThrows(IndexOutOfBoundsException.class, () -> list.add(-1, c1));
+		assertThrows(IndexOutOfBoundsException.class, () -> list.add(1, t1));
+		assertThrows(IndexOutOfBoundsException.class, () -> list.add(-1, t1));
 	}
 
 	@Test
 	void addAllAppends() {
 		List<Cover> list = system.getCoverList(keyA);
 
-		boolean changed = list.addAll(List.of(c1, c2, c3));
+		boolean changed = list.addAll(List.of(t1, t2, s1));
 
 		assertTrue(changed);
-		assertEquals(List.of(c1, c2, c3), list);
+		assertEquals(List.of(t1, t2, s1), list);
 	}
 
 	@Test
 	void addAllAtIndexWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c4);
+		list.add(t1);
+		list.add(s2);
 
-		boolean changed = list.addAll(1, List.of(c2, c3));
+		boolean changed = list.addAll(1, List.of(t2, s1));
 
 		assertTrue(changed);
-		assertEquals(List.of(c1, c2, c3, c4), list);
+		assertEquals(List.of(t1, t2, s1, s2), list);
 	}
 
 	@Test
@@ -248,50 +253,50 @@ class HandlerSystemTest {
 	@Test
 	void setReplacesAndReturnsOldValue() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
+		list.add(t1);
+		list.add(t2);
 
-		Cover old = list.set(1, c3);
+		Cover old = list.set(1, s1);
 
-		assertSame(c2, old);
-		assertEquals(List.of(c1, c3), list);
+		assertSame(t2, old);
+		assertEquals(List.of(t1, s1), list);
 	}
 
 	@Test
 	void removeByObjectWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
-		list.add(c1);
+		list.add(t1);
+		list.add(t2);
+		list.add(t1);
 
-		assertTrue(list.remove(c1));
-		assertEquals(List.of(c2, c1), list);
-		assertFalse(list.remove(c3));
+		assertTrue(list.remove(t1));
+		assertEquals(List.of(t2, t1), list);
+		assertFalse(list.remove(s1));
 	}
 
 	@Test
 	void removeByIndexWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
-		list.add(c3);
+		list.add(t1);
+		list.add(t2);
+		list.add(s1);
 
 		Cover removed = list.remove(1);
 
-		assertSame(c2, removed);
-		assertEquals(List.of(c1, c3), list);
+		assertSame(t2, removed);
+		assertEquals(List.of(t1, s1), list);
 	}
 
 	@Test
 	void removeLastElementDeletesBackingMapEntry() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
+		list.add(t1);
 
 		assertTrue(system.map.containsKey(keyA));
 
 		Cover removed = list.remove(0);
 
-		assertSame(c1, removed);
+		assertSame(t1, removed);
 		assertTrue(list.isEmpty());
 		assertFalse(system.map.containsKey(keyA));
 	}
@@ -305,35 +310,35 @@ class HandlerSystemTest {
 	@Test
 	void removeAllWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
-		list.add(c1);
-		list.add(c3);
+		list.add(t1);
+		list.add(t2);
+		list.add(t1);
+		list.add(s1);
 
-		boolean changed = list.removeAll(List.of(c1, c4));
+		boolean changed = list.removeAll(List.of(t1, s2));
 
 		assertTrue(changed);
-		assertEquals(List.of(c2, c3), list);
+		assertEquals(List.of(t2, s1), list);
 	}
 
 	@Test
 	void retainAllWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
-		list.add(c3);
+		list.add(t1);
+		list.add(t2);
+		list.add(s1);
 
-		boolean changed = list.retainAll(List.of(c1, c3));
+		boolean changed = list.retainAll(List.of(t1, s1));
 
 		assertTrue(changed);
-		assertEquals(List.of(c1, c3), list);
+		assertEquals(List.of(t1, s1), list);
 	}
 
 	@Test
 	void clearWorksAndDeletesBackingMapEntry() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
+		list.add(t1);
+		list.add(t2);
 
 		assertTrue(system.map.containsKey(keyA));
 
@@ -357,18 +362,18 @@ class HandlerSystemTest {
 	@Test
 	void iteratorIteratesInOrder() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
-		list.add(c3);
+		list.add(t1);
+		list.add(t2);
+		list.add(s1);
 
 		Iterator<Cover> it = list.iterator();
 
 		assertTrue(it.hasNext());
-		assertSame(c1, it.next());
+		assertSame(t1, it.next());
 		assertTrue(it.hasNext());
-		assertSame(c2, it.next());
+		assertSame(t2, it.next());
 		assertTrue(it.hasNext());
-		assertSame(c3, it.next());
+		assertSame(s1, it.next());
 		assertFalse(it.hasNext());
 		assertThrows(java.util.NoSuchElementException.class, it::next);
 	}
@@ -376,9 +381,9 @@ class HandlerSystemTest {
 	@Test
 	void listIteratorForwardBackwardWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
-		list.add(c3);
+		list.add(t1);
+		list.add(t2);
+		list.add(s1);
 
 		ListIterator<Cover> it = list.listIterator();
 
@@ -386,15 +391,15 @@ class HandlerSystemTest {
 		assertEquals(0, it.nextIndex());
 		assertEquals(-1, it.previousIndex());
 
-		assertSame(c1, it.next());
+		assertSame(t1, it.next());
 		assertTrue(it.hasPrevious());
 		assertEquals(1, it.nextIndex());
 		assertEquals(0, it.previousIndex());
 
-		assertSame(c2, it.next());
-		assertSame(c2, it.previous());
-		assertSame(c2, it.next());
-		assertSame(c3, it.next());
+		assertSame(t2, it.next());
+		assertSame(t2, it.previous());
+		assertSame(t2, it.next());
+		assertSame(s1, it.next());
 
 		assertFalse(it.hasNext());
 		assertThrows(java.util.NoSuchElementException.class, it::next);
@@ -403,23 +408,23 @@ class HandlerSystemTest {
 	@Test
 	void listIteratorAtIndexWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
-		list.add(c3);
+		list.add(t1);
+		list.add(t2);
+		list.add(s1);
 
 		ListIterator<Cover> it = list.listIterator(2);
 
 		assertTrue(it.hasPrevious());
 		assertTrue(it.hasNext());
-		assertSame(c2, it.previous());
-		assertSame(c2, it.next());
-		assertSame(c3, it.next());
+		assertSame(t2, it.previous());
+		assertSame(t2, it.next());
+		assertSame(s1, it.next());
 	}
 
 	@Test
 	void listIteratorInvalidIndexThrows() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
+		list.add(t1);
 
 		assertThrows(IndexOutOfBoundsException.class, () -> list.listIterator(-1));
 		assertThrows(IndexOutOfBoundsException.class, () -> list.listIterator(2));
@@ -428,58 +433,58 @@ class HandlerSystemTest {
 	@Test
 	void listIteratorRemoveWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
-		list.add(c3);
+		list.add(t1);
+		list.add(t2);
+		list.add(s1);
 
 		ListIterator<Cover> it = list.listIterator();
-		assertSame(c1, it.next());
+		assertSame(t1, it.next());
 
 		it.remove();
 
-		assertEquals(List.of(c2, c3), list);
+		assertEquals(List.of(t2, s1), list);
 		assertThrows(IllegalStateException.class, it::remove);
 	}
 
 	@Test
 	void listIteratorSetWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c2);
+		list.add(t1);
+		list.add(t2);
 
 		ListIterator<Cover> it = list.listIterator();
-		assertSame(c1, it.next());
+		assertSame(t1, it.next());
 
-		it.set(c3);
+		it.set(s1);
 
-		assertEquals(List.of(c3, c2), list);
+		assertEquals(List.of(s1, t2), list);
 	}
 
 	@Test
 	void listIteratorAddWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
-		list.add(c3);
+		list.add(t1);
+		list.add(s1);
 
 		ListIterator<Cover> it = list.listIterator(1);
-		it.add(c2);
+		it.add(t2);
 
-		assertEquals(List.of(c1, c2, c3), list);
+		assertEquals(List.of(t1, t2, s1), list);
 	}
 
 	@Test
 	void listIteratorSetWithoutTraversalThrows() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
+		list.add(t1);
 
 		ListIterator<Cover> it = list.listIterator();
-		assertThrows(IllegalStateException.class, () -> it.set(c2));
+		assertThrows(IllegalStateException.class, () -> it.set(t2));
 	}
 
 	@Test
 	void listIteratorRemoveWithoutTraversalThrows() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.add(c1);
+		list.add(t1);
 
 		ListIterator<Cover> it = list.listIterator();
 		assertThrows(IllegalStateException.class, it::remove);
@@ -492,65 +497,65 @@ class HandlerSystemTest {
 	@Test
 	void subListReadWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.addAll(List.of(c1, c2, c3, c4));
+		list.addAll(List.of(t1, t2, s1, s2));
 
 		List<Cover> sub = list.subList(1, 3);
 
 		assertEquals(2, sub.size());
-		assertEquals(List.of(c2, c3), sub);
-		assertSame(c2, sub.get(0));
-		assertSame(c3, sub.get(1));
+		assertEquals(List.of(t2, s1), sub);
+		assertSame(t2, sub.get(0));
+		assertSame(s1, sub.get(1));
 	}
 
 	@Test
 	void subListWriteReflectsInParent() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.addAll(List.of(c1, c2, c3, c4));
+		list.addAll(List.of(t1, t2, s1, s2));
 
 		List<Cover> sub = list.subList(1, 3); // [c2, c3]
 
-		sub.set(0, c4);
-		assertEquals(List.of(c1, c4, c3, c4), list);
+		sub.set(0, s2);
+		assertEquals(List.of(t1, s2, s1, s2), list);
 
-		sub.add(c2);
-		assertEquals(List.of(c1, c4, c3, c2, c4), list);
+		sub.add(t2);
+		assertEquals(List.of(t1, s2, s1, t2, s2), list);
 
 		sub.remove(1);
-		assertEquals(List.of(c1, c4, c2, c4), list);
+		assertEquals(List.of(t1, s2, t2, s2), list);
 	}
 
 	@Test
 	void subListClearWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.addAll(List.of(c1, c2, c3, c4));
+		list.addAll(List.of(t1, t2, s1, s2));
 
 		List<Cover> sub = list.subList(1, 3);
 		sub.clear();
 
-		assertEquals(List.of(c1, c4), list);
+		assertEquals(List.of(t1, s2), list);
 	}
 
 	@Test
 	void nestedSubListWorks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.addAll(List.of(c1, c2, c3, c4));
+		list.addAll(List.of(t1, t2, s1, s2));
 
 		List<Cover> sub1 = list.subList(1, 4); // [c2, c3, c4]
 		List<Cover> sub2 = sub1.subList(1, 3); // [c3, c4]
 
-		assertEquals(List.of(c3, c4), sub2);
+		assertEquals(List.of(s1, s2), sub2);
 
 		sub2.remove(0);
 
-		assertEquals(List.of(c1, c2, c4), list);
-		assertEquals(List.of(c2, c4), sub1);
-		assertEquals(List.of(c4), sub2);
+		assertEquals(List.of(t1, t2, s2), list);
+		assertEquals(List.of(t2, s2), sub1);
+		assertEquals(List.of(s2), sub2);
 	}
 
 	@Test
 	void subListInvalidBoundsThrow() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.addAll(List.of(c1, c2));
+		list.addAll(List.of(t1, t2));
 
 		assertThrows(IndexOutOfBoundsException.class, () -> list.subList(-1, 1));
 		assertThrows(IndexOutOfBoundsException.class, () -> list.subList(0, 3));
@@ -560,10 +565,10 @@ class HandlerSystemTest {
 	@Test
 	void subListCanBecomeEmptyWhenParentShrinks() {
 		List<Cover> list = system.getCoverList(keyA);
-		list.addAll(List.of(c1, c2, c3));
+		list.addAll(List.of(t1, t2, s1));
 
 		List<Cover> sub = list.subList(2, 3); // [c3]
-		assertEquals(List.of(c3), sub);
+		assertEquals(List.of(s1), sub);
 
 		list.remove(2);
 
@@ -604,13 +609,6 @@ class HandlerSystemTest {
 		HandlerGetter previous = HandlerSystems.handlerGetters.put(assignment, (source, blk) -> raw);
 
 		try {
-			// target covers applied inner -> outer
-			TestCover t1 = new TestCover("T1");
-			TestCover t2 = new TestCover("T2");
-
-			// source covers applied reversed
-			TestCover s1 = c1;
-			TestCover s2 = c2;
 
 			system.getCoverList(keyA).addAll(List.of(t1, t2));
 			system.getCoverList(keyB).addAll(List.of(s1, s2));
@@ -618,7 +616,7 @@ class HandlerSystemTest {
 			Object result = system.getHandler(keyA, keyB, handlerId);
 
 			assertEquals(
-				"FROM[c1](FROM[c2](TO[T2](TO[T1](RAW))))",
+				"FROM[s1](FROM[s2](TO[t2](TO[t1](RAW))))",
 				result
 			);
 		} finally {
@@ -639,12 +637,12 @@ class HandlerSystemTest {
 
 		try {
 			system.getCoverList(keyA).addAll(List.of(
-				c1, c2
+				t1, t2
 			));
 
 			Object result = system.getHandler(keyA, null, handlerId);
 
-			assertEquals("TO[c2](TO[c1](RAW))", result);
+			assertEquals("TO[t2](TO[t1](RAW))", result);
 		} finally {
 			restoreGetter(assignment, previous);
 		}
@@ -663,14 +661,288 @@ class HandlerSystemTest {
 
 		try {
 			system.getCoverList(keyB).addAll(List.of(
-				new TestCover("S1"),
-				new TestCover("S2"),
-				new TestCover("S3")
+				s1, s2
 			));
 
 			Object result = system.getHandler(keyA, keyB, handlerId);
 
-			assertEquals("FROM[S1](FROM[S2](FROM[S3](RAW)))", result);
+			assertEquals("FROM[s1](FROM[s2](RAW))", result);
+		} finally {
+			restoreGetter(assignment, previous);
+		}
+	}
+	
+	@Test
+	void getHandlerPassesCorrectSourceAndBlockToRawGetter() {
+		String handlerId = "test-handler";
+		BlockEntry expectedBlock = world.get(keyA.x(), keyA.y());
+		BlockType type = expectedBlock.itemType();
+
+		final HandlerKey[] capturedSource = new HandlerKey[1];
+		final BlockEntry[] capturedBlock = new BlockEntry[1];
+
+		HandlerAssignment assignment = new HandlerAssignment(handlerId, type);
+		HandlerGetter previous = HandlerSystems.handlerGetters.put(assignment, (source, blk) -> {
+			capturedSource[0] = source;
+			capturedBlock[0] = blk;
+			return "RAW";
+		});
+
+		try {
+			Object result = system.getHandler(keyA, keyB, handlerId);
+
+			assertEquals("RAW", result);
+			assertSame(keyB, capturedSource[0], "Source key should be passed to raw getter");
+			assertSame(expectedBlock, capturedBlock[0], "Target block from world should be passed to raw getter");
+		} finally {
+			restoreGetter(assignment, previous);
+		}
+	}
+
+	@Test
+	void getHandlerUsesCorrectAssignmentForTargetBlockType() {
+		String handlerId = "test-handler";
+		BlockEntry block = world.get(keyA.x(), keyA.y());
+		BlockType type = block.itemType();
+
+		HandlerAssignment correct = new HandlerAssignment(handlerId, type);
+		HandlerAssignment wrongId = new HandlerAssignment("wrong-id", type);
+
+		HandlerGetter prevCorrect = HandlerSystems.handlerGetters.put(correct, (source, blk) -> "CORRECT");
+		HandlerGetter prevWrong = HandlerSystems.handlerGetters.put(wrongId, (source, blk) -> "WRONG");
+
+		try {
+			Object result = system.getHandler(keyA, null, handlerId);
+			assertEquals("CORRECT", result);
+		} finally {
+			restoreGetter(correct, prevCorrect);
+			restoreGetter(wrongId, prevWrong);
+		}
+	}
+
+	@Test
+	void getHandlerReturnsNullWhenNoGetterExistsForExistingBlock() {
+		String handlerId = "definitely-not-registered";
+		Object result = system.getHandler(keyA, null, handlerId);
+		assertNull(result);
+	}
+
+	@Test
+	void getHandlerStillAppliesTargetCoversWhenRawHandlerIsNull() {
+		String handlerId = "missing-handler";
+
+		system.getCoverList(keyA).addAll(List.of(
+			t1, t2
+		));
+
+		Object result = system.getHandler(keyA, null, handlerId);
+
+		assertEquals("TO[t2](TO[t1](null))", result);
+	}
+
+	@Test
+	void getHandlerStillAppliesSourceCoversWhenRawHandlerIsNull() {
+		String handlerId = "missing-handler";
+
+		system.getCoverList(keyB).addAll(List.of(
+			t1, t2
+		));
+
+		Object result = system.getHandler(keyA, keyB, handlerId);
+
+		assertEquals("FROM[t1](FROM[t2](null))", result);
+	}
+
+	@Test
+	void getHandlerStillAppliesBothTargetAndSourceCoversWhenRawHandlerIsNull() {
+		String handlerId = "missing-handler";
+
+		system.getCoverList(keyA).addAll(List.of(
+			t1, t2
+		));
+		system.getCoverList(keyB).addAll(List.of(
+			s1, s2
+		));
+
+		Object result = system.getHandler(keyA, keyB, handlerId);
+
+		assertEquals(
+			"FROM[s1](FROM[s2](TO[t2](TO[t1](null))))",
+			result
+		);
+	}
+
+	@Test
+	void getHandlerWithNoCoversReturnsRawHandlerUnchanged() {
+		String handlerId = "test-handler";
+		Object raw = new Object();
+
+		BlockEntry block = world.get(keyA.x(), keyA.y());
+		BlockType type = block.itemType();
+
+		HandlerAssignment assignment = new HandlerAssignment(handlerId, type);
+		HandlerGetter previous = HandlerSystems.handlerGetters.put(assignment, (source, blk) -> raw);
+
+		try {
+			Object result = system.getHandler(keyA, null, handlerId);
+			assertSame(raw, result);
+		} finally {
+			restoreGetter(assignment, previous);
+		}
+	}
+
+	@Test
+	void getHandlerPassesTargetKeyToTargetCovers() {
+		String handlerId = "test-handler";
+		Object raw = "RAW";
+
+		BlockEntry block = world.get(keyA.x(), keyA.y());
+		BlockType type = block.itemType();
+
+		final HandlerKey[] capturedKey = new HandlerKey[1];
+
+		HandlerAssignment assignment = new HandlerAssignment(handlerId, type);
+		HandlerGetter previous = HandlerSystems.handlerGetters.put(assignment, (source, blk) -> raw);
+
+		try {
+			class CaptureTargetCover extends Item implements Cover {
+				private CaptureTargetCover() {
+					super("capture-target");
+				}
+
+				@Override
+				public Object getHandlerFromBlock(String handler, HandlerKey key, Object innerHandler) {
+					return innerHandler;
+				}
+
+				@Override
+				public Object getHandlerToBlock(String handler, HandlerKey key, Object innerHandler) {
+					capturedKey[0] = key;
+					return innerHandler;
+				}
+			}
+
+			Cover cover = new CaptureTargetCover();
+
+			system.getCoverList(keyA).add(cover);
+
+			Object result = system.getHandler(keyA, keyB, handlerId);
+
+			assertEquals("RAW", result);
+			assertSame(keyA, capturedKey[0], "Target cover should receive target key");
+		} finally {
+			restoreGetter(assignment, previous);
+		}
+	}
+
+	@Test
+	void getHandlerPassesTargetKeyToSourceCoversToo() {
+		
+		
+		String handlerId = "test-handler";
+		Object raw = "RAW";
+
+		BlockEntry block = world.get(keyA.x(), keyA.y());
+		BlockType type = block.itemType();
+
+		final HandlerKey[] capturedKey = new HandlerKey[1];
+
+		HandlerAssignment assignment = new HandlerAssignment(handlerId, type);
+		HandlerGetter previous = HandlerSystems.handlerGetters.put(assignment, (source, blk) -> raw);
+
+		try {
+			class CaptureSourceCover extends Item implements Cover {
+				private CaptureSourceCover() {
+					super("capture-source");
+				}
+
+				@Override
+				public Object getHandlerFromBlock(String handler, HandlerKey key, Object innerHandler) {
+					capturedKey[0] = key;
+					return innerHandler;
+				}
+
+				@Override
+				public Object getHandlerToBlock(String handler, HandlerKey key, Object innerHandler) {
+					return innerHandler;
+				}
+			}
+
+			Cover cover = new CaptureSourceCover();
+
+			system.getCoverList(keyB).add(cover);
+
+			Object result = system.getHandler(keyA, keyB, handlerId);
+
+			assertEquals("RAW", result);
+			assertSame(keyA, capturedKey[0], "Source cover should receive target key (current implementation)");
+		} finally {
+			restoreGetter(assignment, previous);
+		}
+	}
+
+	@Test
+	void getHandlerPassesHandlerIdToCovers() {
+		String handlerId = "special-handler-id";
+		Object raw = "RAW";
+
+		BlockEntry block = world.get(keyA.x(), keyA.y());
+		BlockType type = block.itemType();
+
+		final String[] capturedId = new String[1];
+
+		HandlerAssignment assignment = new HandlerAssignment(handlerId, type);
+		HandlerGetter previous = HandlerSystems.handlerGetters.put(assignment, (source, blk) -> raw);
+
+		try {
+			class CaptureIdCover extends Item implements Cover {
+				private CaptureIdCover() {
+					super("capture-id");
+				}
+
+				@Override
+				public Object getHandlerFromBlock(String handler, HandlerKey key, Object innerHandler) {
+					return innerHandler;
+				}
+
+				@Override
+				public Object getHandlerToBlock(String handler, HandlerKey key, Object innerHandler) {
+					capturedId[0] = handler;
+					return innerHandler;
+				}
+			}
+
+			Cover cover = new CaptureIdCover();
+
+			system.getCoverList(keyA).add(cover);
+
+			system.getHandler(keyA, null, handlerId);
+
+			assertEquals(handlerId, capturedId[0]);
+		} finally {
+			restoreGetter(assignment, previous);
+		}
+	}
+
+	@Test
+	void getHandlerWithEmptyTargetAndSourceCoverListsStillReturnsRaw() {
+		String handlerId = "test-handler";
+		Object raw = "RAW";
+
+		BlockEntry block = world.get(keyA.x(), keyA.y());
+		BlockType type = block.itemType();
+
+		HandlerAssignment assignment = new HandlerAssignment(handlerId, type);
+		HandlerGetter previous = HandlerSystems.handlerGetters.put(assignment, (source, blk) -> raw);
+
+		try {
+			// Touch the cover lists, but keep them empty
+			system.getCoverList(keyA);
+			system.getCoverList(keyB);
+
+			Object result = system.getHandler(keyA, keyB, handlerId);
+
+			assertEquals("RAW", result);
 		} finally {
 			restoreGetter(assignment, previous);
 		}
