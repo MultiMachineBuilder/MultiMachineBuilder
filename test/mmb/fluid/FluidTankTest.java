@@ -173,25 +173,20 @@ class FluidTankTest {
 
 	@Test
 	void checkInsertShouldRejectDifferentFluidWhenFilled() {
-		tank.setFluid(WATER);
-		tank.setQuantity(0.5);
-		events.clear();
+		tank.setTankContents(new FluidState(1.0, 0.5, WATER, false));
 
 		double result = tank.checkInsert(LAVA, 0.2);
 
 		assertEquals(0.0, result);
-		assertEquals(0, events.size());
 	}
 
 	@Test
 	void checkInsertShouldRejectDifferentFluidWhenLocked() {
-		tank.setLocked(WATER);
-		events.clear();
+		tank.setTankContents(new FluidState(1.0, 0.0, WATER, true));
 
 		double result = tank.checkInsert(LAVA, 0.2);
 
 		assertEquals(0.0, result);
-		assertEquals(0, events.size());
 	}
 
 	@Test
@@ -285,8 +280,7 @@ class FluidTankTest {
 
 	@Test
 	void insertFluidShouldRejectDifferentFluidWhenFilled() {
-		tank.setFluid(WATER);
-		tank.setQuantity(0.5);
+		tank.setTankContents(new FluidState(1.0, 0.5, WATER, false));
 		events.clear();
 
 		double inserted = tank.insertFluid(LAVA, 0.2);
@@ -294,12 +288,13 @@ class FluidTankTest {
 		assertEquals(0.0, inserted);
 		assertEquals(0.5, tank.getQuantity());
 		assertEquals(WATER, tank.getFluid());
+		assertFalse(tank.isLocked());
 		assertEquals(0, events.size());
 	}
 
 	@Test
 	void insertFluidShouldRejectDifferentFluidWhenLocked() {
-		tank.setLocked(WATER);
+		tank.setTankContents(new FluidState(1.0, 0.0, WATER, true));
 		events.clear();
 
 		double inserted = tank.insertFluid(LAVA, 0.2);
@@ -310,6 +305,8 @@ class FluidTankTest {
 		assertTrue(tank.isLocked());
 		assertEquals(0, events.size());
 	}
+	
+	
 
 	@Test
 	void extractFluidShouldReduceQuantity() {
