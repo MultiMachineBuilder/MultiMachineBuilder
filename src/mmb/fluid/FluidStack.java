@@ -3,7 +3,6 @@ package mmb.fluid;
 import java.util.Objects;
 
 import mmb.engine.Verify;
-import mmb.engine.block.BlockEntry;
 
 //TODO create a dedicated fluid type
 /**
