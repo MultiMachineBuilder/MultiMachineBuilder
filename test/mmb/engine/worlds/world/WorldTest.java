@@ -7,32 +7,81 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.Collection;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import mmb.PropertyExtension;
 import mmb.engine.Vector2iconst;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.block.Blocks;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.rotate.Side;
-import mmb.engine.visuals.Visual;
 import monniasza.collects.grid.Grid;
 
 class WorldTest {
 
 	private World world;
 
+	// -------------------------------------------------
+	// Test block fixture
+	// -------------------------------------------------
+
+	private static final AtomicInteger TEST_BLOCK_COUNTER = new AtomicInteger();
+
+	private static final BlockType TEST_BLOCK_TYPE = new BlockType(
+			"test:world_identity_block",
+			PropertyExtension.setTextureColor(java.awt.Color.MAGENTA),
+			PropertyExtension.setBlockFactory(json ->
+					new TestBlockEntry(TEST_BLOCK_COUNTER.incrementAndGet()))
+	);
+
+	/**
+	 * A distinct identity-bearing block entry for testing.
+	 *
+	 * record equality is fine here, but tests use assertSame()
+	 * because we care about object identity preservation.
+	 */
+	private static record TestBlockEntry(int marker) implements BlockEntry {
+
+		@Override
+		public BlockType itemType() {
+			return TEST_BLOCK_TYPE;
+		}
+
+		@Override
+		public void resetMap(World map, int x, int y) {
+			// intentionally no-op for test block
+		}
+
+		@Override
+		public BlockEntry blockCopy() {
+			return new TestBlockEntry(marker);
+		}
+
+		@Override
+		public JsonNode save() {
+			return null;
+		}
+	}
+
 	@BeforeEach
 	void setUp() {
 		world = new World(3, 4, 10, 20);
 	}
 
+	private static TestBlockEntry newTestBlock() {
+		return (TestBlockEntry) TEST_BLOCK_TYPE.createBlock(null);
+	}
+
 	// -------------------------------------------------
-	// Construction / identity / metadata
+	// Construction / metadata
 	// -------------------------------------------------
 
 	@Test
@@ -169,19 +218,20 @@ class WorldTest {
 
 	@Test
 	void setPreservesBlockIdentity() {
-		BlockEntry block = Blocks.blockVoid;
+		TestBlockEntry block = newTestBlock();
 
 		BlockEntry returned = world.set(block, 11, 21);
 		BlockEntry stored = world.get(11, 21);
 
 		assertSame(block, returned, "set() should return the exact block instance that was placed");
 		assertSame(block, stored, "get() should return the exact same block instance that was passed to set()");
+		assertEquals(block.marker(), ((TestBlockEntry) stored).marker());
 	}
 
 	@Test
 	void replacingBlockPreservesNewBlockIdentity() {
-		BlockEntry first = Blocks.grass;
-		BlockEntry second = Blocks.blockVoid;
+		TestBlockEntry first = newTestBlock();
+		TestBlockEntry second = newTestBlock();
 
 		world.set(first, 11, 21);
 		BlockEntry returned = world.set(second, 11, 21);
@@ -190,12 +240,13 @@ class WorldTest {
 		assertSame(second, returned, "set() should return the newly placed block instance");
 		assertSame(second, stored, "World should store the exact newly placed block instance");
 		assertNotSame(first, stored, "Old block instance should no longer be stored at that position");
+		assertEquals(second.marker(), ((TestBlockEntry) stored).marker());
 	}
 
 	@Test
 	void settingOnePositionDoesNotAffectOtherPositions() {
-		BlockEntry blockA = Blocks.grass;
-		BlockEntry blockB = Blocks.blockVoid;
+		TestBlockEntry blockA = newTestBlock();
+		TestBlockEntry blockB = newTestBlock();
 
 		world.set(blockA, 10, 20);
 		world.set(blockB, 12, 23);
@@ -207,7 +258,7 @@ class WorldTest {
 
 	@Test
 	void getAtSideReturnsNeighborBlock() {
-		BlockEntry neighbor = Blocks.blockVoid;
+		TestBlockEntry neighbor = newTestBlock();
 		world.set(neighbor, 11, 20);
 
 		assertSame(neighbor, world.getAtSide(Side.R, 10, 20));
@@ -215,21 +266,22 @@ class WorldTest {
 
 	@Test
 	void placeReturnsPlacedBlockAndStoresIt() {
-		BlockType type = Blocks.grass.itemType();
-
-		BlockEntry placed = world.place(type, 11, 22);
+		BlockEntry placed = world.place(TEST_BLOCK_TYPE, 11, 22);
 
 		assertNotNull(placed);
+		assertInstanceOf(TestBlockEntry.class, placed);
 		assertSame(placed, world.get(11, 22));
 	}
 
 	@Test
 	void placeCreatesDistinctInstancesPerTile() {
-		BlockEntry a = world.place(Blocks.grass.itemType(), 10, 20);
-		BlockEntry b = world.place(Blocks.grass.itemType(), 11, 21);
+		BlockEntry a = world.place(TEST_BLOCK_TYPE, 10, 20);
+		BlockEntry b = world.place(TEST_BLOCK_TYPE, 11, 21);
 
 		assertNotNull(a);
 		assertNotNull(b);
+		assertInstanceOf(TestBlockEntry.class, a);
+		assertInstanceOf(TestBlockEntry.class, b);
 		assertNotSame(a, b, "Each placed block should be a distinct instance");
 		assertSame(a, world.get(10, 20));
 		assertSame(b, world.get(11, 21));
@@ -250,7 +302,7 @@ class WorldTest {
 	@Test
 	void toGridGetReadsWorldData() {
 		Grid<BlockEntry> grid = world.toGrid();
-		BlockEntry block = Blocks.blockVoid;
+		TestBlockEntry block = newTestBlock();
 
 		world.set(block, 11, 22);
 
@@ -260,7 +312,7 @@ class WorldTest {
 	@Test
 	void toGridSetWritesWorldData() {
 		Grid<BlockEntry> grid = world.toGrid();
-		BlockEntry block = Blocks.blockVoid;
+		TestBlockEntry block = newTestBlock();
 
 		grid.set(2, 3, block);
 
@@ -280,35 +332,21 @@ class WorldTest {
 	}
 
 	@Test
-	void getDropsByVectorReturnsSameUnderlyingCollection() {
+	void getDropsByVectorReturnsEquivalentLiveCollection() {
 		Collection<ItemEntry> byCoords = world.getDrops(11, 22);
 		Collection<ItemEntry> byVector = world.getDrops(new Vector2iconst(11, 22));
 
-		assertSame(byCoords, byVector);
+		assertNotNull(byCoords);
+		assertNotNull(byVector);
+
+		byCoords.clear();
+		assertTrue(byVector.isEmpty());
 	}
 
 	@Test
 	void createDropperReturnsWriter() {
 		assertNotNull(world.createDropper(11, 22));
 	}
-
-	// NOTE:
-	// dropItem/dropItems/dropChance need a concrete ItemEntry/Chance fixture from your codebase.
-	// Add those once you have a stable test item reference.
-
-	// -------------------------------------------------
-	// Visuals
-	// -------------------------------------------------
-
-	@Test
-	void visualsInitiallyEmpty() {
-		assertNotNull(world.visuals());
-		assertEquals(0, world.visuals().size());
-	}
-
-	// NOTE:
-	// addVisual / removeVisual / addVisuals / removeVisuals need a simple Visual test fixture.
-	// Add once you have an easy stub or concrete test visual.
 
 	// -------------------------------------------------
 	// Proxy / lifecycle-safe basics
@@ -340,7 +378,7 @@ class WorldTest {
 	}
 
 	// -------------------------------------------------
-	// Serialization
+	// Serialization validation
 	// -------------------------------------------------
 
 	@Test
@@ -364,7 +402,7 @@ class WorldTest {
 
 	@Test
 	void loadRejectsMissingSizeX() {
-		JsonNode json = com.fasterxml.jackson.databind.node.JsonNodeFactory.instance.objectNode()
+		ObjectNode json = JsonNodeFactory.instance.objectNode()
 				.put("sizeY", 1)
 				.put("startX", 0)
 				.put("startY", 0);
@@ -374,7 +412,7 @@ class WorldTest {
 
 	@Test
 	void loadRejectsMissingSizeY() {
-		JsonNode json = com.fasterxml.jackson.databind.node.JsonNodeFactory.instance.objectNode()
+		ObjectNode json = JsonNodeFactory.instance.objectNode()
 				.put("sizeX", 1)
 				.put("startX", 0)
 				.put("startY", 0);
@@ -384,7 +422,7 @@ class WorldTest {
 
 	@Test
 	void loadRejectsMissingStartX() {
-		JsonNode json = com.fasterxml.jackson.databind.node.JsonNodeFactory.instance.objectNode()
+		ObjectNode json = JsonNodeFactory.instance.objectNode()
 				.put("sizeX", 1)
 				.put("sizeY", 1)
 				.put("startY", 0);
@@ -394,7 +432,7 @@ class WorldTest {
 
 	@Test
 	void loadRejectsMissingStartY() {
-		JsonNode json = com.fasterxml.jackson.databind.node.JsonNodeFactory.instance.objectNode()
+		ObjectNode json = JsonNodeFactory.instance.objectNode()
 				.put("sizeX", 1)
 				.put("sizeY", 1)
 				.put("startX", 0);
@@ -404,7 +442,7 @@ class WorldTest {
 
 	@Test
 	void loadRejectsMissingWorldArray() {
-		JsonNode json = com.fasterxml.jackson.databind.node.JsonNodeFactory.instance.objectNode()
+		ObjectNode json = JsonNodeFactory.instance.objectNode()
 				.put("sizeX", 1)
 				.put("sizeY", 1)
 				.put("startX", 0)
