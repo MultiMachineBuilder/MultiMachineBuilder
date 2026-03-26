@@ -43,7 +43,7 @@ public class Blocks {
 	/** The basic building block of any world */
 	@NN public static final Block grass = Blocks.createGrass(); //REQUIRES SPECIAL INIT
 	@NN
-	private static Block createGrass() {
+	private static Block createGrass() {	
 		if(!Main.isRunning()) return air;
 		
 		Block result = new Block("mmb.grass",

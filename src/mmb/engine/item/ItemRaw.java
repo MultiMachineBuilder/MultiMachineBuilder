@@ -56,7 +56,7 @@ public class ItemRaw extends Item {
 			addGroup(group);
 		}
 		addGroup(GROUP);
-		volume = iet.volume;
+		setStorageVolume(iet.getStorageVolume());
 		
 		Items.tagsItem(this, Items.btags.get(iet));
 		Items.tagItem("raw", this);

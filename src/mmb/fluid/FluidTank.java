@@ -62,7 +62,7 @@ public class FluidTank implements FluidHandler {
 		}else if(quantity == 0) {
 			this.fluid = fluid;
 			this.locked = true;
-		}else if(fluid == this.fluid) {
+		}else if(Objects.equals(fluid, this.fluid)) {
 			this.locked = true;
 		}
 		fire(oldContents);
