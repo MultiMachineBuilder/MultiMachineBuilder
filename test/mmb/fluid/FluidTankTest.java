@@ -20,6 +20,37 @@ class FluidTankTest {
 		tank = new FluidTank();
 		events = new ArrayList<>();
 		tank.fluidEvent().addListener(events::add);
+
+		assertAll("Test fixture preconditions",
+			() -> assertNotNull(WATER, "WATER must not be null"),
+			() -> assertNotNull(LAVA, "LAVA must not be null"),
+			() -> assertNotSame(WATER, LAVA, "WATER and LAVA must not be the same instance"),
+			() -> assertNotEquals(WATER, LAVA, "WATER and LAVA must not be equal"),
+			() -> assertNotNull(WATER.block(), "WATER backing block must not be null"),
+			() -> assertNotNull(LAVA.block(), "LAVA backing block must not be null"),
+			() -> assertNotSame(WATER.block(), LAVA.block(), "WATER and LAVA must use different backing blocks"),
+			() -> assertNotEquals(WATER.block(), LAVA.block(), "WATER and LAVA backing blocks must not be equal")
+		);
+	}
+	
+	@Test
+	void testFixtureShouldProvideDistinctFluids() {
+		assertAll(
+			() -> assertNotNull(WATER),
+			() -> assertNotNull(LAVA),
+			() -> assertNotSame(WATER, LAVA),
+			() -> assertNotEquals(WATER, LAVA)
+		);
+	}
+	
+	@Test
+	void testFixtureShouldProvideDistinctBackingBlocks() {
+		assertAll(
+			() -> assertNotNull(WATER.block()),
+			() -> assertNotNull(LAVA.block()),
+			() -> assertNotSame(WATER.block(), LAVA.block()),
+			() -> assertNotEquals(WATER.block(), LAVA.block())
+		);
 	}
 
 	@Test
@@ -438,9 +469,8 @@ class FluidTankTest {
 	}
 	
 	@Test
-	void setLockedNullFluidStateShouldThrowIfInternallyInvalid() {
-		tank.setFluid(WATER);
-		tank.setQuantity(1.0);
-		tank.setFluid(null); // may explode depending on path
+	void setNullFluidWithQuantityThrows() {
+		tank.setTankContents(new FluidState(10.0, 3.0, WATER, false));
+		assertThrows(IllegalArgumentException.class, () -> tank.setFluid(null));
 	}
 }
