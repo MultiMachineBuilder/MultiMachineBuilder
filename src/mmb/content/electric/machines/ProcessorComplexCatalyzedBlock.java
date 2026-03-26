@@ -8,7 +8,7 @@ import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
 import mmb.content.electric.helper.ComplexProcessHelper;
 import mmb.content.electric.recipes.ComplexCatRecipeGroup;
 import mmb.content.electric.recipes.ComplexCatRecipeGroup.ComplexCatalyzedRecipe;
-import mmb.engine.inv.storage.SingleItemInventory;
+import mmb.inventory.storage.SingleItemInventory;
 
 /**
  * Runs a complex, catalyzed recipe. The catalyst selects the recipe from the pool of valid recipes with the same items.

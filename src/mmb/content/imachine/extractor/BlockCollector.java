@@ -17,13 +17,13 @@ import mmb.data.variables.ListenableInt;
 import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.Inventory;
+import mmb.inventory.storage.SimpleInventory;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 

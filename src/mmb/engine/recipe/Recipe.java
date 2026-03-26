@@ -9,9 +9,9 @@ import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.chance.Chance;
-import mmb.engine.inv.Inventories;
-import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
+import mmb.inventory.Inventories;
+import mmb.inventory.Inventory;
 
 /**
  * An arbitrary recipe (crafting, single item, multi item, alcohol info etc...)

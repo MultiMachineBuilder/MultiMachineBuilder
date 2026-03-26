@@ -24,10 +24,6 @@ import mmb.content.rawmats.Materials;
 import mmb.content.rawmats.MetalGroup;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.Inventories;
-import mmb.engine.inv.io.InventoryReader;
-import mmb.engine.inv.io.InventoryWriter;
-import mmb.engine.inv.io.InventoryReader.ExtractionLevel;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
@@ -36,6 +32,10 @@ import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.SimpleItemList;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.texture.Textures;
+import mmb.inventory.Inventories;
+import mmb.inventory.io.InventoryReader;
+import mmb.inventory.io.InventoryWriter;
+import mmb.inventory.io.InventoryReader.ExtractionLevel;
 
 /**
  * Items and blocks for modular chests

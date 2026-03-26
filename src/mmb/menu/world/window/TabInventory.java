@@ -45,8 +45,6 @@ import mmb.engine.CatchingEvent;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockType;
 import mmb.engine.debug.Debugger;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemType;
@@ -54,6 +52,8 @@ import mmb.engine.item.Items;
 import mmb.engine.recipe.GlobalRecipeRegistrar;
 import mmb.engine.recipe.Recipe;
 import mmb.engine.worlds.world.Player;
+import mmb.inventory.Inventory;
+import mmb.inventory.ItemRecord;
 import mmb.menu.world.CreativeItemList;
 
 /**

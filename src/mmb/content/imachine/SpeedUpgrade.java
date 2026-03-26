@@ -5,9 +5,9 @@ package mmb.content.imachine;
 
 import mmb.PropertyExtension;
 import mmb.annotations.Nil;
-import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
+import mmb.inventory.storage.SingleItemInventory;
 
 /**
  * @author oskar

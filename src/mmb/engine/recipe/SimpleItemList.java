@@ -11,10 +11,10 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.ItemRecord;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
+import mmb.inventory.Inventory;
+import mmb.inventory.ItemRecord;
+import mmb.inventory.io.InventoryWriter;
 import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 

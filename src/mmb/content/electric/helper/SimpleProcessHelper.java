@@ -14,10 +14,10 @@ import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.CycleResult;
 import mmb.content.electric.recipes.SimpleRecipe;
 import mmb.content.electric.recipes.SimpleRecipeGroup;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.ItemRecord;
-import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
+import mmb.inventory.Inventory;
+import mmb.inventory.ItemRecord;
+import mmb.inventory.storage.SingleItemInventory;
 
 /**
  * Implements the processing of a stacked or single catalyzed or uncatalyzed recipes in a machine.

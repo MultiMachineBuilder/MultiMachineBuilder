@@ -10,14 +10,14 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.annotations.NN;
 import mmb.engine.block.BlockEntityChirotable;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.io.InventoryReader;
-import mmb.engine.inv.io.InventoryWriter;
-import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.ItemList;
 import mmb.engine.rotate.ChirotatedImageGroup;
 import mmb.engine.rotate.Side;
+import mmb.inventory.io.InventoryReader;
+import mmb.inventory.io.InventoryWriter;
+import mmb.inventory.storage.SingleItemInventory;
 
 /**
  * An abstract base class for all item pipes

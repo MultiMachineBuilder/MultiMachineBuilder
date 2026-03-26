@@ -10,9 +10,9 @@ import java.util.Set;
 import org.ainslec.picocog.PicoWriter;
 
 import mmb.annotations.Nil;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.io.InventoryWriter;
 
 /**
  * Random chanced item drop with else

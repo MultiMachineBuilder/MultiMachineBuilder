@@ -8,11 +8,11 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.annotations.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.rotate.ChirotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
+import mmb.inventory.storage.SingleItemInventory;
 
 /**
  * @author oskar

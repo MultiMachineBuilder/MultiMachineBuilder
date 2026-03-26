@@ -13,14 +13,14 @@ import mmb.content.imachine.filter.FilterGUI;
 import mmb.content.imachine.filter.ItemFilter;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.io.InventoryReader;
-import mmb.engine.inv.io.InventoryWriter;
-import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.rotate.ChirotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.io.InventoryReader;
+import mmb.inventory.io.InventoryWriter;
+import mmb.inventory.storage.SingleItemInventory;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 

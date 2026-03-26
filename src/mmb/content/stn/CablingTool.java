@@ -11,12 +11,12 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.data.variables.DataValueDouble;
-import mmb.engine.inv.io.InventoryReader;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntityMutable;
 import mmb.engine.item.ItemType;
 import mmb.engine.json.JsonTool;
+import mmb.inventory.io.InventoryReader;
+import mmb.inventory.io.InventoryWriter;
 
 /**
  * @author oskar

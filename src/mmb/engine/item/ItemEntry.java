@@ -23,12 +23,12 @@ import mmb.engine.block.BlockEntry;
 import mmb.engine.blockdrawer.BlockDrawer;
 import mmb.engine.chance.Chance;
 import mmb.engine.debug.Debugger;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.ItemStack;
 import mmb.engine.recipe.SingleItem;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.Inventory;
+import mmb.inventory.io.InventoryWriter;
 import mmb.menu.wtool.WindowTool;
 
 /**

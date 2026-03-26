@@ -14,11 +14,6 @@ import mmb.data.variables.ListenableInt;
 import mmb.engine.block.BlockEntityChirotable;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.Inventories;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.ItemRecord;
-import mmb.engine.inv.storage.SimpleInventory;
-import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.SimpleItemList;
@@ -26,6 +21,11 @@ import mmb.engine.rotate.ChirotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.Inventories;
+import mmb.inventory.Inventory;
+import mmb.inventory.ItemRecord;
+import mmb.inventory.storage.SimpleInventory;
+import mmb.inventory.storage.SingleItemInventory;
 import mmb.menu.world.window.WorldWindow;
 
 /**

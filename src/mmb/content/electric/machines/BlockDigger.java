@@ -18,12 +18,12 @@ import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.chance.Chance;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.io.InventoryWriter;
-import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.Inventory;
+import mmb.inventory.io.InventoryWriter;
+import mmb.inventory.storage.SimpleInventory;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 

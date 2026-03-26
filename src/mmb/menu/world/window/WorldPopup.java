@@ -12,9 +12,9 @@ import javax.swing.JPopupMenu;
 import mmb.content.ContentsItems;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.debug.Debugger;
-import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.ItemRecord;
 import mmb.menu.wtool.ToolStandard;
 
 /**

@@ -24,12 +24,12 @@ import mmb.beans.Saver;
 import mmb.data.variables.ListenableBoolean;
 import mmb.engine.CatchingEvent;
 import mmb.engine.debug.Debugger;
-import mmb.engine.inv.ItemRecord;
-import mmb.engine.inv.storage.ListenableSimpleInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
 import mmb.engine.sound.Sound;
 import mmb.engine.sound.Sounds;
+import mmb.inventory.ItemRecord;
+import mmb.inventory.storage.ListenableSimpleInventory;
 
 /**
  * @author oskar

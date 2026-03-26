@@ -14,8 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 
-import mmb.engine.inv.Inventories;
-import mmb.engine.inv.ItemRecord;
+import mmb.inventory.Inventories;
+import mmb.inventory.ItemRecord;
 
 /**
  * @author oskar

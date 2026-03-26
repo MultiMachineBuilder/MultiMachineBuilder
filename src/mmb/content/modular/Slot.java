@@ -8,10 +8,10 @@ import mmb.annotations.Nil;
 import mmb.content.modular.BlockModule.BlockModuleParams;
 import mmb.data.variables.ListenableValue;
 import mmb.engine.debug.Debugger;
-import mmb.engine.inv.storage.BaseSingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.storage.BaseSingleItemInventory;
 
 /**
  * A type-checked slot for a module.

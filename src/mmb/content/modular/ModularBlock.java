@@ -21,17 +21,17 @@ import mmb.content.modular.part.PartType;
 import mmb.engine.block.SensitiveBlock;
 import mmb.engine.blockdrawer.BlockDrawer;
 import mmb.engine.chance.Chance;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.ItemRecord;
-import mmb.engine.inv.NoSuchInventory;
-import mmb.engine.inv.io.InventoryReader;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
 import mmb.engine.rotate.ChiralRotation;
 import mmb.engine.rotate.Rotation;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.Inventory;
+import mmb.inventory.ItemRecord;
+import mmb.inventory.NoSuchInventory;
+import mmb.inventory.io.InventoryReader;
+import mmb.inventory.io.InventoryWriter;
 import mmb.menu.world.window.WorldWindow;
 
 /**

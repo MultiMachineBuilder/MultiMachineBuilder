@@ -15,8 +15,8 @@ import javax.swing.ListModel;
 
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.ItemRecord;
+import mmb.inventory.Inventory;
+import mmb.inventory.ItemRecord;
 import monniasza.collects.ReadOnlyListModel;
 
 /**

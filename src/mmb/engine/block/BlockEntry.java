@@ -13,10 +13,6 @@ import mmb.beans.Saver;
 import mmb.content.electric.Electricity;
 import mmb.content.ppipe.PipeTunnelEntry;
 import mmb.engine.blockdrawer.BlockDrawer;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.NoSuchInventory;
-import mmb.engine.inv.io.InventoryReader;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.rotate.Chiral;
 import mmb.engine.rotate.ChiralRotation;
 import mmb.engine.rotate.Chirality;
@@ -25,6 +21,10 @@ import mmb.engine.rotate.Rotation;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.world.Player;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.Inventory;
+import mmb.inventory.NoSuchInventory;
+import mmb.inventory.io.InventoryReader;
+import mmb.inventory.io.InventoryWriter;
 
 /**
  * Arbitrary, placeable block.

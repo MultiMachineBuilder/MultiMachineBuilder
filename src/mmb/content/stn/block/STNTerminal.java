@@ -9,9 +9,9 @@ import mmb.beans.BlockActivateListener;
 import mmb.content.stn.STN;
 import mmb.content.stn.network.STNNetworkProcessing.STNRGroupTag;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.Inventory;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.Inventory;
 import mmb.menu.world.window.WorldWindow;
 
 /**

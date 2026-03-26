@@ -20,11 +20,11 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.debug.Debugger;
-import mmb.engine.inv.InventoryLoader;
-import mmb.engine.inv.InventoryLoader.ItemTarget;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
+import mmb.inventory.InventoryLoader;
+import mmb.inventory.InventoryLoader.ItemTarget;
+import mmb.inventory.io.InventoryWriter;
 import monniasza.collects.Collects;
 
 /**

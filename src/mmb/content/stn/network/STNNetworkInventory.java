@@ -16,11 +16,11 @@ import it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.debug.Debugger;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.ItemRecord;
-import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
+import mmb.inventory.Inventory;
+import mmb.inventory.ItemRecord;
+import mmb.inventory.storage.SimpleInventory;
 
 /**
  * The implementation of the Storage component of the STN

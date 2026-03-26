@@ -12,10 +12,10 @@ import mmb.content.electric.recipes.ComplexCatRecipeGroup;
 import mmb.content.electric.recipes.ComplexRecipeGroup;
 import mmb.content.electric.recipes.SingleRecipeGroup;
 import mmb.content.electric.recipes.StackedRecipeGroup;
-import mmb.engine.inv.Inventories;
-import mmb.engine.inv.Inventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemRaw;
+import mmb.inventory.Inventories;
+import mmb.inventory.Inventory;
 
 /**
  * @author oskar

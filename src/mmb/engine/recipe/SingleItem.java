@@ -9,8 +9,8 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
+import mmb.inventory.io.InventoryWriter;
 
 /**
  * An item stack or an item entry

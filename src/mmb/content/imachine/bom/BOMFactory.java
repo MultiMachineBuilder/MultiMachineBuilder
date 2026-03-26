@@ -10,9 +10,9 @@ import mmb.content.imachine.chest.ChestGui;
 import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.json.JsonTool;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.storage.SimpleInventory;
 import mmb.menu.world.window.WorldWindow;
 
 public class BOMFactory extends BlockEntityData implements BlockActivateListener{

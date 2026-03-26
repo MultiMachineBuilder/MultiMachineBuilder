@@ -11,9 +11,9 @@ import mmb.content.stn.STN;
 import mmb.content.stn.network.STNNetworkInventory;
 import mmb.content.stn.network.STNNetworkProcessing.STNRGroupTag;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.Inventory;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.worlds.MapProxy;
+import mmb.inventory.Inventory;
 
 /**
  * Adds storage capabilities to the STN
@@ -69,6 +69,6 @@ public class STNStorageAttachment extends STNBaseMachine {
 	public static STNStorageAttachment load(@Nil JsonNode json) {
 		STNStorageAttachment result = new STNStorageAttachment();
 		if(json == null) return result;
-		result.
+		
 	}
 }

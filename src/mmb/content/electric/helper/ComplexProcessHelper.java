@@ -14,13 +14,13 @@ import mmb.content.electric.Battery;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.CycleResult;
 import mmb.content.electric.recipes.MultiRecipeGroup;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.ItemRecord;
-import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.ItemLists;
 import mmb.engine.recipe.Recipe;
+import mmb.inventory.Inventory;
+import mmb.inventory.ItemRecord;
+import mmb.inventory.storage.SingleItemInventory;
 import mmb.engine.recipe.ItemList;
 
 /**

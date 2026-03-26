@@ -22,12 +22,12 @@ import mmb.content.stn.network.STNNetworkInventory;
 import mmb.content.stn.network.STNNetworkProcessing.STNRGroupTag;
 import mmb.engine.MMBUtils;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.NoSuchInventory;
-import mmb.engine.inv.SaveInventory;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
+import mmb.inventory.Inventory;
+import mmb.inventory.NoSuchInventory;
+import mmb.inventory.SaveInventory;
 
 /**
  * A modular STN block.

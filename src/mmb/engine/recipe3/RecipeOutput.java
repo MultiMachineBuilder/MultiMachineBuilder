@@ -7,9 +7,9 @@ import java.util.stream.Collectors;
 
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
+import mmb.inventory.io.InventoryWriter;
 import monniasza.collects.Collects;
 
 /** A collection of recipe outputs with chances, min voltages and buffs. */

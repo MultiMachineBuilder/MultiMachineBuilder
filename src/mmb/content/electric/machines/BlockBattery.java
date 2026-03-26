@@ -16,12 +16,12 @@ import mmb.content.electric.Electricity;
 import mmb.content.electric.ElectricMachineGroup.ElectroMachineType;
 import mmb.content.pickaxe.Pickaxe;
 import mmb.engine.block.BlockEntityRotary;
-import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.storage.SingleItemInventory;
 import mmb.menu.world.window.WorldWindow;
 
 /**

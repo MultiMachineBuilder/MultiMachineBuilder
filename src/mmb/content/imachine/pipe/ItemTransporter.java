@@ -12,18 +12,18 @@ import mmb.content.ContentsBlocks;
 import mmb.engine.block.BlockEntityRotary;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.Inventories;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.ItemRecord;
-import mmb.engine.inv.io.InventoryReader;
-import mmb.engine.inv.io.InventoryWriter;
-import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Rotation;
 import mmb.engine.rotate.Side;
 import mmb.engine.texture.Textures;
 import mmb.engine.worlds.MapProxy;
+import mmb.inventory.Inventories;
+import mmb.inventory.Inventory;
+import mmb.inventory.ItemRecord;
+import mmb.inventory.io.InventoryReader;
+import mmb.inventory.io.InventoryWriter;
+import mmb.inventory.storage.SingleItemInventory;
 
 /**
  * @author oskar

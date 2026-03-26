@@ -12,10 +12,10 @@ import mmb.content.stn.block.STNBaseMachine;
 import mmb.content.stn.network.STNNetworkProcessing.STNRGroupTag;
 import mmb.engine.UnitFormatter;
 import mmb.engine.debug.Debugger;
-import mmb.engine.inv.Inventory;
 import mmb.engine.json.JsonTool;
 import mmb.engine.worlds.world.DataLayer;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.Inventory;
 
 /**
  * The brains of Simple Transportation Network

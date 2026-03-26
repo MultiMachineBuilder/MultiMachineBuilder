@@ -5,7 +5,7 @@ package mmb.content.imachine.extractor;
 
 import mmb.beans.Resizable;
 import mmb.cgui.DestroyTab;
-import mmb.engine.inv.Inventory;
+import mmb.inventory.Inventory;
 
 /**
  * An interface for item collectors

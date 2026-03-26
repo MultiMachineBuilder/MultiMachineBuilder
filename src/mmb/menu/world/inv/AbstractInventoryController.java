@@ -5,8 +5,8 @@ package mmb.menu.world.inv;
 
 import java.util.List;
 
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.ItemRecord;
+import mmb.inventory.Inventory;
+import mmb.inventory.ItemRecord;
 
 /**
  * An abstraction over inventory controllers

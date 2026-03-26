@@ -5,9 +5,9 @@ package mmb.content.electric.machines;
 
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import mmb.content.electric.Battery;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
+import mmb.inventory.Inventory;
+import mmb.inventory.ItemRecord;
 
 /**
  * Burns fuels to generate energy

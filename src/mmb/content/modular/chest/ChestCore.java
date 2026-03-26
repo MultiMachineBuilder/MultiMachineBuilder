@@ -16,11 +16,11 @@ import mmb.content.modular.BlockCore;
 import mmb.content.modular.gui.ModuleConfigHandler;
 import mmb.content.modular.part.PartEntity;
 import mmb.engine.chance.Chance;
-import mmb.engine.inv.SaveInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.SimpleItemList;
 import mmb.engine.recipe.SingleItem;
 import mmb.engine.texture.Textures;
+import mmb.inventory.SaveInventory;
 import mmb.menu.world.inv.AbstractInventoryController;
 import mmb.menu.world.inv.InventoryController;
 

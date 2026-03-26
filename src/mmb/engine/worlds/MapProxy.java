@@ -11,10 +11,10 @@ import java.util.Collection;
 
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.Inventory;
 import mmb.engine.rotate.Side;
 import mmb.engine.visuals.Visual;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.Inventory;
 
 /**
  * @author oskar

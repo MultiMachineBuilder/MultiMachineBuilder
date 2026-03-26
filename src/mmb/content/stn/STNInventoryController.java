@@ -8,7 +8,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 
 import mmb.content.stn.network.STNNetworkInventory;
-import mmb.engine.inv.Inventory;
+import mmb.inventory.Inventory;
 import mmb.menu.MenuHelper;
 import mmb.menu.world.inv.InventoryController;
 

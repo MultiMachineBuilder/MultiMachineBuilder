@@ -6,10 +6,10 @@ package mmbtest.testing;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import mmb.engine.debug.Debugger;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.item.Item;
 import mmb.engine.json.JsonTool;
+import mmb.inventory.Inventory;
+import mmb.inventory.storage.SimpleInventory;
 
 /**
  * @author oskar

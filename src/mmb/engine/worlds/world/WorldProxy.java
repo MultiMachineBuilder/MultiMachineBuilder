@@ -10,9 +10,9 @@ import java.util.List;
 import mmb.annotations.NN;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.Inventory;
 import mmb.engine.visuals.Visual;
 import mmb.engine.worlds.MapProxy;
+import mmb.inventory.Inventory;
 
 /**
  * An implementation of {@code MapProxy} for the {@link World}

@@ -17,9 +17,9 @@ import javax.swing.ImageIcon;
 import mmb.annotations.Nil;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.chance.Chance;
-import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.texture.Textures;
+import mmb.inventory.ItemRecord;
 import mmb.menu.wtool.WindowTool;
 
 /**

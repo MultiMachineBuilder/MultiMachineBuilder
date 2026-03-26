@@ -19,10 +19,10 @@ import mmb.beans.BlockActivateListener;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.Placer;
 import mmb.engine.debug.Debugger;
-import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.texture.Textures;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.ItemRecord;
 import mmb.menu.world.window.WorldPopup;
 import mmb.menu.world.window.WorldWindow;
 

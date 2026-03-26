@@ -12,7 +12,7 @@ import javax.swing.ListSelectionModel;
 
 import io.github.parubok.text.multiline.MultilineLabel;
 import mmb.annotations.NN;
-import mmb.engine.inv.ItemRecord;
+import mmb.inventory.ItemRecord;
 import mmb.menu.wtool.ToolStandard;
 import mmb.menu.wtool.WindowTool;
 import net.miginfocom.swing.MigLayout;

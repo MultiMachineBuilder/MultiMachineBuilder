@@ -10,10 +10,10 @@ import org.ainslec.picocog.PicoWriter;
 
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.settings.GlobalSettings;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.io.InventoryWriter;
 
 /**
  * A potentially randomized item drop

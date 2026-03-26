@@ -8,11 +8,11 @@ import mmb.annotations.Nil;
 import mmb.content.electric.Electricity;
 import mmb.content.modular.gui.ModuleConfigHandler;
 import mmb.content.modular.part.RotablePartEntry;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.io.InventoryReader;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.RotableItemEntry;
 import mmb.engine.rotate.Side;
+import mmb.inventory.Inventory;
+import mmb.inventory.io.InventoryReader;
+import mmb.inventory.io.InventoryWriter;
 
 /**
  * An interface which provides addition/removal handling for the player.

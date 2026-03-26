@@ -9,9 +9,9 @@ import java.util.stream.Collectors;
 
 import org.ainslec.picocog.PicoWriter;
 
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.io.InventoryWriter;
 
 /**
  * Combination of item drops

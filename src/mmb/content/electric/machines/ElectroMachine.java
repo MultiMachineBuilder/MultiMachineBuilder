@@ -7,8 +7,8 @@ import mmb.content.electric.Battery;
 import mmb.content.electric.Electric;
 import mmb.content.electric.Electricity;
 import mmb.content.electric.VoltageTier;
-import mmb.engine.inv.Inventory;
 import mmb.engine.recipe.RecipeGroup;
+import mmb.inventory.Inventory;
 
 /**
  * An interface to a single recipe machine

@@ -5,9 +5,9 @@ package mmbtest.testing;
 
 import org.junit.jupiter.api.Test;
 
-import mmb.engine.inv.io.InventoryWriter;
-import mmb.engine.inv.storage.SingleStackedInventory;
 import mmb.engine.item.Item;
+import mmb.inventory.io.InventoryWriter;
+import mmb.inventory.storage.SingleStackedInventory;
 
 import org.junit.jupiter.api.Assertions;
 

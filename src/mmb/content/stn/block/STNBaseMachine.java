@@ -9,8 +9,8 @@ import mmb.content.stn.STN;
 import mmb.content.stn.network.DataLayerSTN;
 import mmb.content.stn.network.STNNetworkProcessing.STNRGroupTag;
 import mmb.engine.block.BlockEntityRotary;
-import mmb.engine.inv.Inventory;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.Inventory;
 
 /**
  * Base class for all STN machines.

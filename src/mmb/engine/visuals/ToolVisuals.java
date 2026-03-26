@@ -17,9 +17,9 @@ import org.joml.Vector2d;
 
 import mmb.annotations.NN;
 import mmb.engine.debug.Debugger;
-import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.texture.Textures;
+import mmb.inventory.ItemRecord;
 import mmb.menu.wtool.ToolPaint;
 import mmb.menu.wtool.WindowTool;
 

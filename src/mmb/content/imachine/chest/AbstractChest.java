@@ -9,10 +9,10 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.block.BlockEntityData;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.json.JsonTool;
 import mmb.engine.rotate.Side;
+import mmb.inventory.Inventory;
+import mmb.inventory.storage.SimpleInventory;
 
 /**
  * A base implementation for all chests

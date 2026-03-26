@@ -8,10 +8,10 @@ import java.util.function.Supplier;
 import org.junit.Test;
 
 import mmb.engine.debug.Debugger;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.storage.SimpleInventory;
-import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.Item;
+import mmb.inventory.Inventory;
+import mmb.inventory.storage.SimpleInventory;
+import mmb.inventory.storage.SingleItemInventory;
 
 /**
  * @author oskar

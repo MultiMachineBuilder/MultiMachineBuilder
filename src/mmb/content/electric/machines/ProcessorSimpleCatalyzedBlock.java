@@ -9,7 +9,7 @@ import mmb.content.electric.helper.Helper;
 import mmb.content.electric.helper.SimpleProcessHelper;
 import mmb.content.electric.recipes.SimpleRecipe;
 import mmb.content.electric.recipes.SimpleRecipeGroup;
-import mmb.engine.inv.storage.SingleItemInventory;
+import mmb.inventory.storage.SingleItemInventory;
 
 /**
  * Runs a stacked or single, catalyzed recipe. The catalyst selects the recipe from the pool of valid recipes with the same item.

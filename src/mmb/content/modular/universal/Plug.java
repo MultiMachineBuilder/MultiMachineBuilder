@@ -9,12 +9,12 @@ import mmb.content.modular.chest.BlockModuleUniversal;
 import mmb.content.modular.gui.ModuleConfigHandler;
 import mmb.content.modular.part.RotablePart;
 import mmb.engine.chance.Chance;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.NoSuchInventory;
-import mmb.engine.inv.io.InventoryReader;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.RotableItem;
 import mmb.engine.rotate.Side;
+import mmb.inventory.Inventory;
+import mmb.inventory.NoSuchInventory;
+import mmb.inventory.io.InventoryReader;
+import mmb.inventory.io.InventoryWriter;
 
 /**
  * @author oskar

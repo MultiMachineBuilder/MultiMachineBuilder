@@ -12,18 +12,18 @@ import mmb.engine.block.BlockEntityData;
 import mmb.engine.block.BlockEntityType;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.Inventories;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.io.InventoryReader;
-import mmb.engine.inv.io.InventoryWriter;
-import mmb.engine.inv.storage.SimpleInventory;
-import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.json.JsonTool;
 import mmb.engine.recipe.ItemList;
 import mmb.engine.rotate.Side;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.Inventories;
+import mmb.inventory.Inventory;
+import mmb.inventory.io.InventoryReader;
+import mmb.inventory.io.InventoryWriter;
+import mmb.inventory.storage.SimpleInventory;
+import mmb.inventory.storage.SingleItemInventory;
 import mmb.menu.world.window.WorldWindow;
 
 /**

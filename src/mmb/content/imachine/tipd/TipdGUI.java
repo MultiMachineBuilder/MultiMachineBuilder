@@ -8,8 +8,8 @@ import mmb.menu.world.inv.MoveItems;
 import mmb.menu.databind.IntVarSpinnerModel;
 import mmb.menu.world.inv.AbstractInventoryController;
 import mmb.menu.world.inv.SingleInventoryController;
-import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.settings.GlobalSettings;
+import mmb.inventory.storage.SingleItemInventory;
 
 import javax.swing.JPanel;
 

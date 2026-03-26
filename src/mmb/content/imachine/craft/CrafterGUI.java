@@ -17,16 +17,16 @@ import javax.swing.JProgressBar;
 import mmb.annotations.NN;
 import mmb.content.craft.CraftGUI;
 import mmb.content.ditems.Stencil;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.ItemRecord;
 import mmb.engine.item.ItemEntry;
+import mmb.inventory.Inventory;
+import mmb.inventory.ItemRecord;
+import mmb.inventory.storage.SingleItemInventory;
 import mmb.menu.world.inv.InventoryController;
 import mmb.menu.world.inv.MoveItems;
 import mmb.menu.world.window.GUITab;
 import mmb.menu.world.window.WorldWindow;
 import mmb.menu.world.inv.AbstractInventoryController;
 import mmb.menu.world.inv.SingleInventoryController;
-import mmb.engine.inv.storage.SingleItemInventory;
 
 /**
  * A manual CrafterGUI

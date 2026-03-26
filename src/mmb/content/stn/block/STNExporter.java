@@ -7,11 +7,11 @@ import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.content.stn.STN;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.Inventories;
-import mmb.engine.inv.io.InventoryReader;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.rotate.RotatedImageGroup;
+import mmb.inventory.Inventories;
+import mmb.inventory.io.InventoryReader;
+import mmb.inventory.io.InventoryWriter;
 
 /**
  * Export items from STN to the outside. Items must be specified.

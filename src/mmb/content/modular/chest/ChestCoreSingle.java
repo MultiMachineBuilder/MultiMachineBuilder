@@ -6,8 +6,8 @@ package mmb.content.modular.chest;
 import mmb.annotations.NN;
 import mmb.content.modular.part.PartEntityType;
 import mmb.content.modular.part.PartEntry;
-import mmb.engine.inv.storage.SingleItemInventory;
 import mmb.engine.recipe.SingleItem;
+import mmb.inventory.storage.SingleItemInventory;
 import mmb.menu.world.inv.AbstractInventoryController;
 import mmb.menu.world.inv.InventoryController;
 

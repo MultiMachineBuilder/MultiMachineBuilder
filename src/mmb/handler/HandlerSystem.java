@@ -31,6 +31,11 @@ public final class HandlerSystem {
 		this.world = world;
 	}
 
+	/**
+	 * Gets a list of covers for given block and side. The list is linked to a location so any changes to given location are in the list and vice versa.
+	 * @param key handler key
+	 * @return a list of covers for given location
+	 */
 	public List<Cover> getCoverList(HandlerKey key) {
 		Objects.requireNonNull(key, "key is null");
 		
@@ -58,7 +63,7 @@ public final class HandlerSystem {
 	 * @param id handler id
 	 * @throws NullPointerException when {@code target} is null
 	 * @throws NullPointerException when {@code id} is null
-	 * @returns a handler for a given target block, wrapped with covers from first the target, then from source
+	 * @return a handler for a given target block, wrapped with covers from first the target, then from source
 	 */
 	@Nil public Object getHandler(HandlerKey target, @Nil HandlerKey source, String id) {
 		Objects.requireNonNull(target, "target is null");

@@ -6,7 +6,7 @@ package mmb.content.imachine.filter;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.cgui.DestroyTab;
-import mmb.engine.inv.storage.SingleItemInventory;
+import mmb.inventory.storage.SingleItemInventory;
 
 /**
  * Provides filtering settings for pipes and other machines

@@ -23,11 +23,11 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.chance.Chance;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe3.OutputRow;
 import mmb.engine.recipe3.RecipeOutput;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.io.InventoryWriter;
 import monniasza.collects.Collects;
 
 /**

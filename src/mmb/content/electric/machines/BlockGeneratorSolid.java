@@ -20,14 +20,14 @@ import mmb.content.electric.VoltageTier;
 import mmb.engine.block.BlockEntityRotary;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
-import mmb.engine.inv.Inventory;
-import mmb.engine.inv.storage.SimpleInventory;
 import mmb.engine.java2d.ColorMapper;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
 import mmb.engine.texture.Textures;
 import mmb.engine.worlds.MapProxy;
 import mmb.engine.worlds.world.World;
+import mmb.inventory.Inventory;
+import mmb.inventory.storage.SimpleInventory;
 import mmb.menu.world.window.WorldWindow;
 
 /**

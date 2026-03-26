@@ -12,12 +12,12 @@ import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.block.Placer;
 import mmb.engine.debug.Debugger;
-import mmb.engine.inv.InvUtils;
-import mmb.engine.inv.io.InventoryWriter;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
+import mmb.inventory.InvUtils;
+import mmb.inventory.io.InventoryWriter;
 
 /**
  * @author oskar
