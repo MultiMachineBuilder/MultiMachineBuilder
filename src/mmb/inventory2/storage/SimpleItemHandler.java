@@ -2,11 +2,10 @@ package mmb.inventory2.storage;
 
 import java.util.Objects;
 
-import io.reactivex.rxjava3.core.Emitter;
-import io.reactivex.rxjava3.subjects.Subject;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import mmb.annotations.NN;
 import mmb.engine.Verify;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
@@ -117,7 +116,7 @@ public class SimpleItemHandler implements ItemHandler {
 		contents.put(item, current + insertable);
 		volume += item.volume() * insertable;
 
-		emitEvent(item);
+		emitEvent(item, current);
 		return insertable;
 	}
 
@@ -143,7 +142,7 @@ public class SimpleItemHandler implements ItemHandler {
 		volume -= item.volume() * extracted;
 		if(volume < 0 && volume > -1e-12) volume = 0; //floating point drift clamp
 
-		emitEvent(item);
+		emitEvent(item, current);
 		return extracted;
 	}
 
@@ -314,11 +313,8 @@ public class SimpleItemHandler implements ItemHandler {
 
 	/**
 	 * Emits a coarse item-change event for the specified item.
-	 * <p>
-	 * This is intentionally minimal for now until the exact {@link ItemEvent}
-	 * model is finalized.
 	 */
-	protected void emitEvent(ItemEntry item) {
-		// TODO adapt once ItemEvent shape is finalized in your codebase
+	protected void emitEvent(@NN ItemEntry item, int before) {
+		source.next(new ItemEvent(item, before, contents.getInt(item)));
 	}
 }
