@@ -16,6 +16,7 @@ import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
+import monniasza.collects.Collects;
 
 /**
  * A hot, shared {@link Observable} that routes events from an upstream source
@@ -179,6 +180,7 @@ public class ChannelObservable<Tevent, Tclassifier> extends Observable<Tevent> {
 		@Nil Predicate<Tevent> test
 	) {
 		Objects.requireNonNull(observer, "observer is null");
+		if(filter != null) Collects.rejectNullElements(filter, "filter");
 		
 		Predicate<Tevent> predicate = test != null ? test : e -> true;
 		SubscriptionNode node = new SubscriptionNode(observer, predicate);
@@ -262,6 +264,7 @@ public class ChannelObservable<Tevent, Tclassifier> extends Observable<Tevent> {
 		
 		// 2) Deliver to classified subscribers
 		Tclassifier key = classifier.apply(event);
+		Objects.requireNonNull(key, "classifier returned null");
 		CopyOnWriteArraySet<SubscriptionNode> bucket = classifiedSubscribers.get(key);
 		if (bucket != null) {
 			for (SubscriptionNode node : bucket) {

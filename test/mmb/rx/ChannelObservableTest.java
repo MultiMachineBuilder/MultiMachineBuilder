@@ -361,22 +361,16 @@ public class ChannelObservableTest {
 	}
 	
 	@Test
-	void classifierCanBeNullIfFilterContainsNull() {
+	void nullClassifierValueFromEventThrows() {
 		PublishSubject<Event> source = PublishSubject.create();
 		ChannelObservable<Event, String> channel =
 			new ChannelObservable<>(source, Event::channel);
 		
-		TestObserver<Event> observer = new TestObserver<>();
-		channel.subscribe(observer, Set.of((String) null), null);
+		TestObserver<Event> observer = channel.test();
 		
-		source.onNext(new Event(null, 1, ""));
-		source.onNext(e("A", 2));
-		source.onNext(new Event(null, 3, ""));
-		
-		observer.assertValues(
-			new Event(null, 1, ""),
-			new Event(null, 3, "")
-		);
+		assertThrows(NullPointerException.class, () -> {
+			source.onNext(new Event(null, 1, ""));
+		});
 	}
 	
 	@Test
