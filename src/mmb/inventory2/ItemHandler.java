@@ -4,10 +4,12 @@ import java.util.List;
 
 import com.pploder.events.Event;
 
+import io.reactivex.rxjava3.core.Observable;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
+import mmb.rx.ChannelObservable;
 
 public interface ItemHandler {
     // Basic queries
@@ -32,7 +34,7 @@ public interface ItemHandler {
     int extractableRemainBulk(int amount, ItemList items);
     
     /** Invoked when contents of this item handler change */
-	public Observable<ItemEvent> itemEvent();
+	public ChannelObservable<ItemEvent, ItemEntry> itemEvent();
 
     /** 
      * Checks if the item handler is a slot. If true, returns its contents

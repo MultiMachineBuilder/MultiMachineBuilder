@@ -373,7 +373,7 @@
 		  <groupId>com.github.davidmoten</groupId>
 		  <artifactId>rtree2</artifactId>
 		  <version>0.9.3</version>
-		</dependency>   
+		</dependency>
 		
 		<!-- UI libraries -->
 		<dependency>
@@ -479,13 +479,20 @@
 	 		<artifactId>commons-csv</artifactId>
 	 		<version>1.14.1</version>
 		</dependency>
+		
+		<!-- Events -->
 	    <dependency>
 	        <groupId>com.github.Fylipp</groupId>
 	        <artifactId>easy-events</artifactId>
 	        <version>v1.1.0</version>
 	    </dependency>
+	    <dependency>
+		    <groupId>io.reactivex.rxjava3</groupId>
+		    <artifactId>rxjava</artifactId>
+		    <version>3.1.8</version>
+		</dependency>
 		
-		
+		<!-- Testing -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
