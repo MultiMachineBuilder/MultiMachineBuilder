@@ -1,17 +1,14 @@
 package mmb.inventory2;
 
-import java.util.List;
-
-import com.pploder.events.Event;
-
-import io.reactivex.rxjava3.core.Observable;
-import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
 import mmb.rx.ChannelObservable;
 
-public interface ItemHandler {
+/**
+ * 
+ */
+public interface ItemHandler extends AutoCloseable {
     // Basic queries
     double capacity();
     double volume();
