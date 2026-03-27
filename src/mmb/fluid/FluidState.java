@@ -4,7 +4,8 @@ import mmb.annotations.Nil;
 import mmb.engine.Verify;
 
 /**
- * Represents contents of a fluid tank at an instant. Also verifies the contents to make sure they're valid.
+ * Represents contents of a fluid tank at an instant.
+ * Also verifies the contents to make sure they're valid.
  */
 public record FluidState(double capacity, double quantity, @Nil Fluid fluid, boolean locked) {
 	/**
