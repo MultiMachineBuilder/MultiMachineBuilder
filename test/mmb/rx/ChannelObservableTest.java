@@ -362,15 +362,14 @@ public class ChannelObservableTest {
 	
 	@Test
 	void nullClassifierValueFromEventThrows() {
-		PublishSubject<Event> source = PublishSubject.create();
-		ChannelObservable<Event, String> channel =
-			new ChannelObservable<>(source, Event::channel);
-		
-		TestObserver<Event> observer = channel.test();
-		
-		assertThrows(NullPointerException.class, () -> {
-			source.onNext(new Event(null, 1, ""));
-		});
+	    PublishSubject<Event> source = PublishSubject.create();
+	    ChannelObservable<Event, String> channel = new ChannelObservable<>(source, Event::channel);
+
+	    TestObserver<Event> observer = channel.test();
+
+	    source.onNext(new Event(null, 1, ""));
+
+	    observer.assertError(NullPointerException.class);
 	}
 	
 	@Test
