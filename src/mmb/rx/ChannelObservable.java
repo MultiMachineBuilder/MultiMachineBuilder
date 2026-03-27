@@ -257,14 +257,16 @@ public class ChannelObservable<Tevent, Tclassifier> extends Observable<Tevent> {
 	private void dispatch(Tevent event) {
 		if (terminated) return;
 		
+		// 0) Check for null classification
+		Tclassifier key = classifier.apply(event);
+		Objects.requireNonNull(key, "classifier returned null");
+		
 		// 1) Deliver to global subscribers
 		for (SubscriptionNode node : globalSubscribers) {
 			node.emit(event);
 		}
 		
 		// 2) Deliver to classified subscribers
-		Tclassifier key = classifier.apply(event);
-		Objects.requireNonNull(key, "classifier returned null");
 		CopyOnWriteArraySet<SubscriptionNode> bucket = classifiedSubscribers.get(key);
 		if (bucket != null) {
 			for (SubscriptionNode node : bucket) {
