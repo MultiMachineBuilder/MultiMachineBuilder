@@ -3,12 +3,21 @@
  */
 package mmb.engine.recipe;
 
+import java.util.Objects;
+
 import org.ainslec.picocog.PicoWriter;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.NullNode;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
+import mmb.engine.item.ItemType;
+import mmb.engine.item.Items;
+import mmb.engine.json.JsonTool;
 import monniasza.collects.Identifiable;
 
 /**
@@ -94,5 +103,36 @@ public final class ItemStack implements Identifiable<ItemEntry>, SingleItem{
 
 	public static String toString(Entry<ItemEntry> entry) {
 		return entry.getKey() + " * " + entry.getIntValue();
+	}
+
+	public static @Nil ItemStack loadFromJson(@Nil JsonNode element) {
+		if(element == null) return null;
+		int elementSize = element.size();
+		if(elementSize < 2) return null;
+		JsonNode itemNode = element.get(0);
+		JsonNode quantityNode = element.get(1);
+		JsonNode itemDataNode = null;
+		if(elementSize >= 3) itemDataNode = element.get(2);
+		if(itemNode == null || quantityNode == null) return null;
+		String itemTypeId = itemNode.asText();
+		int quantity = quantityNode.asInt();
+		if(itemTypeId == null || quantity <= 0) return null;
+		ItemType itemType = Items.get(itemTypeId);
+		if(itemType == null) return null;
+		ItemEntry itemEntry = itemType.createItem(itemDataNode);
+		if(itemEntry == null) return null;
+		return new ItemStack(itemEntry, quantity);
+	}
+	public static JsonNode saveToJson(@Nil ItemStack stack) {
+		if(stack == null) return NullNode.instance;
+		ItemEntry item = stack.item;
+		String itemId = item.itemType().id;
+		int quantity = stack.amount;
+		JsonNode itemDataNode = item.save();
+		ArrayNode result = JsonTool.newArrayNode();
+		result.add(itemId);
+		result.add(quantity);
+		if(itemDataNode != null) result.add(itemDataNode);
+		return result;
 	}
 }

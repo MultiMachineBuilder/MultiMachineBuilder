@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 
 import mmb.beans.IDescription;
 import mmb.beans.IDrop;
+import mmb.beans.IStorageVolume;
 import mmb.beans.ITexture;
 import mmb.beans.ITitle;
 import mmb.beans.IWindowTool;
@@ -71,5 +72,8 @@ public interface PropertyExtension {
 	}
 	public static PropertyExtension setItemFactory(ItemFactory factory) {
 		return (object) -> ((ItemType)object).setItemFactory(factory);
+	}
+	public static PropertyExtension setStorageVolume(double volume) {
+		return (object) -> ((IStorageVolume)object).setStorageVolume(volume);
 	}
 }

@@ -1,5 +1,6 @@
 package mmb.inventory2;
 
+import io.reactivex.rxjava3.disposables.Disposable;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
@@ -119,7 +120,7 @@ import mmb.rx.ChannelObservable;
  * or delegated backing handlers. After closing, behavior is implementation-defined unless
  * explicitly documented otherwise.
  */
-public interface ItemHandler extends AutoCloseable {
+public interface ItemHandler extends Disposable {
     // Basic queries
     double capacity();
     double volume();
@@ -149,7 +150,4 @@ public interface ItemHandler extends AutoCloseable {
     
     /** Invoked when contents of this item handler change. */
 	public ChannelObservable<ItemEvent, ItemEntry> itemEvent();
-	
-    @Override
-	void close();
 }

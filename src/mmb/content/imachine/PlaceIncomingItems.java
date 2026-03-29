@@ -16,8 +16,8 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
 import mmb.engine.rotate.RotatedImageGroup;
 import mmb.engine.rotate.Side;
-import mmb.inventory.InvUtils;
 import mmb.inventory.io.InventoryWriter;
+import mmb.inventory2.InvUtils;
 
 /**
  * @author oskar

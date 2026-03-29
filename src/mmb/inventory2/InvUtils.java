@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.inventory;
+package mmb.inventory2;
 
 import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
@@ -17,7 +17,7 @@ public class InvUtils {
 	private InvUtils() {}
 	
 	/**
-	 * Returns the only item in an recipe output, or null if not found, ambiguous or mutiple
+	 * Returns the only item in an recipe output, or null if not found, ambiguous or multiple
 	 * @param rout recipe output
 	 * @return an item entry or null
 	 */

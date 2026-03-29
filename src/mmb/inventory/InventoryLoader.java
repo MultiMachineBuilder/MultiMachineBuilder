@@ -34,7 +34,7 @@ public class InventoryLoader {
 	 */
 	public static interface ItemTarget {
 		/**
-		 * Adds item to the invaentory
+		 * Adds item to the inventory
 		 * @param entry item to be added
 		 * @param amount number of items to add
 		 */

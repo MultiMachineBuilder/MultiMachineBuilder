@@ -1,5 +1,6 @@
 package mmb.inventory2.storage;
 
+import java.util.List;
 import java.util.Objects;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
@@ -24,7 +25,7 @@ import mmb.rx.Source;
  * <p>
  * This handler imposes no item-type restrictions beyond slot count and total volume.
  */
-public class SimpleItemHandler implements ItemHandler {
+public class Inventory implements ItemHandler {
 	private final Object2IntOpenHashMap<ItemEntry> contents = new Object2IntOpenHashMap<>();
 	private final Object2IntMap<ItemEntry> readOnlyContents = Object2IntMaps.unmodifiable(contents);
 
@@ -45,7 +46,7 @@ public class SimpleItemHandler implements ItemHandler {
 	 * @param maxSlots maximum number of distinct stored item entries
 	 * @throws IllegalArgumentException if {@code maxVolume <= 0} or {@code maxSlots < 0}
 	 */
-	public SimpleItemHandler(double maxVolume, int maxSlots) {
+	public Inventory(double maxVolume, int maxSlots) {
 		contents.defaultReturnValue(0);
 		this.volume = 0;
 		this.maxVolume = maxVolume;
@@ -60,7 +61,7 @@ public class SimpleItemHandler implements ItemHandler {
 	 *
 	 * @param maxVolume maximum total item volume
 	 */
-	public SimpleItemHandler(double maxVolume) {
+	public Inventory(double maxVolume) {
 		this(maxVolume, Integer.MAX_VALUE);
 	}
 
@@ -68,7 +69,7 @@ public class SimpleItemHandler implements ItemHandler {
 	 * Creates an empty item handler with default capacity of 1 volume unit
 	 * and effectively unlimited slot count.
 	 */
-	public SimpleItemHandler() {
+	public Inventory() {
 		this(1.0, Integer.MAX_VALUE);
 	}
 
@@ -261,20 +262,7 @@ public class SimpleItemHandler implements ItemHandler {
 		volume = 0;
 	}
 
-	/**
-	 * Sets the maximum total volume of this handler.
-	 *
-	 * @param maxVolume new maximum volume
-	 * @throws IllegalArgumentException if {@code maxVolume <= 0}
-	 * @throws IllegalStateException if current contents exceed the new limit
-	 */
-	public synchronized void setMaxVolume(double maxVolume) {
-		Verify.requirePositive(maxVolume);
-		if(volume > maxVolume) {
-			throw new IllegalStateException("Current contents exceed new max volume");
-		}
-		this.maxVolume = maxVolume;
-	}
+	
 
 	/**
 	 * Returns the maximum total volume of this handler.
@@ -286,20 +274,7 @@ public class SimpleItemHandler implements ItemHandler {
 		return maxVolume;
 	}
 
-	/**
-	 * Sets the maximum number of distinct stored item entries.
-	 *
-	 * @param maxSlots new maximum slot count
-	 * @throws IllegalArgumentException if {@code maxSlots < 0}
-	 * @throws IllegalStateException if current contents exceed the new limit
-	 */
-	public synchronized void setMaxSlots(int maxSlots) {
-		Verify.requireNonNegative(maxSlots);
-		if(contents.size() > maxSlots) {
-			throw new IllegalStateException("Current contents exceed new max slot count");
-		}
-		this.maxSlots = maxSlots;
-	}
+	
 
 	/**
 	 * Returns the maximum number of distinct stored item entries.
@@ -316,5 +291,67 @@ public class SimpleItemHandler implements ItemHandler {
 	 */
 	protected void emitEvent(@NN ItemEntry item, int before) {
 		source.next(new ItemEvent(item, before, contents.getInt(item)));
+	}
+	
+	//Direct mutation methods. They do not respect volume and slot limits.
+	/**
+	 * Sets an amount of an item directly without respecting max slots or max volume.
+	 * @param item item to set
+	 * @param amount new amount of an item
+	 */
+	public synchronized void setAmount(@NN ItemEntry item, int amount) {
+		Objects.requireNonNull(item, "item is null");
+		Verify.requireNonNegative(amount);
+		
+		int currentAmount = contents.getInt(item);
+		if(currentAmount == amount) return;
+		int delta = amount - currentAmount;
+		volume += delta * item.volume();
+		if(amount == 0) {
+			contents.removeInt(item);
+		}else{
+			contents.put(item, amount);
+		}
+		
+		emitEvent(item, amount);
+	}
+	/**
+	 * Sets the maximum number of distinct stored item entries.
+	 *
+	 * @param maxSlots new maximum slot count
+	 * @throws IllegalArgumentException if {@code maxSlots < 0}
+	 * @throws IllegalStateException if current contents exceed the new limit
+	 */
+	public synchronized void setMaxSlots(int maxSlots) {
+		Verify.requireNonNegative(maxSlots);
+		this.maxSlots = maxSlots;
+	}
+	
+	/**
+	 * Sets the maximum total volume of this handler.
+	 *
+	 * @param maxVolume new maximum volume
+	 * @throws IllegalArgumentException if {@code maxVolume <= 0}
+	 * @throws IllegalStateException if current contents exceed the new limit
+	 */
+	public synchronized void setMaxVolume(double maxVolume) {
+		Verify.requirePositive(maxVolume);
+		this.maxVolume = maxVolume;
+	}
+	/**
+	 * Deletes all items in this inventory.
+	 * @return have any items been deleted?
+	 */
+	public synchronized boolean clear() {
+		if(isEmpty()) return false;
+		ItemEntry[] data = contents.keySet().toArray(ItemEntry[]::new);
+		for(int i = 0; i < data.length; i++) {
+			setAmount(data[i], 0);
+		}
+		
+		contents.clear();
+		volume = 0;
+		
+		return true;
 	}
 }
