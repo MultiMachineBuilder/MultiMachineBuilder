@@ -256,13 +256,13 @@ public class Inventory implements ItemHandler {
 		return itemEvent;
 	}
 
+	private boolean disposed = false;
 	@Override
-	public synchronized void close() {
+	public synchronized void dispose() {
 		contents.clear();
 		volume = 0;
+		disposed = true;
 	}
-
-	
 
 	/**
 	 * Returns the maximum total volume of this handler.
@@ -273,8 +273,6 @@ public class Inventory implements ItemHandler {
 	public synchronized double getMaxVolume() {
 		return maxVolume;
 	}
-
-	
 
 	/**
 	 * Returns the maximum number of distinct stored item entries.
@@ -353,5 +351,10 @@ public class Inventory implements ItemHandler {
 		volume = 0;
 		
 		return true;
+	}
+
+	@Override
+	public synchronized boolean isDisposed() {
+		return disposed;
 	}
 }

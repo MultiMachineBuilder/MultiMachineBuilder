@@ -3,6 +3,7 @@ package mmb.engine.recipe3;
 import javax.swing.*;
 
 import mmb.engine.texture.Textures;
+import mmb.power.VoltageTier;
 import mmb.string.UnitFormatters;
 
 import java.awt.*;

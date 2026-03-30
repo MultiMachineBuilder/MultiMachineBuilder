@@ -2,6 +2,8 @@ package mmb.engine.recipe3;
 
 import org.junit.jupiter.api.Test;
 
+import mmb.power.VoltageTier;
+
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;

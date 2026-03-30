@@ -3,6 +3,7 @@ package mmb.engine.recipe3;
 import java.util.*;
 import java.util.function.Function;
 
+import mmb.power.VoltageTier;
 import monniasza.collects.Collects;
 
 /**

@@ -5,6 +5,8 @@ import java.util.function.Function;
 
 import javax.swing.*;
 
+import mmb.power.VoltageTier;
+
 public final class RecipeItemConverters {
 
     /**

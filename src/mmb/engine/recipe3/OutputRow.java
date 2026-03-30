@@ -10,6 +10,7 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.SimpleItemList;
 import mmb.engine.recipe.SingleItem;
+import mmb.power.VoltageTier;
 
 /**
  * A single recipe output. Defines item, chance, amount, minimum tier and buffs to the amount and chance.

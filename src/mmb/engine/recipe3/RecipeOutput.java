@@ -10,6 +10,7 @@ import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
 import mmb.inventory.io.InventoryWriter;
+import mmb.power.VoltageTier;
 import monniasza.collects.Collects;
 
 /** A collection of recipe outputs with chances, min voltages and buffs. */
