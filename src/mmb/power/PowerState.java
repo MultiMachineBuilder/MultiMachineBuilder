@@ -50,4 +50,26 @@ public record PowerState(double maxVoltage, double energy, double joulesPerVolt,
 		double maxExtractPerTick = ph.maxExtractPowerPerTick();
 		return new PowerState(maxVoltage, energy, joulesPerVolt, maxInsertPerTick, maxExtractPerTick);
 	}
+	
+	/**
+	 * Calculates max storable energy for given power state
+	 * @return maximum energy capacity of this power state in joules
+	 */
+	public double maxJoules() {
+		return maxVoltage * joulesPerVolt;
+	}
+	/**
+	 * Calculates actual voltage of given power state
+	 * @return actual voltage of this power state in joules
+	 */
+	public double actualVolts() {
+		return energy / joulesPerVolt;
+	}
+	/**
+	 * Calculates how much out of full capacity the given power state is filled
+	 * @return ratio of stored energy to maximum energy
+	 */
+	public double fillRate() {
+		return energy / maxJoules();
+	}
 }
