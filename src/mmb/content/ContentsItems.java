@@ -140,20 +140,6 @@ public class ContentsItems {
 	@NN public static final VoltagedItemGroup conveyor = new VoltagedItemGroup("parts/conveyor.png", "conveyor");
 	/** A machine part */
 	@NN public static final VoltagedItemGroup robot = new VoltagedItemGroup("parts/robot.png", "robot");
-	@NN public static final Item frame1 = new Item()
-		.title("#ind-frame1")
-		.texture("item/frame 1.png")
-		.finish("industry.frame1");
-	@NN public static final Item rod1 = new Item()
-		.title("#ind-rod1")
-		.texture("item/steel rod.png")
-		.volumed(0.00125)
-		.finish("industry.rod1");
-	@NN public static final Item bearing1 = new Item()
-		.title("#ind-ring1")
-		.texture("item/ring 1.png")
-		.volumed(0.00125)
-		.finish("industry.bearing1");
 	
 	//Batteries
 	private static final String BATTERY = GlobalSettings.$res("battery");
