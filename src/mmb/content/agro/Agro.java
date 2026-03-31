@@ -10,7 +10,7 @@ import static mmb.content.ContentsBlocks.logs;
 import static mmb.content.ContentsBlocks.plank;
 import static mmb.content.ContentsItems.paper;
 import static mmb.content.CraftingGroups.crafting;
-import static mmb.content.rawmats.Materials.iron;
+import static mmb.materials.Materials.iron;
 
 import java.awt.image.BufferedImage;
 import java.util.ResourceBundle;

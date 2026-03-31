@@ -1,5 +1,7 @@
 package mmb.beans;
 
+import java.awt.image.BufferedImage;
+
 import mmb.engine.blockdrawer.BlockDrawer;
 import mmb.engine.blockdrawer.TextureDrawer;
 import mmb.engine.texture.Textures;
@@ -14,5 +16,8 @@ public interface ITexture {
 	public void setTexture(BlockDrawer texture);
 	public default void setTextureAsset(String texture) {
 		setTexture(new TextureDrawer(Textures.get(texture)));
+	}
+	public default void setTextureImage(BufferedImage texture) {
+		setTexture(new TextureDrawer(texture));
 	}
 }

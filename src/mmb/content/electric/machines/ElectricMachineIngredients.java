@@ -4,9 +4,9 @@ import java.util.List;
 
 import mmb.content.ContentsItems;
 import mmb.content.electronics.Electronics;
-import mmb.content.rawmats.Materials;
-import mmb.content.rawmats.MetalGroup;
 import mmb.engine.item.Item;
+import mmb.materials.Materials;
+import mmb.materials.MetalGroup;
 
 /**
  * Collections of ingredients for electric machines

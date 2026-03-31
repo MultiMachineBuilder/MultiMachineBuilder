@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.function.Supplier;
 
 import mmb.annotations.NN;
-import mmb.content.rawmats.Materials;
-import mmb.content.rawmats.MetalGroup;
+import mmb.materials.Materials;
+import mmb.materials.MetalGroup;
 
 /**
  * An electrical voltage.

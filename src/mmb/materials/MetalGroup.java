@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.rawmats;
+package mmb.materials;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -20,6 +20,7 @@ import mmb.content.ContentsItems;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.VoltageTier;
 import mmb.engine.block.Block;
+import mmb.engine.blockdrawer.TextureDrawer;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.item.Items;
@@ -55,7 +56,7 @@ public class MetalGroup{
 	
 	@NN public final Color c;
 	@NN public final String id;
-			 public final boolean isGem;
+		public final boolean isGem;
 	
 	@NN public final String t_nominative;
 	@NN public final String t_nominative_short;
@@ -88,88 +89,71 @@ public class MetalGroup{
 			t_nominative_short=t_nominative;
 		}
 		
-		block = new Block("block."+id,
-			PropertyExtension.setTextureImage(block(c)),
-			PropertyExtension.setTitle(materialConcatenate("mattype-block"))
-		);
-		cluster = new Item()
-		.title(materialConcatenate("mattype-cluster"))
-		.texture(cluster(c))
-		.volumed(0.005)
-		.finish("fcluster."+id);
-		base = createBase(c, id);
-		frag = new Item()
-		.title(materialConcatenate("mattype-frag"))
-		.texture(fragment(c))
-		.volumed(0.0005)
-		.finish("frag."+id);
-		nugget = new Item()
-		.title(materialConcatenate("mattype-nugget"))
-		.texture(TexGen.nugget(c))
-		.volumed(0.000125)
-		.finish("nugget."+id);
-				
-		wire = new Item()
-		.title(materialConcatenate("mattype-wire"))
-		.texture(TexGen.wire(c))
-		.volumed(0.00125)
-		.finish("wirespool."+id);
-		megadust = new Item()
-		.title(materialConcatenate("mattype-megadust"))
-		.texture(ldust(c))
-		.volumed(0.005)
-		.finish("ldust."+id);
-		dust = new Item()
-		.title(materialConcatenate("mattype-dust"))
-		.texture(dust(c))
-		.volumed(0.00125)
-		.finish("dust."+id);
-		smalldust = new Item()
-		.title(materialConcatenate("mattype-smalldust"))
-		.texture(mdust(c))
-		.volumed(0.0005)
-		.finish("mdust."+id);
-		tinydust = new Item()
-		.title(materialConcatenate("mattype-tinydust"))
-		.texture(minidust(c))
-		.volumed(0.000125)
-		.finish("minidust."+id);
+		block = new Block("block."+id);
+		block.setTextureImage(block(c));
+		block.setTitle(materialConcatenate("mattype-block"));
 		
-		panel = new Item()
-		.title(materialConcatenate("mattype-panel"))
-		.texture(panel(c))
-		.volumed(0.00125)
-		.finish("panel."+id);
-		foil = new Item()
-		.title(materialConcatenate("mattype-foil"))
-		.texture(foil(c))
-		.volumed(0.000125)
-		.finish("foil."+id);
-		gear = new Item()
-		.title(materialConcatenate("mattype-gear"))
-		.texture(gear(c))
-		.volumed(0.00125)
-		.finish("gear."+id);
-		rod = new Item()
-		.title(materialConcatenate("mattype-rod"))
-		.texture(rod(c))
-		.volumed(0.00125)
-		.finish("rod."+id);
-		ring = new Item()
-		.title(materialConcatenate("mattype-ring"))
-		.texture(ring(c))
-		.volumed(0.00125)
-		.finish("ring."+id);
-		sheet = new Item()
-		.title(materialConcatenate("mattype-sheet"))
-		.texture(sheet(c))
-		.volumed(0.0005)
-		.finish("sheet."+id);
-		frame = new Item()
-		.title(materialConcatenate("mattype-frame"))
-		.texture(frame(c))
-		.volumed(0.02)
-		.finish("frame."+id);
+		cluster = new Item("fcluster."+id);
+		cluster.setTitle(materialConcatenate("mattype-cluster"));
+		cluster.setTexture(new TextureDrawer(cluster(c)));
+
+		base = createBase(c, id);
+		
+		frag = new Item("frag."+id);
+		frag.setTextureImage(fragment(c));
+		frag.setTitle(materialConcatenate("mattype-frag"));
+		
+		nugget = new Item("nugget."+id);
+		nugget.setTitle(materialConcatenate("mattype-nugget"));
+		nugget.setTextureImage(TexGen.nugget(c));
+		
+		wire = new Item("wirespool."+id);
+		wire.setTitle(materialConcatenate("mattype-wire"));
+		wire.setTextureImage(TexGen.wire(c));
+		
+		megadust = new Item("ldust."+id);
+		megadust.setTitle(materialConcatenate("mattype-megadust"));
+		megadust.setTextureImage(ldust(c));
+		
+		dust = new Item("dust."+id);
+		dust.setTitle(materialConcatenate("mattype-dust"));
+		dust.setTextureImage(dust(c));
+		
+		smalldust = new Item("mdust."+id);
+		smalldust.setTitle(materialConcatenate("mattype-smalldust"));
+		smalldust.setTextureImage(mdust(c));
+		
+		tinydust = new Item("minidust."+id);
+		tinydust.setTitle(materialConcatenate("mattype-tinydust"));
+		tinydust.setTextureImage(minidust(c));
+		
+		panel = new Item("panel."+id);
+		panel.setTitle(materialConcatenate("mattype-panel"));
+		panel.setTextureImage(panel(c));
+		
+		foil = new Item("foil."+id);
+		foil.setTitle(materialConcatenate("mattype-foil"));
+		foil.setTextureImage(foil(c));
+		
+		gear = new Item("gear."+id);
+		gear.setTitle(materialConcatenate("mattype-gear"));
+		gear.setTextureImage(gear(c));
+		
+		rod = new Item("rod."+id);
+		rod.setTitle(materialConcatenate("mattype-rod"));
+		rod.setTextureImage(rod(c));
+		
+		ring = new Item("ring."+id);
+		ring.setTitle(materialConcatenate("mattype-ring"));
+		ring.setTextureImage(ring(c));
+		
+		sheet = new Item("sheet."+id);
+		sheet.setTitle(materialConcatenate("mattype-sheet"));
+		sheet.setTextureImage(sheet(c));
+		
+		frame = new Item("frame."+id);
+		frame.setTitle(materialConcatenate("mattype-frame"));
+		frame.setTextureImage(frame(c));
 		
 		GameLoader.onIntegRun(this::recipes);
 		
@@ -277,9 +261,9 @@ public class MetalGroup{
 			MetalGroup.ingotNugget(dust, tinydust);
 			
 			//Rod
-			CraftingGroups.extruder.add(frag, rod, ContentsItems.bearing1, volt, baseCost/8);
+			CraftingGroups.extruder.add(frag, rod, Materials.rudimentary.ring, volt, baseCost/8);
 			//Ring
-			CraftingGroups.extruder.add(frag, ring, ContentsItems.rod1, volt, baseCost/8);
+			CraftingGroups.extruder.add(frag, ring, Materials.rudimentary.rod, volt, baseCost/8);
 			//Sheet
 			CraftingGroups.clusterMill.add(frag, sheet, volt, baseCost/8);
 			//Frame
@@ -296,18 +280,13 @@ public class MetalGroup{
 	 * @return the created base item
 	 */
 	@NN public Item createBase(Color c, String id) {
-		if(isGem) {
-			return new Item()
-				.title(t_basic)
-				.texture(gem(c))
-				.volumed(0.00125)
-				.finish("gem."+id);
-		}
-		return new Item()
-		.title(materialConcatenate("mattype-ingot"))
-		.texture(TexGen.ingot(c))
-		.volumed(0.00125)
-		.finish("ingot."+id);
+		String title = isGem ? t_basic : materialConcatenate("mattype-ingot");
+		BufferedImage texture = isGem ? gem(c) : TexGen.ingot(c);
+		String itemID = "ingot."+id;
+		Item result = new Item(itemID);
+		result.setTitle(title);
+		result.setTextureImage(texture);
+		return result;
 	}
 	@NN private static final BufferedImage BLOCK = Textures.get("block/block.png");
 	@NN private static final BufferedImage DUST = Textures.get("item/dust.png");

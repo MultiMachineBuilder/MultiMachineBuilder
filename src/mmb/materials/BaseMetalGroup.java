@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.rawmats;
+package mmb.materials;
 
 import java.awt.Color;
 

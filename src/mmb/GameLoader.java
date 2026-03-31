@@ -20,7 +20,6 @@ import mmb.content.agro.Agro;
 import mmb.content.craft.ManCrafter;
 import mmb.content.electric.machines.BlockTransformer.TransformerData;
 import mmb.content.electronics.Electronics;
-import mmb.content.rawmats.Materials;
 import mmb.engine.MMBUtils;
 import mmb.engine.block.Blocks;
 import mmb.engine.debug.Debugger;
@@ -34,6 +33,7 @@ import mmb.engine.mods.Mods;
 import mmb.engine.sound.Sounds;
 import mmb.engine.texture.Textures;
 import mmb.engine.worlds.DataLayers;
+import mmb.materials.Materials;
 import mmb.menu.FullScreen;
 import mmb.menu.wtool.Tools;
 

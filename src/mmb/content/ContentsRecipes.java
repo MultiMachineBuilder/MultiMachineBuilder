@@ -6,14 +6,13 @@ package mmb.content;
 import static mmb.content.ContentsBlocks.*;
 import static mmb.content.ContentsItems.*;
 import static mmb.content.CraftingGroups.*;
-import static mmb.content.rawmats.Materials.*;
+import static mmb.materials.Materials.*;
 
 import mmb.content.agro.Agro;
 import mmb.content.craft.ManCrafter;
 import mmb.content.electric.VoltageTier;
 import mmb.content.electric.machines.BlockTransformer.TransformerData;
 import mmb.content.electronics.Electronics;
-import mmb.content.rawmats.Materials;
 import mmb.engine.chance.ListChance;
 import mmb.engine.chance.RandomChance;
 import mmb.engine.chance.RandomOrElseChance;
@@ -22,6 +21,7 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.item.ItemRaw;
 import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.SimpleItemList;
+import mmb.materials.Materials;
 import monniasza.collects.grid.FixedGrid;
 
 /**

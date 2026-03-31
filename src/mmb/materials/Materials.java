@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mmb.content.rawmats;
+package mmb.materials;
 
 import java.awt.Color;
 import java.util.function.Function;
@@ -12,7 +12,6 @@ import mmb.annotations.NN;
 import mmb.content.ContentsBlocks;
 import mmb.content.CraftingGroups;
 import mmb.content.electric.VoltageTier;
-import mmb.content.rawmats.MetalGroup.MaterialStack;
 import mmb.engine.debug.Debugger;
 import mmb.engine.item.Item;
 import mmb.engine.item.ItemEntry;
@@ -20,6 +19,7 @@ import mmb.engine.item.Items;
 import mmb.engine.recipe.ItemStack;
 import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.SimpleItemList;
+import mmb.materials.MetalGroup.MaterialStack;
 
 /**
  * A collection of base materials used for machine construction in MultiMachineBuilder

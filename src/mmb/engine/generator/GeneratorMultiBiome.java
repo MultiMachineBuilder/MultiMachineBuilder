@@ -5,12 +5,12 @@ package mmb.engine.generator;
 
 import mmb.annotations.NN;
 import mmb.content.ContentsBlocks;
-import mmb.content.rawmats.Materials;
 import mmb.engine.block.Block;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.Blocks;
 import mmb.engine.debug.Debugger;
 import mmb.engine.worlds.world.World;
+import mmb.materials.Materials;
 import monniasza.collects.grid.FixedGrid;
 import monniasza.collects.grid.Grid;
 
