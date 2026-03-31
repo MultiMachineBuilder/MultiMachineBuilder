@@ -130,31 +130,6 @@ public class ContentsItems {
 			.texture("item/paper.png")
 			.volumed(0.001)
 			.finish("mmb.paper");
-	/** 64 generic purpose color codes*/
-	@NN public static final List<@NN Item> craftcodes = createCraftCodes(); //NOSONAR the returned list is immutable
-	@NN private static List<@NN Item> createCraftCodes(){
-		Item[] items = new Item[64];
-		String title = GlobalSettings.$res("ccode")+" ";
-		BufferedImage texture = Textures.get("item/component code.png");
-		ColorMapper mapper = ColorMapper.ofType(texture.getType(), Color.RED, Color.BLACK);
-		LookupOp op = new LookupOp(mapper, null);
-		for(int r = 0, i = 0; r < 4; r++) {
-			for(int g = 0; g < 4; g++) {
-				for(int b = 0; b < 4; b++, i++) {
-					Color c = new Color(r*85, g*85, b*85);
-					mapper.setTo(c);
-					BufferedImage texture0 = op.filter(texture, null);
-					Item item = new Item()
-							.title(new StringBuilder(title).append(r).append(g).append(b).toString())
-							.texture(texture0)
-							.volumed(0.001)
-							.finish("mmb.ccode"+i);
-					items[i] = item;
-				}
-			}
-		}
-		return Collections.unmodifiableList(Arrays.asList(items));
-	}
 	
 	//Machine parts
 	/** A machine part */
