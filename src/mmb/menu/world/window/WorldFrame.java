@@ -24,8 +24,6 @@ import com.pploder.events.Event;
 
 import it.unimi.dsi.fastutil.doubles.DoubleList;
 import mmb.annotations.Nil;
-import mmb.content.ppipe.Direction;
-import mmb.content.ppipe.PipeTunnelEntry;
 import mmb.data.variables.ListenableBoolean;
 import mmb.engine.CatchingEvent;
 import mmb.engine.Vector2iconst;
@@ -505,14 +503,6 @@ public class WorldFrame extends JComponent {
 			if(map.inBounds(mouseover)) {
 				BlockEntry block = map.get(mouseover);
 				sb.append("Selected block: ").append(block.itemType()).append(" ,is surface: ").append(block.isSurface()).append("\r\n");
-				sb.append("Pipe connections: ^");
-				printPipeTunnel(sb, block.getPipeTunnel(Side.U));
-				sb.append(" v");
-				printPipeTunnel(sb, block.getPipeTunnel(Side.D));
-				sb.append(" <");
-				printPipeTunnel(sb, block.getPipeTunnel(Side.L));
-				sb.append(" >");
-				printPipeTunnel(sb, block.getPipeTunnel(Side.R));
 				sb.append("\r\n");
 				sb.append("Chirotation: ").append(block.getChirotation()).append("\r\n");
 			}else {
@@ -526,8 +516,6 @@ public class WorldFrame extends JComponent {
 			sb.append("Visuals on map: ").append(map.visuals().size()).append("\r\n");
 			sb.append("Visuals visible: ").append(nvisuals.get()).append("\r\n");
 			sb.append("Visuals succeeded: ").append(success.get()).append("\r\n");
-			sb.append("Alcohol to be digested: ").append(getPlayer().getDigestibleAlcohol()).append("\r\n");
-			sb.append("Alcohol content: ").append(getPlayer().getBAC()).append("\r\n");
 			//Information for mouseover block
 			BlockEntry ent = getMouseoverBlockEntry();
 			if(ent != null) ent.debug(sb);
@@ -535,11 +523,6 @@ public class WorldFrame extends JComponent {
 			//Display mouseover block info
 			StringRenderer.renderStringBounded(Color.BLACK, Color.CYAN, Color.BLACK, sb.toString(), 0, 0, 5, 5, g);
 		}
-	}
-	private static void printPipeTunnel(StringBuilder sb, @Nil PipeTunnelEntry ent) {
-		if(ent == null) sb.append('X');
-		else if(ent.dir == Direction.BWD) sb.append('B');
-		else sb.append('F');
 	}
 	private void renderTile(int x, int y, Graphics g, @Nil BlockEntry blockEntry) {
 		if(blockEntry == null) return;

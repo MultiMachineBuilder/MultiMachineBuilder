@@ -10,7 +10,7 @@ import javax.swing.JCheckBoxMenuItem;
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
-import mmb.content.modular.gui.SafeCloseable;
+import mmb.data.reactive.SafeCloseable;
 import mmb.data.variables.ListenableBoolean;
 
 /**

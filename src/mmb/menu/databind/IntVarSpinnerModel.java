@@ -8,7 +8,7 @@ import java.util.function.IntConsumer;
 import javax.swing.SpinnerNumberModel;
 
 import mmb.annotations.Nil;
-import mmb.content.modular.gui.SafeCloseable;
+import mmb.data.reactive.SafeCloseable;
 import mmb.data.variables.ListenableInt;
 
 /**

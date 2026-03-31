@@ -11,8 +11,8 @@ import javax.swing.JComponent;
 
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
-import mmb.content.modular.gui.SafeCloseable;
 import mmb.data.reactive.ListenableProperty;
+import mmb.data.reactive.SafeCloseable;
 
 /**
  * A placeholder displays a component provided by a property.

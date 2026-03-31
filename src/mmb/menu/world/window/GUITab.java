@@ -5,8 +5,6 @@ package mmb.menu.world.window;
 
 import javax.swing.JPanel;
 
-import mmb.content.modular.gui.SafeCloseable;
-
 /**
  * @author oskar
  * A class for MultiMachineBuilder GUI tabs
