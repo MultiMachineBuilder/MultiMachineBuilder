@@ -39,11 +39,6 @@ import mmb.content.imachine.pipe.Pipe;
 import mmb.content.imachine.pipe.PipeBinder;
 import mmb.content.imachine.pipe.PipeFilter;
 import mmb.content.machinemics.line.Furnace;
-import mmb.content.media.Speaker;
-import mmb.content.ppipe.JoiningPlayerPipe;
-import mmb.content.ppipe.PlayerPipe;
-import mmb.content.ppipe.PlayerPipeEntry;
-import mmb.content.ppipe.TwinPlayerPipe;
 import mmb.content.wireworld.BlockButton;
 import mmb.content.wireworld.EmitTrue;
 import mmb.content.wireworld.EmitUniformRandom;
@@ -527,14 +522,6 @@ public class ContentsBlocks {
 	public static void init() {
 		//initialization method
 	}
-
-	//Multimedia devices
-	/** A block which plays a specific sound */
-	@NN public static final BlockType SPEAKER = new BlockType("multi.speaker",
-		PropertyExtension.translateTitle("#multi-speaker"),
-		PropertyExtension.setBlockFactory(json -> Speaker.load(json)),
-		PropertyExtension.setTextureAsset("machine/speaker 2.png")
-	);
 	
 	@NN private static BlockType coalgen(int mul, VoltageTier volt, BufferedImage texture, int n) {
 		BlockType type = new BlockType();
