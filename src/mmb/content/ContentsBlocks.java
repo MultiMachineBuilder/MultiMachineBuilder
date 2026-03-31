@@ -523,29 +523,6 @@ public class ContentsBlocks {
 	/** Stores electricity */
 	@NN public static final ElectricMachineGroup bbattery = createBattery();
 	
-	//Player pipes
-	/** Straight player pipe */
-	@NN public static final BlockType PPIPE_lin = ppipe(1, Side.U, Side.D, "machine/ppipe straight.png", "#ppipe-s", "playerpipe.straight");
-	/** Changes direction wich player is travelling */
-	@NN public static final BlockType PPIPE_bend = ppipe(0.8, Side.R, Side.D, "machine/ppipe turn.png", "#ppipe-b", "playerpipe.bend");
-	/** Two independent perpendicular player pipes */
-	@NN public static final BlockType PPIPE_lin2 = ppipe2(1, Side.U, Side.D, Side.L, Side.R, "machine/ppipe cross.png", "#ppipe-x", "playerpipe.straight2");
-	/** Two bend player pipes */
-	@NN public static final BlockType PPIPE_bend2 = ppipe2(0.8, Side.R, Side.D, Side.L, Side.U, "machine/ppipe biturn.png", "#ppipe-z", "playerpipe.bend2");
-	/** Inputs players into player pipes */
-	@NN public static final BlockType PPIPE_cap = new BlockType()
-			.title("#ppipe-t")
-			.factory(PlayerPipeEntry::new)
-			.texture("machine/pipe exit.png")
-			.finish("playerpipe.end");
-	/** Joins a player pipe into a mainline */
-	@NN public static final BlockType PPIPE_join = ppipea(1, Side.U, "machine/ppipe adjoin.png","#ppipe-l" ,"playerpipe.adj");
-	/** Joins two player pipes 180 degrees apart */
-	@NN public static final BlockType PPIPE_join2 = ppipea(0.8, Side.L, "machine/ppipe adjoin2.png","#ppipe-y" ,"playerpipe.adj2");
-	
-	//DEPRECATED blocks
-	//empty
-	
 	/** Initializes blocks */
 	public static void init() {
 		//initialization method
@@ -559,33 +536,6 @@ public class ContentsBlocks {
 		PropertyExtension.setTextureAsset("machine/speaker 2.png")
 	);
 	
-	@NN private static BlockType ppipe(double length, Side a, Side b, String texture, String title, String id) {
-		BlockType type = new BlockType();
-		ChirotatedImageGroup tex = ChirotatedImageGroup.create(texture);
-		return type
-		.title(title)
-		.factory(() -> new PlayerPipe(type, tex, a, b, length))
-		.texture(texture)
-		.finish(id);
-	}
-	@NN private static BlockType ppipe2(double length, Side a1, Side b1, Side a2, Side b2, String texture, String title, String id) {
-		BlockType type = new BlockType();
-		ChirotatedImageGroup tex = ChirotatedImageGroup.create(texture);
-		return type
-		.title(title)
-		.factory(() -> new TwinPlayerPipe(type, tex, a1, b1, a2, b2, length))
-		.texture(texture)
-		.finish(id);
-	}
-	@NN private static BlockType ppipea(double length, Side main, String texture, String title, String id) {
-		BlockType type = new BlockType();
-		ChirotatedImageGroup tex = ChirotatedImageGroup.create(texture);
-		return type
-		.title(title)
-		.factory(() -> new JoiningPlayerPipe(length, main, tex, type))
-		.texture(texture)
-		.finish(id);
-	}
 	@NN private static BlockType coalgen(int mul, VoltageTier volt, BufferedImage texture, int n) {
 		BlockType type = new BlockType();
 		return type
@@ -641,7 +591,6 @@ public class ContentsBlocks {
 	static {
 		Items.tagItems("wireworld", ww_wire, ww_head, ww_tail, ww_chatter,
 				AND, OR, XOR, BUTTON, TOGGLE, YES, NOT, RANDOMCTRL, TRUE, RANDOM, ON, OFF, URANDOM, LAMP, SPEAKER, CLICKER, PLACER, ROTATOR);
-		Items.tagItems("player-pipe", PPIPE_lin, PPIPE_bend, PPIPE_lin2, PPIPE_bend2, PPIPE_join, PPIPE_join2, PPIPE_cap);
 		Items.tagItems("workbench", ManCrafter.types);
 		Items.tagItems("fluid", water, lava, steam);
 		Items.tagItems("special", Blocks.air, Blocks.grass);
