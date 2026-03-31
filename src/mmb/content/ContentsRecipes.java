@@ -87,7 +87,6 @@ public class ContentsRecipes {
 		_wireworld();
 		_mechparts();
 		_sinter();
-		_upgrade();	
 		
 		crafting.addRecipeGrid(new ItemEntry[]{
 		rudimentary.base, rudimentary.base, rudimentary.base,
@@ -118,22 +117,6 @@ public class ContentsRecipes {
 		silicarbide.nugget, 2, VoltageTier.V3, 320000);
 	}
 	private static void _mechparts() {
-		//Machine parts
-		crafting.addRecipeGrid(new ItemEntry[]{
-		Materials.steel.base, Materials.iron.base, Materials.steel.base,
-		Materials.iron.base,  null, Materials.iron.base,
-		Materials.steel.base, Materials.iron.base, Materials.steel.base
-		}, 3, 3, frame1);
-		crafting.addRecipeGrid(new ItemEntry[]{
-		null,  null,  Materials.steel.base,
-		null,  Materials.steel.base, null,
-		Materials.steel.base, null,  null
-		}, 3, 3, rod1);
-		crafting.addRecipeGrid(new ItemEntry[]{
-		Materials.steel.nugget,  Materials.steel.nugget,  Materials.steel.nugget,
-		Materials.steel.nugget,  null,                    Materials.steel.nugget,
-		Materials.steel.nugget,  Materials.steel.nugget,  Materials.steel.nugget,
-		}, 3, 3, bearing1);
 		
 		crafting.addRecipeGrid(new ItemEntry[]{
 		wireRudimentary.tiny,  rudimentary.base,  wireRudimentary.tiny,
@@ -350,11 +333,7 @@ public class ContentsRecipes {
 		iron.base, ipipe_STRAIGHT, iron.base
 		}, 3, 3, PLACEITEMS);
 	}
-	private static void _wireworld() {
-		//Actuator blocks
-		//Block Rotator
-		crafting.addRecipeGrid(new ItemEntry[]{rod1, bearing1, frame1}, 1, 3, ROTATOR, 1);
-		
+	private static void _wireworld() {		
 		//WireWorld cell
 		crafting.addRecipeGrid(new ItemEntry[]{Materials.silicon.base, Materials.copper.base}, 1, 2, ww_wire, 24);
 		
@@ -395,11 +374,6 @@ public class ContentsRecipes {
 		TRUE, ww_wire, TRUE,
 		URANDOM, TRUE, URANDOM,
 		}, 3, 3, ONLOAD, 4); //World Load Detecttor
-		
-		//Speaker
-		crafting.addRecipeGrid(new ItemEntry[]{
-			Electronics.inductor_, Materials.iron.frag, paper
-		}, 3, 1, SPEAKER);
 	}
 	private static void _tools() {			
 		crafting.addRecipe(new FixedGrid<>(3,
@@ -1047,67 +1021,6 @@ public class ContentsRecipes {
 		
 		//sifting seeds sometimes gives yeast
 		quarry.add(Agro.seeds, ItemList.NONE, VoltageTier.V1, 40000, new RandomOrElseChance(0.05, Agro.yeast, Agro.seeds));
-	}
-	private static void _upgrade() {
-		crafting.addRecipeGrid(new ItemEntry[]{
-		rudimentary.base, coal.base,
-		coal.base, rudimentary.base
-		}, 2, 2, speed1);
-		crafting.addRecipeGrid(new ItemEntry[]{
-		rudimentary.base, rudimentary.base, rudimentary.base,
-		rudimentary.base,        coal.base, rudimentary.base,
-		rudimentary.base, rudimentary.base, rudimentary.base,
-		}, 3, 3, speed2);
-		crafting.addRecipeGrid(new ItemEntry[]{
-		rudimentary.base, rudimentary.base,  rudimentary.base,
-		alu.base,         rudimentary.panel, alu.base,
-		alu.base,         alu.base,          alu.base,
-		}, 3, 3, speed3);
-		crafting.addRecipeGrid(new ItemEntry[]{
-		alu.sheet, alu.sheet, alu.sheet,
-		iron.base, Electronics.circuit0,  iron.base,
-		iron.base, iron.base, iron.base
-		}, 3, 3, speed4);
-		crafting.addRecipeGrid(new ItemEntry[]{
-		rudimentium.base, copper.base, rudimentium.base,
-		rudimentium.base, Electronics.circuit0, rudimentium.base,
-		rudimentium.base, rudimentium.base, rudimentium.base
-		}, 3, 3, speed5);
-		crafting.addRecipeGrid(new ItemEntry[]{
-		silver.base,      copper.base,      silver.base,
-		rudimentium.base, Electronics.circuit0,         rudimentium.base,
-		rudimentium.base, rudimentium.base, rudimentium.base
-		}, 3, 3, speed6);
-		crafting.addRecipeGrid(new ItemEntry[]{
-		silver.base, silver.base, silver.base,
-		steel.base,  Electronics.circuit0,    steel.base,
-		steel.base,  steel.base,  steel.base
-		}, 3, 3, speed7);
-		crafting.addRecipeGrid(new ItemEntry[]{
-		silver.base, silver.base, silver.base,
-		steel.base,  Electronics.circuit1,    steel.base,
-		steel.base,  steel.base,  steel.base
-		}, 3, 3, speed8);
-		crafting.addRecipeGrid(new ItemEntry[]{
-		silver.base, gold.base, silver.base,
-		steel.base,  Electronics.circuit1,   steel.base,
-		steel.base,  steel.base, steel.base
-		}, 3, 3, speed9);
-		crafting.addRecipeGrid(new ItemEntry[]{
-		gold.base,  silver.base, gold.base,
-		steel.base, Electronics.circuit1,    steel.base,
-		steel.base, steel.base,  steel.base
-		}, 3, 3, speed10);
-		crafting.addRecipeGrid(new ItemEntry[]{
-		gold.base,      gold.base,      gold.base,
-		steel.base,     Electronics.circuit1,       steel.base,
-		stainless.base, stainless.base, stainless.base
-		}, 3, 3, speed11);
-		crafting.addRecipeGrid(new ItemEntry[]{
-		gold.base,      gold.base,      gold.base,
-		steel.base,     Electronics.circuit2,       steel.base,
-		stainless.base, stainless.base, stainless.base
-		}, 3, 3, speed12);
 	}
 
 }
