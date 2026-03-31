@@ -21,7 +21,6 @@ import mmb.content.craft.ManCrafter;
 import mmb.content.electric.machines.BlockTransformer.TransformerData;
 import mmb.content.electronics.Electronics;
 import mmb.content.rawmats.Materials;
-import mmb.content.stn.STN;
 import mmb.engine.MMBUtils;
 import mmb.engine.block.Blocks;
 import mmb.engine.debug.Debugger;
@@ -152,7 +151,6 @@ public final class GameLoader {
 		DataLayers.init();
 		//Load machines and more
 		Main.state1("Loading machines");
-		STN.init();
 		ManCrafter.init();
 		ContentsRecipes.createRecipes();
 		Generators.init();
