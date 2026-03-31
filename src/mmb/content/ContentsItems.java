@@ -141,16 +141,6 @@ public class ContentsItems {
 	/** A machine part */
 	@NN public static final VoltagedItemGroup robot = new VoltagedItemGroup("parts/robot.png", "robot");
 	
-	//Batteries
-	private static final String BATTERY = GlobalSettings.$res("battery");
-	@NN public static final ItemType bat1 = battery(VoltageTier.V1);
-	@NN public static final ItemType bat2 = battery(VoltageTier.V2);
-	@NN public static final ItemType bat3 = battery(VoltageTier.V3);
-	@NN public static final ItemType bat4 = battery(VoltageTier.V4);
-	@NN public static final ItemType bat5 = battery(VoltageTier.V5);
-	@NN public static final ItemType bat6 = battery(VoltageTier.V6);
-	@NN public static final ItemType bat7 = battery(VoltageTier.V7);
-	
 	//Resource beds
 	@NN public static final Item resrc1 = resrcbed(1, Color.RED);
 	@NN public static final Item resrc2 = resrcbed(2, Color.ORANGE);
