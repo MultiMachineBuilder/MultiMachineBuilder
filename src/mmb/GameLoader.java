@@ -20,7 +20,6 @@ import mmb.content.agro.Agro;
 import mmb.content.craft.ManCrafter;
 import mmb.content.electric.machines.BlockTransformer.TransformerData;
 import mmb.content.electronics.Electronics;
-import mmb.content.modular.chest.ModularChests;
 import mmb.content.rawmats.Materials;
 import mmb.content.stn.STN;
 import mmb.engine.MMBUtils;
@@ -159,7 +158,6 @@ public final class GameLoader {
 		Generators.init();
 		
 		FullScreen.initialize();
-		ModularChests.init();
 		TransformerData.init();
 		
 		//Get external mods to load

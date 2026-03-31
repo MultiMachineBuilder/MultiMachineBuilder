@@ -12,7 +12,7 @@ import java.util.Objects;
 import java.util.WeakHashMap;
 
 import mmb.annotations.Nil;
-import mmb.content.modular.cover.Cover;
+import mmb.covers.Cover;
 import mmb.engine.block.BlockEntry;
 import mmb.engine.block.BlockType;
 import mmb.engine.worlds.world.World;

@@ -1,1 +1,1 @@
-package mmb.content.modular.cover;
+package mmb.covers;

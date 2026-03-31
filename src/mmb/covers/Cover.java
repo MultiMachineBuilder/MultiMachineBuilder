@@ -1,4 +1,4 @@
-package mmb.content.modular.cover;
+package mmb.covers;
 
 import mmb.engine.item.ItemEntry;
 import mmb.handler.HandlerKey;
@@ -8,7 +8,7 @@ import mmb.handler.HandlerKey;
  */
 public interface Cover extends ItemEntry{
 	/**
-	 * Wraps an extrenal handler for view of the requesting block
+	 * Wraps an external handler for view of the requesting block
 	 * @param handler handler ID
 	 * @param key block position and side
 	 * @param innerHandler handler to wrap
