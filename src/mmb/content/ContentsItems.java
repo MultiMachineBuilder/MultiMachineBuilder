@@ -184,19 +184,10 @@ public class ContentsItems {
 	
 	static {
 		Items.tagItems("tool", pickVW, pickWood, pickRudimentary, pickStone, pickIron, pickSteel, pickStainless, configExtractors, aim);
-		Items.tagItems("craftcode", craftcodes);
 		Items.tagItems("agro", Agro.yeast, Agro.hops, Agro.seeds);
 		Items.tagItems("material-glass", glass, glassp);
-		Items.tagItems("machine-battery", bat1, bat2, bat3, bat4, bat5, bat6, bat7);
 		Items.tagItems("craftaid", stencil, BOM, pingredients);
 		Items.tagItems("shape-shard", sdraconium, sadraconium, schaotium, scrystal, sstellar, sunobtainium);
-		Items.tagItem("voltage-ULV", bat1);
-		Items.tagItem("voltage-VLV", bat2);
-		Items.tagItem("voltage-LV", bat3);
-		Items.tagItem("voltage-MV", bat4);
-		Items.tagItem("voltage-HV", bat5);
-		Items.tagItem("voltage-EV", bat6);
-		Items.tagItem("voltage-IV", bat7);
 		Items.tagItems("resrcbed", resrc1, resrc2, resrc3, resrc4, resrc5, resrc6, resrc7);
 		
 		Items.deprecate("industry.motor1", motor.items.get(0));
@@ -205,16 +196,6 @@ public class ContentsItems {
 		Items.deprecate("pickHead.rudimentary", ItemRaw.make(pickRudimentary));
 	}
 	
-	//Helper methods
-	@NN private static ItemType battery(VoltageTier voltage) {
-		ItemType type = new ItemType();
-		return type
-				.title(BATTERY+" "+voltage.name)
-				.texture("item/battery "+(voltage.ordinal()+1)+".png")
-				.volumed(0.1)
-				.factory(() -> new ItemBattery(type, voltage))
-				.finish("industry.bat"+(voltage.ordinal()+1));
-	}
 	@NN private static Item speed(int n, Color c, double mul) {
 		StringBuilder descr = new StringBuilder().append(GlobalSettings.$res("speedupd1")).append(' ').append(mul).append(' ').append(GlobalSettings.$res("speedupd2"));
 		if(mul > 100) descr.append(' ').append(GlobalSettings.$res("speedlag"));
