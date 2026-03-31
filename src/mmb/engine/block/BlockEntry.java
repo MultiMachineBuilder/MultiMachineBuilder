@@ -158,16 +158,6 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 	public default void debug(StringBuilder sb) {
 		//unused
 	}
-	
-	/**
-	 * Creates a block-wise copy of this block entry.
-	 * The returned block entry may have position data attached,
-	 * or it may be identical.
-	 * @return a copy of this block
-	 * @implSpec This method must not throw any exceptions
-	 * @apiNote Used to copy blocks by world editing tools
-	 */
-	@NN public BlockEntry blockCopy();
 
 	//Rotations - rotary
 	/**
