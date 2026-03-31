@@ -11,7 +11,6 @@ import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.beans.Saver;
 import mmb.content.electric.Electricity;
-import mmb.content.ppipe.PipeTunnelEntry;
 import mmb.engine.blockdrawer.BlockDrawer;
 import mmb.engine.rotate.Chiral;
 import mmb.engine.rotate.ChiralRotation;
@@ -364,15 +363,5 @@ public interface BlockEntry extends Saver, Rotable, Chiral {
 				out.y = -infringeY;
 			}
 			return 2;
-	}
-	
-	//Pipe tunnels
-	/**
-	 * Gets the pipe tunnel at given side
-	 * @param s the side from which pipe enters
-	 * @return the pipe tunnel entry for this pipe, or null if none
-	 */
-	public default PipeTunnelEntry getPipeTunnel(Side s) {
-		return null;
 	}
 }

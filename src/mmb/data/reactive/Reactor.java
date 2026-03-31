@@ -9,7 +9,6 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 import mmb.annotations.NN;
-import mmb.content.modular.gui.SafeCloseable;
 
 /**
  * A reactor is a function-based listenable property
