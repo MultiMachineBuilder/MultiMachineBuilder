@@ -5,15 +5,36 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.function.Predicate;
 
+import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
 import mmb.inventory2.ItemHandler;
 import mmb.inventory2.ItemListener;
 
+/**
+ * A wrapper around an {@link ItemHandler} that applies optional filtering
+ * on insertion, extraction, and view operations.
+ *
+ * <p>
+ * Filtering rules:
+ * <ul>
+ *   <li>Null predicate or null set → no filtering for that operation.</li>
+ *   <li>Empty set → block all items for that operation.</li>
+ *   <li>Bulk operations are rejected entirely if any item fails the filter.</li>
+ * </ul>
+ * </p>
+ *
+ * <p>
+ * {@link #contents()} returns a dynamically filtered view of the underlying
+ * handler contents. Changes in the base handler are immediately visible.
+ * </p>
+ */
 public class FilteredItemHandler implements ItemHandler {
+
     private final ItemHandler base;
 
     @Nil private final Predicate<ItemEntry> insertPredicate;
@@ -25,12 +46,22 @@ public class FilteredItemHandler implements ItemHandler {
     @Nil private final Predicate<ItemEntry> viewPredicate;
     @Nil private final Set<ItemEntry> viewSet;
 
+    /**
+     * Wraps an existing {@link ItemHandler} with optional filtering.
+     *
+     * @param base the underlying handler (non-null)
+     * @param insertPredicate predicate for insertable items (null = no filter)
+     * @param insertSet set of allowed insertable items (null = no filter)
+     * @param extractPredicate predicate for extractable items (null = no filter)
+     * @param extractSet set of allowed extractable items (null = no filter)
+     * @param viewPredicate predicate for visible items (null = no filter)
+     * @param viewSet set of allowed visible items (null = no filter)
+     */
     public FilteredItemHandler(
-        ItemHandler base,
-        @Nil Predicate<ItemEntry> insertPredicate, @Nil Set<ItemEntry> insertSet,
-        @Nil Predicate<ItemEntry> extractPredicate, @Nil Set<ItemEntry> extractSet,
-        @Nil Predicate<ItemEntry> viewPredicate, @Nil Set<ItemEntry> viewSet
-    ) {
+            ItemHandler base,
+            @Nil Predicate<ItemEntry> insertPredicate, @Nil Set<ItemEntry> insertSet,
+            @Nil Predicate<ItemEntry> extractPredicate, @Nil Set<ItemEntry> extractSet,
+            @Nil Predicate<ItemEntry> viewPredicate, @Nil Set<ItemEntry> viewSet) {
         this.base = Objects.requireNonNull(base, "base handler");
         this.insertPredicate = insertPredicate;
         this.insertSet = insertSet == null ? null : Collections.unmodifiableSet(Set.copyOf(insertSet));
@@ -41,7 +72,6 @@ public class FilteredItemHandler implements ItemHandler {
     }
 
     private static boolean allows(Predicate<ItemEntry> pred, Set<ItemEntry> set, ItemEntry item) {
-        // null predicate/set = no filtering, empty set = block all
         if (set != null && set.isEmpty()) return false;
         boolean predOk = pred == null || pred.test(item);
         boolean setOk = set == null || set.contains(item);
@@ -78,9 +108,7 @@ public class FilteredItemHandler implements ItemHandler {
 
     @Override
     public int bulkInsert(ItemList items, int units) {
-        for (var e : items) {
-            if (!allowsInsert(e.item())) return 0; // reject whole bulk
-        }
+        for (var e : items) if (!allowsInsert(e.item())) return 0;
         synchronized (base.lock()) {
             return base.bulkInsert(items, units);
         }
@@ -88,9 +116,7 @@ public class FilteredItemHandler implements ItemHandler {
 
     @Override
     public int bulkExtract(ItemList items, int units) {
-        for (var e : items) {
-            if (!allowsExtract(e.item())) return 0; // reject whole bulk
-        }
+        for (var e : items) if (!allowsExtract(e.item())) return 0;
         synchronized (base.lock()) {
             return base.bulkExtract(items, units);
         }
@@ -131,16 +157,40 @@ public class FilteredItemHandler implements ItemHandler {
 
     @Override
     public Object2IntMap<ItemEntry> contents() {
-        synchronized (base.lock()) {
-            Object2IntMap<ItemEntry> original = base.contents();
-            if (viewPredicate == null && viewSet == null) return original;
+        // Return a dynamically filtered view
+        return new Object2IntMaps.UnmodifiableMap<>(new Object2IntMap<>() {
+            @Override public int getInt(Object key) {
+                if (!(key instanceof ItemEntry i) || !allowsView(i)) return 0;
+                synchronized (base.lock()) { return base.contents().getInt(i); }
+            }
 
-            var filtered = new it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap<ItemEntry>();
-            original.forEach((item, count) -> {
-                if (allowsView(item)) filtered.put(item, count);
-            });
-            return it.unimi.dsi.fastutil.objects.Object2IntMaps.unmodifiable(filtered);
-        }
+            @Override public boolean containsKey(Object key) {
+                if (!(key instanceof ItemEntry i) || !allowsView(i)) return false;
+                synchronized (base.lock()) { return base.contents().containsKey(i); }
+            }
+
+            @Override public void forEach(java.util.function.BiConsumer<? super ItemEntry, ? super Integer> action) {
+                synchronized (base.lock()) {
+                    base.contents().forEach((item, count) -> {
+                        if (allowsView(item)) action.accept(item, count);
+                    });
+                }
+            }
+
+            @Override public int size() {
+                synchronized (base.lock()) {
+                    int s = 0;
+                    for (var e : base.contents().object2IntEntrySet()) if (allowsView(e.getKey())) s++;
+                    return s;
+                }
+            }
+
+            @Override public boolean isEmpty() {
+                synchronized (base.lock()) {
+                    return base.contents().object2IntEntrySet().stream().noneMatch(e -> allowsView(e.getKey()));
+                }
+            }
+        });
     }
 
     @Override
@@ -194,10 +244,23 @@ public class FilteredItemHandler implements ItemHandler {
         return base.lock();
     }
 
-	@Override
-	public Disposable addItemListener(@Nil Set<ItemEntry> itemsToWatch, @Nil Predicate<ItemEntry> filterRefinement,
-			ItemListener listener) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    /**
+     * Adds a filtered listener: only receives events for items allowed by
+     * this handler's filtering. The source reported to the listener will be
+     * this wrapper, not the underlying handler.
+     */
+    @Override
+    public Disposable addItemListener(@Nil Set<ItemEntry> itemsToWatch,
+                                      @Nil Predicate<ItemEntry> filterRefinement,
+                                      ItemListener listener) {
+        Predicate<ItemEntry> combinedFilter = item -> {
+            boolean allowed = allowsInsert(item) || allowsExtract(item);
+            boolean refined = filterRefinement == null || filterRefinement.test(item);
+            boolean setOk = itemsToWatch == null || itemsToWatch.contains(item);
+            return allowed && refined && setOk;
+        };
+        return base.addItemListener(null, combinedFilter, (source, entry, change) -> {
+            listener.onChange(this, entry, change);
+        });
+    }
 }
