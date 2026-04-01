@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 
 import io.reactivex.rxjava3.disposables.Disposable;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
@@ -185,6 +186,11 @@ public interface ItemHandler extends Disposable {
      * @param target TODO
      */
     void dumpContents(Object2IntMap<ItemEntry> target);
+    default Object2IntMap<ItemEntry> copyContents(){
+    	Object2IntMap<ItemEntry> result = new Object2IntOpenHashMap<ItemEntry>();
+    	dumpContents(result);
+    	return result;
+    }
 
     /**
      * Attempts to insert up to {@code amount} units of the given item into this handler.

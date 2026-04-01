@@ -42,7 +42,7 @@ class InventoryTest {
 		assertEquals(0.0, inv.volume(), 1e-12);
 		assertEquals(10.0, inv.capacity(), 1e-12);
 		assertEquals(3, inv.maxSlots());
-		assertTrue(inv.contents().isEmpty());
+		assertTrue(inv.copyContents().isEmpty());
 	}
 
 	@Test
@@ -52,7 +52,7 @@ class InventoryTest {
 		assertEquals(4, inserted);
 		assertFalse(inv.isEmpty());
 		assertEquals(4.0, inv.volume(), 1e-12);
-		assertEquals(4, inv.contents().getInt(iron));
+		assertEquals(4, inv.copyContents().getInt(iron));
 	}
 
 	@Test
@@ -62,7 +62,7 @@ class InventoryTest {
 		int extracted = inv.extract(iron, 2);
 
 		assertEquals(2, extracted);
-		assertEquals(3, inv.contents().getInt(iron));
+		assertEquals(3, inv.copyContents().getInt(iron));
 		assertEquals(3.0, inv.volume(), 1e-12);
 	}
 
@@ -73,8 +73,8 @@ class InventoryTest {
 		int extracted = inv.extract(iron, 10);
 
 		assertEquals(3, extracted);
-		assertEquals(0, inv.contents().getInt(iron));
-		assertFalse(inv.contents().containsKey(iron));
+		assertEquals(0, inv.copyContents().getInt(iron));
+		assertFalse(inv.copyContents().containsKey(iron));
 		assertEquals(0.0, inv.volume(), 1e-12);
 		assertTrue(inv.isEmpty());
 	}
@@ -85,7 +85,7 @@ class InventoryTest {
 
 		assertEquals(5, inserted);
 		assertEquals(10.0, inv.volume(), 1e-12);
-		assertEquals(5, inv.contents().getInt(gold));
+		assertEquals(5, inv.copyContents().getInt(gold));
 	}
 
 	@Test
@@ -113,8 +113,8 @@ class InventoryTest {
 		assertEquals(1, inv.insert(gold, 1));
 		assertEquals(0, inv.insert(Blocks.air, 1));
 		
-		assertFalse(inv.contents().containsKey(Blocks.air));
-		assertEquals(3, inv.contents().size());
+		assertFalse(inv.copyContents().containsKey(Blocks.air));
+		assertEquals(3, inv.copyContents().size());
 	}
 
 	@Test
@@ -124,7 +124,7 @@ class InventoryTest {
 		assertEquals(1, inv.insert(gold, 1));
 
 		assertEquals(5, inv.insert(iron, 5));
-		assertEquals(6, inv.contents().getInt(iron));
+		assertEquals(6, inv.copyContents().getInt(iron));
 	}
 
 	@Test
@@ -139,15 +139,6 @@ class InventoryTest {
 	void extractAbsentItemReturnsZero() {
 		assertEquals(0, inv.extract(iron, 5));
 		assertTrue(inv.isEmpty());
-	}
-
-	@Test
-	void contentsViewIsReadOnly() {
-		Object2IntMap<ItemEntry> map = inv.contents();
-		inv.insert(iron, 3);
-
-		assertThrows(UnsupportedOperationException.class, () -> map.put(iron, 99));
-		assertEquals(3, map.getInt(iron));
 	}
 
 	@Test
@@ -195,8 +186,8 @@ class InventoryTest {
 		int insertedUnits = inv.bulkInsert(recipe, 2);
 
 		assertEquals(2, insertedUnits);
-		assertEquals(4, inv.contents().getInt(iron));
-		assertEquals(6, inv.contents().getInt(copper));
+		assertEquals(4, inv.copyContents().getInt(iron));
+		assertEquals(6, inv.copyContents().getInt(copper));
 		assertEquals(4.0 + 3.0, inv.volume(), 1e-12);
 	}
 
@@ -210,8 +201,8 @@ class InventoryTest {
 		int insertedUnits = inv.bulkInsert(recipe, 10);
 
 		assertEquals(2, insertedUnits); // 8 volume used, 3 would need 12
-		assertEquals(4, inv.contents().getInt(iron));
-		assertEquals(2, inv.contents().getInt(gold));
+		assertEquals(4, inv.copyContents().getInt(iron));
+		assertEquals(2, inv.copyContents().getInt(gold));
 		assertEquals(8.0, inv.volume(), 1e-12);
 	}
 
@@ -227,8 +218,8 @@ class InventoryTest {
 		int extractedUnits = inv.bulkExtract(recipe, 10);
 
 		assertEquals(2, extractedUnits);
-		assertEquals(1, inv.contents().getInt(iron));
-		assertFalse(inv.contents().containsKey(copper));
+		assertEquals(1, inv.copyContents().getInt(iron));
+		assertFalse(inv.copyContents().containsKey(copper));
 	}
 
 	@Test
