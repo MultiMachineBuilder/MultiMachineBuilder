@@ -38,7 +38,6 @@ public class Inventory implements ItemHandler {
 	private static final Debugger debug = new Debugger("mmb.inventory2.storage.Inventory");
 	
 	private final Object2IntOpenHashMap<ItemEntry> contents = new Object2IntOpenHashMap<>();
-	private final Object2IntMap<ItemEntry> readOnlyContents = Object2IntMaps.unmodifiable(contents);
 
 	private double maxVolume;
 	private int maxSlots;
@@ -110,8 +109,9 @@ public class Inventory implements ItemHandler {
 	}
 
 	@Override
-	public synchronized Object2IntMap<ItemEntry> contents() {
-		return readOnlyContents;
+	public void dumpContents(Object2IntMap<ItemEntry> map) {
+		map.clear();
+		map.putAll(contents);
 	}
 
 	@Override
@@ -376,10 +376,10 @@ public class Inventory implements ItemHandler {
 		return disposed;
 	}
 
+	private final Object lock = new Object();
 	@Override
 	public Object lock() {
-		// TODO Auto-generated method stub
-		return null;
+		return lock;
 	}
 	
 	//Item registration handling

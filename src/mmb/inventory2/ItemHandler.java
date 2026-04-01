@@ -89,7 +89,7 @@ import mmb.engine.recipe.ItemList;
  * Code synchronized on {@link #lock()} must observe a stable handler state.
  *
  * <h2>Contents view</h2>
- * The map returned by {@link #contents()} is a read-only live view of this handler.
+ * The map returned by {@link #dumpContents(Object2IntMap)} is a read-only live view of this handler.
  * It must:
  * <ul>
  *   <li>never be {@code null},</li>
@@ -157,7 +157,7 @@ public interface ItemHandler extends Disposable {
     /**
      * Returns whether this handler currently contains no items.
      *
-     * @return {@code true} if and only if {@link #contents()} is empty
+     * @return {@code true} if and only if {@link #dumpContents(Object2IntMap)} is empty
      */
     boolean isEmpty();
 
@@ -175,17 +175,16 @@ public interface ItemHandler extends Disposable {
     boolean test(ItemEntry item);
 
     /**
-     * Returns a read-only live view of this handler's contents.
+     * Dumps contents of this inventory into a map
      * <p>
      * The returned map is backed by this handler and reflects subsequent changes.
      * It must not permit mutation by the caller.
      * <p>
      * Unless externally synchronized via {@link #lock()}, concurrent iteration should be assumed
      * to observe a changing view.
-     *
-     * @return a non-{@code null}, read-only live view of contained items and their counts
+     * @param target TODO
      */
-    Object2IntMap<ItemEntry> contents();
+    void dumpContents(Object2IntMap<ItemEntry> target);
 
     /**
      * Attempts to insert up to {@code amount} units of the given item into this handler.

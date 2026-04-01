@@ -5,6 +5,7 @@ import java.util.Objects;
 import mmb.annotations.NN;
 import mmb.engine.item.ItemEntry;
 import mmb.fluid.FluidEventType;
+import mmb.inventory2.storage.FilteredItemHandler;
 
 /**
  * Represents an addition, insertion or extraction of an item
@@ -30,5 +31,9 @@ public record ItemEvent(@NN ItemHandler inventory, @NN ItemEntry item, int befor
 		if(before == 0) return FluidEventType.ADD;
 		if(after == 0) return FluidEventType.REMOVE;
 		return FluidEventType.MODIFY;
+	}
+
+	public ItemEvent with(ItemHandler newInventory) {
+		return new ItemEvent(newInventory, item, before, after);
 	}
 }

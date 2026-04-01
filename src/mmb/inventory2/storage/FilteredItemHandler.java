@@ -1,6 +1,7 @@
 package mmb.inventory2.storage;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -12,6 +13,7 @@ import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
+import mmb.inventory2.ItemEvent;
 import mmb.inventory2.ItemHandler;
 import mmb.inventory2.ItemListener;
 
@@ -156,41 +158,9 @@ public class FilteredItemHandler implements ItemHandler {
     }
 
     @Override
-    public Object2IntMap<ItemEntry> contents() {
-        // Return a dynamically filtered view
-        return new Object2IntMaps.UnmodifiableMap<>(new Object2IntMap<>() {
-            @Override public int getInt(Object key) {
-                if (!(key instanceof ItemEntry i) || !allowsView(i)) return 0;
-                synchronized (base.lock()) { return base.contents().getInt(i); }
-            }
-
-            @Override public boolean containsKey(Object key) {
-                if (!(key instanceof ItemEntry i) || !allowsView(i)) return false;
-                synchronized (base.lock()) { return base.contents().containsKey(i); }
-            }
-
-            @Override public void forEach(java.util.function.BiConsumer<? super ItemEntry, ? super Integer> action) {
-                synchronized (base.lock()) {
-                    base.contents().forEach((item, count) -> {
-                        if (allowsView(item)) action.accept(item, count);
-                    });
-                }
-            }
-
-            @Override public int size() {
-                synchronized (base.lock()) {
-                    int s = 0;
-                    for (var e : base.contents().object2IntEntrySet()) if (allowsView(e.getKey())) s++;
-                    return s;
-                }
-            }
-
-            @Override public boolean isEmpty() {
-                synchronized (base.lock()) {
-                    return base.contents().object2IntEntrySet().stream().noneMatch(e -> allowsView(e.getKey()));
-                }
-            }
-        });
+    public void dumpContents(Object2IntMap<ItemEntry> target) {
+    	base.dumpContents(target);
+    	target.keySet().removeIf(x -> !allowsView(x));
     }
 
     @Override
@@ -253,14 +223,27 @@ public class FilteredItemHandler implements ItemHandler {
     public Disposable addItemListener(@Nil Set<ItemEntry> itemsToWatch,
                                       @Nil Predicate<ItemEntry> filterRefinement,
                                       ItemListener listener) {
-        Predicate<ItemEntry> combinedFilter = item -> {
-            boolean allowed = allowsInsert(item) || allowsExtract(item);
-            boolean refined = filterRefinement == null || filterRefinement.test(item);
-            boolean setOk = itemsToWatch == null || itemsToWatch.contains(item);
-            return allowed && refined && setOk;
-        };
-        return base.addItemListener(null, combinedFilter, (source, entry, change) -> {
-            listener.onChange(this, entry, change);
+    	
+        Predicate<ItemEntry> combinedPredicate = combinePredicate(filterRefinement);
+        Set<ItemEntry> combinedSet = combineSet(itemsToWatch);
+        
+        return base.addItemListener(combinedSet, combinedPredicate, event -> {
+        	ItemEvent newEvent = event.with(this);
+        	listener.stackModified(event);
         });
     }
+
+	private Set<ItemEntry> combineSet(@Nil Set<ItemEntry> itemsToWatch) {
+		if(viewSet == null) return itemsToWatch;
+		if(itemsToWatch == null) return viewSet;
+		Set<ItemEntry> combo = new HashSet<ItemEntry>(viewSet);
+		combo.retainAll(itemsToWatch);
+		return Collections.unmodifiableSet(combo);
+	}
+
+	private Predicate<ItemEntry> combinePredicate(@Nil Predicate<ItemEntry> filterRefinement) {
+		if(filterRefinement == null) return viewPredicate;
+		if(viewPredicate == null) return filterRefinement;
+		return viewPredicate.and(filterRefinement);
+	}
 }

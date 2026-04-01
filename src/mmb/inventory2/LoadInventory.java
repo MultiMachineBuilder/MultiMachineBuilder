@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.annotations.NN;
 import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
@@ -41,7 +42,9 @@ public final class LoadInventory {
 		result.put("volume", volumeCapacity);
 		result.put("slots", slotCapacity);
 		ArrayNode stacksArray = JsonTool.newArrayNode();
-		for(Object2IntMap.Entry<ItemEntry> entry: inventory.contents().object2IntEntrySet()) {
+		Object2IntMap<ItemEntry> map = new Object2IntOpenHashMap<>();
+		inventory.dumpContents(map);
+		for(Object2IntMap.Entry<ItemEntry> entry: map.object2IntEntrySet()) {
 			ItemEntry item = entry.getKey();
 			int amount = entry.getIntValue();
 			ItemStack itemStack = new ItemStack(item, amount);
