@@ -1,17 +1,26 @@
 package mmb.inventory2.storage;
 
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+import java.util.function.Predicate;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.SetMultimap;
+
+import io.reactivex.rxjava3.disposables.Disposable;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMaps;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import mmb.annotations.NN;
+import mmb.annotations.Nil;
 import mmb.engine.Verify;
+import mmb.engine.debug.Debugger;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
 import mmb.inventory2.ItemEvent;
 import mmb.inventory2.ItemHandler;
+import mmb.inventory2.ItemListener;
 import mmb.rx.ChannelObservable;
 import mmb.rx.Source;
 
@@ -26,6 +35,8 @@ import mmb.rx.Source;
  * This handler imposes no item-type restrictions beyond slot count and total volume.
  */
 public class Inventory implements ItemHandler {
+	private static final Debugger debug = new Debugger("mmb.inventory2.storage.Inventory");
+	
 	private final Object2IntOpenHashMap<ItemEntry> contents = new Object2IntOpenHashMap<>();
 	private final Object2IntMap<ItemEntry> readOnlyContents = Object2IntMaps.unmodifiable(contents);
 
@@ -110,7 +121,7 @@ public class Inventory implements ItemHandler {
 		if(amount == 0) return 0;
 		if(!test(item)) return 0;
 
-		int insertable = insertableRemain(amount, item);
+		int insertable = insertableAmount(amount, item);
 		if(insertable == 0) return 0;
 
 		int current = contents.getInt(item);
@@ -153,7 +164,7 @@ public class Inventory implements ItemHandler {
 		Verify.requireNonNegative(units);
 		if(units == 0) return 0;
 
-		int insertable = insertableRemainBulk(units, items);
+		int insertable = insertableAmountBulk(units, items);
 		if(insertable == 0) return 0;
 
 		for(var stack : items) {
@@ -169,7 +180,7 @@ public class Inventory implements ItemHandler {
 		Verify.requireNonNegative(units);
 		if(units == 0) return 0;
 
-		int extractable = extractableRemainBulk(units, items);
+		int extractable = extractableAmountBulk(units, items);
 		if(extractable == 0) return 0;
 
 		for(var stack : items) {
@@ -180,7 +191,7 @@ public class Inventory implements ItemHandler {
 	}
 
 	@Override
-	public synchronized int insertableRemain(int amount, ItemEntry item) {
+	public synchronized int insertableAmount(int amount, ItemEntry item) {
 		Objects.requireNonNull(item, "item");
 		Verify.requireNonNegative(amount);
 		if(amount == 0) return 0;
@@ -200,7 +211,7 @@ public class Inventory implements ItemHandler {
 	}
 
 	@Override
-	public synchronized int extractableRemain(int amount, ItemEntry item) {
+	public synchronized int extractableAmount(int amount, ItemEntry item) {
 		Objects.requireNonNull(item, "item");
 		Verify.requireNonNegative(amount);
 		if(amount == 0) return 0;
@@ -209,7 +220,7 @@ public class Inventory implements ItemHandler {
 	}
 
 	@Override
-	public synchronized int insertableRemainBulk(int amount, ItemList items) {
+	public synchronized int insertableAmountBulk(int amount, ItemList items) {
 		Objects.requireNonNull(items, "items");
 		Verify.requireNonNegative(amount);
 		if(amount == 0) return 0;
@@ -236,7 +247,7 @@ public class Inventory implements ItemHandler {
 	}
 
 	@Override
-	public synchronized int extractableRemainBulk(int amount, ItemList items) {
+	public synchronized int extractableAmountBulk(int amount, ItemList items) {
 		Objects.requireNonNull(items, "items");
 		Verify.requireNonNegative(amount);
 		if(amount == 0) return 0;
@@ -249,11 +260,6 @@ public class Inventory implements ItemHandler {
 			if(result == 0) return 0;
 		}
 		return result;
-	}
-
-	@Override
-	public ChannelObservable<ItemEvent, ItemEntry> itemEvent() {
-		return itemEvent;
 	}
 
 	private boolean disposed = false;
@@ -288,7 +294,19 @@ public class Inventory implements ItemHandler {
 	 * Emits a coarse item-change event for the specified item.
 	 */
 	protected void emitEvent(@NN ItemEntry item, int before) {
-		source.next(new ItemEvent(item, before, contents.getInt(item)));
+		ItemEvent event = new ItemEvent(this, item, before, contents.getInt(item));
+		forSet(globalHandlers, event);
+		if(setHandlers != null) forSet(setHandlers.get(item), event);
+	}
+	private static void forSet(@Nil Set<Registration> registration, ItemEvent event) {
+		if(registration != null) for(Registration listener: registration)
+			try {
+				if(listener.filter == null || listener.filter.test(event.item()))
+					listener.listener.stackModified(event);
+			}catch(Exception e) {
+				debug.stacktraceError(e, "Failed to process item event");
+			}
+			
 	}
 	
 	//Direct mutation methods. They do not respect volume and slot limits.
@@ -356,5 +374,57 @@ public class Inventory implements ItemHandler {
 	@Override
 	public synchronized boolean isDisposed() {
 		return disposed;
+	}
+
+	@Override
+	public Object lock() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	//Item registration handling
+	private class Registration implements Disposable{
+		public final ItemListener listener;
+		@Nil public final Set<ItemEntry> items;
+		@Nil public final Predicate<ItemEntry> filter;
+		public boolean dead = false;
+		public Registration(ItemListener listener, @Nil Set<ItemEntry> items, @Nil Predicate<ItemEntry> filter) {
+			super();
+			this.listener = listener;
+			this.items = items;
+			this.filter = filter;
+		}
+		@Override
+		public void dispose() {
+			if(dead) return;
+			if(items == null) globalHandlers.remove(this);
+			else for(ItemEntry item: items) {
+				setHandlers.get(item).remove(this);
+			}
+			dead = true;
+		}
+		@Override
+		public boolean isDisposed() {
+			return dead;
+		}		
+	}
+	
+	private Set<Registration> globalHandlers;
+	private SetMultimap<ItemEntry, Registration> setHandlers;
+
+	@Override
+	public Disposable addItemListener(@Nil Set<ItemEntry> itemsToWatch, @Nil Predicate<ItemEntry> filterRefinement,
+			ItemListener listener) {
+		Registration node = new Registration(listener, itemsToWatch, filterRefinement);
+		if(itemsToWatch == null) {
+			if(globalHandlers == null) globalHandlers = new HashSet<>();
+			globalHandlers.add(node);
+		}else{
+			if(setHandlers == null) setHandlers = HashMultimap.create();
+			for(ItemEntry item: itemsToWatch) {
+				setHandlers.get(item).add(node);
+			}
+		}
+		return node;
 	}
 }

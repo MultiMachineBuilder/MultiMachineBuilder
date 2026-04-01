@@ -51,5 +51,5 @@ public interface ItemListener {
      * @param after the stored amount after the change, always {@code >= 0}
      * @throws NullPointerException if {@code handler} or {@code item} is {@code null}
      */
-    void stackModified(ItemHandler handler, ItemEntry item, int before, int after);
+    void stackModified(ItemEvent event);
 }

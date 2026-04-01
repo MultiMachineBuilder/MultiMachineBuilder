@@ -8,8 +8,12 @@ import mmb.fluid.FluidEventType;
 
 /**
  * Represents an addition, insertion or extraction of an item
+ * @param inventory the handler whose logical contents changed
+ * @param item the item entry whose stored amount changed
+ * @param before the stored amount before the change, always {@code >= 0}
+ * @param after the stored amount after the change, always {@code >= 0}
  */
-public record ItemEvent(@NN ItemEntry item, int before, int after) {
+public record ItemEvent(@NN ItemHandler inventory, @NN ItemEntry item, int before, int after) {
 	/**
 	 * Constructs a new item event
 	 * @throws IllegalArgumentException when quantity < 0

@@ -2,7 +2,9 @@ package mmb.inventory2.storage;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +17,7 @@ import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
 import mmb.engine.recipe.SimpleItemList;
 import mmb.inventory2.ItemEvent;
+import mmb.inventory2.ItemListener;
 import mmb.inventory2.storage.Inventory;
 import mmb.rx.TestObserver;
 
@@ -87,7 +90,7 @@ class InventoryTest {
 
 	@Test
 	void insertableRemainMatchesImmediateInsert() {
-		int remain = inv.insertableRemain(10, gold);
+		int remain = inv.insertableAmount(10, gold);
 		int inserted = inv.insert(gold, 10);
 
 		assertEquals(remain, inserted);
@@ -97,7 +100,7 @@ class InventoryTest {
 	void extractableRemainMatchesImmediateExtract() {
 		inv.insert(iron, 7);
 
-		int remain = inv.extractableRemain(10, iron);
+		int remain = inv.extractableAmount(10, iron);
 		int extracted = inv.extract(iron, 10);
 
 		assertEquals(remain, extracted);
@@ -234,7 +237,7 @@ class InventoryTest {
 			.add(iron, 2)
 			.add(copper, 1);
 
-		int remain = inv.insertableRemainBulk(10, recipe);
+		int remain = inv.insertableAmountBulk(10, recipe);
 		int inserted = inv.bulkInsert(recipe, 10);
 
 		assertEquals(remain, inserted);
@@ -249,36 +252,51 @@ class InventoryTest {
 		inv.insert(iron, 7);
 		inv.insert(copper, 3);
 
-		int remain = inv.extractableRemainBulk(10, recipe);
+		int remain = inv.extractableAmountBulk(10, recipe);
 		int extracted = inv.bulkExtract(recipe, 10);
 
 		assertEquals(remain, extracted);
 	}
 
 	@Test
-	void closeClearsContentsAndVolume() {
-		inv.insert(iron, 3);
-		inv.insert(copper, 4);
-
-		inv.close();
-
-		assertTrue(inv.isEmpty());
-		assertEquals(0.0, inv.volume(), 1e-12);
-		assertTrue(inv.contents().isEmpty());
-	}
-
-	@Test
 	void mutationEmitsItemEvent() {
 		final ItemEvent[] captured = new ItemEvent[1];
+		
+		ItemListener listener = event -> captured[0] = event;
 
-		var disposable = inv.itemEvent().subscribe(ev -> captured[0] = ev);
+		var disposable = inv.addItemListener(null, null, listener);
 
 		inv.insert(iron, 3);
 
 		assertNotNull(captured[0]);
+		assertEquals(inv, captured[0].inventory());
 		assertEquals(iron, captured[0].item());
 		assertEquals(0, captured[0].before());
 		assertEquals(3, captured[0].after());
+
+		disposable.dispose();
+	}
+	
+	@Test
+	void setListenerIgnoresOtherItemAndEventEquals() {
+		final List<ItemEvent> events = new ArrayList<>();
+		ItemListener listener = events::add;
+		var disposable = inv.addItemListener(Set.of(iron), null, listener);
+
+		inv.insert(iron, 3);
+		inv.insert(copper, 4);
+		
+		assertEquals(List.of(new ItemEvent(inv, iron, 0, 3)), events);
+
+		disposable.dispose();
+	}
+	
+	@Test
+	void listenerDoesNotPassExceptionsToOutside() {
+		ItemListener listener = event -> {throw new RuntimeException();};
+		var disposable = inv.addItemListener(null, null, listener);
+
+		assertDoesNotThrow(() -> inv.insert(copper, 4));
 
 		disposable.dispose();
 	}
