@@ -1,11 +1,13 @@
 package mmb.inventory2;
 
+import java.util.Set;
+import java.util.function.Predicate;
+
 import io.reactivex.rxjava3.disposables.Disposable;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import mmb.annotations.Nil;
 import mmb.engine.item.ItemEntry;
 import mmb.engine.recipe.ItemList;
-import mmb.rx.ChannelObservable;
 
 /**
  * A thread-safe handler for storing, inserting and extracting items.
@@ -111,14 +113,9 @@ import mmb.rx.ChannelObservable;
  * to require external synchronization when used concurrently with mutation.
  *
  * <h2>Events</h2>
- * {@link #itemEvent()} emits notifications whenever the logical contents of this handler change.
+ * The item handler emits notifications whenever the logical contents of this handler change.
  * Implementations should ensure that emitted events are consistent with the already-applied
  * state change.
- *
- * <h2>Lifecycle</h2>
- * {@link #close()} releases resources associated with this handler, such as event subscriptions
- * or delegated backing handlers. After closing, behavior is implementation-defined unless
- * explicitly documented otherwise.
  */
 public interface ItemHandler extends Disposable {
     // Basic queries
@@ -148,6 +145,12 @@ public interface ItemHandler extends Disposable {
     int insertableRemainBulk(int amount, ItemList items);
     int extractableRemainBulk(int amount, ItemList items);
     
-    /** Invoked when contents of this item handler change. */
-	public ChannelObservable<ItemEvent, ItemEntry> itemEvent();
+	/**
+	 * Adds an item listener to an item handler
+	 * @param itemsToWatch restricts set of items to check. {@code null} for all items
+	 * @param filterRefinement further refines the filter. {@code null} for no refinement
+	 * @param listener item listener to add
+	 * @return handle to remove the listener
+	 */
+	public Disposable addItemListener(@Nil Set<ItemEntry> itemsToWatch, @Nil Predicate<ItemEntry> filterRefinement, ItemListener listener);
 }
